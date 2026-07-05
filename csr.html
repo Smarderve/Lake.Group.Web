@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Lake Group's commitment to community development, environmental responsibility and sustainable business across Africa.">
+  <meta property="og:title" content="CSR &amp; Sustainability | Lake Group">
+  <meta property="og:description" content="Lake Group's commitment to community development, environmental responsibility and sustainable business across Africa.">
+  <meta property="og:image" content="assets/images/og-cover.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://www.lakeoilgroup.com/csr.html">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="assets/icons/pwa/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/icons/pwa/apple-touch-icon.png">
+  <title>CSR &amp; Sustainability | Lake Group</title>
+  <meta name="theme-color" content="#1D3EA8">
+  <link rel="manifest" href="manifest.webmanifest">  <style>
+@import url('assets/fonts/fonts.css');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue:    #1D3EA8;
+  --blue2:   #162E7F;
+  --blue3:   #0E1F5A;
+  --yellow:  #FFD700;
+  --yellow2: #FFC200;
+  --yellow3: #E6AF00;
+  --red:     #CC1E1E;
+  --white:   #FFFFFF;
+  --offwhite:#F7F8FC;
+  --light:   #EFF2FB;
+  --text:    #0E1F5A;
+  --muted:   #5A6478;
+  --border:  rgba(29,62,168,0.12);
+  --nav-h:   72px;
+  --radius:  4px;
+  --radius-lg: 10px;
+  --shadow:  0 2px 16px rgba(29,62,168,0.1);
+  --shadow-lg: 0 8px 48px rgba(29,62,168,0.18);
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; color: var(--text); background: var(--white); overflow-x: hidden; }
+
+h1,h2,h3,h4,h5 { font-weight: 700; line-height: 1.2; }
+h1 { font-size: clamp(2rem,4vw,3rem); }
+h2 { font-size: clamp(1.6rem,3vw,2.2rem); }
+h3 { font-size: 1.25rem; }
+p { color: var(--muted); }
+a { text-decoration: none; color: inherit; }
+strong { color: var(--text); }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 96px 0; }
+.section-sm { padding: 64px 0; }
+.grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 32px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+@media(max-width:960px){.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+
+/* NAV */
+.site-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: var(--nav-h);
+  background: var(--blue);
+  border-bottom: 3px solid var(--yellow);
+}
+.nav-inner { max-width: 1340px; margin: 0 auto; padding: 0 28px; display: flex; align-items: center; width: 100%; height: 100%; }
+.nav-logo { display: flex; align-items: center; flex-shrink: 0; }
+.nav-logo img { height: 48px; width: auto; display: block; }
+.nav-links { display: flex; align-items: center; gap: 2px; list-style: none; margin-left: auto; }
+.nav-links > li { position: relative; }
+.nav-links > li > a { display: flex; align-items: center; gap: 5px; padding: 9px 13px; border-radius: var(--radius); color: rgba(255,255,255,0.85); font-size: 0.86rem; font-weight: 500; transition: color 0.2s, background 0.2s; }
+.nav-links > li > a:hover, .nav-links > li > a.active { color: var(--yellow); background: rgba(255,255,255,0.07); }
+.has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.nav-dropdown { position: absolute; top: calc(100% + 6px); left: 0; background: var(--blue2); border: 1px solid rgba(255,214,0,0.2); border-top: 2px solid var(--yellow); border-radius: var(--radius-lg); padding: 8px; min-width: 220px; opacity: 0; pointer-events: none; transform: translateY(-6px); transition: all 0.2s; box-shadow: 0 16px 40px rgba(0,0,0,0.35); }
+.nav-dropdown a { display: block; padding: 9px 14px; border-radius: var(--radius); color: rgba(255,255,255,0.8); font-size: 0.84rem; transition: background 0.15s, color 0.15s; }
+.nav-dropdown a:hover { background: rgba(255,214,0,0.12); color: var(--yellow); }
+.dd-label { padding: 10px 14px 3px; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); font-weight: 700; }
+.nav-cta { margin-left: 12px; padding: 9px 18px !important; background: var(--yellow) !important; color: var(--blue) !important; border-radius: var(--radius) !important; font-weight: 700 !important; }
+.nav-cta:hover { background: var(--yellow2) !important; }
+.nav-toggle { display: none; margin-left: auto; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+@media(max-width:1060px){.nav-links{display:none}.nav-toggle{display:flex}}
+.nav-mobile { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--blue2); padding: 14px; flex-direction: column; gap: 3px; z-index: 999; max-height: calc(100vh - var(--nav-h)); overflow-y: auto; border-bottom: 2px solid var(--yellow); }
+.nav-mobile a { display: block; padding: 11px 16px; color: rgba(255,255,255,0.85); border-radius: var(--radius); font-size: 0.9rem; }
+.nav-mobile a:hover { background: rgba(255,255,255,0.06); color: var(--yellow); }
+.mob-section { padding: 10px 16px 3px; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--yellow); font-weight: 700; }
+
+/* PAGE HERO */
+.page-hero { background: var(--blue); padding: 140px 0 72px; position: relative; overflow: hidden; }
+.page-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(255,214,0,0.08) 0%, transparent 65%); }
+.page-hero .eyebrow { display: inline-block; padding: 4px 14px; border: 1px solid var(--yellow); color: var(--yellow); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; border-radius: 2px; margin-bottom: 14px; }
+.page-hero h1 { color: var(--white); font-family: 'Bebas Neue',sans-serif; font-size: clamp(2.4rem,5vw,4rem); letter-spacing: 0.03em; margin-bottom: 14px; }
+.page-hero p { color: rgba(255,255,255,0.65); font-size: 1.05rem; max-width: 560px; }
+.breadcrumb { display: flex; gap: 8px; align-items: center; margin-bottom: 18px; }
+.breadcrumb a { color: rgba(255,255,255,0.45); font-size: 0.8rem; }
+.breadcrumb a:hover { color: var(--yellow); }
+.breadcrumb span { color: rgba(255,255,255,0.25); font-size: 0.8rem; }
+
+/* BUTTONS */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 26px; border-radius: var(--radius); font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.2s; border: none; font-family: 'Inter',sans-serif; }
+.btn-primary { background: var(--yellow); color: var(--blue); }
+.btn-primary:hover { background: var(--yellow2); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(255,214,0,0.4); }
+.btn-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.4); }
+.btn-outline:hover { border-color: var(--yellow); color: var(--yellow); }
+.btn-outline-dark { background: transparent; color: var(--blue); border: 1.5px solid var(--blue); }
+.btn-outline-dark:hover { background: var(--blue); color: var(--white); }
+.btn-sm { padding: 8px 18px; font-size: 0.82rem; }
+.btn-lg { padding: 15px 34px; font-size: 1rem; }
+.btn-blue { background: var(--blue); color: var(--white); }
+.btn-blue:hover { background: var(--blue2); }
+.btn-white { background: var(--white); color: var(--blue); }
+.btn-white:hover { background: var(--offwhite); }
+
+/* CARDS */
+.card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: box-shadow 0.2s, transform 0.2s; }
+.card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+.card-body { padding: 28px; }
+
+/* SECTION LABELS */
+.section-label { display: inline-flex; align-items: center; gap: 10px; font-size: 0.73rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--yellow3); margin-bottom: 12px; }
+.section-label::before { content: ''; display: block; width: 24px; height: 2px; background: var(--yellow); }
+.section-label.dark { color: var(--blue); }
+.section-label.dark::before { background: var(--blue); }
+.section-title { font-size: clamp(1.7rem,3vw,2.4rem); color: var(--text); line-height: 1.2; margin-bottom: 14px; }
+.section-subtitle { font-size: 1.02rem; color: var(--muted); max-width: 560px; line-height: 1.7; }
+
+/* STAT */
+.stat-number { font-family: 'Bebas Neue',sans-serif; font-size: clamp(3rem,5vw,4.5rem); color: var(--yellow); letter-spacing: 0.02em; line-height: 1; }
+.stat-label { font-size: 0.82rem; color: var(--muted); font-weight: 500; margin-top: 5px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* DIVIDER */
+.divider-yellow { width: 44px; height: 3px; background: var(--yellow); margin: 16px 0; border-radius: 2px; }
+
+/* DARK SECTION */
+.section-dark { background: var(--blue); color: var(--white); }
+.section-dark h2,.section-dark h3,.section-dark h4 { color: var(--white); }
+.section-dark p { color: rgba(255,255,255,0.65); }
+.section-dark .section-label { color: var(--yellow); }
+.section-dark .section-label::before { background: var(--yellow); }
+.section-light { background: var(--light); }
+.section-offwhite { background: var(--offwhite); }
+
+/* TABS */
+.tab-nav { display: flex; gap: 3px; border-bottom: 1px solid var(--border); margin-bottom: 36px; overflow-x: auto; }
+.tab-nav button { padding: 11px 20px; background: none; border: none; cursor: pointer; font-family: 'Inter',sans-serif; font-size: 0.88rem; font-weight: 500; color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; transition: color 0.2s,border-color 0.2s; }
+.tab-nav button.active { color: var(--blue); border-bottom-color: var(--yellow); }
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+
+/* FORM */
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; font-size: 0.84rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.form-group input,.form-group select,.form-group textarea { width: 100%; padding: 11px 15px; border: 1.5px solid var(--border); border-radius: var(--radius); font-family: 'Inter',sans-serif; font-size: 0.9rem; color: var(--text); background: var(--white); transition: border-color 0.2s,box-shadow 0.2s; outline: none; }
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(29,62,168,0.1); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+
+/* BADGE */
+.badge { display: inline-block; padding: 3px 10px; border-radius: 100px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; }
+.badge-yellow { background: rgba(255,214,0,0.18); color: var(--blue); }
+.badge-blue { background: var(--blue); color: var(--white); }
+.badge-green { background: rgba(22,163,74,0.1); color: #16a34a; }
+.badge-red { background: rgba(204,30,30,0.1); color: var(--red); }
+
+/* TIMELINE */
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before { content: ''; position: absolute; left: 10px; top: 8px; bottom: 8px; width: 2px; background: var(--border); }
+.timeline-item { position: relative; padding-bottom: 36px; }
+.timeline-item::before { content: ''; position: absolute; left: -26px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--yellow); border: 3px solid var(--white); box-shadow: 0 0 0 2px var(--yellow); }
+.timeline-year { font-size: 0.75rem; font-weight: 700; color: var(--yellow3); letter-spacing: 0.08em; margin-bottom: 3px; }
+
+/* COUNTRY TAG */
+.flag-icon { width:18px;height:13px;object-fit:cover;border-radius:2px;flex-shrink:0; }
+.flag-icon-lg { width:28px;height:20px;object-fit:cover;border-radius:3px;flex-shrink:0;display:block; }
+.country-tag { display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px; background: rgba(29,62,168,0.08); border-radius: 100px; font-size: 0.75rem; font-weight: 600; color: var(--blue); }
+
+/* PHOTO CARD */
+.photo-card { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/3; background: var(--light); }
+.photo-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+.photo-card:hover img { transform: scale(1.04); }
+
+/* FOOTER */
+.site-footer { background: var(--blue3); color: rgba(255,255,255,0.7); padding: 72px 0 0; border-top: 3px solid var(--yellow); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 52px; }
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
+.footer-brand p { font-size: 0.88rem; margin-top: 14px; line-height: 1.7; max-width: 300px; }
+.footer-logo img { height: 44px; width: auto; }
+.footer-col h5 { color: var(--yellow); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; margin-bottom: 16px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.footer-col ul a { font-size: 0.86rem; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+.footer-col ul a:hover { color: var(--yellow); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 22px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.footer-bottom p { font-size: 0.8rem; }
+.footer-bottom-links { display: flex; gap: 18px; }
+.footer-bottom-links a { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+.footer-bottom-links a:hover { color: var(--white); }
+
+/* TRACK STATUS */
+.track-status { display: flex; gap: 0; margin: 28px 0; }
+.track-step { flex: 1; text-align: center; position: relative; }
+.track-step::before { content: ''; position: absolute; top: 18px; left: 50%; right: -50%; height: 2px; background: var(--border); z-index: 0; }
+.track-step:last-child::before { display: none; }
+.track-step .dot { width: 36px; height: 36px; border-radius: 50%; background: var(--offwhite); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; font-size: 0.75rem; font-weight: 700; position: relative; z-index: 1; }
+.track-step.done .dot { background: var(--yellow); border-color: var(--yellow); color: var(--blue); }
+.track-step.active .dot { background: var(--blue); border-color: var(--blue); color: var(--white); }
+.track-step.done::before { background: var(--yellow); }
+.track-step p { font-size: 0.75rem; color: var(--muted); }
+.track-step.active p { color: var(--blue); font-weight: 600; }
+
+/* ALERT */
+.alert { padding: 15px 18px; border-radius: var(--radius); border-left: 3px solid; margin-bottom: 18px; font-size: 0.88rem; }
+.alert-success { background: rgba(22,163,74,0.07); border-color: #16a34a; color: #166534; }
+.alert-info { background: rgba(29,62,168,0.06); border-color: var(--blue); color: var(--blue); }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s, transform 0.55s; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* PAGE WRAPPER */
+.page-wrapper { padding-top: var(--nav-h); }
+
+/* CHAT WIDGET */
+#chat-widget { position: fixed; bottom: 26px; right: 26px; z-index: 9999; }
+#chat-btn { width: 54px; height: 54px; border-radius: 50%; background: var(--yellow); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 18px rgba(255,214,0,0.5); transition: transform 0.2s; }
+#chat-btn:hover { transform: scale(1.08); }
+#chat-btn svg { width: 24px; height: 24px; fill: none; stroke: var(--blue); stroke-width: 2.2; }
+#chat-box { position: absolute; bottom: 66px; right: 0; width: 310px; background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); border: 1px solid var(--border); display: none; overflow: hidden; }
+#chat-box.open { display: flex; flex-direction: column; }
+#chat-head { background: var(--blue); padding: 14px 18px; border-bottom: 2px solid var(--yellow); }
+#chat-head h4 { color: var(--white); font-size: 0.92rem; }
+#chat-head p { color: rgba(255,255,255,0.55); font-size: 0.75rem; }
+#chat-messages { padding: 14px; flex: 1; max-height: 250px; overflow-y: auto; display: flex; flex-direction: column; gap: 9px; }
+.msg { padding: 9px 13px; border-radius: 8px; font-size: 0.83rem; max-width: 88%; }
+.msg-bot { background: var(--light); color: var(--text); align-self: flex-start; }
+.msg-user { background: var(--blue); color: var(--white); align-self: flex-end; }
+#chat-input-row { display: flex; border-top: 1px solid var(--border); }
+#chat-input { flex: 1; padding: 11px 14px; border: none; font-family: 'Inter',sans-serif; font-size: 0.86rem; outline: none; }
+#chat-send { padding: 11px 14px; background: var(--yellow); border: none; cursor: pointer; color: var(--blue); font-weight: 700; font-size: 0.8rem; }
+
+/* UTILS */
+.text-yellow { color: var(--yellow); }
+.text-blue { color: var(--blue); }
+.text-muted { color: var(--muted); }
+.text-white { color: var(--white); }
+.text-center { text-align: center; }
+.mt-8{margin-top:8px}.mt-16{margin-top:16px}.mt-24{margin-top:24px}.mt-32{margin-top:32px}.mt-48{margin-top:48px}
+.mb-8{margin-bottom:8px}.mb-16{margin-bottom:16px}.mb-24{margin-bottom:24px}.mb-32{margin-bottom:32px}
+.fw-600{font-weight:600}.fw-700{font-weight:700}
+.d-flex{display:flex}.align-center{align-items:center}.gap-12{gap:12px}.gap-16{gap:16px}
+
+/* Language switcher */
+.lang-switcher { display:flex; align-items:center; gap:3px; margin-right:6px; }
+.lang-btn { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.25); color:rgba(255,255,255,0.85); padding:5px 8px; font-size:0.7rem; font-weight:700; cursor:pointer; border-radius:3px; font-family:'Inter',sans-serif; transition:all 0.15s; }
+.lang-btn.active, .lang-btn:hover { background:var(--yellow); color:var(--blue); border-color:var(--yellow); }
+.footer-social { margin-top:16px; display:flex; flex-wrap:wrap; gap:8px; }
+.social-link { font-size:0.78rem; font-weight:600; color:rgba(255,255,255,0.55); padding:6px 12px; border:1px solid rgba(255,255,255,0.15); border-radius:4px; transition:color 0.2s, border-color 0.2s; }
+.social-link:hover { color:var(--yellow); border-color:var(--yellow); }
+</style>
+<style>
+/* ============================================
+   LAKE GROUP DESIGN SYSTEM
+   Palette: Deep Navy #0A1628 | Amber #E8820C | Bone #F5F2EC | Slate #1E3A5F | Steel #2C4A6E
+   Type: Bebas Neue (display) + Inter (body)
+   ============================================ */
+
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:   #0A1628;
+  --navy2:  #1E3A5F;
+  --navy3:  #2C4A6E;
+  --amber:  #E8820C;
+  --amber2: #F59D2A;
+  --amber3: #FBBA4A;
+  --bone:   #F5F2EC;
+  --bone2:  #EDE9E0;
+  --white:  #FFFFFF;
+  --text:   #1A1A2E;
+  --muted:  #5A6478;
+  --border: rgba(10,22,40,0.12);
+  --nav-h:  72px;
+  --radius: 4px;
+  --radius-lg: 8px;
+  --shadow: 0 2px 16px rgba(10,22,40,0.12);
+  --shadow-lg: 0 8px 48px rgba(10,22,40,0.18);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+/* ---- TYPOGRAPHY ---- */
+.display { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.03em; }
+h1,h2,h3,h4,h5 { font-family: 'Inter', sans-serif; font-weight: 700; line-height: 1.2; }
+h1 { font-size: clamp(2rem, 4vw, 3rem); }
+h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.05rem; }
+p { color: var(--muted); }
+a { text-decoration: none; color: inherit; }
+strong { color: var(--text); }
+
+/* ---- LAYOUT ---- */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 96px 0; }
+.section-sm { padding: 64px 0; }
+.grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 32px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+@media(max-width:960px) { .grid-4 { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:720px) { .grid-2,.grid-3,.grid-4 { grid-template-columns: 1fr; } }
+
+/* ---- NAV ---- */
+.site-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: var(--nav-h);
+  background: rgba(10,22,40,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex; align-items: center;
+}
+.nav-inner {
+  max-width: 1340px; margin: 0 auto; padding: 0 32px;
+  display: flex; align-items: center; gap: 0; width: 100%;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 12px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem; color: var(--white); letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+.nav-logo span { color: var(--amber); }
+.nav-logo-icon {
+  width: 38px; height: 38px; background: var(--amber);
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 4px; flex-shrink: 0;
+}
+.nav-logo-icon svg { width: 22px; height: 22px; fill: var(--white); }
+.nav-links {
+  display: flex; align-items: center; gap: 2px;
+  list-style: none; margin-left: auto;
+}
+.nav-links > li { position: relative; }
+.nav-links > li > a {
+  display: flex; align-items: center; gap: 5px;
+  padding: 10px 14px; border-radius: var(--radius);
+  color: rgba(255,255,255,0.8); font-size: 0.87rem; font-weight: 500;
+  transition: color 0.2s, background 0.2s;
+}
+.nav-links > li > a:hover, .nav-links > li > a.active {
+  color: var(--white); background: rgba(255,255,255,0.07);
+}
+.nav-links > li > a.active { color: var(--amber3); }
+
+/* Dropdown */
+.has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.nav-dropdown {
+  position: absolute; top: calc(100% + 8px); left: 0;
+  background: var(--navy); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-lg); padding: 8px;
+  min-width: 220px; opacity: 0; pointer-events: none;
+  transform: translateY(-6px); transition: all 0.2s;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+}
+.nav-dropdown a {
+  display: block; padding: 9px 14px; border-radius: var(--radius);
+  color: rgba(255,255,255,0.75); font-size: 0.85rem;
+  transition: background 0.15s, color 0.15s;
+}
+.nav-dropdown a:hover { background: rgba(232,130,12,0.15); color: var(--amber3); }
+.nav-dropdown .dd-label {
+  padding: 12px 14px 4px; font-size: 0.7rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: rgba(255,255,255,0.3); font-weight: 600;
+}
+.nav-cta {
+  margin-left: 16px; padding: 9px 20px !important;
+  background: var(--amber) !important; color: var(--navy) !important;
+  border-radius: var(--radius) !important; font-weight: 600 !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--amber2) !important; }
+.nav-toggle {
+  display: none; margin-left: auto;
+  background: none; border: none; cursor: pointer;
+  flex-direction: column; gap: 5px; padding: 4px;
+}
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+@media(max-width:1024px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .nav-mobile { display: flex !important; }
+}
+.nav-mobile {
+  display: none; position: fixed; top: var(--nav-h); left: 0; right: 0;
+  background: var(--navy); padding: 16px;
+  flex-direction: column; gap: 4px; z-index: 999;
+  max-height: calc(100vh - var(--nav-h)); overflow-y: auto;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.nav-mobile a {
+  display: block; padding: 12px 16px; color: rgba(255,255,255,0.85);
+  border-radius: var(--radius); font-size: 0.95rem;
+}
+.nav-mobile a:hover { background: rgba(255,255,255,0.06); }
+.nav-mobile .mob-section { padding: 10px 16px 4px; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); font-weight: 600; }
+
+/* ---- PAGE HERO (inner pages) ---- */
+.page-hero {
+  background: var(--navy); padding: 140px 0 72px;
+  position: relative; overflow: hidden;
+}
+.page-hero::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse 70% 60% at 80% 50%, rgba(232,130,12,0.12) 0%, transparent 70%);
+}
+.page-hero .eyebrow {
+  display: inline-block; padding: 4px 14px; border: 1px solid var(--amber);
+  color: var(--amber); font-size: 0.75rem; letter-spacing: 0.12em;
+  text-transform: uppercase; font-weight: 600; border-radius: 2px; margin-bottom: 16px;
+}
+.page-hero h1 { color: var(--white); font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.4rem, 5vw, 4rem); letter-spacing: 0.03em; margin-bottom: 16px; }
+.page-hero p { color: rgba(255,255,255,0.65); font-size: 1.1rem; max-width: 580px; }
+.breadcrumb { display: flex; gap: 8px; align-items: center; margin-bottom: 20px; }
+.breadcrumb a { color: rgba(255,255,255,0.45); font-size: 0.82rem; }
+.breadcrumb a:hover { color: var(--amber3); }
+.breadcrumb span { color: rgba(255,255,255,0.25); font-size: 0.82rem; }
+
+/* ---- BUTTONS ---- */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px; border-radius: var(--radius); font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.2s; border: none; font-family: 'Inter', sans-serif; }
+.btn-primary { background: var(--amber); color: var(--navy); }
+.btn-primary:hover { background: var(--amber2); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(232,130,12,0.35); }
+.btn-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.4); }
+.btn-outline:hover { border-color: var(--amber); color: var(--amber); }
+.btn-outline-dark { background: transparent; color: var(--navy); border: 1.5px solid var(--navy); }
+.btn-outline-dark:hover { background: var(--navy); color: var(--white); }
+.btn-sm { padding: 9px 20px; font-size: 0.83rem; }
+.btn-lg { padding: 16px 36px; font-size: 1rem; }
+.btn svg, .btn i { flex-shrink: 0; }
+
+/* ---- CARDS ---- */
+.card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+.card-body { padding: 28px; }
+.card-icon {
+  width: 52px; height: 52px; background: rgba(232,130,12,0.1);
+  border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px; font-size: 1.5rem;
+}
+.card-icon svg { width: 26px; height: 26px; color: var(--amber); fill: none; stroke: currentColor; stroke-width: 1.8; }
+
+/* ---- SECTION LABELS ---- */
+.section-label {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
+  font-weight: 600; color: var(--amber); margin-bottom: 14px;
+}
+.section-label::before { content: ''; display: block; width: 28px; height: 2px; background: var(--amber); }
+.section-title { font-size: clamp(1.7rem, 3vw, 2.4rem); color: var(--text); line-height: 1.2; margin-bottom: 16px; }
+.section-subtitle { font-size: 1.05rem; color: var(--muted); max-width: 560px; line-height: 1.7; }
+
+/* ---- STAT COUNTERS ---- */
+.stat-number {
+  font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 5vw, 4.5rem);
+  color: var(--amber); letter-spacing: 0.02em; line-height: 1;
+}
+.stat-label { font-size: 0.85rem; color: var(--muted); font-weight: 500; margin-top: 6px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* ---- AMBER DIVIDER ---- */
+.divider-amber { width: 48px; height: 3px; background: var(--amber); margin: 18px 0; border-radius: 2px; }
+
+/* ---- DARK SECTION ---- */
+.section-dark { background: var(--navy); color: var(--white); }
+.section-dark h2, .section-dark h3, .section-dark h4 { color: var(--white); }
+.section-dark p { color: rgba(255,255,255,0.65); }
+.section-dark .section-label { color: var(--amber3); }
+.section-dark .section-label::before { background: var(--amber3); }
+.section-bone { background: var(--bone); }
+
+/* ---- TABS ---- */
+.tab-nav { display: flex; gap: 4px; border-bottom: 1px solid var(--border); margin-bottom: 40px; overflow-x: auto; }
+.tab-nav button {
+  padding: 12px 22px; background: none; border: none; cursor: pointer;
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 500;
+  color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px;
+  white-space: nowrap; transition: color 0.2s, border-color 0.2s;
+}
+.tab-nav button.active { color: var(--amber); border-bottom-color: var(--amber); }
+.tab-pane { display: none; } .tab-pane.active { display: block; }
+
+/* ---- FORM ---- */
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 7px; }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%; padding: 12px 16px; border: 1px solid var(--border);
+  border-radius: var(--radius); font-family: 'Inter', sans-serif;
+  font-size: 0.92rem; color: var(--text); background: var(--white);
+  transition: border-color 0.2s, box-shadow 0.2s; outline: none;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: var(--amber); box-shadow: 0 0 0 3px rgba(232,130,12,0.12);
+}
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media(max-width:600px) { .form-row { grid-template-columns: 1fr; } }
+
+/* ---- BADGE ---- */
+.badge { display: inline-block; padding: 3px 10px; border-radius: 100px; font-size: 0.73rem; font-weight: 600; letter-spacing: 0.04em; }
+.badge-amber { background: rgba(232,130,12,0.12); color: var(--amber); }
+.badge-navy { background: var(--navy); color: var(--white); }
+.badge-green { background: rgba(22,163,74,0.1); color: #16a34a; }
+
+/* ---- TIMELINE ---- */
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before { content: ''; position: absolute; left: 10px; top: 8px; bottom: 8px; width: 2px; background: var(--border); }
+.timeline-item { position: relative; padding-bottom: 40px; }
+.timeline-item::before { content: ''; position: absolute; left: -26px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--amber); border: 3px solid var(--white); box-shadow: 0 0 0 2px var(--amber); }
+.timeline-year { font-size: 0.78rem; font-weight: 700; color: var(--amber); letter-spacing: 0.08em; margin-bottom: 4px; }
+.timeline-content h4 { font-size: 1rem; margin-bottom: 6px; }
+
+/* ---- FOOTER ---- */
+.site-footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 72px 0 0; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 56px; }
+@media(max-width:900px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; } }
+@media(max-width:600px) { .footer-grid { grid-template-columns: 1fr; } }
+.footer-brand p { font-size: 0.9rem; margin-top: 16px; line-height: 1.7; max-width: 300px; }
+.footer-col h5 { color: var(--white); font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; margin-bottom: 18px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul a { font-size: 0.88rem; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+.footer-col ul a:hover { color: var(--amber3); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 24px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-bottom p { font-size: 0.83rem; }
+.footer-bottom-links { display: flex; gap: 20px; }
+.footer-bottom-links a { font-size: 0.83rem; color: rgba(255,255,255,0.45); }
+.footer-bottom-links a:hover { color: var(--white); }
+.footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--white); letter-spacing: 0.05em; display: flex; align-items: center; gap: 10px; }
+.footer-logo span { color: var(--amber); }
+.footer-logo-icon { width: 34px; height: 34px; background: var(--amber); display: flex; align-items: center; justify-content: center; border-radius: 4px; }
+.footer-logo-icon svg { width: 20px; height: 20px; fill: var(--white); }
+
+/* ---- COUNTRY TAG ---- */
+.flag-icon { width:18px;height:13px;object-fit:cover;border-radius:2px;flex-shrink:0; }
+.flag-icon-lg { width:28px;height:20px;object-fit:cover;border-radius:3px;flex-shrink:0;display:block; }
+.country-tag { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: rgba(232,130,12,0.1); border-radius: 100px; font-size: 0.78rem; font-weight: 600; color: var(--amber); }
+
+/* ---- ALERT ---- */
+.alert { padding: 16px 20px; border-radius: var(--radius); border-left: 3px solid; margin-bottom: 20px; font-size: 0.9rem; }
+.alert-success { background: rgba(22,163,74,0.07); border-color: #16a34a; color: #166534; }
+.alert-info { background: rgba(30,58,138,0.07); border-color: var(--navy2); color: var(--navy); }
+
+/* ---- PAGE WRAPPER ---- */
+.page-wrapper { padding-top: var(--nav-h); }
+
+/* ---- ICON ---- */
+.icon-wrap { display: inline-flex; }
+.icon-wrap svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+
+/* ---- UTILITY ---- */
+.text-amber { color: var(--amber); }
+.text-muted { color: var(--muted); }
+.text-white { color: var(--white); }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.mt-8 { margin-top: 8px; } .mt-16 { margin-top: 16px; } .mt-24 { margin-top: 24px; } .mt-32 { margin-top: 32px; } .mt-48 { margin-top: 48px; }
+.mb-8 { margin-bottom: 8px; } .mb-16 { margin-bottom: 16px; } .mb-24 { margin-bottom: 24px; } .mb-32 { margin-bottom: 32px; }
+.fw-600 { font-weight: 600; } .fw-700 { font-weight: 700; }
+.d-flex { display: flex; } .align-center { align-items: center; } .gap-12 { gap: 12px; } .gap-16 { gap: 16px; } .gap-24 { gap: 24px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+/* ---- AFRICA MAP SVG ---- */
+.africa-map-container { position: relative; }
+.map-dot { cursor: pointer; transition: r 0.2s; }
+.map-dot:hover { r: 9; }
+.map-pulse { animation: pulse 2s infinite; transform-origin: center; }
+@keyframes pulse { 0%,100% { opacity: 0.6; transform: scale(1); } 50% { opacity: 0.2; transform: scale(1.8); } }
+
+/* ---- COUNTER ANIMATION ---- */
+.count-up { transition: none; }
+
+/* ---- TRACKING WIDGET ---- */
+.track-status { display: flex; gap: 0; margin: 32px 0; }
+.track-step { flex: 1; text-align: center; position: relative; }
+.track-step::before { content: ''; position: absolute; top: 18px; left: 50%; right: -50%; height: 2px; background: var(--border); z-index: 0; }
+.track-step:last-child::before { display: none; }
+.track-step .dot { width: 36px; height: 36px; border-radius: 50%; background: var(--bone2); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 0.75rem; font-weight: 700; position: relative; z-index: 1; }
+.track-step.done .dot { background: var(--amber); border-color: var(--amber); color: var(--white); }
+.track-step.active .dot { background: var(--navy); border-color: var(--navy); color: var(--white); }
+.track-step.done::before { background: var(--amber); }
+.track-step p { font-size: 0.78rem; color: var(--muted); }
+.track-step.active p { color: var(--navy); font-weight: 600; }
+
+/* ---- SCROLL REVEAL ---- */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s, transform 0.6s; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ---- CHAT WIDGET ---- */
+#chat-widget { position: fixed; bottom: 28px; right: 28px; z-index: 9999; }
+#chat-btn { width: 56px; height: 56px; border-radius: 50%; background: var(--amber); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(232,130,12,0.45); transition: transform 0.2s; }
+#chat-btn:hover { transform: scale(1.08); }
+#chat-btn svg { width: 26px; height: 26px; fill: none; stroke: var(--navy); stroke-width: 2; }
+#chat-box { position: absolute; bottom: 70px; right: 0; width: 320px; background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); border: 1px solid var(--border); display: none; overflow: hidden; }
+#chat-box.open { display: flex; flex-direction: column; }
+#chat-head { background: var(--navy); padding: 16px 20px; }
+#chat-head h4 { color: var(--white); font-size: 0.95rem; }
+#chat-head p { color: rgba(255,255,255,0.6); font-size: 0.78rem; }
+#chat-messages { padding: 16px; flex: 1; max-height: 260px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+.msg { padding: 10px 14px; border-radius: 8px; font-size: 0.85rem; max-width: 86%; }
+.msg-bot { background: var(--bone); color: var(--text); align-self: flex-start; }
+.msg-user { background: var(--navy); color: var(--white); align-self: flex-end; }
+#chat-input-row { display: flex; border-top: 1px solid var(--border); }
+#chat-input { flex: 1; padding: 12px 16px; border: none; font-family: 'Inter',sans-serif; font-size: 0.88rem; outline: none; }
+#chat-send { padding: 12px 16px; background: var(--amber); border: none; cursor: pointer; color: var(--navy); font-weight: 700; font-size: 0.82rem; }
+
+/* CSR icons: Google Material Symbols */
+.csr-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+}
+.csr-icon .msi { width: 30px; height: 30px; line-height: 1; }
+.csr-icon--on-dark { background: rgba(255, 255, 255, 0.12); }
+.csr-icon--on-dark .msi { color: var(--yellow); }
+.csr-icon--on-amber { background: rgba(10, 22, 40, 0.08); }
+.csr-icon--on-amber .msi { color: var(--navy); }
+.csr-icon--on-light { background: rgba(29, 62, 168, 0.1); }
+.csr-icon--on-light .msi { color: var(--blue); }
+.csr-icon--card { background: rgba(29, 62, 168, 0.08); margin: 0 0 14px; }
+
+</style>
+  
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.lakeoilgroup.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "CSR & Sustainability",
+      "item": "https://www.lakeoilgroup.com/csr.html"
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="assets/theme.css">
+</head><body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group" style="height:46px;width:auto">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="about.html" data-i18n="nav.about">About</a></li>
+      <li class="has-dropdown"><a href="services.html" data-i18n="nav.services">Services &#9662;</a>
+        <div class="nav-dropdown">
+          <div class="dd-label" data-i18n="nav.dd.energy">Energy</div>
+          <a href="fuel.html" data-i18n="nav.fuel">Fuel &amp; Petroleum</a><a href="lpg.html" data-i18n="nav.lpg">LPG Gas</a><a href="lubricants.html" data-i18n="nav.lubricants">Lubricants</a>
+          <div class="dd-label" data-i18n="nav.dd.industry">Industry</div>
+          <a href="steel.html" data-i18n="nav.steel">Lake Steel</a><a href="concrete.html" data-i18n="nav.concrete">Concrete &amp; Aggregate</a>
+          <div class="dd-label" data-i18n="nav.dd.logistics">Logistics</div>
+          <a href="logistics.html" data-i18n="nav.logistics">Transport &amp; Haulage</a><a href="container-services.html" data-i18n="nav.containers">Container Services</a>
+        </div>
+      </li>
+      <li class="has-dropdown"><a href="africa-network.html" data-i18n="nav.network">Network &#9662;</a>
+        <div class="nav-dropdown">
+          <a href="africa-network.html" data-i18n="nav.africaMap">Africa Operations Map</a>
+          <a href="station-locator.html" data-i18n="nav.stations">Station Locator</a>
+          <a href="fleet.html" data-i18n="nav.fleet">Our Fleet</a>
+        </div>
+      </li>
+      <li class="has-dropdown"><a href="about.html" data-i18n="nav.company">Company &#9662;</a>
+        <div class="nav-dropdown">
+          <a href="history.html" data-i18n="nav.history">Our History</a><a href="leadership.html" data-i18n="nav.leadership">Leadership</a>
+          <a href="csr.html" data-i18n="nav.csr">CSR &amp; Sustainability</a><a href="investors.html" data-i18n="nav.investors">Investor Relations</a>
+          <a href="projects.html" data-i18n="nav.projects">Major Projects</a><a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+        </div>
+      </li>
+      <li><a href="news.html" data-i18n="nav.news">News</a></li>
+      <li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
+      <li class="lang-switcher" aria-label="Language">
+        <button type="button" class="lang-btn active" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="fr">FR</button>
+        <button type="button" class="lang-btn" data-lang="sw">SW</button>
+      </li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile" style="display:none">
+  <a href="index.html" data-i18n="nav.home">Home</a><a href="about.html" data-i18n="nav.about">About</a>
+  <div class="mob-section" data-i18n="mob.services">Services</div>
+  <a href="fuel.html" data-i18n="nav.fuelShort">Fuel</a><a href="lpg.html" data-i18n="nav.lpg">LPG Gas</a><a href="lubricants.html" data-i18n="nav.lubricants">Lubricants</a>
+  <a href="steel.html" data-i18n="nav.steelShort">Steel</a><a href="concrete.html" data-i18n="nav.concreteShort">Concrete</a><a href="logistics.html" data-i18n="nav.transportShort">Transport</a><a href="container-services.html" data-i18n="nav.containersShort">Containers</a>
+  <div class="mob-section" data-i18n="mob.network">Network</div>
+  <a href="africa-network.html" data-i18n="nav.africaMapShort">Africa Map</a><a href="station-locator.html" data-i18n="nav.stations">Station Locator</a><a href="fleet.html" data-i18n="nav.fleet">Our Fleet</a>
+  <div class="mob-section" data-i18n="mob.company">Company</div>
+  <a href="history.html" data-i18n="nav.historyShort">History</a><a href="leadership.html" data-i18n="nav.leadership">Leadership</a><a href="csr.html" data-i18n="nav.csrShort">CSR</a>
+  <a href="investors.html" data-i18n="nav.investorsShort">Investors</a><a href="projects.html" data-i18n="nav.projectsShort">Projects</a><a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+  <div class="mob-section" data-i18n="mob.more">More</div>
+  <a href="news.html" data-i18n="nav.news">News</a><a href="careers.html" data-i18n="nav.careers">Careers</a><a href="contact.html" data-i18n="footer.contact">Contact</a>
+</div>
+
+<div class="page-wrapper">
+<section class="page-hero"><div class="container" style="position:relative;z-index:2">
+  <nav class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span>/</span><span data-i18n="csr.1">CSR & Sustainability</span></nav>
+  <div data-i18n="csr.2" class="eyebrow">Corporate Responsibility</div><h1 data-i18n="csr.3">CSR &amp; Sustainability</h1><p data-i18n="csr.4">Lake Group is committed to giving back to the communities it serves and operating with minimal environmental impact.</p>
+</div></section>
+
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start">
+      <div class="reveal">
+        <div data-i18n="csr.5" class="section-label">Our Commitment</div>
+        <h2 data-i18n="csr.6" class="section-title">Responsible Growth. Lasting Impact.</h2>
+        <div class="divider-amber"></div>
+        <p data-i18n="csr.7">As one of East Africa's largest private employers, Lake Group takes its social and environmental responsibilities seriously. The Group regularly provides support to community development through many of its CSR activities and is one of the leaders among its peers.</p>
+        <p data-i18n="csr.8" style="margin-top:14px">We believe that business growth and community development go hand in hand, and that our success must translate into tangible benefits for the people and environments in which we operate.</p>
+      </div>
+      <div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div class="reveal" style="background:var(--navy);padding:28px;border-radius:var(--radius-lg);text-align:center">
+            <div class="csr-icon csr-icon--on-dark" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M324-111.5Q251-143 197-197t-85.5-127Q80-397 80-480t31.5-156Q143-709 197-763t127-85.5Q397-880 480-880t156 31.5Q709-817 763-763t85.5 127Q880-563 880-480t-31.5 156Q817-251 763-197t-127 85.5Q563-80 480-80t-156-31.5ZM437-141v-82q-35 0-59-26t-24-61v-44L149-559q-5 20-7 39.5t-2 39.5q0 130 84.5 227T437-141Zm294-108q44-48 66.5-107.5T820-480q0-106-58-192.5T607-799v18q0 35-24 61t-59 26h-87v87q0 17-13.5 28T393-568h-83v88h258q17 0 28 13t11 30v127h43q29 0 51 17t30 44Z"/></svg></div>
+            <h4 data-i18n="csr.9" style="color:var(--white);margin-bottom:6px">8 Countries</h4>
+            <p data-i18n="csr.10" style="color:rgba(255,255,255,0.5);font-size:0.82rem">Local CSR programmes active</p>
+          </div>
+          <div class="reveal" style="background:var(--amber);padding:28px;border-radius:var(--radius-lg);text-align:center">
+            <div class="csr-icon csr-icon--on-amber" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M0-240v-53q0-38.57 41.5-62.78Q83-380 150.38-380q12.16 0 23.39.5t22.23 2.15q-8 17.35-12 35.17-4 17.81-4 37.18v65H0Zm240 0v-65q0-32 17.5-58.5T307-410q32-20 76.5-30t96.5-10q53 0 97.5 10t76.5 30q32 20 49 46.5t17 58.5v65H240Zm540 0v-65q0-19.86-3.5-37.43T765-377.27q11-1.73 22.17-2.23 11.17-.5 22.83-.5 67.5 0 108.75 23.77T960-293v53H780Zm-480-60h360v-6q0-37-50.5-60.5T480-390q-79 0-129.5 23.5T300-305v5ZM149.57-410q-28.57 0-49.07-20.56Q80-451.13 80-480q0-29 20.56-49.5Q121.13-550 150-550q29 0 49.5 20.5t20.5 49.93q0 28.57-20.5 49.07T149.57-410Zm660 0q-28.57 0-49.07-20.56Q740-451.13 740-480q0-29 20.56-49.5Q781.13-550 810-550q29 0 49.5 20.5t20.5 49.93q0 28.57-20.5 49.07T809.57-410ZM480-480q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T600-600q0 50-34.5 85T480-480Zm.35-60Q506-540 523-557.35t17-43Q540-626 522.85-643t-42.5-17q-25.35 0-42.85 17.15t-17.5 42.5q0 25.35 17.35 42.85t43 17.5ZM480-300Zm0-300Z"/></svg></div>
+            <h4 style="color:var(--navy);margin-bottom:6px">4,600+</h4>
+            <p data-i18n="csr.11" style="color:rgba(10,22,40,0.65);font-size:0.82rem">Local jobs created</p>
+          </div>
+          <div class="reveal" style="background:var(--bone);padding:28px;border-radius:var(--radius-lg);text-align:center;border:1px solid var(--border)">
+            <div class="csr-icon csr-icon--on-light" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M213-175q-43.59-45-68.3-104Q120-338 120-400q0-73 25.5-133.5T222-645q35-35 87-59t122.5-37.5Q502-755 591-758.5t198 3.5q8 108 5.5 197.5t-16 160.75q-13.5 71.25-38 124.56Q716-218.87 680-183q-51 51-110 77T444-80q-69 0-126.5-23.5T213-175Zm103 0q25 17 58 26t69.92 9Q497-140 547-162t91-64q27-27 46-70.5t31-103Q727-459 731-534t0-165q-94-2-168.5 2.5T431-680q-57 12-98 30.5T266-604q-42 43-64 91t-22 98q0 48 20.5 100.5T251-230q53-98 127-176t157-123q-87 75-141 162.5T316-175Zm0 0Zm0 0Z"/></svg></div>
+            <h4 data-i18n="csr.12" style="margin-bottom:6px">Environment</h4>
+            <p data-i18n="csr.13" style="font-size:0.82rem">Responsible environmental practices</p>
+          </div>
+          <div class="reveal" style="background:var(--navy2);padding:28px;border-radius:var(--radius-lg);text-align:center">
+            <div class="csr-icon csr-icon--on-dark" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M479-120 189-279v-240L40-600l439-240 441 240v317h-60v-282l-91 46v240L479-120Zm0-308 315-172-315-169-313 169 313 172Zm0 240 230-127v-168L479-360 249-485v170l230 127Zm1-240Zm-1 74Zm0 0Z"/></svg></div>
+            <h4 data-i18n="csr.14" style="color:var(--white);margin-bottom:6px">Community</h4>
+            <p data-i18n="csr.15" style="color:rgba(255,255,255,0.5);font-size:0.82rem">Health, orphan care and relief donations</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section-bone">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:48px">
+      <div data-i18n="csr.16" class="section-label" style="justify-content:center">Our Pillars</div>
+      <h2 data-i18n="csr.17" class="section-title">How We Give Back</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card reveal" style="padding:28px">
+        <div class="csr-icon csr-icon--card csr-icon--on-light" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M560-574v-48q33-14 67.5-21t72.5-7q26 0 51 4t49 10v44q-24-9-48.5-13.5T700-610q-38 0-73 9.5T560-574Zm0 220v-49q33-13.5 67.5-20.25T700-430q26 0 51 4t49 10v44q-24-9-48.5-13.5T700-390q-38 0-73 9t-67 27Zm0-110v-48q33-14 67.5-21t72.5-7q26 0 51 4t49 10v44q-24-9-48.5-13.5T700-500q-38 0-73 9.5T560-464ZM248-300q53.57 0 104.28 12.5Q403-275 452-250v-427q-45-30-97.62-46.5Q301.76-740 248-740q-38 0-74.5 9.5T100-707v434q31-14 70.5-20.5T248-300Zm264 50q50-25 98-37.5T712-300q38 0 78.5 6t69.5 16v-429q-34-17-71.82-25-37.82-8-76.18-8-54 0-104.5 16.5T512-677v427Zm-30 90q-51-38-111-58.5T248-239q-36.54 0-71.77 9T106-208q-23.1 11-44.55-3Q40-225 40-251v-463q0-15 7-27.5T68-761q42-20 87.39-29.5 45.4-9.5 92.61-9.5 63 0 122.5 17T482-731q51-35 109.5-52T712-800q46.87 0 91.93 9.5Q849-781 891-761q14 7 21.5 19.5T920-714v463q0 27.89-22.5 42.45Q875-194 853-208q-34-14-69.23-22.5Q748.54-239 712-239q-63 0-121 21t-109 58ZM276-489Z"/></svg></div>
+        <h3 data-i18n="csr.18">Healthcare Support</h3>
+        <p data-i18n="csr.19" style="font-size:0.88rem;margin-top:8px">Donating medical equipment to maternal wards in Dar es Salaam's municipal hospitals — delivery beds, delivery kits, wheelchairs, stretchers and BP machines — and supporting referral hospitals such as Temeke.</p>
+      </div>
+      <div class="card reveal" style="padding:28px">
+        <div class="csr-icon csr-icon--card csr-icon--on-light" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M80-120v-720h390v165h410v555H80Zm60-60h105v-105H140v105Zm0-165h105v-105H140v105Zm0-165h105v-105H140v105Zm0-165h105v-105H140v105Zm165 495h105v-105H305v105Zm0-165h105v-105H305v105Zm0-165h105v-105H305v105Zm0-165h105v-105H305v105Zm165 495h350v-435H470v105h80v60h-80v105h80v60h-80v105Zm185-270v-60h60v60h-60Zm0 165v-60h60v60h-60Z"/></svg></div>
+        <h3 data-i18n="csr.20">Children & Community Welfare</h3>
+        <p data-i18n="csr.21" style="font-size:0.88rem;margin-top:8px">Assisting needy children and orphanage centres, supporting places of worship, and providing emergency relief — including food and LPG cooking sets for flood-affected families in Rufiji.</p>
+      </div>
+      <div class="card reveal" style="padding:28px">
+        <div class="csr-icon csr-icon--card csr-icon--on-light" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M303-80v-149H0l189-274H94l266-377 120 170 120-170 266 377h-94l188 274H658v149H543v-149H418v149H303Zm377-209h165L656-563h89L600-769l-80 115 106 151h-94l148 214Zm-564 0h489L416-563h89L360-769 215-563h90L116-289Zm0 0h189-90 290-89 189-489Zm564 0H532h94-106 225-89 189-165Zm-137 60h115-115Zm178 0Z"/></svg></div>
+        <h3 data-i18n="csr.22">Environmental Stewardship</h3>
+        <p data-i18n="csr.23" style="font-size:0.88rem;margin-top:8px">Responsible handling, storage and transport of petroleum products across the supply chain, with continuous investment in modern equipment and cleaner operations.</p>
+      </div>
+      <div class="card reveal" style="padding:28px">
+        <div class="csr-icon csr-icon--card csr-icon--on-light" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M140-80q-24 0-42-18t-18-42v-480q0-24 18-42t42-18h250v-140q0-24 18-42t42-18h60q24 0 42 18t18 42v140h250q24 0 42 18t18 42v480q0 24-18 42t-42 18H140Zm0-60h680v-480H570v30q0 28-18 44t-42 16h-60q-24 0-42-16t-18-44v-30H140v480Zm92-107h239v-14q0-18-9-32t-23-19q-32-11-50-14.5t-35-3.5q-19 0-40.5 4.5T265-312q-15 5-24 19t-9 32v14Zm336-67h170v-50H568v50Zm-175.5-65.5Q408-395 408-418t-15.5-38.5Q377-472 354-472t-38.5 15.5Q300-441 300-418t15.5 38.5Q331-364 354-364t38.5-15.5ZM568-427h170v-50H568v50ZM450-590h60v-230h-60v230Zm30 210Z"/></svg></div>
+        <h3 data-i18n="csr.24">Local Employment</h3>
+        <p data-i18n="csr.25" style="font-size:0.88rem;margin-top:8px">4,600+ jobs across 8 countries, with a strong preference for hiring and developing local talent at every level of the organisation.</p>
+      </div>
+      <div class="card reveal" style="padding:28px">
+        <div class="csr-icon csr-icon--card csr-icon--on-light" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M320-80q-66 0-113-47t-47-113v-320q0-57 34-99t86-56v-105q0-24.75 17.63-42.38Q315.25-880 340-880h280q24.75 0 42.38 17.62Q680-844.75 680-820v105q52 14 86 56t34 99v320q0 66-47 113T640-80H320ZM220-420h520v-140q0-42-29-71t-71-29H320q-42 0-71 29t-29 71v140Zm100 280h320q42 0 71-29t29-71v-120H220v120q0 42 29 71t71 29Zm160-280Zm0 60Zm0-30Zm40-330h100v-100H340v100h100q0-17 11.5-28.5T480-760q17 0 28.5 11.5T520-720Z"/></svg></div>
+        <h3 data-i18n="csr.26">Clean Cooking Access</h3>
+        <p data-i18n="csr.27" style="font-size:0.88rem;margin-top:8px">Expanding reliable LPG access for households across East Africa — reducing dependence on charcoal, improving indoor air quality and easing deforestation pressure.</p>
+      </div>
+      <div class="card reveal" style="padding:28px">
+        <div class="csr-icon csr-icon--card csr-icon--on-light" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M440-360h80v-100h100v-80H520v-100h-80v100H340v80h100v100Zm40 279q-140-35-230-162.5T160-523v-238l320-120 320 120v238q0 152-90 279.5T480-81Zm0-62q115-38 187.5-143.5T740-523v-196l-260-98-260 98v196q0 131 72.5 236.5T480-143Zm0-337Z"/></svg></div>
+        <h3 data-i18n="csr.28">Health &amp; Safety</h3>
+        <p data-i18n="csr.29" style="font-size:0.88rem;margin-top:8px">Industry-leading safety standards across all divisions. Zero-harm ambition for employees, contractors and the communities we operate in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group">
+        </div>
+        <p class="footer-motto" style="color:var(--yellow);font-weight:600;font-size:0.95rem;letter-spacing:0.04em" data-i18n="footer.motto">Quality, Service, Safety, Professionalism</p>
+        <div class="footer-social">
+          <a data-i18n="csr.30" href="https://www.linkedin.com/company/lake-oil" class="social-link" target="_blank" rel="noopener">LinkedIn</a>
+          <a data-i18n="csr.31" href="https://www.facebook.com/lakeoilgroup" class="social-link" target="_blank" rel="noopener">Facebook</a>
+          <a data-i18n="csr.32" href="https://twitter.com/lakeoilgroup" class="social-link" target="_blank" rel="noopener">X / Twitter</a>
+          <a data-i18n="csr.33" href="https://www.youtube.com/@lakeoilgroup" class="social-link" target="_blank" rel="noopener">YouTube</a>
+        </div>
+        <div style="margin-top:20px;display:flex;gap:10px">
+          <a href="contact.html" class="btn btn-outline btn-sm" data-i18n="footer.contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-col"><h5 data-i18n="footer.services">Services</h5><ul>
+        <li><a href="fuel.html" data-i18n="nav.fuel">Fuel &amp; Petroleum</a></li><li><a href="lpg.html" data-i18n="nav.lpg">LPG Gas</a></li>
+        <li><a href="lubricants.html" data-i18n="nav.lubricants">Lubricants</a></li><li><a href="steel.html" data-i18n="nav.steel">Lake Steel</a></li>
+        <li><a href="concrete.html" data-i18n="nav.concreteShort">Concrete</a></li><li><a href="logistics.html" data-i18n="nav.transportShort">Transport</a></li>
+        <li><a href="container-services.html" data-i18n="nav.containers">Container Services</a></li>
+      </ul></div>
+      <div class="footer-col"><h5 data-i18n="footer.company">Company</h5><ul>
+        <li><a href="about.html" data-i18n="nav.aboutUs">About Us</a></li><li><a href="history.html" data-i18n="nav.historyShort">History</a></li>
+        <li><a href="leadership.html" data-i18n="nav.leadership">Leadership</a></li><li><a href="csr.html" data-i18n="nav.csrShort">CSR</a></li>
+        <li><a href="investors.html" data-i18n="nav.investorsShort">Investors</a></li><li><a href="projects.html" data-i18n="nav.projectsShort">Projects</a></li>
+        <li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
+      </ul></div>
+      <div class="footer-col"><h5 data-i18n="footer.contactHeading">Contact</h5><ul>
+        <li><a href="#" data-i18n="footer.address">Plot 49, Mikocheni Light Industrial, Dar es Salaam</a></li>
+        <li><a href="tel:+255222780510">+255 222 780 510</a></li>
+        <li><a href="tel:+255222780479">+255 222 780 479</a></li>
+        <li><a data-i18n="csr.34" href="mailto:admin@lakeoilgroup.com">admin@lakeoilgroup.com</a></li>
+      </ul>
+      <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:5px">
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/tz.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> TZ</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/ke.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> KE</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/zm.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> ZM</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/rw.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> RW</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/bi.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> BI</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/cd.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> DRC</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/et.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> ET</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/mz.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> MZ</span>
+      </div></div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="csr.35" data-i18n-html="">&copy; 2026 Lake Group. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <div class="footer-bottom-links"><a href="#" data-i18n="footer.privacy">Privacy</a><a href="#" data-i18n="footer.terms">Terms</a><a href="contact.html" data-i18n="footer.contact">Contact</a></div>
+    </div>
+  </div>
+</footer>
+<div id="chat-widget">
+  <div id="chat-box">
+    <div id="chat-head"><h4 data-i18n="chat.title">Lake Group Assistant</h4><p data-i18n="chat.sub">Ask us anything</p></div>
+    <div id="chat-messages"><div class="msg msg-bot" data-i18n="chat.hello">Hello! How can I help you today?</div></div>
+    <div id="chat-input-row"><input type="text" id="chat-input" placeholder="Type a message..." data-i18n-placeholder="chat.placeholder" aria-label="Type a message..." data-i18n-aria="chat.placeholder"><button id="chat-send" data-i18n="chat.send">Send</button></div>
+  </div>
+  <button id="chat-btn" aria-label="Chat"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></button>
+</div>
+<script src="assets/i18n-content.js" defer></script>
+<script src="assets/i18n.js" defer></script>
+<script src="assets/site.js" defer></script>
+<script src="assets/pwa.js" defer></script>
+<script src="assets/motion.js" defer></script>
+</body></html>

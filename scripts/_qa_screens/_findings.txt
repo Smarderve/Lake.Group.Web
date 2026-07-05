@@ -1,0 +1,27 @@
+[OK] index desktop: 3D sticky pins at top=72px through scrub
+[INFO] index desktop mid-3D: nav hidden=true scrolled=true
+[HIGH] index [desktop]: nav did not re-show on scroll up
+[OK] index.html [desktop]: console clean
+[OK] about.html [desktop]: console clean
+[OK] fuel.html [desktop]: console clean
+[OK] contact.html [desktop]: console clean
+[OK] gallery.html [desktop]: console clean
+[OK] news.html [desktop]: console clean
+[OK] careers.html [desktop]: console clean
+[CRITICAL] offline.html [desktop]: audit crashed: Page.captureScreenshot timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.
+[OK] 404.html [desktop]: console clean
+[HIGH] index [mobile]: nav did not re-show on scroll up
+[OK] index.html [mobile]: console clean
+[HIGH] about.html [mobile]: horizontal scroll +201px; offenders: NAV.site-nav, DIV.nav-inner, P.ose-label, DIV, DIV.reveal.visible, DIV.stat-number, DIV.stat-label, IMG.reveal
+[OK] about.html [mobile]: console clean
+[HIGH] fuel.html [mobile]: horizontal scroll +46px; offenders: NAV.site-nav, DIV.nav-inner, DIV, DIV.reveal.visible, H3, DIV.reveal, H4, BUTTON
+[OK] fuel.html [mobile]: console clean
+[HIGH] contact.html [mobile]: horizontal scroll +119px; offenders: NAV.site-nav, DIV.nav-inner, DIV, H3, P, A, SPAN, A.btn.btn-primary
+[OK] contact.html [mobile]: console clean
+[OK] gallery.html [mobile]: console clean
+[HIGH] news.html [mobile]: horizontal scroll +82px; offenders: NAV.site-nav, DIV.nav-inner, DIV, H4, P, A.btn.btn-primary, BUTTON
+[OK] news.html [mobile]: console clean
+[HIGH] careers.html [mobile]: horizontal scroll +210px; offenders: NAV.site-nav, DIV.nav-inner, DIV, H3, P, A.btn.btn-primary, BUTTON
+[OK] careers.html [mobile]: console clean
+[CRITICAL] offline.html [mobile]: audit crashed: Execution context was destroyed, most likely because of a navigation.
+[OK] 404.html [mobile]: console clean

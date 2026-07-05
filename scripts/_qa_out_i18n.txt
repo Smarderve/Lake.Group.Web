@@ -1,0 +1,3 @@
+Languages: en, fr, sw | key counts: 1356/1356/1356
+OK: all page keys resolve in all languages. Used keys: 1344
+Dict-only keys (not in page data-i18n, may be used by JS): 12

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="theme-color" content="#1D3EA8">
+  <link rel="manifest" href="manifest.webmanifest">
+  <title>You're Offline | Lake Group</title>
+  <link rel="canonical" href="https://www.lakeoilgroup.com/offline.html">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="assets/icons/pwa/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/icons/pwa/apple-touch-icon.png">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue:  #1D3EA8;
+      --blue3: #0E1F5A;
+      --yellow: #FFD700;
+      --white: #FFFFFF;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--blue3);
+      background-image: radial-gradient(ellipse 70% 60% at 80% 20%, rgba(255,215,0,0.07) 0%, transparent 60%),
+                        radial-gradient(ellipse 60% 50% at 15% 85%, rgba(29,62,168,0.55) 0%, transparent 65%);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      line-height: 1.7;
+    }
+    .card { max-width: 560px; width: 100%; text-align: center; }
+    .logo-wrap {
+      display: inline-block;
+      background: var(--white);
+      border-radius: 14px;
+      padding: 14px 22px;
+      margin-bottom: 32px;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.35);
+    }
+    .logo-wrap img { height: 52px; width: auto; display: block; }
+    .badge {
+      display: inline-block;
+      padding: 4px 14px;
+      border: 1px solid var(--yellow);
+      color: var(--yellow);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      border-radius: 2px;
+      margin-bottom: 16px;
+    }
+    h1 { font-size: clamp(1.7rem, 5vw, 2.4rem); font-weight: 800; line-height: 1.2; margin-bottom: 14px; }
+    h1 em { color: var(--yellow); font-style: normal; }
+    p.lead { color: rgba(255,255,255,0.72); margin-bottom: 28px; font-size: 1.02rem; }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+    .links a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 9px 18px;
+      border: 1px solid rgba(255,255,255,0.28);
+      border-radius: 4px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .links a:hover { border-color: var(--yellow); background: rgba(255,215,0,0.08); }
+    .retry {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--blue3);
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      padding: 13px 34px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .retry:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(255,215,0,0.3); }
+    .status { margin-top: 18px; font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+    .status .dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #CC1E1E;
+      margin-right: 7px;
+      vertical-align: middle;
+    }
+    .status.online .dot { background: #2ECC71; }
+  </style>
+<link rel="stylesheet" href="assets/theme.css">
+</head>
+<body>
+  <main class="card">
+    <div class="logo-wrap"><img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group"></div>
+    <div class="badge">Connection Lost</div>
+    <h1>You're currently <em>offline</em></h1>
+    <p class="lead">This page isn't available without an internet connection. Pages you've visited before are saved and still work — try one of these, or reconnect and retry.</p>
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="africa-network.html">Africa Network</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="retry" onclick="location.reload()">Retry Connection</button>
+    <p class="status" id="net-status"><span class="dot"></span><span id="net-text">Offline — waiting for connection…</span></p>
+  </main>
+  <script>
+    (function () {
+      var statusEl = document.getElementById('net-status');
+      var textEl = document.getElementById('net-text');
+      function onOnline() {
+        statusEl.classList.add('online');
+        textEl.textContent = 'Back online — reloading…';
+        // Small delay so the user sees the status flip before navigation.
+        // If the browser is showing offline.html under its own URL (opened
+        // directly, not as a fallback for another page), reloading would
+        // just serve offline.html again in an endless loop — go home
+        // instead. In the fallback case the address bar still holds the
+        // page the user originally wanted, so a plain reload restores it.
+        setTimeout(function () {
+          if (/offline\.html$/.test(location.pathname)) {
+            location.replace('index.html');
+          } else {
+            location.reload();
+          }
+        }, 800);
+      }
+      window.addEventListener('online', onOnline);
+      if (navigator.onLine) onOnline();
+    })();
+  </script>
+<script src="assets/pwa.js" defer></script>
+<script src="assets/motion.js" defer></script>
+</body>
+</html>

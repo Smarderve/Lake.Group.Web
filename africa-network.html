@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Lake Group operations across Tanzania, Kenya, Zambia, Rwanda, Burundi, DRC, Ethiopia, Mozambique and Dubai.">
+  <meta property="og:title" content="Africa Network | Lake Group Operations Map">
+  <meta property="og:description" content="Lake Group operations across Tanzania, Kenya, Zambia, Rwanda, Burundi, DRC, Ethiopia, Mozambique and Dubai.">
+  <meta property="og:image" content="assets/images/og-cover.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://www.lakeoilgroup.com/africa-network.html">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="assets/icons/pwa/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/icons/pwa/apple-touch-icon.png">
+  <title>Africa Network | Lake Group Operations Map</title>
+  <meta name="theme-color" content="#1D3EA8">
+  <link rel="manifest" href="manifest.webmanifest">
+  <style>
+@import url('assets/fonts/fonts.css');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue:    #1D3EA8;
+  --blue2:   #162E7F;
+  --blue3:   #0E1F5A;
+  --yellow:  #FFD700;
+  --yellow2: #FFC200;
+  --yellow3: #E6AF00;
+  --red:     #CC1E1E;
+  --white:   #FFFFFF;
+  --offwhite:#F7F8FC;
+  --light:   #EFF2FB;
+  --text:    #0E1F5A;
+  --muted:   #5A6478;
+  --border:  rgba(29,62,168,0.12);
+  --nav-h:   72px;
+  --radius:  4px;
+  --radius-lg: 10px;
+  --shadow:  0 2px 16px rgba(29,62,168,0.1);
+  --shadow-lg: 0 8px 48px rgba(29,62,168,0.18);
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; color: var(--text); background: var(--white); overflow-x: hidden; }
+
+h1,h2,h3,h4,h5 { font-weight: 700; line-height: 1.2; }
+h1 { font-size: clamp(2rem,4vw,3rem); }
+h2 { font-size: clamp(1.6rem,3vw,2.2rem); }
+h3 { font-size: 1.25rem; }
+p { color: var(--muted); }
+a { text-decoration: none; color: inherit; }
+strong { color: var(--text); }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 96px 0; }
+.section-sm { padding: 64px 0; }
+.grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 32px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+@media(max-width:960px){.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+
+/* NAV */
+.site-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: var(--nav-h);
+  background: var(--blue);
+  border-bottom: 3px solid var(--yellow);
+}
+.nav-inner { max-width: 1340px; margin: 0 auto; padding: 0 28px; display: flex; align-items: center; width: 100%; height: 100%; }
+.nav-logo { display: flex; align-items: center; flex-shrink: 0; }
+.nav-logo img { height: 48px; width: auto; display: block; }
+.nav-links { display: flex; align-items: center; gap: 2px; list-style: none; margin-left: auto; }
+.nav-links > li { position: relative; }
+.nav-links > li > a { display: flex; align-items: center; gap: 5px; padding: 9px 13px; border-radius: var(--radius); color: rgba(255,255,255,0.85); font-size: 0.86rem; font-weight: 500; transition: color 0.2s, background 0.2s; }
+.nav-links > li > a:hover, .nav-links > li > a.active { color: var(--yellow); background: rgba(255,255,255,0.07); }
+.has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.nav-dropdown { position: absolute; top: calc(100% + 6px); left: 0; background: var(--blue2); border: 1px solid rgba(255,214,0,0.2); border-top: 2px solid var(--yellow); border-radius: var(--radius-lg); padding: 8px; min-width: 220px; opacity: 0; pointer-events: none; transform: translateY(-6px); transition: all 0.2s; box-shadow: 0 16px 40px rgba(0,0,0,0.35); }
+.nav-dropdown a { display: block; padding: 9px 14px; border-radius: var(--radius); color: rgba(255,255,255,0.8); font-size: 0.84rem; transition: background 0.15s, color 0.15s; }
+.nav-dropdown a:hover { background: rgba(255,214,0,0.12); color: var(--yellow); }
+.dd-label { padding: 10px 14px 3px; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); font-weight: 700; }
+.nav-cta { margin-left: 12px; padding: 9px 18px !important; background: var(--yellow) !important; color: var(--blue) !important; border-radius: var(--radius) !important; font-weight: 700 !important; }
+.nav-cta:hover { background: var(--yellow2) !important; }
+.nav-toggle { display: none; margin-left: auto; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+@media(max-width:1060px){.nav-links{display:none}.nav-toggle{display:flex}}
+.nav-mobile { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--blue2); padding: 14px; flex-direction: column; gap: 3px; z-index: 999; max-height: calc(100vh - var(--nav-h)); overflow-y: auto; border-bottom: 2px solid var(--yellow); }
+.nav-mobile a { display: block; padding: 11px 16px; color: rgba(255,255,255,0.85); border-radius: var(--radius); font-size: 0.9rem; }
+.nav-mobile a:hover { background: rgba(255,255,255,0.06); color: var(--yellow); }
+.mob-section { padding: 10px 16px 3px; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--yellow); font-weight: 700; }
+
+/* PAGE HERO */
+.page-hero { background: var(--blue); padding: 140px 0 72px; position: relative; overflow: hidden; }
+.page-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(255,214,0,0.08) 0%, transparent 65%); }
+.page-hero .eyebrow { display: inline-block; padding: 4px 14px; border: 1px solid var(--yellow); color: var(--yellow); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; border-radius: 2px; margin-bottom: 14px; }
+.page-hero h1 { color: var(--white); font-family: 'Bebas Neue',sans-serif; font-size: clamp(2.4rem,5vw,4rem); letter-spacing: 0.03em; margin-bottom: 14px; }
+.page-hero p { color: rgba(255,255,255,0.65); font-size: 1.05rem; max-width: 560px; }
+.breadcrumb { display: flex; gap: 8px; align-items: center; margin-bottom: 18px; }
+.breadcrumb a { color: rgba(255,255,255,0.45); font-size: 0.8rem; }
+.breadcrumb a:hover { color: var(--yellow); }
+.breadcrumb span { color: rgba(255,255,255,0.25); font-size: 0.8rem; }
+
+/* BUTTONS */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 26px; border-radius: var(--radius); font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.2s; border: none; font-family: 'Inter',sans-serif; }
+.btn-primary { background: var(--yellow); color: var(--blue); }
+.btn-primary:hover { background: var(--yellow2); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(255,214,0,0.4); }
+.btn-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.4); }
+.btn-outline:hover { border-color: var(--yellow); color: var(--yellow); }
+.btn-outline-dark { background: transparent; color: var(--blue); border: 1.5px solid var(--blue); }
+.btn-outline-dark:hover { background: var(--blue); color: var(--white); }
+.btn-sm { padding: 8px 18px; font-size: 0.82rem; }
+.btn-lg { padding: 15px 34px; font-size: 1rem; }
+.btn-blue { background: var(--blue); color: var(--white); }
+.btn-blue:hover { background: var(--blue2); }
+.btn-white { background: var(--white); color: var(--blue); }
+.btn-white:hover { background: var(--offwhite); }
+
+/* CARDS */
+.card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: box-shadow 0.2s, transform 0.2s; }
+.card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+.card-body { padding: 28px; }
+
+/* SECTION LABELS */
+.section-label { display: inline-flex; align-items: center; gap: 10px; font-size: 0.73rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--yellow3); margin-bottom: 12px; }
+.section-label::before { content: ''; display: block; width: 24px; height: 2px; background: var(--yellow); }
+.section-label.dark { color: var(--blue); }
+.section-label.dark::before { background: var(--blue); }
+.section-title { font-size: clamp(1.7rem,3vw,2.4rem); color: var(--text); line-height: 1.2; margin-bottom: 14px; }
+.section-subtitle { font-size: 1.02rem; color: var(--muted); max-width: 560px; line-height: 1.7; }
+
+/* STAT */
+.stat-number { font-family: 'Bebas Neue',sans-serif; font-size: clamp(3rem,5vw,4.5rem); color: var(--yellow); letter-spacing: 0.02em; line-height: 1; }
+.stat-label { font-size: 0.82rem; color: var(--muted); font-weight: 500; margin-top: 5px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* DIVIDER */
+.divider-yellow { width: 44px; height: 3px; background: var(--yellow); margin: 16px 0; border-radius: 2px; }
+
+/* DARK SECTION */
+.section-dark { background: var(--blue); color: var(--white); }
+.section-dark h2,.section-dark h3,.section-dark h4 { color: var(--white); }
+.section-dark p { color: rgba(255,255,255,0.65); }
+.section-dark .section-label { color: var(--yellow); }
+.section-dark .section-label::before { background: var(--yellow); }
+.section-light { background: var(--light); }
+.section-offwhite { background: var(--offwhite); }
+
+/* TABS */
+.tab-nav { display: flex; gap: 3px; border-bottom: 1px solid var(--border); margin-bottom: 36px; overflow-x: auto; }
+.tab-nav button { padding: 11px 20px; background: none; border: none; cursor: pointer; font-family: 'Inter',sans-serif; font-size: 0.88rem; font-weight: 500; color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; transition: color 0.2s,border-color 0.2s; }
+.tab-nav button.active { color: var(--blue); border-bottom-color: var(--yellow); }
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+
+/* FORM */
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; font-size: 0.84rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.form-group input,.form-group select,.form-group textarea { width: 100%; padding: 11px 15px; border: 1.5px solid var(--border); border-radius: var(--radius); font-family: 'Inter',sans-serif; font-size: 0.9rem; color: var(--text); background: var(--white); transition: border-color 0.2s,box-shadow 0.2s; outline: none; }
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(29,62,168,0.1); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+
+/* BADGE */
+.badge { display: inline-block; padding: 3px 10px; border-radius: 100px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; }
+.badge-yellow { background: rgba(255,214,0,0.18); color: var(--blue); }
+.badge-blue { background: var(--blue); color: var(--white); }
+.badge-green { background: rgba(22,163,74,0.1); color: #16a34a; }
+.badge-red { background: rgba(204,30,30,0.1); color: var(--red); }
+
+/* TIMELINE */
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before { content: ''; position: absolute; left: 10px; top: 8px; bottom: 8px; width: 2px; background: var(--border); }
+.timeline-item { position: relative; padding-bottom: 36px; }
+.timeline-item::before { content: ''; position: absolute; left: -26px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--yellow); border: 3px solid var(--white); box-shadow: 0 0 0 2px var(--yellow); }
+.timeline-year { font-size: 0.75rem; font-weight: 700; color: var(--yellow3); letter-spacing: 0.08em; margin-bottom: 3px; }
+
+/* COUNTRY TAG */
+.flag-icon { width:18px;height:13px;object-fit:cover;border-radius:2px;flex-shrink:0; }
+.flag-icon-lg { width:28px;height:20px;object-fit:cover;border-radius:3px;flex-shrink:0;display:block; }
+.country-tag { display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px; background: rgba(29,62,168,0.08); border-radius: 100px; font-size: 0.75rem; font-weight: 600; color: var(--blue); }
+
+/* PHOTO CARD */
+.photo-card { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/3; background: var(--light); }
+.photo-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+.photo-card:hover img { transform: scale(1.04); }
+
+/* FOOTER */
+.site-footer { background: var(--blue3); color: rgba(255,255,255,0.7); padding: 72px 0 0; border-top: 3px solid var(--yellow); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 52px; }
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
+.footer-brand p { font-size: 0.88rem; margin-top: 14px; line-height: 1.7; max-width: 300px; }
+.footer-logo img { height: 44px; width: auto; }
+.footer-col h5 { color: var(--yellow); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; margin-bottom: 16px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.footer-col ul a { font-size: 0.86rem; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+.footer-col ul a:hover { color: var(--yellow); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 22px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.footer-bottom p { font-size: 0.8rem; }
+.footer-bottom-links { display: flex; gap: 18px; }
+.footer-bottom-links a { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+.footer-bottom-links a:hover { color: var(--white); }
+
+/* TRACK STATUS */
+.track-status { display: flex; gap: 0; margin: 28px 0; }
+.track-step { flex: 1; text-align: center; position: relative; }
+.track-step::before { content: ''; position: absolute; top: 18px; left: 50%; right: -50%; height: 2px; background: var(--border); z-index: 0; }
+.track-step:last-child::before { display: none; }
+.track-step .dot { width: 36px; height: 36px; border-radius: 50%; background: var(--offwhite); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; font-size: 0.75rem; font-weight: 700; position: relative; z-index: 1; }
+.track-step.done .dot { background: var(--yellow); border-color: var(--yellow); color: var(--blue); }
+.track-step.active .dot { background: var(--blue); border-color: var(--blue); color: var(--white); }
+.track-step.done::before { background: var(--yellow); }
+.track-step p { font-size: 0.75rem; color: var(--muted); }
+.track-step.active p { color: var(--blue); font-weight: 600; }
+
+/* ALERT */
+.alert { padding: 15px 18px; border-radius: var(--radius); border-left: 3px solid; margin-bottom: 18px; font-size: 0.88rem; }
+.alert-success { background: rgba(22,163,74,0.07); border-color: #16a34a; color: #166534; }
+.alert-info { background: rgba(29,62,168,0.06); border-color: var(--blue); color: var(--blue); }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s, transform 0.55s; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* PAGE WRAPPER */
+.page-wrapper { padding-top: var(--nav-h); }
+
+/* CHAT WIDGET */
+#chat-widget { position: fixed; bottom: 26px; right: 26px; z-index: 9999; }
+#chat-btn { width: 54px; height: 54px; border-radius: 50%; background: var(--yellow); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 18px rgba(255,214,0,0.5); transition: transform 0.2s; }
+#chat-btn:hover { transform: scale(1.08); }
+#chat-btn svg { width: 24px; height: 24px; fill: none; stroke: var(--blue); stroke-width: 2.2; }
+#chat-box { position: absolute; bottom: 66px; right: 0; width: 310px; background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); border: 1px solid var(--border); display: none; overflow: hidden; }
+#chat-box.open { display: flex; flex-direction: column; }
+#chat-head { background: var(--blue); padding: 14px 18px; border-bottom: 2px solid var(--yellow); }
+#chat-head h4 { color: var(--white); font-size: 0.92rem; }
+#chat-head p { color: rgba(255,255,255,0.55); font-size: 0.75rem; }
+#chat-messages { padding: 14px; flex: 1; max-height: 250px; overflow-y: auto; display: flex; flex-direction: column; gap: 9px; }
+.msg { padding: 9px 13px; border-radius: 8px; font-size: 0.83rem; max-width: 88%; }
+.msg-bot { background: var(--light); color: var(--text); align-self: flex-start; }
+.msg-user { background: var(--blue); color: var(--white); align-self: flex-end; }
+#chat-input-row { display: flex; border-top: 1px solid var(--border); }
+#chat-input { flex: 1; padding: 11px 14px; border: none; font-family: 'Inter',sans-serif; font-size: 0.86rem; outline: none; }
+#chat-send { padding: 11px 14px; background: var(--yellow); border: none; cursor: pointer; color: var(--blue); font-weight: 700; font-size: 0.8rem; }
+
+/* UTILS */
+.text-yellow { color: var(--yellow); }
+.text-blue { color: var(--blue); }
+.text-muted { color: var(--muted); }
+.text-white { color: var(--white); }
+.text-center { text-align: center; }
+.mt-8{margin-top:8px}.mt-16{margin-top:16px}.mt-24{margin-top:24px}.mt-32{margin-top:32px}.mt-48{margin-top:48px}
+.mb-8{margin-bottom:8px}.mb-16{margin-bottom:16px}.mb-24{margin-bottom:24px}.mb-32{margin-bottom:32px}
+.fw-600{font-weight:600}.fw-700{font-weight:700}
+.d-flex{display:flex}.align-center{align-items:center}.gap-12{gap:12px}.gap-16{gap:16px}
+
+.has-dropdown{position:relative}
+.nav-dropdown{top:100%!important;margin-top:0!important}
+.has-dropdown::after{content:'';position:absolute;bottom:-8px;left:0;right:0;height:8px;z-index:999}
+.has-dropdown:hover .nav-dropdown,.nav-dropdown:hover{opacity:1!important;pointer-events:auto!important;transform:translateY(0)!important}
+
+/* Lake Group original-site flair */
+.marquee-wrap { background: var(--yellow); padding: 13px 0; overflow: hidden; border-bottom: 3px solid var(--blue); }
+.marquee-track { display: flex; gap: 44px; animation: marquee 22s linear infinite; white-space: nowrap; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee-item { font-family: 'Bebas Neue', sans-serif; font-size: 1.05rem; letter-spacing: 0.06em; color: var(--blue); display: flex; align-items: center; gap: 10px; }
+.marquee-sep { width: 5px; height: 5px; border-radius: 50%; background: var(--red); opacity: 0.65; flex-shrink: 0; }
+.stats-band { background: var(--blue); padding: 56px 0; border-top: 3px solid var(--yellow); border-bottom: 3px solid var(--yellow); }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+.network-intro { background: var(--offwhite); padding: 52px 0; border-bottom: 1px solid var(--border); }
+.network-intro-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+.network-flag-strip { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.pillar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.pillar-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 20px; text-align: center; position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+.pillar-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--blue) 0%, var(--blue) 33%, var(--yellow) 33%, var(--yellow) 66%, var(--red) 66%); }
+.pillar-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.pillar-num { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--yellow3); line-height: 1; margin-bottom: 8px; }
+.pillar-card h3 { font-size: 1rem; margin-bottom: 8px; color: var(--blue); }
+.pillar-card p { font-size: 0.84rem; }
+.photo-feature { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+.photo-feature img { width: 100%; height: 200px; object-fit: cover; display: block; transition: transform 0.4s; }
+.photo-feature img:hover { transform: scale(1.04); }
+.page-hero { background: #1D3EA8 !important; position: relative; overflow: hidden; }
+.page-hero-photo { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.28; z-index: 0; }
+.page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(29,62,168,0.82) 0%, rgba(29,62,168,0.48) 55%, rgba(29,62,168,0.12) 100%); z-index: 1; }
+.page-hero::before { z-index: 2; pointer-events: none; }
+.page-hero .container { position: relative; z-index: 3 !important; }
+@media(max-width:900px){ .stats-grid { grid-template-columns: repeat(2, 1fr); } .pillar-grid { grid-template-columns: repeat(2, 1fr); } .network-intro-inner { grid-template-columns: 1fr; } }
+@media(max-width:600px){ .pillar-grid { grid-template-columns: 1fr; } .photo-feature { grid-template-columns: 1fr; } .photo-feature img { height: 160px; } }
+
+/* Language switcher */
+.lang-switcher { display:flex; align-items:center; gap:3px; margin-right:6px; }
+.lang-btn { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.25); color:rgba(255,255,255,0.85); padding:5px 8px; font-size:0.7rem; font-weight:700; cursor:pointer; border-radius:3px; font-family:'Inter',sans-serif; transition:all 0.15s; }
+.lang-btn.active, .lang-btn:hover { background:var(--yellow); color:var(--blue); border-color:var(--yellow); }
+.footer-social { margin-top:16px; display:flex; flex-wrap:wrap; gap:8px; }
+.social-link { font-size:0.78rem; font-weight:600; color:rgba(255,255,255,0.55); padding:6px 12px; border:1px solid rgba(255,255,255,0.15); border-radius:4px; transition:color 0.2s, border-color 0.2s; }
+.social-link:hover { color:var(--yellow); border-color:var(--yellow); }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.lakeoilgroup.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Africa Network",
+      "item": "https://www.lakeoilgroup.com/africa-network.html"
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="assets/theme.css">
+</head><body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group" style="height:46px;width:auto">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="about.html" data-i18n="nav.about">About</a></li>
+      <li class="has-dropdown"><a href="services.html" data-i18n="nav.services">Services &#9662;</a>
+        <div class="nav-dropdown">
+          <div class="dd-label" data-i18n="nav.dd.energy">Energy</div>
+          <a href="fuel.html" data-i18n="nav.fuel">Fuel &amp; Petroleum</a><a href="lpg.html" data-i18n="nav.lpg">LPG Gas</a><a href="lubricants.html" data-i18n="nav.lubricants">Lubricants</a>
+          <div class="dd-label" data-i18n="nav.dd.industry">Industry</div>
+          <a href="steel.html" data-i18n="nav.steel">Lake Steel</a><a href="concrete.html" data-i18n="nav.concrete">Concrete &amp; Aggregate</a>
+          <div class="dd-label" data-i18n="nav.dd.logistics">Logistics</div>
+          <a href="logistics.html" data-i18n="nav.logistics">Transport &amp; Haulage</a><a href="container-services.html" data-i18n="nav.containers">Container Services</a>
+        </div>
+      </li>
+      <li class="has-dropdown"><a href="africa-network.html" data-i18n="nav.network">Network &#9662;</a>
+        <div class="nav-dropdown">
+          <a href="africa-network.html" data-i18n="nav.africaMap">Africa Operations Map</a>
+          <a href="station-locator.html" data-i18n="nav.stations">Station Locator</a>
+          <a href="fleet.html" data-i18n="nav.fleet">Our Fleet</a>
+        </div>
+      </li>
+      <li class="has-dropdown"><a href="about.html" data-i18n="nav.company">Company &#9662;</a>
+        <div class="nav-dropdown">
+          <a href="history.html" data-i18n="nav.history">Our History</a><a href="leadership.html" data-i18n="nav.leadership">Leadership</a>
+          <a href="csr.html" data-i18n="nav.csr">CSR &amp; Sustainability</a><a href="investors.html" data-i18n="nav.investors">Investor Relations</a>
+          <a href="projects.html" data-i18n="nav.projects">Major Projects</a><a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+        </div>
+      </li>
+      <li><a href="news.html" data-i18n="nav.news">News</a></li>
+      <li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
+      <li class="lang-switcher" aria-label="Language">
+        <button type="button" class="lang-btn active" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="fr">FR</button>
+        <button type="button" class="lang-btn" data-lang="sw">SW</button>
+      </li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile" style="display:none">
+  <a href="index.html" data-i18n="nav.home">Home</a><a href="about.html" data-i18n="nav.about">About</a>
+  <div class="mob-section" data-i18n="mob.services">Services</div>
+  <a href="fuel.html" data-i18n="nav.fuelShort">Fuel</a><a href="lpg.html" data-i18n="nav.lpg">LPG Gas</a><a href="lubricants.html" data-i18n="nav.lubricants">Lubricants</a>
+  <a href="steel.html" data-i18n="nav.steelShort">Steel</a><a href="concrete.html" data-i18n="nav.concreteShort">Concrete</a><a href="logistics.html" data-i18n="nav.transportShort">Transport</a><a href="container-services.html" data-i18n="nav.containersShort">Containers</a>
+  <div class="mob-section" data-i18n="mob.network">Network</div>
+  <a href="africa-network.html" data-i18n="nav.africaMapShort">Africa Map</a><a href="station-locator.html" data-i18n="nav.stations">Station Locator</a><a href="fleet.html" data-i18n="nav.fleet">Our Fleet</a>
+  <div class="mob-section" data-i18n="mob.company">Company</div>
+  <a href="history.html" data-i18n="nav.historyShort">History</a><a href="leadership.html" data-i18n="nav.leadership">Leadership</a><a href="csr.html" data-i18n="nav.csrShort">CSR</a>
+  <a href="investors.html" data-i18n="nav.investorsShort">Investors</a><a href="projects.html" data-i18n="nav.projectsShort">Projects</a><a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+  <div class="mob-section" data-i18n="mob.more">More</div>
+  <a href="news.html" data-i18n="nav.news">News</a><a href="careers.html" data-i18n="nav.careers">Careers</a><a href="contact.html" data-i18n="footer.contact">Contact</a>
+</div>
+<div class="page-wrapper">
+<section class="page-hero">
+  <div class="page-hero-photo" style="background-image:url('assets/images/n-slider/5.jpg')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span>/</span><span data-i18n="africa_network.1">Africa Network</span></nav>
+    <div data-i18n="africa_network.2" class="eyebrow">Operations Map</div>
+    <h1 data-i18n="africa_network.3">Africa Operations Network</h1>
+    <p data-i18n="africa_network.4">Interactive map of Lake Group's presence across 8 countries in East and Central Africa, plus Dubai.</p>
+  </div>
+</section>
+
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <div data-i18n="africa_network.5" data-i18n-html="" class="marquee-item"><span class="marquee-sep"></span>Tanzania Headquarters</div>
+    <div data-i18n="africa_network.6" data-i18n-html="" class="marquee-item"><span class="marquee-sep"></span>Kenya · Zambia · Rwanda</div>
+    <div data-i18n="africa_network.7" data-i18n-html="" class="marquee-item"><span class="marquee-sep"></span>Burundi · DRC · Ethiopia</div>
+    <div data-i18n="africa_network.8" data-i18n-html="" class="marquee-item"><span class="marquee-sep"></span>Mozambique · Dubai UAE</div>
+    <div data-i18n="africa_network.9" data-i18n-html="" class="marquee-item"><span class="marquee-sep"></span>85+ Fuel Stations, Blue, White, Yellow &amp; Red</div>
+    <div data-i18n="africa_network.10" data-i18n-html="" class="marquee-item"><span class="marquee-sep"></span>700+ Trucks · 4,600+ Employees</div>
+    <div data-i18n="africa_network.11" data-i18n-html="" class="marquee-item"><span class="marquee-sep"></span>Tanzania Headquarters</div>
+    <div data-i18n="africa_network.12" data-i18n-html="" class="marquee-item"><span class="marquee-sep"></span>Kenya · Zambia · Rwanda</div>
+    <div data-i18n="africa_network.13" data-i18n-html="" class="marquee-item"><span class="marquee-sep"></span>Burundi · DRC · Ethiopia</div>
+    <div data-i18n="africa_network.14" data-i18n-html="" class="marquee-item"><span class="marquee-sep"></span>Mozambique · Dubai UAE</div>
+    <div data-i18n="africa_network.15" data-i18n-html="" class="marquee-item"><span class="marquee-sep"></span>85+ Fuel Stations, Blue, White, Yellow &amp; Red</div>
+    <div data-i18n="africa_network.16" data-i18n-html="" class="marquee-item"><span class="marquee-sep"></span>700+ Trucks · 4,600+ Employees</div>
+  </div>
+</div>
+
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="reveal" style="text-align:center"><div class="stat-number" data-count="8">8</div><div data-i18n="africa_network.17" class="stat-label" style="color:rgba(255,255,255,0.55)">African Countries</div></div>
+      <div class="reveal" style="text-align:center"><div class="stat-number" data-count="9">0</div><div data-i18n="africa_network.18" class="stat-label" style="color:rgba(255,255,255,0.55)">Territories incl. Dubai</div></div>
+      <div class="reveal" style="text-align:center"><div class="stat-number" data-count="20" data-suffix="+">20+</div><div data-i18n="africa_network.19" class="stat-label" style="color:rgba(255,255,255,0.55)">Subsidiaries</div></div>
+      <div class="reveal" style="text-align:center"><div class="stat-number" data-count="700" data-suffix="+">700+</div><div data-i18n="africa_network.20" class="stat-label" style="color:rgba(255,255,255,0.55)">Trucks on the Road</div></div>
+    </div>
+  </div>
+</div>
+
+<section class="network-intro">
+  <div class="container">
+    <div class="network-intro-inner reveal">
+      <div>
+        <div data-i18n="africa_network.21" class="section-label dark">Regional Presence</div>
+        <h2 data-i18n="africa_network.22" class="section-title">Spread Across Every Corner of East &amp; Central Africa</h2>
+        <div class="divider-yellow"></div>
+        <p data-i18n="africa_network.23">Lake Group is geographically spread across every region of Tanzania and neighbouring countries of Zambia, DRC, Burundi, Rwanda and Kenya, with operations in Ethiopia, Mozambique and a major premix plant in Dubai.</p>
+        <p data-i18n="africa_network.24" data-i18n-html="" style="margin-top:12px">Our petrol stations are instantly recognisable in <strong data-i18n="africa_network.25">eye-catching blue, white, yellow and red</strong>, the same bold Lake Group colours you'll see on the map below.</p>
+      </div>
+      <div>
+        <img src="assets/images/banner/LakeOil1.jpg" alt="Lake Group fuel station network" style="width:100%;border-radius:var(--radius-lg);object-fit:cover;aspect-ratio:16/10;display:block;box-shadow:var(--shadow-lg)" loading="lazy" decoding="async">
+        <div class="network-flag-strip">
+          <span class="country-tag"><img src="assets/images/flags/tz.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Tanzania HQ</span>
+          <span class="country-tag"><img src="assets/images/flags/ke.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Kenya</span>
+          <span class="country-tag"><img src="assets/images/flags/zm.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Zambia</span>
+          <span class="country-tag"><img src="assets/images/flags/rw.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Rwanda</span>
+          <span class="country-tag"><img src="assets/images/flags/bi.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Burundi</span>
+          <span class="country-tag"><img src="assets/images/flags/cd.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> DRC</span>
+          <span class="country-tag"><img src="assets/images/flags/et.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Ethiopia</span>
+          <span class="country-tag"><img src="assets/images/flags/mz.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Mozambique</span>
+          <span class="country-tag"><img src="assets/images/flags/ae.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Dubai</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
+<style>
+/* Full-width interactive map */
+.map-full-section { padding: 0 !important; margin: 0; position: relative; width: 100%; }
+.map-stage {
+  position: relative;
+  width: 100%;
+  height: min(82vh, 880px);
+  min-height: 520px;
+  background: #0a1628;
+  border-top: 4px solid var(--yellow);
+  box-shadow: 0 8px 48px rgba(29,62,168,0.2);
+}
+#lake-africa-map { width: 100%; height: 100%; z-index: 1; }
+#lake-africa-map .leaflet-container { width: 100%; height: 100%; background: #0a1628; font-family: Inter, sans-serif; }
+.map-sidebar {
+  position: absolute; top: 16px; left: 16px; z-index: 800;
+  width: min(340px, calc(100% - 32px));
+  max-height: calc(100% - 32px);
+  overflow-y: auto;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--yellow);
+  box-shadow: var(--shadow-lg);
+  padding: 18px;
+}
+.map-sidebar-title { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--blue); margin-bottom: 12px; }
+.ctry-list { display: flex; flex-direction: column; gap: 6px; }
+.ctry-card { padding: 10px 12px; border-radius: var(--radius-lg); border: 1.5px solid var(--border); border-left: 4px solid transparent; cursor: pointer; transition: all 0.18s; display: flex; align-items: center; gap: 12px; background: var(--white); position: relative; }
+.ctry-card:hover { border-color: var(--blue); background: rgba(29,62,168,0.04); }
+.ctry-card.sel { border-color: var(--blue); border-left-color: var(--yellow); background: linear-gradient(90deg, rgba(255,215,0,0.1) 0%, rgba(29,62,168,0.06) 100%); box-shadow: 0 4px 18px rgba(29,62,168,0.12); }
+.ctry-card.sel::after { content: ''; position: absolute; top: 8px; bottom: 8px; right: 0; width: 3px; background: var(--red); border-radius: 3px 0 0 3px; }
+.ctry-card .flag { display: flex; align-items: center; flex-shrink: 0; }
+.ctry-card h4 { font-size: 0.88rem; margin-bottom: 1px; }
+.ctry-card p { font-size: 0.72rem; }
+.ctry-detail { background: var(--offwhite); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 16px; margin-top: 12px; max-height: 220px; overflow-y: auto; }
+.ctry-detail h3 { margin-bottom: 10px; font-size: 1rem; }
+.sub-item { padding: 7px 11px 7px 14px; background: var(--white); border-radius: var(--radius); font-size: 0.8rem; font-weight: 500; margin-bottom: 5px; border: 1px solid var(--border); border-left: 3px solid var(--yellow); transition: border-left-color 0.15s, background 0.15s; }
+.sub-item:hover { border-left-color: var(--blue); background: var(--offwhite); }
+.map-legend {
+  position: absolute; bottom: 16px; left: 16px; z-index: 800;
+  background: rgba(14,31,90,0.92); backdrop-filter: blur(8px);
+  border-radius: var(--radius-lg); padding: 12px 14px;
+  border: 1px solid rgba(255,214,0,0.25);
+  max-width: calc(100% - 32px);
+}
+.map-legend-title { color: rgba(255,255,255,0.55); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; margin-bottom: 8px; }
+.map-legend-btns { display: flex; flex-wrap: wrap; gap: 6px; }
+.map-legend-btn {
+  padding: 5px 10px; border-radius: 100px; font-size: 0.72rem; font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.85); cursor: pointer; transition: all 0.15s;
+}
+.map-legend-btn:hover, .map-legend-btn.active { background: var(--yellow); color: var(--blue); border-color: var(--yellow); }
+.map-reset-btn {
+  padding: 5px 12px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+  border-radius: var(--radius); font-size: 0.72rem; font-weight: 600; color: #fff;
+  cursor: pointer;
+}
+.map-reset-btn:hover { background: var(--yellow); color: var(--blue); border-color: var(--yellow); }
+.map-hint { position: absolute; bottom: 16px; right: 16px; z-index: 800; color: rgba(255,255,255,0.7); font-size: 0.72rem; background: rgba(0,0,0,0.45); padding: 6px 12px; border-radius: var(--radius); pointer-events: none; }
+.country-label-tip {
+  background: rgba(14,31,90,0.82) !important; border: 1px solid rgba(255,255,255,0.35) !important;
+  color: #fff !important; font-family: Inter, sans-serif !important; font-size: 0.68rem !important;
+  font-weight: 600 !important; padding: 3px 8px !important; border-radius: 3px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35) !important; text-transform: uppercase; letter-spacing: 0.04em;
+}
+.country-label-tip--op {
+  background: rgba(29,62,168,0.92) !important; border-color: #FFD700 !important;
+  color: #FFD700 !important; font-weight: 700 !important;
+}
+.map-legend-btn { display: inline-flex; align-items: center; gap: 6px; }
+.map-legend-btn::before {
+  content: ''; width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0;
+  border: 1.5px solid rgba(255,255,255,0.7); background: #fff;
+}
+.map-legend-btn[data-filter="hq"]::before { background: #FFD700; }
+.map-legend-btn[data-filter="fuel"]::before { background: #CC1E1E; }
+.map-legend-btn[data-filter="port"]::before { background: #0ea5e9; }
+.map-legend-btn[data-filter="container"]::before { background: #E8820C; }
+.map-legend-btn[data-filter="industrial"]::before { background: #64748b; }
+.map-legend-btn[data-filter="logistics"]::before { background: #1D3EA8; }
+.map-legend-btn[data-filter="all"]::before { background: linear-gradient(135deg,#FFD700 25%,#CC1E1E 25% 50%,#0ea5e9 50% 75%,#1D3EA8 75%); }
+.lake-popup { font-family: Inter, sans-serif; min-width: 180px; }
+.lake-popup-type { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+.lake-popup-city { font-size: 0.78rem; color: #5A6478; margin: 4px 0 6px; }
+.lake-popup p { font-size: 0.8rem; margin: 0; color: #5A6478; line-height: 1.45; }
+.leaflet-control-layers { border-radius: var(--radius-lg) !important; box-shadow: var(--shadow-lg) !important; font-family: Inter, sans-serif !important; font-size: 0.82rem !important; }
+.leaflet-control-zoom { border: none !important; box-shadow: var(--shadow-lg) !important; border-radius: var(--radius-lg) !important; overflow: hidden; }
+.leaflet-control-zoom a { color: var(--blue) !important; font-weight: 700 !important; }
+@media(max-width:720px){
+  .map-stage { height: 70vh; min-height: 400px; }
+  .map-sidebar { width: calc(100% - 24px); left: 12px; top: 12px; max-height: 42%; padding: 12px; }
+  .map-legend { bottom: auto; top: calc(42% + 28px); left: 12px; right: 12px; max-width: none; }
+  .map-hint { display: none; }
+}
+</style>
+
+<section class="section map-full-section">
+  <div class="map-stage">
+    <div id="lake-africa-map" role="application" aria-label="Interactive satellite map of Lake Group Africa operations"></div>
+
+    <aside class="map-sidebar">
+      <div data-i18n="africa_network.26" class="map-sidebar-title">Select a Country</div>
+      <div>
+        <div class="ctry-list">
+          <div class="ctry-card sel" id="card-tz" onclick="selectCountry('tz',this)">
+            <span class="flag"><img src="assets/images/flags/tz.svg" alt="" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span>
+            <div><h4 data-i18n="africa_network.27">Tanzania</h4><p data-i18n="africa_network.28" style="color:var(--blue);font-weight:600">Headquarters · 10 subsidiaries</p></div>
+          </div>
+          <div class="ctry-card" id="card-ke" onclick="selectCountry('ke',this)">
+            <span class="flag"><img src="assets/images/flags/ke.svg" alt="" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h4 data-i18n="africa_network.29">Kenya</h4><p data-i18n="africa_network.30">4 subsidiaries</p></div>
+          </div>
+          <div class="ctry-card" id="card-zm" onclick="selectCountry('zm',this)">
+            <span class="flag"><img src="assets/images/flags/zm.svg" alt="" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h4 data-i18n="africa_network.31">Zambia</h4><p data-i18n="africa_network.32">5 subsidiaries</p></div>
+          </div>
+          <div class="ctry-card" id="card-rw" onclick="selectCountry('rw',this)">
+            <span class="flag"><img src="assets/images/flags/rw.svg" alt="" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h4 data-i18n="africa_network.33">Rwanda</h4><p data-i18n="africa_network.34">3 subsidiaries</p></div>
+          </div>
+          <div class="ctry-card" id="card-bi" onclick="selectCountry('bi',this)">
+            <span class="flag"><img src="assets/images/flags/bi.svg" alt="" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h4 data-i18n="africa_network.35">Burundi</h4><p data-i18n="africa_network.36">2 subsidiaries</p></div>
+          </div>
+          <div class="ctry-card" id="card-cd" onclick="selectCountry('cd',this)">
+            <span class="flag"><img src="assets/images/flags/cd.svg" alt="" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h4>DRC</h4><p data-i18n="africa_network.37">3 subsidiaries</p></div>
+          </div>
+          <div class="ctry-card" id="card-et" onclick="selectCountry('et',this)">
+            <span class="flag"><img src="assets/images/flags/et.svg" alt="" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h4 data-i18n="africa_network.38">Ethiopia</h4><p data-i18n="africa_network.39">1 subsidiary</p></div>
+          </div>
+          <div class="ctry-card" id="card-mz" onclick="selectCountry('mz',this)">
+            <span class="flag"><img src="assets/images/flags/mz.svg" alt="" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h4 data-i18n="africa_network.40">Mozambique</h4><p data-i18n="africa_network.41">2 subsidiaries</p></div>
+          </div>
+          <div class="ctry-card" id="card-ae" onclick="selectCountry('ae',this)">
+            <span class="flag"><img src="assets/images/flags/ae.svg" alt="" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h4 data-i18n="africa_network.42">Dubai, UAE</h4><p data-i18n="africa_network.43">1 subsidiary (MERM)</p></div>
+          </div>
+        </div>
+
+        <!-- Detail panel -->
+        <div class="ctry-detail reveal" id="detail-panel">
+          <div id="detail-tz">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><span class="flag"><img src="assets/images/flags/tz.svg" alt="" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h3 data-i18n="africa_network.44" style="margin-bottom:2px">Tanzania</h3><span data-i18n="africa_network.45" class="badge badge-yellow">Headquarters</span></div></div>
+            <div data-i18n="africa_network.46" class="sub-item">Lake Oil Ltd.: Petroleum Distribution</div>
+            <div data-i18n="africa_network.47" class="sub-item">Lake Trans Ltd.: Transport &amp; Haulage</div>
+            <div data-i18n="africa_network.48" class="sub-item">Lake Gas Ltd.: LPG Bottling &amp; Distribution</div>
+            <div data-i18n="africa_network.49" class="sub-item">Lake Lubes Ltd.: Lubricants Manufacturing</div>
+            <div data-i18n="africa_network.50" class="sub-item">Lake Steel Ltd.: HS-CR Steel Rolling Mill</div>
+            <div data-i18n="africa_network.51" class="sub-item">GCCP Co. Ltd.: Ready-Mix Concrete</div>
+            <div data-i18n="africa_network.52" class="sub-item">AFICD: African Inland Container Depot</div>
+            <div data-i18n="africa_network.53" class="sub-item">ACFS: Container Freight Station</div>
+            <div data-i18n="africa_network.54" class="sub-item">SAFF: Freight Forwarding & Shipping</div>
+            <div data-i18n="africa_network.55" class="sub-item">Gulf Aggregate: Stone Crushing</div>
+          </div>
+          <div id="detail-ke" style="display:none">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><span class="flag"><img src="assets/images/flags/ke.svg" alt="" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h3 data-i18n="africa_network.56" style="margin-bottom:2px">Kenya</h3><span data-i18n="africa_network.57" class="badge badge-yellow">4 Subsidiaries</span></div></div>
+            <div data-i18n="africa_network.58" class="sub-item">Lake Oil Ltd.: Petroleum Distribution</div>
+            <div data-i18n="africa_network.59" class="sub-item">Lake Trans Ltd.: Transport &amp; Haulage</div>
+            <div data-i18n="africa_network.60" class="sub-item">Lake Gas Ltd.: LPG Distribution</div>
+            <div data-i18n="africa_network.61" class="sub-item">Lake Lubes Ltd.: Lubricants</div>
+          </div>
+          <div id="detail-zm" style="display:none">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><span class="flag"><img src="assets/images/flags/zm.svg" alt="" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h3 data-i18n="africa_network.62" style="margin-bottom:2px">Zambia</h3><span data-i18n="africa_network.63" class="badge badge-yellow">5 Subsidiaries</span></div></div>
+            <div data-i18n="africa_network.64" class="sub-item">Lake Petroleum Ltd.</div>
+            <div data-i18n="africa_network.65" class="sub-item">Lake Trans Ltd.</div>
+            <div data-i18n="africa_network.66" class="sub-item">Lake Gas Ltd.</div>
+            <div data-i18n="africa_network.67" class="sub-item">Lake Lubes Ltd.</div>
+            <div data-i18n="africa_network.68" class="sub-item">AFICD: Inland Container Depot</div>
+          </div>
+          <div id="detail-rw" style="display:none">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><span class="flag"><img src="assets/images/flags/rw.svg" alt="" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h3 data-i18n="africa_network.69" style="margin-bottom:2px">Rwanda</h3><span data-i18n="africa_network.70" class="badge badge-yellow">3 Subsidiaries</span></div></div>
+            <div data-i18n="africa_network.71" class="sub-item">Lake Petroleum Ltd.</div><div data-i18n="africa_network.72" class="sub-item">Lake Gas Ltd.</div><div data-i18n="africa_network.73" class="sub-item">Lake Lubes Ltd.</div>
+          </div>
+          <div id="detail-bi" style="display:none">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><span class="flag"><img src="assets/images/flags/bi.svg" alt="" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h3 data-i18n="africa_network.74" style="margin-bottom:2px">Burundi</h3><span data-i18n="africa_network.75" class="badge badge-yellow">2 Subsidiaries</span></div></div>
+            <div data-i18n="africa_network.76" class="sub-item">Burundi Petroleum Ltd.</div><div data-i18n="africa_network.77" class="sub-item">Lake Gas Ltd.</div>
+          </div>
+          <div id="detail-cd" style="display:none">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><span class="flag"><img src="assets/images/flags/cd.svg" alt="" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h3 style="margin-bottom:2px">DRC</h3><span data-i18n="africa_network.78" class="badge badge-yellow">3 Subsidiaries</span></div></div>
+            <div data-i18n="africa_network.79" class="sub-item">DRC Petroleum Ltd.</div><div data-i18n="africa_network.80" class="sub-item">Lake Gas Ltd.</div><div data-i18n="africa_network.81" class="sub-item">Lake Lubes Ltd.</div>
+          </div>
+          <div id="detail-et" style="display:none">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><span class="flag"><img src="assets/images/flags/et.svg" alt="" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h3 data-i18n="africa_network.82" style="margin-bottom:2px">Ethiopia</h3><span data-i18n="africa_network.83" class="badge badge-yellow">1 Subsidiary</span></div></div>
+            <div data-i18n="africa_network.84" class="sub-item">Wadi Elsundus Petroleum Co.</div>
+          </div>
+          <div id="detail-mz" style="display:none">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><span class="flag"><img src="assets/images/flags/mz.svg" alt="" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h3 data-i18n="africa_network.85" style="margin-bottom:2px">Mozambique</h3><span data-i18n="africa_network.86" class="badge badge-yellow">2 Subsidiaries</span></div></div>
+            <div data-i18n="africa_network.87" class="sub-item">Lake Oil LDA</div><div data-i18n="africa_network.88" class="sub-item">AFICD: Inland Container Depot</div>
+          </div>
+          <div id="detail-ae" style="display:none">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><span class="flag"><img src="assets/images/flags/ae.svg" alt="" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h3 data-i18n="africa_network.89" style="margin-bottom:2px">Dubai, UAE</h3><span data-i18n="africa_network.90" class="badge badge-yellow">1 Subsidiary</span></div></div>
+            <div data-i18n="africa_network.91" class="sub-item">MERM: Middle East Ready Mix LLC</div>
+            <p data-i18n="africa_network.92" style="font-size:0.82rem;margin-top:10px;color:var(--muted)">One of Lake Group's largest premix concrete operations, serving major construction projects in Dubai.</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="map-legend">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;flex-wrap:wrap">
+        <div data-i18n="africa_network.93" class="map-legend-title" style="margin:0">Infrastructure Layers</div>
+        <button data-i18n="africa_network.94" type="button" class="map-reset-btn" id="map-reset-btn" style="position:static">⟲ East Africa</button>
+      </div>
+      <div class="map-legend-btns">
+        <button data-i18n="africa_network.95" type="button" class="map-legend-btn active" data-filter="all">All</button>
+        <button type="button" class="map-legend-btn" data-filter="hq">HQ</button>
+        <button data-i18n="africa_network.96" type="button" class="map-legend-btn" data-filter="fuel">Fuel</button>
+        <button data-i18n="africa_network.97" type="button" class="map-legend-btn" data-filter="port">Ports</button>
+        <button data-i18n="africa_network.98" type="button" class="map-legend-btn" data-filter="container">Containers</button>
+        <button data-i18n="africa_network.99" type="button" class="map-legend-btn" data-filter="industrial">Industrial</button>
+        <button data-i18n="africa_network.100" type="button" class="map-legend-btn" data-filter="logistics">Logistics</button>
+      </div>
+    </div>
+    <div data-i18n="africa_network.101" class="map-hint">Country borders shown in white · Lake Group nations in gold · Colored dots = infrastructure</div>
+  </div>
+</section>
+
+<section class="section section-offwhite">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:40px">
+      <div data-i18n="africa_network.102" class="section-label" style="justify-content:center">Our Values</div>
+      <h2 data-i18n="africa_network.103" class="section-title">Why Lake Group Stands Out Across Africa</h2>
+      <p data-i18n="africa_network.104" class="section-subtitle" style="margin:12px auto 0">The same principles that power our homepage, quality, service, safety and professionalism, guide every market we operate in.</p>
+    </div>
+    <div class="pillar-grid">
+      <div class="pillar-card reveal">
+        <div class="pillar-num">01</div>
+        <h3 data-i18n="africa_network.105">Quality</h3>
+        <p data-i18n="africa_network.106">No compromise on quality, from fuel and LPG to steel, lubricants and ready-mix concrete.</p>
+      </div>
+      <div class="pillar-card reveal">
+        <div class="pillar-num">02</div>
+        <h3 data-i18n="africa_network.107">Service</h3>
+        <p data-i18n="africa_network.108">Highest service standards and consistent supply of fuel and customer care in every territory.</p>
+          </div>
+      <div class="pillar-card reveal">
+        <div class="pillar-num">03</div>
+        <h3 data-i18n="africa_network.109">Safety</h3>
+        <p data-i18n="africa_network.110">Safety is first in all we do, across depots, haulage fleets, LPG terminals and construction sites.</p>
+        </div>
+      <div class="pillar-card reveal">
+        <div class="pillar-num">04</div>
+        <h3 data-i18n="africa_network.111">Professionalism</h3>
+        <p data-i18n="africa_network.112">Professionalism is the culture we cherish, 4,600+ staff from 21 nationalities, one team.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-sm" style="background:var(--blue);padding:56px 0;border-top:3px solid var(--yellow)">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:28px">
+      <div data-i18n="africa_network.113" class="section-label" style="justify-content:center">Network in Action</div>
+      <h2 data-i18n="africa_network.114" class="section-title" style="color:var(--white)">Operations Across the Continent</h2>
+      <p data-i18n="africa_network.115" style="color:rgba(255,255,255,0.65);max-width:560px;margin:10px auto 0">Fuel depots, LPG terminals, truck fleets, container depots and concrete plants, all connected through our Africa network.</p>
+    </div>
+    <div class="photo-feature reveal">
+      <img src="assets/images/banner/LakeOil.jpg" alt="Lake Oil petroleum operations" loading="lazy" decoding="async">
+      <img src="assets/images/banner/LakeGas.jpg" alt="Lake Gas LPG terminal" loading="lazy" decoding="async">
+      <img src="assets/images/banner/LakeTrans.jpg" alt="Lake Trans truck fleet" loading="lazy" decoding="async">
+    </div>
+    <div class="photo-feature reveal" style="margin-top:4px">
+      <img src="assets/images/banner/AFICD.jpg" alt="African Inland Container Depot" loading="lazy" decoding="async">
+      <img src="assets/images/gccp/photo_1.jpg" alt="GCCP concrete plant" loading="lazy" decoding="async">
+      <img src="assets/images/n-slider/8.jpg" alt="Lake Group regional operations" loading="lazy" decoding="async">
+    </div>
+    <div style="text-align:center;margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a data-i18n="africa_network.116" href="gallery.html" class="btn btn-primary">View Gallery</a>
+      <a data-i18n="africa_network.117" href="station-locator.html" class="btn btn-outline">Find a Station</a>
+    </div>
+  </div>
+</section>
+
+<script src="assets/vendor/leaflet/leaflet.js"></script>
+<script src="assets/data_countries_africa.js"></script>
+<script src="assets/africa-network-map.js"></script>
+<script>
+const countries = ['tz','ke','zm','rw','bi','cd','et','mz','ae'];
+
+window.selectCountry = function selectCountry(id, cardEl) {
+  document.querySelectorAll('.ctry-card').forEach(c => c.classList.remove('sel'));
+  if (cardEl) cardEl.classList.add('sel');
+  else {
+    const card = document.getElementById('card-' + id);
+    if (card) card.classList.add('sel');
+  }
+  countries.forEach(k => {
+    const d = document.getElementById('detail-' + k);
+    if (d) d.style.display = k === id ? 'block' : 'none';
+  });
+  if (window.LakeAfricaMap) window.LakeAfricaMap.flyToCountry(id);
+  if (window.innerWidth < 720) {
+    document.getElementById('detail-panel')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  selectCountry('tz', document.getElementById('card-tz'));
+});
+</script>
+
+</div>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group">
+        </div>
+        <p class="footer-motto" style="color:var(--yellow);font-weight:600;font-size:0.95rem;letter-spacing:0.04em" data-i18n="footer.motto">Quality, Service, Safety, Professionalism</p>
+        <div class="footer-social">
+          <a data-i18n="africa_network.118" href="https://www.linkedin.com/company/lake-oil" class="social-link" target="_blank" rel="noopener">LinkedIn</a>
+          <a data-i18n="africa_network.119" href="https://www.facebook.com/lakeoilgroup" class="social-link" target="_blank" rel="noopener">Facebook</a>
+          <a data-i18n="africa_network.120" href="https://twitter.com/lakeoilgroup" class="social-link" target="_blank" rel="noopener">X / Twitter</a>
+          <a data-i18n="africa_network.121" href="https://www.youtube.com/@lakeoilgroup" class="social-link" target="_blank" rel="noopener">YouTube</a>
+        </div>
+        <div style="margin-top:20px;display:flex;gap:10px">
+          <a href="contact.html" class="btn btn-outline btn-sm" data-i18n="footer.contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-col"><h5 data-i18n="footer.services">Services</h5><ul>
+        <li><a href="fuel.html" data-i18n="nav.fuel">Fuel &amp; Petroleum</a></li><li><a href="lpg.html" data-i18n="nav.lpg">LPG Gas</a></li>
+        <li><a href="lubricants.html" data-i18n="nav.lubricants">Lubricants</a></li><li><a href="steel.html" data-i18n="nav.steel">Lake Steel</a></li>
+        <li><a href="concrete.html" data-i18n="nav.concreteShort">Concrete</a></li><li><a href="logistics.html" data-i18n="nav.transportShort">Transport</a></li>
+        <li><a href="container-services.html" data-i18n="nav.containers">Container Services</a></li>
+      </ul></div>
+      <div class="footer-col"><h5 data-i18n="footer.company">Company</h5><ul>
+        <li><a href="about.html" data-i18n="nav.aboutUs">About Us</a></li><li><a href="history.html" data-i18n="nav.historyShort">History</a></li>
+        <li><a href="leadership.html" data-i18n="nav.leadership">Leadership</a></li><li><a href="csr.html" data-i18n="nav.csrShort">CSR</a></li>
+        <li><a href="investors.html" data-i18n="nav.investorsShort">Investors</a></li><li><a href="projects.html" data-i18n="nav.projectsShort">Projects</a></li>
+        <li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
+      </ul></div>
+      <div class="footer-col"><h5 data-i18n="footer.contactHeading">Contact</h5><ul>
+        <li><a href="#" data-i18n="footer.address">Plot 49, Mikocheni Light Industrial, Dar es Salaam</a></li>
+        <li><a href="tel:+255222780510">+255 222 780 510</a></li>
+        <li><a href="tel:+255222780479">+255 222 780 479</a></li>
+        <li><a data-i18n="africa_network.122" href="mailto:admin@lakeoilgroup.com">admin@lakeoilgroup.com</a></li>
+      </ul>
+      <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:5px">
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/tz.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> TZ</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/ke.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> KE</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/zm.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> ZM</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/rw.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> RW</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/bi.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> BI</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/cd.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> DRC</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/et.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> ET</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/mz.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> MZ</span>
+      </div></div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="africa_network.123" data-i18n-html="">&copy; 2026 Lake Group. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <div class="footer-bottom-links"><a href="#" data-i18n="footer.privacy">Privacy</a><a href="#" data-i18n="footer.terms">Terms</a><a href="contact.html" data-i18n="footer.contact">Contact</a></div>
+    </div>
+  </div>
+</footer>
+<div id="chat-widget">
+  <div id="chat-box">
+    <div id="chat-head"><h4 data-i18n="chat.title">Lake Group Assistant</h4><p data-i18n="chat.sub">Ask us anything</p></div>
+    <div id="chat-messages"><div class="msg msg-bot" data-i18n="chat.hello">Hello! How can I help you today?</div></div>
+    <div id="chat-input-row"><input type="text" id="chat-input" placeholder="Type a message..." data-i18n-placeholder="chat.placeholder" aria-label="Type a message..." data-i18n-aria="chat.placeholder"><button id="chat-send" data-i18n="chat.send">Send</button></div>
+  </div>
+  <button id="chat-btn" aria-label="Chat"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></button>
+</div>
+<script src="assets/i18n-content.js" defer></script>
+<script src="assets/i18n.js" defer></script>
+<script src="assets/site.js" defer></script>
+<script src="assets/pwa.js" defer></script>
+<script src="assets/motion.js" defer></script>
+</body></html>

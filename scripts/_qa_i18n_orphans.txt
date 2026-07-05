@@ -1,0 +1,12 @@
+chat.reply.default
+chat.reply.fuel
+chat.reply.lpg
+chat.reply.truck
+chat.reply.contact
+chat.reply.station
+chat.reply.careers
+chat.reply.steel
+chat.reply.concrete
+chat.reply.hello
+chat.reply.hi
+about.34

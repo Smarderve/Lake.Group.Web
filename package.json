@@ -1,0 +1,11 @@
+{
+  "name": "lake-group-website",
+  "private": true,
+  "scripts": {
+    "serve": "npx firebase emulators:start --only hosting",
+    "deploy": "npx firebase deploy --only hosting"
+  },
+  "devDependencies": {
+    "firebase-tools": "^13.35.1"
+  }
+}

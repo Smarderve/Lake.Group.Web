@@ -1,0 +1,35 @@
+== Head/script matrix ==
+ 404.html: FAIL[i18nContent,i18nJs,i18nOrder,canonical,metaDesc]
+ about.html: ok
+ africa-network.html: ok
+ careers.html: ok
+ concrete.html: ok
+ contact.html: ok
+ container-services.html: ok
+ csr.html: ok
+ dashboard.html: ok
+ fleet.html: ok
+ fuel.html: ok
+ gallery.html: ok
+ history.html: ok
+ index.html: ok
+ investors.html: ok
+ leadership.html: ok
+ logistics.html: ok
+ lpg.html: ok
+ lubricants.html: ok
+ media-center.html: ok
+ news-article.html: ok
+ news.html: ok
+ offline.html: FAIL[i18nContent,i18nJs,i18nOrder,metaDesc]
+ our-story.html: ok
+ projects.html: ok
+ services.html: ok
+ station-locator.html: ok
+ steel.html: ok
+ sustainability.html: ok
+
+== Duplicate canonicals ==
+== Duplicate meta descriptions ==
+
+== A11y findings (0) ==

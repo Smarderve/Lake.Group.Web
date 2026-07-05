@@ -1,0 +1,2928 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="description"
+    content="Lake Group — East and Central Africa's fastest-growing energy, logistics and industrial conglomerate. Fuel, LPG, steel, concrete and transport across 8 countries." />
+  <meta property="og:title" content="Lake Group | Powering East &amp; Central Africa" />
+  <meta property="og:description"
+    content="4,600+ employees, 700+ trucks, 85+ fuel stations across Tanzania, Kenya, Zambia, Rwanda, Burundi, DRC, Ethiopia and Mozambique." />
+  <meta property="og:image" content="assets/images/og-cover.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://www.lakeoilgroup.com/index.html" />
+  <link rel="icon" href="favicon.ico" sizes="32x32" />
+  <link rel="icon" href="assets/icons/pwa/icon-192.png" type="image/png" sizes="192x192" />
+  <title>Lake Group | Powering East &amp; Central Africa</title>
+  <meta name="theme-color" content="#1D3EA8" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="assets/icons/pwa/apple-touch-icon.png" />
+  <link rel="preload" href="assets/fonts/files/bebas-neue-latin-400-normal.woff2" as="font" type="font/woff2"
+    crossorigin />
+  <link rel="preload" href="assets/fonts/files/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/files/inter-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <style>
+    @import url("assets/fonts/fonts.css");
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --blue: #1d3ea8;
+      --blue2: #162e7f;
+      --blue3: #0e1f5a;
+      --yellow: #ffd700;
+      --yellow2: #ffc200;
+      --yellow3: #e6af00;
+      --red: #cc1e1e;
+      --white: #ffffff;
+      --offwhite: #f7f8fc;
+      --light: #eff2fb;
+      --text: #0e1f5a;
+      --muted: #5a6478;
+      --border: rgba(29, 62, 168, 0.12);
+      --nav-h: 72px;
+      --radius: 4px;
+      --radius-lg: 10px;
+      --shadow: 0 2px 16px rgba(29, 62, 168, 0.1);
+      --shadow-lg: 0 8px 48px rgba(29, 62, 168, 0.18);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    strong {
+      color: var(--text);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 96px 0;
+    }
+
+    .section-sm {
+      padding: 64px 0;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 960px) {
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* NAV */
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: var(--nav-h);
+      background: var(--blue);
+      border-bottom: 3px solid var(--yellow);
+    }
+
+    .nav-inner {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      list-style: none;
+      margin-left: auto;
+    }
+
+    .nav-links>li {
+      position: relative;
+    }
+
+    .nav-links>li>a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 9px 13px;
+      border-radius: var(--radius);
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.86rem;
+      font-weight: 500;
+      transition:
+        color 0.2s,
+        background 0.2s;
+    }
+
+    .nav-links>li>a:hover,
+    .nav-links>li>a.active {
+      color: var(--yellow);
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .has-dropdown:hover .nav-dropdown {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .nav-dropdown {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      background: var(--blue2);
+      border: 1px solid rgba(255, 214, 0, 0.2);
+      border-top: 2px solid var(--yellow);
+      border-radius: var(--radius-lg);
+      padding: 8px;
+      min-width: 220px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-6px);
+      transition: all 0.2s;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .nav-dropdown a {
+      display: block;
+      padding: 9px 14px;
+      border-radius: var(--radius);
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.84rem;
+      transition:
+        background 0.15s,
+        color 0.15s;
+    }
+
+    .nav-dropdown a:hover {
+      background: rgba(255, 214, 0, 0.12);
+      color: var(--yellow);
+    }
+
+    .dd-label {
+      padding: 10px 14px 3px;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.3);
+      font-weight: 700;
+    }
+
+    .nav-cta {
+      margin-left: 12px;
+      padding: 9px 18px !important;
+      background: var(--yellow) !important;
+      color: var(--blue) !important;
+      border-radius: var(--radius) !important;
+      font-weight: 700 !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--yellow2) !important;
+    }
+
+    .nav-toggle {
+      display: none;
+      margin-left: auto;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+    }
+
+    @media (max-width: 1060px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+    }
+
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      right: 0;
+      background: var(--blue2);
+      padding: 14px;
+      flex-direction: column;
+      gap: 3px;
+      z-index: 999;
+      max-height: calc(100vh - var(--nav-h));
+      overflow-y: auto;
+      border-bottom: 2px solid var(--yellow);
+    }
+
+    .nav-mobile a {
+      display: block;
+      padding: 11px 16px;
+      color: rgba(255, 255, 255, 0.85);
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+    }
+
+    .nav-mobile a:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--yellow);
+    }
+
+    .mob-section {
+      padding: 10px 16px 3px;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      font-weight: 700;
+    }
+
+    /* PAGE HERO */
+    .page-hero {
+      background: var(--blue);
+      padding: 140px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse 60% 60% at 80% 50%,
+          rgba(255, 214, 0, 0.08) 0%,
+          transparent 65%);
+    }
+
+    .page-hero .eyebrow {
+      display: inline-block;
+      padding: 4px 14px;
+      border: 1px solid var(--yellow);
+      color: var(--yellow);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      border-radius: 2px;
+      margin-bottom: 14px;
+    }
+
+    .page-hero h1 {
+      color: var(--white);
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      letter-spacing: 0.03em;
+      margin-bottom: 14px;
+    }
+
+    .page-hero p {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 1.05rem;
+      max-width: 560px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .breadcrumb a {
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 0.8rem;
+    }
+
+    .breadcrumb a:hover {
+      color: var(--yellow);
+    }
+
+    .breadcrumb span {
+      color: rgba(255, 255, 255, 0.25);
+      font-size: 0.8rem;
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 26px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+      font-family: "Inter", sans-serif;
+    }
+
+    .btn-primary {
+      background: var(--yellow);
+      color: var(--blue);
+    }
+
+    .btn-primary:hover {
+      background: var(--yellow2);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(255, 214, 0, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--yellow);
+      color: var(--yellow);
+    }
+
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--blue);
+      border: 1.5px solid var(--blue);
+    }
+
+    .btn-outline-dark:hover {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .btn-sm {
+      padding: 8px 18px;
+      font-size: 0.82rem;
+    }
+
+    .btn-lg {
+      padding: 15px 34px;
+      font-size: 1rem;
+    }
+
+    .btn-blue {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .btn-blue:hover {
+      background: var(--blue2);
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--blue);
+    }
+
+    .btn-white:hover {
+      background: var(--offwhite);
+    }
+
+    /* CARDS */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition:
+        box-shadow 0.2s,
+        transform 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+    }
+
+    .card-body {
+      padding: 28px;
+    }
+
+    /* SECTION LABELS */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.73rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--yellow3);
+      margin-bottom: 12px;
+    }
+
+    .section-label::before {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--yellow);
+    }
+
+    .section-label.dark {
+      color: var(--blue);
+    }
+
+    .section-label.dark::before {
+      background: var(--blue);
+    }
+
+    .section-title {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .section-subtitle {
+      font-size: 1.02rem;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* STAT */
+    .stat-number {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      color: var(--yellow);
+      letter-spacing: 0.02em;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 500;
+      margin-top: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* DIVIDER */
+    .divider-yellow {
+      width: 44px;
+      height: 3px;
+      background: var(--yellow);
+      margin: 16px 0;
+      border-radius: 2px;
+    }
+
+    /* DARK SECTION */
+    .section-dark {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .section-dark h2,
+    .section-dark h3,
+    .section-dark h4 {
+      color: var(--white);
+    }
+
+    .section-dark p {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .section-dark .section-label {
+      color: var(--yellow);
+    }
+
+    .section-dark .section-label::before {
+      background: var(--yellow);
+    }
+
+    .section-light {
+      background: var(--light);
+    }
+
+    .section-offwhite {
+      background: var(--offwhite);
+    }
+
+    /* TABS */
+    .tab-nav {
+      display: flex;
+      gap: 3px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 36px;
+      overflow-x: auto;
+    }
+
+    .tab-nav button {
+      padding: 11px 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: "Inter", sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--muted);
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      white-space: nowrap;
+      transition:
+        color 0.2s,
+        border-color 0.2s;
+    }
+
+    .tab-nav button.active {
+      color: var(--blue);
+      border-bottom-color: var(--yellow);
+    }
+
+    .tab-pane {
+      display: none;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    /* FORM */
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 15px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      font-family: "Inter", sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      background: var(--white);
+      transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(29, 62, 168, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* BADGE */
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-yellow {
+      background: rgba(255, 214, 0, 0.18);
+      color: var(--blue);
+    }
+
+    .badge-blue {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .badge-green {
+      background: rgba(22, 163, 74, 0.1);
+      color: #16a34a;
+    }
+
+    .badge-red {
+      background: rgba(204, 30, 30, 0.1);
+      color: var(--red);
+    }
+
+    /* TIMELINE */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 36px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -26px;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--yellow);
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 2px var(--yellow);
+    }
+
+    .timeline-year {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--yellow3);
+      letter-spacing: 0.08em;
+      margin-bottom: 3px;
+    }
+
+    /* COUNTRY TAG */
+    .flag-icon {
+      width: 18px;
+      height: 13px;
+      object-fit: cover;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .flag-icon-lg {
+      width: 28px;
+      height: 20px;
+      object-fit: cover;
+      border-radius: 3px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .country-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 9px;
+      background: rgba(29, 62, 168, 0.08);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--blue);
+    }
+
+    /* PHOTO CARD */
+    .photo-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--light);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+
+    .photo-card:hover img {
+      transform: scale(1.04);
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: var(--blue3);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 72px 0 0;
+      border-top: 3px solid var(--yellow);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 52px;
+    }
+
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer-brand p {
+      font-size: 0.88rem;
+      margin-top: 14px;
+      line-height: 1.7;
+      max-width: 300px;
+    }
+
+    .footer-logo img {
+      height: 44px;
+      width: auto;
+    }
+
+    .footer-col h5 {
+      color: var(--yellow);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .footer-col ul a {
+      font-size: 0.86rem;
+      color: rgba(255, 255, 255, 0.6);
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover {
+      color: var(--yellow);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 22px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-bottom p {
+      font-size: 0.8rem;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 18px;
+    }
+
+    .footer-bottom-links a {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--white);
+    }
+
+    /* TRACK STATUS */
+    .track-status {
+      display: flex;
+      gap: 0;
+      margin: 28px 0;
+    }
+
+    .track-step {
+      flex: 1;
+      text-align: center;
+      position: relative;
+    }
+
+    .track-step::before {
+      content: "";
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      right: -50%;
+      height: 2px;
+      background: var(--border);
+      z-index: 0;
+    }
+
+    .track-step:last-child::before {
+      display: none;
+    }
+
+    .track-step .dot {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--offwhite);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+    }
+
+    .track-step.done .dot {
+      background: var(--yellow);
+      border-color: var(--yellow);
+      color: var(--blue);
+    }
+
+    .track-step.active .dot {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: var(--white);
+    }
+
+    .track-step.done::before {
+      background: var(--yellow);
+    }
+
+    .track-step p {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .track-step.active p {
+      color: var(--blue);
+      font-weight: 600;
+    }
+
+    /* ALERT */
+    .alert {
+      padding: 15px 18px;
+      border-radius: var(--radius);
+      border-left: 3px solid;
+      margin-bottom: 18px;
+      font-size: 0.88rem;
+    }
+
+    .alert-success {
+      background: rgba(22, 163, 74, 0.07);
+      border-color: #16a34a;
+      color: #166534;
+    }
+
+    .alert-info {
+      background: rgba(29, 62, 168, 0.06);
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition:
+        opacity 0.55s,
+        transform 0.55s;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* PAGE WRAPPER */
+    .page-wrapper {
+      padding-top: var(--nav-h);
+    }
+
+    /* CHAT WIDGET */
+    #chat-widget {
+      position: fixed;
+      bottom: 26px;
+      right: 26px;
+      z-index: 9999;
+    }
+
+    #chat-btn {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--yellow);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 18px rgba(255, 214, 0, 0.5);
+      transition: transform 0.2s;
+    }
+
+    #chat-btn:hover {
+      transform: scale(1.08);
+    }
+
+    #chat-btn svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: var(--blue);
+      stroke-width: 2.2;
+    }
+
+    #chat-box {
+      position: absolute;
+      bottom: 66px;
+      right: 0;
+      width: 310px;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border);
+      display: none;
+      overflow: hidden;
+    }
+
+    #chat-box.open {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #chat-head {
+      background: var(--blue);
+      padding: 14px 18px;
+      border-bottom: 2px solid var(--yellow);
+    }
+
+    #chat-head h4 {
+      color: var(--white);
+      font-size: 0.92rem;
+    }
+
+    #chat-head p {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.75rem;
+    }
+
+    #chat-messages {
+      padding: 14px;
+      flex: 1;
+      max-height: 250px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .msg {
+      padding: 9px 13px;
+      border-radius: 8px;
+      font-size: 0.83rem;
+      max-width: 88%;
+    }
+
+    .msg-bot {
+      background: var(--light);
+      color: var(--text);
+      align-self: flex-start;
+    }
+
+    .msg-user {
+      background: var(--blue);
+      color: var(--white);
+      align-self: flex-end;
+    }
+
+    #chat-input-row {
+      display: flex;
+      border-top: 1px solid var(--border);
+    }
+
+    #chat-input {
+      flex: 1;
+      padding: 11px 14px;
+      border: none;
+      font-family: "Inter", sans-serif;
+      font-size: 0.86rem;
+      outline: none;
+    }
+
+    #chat-send {
+      padding: 11px 14px;
+      background: var(--yellow);
+      border: none;
+      cursor: pointer;
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    /* UTILS */
+    .text-yellow {
+      color: var(--yellow);
+    }
+
+    .text-blue {
+      color: var(--blue);
+    }
+
+    .text-muted {
+      color: var(--muted);
+    }
+
+    .text-white {
+      color: var(--white);
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .mt-8 {
+      margin-top: 8px;
+    }
+
+    .mt-16 {
+      margin-top: 16px;
+    }
+
+    .mt-24 {
+      margin-top: 24px;
+    }
+
+    .mt-32 {
+      margin-top: 32px;
+    }
+
+    .mt-48 {
+      margin-top: 48px;
+    }
+
+    .mb-8 {
+      margin-bottom: 8px;
+    }
+
+    .mb-16 {
+      margin-bottom: 16px;
+    }
+
+    .mb-24 {
+      margin-bottom: 24px;
+    }
+
+    .mb-32 {
+      margin-bottom: 32px;
+    }
+
+    .fw-600 {
+      font-weight: 600;
+    }
+
+    .fw-700 {
+      font-weight: 700;
+    }
+
+    .d-flex {
+      display: flex;
+    }
+
+    .align-center {
+      align-items: center;
+    }
+
+    .gap-12 {
+      gap: 12px;
+    }
+
+    .gap-16 {
+      gap: 16px;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: var(--blue);
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg,
+          var(--blue3) 0%,
+          var(--blue2) 50%,
+          var(--blue) 100%);
+    }
+
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      background-image: url("assets/images/banner/LakeOil.jpg");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.18;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg,
+          rgba(14, 31, 90, 0.95) 0%,
+          rgba(14, 31, 90, 0.6) 60%,
+          rgba(14, 31, 90, 0.2) 100%);
+    }
+
+    .hero-accent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--yellow);
+      z-index: 3;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 130px 24px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      width: 100%;
+    }
+
+    @media (max-width: 860px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-right {
+        display: none;
+      }
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .hero-eyebrow::before {
+      content: "";
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--yellow);
+    }
+
+    .hero-eyebrow span {
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--yellow);
+    }
+
+    .hero h1 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(3.5rem, 6vw, 5.8rem);
+      color: var(--white);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      margin-bottom: 6px;
+    }
+
+    .hero h1 em {
+      color: var(--yellow);
+      font-style: normal;
+      display: block;
+    }
+
+    .hero-sub {
+      font-size: 1.08rem;
+      color: rgba(255, 255, 255, 0.65);
+      margin: 20px 0 34px;
+      max-width: 460px;
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 28px;
+      margin-top: 44px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      flex-wrap: wrap;
+    }
+
+    .hero-stat-num {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 2.2rem;
+      color: var(--yellow);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.45);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 2px;
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .hero-photo-grid img {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-photo-grid img:first-child {
+      grid-column: span 2;
+      height: 200px;
+    }
+
+    .hero-photo-grid img:last-child,
+    .hero-photo-grid img:nth-child(2) {
+      height: 130px;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+
+    /* 3D EXPERIENCE SECTION */
+    .experience-3d {
+      background: var(--blue3);
+      padding: 0;
+      border-top: 3px solid var(--yellow);
+      border-bottom: 3px solid var(--yellow);
+      overflow: hidden;
+    }
+
+    .experience-3d-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      min-height: 520px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 960px) {
+      .experience-3d-grid {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+    }
+
+    .experience-3d-copy {
+      padding: 72px 48px 72px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (max-width: 960px) {
+      .experience-3d-copy {
+        padding: 56px 24px 32px;
+      }
+    }
+
+    .experience-3d-copy .section-label {
+      color: var(--yellow);
+      margin-bottom: 12px;
+    }
+
+    .experience-3d-copy h2 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      color: var(--white);
+      letter-spacing: 0.03em;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .experience-3d-copy h2 span {
+      color: var(--yellow);
+    }
+
+    .experience-3d-copy>p {
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 1rem;
+      line-height: 1.75;
+      max-width: 420px;
+      margin-bottom: 24px;
+    }
+
+    .experience-steps {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+
+    .experience-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 12px;
+      margin: 0 -12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      border-radius: 6px;
+      transition:
+        background 0.5s,
+        opacity 0.5s;
+      opacity: 0.6;
+    }
+
+    .experience-steps li.is-active {
+      background: rgba(255, 214, 0, 0.07);
+      opacity: 1;
+    }
+
+    .experience-steps li:last-child {
+      border-bottom: none;
+    }
+
+    .experience-steps strong {
+      display: block;
+      color: var(--white);
+      font-size: 0.92rem;
+      margin-bottom: 2px;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(255, 214, 0, 0.25);
+      color: var(--yellow);
+      font-weight: 800;
+      font-size: 0.72rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+      transition:
+        background 0.5s,
+        color 0.5s;
+    }
+
+    .experience-steps li.is-active .step-num {
+      background: var(--yellow);
+      color: var(--blue);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .experience-3d-finale-logo {
+        animation: none;
+      }
+    }
+
+    .experience-3d-viewport {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      min-height: 480px;
+      align-self: stretch;
+      background: #020611;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    @media (max-width: 960px) {
+      .experience-3d-viewport {
+        height: 360px;
+        min-height: 360px;
+        border-radius: 0;
+        margin: 0 -24px;
+        width: calc(100% + 48px);
+      }
+    }
+
+    .experience-3d-panel canvas {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .experience-3d-panel.is-loading {
+      background: radial-gradient(ellipse at 50% 40%,
+          rgba(29, 62, 168, 0.35) 0%,
+          #020611 70%);
+    }
+
+    .experience-3d-panel.is-loading::before {
+      content: "Loading experience…";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      color: rgba(255, 255, 255, 0.35);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .experience-3d-error {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 0.85rem;
+      margin: 0;
+    }
+
+    .experience-3d-viewport::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 180px 180px;
+      mix-blend-mode: overlay;
+    }
+
+    .experience-3d-vignette {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      background: linear-gradient(90deg,
+          rgba(14, 31, 90, 0.32) 0%,
+          transparent 20%,
+          transparent 100%);
+    }
+
+    .experience-3d-panel.show-finale .experience-3d-vignette {
+      box-shadow: inset 0 0 70px rgba(0, 0, 0, 0.4);
+    }
+
+    .experience-3d-finale {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 16px 28px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+    }
+
+    .experience-3d-panel.show-finale .experience-3d-finale {
+      opacity: 1;
+    }
+
+    .experience-3d-finale-logo {
+      width: min(130px, 30vw);
+      height: auto;
+      border-radius: 4px;
+      opacity: 0;
+      transform: translateY(12px);
+      transition:
+        opacity 0.9s ease 0.25s,
+        transform 0.9s ease 0.25s;
+    }
+
+    .experience-3d-panel.show-finale-full .experience-3d-finale-logo {
+      opacity: 0.9;
+      transform: translateY(0);
+      animation: finale-float 3s ease-in-out infinite;
+    }
+
+    .experience-3d-finale h3 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(1.2rem, 2vw, 1.6rem);
+      color: var(--white);
+      letter-spacing: 0.06em;
+      margin-top: 10px;
+      opacity: 0;
+      transition: opacity 0.8s ease 0.5s;
+    }
+
+    .experience-3d-finale h3 span {
+      color: var(--yellow);
+    }
+
+    .experience-3d-panel.show-finale-full .experience-3d-finale h3 {
+      opacity: 1;
+    }
+
+    @keyframes finale-float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-4px);
+      }
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(5px);
+      }
+    }
+
+    .hero-scroll svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    /* MARQUEE */
+    .marquee-wrap {
+      background: var(--yellow);
+      padding: 13px 0;
+      overflow: hidden;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 44px;
+      animation: marquee 22s linear infinite;
+      white-space: nowrap;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .marquee-item {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.06em;
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .marquee-sep {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--blue);
+      opacity: 0.35;
+    }
+
+    /* ABOUT STRIP */
+    .about-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    @media (max-width: 860px) {
+      .about-strip {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-img-main {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      object-fit: cover;
+      display: block;
+      aspect-ratio: 4/3;
+    }
+
+    .about-badge {
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      background: var(--yellow);
+      padding: 18px 22px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+
+    .about-badge .num {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 2rem;
+      color: var(--blue);
+      line-height: 1;
+    }
+
+    .about-badge p {
+      font-size: 0.72rem;
+      color: var(--blue2);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* STATS BAND */
+    .stats-band {
+      background: var(--blue);
+      padding: 72px 0;
+      border-top: 3px solid var(--yellow);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 28px;
+    }
+
+    @media (max-width: 900px) {
+      .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* DIVISIONS */
+    .divisions-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 1024px) {
+      .divisions-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .divisions-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .div-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      display: block;
+      transition: all 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .div-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--yellow);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .div-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .div-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+    }
+
+    .div-card-img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .div-card-img-placeholder {
+      width: 100%;
+      height: 120px;
+      background: var(--light);
+      border-radius: var(--radius);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+    }
+
+    .div-card h3 {
+      font-size: 0.95rem;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .div-card p {
+      font-size: 0.82rem;
+      line-height: 1.55;
+    }
+
+    .div-countries {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      margin-top: 10px;
+    }
+
+    .div-country {
+      font-size: 0.65rem;
+      padding: 2px 7px;
+      background: var(--light);
+      border-radius: 100px;
+      color: var(--blue);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* PHOTO FEATURE */
+    .photo-feature {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .photo-feature img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+
+    .photo-feature img:hover {
+      transform: scale(1.03);
+    }
+
+    /* CTA BAND */
+    .cta-band {
+      background: var(--yellow);
+      padding: 60px 0;
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .cta-inner h2 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--blue);
+      letter-spacing: 0.03em;
+    }
+
+    .cta-inner p {
+      color: rgba(14, 31, 90, 0.6);
+      margin-top: 4px;
+    }
+
+    .has-dropdown {
+      position: relative;
+    }
+
+    .nav-dropdown {
+      top: 100% !important;
+      margin-top: 0 !important;
+    }
+
+    .has-dropdown::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      right: 0;
+      height: 8px;
+      z-index: 999;
+    }
+
+    .has-dropdown:hover .nav-dropdown,
+    .nav-dropdown:hover {
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      transform: translateY(0) !important;
+    }
+
+    /* Language switcher */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      margin-right: 6px;
+    }
+
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: rgba(255, 255, 255, 0.85);
+      padding: 5px 8px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 3px;
+      font-family: "Inter", sans-serif;
+      transition: all 0.15s;
+    }
+
+    .lang-btn.active,
+    .lang-btn:hover {
+      background: var(--yellow);
+      color: var(--blue);
+      border-color: var(--yellow);
+    }
+
+    .footer-social {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .social-link {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.55);
+      padding: 6px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      transition:
+        color 0.2s,
+        border-color 0.2s;
+    }
+
+    .social-link:hover {
+      color: var(--yellow);
+      border-color: var(--yellow);
+    }
+  </style>
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://www.lakeoilgroup.com/#organization",
+        "name": "Lake Group",
+        "url": "https://www.lakeoilgroup.com/",
+        "logo": "https://www.lakeoilgroup.com/assets/images/logos/LAKE_GROUP_LOGO.jpg",
+        "foundingDate": "2006",
+        "founder": {
+          "@type": "Person",
+          "name": "Ally Edha Awadh"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Plot 49, Mikocheni Light Industrial",
+          "addressLocality": "Dar es Salaam",
+          "addressCountry": "TZ"
+        },
+        "telephone": "+255 222 780 510",
+        "email": "admin@lakeoilgroup.com",
+        "sameAs": [
+          "https://www.facebook.com/lakeoilgroup",
+          "https://twitter.com/lakeoilgroup",
+          "https://www.linkedin.com/company/lake-oil",
+          "https://www.youtube.com/@lakeoilgroup"
+        ]
+      }
+    </script>
+  <link rel="stylesheet" href="assets/theme.css" />
+</head>
+
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group" style="height: 46px; width: auto" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
+        <li class="has-dropdown">
+          <a href="services.html" data-i18n="nav.services">Services &#9662;</a>
+          <div class="nav-dropdown">
+            <div class="dd-label" data-i18n="nav.dd.energy">Energy</div>
+            <a href="fuel.html" data-i18n="nav.fuel">Fuel &amp; Petroleum</a><a href="lpg.html" data-i18n="nav.lpg">LPG
+              Gas</a><a href="lubricants.html" data-i18n="nav.lubricants">Lubricants</a>
+            <div class="dd-label" data-i18n="nav.dd.industry">Industry</div>
+            <a href="steel.html" data-i18n="nav.steel">Lake Steel</a><a href="concrete.html"
+              data-i18n="nav.concrete">Concrete &amp; Aggregate</a>
+            <div class="dd-label" data-i18n="nav.dd.logistics">Logistics</div>
+            <a href="logistics.html" data-i18n="nav.logistics">Transport &amp; Haulage</a><a
+              href="container-services.html" data-i18n="nav.containers">Container Services</a>
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="africa-network.html" data-i18n="nav.network">Network &#9662;</a>
+          <div class="nav-dropdown">
+            <a href="africa-network.html" data-i18n="nav.africaMap">Africa Operations Map</a>
+            <a href="station-locator.html" data-i18n="nav.stations">Station Locator</a>
+            <a href="fleet.html" data-i18n="nav.fleet">Our Fleet</a>
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="about.html" data-i18n="nav.company">Company &#9662;</a>
+          <div class="nav-dropdown">
+            <a href="history.html" data-i18n="nav.history">Our History</a><a href="leadership.html"
+              data-i18n="nav.leadership">Leadership</a>
+            <a href="csr.html" data-i18n="nav.csr">CSR &amp; Sustainability</a><a href="investors.html"
+              data-i18n="nav.investors">Investor Relations</a>
+            <a href="projects.html" data-i18n="nav.projects">Major Projects</a><a href="gallery.html"
+              data-i18n="nav.gallery">Gallery</a>
+          </div>
+        </li>
+        <li><a href="news.html" data-i18n="nav.news">News</a></li>
+        <li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
+        <li class="lang-switcher" aria-label="Language">
+          <button type="button" class="lang-btn active" data-lang="en">
+            EN
+          </button>
+          <button type="button" class="lang-btn" data-lang="fr">FR</button>
+          <button type="button" class="lang-btn" data-lang="sw">SW</button>
+        </li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile" style="display: none">
+    <a href="index.html" data-i18n="nav.home">Home</a><a href="about.html" data-i18n="nav.about">About</a>
+    <div class="mob-section" data-i18n="mob.services">Services</div>
+    <a href="fuel.html" data-i18n="nav.fuelShort">Fuel</a><a href="lpg.html" data-i18n="nav.lpg">LPG Gas</a><a
+      href="lubricants.html" data-i18n="nav.lubricants">Lubricants</a>
+    <a href="steel.html" data-i18n="nav.steelShort">Steel</a><a href="concrete.html"
+      data-i18n="nav.concreteShort">Concrete</a><a href="logistics.html" data-i18n="nav.transportShort">Transport</a><a
+      href="container-services.html" data-i18n="nav.containersShort">Containers</a>
+    <div class="mob-section" data-i18n="mob.network">Network</div>
+    <a href="africa-network.html" data-i18n="nav.africaMapShort">Africa Map</a><a href="station-locator.html"
+      data-i18n="nav.stations">Station Locator</a><a href="fleet.html" data-i18n="nav.fleet">Our Fleet</a>
+    <div class="mob-section" data-i18n="mob.company">Company</div>
+    <a href="history.html" data-i18n="nav.historyShort">History</a><a href="leadership.html"
+      data-i18n="nav.leadership">Leadership</a><a href="csr.html" data-i18n="nav.csrShort">CSR</a>
+    <a href="investors.html" data-i18n="nav.investorsShort">Investors</a><a href="projects.html"
+      data-i18n="nav.projectsShort">Projects</a><a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+    <div class="mob-section" data-i18n="mob.more">More</div>
+    <a href="news.html" data-i18n="nav.news">News</a><a href="careers.html" data-i18n="nav.careers">Careers</a><a
+      href="contact.html" data-i18n="footer.contact">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-photo"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-accent"></div>
+    <div class="hero-content">
+      <div>
+        <div class="hero-eyebrow">
+          <span data-i18n="hero.eyebrow">Est. 2006 &nbsp;·&nbsp; Dar es Salaam, Tanzania</span>
+        </div>
+        <h1 data-i18n="hero.title" data-i18n-html>
+          Powering East &amp; <em>Central Africa</em>
+        </h1>
+        <p class="hero-sub" data-i18n="hero.sub">
+          One of Africa's fastest-growing energy, logistics &amp; construction
+          conglomerates, operating across 8 countries with 4,600+ employees
+          and 700+ trucks on the road.
+        </p>
+        <div class="hero-actions">
+          <a href="services.html" class="btn btn-primary btn-lg" data-i18n="hero.services">Our Services</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num" data-count="4600" data-suffix="+">
+              4,600+
+            </div>
+            <div class="hero-stat-label" data-i18n="stat.employees">
+              Employees
+            </div>
+          </div>
+          <div>
+            <div class="hero-stat-num" data-count="700" data-suffix="+">
+              700+
+            </div>
+            <div class="hero-stat-label" data-i18n="stat.trucks">Trucks</div>
+          </div>
+          <div>
+            <div class="hero-stat-num" data-count="85" data-suffix="+">
+              85+
+            </div>
+            <div class="hero-stat-label" data-i18n="stat.stations">
+              Fuel Stations
+            </div>
+          </div>
+          <div>
+            <div class="hero-stat-num" data-count="8">8</div>
+            <div class="hero-stat-label" data-i18n="stat.countries">
+              Countries
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right reveal">
+        <div class="hero-photo-grid">
+          <img src="assets/images/banner/LakeOil.jpg" alt="Lake Oil Operations" fetchpriority="high" decoding="async" />
+          <img src="assets/images/gccp/photo_1.jpg" alt="GCCP Concrete Plant" decoding="async" />
+          <img src="assets/images/banner/LakeGas.jpg" alt="Lake Gas LPG" decoding="async" />
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <svg viewBox="0 0 24 24">
+        <path d="M7 13l5 5 5-5M7 7l5 5 5-5" />
+      </svg>Scroll
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <div data-i18n="index.1" data-i18n-html="" class="marquee-item">
+        <span class="marquee-sep"></span>Petroleum Distribution
+      </div>
+      <div data-i18n="index.2" data-i18n-html="" class="marquee-item">
+        <span class="marquee-sep"></span>LPG Bottling &amp; Distribution
+      </div>
+      <div data-i18n="index.3" data-i18n-html="" class="marquee-item">
+        <span class="marquee-sep"></span>Bulk Liquid Haulage
+      </div>
+      <div data-i18n="index.4" data-i18n-html="" class="marquee-item">
+        <span class="marquee-sep"></span>Container Depot Services
+      </div>
+      <div data-i18n="index.5" data-i18n-html="" class="marquee-item">
+        <span class="marquee-sep"></span>Ready-Mix Concrete
+      </div>
+      <div data-i18n="index.6" data-i18n-html="" class="marquee-item">
+        <span class="marquee-sep"></span>HS-CR Steel Rebars
+      </div>
+      <div data-i18n="index.7" data-i18n-html="" class="marquee-item">
+        <span class="marquee-sep"></span>Lubricants Manufacturing
+      </div>
+      <div data-i18n="index.8" data-i18n-html="" class="marquee-item">
+        <span class="marquee-sep"></span>8 Countries &amp; Growing
+      </div>
+      <div data-i18n="index.9" data-i18n-html="" class="marquee-item">
+        <span class="marquee-sep"></span>Petroleum Distribution
+      </div>
+      <div data-i18n="index.10" data-i18n-html="" class="marquee-item">
+        <span class="marquee-sep"></span>LPG Bottling &amp; Distribution
+      </div>
+      <div data-i18n="index.11" data-i18n-html="" class="marquee-item">
+        <span class="marquee-sep"></span>Bulk Liquid Haulage
+      </div>
+      <div data-i18n="index.12" data-i18n-html="" class="marquee-item">
+        <span class="marquee-sep"></span>Container Depot Services
+      </div>
+      <div data-i18n="index.13" data-i18n-html="" class="marquee-item">
+        <span class="marquee-sep"></span>Ready-Mix Concrete
+      </div>
+      <div data-i18n="index.14" data-i18n-html="" class="marquee-item">
+        <span class="marquee-sep"></span>HS-CR Steel Rebars
+      </div>
+      <div data-i18n="index.15" data-i18n-html="" class="marquee-item">
+        <span class="marquee-sep"></span>Lubricants Manufacturing
+      </div>
+      <div data-i18n="index.16" data-i18n-html="" class="marquee-item">
+        <span class="marquee-sep"></span>8 Countries &amp; Growing
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOBAL OPERATIONS — interactive 3D experience (autonomous loop) -->
+  <section class="experience-3d" id="fuel-experience">
+    <div class="container experience-3d-grid">
+          <div class="experience-3d-copy reveal">
+            <div data-i18n="index.17" class="section-label">
+              Interactive Experience
+            </div>
+            <h2 data-i18n="index.18" data-i18n-html="">
+              One Network. <span data-i18n="index.19">Eight Countries.</span>
+            </h2>
+            <p data-i18n="index.20">
+              From our headquarters in Dar es Salaam, Lake Group operates
+              across eight countries — Tanzania, Kenya, Zambia, Rwanda,
+              Burundi, DR Congo, Ethiopia and Mozambique — with a Dubai hub
+              extending the network to global markets.
+            </p>
+            <ul class="experience-steps">
+              <li>
+                <span class="step-num">1</span>
+                <div data-i18n="index.21" data-i18n-html="">
+                  <strong data-i18n="index.22">Global Perspective</strong>A single view of the network that moves energy across East and Central Africa.
+                </div>
+              </li>
+              <li>
+                <span class="step-num">2</span>
+                <div data-i18n="index.23" data-i18n-html="">
+                  <strong data-i18n="index.24">Our Footprint</strong>Eight countries served from Dar es Salaam by a fleet of 700+ trucks.
+                </div>
+              </li>
+              <li>
+                <span class="step-num">3</span>
+                <div data-i18n="index.25" data-i18n-html="">
+                  <strong data-i18n="index.26">On the Ground</strong>85+ stations in Tanzania, the Tanga LPG terminal and vessel bunkering at Dar es Salaam port.
+                </div>
+              </li>
+            </ul>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap">
+              <a data-i18n="index.27" href="fuel.html" class="btn btn-primary">Fuel &amp; Petroleum</a>
+              <a data-i18n="index.28" href="africa-network.html" class="btn btn-outline">View Africa Network</a>
+              <!--
+          Links to the full cinematic scroll-driven 3D experience (the
+          /lake-3d Next.js subproject). That app builds and deploys
+          separately from this static site -- it is not a flat HTML file
+          and cannot be inlined here. Point this href at wherever it is
+          actually deployed (its own subdomain, e.g. experience.lakeoilgroup.com,
+          or a path proxied by the web server/CDN in front of this site,
+          e.g. /experience). Until a deployment URL is chosen this link
+          stays commented out so it doesn't 404 in production.
+        -->
+              <!-- <a data-i18n="index.31" href="https://experience.lakeoilgroup.com" class="btn btn-outline" target="_blank" rel="noopener">View Full 3D Experience</a> -->
+            </div>
+          </div>
+          <div class="experience-3d-viewport experience-3d-panel" id="experience-3d-panel">
+            <div class="experience-3d-vignette" aria-hidden="true"></div>
+            <div class="experience-3d-finale" aria-hidden="true">
+              <img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group" class="experience-3d-finale-logo" />
+              <h3 data-i18n="index.29" data-i18n-html="">
+                Fueling <span data-i18n="index.30">Progress</span>
+              </h3>
+            </div>
+          </div>
+    </div>
+  </section>
+
+  <!-- ABOUT STRIP -->
+  <section class="section">
+    <div class="container">
+      <div class="about-strip">
+        <div class="about-img-wrap reveal">
+          <img src="assets/images/banner/LakeOil1.jpg" alt="Lake Group Operations" class="about-img-main" loading="lazy"
+            decoding="async" />
+          <div class="about-badge">
+            <div class="num">2006</div>
+            <p>Founded in<br />Tanzania</p>
+          </div>
+        </div>
+        <div class="reveal">
+          <div data-i18n="index.31" class="section-label dark">
+            About Lake Group
+          </div>
+          <h2 data-i18n="index.32" class="section-title">
+            A Conglomerate Built on Grit and Vision
+          </h2>
+          <div class="divider-yellow"></div>
+          <p data-i18n="index.33" data-i18n-html="">
+            Founded by CEO &amp; Chairman
+            <strong data-i18n="index.34">Ally Edha Awadh</strong> in 2006 at
+            just 27 years old, Lake Group has grown from a single fuel outlet
+            into one of East and Central Africa's largest energy, logistics
+            and industrial conglomerates.
+          </p>
+          <p data-i18n="index.35" data-i18n-html="" style="margin-top: 12px">
+            Today, with
+            <strong data-i18n="index.36">4,600+ employees</strong> across 21
+            nationalities, 700+ trucks, 85+ fuel stations and 20+
+            subsidiaries, Lake Group powers everyday life across Tanzania,
+            Kenya, Zambia, Rwanda, Burundi, DRC, Ethiopia and Mozambique.
+          </p>
+          <div style="
+                margin-top: 26px;
+                display: flex;
+                gap: 12px;
+                flex-wrap: wrap;
+              ">
+            <a data-i18n="index.37" href="about.html" class="btn btn-primary">Read Our Story</a>
+            <a data-i18n="index.38" href="leadership.html" class="btn btn-outline-dark">Meet Leadership</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAND -->
+  <div class="stats-band">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="reveal" style="text-align: center">
+          <div class="stat-number" data-count="4600" data-suffix="+">
+            4,600+
+          </div>
+          <div data-i18n="index.39" class="stat-label" style="color: rgba(255, 255, 255, 0.5)">
+            Employees
+          </div>
+        </div>
+        <div class="reveal" style="text-align: center">
+          <div class="stat-number" data-count="700" data-suffix="+">700+</div>
+          <div data-i18n="index.40" class="stat-label" style="color: rgba(255, 255, 255, 0.5)">
+            Trucks in Fleet
+          </div>
+        </div>
+        <div class="reveal" style="text-align: center">
+          <div class="stat-number" data-count="85" data-suffix="+">85+</div>
+          <div data-i18n="index.41" class="stat-label" style="color: rgba(255, 255, 255, 0.5)">
+            Fuel Stations
+          </div>
+        </div>
+        <div class="reveal" style="text-align: center">
+          <div class="stat-number" data-count="8">8</div>
+          <div data-i18n="index.42" class="stat-label" style="color: rgba(255, 255, 255, 0.5)">
+            Countries
+          </div>
+        </div>
+        <div class="reveal" style="text-align: center">
+          <div class="stat-number" data-count="20" data-suffix="+">20+</div>
+          <div data-i18n="index.43" class="stat-label" style="color: rgba(255, 255, 255, 0.5)">
+            Subsidiaries
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUSINESS DIVISIONS with real photos -->
+  <section class="section section-offwhite">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 44px">
+        <div data-i18n="index.44" class="section-label" style="justify-content: center; color: var(--yellow3)">
+          Our Businesses
+        </div>
+        <h2 data-i18n="index.45" class="section-title">
+          Eight Sectors. One Vision.
+        </h2>
+        <p data-i18n="index.46" class="section-subtitle" style="margin: 10px auto 0">
+          From fuel stations to steel mills, Lake Group operates across the
+          full energy and industrial value chain of East Africa.
+        </p>
+      </div>
+      <div class="divisions-grid">
+        <a href="fuel.html" class="div-card reveal">
+          <img src="assets/images/banner/LakeOil.jpg" alt="Fuel & Petroleum" class="div-card-img" loading="lazy"
+            decoding="async" />
+          <h3 data-i18n="index.47">Fuel &amp; Petroleum</h3>
+          <p data-i18n="index.48">
+            Top 5 petroleum distributor in Tanzania. Retail stations, bulk
+            supply and storage across 8 countries.
+          </p>
+          <div class="div-countries">
+            <span class="div-country"><img src="assets/images/flags/tz.svg" alt="" class="flag-icon" width="20"
+                height="15" loading="lazy" decoding="async" />
+              TZ</span><span class="div-country"><img src="assets/images/flags/ke.svg" alt="" class="flag-icon"
+                width="20" height="15" loading="lazy" decoding="async" />
+              KE</span><span class="div-country"><img src="assets/images/flags/zm.svg" alt="" class="flag-icon"
+                width="20" height="15" loading="lazy" decoding="async" />
+              ZM</span><span class="div-country">+5</span>
+          </div>
+        </a>
+        <a href="lpg.html" class="div-card reveal">
+          <img src="assets/images/banner/LakeGas.jpg" alt="LPG Gas" class="div-card-img" loading="lazy"
+            decoding="async" />
+          <h3 data-i18n="index.49">LPG Gas</h3>
+          <p data-i18n="index.50">
+            Lake Gas operates LPG bottling and distribution with cylinders for
+            domestic and commercial use across 6 countries.
+          </p>
+          <div class="div-countries">
+            <span data-i18n="index.51" class="div-country">6 Countries</span>
+          </div>
+        </a>
+        <a href="logistics.html" class="div-card reveal">
+          <img src="assets/images/laketrans/TA/photo_1.jpg" alt="Lake Trans truck fleet" class="div-card-img"
+            loading="lazy" decoding="async" />
+          <h3 data-i18n="index.52">Transport &amp; Haulage</h3>
+          <p data-i18n="index.53">
+            Lake Trans operates 700+ trucks for bulk liquid haulage and
+            regional logistics across East &amp; Central Africa.
+          </p>
+          <div class="div-countries">
+            <span class="div-country"><img src="assets/images/flags/tz.svg" alt="" class="flag-icon" width="20"
+                height="15" loading="lazy" decoding="async" />
+              TZ</span><span class="div-country"><img src="assets/images/flags/ke.svg" alt="" class="flag-icon"
+                width="20" height="15" loading="lazy" decoding="async" />
+              KE</span><span class="div-country"><img src="assets/images/flags/zm.svg" alt="" class="flag-icon"
+                width="20" height="15" loading="lazy" decoding="async" />
+              ZM</span>
+          </div>
+        </a>
+        <a href="concrete.html" class="div-card reveal">
+          <img src="assets/images/gccp/photo_1.jpg" alt="GCCP Concrete" class="div-card-img" loading="lazy"
+            decoding="async" />
+          <h3 data-i18n="index.54">Concrete &amp; Aggregate</h3>
+          <p data-i18n="index.55">
+            GCCP, Dar es Salaam's leading ready-mix concrete supplier. 30,000
+            m³ aggregate monthly from our Lugoba quarry.
+          </p>
+          <div class="div-countries">
+            <span class="div-country"><img src="assets/images/flags/tz.svg" alt="" class="flag-icon" width="20"
+                height="15" loading="lazy" decoding="async" />
+              Tanzania</span><span class="div-country"><img src="assets/images/flags/ae.svg" alt="" class="flag-icon"
+                width="20" height="15" loading="lazy" decoding="async" />
+              Dubai</span>
+          </div>
+        </a>
+        <a href="lubricants.html" class="div-card reveal">
+          <img src="assets/images/lakelubes/products/LAKE_GREASE_MP_3_2.png" alt="Lake Lubes grease product"
+            class="div-card-img" style="object-fit: contain; background: var(--light)" loading="lazy"
+            decoding="async" />
+          <h3 data-i18n="index.56">Lubricants</h3>
+          <p data-i18n="index.57">
+            Lake Lubes manufactures and distributes high-quality automotive,
+            industrial and specialty lubricants in 5 countries.
+          </p>
+          <div class="div-countries">
+            <span data-i18n="index.58" class="div-country">5 Countries</span>
+          </div>
+        </a>
+        <a href="steel.html" class="div-card reveal">
+          <img src="assets/images/lakesteel/TA/photo_1.jpg" alt="Lake Steel rolling mill" class="div-card-img"
+            loading="lazy" decoding="async" />
+          <h3 data-i18n="index.59">Lake Steel</h3>
+          <p data-i18n="index.60">
+            Tanzania's first HS-CR rebar producer. Fully automated rolling
+            mill, 100,000 MT/year capacity.
+          </p>
+          <div class="div-countries">
+            <span class="div-country"><img src="assets/images/flags/tz.svg" alt="" class="flag-icon" width="20"
+                height="15" loading="lazy" decoding="async" />
+              Tanzania</span>
+          </div>
+        </a>
+        <a href="container-services.html" class="div-card reveal">
+          <img src="assets/images/aficd/TA/photo_1.jpg" alt="AFICD container depot" class="div-card-img" loading="lazy"
+            decoding="async" />
+          <h3 data-i18n="index.61">Container Services</h3>
+          <p data-i18n="index.62">
+            AFICD &amp; ACFS provide inland container depot and freight
+            station services across TZ, ZM and MZ.
+          </p>
+          <div class="div-countries">
+            <span class="div-country"><img src="assets/images/flags/tz.svg" alt="" class="flag-icon" width="20"
+                height="15" loading="lazy" decoding="async" />
+              TZ</span><span class="div-country"><img src="assets/images/flags/zm.svg" alt="" class="flag-icon"
+                width="20" height="15" loading="lazy" decoding="async" />
+              ZM</span><span class="div-country"><img src="assets/images/flags/mz.svg" alt="" class="flag-icon"
+                width="20" height="15" loading="lazy" decoding="async" />
+              MZ</span>
+          </div>
+        </a>
+        <a href="africa-network.html" class="div-card reveal"
+          style="background: var(--blue); border-color: var(--blue)">
+          <div class="div-card-img-placeholder" style="background: var(--blue3)">
+            <img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group Africa" style="
+                  height: 50px;
+                  width: auto;
+                  margin: 0 auto;
+                  display: block;
+                " />
+          </div>
+          <h3 data-i18n="index.63" style="color: var(--white)">
+            Africa Network
+          </h3>
+          <p data-i18n="index.64" style="color: rgba(255, 255, 255, 0.6)">
+            Operations across Tanzania, Kenya, Zambia, Rwanda, Burundi, DRC,
+            Ethiopia, Mozambique &amp; Dubai.
+          </p>
+          <div data-i18n="index.65" style="
+                margin-top: 10px;
+                color: var(--yellow);
+                font-size: 0.8rem;
+                font-weight: 600;
+              ">
+            View map &rarr;
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REAL PHOTO FEATURE, GCCP plant -->
+  <section class="section-sm" style="background: var(--blue); padding: 56px 0">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 28px">
+        <div data-i18n="index.66" class="section-label" style="justify-content: center">
+          Our Operations
+        </div>
+        <h2 data-i18n="index.67" class="section-title" style="color: var(--white)">
+          See Lake Group in Action
+        </h2>
+      </div>
+      <div class="photo-feature">
+        <img src="assets/images/gccp/photo_2.jpg" alt="GCCP Concrete Plant" loading="lazy" decoding="async" />
+        <img src="assets/images/gccp/photo_3.jpg" alt="GCCP Operations" loading="lazy" decoding="async" />
+        <img src="assets/images/gccp/photo_4.jpg" alt="Aggregate Production" loading="lazy" decoding="async" />
+      </div>
+      <div class="photo-feature" style="margin-top: 4px">
+        <img src="assets/images/merm/photo_1.jpg" alt="MERM Dubai" loading="lazy" decoding="async" />
+        <img src="assets/images/merm/photo_2.jpg" alt="MERM Ready Mix" loading="lazy" decoding="async" />
+        <img src="assets/images/gccp/photo_5.jpg" alt="Concrete Delivery" loading="lazy" decoding="async" />
+      </div>
+      <div style="text-align: center; margin-top: 28px">
+        <a data-i18n="index.68" href="gallery.html" class="btn btn-primary">View Full Gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CEO QUOTE -->
+  <section class="section">
+    <div class="container">
+      <div style="
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 64px;
+            align-items: center;
+          ">
+        <div class="reveal">
+          <img src="assets/images/resource/ceo.jpg" alt="Ally Edha Awadh: CEO Lake Group" style="
+                width: 100%;
+                border-radius: var(--radius-lg);
+                object-fit: cover;
+                display: block;
+                aspect-ratio: 3/4;
+                max-height: 420px;
+              " loading="lazy" decoding="async" />
+        </div>
+        <div class="reveal">
+          <div data-i18n="index.69" class="section-label dark">
+            Message from the CEO
+          </div>
+          <h2 data-i18n="index.70" class="section-title">
+            A Word from Our Founder
+          </h2>
+          <div class="divider-yellow"></div>
+          <blockquote data-i18n="index.71" style="
+                border-left: 3px solid var(--yellow);
+                padding-left: 20px;
+                margin: 20px 0;
+                font-style: italic;
+                color: var(--muted);
+                font-size: 1.05rem;
+                line-height: 1.75;
+              ">
+            "Welcome to a diverse pioneer in fuel marketing, haulage, LPG
+            bottling, cylinder manufacturing and concrete production. With
+            experienced engineers and business professionals across our
+            divisions, we are fully geared to meet the demands of the global
+            marketplace."
+          </blockquote>
+          <p data-i18n="index.72" style="font-weight: 700; color: var(--blue)">
+            Ally Edha Awadh
+          </p>
+          <p data-i18n="index.73" style="font-size: 0.88rem; margin-top: 2px">
+            CEO &amp; Chairman, Lake Group &nbsp;|&nbsp; Founded Lake Group at
+            age 27 in 2006
+          </p>
+          <div style="
+                margin-top: 24px;
+                display: flex;
+                gap: 12px;
+                flex-wrap: wrap;
+              ">
+            <a data-i18n="index.74" href="about.html" class="btn btn-primary">About Lake Group</a>
+            <a data-i18n="index.75" href="contact.html" class="btn btn-outline-dark">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <div class="cta-band">
+    <div class="container">
+      <div class="cta-inner">
+        <div>
+          <h2 data-i18n="index.76">Ready to Work Together?</h2>
+          <p data-i18n="index.77">
+            Talk to our team about fuel supply, logistics, or any of our
+            services across East Africa.
+          </p>
+        </div>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap">
+          <a data-i18n="index.78" href="contact.html" class="btn btn-blue btn-lg">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group" />
+          </div>
+          <p class="footer-motto" style="
+                color: var(--yellow);
+                font-weight: 600;
+                font-size: 0.95rem;
+                letter-spacing: 0.04em;
+              " data-i18n="footer.motto">
+            Quality, Service, Safety, Professionalism
+          </p>
+          <div class="footer-social">
+            <a data-i18n="index.80" href="https://www.linkedin.com/company/lake-oil" class="social-link" target="_blank"
+              rel="noopener">LinkedIn</a>
+            <a data-i18n="index.81" href="https://www.facebook.com/lakeoilgroup" class="social-link" target="_blank"
+              rel="noopener">Facebook</a>
+            <a data-i18n="index.82" href="https://twitter.com/lakeoilgroup" class="social-link" target="_blank"
+              rel="noopener">X / Twitter</a>
+            <a data-i18n="index.83" href="https://www.youtube.com/@lakeoilgroup" class="social-link" target="_blank"
+              rel="noopener">YouTube</a>
+          </div>
+          <div style="margin-top: 20px; display: flex; gap: 10px">
+            <a href="contact.html" class="btn btn-outline btn-sm" data-i18n="footer.contact">Contact</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer.services">Services</h5>
+          <ul>
+            <li>
+              <a href="fuel.html" data-i18n="nav.fuel">Fuel &amp; Petroleum</a>
+            </li>
+            <li><a href="lpg.html" data-i18n="nav.lpg">LPG Gas</a></li>
+            <li>
+              <a href="lubricants.html" data-i18n="nav.lubricants">Lubricants</a>
+            </li>
+            <li><a href="steel.html" data-i18n="nav.steel">Lake Steel</a></li>
+            <li>
+              <a href="concrete.html" data-i18n="nav.concreteShort">Concrete</a>
+            </li>
+            <li>
+              <a href="logistics.html" data-i18n="nav.transportShort">Transport</a>
+            </li>
+            <li>
+              <a href="container-services.html" data-i18n="nav.containers">Container Services</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer.company">Company</h5>
+          <ul>
+            <li><a href="about.html" data-i18n="nav.aboutUs">About Us</a></li>
+            <li>
+              <a href="history.html" data-i18n="nav.historyShort">History</a>
+            </li>
+            <li>
+              <a href="leadership.html" data-i18n="nav.leadership">Leadership</a>
+            </li>
+            <li><a href="csr.html" data-i18n="nav.csrShort">CSR</a></li>
+            <li>
+              <a href="investors.html" data-i18n="nav.investorsShort">Investors</a>
+            </li>
+            <li>
+              <a href="projects.html" data-i18n="nav.projectsShort">Projects</a>
+            </li>
+            <li>
+              <a href="careers.html" data-i18n="nav.careers">Careers</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer.contactHeading">Contact</h5>
+          <ul>
+            <li>
+              <a href="#" data-i18n="footer.address">Plot 49, Mikocheni Light Industrial, Dar es Salaam</a>
+            </li>
+            <li><a href="tel:+255222780510">+255 222 780 510</a></li>
+            <li><a href="tel:+255222780479">+255 222 780 479</a></li>
+            <li>
+              <a data-i18n="index.84" href="mailto:admin@lakeoilgroup.com">admin@lakeoilgroup.com</a>
+            </li>
+          </ul>
+          <div style="margin-top: 14px; display: flex; flex-wrap: wrap; gap: 5px">
+            <span class="country-tag" style="
+                  background: rgba(255, 214, 0, 0.12);
+                  color: var(--yellow);
+                "><img src="assets/images/flags/tz.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy"
+                decoding="async" />
+              TZ</span>
+            <span class="country-tag" style="
+                  background: rgba(255, 214, 0, 0.12);
+                  color: var(--yellow);
+                "><img src="assets/images/flags/ke.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy"
+                decoding="async" />
+              KE</span>
+            <span class="country-tag" style="
+                  background: rgba(255, 214, 0, 0.12);
+                  color: var(--yellow);
+                "><img src="assets/images/flags/zm.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy"
+                decoding="async" />
+              ZM</span>
+            <span class="country-tag" style="
+                  background: rgba(255, 214, 0, 0.12);
+                  color: var(--yellow);
+                "><img src="assets/images/flags/rw.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy"
+                decoding="async" />
+              RW</span>
+            <span class="country-tag" style="
+                  background: rgba(255, 214, 0, 0.12);
+                  color: var(--yellow);
+                "><img src="assets/images/flags/bi.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy"
+                decoding="async" />
+              BI</span>
+            <span class="country-tag" style="
+                  background: rgba(255, 214, 0, 0.12);
+                  color: var(--yellow);
+                "><img src="assets/images/flags/cd.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy"
+                decoding="async" />
+              DRC</span>
+            <span class="country-tag" style="
+                  background: rgba(255, 214, 0, 0.12);
+                  color: var(--yellow);
+                "><img src="assets/images/flags/et.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy"
+                decoding="async" />
+              ET</span>
+            <span class="country-tag" style="
+                  background: rgba(255, 214, 0, 0.12);
+                  color: var(--yellow);
+                "><img src="assets/images/flags/mz.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy"
+                decoding="async" />
+              MZ</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p data-i18n="index.85" data-i18n-html="">
+          &copy; 2026 Lake Group.
+          <span data-i18n="footer.rights">All rights reserved.</span>
+        </p>
+        <div class="footer-bottom-links">
+          <a href="#" data-i18n="footer.privacy">Privacy</a><a href="#" data-i18n="footer.terms">Terms</a><a
+            href="contact.html" data-i18n="footer.contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div id="chat-widget">
+    <div id="chat-box">
+      <div id="chat-head">
+        <h4 data-i18n="chat.title">Lake Group Assistant</h4>
+        <p data-i18n="chat.sub">Ask us anything</p>
+      </div>
+      <div id="chat-messages">
+        <div class="msg msg-bot" data-i18n="chat.hello">
+          Hello! How can I help you today?
+        </div>
+      </div>
+      <div id="chat-input-row">
+        <input type="text" id="chat-input" placeholder="Type a message..." data-i18n-placeholder="chat.placeholder"
+          aria-label="Type a message..." data-i18n-aria="chat.placeholder" /><button id="chat-send"
+          data-i18n="chat.send">Send</button>
+      </div>
+    </div>
+    <button id="chat-btn" aria-label="Chat">
+      <svg viewBox="0 0 24 24">
+        <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+      </svg>
+    </button>
+  </div>
+  <script src="assets/i18n-content.js" defer></script>
+  <script src="assets/i18n.js" defer></script>
+  <script src="assets/site.js" defer></script>
+  <script>
+    // Lazy-load the ~0.5MB 3D bundle only when the experience section
+    // approaches the viewport, instead of blocking initial page load with it.
+    (function () {
+      var section = document.getElementById("fuel-experience");
+      function load() {
+        var s = document.createElement("script");
+        s.src = "assets/hero-3d.bundle.js";
+        document.body.appendChild(s);
+      }
+      if (!section || !("IntersectionObserver" in window)) {
+        load();
+        return;
+      }
+      var io = new IntersectionObserver(
+        function (entries) {
+          if (entries[0].isIntersecting) {
+            io.disconnect();
+            load();
+          }
+        },
+        { rootMargin: "600px 0px" },
+      );
+      io.observe(section);
+    })();
+  </script>
+  <script src="assets/pwa.js" defer></script>
+  <script src="assets/motion.js" defer></script>
+</body>
+
+</html>

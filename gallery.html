@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Photos from Lake Group operations, events, and facilities across East and Central Africa.">
+  <meta property="og:title" content="Gallery | Lake Group">
+  <meta property="og:description" content="Photos from Lake Group operations, events, and facilities across East and Central Africa.">
+  <meta property="og:image" content="assets/images/og-cover.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://www.lakeoilgroup.com/gallery.html">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="assets/icons/pwa/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/icons/pwa/apple-touch-icon.png">
+  <title>Gallery | Lake Group</title>
+  <meta name="theme-color" content="#1D3EA8">
+  <link rel="manifest" href="manifest.webmanifest">
+  <style>
+@import url('assets/fonts/fonts.css');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue:    #1D3EA8;
+  --blue2:   #162E7F;
+  --blue3:   #0E1F5A;
+  --yellow:  #FFD700;
+  --yellow2: #FFC200;
+  --yellow3: #E6AF00;
+  --red:     #CC1E1E;
+  --white:   #FFFFFF;
+  --offwhite:#F7F8FC;
+  --light:   #EFF2FB;
+  --text:    #0E1F5A;
+  --muted:   #5A6478;
+  --border:  rgba(29,62,168,0.12);
+  --nav-h:   72px;
+  --radius:  4px;
+  --radius-lg: 10px;
+  --shadow:  0 2px 16px rgba(29,62,168,0.1);
+  --shadow-lg: 0 8px 48px rgba(29,62,168,0.18);
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; color: var(--text); background: var(--white); overflow-x: hidden; }
+
+h1,h2,h3,h4,h5 { font-weight: 700; line-height: 1.2; }
+h1 { font-size: clamp(2rem,4vw,3rem); }
+h2 { font-size: clamp(1.6rem,3vw,2.2rem); }
+h3 { font-size: 1.25rem; }
+p { color: var(--muted); }
+a { text-decoration: none; color: inherit; }
+strong { color: var(--text); }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 96px 0; }
+.section-sm { padding: 64px 0; }
+.grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 32px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+@media(max-width:960px){.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+
+/* NAV */
+.site-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: var(--nav-h);
+  background: var(--blue);
+  border-bottom: 3px solid var(--yellow);
+}
+.nav-inner { max-width: 1340px; margin: 0 auto; padding: 0 28px; display: flex; align-items: center; width: 100%; height: 100%; }
+.nav-logo { display: flex; align-items: center; flex-shrink: 0; }
+.nav-logo img { height: 48px; width: auto; display: block; }
+.nav-links { display: flex; align-items: center; gap: 2px; list-style: none; margin-left: auto; }
+.nav-links > li { position: relative; }
+.nav-links > li > a { display: flex; align-items: center; gap: 5px; padding: 9px 13px; border-radius: var(--radius); color: rgba(255,255,255,0.85); font-size: 0.86rem; font-weight: 500; transition: color 0.2s, background 0.2s; }
+.nav-links > li > a:hover, .nav-links > li > a.active { color: var(--yellow); background: rgba(255,255,255,0.07); }
+.has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.nav-dropdown { position: absolute; top: calc(100% + 6px); left: 0; background: var(--blue2); border: 1px solid rgba(255,214,0,0.2); border-top: 2px solid var(--yellow); border-radius: var(--radius-lg); padding: 8px; min-width: 220px; opacity: 0; pointer-events: none; transform: translateY(-6px); transition: all 0.2s; box-shadow: 0 16px 40px rgba(0,0,0,0.35); }
+.nav-dropdown a { display: block; padding: 9px 14px; border-radius: var(--radius); color: rgba(255,255,255,0.8); font-size: 0.84rem; transition: background 0.15s, color 0.15s; }
+.nav-dropdown a:hover { background: rgba(255,214,0,0.12); color: var(--yellow); }
+.dd-label { padding: 10px 14px 3px; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); font-weight: 700; }
+.nav-cta { margin-left: 12px; padding: 9px 18px !important; background: var(--yellow) !important; color: var(--blue) !important; border-radius: var(--radius) !important; font-weight: 700 !important; }
+.nav-cta:hover { background: var(--yellow2) !important; }
+.nav-toggle { display: none; margin-left: auto; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+@media(max-width:1060px){.nav-links{display:none}.nav-toggle{display:flex}}
+.nav-mobile { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--blue2); padding: 14px; flex-direction: column; gap: 3px; z-index: 999; max-height: calc(100vh - var(--nav-h)); overflow-y: auto; border-bottom: 2px solid var(--yellow); }
+.nav-mobile a { display: block; padding: 11px 16px; color: rgba(255,255,255,0.85); border-radius: var(--radius); font-size: 0.9rem; }
+.nav-mobile a:hover { background: rgba(255,255,255,0.06); color: var(--yellow); }
+.mob-section { padding: 10px 16px 3px; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--yellow); font-weight: 700; }
+
+/* PAGE HERO */
+.page-hero { background: var(--blue); padding: 140px 0 72px; position: relative; overflow: hidden; }
+.page-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(255,214,0,0.08) 0%, transparent 65%); }
+.page-hero .eyebrow { display: inline-block; padding: 4px 14px; border: 1px solid var(--yellow); color: var(--yellow); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; border-radius: 2px; margin-bottom: 14px; }
+.page-hero h1 { color: var(--white); font-family: 'Bebas Neue',sans-serif; font-size: clamp(2.4rem,5vw,4rem); letter-spacing: 0.03em; margin-bottom: 14px; }
+.page-hero p { color: rgba(255,255,255,0.65); font-size: 1.05rem; max-width: 560px; }
+.breadcrumb { display: flex; gap: 8px; align-items: center; margin-bottom: 18px; }
+.breadcrumb a { color: rgba(255,255,255,0.45); font-size: 0.8rem; }
+.breadcrumb a:hover { color: var(--yellow); }
+.breadcrumb span { color: rgba(255,255,255,0.25); font-size: 0.8rem; }
+
+/* BUTTONS */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 26px; border-radius: var(--radius); font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.2s; border: none; font-family: 'Inter',sans-serif; }
+.btn-primary { background: var(--yellow); color: var(--blue); }
+.btn-primary:hover { background: var(--yellow2); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(255,214,0,0.4); }
+.btn-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.4); }
+.btn-outline:hover { border-color: var(--yellow); color: var(--yellow); }
+.btn-outline-dark { background: transparent; color: var(--blue); border: 1.5px solid var(--blue); }
+.btn-outline-dark:hover { background: var(--blue); color: var(--white); }
+.btn-sm { padding: 8px 18px; font-size: 0.82rem; }
+.btn-lg { padding: 15px 34px; font-size: 1rem; }
+.btn-blue { background: var(--blue); color: var(--white); }
+.btn-blue:hover { background: var(--blue2); }
+.btn-white { background: var(--white); color: var(--blue); }
+.btn-white:hover { background: var(--offwhite); }
+
+/* CARDS */
+.card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: box-shadow 0.2s, transform 0.2s; }
+.card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+.card-body { padding: 28px; }
+
+/* SECTION LABELS */
+.section-label { display: inline-flex; align-items: center; gap: 10px; font-size: 0.73rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--yellow3); margin-bottom: 12px; }
+.section-label::before { content: ''; display: block; width: 24px; height: 2px; background: var(--yellow); }
+.section-label.dark { color: var(--blue); }
+.section-label.dark::before { background: var(--blue); }
+.section-title { font-size: clamp(1.7rem,3vw,2.4rem); color: var(--text); line-height: 1.2; margin-bottom: 14px; }
+.section-subtitle { font-size: 1.02rem; color: var(--muted); max-width: 560px; line-height: 1.7; }
+
+/* STAT */
+.stat-number { font-family: 'Bebas Neue',sans-serif; font-size: clamp(3rem,5vw,4.5rem); color: var(--yellow); letter-spacing: 0.02em; line-height: 1; }
+.stat-label { font-size: 0.82rem; color: var(--muted); font-weight: 500; margin-top: 5px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* DIVIDER */
+.divider-yellow { width: 44px; height: 3px; background: var(--yellow); margin: 16px 0; border-radius: 2px; }
+
+/* DARK SECTION */
+.section-dark { background: var(--blue); color: var(--white); }
+.section-dark h2,.section-dark h3,.section-dark h4 { color: var(--white); }
+.section-dark p { color: rgba(255,255,255,0.65); }
+.section-dark .section-label { color: var(--yellow); }
+.section-dark .section-label::before { background: var(--yellow); }
+.section-light { background: var(--light); }
+.section-offwhite { background: var(--offwhite); }
+
+/* TABS */
+.tab-nav { display: flex; gap: 3px; border-bottom: 1px solid var(--border); margin-bottom: 36px; overflow-x: auto; }
+.tab-nav button { padding: 11px 20px; background: none; border: none; cursor: pointer; font-family: 'Inter',sans-serif; font-size: 0.88rem; font-weight: 500; color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; transition: color 0.2s,border-color 0.2s; }
+.tab-nav button.active { color: var(--blue); border-bottom-color: var(--yellow); }
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+
+/* FORM */
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; font-size: 0.84rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.form-group input,.form-group select,.form-group textarea { width: 100%; padding: 11px 15px; border: 1.5px solid var(--border); border-radius: var(--radius); font-family: 'Inter',sans-serif; font-size: 0.9rem; color: var(--text); background: var(--white); transition: border-color 0.2s,box-shadow 0.2s; outline: none; }
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(29,62,168,0.1); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+
+/* BADGE */
+.badge { display: inline-block; padding: 3px 10px; border-radius: 100px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; }
+.badge-yellow { background: rgba(255,214,0,0.18); color: var(--blue); }
+.badge-blue { background: var(--blue); color: var(--white); }
+.badge-green { background: rgba(22,163,74,0.1); color: #16a34a; }
+.badge-red { background: rgba(204,30,30,0.1); color: var(--red); }
+
+/* TIMELINE */
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before { content: ''; position: absolute; left: 10px; top: 8px; bottom: 8px; width: 2px; background: var(--border); }
+.timeline-item { position: relative; padding-bottom: 36px; }
+.timeline-item::before { content: ''; position: absolute; left: -26px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--yellow); border: 3px solid var(--white); box-shadow: 0 0 0 2px var(--yellow); }
+.timeline-year { font-size: 0.75rem; font-weight: 700; color: var(--yellow3); letter-spacing: 0.08em; margin-bottom: 3px; }
+
+/* COUNTRY TAG */
+.flag-icon { width:18px;height:13px;object-fit:cover;border-radius:2px;flex-shrink:0; }
+.flag-icon-lg { width:28px;height:20px;object-fit:cover;border-radius:3px;flex-shrink:0;display:block; }
+.country-tag { display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px; background: rgba(29,62,168,0.08); border-radius: 100px; font-size: 0.75rem; font-weight: 600; color: var(--blue); }
+
+/* PHOTO CARD */
+.photo-card { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/3; background: var(--light); }
+.photo-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+.photo-card:hover img { transform: scale(1.04); }
+
+/* FOOTER */
+.site-footer { background: var(--blue3); color: rgba(255,255,255,0.7); padding: 72px 0 0; border-top: 3px solid var(--yellow); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 52px; }
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
+.footer-brand p { font-size: 0.88rem; margin-top: 14px; line-height: 1.7; max-width: 300px; }
+.footer-logo img { height: 44px; width: auto; }
+.footer-col h5 { color: var(--yellow); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; margin-bottom: 16px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.footer-col ul a { font-size: 0.86rem; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+.footer-col ul a:hover { color: var(--yellow); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 22px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.footer-bottom p { font-size: 0.8rem; }
+.footer-bottom-links { display: flex; gap: 18px; }
+.footer-bottom-links a { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+.footer-bottom-links a:hover { color: var(--white); }
+
+/* TRACK STATUS */
+.track-status { display: flex; gap: 0; margin: 28px 0; }
+.track-step { flex: 1; text-align: center; position: relative; }
+.track-step::before { content: ''; position: absolute; top: 18px; left: 50%; right: -50%; height: 2px; background: var(--border); z-index: 0; }
+.track-step:last-child::before { display: none; }
+.track-step .dot { width: 36px; height: 36px; border-radius: 50%; background: var(--offwhite); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; font-size: 0.75rem; font-weight: 700; position: relative; z-index: 1; }
+.track-step.done .dot { background: var(--yellow); border-color: var(--yellow); color: var(--blue); }
+.track-step.active .dot { background: var(--blue); border-color: var(--blue); color: var(--white); }
+.track-step.done::before { background: var(--yellow); }
+.track-step p { font-size: 0.75rem; color: var(--muted); }
+.track-step.active p { color: var(--blue); font-weight: 600; }
+
+/* ALERT */
+.alert { padding: 15px 18px; border-radius: var(--radius); border-left: 3px solid; margin-bottom: 18px; font-size: 0.88rem; }
+.alert-success { background: rgba(22,163,74,0.07); border-color: #16a34a; color: #166534; }
+.alert-info { background: rgba(29,62,168,0.06); border-color: var(--blue); color: var(--blue); }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s, transform 0.55s; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* PAGE WRAPPER */
+.page-wrapper { padding-top: var(--nav-h); }
+
+/* CHAT WIDGET */
+#chat-widget { position: fixed; bottom: 26px; right: 26px; z-index: 9999; }
+#chat-btn { width: 54px; height: 54px; border-radius: 50%; background: var(--yellow); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 18px rgba(255,214,0,0.5); transition: transform 0.2s; }
+#chat-btn:hover { transform: scale(1.08); }
+#chat-btn svg { width: 24px; height: 24px; fill: none; stroke: var(--blue); stroke-width: 2.2; }
+#chat-box { position: absolute; bottom: 66px; right: 0; width: 310px; background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); border: 1px solid var(--border); display: none; overflow: hidden; }
+#chat-box.open { display: flex; flex-direction: column; }
+#chat-head { background: var(--blue); padding: 14px 18px; border-bottom: 2px solid var(--yellow); }
+#chat-head h4 { color: var(--white); font-size: 0.92rem; }
+#chat-head p { color: rgba(255,255,255,0.55); font-size: 0.75rem; }
+#chat-messages { padding: 14px; flex: 1; max-height: 250px; overflow-y: auto; display: flex; flex-direction: column; gap: 9px; }
+.msg { padding: 9px 13px; border-radius: 8px; font-size: 0.83rem; max-width: 88%; }
+.msg-bot { background: var(--light); color: var(--text); align-self: flex-start; }
+.msg-user { background: var(--blue); color: var(--white); align-self: flex-end; }
+#chat-input-row { display: flex; border-top: 1px solid var(--border); }
+#chat-input { flex: 1; padding: 11px 14px; border: none; font-family: 'Inter',sans-serif; font-size: 0.86rem; outline: none; }
+#chat-send { padding: 11px 14px; background: var(--yellow); border: none; cursor: pointer; color: var(--blue); font-weight: 700; font-size: 0.8rem; }
+
+/* UTILS */
+.text-yellow { color: var(--yellow); }
+.text-blue { color: var(--blue); }
+.text-muted { color: var(--muted); }
+.text-white { color: var(--white); }
+.text-center { text-align: center; }
+.mt-8{margin-top:8px}.mt-16{margin-top:16px}.mt-24{margin-top:24px}.mt-32{margin-top:32px}.mt-48{margin-top:48px}
+.mb-8{margin-bottom:8px}.mb-16{margin-bottom:16px}.mb-24{margin-bottom:24px}.mb-32{margin-bottom:32px}
+.fw-600{font-weight:600}.fw-700{font-weight:700}
+.d-flex{display:flex}.align-center{align-items:center}.gap-12{gap:12px}.gap-16{gap:16px}
+
+/* Dropdown hover bridge */
+.has-dropdown { position: relative; }
+.nav-dropdown { top: 100% !important; margin-top: 0 !important; }
+.has-dropdown::after { content:''; position:absolute; bottom:-8px; left:0; right:0; height:8px; z-index:999; }
+.has-dropdown:hover .nav-dropdown,
+.nav-dropdown:hover { opacity:1 !important; pointer-events:auto !important; transform:translateY(0) !important; }
+
+/* Language switcher */
+.lang-switcher { display:flex; align-items:center; gap:3px; margin-right:6px; }
+.lang-btn { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.25); color:rgba(255,255,255,0.85); padding:5px 8px; font-size:0.7rem; font-weight:700; cursor:pointer; border-radius:3px; font-family:'Inter',sans-serif; transition:all 0.15s; }
+.lang-btn.active, .lang-btn:hover { background:var(--yellow); color:var(--blue); border-color:var(--yellow); }
+.footer-social { margin-top:16px; display:flex; flex-wrap:wrap; gap:8px; }
+.social-link { font-size:0.78rem; font-weight:600; color:rgba(255,255,255,0.55); padding:6px 12px; border:1px solid rgba(255,255,255,0.15); border-radius:4px; transition:color 0.2s, border-color 0.2s; }
+.social-link:hover { color:var(--yellow); border-color:var(--yellow); }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.lakeoilgroup.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Gallery",
+      "item": "https://www.lakeoilgroup.com/gallery.html"
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="assets/theme.css">
+</head><body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group" style="height:46px;width:auto" width="1316" height="395">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="about.html" data-i18n="nav.about">About</a></li>
+      <li class="has-dropdown"><a href="services.html" data-i18n="nav.services">Services &#9662;</a>
+        <div class="nav-dropdown">
+          <div class="dd-label" data-i18n="nav.dd.energy">Energy</div>
+          <a href="fuel.html" data-i18n="nav.fuel">Fuel &amp; Petroleum</a><a href="lpg.html" data-i18n="nav.lpg">LPG Gas</a><a href="lubricants.html" data-i18n="nav.lubricants">Lubricants</a>
+          <div class="dd-label" data-i18n="nav.dd.industry">Industry</div>
+          <a href="steel.html" data-i18n="nav.steel">Lake Steel</a><a href="concrete.html" data-i18n="nav.concrete">Concrete &amp; Aggregate</a>
+          <div class="dd-label" data-i18n="nav.dd.logistics">Logistics</div>
+          <a href="logistics.html" data-i18n="nav.logistics">Transport &amp; Haulage</a><a href="container-services.html" data-i18n="nav.containers">Container Services</a>
+        </div>
+      </li>
+      <li class="has-dropdown"><a href="africa-network.html" data-i18n="nav.network">Network &#9662;</a>
+        <div class="nav-dropdown">
+          <a href="africa-network.html" data-i18n="nav.africaMap">Africa Operations Map</a>
+          <a href="station-locator.html" data-i18n="nav.stations">Station Locator</a>
+          <a href="fleet.html" data-i18n="nav.fleet">Our Fleet</a>
+        </div>
+      </li>
+      <li class="has-dropdown"><a href="about.html" data-i18n="nav.company">Company &#9662;</a>
+        <div class="nav-dropdown">
+          <a href="history.html" data-i18n="nav.history">Our History</a><a href="leadership.html" data-i18n="nav.leadership">Leadership</a>
+          <a href="csr.html" data-i18n="nav.csr">CSR &amp; Sustainability</a><a href="investors.html" data-i18n="nav.investors">Investor Relations</a>
+          <a href="projects.html" data-i18n="nav.projects">Major Projects</a><a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+        </div>
+      </li>
+      <li><a href="news.html" data-i18n="nav.news">News</a></li>
+      <li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
+      <li class="lang-switcher" aria-label="Language">
+        <button type="button" class="lang-btn active" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="fr">FR</button>
+        <button type="button" class="lang-btn" data-lang="sw">SW</button>
+      </li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile" style="display:none">
+  <a href="index.html" data-i18n="nav.home">Home</a><a href="about.html" data-i18n="nav.about">About</a>
+  <div class="mob-section" data-i18n="mob.services">Services</div>
+  <a href="fuel.html" data-i18n="nav.fuelShort">Fuel</a><a href="lpg.html" data-i18n="nav.lpg">LPG Gas</a><a href="lubricants.html" data-i18n="nav.lubricants">Lubricants</a>
+  <a href="steel.html" data-i18n="nav.steelShort">Steel</a><a href="concrete.html" data-i18n="nav.concreteShort">Concrete</a><a href="logistics.html" data-i18n="nav.transportShort">Transport</a><a href="container-services.html" data-i18n="nav.containersShort">Containers</a>
+  <div class="mob-section" data-i18n="mob.network">Network</div>
+  <a href="africa-network.html" data-i18n="nav.africaMapShort">Africa Map</a><a href="station-locator.html" data-i18n="nav.stations">Station Locator</a><a href="fleet.html" data-i18n="nav.fleet">Our Fleet</a>
+  <div class="mob-section" data-i18n="mob.company">Company</div>
+  <a href="history.html" data-i18n="nav.historyShort">History</a><a href="leadership.html" data-i18n="nav.leadership">Leadership</a><a href="csr.html" data-i18n="nav.csrShort">CSR</a>
+  <a href="investors.html" data-i18n="nav.investorsShort">Investors</a><a href="projects.html" data-i18n="nav.projectsShort">Projects</a><a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+  <div class="mob-section" data-i18n="mob.more">More</div>
+  <a href="news.html" data-i18n="nav.news">News</a><a href="careers.html" data-i18n="nav.careers">Careers</a><a href="contact.html" data-i18n="footer.contact">Contact</a>
+</div>
+<div class="page-wrapper">
+<section class="page-hero"><div class="container" style="position:relative;z-index:2">
+  <nav class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span>/</span><span data-i18n="gallery.1">Gallery</span></nav>
+  <div data-i18n="gallery.2" class="eyebrow">Photo Library</div><h1 data-i18n="gallery.3">Lake Group Gallery</h1><p data-i18n="gallery.4">Real photos from our operations, GCCP concrete plant, MERM Dubai, LPG cylinders, fuel operations and more.</p>
+</div></section>
+
+<style>
+.gallery-filter-bar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:32px}
+.gf-btn{padding:8px 20px;border:1.5px solid var(--border);background:var(--white);border-radius:100px;font-size:0.83rem;font-weight:600;cursor:pointer;color:var(--muted);transition:all 0.2s}
+.gf-btn:hover,.gf-btn.active{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.gallery-masonry{columns:3;gap:10px}
+@media(max-width:860px){.gallery-masonry{columns:2}}
+@media(max-width:560px){.gallery-masonry{columns:1}}
+.g-item{break-inside:avoid;margin-bottom:10px;border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;position:relative}
+.g-item img{width:100%;display:block;transition:transform 0.4s}
+.g-item:hover img{transform:scale(1.04)}
+.g-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(14,31,90,0.85));padding:24px 12px 10px;color:#fff;font-size:0.76rem;font-weight:600;opacity:0;transition:opacity 0.25s}
+.g-item:hover .g-label{opacity:1}
+#lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9998;align-items:center;justify-content:center;flex-direction:column}
+#lightbox.open{display:flex}
+#lb-img{max-width:90vw;max-height:80vh;border-radius:10px;object-fit:contain}
+#lb-caption{color:rgba(255,255,255,0.7);font-size:0.88rem;margin-top:14px;text-align:center;max-width:600px}
+#lb-close{position:absolute;top:20px;right:24px;background:rgba(255,255,255,0.1);border:none;color:#fff;font-size:1.5rem;cursor:pointer;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+#lb-prev,#lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.1);border:none;color:#fff;font-size:1.5rem;cursor:pointer;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+#lb-prev{left:20px}#lb-next{right:20px}
+#lb-prev:hover,#lb-next:hover,#lb-close:hover{background:rgba(255,255,255,0.2)}
+.g-count{background:var(--blue);color:var(--yellow);padding:4px 12px;border-radius:100px;font-size:0.78rem;font-weight:700;display:inline-block;margin-left:8px}
+</style>
+<div id="lightbox">
+  <button id="lb-close">&times;</button>
+  <button id="lb-prev">&#8592;</button>
+  <img id="lb-img" src="" alt="">
+  <div id="lb-caption"></div>
+  <button id="lb-next">&#8594;</button>
+</div>
+<section class="section">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:36px">
+      <div data-i18n="gallery.5" class="section-label" style="justify-content:center;color:var(--yellow3)">Photo Library</div>
+      <h2 data-i18n="gallery.6" data-i18n-html="" class="section-title">Lake Group in Action <span data-i18n="gallery.7" class="g-count">39 Photos</span></h2>
+      <p data-i18n="gallery.8" class="section-subtitle" style="margin:10px auto 0">Real photos sourced directly from lakeoilgroup.com, our operations across East Africa and the Middle East.</p>
+    </div>
+    <div class="gallery-filter-bar">
+      <button data-i18n="gallery.9" class="gf-btn active" onclick="filterGallery('all',this)">All (39)</button>
+      <button data-i18n="gallery.10" class="gf-btn" onclick="filterGallery('operations',this)">Operations (9)</button>
+      <button data-i18n="gallery.11" class="gf-btn" onclick="filterGallery('fuel',this)">Fuel &amp; Oil (5)</button>
+      <button data-i18n="gallery.12" class="gf-btn" onclick="filterGallery('lpg',this)">LPG Gas (5)</button>
+      <button data-i18n="gallery.13" class="gf-btn" onclick="filterGallery('concrete',this)">GCCP Concrete (12)</button>
+      <button data-i18n="gallery.14" class="gf-btn" onclick="filterGallery('dubai',this)">MERM Dubai (10)</button>
+    </div>
+    <div class="gallery-masonry" id="gallery-grid">
+<div class="g-item reveal" data-cat="operations" data-src="assets/images/n-slider/1.jpg" data-caption="Field Operations across East Africa">
+        <img src="assets/images/n-slider/1.jpg" alt="Field Operations across East Africa" loading="lazy" decoding="async" width="1920" height="1280">
+        <div data-i18n="gallery.15" class="g-label">Field Operations across East Africa</div>
+      </div>
+<div class="g-item reveal" data-cat="operations" data-src="assets/images/n-slider/2.jpg" data-caption="Highest Service Standards">
+        <img src="assets/images/n-slider/2.jpg" alt="Highest Service Standards" loading="lazy" decoding="async" width="2061" height="1380">
+        <div data-i18n="gallery.16" class="g-label">Highest Service Standards</div>
+      </div>
+<div class="g-item reveal" data-cat="fuel" data-src="assets/images/n-slider/3.jpg" data-caption="Largest Petroleum Distributors in Tanzania">
+        <img src="assets/images/n-slider/3.jpg" alt="Largest Petroleum Distributors in Tanzania" loading="lazy" decoding="async" width="2070" height="1380">
+        <div data-i18n="gallery.17" class="g-label">Largest Petroleum Distributors in Tanzania</div>
+      </div>
+<div class="g-item reveal" data-cat="operations" data-src="assets/images/n-slider/4.jpg" data-caption="Fastest Growing Company in Africa">
+        <img src="assets/images/n-slider/4.jpg" alt="Fastest Growing Company in Africa" loading="lazy" decoding="async" width="2070" height="1380">
+        <div data-i18n="gallery.18" class="g-label">Fastest Growing Company in Africa</div>
+      </div>
+<div class="g-item reveal" data-cat="operations" data-src="assets/images/n-slider/5.jpg" data-caption="Pan-African Supply Chain Operations">
+        <img src="assets/images/n-slider/5.jpg" alt="Pan-African Supply Chain Operations" loading="lazy" decoding="async" width="2070" height="1380">
+        <div data-i18n="gallery.19" class="g-label">Pan-African Supply Chain Operations</div>
+      </div>
+<div class="g-item reveal" data-cat="fuel" data-src="assets/images/n-slider/6.jpg" data-caption="Fuel Distribution Network">
+        <img src="assets/images/n-slider/6.jpg" alt="Fuel Distribution Network" loading="lazy" decoding="async" width="2453" height="1380">
+        <div data-i18n="gallery.20" class="g-label">Fuel Distribution Network</div>
+      </div>
+<div class="g-item reveal" data-cat="operations" data-src="assets/images/n-slider/7.jpg" data-caption="8 Countries, 4,600+ Employees">
+        <img src="assets/images/n-slider/7.jpg" alt="8 Countries, 4,600+ Employees" loading="lazy" decoding="async" width="2070" height="1380">
+        <div data-i18n="gallery.21" class="g-label">8 Countries, 4,600+ Employees</div>
+      </div>
+<div class="g-item reveal" data-cat="operations" data-src="assets/images/n-slider/8.jpg" data-caption="Quality, Service, Safety, Professionalism">
+        <img src="assets/images/n-slider/8.jpg" alt="Quality, Service, Safety, Professionalism" loading="lazy" decoding="async" width="2070" height="1380">
+        <div data-i18n="gallery.22" class="g-label">Quality, Service, Safety, Professionalism</div>
+      </div>
+<div class="g-item reveal" data-cat="fuel" data-src="assets/images/n-slider/9.jpg" data-caption="Petroleum Products across East Africa">
+        <img src="assets/images/n-slider/9.jpg" alt="Petroleum Products across East Africa" loading="lazy" decoding="async" width="3199" height="1687">
+        <div data-i18n="gallery.23" class="g-label">Petroleum Products across East Africa</div>
+      </div>
+<div class="g-item reveal" data-cat="fuel" data-src="assets/images/banner/LakeOil.jpg" data-caption="Lake Oil Ltd.: Fuel Station Operations">
+        <img src="assets/images/banner/LakeOil.jpg" alt="Lake Oil Ltd.: Fuel Station Operations" loading="lazy" decoding="async" width="2453" height="1380">
+        <div data-i18n="gallery.24" class="g-label">Lake Oil Ltd.: Fuel Station Operations</div>
+      </div>
+<div class="g-item reveal" data-cat="fuel" data-src="assets/images/banner/LakeOil1.jpg" data-caption="Lake Oil Ltd.: Petroleum Supply Operations">
+        <img src="assets/images/banner/LakeOil1.jpg" alt="Lake Oil Ltd.: Petroleum Supply Operations" loading="lazy" decoding="async" width="2070" height="1380">
+        <div data-i18n="gallery.25" class="g-label">Lake Oil Ltd.: Petroleum Supply Operations</div>
+      </div>
+<div class="g-item reveal" data-cat="lpg" data-src="assets/images/banner/LakeGas.jpg" data-caption="Lake Gas Ltd.: LPG Distribution across East Africa">
+        <img src="assets/images/banner/LakeGas.jpg" alt="Lake Gas Ltd.: LPG Distribution across East Africa" loading="lazy" decoding="async" width="2070" height="1380">
+        <div data-i18n="gallery.26" class="g-label">Lake Gas Ltd.: LPG Distribution across East Africa</div>
+      </div>
+<div class="g-item reveal" data-cat="lpg" data-src="assets/images/lakegas/products/gas1.jpg" data-caption="Lake Gas, 6kg Domestic LPG Cylinder">
+        <img src="assets/images/lakegas/products/gas1.jpg" alt="Lake Gas, 6kg Domestic LPG Cylinder" loading="lazy" decoding="async" width="700" height="476">
+        <div data-i18n="gallery.27" class="g-label">Lake Gas, 6kg Domestic LPG Cylinder</div>
+      </div>
+<div class="g-item reveal" data-cat="lpg" data-src="assets/images/lakegas/products/gas2.jpg" data-caption="Lake Gas, 15kg Cylinder for Hotels & Restaurants">
+        <img src="assets/images/lakegas/products/gas2.jpg" alt="Lake Gas, 15kg Cylinder for Hotels & Restaurants" loading="lazy" decoding="async" width="700" height="476">
+        <div data-i18n="gallery.28" class="g-label">Lake Gas, 15kg Cylinder for Hotels & Restaurants</div>
+      </div>
+<div class="g-item reveal" data-cat="lpg" data-src="assets/images/lakegas/products/gas3.jpg" data-caption="Lake Gas, 38kg Commercial LPG Cylinder">
+        <img src="assets/images/lakegas/products/gas3.jpg" alt="Lake Gas, 38kg Commercial LPG Cylinder" loading="lazy" decoding="async" width="700" height="476">
+        <div data-i18n="gallery.29" class="g-label">Lake Gas, 38kg Commercial LPG Cylinder</div>
+      </div>
+<div class="g-item reveal" data-cat="lpg" data-src="assets/images/lakegas/products/gas4.jpg" data-caption="Lake Gas, 10kg Composite Cylinder (Non-Explosive, Translucent)">
+        <img src="assets/images/lakegas/products/gas4.jpg" alt="Lake Gas, 10kg Composite Cylinder (Non-Explosive, Translucent)" loading="lazy" decoding="async" width="700" height="476">
+        <div data-i18n="gallery.30" class="g-label">Lake Gas, 10kg Composite Cylinder (Non-Explosive, Tran</div>
+      </div>
+<div class="g-item reveal" data-cat="lpg" data-src="assets/images/lakegas/products/gas5.jpg" data-caption="Lake Gas, Composite Cylinder Product Range">
+        <img src="assets/images/lakegas/products/gas5.jpg" alt="Lake Gas, Composite Cylinder Product Range" loading="lazy" decoding="async" width="700" height="476">
+        <div data-i18n="gallery.31" class="g-label">Lake Gas, Composite Cylinder Product Range</div>
+      </div>
+<div class="g-item reveal" data-cat="concrete" data-src="assets/images/gccp/photo_1.jpg" data-caption="GCCP, Gulf Concrete Batching Plant, Dar es Salaam">
+        <img src="assets/images/gccp/photo_1.jpg" alt="GCCP, Gulf Concrete Batching Plant, Dar es Salaam" loading="lazy" decoding="async" width="2061" height="1380">
+        <div data-i18n="gallery.32" class="g-label">GCCP, Gulf Concrete Batching Plant, Dar es Salaam</div>
+      </div>
+<div class="g-item reveal" data-cat="concrete" data-src="assets/images/gccp/photo_2.jpg" data-caption="GCCP, Sany International Aggregate Plant (250T/hr)">
+        <img src="assets/images/gccp/photo_2.jpg" alt="GCCP, Sany International Aggregate Plant (250T/hr)" loading="lazy" decoding="async" width="2061" height="1380">
+        <div data-i18n="gallery.33" class="g-label">GCCP, Sany International Aggregate Plant (250T/hr)</div>
+      </div>
+<div class="g-item reveal" data-cat="concrete" data-src="assets/images/gccp/photo_3.jpg" data-caption="GCCP, Ready-Mix Concrete Delivery Operations">
+        <img src="assets/images/gccp/photo_3.jpg" alt="GCCP, Ready-Mix Concrete Delivery Operations" loading="lazy" decoding="async" width="2061" height="1380">
+        <div data-i18n="gallery.34" class="g-label">GCCP, Ready-Mix Concrete Delivery Operations</div>
+      </div>
+<div class="g-item reveal" data-cat="concrete" data-src="assets/images/gccp/photo_4.jpg" data-caption="GCCP, Mixer Truck Fleet (20 units, 12m³ each)">
+        <img src="assets/images/gccp/photo_4.jpg" alt="GCCP, Mixer Truck Fleet (20 units, 12m³ each)" loading="lazy" decoding="async" width="1080" height="608">
+        <div data-i18n="gallery.35" class="g-label">GCCP, Mixer Truck Fleet (20 units, 12m³ each)</div>
+      </div>
+<div class="g-item reveal" data-cat="concrete" data-src="assets/images/gccp/photo_5.jpg" data-caption="GCCP, Concrete Boom Pump (32m) at Construction Site">
+        <img src="assets/images/gccp/photo_5.jpg" alt="GCCP, Concrete Boom Pump (32m) at Construction Site" loading="lazy" decoding="async" width="1280" height="720">
+        <div data-i18n="gallery.36" class="g-label">GCCP, Concrete Boom Pump (32m) at Construction Site</div>
+      </div>
+<div class="g-item reveal" data-cat="concrete" data-src="assets/images/gccp/photo_6.jpg" data-caption="GCCP, Quality Assurance & Testing Laboratory">
+        <img src="assets/images/gccp/photo_6.jpg" alt="GCCP, Quality Assurance & Testing Laboratory" loading="lazy" decoding="async" width="2070" height="1380">
+        <div data-i18n="gallery.37" class="g-label">GCCP, Quality Assurance & Testing Laboratory</div>
+      </div>
+<div class="g-item reveal" data-cat="concrete" data-src="assets/images/gccp/photo_7.jpg" data-caption="GCCP, Plant Overview, Vijibweni Area">
+        <img src="assets/images/gccp/photo_7.jpg" alt="GCCP, Plant Overview, Vijibweni Area" loading="lazy" decoding="async" width="2070" height="1380">
+        <div data-i18n="gallery.38" class="g-label">GCCP, Plant Overview, Vijibweni Area</div>
+      </div>
+<div class="g-item reveal" data-cat="concrete" data-src="assets/images/gccp/photo_8.jpg" data-caption="GCCP, Heavy Equipment & Sany Batching Systems">
+        <img src="assets/images/gccp/photo_8.jpg" alt="GCCP, Heavy Equipment & Sany Batching Systems" loading="lazy" decoding="async" width="1040" height="780">
+        <div data-i18n="gallery.39" class="g-label">GCCP, Heavy Equipment & Sany Batching Systems</div>
+      </div>
+<div class="g-item reveal" data-cat="concrete" data-src="assets/images/gccp/photo_9.jpg" data-caption="GCCP, Ready-Mix Supply to Prestige Projects">
+        <img src="assets/images/gccp/photo_9.jpg" alt="GCCP, Ready-Mix Supply to Prestige Projects" loading="lazy" decoding="async" width="1080" height="608">
+        <div data-i18n="gallery.40" class="g-label">GCCP, Ready-Mix Supply to Prestige Projects</div>
+      </div>
+<div class="g-item reveal" data-cat="concrete" data-src="assets/images/gccp/photo_10.jpg" data-caption="GCCP, Lugoba Quarry Aggregate Production">
+        <img src="assets/images/gccp/photo_10.jpg" alt="GCCP, Lugoba Quarry Aggregate Production" loading="lazy" decoding="async" width="780" height="1040">
+        <div data-i18n="gallery.41" class="g-label">GCCP, Lugoba Quarry Aggregate Production</div>
+      </div>
+<div class="g-item reveal" data-cat="concrete" data-src="assets/images/gccp/photo_11.jpg" data-caption="GCCP, Foundation & Piling Concrete Operations">
+        <img src="assets/images/gccp/photo_11.jpg" alt="GCCP, Foundation & Piling Concrete Operations" loading="lazy" decoding="async" width="1032" height="774">
+        <div data-i18n="gallery.42" class="g-label">GCCP, Foundation & Piling Concrete Operations</div>
+      </div>
+<div class="g-item reveal" data-cat="concrete" data-src="assets/images/gccp/photo_12.jpg" data-caption="GCCP, Truck Mixer Loading at Batching Plant">
+        <img src="assets/images/gccp/photo_12.jpg" alt="GCCP, Truck Mixer Loading at Batching Plant" loading="lazy" decoding="async" width="1032" height="774">
+        <div data-i18n="gallery.43" class="g-label">GCCP, Truck Mixer Loading at Batching Plant</div>
+      </div>
+<div class="g-item reveal" data-cat="dubai" data-src="assets/images/merm/photo_1.jpg" data-caption="MERM: Middle East Ready Mix LLC, Dubai, UAE">
+        <img src="assets/images/merm/photo_1.jpg" alt="MERM: Middle East Ready Mix LLC, Dubai, UAE" loading="lazy" decoding="async" width="800" height="455">
+        <div data-i18n="gallery.44" class="g-label">MERM: Middle East Ready Mix LLC, Dubai, UAE</div>
+      </div>
+<div class="g-item reveal" data-cat="dubai" data-src="assets/images/merm/photo_2.jpg" data-caption="MERM: One of Lake Group's Largest Premix Plants">
+        <img src="assets/images/merm/photo_2.jpg" alt="MERM: One of Lake Group's Largest Premix Plants" loading="lazy" decoding="async" width="1114" height="787">
+        <div data-i18n="gallery.45" class="g-label">MERM: One of Lake Group's Largest Premix Plants</div>
+      </div>
+<div class="g-item reveal" data-cat="dubai" data-src="assets/images/merm/photo_3.jpg" data-caption="MERM: Ready-Mix Concrete Fleet, Dubai">
+        <img src="assets/images/merm/photo_3.jpg" alt="MERM: Ready-Mix Concrete Fleet, Dubai" loading="lazy" decoding="async" width="1600" height="1067">
+        <div data-i18n="gallery.46" class="g-label">MERM: Ready-Mix Concrete Fleet, Dubai</div>
+      </div>
+<div class="g-item reveal" data-cat="dubai" data-src="assets/images/merm/photo_4.jpg" data-caption="MERM: Batching Plant Operations, Dubai">
+        <img src="assets/images/merm/photo_4.jpg" alt="MERM: Batching Plant Operations, Dubai" loading="lazy" decoding="async" width="332" height="196">
+        <div data-i18n="gallery.47" class="g-label">MERM: Batching Plant Operations, Dubai</div>
+      </div>
+<div class="g-item reveal" data-cat="dubai" data-src="assets/images/merm/photo_5.jpg" data-caption="MERM: Concrete Supply to UAE Construction Projects">
+        <img src="assets/images/merm/photo_5.jpg" alt="MERM: Concrete Supply to UAE Construction Projects" loading="lazy" decoding="async" width="1080" height="810">
+        <div data-i18n="gallery.48" class="g-label">MERM: Concrete Supply to UAE Construction Projects</div>
+      </div>
+<div class="g-item reveal" data-cat="dubai" data-src="assets/images/merm/photo_6.jpg" data-caption="MERM: Mixer Truck Fleet at Dubai Plant">
+        <img src="assets/images/merm/photo_6.jpg" alt="MERM: Mixer Truck Fleet at Dubai Plant" loading="lazy" decoding="async" width="810" height="1080">
+        <div data-i18n="gallery.49" class="g-label">MERM: Mixer Truck Fleet at Dubai Plant</div>
+      </div>
+<div class="g-item reveal" data-cat="dubai" data-src="assets/images/merm/photo_7.jpg" data-caption="MERM: Aggregate & Materials Storage, UAE">
+        <img src="assets/images/merm/photo_7.jpg" alt="MERM: Aggregate & Materials Storage, UAE" loading="lazy" decoding="async" width="1080" height="810">
+        <div data-i18n="gallery.50" class="g-label">MERM: Aggregate & Materials Storage, UAE</div>
+      </div>
+<div class="g-item reveal" data-cat="dubai" data-src="assets/images/merm/photo_8.jpg" data-caption="MERM: Quality Control Laboratory, Dubai">
+        <img src="assets/images/merm/photo_8.jpg" alt="MERM: Quality Control Laboratory, Dubai" loading="lazy" decoding="async" width="1080" height="810">
+        <div data-i18n="gallery.51" class="g-label">MERM: Quality Control Laboratory, Dubai</div>
+      </div>
+<div class="g-item reveal" data-cat="dubai" data-src="assets/images/merm/photo_9.jpg" data-caption="MERM: Ready-Mix Concrete Production Line, UAE">
+        <img src="assets/images/merm/photo_9.jpg" alt="MERM: Ready-Mix Concrete Production Line, UAE" loading="lazy" decoding="async" width="1080" height="810">
+        <div data-i18n="gallery.52" class="g-label">MERM: Ready-Mix Concrete Production Line, UAE</div>
+      </div>
+<div class="g-item reveal" data-cat="dubai" data-src="assets/images/merm/photo_10.jpg" data-caption="MERM: Lake Group Middle East Operations">
+        <img src="assets/images/merm/photo_10.jpg" alt="MERM: Lake Group Middle East Operations" loading="lazy" decoding="async" width="810" height="1080">
+        <div data-i18n="gallery.53" class="g-label">MERM: Lake Group Middle East Operations</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;padding:24px;background:var(--light);border-radius:var(--radius-lg);border:1px solid var(--border)">
+      <p data-i18n="gallery.54" data-i18n-html="" style="font-size:0.9rem"><strong data-i18n="gallery.55">39 real photos</strong> from Lake Group operations, GCCP, MERM Dubai, Lake Gas, Lake Oil &amp; more.</p>
+      <p style="font-size:0.83rem;margin-top:6px">Follow <a data-i18n="gallery.56" href="https://www.instagram.com/lakeoilltd/" target="_blank" style="color:var(--blue);font-weight:700">@lakeoilltd on Instagram</a> for the latest updates from the field.</p>
+    </div>
+  </div>
+</section>
+<script>
+function filterGallery(cat,btn){
+  document.querySelectorAll('.gf-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.g-item').forEach(el=>{
+    el.style.display=(cat==='all'||el.dataset.cat===cat)?'':'none';
+  });
+}
+const visItems=()=>[...document.querySelectorAll('.g-item')].filter(e=>e.style.display!=='none');
+let cur=0;
+function openLightbox(el){
+  const all=visItems();
+  cur=all.indexOf(el);
+  showLB(cur);
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function showLB(i){
+  const all=visItems();
+  cur=(i+all.length)%all.length;
+  document.getElementById('lb-img').src=all[cur].dataset.src;
+  document.getElementById('lb-caption').textContent=all[cur].dataset.caption;
+}
+document.querySelectorAll('.g-item').forEach(el=>el.addEventListener('click',()=>openLightbox(el)));
+document.getElementById('lb-close').onclick=()=>{document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';};
+document.getElementById('lb-prev').onclick=()=>showLB(cur-1);
+document.getElementById('lb-next').onclick=()=>showLB(cur+1);
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('lightbox').classList.contains('open'))return;
+  if(e.key==='ArrowLeft')showLB(cur-1);
+  if(e.key==='ArrowRight')showLB(cur+1);
+  if(e.key==='Escape')document.getElementById('lb-close').click();
+});
+</script>
+</div>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group" width="1316" height="395">
+        </div>
+        <p class="footer-motto" style="color:var(--yellow);font-weight:600;font-size:0.95rem;letter-spacing:0.04em" data-i18n="footer.motto">Quality, Service, Safety, Professionalism</p>
+        <div class="footer-social">
+          <a data-i18n="gallery.57" href="https://www.linkedin.com/company/lake-oil" class="social-link" target="_blank" rel="noopener">LinkedIn</a>
+          <a data-i18n="gallery.58" href="https://www.facebook.com/lakeoilgroup" class="social-link" target="_blank" rel="noopener">Facebook</a>
+          <a data-i18n="gallery.59" href="https://twitter.com/lakeoilgroup" class="social-link" target="_blank" rel="noopener">X / Twitter</a>
+          <a data-i18n="gallery.60" href="https://www.youtube.com/@lakeoilgroup" class="social-link" target="_blank" rel="noopener">YouTube</a>
+        </div>
+        <div style="margin-top:20px;display:flex;gap:10px">
+          <a href="contact.html" class="btn btn-outline btn-sm" data-i18n="footer.contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-col"><h5 data-i18n="footer.services">Services</h5><ul>
+        <li><a href="fuel.html" data-i18n="nav.fuel">Fuel &amp; Petroleum</a></li><li><a href="lpg.html" data-i18n="nav.lpg">LPG Gas</a></li>
+        <li><a href="lubricants.html" data-i18n="nav.lubricants">Lubricants</a></li><li><a href="steel.html" data-i18n="nav.steel">Lake Steel</a></li>
+        <li><a href="concrete.html" data-i18n="nav.concreteShort">Concrete</a></li><li><a href="logistics.html" data-i18n="nav.transportShort">Transport</a></li>
+        <li><a href="container-services.html" data-i18n="nav.containers">Container Services</a></li>
+      </ul></div>
+      <div class="footer-col"><h5 data-i18n="footer.company">Company</h5><ul>
+        <li><a href="about.html" data-i18n="nav.aboutUs">About Us</a></li><li><a href="history.html" data-i18n="nav.historyShort">History</a></li>
+        <li><a href="leadership.html" data-i18n="nav.leadership">Leadership</a></li><li><a href="csr.html" data-i18n="nav.csrShort">CSR</a></li>
+        <li><a href="investors.html" data-i18n="nav.investorsShort">Investors</a></li><li><a href="projects.html" data-i18n="nav.projectsShort">Projects</a></li>
+        <li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
+      </ul></div>
+      <div class="footer-col"><h5 data-i18n="footer.contactHeading">Contact</h5><ul>
+        <li><a href="#" data-i18n="footer.address">Plot 49, Mikocheni Light Industrial, Dar es Salaam</a></li>
+        <li><a href="tel:+255222780510">+255 222 780 510</a></li>
+        <li><a href="tel:+255222780479">+255 222 780 479</a></li>
+        <li><a data-i18n="gallery.61" href="mailto:admin@lakeoilgroup.com">admin@lakeoilgroup.com</a></li>
+      </ul>
+      <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:5px">
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/tz.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> TZ</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/ke.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> KE</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/zm.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> ZM</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/rw.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> RW</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/bi.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> BI</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/cd.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> DRC</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/et.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> ET</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/mz.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> MZ</span>
+      </div></div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="gallery.62" data-i18n-html="">&copy; 2026 Lake Group. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <div class="footer-bottom-links"><a href="#" data-i18n="footer.privacy">Privacy</a><a href="#" data-i18n="footer.terms">Terms</a><a href="contact.html" data-i18n="footer.contact">Contact</a></div>
+    </div>
+  </div>
+</footer>
+<div id="chat-widget">
+  <div id="chat-box">
+    <div id="chat-head"><h4 data-i18n="chat.title">Lake Group Assistant</h4><p data-i18n="chat.sub">Ask us anything</p></div>
+    <div id="chat-messages"><div class="msg msg-bot" data-i18n="chat.hello">Hello! How can I help you today?</div></div>
+    <div id="chat-input-row"><input type="text" id="chat-input" placeholder="Type a message..." data-i18n-placeholder="chat.placeholder" aria-label="Type a message..." data-i18n-aria="chat.placeholder"><button id="chat-send" data-i18n="chat.send">Send</button></div>
+  </div>
+  <button id="chat-btn" aria-label="Chat"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></button>
+</div>
+<script src="assets/i18n-content.js" defer></script>
+<script src="assets/i18n.js" defer></script>
+<script src="assets/site.js" defer></script>
+<script src="assets/pwa.js" defer></script>
+<script src="assets/motion.js" defer></script>
+</body></html>

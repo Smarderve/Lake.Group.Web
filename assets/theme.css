@@ -1,0 +1,384 @@
+/* ==========================================================================
+   Lake Group — shared design-system + motion layer (theme.css)
+   Loaded AFTER each page's inline <style> so it wins ties in the cascade.
+   Purpose:
+     1. Re-assert the canonical brand tokens (blue #1D3EA8 family + #FFD700
+        yellow) over the legacy "navy/amber" style block still present on
+        ~22 pages, without editing any page markup.
+     2. Unify component styling (buttons, cards, forms, tabs, nav, footer).
+     3. Provide the motion vocabulary used by assets/motion.js.
+   NOTE: never style .experience-3d-* or #fuel-experience — owned elsewhere.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. TOKENS
+   Canonical brand values + remaps of the legacy alias tokens (--navy/--amber/
+   --bone) onto brand equivalents so every var()-based legacy rule snaps back
+   on-brand automatically.
+   -------------------------------------------------------------------------- */
+:root {
+  --blue:    #1D3EA8;
+  --blue2:   #162E7F;
+  --blue3:   #0E1F5A;
+  --yellow:  #FFD700;
+  --yellow2: #FFC200;
+  --yellow3: #E6AF00;
+  --red:     #CC1E1E;
+  --white:   #FFFFFF;
+  --offwhite:#F7F8FC;
+  --light:   #EFF2FB;
+  --text:    #0E1F5A;
+  --muted:   #5A6478;
+  --border:  rgba(29,62,168,0.12);
+  --nav-h:   72px;
+  --radius:  4px;
+  --radius-lg: 10px;
+  --shadow:    0 2px 16px rgba(14,31,90,0.08);
+  --shadow-md: 0 6px 28px rgba(14,31,90,0.12);
+  --shadow-lg: 0 14px 48px rgba(14,31,90,0.18);
+
+  /* Legacy alias remap (navy/amber/bone system -> brand) */
+  --navy:   var(--blue);
+  --navy2:  var(--blue2);
+  --navy3:  var(--blue3);
+  --amber:  var(--yellow3);
+  --amber2: var(--yellow2);
+  --amber3: var(--yellow);
+  --bone:   var(--offwhite);
+  --bone2:  var(--light);
+
+  /* Motion tokens */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 0.2s;
+  --dur-med:  0.45s;
+  --dur-slow: 0.7s;
+}
+
+/* --------------------------------------------------------------------------
+   2. TYPOGRAPHY RHYTHM (conservative)
+   -------------------------------------------------------------------------- */
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+.section-title { letter-spacing: -0.015em; line-height: 1.18; margin-bottom: 14px; }
+.section-subtitle { font-size: 1.02rem; line-height: 1.75; max-width: 620px; }
+.page-hero h1 { letter-spacing: 0.03em; }
+.page-hero p { line-height: 1.75; max-width: 600px; }
+.card-body p { line-height: 1.65; }
+
+/* Section rhythm: consistent scale, calmer on small screens */
+.section { padding: 96px 0; }
+.section-sm { padding: 64px 0; }
+@media (max-width: 960px) {
+  .section { padding: 76px 0; }
+  .section-sm { padding: 52px 0; }
+}
+@media (max-width: 720px) {
+  .section { padding: 60px 0; }
+  .section-sm { padding: 44px 0; }
+  .page-hero { padding: 118px 0 52px; }
+  .container { padding: 0 20px; }
+}
+
+/* --------------------------------------------------------------------------
+   3. ACCESSIBILITY — visible focus states everywhere
+   -------------------------------------------------------------------------- */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--yellow2);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.form-group textarea:focus-visible,
+#chat-input:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   4. NAV — unified brand bar + scroll behaviour hooks (motion.js)
+   -------------------------------------------------------------------------- */
+.site-nav {
+  background: var(--blue);
+  border-bottom: 3px solid var(--yellow);
+  backdrop-filter: none;
+  transition: transform 0.38s var(--ease-smooth), box-shadow 0.3s ease, background-color 0.3s ease;
+  will-change: transform;
+}
+.site-nav.nav-scrolled {
+  background: rgba(23,49,133,0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(4,10,34,0.35);
+}
+.site-nav.nav-hidden { transform: translateY(-100%); }
+
+.nav-links > li > a { color: rgba(255,255,255,0.85); }
+.nav-links > li > a:hover,
+.nav-links > li > a.active { color: var(--yellow); background: rgba(255,255,255,0.07); }
+
+/* Dropdown: brand panel + micro slide on links */
+.nav-dropdown {
+  background: var(--blue2);
+  border: 1px solid rgba(255,215,0,0.2);
+  border-top: 2px solid var(--yellow);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+  transition: opacity 0.22s var(--ease-smooth), transform 0.22s var(--ease-smooth);
+}
+.nav-dropdown a {
+  color: rgba(255,255,255,0.8);
+  transition: background 0.18s ease, color 0.18s ease, transform 0.18s var(--ease-out);
+}
+.nav-dropdown a:hover {
+  background: rgba(255,215,0,0.12);
+  color: var(--yellow);
+  transform: translateX(3px);
+}
+
+/* Unified responsive breakpoint (canonical 1060px) */
+@media (max-width: 1060px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+}
+
+/* Mobile menu: class-driven open state. !important intentionally beats the
+   legacy `@media(max-width:1024px){ .nav-mobile{display:flex !important} }`
+   rule that kept the menu permanently expanded on 22 pages. */
+.nav-mobile { display: none !important; background: var(--blue2); border-bottom: 2px solid var(--yellow); }
+.nav-mobile.open { display: flex !important; }
+.nav-mobile a { transition: background 0.15s ease, color 0.15s ease; }
+.nav-mobile a:hover { background: rgba(255,255,255,0.06); color: var(--yellow); }
+.mob-section { color: var(--yellow); }
+
+/* --------------------------------------------------------------------------
+   5. PAGE HERO — brand accent unified
+   -------------------------------------------------------------------------- */
+.page-hero::before {
+  background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(255,215,0,0.08) 0%, transparent 65%);
+}
+.page-hero .eyebrow { border-color: var(--yellow); color: var(--yellow); }
+
+/* --------------------------------------------------------------------------
+   6. BUTTONS — one geometry, refined hover/press/focus
+   -------------------------------------------------------------------------- */
+.btn {
+  padding: 13px 28px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: transform var(--dur-fast) var(--ease-out),
+              box-shadow var(--dur-fast) ease,
+              background-color var(--dur-fast) ease,
+              border-color var(--dur-fast) ease,
+              color var(--dur-fast) ease;
+}
+.btn-sm { padding: 9px 20px; font-size: 0.83rem; }
+.btn-lg { padding: 16px 36px; font-size: 1rem; }
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0) scale(0.98); transition-duration: 0.08s; }
+.btn:focus-visible { outline: 3px solid var(--yellow2); outline-offset: 2px; }
+
+.btn-primary { background: var(--yellow); color: var(--blue); }
+.btn-primary:hover { background: var(--yellow2); box-shadow: 0 8px 24px rgba(255,215,0,0.4); }
+.btn-outline:hover { border-color: var(--yellow); color: var(--yellow); box-shadow: 0 8px 24px rgba(0,0,0,0.18); transform: translateY(-2px); }
+.btn-outline-dark { color: var(--blue); border-color: var(--blue); }
+.btn-outline-dark:hover { background: var(--blue); color: var(--white); box-shadow: 0 8px 24px rgba(29,62,168,0.3); }
+.btn-blue:hover { background: var(--blue2); box-shadow: 0 8px 24px rgba(29,62,168,0.35); }
+.btn-white:hover { box-shadow: 0 8px 24px rgba(14,31,90,0.18); }
+.nav-cta { background: var(--yellow) !important; color: var(--blue) !important; }
+.nav-cta:hover { background: var(--yellow2) !important; }
+
+/* --------------------------------------------------------------------------
+   7. CARDS — unified radius/shadow/elevation + tilt hooks (motion.js)
+   -------------------------------------------------------------------------- */
+.card, .div-card {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(14,31,90,0.04);
+  transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateY(var(--lift, 0px));
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.card:hover, .div-card:hover {
+  --lift: -4px;
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(29,62,168,0.22);
+}
+.card.is-tilting, .div-card.is-tilting { transition: transform 0.12s linear, box-shadow 0.35s ease; }
+
+/* Legacy amber icon chips -> brand */
+.card-icon { background: rgba(255,215,0,0.16); border-radius: var(--radius-lg); }
+.card-icon svg { color: var(--blue); }
+
+/* Photo zoom pattern unified (cards, gallery, photo strips) */
+.photo-card img, .g-item img, .photo-feature img, .div-card-img {
+  transition: transform 0.6s var(--ease-out);
+}
+.photo-card:hover img, .g-item:hover img, .photo-feature img:hover { transform: scale(1.05); }
+
+/* --------------------------------------------------------------------------
+   8. SEMANTIC SECTION SURFACES + LABELS
+   -------------------------------------------------------------------------- */
+.section-dark { background: var(--blue); }
+.section-bone { background: var(--offwhite); }
+.section-label { color: var(--yellow3); font-weight: 700; }
+.section-label::before { background: var(--yellow); }
+.section-label.dark { color: var(--blue); }
+.section-label.dark::before { background: var(--blue); }
+.section-dark .section-label { color: var(--yellow); }
+.section-dark .section-label::before { background: var(--yellow); }
+
+/* Stat counters: darker gold on light surfaces for contrast, pure brand
+   yellow on dark bands. */
+.stat-number { color: var(--yellow3); }
+.section-dark .stat-number, .stats-band .stat-number, .page-hero .stat-number { color: var(--yellow); }
+
+/* Timeline: brand dots */
+.timeline-item::before { background: var(--yellow); box-shadow: 0 0 0 2px var(--yellow); }
+.timeline-year { color: var(--yellow3); }
+
+/* Badges / tags: brand */
+.badge-amber { background: rgba(255,215,0,0.18); color: var(--blue); }
+.badge-navy { background: var(--blue); color: var(--white); }
+.country-tag { background: rgba(29,62,168,0.08); color: var(--blue); }
+
+/* Alerts */
+.alert-info { background: rgba(29,62,168,0.06); border-color: var(--blue); color: var(--blue); }
+
+/* --------------------------------------------------------------------------
+   9. TABS — brand active state + pane fade
+   -------------------------------------------------------------------------- */
+.tab-nav button { transition: color 0.2s ease, border-color 0.2s ease; }
+.tab-nav button.active { color: var(--blue); border-bottom-color: var(--yellow); }
+.tab-nav button:hover { color: var(--blue); }
+.tab-pane.active { animation: lg-fade-up 0.4s var(--ease-out); }
+
+/* --------------------------------------------------------------------------
+   10. FORMS — unified focus transition
+   -------------------------------------------------------------------------- */
+.form-group input, .form-group select, .form-group textarea {
+  border: 1.5px solid var(--border);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(29,62,168,0.12);
+}
+.form-group label { transition: color 0.2s ease; }
+.form-group:focus-within label { color: var(--blue); }
+
+/* --------------------------------------------------------------------------
+   11. FOOTER — brand surface + animated link underlines
+   -------------------------------------------------------------------------- */
+.site-footer { background: var(--blue3); border-top: 3px solid var(--yellow); }
+.footer-col h5 { color: var(--yellow); }
+.footer-col ul a, .footer-bottom-links a {
+  position: relative;
+  display: inline-block;
+  background-image: linear-gradient(var(--yellow), var(--yellow));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition: color 0.25s ease, background-size 0.3s var(--ease-out);
+}
+.footer-col ul a:hover, .footer-bottom-links a:hover { color: var(--yellow); background-size: 100% 1px; }
+.social-link:hover { color: var(--yellow); border-color: var(--yellow); }
+
+/* --------------------------------------------------------------------------
+   12. CHAT WIDGET — brand
+   -------------------------------------------------------------------------- */
+#chat-btn { background: var(--yellow); box-shadow: 0 4px 18px rgba(255,215,0,0.5); transition: transform 0.2s var(--ease-out), box-shadow 0.2s ease; }
+#chat-btn:hover { transform: scale(1.08); }
+#chat-btn svg { stroke: var(--blue); }
+#chat-head { background: var(--blue); border-bottom: 2px solid var(--yellow); }
+#chat-send { background: var(--yellow); color: var(--blue); }
+.msg-bot { background: var(--light); }
+.msg-user { background: var(--blue); }
+
+/* --------------------------------------------------------------------------
+   13. SCROLL REVEAL SYSTEM (site.js + motion.js)
+   No-JS safety: motion.js adds .lg-motion to <html> at execution time; only
+   then may reveal styles hide anything. Without the marker (JS off/failed),
+   this block overrides the unconditional inline `.reveal{opacity:0}` rules
+   still present in every page's inline styles, keeping content visible.
+   -------------------------------------------------------------------------- */
+.reveal { opacity: 1; transform: none; }
+html.lg-motion .reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
+  transition-delay: var(--reveal-delay, 0s);
+  will-change: opacity, transform;
+}
+html.lg-motion .reveal.reveal-scale { transform: translateY(18px) scale(0.97); }
+html.lg-motion .reveal.visible { opacity: 1; transform: none; will-change: auto; }
+
+/* --------------------------------------------------------------------------
+   14. INDEX-ONLY POLISH (safe no-ops elsewhere)
+   -------------------------------------------------------------------------- */
+/* Marquee: pause on hover */
+.marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+
+/* Hero: staggered entrance (opacity/transform only, no CLS) */
+.hero .hero-eyebrow, .hero h1, .hero .hero-sub, .hero .hero-actions, .hero .hero-stats, .hero .hero-right {
+  animation: lg-fade-up 0.9s var(--ease-out) both;
+}
+.hero h1 { animation-delay: 0.12s; }
+.hero .hero-sub { animation-delay: 0.24s; }
+.hero .hero-actions { animation-delay: 0.36s; }
+.hero .hero-stats { animation-delay: 0.5s; }
+.hero .hero-right { animation-delay: 0.3s; }
+
+/* Page-load: gentle body fade (opacity only) */
+body { animation: lg-page-fade 0.45s ease-out both; }
+
+@keyframes lg-fade-up {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes lg-page-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   14b. MOBILE OVERFLOW GUARD
+   Many pages use inline-styled multi-column grids
+   (style="display:grid;grid-template-columns:1.4fr 1fr...") that have no
+   mobile breakpoint of their own; long unbreakable content (emails, phone
+   numbers, country names) blows them past the 390px viewport and causes
+   horizontal scrolling. Collapse every inline-templated grid to a single
+   column on phones (!important is required to beat the inline style) and
+   let children shrink below their min-content width.
+   -------------------------------------------------------------------------- */
+@media (max-width: 720px) {
+  [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns"] > * { min-width: 0; }
+
+  /* our-story embed captions are nowrap for the cinematic look; on phones
+     they were wider than the screen — let them wrap instead. */
+  .ose-label { white-space: normal; max-width: calc(100% - 2.5rem); text-align: center; }
+
+  /* Defense-in-depth: any residual overflow from future content must never
+     produce a horizontal scrollbar on phones. `clip` (not `hidden`) so no
+     scroll container is created and position:sticky keeps working. */
+  html, body { overflow-x: clip; }
+}
+
+/* --------------------------------------------------------------------------
+   15. REDUCED MOTION — single gate
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  body, .hero .hero-eyebrow, .hero h1, .hero .hero-sub, .hero .hero-actions,
+  .hero .hero-stats, .hero .hero-right, .tab-pane.active { animation: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .site-nav, .btn, .card, .div-card, .nav-dropdown, .nav-dropdown a,
+  .photo-card img, .g-item img, .photo-feature img, .div-card-img,
+  .footer-col ul a, .footer-bottom-links a, #chat-btn { transition: none !important; }
+  .site-nav.nav-hidden { transform: none; }
+  .marquee-track { animation-play-state: paused !important; }
+  .hero-scroll { animation: none !important; }
+  .card, .div-card { transform: none !important; }
+}

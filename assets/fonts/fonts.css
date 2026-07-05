@@ -1,0 +1,141 @@
+/**
+ * Self-hosted fonts for the Lake Group site.
+ *
+ * Previously every page loaded fonts from fonts.googleapis.com via
+ * @import. That's a hard dependency on internet access — with no
+ * connection, browsers silently fall back to a generic system font
+ * (ugly but not broken for text), and Material Symbols icons render as
+ * blank/missing glyphs (genuinely broken, since there's no visual
+ * fallback for an icon font).
+ *
+ * Font files here are sourced from the @fontsource project (the same
+ * Google Fonts files, repackaged for self-hosting), restricted to the
+ * "latin" subset (covers English, French and Portuguese - everything
+ * this site needs) and only the weights actually used on the site, to
+ * keep the total footprint small (~1.3MB across all four families).
+ *
+ * Usage: replace
+ *   @import url('https://fonts.googleapis.com/css2?family=...');
+ * with
+ *   <link rel="stylesheet" href="assets/fonts/fonts.css">
+ * in the <head>, before the page's own <style> block.
+ */
+
+/* ---- Bebas Neue (weight 400 only) ---- */
+@font-face {
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./files/bebas-neue-latin-400-normal.woff2') format('woff2'),
+       url('./files/bebas-neue-latin-400-normal.woff') format('woff');
+}
+
+/* ---- Inter (300/400/500/600/700/800, normal) ---- */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('./files/inter-latin-300-normal.woff2') format('woff2'),
+       url('./files/inter-latin-300-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./files/inter-latin-400-normal.woff2') format('woff2'),
+       url('./files/inter-latin-400-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./files/inter-latin-500-normal.woff2') format('woff2'),
+       url('./files/inter-latin-500-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./files/inter-latin-600-normal.woff2') format('woff2'),
+       url('./files/inter-latin-600-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./files/inter-latin-700-normal.woff2') format('woff2'),
+       url('./files/inter-latin-700-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('./files/inter-latin-800-normal.woff2') format('woff2'),
+       url('./files/inter-latin-800-normal.woff') format('woff');
+}
+
+/* ---- Playfair Display (400/500/600 normal, 400 italic) ---- */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./files/playfair-display-latin-400-normal.woff2') format('woff2'),
+       url('./files/playfair-display-latin-400-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./files/playfair-display-latin-400-italic.woff2') format('woff2'),
+       url('./files/playfair-display-latin-400-italic.woff') format('woff');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./files/playfair-display-latin-500-normal.woff2') format('woff2'),
+       url('./files/playfair-display-latin-500-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./files/playfair-display-latin-600-normal.woff2') format('woff2'),
+       url('./files/playfair-display-latin-600-normal.woff') format('woff');
+}
+
+/* ---- Material Symbols Outlined (weight 400 only) ---- */
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./files/material-symbols-outlined-latin-400-normal.woff2') format('woff2'),
+       url('./files/material-symbols-outlined-latin-400-normal.woff') format('woff');
+}
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
