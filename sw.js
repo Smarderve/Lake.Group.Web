@@ -11,7 +11,7 @@
 
 'use strict';
 
-const VERSION = 'v7';
+const VERSION = 'v10';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -37,6 +37,11 @@ const PRECACHE_URLS = [
   './assets/site.js',
   './assets/theme.css',
   './assets/motion.js',
+  // Flagship (Meridian) design system — migrated pages load this pair
+  // instead of theme.css/motion.js; both stay precached until the full
+  // rollout completes.
+  './assets/flagship.css',
+  './assets/flagship-motion.js',
   './assets/i18n.js',
   './assets/i18n-content.js',
   // Offline knowledge assistant (present on every page).
@@ -216,8 +221,15 @@ function classify(request, url) {
 
   const path = url.pathname;
 
-  // News feed data changes between deploys: prefer the network.
-  if (path.endsWith('/assets/news-data.js')) return 'network-first-asset';
+  // News feed data and the 3D hero bundle change between deploys: prefer
+  // the network so a restored/rebuilt bundle is never masked by a stale
+  // cache-first copy (hard-refresh does not bypass the service worker).
+  if (
+    path.endsWith('/assets/news-data.js') ||
+    path.endsWith('/assets/hero-3d.bundle.js')
+  ) {
+    return 'network-first-asset';
+  }
 
   // Fonts: immutable, cache forever.
   if (path.includes('/assets/fonts/')) return 'cache-first-asset';
@@ -235,11 +247,8 @@ function classify(request, url) {
     return 'cache-first-image';
   }
 
-  // Big, versioned-by-deploy bundles and vendor libraries: cache first.
-  if (
-    path.endsWith('/assets/hero-3d.bundle.js') ||
-    path.includes('/assets/vendor/')
-  ) {
+  // Vendor libraries: cache first (immutable, versioned by path).
+  if (path.includes('/assets/vendor/')) {
     return 'cache-first-asset';
   }
 
