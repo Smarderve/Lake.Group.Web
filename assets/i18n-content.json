@@ -1355,7 +1355,20 @@
     "sustainability.30": "X / Twitter",
     "sustainability.31": "YouTube",
     "sustainability.32": "admin@lakeoilgroup.com",
-    "sustainability.33": "© 2026 Lake Group. <span data-i18n=\"footer.rights\">All rights reserved.</span>"
+    "sustainability.33": "© 2026 Lake Group. <span data-i18n=\"footer.rights\">All rights reserved.</span>",
+    "assistant.title": "Lake Assistant",
+    "assistant.sub": "Offline knowledge assistant",
+    "assistant.placeholder": "Ask about our services, countries…",
+    "assistant.send": "Send",
+    "assistant.open": "Open the Lake Group assistant",
+    "assistant.close": "Close assistant",
+    "assistant.clear": "Clear conversation",
+    "assistant.cleared": "Conversation cleared. How can I help?",
+    "assistant.greeting": "Hello! I’m the Lake Group assistant. Ask me about our services, countries, companies or how to get in touch.",
+    "assistant.thanks": "You’re welcome! Anything else you’d like to know?",
+    "assistant.found": "Here’s what I found:",
+    "assistant.readmore": "Read more →",
+    "assistant.nomatch": "I couldn’t find that — try asking about our services, countries, or contacts, or visit the Contact page."
   },
   "fr": {
     "nav.home": "Accueil",
@@ -2713,7 +2726,20 @@
     "sustainability.30": "X / Twitter",
     "sustainability.31": "YouTube",
     "sustainability.32": "admin@lakeoilgroup.com",
-    "sustainability.33": "© 2026 Lake Group. <span data-i18n=\"footer.rights\">Tous droits réservés.</span>"
+    "sustainability.33": "© 2026 Lake Group. <span data-i18n=\"footer.rights\">Tous droits réservés.</span>",
+    "assistant.title": "Assistant Lake",
+    "assistant.sub": "Assistant de connaissances hors ligne",
+    "assistant.placeholder": "Posez une question sur nos services, nos pays…",
+    "assistant.send": "Envoyer",
+    "assistant.open": "Ouvrir l’assistant Lake Group",
+    "assistant.close": "Fermer l’assistant",
+    "assistant.clear": "Effacer la conversation",
+    "assistant.cleared": "Conversation effacée. Comment puis-je vous aider ?",
+    "assistant.greeting": "Bonjour ! Je suis l’assistant de Lake Group. Posez-moi des questions sur nos services, nos pays, nos sociétés ou comment nous contacter.",
+    "assistant.thanks": "Avec plaisir ! Autre chose que vous aimeriez savoir ?",
+    "assistant.found": "Voici ce que j’ai trouvé :",
+    "assistant.readmore": "En savoir plus →",
+    "assistant.nomatch": "Je n’ai pas trouvé cela — essayez de demander nos services, nos pays ou nos contacts, ou visitez la page Contact."
   },
   "sw": {
     "nav.home": "Nyumbani",
@@ -4071,6 +4097,19 @@
     "sustainability.30": "X / Twitter",
     "sustainability.31": "YouTube",
     "sustainability.32": "admin@lakeoilgroup.com",
-    "sustainability.33": "© 2026 Lake Group. <span data-i18n=\"footer.rights\">Haki zote zimehifadhiwa.</span>"
+    "sustainability.33": "© 2026 Lake Group. <span data-i18n=\"footer.rights\">Haki zote zimehifadhiwa.</span>",
+    "assistant.title": "Msaidizi wa Lake",
+    "assistant.sub": "Msaidizi wa maarifa, hata bila mtandao",
+    "assistant.placeholder": "Uliza kuhusu huduma zetu, nchi…",
+    "assistant.send": "Tuma",
+    "assistant.open": "Fungua msaidizi wa Lake Group",
+    "assistant.close": "Funga msaidizi",
+    "assistant.clear": "Futa mazungumzo",
+    "assistant.cleared": "Mazungumzo yamefutwa. Naweza kukusaidiaje?",
+    "assistant.greeting": "Habari! Mimi ni msaidizi wa Lake Group. Niulize kuhusu huduma zetu, nchi tunazofanya kazi, kampuni zetu au jinsi ya kuwasiliana nasi.",
+    "assistant.thanks": "Karibu sana! Kuna kingine ungependa kujua?",
+    "assistant.found": "Hii ndiyo niliyoipata:",
+    "assistant.readmore": "Soma zaidi →",
+    "assistant.nomatch": "Sikupata jibu la hilo — jaribu kuuliza kuhusu huduma zetu, nchi, au mawasiliano, au tembelea ukurasa wa Mawasiliano."
   }
 }

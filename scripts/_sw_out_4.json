@@ -310,5 +310,18 @@
   "ose.alt.s5": "Malori ya zege iliyochanganywa tayari ya GCCP",
   "ose.alt.s6": "Timu ya uongozi ya Lake Group",
   "ose.alt.s7": "Bohari ya makontena ya AFICD wakati wa machweo",
-  "ose.alt.s8": "Nembo ya Lake Group"
+  "ose.alt.s8": "Nembo ya Lake Group",
+  "assistant.title": "Msaidizi wa Lake",
+  "assistant.sub": "Msaidizi wa maarifa, hata bila mtandao",
+  "assistant.placeholder": "Uliza kuhusu huduma zetu, nchi…",
+  "assistant.send": "Tuma",
+  "assistant.open": "Fungua msaidizi wa Lake Group",
+  "assistant.close": "Funga msaidizi",
+  "assistant.clear": "Futa mazungumzo",
+  "assistant.cleared": "Mazungumzo yamefutwa. Naweza kukusaidiaje?",
+  "assistant.greeting": "Habari! Mimi ni msaidizi wa Lake Group. Niulize kuhusu huduma zetu, nchi tunazofanya kazi, kampuni zetu au jinsi ya kuwasiliana nasi.",
+  "assistant.thanks": "Karibu sana! Kuna kingine ungependa kujua?",
+  "assistant.found": "Hii ndiyo niliyoipata:",
+  "assistant.readmore": "Soma zaidi →",
+  "assistant.nomatch": "Sikupata jibu la hilo — jaribu kuuliza kuhusu huduma zetu, nchi, au mawasiliano, au tembelea ukurasa wa Mawasiliano."
 }

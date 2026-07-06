@@ -11,7 +11,7 @@
 
 'use strict';
 
-const VERSION = 'v6';
+const VERSION = 'v7';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -39,6 +39,11 @@ const PRECACHE_URLS = [
   './assets/motion.js',
   './assets/i18n.js',
   './assets/i18n-content.js',
+  // Offline knowledge assistant (present on every page).
+  './assets/assistant.js',
+  './assets/assistant.css',
+  './assets/assistant-kb.js',
+  './assets/vendor/flexsearch/flexsearch.bundle.min.js',
   './assets/images/logos/LAKE_GROUP_LOGO.jpg',
   './assets/icons/pwa/icon-192.png',
   './assets/icons/pwa/icon-512.png',

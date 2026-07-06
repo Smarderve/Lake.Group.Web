@@ -135,6 +135,11 @@
   }
 
   function initChat() {
+    // The offline knowledge assistant (assets/assistant.js) replaces this
+    // legacy canned-reply chat entirely. It sets this flag during script
+    // execution (all deferred scripts run before DOMContentLoaded), so when
+    // it is loaded on the page the old widget logic must not bind.
+    if (window.__LAKE_ASSISTANT_ACTIVE__) return;
     const chatBtn = document.getElementById('chat-btn');
     const chatBox = document.getElementById('chat-box');
     if (!chatBtn || !chatBox) return;
