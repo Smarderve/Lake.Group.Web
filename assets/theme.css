@@ -115,9 +115,19 @@ button:focus-visible,
 }
 .site-nav.nav-hidden { transform: translateY(-100%); }
 
-.nav-links > li > a { color: rgba(255,255,255,0.85); }
+.nav-links > li > a { color: rgba(255,255,255,0.85); transition: color 0.2s ease, background 0.2s ease, transform 0.2s var(--ease-out); }
 .nav-links > li > a:hover,
-.nav-links > li > a.active { color: var(--yellow); background: rgba(255,255,255,0.07); }
+.nav-links > li > a.active { color: var(--yellow); background: rgba(255,255,255,0.07); transform: translateY(-1px); }
+
+.nav-logo { transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) ease; }
+.nav-logo:hover { transform: translateY(-2px) scale(1.02); box-shadow: var(--shadow-md); }
+.nav-logo img { transition: transform var(--dur-fast) var(--ease-out); }
+
+.lang-btn { transition: background var(--dur-fast) ease, color var(--dur-fast) ease, transform var(--dur-fast) var(--ease-out); }
+.lang-btn:hover:not(.active) { transform: translateY(-1px); }
+
+.breadcrumb a { transition: color var(--dur-fast) ease, transform var(--dur-fast) var(--ease-out); }
+.breadcrumb a:hover { color: var(--yellow); transform: translateX(2px); }
 
 /* Dropdown: brand panel + micro slide on links */
 .nav-dropdown {
@@ -313,7 +323,12 @@ html.lg-motion .reveal {
   will-change: opacity, transform;
 }
 html.lg-motion .reveal.reveal-scale { transform: translateY(18px) scale(0.97); }
+html.lg-motion .reveal.reveal-left { transform: translateX(-42px); }
+html.lg-motion .reveal.reveal-right { transform: translateX(42px); }
 html.lg-motion .reveal.visible { opacity: 1; transform: none; will-change: auto; }
+
+/* Page-load fade */
+html.lg-motion.lg-ready body { animation: lg-page-fade 0.55s ease-out both; }
 
 /* --------------------------------------------------------------------------
    14. INDEX-ONLY POLISH (safe no-ops elsewhere)
@@ -333,6 +348,7 @@ html.lg-motion .reveal.visible { opacity: 1; transform: none; will-change: auto;
 
 /* Page-load: gentle body fade (opacity only) */
 body { animation: lg-page-fade 0.45s ease-out both; }
+html.lg-motion.lg-ready body { animation: lg-page-fade 0.55s ease-out both; }
 
 @keyframes lg-fade-up {
   from { opacity: 0; transform: translateY(22px); }
@@ -381,4 +397,98 @@ body { animation: lg-page-fade 0.45s ease-out both; }
   .marquee-track { animation-play-state: paused !important; }
   .hero-scroll { animation: none !important; }
   .card, .div-card { transform: none !important; }
+  html.lg-motion.lg-ready body { animation: none !important; }
+}
+
+/* --------------------------------------------------------------------------
+   16. MICRO-INTERACTIONS — universal hover & transition polish
+   -------------------------------------------------------------------------- */
+
+/* Badges & tags */
+.badge, .country-tag, .badge-amber, .badge-green, .badge-navy, .badge-yellow {
+  transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) ease, background-color var(--dur-fast) ease;
+  display: inline-block;
+}
+.badge:hover, .country-tag:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+
+/* Division & timeline */
+.division-item, .timeline-item {
+  transition: transform var(--dur-med) var(--ease-out), background-color var(--dur-fast) ease;
+}
+.division-item:hover, .timeline-item:hover { transform: translateX(6px); }
+.division-dot { transition: transform var(--dur-fast) var(--ease-out), background-color var(--dur-fast) ease; }
+.division-item:hover .division-dot { transform: scale(1.3); background: var(--yellow); }
+
+/* Stats */
+.hero-stat, .stat-number {
+  transition: transform var(--dur-med) var(--ease-out), color var(--dur-fast) ease;
+}
+.hero-stat:hover, .fs-stat:hover { transform: translateY(-3px); }
+.hero-stat:hover .hero-stat-num { color: var(--yellow2); }
+
+/* Marquee */
+.marquee-item {
+  transition: color var(--dur-fast) ease, opacity var(--dur-fast) ease, transform var(--dur-fast) var(--ease-out);
+}
+.marquee-wrap:hover .marquee-item { opacity: 0.65; }
+.marquee-item:hover { opacity: 1; color: var(--yellow); transform: scale(1.04); }
+
+/* Section labels & dividers */
+.section-label { transition: letter-spacing var(--dur-med) var(--ease-out), color var(--dur-fast) ease; }
+.section-label:hover { letter-spacing: 0.06em; }
+.divider-yellow { transition: transform var(--dur-slow) var(--ease-out); transform-origin: left center; }
+.section:hover .divider-yellow { transform: scaleX(1.08); }
+
+/* Inline prose links */
+.section a:not(.btn):not(.nav-logo):not(.social-link):not(.card):not(.div-card) {
+  background-image: linear-gradient(var(--yellow3), var(--yellow3));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition: color var(--dur-fast) ease, background-size var(--dur-med) var(--ease-out);
+}
+.section a:not(.btn):not(.nav-logo):not(.social-link):not(.card):hover {
+  color: var(--yellow3);
+  background-size: 100% 1px;
+}
+
+/* Card icons */
+.card-icon { transition: transform var(--dur-med) var(--ease-out), background-color var(--dur-fast) ease; }
+.card:hover .card-icon { transform: scale(1.08) rotate(-3deg); background: rgba(255,215,0,0.24); }
+
+/* Flags */
+.flag-icon, .flag-icon-lg { transition: transform var(--dur-fast) var(--ease-out); }
+.country-tag:hover .flag-icon { transform: scale(1.08); }
+
+/* Footer logo */
+.footer-logo img { transition: transform var(--dur-fast) var(--ease-out); }
+.footer-logo:hover img { transform: translateY(-2px) scale(1.02); }
+
+/* Nav CTA */
+.nav-cta { transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) ease !important; }
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,215,0,0.35) !important; }
+
+/* News items */
+.news-item { transition: transform var(--dur-med) var(--ease-out); }
+.news-item:hover { transform: translateY(-2px); }
+.news-read-more { transition: color var(--dur-fast) ease, transform var(--dur-fast) var(--ease-out); }
+.news-read-more:hover { transform: translateX(4px); }
+
+/* Form hover */
+.form-group input:hover, .form-group select:hover, .form-group textarea:hover {
+  border-color: rgba(29,62,168,0.35);
+}
+
+/* Leader cards */
+.leader-card { transition: transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) ease; }
+.leader-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+
+/* Chat */
+#chat-send { transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) ease; }
+#chat-send:hover { transform: scale(1.05); }
+
+/* Magnetic buttons (motion.js sets --mx/--my) */
+html.lg-motion .fs-magnetic, html.lg-motion .btn-primary {
+  transform: translate(var(--mx, 0px), var(--my, 0px));
+  transition: transform 0.3s var(--ease-out);
 }

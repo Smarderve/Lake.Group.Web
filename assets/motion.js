@@ -37,16 +37,42 @@
   var GRID_SELECTOR = '.grid-2, .grid-3, .grid-4, .divisions-grid, .stats-grid, ' +
     '.photo-feature, .gallery-masonry, .footer-grid';
 
+  var GRID_SELECTOR = '.grid-2, .grid-3, .grid-4, .divisions-grid, .stats-grid, ' +
+    '.photo-feature, .gallery-masonry, .footer-grid, .division-grid, .kpi-rail';
+
+  var REVEAL_VARIANTS = ['', 'reveal-scale', 'reveal-left', 'reveal-right'];
+
+  var ORPHAN_SELECTOR = '.timeline-item, .division-item, .sus-item, .country-cell, ' +
+    '.kpi, .marquee-item, .hero-stat, blockquote';
+
   function tagGridChildren(grid) {
     var children = grid.children;
     for (var i = 0; i < children.length; i++) {
       var child = children[i];
       if (child.classList.contains('reveal')) continue;
-      child.classList.add('reveal', 'reveal-scale');
-      // Stagger within the grid row; cap so long grids don't feel sluggish.
+      var variant = REVEAL_VARIANTS[i % REVEAL_VARIANTS.length];
+      child.classList.add('reveal');
+      if (variant) child.classList.add(variant);
       child.style.setProperty('--reveal-delay', (Math.min(i % 8, 5) * 0.07) + 's');
     }
     grid.setAttribute('data-reveal-tagged', '1');
+  }
+
+  function tagOrphans() {
+    document.querySelectorAll(ORPHAN_SELECTOR).forEach(function (el, i) {
+      if (inSkipZone(el) || el.classList.contains('reveal')) return;
+      el.classList.add('reveal', i % 2 ? 'reveal-left' : 'reveal-scale');
+      el.style.setProperty('--reveal-delay', (Math.min(i % 6, 3) * 0.08) + 's');
+    });
+
+    document.querySelectorAll(
+      '.section ul > li, .section ol > li'
+    ).forEach(function (li, i) {
+      if (inSkipZone(li) || li.classList.contains('reveal')) return;
+      if (li.closest('.site-footer, .nav-mobile, .nav-dropdown')) return;
+      li.classList.add('reveal');
+      li.style.setProperty('--reveal-delay', (Math.min(i % 6, 3) * 0.06) + 's');
+    });
   }
 
   function autoTagReveals() {
@@ -59,19 +85,24 @@
 
     // 2. Direct children of section containers (headings, intro rows, CTAs...).
     document.querySelectorAll('.section > .container, .section-sm > .container, ' +
-      '.stats-band > .container, .cta-band > .container').forEach(function (container) {
+      '.stats-band > .container, .cta-band > .container, ' +
+      '.page-wrapper > section:not(.hero):not(.our-story-embed)').forEach(function (container) {
       if (inSkipZone(container)) return;
       var idx = 0;
       Array.prototype.forEach.call(container.children, function (child) {
         if (child.matches('style, script, noscript')) return;
         if (child.classList.contains('reveal') || child.hasAttribute('data-reveal-tagged')) return;
-        // Grids were handled above (children tagged individually).
         if (child.matches(GRID_SELECTOR)) return;
         child.classList.add('reveal');
-        child.style.setProperty('--reveal-delay', (Math.min(idx, 4) * 0.08) + 's');
+        if (idx % 3 === 1) child.classList.add('reveal-left');
+        else if (idx % 3 === 2) child.classList.add('reveal-right');
+        child.style.setProperty('--reveal-delay', (Math.min(idx, 5) * 0.08) + 's');
         idx++;
       });
     });
+
+    // 3. Standalone rows/tiles outside grids.
+    tagOrphans();
   }
 
   /* ------------------------------------------------------------------ */
@@ -128,7 +159,7 @@
     if (reducedMotion) return;
     if (!window.matchMedia('(pointer: fine)').matches) return;
 
-    document.querySelectorAll('.card, .div-card').forEach(function (card) {
+    document.querySelectorAll('.card, .div-card, .leader-card, .prj-card, .g-item, .news-item').forEach(function (card) {
       if (inSkipZone(card)) return;
 
       card.addEventListener('pointerenter', function (e) {
@@ -155,24 +186,87 @@
   }
 
   /* ------------------------------------------------------------------ */
+  /* Magnetic hover on primary CTAs (subtle)                              */
+  /* ------------------------------------------------------------------ */
+
+  var MAGNET_RANGE = 4;
+
+  function initMagnetic() {
+    if (reducedMotion) return;
+    if (!window.matchMedia('(pointer: fine)').matches) return;
+
+    document.querySelectorAll('.btn, .btn-primary, .nav-cta, [data-magnetic]').forEach(function (el) {
+      el.classList.add('fs-magnetic');
+
+      el.addEventListener('pointermove', function (e) {
+        if (e.pointerType !== 'mouse') return;
+        var r = el.getBoundingClientRect();
+        if (!r.width || !r.height) return;
+        var px = (e.clientX - r.left) / r.width - 0.5;
+        var py = (e.clientY - r.top) / r.height - 0.5;
+        el.style.setProperty('--mx', (px * MAGNET_RANGE * 2).toFixed(1) + 'px');
+        el.style.setProperty('--my', (py * MAGNET_RANGE * 2).toFixed(1) + 'px');
+      });
+
+      el.addEventListener('pointerleave', function () {
+        el.style.setProperty('--mx', '0px');
+        el.style.setProperty('--my', '0px');
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Fallback reveal observer (when site.js is unavailable)              */
+  /* ------------------------------------------------------------------ */
+
+  function localInitReveal() {
+    var targets = document.querySelectorAll('.reveal:not(.visible)');
+    if (!targets.length) return;
+
+    function show(el) {
+      el.classList.add('visible');
+    }
+
+    if (typeof IntersectionObserver === 'undefined') {
+      targets.forEach(show);
+      return;
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          show(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+
+    targets.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) show(el);
+      else io.observe(el);
+    });
+  }
+
+  /* ------------------------------------------------------------------ */
   /* Boot                                                                */
   /* ------------------------------------------------------------------ */
 
   function init() {
     if (!reducedMotion) {
-      // If site.js's reveal observer isn't available for any reason, drop the
-      // gating class so nothing stays hidden.
+      autoTagReveals();
       if (window.LakeSite && typeof window.LakeSite.initReveal === 'function') {
-        autoTagReveals();
-        // site.js runs its own initReveal at DOMContentLoaded before this
-        // handler; re-run it so newly tagged elements get observed.
         window.LakeSite.initReveal();
       } else {
-        document.documentElement.classList.remove('lg-motion');
+        localInitReveal();
       }
+      document.documentElement.classList.add('lg-ready');
+    } else {
+      document.documentElement.classList.remove('lg-motion');
     }
     initNavScroll();
     initCardTilt();
+    initMagnetic();
   }
 
   if (document.readyState === 'loading') {
