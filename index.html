@@ -1557,9 +1557,12 @@
       height: 480px;
       min-height: 480px;
       align-self: stretch;
-      background: #020611;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.95) 0%, rgba(232, 242, 255, 0.86) 34%, rgba(208, 231, 255, 0.72) 100%);
+      border: 1px solid rgba(13, 45, 104, 0.12);
       border-radius: var(--radius-lg);
       overflow: hidden;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 18px 45px rgba(6, 28, 74, 0.08);
     }
 
     @media (max-width: 960px) {
@@ -1569,6 +1572,9 @@
         border-radius: 0;
         margin: 0 -24px;
         width: calc(100% + 48px);
+        background: var(--white);
+        box-shadow: none;
+        border: none;
       }
     }
 
@@ -1580,12 +1586,14 @@
       width: 100%;
       height: 100%;
       z-index: 0;
+      transform: scale(1.015);
+      transform-origin: center;
+      filter: saturate(1.04) contrast(1.02);
     }
 
     .experience-3d-panel.is-loading {
-      background: radial-gradient(ellipse at 50% 40%,
-          rgba(29, 62, 168, 0.35) 0%,
-          #020611 70%);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.95) 0%, rgba(232, 242, 255, 0.86) 34%, rgba(208, 231, 255, 0.72) 100%);
     }
 
     .experience-3d-panel.is-loading::before {
@@ -1617,14 +1625,7 @@
 
     .experience-3d-viewport::after {
       content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      pointer-events: none;
-      opacity: 0.035;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size: 180px 180px;
-      mix-blend-mode: overlay;
+      display: none;
     }
 
     .experience-3d-vignette {
@@ -1678,6 +1679,17 @@
     }
 
     .experience-3d-finale h3 {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.58rem 0.95rem;
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      border-radius: 999px;
+      background: rgba(8, 23, 64, 0.3);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 12px 30px rgba(5, 19, 53, 0.2);
       font-family: "Bebas Neue", sans-serif;
       font-size: clamp(1.2rem, 2vw, 1.6rem);
       color: var(--white);
@@ -1685,6 +1697,7 @@
       margin-top: 10px;
       opacity: 0;
       transition: opacity 0.8s ease 0.5s;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     }
 
     .experience-3d-finale h3 span {
@@ -2359,11 +2372,10 @@
             </div>
           </div>
           <div class="experience-3d-viewport experience-3d-panel" id="experience-3d-panel">
-            <div class="experience-3d-vignette" aria-hidden="true"></div>
             <div class="experience-3d-finale" aria-hidden="true">
               <img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group" class="experience-3d-finale-logo" />
               <h3 data-i18n="index.29" data-i18n-html="">
-                Fueling <span data-i18n="index.30">Progress</span>
+                Company <span data-i18n="index.30">Network</span>
               </h3>
             </div>
           </div>
@@ -2893,8 +2905,8 @@
       </svg>
     </button>
   </div>
-  <script src="assets/i18n-content.js" defer></script>
-  <script src="assets/i18n.js" defer></script>
+  <script src="assets/i18n-content.js?v=12" defer></script>
+  <script src="assets/i18n.js?v=12" defer></script>
   <script src="assets/site.js" defer></script>
   <script src="assets/vendor/flexsearch/flexsearch.bundle.min.js" defer></script>
   <script src="assets/assistant-kb.js" defer></script>
@@ -2906,7 +2918,7 @@
       var section = document.getElementById("fuel-experience");
       function load() {
         var s = document.createElement("script");
-        s.src = "assets/hero-3d.bundle.js?v=9";
+        s.src = "assets/hero-3d.bundle.js?v=12";
         document.body.appendChild(s);
       }
       if (!section || !("IntersectionObserver" in window)) {

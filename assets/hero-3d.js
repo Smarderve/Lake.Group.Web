@@ -152,26 +152,6 @@ function sampleCamera(gp, out) {
 }
 
 // ---------------------------------------------------------------------------
-// Atmosphere rim shader (kept from the previous build — reads well over the
-// satellite imagery). The earth itself is now standard lit Phong + textures.
-
-const atmosphereVertexShader = /* glsl */ `
-  varying vec3 vNormal;
-  void main() {
-    vNormal = normalize(normalMatrix * normal);
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-  }
-`;
-
-const atmosphereFragmentShader = /* glsl */ `
-  varying vec3 vNormal;
-  void main() {
-    float intensity = pow(clamp(0.62 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 0.0, 1.0), 3.4);
-    gl_FragColor = vec4(vec3(0.20, 0.46, 0.95) * intensity * 0.75, 1.0);
-  }
-`;
-
-// ---------------------------------------------------------------------------
 
 function initHero3D(mount) {
   const panel = mount;
@@ -179,7 +159,7 @@ function initHero3D(mount) {
 
   const renderer = new THREE.WebGLRenderer({
     antialias: !isLow,
-    alpha: false,
+    alpha: true,
     powerPreference: 'high-performance',
     stencil: false,
   });
@@ -187,8 +167,8 @@ function initHero3D(mount) {
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   const BASE_EXPOSURE = 1.15;
   renderer.toneMappingExposure = BASE_EXPOSURE;
-  renderer.setClearColor(BG, 1);
-  renderer.domElement.style.cssText = 'display:block;position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;';
+  renderer.setClearColor(0x000000, 0);
+  renderer.domElement.style.cssText = 'display:block;position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;background:transparent;';
   mount.appendChild(renderer.domElement);
 
   const scene = new THREE.Scene();
@@ -198,42 +178,19 @@ function initHero3D(mount) {
   // Sun from camera-left/top so the facing hemisphere is day-lit — the
   // client asked for bright, readable frames throughout.
   const lightDir = new THREE.Vector3(-0.42, 0.30, 0.86).normalize();
-  const sun = new THREE.DirectionalLight('#fff5e6', 2.6);
+  const sun = new THREE.DirectionalLight('#fff5e6', 2.1);
   sun.position.copy(lightDir).multiplyScalar(10);
   scene.add(sun);
-  // Ambient + cool fill keep the night limb readable (never pitch black).
-  scene.add(new THREE.AmbientLight('#b9c8e2', 0.55));
-  const fill = new THREE.DirectionalLight('#39568c', 0.6);
+  // Ambient + cool fill keep the night limb readable while staying airy.
+  scene.add(new THREE.AmbientLight('#e8f3ff', 0.95));
+  const fill = new THREE.DirectionalLight('#6f92c5', 0.38);
   fill.position.set(5, -2, -10);
   scene.add(fill);
+  const rim = new THREE.DirectionalLight('#9fc7ff', 0.24);
+  rim.position.set(-6, 2, 2);
+  scene.add(rim);
 
   const disposables = [];
-
-  // ---------------------------------------------------------------------
-  // Starfield — quiet ambience, static.
-  function buildStars(count, radius, size, opacity) {
-    const positions = new Float32Array(count * 3);
-    for (let i = 0; i < count; i++) {
-      const u = Math.random() * 2 - 1;
-      const th = Math.random() * Math.PI * 2;
-      const rr = Math.sqrt(1 - u * u);
-      const rad = radius * (0.8 + Math.random() * 0.4);
-      positions[i * 3] = Math.cos(th) * rr * rad;
-      positions[i * 3 + 1] = u * rad;
-      positions[i * 3 + 2] = Math.sin(th) * rr * rad;
-    }
-    const geo = new THREE.BufferGeometry();
-    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    const mat = new THREE.PointsMaterial({
-      color: '#cfe0ff', size, sizeAttenuation: true,
-      transparent: true, opacity, depthWrite: false,
-    });
-    const pts = new THREE.Points(geo, mat);
-    scene.add(pts);
-    return pts;
-  }
-  buildStars(isLow ? 350 : 650, 95, 1.1, 0.55);
-  buildStars(isLow ? 80 : 160, 90, 2.1, 0.8);
 
   // ---------------------------------------------------------------------
   // Globe group: textured earth shell, clouds, markers, arcs, labels and
@@ -246,9 +203,9 @@ function initHero3D(mount) {
   // arrives the sphere renders as a deep-blue placeholder.
   const texLoader = new THREE.TextureLoader();
   const earthMat = new THREE.MeshPhongMaterial({
-    color: '#0d2246',
-    specular: '#4d5f79',
-    shininess: 16,
+    color: '#ecf7ff',
+    specular: '#8fb2d9',
+    shininess: 24,
   });
   texLoader.load(TEX_BASE + 'earth_color_2048.jpg', (t) => {
     t.colorSpace = THREE.SRGBColorSpace;
@@ -278,39 +235,6 @@ function initHero3D(mount) {
   );
   earth.rotation.y = TEX_ROT_Y;
   globe.add(earth);
-
-  // Faint drifting cloud veil (real cloud imagery, same set).
-  const cloudsMat = new THREE.MeshLambertMaterial({
-    color: '#ffffff',
-    transparent: true,
-    opacity: 0.42,
-    depthWrite: false,
-  });
-  const clouds = new THREE.Mesh(
-    new THREE.SphereGeometry(GLOBE_R * 1.012, isLow ? 40 : 56, isLow ? 28 : 40),
-    cloudsMat
-  );
-  clouds.visible = false;
-  texLoader.load(TEX_BASE + 'earth_clouds_1024.jpg', (t) => {
-    cloudsMat.alphaMap = t;
-    cloudsMat.needsUpdate = true;
-    clouds.visible = true;
-    disposables.push(t);
-  });
-  globe.add(clouds);
-
-  const atmosphere = new THREE.Mesh(
-    new THREE.SphereGeometry(GLOBE_R * 1.10, 48, 32),
-    new THREE.ShaderMaterial({
-      vertexShader: atmosphereVertexShader,
-      fragmentShader: atmosphereFragmentShader,
-      blending: THREE.AdditiveBlending,
-      side: THREE.BackSide,
-      transparent: true,
-      depthWrite: false,
-    })
-  );
-  scene.add(atmosphere);
 
   // ---------------------------------------------------------------------
   // Canvas label sprites (billboards). Generated once at init. Darker
@@ -581,21 +505,81 @@ function initHero3D(mount) {
   let parallaxY = 0;
   let parallaxTX = 0;
   let parallaxTY = 0;
-  function onPointerMove(e) {
+  let userRotY = 0;
+  let userRotX = 0;
+  let userVelY = 0;
+  let userVelX = 0;
+  let zoomScale = 1;
+  let isDragging = false;
+  let activePointerId = null;
+  let lastPointerX = 0;
+  let lastPointerY = 0;
+
+  function updatePointerParallax(e) {
     const rect = mount.getBoundingClientRect();
     parallaxTX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
     parallaxTY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
     pointerNDC.x = parallaxTX;
     pointerNDC.y = -parallaxTY;
   }
+
+  function onPointerDown(e) {
+    isDragging = true;
+    activePointerId = e.pointerId;
+    lastPointerX = e.clientX;
+    lastPointerY = e.clientY;
+    mount.setPointerCapture?.(e.pointerId);
+    mount.style.cursor = 'grabbing';
+  }
+
+  function onPointerMove(e) {
+    updatePointerParallax(e);
+    if (!isDragging || activePointerId !== e.pointerId) return;
+    const dx = e.clientX - lastPointerX;
+    const dy = e.clientY - lastPointerY;
+    lastPointerX = e.clientX;
+    lastPointerY = e.clientY;
+    userVelY = dx * 0.005;
+    userVelX = dy * 0.005;
+    userRotY += userVelY;
+    userRotX += userVelX;
+    userRotY = THREE.MathUtils.clamp(userRotY, -1.0, 1.0);
+    userRotX = THREE.MathUtils.clamp(userRotX, -0.6, 0.6);
+  }
+
   function onPointerLeave() {
     parallaxTX = 0;
     parallaxTY = 0;
     pointerNDC.set(2, 2);
     hoveredMarker = -1;
+    if (!isDragging) return;
+    isDragging = false;
+    activePointerId = null;
+    mount.style.cursor = 'grab';
   }
+
+  function onPointerUp(e) {
+    if (activePointerId !== null && e.pointerId !== activePointerId) return;
+    isDragging = false;
+    activePointerId = null;
+    mount.style.cursor = 'grab';
+  }
+
+  function onWheel(e) {
+    e.preventDefault();
+    const delta = e.deltaY > 0 ? 0.92 : 1.08;
+    zoomScale = THREE.MathUtils.clamp(zoomScale * delta, 0.8, 1.35);
+    mount.style.cursor = 'zoom-in';
+  }
+
+  mount.addEventListener('pointerdown', onPointerDown);
   mount.addEventListener('pointermove', onPointerMove);
   mount.addEventListener('pointerleave', onPointerLeave);
+  mount.addEventListener('pointerup', onPointerUp);
+  mount.addEventListener('pointercancel', onPointerUp);
+  mount.addEventListener('wheel', onWheel, { passive: false });
+  mount.style.cursor = 'grab';
+  mount.style.touchAction = 'none';
 
   // Highlight the matching step in the copy column as loop chapters pass.
   const stepItems = document.querySelectorAll('.experience-steps li');
@@ -622,7 +606,6 @@ function initHero3D(mount) {
       if (badFrameStreak > DEMOTE_STREAK_NEEDED) {
         demoted = true;
         renderer.setPixelRatio(1);
-        clouds.visible = false;
         console.info('Lake 3D: demoted render quality (sustained low framerate)');
       }
     } else {
@@ -668,9 +651,21 @@ function initHero3D(mount) {
     // Globe rotation: Africa swings into prominence through chapter 1,
     // then a barely-perceptible ambient drift keeps the planet alive.
     const settle = smooth(phase(gp, 0, 0.32));
-    globe.rotation.y = THREE.MathUtils.lerp(1.35, 0, settle) + Math.sin(t * 0.1) * 0.02;
-    atmosphere.rotation.y = globe.rotation.y;
-    clouds.rotation.y = TEX_ROT_Y + t * 0.004;
+    if (!isDragging) {
+      userVelY *= 0.92;
+      userVelX *= 0.92;
+      if (Math.abs(userVelY) < 0.0004) userVelY = 0;
+      if (Math.abs(userVelX) < 0.0004) userVelX = 0;
+      userRotY += userVelY;
+      userRotX += userVelX;
+    }
+    userRotY = THREE.MathUtils.clamp(userRotY, -1.0, 1.0);
+    userRotX = THREE.MathUtils.clamp(userRotX, -0.6, 0.6);
+    const baseRotY = THREE.MathUtils.lerp(1.35, 0, settle) + Math.sin(t * 0.08) * 0.012;
+    globe.position.y = Math.sin(t * 0.7) * 0.028;
+    globe.position.z = Math.sin(t * 0.45) * 0.012;
+    globe.rotation.y = baseRotY + userRotY;
+    globe.rotation.x = userRotX * 0.18 + Math.sin(t * 0.55) * 0.004;
 
     // Hover: raycast the 9 instanced markers at most every 3rd frame.
     if (frameCount % 3 === 0 && pointerNDC.x <= 1) {
@@ -743,8 +738,8 @@ function initHero3D(mount) {
     parallaxY += (parallaxTY - parallaxY) * 0.05;
     camRight.crossVectors(UP, camDir).normalize().negate();
     camUp.crossVectors(camDir, camRight).normalize().negate();
-    const pStrength = 0.06 * camSample.dist;
-    camera.position.copy(camDir).multiplyScalar(camSample.dist)
+    const pStrength = 0.05 * camSample.dist;
+    camera.position.copy(camDir).multiplyScalar(camSample.dist * zoomScale)
       .addScaledVector(camRight, parallaxX * pStrength)
       .addScaledVector(camUp, -parallaxY * pStrength * 0.7);
     camera.lookAt(0, 0, 0);
@@ -805,8 +800,11 @@ function initHero3D(mount) {
     running = false;
     cancelAnimationFrame(raf);
     document.removeEventListener('visibilitychange', onVisibility);
+    mount.removeEventListener('pointerdown', onPointerDown);
     mount.removeEventListener('pointermove', onPointerMove);
     mount.removeEventListener('pointerleave', onPointerLeave);
+    mount.removeEventListener('pointerup', onPointerUp);
+    mount.removeEventListener('pointercancel', onPointerUp);
     ro.disconnect();
     io.disconnect();
     renderer.domElement.remove();

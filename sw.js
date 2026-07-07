@@ -11,7 +11,7 @@
 
 'use strict';
 
-const VERSION = 'v10';
+const VERSION = 'v12';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
