@@ -35,8 +35,8 @@
   // English fallbacks: used on pages without the i18n stack (404/offline)
   // or before dictionaries load. Keys mirror assistant.* in i18n-content.
   var FALLBACK = {
-    'assistant.title': 'Lake Assistant',
-    'assistant.sub': 'Offline knowledge assistant',
+    'assistant.title': 'Lake Group Assistant',
+    'assistant.sub': '',
     'assistant.placeholder': 'Ask about our services, countries\u2026',
     'assistant.send': 'Send',
     'assistant.open': 'Open the Lake Group assistant',

@@ -24,7 +24,7 @@
  */
 import * as THREE from './vendor/three.module.min.js';
 
-const BG = '#020611';
+const BG = '#0b1220';
 const LAKE_YELLOW = '#FFD700';
 
 const GLOBE_R = 3.4;
@@ -155,7 +155,9 @@ function sampleCamera(gp, out) {
 
 function initHero3D(mount) {
   const panel = mount;
-  const isLow = window.innerWidth < 768 || (navigator.hardwareConcurrency || 4) < 4;
+  // Treat a device as 'low' only when very narrow or extremely low concurrency.
+  // This preserves higher visual fidelity on modern high-DPR phones.
+  const isLow = window.innerWidth < 420 || (navigator.hardwareConcurrency || 4) < 2;
 
   const renderer = new THREE.WebGLRenderer({
     antialias: !isLow,
@@ -163,9 +165,14 @@ function initHero3D(mount) {
     powerPreference: 'high-performance',
     stencil: false,
   });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, isLow ? 1 : 1.5));
+  // Adaptive pixel ratio: favor clarity on mid devices, cap for performance
+  const effectivePixelRatio = (() => {
+    if (isLow) return 1;
+    return Math.min(1.5, Math.max(1, window.devicePixelRatio || 1));
+  })();
+  renderer.setPixelRatio(effectivePixelRatio);
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  const BASE_EXPOSURE = 1.15;
+  const BASE_EXPOSURE = 0.95; // slightly reduced for less blown-out highlights
   renderer.toneMappingExposure = BASE_EXPOSURE;
   renderer.setClearColor(0x000000, 0);
   renderer.domElement.style.cssText = 'display:block;position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;background:transparent;';
@@ -175,18 +182,17 @@ function initHero3D(mount) {
   const camera = new THREE.PerspectiveCamera(44, 1, 0.1, 300);
   camera.position.set(0, 0, GLOBE_R * 4.45);
 
-  // Sun from camera-left/top so the facing hemisphere is day-lit — the
-  // client asked for bright, readable frames throughout.
+  // Softer sun + ambient to reduce contrast and dark limbs.
   const lightDir = new THREE.Vector3(-0.42, 0.30, 0.86).normalize();
-  const sun = new THREE.DirectionalLight('#fff5e6', 2.1);
+  const sun = new THREE.DirectionalLight('#fffbe8', 1.6);
   sun.position.copy(lightDir).multiplyScalar(10);
   scene.add(sun);
-  // Ambient + cool fill keep the night limb readable while staying airy.
-  scene.add(new THREE.AmbientLight('#e8f3ff', 0.95));
-  const fill = new THREE.DirectionalLight('#6f92c5', 0.38);
+  // Softer ambient so the dark limb is less severe but scene isn't blown out.
+  scene.add(new THREE.AmbientLight('#cfe6ff', 0.7));
+  const fill = new THREE.DirectionalLight('#6f92c5', 0.32);
   fill.position.set(5, -2, -10);
   scene.add(fill);
-  const rim = new THREE.DirectionalLight('#9fc7ff', 0.24);
+  const rim = new THREE.DirectionalLight('#9fc7ff', 0.14);
   rim.position.set(-6, 2, 2);
   scene.add(rim);
 
@@ -224,7 +230,7 @@ function initHero3D(mount) {
   if (!isLow) {
     texLoader.load(TEX_BASE + 'earth_normal_1024.jpg', (t) => {
       earthMat.normalMap = t;
-      earthMat.normalScale = new THREE.Vector2(0.8, 0.8);
+      earthMat.normalScale = new THREE.Vector2(1.0, 1.0);
       earthMat.needsUpdate = true;
       disposables.push(t);
     });
@@ -253,7 +259,9 @@ function initHero3D(mount) {
   }
 
   function makeLabelSprite(title, sub, opts) {
-    const S = 3; // supersample for crisp text
+    // Adaptive supersampling for canvas labels so small screens keep crisp text
+    const devicePR = Math.max(1, Math.round(window.devicePixelRatio || 1));
+    const S = devicePR > 1 ? Math.min(3, devicePR + 1) : 2;
     const titleFont = `600 ${13 * S}px Inter, 'Segoe UI', sans-serif`;
     const subFont = `400 ${10 * S}px Inter, 'Segoe UI', sans-serif`;
     const c = document.createElement('canvas');
@@ -539,12 +547,13 @@ function initHero3D(mount) {
     const dy = e.clientY - lastPointerY;
     lastPointerX = e.clientX;
     lastPointerY = e.clientY;
-    userVelY = dx * 0.005;
-    userVelX = dy * 0.005;
+    // Reduced sensitivity for gentler drag feel
+    userVelY = dx * 0.0035;
+    userVelX = dy * 0.0035;
     userRotY += userVelY;
     userRotX += userVelX;
-    userRotY = THREE.MathUtils.clamp(userRotY, -1.0, 1.0);
-    userRotX = THREE.MathUtils.clamp(userRotX, -0.6, 0.6);
+    userRotY = THREE.MathUtils.clamp(userRotY, -0.75, 0.75);
+    userRotX = THREE.MathUtils.clamp(userRotX, -0.45, 0.45);
   }
 
   function onPointerLeave() {
@@ -568,7 +577,7 @@ function initHero3D(mount) {
   function onWheel(e) {
     e.preventDefault();
     const delta = e.deltaY > 0 ? 0.92 : 1.08;
-    zoomScale = THREE.MathUtils.clamp(zoomScale * delta, 0.8, 1.35);
+    zoomScale = THREE.MathUtils.clamp(zoomScale * delta, 0.88, 1.14);
     mount.style.cursor = 'zoom-in';
   }
 
@@ -659,13 +668,15 @@ function initHero3D(mount) {
       userRotY += userVelY;
       userRotX += userVelX;
     }
-    userRotY = THREE.MathUtils.clamp(userRotY, -1.0, 1.0);
-    userRotX = THREE.MathUtils.clamp(userRotX, -0.6, 0.6);
-    const baseRotY = THREE.MathUtils.lerp(1.35, 0, settle) + Math.sin(t * 0.08) * 0.012;
-    globe.position.y = Math.sin(t * 0.7) * 0.028;
-    globe.position.z = Math.sin(t * 0.45) * 0.012;
+    userRotY = THREE.MathUtils.clamp(userRotY, -0.75, 0.75);
+    userRotX = THREE.MathUtils.clamp(userRotX, -0.45, 0.45);
+    const baseRotY = THREE.MathUtils.lerp(1.35, 0, settle) + Math.sin(t * 0.06) * 0.008;
+    // Larger screens get a slightly more pronounced float; small screens stay subtle
+    const floatAmp = width > 960 ? 0.04 : 0.018;
+    globe.position.y = Math.sin(t * 0.72) * floatAmp;
+    globe.position.z = Math.sin(t * 0.46) * (floatAmp * 0.32);
     globe.rotation.y = baseRotY + userRotY;
-    globe.rotation.x = userRotX * 0.18 + Math.sin(t * 0.55) * 0.004;
+    globe.rotation.x = userRotX * 0.14 + Math.sin(t * 0.55) * 0.003;
 
     // Hover: raycast the 9 instanced markers at most every 3rd frame.
     if (frameCount % 3 === 0 && pointerNDC.x <= 1) {

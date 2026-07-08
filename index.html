@@ -1325,12 +1325,18 @@
 
     .hero h1 {
       font-family: "Bebas Neue", sans-serif;
-      font-size: clamp(3.5rem, 6vw, 5.8rem);
+      font-size: clamp(2.6rem, 4.4vw, 3.8rem);
       color: var(--white);
-      line-height: 0.95;
+      line-height: 1;
       letter-spacing: 0.02em;
-      margin-bottom: 6px;
+      margin-bottom: 10px;
+      max-width: 14ch;
     }
+    .section-title { font-size: clamp(1.55rem, 2.6vw, 2.1rem); }
+    .stat-number { font-size: clamp(2.4rem, 4vw, 3.2rem); }
+
+    .map-link { display: inline-flex; align-items: center; gap: 0.35rem; color: var(--yellow); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
+    .map-link::after { content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpolyline points='1,2 4,5 7,2' fill='none' stroke='currentColor' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); display: inline-flex; width: 0.75em; height: 0.55em; }
 
     .hero h1 em {
       color: var(--yellow);
@@ -1339,11 +1345,11 @@
     }
 
     .hero-sub {
-      font-size: 1.08rem;
-      color: rgba(255, 255, 255, 0.65);
-      margin: 20px 0 34px;
-      max-width: 460px;
-      line-height: 1.75;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.72);
+      margin: 18px 0 30px;
+      max-width: 420px;
+      line-height: 1.65;
     }
 
     .hero-actions {
@@ -1465,10 +1471,10 @@
 
     .experience-3d-copy h2 {
       font-family: "Bebas Neue", sans-serif;
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-size: clamp(1.9rem, 3.4vw, 2.6rem);
       color: var(--white);
       letter-spacing: 0.03em;
-      line-height: 1;
+      line-height: 1.05;
       margin-bottom: 16px;
     }
 
@@ -1557,12 +1563,10 @@
       height: 480px;
       min-height: 480px;
       align-self: stretch;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.95) 0%, rgba(232, 242, 255, 0.86) 34%, rgba(208, 231, 255, 0.72) 100%);
-      border: 1px solid rgba(13, 45, 104, 0.12);
+      background: transparent;
       border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 18px 45px rgba(6, 28, 74, 0.08);
+      overflow: visible;
+      box-shadow: none;
     }
 
     @media (max-width: 960px) {
@@ -1575,6 +1579,7 @@
         background: var(--white);
         box-shadow: none;
         border: none;
+        overflow: hidden;
       }
     }
 
@@ -1592,8 +1597,7 @@
     }
 
     .experience-3d-panel.is-loading {
-      background:
-        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.95) 0%, rgba(232, 242, 255, 0.86) 34%, rgba(208, 231, 255, 0.72) 100%);
+      background: var(--white);
     }
 
     .experience-3d-panel.is-loading::before {
@@ -1686,10 +1690,11 @@
       padding: 0.58rem 0.95rem;
       border: 1px solid rgba(255, 255, 255, 0.38);
       border-radius: 999px;
-      background: rgba(8, 23, 64, 0.3);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 12px 30px rgba(5, 19, 53, 0.2);
+      background: rgba(255,255,255,0.95);
+      color: var(--blue);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      box-shadow: 0 10px 24px rgba(6, 28, 74, 0.08);
       font-family: "Bebas Neue", sans-serif;
       font-size: clamp(1.2rem, 2vw, 1.6rem);
       color: var(--white);
@@ -2129,7 +2134,7 @@
         <li><a href="index.html" data-i18n="nav.home">Home</a></li>
         <li><a href="about.html" data-i18n="nav.about">About</a></li>
         <li class="has-dropdown">
-          <a href="services.html" data-i18n="nav.services">Services &#9662;</a>
+          <a href="services.html" data-i18n="nav.services">Services</a>
           <div class="nav-dropdown">
             <div class="dd-label" data-i18n="nav.dd.energy">Energy</div>
             <a href="fuel.html" data-i18n="nav.fuel">Fuel &amp; Petroleum</a><a href="lpg.html" data-i18n="nav.lpg">LPG
@@ -2143,7 +2148,7 @@
           </div>
         </li>
         <li class="has-dropdown">
-          <a href="africa-network.html" data-i18n="nav.network">Network &#9662;</a>
+          <a href="africa-network.html" data-i18n="nav.network">Network</a>
           <div class="nav-dropdown">
             <a href="africa-network.html" data-i18n="nav.africaMap">Africa Operations Map</a>
             <a href="station-locator.html" data-i18n="nav.stations">Station Locator</a>
@@ -2151,7 +2156,7 @@
           </div>
         </li>
         <li class="has-dropdown">
-          <a href="about.html" data-i18n="nav.company">Company &#9662;</a>
+          <a href="about.html" data-i18n="nav.company">Company</a>
           <div class="nav-dropdown">
             <a href="history.html" data-i18n="nav.history">Our History</a><a href="leadership.html"
               data-i18n="nav.leadership">Leadership</a>
@@ -2612,13 +2617,10 @@
             Operations across Tanzania, Kenya, Zambia, Rwanda, Burundi, DRC,
             Ethiopia, Mozambique &amp; Dubai.
           </p>
-          <div data-i18n="index.65" style="
+          <div class="map-link" data-i18n="index.65" style="
                 margin-top: 10px;
-                color: var(--yellow);
-                font-size: 0.8rem;
-                font-weight: 600;
               ">
-            View map &rarr;
+            View map
           </div>
         </a>
       </div>
