@@ -1,5 +1,5 @@
 /*
- * Lake Group — FLAGSHIP motion engine (flagship-motion.js)
+ * Lake Group  FLAGSHIP motion engine (flagship-motion.js)
  * Pairs with assets/flagship.css. Loaded deferred, last in the script chain,
  * on every migrated page (replaces assets/motion.js there).
  *
@@ -31,7 +31,7 @@
     document.documentElement.classList.add('fs-motion');
   }
 
-  /* Zones owned by other systems — never auto-tag or decorate. */
+  /* Zones owned by other systems  never auto-tag or decorate. */
   var SKIP_ZONES = '#fuel-experience, .experience-3d, .our-story-embed, .ose-stage, ' +
     '.site-nav, .nav-mobile, #lightbox, #chat-widget, .page-hero';
 
@@ -40,7 +40,7 @@
   }
 
   /* ------------------------------------------------------------------ */
-  /* 1. Auto-tagger — varied choreography, not a wall of identical fades */
+  /* 1. Auto-tagger  varied choreography, not a wall of identical fades */
   /* ------------------------------------------------------------------ */
 
   var GRID_SELECTOR = '.grid-2, .grid-3, .grid-4, .fs-stat-rail, .stats-grid, ' +
@@ -183,7 +183,7 @@
        during a rendered frame, so an element jumped over in one large scroll
        (End key, scrollbar drag, anchor jump) can be missed and stay hidden
        forever. On scroll, reveal anything whose top has passed the viewport
-       bottom — already-seen-or-passed content must never be invisible. */
+       bottom  already-seen-or-passed content must never be invisible. */
     var sweeping = false;
     function sweep() {
       sweeping = false;
@@ -286,7 +286,7 @@
   }
 
   /* ------------------------------------------------------------------ */
-  /* 5. Counters — expo-out easing                                       */
+  /* 5. Counters  expo-out easing                                       */
   /* ------------------------------------------------------------------ */
 
   function animateCounter(el) {
@@ -345,10 +345,10 @@
   /* 6. Magnetic hover on primary CTAs (subtle)                          */
   /* ------------------------------------------------------------------ */
 
-  var MAGNET_RANGE = 4; /* px max displacement — a nudge, not a gimmick */
+  var MAGNET_RANGE = 4; /* px max displacement  a nudge, not a gimmick */
 
   /* ------------------------------------------------------------------ */
-  /* 7. Card tilt — subtle 3D tracking (desktop pointers only)         */
+  /* 7. Card tilt  subtle 3D tracking (desktop pointers only)         */
   /* ------------------------------------------------------------------ */
 
   var MAX_TILT = 3;
@@ -386,7 +386,7 @@
   }
 
   /* ------------------------------------------------------------------ */
-  /* 8. Dynamic content — re-tag when lists are injected (news, etc.)  */
+  /* 8. Dynamic content  re-tag when lists are injected (news, etc.)  */
   /* ------------------------------------------------------------------ */
 
   var dynamicQueued = false;

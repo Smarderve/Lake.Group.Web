@@ -2,7 +2,7 @@
  * Self-hosted fonts for the Lake Group site.
  *
  * Previously every page loaded fonts from fonts.googleapis.com via
- * @import. That's a hard dependency on internet access — with no
+ * @import. That's a hard dependency on internet access  with no
  * connection, browsers silently fall back to a generic system font
  * (ugly but not broken for text), and Material Symbols icons render as
  * blank/missing glyphs (genuinely broken, since there's no visual

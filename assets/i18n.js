@@ -1,5 +1,5 @@
 /**
- * Lake Group i18n engine — EN / FR / SW.
+ * Lake Group i18n engine  EN / FR / SW.
  *
  * Reads the full per-language content dictionary from
  * window.__LAKE_I18N_CONTENT__, which is set by assets/i18n-content.js
@@ -44,7 +44,7 @@ window.LakeI18n = (function () {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored && SUPPORTED.indexOf(stored) !== -1) current = stored;
   } catch (e) {
-    /* localStorage unavailable (privacy mode etc.) — fall back to 'en' */
+    /* localStorage unavailable (privacy mode etc.)  fall back to 'en' */
   }
 
   function loadDictionaries() {
@@ -84,7 +84,7 @@ window.LakeI18n = (function () {
         }
       }
       // If val is null (no translation yet for this key in this language),
-      // we deliberately leave the existing DOM content untouched — it will
+      // we deliberately leave the existing DOM content untouched  it will
       // still be showing the original English, which is far better than a
       // raw key string like "fuel.17" or a blank element.
     }

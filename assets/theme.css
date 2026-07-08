@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Lake Group — shared design-system + motion layer (theme.css)
+   Lake Group  shared design-system + motion layer (theme.css)
    Loaded AFTER each page's inline <style> so it wins ties in the cascade.
    Purpose:
      1. Re-assert the canonical brand tokens (blue #1D3EA8 family + #FFD700
@@ -7,7 +7,7 @@
         ~22 pages, without editing any page markup.
      2. Unify component styling (buttons, cards, forms, tabs, nav, footer).
      3. Provide the motion vocabulary used by assets/motion.js.
-   NOTE: never style .experience-3d-* or #fuel-experience — owned elsewhere.
+   NOTE: never style .experience-3d-* or #fuel-experience  owned elsewhere.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -80,7 +80,7 @@ body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; 
 }
 
 /* --------------------------------------------------------------------------
-   3. ACCESSIBILITY — visible focus states everywhere
+   3. ACCESSIBILITY  visible focus states everywhere
    -------------------------------------------------------------------------- */
 a:focus-visible,
 button:focus-visible,
@@ -98,7 +98,7 @@ button:focus-visible,
 }
 
 /* --------------------------------------------------------------------------
-   4. NAV — unified brand bar + scroll behaviour hooks (motion.js)
+   4. NAV  unified brand bar + scroll behaviour hooks (motion.js)
    -------------------------------------------------------------------------- */
 .site-nav {
   background: var(--blue);
@@ -164,7 +164,7 @@ button:focus-visible,
 .mob-section { color: var(--yellow); }
 
 /* --------------------------------------------------------------------------
-   5. PAGE HERO — brand accent unified
+   5. PAGE HERO  brand accent unified
    -------------------------------------------------------------------------- */
 .page-hero::before {
   background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(255,215,0,0.08) 0%, transparent 65%);
@@ -172,7 +172,7 @@ button:focus-visible,
 .page-hero .eyebrow { border-color: var(--yellow); color: var(--yellow); }
 
 /* --------------------------------------------------------------------------
-   6. BUTTONS — one geometry, refined hover/press/focus
+   6. BUTTONS  one geometry, refined hover/press/focus
    -------------------------------------------------------------------------- */
 .btn {
   padding: 13px 28px;
@@ -202,7 +202,7 @@ button:focus-visible,
 .nav-cta:hover { background: var(--yellow2) !important; }
 
 /* --------------------------------------------------------------------------
-   7. CARDS — unified radius/shadow/elevation + tilt hooks (motion.js)
+   7. CARDS  unified radius/shadow/elevation + tilt hooks (motion.js)
    -------------------------------------------------------------------------- */
 .card, .div-card {
   border-radius: var(--radius-lg);
@@ -258,7 +258,7 @@ button:focus-visible,
 .alert-info { background: rgba(29,62,168,0.06); border-color: var(--blue); color: var(--blue); }
 
 /* --------------------------------------------------------------------------
-   9. TABS — brand active state + pane fade
+   9. TABS  brand active state + pane fade
    -------------------------------------------------------------------------- */
 .tab-nav button { transition: color 0.2s ease, border-color 0.2s ease; }
 .tab-nav button.active { color: var(--blue); border-bottom-color: var(--yellow); }
@@ -266,7 +266,7 @@ button:focus-visible,
 .tab-pane.active { animation: lg-fade-up 0.4s var(--ease-out); }
 
 /* --------------------------------------------------------------------------
-   10. FORMS — unified focus transition
+   10. FORMS  unified focus transition
    -------------------------------------------------------------------------- */
 .form-group input, .form-group select, .form-group textarea {
   border: 1.5px solid var(--border);
@@ -280,7 +280,7 @@ button:focus-visible,
 .form-group:focus-within label { color: var(--blue); }
 
 /* --------------------------------------------------------------------------
-   11. FOOTER — brand surface + animated link underlines
+   11. FOOTER  brand surface + animated link underlines
    -------------------------------------------------------------------------- */
 .site-footer { background: var(--blue3); border-top: 3px solid var(--yellow); }
 .footer-col h5 { color: var(--yellow); }
@@ -297,7 +297,7 @@ button:focus-visible,
 .social-link:hover { color: var(--yellow); border-color: var(--yellow); }
 
 /* --------------------------------------------------------------------------
-   12. CHAT WIDGET — brand
+   12. CHAT WIDGET  brand
    -------------------------------------------------------------------------- */
 #chat-btn { background: var(--yellow); box-shadow: 0 4px 18px rgba(255,215,0,0.5); transition: transform 0.2s var(--ease-out), box-shadow 0.2s ease; }
 #chat-btn:hover { transform: scale(1.08); }
@@ -374,7 +374,7 @@ html.lg-motion.lg-ready body { animation: lg-page-fade 0.55s ease-out both; }
   [style*="grid-template-columns"] > * { min-width: 0; }
 
   /* our-story embed captions are nowrap for the cinematic look; on phones
-     they were wider than the screen — let them wrap instead. */
+     they were wider than the screen  let them wrap instead. */
   .ose-label { white-space: normal; max-width: calc(100% - 2.5rem); text-align: center; }
 
   /* Defense-in-depth: any residual overflow from future content must never
@@ -384,7 +384,7 @@ html.lg-motion.lg-ready body { animation: lg-page-fade 0.55s ease-out both; }
 }
 
 /* --------------------------------------------------------------------------
-   15. REDUCED MOTION — single gate
+   15. REDUCED MOTION  single gate
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   body, .hero .hero-eyebrow, .hero h1, .hero .hero-sub, .hero .hero-actions,
@@ -401,7 +401,7 @@ html.lg-motion.lg-ready body { animation: lg-page-fade 0.55s ease-out both; }
 }
 
 /* --------------------------------------------------------------------------
-   16. MICRO-INTERACTIONS — universal hover & transition polish
+   16. MICRO-INTERACTIONS  universal hover & transition polish
    -------------------------------------------------------------------------- */
 
 /* Badges & tags */

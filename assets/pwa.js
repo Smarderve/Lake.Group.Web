@@ -1,7 +1,7 @@
 /*
  * Lake Group PWA bootstrap: registers the service worker and shows a
  * small branded toast when a new version is ready. Loaded with `defer`
- * on every page. Safe to include anywhere — bails out silently when
+ * on every page. Safe to include anywhere  bails out silently when
  * service workers aren't supported (file://, old browsers).
  */
 (function () {
@@ -103,7 +103,7 @@
   function watchWorker(worker, registration) {
     worker.addEventListener('statechange', function () {
       // "installed" + an existing controller means an update is waiting
-      // (on first-ever install there is no controller — nothing to show).
+      // (on first-ever install there is no controller  nothing to show).
       if (worker.state === 'installed' && navigator.serviceWorker.controller) {
         showUpdateToast(registration.waiting || worker);
       }
@@ -126,7 +126,7 @@
       if (window.console && console.warn) console.warn('SW registration failed:', err);
     });
 
-    // Reload once the new worker takes control — but only in response to
+    // Reload once the new worker takes control  but only in response to
     // the user clicking "Refresh" (never auto-reload mid-browsing).
     navigator.serviceWorker.addEventListener('controllerchange', function () {
       if (reloadingAfterUpdate) return;

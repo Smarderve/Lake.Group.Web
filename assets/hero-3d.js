@@ -1,21 +1,21 @@
 /**
- * Lake Group hero 3D — Interactive Global Operations Experience.
+ * Lake Group hero 3D  Interactive Global Operations Experience.
  *
  * A real-imagery Earth (NASA Blue Marble via the standard three.js example
  * planet texture set, public-domain NASA source) carrying Lake Group's
  * VERIFIED operational footprint (every site/figure below is sourced from
- * scripts/_verified_lake_facts.md — no fictional cities or facilities).
+ * scripts/_verified_lake_facts.md  no fictional cities or facilities).
  *
  * The experience is a continuous autonomous loop (~39s cycle, fade-through
- * -black at the seam) on every device — no scroll scrubbing. Progress 0..1
+ * -black at the seam) on every device  no scroll scrubbing. Progress 0..1
  * inside each cycle drives four chapters:
- *   1 (0    → 0.30) Planet — Earth at a distance, Africa rotates into view.
- *   2 (0.30 → 0.65) Footprint — the 8 verified countries of operation
+ *   1 (0    → 0.30) Planet  Earth at a distance, Africa rotates into view.
+ *   2 (0.30 → 0.65) Footprint  the 8 verified countries of operation
  *                   ignite in sequence from the Dar es Salaam HQ, route
  *                   arcs draw outward; the Dubai connection lands last.
- *   3 (0.65 → 0.90) Operations — camera settles over East Africa and
+ *   3 (0.65 → 0.90) Operations  camera settles over East Africa and
  *                   verified facility callouts appear on leader lines.
- *   4 (0.90 → 1)    Identity — gentle pull-back; the DOM finale overlay
+ *   4 (0.90 → 1)    Identity  gentle pull-back; the DOM finale overlay
  *                   (logo + tagline) fades in, holds through the loop
  *                   pause, then the cycle fades and restarts.
  * The rAF loop fully stops when the section leaves the viewport or the tab
@@ -46,7 +46,7 @@ const LOOP_DURATION = 34;
 const LOOP_PAUSE = 5;
 
 /**
- * Verified operational footprint — scripts/_verified_lake_facts.md.
+ * Verified operational footprint  scripts/_verified_lake_facts.md.
  * Index 0 is the group HQ (Plot 49 Mikocheni, Dar es Salaam, Tanzania).
  * Cities are the verified in-country bases: Nairobi + Kenya network,
  * Kigali (Lake Petroleum Rwanda), Bujumbura (Burundi Petroleum),
@@ -172,7 +172,7 @@ function initHero3D(mount) {
   })();
   renderer.setPixelRatio(effectivePixelRatio);
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  const BASE_EXPOSURE = 0.95; // slightly reduced for less blown-out highlights
+  const BASE_EXPOSURE = 0.96; // brighter globe without blowing out specular highlights
   renderer.toneMappingExposure = BASE_EXPOSURE;
   renderer.setClearColor(0x000000, 0);
   renderer.domElement.style.cssText = 'display:block;position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;background:transparent;';
@@ -184,15 +184,15 @@ function initHero3D(mount) {
 
   // Softer sun + ambient to reduce contrast and dark limbs.
   const lightDir = new THREE.Vector3(-0.42, 0.30, 0.86).normalize();
-  const sun = new THREE.DirectionalLight('#fffbe8', 1.6);
+  const sun = new THREE.DirectionalLight('#fff4df', 0.82);
   sun.position.copy(lightDir).multiplyScalar(10);
   scene.add(sun);
-  // Softer ambient so the dark limb is less severe but scene isn't blown out.
-  scene.add(new THREE.AmbientLight('#cfe6ff', 0.7));
-  const fill = new THREE.DirectionalLight('#6f92c5', 0.32);
+  // Softer ambient so the dark limb is less severe but the scene stays natural.
+  scene.add(new THREE.AmbientLight('#d4ecff', 0.58));
+  const fill = new THREE.DirectionalLight('#6b84a6', 0.16);
   fill.position.set(5, -2, -10);
   scene.add(fill);
-  const rim = new THREE.DirectionalLight('#9fc7ff', 0.14);
+  const rim = new THREE.DirectionalLight('#8aa6c1', 0.10);
   rim.position.set(-6, 2, 2);
   scene.add(rim);
 
@@ -204,14 +204,18 @@ function initHero3D(mount) {
   const globe = new THREE.Group();
   scene.add(globe);
 
-  // NASA Blue Marble satellite imagery (three.js example planet set —
+  // NASA Blue Marble satellite imagery (three.js example planet set 
   // public-domain NASA source). Maps stream in async; until the color map
   // arrives the sphere renders as a deep-blue placeholder.
   const texLoader = new THREE.TextureLoader();
   const earthMat = new THREE.MeshPhongMaterial({
-    color: '#ecf7ff',
-    specular: '#8fb2d9',
-    shininess: 24,
+    color: '#ddeaf5',
+    emissive: '#04121f',
+    emissiveIntensity: 0.1,
+    specular: '#081826',
+    shininess: 2,
+    reflectivity: 0.12,
+    envMapIntensity: 0.25,
   });
   texLoader.load(TEX_BASE + 'earth_color_2048.jpg', (t) => {
     t.colorSpace = THREE.SRGBColorSpace;
@@ -224,13 +228,17 @@ function initHero3D(mount) {
   // Ocean/land mask so only water catches the sun glint.
   texLoader.load(TEX_BASE + 'earth_specular_1024.jpg', (t) => {
     earthMat.specularMap = t;
+    earthMat.specular = new THREE.Color('#0a1826');
+    earthMat.shininess = 2;
+    earthMat.reflectivity = 0.12;
+    earthMat.envMapIntensity = 0.25;
     earthMat.needsUpdate = true;
     disposables.push(t);
   });
   if (!isLow) {
     texLoader.load(TEX_BASE + 'earth_normal_1024.jpg', (t) => {
       earthMat.normalMap = t;
-      earthMat.normalScale = new THREE.Vector2(1.0, 1.0);
+      earthMat.normalScale = new THREE.Vector2(1.2, 1.2);
       earthMat.needsUpdate = true;
       disposables.push(t);
     });
@@ -261,9 +269,9 @@ function initHero3D(mount) {
   function makeLabelSprite(title, sub, opts) {
     // Adaptive supersampling for canvas labels so small screens keep crisp text
     const devicePR = Math.max(1, Math.round(window.devicePixelRatio || 1));
-    const S = devicePR > 1 ? Math.min(3, devicePR + 1) : 2;
-    const titleFont = `600 ${13 * S}px Inter, 'Segoe UI', sans-serif`;
-    const subFont = `400 ${10 * S}px Inter, 'Segoe UI', sans-serif`;
+    const S = devicePR > 1 ? Math.min(4, devicePR + 2) : 2;
+    const titleFont = `700 ${14 * S}px Inter, 'Segoe UI', sans-serif`;
+    const subFont = `500 ${11 * S}px Inter, 'Segoe UI', sans-serif`;
     const c = document.createElement('canvas');
     const ctx = c.getContext('2d');
     ctx.font = titleFont;
@@ -299,8 +307,11 @@ function initHero3D(mount) {
     }
     const tex = new THREE.CanvasTexture(c);
     tex.colorSpace = THREE.SRGBColorSpace;
-    tex.generateMipmaps = false;
-    tex.minFilter = THREE.LinearFilter;
+    tex.generateMipmaps = true;
+    tex.minFilter = THREE.LinearMipMapLinearFilter;
+    tex.magFilter = THREE.LinearFilter;
+    tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+    tex.needsUpdate = true;
     const mat = new THREE.SpriteMaterial({
       map: tex, transparent: true, opacity: 0, depthWrite: false,
     });
@@ -517,6 +528,7 @@ function initHero3D(mount) {
   let userRotX = 0;
   let userVelY = 0;
   let userVelX = 0;
+  let spinOffset = 0;
   let zoomScale = 1;
   let isDragging = false;
   let activePointerId = null;
@@ -600,7 +612,7 @@ function initHero3D(mount) {
   }
 
   // Rolling frame-time average; sustained sub-30fps drops pixel ratio to 1
-  // and hides the cloud layer — the levers available after init.
+  // and hides the cloud layer  the levers available after init.
   let demoted = isLow;
   let frameTimeEMA = 16.7;
   let lastFrameAt = 0;
@@ -653,13 +665,21 @@ function initHero3D(mount) {
     const gp = Math.min(1, cycleT / LOOP_DURATION);
     renderer.toneMappingExposure = BASE_EXPOSURE * (0.1 + 0.9 * getLoopFade(t));
 
+    if (gp < CH1_END) {
+      spinOffset -= rawDt * 0.016; // subtle chapter-1 drift only
+      if (spinOffset < -Math.PI * 2) spinOffset += Math.PI * 2;
+    } else {
+      spinOffset *= 0.2;
+      if (Math.abs(spinOffset) < 0.000001) spinOffset = 0;
+    }
+
     // QA/diagnostics hooks (read by scripts/_globe_qa2.js).
     window.__lake3dFrames = frameCount;
     window.__lake3dProgress = gp;
 
     // Globe rotation: Africa swings into prominence through chapter 1,
     // then a barely-perceptible ambient drift keeps the planet alive.
-    const settle = smooth(phase(gp, 0, 0.32));
+    const settle = smooth(phase(gp, 0, CH1_END));
     if (!isDragging) {
       userVelY *= 0.92;
       userVelX *= 0.92;
@@ -670,12 +690,12 @@ function initHero3D(mount) {
     }
     userRotY = THREE.MathUtils.clamp(userRotY, -0.75, 0.75);
     userRotX = THREE.MathUtils.clamp(userRotX, -0.45, 0.45);
-    const baseRotY = THREE.MathUtils.lerp(1.35, 0, settle) + Math.sin(t * 0.06) * 0.008;
+    const baseRotY = THREE.MathUtils.lerp(1.35, 0, settle) + Math.sin(t * 0.08) * 0.012 * (1 - settle);
     // Larger screens get a slightly more pronounced float; small screens stay subtle
-    const floatAmp = width > 960 ? 0.04 : 0.018;
+    const floatAmp = width > 960 ? 0.05 : 0.018;
     globe.position.y = Math.sin(t * 0.72) * floatAmp;
     globe.position.z = Math.sin(t * 0.46) * (floatAmp * 0.32);
-    globe.rotation.y = baseRotY + userRotY;
+    globe.rotation.y = baseRotY + userRotY + spinOffset;
     globe.rotation.x = userRotX * 0.14 + Math.sin(t * 0.55) * 0.003;
 
     // Hover: raycast the 9 instanced markers at most every 3rd frame.

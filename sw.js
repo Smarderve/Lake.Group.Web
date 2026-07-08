@@ -37,7 +37,7 @@ const PRECACHE_URLS = [
   './assets/site.js',
   './assets/theme.css',
   './assets/motion.js',
-  // Flagship (Meridian) design system — migrated pages load this pair
+  // Flagship (Meridian) design system  migrated pages load this pair
   // instead of theme.css/motion.js; both stay precached until the full
   // rollout completes.
   './assets/flagship.css',

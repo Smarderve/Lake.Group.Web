@@ -1,10 +1,10 @@
 /* ==========================================================================
-   LAKE GROUP — OFFLINE KNOWLEDGE ASSISTANT (assets/assistant.css)
+   LAKE GROUP  OFFLINE KNOWLEDGE ASSISTANT (assets/assistant.css)
    ==========================================================================
    Styles for the assistant widget injected by assets/assistant.js into the
    `#chat-widget` mount on every page.
 
-   FLAGSHIP ALIGNMENT NOTE — a flagship design-system rebuild ("MERIDIAN",
+   FLAGSHIP ALIGNMENT NOTE  a flagship design-system rebuild ("MERIDIAN",
    assets/flagship.css) is happening in parallel; FLAGSHIP_DESIGN.md did not
    exist when this file was written. These styles follow the Meridian tokens
    observed in flagship.css (ink navy #0E1F5A/#070C1E bands, gold #FFD700
@@ -116,7 +116,7 @@
   display: none;
 }
 
-/* Header — ink band with gold hairline + tick */
+/* Header  ink band with gold hairline + tick */
 #chat-widget.la-widget .la-head {
   position: relative;
   display: flex;

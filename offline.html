@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="assets/assistant.css">
   <style>
     /* ======================================================================
-       MERIDIAN UTILITY PAGE — offline fallback. Fully self-contained.
+       MERIDIAN UTILITY PAGE  offline fallback. Fully self-contained.
        ====================================================================== */
     @import url('assets/fonts/fonts.css');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -170,7 +170,7 @@
     <div class="logo-wrap"><img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group"></div>
     <div class="badge">Connection Lost</div>
     <h1>You're currently <em>offline</em></h1>
-    <p class="lead">This page isn't available without an internet connection. Pages you've visited before are saved and still work — try one of these, or reconnect and retry.</p>
+    <p class="lead">This page isn't available without an internet connection. Pages you've visited before are saved and still work  try one of these, or reconnect and retry.</p>
     <nav class="links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -179,7 +179,7 @@
       <a href="contact.html">Contact</a>
     </nav>
     <button class="retry" onclick="location.reload()">Retry Connection</button>
-    <p class="status" id="net-status"><span class="dot"></span><span id="net-text">Offline — waiting for connection…</span></p>
+    <p class="status" id="net-status"><span class="dot"></span><span id="net-text">Offline  waiting for connection…</span></p>
   </main>
   <script>
     (function () {
@@ -187,11 +187,11 @@
       var textEl = document.getElementById('net-text');
       function onOnline() {
         statusEl.classList.add('online');
-        textEl.textContent = 'Back online — reloading…';
+        textEl.textContent = 'Back online  reloading…';
         // Small delay so the user sees the status flip before navigation.
         // If the browser is showing offline.html under its own URL (opened
         // directly, not as a fallback for another page), reloading would
-        // just serve offline.html again in an endless loop — go home
+        // just serve offline.html again in an endless loop  go home
         // instead. In the fallback case the address bar still holds the
         // page the user originally wanted, so a plain reload restores it.
         setTimeout(function () {

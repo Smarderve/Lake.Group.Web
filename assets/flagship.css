@@ -1,27 +1,27 @@
 /* ==========================================================================
-   LAKE GROUP — FLAGSHIP DESIGN SYSTEM  (flagship.css)
+   LAKE GROUP  FLAGSHIP DESIGN SYSTEM  (flagship.css)
    ==========================================================================
    Complete visual reset. Replaces theme.css on migrated pages (a migrated
    page loads flagship.css INSTEAD of theme.css, and flagship-motion.js
    INSTEAD of motion.js). Un-migrated pages keep the old pair.
 
-   DESIGN LANGUAGE — "MERIDIAN"
+   DESIGN LANGUAGE  "MERIDIAN"
    A precision-engineering editorial system:
      · Ink-navy immersive bands alternating with warm porcelain editorial
        sections (dark ↔ light rhythm down every page).
      · Bebas Neue deployed as oversized editorial display type; Inter for
        measured body text; Playfair Display italic reserved for pull quotes.
-     · Signature motif: the MERIDIAN TICK — a small square of brand yellow
+     · Signature motif: the MERIDIAN TICK  a small square of brand yellow
        seated on a hairline rule (like a survey/gauge mark). It appears in
        eyebrows, section markers, stat baselines, nav active states, footer
        headings. Second motif: CORNER REGISTRATION BRACKETS on media and
        framed blocks (technical-drawing corners).
-     · Numbered section markers ("01 — Our Story") give every page a
+     · Numbered section markers ("01  Our Story") give every page a
        drafting-set rhythm.
      · Geometry is sharp: radius 0/2px. Yellow #FFD700 is used surgically
-       (ticks, rules, key numerals, primary CTA) — never as decoration wash.
+       (ticks, rules, key numerals, primary CTA)  never as decoration wash.
 
-   Never style .experience-3d-* or #fuel-experience — owned elsewhere.
+   Never style .experience-3d-* or #fuel-experience  owned elsewhere.
    ========================================================================== */
 
 @import url('fonts/fonts.css');
@@ -70,7 +70,7 @@
   --radius:  0px;
   --radius-lg: 2px;
 
-  /* Spacing — 4px base scale */
+  /* Spacing  4px base scale */
   --sp-1: 4px;  --sp-2: 8px;   --sp-3: 12px;  --sp-4: 16px;
   --sp-5: 20px; --sp-6: 24px;  --sp-8: 32px;  --sp-10: 40px;
   --sp-12: 48px;--sp-16: 64px; --sp-20: 80px; --sp-24: 96px;
@@ -92,7 +92,7 @@
   /* Chrome */
   --nav-h: 76px;
 
-  /* Elevation (used sparingly — hairlines carry most structure) */
+  /* Elevation (used sparingly  hairlines carry most structure) */
   --shadow-1: 0 1px 2px rgba(7,12,30,0.06);
   --shadow-2: 0 10px 30px -12px rgba(7,12,30,0.22);
   --shadow-3: 0 24px 60px -20px rgba(7,12,30,0.38);
@@ -169,7 +169,7 @@ img { max-width: 100%; }
    3. SIGNATURE MOTIFS
    -------------------------------------------------------------------------- */
 
-/* 3a. Meridian tick — square gold mark on a hairline */
+/* 3a. Meridian tick  square gold mark on a hairline */
 .fs-eyebrow {
   display: inline-flex; align-items: center; gap: 14px;
   font-size: var(--fs-micro); font-weight: 700;
@@ -280,7 +280,7 @@ img { max-width: 100%; }
 .page-wrapper { padding-top: var(--nav-h); }
 
 /* --------------------------------------------------------------------------
-   5. ACCESSIBILITY — focus states
+   5. ACCESSIBILITY  focus states
    -------------------------------------------------------------------------- */
 a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 input:focus-visible, select:focus-visible, textarea:focus-visible {
@@ -292,7 +292,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .form-group textarea:focus-visible { outline: 2px solid var(--blue); outline-offset: 1px; }
 
 /* --------------------------------------------------------------------------
-   6. NAV — ink drafting bar
+   6. NAV  ink drafting bar
    -------------------------------------------------------------------------- */
 .site-nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
@@ -405,7 +405,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .lang-btn:hover:not(.active) { color: #fff; }
 
 /* --------------------------------------------------------------------------
-   7. PAGE HERO — oversized editorial masthead on ink
+   7. PAGE HERO  oversized editorial masthead on ink
    -------------------------------------------------------------------------- */
 .page-hero {
   background: var(--ink);
@@ -586,7 +586,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .fs-on-dark .fs-card-no { color: var(--gold); }
 
 /* --------------------------------------------------------------------------
-   11. STAT BLOCKS — numerals on a baseline rule
+   11. STAT BLOCKS  numerals on a baseline rule
    -------------------------------------------------------------------------- */
 .fs-stat { position: relative; padding: var(--sp-5) 0 var(--sp-4); }
 .fs-stat .fs-stat-no, .stat-number {
@@ -617,7 +617,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .fs-stat-rail { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: var(--sp-8); }
 
 /* --------------------------------------------------------------------------
-   12. MEDIA — editorial imagery
+   12. MEDIA  editorial imagery
    -------------------------------------------------------------------------- */
 .fs-media { position: relative; overflow: hidden; background: var(--ink-3); }
 .fs-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -689,7 +689,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .fs-on-dark .fs-table td:first-child { color: #fff; }
 
 /* --------------------------------------------------------------------------
-   15. TIMELINE — drafting rail with Bebas years
+   15. TIMELINE  drafting rail with Bebas years
    -------------------------------------------------------------------------- */
 .timeline, .fs-timeline { position: relative; padding-left: 0; }
 .timeline::before { display: none; }
@@ -761,7 +761,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .tab-pane.active { display: block; animation: fs-fade-rise var(--dur-2) var(--ease-out); }
 
 /* --------------------------------------------------------------------------
-   18. FOOTER — ink drafting sheet
+   18. FOOTER  ink drafting sheet
    -------------------------------------------------------------------------- */
 .site-footer {
   background: var(--ink); color: var(--ink-text);
@@ -939,7 +939,7 @@ html.fs-motion .reveal.visible, html.fs-motion .reveal.in { opacity: 1; transfor
 /* Magnetic CTA hook (flagship-motion sets --mx/--my in px) */
 html.fs-motion .fs-magnetic { transform: translate(var(--mx, 0px), var(--my, 0px)); transition: transform 0.3s var(--ease-out); }
 
-/* Page-load fade (opacity only — no CLS) */
+/* Page-load fade (opacity only  no CLS) */
 html.fs-motion.fs-ready body { animation: fs-page-in 0.55s var(--ease-out) both; }
 @keyframes fs-page-in { from { opacity: 0; } to { opacity: 1; } }
 
@@ -950,7 +950,7 @@ html.fs-motion [data-fx-scroll] {
 }
 
 /* --------------------------------------------------------------------------
-   23. MICRO-INTERACTIONS — universal hover & transition polish
+   23. MICRO-INTERACTIONS  universal hover & transition polish
    -------------------------------------------------------------------------- */
 
 /* Card tilt targets share lift/tilt transform stack */
@@ -1040,7 +1040,7 @@ html.fs-motion [data-fx-scroll] {
 }
 .section:hover .divider-yellow, .fs-section:hover .fs-rule { transform: scaleX(1.08); }
 
-/* Form fields — hover + focus */
+/* Form fields  hover + focus */
 .form-group input, .form-group select, .form-group textarea {
   transition: border-color var(--dur-1) ease, box-shadow var(--dur-1) ease, background-color var(--dur-1) ease;
 }
@@ -1124,7 +1124,7 @@ html.fs-motion [data-fx-scroll] {
 .tab-pane.active { animation: fs-fade-rise 0.45s var(--ease-out); }
 
 /* --------------------------------------------------------------------------
-   22. REDUCED MOTION — single gate
+   22. REDUCED MOTION  single gate
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

@@ -1,5 +1,5 @@
 /*
- * Lake Group — shared motion & micro-interaction layer.
+ * Lake Group  shared motion & micro-interaction layer.
  * Pairs with assets/theme.css. Loaded deferred after site.js on every page.
  *
  * - Auto-tags meaningful content with .reveal (+ stagger) so every page
