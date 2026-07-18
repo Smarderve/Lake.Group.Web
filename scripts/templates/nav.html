@@ -1,19 +1,46 @@
 <nav class="site-nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group" style="height:46px;width:auto">
+      <img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group">
     </a>
     <ul class="nav-links">
       <li><a href="index.html" data-i18n="nav.home">Home</a></li>
       <li><a href="about.html" data-i18n="nav.about">About</a></li>
-      <li class="has-dropdown"><a href="services.html" data-i18n="nav.services">Services &#9662;</a>
-        <div class="nav-dropdown">
-          <div class="dd-label" data-i18n="nav.dd.energy">Energy</div>
-          <a href="fuel.html" data-i18n="nav.fuel">Fuel &amp; Petroleum</a><a href="lpg.html" data-i18n="nav.lpg">LPG Gas</a><a href="lubricants.html" data-i18n="nav.lubricants">Lubricants</a>
-          <div class="dd-label" data-i18n="nav.dd.industry">Industry</div>
-          <a href="steel.html" data-i18n="nav.steel">Lake Steel</a><a href="concrete.html" data-i18n="nav.concrete">Concrete &amp; Aggregate</a>
-          <div class="dd-label" data-i18n="nav.dd.logistics">Logistics</div>
-          <a href="logistics.html" data-i18n="nav.logistics">Transport &amp; Haulage</a><a href="container-services.html" data-i18n="nav.containers">Container Services</a>
+      <li class="has-dropdown has-megamenu">
+        <a href="services.html" id="nav-companies-trigger" data-i18n="nav.companies" aria-haspopup="true" aria-expanded="false" aria-controls="nav-companies-menu">Our Companies &#9662;</a>
+        <div class="nav-dropdown nav-megamenu" id="nav-companies-menu" role="menu" aria-label="Our Companies">
+          <div class="mm-col" role="none">
+            <div class="dd-label" data-i18n="nav.dd.energies">Lake Energies</div>
+            <a href="lake-oil.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-oil.png" alt="Lake Oil" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakeOil">Lake Oil</span></a>
+            <a href="lake-aviation.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-aviation.png" alt="Lake Aviation" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakeAviation">Lake Aviation</span></a>
+            <a href="lake-gas.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-gas.png" alt="Lake Gas" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakeGas">Lake Gas</span></a>
+            <a href="lake-lubes.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-lubes.png" alt="Lake Lubes" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakeLubes">Lake Lubes</span></a>
+          </div>
+          <div class="mm-col" role="none">
+            <div class="dd-label" data-i18n="nav.dd.manufacturing">Manufacturing</div>
+            <a href="lake-buildings.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-buildings.png" alt="Lake Buildings" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakeBuildings">Lake Buildings</span></a>
+            <a href="lake-plastics.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-plastics.png" alt="Lake Plastics" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakePlastics">Lake Plastics</span></a>
+            <a href="lake-steel.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-steel.png" alt="Lake Steel" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakeSteel">Lake Steel</span></a>
+            <a href="lake-cylinders.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="Lake Cylinders" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakeCylinders">Lake Cylinders</span></a>
+            <a href="gulf-aggregates.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/gulf-aggregates.png" alt="Gulf Aggregates" loading="lazy" width="110" height="68"><span data-i18n="nav.co.gulfAggregates">Gulf Aggregates</span></a>
+            <a href="https://atl-tz.com" class="mm-company mm-external" role="menuitem" target="_blank" rel="noopener noreferrer"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="ATL" loading="lazy" width="110" height="68"><span data-i18n="nav.co.atl">ATL</span><svg class="mm-ext-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"/></svg></a>
+            <a href="lake-premix-cement.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-premix-cement.png" alt="Lake Premix and Cement" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</span></a>
+          </div>
+          <div class="mm-col" role="none">
+            <div class="dd-label" data-i18n="nav.dd.logisticsCos">Logistics</div>
+            <a href="aficd.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="AFICD" loading="lazy" width="110" height="68"><span data-i18n="nav.co.aficd">AFICD</span></a>
+            <a href="aill.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="AILL" loading="lazy" width="110" height="68"><span data-i18n="nav.co.aill">AILL</span></a>
+            <a href="lake-trans.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-trans.png" alt="Lake Trans" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakeTrans">Lake Trans</span></a>
+          </div>
+          <div class="mm-col" role="none">
+            <div class="dd-label" data-i18n="nav.dd.realEstate">Real Estate</div>
+            <a href="cross-country.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/cross-country.png" alt="Cross Country" loading="lazy" width="110" height="68"><span data-i18n="nav.co.crossCountry">Cross Country</span></a>
+            <a href="ocean-galleria.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/ocean-galleria.png" alt="Ocean Galleria" loading="lazy" width="110" height="68"><span data-i18n="nav.co.oceanGalleria">Ocean Galleria</span></a>
+          </div>
+          <div class="mm-col" role="none">
+            <div class="dd-label" data-i18n="nav.dd.agro">Agro Processing</div>
+            <a href="https://lakeagro.com/" class="mm-company mm-external" role="menuitem" target="_blank" rel="noopener noreferrer"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="Lake Agro" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakeAgro">Lake Agro</span><svg class="mm-ext-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"/></svg></a>
+          </div>
         </div>
       </li>
       <li class="has-dropdown"><a href="africa-network.html" data-i18n="nav.network">Network &#9662;</a>
@@ -23,7 +50,7 @@
           <a href="fleet.html" data-i18n="nav.fleet">Our Fleet</a>
         </div>
       </li>
-      <li class="has-dropdown"><a href="about.html" data-i18n="nav.company">Company &#9662;</a>
+      <li class="has-dropdown"><a href="about.html" data-i18n="nav.company">Corporate &#9662;</a>
         <div class="nav-dropdown">
           <a href="history.html" data-i18n="nav.history">Our History</a><a href="leadership.html" data-i18n="nav.leadership">Leadership</a>
           <a href="csr.html" data-i18n="nav.csr">CSR &amp; Sustainability</a><a href="investors.html" data-i18n="nav.investors">Investor Relations</a>

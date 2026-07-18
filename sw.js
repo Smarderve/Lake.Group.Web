@@ -11,7 +11,7 @@
 
 'use strict';
 
-const VERSION = 'v12';
+const VERSION = 'v29';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -35,6 +35,7 @@ const PRECACHE_URLS = [
   './manifest.webmanifest',
   './assets/pwa.js',
   './assets/site.js',
+  './assets/tokens.css',
   './assets/theme.css',
   './assets/motion.js',
   // Flagship (Meridian) design system  migrated pages load this pair
@@ -49,7 +50,7 @@ const PRECACHE_URLS = [
   './assets/assistant.css',
   './assets/assistant-kb.js',
   './assets/vendor/flexsearch/flexsearch.bundle.min.js',
-  './assets/images/logos/LAKE_GROUP_LOGO.jpg',
+  './assets/images/logos/LAKE_GROUP_LOGO.png',
   './assets/icons/pwa/icon-192.png',
   './assets/icons/pwa/icon-512.png',
   './assets/fonts/fonts.css',

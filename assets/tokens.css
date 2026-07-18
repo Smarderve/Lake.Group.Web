@@ -1,0 +1,136 @@
+/* ==========================================================================
+   Lake Group — CANONICAL DESIGN TOKENS (assets/tokens.css)
+   ==========================================================================
+   Single source of truth for shared chrome (navbar, hero shell, brand color,
+   type stacks, logo sizing). Imported by theme.css AND flagship.css so both
+   stacks resolve the same values.
+
+   Citations:
+     · Brand blues / yellow / white — Lake Brand Design Guidelines 2023 PDF
+       (Logo Colors + Brand Colors pages): Deep Blue #0181BB, Light Blue
+       #0599D3, Sunrise Yellow #FFF200, White #FFFFFF.
+     · Candy Red #D21404 is in the same PDF but intentionally OMITTED here
+       per locked user decision (no red on the website).
+     · Lacoste is the print/guidelines typeface; no Lacoste webfont is
+       licensed in this repo. Web stacks follow home (index.html): Bebas Neue
+       display + Inter body.
+     · Navbar height, logo height, nav link metrics, active pill — home
+       (index.html) + prior 60px logo standard (~17% below former 72px).
+   ========================================================================== */
+
+:root {
+  /* —— Brand palette (docs) —— */
+  --color-brand-blue:        #0181BB; /* Deep Blue — primary */
+  --color-brand-blue-light:  #0599D3; /* Light Blue */
+  --color-brand-blue-deep:   #016694; /* surfaces / scrolled nav */
+  --color-brand-blue-darkest:#013F5C; /* deepest brand blue (text/emphasis) */
+  --color-yellow-accent:     #FFF200; /* Sunrise Yellow */
+  --color-yellow-deep:       #E6D900;
+  --color-yellow-muted:      #B8AE00; /* decorative only; not for on-light text */
+  --color-white:             #FFFFFF;
+  --color-offwhite:          #F7F8FC;
+  --color-light:             #EFF2FB;
+
+  /* —— Text —— */
+  --color-text-heading:      #013F5C;
+  --color-text-body:         #5A6478;
+  --color-text-on-brand:     #FFFFFF;
+  --color-text-on-brand-muted: rgba(255, 255, 255, 0.85);
+
+  /* —— Type stacks (home; Lacoste unavailable as webfont) —— */
+  --font-heading: "Bebas Neue", "Arial Narrow", sans-serif;
+  --font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif:   "Playfair Display", Georgia, serif;
+
+  /* —— Chrome geometry —— */
+  --navbar-height:              72px;
+  --navbar-height-scrolled:     60px;
+  --nav-logo-height:            60px; /* single standard for group + company marks */
+  --nav-logo-height-scrolled:   45px;
+  --color-navbar-bg:            var(--color-brand-blue);
+  --color-navbar-bg-scrolled:   rgba(1, 102, 148, 0.96);
+  --color-navbar-border:        var(--color-yellow-accent);
+  --color-hero-bg:              var(--color-brand-blue-darkest); /* fallback under photo only */
+  --hero-overlay-gradient:      linear-gradient(105deg,
+                                  rgba(1, 63, 92, 0.92) 0%,
+                                  rgba(1, 129, 187, 0.75) 45%,
+                                  rgba(1, 129, 187, 0.22) 100%);
+
+  /* —— Nav link metrics (home sentence-case + soft pill) —— */
+  --nav-link-size:           0.86rem;
+  --nav-link-weight:         500;
+  --nav-link-letter-spacing: normal;
+  --nav-link-transform:      none;
+  --nav-link-padding:        9px 13px;
+  --nav-link-radius:         999px;
+  --nav-link-color:          var(--color-text-on-brand-muted);
+  --nav-link-hover-bg:       rgba(255, 255, 255, 0.16);
+  --nav-link-active-color:   var(--color-yellow-accent);
+  --nav-link-active-bg:      rgba(255, 255, 255, 0.16);
+
+  /* —— Eyebrow / breadcrumb (interior heroes) —— */
+  --eyebrow-size:            0.72rem;
+  --eyebrow-letter-spacing:  0.12em;
+  --eyebrow-weight:          700;
+  --breadcrumb-size:         0.72rem;
+  --breadcrumb-letter-spacing: 0.18em;
+
+  /* —— Buttons —— */
+  --btn-padding:             13px 28px;
+  --btn-size:                0.9rem;
+  --btn-weight:              600;
+  --btn-radius:              4px;
+  --btn-primary-bg:          var(--color-yellow-accent);
+  --btn-primary-color:       var(--color-brand-blue-darkest);
+
+  /* —— Body type —— */
+  --body-size:               16px;
+  --body-line-height:        1.7;
+  --title-letter-spacing:    -0.015em;
+
+  /* —— Borders / elevation —— */
+  --color-border:            rgba(1, 129, 187, 0.12);
+  --radius:                  4px;
+  --radius-lg:               10px;
+  --shadow:                  0 2px 16px rgba(1, 63, 92, 0.08);
+  --shadow-md:               0 6px 28px rgba(1, 63, 92, 0.12);
+  --shadow-lg:               0 14px 48px rgba(1, 63, 92, 0.18);
+
+  /* ========================================================================
+     Legacy aliases — keep every existing var(--blue)/var(--yellow)/etc. working
+     ======================================================================== */
+  --blue:       var(--color-brand-blue);
+  --blue-light: var(--color-brand-blue-light);
+  --blue2:      var(--color-brand-blue-deep);
+  --blue3:      var(--color-brand-blue-darkest);
+  --blue-deep:  var(--color-brand-blue-deep);
+  --yellow:     var(--color-yellow-accent);
+  --yellow2:    var(--color-yellow-deep);
+  --yellow3:    var(--color-yellow-muted);
+  --gold:       var(--color-yellow-accent);
+  --gold-deep:  var(--color-yellow-muted);
+  --white:      var(--color-white);
+  --offwhite:   var(--color-offwhite);
+  --light:      var(--color-light);
+  --text:       var(--color-text-heading);
+  --muted:      var(--color-text-body);
+  --mute:       var(--color-text-body);
+  --border:     var(--color-border);
+
+  --nav-h:                 var(--navbar-height);
+  --nav-logo-h:            var(--nav-logo-height);
+  --nav-logo-h-scrolled:   var(--nav-logo-height-scrolled);
+
+  /* Legacy navy/amber remap → brand (no candy red) */
+  --navy:   var(--color-brand-blue);
+  --navy2:  var(--color-brand-blue-deep);
+  --navy3:  var(--color-brand-blue-darkest);
+  --amber:  var(--color-yellow-muted);
+  --amber2: var(--color-yellow-deep);
+  --amber3: var(--color-yellow-accent);
+  --bone:   var(--color-offwhite);
+  --bone2:  var(--color-light);
+
+  /* Type aliases used by flagship */
+  --font-display: var(--font-heading);
+}

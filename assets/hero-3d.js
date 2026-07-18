@@ -25,7 +25,7 @@
 import * as THREE from './vendor/three.module.min.js';
 
 const BG = '#0b1220';
-const LAKE_YELLOW = '#FFD700';
+const LAKE_YELLOW = '#FFF200';
 
 const GLOBE_R = 3.4;
 const GLOBE_CENTER_LON = THREE.MathUtils.degToRad(30);
@@ -293,12 +293,12 @@ function initHero3D(mount) {
     ctx.fill();
     ctx.shadowBlur = 0;
     ctx.lineWidth = S;
-    ctx.strokeStyle = opts.hub ? 'rgba(255, 215, 0, 0.75)' : 'rgba(150, 180, 230, 0.48)';
+    ctx.strokeStyle = opts.hub ? 'rgba(255, 242, 0, 0.75)' : 'rgba(150, 180, 230, 0.48)';
     ctx.stroke();
     ctx.textAlign = 'center';
     ctx.textBaseline = 'top';
     ctx.font = titleFont;
-    ctx.fillStyle = opts.hub ? '#ffd700' : '#eaf1fc';
+    ctx.fillStyle = opts.hub ? '#fff200' : '#eaf1fc';
     ctx.fillText(title, w / 2, padY);
     if (sub) {
       ctx.font = subFont;

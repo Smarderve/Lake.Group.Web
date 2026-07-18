@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <meta name="theme-color" content="#1D3EA8">
+  <meta name="theme-color" content="#0181BB">
   <meta name="robots" content="noindex">
   <link rel="manifest" href="manifest.webmanifest">
   <title>Page Not Found | Lake Group</title>
@@ -19,20 +19,21 @@
        MERIDIAN UTILITY PAGE  404. Fully self-contained inline styles
        (flagship.css is linked below as an enhancement only).
        ====================================================================== */
+    @import url('assets/tokens.css');
     @import url('assets/fonts/fonts.css');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --ink:   #070C1E;
-      --ink-2: #0A1128;
-      --gold:  #FFD700;
+      --ink:   var(--color-brand-blue-darkest);
+      --ink-2: var(--color-brand-blue-deep);
+      --gold:  var(--color-yellow-accent);
       --line:  rgba(255,255,255,0.14);
       --line2: rgba(255,255,255,0.07);
       --txt:   rgba(233,237,248,0.78);
     }
     html, body { min-height: 100%; }
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--ink);
+      font-family: var(--font-body);
+      background: var(--color-hero-bg);
       color: #fff;
       min-height: 100vh;
       display: flex;
@@ -61,11 +62,11 @@
     .card { max-width: 620px; width: 100%; text-align: center; position: relative; z-index: 2; }
     .logo-wrap {
       display: inline-block;
-      background: #fff;
-      border-radius: 2px;
-      padding: 10px 16px;
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
       margin-bottom: 40px;
-      box-shadow: 0 24px 60px -20px rgba(0,0,0,0.55);
+      box-shadow: none;
     }
     .logo-wrap img { height: 44px; width: auto; display: block; }
     .badge {
@@ -88,7 +89,7 @@
       line-height: 0.85;
       letter-spacing: 0.04em;
       color: transparent;
-      -webkit-text-stroke: 2px rgba(255,215,0,0.65);
+      -webkit-text-stroke: 2px rgba(255,242,0,0.65);
       margin-bottom: 22px;
       user-select: none;
     }
@@ -150,7 +151,7 @@
 </head>
 <body>
   <main class="card">
-    <div class="logo-wrap"><img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group"></div>
+    <div class="logo-wrap"><img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group"></div>
     <div class="code" aria-hidden="true">404</div>
     <div class="badge">Page Not Found</div>
     <h1>This page seems to be <em>off the map</em></h1>

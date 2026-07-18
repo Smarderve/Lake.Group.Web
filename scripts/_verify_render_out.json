@@ -1,0 +1,620 @@
+{
+  "logoOk": true,
+  "min": 60,
+  "max": 60,
+  "results": [
+    {
+      "page": "about.html",
+      "height": 60,
+      "width": 156.53125,
+      "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/n-slider/1.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "aficd.html",
+      "height": 60,
+      "width": 60,
+      "src": "assets/images/logos/companies/lake-group-placeholder.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/aficd/TA/photo_1.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "africa-network.html",
+      "height": 60,
+      "width": 156.53125,
+      "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/n-slider/5.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "aill.html",
+      "height": 60,
+      "width": 60,
+      "src": "assets/images/logos/companies/lake-group-placeholder.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/banner/LakeTrans.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "careers.html",
+      "height": 60,
+      "width": 156.53125,
+      "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/n-slider/7.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "contact.html",
+      "height": 60,
+      "width": 156.53125,
+      "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/n-slider/2.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "cross-country.html",
+      "height": 60,
+      "width": 62.21875,
+      "src": "assets/images/logos/companies/cross-country.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/merm/photo_1.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "csr.html",
+      "height": 60,
+      "width": 156.53125,
+      "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/n-slider/7.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "dashboard.html",
+      "height": 60,
+      "width": 156.53125,
+      "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/n-slider/4.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "fleet.html",
+      "height": 60,
+      "width": 156.53125,
+      "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/banner/LakeTrans.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "gallery.html",
+      "height": 60,
+      "width": 156.53125,
+      "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/n-slider/3.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "gulf-aggregates.html",
+      "height": 60,
+      "width": 60,
+      "src": "assets/images/logos/companies/gulf-aggregates.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/gccp/photo_4.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "history.html",
+      "height": 60,
+      "width": 156.53125,
+      "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/leadership/group-event-2018.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "index.html",
+      "height": 60,
+      "width": 156.53125,
+      "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "hero",
+        "heroBg": "rgb(1, 129, 187)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/banner/LakeOil.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "investors.html",
+      "height": 60,
+      "width": 156.53125,
+      "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/n-slider/6.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "lake-aviation.html",
+      "height": 60,
+      "width": 60,
+      "src": "assets/images/logos/companies/lake-aviation.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/n-slider/2.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "lake-buildings.html",
+      "height": 60,
+      "width": 60,
+      "src": "assets/images/logos/companies/lake-buildings.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/ccp/photo_1.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "lake-cylinders.html",
+      "height": 60,
+      "width": 60,
+      "src": "assets/images/logos/companies/lake-group-placeholder.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/banner/LakeGas.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "lake-gas.html",
+      "height": 60,
+      "width": 60,
+      "src": "assets/images/logos/companies/lake-gas.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/banner/LakeGas.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "lake-lubes.html",
+      "height": 60,
+      "width": 60,
+      "src": "assets/images/logos/companies/lake-lubes.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/n-slider/4.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "lake-oil.html",
+      "height": 60,
+      "width": 60,
+      "src": "assets/images/logos/companies/lake-oil.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/banner/LakeOil.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "lake-plastics.html",
+      "height": 60,
+      "width": 60,
+      "src": "assets/images/logos/companies/lake-plastics.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/merm/photo_3.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "lake-premix-cement.html",
+      "height": 60,
+      "width": 60,
+      "src": "assets/images/logos/companies/lake-premix-cement.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/gccp/photo_1.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "lake-steel.html",
+      "height": 60,
+      "width": 60,
+      "src": "assets/images/logos/companies/lake-steel.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/lakesteel/TA/photo_1.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "lake-trans.html",
+      "height": 60,
+      "width": 60,
+      "src": "assets/images/logos/companies/lake-trans.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/laketrans/TA/photo_1.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "leadership.html",
+      "height": 60,
+      "width": 156.53125,
+      "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/leadership/annual-event.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "media-center.html",
+      "height": 60,
+      "width": 156.53125,
+      "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/n-slider/8.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "news-article.html",
+      "height": 60,
+      "width": 156.53125,
+      "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/n-slider/8.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "news.html",
+      "height": 60,
+      "width": 156.53125,
+      "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/n-slider/8.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "ocean-galleria.html",
+      "height": 60,
+      "width": 130.046875,
+      "src": "assets/images/logos/companies/ocean-galleria.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/merm/photo_2.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "projects.html",
+      "height": 60,
+      "width": 156.53125,
+      "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/ccp/photo_2.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "services.html",
+      "height": 60,
+      "width": 156.53125,
+      "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/n-slider/5.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "station-locator.html",
+      "height": 60,
+      "width": 156.53125,
+      "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/banner/LakeOil.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    },
+    {
+      "page": "sustainability.html",
+      "height": 60,
+      "width": 156.53125,
+      "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+      "inlineHeight": "",
+      "computedHeight": "60px",
+      "heroInfo": {
+        "tag": "page-hero",
+        "heroBg": "rgb(1, 63, 92)",
+        "heroBgImage": "none",
+        "hasMedia": true,
+        "mediaOpacity": "1",
+        "mediaBg": "url(\"http://127.0.0.1:3456/assets/images/n-slider/9.jpg\")",
+        "hasOverlay": true,
+        "overlayBg": "linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.75) 45%, rgba(1, 129, 187, 0.22) 100%)"
+      }
+    }
+  ],
+  "heroFails": []
+}

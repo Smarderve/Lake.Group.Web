@@ -34,9 +34,9 @@
       'display:flex',
       'align-items:center',
       'gap:14px',
-      'background:#0E1F5A',
+      'background:#013F5C',
       'color:#fff',
-      'border:1px solid rgba(255,215,0,0.5)',
+      'border:1px solid rgba(255,242,0,0.5)',
       'border-radius:6px',
       'padding:12px 16px',
       "font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif",
@@ -55,8 +55,8 @@
     var button = document.createElement('button');
     button.textContent = 'Refresh';
     button.style.cssText = [
-      'background:#FFD700',
-      'color:#0E1F5A',
+      'background:#FFF200',
+      'color:#013F5C',
       'border:none',
       'border-radius:4px',
       'padding:7px 16px',

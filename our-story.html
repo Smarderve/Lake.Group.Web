@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -9,31 +9,18 @@
   <link rel="icon" href="favicon.ico" sizes="32x32">
   <link rel="icon" href="assets/icons/pwa/icon-192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="assets/icons/pwa/apple-touch-icon.png">
-  <meta name="theme-color" content="#1D3EA8">
+  <meta name="theme-color" content="#0181BB">
   <link rel="manifest" href="manifest.webmanifest">
 <style>
+  @import url('assets/tokens.css');
   @import url('assets/fonts/fonts.css');
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    /* Lake Group brand palette  matches assets/site CSS variables on
-       the main website (--blue, --yellow, --blue3, etc.) so this page
-       reads as the same brand, not a different product. */
-    --blue:      #1D3EA8;
-    --blue2:     #162E7F;
-    --blue3:     #0E1F5A;
-    --yellow:    #FFD700;
-    --yellow2:   #FFC200;
-    --yellow3:   #E6AF00;
-    --white:     #FFFFFF;
-    --offwhite:  #F7F8FC;
-  }
-
   html, body {
     width: 100%; height: 100%;
-    background: #060D26;
-    font-family: 'Inter', sans-serif;
+    background: var(--color-brand-blue-darkest);
+    font-family: var(--font-body);
     overflow: hidden;
     color: var(--offwhite);
   }
@@ -102,8 +89,8 @@
   .tint {
     position: absolute; inset: 0; pointer-events: none;
   }
-  .tint-navy   { background: rgba(6,13,38,   0.45); }
-  .tint-blue   { background: rgba(14,31,90,  0.42); }
+  .tint-navy   { background: rgba(1,63,92,0.45); }
+  .tint-blue   { background: rgba(1,63,92,  0.42); }
   .tint-gold   { background: rgba(40,30,2,   0.32); }
   .tint-dark   { background: rgba(2,5,15,    0.62); }
 
@@ -181,7 +168,7 @@
     position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
     z-index: 20;
     font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
-    color: rgba(255,215,0,0.6);
+    color: rgba(255,242,0,0.6);
     font-family: 'Inter', sans-serif; font-weight: 500;
     white-space: nowrap;
     opacity: 0;
@@ -192,7 +179,7 @@
   /* STAT STAMP (top right, below the language switcher) */
   .date-stamp {
     position: absolute; top: 5.2rem; right: 2.5rem; z-index: 20;
-    font-size: 11px; letter-spacing: 0.1em; color: rgba(255,215,0,0.55);
+    font-size: 11px; letter-spacing: 0.1em; color: rgba(255,242,0,0.55);
     font-family: 'Inter', sans-serif; font-weight: 600;
     text-align: right;
     opacity: 0; transition: opacity 1.2s ease 1.2s;
@@ -234,7 +221,7 @@
   .dot {
     /* Meridian gauge marks: square ticks, not dots */
     width: 6px; height: 6px; border-radius: 0;
-    background: rgba(255,215,0,0.3);
+    background: rgba(255,242,0,0.3);
     transition: background 0.6s ease, transform 0.6s ease;
   }
   .dot.active {
@@ -245,7 +232,7 @@
   /* PLAY BUTTON / START SCREEN */
   #start {
     position: fixed; inset: 0; z-index: 300;
-    background: linear-gradient(160deg, #060D26 0%, #0E1F5A 100%);
+    background: linear-gradient(160deg, var(--color-brand-blue-darkest) 0%, var(--blue3) 100%);
     display: flex; align-items: center; justify-content: center;
     flex-direction: column; gap: 2rem;
     cursor: pointer;
@@ -258,7 +245,7 @@
   .start-for {
     font-family: 'Inter', sans-serif; font-size: 10px;
     letter-spacing: 0.3em; text-transform: uppercase;
-    color: rgba(255,215,0,0.7);
+    color: rgba(255,242,0,0.7);
   }
   .start-name {
     font-family: 'Bebas Neue', 'Arial Narrow', sans-serif;
@@ -274,7 +261,7 @@
 
   .play-btn {
     width: 58px; height: 58px;
-    border: 1px solid rgba(255,215,0,0.5);
+    border: 1px solid rgba(255,242,0,0.5);
     border-radius: 0;
     clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
     display: flex; align-items: center; justify-content: center;
@@ -286,13 +273,13 @@
 
   .start-hint {
     font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: rgba(255,215,0,0.45); font-family: 'Inter', sans-serif;
+    color: rgba(255,242,0,0.45); font-family: 'Inter', sans-serif;
   }
 
   /* ENDING SCREEN */
   #ending {
     position: fixed; inset: 0; z-index: 250;
-    background: linear-gradient(160deg, #060D26 0%, #0E1F5A 100%);
+    background: linear-gradient(160deg, var(--color-brand-blue-darkest) 0%, var(--blue3) 100%);
     display: flex; align-items: center; justify-content: center;
     flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem;
     opacity: 0; pointer-events: none;
@@ -302,7 +289,7 @@
   .ending-from {
     font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600;
     letter-spacing: 0.28em; text-transform: uppercase;
-    color: rgba(255,215,0,0.7);
+    color: rgba(255,242,0,0.7);
   }
   .ending-quote {
     /* Playfair italic is the Meridian pull-quote voice */
@@ -334,8 +321,8 @@
   .replay-btn {
     margin-top: 1rem;
     padding: 0.65rem 2rem;
-    border: 1px solid rgba(255,215,0,0.45);
-    background: transparent; color: rgba(255,215,0,0.85);
+    border: 1px solid rgba(255,242,0,0.45);
+    background: transparent; color: rgba(255,242,0,0.85);
     font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600;
     letter-spacing: 0.22em; text-transform: uppercase;
     cursor: pointer; border-radius: 0;
@@ -366,7 +353,7 @@
 <div id="grain"></div>
 <div id="vignette"></div>
 <div id="brand-mark">
-  <img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group">
+  <img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group">
   <span>Lake Group</span>
 </div>
 
@@ -378,12 +365,12 @@
 
 <!-- START SCREEN -->
 <div id="start" onclick="begin()">
-  <img class="start-logo" src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group">
+  <img class="start-logo" src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group">
   <p class="start-for" data-i18n="ose.tagline">a story since 2006</p>
   <h1 class="start-name">Lake <span>Group</span></h1>
   <div class="play-btn">
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-      <path d="M5 3.5L14.5 9L5 14.5V3.5Z" fill="rgba(255,215,0,0.9)"/>
+      <path d="M5 3.5L14.5 9L5 14.5V3.5Z" fill="rgba(255,242,0,0.9)"/>
     </svg>
   </div>
   <p class="start-hint" data-i18n="ose.pressPlay">press to play</p>
@@ -493,7 +480,7 @@
       <h2 class="display size-lg" data-i18n="ose.s7.title" data-i18n-html>across <em>8 countries</em><br>and counting.</h2>
       <div class="gold-line"></div>
       <p class="body-text" style="font-size:clamp(0.95rem,1.8vw,1.15rem); margin-top:0.5rem;" data-i18n="ose.s7.body" data-i18n-html>
-        Tanzania · Kenya · Zambia · Rwanda · Burundi · DRC · Ethiopia · Mozambique
+        Tanzania Â· Kenya Â· Zambia Â· Rwanda Â· Burundi Â· DRC Â· Ethiopia Â· Mozambique
       </p>
     </div>
   </div>
@@ -501,7 +488,7 @@
   <!-- SCENE 8: THE LOGO / CLOSE -->
   <div class="scene" id="s8">
     <div class="photo-bg">
-      <img class="photo-slot" src="lake-story-assets/scene8.jpg" alt="Lake Group logo" style="object-fit:contain; filter:brightness(1) contrast(1); background:#0E1F5A;" data-i18n-alt="ose.alt.s8">
+      <img class="photo-slot" src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group logo" style="object-fit:contain; filter:brightness(1) contrast(1); background:#013F5C;" data-i18n-alt="ose.alt.s8">
     </div>
     <div class="tint tint-dark"></div>
     <div class="text-block">
@@ -535,7 +522,7 @@
   <p class="ending-name" data-i18n="ose.estLine">Lake Group, est. 2006</p>
   <div class="ending-actions">
     <a class="cta-btn" href="index.html" data-i18n="ose.visitHome">Visit Home</a>
-    <button class="replay-btn" onclick="replay()" data-i18n="ose.ending.replay" data-i18n-html>↺ &nbsp; watch again</button>
+    <button class="replay-btn" onclick="replay()" data-i18n="ose.ending.replay" data-i18n-html>â†º &nbsp; watch again</button>
   </div>
 </div>
 
@@ -607,7 +594,6 @@
 <!-- i18n: content dictionary must load before the engine (same order as
      every other page). This page has no site nav, so LakeI18n.init() is
      called directly instead of via assets/site.js. -->
-<script src="assets/i18n-content.js"></script>
 <script src="assets/i18n.js"></script>
 <script>window.LakeI18n.init();</script>
 <script src="assets/pwa.js" defer></script>

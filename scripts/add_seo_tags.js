@@ -31,7 +31,7 @@ const ORGANIZATION = {
   '@id': ORG_ID,
   name: 'Lake Group',
   url: BASE,
-  logo: BASE + 'assets/images/logos/LAKE_GROUP_LOGO.jpg',
+  logo: BASE + 'assets/images/logos/LAKE_GROUP_LOGO.png',
   foundingDate: '2006',
   founder: { '@type': 'Person', name: 'Ally Edha Awadh' },
   address: {

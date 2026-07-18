@@ -16,7 +16,7 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 
 const MANIFEST_LINK = '<link rel="manifest" href="manifest.webmanifest">';
-const THEME_META = '<meta name="theme-color" content="#1D3EA8">';
+const THEME_META = '<meta name="theme-color" content="#0181BB">';
 const PWA_SCRIPT = '<script src="assets/pwa.js" defer></script>';
 
 const files = fs

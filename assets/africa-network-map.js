@@ -74,24 +74,26 @@
   ];
 
   const PIPELINES = [
-    { name: 'TAZAMA Fuel Pipeline', color: '#FFD700', weight: 4, dash: '8 6',
+    { name: 'TAZAMA Fuel Pipeline', color: '#FFF200', weight: 4, dash: '8 6',
       coords: [[-6.85, 39.28], [-7.5, 38.5], [-9.0, 36.5], [-11.0, 34.0], [-13.0, 32.5], [-15.4, 28.3]],
       desc: 'Dar es Salaam → Lusaka petroleum pipeline corridor.' },
-    { name: 'Northern Logistics Corridor', color: '#1D3EA8', weight: 3, dash: null,
+    { name: 'Northern Logistics Corridor', color: '#0181BB', weight: 3, dash: null,
       coords: [[-6.79, 39.21], [-4.04, 39.67], [-1.29, 36.82], [-1.94, 30.06], [-3.36, 29.36]],
       desc: 'Dar → Mombasa → Nairobi → Kigali → Bujumbura supply chain.' },
-    { name: 'Southern Africa Route', color: '#1D3EA8', weight: 3, dash: null,
+    { name: 'Southern Africa Route', color: '#0181BB', weight: 3, dash: null,
       coords: [[-6.79, 39.21], [-15.39, 28.32], [-25.97, 32.57]],
       desc: 'East coast to Lusaka and Maputo logistics corridor.' },
   ];
 
+  // No red in the brand palette: "fuel" marker uses Light Blue to stay
+  // visually distinct from the Deep Blue "logistics" marker.
   const TYPE_META = {
-    hq:         { label: 'Headquarters', color: '#FFD700', radius: 11 },
-    fuel:       { label: 'Fuel Station / Depot', color: '#CC1E1E', radius: 8 },
+    hq:         { label: 'Headquarters', color: '#FFF200', radius: 11 },
+    fuel:       { label: 'Fuel Station / Depot', color: '#0599D3', radius: 8 },
     port:       { label: 'Port', color: '#0ea5e9', radius: 8 },
     container:  { label: 'Container Depot', color: '#E8820C', radius: 8 },
     industrial: { label: 'Industrial Zone', color: '#64748b', radius: 8 },
-    logistics:  { label: 'Logistics Hub', color: '#1D3EA8', radius: 8 },
+    logistics:  { label: 'Logistics Hub', color: '#0181BB', radius: 8 },
   };
 
   let map, countryLayer, borderOutlineLayer, assetLayer, pipelineLayer, activeCountry = 'tz';
@@ -117,18 +119,18 @@
     const isActive = COUNTRY_META[activeCountry]?.iso === iso;
     if (isActive) {
       return {
-        color: '#FFD700',
+        color: '#FFF200',
         weight: 4,
-        fillColor: '#FFD700',
+        fillColor: '#FFF200',
         fillOpacity: 0.28,
         opacity: 1,
       };
     }
     if (isOp) {
       return {
-        color: '#FFD700',
+        color: '#FFF200',
         weight: 2.8,
-        fillColor: '#1D3EA8',
+        fillColor: '#0181BB',
         fillOpacity: 0.42,
         opacity: 1,
       };
@@ -146,7 +148,7 @@
     const isOp = OPS_ISO.has(iso);
     const isActive = COUNTRY_META[activeCountry]?.iso === iso;
     return {
-      color: isActive ? '#FFD700' : isOp ? 'rgba(255,215,0,0.85)' : 'rgba(255,255,255,0.55)',
+      color: isActive ? '#FFF200' : isOp ? 'rgba(255,242,0,0.85)' : 'rgba(255,255,255,0.55)',
       weight: isActive ? 2 : isOp ? 1.6 : 0.8,
       fillOpacity: 0,
       opacity: 1,
@@ -159,7 +161,7 @@
     return {
       radius: r,
       fillColor: m.color,
-      color: active ? '#FFD700' : '#ffffff',
+      color: active ? '#FFF200' : '#ffffff',
       weight: active ? 3 : 2,
       fillOpacity: 1,
       opacity: 1,
@@ -320,7 +322,7 @@
         if (id === 'ae') return;
         L.circle(c.center, {
           radius: id === 'cd' ? 450000 : id === 'et' || id === 'mz' ? 350000 : 220000,
-          color: '#FFD700', weight: 3, fillColor: '#1D3EA8', fillOpacity: 0.35,
+          color: '#FFF200', weight: 3, fillColor: '#0181BB', fillOpacity: 0.35,
         }).on('click', () => window.selectCountry(id, document.getElementById('card-' + id)))
           .addTo(countryLayer);
       });

@@ -1,17 +1,11 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    LAKE GROUP  OFFLINE KNOWLEDGE ASSISTANT (assets/assistant.css)
    ==========================================================================
    Styles for the assistant widget injected by assets/assistant.js into the
    `#chat-widget` mount on every page.
 
-   FLAGSHIP ALIGNMENT NOTE  a flagship design-system rebuild ("MERIDIAN",
-   assets/flagship.css) is happening in parallel; FLAGSHIP_DESIGN.md did not
-   exist when this file was written. These styles follow the Meridian tokens
-   observed in flagship.css (ink navy #0E1F5A/#070C1E bands, gold #FFD700
-   used surgically, sharp 0–2px radii, Inter body type, hairline rules,
-   the small square "meridian tick" motif) via local --la-* custom props.
-   RECONCILE with the final flagship token set once FLAGSHIP_DESIGN.md
-   lands (map --la-* onto the flagship :root tokens and drop duplicates).
+   Brand chrome tokens come from assets/tokens.css (linked via flagship/theme).
+   Local --la-* aliases map onto those shared tokens for widget scoping.
 
    Everything is scoped under #chat-widget and deliberately overrides the
    legacy inline #chat-btn/#chat-box page styles (those elements no longer
@@ -19,17 +13,17 @@
    ========================================================================== */
 
 #chat-widget.la-widget {
-  --la-blue: #1d3ea8;
-  --la-navy: #0e1f5a;
-  --la-ink: #070c1e;
-  --la-gold: #ffd700;
+  --la-blue: var(--color-brand-blue, #0181bb);
+  --la-navy: var(--color-brand-blue-darkest, #013f5c);
+  --la-ink: var(--color-brand-blue-darkest, #013f5c);
+  --la-gold: var(--color-yellow-accent, #fff200);
   --la-paper: #f6f5f1;
   --la-surface: #ffffff;
-  --la-text: #0a1024;
-  --la-mute: #4e5568;
+  --la-text: var(--color-text-heading, #013f5c);
+  --la-mute: var(--color-text-body, #5a6478);
   --la-line: rgba(10, 16, 36, 0.14);
   --la-radius: 2px; /* Meridian geometry: sharp */
-  --la-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --la-font: var(--font-body, 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif);
 
   position: fixed;
   bottom: 26px;
@@ -56,7 +50,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 28px rgba(7, 12, 30, 0.35);
+  box-shadow: 0 10px 28px rgba(1,63,92,0.35);
   position: relative;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
@@ -74,7 +68,7 @@
 
 #chat-widget.la-widget .la-launcher:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 32px rgba(7, 12, 30, 0.45);
+  box-shadow: 0 14px 32px rgba(1,63,92,0.45);
 }
 
 #chat-widget.la-widget .la-launcher:focus-visible {
@@ -100,7 +94,7 @@
   background: var(--la-surface);
   border: 1px solid var(--la-line);
   border-radius: var(--la-radius);
-  box-shadow: 0 24px 64px rgba(7, 12, 30, 0.35);
+  box-shadow: 0 24px 64px rgba(1,63,92,0.35);
   overflow: hidden;
   opacity: 0;
   transform: translateY(10px);
@@ -123,7 +117,7 @@
   align-items: center;
   gap: 10px;
   padding: 14px 16px 12px;
-  background: var(--la-ink);
+  background: var(--la-blue);
   border-bottom: 1px solid var(--la-gold);
 }
 

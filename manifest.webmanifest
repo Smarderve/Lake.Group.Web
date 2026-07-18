@@ -7,8 +7,8 @@
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "theme_color": "#1D3EA8",
-  "background_color": "#0E1F5A",
+  "theme_color": "#0181BB",
+  "background_color": "#013F5C",
   "lang": "en",
   "categories": ["business", "logistics", "energy"],
   "icons": [

@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 
 <head>
@@ -16,7 +16,7 @@
   <link rel="icon" href="favicon.ico" sizes="32x32" />
   <link rel="icon" href="assets/icons/pwa/icon-192.png" type="image/png" sizes="192x192" />
   <title>Lake Group | Powering East &amp; Central Africa</title>
-  <meta name="theme-color" content="#1D3EA8" />
+  <meta name="theme-color" content="#0181BB" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="apple-touch-icon" href="assets/icons/pwa/apple-touch-icon.png" />
   <link rel="preload" href="assets/fonts/files/bebas-neue-latin-400-normal.woff2" as="font" type="font/woff2"
@@ -24,6 +24,7 @@
   <link rel="preload" href="assets/fonts/files/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/inter-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
   <style>
+    @import url("assets/tokens.css");
     @import url("assets/fonts/fonts.css");
 
     *,
@@ -34,35 +35,16 @@
       padding: 0;
     }
 
-    :root {
-      --blue: #1d3ea8;
-      --blue2: #162e7f;
-      --blue3: #0e1f5a;
-      --yellow: #ffd700;
-      --yellow2: #ffc200;
-      --yellow3: #e6af00;
-      --red: #cc1e1e;
-      --white: #ffffff;
-      --offwhite: #f7f8fc;
-      --light: #eff2fb;
-      --text: #0e1f5a;
-      --muted: #5a6478;
-      --border: rgba(29, 62, 168, 0.12);
-      --nav-h: 72px;
-      --radius: 4px;
-      --radius-lg: 10px;
-      --shadow: 0 2px 16px rgba(29, 62, 168, 0.1);
-      --shadow-lg: 0 8px 48px rgba(29, 62, 168, 0.18);
-    }
+    /* Brand chrome tokens live in assets/tokens.css (also imported by theme.css). */
 
     html {
       scroll-behavior: smooth;
     }
 
     body {
-      font-family: "Inter", sans-serif;
-      font-size: 16px;
-      line-height: 1.7;
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: var(--body-line-height);
       color: var(--text);
       background: var(--white);
       overflow-x: hidden;
@@ -156,9 +138,9 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      height: var(--nav-h);
-      background: var(--blue);
-      border-bottom: 3px solid var(--yellow);
+      height: var(--navbar-height);
+      background: var(--color-navbar-bg);
+      border-bottom: 3px solid var(--color-navbar-border);
     }
 
     .nav-inner {
@@ -177,9 +159,11 @@
       flex-shrink: 0;
     }
 
-    .nav-logo img {
-      height: 48px;
-      width: auto;
+    .nav-logo img,
+    .site-nav .nav-logo img {
+      height: var(--nav-logo-height) !important;
+      width: auto !important;
+      max-height: var(--nav-logo-height);
       display: block;
     }
 
@@ -212,7 +196,8 @@
     .nav-links>li>a:hover,
     .nav-links>li>a.active {
       color: var(--yellow);
-      background: rgba(255, 255, 255, 0.07);
+      background: rgba(255, 255, 255, 0.16);
+      border-radius: 999px;
     }
 
     .has-dropdown:hover .nav-dropdown {
@@ -226,7 +211,7 @@
       top: calc(100% + 6px);
       left: 0;
       background: var(--blue2);
-      border: 1px solid rgba(255, 214, 0, 0.2);
+      border: 1px solid rgba(255, 242, 0, 0.2);
       border-top: 2px solid var(--yellow);
       border-radius: var(--radius-lg);
       padding: 8px;
@@ -250,7 +235,7 @@
     }
 
     .nav-dropdown a:hover {
-      background: rgba(255, 214, 0, 0.12);
+      background: rgba(255, 242, 0, 0.12);
       color: var(--yellow);
     }
 
@@ -345,7 +330,7 @@
 
     /* PAGE HERO */
     .page-hero {
-      background: var(--blue);
+      background: var(--color-hero-bg);
       padding: 140px 0 72px;
       position: relative;
       overflow: hidden;
@@ -359,7 +344,7 @@
       right: 0;
       bottom: 0;
       background: radial-gradient(ellipse 60% 60% at 80% 50%,
-          rgba(255, 214, 0, 0.08) 0%,
+          rgba(255, 242, 0, 0.08) 0%,
           transparent 65%);
     }
 
@@ -434,7 +419,7 @@
     .btn-primary:hover {
       background: var(--yellow2);
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(255, 214, 0, 0.4);
+      box-shadow: 0 6px 20px rgba(255, 242, 0, 0.4);
     }
 
     .btn-outline {
@@ -682,7 +667,7 @@
     .form-group select:focus,
     .form-group textarea:focus {
       border-color: var(--blue);
-      box-shadow: 0 0 0 3px rgba(29, 62, 168, 0.1);
+      box-shadow: 0 0 0 3px rgba(1, 129, 187, 0.1);
     }
 
     .form-group textarea {
@@ -713,7 +698,7 @@
     }
 
     .badge-yellow {
-      background: rgba(255, 214, 0, 0.18);
+      background: rgba(255, 242, 0, 0.18);
       color: var(--blue);
     }
 
@@ -727,9 +712,10 @@
       color: #16a34a;
     }
 
+    /* No red in the brand palette: dark-blue emphasis stands in for error/alert states */
     .badge-red {
-      background: rgba(204, 30, 30, 0.1);
-      color: var(--red);
+      background: rgba(1, 63, 92, 0.1);
+      color: var(--blue3);
     }
 
     /* TIMELINE */
@@ -797,7 +783,7 @@
       align-items: center;
       gap: 5px;
       padding: 3px 9px;
-      background: rgba(29, 62, 168, 0.08);
+      background: rgba(1, 129, 187, 0.08);
       border-radius: 100px;
       font-size: 0.75rem;
       font-weight: 600;
@@ -1004,7 +990,7 @@
     }
 
     .alert-info {
-      background: rgba(29, 62, 168, 0.06);
+      background: rgba(1, 129, 187, 0.06);
       border-color: var(--blue);
       color: var(--blue);
     }
@@ -1046,7 +1032,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 18px rgba(255, 214, 0, 0.5);
+      box-shadow: 0 4px 18px rgba(255, 242, 0, 0.5);
       transition: transform 0.2s;
     }
 
@@ -1252,19 +1238,22 @@
     .hero-photo {
       position: absolute;
       inset: 0;
+      z-index: 0;
       background-image: url("assets/images/banner/LakeOil.jpg");
       background-size: cover;
       background-position: center;
-      opacity: 0.18;
+      opacity: 1;
+      filter: saturate(0.92) contrast(1.05);
     }
 
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg,
-          rgba(14, 31, 90, 0.95) 0%,
-          rgba(14, 31, 90, 0.6) 60%,
-          rgba(14, 31, 90, 0.2) 100%);
+      z-index: 1;
+      background: var(--hero-overlay-gradient, linear-gradient(105deg,
+          rgba(1, 63, 92, 0.92) 0%,
+          rgba(1, 129, 187, 0.75) 45%,
+          rgba(1, 129, 187, 0.22) 100%));
     }
 
     .hero-accent {
@@ -1513,7 +1502,7 @@
     }
 
     .experience-steps li.is-active {
-      background: rgba(255, 214, 0, 0.07);
+      background: rgba(255, 242, 0, 0.07);
       opacity: 1;
     }
 
@@ -1533,7 +1522,7 @@
       width: 26px;
       height: 26px;
       border-radius: 50%;
-      background: rgba(255, 214, 0, 0.25);
+      background: rgba(255, 242, 0, 0.25);
       color: var(--yellow);
       font-weight: 800;
       font-size: 0.72rem;
@@ -1638,7 +1627,7 @@
       pointer-events: none;
       z-index: 1;
       background: linear-gradient(90deg,
-          rgba(14, 31, 90, 0.32) 0%,
+          rgba(1, 63, 92, 0.32) 0%,
           transparent 20%,
           transparent 100%);
     }
@@ -2008,7 +1997,7 @@
     }
 
     .cta-inner p {
-      color: rgba(14, 31, 90, 0.6);
+      color: rgba(1, 63, 92, 0.6);
       margin-top: 4px;
     }
 
@@ -2036,6 +2025,22 @@
       opacity: 1 !important;
       pointer-events: auto !important;
       transform: translateY(0) !important;
+    }
+
+    /* "Our Companies" mega-menu (assets/theme.css defines the column grid);
+       it needs to stay horizontally centered (translateX(-50%)) even while
+       the !important rule above forces translateY(0), and also needs to
+       open on the JS-driven .is-open class (click/keyboard), not just
+       :hover, once scripts/templates/nav.html is propagated onto this page. */
+    .has-dropdown:hover .nav-megamenu,
+    .has-dropdown.is-open .nav-megamenu,
+    .has-dropdown:focus-within .nav-megamenu,
+    .nav-megamenu:hover {
+      transform: translate(-50%, 0) !important;
+    }
+    .has-dropdown.is-open .nav-dropdown {
+      opacity: 1 !important;
+      pointer-events: auto !important;
     }
 
     /* Language switcher */
@@ -2097,7 +2102,7 @@
         "@id": "https://www.lakeoilgroup.com/#organization",
         "name": "Lake Group",
         "url": "https://www.lakeoilgroup.com/",
-        "logo": "https://www.lakeoilgroup.com/assets/images/logos/LAKE_GROUP_LOGO.jpg",
+        "logo": "https://www.lakeoilgroup.com/assets/images/logos/LAKE_GROUP_LOGO.png",
         "foundingDate": "2006",
         "founder": {
           "@type": "Person",
@@ -2125,81 +2130,124 @@
 
 <body>
   <nav class="site-nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group" style="height: 46px; width: auto" />
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-        <li><a href="about.html" data-i18n="nav.about">About</a></li>
-        <li class="has-dropdown">
-          <a href="services.html" data-i18n="nav.services">Services</a>
-          <div class="nav-dropdown">
-            <div class="dd-label" data-i18n="nav.dd.energy">Energy</div>
-            <a href="fuel.html" data-i18n="nav.fuel">Fuel &amp; Petroleum</a><a href="lpg.html" data-i18n="nav.lpg">LPG
-              Gas</a><a href="lubricants.html" data-i18n="nav.lubricants">Lubricants</a>
-            <div class="dd-label" data-i18n="nav.dd.industry">Industry</div>
-            <a href="steel.html" data-i18n="nav.steel">Lake Steel</a><a href="concrete.html"
-              data-i18n="nav.concrete">Concrete &amp; Aggregate</a>
-            <div class="dd-label" data-i18n="nav.dd.logistics">Logistics</div>
-            <a href="logistics.html" data-i18n="nav.logistics">Transport &amp; Haulage</a><a
-              href="container-services.html" data-i18n="nav.containers">Container Services</a>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="about.html" data-i18n="nav.about">About</a></li>
+      <li class="has-dropdown has-megamenu">
+        <a href="services.html" id="nav-companies-trigger" data-i18n="nav.companies" aria-haspopup="true" aria-expanded="false" aria-controls="nav-companies-menu">Our Companies &#9662;</a>
+        <div class="nav-dropdown nav-megamenu" id="nav-companies-menu" role="menu" aria-label="Our Companies">
+          <div class="mm-col" role="none">
+            <div class="dd-label" data-i18n="nav.dd.energies">Lake Energies</div>
+            <a href="lake-oil.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-oil.png" alt="Lake Oil" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakeOil">Lake Oil</span></a>
+            <a href="lake-aviation.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-aviation.png" alt="Lake Aviation" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakeAviation">Lake Aviation</span></a>
+            <a href="lake-gas.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-gas.png" alt="Lake Gas" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakeGas">Lake Gas</span></a>
+            <a href="lake-lubes.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-lubes.png" alt="Lake Lubes" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakeLubes">Lake Lubes</span></a>
           </div>
-        </li>
-        <li class="has-dropdown">
-          <a href="africa-network.html" data-i18n="nav.network">Network</a>
-          <div class="nav-dropdown">
-            <a href="africa-network.html" data-i18n="nav.africaMap">Africa Operations Map</a>
-            <a href="station-locator.html" data-i18n="nav.stations">Station Locator</a>
-            <a href="fleet.html" data-i18n="nav.fleet">Our Fleet</a>
+          <div class="mm-col" role="none">
+            <div class="dd-label" data-i18n="nav.dd.manufacturing">Manufacturing</div>
+            <a href="lake-buildings.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-buildings.png" alt="Lake Buildings" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakeBuildings">Lake Buildings</span></a>
+            <a href="lake-plastics.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-plastics.png" alt="Lake Plastics" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakePlastics">Lake Plastics</span></a>
+            <a href="lake-steel.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-steel.png" alt="Lake Steel" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakeSteel">Lake Steel</span></a>
+            <a href="lake-cylinders.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="Lake Cylinders" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakeCylinders">Lake Cylinders</span></a>
+            <a href="gulf-aggregates.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/gulf-aggregates.png" alt="Gulf Aggregates" loading="lazy" width="110" height="68"><span data-i18n="nav.co.gulfAggregates">Gulf Aggregates</span></a>
+            <a href="https://atl-tz.com" class="mm-company mm-external" role="menuitem" target="_blank" rel="noopener noreferrer"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="ATL" loading="lazy" width="110" height="68"><span data-i18n="nav.co.atl">ATL</span><svg class="mm-ext-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"/></svg></a>
+            <a href="lake-premix-cement.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-premix-cement.png" alt="Lake Premix and Cement" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</span></a>
           </div>
-        </li>
-        <li class="has-dropdown">
-          <a href="about.html" data-i18n="nav.company">Company</a>
-          <div class="nav-dropdown">
-            <a href="history.html" data-i18n="nav.history">Our History</a><a href="leadership.html"
-              data-i18n="nav.leadership">Leadership</a>
-            <a href="csr.html" data-i18n="nav.csr">CSR &amp; Sustainability</a><a href="investors.html"
-              data-i18n="nav.investors">Investor Relations</a>
-            <a href="projects.html" data-i18n="nav.projects">Major Projects</a><a href="gallery.html"
-              data-i18n="nav.gallery">Gallery</a>
+          <div class="mm-col" role="none">
+            <div class="dd-label" data-i18n="nav.dd.logisticsCos">Logistics</div>
+            <a href="aficd.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="AFICD" loading="lazy" width="110" height="68"><span data-i18n="nav.co.aficd">AFICD</span></a>
+            <a href="aill.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="AILL" loading="lazy" width="110" height="68"><span data-i18n="nav.co.aill">AILL</span></a>
+            <a href="lake-trans.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-trans.png" alt="Lake Trans" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakeTrans">Lake Trans</span></a>
           </div>
-        </li>
-        <li><a href="news.html" data-i18n="nav.news">News</a></li>
-        <li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
-        <li class="lang-switcher" aria-label="Language">
-          <button type="button" class="lang-btn active" data-lang="en">
-            EN
-          </button>
-          <button type="button" class="lang-btn" data-lang="fr">FR</button>
-          <button type="button" class="lang-btn" data-lang="sw">SW</button>
-        </li>
-      </ul>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-  <div class="nav-mobile" id="nav-mobile" style="display: none">
-    <a href="index.html" data-i18n="nav.home">Home</a><a href="about.html" data-i18n="nav.about">About</a>
-    <div class="mob-section" data-i18n="mob.services">Services</div>
-    <a href="fuel.html" data-i18n="nav.fuelShort">Fuel</a><a href="lpg.html" data-i18n="nav.lpg">LPG Gas</a><a
-      href="lubricants.html" data-i18n="nav.lubricants">Lubricants</a>
-    <a href="steel.html" data-i18n="nav.steelShort">Steel</a><a href="concrete.html"
-      data-i18n="nav.concreteShort">Concrete</a><a href="logistics.html" data-i18n="nav.transportShort">Transport</a><a
-      href="container-services.html" data-i18n="nav.containersShort">Containers</a>
-    <div class="mob-section" data-i18n="mob.network">Network</div>
-    <a href="africa-network.html" data-i18n="nav.africaMapShort">Africa Map</a><a href="station-locator.html"
-      data-i18n="nav.stations">Station Locator</a><a href="fleet.html" data-i18n="nav.fleet">Our Fleet</a>
-    <div class="mob-section" data-i18n="mob.company">Company</div>
-    <a href="history.html" data-i18n="nav.historyShort">History</a><a href="leadership.html"
-      data-i18n="nav.leadership">Leadership</a><a href="csr.html" data-i18n="nav.csrShort">CSR</a>
-    <a href="investors.html" data-i18n="nav.investorsShort">Investors</a><a href="projects.html"
-      data-i18n="nav.projectsShort">Projects</a><a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
-    <div class="mob-section" data-i18n="mob.more">More</div>
-    <a href="news.html" data-i18n="nav.news">News</a><a href="careers.html" data-i18n="nav.careers">Careers</a><a
-      href="contact.html" data-i18n="footer.contact">Contact</a>
+          <div class="mm-col" role="none">
+            <div class="dd-label" data-i18n="nav.dd.realEstate">Real Estate</div>
+            <a href="cross-country.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/cross-country.png" alt="Cross Country" loading="lazy" width="110" height="68"><span data-i18n="nav.co.crossCountry">Cross Country</span></a>
+            <a href="ocean-galleria.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/ocean-galleria.png" alt="Ocean Galleria" loading="lazy" width="110" height="68"><span data-i18n="nav.co.oceanGalleria">Ocean Galleria</span></a>
+          </div>
+          <div class="mm-col" role="none">
+            <div class="dd-label" data-i18n="nav.dd.agro">Agro Processing</div>
+            <a href="https://lakeagro.com/" class="mm-company mm-external" role="menuitem" target="_blank" rel="noopener noreferrer"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="Lake Agro" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakeAgro">Lake Agro</span><svg class="mm-ext-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"/></svg></a>
+          </div>
+        </div>
+      </li>
+      <li class="has-dropdown"><a href="africa-network.html" data-i18n="nav.network">Network &#9662;</a>
+        <div class="nav-dropdown">
+          <a href="africa-network.html" data-i18n="nav.africaMap">Africa Operations Map</a>
+          <a href="station-locator.html" data-i18n="nav.stations">Station Locator</a>
+          <a href="fleet.html" data-i18n="nav.fleet">Our Fleet</a>
+        </div>
+      </li>
+      <li class="has-dropdown"><a href="about.html" data-i18n="nav.company">Corporate &#9662;</a>
+        <div class="nav-dropdown">
+          <a href="history.html" data-i18n="nav.history">Our History</a><a href="leadership.html" data-i18n="nav.leadership">Leadership</a>
+          <a href="csr.html" data-i18n="nav.csr">CSR &amp; Sustainability</a><a href="investors.html" data-i18n="nav.investors">Investor Relations</a>
+          <a href="projects.html" data-i18n="nav.projects">Major Projects</a><a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+        </div>
+      </li>
+      <li><a href="news.html" data-i18n="nav.news">News</a></li>
+      <li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
+      <li class="lang-switcher" aria-label="Language">
+        <button type="button" class="lang-btn active" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="fr">FR</button>
+        <button type="button" class="lang-btn" data-lang="sw">SW</button>
+      </li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
+</nav>
+
+
+
+
+  <div class="nav-mobile" id="nav-mobile" style="display:none">
+  <a href="index.html" data-i18n="nav.home">Home</a><a href="about.html" data-i18n="nav.about">About</a>
+  <div class="mob-section" data-i18n="mob.companies">Our Companies</div>
+  <div class="mob-accordion">
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-energies" data-i18n="nav.dd.energies">Lake Energies</button>
+    <div class="mob-acc-panel" id="mob-acc-energies" hidden>
+      <a href="lake-oil.html" data-i18n="nav.co.lakeOil">Lake Oil</a>
+      <a href="lake-aviation.html" data-i18n="nav.co.lakeAviation">Lake Aviation</a>
+      <a href="lake-gas.html" data-i18n="nav.co.lakeGas">Lake Gas</a>
+      <a href="lake-lubes.html" data-i18n="nav.co.lakeLubes">Lake Lubes</a>
+    </div>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-manufacturing" data-i18n="nav.dd.manufacturing">Manufacturing</button>
+    <div class="mob-acc-panel" id="mob-acc-manufacturing" hidden>
+      <a href="lake-buildings.html" data-i18n="nav.co.lakeBuildings">Lake Buildings</a>
+      <a href="lake-plastics.html" data-i18n="nav.co.lakePlastics">Lake Plastics</a>
+      <a href="lake-steel.html" data-i18n="nav.co.lakeSteel">Lake Steel</a>
+      <a href="lake-cylinders.html" data-i18n="nav.co.lakeCylinders">Lake Cylinders</a>
+      <a href="gulf-aggregates.html" data-i18n="nav.co.gulfAggregates">Gulf Aggregates</a>
+      <a href="https://atl-tz.com" class="mob-external" target="_blank" rel="noopener noreferrer"><span data-i18n="nav.co.atl">ATL</span><svg class="mob-ext-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"/></svg></a>
+      <a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a>
+    </div>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-logistics" data-i18n="nav.dd.logisticsCos">Logistics</button>
+    <div class="mob-acc-panel" id="mob-acc-logistics" hidden>
+      <a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a>
+      <a href="aill.html" data-i18n="nav.co.aill">AILL</a>
+      <a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a>
+    </div>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-realestate" data-i18n="nav.dd.realEstate">Real Estate</button>
+    <div class="mob-acc-panel" id="mob-acc-realestate" hidden>
+      <a href="cross-country.html" data-i18n="nav.co.crossCountry">Cross Country</a>
+      <a href="ocean-galleria.html" data-i18n="nav.co.oceanGalleria">Ocean Galleria</a>
+    </div>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-agro" data-i18n="nav.dd.agro">Agro Processing</button>
+    <div class="mob-acc-panel" id="mob-acc-agro" hidden>
+      <a href="https://lakeagro.com/" class="mob-external" target="_blank" rel="noopener noreferrer"><span data-i18n="nav.co.lakeAgro">Lake Agro</span><svg class="mob-ext-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"/></svg></a>
+    </div>
+  </div>
+  <div class="mob-section" data-i18n="mob.network">Network</div>
+  <a href="africa-network.html" data-i18n="nav.africaMapShort">Africa Map</a><a href="station-locator.html" data-i18n="nav.stations">Station Locator</a><a href="fleet.html" data-i18n="nav.fleet">Our Fleet</a>
+  <div class="mob-section" data-i18n="mob.company">Corporate</div>
+  <a href="history.html" data-i18n="nav.historyShort">History</a><a href="leadership.html" data-i18n="nav.leadership">Leadership</a><a href="csr.html" data-i18n="nav.csrShort">CSR</a>
+  <a href="investors.html" data-i18n="nav.investorsShort">Investors</a><a href="projects.html" data-i18n="nav.projectsShort">Projects</a><a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+  <div class="mob-section" data-i18n="mob.more">More</div>
+  <a href="news.html" data-i18n="nav.news">News</a><a href="careers.html" data-i18n="nav.careers">Careers</a><a href="contact.html" data-i18n="footer.contact">Contact</a>
+</div>
 
   <!-- HERO -->
   <section class="hero">
@@ -2360,7 +2408,7 @@
               </li>
             </ul>
             <div style="display: flex; gap: 12px; flex-wrap: wrap">
-              <a data-i18n="index.27" href="fuel.html" class="btn btn-primary">Fuel &amp; Petroleum</a>
+              <a data-i18n="index.27" href="lake-oil.html" class="btn btn-primary">Fuel &amp; Petroleum</a>
               <a data-i18n="index.28" href="africa-network.html" class="btn btn-outline">View Africa Network</a>
               <!--
           Links to the full cinematic scroll-driven 3D experience (the
@@ -2377,7 +2425,7 @@
           </div>
           <div class="experience-3d-viewport experience-3d-panel" id="experience-3d-panel">
             <div class="experience-3d-finale" aria-hidden="true">
-              <img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group" class="experience-3d-finale-logo" />
+              <img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group" class="experience-3d-finale-logo" />
               <h3 data-i18n="index.29" data-i18n-html="">
                 Company <span data-i18n="index.30">Network</span>
               </h3>
@@ -2490,7 +2538,7 @@
         </p>
       </div>
       <div class="divisions-grid">
-        <a href="fuel.html" class="div-card reveal">
+        <a href="lake-oil.html" class="div-card reveal">
           <img src="assets/images/banner/LakeOil.jpg" alt="Fuel & Petroleum" class="div-card-img" loading="lazy"
             decoding="async" />
           <h3 data-i18n="index.47">Fuel &amp; Petroleum</h3>
@@ -2508,7 +2556,7 @@
               ZM</span><span class="div-country">+5</span>
           </div>
         </a>
-        <a href="lpg.html" class="div-card reveal">
+        <a href="lake-gas.html" class="div-card reveal">
           <img src="assets/images/banner/LakeGas.jpg" alt="LPG Gas" class="div-card-img" loading="lazy"
             decoding="async" />
           <h3 data-i18n="index.49">LPG Gas</h3>
@@ -2520,7 +2568,7 @@
             <span data-i18n="index.51" class="div-country">6 Countries</span>
           </div>
         </a>
-        <a href="logistics.html" class="div-card reveal">
+        <a href="lake-trans.html" class="div-card reveal">
           <img src="assets/images/laketrans/TA/photo_1.jpg" alt="Lake Trans truck fleet" class="div-card-img"
             loading="lazy" decoding="async" />
           <h3 data-i18n="index.52">Transport &amp; Haulage</h3>
@@ -2538,7 +2586,7 @@
               ZM</span>
           </div>
         </a>
-        <a href="concrete.html" class="div-card reveal">
+        <a href="lake-premix-cement.html" class="div-card reveal">
           <img src="assets/images/gccp/photo_1.jpg" alt="GCCP Concrete" class="div-card-img" loading="lazy"
             decoding="async" />
           <h3 data-i18n="index.54">Concrete &amp; Aggregate</h3>
@@ -2554,7 +2602,7 @@
               Dubai</span>
           </div>
         </a>
-        <a href="lubricants.html" class="div-card reveal">
+        <a href="lake-lubes.html" class="div-card reveal">
           <img src="assets/images/lakelubes/products/LAKE_GREASE_MP_3_2.png" alt="Lake Lubes grease product"
             class="div-card-img" style="object-fit: contain; background: var(--light)" loading="lazy"
             decoding="async" />
@@ -2567,7 +2615,7 @@
             <span data-i18n="index.58" class="div-country">5 Countries</span>
           </div>
         </a>
-        <a href="steel.html" class="div-card reveal">
+        <a href="lake-steel.html" class="div-card reveal">
           <img src="assets/images/lakesteel/TA/photo_1.jpg" alt="Lake Steel rolling mill" class="div-card-img"
             loading="lazy" decoding="async" />
           <h3 data-i18n="index.59">Lake Steel</h3>
@@ -2581,7 +2629,7 @@
               Tanzania</span>
           </div>
         </a>
-        <a href="container-services.html" class="div-card reveal">
+        <a href="aficd.html" class="div-card reveal">
           <img src="assets/images/aficd/TA/photo_1.jpg" alt="AFICD container depot" class="div-card-img" loading="lazy"
             decoding="async" />
           <h3 data-i18n="index.61">Container Services</h3>
@@ -2602,7 +2650,7 @@
         <a href="africa-network.html" class="div-card reveal"
           style="background: var(--blue); border-color: var(--blue)">
           <div class="div-card-img-placeholder" style="background: var(--blue3)">
-            <img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group Africa" style="
+            <img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group Africa" style="
                   height: 50px;
                   width: auto;
                   margin: 0 auto;
@@ -2735,177 +2783,66 @@
   </div>
 
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="footer-logo">
-            <img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group" />
-          </div>
-          <p class="footer-motto" style="
-                color: var(--yellow);
-                font-weight: 600;
-                font-size: 0.95rem;
-                letter-spacing: 0.04em;
-              " data-i18n="footer.motto">
-            Quality, Service, Safety, Professionalism
-          </p>
-          <div class="footer-social">
-            <a data-i18n="index.80" href="https://www.linkedin.com/company/lake-oil" class="social-link" target="_blank"
-              rel="noopener">LinkedIn</a>
-            <a data-i18n="index.81" href="https://www.facebook.com/lakeoilgroup" class="social-link" target="_blank"
-              rel="noopener">Facebook</a>
-            <a data-i18n="index.82" href="https://twitter.com/lakeoilgroup" class="social-link" target="_blank"
-              rel="noopener">X / Twitter</a>
-            <a data-i18n="index.83" href="https://www.youtube.com/@lakeoilgroup" class="social-link" target="_blank"
-              rel="noopener">YouTube</a>
-          </div>
-          <div style="margin-top: 20px; display: flex; gap: 10px">
-            <a href="contact.html" class="btn btn-outline btn-sm" data-i18n="footer.contact">Contact</a>
-          </div>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group">
         </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.services">Services</h5>
-          <ul>
-            <li>
-              <a href="fuel.html" data-i18n="nav.fuel">Fuel &amp; Petroleum</a>
-            </li>
-            <li><a href="lpg.html" data-i18n="nav.lpg">LPG Gas</a></li>
-            <li>
-              <a href="lubricants.html" data-i18n="nav.lubricants">Lubricants</a>
-            </li>
-            <li><a href="steel.html" data-i18n="nav.steel">Lake Steel</a></li>
-            <li>
-              <a href="concrete.html" data-i18n="nav.concreteShort">Concrete</a>
-            </li>
-            <li>
-              <a href="logistics.html" data-i18n="nav.transportShort">Transport</a>
-            </li>
-            <li>
-              <a href="container-services.html" data-i18n="nav.containers">Container Services</a>
-            </li>
-          </ul>
+        <p class="footer-motto" style="color:var(--yellow);font-weight:600;font-size:0.95rem;letter-spacing:0.04em" data-i18n="footer.motto">Quality, Service, Safety, Professionalism</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/lake-oil" class="social-link" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.facebook.com/lakeoilgroup" class="social-link" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://twitter.com/lakeoilgroup" class="social-link" target="_blank" rel="noopener">X / Twitter</a>
+          <a href="https://www.youtube.com/@lakeoilgroup" class="social-link" target="_blank" rel="noopener">YouTube</a>
         </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.company">Company</h5>
-          <ul>
-            <li><a href="about.html" data-i18n="nav.aboutUs">About Us</a></li>
-            <li>
-              <a href="history.html" data-i18n="nav.historyShort">History</a>
-            </li>
-            <li>
-              <a href="leadership.html" data-i18n="nav.leadership">Leadership</a>
-            </li>
-            <li><a href="csr.html" data-i18n="nav.csrShort">CSR</a></li>
-            <li>
-              <a href="investors.html" data-i18n="nav.investorsShort">Investors</a>
-            </li>
-            <li>
-              <a href="projects.html" data-i18n="nav.projectsShort">Projects</a>
-            </li>
-            <li>
-              <a href="careers.html" data-i18n="nav.careers">Careers</a>
-            </li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.contactHeading">Contact</h5>
-          <ul>
-            <li>
-              <a href="#" data-i18n="footer.address">Plot 49, Mikocheni Light Industrial, Dar es Salaam</a>
-            </li>
-            <li><a href="tel:+255222780510">+255 222 780 510</a></li>
-            <li><a href="tel:+255222780479">+255 222 780 479</a></li>
-            <li>
-              <a data-i18n="index.84" href="mailto:admin@lakeoilgroup.com">admin@lakeoilgroup.com</a>
-            </li>
-          </ul>
-          <div style="margin-top: 14px; display: flex; flex-wrap: wrap; gap: 5px">
-            <span class="country-tag" style="
-                  background: rgba(255, 214, 0, 0.12);
-                  color: var(--yellow);
-                "><img src="assets/images/flags/tz.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy"
-                decoding="async" />
-              TZ</span>
-            <span class="country-tag" style="
-                  background: rgba(255, 214, 0, 0.12);
-                  color: var(--yellow);
-                "><img src="assets/images/flags/ke.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy"
-                decoding="async" />
-              KE</span>
-            <span class="country-tag" style="
-                  background: rgba(255, 214, 0, 0.12);
-                  color: var(--yellow);
-                "><img src="assets/images/flags/zm.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy"
-                decoding="async" />
-              ZM</span>
-            <span class="country-tag" style="
-                  background: rgba(255, 214, 0, 0.12);
-                  color: var(--yellow);
-                "><img src="assets/images/flags/rw.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy"
-                decoding="async" />
-              RW</span>
-            <span class="country-tag" style="
-                  background: rgba(255, 214, 0, 0.12);
-                  color: var(--yellow);
-                "><img src="assets/images/flags/bi.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy"
-                decoding="async" />
-              BI</span>
-            <span class="country-tag" style="
-                  background: rgba(255, 214, 0, 0.12);
-                  color: var(--yellow);
-                "><img src="assets/images/flags/cd.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy"
-                decoding="async" />
-              DRC</span>
-            <span class="country-tag" style="
-                  background: rgba(255, 214, 0, 0.12);
-                  color: var(--yellow);
-                "><img src="assets/images/flags/et.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy"
-                decoding="async" />
-              ET</span>
-            <span class="country-tag" style="
-                  background: rgba(255, 214, 0, 0.12);
-                  color: var(--yellow);
-                "><img src="assets/images/flags/mz.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy"
-                decoding="async" />
-              MZ</span>
-          </div>
+        <div style="margin-top:20px;display:flex;gap:10px">
+          <a href="contact.html" class="btn btn-outline btn-sm" data-i18n="footer.contact">Contact</a>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p data-i18n="index.85" data-i18n-html="">
-          &copy; 2026 Lake Group.
-          <span data-i18n="footer.rights">All rights reserved.</span>
-        </p>
-        <div class="footer-bottom-links">
-          <a href="#" data-i18n="footer.privacy">Privacy</a><a href="#" data-i18n="footer.terms">Terms</a><a
-            href="contact.html" data-i18n="footer.contact">Contact</a>
-        </div>
-      </div>
+      <div class="footer-col"><h5 data-i18n="footer.services">Our Companies</h5><ul>
+        <li><a href="lake-oil.html" data-i18n="nav.co.lakeOil">Lake Oil</a></li><li><a href="lake-gas.html" data-i18n="nav.co.lakeGas">Lake Gas</a></li>
+        <li><a href="lake-lubes.html" data-i18n="nav.co.lakeLubes">Lake Lubes</a></li><li><a href="lake-steel.html" data-i18n="nav.co.lakeSteel">Lake Steel</a></li>
+        <li><a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a></li><li><a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a></li>
+        <li><a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a></li><li><a href="services.html" data-i18n="footer.viewAllCompanies">View All Companies</a></li>
+      </ul></div>
+      <div class="footer-col"><h5 data-i18n="footer.company">Corporate</h5><ul>
+        <li><a href="about.html" data-i18n="nav.aboutUs">About Us</a></li><li><a href="history.html" data-i18n="nav.historyShort">History</a></li>
+        <li><a href="leadership.html" data-i18n="nav.leadership">Leadership</a></li><li><a href="csr.html" data-i18n="nav.csrShort">CSR</a></li>
+        <li><a href="investors.html" data-i18n="nav.investorsShort">Investors</a></li><li><a href="projects.html" data-i18n="nav.projectsShort">Projects</a></li>
+        <li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
+      </ul></div>
+      <div class="footer-col"><h5 data-i18n="footer.contactHeading">Contact</h5><ul>
+        <li><a href="#" data-i18n="footer.address">Plot 49, Mikocheni Light Industrial, Dar es Salaam</a></li>
+        <li><a href="tel:+255222780510">+255 222 780 510</a></li>
+        <li><a href="tel:+255222780479">+255 222 780 479</a></li>
+        <li><a href="mailto:admin@lakeoilgroup.com">admin@lakeoilgroup.com</a></li>
+      </ul>
+      <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:5px">
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/tz.svg" alt="" class="flag-icon" width="20" height="15"> TZ</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/ke.svg" alt="" class="flag-icon" width="20" height="15"> KE</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/zm.svg" alt="" class="flag-icon" width="20" height="15"> ZM</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/rw.svg" alt="" class="flag-icon" width="20" height="15"> RW</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/bi.svg" alt="" class="flag-icon" width="20" height="15"> BI</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/cd.svg" alt="" class="flag-icon" width="20" height="15"> DRC</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/et.svg" alt="" class="flag-icon" width="20" height="15"> ET</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/mz.svg" alt="" class="flag-icon" width="20" height="15"> MZ</span>
+      </div></div>
     </div>
-  </footer>
-  <div id="chat-widget">
-    <div id="chat-box">
-      <div id="chat-head">
-        <h4 data-i18n="chat.title">Lake Group Assistant</h4>
-        <p data-i18n="chat.sub">Ask us anything</p>
-      </div>
-      <div id="chat-messages">
-        <div class="msg msg-bot" data-i18n="chat.hello">
-          Hello! How can I help you today?
-        </div>
-      </div>
-      <div id="chat-input-row">
-        <input type="text" id="chat-input" placeholder="Type a message..." data-i18n-placeholder="chat.placeholder"
-          aria-label="Type a message..." data-i18n-aria="chat.placeholder" /><button id="chat-send"
-          data-i18n="chat.send">Send</button>
-      </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Lake Group. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <div class="footer-bottom-links"><a href="#" data-i18n="footer.privacy">Privacy</a><a href="#" data-i18n="footer.terms">Terms</a><a href="contact.html" data-i18n="footer.contact">Contact</a></div>
     </div>
-    <button id="chat-btn" aria-label="Chat">
-      <svg viewBox="0 0 24 24">
-        <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
-      </svg>
-    </button>
   </div>
+</footer>
+  <div id="chat-widget">
+  <div id="chat-box">
+    <div id="chat-head"><h4 data-i18n="chat.title">Lake Group Assistant</h4><p data-i18n="chat.sub">Ask us anything</p></div>
+    <div id="chat-messages"><div class="msg msg-bot" data-i18n="chat.hello">Hello! How can I help you today?</div></div>
+    <div id="chat-input-row"><input type="text" id="chat-input" placeholder="Type a message..." data-i18n-placeholder="chat.placeholder"><button id="chat-send" data-i18n="chat.send">Send</button></div>
+  </div>
+  <button id="chat-btn" aria-label="Chat"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></button>
+</div>
   <script src="assets/i18n-content.js?v=12" defer></script>
   <script src="assets/i18n.js?v=12" defer></script>
   <script src="assets/site.js" defer></script>

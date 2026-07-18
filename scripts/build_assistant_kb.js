@@ -51,14 +51,14 @@ const PAGES = {
   ose: { url: 'our-story.html', titleKey: 'nav.about', title: 'Our Story' },
   history: { url: 'history.html', titleKey: 'nav.history', title: 'Our History' },
   leadership: { url: 'leadership.html', titleKey: 'nav.leadership', title: 'Leadership' },
-  services: { url: 'services.html', titleKey: 'nav.services', title: 'Services' },
-  fuel: { url: 'fuel.html', titleKey: 'nav.fuel', title: 'Fuel & Petroleum' },
-  lpg: { url: 'lpg.html', titleKey: 'nav.lpg', title: 'LPG Gas' },
-  lubricants: { url: 'lubricants.html', titleKey: 'nav.lubricants', title: 'Lubricants' },
-  steel: { url: 'steel.html', titleKey: 'nav.steel', title: 'Lake Steel' },
-  concrete: { url: 'concrete.html', titleKey: 'nav.concrete', title: 'Concrete & Aggregate' },
-  logistics: { url: 'logistics.html', titleKey: 'nav.logistics', title: 'Transport & Haulage' },
-  container_services: { url: 'container-services.html', titleKey: 'nav.containers', title: 'Container Services' },
+  services: { url: 'services.html', titleKey: 'nav.companies', title: 'Our Companies' },
+  fuel: { url: 'lake-oil.html', titleKey: 'nav.co.lakeOil', title: 'Lake Oil' },
+  lpg: { url: 'lake-gas.html', titleKey: 'nav.co.lakeGas', title: 'Lake Gas' },
+  lubricants: { url: 'lake-lubes.html', titleKey: 'nav.co.lakeLubes', title: 'Lake Lubes' },
+  steel: { url: 'lake-steel.html', titleKey: 'nav.co.lakeSteel', title: 'Lake Steel' },
+  concrete: { url: 'lake-premix-cement.html', titleKey: 'nav.co.lakePremixCement', title: 'Lake Premix & Cement' },
+  logistics: { url: 'lake-trans.html', titleKey: 'nav.co.lakeTrans', title: 'Lake Trans' },
+  container_services: { url: 'aficd.html', titleKey: 'nav.co.aficd', title: 'AFICD' },
   africa_network: { url: 'africa-network.html', titleKey: 'nav.africaMap', title: 'Africa Operations Map' },
   station_locator: { url: 'station-locator.html', titleKey: 'nav.stations', title: 'Station Locator' },
   fleet: { url: 'fleet.html', titleKey: 'nav.fleet', title: 'Our Fleet' },
@@ -231,7 +231,7 @@ const CURATED_FACTS = [
   },
   {
     id: 'lakeoil',
-    url: 'fuel.html',
+    url: 'lake-oil.html',
     en: {
       t: 'Lake Oil — fuel & petroleum',
       s: 'Lake Oil, the group\u2019s flagship company, is one of the top 5 petroleum distributors in Tanzania. Its Kigamboni depot in Dar es Salaam holds 38 million litres of storage with direct pipeline access to the oil import jetty, supported by 85 owned retail stations and a fleet of 300 tankers.',
@@ -250,7 +250,7 @@ const CURATED_FACTS = [
   },
   {
     id: 'lakegas',
-    url: 'lpg.html',
+    url: 'lake-gas.html',
     en: {
       t: 'Lake Gas — LPG',
       s: 'Lake Gas supplies retail and bulk LPG in Tanzania, Zambia, DR Congo, Kenya, Burundi and Rwanda, with 6 kg, 10 kg composite, 15 kg and 38 kg cylinders. It was the first to introduce composite LPG cylinders in Africa, and its Tanga terminal was built as East Africa\u2019s largest LPG storage facility.',
@@ -269,7 +269,7 @@ const CURATED_FACTS = [
   },
   {
     id: 'lakesteel',
-    url: 'steel.html',
+    url: 'lake-steel.html',
     en: {
       t: 'Lake Steel',
       s: 'Lake Steel is the first company in Tanzania to introduce high-strength corrosion-resistant (HS-CR) reinforcement steel bars. Its fully computerized rolling mill in Kibaha produces up to 25 tonnes per hour — around 100,000 MT per year.',
@@ -288,7 +288,7 @@ const CURATED_FACTS = [
   },
   {
     id: 'concrete',
-    url: 'concrete.html',
+    url: 'lake-premix-cement.html',
     en: {
       t: 'GCCP — concrete & aggregates',
       s: 'GCCP (Gulf Concrete & Cement Products), established in 2010, is Dar es Salaam\u2019s leading ready-mix concrete supplier, with fully-automatic batching plants, its own quarry at Lugoba, boom pumps and 20 truck mixers of 12 m\u00b3 each. Gulf Aggregates runs the crushing plants.',
@@ -307,7 +307,7 @@ const CURATED_FACTS = [
   },
   {
     id: 'lubricants',
-    url: 'lubricants.html',
+    url: 'lake-lubes.html',
     en: {
       t: 'Lake Lubes — lubricants',
       s: 'Lake Lubes, incorporated in Dar es Salaam in 2014, manufactures and distributes lubricants and greases — including LAKE 4T, LAKE HD SUPREME, LAKE POWER, gear oils, ATF, coolants and greases — sold through the Lake Oil station network and across the group\u2019s countries, with 24/7 technical after-sales support.',
@@ -326,7 +326,7 @@ const CURATED_FACTS = [
   },
   {
     id: 'containers',
-    url: 'container-services.html',
+    url: 'aficd.html',
     en: {
       t: 'Container services',
       s: 'AFICD (African Inland Container Depot) provides ICD, CFS and empty-container services at Tazara, Pugu Road, Dar es Salaam — a 14,000 m\u00b2 yard with 4,000 TEU capacity and a rail siding to the port — serving Rwanda, Burundi, Uganda, DR Congo, Zambia and Malawi. ACFS adds a 5,000 TEU cargo freight station.',

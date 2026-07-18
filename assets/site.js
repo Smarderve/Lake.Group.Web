@@ -93,6 +93,96 @@
     }, 2500);
   }
 
+  // "Our Companies" mega-menu: CSS alone (`.has-dropdown:hover`/
+  // `:focus-within`) already opens the panel on hover and on keyboard Tab.
+  // This adds click-to-toggle (desktop click + touch, which get no
+  // :hover), Escape-to-close (returning focus to the trigger), ArrowDown to
+  // jump into the menu, and click-outside/focus-outside to close - all
+  // driven by a single `.is-open` class the CSS also keys off of.
+  function initMegaMenu() {
+    const items = document.querySelectorAll('.has-dropdown.has-megamenu');
+    if (!items.length) return;
+
+    function closeItem(item, focusTrigger) {
+      if (!item.classList.contains('is-open')) return;
+      item.classList.remove('is-open');
+      const trigger = item.querySelector('a');
+      if (trigger) {
+        trigger.setAttribute('aria-expanded', 'false');
+        if (focusTrigger) trigger.focus();
+      }
+    }
+
+    function closeAll(except) {
+      items.forEach(item => { if (item !== except) closeItem(item, false); });
+    }
+
+    items.forEach(item => {
+      const trigger = item.querySelector('a');
+      const menu = item.querySelector('.nav-dropdown');
+      if (!trigger || !menu) return;
+
+      trigger.setAttribute('aria-haspopup', 'true');
+      trigger.setAttribute('aria-expanded', 'false');
+
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const willOpen = !item.classList.contains('is-open');
+        closeAll(item);
+        item.classList.toggle('is-open', willOpen);
+        trigger.setAttribute('aria-expanded', String(willOpen));
+      });
+
+      item.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeItem(item, true);
+        } else if (e.key === 'ArrowDown' && e.target === trigger) {
+          e.preventDefault();
+          closeAll(item);
+          item.classList.add('is-open');
+          trigger.setAttribute('aria-expanded', 'true');
+          const firstLink = menu.querySelector('a');
+          if (firstLink) firstLink.focus();
+        }
+      });
+
+      item.addEventListener('focusout', (e) => {
+        if (!item.contains(e.relatedTarget)) closeItem(item, false);
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      items.forEach(item => {
+        if (item.classList.contains('is-open') && !item.contains(e.target)) {
+          closeItem(item, false);
+        }
+      });
+    });
+  }
+
+  // Mobile "Our Companies" accordion: each category button toggles its own
+  // company-links panel independently (multiple can be open at once).
+  function initMobileAccordion() {
+    document.querySelectorAll('.mob-acc-btn').forEach(btn => {
+      const panelId = btn.getAttribute('aria-controls');
+      const panel = panelId && document.getElementById(panelId);
+      if (!panel) return;
+      // The markup ships with a `hidden` attribute so panels stay collapsed
+      // with no JS. Once JS runs we switch to a class-driven open/close so
+      // the panel can animate its height (max-height) instead of snapping
+      // via display:none. Preserve any initially-open state.
+      const startOpen = !panel.hasAttribute('hidden');
+      panel.removeAttribute('hidden');
+      panel.classList.toggle('is-open', startOpen);
+      btn.setAttribute('aria-expanded', String(startOpen));
+      btn.addEventListener('click', () => {
+        const willOpen = !panel.classList.contains('is-open');
+        panel.classList.toggle('is-open', willOpen);
+        btn.setAttribute('aria-expanded', String(willOpen));
+      });
+    });
+  }
+
   function initNav() {
     const toggle = document.getElementById('nav-toggle');
     const mobileNav = document.getElementById('nav-mobile');
@@ -105,6 +195,9 @@
       });
     }
 
+    initMegaMenu();
+    initMobileAccordion();
+
     // Compare exact filenames rather than substrings: a naive
     // href.includes(path) check would wrongly mark e.g. "fuel.html" active
     // while viewing any page whose href happens to contain "fuel" as a
@@ -113,8 +206,25 @@
     document.querySelectorAll('.nav-links a, .nav-mobile a').forEach(a => {
       const href = a.getAttribute('href');
       if (!href) return;
+      // Skip external links (target=_blank / absolute URLs): they never match
+      // a local page and must not steal the active state.
+      if (/^(https?:)?\/\//i.test(href)) return;
       const hrefFile = href.split('/').pop().split('?')[0].split('#')[0];
       if (hrefFile && hrefFile === path) a.classList.add('active');
+    });
+
+    // A current page reached through a dropdown/mega-menu (e.g. a company
+    // page under "Our Companies") should also light up its top-level
+    // trigger so the parent nav item reads as active, not just the buried
+    // child link. Mark the trigger with .active (persistent accent) so it is
+    // distinct beyond hover.
+    document.querySelectorAll(
+      '.nav-links .nav-dropdown a.active, .nav-links .nav-megamenu a.active'
+    ).forEach(a => {
+      const li = a.closest('li.has-dropdown');
+      if (!li) return;
+      const trigger = li.querySelector(':scope > a');
+      if (trigger) trigger.classList.add('active');
     });
   }
 
@@ -284,8 +394,35 @@
     update();
   }
 
+  // Company pages set data-company-logo / data-company-alt on <body>.
+  // Nav chrome is overwritten by normalize_nav.js from a shared template
+  // that always uses the Lake Group mark — swap after paint so company
+  // pages show their own logo while the link still goes to index.html.
+  function initCompanyNavLogo() {
+    const src = document.body && document.body.getAttribute('data-company-logo');
+    if (!src) return;
+    const alt = document.body.getAttribute('data-company-alt') || '';
+    const link = document.querySelector('.site-nav .nav-logo');
+    const img = link && link.querySelector('img');
+    if (!img) return;
+    link.classList.add('nav-logo--company');
+    img.src = src;
+    if (alt) img.alt = alt;
+    // Match homepage Lake Group nav mark (60px / 45px scrolled via CSS).
+    // Strip template inline height and width/height attrs so stylesheet
+    // rules win (inline !important would block scrolled 54px).
+    img.removeAttribute('width');
+    img.removeAttribute('height');
+    img.style.removeProperty('height');
+    img.style.removeProperty('width');
+    img.style.removeProperty('max-width');
+    img.style.removeProperty('max-height');
+    // Size comes only from --nav-logo-height in tokens.css — never set here.
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     initNav();
+    initCompanyNavLogo();
     initReveal();
     initCounters();
     initTabs();
