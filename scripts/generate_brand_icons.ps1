@@ -7,7 +7,10 @@
 
   Outputs:
   - assets/images/logos/LAKE_GROUP_LOGO.png — trimmed transparent lockup for HTML chrome
-  - favicon.ico + assets/icons/pwa/* — droplet mark on Deep Blue (#0181BB) tiles
+  - favicon.ico + assets/icons/pwa/icon-*.png / apple-touch-icon.png —
+      icon-only yellow droplet on transparent canvas, maximized (~5–10% padding)
+  - assets/icons/pwa/icon-maskable-*.png — droplet on Deep Blue (#0181BB) with
+      maskable safe-zone padding (OS masks require an opaque fill)
   - Optional legacy LAKE_GROUP_LOGO.jpg blue-pill (not used by HTML)
 
   Re-run this whenever LG24 - Group.png changes.
@@ -22,11 +25,16 @@ $bgColor = [System.Drawing.ColorTranslator]::FromHtml("#0181BB")
 $white = [System.Drawing.Color]::White
 $transparent = [System.Drawing.Color]::Transparent
 
+# Maximized glyph fill: ~5–10% padding on each side → fillRatio ≈ 0.90–0.92
+$glyphFill = 0.90
+$maskableFill = 0.42
+
 function Get-AlphaBounds {
     param([System.Drawing.Image]$img)
     $w = $img.Width; $h = $img.Height
-    $thumbW = 200
+    $thumbW = [Math]::Min(400, $w)
     $thumbH = [int]([math]::Round($thumbW * $h / $w))
+    if ($thumbH -lt 1) { $thumbH = 1 }
     $thumb = New-Object System.Drawing.Bitmap($thumbW, $thumbH)
     $g = [System.Drawing.Graphics]::FromImage($thumb)
     $g.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
@@ -46,22 +54,27 @@ function Get-AlphaBounds {
         }
     }
     $thumb.Dispose()
+    if ($maxX -lt $minX) {
+        return New-Object PSObject -Property @{ X = 0; Y = 0; Width = $w; Height = $h }
+    }
     $scaleX = $w / $thumbW
     $scaleY = $h / $thumbH
     return New-Object PSObject -Property @{
         X = [int]($minX * $scaleX)
         Y = [int]($minY * $scaleY)
-        Width = [int](($maxX - $minX + 1) * $scaleX)
-        Height = [int](($maxY - $minY + 1) * $scaleY)
+        Width = [Math]::Max(1, [int](($maxX - $minX + 1) * $scaleX))
+        Height = [Math]::Max(1, [int](($maxY - $minY + 1) * $scaleY))
     }
 }
 
 function Crop {
     param([System.Drawing.Image]$img, $rect)
-    $bmp = New-Object System.Drawing.Bitmap($rect.Width, $rect.Height)
+    $bmp = New-Object System.Drawing.Bitmap($rect.Width, $rect.Height, [System.Drawing.Imaging.PixelFormat]::Format32bppArgb)
     $g = [System.Drawing.Graphics]::FromImage($bmp)
+    $g.Clear($transparent)
     $g.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::AntiAlias
     $g.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
+    $g.CompositingMode = [System.Drawing.Drawing2D.CompositingMode]::SourceCopy
     $dest = New-Object System.Drawing.Rectangle(0, 0, $rect.Width, $rect.Height)
     $src = New-Object System.Drawing.Rectangle($rect.X, $rect.Y, $rect.Width, $rect.Height)
     $g.DrawImage($img, $dest, $src, [System.Drawing.GraphicsUnit]::Pixel)
@@ -79,35 +92,40 @@ function New-Tile {
         [System.Drawing.Color]$bg,
         [System.Drawing.Color]$outerBg = $transparent
     )
-    $bmp = New-Object System.Drawing.Bitmap($canvasW, $canvasH)
+    $bmp = New-Object System.Drawing.Bitmap($canvasW, $canvasH, [System.Drawing.Imaging.PixelFormat]::Format32bppArgb)
     $g = [System.Drawing.Graphics]::FromImage($bmp)
     $g.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::AntiAlias
     $g.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
     $g.PixelOffsetMode = [System.Drawing.Drawing2D.PixelOffsetMode]::HighQuality
+    $g.CompositingQuality = [System.Drawing.Drawing2D.CompositingQuality]::HighQuality
 
-    if ($outerBg -ne $transparent) { $g.Clear($outerBg) }
+    if ($outerBg.A -gt 0) { $g.Clear($outerBg) } else { $g.Clear($transparent) }
 
-    if ($cornerRadiusRatio -gt 0) {
-        $r = [double]([System.Math]::Min($canvasW, $canvasH)) * $cornerRadiusRatio
-        $d = $r * 2
-        $path = New-Object System.Drawing.Drawing2D.GraphicsPath
-        $path.AddArc(0, 0, $d, $d, 180, 90)
-        $path.AddArc($canvasW - $d, 0, $d, $d, 270, 90)
-        $path.AddArc($canvasW - $d, $canvasH - $d, $d, $d, 0, 90)
-        $path.AddArc(0, $canvasH - $d, $d, $d, 90, 90)
-        $path.CloseFigure()
-        $brush = New-Object System.Drawing.SolidBrush($bg)
-        $g.FillPath($brush, $path)
-        $brush.Dispose(); $path.Dispose()
-    } else {
-        $g.Clear($bg)
+    $hasOpaqueBg = $bg.A -gt 0
+    if ($hasOpaqueBg) {
+        if ($cornerRadiusRatio -gt 0) {
+            $r = [double]([System.Math]::Min($canvasW, $canvasH)) * $cornerRadiusRatio
+            $d = $r * 2
+            $path = New-Object System.Drawing.Drawing2D.GraphicsPath
+            $path.AddArc(0, 0, $d, $d, 180, 90)
+            $path.AddArc($canvasW - $d, 0, $d, $d, 270, 90)
+            $path.AddArc($canvasW - $d, $canvasH - $d, $d, $d, 0, 90)
+            $path.AddArc(0, $canvasH - $d, $d, $d, 90, 90)
+            $path.CloseFigure()
+            $brush = New-Object System.Drawing.SolidBrush($bg)
+            $g.FillPath($brush, $path)
+            $brush.Dispose(); $path.Dispose()
+        } else {
+            $g.Clear($bg)
+        }
     }
 
     $scale = [System.Math]::Min(($canvasW * $fillRatio) / $logo.Width, ($canvasH * $fillRatio) / $logo.Height)
-    $lw = [int]($logo.Width * $scale)
-    $lh = [int]($logo.Height * $scale)
+    $lw = [int]([Math]::Max(1, [Math]::Round($logo.Width * $scale)))
+    $lh = [int]([Math]::Max(1, [Math]::Round($logo.Height * $scale)))
     $lx = [int](($canvasW - $lw) / 2)
     $ly = [int](($canvasH - $lh) / 2)
+    $g.CompositingMode = [System.Drawing.Drawing2D.CompositingMode]::SourceOver
     $g.DrawImage($logo, $lx, $ly, $lw, $lh)
     $g.Dispose()
     return $bmp
@@ -185,7 +203,14 @@ $iconWidth = $iconRightEdge - $fullBounds.X
 Write-Host "Detected icon-glyph width: $iconWidth (right edge at x=$iconRightEdge)"
 
 $iconRect = New-Object PSObject -Property @{ X = $fullBounds.X; Y = $fullBounds.Y; Width = $iconWidth; Height = $fullBounds.Height }
-$iconBmp = Crop -img $src -rect $iconRect
+$iconLoose = Crop -img $src -rect $iconRect
+
+# Re-trim the glyph to its own alpha bounds so wordmark vertical padding is discarded
+$iconTightBounds = Get-AlphaBounds -img $iconLoose
+$iconBmp = Crop -img $iconLoose -rect $iconTightBounds
+$iconLoose.Dispose()
+Write-Host "Tight glyph bounds: x=$($iconTightBounds.X) y=$($iconTightBounds.Y) w=$($iconTightBounds.Width) h=$($iconTightBounds.Height)"
+
 $fullBmp = Crop -img $src -rect $fullBounds
 
 $debugDir = Join-Path $root "scripts\_brand_icon_debug"
@@ -196,23 +221,21 @@ Save-Png $fullBmp (Join-Path $debugDir "debug-full-crop.png")
 $pwaDir = Join-Path $root "assets\icons\pwa"
 New-Item -ItemType Directory -Path $pwaDir -Force | Out-Null
 
-# Rounded-square "badge" icons (transparent corners) for PWA/manifest use
-(New-Tile -logo $iconBmp -canvasW 192 -canvasH 192 -fillRatio 0.62 -cornerRadiusRatio 0.5 -bg $bgColor) | ForEach-Object { Save-Png $_ (Join-Path $pwaDir "icon-192.png") }
-(New-Tile -logo $iconBmp -canvasW 512 -canvasH 512 -fillRatio 0.62 -cornerRadiusRatio 0.5 -bg $bgColor) | ForEach-Object { Save-Png $_ (Join-Path $pwaDir "icon-512.png") }
+# Standard PWA / any-purpose icons: transparent, icon-only, maximized glyph
+(New-Tile -logo $iconBmp -canvasW 192 -canvasH 192 -fillRatio $glyphFill -cornerRadiusRatio 0 -bg $transparent) | ForEach-Object { Save-Png $_ (Join-Path $pwaDir "icon-192.png"); $_.Dispose() }
+(New-Tile -logo $iconBmp -canvasW 512 -canvasH 512 -fillRatio $glyphFill -cornerRadiusRatio 0 -bg $transparent) | ForEach-Object { Save-Png $_ (Join-Path $pwaDir "icon-512.png"); $_.Dispose() }
 
-# Maskable icons: full-bleed square, larger safe-zone padding, no rounding (OS applies its own mask)
-(New-Tile -logo $iconBmp -canvasW 192 -canvasH 192 -fillRatio 0.42 -cornerRadiusRatio 0 -bg $bgColor) | ForEach-Object { Save-Png $_ (Join-Path $pwaDir "icon-maskable-192.png") }
-(New-Tile -logo $iconBmp -canvasW 512 -canvasH 512 -fillRatio 0.42 -cornerRadiusRatio 0 -bg $bgColor) | ForEach-Object { Save-Png $_ (Join-Path $pwaDir "icon-maskable-512.png") }
+# Maskable: opaque Deep Blue fill + safe-zone padding (OS applies its own mask)
+(New-Tile -logo $iconBmp -canvasW 192 -canvasH 192 -fillRatio $maskableFill -cornerRadiusRatio 0 -bg $bgColor) | ForEach-Object { Save-Png $_ (Join-Path $pwaDir "icon-maskable-192.png"); $_.Dispose() }
+(New-Tile -logo $iconBmp -canvasW 512 -canvasH 512 -fillRatio $maskableFill -cornerRadiusRatio 0 -bg $bgColor) | ForEach-Object { Save-Png $_ (Join-Path $pwaDir "icon-maskable-512.png"); $_.Dispose() }
 
-# Apple touch icon: square, opaque, iOS rounds it itself
-(New-Tile -logo $iconBmp -canvasW 180 -canvasH 180 -fillRatio 0.6 -cornerRadiusRatio 0 -bg $bgColor) | ForEach-Object { Save-Png $_ (Join-Path $pwaDir "apple-touch-icon.png") }
+# Apple touch: transparent icon-only (iOS may composite on its own plate)
+(New-Tile -logo $iconBmp -canvasW 180 -canvasH 180 -fillRatio $glyphFill -cornerRadiusRatio 0 -bg $transparent) | ForEach-Object { Save-Png $_ (Join-Path $pwaDir "apple-touch-icon.png"); $_.Dispose() }
 
-# Favicon.ico: hand-built multi-resolution ICO container with embedded PNG frames
-# Slightly larger glyph fill than earlier tiles so tab-bar ICO bytes differ from
-# any previously cached favicon.ico (browsers often ignore ?v= on /favicon.ico).
-$fav16 = New-Tile -logo $iconBmp -canvasW 16 -canvasH 16 -fillRatio 0.78 -cornerRadiusRatio 0 -bg $bgColor
-$fav32 = New-Tile -logo $iconBmp -canvasW 32 -canvasH 32 -fillRatio 0.74 -cornerRadiusRatio 0 -bg $bgColor
-$fav48 = New-Tile -logo $iconBmp -canvasW 48 -canvasH 48 -fillRatio 0.70 -cornerRadiusRatio 0.15 -bg $bgColor
+# Favicon.ico: multi-resolution PNG-in-ICO with real alpha, maximized glyph
+$fav16 = New-Tile -logo $iconBmp -canvasW 16 -canvasH 16 -fillRatio $glyphFill -cornerRadiusRatio 0 -bg $transparent
+$fav32 = New-Tile -logo $iconBmp -canvasW 32 -canvasH 32 -fillRatio $glyphFill -cornerRadiusRatio 0 -bg $transparent
+$fav48 = New-Tile -logo $iconBmp -canvasW 48 -canvasH 48 -fillRatio $glyphFill -cornerRadiusRatio 0 -bg $transparent
 
 $frames = @(
     @{ Size = 16; Bytes = (Get-PngBytes $fav16) },
@@ -245,6 +268,8 @@ foreach ($f in $frames) {
 }
 $bw.Flush(); $bw.Close(); $fs.Close()
 
+$fav16.Dispose(); $fav32.Dispose(); $fav48.Dispose()
+
 # Canonical web lockup: trimmed transparent PNG (yellow mark + white "GROUP").
 # Served on dark nav/footer without a white plate so the white wordmark stays visible.
 $logoDir = Join-Path $root "assets\images\logos"
@@ -266,4 +291,4 @@ $fullBmp.Dispose()
 $iconBmp.Dispose()
 $src.Dispose()
 
-Write-Host "Done. Regenerated favicon.ico, PWA icons, apple-touch-icon, and transparent LAKE_GROUP_LOGO.png."
+Write-Host "Done. Regenerated transparent icon-only favicon.ico, PWA icons, apple-touch-icon, and LAKE_GROUP_LOGO.png."
