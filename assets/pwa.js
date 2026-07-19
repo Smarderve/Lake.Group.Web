@@ -19,6 +19,13 @@
   } catch (err) { /* fall back to relative path */ }
 
   var reloadingAfterUpdate = false;
+  var expectingControllerChange = false;
+
+  function activateWaitingWorker(worker) {
+    if (!worker) return;
+    expectingControllerChange = true;
+    worker.postMessage({ type: 'SKIP_WAITING' });
+  }
 
   function showUpdateToast(worker) {
     if (document.getElementById('lake-pwa-toast')) return;
@@ -84,7 +91,7 @@
     button.addEventListener('click', function () {
       button.disabled = true;
       button.textContent = 'Updating\u2026';
-      worker.postMessage({ type: 'SKIP_WAITING' });
+      activateWaitingWorker(worker);
     });
     close.addEventListener('click', function () {
       toast.remove();
@@ -102,9 +109,12 @@
 
   function watchWorker(worker, registration) {
     worker.addEventListener('statechange', function () {
-      // "installed" + an existing controller means an update is waiting
-      // (on first-ever install there is no controller  nothing to show).
+      // "installed" + an existing controller means an update is ready.
+      // Auto-activate so interiors pick up new flagship.css without relying
+      // on the user noticing the toast (home often looked fine already
+      // because index.html ships nav chrome inline).
       if (worker.state === 'installed' && navigator.serviceWorker.controller) {
+        activateWaitingWorker(registration.waiting || worker);
         showUpdateToast(registration.waiting || worker);
       }
     });
@@ -115,6 +125,7 @@
       // An update may already be sitting in "waiting" (e.g. from a
       // previous visit where the user dismissed the toast).
       if (registration.waiting && navigator.serviceWorker.controller) {
+        activateWaitingWorker(registration.waiting);
         showUpdateToast(registration.waiting);
       }
       registration.addEventListener('updatefound', function () {
@@ -126,12 +137,11 @@
       if (window.console && console.warn) console.warn('SW registration failed:', err);
     });
 
-    // Reload once the new worker takes control  but only in response to
-    // the user clicking "Refresh" (never auto-reload mid-browsing).
+    // Reload once the new worker takes control (auto-activate or toast).
     navigator.serviceWorker.addEventListener('controllerchange', function () {
       if (reloadingAfterUpdate) return;
       var toast = document.getElementById('lake-pwa-toast');
-      if (!toast) return; // controller changed for some other reason
+      if (!expectingControllerChange && !toast) return;
       reloadingAfterUpdate = true;
       location.reload();
     });

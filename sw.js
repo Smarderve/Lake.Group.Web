@@ -11,7 +11,7 @@
 
 'use strict';
 
-const VERSION = 'v29';
+const VERSION = 'v40';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -75,8 +75,13 @@ const OFFLINE_URL = './offline.html';
 /* ------------------------------------------------------------------ */
 
 self.addEventListener('install', (event) => {
+  // Activate immediately so a design-token deploy is not stuck behind a
+  // "Refresh" toast while interiors keep serving stale flagship.css.
   event.waitUntil(
-    caches.open(PRECACHE).then((cache) => cache.addAll(PRECACHE_URLS))
+    caches
+      .open(PRECACHE)
+      .then((cache) => cache.addAll(PRECACHE_URLS))
+      .then(() => self.skipWaiting())
   );
 });
 
@@ -222,12 +227,20 @@ function classify(request, url) {
 
   const path = url.pathname;
 
-  // News feed data and the 3D hero bundle change between deploys: prefer
-  // the network so a restored/rebuilt bundle is never masked by a stale
-  // cache-first copy (hard-refresh does not bypass the service worker).
+  // Design chrome + news/3D bundles: always prefer the network.
+  // Interiors load nav/hero only from flagship.css (+ tokens via @import).
+  // Home also has large inline nav rules, so a stale SW made only interiors
+  // look "old" after a chrome deploy. Hard-refresh does not bypass the SW.
   if (
     path.endsWith('/assets/news-data.js') ||
-    path.endsWith('/assets/hero-3d.bundle.js')
+    path.endsWith('/assets/hero-3d.bundle.js') ||
+    path.endsWith('/assets/tokens.css') ||
+    path.endsWith('/assets/theme.css') ||
+    path.endsWith('/assets/flagship.css') ||
+    path.endsWith('/assets/motion.js') ||
+    path.endsWith('/assets/flagship-motion.js') ||
+    path.endsWith('/assets/site.js') ||
+    path.endsWith('/sw.js')
   ) {
     return 'network-first-asset';
   }
