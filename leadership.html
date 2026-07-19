@@ -24,12 +24,16 @@
 .ceo-spotlight img { width: 100%; object-fit: cover; object-position: top center; aspect-ratio: 3/4; display: block; }
 .ceo-spotlight blockquote { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: 1.08rem; line-height: 1.7; color: rgba(240,243,252,0.92); border-left: 2px solid var(--gold); padding-left: var(--sp-5); margin: var(--sp-5) 0; }
 @media (max-width: 880px) { .ceo-spotlight { grid-template-columns: 1fr; padding: var(--sp-6); } }
-.leader-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-6); max-width: 960px; margin: 0 auto; }
+.leader-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); max-width: 1100px; margin: 0 auto; }
+@media (max-width: 960px) { .leader-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .leader-grid { grid-template-columns: 1fr; } }
 .leader-card { text-align: left; }
 .leader-photo { height: 230px; overflow: hidden; background: var(--ink-3); }
 .leader-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform var(--dur-3) var(--ease-out); }
 .leader-card:hover .leader-photo img { transform: scale(1.04); }
+.leader-photo--logo { display:flex; align-items:center; justify-content:center; background:var(--surface); }
+.leader-photo--logo img { width:55%; height:auto; object-fit:contain; }
+.leader-card:hover .leader-photo--logo img { transform:none; }
 .leader-card .card-body h3 { font-size: 1.05rem; }
 .leader-role { color: var(--gold-deep); font-size: var(--fs-micro); font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; margin: 6px 0 10px; }
 .leader-card p { font-size: 0.88rem; }
@@ -210,10 +214,10 @@
     </div>
     <div class="ceo-spotlight reveal">
       <div class="fs-corners">
-        <img src="assets/images/leadership/ceo.jpg" alt="Ally Edha Awadh, Chairman and Group CEO of Lake Group" loading="lazy" decoding="async">
+        <img src="assets/images/leadership/ally-edha-awadh.png" alt="Ally Edha Awadh, Executive Chairman and Owner of Lake Group" loading="lazy" decoding="async">
       </div>
       <div>
-        <div data-i18n="leadership.8" class="section-label">Group CEO &amp; Chairman</div>
+        <div data-i18n="leadership.8" class="section-label">Executive Chairman &amp; Owner</div>
         <h2 data-i18n="leadership.9" class="section-title" style="margin-bottom:8px">Ally Edha Awadh</h2>
         <p data-i18n="leadership.10" style="font-size:0.9rem;margin-bottom:16px;color:var(--gold)">Founder of Lake Group (2006) · Forbes-recognised entrepreneur · Young Business Leader of the Year, African Leadership Magazine 2022</p>
         <p data-i18n="leadership.11" style="font-size:0.92rem">Mr. Awadh established Lake Oil at age 27 and grew it into one of East and Central Africa's largest energy, logistics and industrial conglomerates, operating across Tanzania, Kenya, Zambia, DRC, Burundi, Rwanda, Ethiopia and Mozambique with 4,600+ employees from 21 nationalities.</p>
@@ -224,40 +228,56 @@
 
     <div class="text-center" style="margin-bottom:36px">
       <div data-i18n="leadership.14" class="section-label" style="justify-content:center">Senior Leadership</div>
-      <h2 data-i18n="leadership.15" class="section-title">Group &amp; Lake Oil Management</h2>
-      <p data-i18n="leadership.16" class="section-subtitle" style="margin:12px auto 0">The executives overseeing Lake Group's day-to-day operations, people and strategic growth.</p>
+      <h2 data-i18n="leadership.15" class="section-title">Management Team</h2>
+      <p data-i18n="leadership.16" class="section-subtitle" style="margin:12px auto 0">The executives driving Lake Group across energy, manufacturing, operations and agribusiness.</p>
     </div>
     <div class="leader-grid">
       <div class="card leader-card reveal">
-        <div class="leader-photo"><img src="assets/images/leadership/africa-ceo-forum.jpg" alt="Abdulrahman Mohamed at Africa CEO Forum Awards" loading="lazy" decoding="async"></div>
+        <div class="leader-photo"><img src="assets/images/leadership/sibtian-ansari.png" alt="Sibtian Ansari" loading="lazy" decoding="async"></div>
         <div class="card-body">
-          <h3 data-i18n="leadership.17">Abdulrahman Mohamed</h3>
-          <p data-i18n="leadership.18" class="leader-role">Managing Director · Lake Oil Tanzania</p>
-          <p data-i18n="leadership.19">Leads Lake Oil's petroleum distribution, retail network and corporate partnerships, representing the flagship company at major industry and community events across Tanzania.</p>
+          <h3 data-i18n="leadership.17">Sibtian Ansari</h3>
+          <p data-i18n="leadership.18" class="leader-role">CEO · Manufacturing Division</p>
+          <p data-i18n="leadership.19">Leads Lake Steel and industrial expansions — production infrastructure, mill output, concrete products and construction supply.</p>
         </div>
       </div>
       <div class="card leader-card reveal">
-        <div class="leader-photo"><img src="assets/images/leadership/khalid-hospital-donation.jpg" alt="Khalid Mohamed leading Lake Group hospital donation" loading="lazy" decoding="async"></div>
+        <div class="leader-photo"><img src="assets/images/leadership/vivek-choudhary.png" alt="Vivek Choudhary" loading="lazy" decoding="async"></div>
         <div class="card-body">
-          <h3 data-i18n="leadership.20">Khalid Mohamed</h3>
-          <p data-i18n="leadership.21" class="leader-role">Executive Director · Lake Group</p>
-          <p data-i18n="leadership.22">Oversees Group-wide executive operations and represents Lake Group at CSR initiatives, hospital donations and community outreach programmes across Dar es Salaam.</p>
+          <h3 data-i18n="leadership.20">Vivek Choudhary</h3>
+          <p data-i18n="leadership.21" class="leader-role">Director of Digital Transformation</p>
+          <p data-i18n="leadership.22">Drives Group digital strategy, SAP optimisation, fleet intelligence and technology-led operational improvement.</p>
         </div>
       </div>
       <div class="card leader-card reveal">
-        <div class="leader-photo"><img src="assets/images/leadership/group-event-2018-2.jpg" alt="Juma Nuru at Lake Group corporate event" loading="lazy" decoding="async"></div>
+        <div class="leader-photo"><img src="assets/images/leadership/bhaskar-shetty.png" alt="Bhaskar S. Shetty" loading="lazy" decoding="async"></div>
         <div class="card-body">
-          <h3 data-i18n="leadership.23">Juma Nuru</h3>
-          <p data-i18n="leadership.24" class="leader-role">Human Resources Director · Lake Oil</p>
-          <p data-i18n="leadership.25">Heads people strategy and workforce development for Lake Oil, supporting the Group's diverse team of 4,600+ professionals across East and Central Africa.</p>
+          <h3 data-i18n="leadership.23">Bhaskar S. Shetty</h3>
+          <p data-i18n="leadership.24" class="leader-role">Managing Director · ATL</p>
+          <p data-i18n="leadership.25">Directs Associated Trans Logistics alongside Lake Trans — fuel fleets, heavy haulage and multi-national cargo corridors.</p>
         </div>
       </div>
       <div class="card leader-card reveal">
-        <div class="leader-photo"><img src="assets/images/leadership/annual-event-2.jpg" alt="Nassoro Abubakari at Lake Group annual event" loading="lazy" decoding="async"></div>
+        <div class="leader-photo"><img src="assets/images/leadership/pankaj-kumar.png" alt="Pankaj Kumar" loading="lazy" decoding="async"></div>
         <div class="card-body">
-          <h3 data-i18n="leadership.26">Nassoro Abubakari</h3>
-          <p data-i18n="leadership.27" class="leader-role">Projects Manager · Lake Group</p>
-          <p data-i18n="leadership.28">Manages major Group projects including Lake Agro's greenfield development and coordinates humanitarian relief efforts such as flood-response aid in Rufiji and coastal regions.</p>
+          <h3 data-i18n="leadership.26">Pankaj Kumar</h3>
+          <p data-i18n="leadership.27" class="leader-role">CFO · AFICD</p>
+          <p data-i18n="leadership.28">Financial planning, risk and governance for African Inland Container Depot — dry-port cargo, customs and clearing workflows.</p>
+        </div>
+      </div>
+      <div class="card leader-card reveal">
+        <div class="leader-photo leader-photo--logo"><img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group" loading="lazy" decoding="async"></div>
+        <div class="card-body">
+          <h3 data-i18n="leadership.51">Juma Nuru</h3>
+          <p data-i18n="leadership.52" class="leader-role">Director of Operations · Lake Group</p>
+          <p data-i18n="leadership.53">Leads Group-wide operations across Lake Group energy, logistics and industrial units — day-to-day execution and performance.</p>
+        </div>
+      </div>
+      <div class="card leader-card reveal">
+        <div class="leader-photo leader-photo--logo"><img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group" loading="lazy" decoding="async"></div>
+        <div class="card-body">
+          <h3 data-i18n="leadership.54">Nassoro Abubakari</h3>
+          <p data-i18n="leadership.55" class="leader-role">Project Manager · Lake Agro</p>
+          <p data-i18n="leadership.56">Manages Lake Agro project delivery — greenfield development, agribusiness programmes and related Group coordination.</p>
         </div>
       </div>
     </div>
@@ -267,14 +287,14 @@
       <h2 data-i18n="leadership.30" class="section-title">Companies Under Lake Group</h2>
       <p data-i18n="leadership.31" class="section-subtitle">Each subsidiary is led by sector specialists in oil &amp; gas, logistics, engineering, manufacturing and port services.</p>
       <div class="division-grid">
-        <div class="division-item reveal"><span class="division-dot"></span><div><strong data-i18n="leadership.32">Lake Oil Ltd</strong><span data-i18n="leadership.33">Flagship petroleum importer, depot operator and retail network  among Tanzania's top five fuel distributors. MD: Abdulrahman Mohamed</span></div></div>
+        <div class="division-item reveal"><span class="division-dot"></span><div><strong data-i18n="leadership.32">Lake Oil Ltd</strong><span data-i18n="leadership.33">Flagship petroleum importer, depot operator and retail network — among Tanzania's top five fuel distributors.</span></div></div>
         <div class="division-item reveal"><span class="division-dot"></span><div><strong data-i18n="leadership.34">Lake Trans Ltd</strong><span data-i18n="leadership.35">700+ truck logistics fleet for petroleum, dry cargo and cross-border haulage across East Africa.</span></div></div>
         <div class="division-item reveal"><span class="division-dot"></span><div><strong data-i18n="leadership.36">Lake Gas Ltd</strong><span data-i18n="leadership.37">LPG bottling, composite cylinders and East Africa's largest LPG storage terminal in Tanga.</span></div></div>
         <div class="division-item reveal"><span class="division-dot"></span><div><strong data-i18n="leadership.38">Lake Lubes Ltd</strong><span data-i18n="leadership.39">Lubricant blending plant in Dar es Salaam producing greases and engine oils for regional markets.</span></div></div>
         <div class="division-item reveal"><span class="division-dot"></span><div><strong data-i18n="leadership.40">Lake Steel</strong><span data-i18n="leadership.41">Steel manufacturing including HS-CR rebars and construction materials for infrastructure projects.</span></div></div>
         <div class="division-item reveal"><span class="division-dot"></span><div><strong data-i18n="leadership.42">Gulf Concrete &amp; Cement Products (GCCP)</strong><span data-i18n="leadership.43">Ready-mix concrete and aggregates, market leader in Dar es Salaam premix supply.</span></div></div>
         <div class="division-item reveal"><span class="division-dot"></span><div><strong data-i18n="leadership.44">African Inland Container Depot (AFICD)</strong><span data-i18n="leadership.45">ICD, CFS and empty container depot services with rail-linked logistics in Tanzania.</span></div></div>
-        <div class="division-item reveal"><span class="division-dot"></span><div><strong data-i18n="leadership.46">Lake Agro Ltd</strong><span data-i18n="leadership.47">Agricultural and greenfield project development. Projects Manager: Nassoro Abubakari</span></div></div>
+        <div class="division-item reveal"><span class="division-dot"></span><div><strong data-i18n="leadership.46">Lake Agro Ltd</strong><span data-i18n="leadership.47">Agricultural and greenfield project development. Project Manager: Nassoro Abubakari</span></div></div>
       </div>
     </div>
     <div class="ld-panel reveal">
