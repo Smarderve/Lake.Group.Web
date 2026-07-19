@@ -9,18 +9,18 @@
    NOTE: never style .experience-3d-* or #fuel-experience  owned elsewhere.
    ========================================================================== */
 
-@import url("tokens.css?v=41");
+@import url("tokens.css?v=44");
 
 /* --------------------------------------------------------------------------
    1. THEME-ONLY TOKENS (motion + shadows; brand lives in tokens.css)
    -------------------------------------------------------------------------- */
 :root {
-  /* Motion tokens */
+  /* Motion tokens — snappy 300–500ms range */
   --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
   --dur-fast: 0.2s;
-  --dur-med:  0.45s;
-  --dur-slow: 0.7s;
+  --dur-med:  0.35s;
+  --dur-slow: 0.45s;
 }
 
 /* --------------------------------------------------------------------------
@@ -36,6 +36,7 @@ body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; 
   position: absolute; inset: 0; z-index: 0;
   background-size: cover; background-position: center; background-repeat: no-repeat;
   opacity: 1; filter: saturate(0.92) contrast(1.05); pointer-events: none;
+  transform-origin: center center;
 }
 .page-hero .hero-overlay,
 .page-hero .page-hero-overlay {
@@ -497,10 +498,13 @@ body[data-company-logo] .page-hero .container { width: 100%; }
 .card-icon svg { color: var(--blue); }
 
 /* Photo zoom pattern unified (cards, gallery, photo strips) */
-.photo-card img, .g-item img, .photo-feature img, .div-card-img {
-  transition: transform 0.6s var(--ease-out);
+.photo-card img, .g-item img, .photo-feature img, .div-card-img,
+.img-hover-zoom, .hero-photo-grid img {
+  transition: transform var(--dur-slow) var(--ease-out);
 }
-.photo-card:hover img, .g-item:hover img, .photo-feature img:hover { transform: scale(1.05); }
+.photo-card:hover img, .g-item:hover img, .photo-feature img:hover,
+.img-hover-zoom:hover, .hero-photo-grid img:hover { transform: scale(1.04); }
+.photo-card, .g-item, .hero-photo-grid { overflow: hidden; }
 
 /* --------------------------------------------------------------------------
    8. SEMANTIC SECTION SURFACES + LABELS
@@ -594,18 +598,37 @@ body[data-company-logo] .page-hero .container { width: 100%; }
 .reveal { opacity: 1; transform: none; }
 html.lg-motion .reveal {
   opacity: 0;
-  transform: translateY(26px);
+  transform: translateY(18px);
   transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
   transition-delay: var(--reveal-delay, 0s);
   will-change: opacity, transform;
 }
-html.lg-motion .reveal.reveal-scale { transform: translateY(18px) scale(0.97); }
-html.lg-motion .reveal.reveal-left { transform: translateX(-42px); }
-html.lg-motion .reveal.reveal-right { transform: translateX(42px); }
+html.lg-motion .reveal.reveal-scale { transform: translateY(12px) scale(0.97); }
+html.lg-motion .reveal.reveal-left { transform: translateX(-28px); }
+html.lg-motion .reveal.reveal-right { transform: translateX(28px); }
 html.lg-motion .reveal.visible { opacity: 1; transform: none; will-change: auto; }
 
+/* Image reveal: scale-settle (home hero media feel) */
+html.lg-motion .reveal-img {
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity var(--dur-slow) var(--ease-out), transform 0.5s var(--ease-out);
+  transition-delay: var(--reveal-delay, 0s);
+  will-change: opacity, transform;
+}
+html.lg-motion .reveal-img.visible,
+html.lg-motion .reveal-img.in {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+html.lg-motion .reveal-img.visible.img-hover-zoom:hover,
+html.lg-motion .reveal-img.in.img-hover-zoom:hover {
+  transform: scale(1.04);
+}
+
 /* Page-load fade */
-html.lg-motion.lg-ready body { animation: lg-page-fade 0.55s ease-out both; }
+html.lg-motion.lg-ready body { animation: lg-page-fade 0.4s ease-out both; }
 
 /* --------------------------------------------------------------------------
    14. INDEX-ONLY POLISH (safe no-ops elsewhere)
@@ -613,27 +636,55 @@ html.lg-motion.lg-ready body { animation: lg-page-fade 0.55s ease-out both; }
 /* Marquee: pause on hover */
 .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
 
+/* Nav settle on load (backwards only — must not block .nav-hidden) */
+html.lg-motion .site-nav {
+  animation: lg-nav-settle 0.4s var(--ease-out) backwards;
+}
+
+/* Hero media: scale-in then gentle Ken Burns (transform only) */
+html.lg-motion .hero .hero-photo,
+html.lg-motion .page-hero .hero-media,
+html.lg-motion .page-hero .page-hero-photo {
+  animation:
+    lg-hero-media-in 0.55s var(--ease-out) both,
+    lg-hero-ken 14s var(--ease-smooth) 0.55s both;
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+
 /* Hero: staggered entrance (opacity/transform only, no CLS) */
 .hero .hero-eyebrow, .hero h1, .hero .hero-sub, .hero .hero-actions, .hero .hero-stats, .hero .hero-right {
-  animation: lg-fade-up 0.9s var(--ease-out) both;
+  animation: lg-fade-up 0.45s var(--ease-out) both;
 }
-.hero h1 { animation-delay: 0.12s; }
-.hero .hero-sub { animation-delay: 0.24s; }
-.hero .hero-actions { animation-delay: 0.36s; }
-.hero .hero-stats { animation-delay: 0.5s; }
-.hero .hero-right { animation-delay: 0.3s; }
+.hero h1 { animation-delay: 0.08s; }
+.hero .hero-sub { animation-delay: 0.14s; }
+.hero .hero-actions { animation-delay: 0.2s; }
+.hero .hero-stats { animation-delay: 0.28s; }
+.hero .hero-right { animation-delay: 0.16s; }
 
 /* Page-load: gentle body fade (opacity only) */
-body { animation: lg-page-fade 0.45s ease-out both; }
-html.lg-motion.lg-ready body { animation: lg-page-fade 0.55s ease-out both; }
+body { animation: lg-page-fade 0.35s ease-out both; }
+html.lg-motion.lg-ready body { animation: lg-page-fade 0.4s ease-out both; }
 
 @keyframes lg-fade-up {
-  from { opacity: 0; transform: translateY(22px); }
+  from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes lg-page-fade {
   from { opacity: 0; }
   to   { opacity: 1; }
+}
+@keyframes lg-nav-settle {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes lg-hero-media-in {
+  from { opacity: 0; transform: scale(1.1); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes lg-hero-ken {
+  from { transform: scale(1); }
+  to   { transform: scale(1.05); }
 }
 
 /* --------------------------------------------------------------------------
@@ -665,10 +716,14 @@ html.lg-motion.lg-ready body { animation: lg-page-fade 0.55s ease-out both; }
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   body, .hero .hero-eyebrow, .hero h1, .hero .hero-sub, .hero .hero-actions,
-  .hero .hero-stats, .hero .hero-right, .tab-pane.active { animation: none !important; }
-  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .hero .hero-stats, .hero .hero-right, .tab-pane.active,
+  html.lg-motion .site-nav,
+  html.lg-motion .hero .hero-photo,
+  html.lg-motion .page-hero .hero-media,
+  html.lg-motion .page-hero .page-hero-photo { animation: none !important; }
+  .reveal, .reveal-img { opacity: 1 !important; transform: none !important; transition: none !important; }
   .site-nav, .btn, .card, .div-card, .nav-dropdown, .nav-dropdown a,
-  .photo-card img, .g-item img, .photo-feature img, .div-card-img,
+  .photo-card img, .g-item img, .photo-feature img, .div-card-img, .img-hover-zoom,
   .footer-col ul a, .footer-bottom-links a, #chat-btn { transition: none !important; }
   .site-nav.nav-hidden { transform: none; }
   .nav-dropdown { transform: none !important; }
@@ -684,7 +739,7 @@ html.lg-motion.lg-ready body { animation: lg-page-fade 0.55s ease-out both; }
   .site-nav .nav-logo img, .mob-acc-panel, .mob-acc-btn::after { transition: none !important; }
   .marquee-track { animation-play-state: paused !important; }
   .hero-scroll { animation: none !important; }
-  .card, .div-card { transform: none !important; }
+  .card, .div-card, .img-hover-zoom { transform: none !important; }
   html.lg-motion.lg-ready body { animation: none !important; }
 }
 

@@ -4,6 +4,7 @@
  *
  * - Auto-tags meaningful content with .reveal (+ stagger) so every page
  *   participates in the scroll-reveal system without hand-editing markup.
+ * - Auto-enhances content images with .reveal-img + .img-hover-zoom.
  * - Nav: hide on scroll down / show on scroll up, blur+shadow once scrolled.
  * - Cards: subtle 3D tilt tracking the cursor (pointer: fine only, max ~3deg).
  * - Everything respects prefers-reduced-motion and uses transform/opacity only.
@@ -24,7 +25,7 @@
   /* Zones owned by other systems (3D experience, cinematic embeds, chrome)
      that the auto-tagger and tilt must never touch. */
   var SKIP_ZONES = '#fuel-experience, .experience-3d, .our-story-embed, .ose-stage, ' +
-    '.hero, .page-hero, .site-nav, .nav-mobile, #lightbox, #chat-widget, .site-footer';
+    '.site-nav, .nav-mobile, #lightbox, #chat-widget, .site-footer';
 
   function inSkipZone(el) {
     return !!el.closest(SKIP_ZONES);
@@ -35,15 +36,15 @@
   /* ------------------------------------------------------------------ */
 
   var GRID_SELECTOR = '.grid-2, .grid-3, .grid-4, .divisions-grid, .stats-grid, ' +
-    '.photo-feature, .gallery-masonry, .footer-grid';
-
-  var GRID_SELECTOR = '.grid-2, .grid-3, .grid-4, .divisions-grid, .stats-grid, ' +
     '.photo-feature, .gallery-masonry, .footer-grid, .division-grid, .kpi-rail';
 
   var REVEAL_VARIANTS = ['', 'reveal-scale', 'reveal-left', 'reveal-right'];
 
   var ORPHAN_SELECTOR = '.timeline-item, .division-item, .sus-item, .country-cell, ' +
     '.kpi, .marquee-item, .hero-stat, blockquote';
+
+  var IMG_SKIP = '.site-nav, .nav-mobile, .nav-megamenu, .nav-dropdown, .mm-company, ' +
+    '.footer-logo, .site-footer, #chat-widget, .flag-icon, .flag-icon-lg';
 
   function tagGridChildren(grid) {
     var children = grid.children;
@@ -53,7 +54,7 @@
       var variant = REVEAL_VARIANTS[i % REVEAL_VARIANTS.length];
       child.classList.add('reveal');
       if (variant) child.classList.add(variant);
-      child.style.setProperty('--reveal-delay', (Math.min(i % 8, 5) * 0.07) + 's');
+      child.style.setProperty('--reveal-delay', (Math.min(i % 8, 5) * 0.05) + 's');
     }
     grid.setAttribute('data-reveal-tagged', '1');
   }
@@ -62,7 +63,7 @@
     document.querySelectorAll(ORPHAN_SELECTOR).forEach(function (el, i) {
       if (inSkipZone(el) || el.classList.contains('reveal')) return;
       el.classList.add('reveal', i % 2 ? 'reveal-left' : 'reveal-scale');
-      el.style.setProperty('--reveal-delay', (Math.min(i % 6, 3) * 0.08) + 's');
+      el.style.setProperty('--reveal-delay', (Math.min(i % 6, 3) * 0.05) + 's');
     });
 
     document.querySelectorAll(
@@ -71,7 +72,34 @@
       if (inSkipZone(li) || li.classList.contains('reveal')) return;
       if (li.closest('.site-footer, .nav-mobile, .nav-dropdown')) return;
       li.classList.add('reveal');
-      li.style.setProperty('--reveal-delay', (Math.min(i % 6, 3) * 0.06) + 's');
+      li.style.setProperty('--reveal-delay', (Math.min(i % 6, 3) * 0.04) + 's');
+    });
+  }
+
+  function enhanceImages() {
+    document.querySelectorAll(
+      'main img, .section img, .page-wrapper img, .hero-photo-grid img, ' +
+      '.photo-feature img, .gallery-masonry img, .g-item img, .news-thumb img, ' +
+      '.leader-photo img, .div-card-img, .photo-card img, .card img'
+    ).forEach(function (img, i) {
+      if (img.closest(IMG_SKIP)) return;
+      if (inSkipZone(img) && !img.closest('.hero-photo-grid')) return;
+      if (img.classList.contains('reveal-img')) return;
+
+      img.classList.add('reveal-img', 'img-hover-zoom');
+      if (!img.classList.contains('reveal')) {
+        img.classList.add('reveal');
+      }
+      img.style.setProperty('--reveal-delay', (Math.min(i % 8, 4) * 0.05) + 's');
+
+      /* Ensure parent clips hover zoom */
+      var parent = img.parentElement;
+      if (parent && !parent.classList.contains('hero-photo-grid')) {
+        var style = window.getComputedStyle(parent);
+        if (style.overflow === 'visible') {
+          parent.style.overflow = 'hidden';
+        }
+      }
     });
   }
 
@@ -86,7 +114,7 @@
     // 2. Direct children of section containers (headings, intro rows, CTAs...).
     document.querySelectorAll('.section > .container, .section-sm > .container, ' +
       '.stats-band > .container, .cta-band > .container, ' +
-      '.page-wrapper > section:not(.hero):not(.our-story-embed)').forEach(function (container) {
+      '.page-wrapper > section:not(.hero):not(.page-hero):not(.our-story-embed)').forEach(function (container) {
       if (inSkipZone(container)) return;
       var idx = 0;
       Array.prototype.forEach.call(container.children, function (child) {
@@ -96,13 +124,16 @@
         child.classList.add('reveal');
         if (idx % 3 === 1) child.classList.add('reveal-left');
         else if (idx % 3 === 2) child.classList.add('reveal-right');
-        child.style.setProperty('--reveal-delay', (Math.min(idx, 5) * 0.08) + 's');
+        child.style.setProperty('--reveal-delay', (Math.min(idx, 5) * 0.05) + 's');
         idx++;
       });
     });
 
     // 3. Standalone rows/tiles outside grids.
     tagOrphans();
+
+    // 4. All content images — reveal + hover zoom.
+    enhanceImages();
   }
 
   /* ------------------------------------------------------------------ */
@@ -220,11 +251,12 @@
   /* ------------------------------------------------------------------ */
 
   function localInitReveal() {
-    var targets = document.querySelectorAll('.reveal:not(.visible)');
+    var targets = document.querySelectorAll('.reveal:not(.visible), .reveal-img:not(.visible)');
     if (!targets.length) return;
 
     function show(el) {
       el.classList.add('visible');
+      if (el.classList.contains('reveal-img')) el.classList.add('in');
     }
 
     if (typeof IntersectionObserver === 'undefined') {
@@ -239,7 +271,7 @@
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -4% 0px' });
 
     targets.forEach(function (el) {
       var r = el.getBoundingClientRect();
@@ -257,6 +289,8 @@
       autoTagReveals();
       if (window.LakeSite && typeof window.LakeSite.initReveal === 'function') {
         window.LakeSite.initReveal();
+        /* site.js only watches .reveal — ensure reveal-img gets observed too */
+        localInitReveal();
       } else {
         localInitReveal();
       }

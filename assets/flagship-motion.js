@@ -64,13 +64,55 @@
   }
 
   function chooseVariant(el) {
-    if (el.matches('.fs-media, .photo-card, figure, .news-thumb')) return 'fx-clip';
+    if (el.matches('.fs-media, .photo-card, figure, .news-thumb, .leader-photo')) return 'fx-clip';
     if (el.matches('.fs-display, .section-title, h2, .fs-hero-title')) return 'fx-mask';
     if (el.matches('.fs-rule, .divider-yellow, hr, .section-label, .fs-eyebrow')) return 'fx-wipe';
     if (el.matches('.fs-stat, .stat-number, .hero-stat-num, .kpi-no')) return 'fx-rise';
-    if (el.matches('img, .leader-photo, .photo-card')) return 'fx-clip';
+    if (el.matches('img')) return 'fx-img';
     if (el.matches('ul, ol')) return 'fx-rise';
     return 'fx-rise';
+  }
+
+  var IMG_SKIP = '.site-nav, .nav-mobile, .nav-megamenu, .nav-dropdown, .mm-company, ' +
+    '.footer-logo, .site-footer, #chat-widget, .flag-icon, .flag-icon-lg';
+
+  function enhanceImages() {
+    /* Media containers: clip-reveal (home hero photo-grid feel) */
+    document.querySelectorAll(
+      '.fs-media, .photo-card, .leader-photo, .news-thumb, .g-item, figure.photo-feature'
+    ).forEach(function (media, i) {
+      if (inSkipZone(media) || hasFx(media)) return;
+      tag(media, 'fx-clip', Math.min(i % 6, 3) * 0.05);
+    });
+
+    /* Bare content images: scale-settle + hover zoom */
+    document.querySelectorAll(
+      'main img, .section img, .fs-section img, .page-wrapper img, ' +
+      '.photo-feature img, .gallery-masonry img, .g-item img, .news-thumb img, ' +
+      '.leader-photo img, .fs-media img, .photo-card img, .card img, .div-card img'
+    ).forEach(function (img, i) {
+      if (img.closest(IMG_SKIP)) return;
+      if (inSkipZone(img)) return;
+
+      img.classList.add('img-hover-zoom');
+
+      /* Parent already tagged with fx-clip — only hover zoom on the img */
+      if (img.closest('.fx-clip, .fs-media, .photo-card, .leader-photo, .news-thumb, .g-item')) {
+        return;
+      }
+      if (hasFx(img) || img.classList.contains('reveal-img')) return;
+
+      img.classList.add('fx', 'fx-img', 'reveal-img');
+      img.style.setProperty('--fx-d', (Math.min(i % 8, 4) * 0.05).toFixed(2) + 's');
+
+      var parent = img.parentElement;
+      if (parent) {
+        try {
+          var style = window.getComputedStyle(parent);
+          if (style.overflow === 'visible') parent.style.overflow = 'hidden';
+        } catch (err) { /* ignore */ }
+      }
+    });
   }
 
   function gridVariant(i) {
@@ -113,18 +155,10 @@
       container.setAttribute('data-fx-tagged', '1');
     });
 
-    /* Standalone media & imagery anywhere in main flow. */
-    document.querySelectorAll(
-      '.fs-media, .photo-card, .photo-feature img, .fs-band-img, .leader-photo'
-    ).forEach(function (media) {
-      if (inSkipZone(media) || hasFx(media)) return;
-      tag(media, 'fx-clip');
-    });
-
     /* Orphan rows/tiles not inside a tagged grid. */
     document.querySelectorAll(ORPHAN_SELECTOR).forEach(function (el, i) {
       if (inSkipZone(el) || hasFx(el)) return;
-      tag(el, 'fx-rise', Math.min(i % 6, 3) * 0.08);
+      tag(el, 'fx-rise', Math.min(i % 6, 3) * 0.05);
     });
 
     /* List items inside editorial sections (stagger within list). */
@@ -133,8 +167,11 @@
     ).forEach(function (li, i) {
       if (inSkipZone(li) || hasFx(li)) return;
       if (li.closest('.site-footer, .nav-mobile, .nav-dropdown')) return;
-      tag(li, i % 2 ? 'fx-left' : 'fx-rise', Math.min(i % 6, 3) * 0.06);
+      tag(li, i % 2 ? 'fx-left' : 'fx-rise', Math.min(i % 6, 3) * 0.04);
     });
+
+    /* All content images — clip / scale-settle + hover zoom. */
+    enhanceImages();
   }
 
   /* ------------------------------------------------------------------ */
@@ -142,14 +179,18 @@
   /* ------------------------------------------------------------------ */
 
   function initReveal() {
-    var targets = document.querySelectorAll('.fx:not(.in), .reveal:not(.visible)');
+    var targets = document.querySelectorAll(
+      '.fx:not(.in), .reveal:not(.visible), .reveal-img:not(.in):not(.visible)'
+    );
     if (!targets.length) return;
 
     var pending = [];
 
     function show(el) {
       el.classList.add('in');
-      if (el.classList.contains('reveal')) el.classList.add('visible');
+      if (el.classList.contains('reveal') || el.classList.contains('reveal-img')) {
+        el.classList.add('visible');
+      }
       var i = pending.indexOf(el);
       if (i !== -1) pending.splice(i, 1);
     }
@@ -302,7 +343,7 @@
       return;
     }
 
-    var duration = 1800;
+    var duration = 900;
     var start = performance.now();
     function step(now) {
       var p = Math.min((now - start) / duration, 1);

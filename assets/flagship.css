@@ -17,7 +17,7 @@
    Never style .experience-3d-* or #fuel-experience  owned elsewhere.
    ========================================================================== */
 
-@import url("tokens.css?v=41");
+@import url("tokens.css?v=44");
 @import url('fonts/fonts.css');
 
 /* --------------------------------------------------------------------------
@@ -92,14 +92,15 @@
   --shadow-2: 0 10px 30px -12px rgba(1,63,92,0.22);
   --shadow-3: 0 24px 60px -20px rgba(1,63,92,0.38);
 
-  /* Motion tokens */
+  /* Motion tokens — snappy 300–500ms (clip/mask slightly longer) */
   --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
   --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
   --ease-snap:  cubic-bezier(0.34, 1.3, 0.64, 1);
-  --dur-1: 0.22s;
-  --dur-2: 0.55s;
-  --dur-3: 0.9s;
-  --dur-4: 1.3s;
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-1: 0.2s;
+  --dur-2: 0.35s;
+  --dur-3: 0.45s;
+  --dur-4: 0.55s;
 }
 
 /* --------------------------------------------------------------------------
@@ -730,6 +731,7 @@ body[data-company-logo] .site-nav .nav-logo {
   opacity: 1;
   filter: saturate(0.92) contrast(1.05);
   pointer-events: none;
+  transform-origin: center center;
 }
 /* Shared gradient overlay — brand blue/navy → transparent (no candy red) */
 .page-hero .hero-overlay,
@@ -992,7 +994,14 @@ body[data-company-logo] .page-hero h1 {
 
 .photo-card { border-radius: 0; overflow: hidden; aspect-ratio: 4/3; background: var(--paper-2); position: relative; }
 .photo-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--dur-3) var(--ease-out); }
-.photo-card:hover img { transform: scale(1.05); }
+.photo-card:hover img { transform: scale(1.04); }
+
+/* Universal image hover zoom (JS adds .img-hover-zoom to content images) */
+.img-hover-zoom {
+  transition: transform var(--dur-3) var(--ease-out);
+}
+.img-hover-zoom:hover { transform: scale(1.04); }
+.fs-media, .leader-photo, .g-item, .news-thumb { overflow: hidden; }
 
 /* --------------------------------------------------------------------------
    13. FORMS
@@ -1233,14 +1242,14 @@ html.fs-motion .fx {
 html.fs-motion .fx.in { opacity: 1; transform: none; will-change: auto; }
 
 /* Choreography variants */
-html.fs-motion .fx-rise { transform: translateY(34px); }
+html.fs-motion .fx-rise { transform: translateY(20px); }
 html.fs-motion .fx-rise.in { transform: none; }
 
-html.fs-motion .fx-left { transform: translateX(-44px); }
-html.fs-motion .fx-right { transform: translateX(44px); }
+html.fs-motion .fx-left { transform: translateX(-28px); }
+html.fs-motion .fx-right { transform: translateX(28px); }
 html.fs-motion .fx-left.in, html.fs-motion .fx-right.in { transform: none; }
 
-html.fs-motion .fx-scale { transform: scale(0.94); }
+html.fs-motion .fx-scale { transform: scale(0.96); }
 html.fs-motion .fx-scale.in { transform: none; }
 
 /* Slide-mask reveal: element wipes upward out of a clip mask */
@@ -1257,31 +1266,79 @@ html.fs-motion .fx-wipe { opacity: 1; clip-path: inset(0 100% 0 0); }
 html.fs-motion .fx-wipe.in { clip-path: inset(0 -2% 0 0); }
 
 /* Image clip reveal: frame opens while the image settles from a zoom */
-html.fs-motion .fx-clip { opacity: 1; clip-path: inset(8% 10%); transition-duration: var(--dur-4); }
-html.fs-motion .fx-clip img { transform: scale(1.14); transition: transform var(--dur-4) var(--ease-out) var(--fx-d, 0s); }
+html.fs-motion .fx-clip { opacity: 1; clip-path: inset(6% 8%); transition-duration: var(--dur-4); }
+html.fs-motion .fx-clip img { transform: scale(1.1); transition: transform var(--dur-4) var(--ease-out) var(--fx-d, 0s); }
 html.fs-motion .fx-clip.in { clip-path: inset(0 0); }
 html.fs-motion .fx-clip.in img { transform: none; }
 
+/* Bare <img> scale-settle (home hero media feel) */
+html.fs-motion .fx-img,
+html.fs-motion .reveal-img {
+  opacity: 0;
+  transform: scale(1.06);
+  transition:
+    opacity var(--dur-3) var(--ease-out) var(--fx-d, var(--reveal-delay, 0s)),
+    transform var(--dur-4) var(--ease-out) var(--fx-d, var(--reveal-delay, 0s));
+}
+html.fs-motion .fx-img.in,
+html.fs-motion .reveal-img.in,
+html.fs-motion .reveal-img.visible {
+  opacity: 1;
+  transform: none;
+}
+html.fs-motion .fx-img.in.img-hover-zoom:hover,
+html.fs-motion .reveal-img.in.img-hover-zoom:hover,
+html.fs-motion .reveal-img.visible.img-hover-zoom:hover {
+  transform: scale(1.04);
+}
+
 @keyframes fs-fade-rise {
-  from { opacity: 0; transform: translateY(18px); }
+  from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: none; }
 }
 
+/* Nav settle on load (backwards only — must not block .nav-hidden) */
+html.fs-motion .site-nav {
+  animation: fs-nav-settle 0.4s var(--ease-out) backwards;
+}
+@keyframes fs-nav-settle {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero media: scale-in + gentle Ken Burns (matches home .hero-photo) */
+html.fs-motion .page-hero .hero-media,
+html.fs-motion .page-hero .page-hero-photo {
+  animation:
+    fs-hero-media-in 0.55s var(--ease-out) both,
+    fs-hero-ken 14s var(--ease-smooth) 0.55s both;
+  will-change: transform, opacity;
+}
+@keyframes fs-hero-media-in {
+  from { opacity: 0; transform: scale(1.1); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes fs-hero-ken {
+  from { transform: scale(1); }
+  to   { transform: scale(1.05); }
+}
+
 /* Page entrance: nav + hero choreography (runs once, CSS-only, no CLS) */
-html.fs-motion .page-hero .breadcrumb { animation: fs-fade-rise 0.8s var(--ease-out) 0.1s both; }
-html.fs-motion .page-hero .eyebrow { animation: fs-fade-rise 0.8s var(--ease-out) 0.25s both; }
-html.fs-motion .page-hero h1 { animation: fs-hero-mask 1.2s var(--ease-out) 0.35s both; }
-html.fs-motion .page-hero p { animation: fs-fade-rise 0.9s var(--ease-out) 0.6s both; }
-html.fs-motion .page-hero .fs-hero-meta { animation: fs-fade-rise 0.9s var(--ease-out) 0.8s both; }
+html.fs-motion .page-hero .breadcrumb { animation: fs-fade-rise 0.4s var(--ease-out) 0.06s both; }
+html.fs-motion .page-hero .eyebrow { animation: fs-fade-rise 0.4s var(--ease-out) 0.12s both; }
+html.fs-motion .page-hero h1 { animation: fs-hero-mask 0.55s var(--ease-out) 0.16s both; }
+html.fs-motion .page-hero p { animation: fs-fade-rise 0.45s var(--ease-out) 0.28s both; }
+html.fs-motion .page-hero .fs-hero-meta { animation: fs-fade-rise 0.45s var(--ease-out) 0.36s both; }
+html.fs-motion .page-hero .btn { animation: fs-fade-rise 0.4s var(--ease-out) 0.32s both; }
 @keyframes fs-hero-mask {
-  from { opacity: 1; clip-path: inset(0 0 100% 0); transform: translateY(12%); }
+  from { opacity: 1; clip-path: inset(0 0 100% 0); transform: translateY(8%); }
   to   { opacity: 1; clip-path: inset(0 0 -10% 0); transform: none; }
 }
 
 /* Legacy .reveal support (rollout: old markup keeps animating) */
 .reveal { opacity: 1; transform: none; }
 html.fs-motion .reveal {
-  opacity: 0; transform: translateY(30px);
+  opacity: 0; transform: translateY(18px);
   transition: opacity var(--dur-3) var(--ease-out) var(--reveal-delay, var(--fx-d, 0s)),
               transform var(--dur-3) var(--ease-out) var(--reveal-delay, var(--fx-d, 0s));
 }
@@ -1291,7 +1348,7 @@ html.fs-motion .reveal.visible, html.fs-motion .reveal.in { opacity: 1; transfor
 html.fs-motion .fs-magnetic { transform: translate(var(--mx, 0px), var(--my, 0px)); transition: transform 0.3s var(--ease-out); }
 
 /* Page-load fade (opacity only  no CLS) */
-html.fs-motion.fs-ready body { animation: fs-page-in 0.55s var(--ease-out) both; }
+html.fs-motion.fs-ready body { animation: fs-page-in 0.4s var(--ease-out) both; }
 @keyframes fs-page-in { from { opacity: 0; } to { opacity: 1; } }
 
 /* Scroll-linked parallax for [data-fx-scroll] */
@@ -1490,15 +1547,26 @@ html.fs-motion [data-fx-scroll] {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001s !important;
   }
-  html.fs-motion .fx, html.fs-motion .reveal,
-  html.fs-motion .fx-mask, html.fs-motion .fx-wipe, html.fs-motion .fx-clip {
+  html.fs-motion .fx, html.fs-motion .reveal, html.fs-motion .reveal-img,
+  html.fs-motion .fx-mask, html.fs-motion .fx-wipe, html.fs-motion .fx-clip,
+  html.fs-motion .fx-img {
     opacity: 1 !important; transform: none !important; clip-path: none !important;
   }
   html.fs-motion .fx-clip img { transform: none !important; }
+  html.fs-motion .site-nav,
+  html.fs-motion .page-hero .hero-media,
+  html.fs-motion .page-hero .page-hero-photo,
+  html.fs-motion .page-hero .breadcrumb,
+  html.fs-motion .page-hero .eyebrow,
+  html.fs-motion .page-hero h1,
+  html.fs-motion .page-hero p,
+  html.fs-motion .page-hero .fs-hero-meta,
+  html.fs-motion .page-hero .btn { animation: none !important; }
   .site-nav.nav-hidden { transform: none; }
   .fs-band .fs-band-img { transform: none !important; }
   html.fs-motion .fs-magnetic { transform: none !important; }
-  .card, .fs-card, .div-card, .leader-card, .prj-card, .g-item, .news-item { transform: none !important; }
+  .card, .fs-card, .div-card, .leader-card, .prj-card, .g-item, .news-item,
+  .img-hover-zoom { transform: none !important; }
   html.fs-motion [data-fx-scroll] { transform: none !important; }
   html.fs-motion.fs-ready body { animation: none !important; }
 }
