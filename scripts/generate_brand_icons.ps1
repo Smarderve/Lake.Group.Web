@@ -208,9 +208,11 @@ New-Item -ItemType Directory -Path $pwaDir -Force | Out-Null
 (New-Tile -logo $iconBmp -canvasW 180 -canvasH 180 -fillRatio 0.6 -cornerRadiusRatio 0 -bg $bgColor) | ForEach-Object { Save-Png $_ (Join-Path $pwaDir "apple-touch-icon.png") }
 
 # Favicon.ico: hand-built multi-resolution ICO container with embedded PNG frames
-$fav16 = New-Tile -logo $iconBmp -canvasW 16 -canvasH 16 -fillRatio 0.72 -cornerRadiusRatio 0 -bg $bgColor
-$fav32 = New-Tile -logo $iconBmp -canvasW 32 -canvasH 32 -fillRatio 0.68 -cornerRadiusRatio 0 -bg $bgColor
-$fav48 = New-Tile -logo $iconBmp -canvasW 48 -canvasH 48 -fillRatio 0.65 -cornerRadiusRatio 0.15 -bg $bgColor
+# Slightly larger glyph fill than earlier tiles so tab-bar ICO bytes differ from
+# any previously cached favicon.ico (browsers often ignore ?v= on /favicon.ico).
+$fav16 = New-Tile -logo $iconBmp -canvasW 16 -canvasH 16 -fillRatio 0.78 -cornerRadiusRatio 0 -bg $bgColor
+$fav32 = New-Tile -logo $iconBmp -canvasW 32 -canvasH 32 -fillRatio 0.74 -cornerRadiusRatio 0 -bg $bgColor
+$fav48 = New-Tile -logo $iconBmp -canvasW 48 -canvasH 48 -fillRatio 0.70 -cornerRadiusRatio 0.15 -bg $bgColor
 
 $frames = @(
     @{ Size = 16; Bytes = (Get-PngBytes $fav16) },

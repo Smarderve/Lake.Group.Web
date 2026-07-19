@@ -19,9 +19,9 @@ const ROOT = path.join(__dirname, '..');
 const BASE = 'https://www.lakeoilgroup.com/';
 
 const ICON_LINKS = [
-  '<link rel="icon" href="favicon.ico" sizes="32x32">',
-  '<link rel="icon" href="assets/icons/pwa/icon-192.png" type="image/png" sizes="192x192">',
-  '<link rel="apple-touch-icon" href="assets/icons/pwa/apple-touch-icon.png">',
+  '<link rel="icon" href="favicon.ico?v=42" sizes="32x32">',
+  '<link rel="icon" href="assets/icons/pwa/icon-192.png?v=42" type="image/png" sizes="192x192">',
+  '<link rel="apple-touch-icon" href="assets/icons/pwa/apple-touch-icon.png?v=42">',
 ];
 
 const ORG_ID = BASE + '#organization';
