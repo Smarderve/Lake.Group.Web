@@ -136,21 +136,21 @@ const CURATED_FACTS = [
   },
   {
     id: 'leadership',
-    url: 'leadership.html',
+    url: 'leadership-ally-edha-awadh.html',
     en: {
       t: 'Leadership',
-      s: 'Ally Edha Awadh is the founder, CEO and Chairman of Lake Group. He founded the group in 2006 at age 27 with a single fuel outlet in Dar es Salaam.',
-      k: 'ceo chairman founder leadership who leads boss awadh ally management director',
+      s: 'Ally Edha Awadh is the founder, Executive Chairman and Owner of Lake Group. Full leadership profiles are on the Leadership page. He founded the group in 2006 at age 27 with a single fuel outlet in Dar es Salaam.',
+      k: 'ceo chairman founder leadership who leads boss awadh ally management director executive chairman owner',
     },
     fr: {
       t: 'Direction',
-      s: 'Ally Edha Awadh est le fondateur, PDG et président de Lake Group. Il a fondé le groupe en 2006, à 27 ans, avec une seule station-service à Dar es Salaam.',
-      k: 'pdg président fondateur direction dirigeant qui dirige awadh directeur',
+      s: 'Ally Edha Awadh est le fondateur, président exécutif et propriétaire de Lake Group. Les profils de direction sont sur la page Leadership. Il a fondé le groupe en 2006, à 27 ans, avec une seule station-service à Dar es Salaam.',
+      k: 'pdg président fondateur direction dirigeant qui dirige awadh directeur président exécutif',
     },
     sw: {
       t: 'Uongozi',
-      s: 'Ally Edha Awadh ni mwanzilishi, Mkurugenzi Mtendaji (CEO) na Mwenyekiti wa Lake Group. Alianzisha kampuni hii mwaka 2006 akiwa na miaka 27, kwa kituo kimoja tu cha mafuta Dar es Salaam.',
-      k: 'mkurugenzi mtendaji mwenyekiti mwanzilishi uongozi nani anaongoza awadh kiongozi',
+      s: 'Ally Edha Awadh ni mwanzilishi, Mwenyekiti Mtendaji na Mmiliki wa Lake Group. Wasifu kamili wa uongozi uko kwenye ukurasa wa Uongozi. Alianzisha kampuni hii mwaka 2006 akiwa na miaka 27, kwa kituo kimoja tu cha mafuta Dar es Salaam.',
+      k: 'mkurugenzi mtendaji mwenyekiti mwanzilishi uongozi nani anaongoza awadh kiongozi mmiliki',
     },
   },
   {
