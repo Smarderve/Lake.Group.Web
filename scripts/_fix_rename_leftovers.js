@@ -10,13 +10,13 @@ const cachePath = path.join(ROOT, 'scripts', '_hi_ar_cache.json');
 const cache = JSON.parse(fs.readFileSync(cachePath, 'utf8'));
 const nameFix = {
   hi: {
-    'leadership.17': { src: 'Dileep', dst: 'दिलीप' },
+    'leadership.17': { src: 'Dileep Kumar', dst: 'दिलीप कुमार' },
     'leadership.20': { src: 'Sridhar Mani', dst: 'श्रीधर मणि' },
     'leadership.23': { src: 'Mohammed Khalid', dst: 'मोहम्मद खालिद' },
     'leadership.26': { src: 'Bibhuti Singh', dst: 'बिभुति सिंह' },
   },
   ar: {
-    'leadership.17': { src: 'Dileep', dst: 'ديليب' },
+    'leadership.17': { src: 'Dileep Kumar', dst: 'ديليب كومار' },
     'leadership.20': { src: 'Sridhar Mani', dst: 'سريدار ماني' },
     'leadership.23': { src: 'Mohammed Khalid', dst: 'محمد خالد' },
     'leadership.26': { src: 'Bibhuti Singh', dst: 'بيبهوتي سينغ' },
@@ -33,7 +33,7 @@ for (const lang of ['hi', 'ar']) {
     if (lang === 'hi') {
       d = d
         .split('सिब्तियान अंसारी')
-        .join('दिलीप')
+        .join('दिलीप कुमार')
         .split('विवेक चौधरी')
         .join('श्रीधर मणि')
         .split('भास्कर एस शेट्टी')
@@ -41,14 +41,23 @@ for (const lang of ['hi', 'ar']) {
         .split('पंकज कुमार')
         .join('बिभुति सिंह');
       if (/^leadership\.(117|123|129|137)$/.test(k)) {
-        d = d.split('अंसारी').join('दिलीप').split('चौधरी').join('मणि').split('शेट्टी').join('खालिद').split('कुमार').join('सिंह');
+        d = d
+          .split('अंसारी')
+          .join('दिलीप कुमार')
+          .split('चौधरी')
+          .join('मणि')
+          .split('शेट्टी')
+          .join('खालिद');
+        if (k === 'leadership.137') {
+          d = d.split('पंकज कुमार').join('बिभुति सिंह').split('कुमार का').join('सिंह का');
+        }
       }
     } else {
       d = d
         .split('سبتيان الأنصاري')
-        .join('ديليب')
+        .join('ديليب كومار')
         .split('سبتيان أنصاري')
-        .join('ديليب')
+        .join('ديليب كومار')
         .split('فيفيك تشودري')
         .join('سريدار ماني')
         .split('باسكار س. شيتي')
@@ -58,19 +67,20 @@ for (const lang of ['hi', 'ar']) {
       if (/^leadership\.(117|123|129|137)$/.test(k)) {
         d = d
           .split('أنساري')
-          .join('ديليب')
+          .join('ديليب كومار')
           .split('تشودري')
           .join('ماني')
           .split('شودري')
           .join('ماني')
           .split('شيتي')
-          .join('خالد')
-          .split('كومار')
-          .join('سينغ');
+          .join('خالد');
+        if (k === 'leadership.137') {
+          d = d.split('بانكاج كومار').join('بيبهوتي سينغ').split('كومار').join('سينغ');
+        }
       }
     }
     for (const [from, to] of [
-      ['Ansari', lang === 'hi' ? 'दिलीप' : 'ديليب'],
+      ['Ansari', lang === 'hi' ? 'दिलीप कुमार' : 'ديليب كومار'],
       ['Choudhary', lang === 'hi' ? 'मणि' : 'ماني'],
       ['Shetty', lang === 'hi' ? 'खालिद' : 'خالد'],
     ]) {
@@ -85,18 +95,18 @@ for (const lang of ['hi', 'ar']) {
       let s = e.src;
       s = s
         .split('Sibtian Ansari')
-        .join('Dileep')
+        .join('Dileep Kumar')
         .split('Vivek Choudhary')
         .join('Sridhar Mani')
         .split('Bhaskar S. Shetty')
         .join('Mohammed Khalid')
         .split('Pankaj Kumar')
         .join('Bibhuti Singh');
-      s = s.split("Ansari's").join("Dileep's").split('Ansari\u2019s').join('Dileep\u2019s');
+      s = s.split("Ansari's").join("Dileep Kumar's").split('Ansari\u2019s').join('Dileep Kumar\u2019s');
       s = s.split("Choudhary's").join("Mani's").split('Choudhary\u2019s').join('Mani\u2019s');
       s = s.split("Shetty's").join("Khalid's").split('Shetty\u2019s').join('Khalid\u2019s');
       s = s.split("Kumar's").join("Singh's").split('Kumar\u2019s').join('Singh\u2019s');
-      s = s.split('Ansari').join('Dileep').split('Choudhary').join('Mani').split('Shetty').join('Khalid');
+      s = s.split('Ansari').join('Dileep Kumar').split('Choudhary').join('Mani').split('Shetty').join('Khalid');
       if (/^leadership\.(117|123|129|137)$/.test(k)) {
         s = s.replace(/\bKumar\b/g, 'Singh');
       }
@@ -115,7 +125,7 @@ kb = kb
   .split('Jukumu la Choudhary')
   .join('Jukumu la Mani')
   .split('Sibtian Ansari')
-  .join('Dileep')
+  .join('Dileep Kumar')
   .split('Vivek Choudhary')
   .join('Sridhar Mani')
   .split('Bhaskar S. Shetty')
@@ -123,7 +133,7 @@ kb = kb
   .split('Pankaj Kumar')
   .join('Bibhuti Singh')
   .split('leadership-sibtian-ansari.html')
-  .join('leadership-dileep.html')
+  .join('leadership-dileep-kumar.html')
   .split('leadership-vivek-choudhary.html')
   .join('leadership-sridhar-mani.html')
   .split('leadership-bhaskar-shetty.html')
@@ -132,7 +142,7 @@ kb = kb
   .join('leadership-bibhuti-singh.html');
 // residual Latin surnames in non-English KB snippets
 kb = kb.split('Choudhary').join('Mani');
-kb = kb.split('Ansari').join('Dileep');
+kb = kb.split('Ansari').join('Dileep Kumar');
 kb = kb.split('Shetty').join('Khalid');
 if (kb !== before) {
   fs.writeFileSync(kbPath, kb);

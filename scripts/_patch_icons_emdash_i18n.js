@@ -40,7 +40,7 @@ const ROLE_FIXES = {
     'leadership.24': 'المدير العام · ATL',
     'leadership.52': 'مدير العمليات · مجموعة ليك',
     'leadership.55': 'مدير المشروع · ليك أغرو',
-    'leadership.17': 'ديليب',
+    'leadership.17': 'ديليب كومار',
     'leadership.9': 'علي إضحى عوض',
   },
   hi: {
@@ -169,7 +169,7 @@ function patchI18nJson() {
 
 const NAME_KEYS = {
   'Ally Edha Awadh': 'leadership.9',
-  'Dileep': 'leadership.17',
+  'Dileep Kumar': 'leadership.17',
   'Sridhar Mani': 'leadership.20',
   'Mohammed Khalid': 'leadership.23',
   'Bibhuti Singh': 'leadership.26',

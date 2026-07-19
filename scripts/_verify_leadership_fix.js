@@ -10,7 +10,7 @@ const pages = [
   'leadership-mohammed-khalid.html',
   'leadership-ally-edha-awadh.html',
   'leadership-bibhuti-singh.html',
-  'leadership-dileep.html',
+  'leadership-dileep-kumar.html',
   'leadership-sridhar-mani.html',
   'leadership-nassoro-abubakari.html'
 ];

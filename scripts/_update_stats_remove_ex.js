@@ -380,7 +380,7 @@ fs.writeFileSync(siteJsPath, siteJs);
 const masterPath = path.join(ROOT, 'scripts', '_master_en.json');
 if (fs.existsSync(masterPath)) {
   let master = JSON.parse(fs.readFileSync(masterPath, 'utf8'));
-  if (master['leadership.17'] === 'Abdulrahman Mohamed') master['leadership.17'] = 'Dileep';
+  if (master['leadership.17'] === 'Abdulrahman Mohamed') master['leadership.17'] = 'Dileep Kumar';
   if (master['leadership.20'] === 'Khalid Mohamed') master['leadership.20'] = 'Sridhar Mani';
   if (typeof master['leadership.33'] === 'string') {
     master['leadership.33'] = master['leadership.33']

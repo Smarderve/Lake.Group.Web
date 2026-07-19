@@ -24,8 +24,8 @@ const LEADERS = [
       'Forbes-featured entrepreneur who founded Lake Oil in 2006 and built Lake Group into one of East and Central Africa’s leading energy, logistics and industrial conglomerates.',
   },
   {
-    id: 'dileep',
-    name: 'Dileep',
+    id: 'dileep-kumar',
+    name: 'Dileep Kumar',
     role: 'CEO · Manufacturing Division',
     photo: 'assets/images/leadership/sibtian-ansari.png',
     photoLogo: false,

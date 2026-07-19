@@ -57,8 +57,40 @@ const LEADERS = [
     emailSubject: 'Attention: Office of the Chairman',
   },
   {
-    id: 'dileep',
-    name: 'Dileep',
+    id: 'biji-lapat',
+    name: 'Biji Lapat',
+    role: 'Managing Director · Lake Energies',
+    unit: 'Lake Energies',
+    photo: 'assets/images/leadership/biji-lapat.png',
+    photoLogo: false,
+    summary:
+      'Managing Director of Lake Energies, Lake Group’s energy division spanning petroleum, LPG, lubricants and aviation services across the Group’s regional footprint.',
+    paragraphs: [
+      'As Managing Director of Lake Energies, Biji Lapat leads the Group’s energy division - the family of operating companies that includes Lake Oil, Lake Gas, Lake Lubes and Lake Aviation.',
+      'Lake Energies sits at the core of Lake Group’s downstream energy platform: retail and bulk petroleum distribution, LPG bottling and storage, lubricant blending, and aviation fuel services supporting customers across East and Central Africa.',
+      'Working from the Group’s Dar es Salaam headquarters, the Lake Energies mandate aligns commercial and operational priorities across these energy units with Lake Group’s wider logistics and industrial network.',
+    ],
+    mandate: [
+      'Leadership of Lake Energies operating companies',
+      'Downstream energy commercial and operational alignment',
+      'Coordination with Group logistics and support functions',
+    ],
+    meta: [
+      ['Lake Energies', 'Energy division'],
+      ['4', 'Core energy brands'],
+      ['8+', 'Countries'],
+    ],
+    links: [
+      ['Lake Oil', 'lake-oil.html'],
+      ['Lake Gas', 'lake-gas.html'],
+      ['Lake Lubes', 'lake-lubes.html'],
+      ['Lake Aviation', 'lake-aviation.html'],
+    ],
+    emailSubject: 'Attention: MD Lake Energies (Biji Lapat)',
+  },
+  {
+    id: 'dileep-kumar',
+    name: 'Dileep Kumar',
     role: 'CEO · Manufacturing Division',
     unit: 'Manufacturing',
     photo: 'assets/images/leadership/sibtian-ansari.png',
@@ -66,7 +98,7 @@ const LEADERS = [
     summary:
       'Leads Lake Group’s structural industrial expansions - most notably Lake Steel - spanning production infrastructure, manufacturing output, concrete products and construction supply networks.',
     paragraphs: [
-      'As Manufacturing CEO, Dileep’s mandate sits at the industrial heart of the Group’s diversification beyond petroleum. Lake Steel operates a computerized automatic rolling mill at Visiga, Kibaha (Plot 118, Block M), with throughput up to about 25 tonnes/hour and annual capacity around 100,000 MT - with publicly discussed expansion toward 150,000 MT.',
+      'As Manufacturing CEO, Dileep Kumar’s mandate sits at the industrial heart of the Group’s diversification beyond petroleum. Lake Steel operates a computerized automatic rolling mill at Visiga, Kibaha (Plot 118, Block M), with throughput up to about 25 tonnes/hour and annual capacity around 100,000 MT - with publicly discussed expansion toward 150,000 MT.',
       'The mill introduced high-strength corrosion-resistant (HS-CR) rebar to Tanzania, engineered to retain strength at elevated temperatures and deliver markedly higher corrosion resistance than ordinary rebar.',
       'His portfolio also connects to the Group’s construction-materials chain: Gulf Aggregates crushing plants, Lake Premix / GCCP ready-mix operations in Dar es Salaam, and the wider building-products ecosystem that supplies contractors and infrastructure projects.',
     ],
@@ -85,7 +117,7 @@ const LEADERS = [
       ['Lake Premix & Cement', 'lake-premix-cement.html'],
       ['Gulf Aggregates', 'gulf-aggregates.html'],
     ],
-    emailSubject: 'Attention: CEO Manufacturing (Dileep)',
+    emailSubject: 'Attention: CEO Manufacturing (Dileep Kumar)',
   },
   {
     id: 'sridhar-mani',
@@ -412,7 +444,8 @@ a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
 
 const LEADER_I18N = {
   'ally-edha-awadh': { name: 'leadership.9', role: 'leadership.8', sum: 'leadership.104' },
-  'dileep': { name: 'leadership.17', role: 'leadership.18', sum: 'leadership.105' },
+  'biji-lapat': { name: 'leadership.154', role: 'leadership.155', sum: 'leadership.156' },
+  'dileep-kumar': { name: 'leadership.17', role: 'leadership.18', sum: 'leadership.105' },
   'sridhar-mani': { name: 'leadership.20', role: 'leadership.21', sum: 'leadership.106' },
   'mohammed-khalid': { name: 'leadership.23', role: 'leadership.24', sum: 'leadership.107' },
   'bibhuti-singh': { name: 'leadership.26', role: 'leadership.27', sum: 'leadership.108' },

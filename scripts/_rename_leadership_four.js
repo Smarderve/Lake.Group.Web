@@ -13,15 +13,15 @@ const ROOT = path.join(__dirname, '..');
 const RENAMES = [
   {
     oldId: 'sibtian-ansari',
-    newId: 'dileep',
+    newId: 'dileep-kumar',
     oldName: 'Sibtian Ansari',
-    newName: 'Dileep',
+    newName: 'Dileep Kumar',
     photo: 'assets/images/leadership/sibtian-ansari.png',
     nameKey: 'leadership.17',
     bioKeys: ['leadership.117'],
     surnameOld: ['Ansari', 'أنساري', 'अंसारी'],
-    surnameNew: { en: 'Dileep', sw: 'Dileep', fr: 'Dileep', hi: 'दिलीप', ar: 'ديليب' },
-    localized: { en: 'Dileep', sw: 'Dileep', fr: 'Dileep', hi: 'दिलीप', ar: 'ديليب' },
+    surnameNew: { en: 'Dileep Kumar', sw: 'Dileep Kumar', fr: 'Dileep Kumar', hi: 'दिलीप कुमार', ar: 'ديليب كومار' },
+    localized: { en: 'Dileep Kumar', sw: 'Dileep Kumar', fr: 'Dileep Kumar', hi: 'दिलीप कुमार', ar: 'ديليب كومار' },
   },
   {
     oldId: 'vivek-choudhary',
@@ -89,12 +89,12 @@ function replaceAll(str, map) {
   const p = path.join(ROOT, 'scripts', 'build_leadership_pages.js');
   let s = fs.readFileSync(p, 'utf8');
   const pairs = [
-    ["id: 'sibtian-ansari'", "id: 'dileep'"],
-    ["name: 'Sibtian Ansari'", "name: 'Dileep'"],
-    ["emailSubject: 'Attention: CEO Manufacturing (Sibtian Ansari)'", "emailSubject: 'Attention: CEO Manufacturing (Dileep)'"],
-    ["As Manufacturing CEO, Ansari’s mandate", "As Manufacturing CEO, Dileep’s mandate"],
-    ["As Manufacturing CEO, Ansari's mandate", "As Manufacturing CEO, Dileep's mandate"],
-    ["'sibtian-ansari': { name: 'leadership.17'", "'dileep': { name: 'leadership.17'"],
+    ["id: 'sibtian-ansari'", "id: 'dileep-kumar'"],
+    ["name: 'Sibtian Ansari'", "name: 'Dileep Kumar'"],
+    ["emailSubject: 'Attention: CEO Manufacturing (Sibtian Ansari)'", "emailSubject: 'Attention: CEO Manufacturing (Dileep Kumar)'"],
+    ["As Manufacturing CEO, Ansari’s mandate", "As Manufacturing CEO, Dileep Kumar’s mandate"],
+    ["As Manufacturing CEO, Ansari's mandate", "As Manufacturing CEO, Dileep Kumar's mandate"],
+    ["'sibtian-ansari': { name: 'leadership.17'", "'dileep-kumar': { name: 'leadership.17'"],
 
     ["id: 'vivek-choudhary'", "id: 'sridhar-mani'"],
     ["name: 'Vivek Choudhary'", "name: 'Sridhar Mani'"],
@@ -127,8 +127,8 @@ function replaceAll(str, map) {
   const p = path.join(ROOT, 'scripts', '_patch_lp_nav_cards.js');
   let s = fs.readFileSync(p, 'utf8');
   s = replaceAll(s, [
-    ["id: 'sibtian-ansari'", "id: 'dileep'"],
-    ["name: 'Sibtian Ansari'", "name: 'Dileep'"],
+    ["id: 'sibtian-ansari'", "id: 'dileep-kumar'"],
+    ["name: 'Sibtian Ansari'", "name: 'Dileep Kumar'"],
     ["id: 'vivek-choudhary'", "id: 'sridhar-mani'"],
     ["name: 'Vivek Choudhary'", "name: 'Sridhar Mani'"],
     ["id: 'bhaskar-shetty'", "id: 'mohammed-khalid'"],
@@ -156,8 +156,8 @@ for (const r of RENAMES) {
 }
 
 // Specific surname possessive / bio swaps (Latin forms used in HTML fallbacks)
-globalMap.push(["Ansari’s", "Dileep’s"]);
-globalMap.push(["Ansari's", "Dileep's"]);
+globalMap.push(["Ansari’s", "Dileep Kumar’s"]);
+globalMap.push(["Ansari's", "Dileep Kumar's"]);
 globalMap.push(["Choudhary’s", "Mani’s"]);
 globalMap.push(["Choudhary's", "Mani's"]);
 globalMap.push(["Shetty’s", "Khalid’s"]);
@@ -165,12 +165,12 @@ globalMap.push(["Shetty's", "Khalid's"]);
 globalMap.push(["Kumar’s", "Singh’s"]);
 globalMap.push(["Kumar's", "Singh's"]);
 // Swahili / French bio surname mentions (Latin script names in prose)
-globalMap.push(['la Ansari', 'la Dileep']);
-globalMap.push(['jukumu la Ansari', 'jukumu la Dileep']);
+globalMap.push(['la Ansari', 'la Dileep Kumar']);
+globalMap.push(['jukumu la Ansari', 'jukumu la Dileep Kumar']);
 globalMap.push(['jukumu la Choudhary', 'jukumu la Mani']);
 globalMap.push(['Uwingi wa ATL wa Shetty', 'Uwingi wa ATL wa Khalid']);
 globalMap.push(['jukumu la Kumar', 'jukumu la Singh']);
-globalMap.push(['mandat d’Ansari', 'mandat de Dileep']);
+globalMap.push(['mandat d’Ansari', 'mandat de Dileep Kumar']);
 globalMap.push(['mandat de Choudhary', 'mandat de Mani']);
 globalMap.push(['Le mandat de Choudhary', 'Le mandat de Mani']);
 globalMap.push(['L’aile ATL de Shetty', 'L’aile ATL de Khalid']);
@@ -287,12 +287,12 @@ function patchI18nObject(data) {
       for (const r of RENAMES) {
         t = t.split(r.oldName).join(r.localized[lang] || r.newName);
       }
-      t = t.split("Ansari’s").join("Dileep’s").split("Ansari's").join("Dileep's");
+      t = t.split("Ansari’s").join("Dileep Kumar’s").split("Ansari's").join("Dileep Kumar's");
       t = t.split("Choudhary’s").join("Mani’s").split("Choudhary's").join("Mani's");
       t = t.split("Shetty’s").join("Khalid’s").split("Shetty's").join("Khalid's");
       t = t.split("Kumar’s").join("Singh’s").split("Kumar's").join("Singh's");
       // Swahili/French residual Latin surnames in bios
-      t = t.replace(/\bAnsari\b/g, lang === 'hi' ? 'दिलीप' : lang === 'ar' ? 'ديليب' : 'Dileep');
+      t = t.replace(/\bAnsari\b/g, lang === 'hi' ? 'दिलीप कुमार' : lang === 'ar' ? 'ديليب كومار' : 'Dileep Kumar');
       t = t.replace(/\bChoudhary\b/g, lang === 'hi' ? 'मणि' : lang === 'ar' ? 'ماني' : 'Mani');
       t = t.replace(/\bShetty\b/g, lang === 'hi' ? 'खालिद' : lang === 'ar' ? 'خالد' : 'Khalid');
       // Kumar is common — only replace in leadership bio keys
@@ -318,19 +318,19 @@ function patchI18nObject(data) {
   if (fs.existsSync(p)) {
     let s = fs.readFileSync(p, 'utf8');
     s = replaceAll(s, [
-      ['"Sibtian Ansari"', '"Dileep"'],
+      ['"Sibtian Ansari"', '"Dileep Kumar"'],
       ['"Vivek Choudhary"', '"Sridhar Mani"'],
       ['"Bhaskar S. Shetty"', '"Mohammed Khalid"'],
       ['"Pankaj Kumar"', '"Bibhuti Singh"'],
-      ["Ansari’s", "Dileep’s"],
-      ["Ansari's", "Dileep's"],
+      ["Ansari’s", "Dileep Kumar’s"],
+      ["Ansari's", "Dileep Kumar's"],
       ["Choudhary’s", "Mani’s"],
       ["Choudhary's", "Mani's"],
       ["Shetty’s", "Khalid’s"],
       ["Shetty's", "Khalid's"],
       ["Kumar’s", "Singh’s"],
       ["Kumar's", "Singh's"],
-      ['leadership-sibtian-ansari.html', 'leadership-dileep.html'],
+      ['leadership-sibtian-ansari.html', 'leadership-dileep-kumar.html'],
       ['leadership-vivek-choudhary.html', 'leadership-sridhar-mani.html'],
       ['leadership-bhaskar-shetty.html', 'leadership-mohammed-khalid.html'],
       ['leadership-pankaj-kumar.html', 'leadership-bibhuti-singh.html'],
@@ -369,7 +369,7 @@ function patchI18nObject(data) {
     s = replaceAll(s, [
       ["'leadership-bhaskar-shetty.html'", "'leadership-mohammed-khalid.html'"],
       ["'leadership-pankaj-kumar.html'", "'leadership-bibhuti-singh.html'"],
-      ["'leadership-sibtian-ansari.html'", "'leadership-dileep.html'"],
+      ["'leadership-sibtian-ansari.html'", "'leadership-dileep-kumar.html'"],
       ["'leadership-vivek-choudhary.html'", "'leadership-sridhar-mani.html'"],
     ]);
     fs.writeFileSync(ver, s);
@@ -378,7 +378,7 @@ function patchI18nObject(data) {
   const ui = path.join(ROOT, 'scripts', '_verify_ui_pass.js');
   if (fs.existsSync(ui)) {
     let s = fs.readFileSync(ui, 'utf8');
-    s = s.split('leadership-sibtian-ansari.html').join('leadership-dileep.html');
+    s = s.split('leadership-sibtian-ansari.html').join('leadership-dileep-kumar.html');
     fs.writeFileSync(ui, s);
     console.log('updated _verify_ui_pass.js');
   }

@@ -23,5 +23,5 @@ console.log('nav dir=ltr:', index.includes('site-nav" dir="ltr"') || index.inclu
 console.log('globe spin:', index.includes('lang-globe-spin'));
 console.log('footer social svg:', index.includes('footer-social') && index.includes('lg-ico'));
 console.log('css ltr lock:', fs.readFileSync(require('path').join(ROOT, 'assets', 'flagship.css'), 'utf8').includes('direction: ltr !important'));
-console.log('h1 wired:', fs.readFileSync(require('path').join(ROOT, 'leadership-dileep.html'), 'utf8').includes('data-i18n="leadership.17"'));
+console.log('h1 wired:', fs.readFileSync(require('path').join(ROOT, 'leadership-dileep-kumar.html'), 'utf8').includes('data-i18n="leadership.17"'));
 console.log('contact icons:', (fs.readFileSync(require('path').join(ROOT, 'contact.html'), 'utf8').match(/ct-ico lg-ico/g) || []).length);

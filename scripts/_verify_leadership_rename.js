@@ -74,7 +74,7 @@ for (const f of walk(ROOT)) {
 
 // Also check GOOD names present in leadership.html
 const ld = fs.readFileSync(path.join(ROOT, 'leadership.html'), 'utf8');
-const goods = ['Dileep', 'Sridhar Mani', 'Mohammed Khalid', 'Bibhuti Singh'];
+const goods = ['Dileep Kumar', 'Sridhar Mani', 'Mohammed Khalid', 'Bibhuti Singh'];
 console.log('leadership.html goods:');
 for (const g of goods) console.log(' ', g, ld.includes(g));
 console.log('leadership.html old full names:');
@@ -95,7 +95,7 @@ for (const h of hits.slice(0, 40)) {
 }
 
 // Confirm profile files exist
-for (const id of ['dileep', 'sridhar-mani', 'mohammed-khalid', 'bibhuti-singh']) {
+for (const id of ['dileep-kumar', 'sridhar-mani', 'mohammed-khalid', 'bibhuti-singh']) {
   const p = path.join(ROOT, `leadership-${id}.html`);
   console.log('exists', `leadership-${id}.html`, fs.existsSync(p), 'size', fs.existsSync(p) ? fs.statSync(p).size : 0);
 }
