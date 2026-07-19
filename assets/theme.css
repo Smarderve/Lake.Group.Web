@@ -508,15 +508,24 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
 .mm-company img {
   height: 32px; width: auto; max-width: 96px; flex: none;
   object-fit: contain;
+  object-position: center;
   aspect-ratio: auto;
   background: transparent;
   border-radius: 0;
   padding: 0;
   box-shadow: none;
+  overflow: visible;
   transition: opacity 0.18s ease;
 }
-/* ATL / Agro: match optical size of Lake wordmarks */
-.mm-company img[src*="atl.png"],
+/* ATL interlocking mark needs full circle height — never cover-crop */
+.mm-company img[src*="atl.png"] {
+  height: 30px;
+  width: auto;
+  max-width: 96px;
+  max-height: 30px;
+  object-fit: contain;
+  overflow: visible;
+}
 .mm-company img[src*="lake-agro.png"] {
   height: 28px;
   max-width: 88px;
@@ -527,7 +536,11 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
   .nav-megamenu .mm-company,
   .mm-company { width: 120px; padding: 6px 5px !important; gap: 4px; }
   .mm-company img { height: 28px; max-width: 84px; }
-  .mm-company img[src*="atl.png"],
+  .mm-company img[src*="atl.png"] {
+    height: 26px;
+    max-width: 88px;
+    max-height: 26px;
+  }
   .mm-company img[src*="lake-agro.png"] {
     height: 24px;
     max-width: 76px;
@@ -707,7 +720,7 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
 /* Stat counters: blue on light surfaces for contrast, pure brand
    yellow on dark bands. */
 .stat-number { color: var(--blue2); }
-.section-dark .stat-number, .stats-band .stat-number, .page-hero .stat-number { color: var(--yellow); }
+.section-dark .stat-number, .page-hero .stat-number { color: var(--yellow); }
 
 /* Timeline: brand dots */
 .timeline-item::before { background: var(--yellow); box-shadow: 0 0 0 2px var(--yellow); }

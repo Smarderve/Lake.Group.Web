@@ -536,15 +536,24 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
 .mm-company img {
   height: 32px; width: auto; max-width: 96px; flex: none;
   object-fit: contain;
+  object-position: center;
   aspect-ratio: auto;
   background: transparent;
   border-radius: 0;
   padding: 0;
   box-shadow: none;
+  overflow: visible;
   transition: opacity var(--dur-1) ease;
 }
-/* ATL / Agro: match optical size of Lake wordmarks */
-.mm-company img[src*="atl.png"],
+/* ATL interlocking mark needs full circle height — never cover-crop */
+.mm-company img[src*="atl.png"] {
+  height: 30px;
+  width: auto;
+  max-width: 96px;
+  max-height: 30px;
+  object-fit: contain;
+  overflow: visible;
+}
 .mm-company img[src*="lake-agro.png"] {
   height: 28px;
   max-width: 88px;
@@ -555,7 +564,11 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   .nav-megamenu .mm-company,
   .mm-company { width: 120px; padding: 6px 5px !important; gap: 4px; }
   .mm-company img { height: 28px; max-width: 84px; }
-  .mm-company img[src*="atl.png"],
+  .mm-company img[src*="atl.png"] {
+    height: 26px;
+    max-width: 88px;
+    max-height: 26px;
+  }
   .mm-company img[src*="lake-agro.png"] {
     height: 24px;
     max-width: 76px;

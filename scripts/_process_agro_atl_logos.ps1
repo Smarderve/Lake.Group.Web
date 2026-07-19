@@ -57,7 +57,9 @@ function Crop-Pad([System.Drawing.Bitmap]$bmp, $b, [int]$pad = 8) {
 }
 
 function Find-MarkBottom([System.Drawing.Bitmap]$bmp) {
-  # After yellow cleared, find largest vertical gap below the dense mark band.
+  # After yellow cleared, find the tagline gap BELOW the interlocking circles.
+  # Thin circle arcs are sparse — require a minimum mark height (~3 circle diameters)
+  # before treating a low-density run as the separator (avoids clipping circle bottoms).
   $rowCounts = New-Object int[] $bmp.Height
   for ($y = 0; $y -lt $bmp.Height; $y++) {
     $n = 0
@@ -68,18 +70,18 @@ function Find-MarkBottom([System.Drawing.Bitmap]$bmp) {
   }
   $peak = ($rowCounts | Measure-Object -Maximum).Maximum
   if ($peak -lt 10) { return [int]($bmp.Height * 0.55) }
-  $thresh = [Math]::Max(8, [int]($peak * 0.08))
-  # Find first solid content from top
+  $thresh = [Math]::Max(12, [int]($peak * 0.06))
   $start = 0
   while ($start -lt $bmp.Height -and $rowCounts[$start] -lt $thresh) { $start++ }
-  # Walk through mark; find sustained low-density gap (tagline separator)
+  $minMarkH = [Math]::Max(80, [int]($bmp.Width * 0.22))
+  $gapNeeded = [Math]::Max(18, [int]($bmp.Height * 0.035))
   $inGap = 0
   $gapStart = -1
   for ($y = $start; $y -lt $bmp.Height; $y++) {
     if ($rowCounts[$y] -lt $thresh) {
       if ($gapStart -lt 0) { $gapStart = $y }
       $inGap++
-      if ($inGap -ge [Math]::Max(10, [int]($bmp.Height * 0.03)) -and ($y - $start) -gt [int]($bmp.Height * 0.22)) {
+      if ($inGap -ge $gapNeeded -and ($gapStart - $start) -ge $minMarkH) {
         return $gapStart
       }
     } else {
@@ -87,10 +89,9 @@ function Find-MarkBottom([System.Drawing.Bitmap]$bmp) {
       $gapStart = -1
     }
   }
-  # Fallback: keep upper 52% of content height
   $end = $bmp.Height - 1
   while ($end -gt $start -and $rowCounts[$end] -lt $thresh) { $end-- }
-  return $start + [int](($end - $start + 1) * 0.52)
+  return $start + [int](($end - $start + 1) * 0.48)
 }
 
 # --- ATL: HD logo_yellow first (crop to mark); screenshot is low-res fallback ---
@@ -133,7 +134,7 @@ if (-not $isScreenshot) {
 
 $bounds = Get-ContentBounds $atlBmp
 if (-not $bounds) { throw 'ATL content empty after plate removal' }
-$atlOut = Crop-Pad $atlBmp $bounds 10
+$atlOut = Crop-Pad $atlBmp $bounds 28
 $atlBmp.Dispose()
 $atlDest = Join-Path $COMP 'atl.png'
 $atlOut.Save($atlDest, [System.Drawing.Imaging.ImageFormat]::Png)

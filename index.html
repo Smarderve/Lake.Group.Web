@@ -538,24 +538,6 @@
       line-height: 1.7;
     }
 
-    /* STAT */
-    .stat-number {
-      font-family: "Bebas Neue", sans-serif;
-      font-size: clamp(3rem, 5vw, 4.5rem);
-      color: var(--yellow);
-      letter-spacing: 0.02em;
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-size: 0.82rem;
-      color: var(--muted);
-      font-weight: 500;
-      margin-top: 5px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
     /* DIVIDER */
     .divider-yellow {
       width: 44px;
@@ -1330,7 +1312,6 @@
       max-width: 14ch;
     }
     .section-title { font-size: clamp(1.55rem, 2.6vw, 2.1rem); }
-    .stat-number { font-size: clamp(2.4rem, 4vw, 3.2rem); }
 
     .map-link { display: inline-flex; align-items: center; gap: 0.35rem; color: var(--yellow); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
     .map-link::after { content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpolyline points='1,2 4,5 7,2' fill='none' stroke='currentColor' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); display: inline-flex; width: 0.75em; height: 0.55em; }
@@ -1804,31 +1785,6 @@
       letter-spacing: 0.06em;
     }
 
-    /* STATS BAND */
-    .stats-band {
-      background: var(--blue);
-      padding: 72px 0;
-      border-top: 3px solid var(--yellow);
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 28px;
-    }
-
-    @media (max-width: 900px) {
-      .stats-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    @media (max-width: 600px) {
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
     /* DIVISIONS */
     .divisions-grid {
       display: grid;
@@ -2005,7 +1961,7 @@
       transform: translateY(0) !important;
     }
 
-    /* "Subsidiaries" mega-menu (assets/theme.css?v=49 defines the column grid);
+    /* "Subsidiaries" mega-menu (assets/theme.css?v=51 defines the column grid);
        it needs to stay horizontally centered (translateX(-50%)) even while
        the !important rule above forces translateY(0), and also needs to
        open on the JS-driven .is-open class (click/keyboard), not just
@@ -2078,7 +2034,7 @@
     </script>
   <link rel="stylesheet" href="assets/tokens.css?v=49">
   <link rel="stylesheet" href="assets/split-text.css?v=46">
-<link rel="stylesheet" href="assets/theme.css?v=49" />
+<link rel="stylesheet" href="assets/theme.css?v=51" />
   <link rel="stylesheet" href="assets/assistant.css?v=44">
 </head>
 
@@ -2108,7 +2064,7 @@
             <a href="lake-steel.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-steel.png" alt="Lake Steel" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeSteel">Lake Steel</span></a>
             <a href="lake-cylinders.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="Lake Cylinders" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeCylinders">Lake Cylinders</span></a>
             <a href="gulf-aggregates.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/gulf-aggregates.png" alt="Gulf Aggregates" loading="lazy" width="56" height="32"><span data-i18n="nav.co.gulfAggregates">Gulf Aggregates</span></a>
-            <a href="atl.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/atl.png?v=52" alt="ATL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.atl">ATL</span></a>
+            <a href="atl.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/atl.png?v=53" alt="ATL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.atl">ATL</span></a>
             <a href="lake-premix-cement.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-premix-cement.png" alt="Lake Premix and Cement" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</span></a>
           </div>
           <div class="mm-col" role="none">
@@ -2485,52 +2441,11 @@
                 flex-wrap: wrap;
               ">
             <a data-i18n="index.37" href="about.html" class="btn btn-primary">Read Our Story</a>
-            <a data-i18n="index.38" href="leadership.html" class="btn btn-outline-dark">Meet Leadership</a>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- STATS BAND -->
-  <div class="stats-band">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="reveal" style="text-align: center">
-          <div class="stat-number" data-count="30000" data-suffix="+">
-            30,000+
-          </div>
-          <div data-i18n="index.39" class="stat-label" style="color: rgba(255, 255, 255, 0.5)">
-            Employees
-          </div>
-        </div>
-        <div class="reveal" style="text-align: center">
-          <div class="stat-number" data-count="1200" data-suffix="+">1,200+</div>
-          <div data-i18n="index.40" class="stat-label" style="color: rgba(255, 255, 255, 0.5)">
-            Trucks in Fleet
-          </div>
-        </div>
-        <div class="reveal" style="text-align: center">
-          <div class="stat-number" data-count="152">152</div>
-          <div data-i18n="index.41" class="stat-label" style="color: rgba(255, 255, 255, 0.5)">
-            Fuel Stations
-          </div>
-        </div>
-        <div class="reveal" style="text-align: center">
-          <div class="stat-number" data-count="8">8</div>
-          <div data-i18n="index.42" class="stat-label" style="color: rgba(255, 255, 255, 0.5)">
-            Countries
-          </div>
-        </div>
-        <div class="reveal" style="text-align: center">
-          <div class="stat-number" data-count="20" data-suffix="+">20+</div>
-          <div data-i18n="index.43" class="stat-label" style="color: rgba(255, 255, 255, 0.5)">
-            Subsidiaries
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- BUSINESS DIVISIONS with real photos -->
   <section class="section section-offwhite">

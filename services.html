@@ -34,7 +34,8 @@
 .div-main h3{font-family:var(--font-display);font-weight:400;font-size:clamp(1.25rem,2vw,1.8rem);line-height:1.1;letter-spacing:.02em;text-transform:uppercase;color:var(--text);display:flex;align-items:center;gap:10px}
 .div-main .div-glyph{width:28px;height:28px;flex:none;display:inline-flex;align-items:center;justify-content:center;color:var(--gold);}
 .div-main .div-glyph svg{width:100%;height:100%;display:block}
-.div-main .div-glyph img{width:100%;height:100%;object-fit:contain;display:block;background:var(--ink);border-radius:4px;padding:2px}
+.div-main .div-glyph img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;background:var(--ink);border-radius:4px;padding:2px;overflow:visible}
+.div-main .div-glyph img[src*="atl.png"]{padding:1px}
 .div-cat{margin:var(--sp-10) 0 0;padding-top:var(--sp-6);font-family:var(--font-display);font-size:1.05rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);border-top:1px solid var(--line)}
 .div-cat:first-child{margin-top:0;border-top:none}
 .div-side p{font-size:.95rem;line-height:1.75;margin-bottom:var(--sp-4);color:var(--text)}
@@ -54,12 +55,6 @@
 @media(max-width:880px){.div-row{grid-template-columns:48px 1fr}.div-side{grid-column:2}}
 
 /* Stats band on ink */
-.stats-band{background:var(--ink);padding:var(--sp-20) 0;position:relative;border-top:1px solid var(--ink-line-2)}
-.stats-band::before{content:'';position:absolute;top:-4px;left:var(--sp-8);width:8px;height:8px;background:var(--gold)}
-.stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--sp-8)}
-@media(max-width:900px){.stats-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:600px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
-
 /* CTA band  gold plate with notched corner */
 .cta-band{background:var(--gold);padding:var(--sp-20) 0;position:relative;overflow:hidden}
 .cta-band::after{content:'';position:absolute;top:0;right:0;width:120px;height:120px;background:var(--ink);clip-path:polygon(100% 0,0 0,100% 100%)}
@@ -118,7 +113,7 @@
             <a href="lake-steel.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-steel.png" alt="Lake Steel" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeSteel">Lake Steel</span></a>
             <a href="lake-cylinders.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="Lake Cylinders" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeCylinders">Lake Cylinders</span></a>
             <a href="gulf-aggregates.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/gulf-aggregates.png" alt="Gulf Aggregates" loading="lazy" width="56" height="32"><span data-i18n="nav.co.gulfAggregates">Gulf Aggregates</span></a>
-            <a href="atl.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/atl.png?v=52" alt="ATL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.atl">ATL</span></a>
+            <a href="atl.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/atl.png?v=53" alt="ATL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.atl">ATL</span></a>
             <a href="lake-premix-cement.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-premix-cement.png" alt="Lake Premix and Cement" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</span></a>
           </div>
           <div class="mm-col" role="none">
@@ -354,7 +349,7 @@
       <a href="lake-steel.html" class="div-row"><div class="div-no">07</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/lake-steel.png" alt="" loading="lazy"></span> <span>Lake Steel</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeSteel">Tanzania's first HS-CR rebar producer. Fully automated rolling mill, 100,000 MT/year capacity.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
       <a href="lake-cylinders.html" class="div-row"><div class="div-no">08</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="" loading="lazy"></span> <span>Lake Cylinders</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeCylinders">Lake Group's gas cylinder manufacturing division.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
       <a href="gulf-aggregates.html" class="div-row"><div class="div-no">09</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/gulf-aggregates.png" alt="" loading="lazy"></span> <span>Gulf Aggregates</span></h3></div><div class="div-side"><p data-i18n="services.desc.gulfAggregates">Aggregate quarrying at Lugoba, supplying the construction industry and Lake Group's own concrete production.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
-      <a href="atl.html" class="div-row"><div class="div-no">10</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/atl.png?v=52" alt="" loading="lazy"></span> <span>ATL (Aluminium Trailers)</span></h3></div><div class="div-side"><p data-i18n="services.desc.atl">Tanzania's aluminium fuel tanker and custom trailer manufacturer - engineered for African routes.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
+      <a href="atl.html" class="div-row"><div class="div-no">10</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/atl.png?v=53" alt="" loading="lazy"></span> <span>ATL (Aluminium Trailers)</span></h3></div><div class="div-side"><p data-i18n="services.desc.atl">Tanzania's aluminium fuel tanker and custom trailer manufacturer - engineered for African routes.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
       <a href="lake-premix-cement.html" class="div-row"><div class="div-no">11</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/lake-premix-cement.png" alt="" loading="lazy"></span> <span>Lake Premix &amp; Cement</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakePremix">Dar es Salaam's leading ready-mix concrete supplier, established 2010.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
 
       <div class="div-cat" data-i18n="nav.dd.logisticsCos">Logistics</div>
@@ -380,18 +375,6 @@
     </div>
   </div>
 </section>
-
-<div class="stats-band fs-on-dark">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="fs-stat"><span class="fs-stat-no" data-count="30000" data-suffix="+">30,000+</span><span data-i18n="services.33" class="fs-stat-label">Employees</span></div>
-      <div class="fs-stat"><span class="fs-stat-no" data-count="1200" data-suffix="+">1,200+</span><span data-i18n="services.34" class="fs-stat-label">Trucks</span></div>
-      <div class="fs-stat"><span class="fs-stat-no" data-count="152">152</span><span data-i18n="services.35" class="fs-stat-label">Fuel Stations</span></div>
-      <div class="fs-stat"><span class="fs-stat-no" data-count="8">8</span><span data-i18n="services.36" class="fs-stat-label">Countries</span></div>
-      <div class="fs-stat"><span class="fs-stat-no" data-count="20" data-suffix="+">20+</span><span data-i18n="services.37" class="fs-stat-label">Subsidiaries</span></div>
-    </div>
-  </div>
-</div>
 
 <div class="cta-band">
   <div class="container">
