@@ -24,8 +24,8 @@ const LEADERS = [
       'Forbes-featured entrepreneur who founded Lake Oil in 2006 and built Lake Group into one of East and Central Africa’s leading energy, logistics and industrial conglomerates.',
   },
   {
-    id: 'sibtian-ansari',
-    name: 'Sibtian Ansari',
+    id: 'dileep',
+    name: 'Dileep',
     role: 'CEO · Manufacturing Division',
     photo: 'assets/images/leadership/sibtian-ansari.png',
     photoLogo: false,
@@ -36,8 +36,8 @@ const LEADERS = [
       'Leads Lake Group’s structural industrial expansions - most notably Lake Steel - spanning production infrastructure, manufacturing output, concrete products and construction supply networks.',
   },
   {
-    id: 'vivek-choudhary',
-    name: 'Vivek Choudhary',
+    id: 'sridhar-mani',
+    name: 'Sridhar Mani',
     role: 'Director of Digital Transformation',
     photo: 'assets/images/leadership/vivek-choudhary.png',
     photoLogo: false,
@@ -48,8 +48,8 @@ const LEADERS = [
       'Owns enterprise technology architecture and digital strategy - from centralised SAP environments to logistics intelligence and cross-border data security.',
   },
   {
-    id: 'bhaskar-shetty',
-    name: 'Bhaskar S. Shetty',
+    id: 'mohammed-khalid',
+    name: 'Mohammed Khalid',
     role: 'Managing Director · ATL',
     photo: 'assets/images/leadership/bhaskar-shetty.png',
     photoLogo: false,
@@ -60,8 +60,8 @@ const LEADERS = [
       'Directs Associated Trans Logistics Ltd (ATL), operating alongside Lake Trans as a logistical backbone for fuel fleets, heavy haulage and multi-national cargo corridors.',
   },
   {
-    id: 'pankaj-kumar',
-    name: 'Pankaj Kumar',
+    id: 'bibhuti-singh',
+    name: 'Bibhuti Singh',
     role: 'CFO · AFICD',
     photo: 'assets/images/leadership/pankaj-kumar.png',
     photoLogo: false,

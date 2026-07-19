@@ -28,10 +28,10 @@
           <a href="contact.html" class="btn btn-outline-dark btn-sm">Contact</a>
         </div>
         <nav class="lp-nav" aria-label="Related leadership profiles">
-          <a class="ld-person-card" href="leadership-pankaj-kumar.html">
-          <div class="ld-person-photo"><img src="assets/images/leadership/pankaj-kumar.png" alt="Pankaj Kumar" data-i18n-alt="leadership.26" loading="lazy" decoding="async"></div>
+          <a class="ld-person-card" href="leadership-bibhuti-singh.html">
+          <div class="ld-person-photo"><img src="assets/images/leadership/pankaj-kumar.png" alt="Bibhuti Singh" data-i18n-alt="leadership.26" loading="lazy" decoding="async"></div>
           <div class="ld-person-body">
-            <h3><span data-i18n="leadership.26">Pankaj Kumar</span></h3>
+            <h3><span data-i18n="leadership.26">Bibhuti Singh</span></h3>
             <p class="ld-person-role"><span data-i18n="leadership.27">CFO · AFICD</span></p>
             <p class="ld-person-sum"><span data-i18n="leadership.108">Oversees financial planning, risk analysis and corporate governance for African Inland Container Depot (AFICD) - Lake Group’s dry-port platform in Dar es Salaam.</span></p>
             <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>

@@ -57,8 +57,8 @@ const LEADERS = [
     emailSubject: 'Attention: Office of the Chairman',
   },
   {
-    id: 'sibtian-ansari',
-    name: 'Sibtian Ansari',
+    id: 'dileep',
+    name: 'Dileep',
     role: 'CEO · Manufacturing Division',
     unit: 'Manufacturing',
     photo: 'assets/images/leadership/sibtian-ansari.png',
@@ -66,7 +66,7 @@ const LEADERS = [
     summary:
       'Leads Lake Group’s structural industrial expansions - most notably Lake Steel - spanning production infrastructure, manufacturing output, concrete products and construction supply networks.',
     paragraphs: [
-      'As Manufacturing CEO, Ansari’s mandate sits at the industrial heart of the Group’s diversification beyond petroleum. Lake Steel operates a computerized automatic rolling mill at Visiga, Kibaha (Plot 118, Block M), with throughput up to about 25 tonnes/hour and annual capacity around 100,000 MT - with publicly discussed expansion toward 150,000 MT.',
+      'As Manufacturing CEO, Dileep’s mandate sits at the industrial heart of the Group’s diversification beyond petroleum. Lake Steel operates a computerized automatic rolling mill at Visiga, Kibaha (Plot 118, Block M), with throughput up to about 25 tonnes/hour and annual capacity around 100,000 MT - with publicly discussed expansion toward 150,000 MT.',
       'The mill introduced high-strength corrosion-resistant (HS-CR) rebar to Tanzania, engineered to retain strength at elevated temperatures and deliver markedly higher corrosion resistance than ordinary rebar.',
       'His portfolio also connects to the Group’s construction-materials chain: Gulf Aggregates crushing plants, Lake Premix / GCCP ready-mix operations in Dar es Salaam, and the wider building-products ecosystem that supplies contractors and infrastructure projects.',
     ],
@@ -85,11 +85,11 @@ const LEADERS = [
       ['Lake Premix & Cement', 'lake-premix-cement.html'],
       ['Gulf Aggregates', 'gulf-aggregates.html'],
     ],
-    emailSubject: 'Attention: CEO Manufacturing (Sibtian Ansari)',
+    emailSubject: 'Attention: CEO Manufacturing (Dileep)',
   },
   {
-    id: 'vivek-choudhary',
-    name: 'Vivek Choudhary',
+    id: 'sridhar-mani',
+    name: 'Sridhar Mani',
     role: 'Director of Digital Transformation',
     unit: 'Technology',
     photo: 'assets/images/leadership/vivek-choudhary.png',
@@ -97,7 +97,7 @@ const LEADERS = [
     summary:
       'Owns enterprise technology architecture and digital strategy - from centralised SAP environments to logistics intelligence and cross-border data security.',
     paragraphs: [
-      'Across a Group that runs fuel depots, 1,200+ trucks, ICD/CFS yards and multi-country retail, digital systems are the nervous system. Choudhary’s mandate focuses on optimising Lake Group’s centralised SAP stack - the operational backbone for shipment orders, inventory and financial posting across units such as Lake Trans and AFICD.',
+      'Across a Group that runs fuel depots, 1,200+ trucks, ICD/CFS yards and multi-country retail, digital systems are the nervous system. Mani’s mandate focuses on optimising Lake Group’s centralised SAP stack - the operational backbone for shipment orders, inventory and financial posting across units such as Lake Trans and AFICD.',
       'He embeds custom logistics and fleet-tracking intelligence so corridor movements stay visible from Dar to Ndola and beyond, and scales cross-border data security infrastructure protecting networks that connect Tanzania hubs with regional country operations.',
       'The goal is a single, resilient digital layer that lets manufacturing, energy and logistics executives act on the same real-time picture.',
     ],
@@ -116,11 +116,11 @@ const LEADERS = [
       ['Africa network', 'africa-network.html'],
       ['AFICD', 'aficd.html'],
     ],
-    emailSubject: 'Attention: Director Digital Transformation (Vivek Choudhary)',
+    emailSubject: 'Attention: Director Digital Transformation (Sridhar Mani)',
   },
   {
-    id: 'bhaskar-shetty',
-    name: 'Bhaskar S. Shetty',
+    id: 'mohammed-khalid',
+    name: 'Mohammed Khalid',
     role: 'Managing Director · ATL',
     unit: 'Logistics',
     photo: 'assets/images/leadership/bhaskar-shetty.png',
@@ -128,7 +128,7 @@ const LEADERS = [
     summary:
       'Directs Associated Trans Logistics Ltd (ATL), operating alongside Lake Trans as a logistical backbone for fuel fleets, heavy haulage and multi-national cargo corridors.',
     paragraphs: [
-      'Shetty’s ATL wing sits next to Lake Trans Ltd. - the Group’s second company (2008) and primary petroleum haulage arm. Together they move product locally and in transit across Tanzania, Zambia, Rwanda, DRC, Burundi, Malawi, Kenya and Uganda.',
+      'Khalid’s ATL wing sits next to Lake Trans Ltd. - the Group’s second company (2008) and primary petroleum haulage arm. Together they move product locally and in transit across Tanzania, Zambia, Rwanda, DRC, Burundi, Malawi, Kenya and Uganda.',
       'Group messaging cites 1,200+ trucks; tanker capacities typically range 12,000–40,000 litres, with GPS tracking as standard. Workshops in Kibaha, Kigamboni, Morogoro, Nairobi and Ndola support asset uptime on the corridors that make Lake Group’s multi-country model possible.',
       'ATL’s role is to keep the physical network seamless: routing fuel fleets, heavy haulage and cargo pipelines so depots, stations and industrial plants stay supplied.',
     ],
@@ -147,11 +147,11 @@ const LEADERS = [
       ['ATL', 'https://atl-tz.com'],
       ['Fleet profile', 'fleet.html'],
     ],
-    emailSubject: 'Attention: MD ATL (Bhaskar S. Shetty)',
+    emailSubject: 'Attention: MD ATL (Mohammed Khalid)',
   },
   {
-    id: 'pankaj-kumar',
-    name: 'Pankaj Kumar',
+    id: 'bibhuti-singh',
+    name: 'Bibhuti Singh',
     role: 'CFO · AFICD',
     unit: 'Finance · Containers',
     photo: 'assets/images/leadership/pankaj-kumar.png',
@@ -161,7 +161,7 @@ const LEADERS = [
     paragraphs: [
       'AFICD is a core Group asset: an inland container depot at Tazara / Pugu Road with rail siding toward the port (~6 km), serving landlocked markets including Rwanda, Burundi, Uganda, DRC, Zambia and Malawi.',
       'The Dar yard covers about 14,000 m² with capacity around 4,000 TEU, SAP-based operations, container repairs, and sister sites in Zambia (Ndola) and Mozambique (Beira). ACFS extends the brand into a larger CFS terminal with warehouse, weighbridge and reefer capacity.',
-      'As CFO, Kumar’s brief is capital discipline and governance around that cargo engine - planning, risk and controls for import-export volumes, customs-linked workflows and container clearing.',
+      'As CFO, Singh’s brief is capital discipline and governance around that cargo engine - planning, risk and controls for import-export volumes, customs-linked workflows and container clearing.',
     ],
     mandate: [
       'Financial planning & performance for AFICD',
@@ -178,7 +178,7 @@ const LEADERS = [
       ['Container services', 'container-services.html'],
       ['Contact Group', 'contact.html'],
     ],
-    emailSubject: 'Attention: CFO AFICD (Pankaj Kumar)',
+    emailSubject: 'Attention: CFO AFICD (Bibhuti Singh)',
   },
   {
     id: 'juma-nuru',
@@ -412,10 +412,10 @@ a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
 
 const LEADER_I18N = {
   'ally-edha-awadh': { name: 'leadership.9', role: 'leadership.8', sum: 'leadership.104' },
-  'sibtian-ansari': { name: 'leadership.17', role: 'leadership.18', sum: 'leadership.105' },
-  'vivek-choudhary': { name: 'leadership.20', role: 'leadership.21', sum: 'leadership.106' },
-  'bhaskar-shetty': { name: 'leadership.23', role: 'leadership.24', sum: 'leadership.107' },
-  'pankaj-kumar': { name: 'leadership.26', role: 'leadership.27', sum: 'leadership.108' },
+  'dileep': { name: 'leadership.17', role: 'leadership.18', sum: 'leadership.105' },
+  'sridhar-mani': { name: 'leadership.20', role: 'leadership.21', sum: 'leadership.106' },
+  'mohammed-khalid': { name: 'leadership.23', role: 'leadership.24', sum: 'leadership.107' },
+  'bibhuti-singh': { name: 'leadership.26', role: 'leadership.27', sum: 'leadership.108' },
   'juma-nuru': { name: 'leadership.51', role: 'leadership.52', sum: 'leadership.53' },
   'nassoro-abubakari': { name: 'leadership.54', role: 'leadership.55', sum: 'leadership.56' },
 };

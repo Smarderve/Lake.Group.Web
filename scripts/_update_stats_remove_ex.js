@@ -296,7 +296,7 @@ addI18nNumbers('about.html');
 addI18nNumbers('our-story.html');
 
 // Fix about/our-story if old values somehow remain
-for (const f of ['about.html', 'our-story.html', 'index.html', 'africa-network.html', 'services.html', 'investors.html', 'fleet.html', 'station-locator.html', 'lake-trans.html', 'lake-oil.html', 'careers.html', 'csr.html', 'history.html', 'sustainability.html', 'projects.html', 'leadership.html', 'leadership-ally-edha-awadh.html', 'leadership-bhaskar-shetty.html', 'leadership-vivek-choudhary.html']) {
+for (const f of ['about.html', 'our-story.html', 'index.html', 'africa-network.html', 'services.html', 'investors.html', 'fleet.html', 'station-locator.html', 'lake-trans.html', 'lake-oil.html', 'careers.html', 'csr.html', 'history.html', 'sustainability.html', 'projects.html', 'leadership.html', 'leadership-ally-edha-awadh.html', 'leadership-mohammed-khalid.html', 'leadership-sridhar-mani.html']) {
   const p = path.join(ROOT, f);
   if (!fs.existsSync(p)) continue;
   let h = fs.readFileSync(p, 'utf8');
@@ -380,8 +380,8 @@ fs.writeFileSync(siteJsPath, siteJs);
 const masterPath = path.join(ROOT, 'scripts', '_master_en.json');
 if (fs.existsSync(masterPath)) {
   let master = JSON.parse(fs.readFileSync(masterPath, 'utf8'));
-  if (master['leadership.17'] === 'Abdulrahman Mohamed') master['leadership.17'] = 'Sibtian Ansari';
-  if (master['leadership.20'] === 'Khalid Mohamed') master['leadership.20'] = 'Vivek Choudhary';
+  if (master['leadership.17'] === 'Abdulrahman Mohamed') master['leadership.17'] = 'Dileep';
+  if (master['leadership.20'] === 'Khalid Mohamed') master['leadership.20'] = 'Sridhar Mani';
   if (typeof master['leadership.33'] === 'string') {
     master['leadership.33'] = master['leadership.33']
       .replace(/\s*MD:\s*Abdulrahman Mohamed\.?/gi, '')

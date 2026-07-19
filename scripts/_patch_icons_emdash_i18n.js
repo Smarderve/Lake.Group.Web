@@ -40,7 +40,7 @@ const ROLE_FIXES = {
     'leadership.24': 'المدير العام · ATL',
     'leadership.52': 'مدير العمليات · مجموعة ليك',
     'leadership.55': 'مدير المشروع · ليك أغرو',
-    'leadership.17': 'سبتيان أنصاري',
+    'leadership.17': 'ديليب',
     'leadership.9': 'علي إضحى عوض',
   },
   hi: {
@@ -169,10 +169,10 @@ function patchI18nJson() {
 
 const NAME_KEYS = {
   'Ally Edha Awadh': 'leadership.9',
-  'Sibtian Ansari': 'leadership.17',
-  'Vivek Choudhary': 'leadership.20',
-  'Bhaskar S. Shetty': 'leadership.23',
-  'Pankaj Kumar': 'leadership.26',
+  'Dileep': 'leadership.17',
+  'Sridhar Mani': 'leadership.20',
+  'Mohammed Khalid': 'leadership.23',
+  'Bibhuti Singh': 'leadership.26',
   'Juma Nuru': 'leadership.51',
   'Nassoro Abubakari': 'leadership.54',
 };

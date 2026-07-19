@@ -7,11 +7,11 @@ const data = JSON.parse(fs.readFileSync(path.join(ROOT, 'assets', 'i18n-content.
 const pages = [
   'leadership.html',
   'leadership-juma-nuru.html',
-  'leadership-bhaskar-shetty.html',
+  'leadership-mohammed-khalid.html',
   'leadership-ally-edha-awadh.html',
-  'leadership-pankaj-kumar.html',
-  'leadership-sibtian-ansari.html',
-  'leadership-vivek-choudhary.html',
+  'leadership-bibhuti-singh.html',
+  'leadership-dileep.html',
+  'leadership-sridhar-mani.html',
   'leadership-nassoro-abubakari.html'
 ];
 

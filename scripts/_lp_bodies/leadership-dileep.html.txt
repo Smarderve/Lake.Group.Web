@@ -1,9 +1,9 @@
 
         <div class="lp-unit">Manufacturing</div>
-        <h1 class="lp-name">Sibtian Ansari</h1>
+        <h1 class="lp-name">Dileep</h1>
         <p class="lp-role">CEO · Manufacturing Division</p>
         <p class="lp-lede">Leads Lake Group’s structural industrial expansions — most notably Lake Steel — spanning production infrastructure, manufacturing output, concrete products and construction supply networks.</p>
-        <p>As Manufacturing CEO, Ansari’s mandate sits at the industrial heart of the Group’s diversification beyond petroleum. Lake Steel operates a computerized automatic rolling mill at Visiga, Kibaha (Plot 118, Block M), with throughput up to about 25 tonnes/hour and annual capacity around 100,000 MT — with publicly discussed expansion toward 150,000 MT.</p>
+        <p>As Manufacturing CEO, Dileep’s mandate sits at the industrial heart of the Group’s diversification beyond petroleum. Lake Steel operates a computerized automatic rolling mill at Visiga, Kibaha (Plot 118, Block M), with throughput up to about 25 tonnes/hour and annual capacity around 100,000 MT — with publicly discussed expansion toward 150,000 MT.</p>
         <p>The mill introduced high-strength corrosion-resistant (HS-CR) rebar to Tanzania, engineered to retain strength at elevated temperatures and deliver markedly higher corrosion resistance than ordinary rebar.</p>
         <p>His portfolio also connects to the Group’s construction-materials chain: Gulf Aggregates crushing plants, Lake Premix / GCCP ready-mix operations in Dar es Salaam, and the wider building-products ecosystem that supplies contractors and infrastructure projects.</p>
         
@@ -20,7 +20,7 @@
         <div class="lp-contact">
           <div><strong>Group HQ</strong><span>Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055, Dar es Salaam, Tanzania</span></div>
           <div><strong>Phone</strong><a href="tel:+255222780510">+255 222 780 510</a> · <a href="tel:+255222780479">+255 222 780 479</a></div>
-          <div><strong>Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20CEO%20Manufacturing%20(Sibtian%20Ansari)">admin@lakeoilgroup.com</a></div>
+          <div><strong>Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20CEO%20Manufacturing%20(Dileep)">admin@lakeoilgroup.com</a></div>
         </div>
         <div class="lp-links">
           <a href="lake-steel.html" class="btn btn-outline-dark btn-sm">Lake Steel</a>
@@ -37,10 +37,10 @@
             <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>
           </div>
         </a>
-          <a class="ld-person-card" href="leadership-vivek-choudhary.html">
-          <div class="ld-person-photo"><img src="assets/images/leadership/vivek-choudhary.png" alt="Vivek Choudhary" data-i18n-alt="leadership.20" loading="lazy" decoding="async"></div>
+          <a class="ld-person-card" href="leadership-sridhar-mani.html">
+          <div class="ld-person-photo"><img src="assets/images/leadership/vivek-choudhary.png" alt="Sridhar Mani" data-i18n-alt="leadership.20" loading="lazy" decoding="async"></div>
           <div class="ld-person-body">
-            <h3><span data-i18n="leadership.20">Vivek Choudhary</span></h3>
+            <h3><span data-i18n="leadership.20">Sridhar Mani</span></h3>
             <p class="ld-person-role"><span data-i18n="leadership.21">Director of Digital Transformation</span></p>
             <p class="ld-person-sum"><span data-i18n="leadership.106">Owns enterprise technology architecture and digital strategy - from centralised SAP environments to logistics intelligence and cross-border data security.</span></p>
             <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>

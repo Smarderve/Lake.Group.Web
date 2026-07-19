@@ -87,9 +87,9 @@ const NEW = {
     'leadership.114': 'Group strategy across energy, logistics and industry',
     'leadership.115': 'Regional expansion and capital partnerships',
     'leadership.116': 'Governance and long-term value creation',
-    // Sibtian
+    // Dileep
     'leadership.117':
-      'As Manufacturing CEO, Ansari’s mandate sits at the industrial heart of the Group’s diversification beyond petroleum. Lake Steel operates a computerized automatic rolling mill at Visiga, Kibaha (Plot 118, Block M), with throughput up to about 25 tonnes/hour and annual capacity around 100,000 MT - with publicly discussed expansion toward 150,000 MT.',
+      'As Manufacturing CEO, Dileep’s mandate sits at the industrial heart of the Group’s diversification beyond petroleum. Lake Steel operates a computerized automatic rolling mill at Visiga, Kibaha (Plot 118, Block M), with throughput up to about 25 tonnes/hour and annual capacity around 100,000 MT - with publicly discussed expansion toward 150,000 MT.',
     'leadership.118':
       'The mill introduced high-strength corrosion-resistant (HS-CR) rebar to Tanzania, engineered to retain strength at elevated temperatures and deliver markedly higher corrosion resistance than ordinary rebar.',
     'leadership.119':
@@ -97,9 +97,9 @@ const NEW = {
     'leadership.120': 'Lake Steel production infrastructure & mill output',
     'leadership.121': 'Concrete products & construction supply networks',
     'leadership.122': 'Industrial expansion programmes across manufacturing units',
-    // Vivek
+    // Sridhar Mani
     'leadership.123':
-      'Across a Group that runs fuel depots, 700+ trucks, ICD/CFS yards and multi-country retail, digital systems are the nervous system. Choudhary’s mandate focuses on optimising Lake Group’s centralised SAP stack - the operational backbone for shipment orders, inventory and financial posting across units such as Lake Trans and AFICD.',
+      'Across a Group that runs fuel depots, 700+ trucks, ICD/CFS yards and multi-country retail, digital systems are the nervous system. Mani’s mandate focuses on optimising Lake Group’s centralised SAP stack - the operational backbone for shipment orders, inventory and financial posting across units such as Lake Trans and AFICD.',
     'leadership.124':
       'He embeds custom logistics and fleet-tracking intelligence so corridor movements stay visible from Dar to Ndola and beyond, and scales cross-border data security infrastructure protecting networks that connect Tanzania hubs with regional country operations.',
     'leadership.125':
@@ -107,9 +107,9 @@ const NEW = {
     'leadership.126': 'Centralised SAP optimisation & enterprise architecture',
     'leadership.127': 'Fleet tracking & logistics intelligence',
     'leadership.128': 'Cross-border cybersecurity & data infrastructure',
-    // Bhaskar
+    // Mohammed Khalid
     'leadership.129':
-      'Shetty’s ATL wing sits next to Lake Trans Ltd. - the Group’s second company (2008) and primary petroleum haulage arm. Together they move product locally and in transit across Tanzania, Zambia, Rwanda, DRC, Burundi, Malawi, Kenya and Uganda.',
+      'Khalid’s ATL wing sits next to Lake Trans Ltd. - the Group’s second company (2008) and primary petroleum haulage arm. Together they move product locally and in transit across Tanzania, Zambia, Rwanda, DRC, Burundi, Malawi, Kenya and Uganda.',
     'leadership.130':
       'Group messaging cites 700+ trucks; tanker capacities typically range 12,000–40,000 litres, with GPS tracking as standard. Workshops in Kibaha, Kigamboni, Morogoro, Nairobi and Ndola support asset uptime on the corridors that make Lake Group’s multi-country model possible.',
     'leadership.131':
@@ -117,13 +117,13 @@ const NEW = {
     'leadership.132': 'Fuel distribution fleet routing & execution',
     'leadership.133': 'Heavy haulage & multi-national cargo pipelines',
     'leadership.134': 'Coordination with Lake Trans corridor operations',
-    // Pankaj
+    // Bibhuti Singh
     'leadership.135':
       'AFICD is a core Group asset: an inland container depot at Tazara / Pugu Road with rail siding toward the port (~6 km), serving landlocked markets including Rwanda, Burundi, Uganda, DRC, Zambia and Malawi.',
     'leadership.136':
       'The Dar yard covers about 14,000 m² with capacity around 4,000 TEU, SAP-based operations, container repairs, and sister sites in Zambia (Ndola) and Mozambique (Beira). ACFS extends the brand into a larger CFS terminal with warehouse, weighbridge and reefer capacity.',
     'leadership.137':
-      'As CFO, Kumar’s brief is capital discipline and governance around that cargo engine - planning, risk and controls for import-export volumes, customs-linked workflows and container clearing.',
+      'As CFO, Singh’s brief is capital discipline and governance around that cargo engine - planning, risk and controls for import-export volumes, customs-linked workflows and container clearing.',
     'leadership.138': 'Financial planning & performance for AFICD',
     'leadership.139': 'Risk analysis & corporate governance',
     'leadership.140': 'Support for ICD / CFS commercial operations',
@@ -225,7 +225,7 @@ NEW.fr = {
   'leadership.115': 'Expansion régionale et partenariats en capital',
   'leadership.116': 'Gouvernance et création de valeur à long terme',
   'leadership.117':
-    'En tant que PDG Manufacturing, le mandat d’Ansari se situe au cœur industriel de la diversification du Groupe au-delà du pétrole. Lake Steel exploite un laminoir automatique informatisé à Visiga, Kibaha (Plot 118, Block M), avec un débit jusqu’à environ 25 tonnes/heure et une capacité annuelle d’environ 100 000 TM - avec une expansion discutée publiquement vers 150 000 TM.',
+    'En tant que PDG Manufacturing, le mandat de Dileep se situe au cœur industriel de la diversification du Groupe au-delà du pétrole. Lake Steel exploite un laminoir automatique informatisé à Visiga, Kibaha (Plot 118, Block M), avec un débit jusqu’à environ 25 tonnes/heure et une capacité annuelle d’environ 100 000 TM - avec une expansion discutée publiquement vers 150 000 TM.',
   'leadership.118':
     'L’usine a introduit en Tanzanie le fer à béton HS-CR (haute résistance à la corrosion), conçu pour conserver sa résistance à des températures élevées et offrir une résistance à la corrosion nettement supérieure au fer à béton ordinaire.',
   'leadership.119':
@@ -234,7 +234,7 @@ NEW.fr = {
   'leadership.121': 'Produits en béton et réseaux d’approvisionnement construction',
   'leadership.122': 'Programmes d’expansion industrielle dans les unités de fabrication',
   'leadership.123':
-    'Dans un Groupe qui gère des dépôts de carburant, plus de 700 camions, des yards ICD/CFS et un réseau de distribution multi-pays, les systèmes digitaux sont le système nerveux. Le mandat de Choudhary vise à optimiser la stack SAP centralisée de Lake Group - l’épine dorsale opérationnelle pour les commandes d’expédition, les stocks et la comptabilisation financière dans des unités telles que Lake Trans et AFICD.',
+    'Dans un Groupe qui gère des dépôts de carburant, plus de 700 camions, des yards ICD/CFS et un réseau de distribution multi-pays, les systèmes digitaux sont le système nerveux. Le mandat de Mani vise à optimiser la stack SAP centralisée de Lake Group - l’épine dorsale opérationnelle pour les commandes d’expédition, les stocks et la comptabilisation financière dans des unités telles que Lake Trans et AFICD.',
   'leadership.124':
     'Il intègre une intelligence logistique et de suivi de flotte sur mesure pour que les mouvements de corridor restent visibles de Dar à Ndola et au-delà, et déploie une infrastructure de sécurité des données transfrontalière protégeant les réseaux qui relient les hubs tanzaniens aux opérations nationales régionales.',
   'leadership.125':
@@ -243,7 +243,7 @@ NEW.fr = {
   'leadership.127': 'Suivi de flotte et intelligence logistique',
   'leadership.128': 'Cybersécurité transfrontalière et infrastructure de données',
   'leadership.129':
-    'L’aile ATL de Shetty côtoie Lake Trans Ltd. - la deuxième société du Groupe (2008) et bras principal de transport pétrolier. Ensemble, elles déplacent les produits localement et en transit à travers la Tanzanie, la Zambie, le Rwanda, la RDC, le Burundi, le Malawi, le Kenya et l’Ouganda.',
+    'L’aile ATL de Khalid côtoie Lake Trans Ltd. - la deuxième société du Groupe (2008) et bras principal de transport pétrolier. Ensemble, elles déplacent les produits localement et en transit à travers la Tanzanie, la Zambie, le Rwanda, la RDC, le Burundi, le Malawi, le Kenya et l’Ouganda.',
   'leadership.130':
     'Les messages du Groupe citent plus de 700 camions ; les capacités des citernes vont généralement de 12 000 à 40 000 litres, avec suivi GPS de série. Des ateliers à Kibaha, Kigamboni, Morogoro, Nairobi et Ndola soutiennent la disponibilité des actifs sur les corridors qui rendent possible le modèle multi-pays de Lake Group.',
   'leadership.131':
@@ -256,7 +256,7 @@ NEW.fr = {
   'leadership.136':
     'Le yard de Dar couvre environ 14 000 m² pour une capacité d’environ 4 000 EVP, des opérations sous SAP, des réparations de conteneurs, et des sites sœurs en Zambie (Ndola) et au Mozambique (Beira). ACFS étend la marque vers un terminal CFS plus grand avec entrepôt, pont-bascule et capacité frigorifique.',
   'leadership.137':
-    'En tant que CFO, le mandat de Kumar est la discipline du capital et la gouvernance autour de ce moteur de fret - planification, risques et contrôles pour les volumes import-export, les flux liés aux douanes et le dédouanement des conteneurs.',
+    'En tant que CFO, le mandat de Singh est la discipline du capital et la gouvernance autour de ce moteur de fret - planification, risques et contrôles pour les volumes import-export, les flux liés aux douanes et le dédouanement des conteneurs.',
   'leadership.138': 'Planification financière et performance pour AFICD',
   'leadership.139': 'Analyse des risques et gouvernance d’entreprise',
   'leadership.140': 'Soutien aux opérations commerciales ICD / CFS',
@@ -355,7 +355,7 @@ NEW.sw = {
   'leadership.115': 'Upanuzi wa kikanda na ushirikiano wa mitaji',
   'leadership.116': 'Utawala na uundaji wa thamani wa muda mrefu',
   'leadership.117':
-    'Kama Mkurugenzi Mtendaji wa Utengenezaji, jukumu la Ansari liko katikati ya mseto wa viwanda wa Kundi zaidi ya petroli. Lake Steel inaendesha kiwanda cha rolling mill cha kiotomatiki chenye kompyuta huko Visiga, Kibaha (Plot 118, Block M), chenye uwezo wa hadi tani 25/saa na uwezo wa kila mwaka wa takriban MT 100,000 - na upanuzi unaozungumzwa hadharani kuelekea MT 150,000.',
+    'Kama Mkurugenzi Mtendaji wa Utengenezaji, jukumu la Dileep liko katikati ya mseto wa viwanda wa Kundi zaidi ya petroli. Lake Steel inaendesha kiwanda cha rolling mill cha kiotomatiki chenye kompyuta huko Visiga, Kibaha (Plot 118, Block M), chenye uwezo wa hadi tani 25/saa na uwezo wa kila mwaka wa takriban MT 100,000 - na upanuzi unaozungumzwa hadharani kuelekea MT 150,000.',
   'leadership.118':
     'Kiwanda kilileta Tanzania chuma cha HS-CR chenye nguvu na kinachostahimili kutu, kilichoundwa kudumisha nguvu katika joto la juu na kutoa ustahimilivu wa kutu ulio juu sana kuliko chuma cha kawaida.',
   'leadership.119':
@@ -364,7 +364,7 @@ NEW.sw = {
   'leadership.121': 'Bidhaa za saruji na mitandao ya ugavi wa ujenzi',
   'leadership.122': 'Programu za upanuzi wa viwanda katika vitengo vya utengenezaji',
   'leadership.123':
-    'Katika Kundi linaloendesha depo za mafuta, malori 700+, yadi za ICD/CFS na rejareja ya nchi nyingi, mifumo ya kidijitali ni mfumo wa neva. Jukumu la Choudhary linazingatia kuboresha stack ya SAP iliyowekwa katikati ya Lake Group - uti wa mgongo wa uendeshaji kwa maagizo ya usafirishaji, hesabu na uwasilishaji wa fedha katika vitengo kama Lake Trans na AFICD.',
+    'Katika Kundi linaloendesha depo za mafuta, malori 700+, yadi za ICD/CFS na rejareja ya nchi nyingi, mifumo ya kidijitali ni mfumo wa neva. Jukumu la Mani linazingatia kuboresha stack ya SAP iliyowekwa katikati ya Lake Group - uti wa mgongo wa uendeshaji kwa maagizo ya usafirishaji, hesabu na uwasilishaji wa fedha katika vitengo kama Lake Trans na AFICD.',
   'leadership.124':
     'Anaingiza akili maalum ya usafirishaji na ufuatiliaji wa meli ili harakati za korido zibaki zinazoonekana kutoka Dar hadi Ndola na zaidi, na kupanua miundombinu ya usalama wa data ya kuvuka mipaka inayolinda mitandao inayounganisha vituo vya Tanzania na shughuli za nchi za kikanda.',
   'leadership.125':
@@ -373,7 +373,7 @@ NEW.sw = {
   'leadership.127': 'Ufuatiliaji wa meli na akili ya usafirishaji',
   'leadership.128': 'Usalama wa mtandao wa kuvuka mipaka na miundombinu ya data',
   'leadership.129':
-    'Uwingi wa ATL wa Shetty unakaa karibu na Lake Trans Ltd. - kampuni zilizofuata za Kundi (2008) na tawi kuu la usafirishaji wa petroli. Pamoja wanahamisha bidhaa ndani na katika usafirishaji kupitia Tanzania, Zambia, Rwanda, DRC, Burundi, Malawi, Kenya na Uganda.',
+    'Uwingi wa ATL wa Khalid unakaa karibu na Lake Trans Ltd. - kampuni zilizofuata za Kundi (2008) na tawi kuu la usafirishaji wa petroli. Pamoja wanahamisha bidhaa ndani na katika usafirishaji kupitia Tanzania, Zambia, Rwanda, DRC, Burundi, Malawi, Kenya na Uganda.',
   'leadership.130':
     'Ujumbe wa Kundi unataja malori 700+; uwezo wa magari ya mafuta kwa kawaida huanzia lita 12,000–40,000, na ufuatiliaji wa GPS kama kawaida. Warsha huko Kibaha, Kigamboni, Morogoro, Nairobi na Ndola zinasaidia upatikanaji wa mali kwenye korido zinazowezesha mfano wa nchi nyingi wa Lake Group.',
   'leadership.131':
@@ -386,7 +386,7 @@ NEW.sw = {
   'leadership.136':
     'Yadi ya Dar inashughulikia takriban m² 14,000 yenye uwezo wa karibu TEU 4,000, shughuli za SAP, ukarabati wa kontena, na maeneo dada nchini Zambia (Ndola) na Mozambique (Beira). ACFS inaeneza chapa hiyo kuwa kituo kikubwa cha CFS chenye ghala, mizani na uwezo wa friji.',
   'leadership.137':
-    'Kama CFO, jukumu la Kumar ni nidhamu ya mtaji na utawala karibu na injini hiyo ya mizigo - mipango, hatari na udhibiti kwa kiasi cha uagizaji-uzoaji, mtiririko unaohusiana na forodha na uondoaji wa kontena.',
+    'Kama CFO, jukumu la Singh ni nidhamu ya mtaji na utawala karibu na injini hiyo ya mizigo - mipango, hatari na udhibiti kwa kiasi cha uagizaji-uzoaji, mtiririko unaohusiana na forodha na uondoaji wa kontena.',
   'leadership.138': 'Mipango ya fedha na utendaji kwa AFICD',
   'leadership.139': 'Uchambuzi wa hatari na utawala wa shirika',
   'leadership.140': 'Msaada kwa shughuli za kibiashara za ICD / CFS',
@@ -711,36 +711,36 @@ function wireListing() {
       sum: NEW.en['leadership.104']
     },
     {
-      href: 'leadership-sibtian-ansari.html',
+      href: 'leadership-dileep.html',
       nameKey: 'leadership.17',
-      name: 'Sibtian Ansari',
+      name: 'Dileep',
       roleKey: 'leadership.18',
       role: 'CEO · Manufacturing Division',
       sumKey: 'leadership.105',
       sum: NEW.en['leadership.105']
     },
     {
-      href: 'leadership-vivek-choudhary.html',
+      href: 'leadership-sridhar-mani.html',
       nameKey: 'leadership.20',
-      name: 'Vivek Choudhary',
+      name: 'Sridhar Mani',
       roleKey: 'leadership.21',
       role: 'Director of Digital Transformation',
       sumKey: 'leadership.106',
       sum: NEW.en['leadership.106']
     },
     {
-      href: 'leadership-bhaskar-shetty.html',
+      href: 'leadership-mohammed-khalid.html',
       nameKey: 'leadership.23',
-      name: 'Bhaskar S. Shetty',
+      name: 'Mohammed Khalid',
       roleKey: 'leadership.24',
       role: 'Managing Director · ATL',
       sumKey: 'leadership.107',
       sum: NEW.en['leadership.107']
     },
     {
-      href: 'leadership-pankaj-kumar.html',
+      href: 'leadership-bibhuti-singh.html',
       nameKey: 'leadership.26',
-      name: 'Pankaj Kumar',
+      name: 'Bibhuti Singh',
       roleKey: 'leadership.27',
       role: 'CFO · AFICD',
       sumKey: 'leadership.108',
@@ -837,15 +837,15 @@ const PROFILES = {
         <div class="lp-nav">
           <a href="leadership-nassoro-abubakari.html">← Nassoro Abubakari</a>
           <a href="leadership.html" data-i18n="leadership.58">All leadership</a>
-          <a href="leadership-sibtian-ansari.html">Sibtian Ansari →</a>
+          <a href="leadership-dileep.html">Dileep →</a>
         </div>
       `
   },
-  'leadership-sibtian-ansari.html': {
-    name: 'Sibtian Ansari',
+  'leadership-dileep.html': {
+    name: 'Dileep',
     article: `
         <div class="lp-unit" data-i18n="leadership.76">Manufacturing</div>
-        <h1 class="lp-name">Sibtian Ansari</h1>
+        <h1 class="lp-name">Dileep</h1>
         <p class="lp-role" data-i18n="leadership.18">CEO · Manufacturing Division</p>
         <p class="lp-lede" data-i18n="leadership.105">${NEW.en['leadership.105']}</p>
         <p data-i18n="leadership.117">${NEW.en['leadership.117']}</p>
@@ -865,7 +865,7 @@ const PROFILES = {
         <div class="lp-contact">
           <div><strong data-i18n="leadership.59">Group HQ</strong><span data-i18n="leadership.109">${HQ_ADDR}</span></div>
           <div><strong data-i18n="leadership.60">Phone</strong><a href="tel:+255222780510">+255 222 780 510</a> · <a href="tel:+255222780479">+255 222 780 479</a></div>
-          <div><strong data-i18n="leadership.61">Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20CEO%20Manufacturing%20(Sibtian%20Ansari)">admin@lakeoilgroup.com</a></div>
+          <div><strong data-i18n="leadership.61">Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20CEO%20Manufacturing%20(Dileep)">admin@lakeoilgroup.com</a></div>
         </div>
         <div class="lp-links">
           <a href="lake-steel.html" class="btn btn-outline-dark btn-sm" data-i18n="nav.co.lakeSteel">Lake Steel</a>
@@ -875,15 +875,15 @@ const PROFILES = {
         <div class="lp-nav">
           <a href="leadership-ally-edha-awadh.html">← Ally Edha Awadh</a>
           <a href="leadership.html" data-i18n="leadership.58">All leadership</a>
-          <a href="leadership-vivek-choudhary.html">Vivek Choudhary →</a>
+          <a href="leadership-sridhar-mani.html">Sridhar Mani →</a>
         </div>
       `
   },
-  'leadership-vivek-choudhary.html': {
-    name: 'Vivek Choudhary',
+  'leadership-sridhar-mani.html': {
+    name: 'Sridhar Mani',
     article: `
         <div class="lp-unit" data-i18n="leadership.77">Technology</div>
-        <h1 class="lp-name">Vivek Choudhary</h1>
+        <h1 class="lp-name">Sridhar Mani</h1>
         <p class="lp-role" data-i18n="leadership.21">Director of Digital Transformation</p>
         <p class="lp-lede" data-i18n="leadership.106">${NEW.en['leadership.106']}</p>
         <p data-i18n="leadership.123">${NEW.en['leadership.123']}</p>
@@ -903,7 +903,7 @@ const PROFILES = {
         <div class="lp-contact">
           <div><strong data-i18n="leadership.59">Group HQ</strong><span data-i18n="leadership.109">${HQ_ADDR}</span></div>
           <div><strong data-i18n="leadership.60">Phone</strong><a href="tel:+255222780510">+255 222 780 510</a> · <a href="tel:+255222780479">+255 222 780 479</a></div>
-          <div><strong data-i18n="leadership.61">Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20Director%20Digital%20Transformation%20(Vivek%20Choudhary)">admin@lakeoilgroup.com</a></div>
+          <div><strong data-i18n="leadership.61">Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20Director%20Digital%20Transformation%20(Sridhar%20Mani)">admin@lakeoilgroup.com</a></div>
         </div>
         <div class="lp-links">
           <a href="fleet.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.69">Our fleet</a>
@@ -911,17 +911,17 @@ const PROFILES = {
           <a href="aficd.html" class="btn btn-outline-dark btn-sm" data-i18n="nav.co.aficd">AFICD</a>
         </div>
         <div class="lp-nav">
-          <a href="leadership-sibtian-ansari.html">← Sibtian Ansari</a>
+          <a href="leadership-dileep.html">← Dileep</a>
           <a href="leadership.html" data-i18n="leadership.58">All leadership</a>
-          <a href="leadership-bhaskar-shetty.html">Bhaskar S. Shetty →</a>
+          <a href="leadership-mohammed-khalid.html">Mohammed Khalid →</a>
         </div>
       `
   },
-  'leadership-bhaskar-shetty.html': {
-    name: 'Bhaskar S. Shetty',
+  'leadership-mohammed-khalid.html': {
+    name: 'Mohammed Khalid',
     article: `
         <div class="lp-unit" data-i18n="leadership.74">Logistics</div>
-        <h1 class="lp-name">Bhaskar S. Shetty</h1>
+        <h1 class="lp-name">Mohammed Khalid</h1>
         <p class="lp-role" data-i18n="leadership.24">Managing Director · ATL</p>
         <p class="lp-lede" data-i18n="leadership.107">${NEW.en['leadership.107']}</p>
         <p data-i18n="leadership.129">${NEW.en['leadership.129']}</p>
@@ -941,7 +941,7 @@ const PROFILES = {
         <div class="lp-contact">
           <div><strong data-i18n="leadership.59">Group HQ</strong><span data-i18n="leadership.109">${HQ_ADDR}</span></div>
           <div><strong data-i18n="leadership.60">Phone</strong><a href="tel:+255222780510">+255 222 780 510</a> · <a href="tel:+255222780479">+255 222 780 479</a></div>
-          <div><strong data-i18n="leadership.61">Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20MD%20ATL%20(Bhaskar%20S.%20Shetty)">admin@lakeoilgroup.com</a></div>
+          <div><strong data-i18n="leadership.61">Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20MD%20ATL%20(Mohammed%20Khalid)">admin@lakeoilgroup.com</a></div>
         </div>
         <div class="lp-links">
           <a href="lake-trans.html" class="btn btn-outline-dark btn-sm" data-i18n="nav.co.lakeTrans">Lake Trans</a>
@@ -949,17 +949,17 @@ const PROFILES = {
           <a href="fleet.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.68">Fleet profile</a>
         </div>
         <div class="lp-nav">
-          <a href="leadership-vivek-choudhary.html">← Vivek Choudhary</a>
+          <a href="leadership-sridhar-mani.html">← Sridhar Mani</a>
           <a href="leadership.html" data-i18n="leadership.58">All leadership</a>
-          <a href="leadership-pankaj-kumar.html">Pankaj Kumar →</a>
+          <a href="leadership-bibhuti-singh.html">Bibhuti Singh →</a>
         </div>
       `
   },
-  'leadership-pankaj-kumar.html': {
-    name: 'Pankaj Kumar',
+  'leadership-bibhuti-singh.html': {
+    name: 'Bibhuti Singh',
     article: `
         <div class="lp-unit" data-i18n="leadership.78">Finance · Containers</div>
-        <h1 class="lp-name">Pankaj Kumar</h1>
+        <h1 class="lp-name">Bibhuti Singh</h1>
         <p class="lp-role" data-i18n="leadership.27">CFO · AFICD</p>
         <p class="lp-lede" data-i18n="leadership.108">${NEW.en['leadership.108']}</p>
         <p data-i18n="leadership.135">${NEW.en['leadership.135']}</p>
@@ -979,7 +979,7 @@ const PROFILES = {
         <div class="lp-contact">
           <div><strong data-i18n="leadership.59">Group HQ</strong><span data-i18n="leadership.109">${HQ_ADDR}</span></div>
           <div><strong data-i18n="leadership.60">Phone</strong><a href="tel:+255222780510">+255 222 780 510</a> · <a href="tel:+255222780479">+255 222 780 479</a></div>
-          <div><strong data-i18n="leadership.61">Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20CFO%20AFICD%20(Pankaj%20Kumar)">admin@lakeoilgroup.com</a></div>
+          <div><strong data-i18n="leadership.61">Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20CFO%20AFICD%20(Bibhuti%20Singh)">admin@lakeoilgroup.com</a></div>
         </div>
         <div class="lp-links">
           <a href="aficd.html" class="btn btn-outline-dark btn-sm" data-i18n="nav.co.aficd">AFICD</a>
@@ -987,7 +987,7 @@ const PROFILES = {
           <a href="contact.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.73">Contact Group</a>
         </div>
         <div class="lp-nav">
-          <a href="leadership-bhaskar-shetty.html">← Bhaskar S. Shetty</a>
+          <a href="leadership-mohammed-khalid.html">← Mohammed Khalid</a>
           <a href="leadership.html" data-i18n="leadership.58">All leadership</a>
           <a href="leadership-juma-nuru.html">Juma Nuru →</a>
         </div>
@@ -1025,7 +1025,7 @@ const PROFILES = {
           <a href="contact.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.64">Contact</a>
         </div>
         <div class="lp-nav">
-          <a href="leadership-pankaj-kumar.html">← Pankaj Kumar</a>
+          <a href="leadership-bibhuti-singh.html">← Bibhuti Singh</a>
           <a href="leadership.html" data-i18n="leadership.58">All leadership</a>
           <a href="leadership-nassoro-abubakari.html">Nassoro Abubakari →</a>
         </div>

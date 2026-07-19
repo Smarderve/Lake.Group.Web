@@ -1,9 +1,9 @@
 
         <div class="lp-unit">Technology</div>
-        <h1 class="lp-name">Vivek Choudhary</h1>
+        <h1 class="lp-name">Sridhar Mani</h1>
         <p class="lp-role">Director of Digital Transformation</p>
         <p class="lp-lede">Owns enterprise technology architecture and digital strategy — from centralised SAP environments to logistics intelligence and cross-border data security.</p>
-        <p>Across a Group that runs fuel depots, 1,200+ trucks, ICD/CFS yards and multi-country retail, digital systems are the nervous system. Choudhary’s mandate focuses on optimising Lake Group’s centralised SAP stack — the operational backbone for shipment orders, inventory and financial posting across units such as Lake Trans and AFICD.</p>
+        <p>Across a Group that runs fuel depots, 1,200+ trucks, ICD/CFS yards and multi-country retail, digital systems are the nervous system. Mani’s mandate focuses on optimising Lake Group’s centralised SAP stack — the operational backbone for shipment orders, inventory and financial posting across units such as Lake Trans and AFICD.</p>
         <p>He embeds custom logistics and fleet-tracking intelligence so corridor movements stay visible from Dar to Ndola and beyond, and scales cross-border data security infrastructure protecting networks that connect Tanzania hubs with regional country operations.</p>
         <p>The goal is a single, resilient digital layer that lets manufacturing, energy and logistics executives act on the same real-time picture.</p>
         
@@ -20,7 +20,7 @@
         <div class="lp-contact">
           <div><strong>Group HQ</strong><span>Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055, Dar es Salaam, Tanzania</span></div>
           <div><strong>Phone</strong><a href="tel:+255222780510">+255 222 780 510</a> · <a href="tel:+255222780479">+255 222 780 479</a></div>
-          <div><strong>Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20Director%20Digital%20Transformation%20(Vivek%20Choudhary)">admin@lakeoilgroup.com</a></div>
+          <div><strong>Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20Director%20Digital%20Transformation%20(Sridhar%20Mani)">admin@lakeoilgroup.com</a></div>
         </div>
         <div class="lp-links">
           <a href="fleet.html" class="btn btn-outline-dark btn-sm">Our fleet</a>
@@ -28,19 +28,19 @@
           <a href="aficd.html" class="btn btn-outline-dark btn-sm">AFICD</a>
         </div>
         <nav class="lp-nav" aria-label="Related leadership profiles">
-          <a class="ld-person-card" href="leadership-sibtian-ansari.html">
-          <div class="ld-person-photo"><img src="assets/images/leadership/sibtian-ansari.png" alt="Sibtian Ansari" data-i18n-alt="leadership.17" loading="lazy" decoding="async"></div>
+          <a class="ld-person-card" href="leadership-dileep.html">
+          <div class="ld-person-photo"><img src="assets/images/leadership/sibtian-ansari.png" alt="Dileep" data-i18n-alt="leadership.17" loading="lazy" decoding="async"></div>
           <div class="ld-person-body">
-            <h3><span data-i18n="leadership.17">Sibtian Ansari</span></h3>
+            <h3><span data-i18n="leadership.17">Dileep</span></h3>
             <p class="ld-person-role"><span data-i18n="leadership.18">CEO · Manufacturing Division</span></p>
             <p class="ld-person-sum"><span data-i18n="leadership.105">Leads Lake Group’s structural industrial expansions - most notably Lake Steel - spanning production infrastructure, manufacturing output, concrete products and construction supply networks.</span></p>
             <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>
           </div>
         </a>
-          <a class="ld-person-card" href="leadership-bhaskar-shetty.html">
-          <div class="ld-person-photo"><img src="assets/images/leadership/bhaskar-shetty.png" alt="Bhaskar S. Shetty" data-i18n-alt="leadership.23" loading="lazy" decoding="async"></div>
+          <a class="ld-person-card" href="leadership-mohammed-khalid.html">
+          <div class="ld-person-photo"><img src="assets/images/leadership/bhaskar-shetty.png" alt="Mohammed Khalid" data-i18n-alt="leadership.23" loading="lazy" decoding="async"></div>
           <div class="ld-person-body">
-            <h3><span data-i18n="leadership.23">Bhaskar S. Shetty</span></h3>
+            <h3><span data-i18n="leadership.23">Mohammed Khalid</span></h3>
             <p class="ld-person-role"><span data-i18n="leadership.24">Managing Director · ATL</span></p>
             <p class="ld-person-sum"><span data-i18n="leadership.107">Directs Associated Trans Logistics Ltd (ATL), operating alongside Lake Trans as a logistical backbone for fuel fleets, heavy haulage and multi-national cargo corridors.</span></p>
             <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>
