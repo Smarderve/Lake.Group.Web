@@ -17,15 +17,34 @@
    Never style .experience-3d-* or #fuel-experience  owned elsewhere.
    ========================================================================== */
 
-@import url("tokens.css");
+@import url("tokens.css?v=41");
 @import url('fonts/fonts.css');
 
 /* --------------------------------------------------------------------------
    1. FLAGSHIP-ONLY TOKENS (editorial surfaces; brand chrome in tokens.css)
    -------------------------------------------------------------------------- */
 :root {
-  /* Ink system â€” mid-page immersive content bands ONLY (not nav / page-hero) */
-  --ink:        #013F5C; /* remapped from near-black #070C1E â†’ deepest brand blue */
+  /* Re-assert brand chrome after @import so a stale tokens.css (SW / edge)
+     cannot leave interiors on the old dark navbar while home (inline) looks new. */
+  --color-brand-blue:        #0181BB;
+  --color-brand-blue-light:  #0599D3;
+  --color-brand-blue-deep:   #016694;
+  --color-brand-blue-darkest:#013F5C;
+  --color-yellow-accent:     #FFF200;
+  --color-navbar-bg:         #0181BB;
+  --color-navbar-bg-scrolled: rgba(1, 102, 148, 0.96);
+  --color-navbar-border:     #FFF200;
+  --color-hero-bg:           #013F5C;
+  --blue:   #0181BB;
+  --blue2:  #016694;
+  --blue3:  #013F5C;
+  --yellow: #FFF200;
+  --navy:   #0181BB;
+  --navy2:  #016694;
+  --navy3:  #013F5C;
+
+  /* Ink system — mid-page immersive content bands ONLY (not nav / page-hero) */
+  --ink:        #013F5C; /* remapped from near-black #070C1E → deepest brand blue */
   --ink-2:      #016694;
   --ink-3:      #0181BB;
   --ink-line:   rgba(255,255,255,0.14);
@@ -274,9 +293,11 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
    -------------------------------------------------------------------------- */
 .site-nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  height: var(--navbar-height);
-  background: var(--color-navbar-bg);
-  border-bottom: 3px solid var(--color-navbar-border);
+  height: var(--navbar-height, 72px);
+  /* Literal fallbacks: interiors must match home even if tokens.css is stale/missing */
+  background: var(--color-navbar-bg, #0181BB);
+  background-color: #0181BB;
+  border-bottom: 3px solid var(--color-navbar-border, #FFF200);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   transition: transform var(--dur-2) var(--ease-out), box-shadow 0.3s ease, background-color 0.3s ease, height 0.3s var(--ease-out);
@@ -284,8 +305,9 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 }
 .site-nav::after { display: none; } /* home uses full yellow border-bottom, not meridian tick */
 .site-nav.nav-scrolled {
-  height: var(--navbar-height-scrolled);
-  background: var(--color-navbar-bg-scrolled);
+  height: var(--navbar-height-scrolled, 60px);
+  background: var(--color-navbar-bg-scrolled, rgba(1, 102, 148, 0.96));
+  background-color: rgba(1, 102, 148, 0.96);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 8px 30px rgba(4,10,34,0.35);

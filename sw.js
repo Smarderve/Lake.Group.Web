@@ -11,7 +11,7 @@
 
 'use strict';
 
-const VERSION = 'v40';
+const VERSION = 'v41';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -35,13 +35,11 @@ const PRECACHE_URLS = [
   './manifest.webmanifest',
   './assets/pwa.js',
   './assets/site.js',
-  './assets/tokens.css',
-  './assets/theme.css',
+  // Design chrome is intentionally NOT precached: interiors depend on
+  // flagship.css + tokens.css for the blue nav. Precaching them made
+  // Checkpoint 001/002 deploys look "home-only new" for returning visitors.
+  // They are fetched network-first below (and HTML links use ?v= busting).
   './assets/motion.js',
-  // Flagship (Meridian) design system  migrated pages load this pair
-  // instead of theme.css/motion.js; both stay precached until the full
-  // rollout completes.
-  './assets/flagship.css',
   './assets/flagship-motion.js',
   './assets/i18n.js',
   './assets/i18n-content.js',
@@ -170,6 +168,11 @@ async function networkFirst(request, cacheName) {
   }
 }
 
+/** Always hit the network; never serve a cached copy of design chrome. */
+async function networkOnly(request) {
+  return fetch(request);
+}
+
 async function navigationHandler(request) {
   try {
     return await networkFirst(request, PAGES_CACHE);
@@ -227,22 +230,22 @@ function classify(request, url) {
 
   const path = url.pathname;
 
-  // Design chrome + news/3D bundles: always prefer the network.
-  // Interiors load nav/hero only from flagship.css (+ tokens via @import).
-  // Home also has large inline nav rules, so a stale SW made only interiors
-  // look "old" after a chrome deploy. Hard-refresh does not bypass the SW.
+  // Design chrome + news/3D bundles: network only (no stale cache fallback).
+  // Interiors load nav/hero from flagship.css (+ tokens). Home also has large
+  // inline nav rules, so a stale CSS cache made only interiors look "old".
   if (
     path.endsWith('/assets/news-data.js') ||
     path.endsWith('/assets/hero-3d.bundle.js') ||
     path.endsWith('/assets/tokens.css') ||
     path.endsWith('/assets/theme.css') ||
     path.endsWith('/assets/flagship.css') ||
+    path.endsWith('/assets/assistant.css') ||
     path.endsWith('/assets/motion.js') ||
     path.endsWith('/assets/flagship-motion.js') ||
     path.endsWith('/assets/site.js') ||
     path.endsWith('/sw.js')
   ) {
-    return 'network-first-asset';
+    return 'network-only-asset';
   }
 
   // Fonts: immutable, cache forever.
@@ -305,6 +308,11 @@ self.addEventListener('fetch', (event) => {
         networkFirst(request, ASSETS_CACHE).catch(
           () => new Response('', { status: 503 })
         )
+      );
+      break;
+    case 'network-only-asset':
+      event.respondWith(
+        networkOnly(request).catch(() => new Response('', { status: 503 }))
       );
       break;
     case 'cache-first-asset':

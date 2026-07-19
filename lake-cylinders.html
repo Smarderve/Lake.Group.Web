@@ -21,9 +21,6 @@
    Chrome + shared components come from assets/flagship.css. This block only
    composes generic company-profile widgets reused across all /company pages.
    ========================================================================== */
-:root{--amber:var(--gold-deep);--amber2:var(--gold);--amber3:var(--gold);--navy:var(--ink);--navy2:var(--ink-3);--bone:var(--paper-2);--bone2:var(--paper-2)}
-
-
 .fs-check{list-style:none;display:flex;flex-direction:column;margin-top:var(--sp-6)}
 .fs-check li{display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line-2);font-size:.95rem;color:var(--mute);line-height:1.65}
 .fs-check li:first-child{border-top:1px solid var(--line-2)}
@@ -122,8 +119,9 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="assets/flagship.css">
-  <link rel="stylesheet" href="assets/assistant.css">
+<link rel="stylesheet" href="assets/tokens.css?v=41">
+<link rel="stylesheet" href="assets/flagship.css?v=41">
+  <link rel="stylesheet" href="assets/assistant.css?v=41">
 </head><body data-company-logo="assets/images/logos/companies/lake-group-placeholder.png" data-company-alt="Lake Cylinders">
 <nav class="site-nav">
   <div class="nav-inner">
@@ -469,13 +467,13 @@
   </div>
   <button id="chat-btn" aria-label="Chat"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></button>
 </div>
-<script src="assets/i18n-content.js" defer></script>
-<script src="assets/i18n.js" defer></script>
-<script src="assets/site.js" defer></script>
+<script src="assets/i18n-content.js?v=41" defer></script>
+<script src="assets/i18n.js?v=41" defer></script>
+<script src="assets/site.js?v=41" defer></script>
   <script src="assets/vendor/flexsearch/flexsearch.bundle.min.js" defer></script>
   <script src="assets/assistant-kb.js" defer></script>
-  <script src="assets/assistant.js" defer></script>
-<script src="assets/pwa.js" defer></script>
-<script src="assets/flagship-motion.js" defer></script>
+  <script src="assets/assistant.js?v=41" defer></script>
+<script src="assets/pwa.js?v=41" defer></script>
+<script src="assets/flagship-motion.js?v=41" defer></script>
 </body></html>
 <!-- CONTENT NEEDED FROM CLIENT: mission/vision/values statement, company history, services list with benefits and case studies/testimonials, product catalog with descriptions and images, management team names/titles/photos/contact info, facility/team/product photography, introductory and demo videos, real logo asset (no dedicated Lake Cylinders logo flagged in scope, currently using assets/images/logos/companies/lake-group-placeholder.png), and any Lake-Cylinders-specific contact details (direct line, email, social handles) -->

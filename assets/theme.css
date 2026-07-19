@@ -9,7 +9,7 @@
    NOTE: never style .experience-3d-* or #fuel-experience  owned elsewhere.
    ========================================================================== */
 
-@import url("tokens.css");
+@import url("tokens.css?v=41");
 
 /* --------------------------------------------------------------------------
    1. THEME-ONLY TOKENS (motion + shadows; brand lives in tokens.css)
@@ -83,14 +83,16 @@ button:focus-visible,
    4. NAV  unified brand bar + scroll behaviour hooks (motion.js)
    -------------------------------------------------------------------------- */
 .site-nav {
-  background: var(--color-navbar-bg);
-  border-bottom: 3px solid var(--color-navbar-border);
+  background: var(--color-navbar-bg, #0181BB);
+  background-color: #0181BB;
+  border-bottom: 3px solid var(--color-navbar-border, #FFF200);
   backdrop-filter: none;
   transition: transform 0.38s var(--ease-smooth), box-shadow 0.3s ease, background-color 0.3s ease;
   will-change: transform;
 }
 .site-nav.nav-scrolled {
-  background: var(--color-navbar-bg-scrolled);
+  background: var(--color-navbar-bg-scrolled, rgba(1, 102, 148, 0.96));
+  background-color: rgba(1, 102, 148, 0.96);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 8px 30px rgba(4,10,34,0.35);
