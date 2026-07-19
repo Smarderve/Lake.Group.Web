@@ -578,15 +578,22 @@ body[data-company-logo] .page-hero .container { width: 100%; }
 .social-link:hover { color: var(--yellow); border-color: var(--yellow); }
 
 /* --------------------------------------------------------------------------
-   12. CHAT WIDGET  brand
+   12. CHAT WIDGET  brand (legacy fallback — assistant.js replaces mount DOM)
    -------------------------------------------------------------------------- */
-#chat-btn { background: var(--yellow); box-shadow: 0 4px 18px rgba(255,242,0,0.5); transition: transform 0.2s var(--ease-out), box-shadow 0.2s ease; }
-#chat-btn:hover { transform: scale(1.08); }
-#chat-btn svg { stroke: var(--blue3); }
-#chat-head { background: var(--blue); border-bottom: 2px solid var(--yellow); }
-#chat-send { background: var(--yellow); color: var(--blue3); }
-.msg-bot { background: var(--light); }
-.msg-user { background: var(--blue); }
+#chat-btn {
+  background: var(--color-yellow-accent, var(--yellow));
+  box-shadow: 0 8px 28px rgba(1, 129, 187, 0.28), 0 2px 8px rgba(255, 242, 0, 0.35);
+  transition: transform 0.2s var(--ease-out), box-shadow 0.2s ease, background 0.2s ease;
+}
+#chat-btn:hover { transform: scale(1.08); background: var(--color-yellow-deep, #E6D900); }
+#chat-btn svg { stroke: var(--color-brand-blue-darkest, var(--blue3)); }
+#chat-head {
+  background: linear-gradient(135deg, var(--color-brand-blue, var(--blue)) 0%, var(--color-brand-blue-light, var(--blue-light)) 100%);
+  border-bottom: 2px solid var(--color-yellow-accent, var(--yellow));
+}
+#chat-send { background: var(--color-yellow-accent, var(--yellow)); color: var(--color-brand-blue-darkest, var(--blue3)); }
+.msg-bot { background: var(--color-white, var(--white)); border-left: 3px solid var(--color-yellow-accent, var(--yellow)); }
+.msg-user { background: var(--color-brand-blue, var(--blue)); }
 
 /* --------------------------------------------------------------------------
    13. SCROLL REVEAL SYSTEM (site.js + motion.js)

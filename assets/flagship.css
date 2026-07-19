@@ -1178,36 +1178,40 @@ body[data-company-logo] .page-hero h1 {
 .site-footer .country-tag { border-color: var(--ink-line); color: var(--ink-text); background: transparent !important; }
 
 /* --------------------------------------------------------------------------
-   19. CHAT WIDGET
+   19. CHAT WIDGET (legacy fallback — assistant.js replaces mount DOM)
+   Brand: Deep Blue / Sunrise Yellow / White (tokens.css)
    -------------------------------------------------------------------------- */
 #chat-widget { position: fixed; bottom: 26px; right: 26px; z-index: 9999; }
 #chat-btn {
-  width: 54px; height: 54px; border-radius: 0;
-  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
-  background: var(--gold); border: none; cursor: pointer;
+  width: 54px; height: 54px; border-radius: var(--radius, 4px);
+  background: var(--color-yellow-accent, var(--gold)); border: none; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  box-shadow: var(--shadow-2);
+  box-shadow: 0 8px 28px rgba(1, 129, 187, 0.28), 0 2px 8px rgba(255, 242, 0, 0.35);
   transition: transform var(--dur-1) var(--ease-out), background var(--dur-1) ease;
 }
-#chat-btn:hover { transform: translateY(-3px); background: #fff; }
-#chat-btn svg { width: 24px; height: 24px; fill: none; stroke: var(--ink); stroke-width: 2.2; }
+#chat-btn:hover { transform: translateY(-3px); background: var(--color-yellow-deep, #E6D900); }
+#chat-btn svg { width: 24px; height: 24px; fill: none; stroke: var(--color-brand-blue-darkest, var(--ink)); stroke-width: 2.2; }
 #chat-box {
   position: absolute; bottom: 66px; right: 0; width: 320px;
-  background: var(--surface); border-radius: 0;
-  box-shadow: var(--shadow-3); border: 1px solid var(--line);
+  background: var(--color-white, var(--surface)); border-radius: var(--radius-lg, 10px);
+  box-shadow: var(--shadow-lg, var(--shadow-3)); border: 1px solid var(--color-border, var(--line));
   display: none; overflow: hidden;
 }
 #chat-box.open { display: flex; flex-direction: column; }
-#chat-head { background: var(--color-brand-blue); padding: var(--sp-4) var(--sp-5); border-bottom: 2px solid var(--gold); }
-#chat-head h4 { color: #fff; font-size: 0.92rem; }
-#chat-head p { color: var(--ink-mute); font-size: 0.75rem; }
-#chat-messages { padding: var(--sp-4); flex: 1; max-height: 250px; overflow-y: auto; display: flex; flex-direction: column; gap: var(--sp-2); }
-.msg { padding: 10px 14px; border-radius: 0; font-size: 0.83rem; max-width: 88%; }
-.msg-bot { background: var(--paper-2); color: var(--text); align-self: flex-start; border-left: 2px solid var(--gold); }
-.msg-user { background: var(--blue); color: #fff; align-self: flex-end; }
-#chat-input-row { display: flex; border-top: 1px solid var(--line); }
-#chat-input { flex: 1; padding: 12px 14px; border: none; font-family: var(--font-body); font-size: 0.86rem; outline: none; background: var(--surface); color: var(--text); }
-#chat-send { padding: 12px 16px; background: var(--gold); border: none; cursor: pointer; color: var(--ink); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
+#chat-head {
+  background: linear-gradient(135deg, var(--color-brand-blue) 0%, var(--color-brand-blue-light) 100%);
+  padding: var(--sp-4) var(--sp-5);
+  border-bottom: 2px solid var(--color-yellow-accent, var(--gold));
+}
+#chat-head h4 { color: var(--color-white, #fff); font-size: 0.92rem; }
+#chat-head p { color: var(--color-text-on-brand-muted, rgba(255,255,255,0.85)); font-size: 0.75rem; }
+#chat-messages { padding: var(--sp-4); flex: 1; max-height: 250px; overflow-y: auto; display: flex; flex-direction: column; gap: var(--sp-2); background: var(--color-offwhite, #F7F8FC); }
+.msg { padding: 10px 14px; border-radius: var(--radius, 4px); font-size: 0.83rem; max-width: 88%; }
+.msg-bot { background: var(--color-white, #fff); color: var(--color-text-heading, var(--text)); align-self: flex-start; border-left: 3px solid var(--color-yellow-accent, var(--gold)); }
+.msg-user { background: var(--color-brand-blue, var(--blue)); color: var(--color-white, #fff); align-self: flex-end; }
+#chat-input-row { display: flex; border-top: 1px solid var(--color-border, var(--line)); }
+#chat-input { flex: 1; padding: 12px 14px; border: none; font-family: var(--font-body); font-size: 0.86rem; outline: none; background: var(--color-white, var(--surface)); color: var(--color-text-heading, var(--text)); }
+#chat-send { padding: 12px 16px; background: var(--color-yellow-accent, var(--gold)); border: none; cursor: pointer; color: var(--color-brand-blue-darkest, var(--ink)); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
 
 /* --------------------------------------------------------------------------
    20. UTILITIES (legacy-compatible)

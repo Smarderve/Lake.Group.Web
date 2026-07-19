@@ -7,6 +7,9 @@
    Brand chrome tokens come from assets/tokens.css (linked via flagship/theme).
    Local --la-* aliases map onto those shared tokens for widget scoping.
 
+   Palette: Deep Blue / Light Blue / Sunrise Yellow / White — matches navbar
+   and home CTAs. No candy red. No warm cream / ink-navy leftovers.
+
    Everything is scoped under #chat-widget and deliberately overrides the
    legacy inline #chat-btn/#chat-box page styles (those elements no longer
    exist once assistant.js replaces the mount's DOM).
@@ -14,16 +17,25 @@
 
 #chat-widget.la-widget {
   --la-blue: var(--color-brand-blue, #0181bb);
-  --la-navy: var(--color-brand-blue-darkest, #013f5c);
+  --la-blue-light: var(--color-brand-blue-light, #0599d3);
+  --la-blue-deep: var(--color-brand-blue-deep, #016694);
   --la-ink: var(--color-brand-blue-darkest, #013f5c);
   --la-gold: var(--color-yellow-accent, #fff200);
-  --la-paper: #f6f5f1;
-  --la-surface: #ffffff;
+  --la-gold-deep: var(--color-yellow-deep, #e6d900);
+  --la-paper: var(--color-offwhite, #f7f8fc);
+  --la-paper-2: var(--color-light, #eff2fb);
+  --la-surface: var(--color-white, #ffffff);
   --la-text: var(--color-text-heading, #013f5c);
   --la-mute: var(--color-text-body, #5a6478);
-  --la-line: rgba(10, 16, 36, 0.14);
-  --la-radius: 2px; /* Meridian geometry: sharp */
+  --la-on-brand: var(--color-text-on-brand, #ffffff);
+  --la-on-brand-muted: var(--color-text-on-brand-muted, rgba(255, 255, 255, 0.85));
+  --la-line: var(--color-border, rgba(1, 129, 187, 0.12));
+  --la-line-strong: rgba(1, 129, 187, 0.22);
+  --la-radius: var(--radius, 4px);
+  --la-radius-lg: var(--radius-lg, 10px);
   --la-font: var(--font-body, 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif);
+  --la-shadow: var(--shadow-lg, 0 14px 48px rgba(1, 63, 92, 0.18));
+  --la-shadow-fab: 0 8px 28px rgba(1, 129, 187, 0.28), 0 2px 8px rgba(255, 242, 0, 0.35);
 
   position: fixed;
   bottom: 26px;
@@ -37,25 +49,25 @@
 }
 
 /* --------------------------------------------------------------------------
-   Launcher
+   Launcher — yellow FAB like site primary CTA / legacy #chat-btn
    -------------------------------------------------------------------------- */
 #chat-widget.la-widget .la-launcher {
   width: 56px;
   height: 56px;
   border: none;
   border-radius: var(--la-radius);
-  background: var(--la-navy);
-  color: var(--la-gold);
+  background: var(--la-gold);
+  color: var(--la-ink);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 28px rgba(1,63,92,0.35);
+  box-shadow: var(--la-shadow-fab);
   position: relative;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
 }
 
-/* Meridian tick: small gold square seated on the launcher's top hairline. */
+/* Brand tick: small blue square on the yellow FAB (pairs with yellow nav rule) */
 #chat-widget.la-widget .la-launcher::before {
   content: '';
   position: absolute;
@@ -63,16 +75,17 @@
   left: 8px;
   width: 6px;
   height: 6px;
-  background: var(--la-gold);
+  background: var(--la-blue);
 }
 
 #chat-widget.la-widget .la-launcher:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 32px rgba(1,63,92,0.45);
+  background: var(--la-gold-deep);
+  box-shadow: 0 12px 32px rgba(1, 129, 187, 0.34), 0 4px 12px rgba(255, 242, 0, 0.4);
 }
 
 #chat-widget.la-widget .la-launcher:focus-visible {
-  outline: 2px solid var(--la-gold);
+  outline: 2px solid var(--la-blue);
   outline-offset: 3px;
 }
 
@@ -92,9 +105,9 @@
   display: flex;
   flex-direction: column;
   background: var(--la-surface);
-  border: 1px solid var(--la-line);
-  border-radius: var(--la-radius);
-  box-shadow: 0 24px 64px rgba(1,63,92,0.35);
+  border: 1px solid var(--la-line-strong);
+  border-radius: var(--la-radius-lg);
+  box-shadow: var(--la-shadow);
   overflow: hidden;
   opacity: 0;
   transform: translateY(10px);
@@ -110,15 +123,15 @@
   display: none;
 }
 
-/* Header  ink band with gold hairline + tick */
+/* Header — brand blue band + sunrise yellow hairline (navbar language) */
 #chat-widget.la-widget .la-head {
   position: relative;
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 14px 16px 12px;
-  background: var(--la-blue);
-  border-bottom: 1px solid var(--la-gold);
+  background: linear-gradient(135deg, var(--la-blue) 0%, var(--la-blue-light) 100%);
+  border-bottom: 2px solid var(--la-gold);
 }
 
 #chat-widget.la-widget .la-tick {
@@ -135,7 +148,7 @@
 
 #chat-widget.la-widget .la-head h4 {
   margin: 0;
-  color: #fff;
+  color: var(--la-on-brand);
   font-size: 0.94rem;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -144,7 +157,7 @@
 
 #chat-widget.la-widget .la-head p {
   margin: 2px 0 0;
-  color: rgba(233, 237, 248, 0.55);
+  color: var(--la-on-brand-muted);
   font-size: 0.72rem;
   line-height: 1.3;
 }
@@ -163,14 +176,14 @@
   background: transparent;
   border: none;
   border-radius: var(--la-radius);
-  color: rgba(233, 237, 248, 0.7);
+  color: var(--la-on-brand-muted);
   cursor: pointer;
   transition: color 0.15s ease, background 0.15s ease;
 }
 
 #chat-widget.la-widget .la-iconbtn:hover {
   color: var(--la-gold);
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.14);
 }
 
 #chat-widget.la-widget .la-iconbtn:focus-visible {
@@ -215,14 +228,14 @@
   align-self: flex-start;
   background: var(--la-surface);
   border: 1px solid var(--la-line);
-  border-left: 2px solid var(--la-gold);
+  border-left: 3px solid var(--la-gold);
   color: var(--la-text);
 }
 
 #chat-widget.la-widget .la-user {
   align-self: flex-end;
   background: var(--la-blue);
-  color: #fff;
+  color: var(--la-on-brand);
 }
 
 #chat-widget.la-widget .la-lead {
@@ -252,6 +265,7 @@
 }
 
 #chat-widget.la-widget .la-link:hover {
+  color: var(--la-blue-deep);
   text-decoration: underline;
 }
 
@@ -271,7 +285,7 @@
 #chat-widget.la-widget .la-typing span {
   width: 5px;
   height: 5px;
-  background: var(--la-mute);
+  background: var(--la-blue-light);
   border-radius: 50%;
   animation: la-blink 1s infinite ease-in-out;
 }
@@ -298,7 +312,7 @@
   flex: 1;
   min-width: 0;
   padding: 10px 12px;
-  border: 1px solid var(--la-line);
+  border: 1px solid var(--la-line-strong);
   border-radius: var(--la-radius);
   font-family: inherit;
   font-size: 0.84rem;
@@ -306,31 +320,37 @@
   background: var(--la-paper);
 }
 
+#chat-widget.la-widget .la-input::placeholder {
+  color: var(--la-mute);
+}
+
 #chat-widget.la-widget .la-input:focus {
   outline: 2px solid var(--la-blue);
   outline-offset: -1px;
+  border-color: var(--la-blue);
+  background: var(--la-surface);
 }
 
 #chat-widget.la-widget .la-send {
   padding: 0 16px;
   border: none;
   border-radius: var(--la-radius);
-  background: var(--la-navy);
-  color: var(--la-gold);
+  background: var(--la-gold);
+  color: var(--la-ink);
   font-family: inherit;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.03em;
   cursor: pointer;
-  transition: background 0.15s ease;
+  transition: background 0.15s ease, transform 0.15s ease;
 }
 
 #chat-widget.la-widget .la-send:hover {
-  background: var(--la-blue);
+  background: var(--la-gold-deep);
 }
 
 #chat-widget.la-widget .la-send:focus-visible {
-  outline: 2px solid var(--la-gold);
+  outline: 2px solid var(--la-blue);
   outline-offset: 2px;
 }
 
