@@ -1,0 +1,53 @@
+
+        <div class="lp-unit">Finance · Containers</div>
+        <h1 class="lp-name">Pankaj Kumar</h1>
+        <p class="lp-role">CFO · AFICD</p>
+        <p class="lp-lede">Oversees financial planning, risk analysis and corporate governance for African Inland Container Depot (AFICD) — Lake Group’s dry-port platform in Dar es Salaam.</p>
+        <p>AFICD is a core Group asset: an inland container depot at Tazara / Pugu Road with rail siding toward the port (~6 km), serving landlocked markets including Rwanda, Burundi, Uganda, DRC, Zambia and Malawi.</p>
+        <p>The Dar yard covers about 14,000 m² with capacity around 4,000 TEU, SAP-based operations, container repairs, and sister sites in Zambia (Ndola) and Mozambique (Beira). ACFS extends the brand into a larger CFS terminal with warehouse, weighbridge and reefer capacity.</p>
+        <p>As CFO, Kumar’s brief is capital discipline and governance around that cargo engine — planning, risk and controls for import-export volumes, customs-linked workflows and container clearing.</p>
+        
+        <ul class="lp-mandate">
+          <li><span>01</span><span>Financial planning &amp; performance for AFICD</span></li>
+          <li><span>02</span><span>Risk analysis &amp; corporate governance</span></li>
+          <li><span>03</span><span>Support for ICD / CFS commercial operations</span></li>
+        </ul>
+        <div class="lp-meta">
+        <div><strong>4,000</strong><span>TEU capacity (Dar)</span></div>
+        <div><strong>Pugu Rd</strong><span>Depot location</span></div>
+        <div><strong>3</strong><span>Country sites</span></div>
+        </div>
+        <div class="lp-contact">
+          <div><strong>Group HQ</strong><span>Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055, Dar es Salaam, Tanzania</span></div>
+          <div><strong>Phone</strong><a href="tel:+255222780510">+255 222 780 510</a> · <a href="tel:+255222780479">+255 222 780 479</a></div>
+          <div><strong>Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20CFO%20AFICD%20(Pankaj%20Kumar)">admin@lakeoilgroup.com</a></div>
+        </div>
+        <div class="lp-links">
+          <a href="aficd.html" class="btn btn-outline-dark btn-sm">AFICD</a>
+          <a href="container-services.html" class="btn btn-outline-dark btn-sm">Container services</a>
+          <a href="contact.html" class="btn btn-outline-dark btn-sm">Contact Group</a>
+        </div>
+        <nav class="lp-nav" aria-label="Related leadership profiles">
+          <a class="ld-person-card" href="leadership-bhaskar-shetty.html">
+          <div class="ld-person-photo"><img src="assets/images/leadership/bhaskar-shetty.png" alt="Bhaskar S. Shetty" data-i18n-alt="leadership.23" loading="lazy" decoding="async"></div>
+          <div class="ld-person-body">
+            <h3><span data-i18n="leadership.23">Bhaskar S. Shetty</span></h3>
+            <p class="ld-person-role"><span data-i18n="leadership.24">Managing Director · ATL</span></p>
+            <p class="ld-person-sum"><span data-i18n="leadership.107">Directs Associated Trans Logistics Ltd (ATL), operating alongside Lake Trans as a logistical backbone for fuel fleets, heavy haulage and multi-national cargo corridors.</span></p>
+            <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>
+          </div>
+        </a>
+          <a class="ld-person-card" href="leadership-juma-nuru.html">
+          <div class="ld-person-photo ld-person-photo--logo"><img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Juma Nuru" data-i18n-alt="leadership.51" loading="lazy" decoding="async"></div>
+          <div class="ld-person-body">
+            <h3><span data-i18n="leadership.51">Juma Nuru</span></h3>
+            <p class="ld-person-role"><span data-i18n="leadership.52">Director of Operations · Lake Group</span></p>
+            <p class="ld-person-sum"><span data-i18n="leadership.53">Leads Group-wide operations across Lake Group’s energy, logistics and industrial units - coordinating day-to-day execution and operational performance.</span></p>
+            <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>
+          </div>
+        </a>
+          <div class="lp-nav-all">
+            <a href="leadership.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.58">All leadership</a>
+          </div>
+        </nav>
+      

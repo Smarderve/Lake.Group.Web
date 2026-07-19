@@ -231,7 +231,7 @@ async function main() {
   ], { stdio: 'ignore' });
   let failures = 0;
   const check = (label, ok, detail) => {
-    console.log(`  ${ok ? 'PASS' : 'FAIL'}: ${label}${detail ? ' — ' + detail : ''}`);
+    console.log(`  ${ok ? 'PASS' : 'FAIL'}: ${label}${detail ? ' - ' + detail : ''}`);
     if (!ok) failures++;
   };
   try {

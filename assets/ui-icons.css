@@ -1,0 +1,216 @@
+/* ==========================================================================
+   Lake Group - UI icon system (stroke SVGs, brand blue / yellow)
+   Loaded via theme.css + flagship.css. Animations respect reduced motion.
+   ========================================================================== */
+
+.lg-ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  color: currentColor;
+  line-height: 0;
+}
+.lg-ico svg {
+  width: 1em;
+  height: 1em;
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.lg-ico--fill svg { fill: currentColor; stroke: none; }
+
+/* Contact row icons */
+.ct-ico.lg-ico {
+  width: 40px;
+  height: 40px;
+  font-size: 1.15rem;
+  color: var(--gold, var(--color-yellow-accent, #FFF200));
+  border: 1px solid var(--ink-line, rgba(255,255,255,0.18));
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.ct-ico.lg-ico svg { width: 20px; height: 20px; }
+.ct-row:hover .ct-ico.lg-ico {
+  color: var(--color-yellow-accent, #FFF200);
+  border-color: rgba(255, 242, 0, 0.45);
+  transform: translateY(-1px);
+}
+.ct-ico.lg-ico .lg-ico-draw {
+  stroke-dasharray: 36;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.45s ease;
+}
+.ct-row:hover .ct-ico.lg-ico .lg-ico-draw { stroke-dashoffset: 8; }
+
+/* Feature / list check marks */
+.lg-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.05em;
+  height: 1.05em;
+  margin-inline-end: 0.45em;
+  color: var(--amber, var(--color-brand-blue, #0181BB));
+  vertical-align: -0.12em;
+  flex: none;
+}
+.lg-check svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Map pin (station locator CTAs) */
+.lg-pin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  margin-inline-end: 0.35em;
+  color: currentColor;
+  vertical-align: -0.1em;
+}
+.lg-pin svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Careers / value icons hover lift */
+.career-icon .msi,
+.value-icon .msi {
+  transition: transform 0.28s ease, color 0.28s ease;
+  transform-origin: center;
+}
+.career-card:hover .career-icon .msi,
+.val-tile:hover .value-icon .msi {
+  transform: translateY(-2px) scale(1.06);
+  color: var(--color-brand-blue, #0181BB);
+}
+
+/* Leadership “Read more” arrow (SVG via mask, not emoji/unicode) */
+.ld-person-more::after {
+  content: "" !important;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='M13 6l6 6-6 6'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='M13 6l6 6-6 6'/%3E%3C/svg%3E") center / contain no-repeat;
+  transition: transform 0.25s ease;
+}
+a.ld-person-card:hover .ld-person-more::after,
+a.ld-person-card:focus-visible .ld-person-more::after {
+  transform: translateX(4px);
+}
+html[dir="rtl"] a.ld-person-card:hover .ld-person-more::after,
+html[dir="rtl"] a.ld-person-card:focus-visible .ld-person-more::after {
+  transform: translateX(-4px);
+}
+
+/* Footer social icon buttons */
+.footer-social .social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-social .social-link .lg-ico {
+  font-size: 14px;
+  opacity: 0.85;
+  transition: transform 0.22s ease, opacity 0.22s ease, color 0.22s ease;
+}
+.footer-social .social-link .lg-ico svg {
+  fill: currentColor;
+  stroke: none;
+}
+.footer-social .social-link:hover .lg-ico {
+  opacity: 1;
+  color: var(--gold, var(--color-yellow-accent, #FFF200));
+  transform: translateY(-1px);
+}
+
+/* Chat FAB subtle idle pulse (stroke) */
+#chat-widget.la-widget .la-launcher svg .la-fab-stroke {
+  transform-origin: 12px 11px;
+  transition: transform 0.2s ease;
+}
+#chat-widget.la-widget .la-launcher:hover svg .la-fab-stroke {
+  transform: scale(1.06);
+}
+@media (prefers-reduced-motion: no-preference) {
+  #chat-widget.la-widget .la-launcher:not(:hover) svg .la-fab-bubble {
+    animation: lg-fab-soft 3.2s ease-in-out infinite;
+  }
+}
+@keyframes lg-fab-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.82; }
+}
+
+/* Lang globe - premium stroke icon + hover spin / meridian draw */
+.lang-globe {
+  overflow: visible;
+}
+.lang-globe .lang-globe-spin {
+  transform-origin: 12px 12px;
+  transform-box: fill-box;
+}
+.lang-globe .lang-globe-meridian {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 0;
+}
+.lang-trigger:hover .lang-icons,
+.lang-trigger:focus-visible .lang-icons,
+.lang-switcher.is-open .lang-icons {
+  color: var(--color-yellow-accent, var(--yellow, #FFF200));
+}
+@media (prefers-reduced-motion: no-preference) {
+  .lang-trigger:hover .lang-globe-spin,
+  .lang-trigger:focus-visible .lang-globe-spin,
+  .lang-switcher.is-open .lang-globe-spin {
+    animation: lg-lang-spin 3.6s linear infinite;
+  }
+  .lang-trigger:hover .lang-globe-meridian,
+  .lang-trigger:focus-visible .lang-globe-meridian,
+  .lang-switcher.is-open .lang-globe-meridian {
+    animation: lg-lang-meridian 1.6s ease-in-out infinite;
+  }
+}
+@keyframes lg-lang-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes lg-lang-meridian {
+  0%, 100% { stroke-dashoffset: 0; opacity: 1; }
+  50% { stroke-dashoffset: 18; opacity: 0.75; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lang-trigger:hover .lang-globe-spin,
+  .lang-trigger:focus-visible .lang-globe-spin,
+  .lang-switcher.is-open .lang-globe-spin,
+  .lang-trigger:hover .lang-globe-meridian,
+  .lang-trigger:focus-visible .lang-globe-meridian,
+  .lang-switcher.is-open .lang-globe-meridian,
+  #chat-widget.la-widget .la-launcher:not(:hover) svg .la-fab-bubble,
+  .career-icon .msi,
+  .value-icon .msi,
+  .ct-ico.lg-ico,
+  .footer-social .social-link .lg-ico,
+  .ld-person-more::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

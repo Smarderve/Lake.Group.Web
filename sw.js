@@ -11,7 +11,7 @@
 
 'use strict';
 
-const VERSION = 'v44';
+const VERSION = 'v46';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -41,6 +41,10 @@ const PRECACHE_URLS = [
   // They are fetched network-first below (and HTML links use ?v= busting).
   './assets/motion.js',
   './assets/flagship-motion.js',
+  './assets/split-text.js',
+  './assets/split-text.css',
+  './assets/vendor/gsap/gsap.min.js',
+  './assets/vendor/gsap/ScrollTrigger.min.js',
   './assets/i18n.js',
   './assets/i18n-content.js',
   // Offline knowledge assistant (present on every page).

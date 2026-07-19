@@ -7,7 +7,7 @@
    Brand chrome tokens come from assets/tokens.css (linked via flagship/theme).
    Local --la-* aliases map onto those shared tokens for widget scoping.
 
-   Palette: Deep Blue / Light Blue / Sunrise Yellow / White — matches navbar
+   Palette: Deep Blue / Light Blue / Sunrise Yellow / White - matches navbar
    and home CTAs. No candy red. No warm cream / ink-navy leftovers.
 
    Everything is scoped under #chat-widget and deliberately overrides the
@@ -49,7 +49,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Launcher — yellow FAB like site primary CTA / legacy #chat-btn
+   Launcher - yellow FAB like site primary CTA / legacy #chat-btn
    -------------------------------------------------------------------------- */
 #chat-widget.la-widget .la-launcher {
   width: 56px;
@@ -123,7 +123,7 @@
   display: none;
 }
 
-/* Header — brand blue band + sunrise yellow hairline (navbar language) */
+/* Header - brand blue band + sunrise yellow hairline (navbar language) */
 #chat-widget.la-widget .la-head {
   position: relative;
   display: flex;
@@ -395,4 +395,150 @@
     animation: none;
     opacity: 0.6;
   }
+}
+
+/* ==========================================================================
+   Lake Agro theme (body.co-theme-agro only)
+   ==========================================================================
+   Page-level token remaps alone are incomplete for this widget:
+   · Header gradient used --la-blue-light → agro bright lime (#489f10), which
+     reads muddy vs solid nav green.
+   · --la-gold-deep still pointed at Lake yellow (#E6D900) on hover.
+   · Borders / FAB shadows hard-coded Lake blue + sunrise yellow rgba.
+
+   Explicit --la-* remap + chrome overrides keep Agro green/orange cohesive
+   with nav/footer. Other pages are unaffected (selectors require co-theme-agro).
+   ========================================================================== */
+body.co-theme-agro #chat-widget.la-widget {
+  --la-blue: var(--color-agro-green, #008435);
+  --la-blue-light: var(--color-agro-green, #008435);
+  --la-blue-deep: var(--color-agro-green-deep, #004b1e);
+  --la-ink: #012814;
+  --la-gold: var(--color-agro-orange, #e67e22);
+  --la-gold-deep: #c96a1a;
+  --la-paper: #f4f8f4;
+  --la-paper-2: #e8f1ea;
+  --la-surface: var(--color-white, #ffffff);
+  --la-text: #012814;
+  --la-mute: #4a5c50;
+  --la-on-brand: #ffffff;
+  --la-on-brand-muted: rgba(255, 255, 255, 0.88);
+  --la-line: rgba(0, 132, 53, 0.14);
+  --la-line-strong: rgba(0, 75, 30, 0.28);
+  --la-shadow: 0 14px 48px rgba(0, 75, 30, 0.22);
+  --la-shadow-fab: 0 8px 28px rgba(0, 132, 53, 0.28), 0 2px 8px rgba(230, 126, 34, 0.35);
+}
+
+/* Header: deep → solid Agro green (matches nav), orange hairline accent */
+body.co-theme-agro #chat-widget.la-widget .la-head {
+  background: linear-gradient(
+    135deg,
+    var(--color-agro-green-deep, #004b1e) 0%,
+    var(--color-agro-green, #008435) 100%
+  );
+  border-bottom-color: var(--color-agro-orange, #e67e22);
+}
+
+body.co-theme-agro #chat-widget.la-widget .la-tick {
+  background: var(--color-agro-orange, #e67e22);
+}
+
+body.co-theme-agro #chat-widget.la-widget .la-iconbtn:hover {
+  color: var(--color-agro-orange, #e67e22);
+}
+
+body.co-theme-agro #chat-widget.la-widget .la-iconbtn:focus-visible {
+  outline-color: var(--color-agro-orange, #e67e22);
+}
+
+/* FAB: Agro orange CTA + green brand tick (no Lake yellow / blue) */
+body.co-theme-agro #chat-widget.la-widget .la-launcher {
+  background: var(--color-agro-orange, #e67e22);
+  color: var(--la-ink);
+  box-shadow: var(--la-shadow-fab);
+}
+
+body.co-theme-agro #chat-widget.la-widget .la-launcher::before {
+  background: var(--color-agro-green, #008435);
+}
+
+body.co-theme-agro #chat-widget.la-widget .la-launcher:hover {
+  background: var(--la-gold-deep);
+  box-shadow: 0 12px 32px rgba(0, 132, 53, 0.34), 0 4px 12px rgba(230, 126, 34, 0.4);
+}
+
+body.co-theme-agro #chat-widget.la-widget .la-launcher:focus-visible {
+  outline-color: var(--color-agro-green, #008435);
+}
+
+/* Bubbles + links */
+body.co-theme-agro #chat-widget.la-widget .la-bot {
+  border-left-color: var(--color-agro-orange, #e67e22);
+  color: var(--la-text);
+}
+
+body.co-theme-agro #chat-widget.la-widget .la-user {
+  background: var(--color-agro-green, #008435);
+  color: var(--la-on-brand);
+}
+
+body.co-theme-agro #chat-widget.la-widget .la-link {
+  color: var(--color-agro-green, #008435);
+}
+
+body.co-theme-agro #chat-widget.la-widget .la-link:hover {
+  color: var(--color-agro-green-deep, #004b1e);
+}
+
+body.co-theme-agro #chat-widget.la-widget .la-link:focus-visible {
+  outline-color: var(--color-agro-green, #008435);
+}
+
+body.co-theme-agro #chat-widget.la-widget .la-typing span {
+  background: var(--color-agro-green-bright, #489f10);
+}
+
+/* Input + send */
+body.co-theme-agro #chat-widget.la-widget .la-input:focus {
+  outline-color: var(--color-agro-green, #008435);
+  border-color: var(--color-agro-green, #008435);
+}
+
+body.co-theme-agro #chat-widget.la-widget .la-send {
+  background: var(--color-agro-orange, #e67e22);
+  color: var(--la-ink);
+}
+
+body.co-theme-agro #chat-widget.la-widget .la-send:hover {
+  background: var(--la-gold-deep);
+}
+
+body.co-theme-agro #chat-widget.la-widget .la-send:focus-visible {
+  outline-color: var(--color-agro-green, #008435);
+}
+
+/* Message list scrollbar — Agro greens (no Lake blue) */
+body.co-theme-agro #chat-widget.la-widget .la-msgs {
+  scrollbar-color: var(--color-agro-green, #008435) rgba(0, 132, 53, 0.12);
+}
+
+body.co-theme-agro #chat-widget.la-widget .la-msgs::-webkit-scrollbar {
+  width: 8px;
+}
+
+body.co-theme-agro #chat-widget.la-widget .la-msgs::-webkit-scrollbar-track {
+  background: rgba(0, 132, 53, 0.08);
+}
+
+body.co-theme-agro #chat-widget.la-widget .la-msgs::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--color-agro-green-bright, #489f10) 0%,
+    var(--color-agro-green, #008435) 100%
+  );
+  border-radius: 4px;
+}
+
+body.co-theme-agro #chat-widget.la-widget .la-msgs::-webkit-scrollbar-thumb:hover {
+  background: var(--color-agro-green-deep, #004b1e);
 }

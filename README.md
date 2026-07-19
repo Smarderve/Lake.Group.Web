@@ -56,7 +56,7 @@ template: eight auto-advancing scenes with real Lake Group photography
 (storage terminal, the founder, the truck fleet, LPG cylinders, GCCP
 concrete trucks, the leadership team, AFICD containers, the logo) telling
 the company's growth story from 2006 to today, ending on the key stats
-(4,600+ employees, 700+ trucks, 85+ stations, 8 countries) with a link
+(30,000+ employees, 1,200+ trucks, 152 stations, 8 countries) with a link
 back to the main site. Click/tap or press Space/→ to skip ahead; it also
 auto-advances on a timer. Not yet linked from the main nav — open it
 directly as `our-story.html`, or add a link from `index.html` if you want

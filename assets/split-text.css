@@ -1,0 +1,46 @@
+/**
+ * Styles for assets/split-text.js (React Bits SplitText vanilla port).
+ * Keeps char/word spans inline so multi-line heroes (em / .gold yellow line)
+ * retain layout; disables conflicting CSS entrance animations on enhanced h1s.
+ */
+
+.hero h1.split-text,
+.page-hero h1.split-text {
+  text-align: left;
+}
+
+.split-text .split-char,
+.split-text .split-word {
+  display: inline-block;
+  will-change: transform, opacity;
+  vertical-align: baseline;
+}
+
+/* Preserve block yellow line on home hero (<em>Central Africa</em>) */
+.hero h1.split-text em {
+  display: block;
+}
+
+/* While waiting for GSAP, avoid a flash of unstyled final text fighting CSS anims */
+.hero h1.split-text:not(.split-text--ready) .split-char,
+.hero h1.split-text:not(.split-text--ready) .split-word,
+.page-hero h1.split-text:not(.split-text--ready) .split-char,
+.page-hero h1.split-text:not(.split-text--ready) .split-word {
+  opacity: 0;
+}
+
+/* Disable legacy hero h1 CSS entrances once SplitText owns the title */
+html.lg-motion .hero h1.split-text,
+html.fs-motion .page-hero h1.split-text {
+  animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero h1.split-text .split-char,
+  .hero h1.split-text .split-word,
+  .page-hero h1.split-text .split-char,
+  .page-hero h1.split-text .split-word {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

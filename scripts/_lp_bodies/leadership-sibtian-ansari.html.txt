@@ -1,0 +1,53 @@
+
+        <div class="lp-unit">Manufacturing</div>
+        <h1 class="lp-name">Sibtian Ansari</h1>
+        <p class="lp-role">CEO · Manufacturing Division</p>
+        <p class="lp-lede">Leads Lake Group’s structural industrial expansions — most notably Lake Steel — spanning production infrastructure, manufacturing output, concrete products and construction supply networks.</p>
+        <p>As Manufacturing CEO, Ansari’s mandate sits at the industrial heart of the Group’s diversification beyond petroleum. Lake Steel operates a computerized automatic rolling mill at Visiga, Kibaha (Plot 118, Block M), with throughput up to about 25 tonnes/hour and annual capacity around 100,000 MT — with publicly discussed expansion toward 150,000 MT.</p>
+        <p>The mill introduced high-strength corrosion-resistant (HS-CR) rebar to Tanzania, engineered to retain strength at elevated temperatures and deliver markedly higher corrosion resistance than ordinary rebar.</p>
+        <p>His portfolio also connects to the Group’s construction-materials chain: Gulf Aggregates crushing plants, Lake Premix / GCCP ready-mix operations in Dar es Salaam, and the wider building-products ecosystem that supplies contractors and infrastructure projects.</p>
+        
+        <ul class="lp-mandate">
+          <li><span>01</span><span>Lake Steel production infrastructure &amp; mill output</span></li>
+          <li><span>02</span><span>Concrete products &amp; construction supply networks</span></li>
+          <li><span>03</span><span>Industrial expansion programmes across manufacturing units</span></li>
+        </ul>
+        <div class="lp-meta">
+        <div><strong>HS-CR</strong><span>Steel technology</span></div>
+        <div><strong>~100k MT</strong><span>Annual capacity</span></div>
+        <div><strong>Kibaha</strong><span>Mill location</span></div>
+        </div>
+        <div class="lp-contact">
+          <div><strong>Group HQ</strong><span>Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055, Dar es Salaam, Tanzania</span></div>
+          <div><strong>Phone</strong><a href="tel:+255222780510">+255 222 780 510</a> · <a href="tel:+255222780479">+255 222 780 479</a></div>
+          <div><strong>Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20CEO%20Manufacturing%20(Sibtian%20Ansari)">admin@lakeoilgroup.com</a></div>
+        </div>
+        <div class="lp-links">
+          <a href="lake-steel.html" class="btn btn-outline-dark btn-sm">Lake Steel</a>
+          <a href="lake-premix-cement.html" class="btn btn-outline-dark btn-sm">Lake Premix &amp; Cement</a>
+          <a href="gulf-aggregates.html" class="btn btn-outline-dark btn-sm">Gulf Aggregates</a>
+        </div>
+        <nav class="lp-nav" aria-label="Related leadership profiles">
+          <a class="ld-person-card" href="leadership-ally-edha-awadh.html">
+          <div class="ld-person-photo"><img src="assets/images/leadership/ally-edha-awadh.png" alt="Ally Edha Awadh" data-i18n-alt="leadership.9" loading="lazy" decoding="async"></div>
+          <div class="ld-person-body">
+            <h3><span data-i18n="leadership.9">Ally Edha Awadh</span></h3>
+            <p class="ld-person-role"><span data-i18n="leadership.8">Executive Chairman &amp; Owner</span></p>
+            <p class="ld-person-sum"><span data-i18n="leadership.104">Forbes-featured entrepreneur who founded Lake Oil in 2006 and built Lake Group into one of East and Central Africa’s leading energy, logistics and industrial conglomerates.</span></p>
+            <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>
+          </div>
+        </a>
+          <a class="ld-person-card" href="leadership-vivek-choudhary.html">
+          <div class="ld-person-photo"><img src="assets/images/leadership/vivek-choudhary.png" alt="Vivek Choudhary" data-i18n-alt="leadership.20" loading="lazy" decoding="async"></div>
+          <div class="ld-person-body">
+            <h3><span data-i18n="leadership.20">Vivek Choudhary</span></h3>
+            <p class="ld-person-role"><span data-i18n="leadership.21">Director of Digital Transformation</span></p>
+            <p class="ld-person-sum"><span data-i18n="leadership.106">Owns enterprise technology architecture and digital strategy - from centralised SAP environments to logistics intelligence and cross-border data security.</span></p>
+            <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>
+          </div>
+        </a>
+          <div class="lp-nav-all">
+            <a href="leadership.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.58">All leadership</a>
+          </div>
+        </nav>
+      

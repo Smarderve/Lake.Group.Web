@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Builds assets/assistant-kb.js — the offline knowledge base consumed by
+ * Builds assets/assistant-kb.js - the offline knowledge base consumed by
  * assets/assistant.js (the site's offline knowledge assistant).
  *
  * Output shape (same "global payload via plain <script>" pattern as
@@ -16,12 +16,12 @@
  *   }
  *
  * Sources:
- *   1. assets/i18n-content.json — every page's translated copy, grouped by
+ *   1. assets/i18n-content.json - every page's translated copy, grouped by
  *      key prefix (one prefix per page) and chunked into small documents so
  *      retrieval returns a focused passage, not a whole page.
- *   2. CURATED_FACTS below — hand-written from scripts/_verified_lake_facts.md
+ *   2. CURATED_FACTS below - hand-written from scripts/_verified_lake_facts.md
  *      (verified items only; conflicting official figures use the preferred
- *      "about page" number, e.g. 700+ trucks).
+ *      "about page" number, e.g. 1,200+ trucks).
  *
  * Run from repo root:  node scripts/build_assistant_kb.js
  */
@@ -36,7 +36,7 @@ const CONTENT = JSON.parse(
 );
 const OUT = path.join(ROOT, 'assets', 'assistant-kb.js');
 
-const LANGS = ['en', 'fr', 'sw'];
+const LANGS = ['en', 'fr', 'sw', 'hi', 'ar'];
 
 /* ------------------------------------------------------------------ */
 /* Page map: i18n key prefix -> page url + title                       */
@@ -51,7 +51,7 @@ const PAGES = {
   ose: { url: 'our-story.html', titleKey: 'nav.about', title: 'Our Story' },
   history: { url: 'history.html', titleKey: 'nav.history', title: 'Our History' },
   leadership: { url: 'leadership.html', titleKey: 'nav.leadership', title: 'Leadership' },
-  services: { url: 'services.html', titleKey: 'nav.companies', title: 'Our Companies' },
+  services: { url: 'services.html', titleKey: 'nav.companies', title: 'Subsidiaries' },
   fuel: { url: 'lake-oil.html', titleKey: 'nav.co.lakeOil', title: 'Lake Oil' },
   lpg: { url: 'lake-gas.html', titleKey: 'nav.co.lakeGas', title: 'Lake Gas' },
   lubricants: { url: 'lake-lubes.html', titleKey: 'nav.co.lakeLubes', title: 'Lake Lubes' },
@@ -75,7 +75,7 @@ const PAGES = {
 // Skipped prefixes: nav/mob/footer/chat (page chrome), dashboard (demo
 // portal, excluded from search per robots.txt), news_article (empty template).
 
-const MIN_LEN = 30; // skip labels/buttons — too short to answer anything
+const MIN_LEN = 30; // skip labels/buttons - too short to answer anything
 const CHUNK_TARGET = 340; // characters per document (keeps answers focused)
 
 function stripHtml(s) {
@@ -93,7 +93,7 @@ function stripHtml(s) {
 /* Curated verified facts (from scripts/_verified_lake_facts.md)       */
 /* ------------------------------------------------------------------ */
 // Each fact: { id, url, [lang]: { t: topic, s: answer, k: keywords } }.
-// Answers are complete standalone sentences — the assistant serves them
+// Answers are complete standalone sentences - the assistant serves them
 // verbatim. Only officially-verified figures are used.
 const CURATED_FACTS = [
   {
@@ -101,17 +101,17 @@ const CURATED_FACTS = [
     url: 'africa-network.html',
     en: {
       t: 'Where we operate',
-      s: 'Lake Group operates across 8 countries in Africa — Tanzania (headquarters), Kenya, Zambia, DR Congo, Rwanda, Burundi, Ethiopia and Mozambique — plus a presence in the UAE (Dubai) through MERM and SAFF.',
+      s: 'Lake Group operates across 8 countries in Africa - Tanzania (headquarters), Kenya, Zambia, DR Congo, Rwanda, Burundi, Ethiopia and Mozambique - plus a presence in the UAE (Dubai) through MERM and SAFF.',
       k: 'countries where operate operations locations presence africa which country region',
     },
     fr: {
       t: 'Où nous opérons',
-      s: 'Lake Group opère dans 8 pays d\u2019Afrique — la Tanzanie (siège), le Kenya, la Zambie, la RD Congo, le Rwanda, le Burundi, l\u2019Éthiopie et le Mozambique — avec aussi une présence aux Émirats arabes unis (Dubaï) via MERM et SAFF.',
+      s: 'Lake Group opère dans 8 pays d\u2019Afrique - la Tanzanie (siège), le Kenya, la Zambie, la RD Congo, le Rwanda, le Burundi, l\u2019Éthiopie et le Mozambique - avec aussi une présence aux Émirats arabes unis (Dubaï) via MERM et SAFF.',
       k: 'pays où opérez opérations présence afrique quels quelles régions implantation',
     },
     sw: {
       t: 'Tunakofanya kazi',
-      s: 'Lake Group inafanya kazi katika nchi 8 za Afrika — Tanzania (makao makuu), Kenya, Zambia, DR Congo, Rwanda, Burundi, Ethiopia na Msumbiji — pamoja na uwepo katika Falme za Kiarabu (Dubai) kupitia MERM na SAFF.',
+      s: 'Lake Group inafanya kazi katika nchi 8 za Afrika - Tanzania (makao makuu), Kenya, Zambia, DR Congo, Rwanda, Burundi, Ethiopia na Msumbiji - pamoja na uwepo katika Falme za Kiarabu (Dubai) kupitia MERM na SAFF.',
       k: 'nchi gani wapi mnafanya kazi shughuli uwepo afrika mataifa mnaofanya',
     },
   },
@@ -177,17 +177,17 @@ const CURATED_FACTS = [
     url: 'about.html',
     en: {
       t: 'Our people',
-      s: 'Lake Group employs more than 4,600 people of 21 nationalities across its operations.',
+      s: 'Lake Group employs more than 30,000 people of 21 nationalities across its operations.',
       k: 'employees staff workforce people how many jobs headcount team',
     },
     fr: {
       t: 'Nos équipes',
-      s: 'Lake Group emploie plus de 4 600 personnes de 21 nationalités dans l\u2019ensemble de ses opérations.',
+      s: 'Lake Group emploie plus de 30 000 personnes de 21 nationalités dans l\u2019ensemble de ses opérations.',
       k: 'employés effectif personnel combien salariés équipe',
     },
     sw: {
       t: 'Watu wetu',
-      s: 'Lake Group inaajiri zaidi ya watu 4,600 wa mataifa 21 katika shughuli zake zote.',
+      s: 'Lake Group inaajiri zaidi ya watu 30,000 wa mataifa 21 katika shughuli zake zote.',
       k: 'wafanyakazi waajiriwa wangapi idadi timu ajira watu',
     },
   },
@@ -196,17 +196,17 @@ const CURATED_FACTS = [
     url: 'fleet.html',
     en: {
       t: 'Our fleet',
-      s: 'Lake Trans, the group\u2019s logistics arm founded in 2008, operates a fleet of more than 700 trucks — every truck GPS-tracked — hauling bulk liquids and cargo to Zambia, Rwanda, DR Congo, Burundi, Malawi, Kenya and Uganda, with workshops in Kibaha, Kigamboni, Morogoro, Nairobi and Ndola.',
+      s: 'Lake Trans, the group\u2019s logistics arm founded in 2008, operates a fleet of more than 1,200 trucks - every truck GPS-tracked - hauling bulk liquids and cargo to Zambia, Rwanda, DR Congo, Burundi, Malawi, Kenya and Uganda, with workshops in Kibaha, Kigamboni, Morogoro, Nairobi and Ndola.',
       k: 'fleet trucks how many vehicles tankers transport haulage lake trans lorries',
     },
     fr: {
       t: 'Notre flotte',
-      s: 'Lake Trans, la branche logistique du groupe fondée en 2008, exploite une flotte de plus de 700 camions — tous suivis par GPS — transportant liquides en vrac et marchandises vers la Zambie, le Rwanda, la RD Congo, le Burundi, le Malawi, le Kenya et l\u2019Ouganda, avec des ateliers à Kibaha, Kigamboni, Morogoro, Nairobi et Ndola.',
+      s: 'Lake Trans, la branche logistique du groupe fondée en 2008, exploite une flotte de plus de 1 200 camions - tous suivis par GPS - transportant liquides en vrac et marchandises vers la Zambie, le Rwanda, la RD Congo, le Burundi, le Malawi, le Kenya et l\u2019Ouganda, avec des ateliers à Kibaha, Kigamboni, Morogoro, Nairobi et Ndola.',
       k: 'flotte camions combien véhicules citernes transport lake trans',
     },
     sw: {
       t: 'Meli yetu ya magari',
-      s: 'Lake Trans, tawi la usafirishaji la kampuni lililoanzishwa mwaka 2008, linaendesha zaidi ya malori 700 — kila lori likifuatiliwa kwa GPS — yakisafirisha mafuta na mizigo kwenda Zambia, Rwanda, DR Congo, Burundi, Malawi, Kenya na Uganda, yakiwa na karakana Kibaha, Kigamboni, Morogoro, Nairobi na Ndola.',
+      s: 'Lake Trans, tawi la usafirishaji la kampuni lililoanzishwa mwaka 2008, linaendesha zaidi ya malori 1,200 - kila lori likifuatiliwa kwa GPS - yakisafirisha mafuta na mizigo kwenda Zambia, Rwanda, DR Congo, Burundi, Malawi, Kenya na Uganda, yakiwa na karakana Kibaha, Kigamboni, Morogoro, Nairobi na Ndola.',
       k: 'malori magari mangapi usafirishaji lake trans karakana matenki',
     },
   },
@@ -215,17 +215,17 @@ const CURATED_FACTS = [
     url: 'station-locator.html',
     en: {
       t: 'Fuel stations',
-      s: 'Lake Group runs fuel station networks across the region: 85 stations in Tanzania, 40 in Kenya, 25 in Zambia, 16 in Burundi, 10 in Rwanda and 8 in DR Congo. Use the Station Locator to find the nearest one.',
+      s: 'Lake Group operates 152 fuel stations across Tanzania and the wider region. Use the Station Locator to find the nearest one.',
       k: 'stations petrol gas station how many where locator filling nearest retail',
     },
     fr: {
       t: 'Stations-service',
-      s: 'Lake Group exploite des réseaux de stations-service dans la région : 85 stations en Tanzanie, 40 au Kenya, 25 en Zambie, 16 au Burundi, 10 au Rwanda et 8 en RD Congo. Utilisez le localisateur de stations pour trouver la plus proche.',
+      s: 'Lake Group exploite 152 stations-service en Tanzanie et dans la région. Utilisez le localisateur de stations pour trouver la plus proche.',
       k: 'stations essence combien où localisateur station-service réseau',
     },
     sw: {
       t: 'Vituo vya mafuta',
-      s: 'Lake Group inaendesha mitandao ya vituo vya mafuta kanda hii: vituo 85 Tanzania, 40 Kenya, 25 Zambia, 16 Burundi, 10 Rwanda na 8 DR Congo. Tumia ukurasa wa Kitafuta Vituo kupata kituo kilicho karibu nawe.',
+      s: 'Lake Group inaendesha vituo 152 vya mafuta Tanzania na kanda nzima. Tumia ukurasa wa Kitafuta Vituo kupata kituo kilicho karibu nawe.',
       k: 'vituo mafuta vingapi wapi kituo karibu petroli',
     },
   },
@@ -233,18 +233,18 @@ const CURATED_FACTS = [
     id: 'lakeoil',
     url: 'lake-oil.html',
     en: {
-      t: 'Lake Oil — fuel & petroleum',
+      t: 'Lake Oil - fuel & petroleum',
       s: 'Lake Oil, the group\u2019s flagship company, is one of the top 5 petroleum distributors in Tanzania. Its Kigamboni depot in Dar es Salaam holds 38 million litres of storage with direct pipeline access to the oil import jetty, supported by 85 owned retail stations and a fleet of 300 tankers.',
       k: 'lake oil fuel petroleum diesel petrol depot storage kigamboni distributor bunkering',
     },
     fr: {
-      t: 'Lake Oil — carburants & pétrole',
-      s: 'Lake Oil, la société phare du groupe, est l\u2019un des 5 premiers distributeurs de produits pétroliers en Tanzanie. Son dépôt de Kigamboni à Dar es Salaam offre 38 millions de litres de stockage avec un accès direct par pipeline à la jetée d\u2019importation, appuyé par 85 stations en propre et une flotte de 300 camions-citernes.',
+      t: 'Lake Oil - carburants & pétrole',
+      s: 'Lake Oil, la société phare du groupe, est l\u2019un des 5 premiers distributeurs de produits pétroliers en Tanzanie. Son dépôt de Kigamboni à Dar es Salaam offre 38 millions de litres de stockage avec un accès direct par pipeline à la jetée d\u2019importation, appuyé par 152 stations en propre et une flotte de 300 camions-citernes.',
       k: 'lake oil carburant pétrole diesel essence dépôt stockage distributeur',
     },
     sw: {
-      t: 'Lake Oil — mafuta na petroli',
-      s: 'Lake Oil, kampuni kuu ya kundi hili, ni miongoni mwa wasambazaji 5 bora wa bidhaa za petroli Tanzania. Ghala lake la Kigamboni, Dar es Salaam, lina uwezo wa kuhifadhi lita milioni 38 na bomba la moja kwa moja kutoka gati la kupokelea mafuta, likisaidiwa na vituo 85 vya rejareja na matenki 300 ya usafirishaji.',
+      t: 'Lake Oil - mafuta na petroli',
+      s: 'Lake Oil, kampuni kuu ya kundi hili, ni miongoni mwa wasambazaji 5 bora wa bidhaa za petroli Tanzania. Ghala lake la Kigamboni, Dar es Salaam, lina uwezo wa kuhifadhi lita milioni 38 na bomba la moja kwa moja kutoka gati la kupokelea mafuta, likisaidiwa na vituo 152 vya rejareja na matenki 300 ya usafirishaji.',
       k: 'lake oil mafuta petroli dizeli ghala hifadhi kigamboni msambazaji',
     },
   },
@@ -252,17 +252,17 @@ const CURATED_FACTS = [
     id: 'lakegas',
     url: 'lake-gas.html',
     en: {
-      t: 'Lake Gas — LPG',
+      t: 'Lake Gas - LPG',
       s: 'Lake Gas supplies retail and bulk LPG in Tanzania, Zambia, DR Congo, Kenya, Burundi and Rwanda, with 6 kg, 10 kg composite, 15 kg and 38 kg cylinders. It was the first to introduce composite LPG cylinders in Africa, and its Tanga terminal was built as East Africa\u2019s largest LPG storage facility.',
       k: 'lpg gas cylinders lake gas cooking composite tanga bulk propane bottle',
     },
     fr: {
-      t: 'Lake Gas — GPL',
+      t: 'Lake Gas - GPL',
       s: 'Lake Gas fournit du GPL au détail et en vrac en Tanzanie, Zambie, RD Congo, au Kenya, au Burundi et au Rwanda, avec des bouteilles de 6 kg, 10 kg composite, 15 kg et 38 kg. Premier à introduire les bouteilles GPL composites en Afrique, son terminal de Tanga a été construit comme la plus grande installation de stockage de GPL d\u2019Afrique de l\u2019Est.',
       k: 'gpl gaz bouteilles lake gas cuisine composite tanga vrac',
     },
     sw: {
-      t: 'Lake Gas — gesi ya LPG',
+      t: 'Lake Gas - gesi ya LPG',
       s: 'Lake Gas inasambaza gesi ya LPG kwa rejareja na kwa wingi Tanzania, Zambia, DR Congo, Kenya, Burundi na Rwanda, kwa mitungi ya kilo 6, kilo 10 (composite), kilo 15 na kilo 38. Ilikuwa ya kwanza kuleta mitungi ya composite Afrika, na kituo chake cha Tanga kilijengwa kuwa ghala kubwa zaidi la kuhifadhi LPG Afrika Mashariki.',
       k: 'gesi lpg mitungi lake gas kupikia tanga mtungi',
     },
@@ -272,17 +272,17 @@ const CURATED_FACTS = [
     url: 'lake-steel.html',
     en: {
       t: 'Lake Steel',
-      s: 'Lake Steel is the first company in Tanzania to introduce high-strength corrosion-resistant (HS-CR) reinforcement steel bars. Its fully computerized rolling mill in Kibaha produces up to 25 tonnes per hour — around 100,000 MT per year.',
+      s: 'Lake Steel is the first company in Tanzania to introduce high-strength corrosion-resistant (HS-CR) reinforcement steel bars. Its fully computerized rolling mill in Kibaha produces up to 25 tonnes per hour - around 100,000 MT per year.',
       k: 'steel rebar hs-cr bars lake steel mill rolling reinforcement iron',
     },
     fr: {
       t: 'Lake Steel',
-      s: 'Lake Steel est la première entreprise de Tanzanie à introduire des barres d\u2019armature haute résistance et anticorrosion (HS-CR). Son laminoir entièrement informatisé à Kibaha produit jusqu\u2019à 25 tonnes par heure — environ 100 000 tonnes par an.',
+      s: 'Lake Steel est la première entreprise de Tanzanie à introduire des barres d\u2019armature haute résistance et anticorrosion (HS-CR). Son laminoir entièrement informatisé à Kibaha produit jusqu\u2019à 25 tonnes par heure - environ 100 000 tonnes par an.',
       k: 'acier armature hs-cr barres lake steel laminoir fer',
     },
     sw: {
       t: 'Lake Steel',
-      s: 'Lake Steel ni kampuni ya kwanza Tanzania kuleta nondo imara zisizoshika kutu (HS-CR). Kiwanda chake cha kisasa kilichopo Kibaha kinazalisha hadi tani 25 kwa saa — takriban tani 100,000 kwa mwaka.',
+      s: 'Lake Steel ni kampuni ya kwanza Tanzania kuleta nondo imara zisizoshika kutu (HS-CR). Kiwanda chake cha kisasa kilichopo Kibaha kinazalisha hadi tani 25 kwa saa - takriban tani 100,000 kwa mwaka.',
       k: 'chuma nondo hs-cr lake steel kiwanda vyuma',
     },
   },
@@ -290,17 +290,17 @@ const CURATED_FACTS = [
     id: 'concrete',
     url: 'lake-premix-cement.html',
     en: {
-      t: 'GCCP — concrete & aggregates',
+      t: 'GCCP - concrete & aggregates',
       s: 'GCCP (Gulf Concrete & Cement Products), established in 2010, is Dar es Salaam\u2019s leading ready-mix concrete supplier, with fully-automatic batching plants, its own quarry at Lugoba, boom pumps and 20 truck mixers of 12 m\u00b3 each. Gulf Aggregates runs the crushing plants.',
       k: 'concrete gccp ready-mix cement aggregate quarry batching premix gulf',
     },
     fr: {
-      t: 'GCCP — béton & granulats',
+      t: 'GCCP - béton & granulats',
       s: 'GCCP (Gulf Concrete & Cement Products), créée en 2010, est le premier fournisseur de béton prêt à l\u2019emploi de Dar es Salaam, avec des centrales à béton entièrement automatiques, sa propre carrière à Lugoba, des pompes à flèche et 20 camions-malaxeurs de 12 m\u00b3. Gulf Aggregates exploite les installations de concassage.',
       k: 'béton gccp prêt-à-l\u2019emploi ciment granulats carrière gulf',
     },
     sw: {
-      t: 'GCCP — zege na kokoto',
+      t: 'GCCP - zege na kokoto',
       s: 'GCCP (Gulf Concrete & Cement Products), iliyoanzishwa mwaka 2010, ndiyo msambazaji mkuu wa zege tayari (ready-mix) Dar es Salaam, ikiwa na mitambo ya kisasa ya kuchanganyia, machimbo yake ya Lugoba, pampu za kunyanyulia na malori 20 ya kuchanganyia zege ya mita za ujazo 12 kila moja. Gulf Aggregates inaendesha mitambo ya kusaga kokoto.',
       k: 'zege gccp saruji kokoto machimbo gulf simiti',
     },
@@ -309,18 +309,18 @@ const CURATED_FACTS = [
     id: 'lubricants',
     url: 'lake-lubes.html',
     en: {
-      t: 'Lake Lubes — lubricants',
-      s: 'Lake Lubes, incorporated in Dar es Salaam in 2014, manufactures and distributes lubricants and greases — including LAKE 4T, LAKE HD SUPREME, LAKE POWER, gear oils, ATF, coolants and greases — sold through the Lake Oil station network and across the group\u2019s countries, with 24/7 technical after-sales support.',
+      t: 'Lake Lubes - lubricants',
+      s: 'Lake Lubes, incorporated in Dar es Salaam in 2014, manufactures and distributes lubricants and greases - including LAKE 4T, LAKE HD SUPREME, LAKE POWER, gear oils, ATF, coolants and greases - sold through the Lake Oil station network and across the group\u2019s countries, with 24/7 technical after-sales support.',
       k: 'lubricants oil grease lake lubes engine motor coolant gear',
     },
     fr: {
-      t: 'Lake Lubes — lubrifiants',
-      s: 'Lake Lubes, immatriculée à Dar es Salaam en 2014, fabrique et distribue lubrifiants et graisses — dont LAKE 4T, LAKE HD SUPREME, LAKE POWER, huiles pour engrenages, ATF, liquides de refroidissement et graisses — vendus via le réseau de stations Lake Oil et dans les pays du groupe, avec une assistance technique 24 h/24.',
+      t: 'Lake Lubes - lubrifiants',
+      s: 'Lake Lubes, immatriculée à Dar es Salaam en 2014, fabrique et distribue lubrifiants et graisses - dont LAKE 4T, LAKE HD SUPREME, LAKE POWER, huiles pour engrenages, ATF, liquides de refroidissement et graisses - vendus via le réseau de stations Lake Oil et dans les pays du groupe, avec une assistance technique 24 h/24.',
       k: 'lubrifiants huile graisse lake lubes moteur refroidissement',
     },
     sw: {
-      t: 'Lake Lubes — mafuta ya kulainisha',
-      s: 'Lake Lubes, iliyoandikishwa Dar es Salaam mwaka 2014, inatengeneza na kusambaza mafuta ya kulainisha na grisi — ikiwemo LAKE 4T, LAKE HD SUPREME, LAKE POWER, mafuta ya gia, ATF, vipoza-injini na grisi — yanayouzwa kupitia mtandao wa vituo vya Lake Oil na nchi zote za kundi, pamoja na huduma ya kiufundi saa 24.',
+      t: 'Lake Lubes - mafuta ya kulainisha',
+      s: 'Lake Lubes, iliyoandikishwa Dar es Salaam mwaka 2014, inatengeneza na kusambaza mafuta ya kulainisha na grisi - ikiwemo LAKE 4T, LAKE HD SUPREME, LAKE POWER, mafuta ya gia, ATF, vipoza-injini na grisi - yanayouzwa kupitia mtandao wa vituo vya Lake Oil na nchi zote za kundi, pamoja na huduma ya kiufundi saa 24.',
       k: 'mafuta ya kulainisha grisi lake lubes injini oili',
     },
   },
@@ -329,17 +329,17 @@ const CURATED_FACTS = [
     url: 'aficd.html',
     en: {
       t: 'Container services',
-      s: 'AFICD (African Inland Container Depot) provides ICD, CFS and empty-container services at Tazara, Pugu Road, Dar es Salaam — a 14,000 m\u00b2 yard with 4,000 TEU capacity and a rail siding to the port — serving Rwanda, Burundi, Uganda, DR Congo, Zambia and Malawi. ACFS adds a 5,000 TEU cargo freight station.',
+      s: 'AFICD (African Inland Container Depot) provides ICD, CFS and empty-container services at Tazara, Pugu Road, Dar es Salaam - a 14,000 m\u00b2 yard with 4,000 TEU capacity and a rail siding to the port - serving Rwanda, Burundi, Uganda, DR Congo, Zambia and Malawi. ACFS adds a 5,000 TEU cargo freight station.',
       k: 'container icd cfs aficd acfs depot teu shipping freight port',
     },
     fr: {
       t: 'Services de conteneurs',
-      s: 'AFICD (African Inland Container Depot) fournit des services ICD, CFS et de dépôt de conteneurs vides à Tazara, Pugu Road, Dar es Salaam — un parc de 14 000 m\u00b2 d\u2019une capacité de 4 000 EVP relié au port par voie ferrée — au service du Rwanda, du Burundi, de l\u2019Ouganda, de la RD Congo, de la Zambie et du Malawi. ACFS ajoute une gare de fret de 5 000 EVP.',
+      s: 'AFICD (African Inland Container Depot) fournit des services ICD, CFS et de dépôt de conteneurs vides à Tazara, Pugu Road, Dar es Salaam - un parc de 14 000 m\u00b2 d\u2019une capacité de 4 000 EVP relié au port par voie ferrée - au service du Rwanda, du Burundi, de l\u2019Ouganda, de la RD Congo, de la Zambie et du Malawi. ACFS ajoute une gare de fret de 5 000 EVP.',
       k: 'conteneurs icd cfs aficd acfs dépôt evp fret port',
     },
     sw: {
       t: 'Huduma za makontena',
-      s: 'AFICD (African Inland Container Depot) inatoa huduma za ICD, CFS na makontena matupu pale Tazara, Barabara ya Pugu, Dar es Salaam — yadi ya mita za mraba 14,000 yenye uwezo wa TEU 4,000 na reli inayounganisha bandarini — ikihudumia Rwanda, Burundi, Uganda, DR Congo, Zambia na Malawi. ACFS inaongeza kituo cha mizigo cha TEU 5,000.',
+      s: 'AFICD (African Inland Container Depot) inatoa huduma za ICD, CFS na makontena matupu pale Tazara, Barabara ya Pugu, Dar es Salaam - yadi ya mita za mraba 14,000 yenye uwezo wa TEU 4,000 na reli inayounganisha bandarini - ikihudumia Rwanda, Burundi, Uganda, DR Congo, Zambia na Malawi. ACFS inaongeza kituo cha mizigo cha TEU 5,000.',
       k: 'makontena kontena icd cfs aficd acfs bandari mizigo',
     },
   },
@@ -410,8 +410,11 @@ function buildLang(lang) {
   const docs = [];
 
   // 1. Curated facts first (f:1 gives them a ranking boost at query time).
+  // Fall back to English when a locale pack (e.g. hi/ar) has not yet been
+  // hand-authored for a fact - page chunks below still use the translated dict.
   for (const fact of CURATED_FACTS) {
-    const loc = fact[lang];
+    const loc = fact[lang] || fact.en;
+    if (!loc) continue;
     docs.push({
       id: 'fact:' + fact.id,
       t: loc.t,
@@ -475,9 +478,9 @@ const kb = { version: 1, langs: {} };
 for (const lang of LANGS) kb.langs[lang] = buildLang(lang);
 
 const payload =
-  '/* Generated by scripts/build_assistant_kb.js — DO NOT EDIT BY HAND.\n' +
+  '/* Generated by scripts/build_assistant_kb.js - DO NOT EDIT BY HAND.\n' +
   ' * Offline knowledge base for assets/assistant.js (curated verified facts\n' +
-  ' * + page content chunks from assets/i18n-content.json, en/fr/sw). */\n' +
+  ' * + page content chunks from assets/i18n-content.json, en/fr/sw/hi/ar). */\n' +
   'window.__LAKE_ASSISTANT_KB__ = ' +
   JSON.stringify(kb) +
   ';\n';

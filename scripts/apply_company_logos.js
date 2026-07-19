@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
  * Apply per-company branding on hosted company pages:
- * - data-company-logo / data-company-alt on <body> (for site.js nav swap)
+ * - data-company-logo / data-company-alt on <body> (for site.js nav + footer swap)
+ * - footer .footer-logo img src/alt set to the company mark
  * - enlarge .co-logo-row mark
  * - ensure .co-logo-row img src matches the company asset map
  * Hero .co-hero-logo marks are intentionally NOT injected (nav swap only).
@@ -67,6 +68,15 @@ function ensureCoLogoRow(raw, logo, alt) {
   );
 }
 
+function ensureFooterLogo(raw, logo, alt) {
+  const src = 'assets/images/logos/companies/' + logo;
+  const altText = alt.replace(/"/g, '&quot;');
+  return raw.replace(
+    /(<div class="footer-logo">\s*)<img[^>]*>/i,
+    '$1<img src="' + src + '" alt="' + altText + '">'
+  );
+}
+
 function stripHeroLogo(raw) {
   return raw
     .replace(/^\s*<img class="co-hero-logo"[^>]*>\r?\n?/gm, '')
@@ -102,6 +112,7 @@ function main() {
 
     raw = ensureBodyAttrs(raw, page.logo, page.alt);
     raw = ensureCoLogoRow(raw, page.logo, page.alt);
+    raw = ensureFooterLogo(raw, page.logo, page.alt);
     raw = stripHeroLogo(raw);
 
     if (raw !== before) {

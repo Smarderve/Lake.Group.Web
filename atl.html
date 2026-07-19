@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ATL Limited (Aluminum Trailers Ltd) - established 2019, Tanzania's aluminium fuel tanker and custom trailer manufacturer. Your trailer partner.">
+  <meta property="og:title" content="ATL | Aluminium Trailers | Lake Group">
+  <meta property="og:description" content="ATL Limited (Aluminum Trailers Ltd) - established 2019, Tanzania's aluminium fuel tanker and custom trailer manufacturer. Your trailer partner.">
+  <meta property="og:image" content="assets/images/og-cover.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://www.lakeoilgroup.com/atl.html">
+  <link rel="icon" href="favicon.ico?v=43" sizes="32x32">
+  <link rel="icon" href="assets/icons/pwa/icon-192.png?v=43" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/icons/pwa/apple-touch-icon.png?v=43">
+  <title>ATL | Aluminium Trailers | Lake Group</title>
+  <meta name="theme-color" content="#0181BB">
+  <link rel="manifest" href="manifest.webmanifest">
+  <style>
+/* ==========================================================================
+   MERIDIAN PAGE LAYER - company profile page
+   Chrome + shared components come from assets/flagship.css?v=50. This block only
+   composes generic company-profile widgets reused across all /company pages.
+   ========================================================================== */
+.fs-check{list-style:none;display:flex;flex-direction:column;margin-top:var(--sp-6)}
+.fs-check li{display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line-2);font-size:.95rem;color:var(--mute);line-height:1.65}
+.fs-check li:first-child{border-top:1px solid var(--line-2)}
+.fs-check li span:first-child{color:var(--gold-deep);font-weight:700;flex:none}
+
+.co-logo-row{display:flex;align-items:center;gap:var(--sp-5);margin-bottom:var(--sp-6);flex-wrap:wrap}
+.co-logo-row img{height:48px;width:auto;max-width:160px;object-fit:contain;background:transparent;border:none;padding:0;border-radius:0}
+
+.info-panel{background:var(--ink);padding:var(--sp-8);position:relative}
+.info-panel h3{font-family:var(--font-display);font-weight:400;font-size:var(--fs-title);letter-spacing:.02em;text-transform:uppercase;color:var(--white);margin-bottom:var(--sp-5)}
+.info-row{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-4);padding:13px 0;border-bottom:1px solid var(--ink-line-2)}
+.info-row:first-of-type{border-top:1px solid var(--ink-line)}
+.info-row>span:first-child{color:rgba(233,237,248,0.85);font-size:.92rem}
+
+.stat-panel2{background:var(--ink);padding:var(--sp-8);position:relative}
+.stat-panel2 h3{font-family:var(--font-display);font-weight:400;font-size:var(--fs-title);letter-spacing:.02em;text-transform:uppercase;color:var(--white);margin-bottom:var(--sp-6)}
+.stat-grid2{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-6)}
+.stat-tile2{position:relative;padding:var(--sp-4) 0 var(--sp-3)}
+.stat-tile2::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ink-line)}
+.stat-tile2::before{content:'';position:absolute;left:0;bottom:-3.5px;width:8px;height:8px;background:var(--gold);z-index:1}
+.stat-tile2 .stat-no2{font-family:var(--font-display);font-weight:400;font-size:clamp(2.2rem,4vw,3.2rem);line-height:.95;color:var(--white);display:block}
+.stat-tile2 .stat-no2.gold{color:var(--gold)}
+.stat-tile2 p{font-size:var(--fs-micro);font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute);margin-top:var(--sp-2)}
+
+.val-mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-4);margin-top:var(--sp-8)}
+@media(max-width:960px){.val-mini-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.val-mini-grid{grid-template-columns:1fr}}
+.val-mini-tile{position:relative;text-align:center;padding:var(--sp-6) var(--sp-4);border:1px solid var(--ink-line-2)}
+.val-mini-tile::before{content:'';position:absolute;top:-1px;left:-1px;width:8px;height:8px;background:var(--gold)}
+.val-mini-tile h4{font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;color:var(--white);margin-bottom:6px}
+.val-mini-tile p{font-size:.82rem;color:var(--ink-mute)}
+
+.mgmt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:var(--sp-6)}
+.mgmt-card .leader-photo{height:200px;overflow:hidden;background:var(--paper-2)}
+.mgmt-card .leader-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.mgmt-role{color:var(--gold-deep);font-size:var(--fs-micro);font-weight:700;text-transform:uppercase;letter-spacing:.18em;margin:6px 0 10px}
+
+.prod-catalog{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5)}
+@media(max-width:860px){.prod-catalog{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.prod-catalog{grid-template-columns:1fr}}
+.prod-catalog-card{background:var(--surface);border:1px solid var(--line-2);padding:var(--sp-5)}
+.prod-catalog-card .fs-media{aspect-ratio:4/3;margin-bottom:var(--sp-3)}
+.prod-catalog-card .prod-glyph{aspect-ratio:4/3;margin-bottom:var(--sp-3);display:flex;align-items:center;justify-content:center;background:var(--paper-2);font-size:2.2rem}
+.prod-catalog-card h4{font-family:var(--font-display);font-weight:400;font-size:1.1rem;letter-spacing:.03em;text-transform:uppercase;color:var(--text)}
+.prod-catalog-card p{font-size:.85rem;margin-top:4px;line-height:1.6}
+
+.img-mosaic{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+@media(max-width:720px){.img-mosaic{grid-template-columns:1fr 1fr}}
+.img-mosaic .fs-media{aspect-ratio:4/3}
+.img-mosaic img{width:100%;height:100%;object-fit:cover;display:block}
+
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5)}
+@media(max-width:860px){.video-grid{grid-template-columns:1fr}}
+.video-card{background:var(--ink-2);border:1px solid var(--ink-line-2);padding:var(--sp-5)}
+.video-card .video-frame{aspect-ratio:16/9;background:var(--ink-3);display:flex;align-items:center;justify-content:center;color:var(--ink-mute);margin-bottom:var(--sp-3);font-size:1.6rem}
+.video-card h4{color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1rem;letter-spacing:.03em;text-transform:uppercase}
+.video-card p{color:var(--ink-mute);font-size:.82rem;margin-top:4px}
+
+.content-placeholder{border:1px dashed var(--border);padding:var(--sp-6);color:var(--muted);font-style:italic;font-size:.92rem;line-height:1.7;background:var(--paper-2)}
+.content-placeholder strong{font-style:normal;color:var(--text)}
+.fs-on-dark .content-placeholder{border-color:var(--ink-line);color:var(--ink-mute);background:var(--ink-2)}
+
+.ct-info{background:var(--ink);padding:var(--sp-8)}
+.ct-info h3{color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.4rem;text-transform:uppercase;letter-spacing:0.03em;margin-bottom:var(--sp-6)}
+.ct-rows{display:flex;flex-direction:column;gap:var(--sp-5)}
+.ct-row{display:flex;gap:var(--sp-4);align-items:flex-start}
+.ct-ico{width:40px;height:40px;border:1px solid var(--ink-line);display:flex;align-items:center;justify-content:center;font-size:1.05rem;flex-shrink:0}
+.ct-label{color:var(--gold);font-size:var(--fs-micro);font-weight:700;text-transform:uppercase;letter-spacing:0.22em;margin-bottom:4px}
+.ct-strong{color:var(--white);font-size:0.92rem;display:block}
+.ct-dim{color:var(--ink-mute);font-size:0.85rem;display:block}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "ATL Limited (Aluminum Trailers Ltd)",
+      "description": "ATL Limited manufactures high-quality aluminium fuel tankers and custom trailers in Tanzania for East and Central Africa.",
+      "url": "https://www.lakeoilgroup.com/atl.html",
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Lake Group",
+        "url": "https://www.lakeoilgroup.com/"
+      },
+      "areaServed": "East and Central Africa"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.lakeoilgroup.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Manufacturing"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "ATL",
+          "item": "https://www.lakeoilgroup.com/atl.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="assets/tokens.css?v=50">
+<link rel="stylesheet" href="assets/flagship.css?v=50">
+<link rel="stylesheet" href="assets/split-text.css?v=46">
+  <link rel="stylesheet" href="assets/assistant.css?v=45">
+</head><body data-company-logo="assets/images/logos/companies/atl.png?v=52" data-company-alt="ATL">
+<nav class="site-nav" dir="ltr">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="about.html" data-i18n="nav.about">About</a></li>
+      <li class="has-dropdown has-megamenu">
+        <a href="services.html" id="nav-companies-trigger" data-i18n="nav.companies" aria-haspopup="true" aria-expanded="false" aria-controls="nav-companies-menu">Subsidiaries &#9662;</a>
+        <div class="nav-dropdown nav-megamenu" id="nav-companies-menu" role="menu" data-i18n-aria="mob.companies" aria-label="Subsidiaries">
+          <div class="mm-col" role="none">
+            <div class="dd-label" data-i18n="nav.dd.energies">Lake Energies</div>
+            <a href="lake-oil.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-oil.png" alt="Lake Oil" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeOil">Lake Oil</span></a>
+            <a href="lake-aviation.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-aviation.png" alt="Lake Aviation" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeAviation">Lake Aviation</span></a>
+            <a href="lake-gas.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-gas.png" alt="Lake Gas" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeGas">Lake Gas</span></a>
+            <a href="lake-lubes.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-lubes.png" alt="Lake Lubes" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeLubes">Lake Lubes</span></a>
+          </div>
+          <div class="mm-col" role="none">
+            <div class="dd-label" data-i18n="nav.dd.manufacturing">Manufacturing</div>
+            <a href="lake-buildings.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-buildings.png" alt="Lake Buildings" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeBuildings">Lake Buildings</span></a>
+            <a href="lake-plastics.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-plastics.png" alt="Lake Plastics" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakePlastics">Lake Plastics</span></a>
+            <a href="lake-steel.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-steel.png" alt="Lake Steel" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeSteel">Lake Steel</span></a>
+            <a href="lake-cylinders.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="Lake Cylinders" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeCylinders">Lake Cylinders</span></a>
+            <a href="gulf-aggregates.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/gulf-aggregates.png" alt="Gulf Aggregates" loading="lazy" width="56" height="32"><span data-i18n="nav.co.gulfAggregates">Gulf Aggregates</span></a>
+            <a href="atl.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/atl.png?v=52" alt="ATL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.atl">ATL</span></a>
+            <a href="lake-premix-cement.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-premix-cement.png" alt="Lake Premix and Cement" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</span></a>
+          </div>
+          <div class="mm-col" role="none">
+            <div class="dd-label" data-i18n="nav.dd.logisticsCos">Logistics</div>
+            <a href="aficd.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="AFICD" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aficd">AFICD</span></a>
+            <a href="aill.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="AILL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aill">AILL</span></a>
+            <a href="lake-trans.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-trans.png" alt="Lake Trans" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeTrans">Lake Trans</span></a>
+          </div>
+          <div class="mm-col" role="none">
+            <div class="dd-label" data-i18n="nav.dd.realEstate">Real Estate</div>
+            <a href="cross-country.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/cross-country.png?v=50" alt="Cross Country" loading="lazy" width="56" height="32"><span data-i18n="nav.co.crossCountry">Cross Country</span></a>
+            <a href="ocean-galleria.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/ocean-galleria.png?v=50" alt="Ocean Galleria" loading="lazy" width="56" height="32"><span data-i18n="nav.co.oceanGalleria">Ocean Galleria</span></a>
+          </div>
+          <div class="mm-col" role="none">
+            <div class="dd-label" data-i18n="nav.dd.agro">Agro Processing</div>
+            <a href="lake-agro.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-agro.png?v=50" alt="Lake Agro" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeAgro">Lake Agro</span></a>
+          </div>
+        </div>
+      </li>
+      <li class="has-dropdown"><a href="africa-network.html" data-i18n="nav.network">Network &#9662;</a>
+        <div class="nav-dropdown">
+          <a href="africa-network.html" data-i18n="nav.africaMap">Africa Operations Map</a>
+          <a href="station-locator.html" data-i18n="nav.stations">Station Locator</a>
+          <a href="fleet.html" data-i18n="nav.fleet">Our Fleet</a>
+        </div>
+      </li>
+      <li class="has-dropdown"><a href="about.html" data-i18n="nav.company">Corporate &#9662;</a>
+        <div class="nav-dropdown">
+          <a href="history.html" data-i18n="nav.history">Our History</a><a href="leadership.html" data-i18n="nav.leadership">Leadership</a>
+          <a href="csr.html" data-i18n="nav.csr">CSR &amp; Sustainability</a><a href="investors.html" data-i18n="nav.investors">Investor Relations</a>
+          <a href="projects.html" data-i18n="nav.projects">Major Projects</a><a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+        </div>
+      </li>
+      <li><a href="news.html" data-i18n="nav.news">News</a></li>
+      <li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
+      <li><a href="contact.html" data-i18n="nav.contact">Contact Us</a></li>
+      <li class="lang-switcher" data-i18n-aria="lang.label" aria-label="Language">
+        <button type="button" class="lang-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" data-i18n-title="lang.label" title="Language">
+          <span class="lang-pair" aria-hidden="false">
+            <span class="lang-pair-selected" data-lang-label>English</span>
+            <span class="lang-pair-sep" aria-hidden="true">|</span>
+            <span class="lang-pair-suggest" data-lang-suggest data-lang="sw" role="link" tabindex="-1">Swahili</span>
+          </span>
+          <span class="lang-icons" aria-hidden="true">
+            <svg class="lang-globe" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+              <g class="lang-globe-spin">
+                <circle class="lang-globe-rim" cx="12" cy="12" r="9"/>
+                <ellipse class="lang-globe-meridian" cx="12" cy="12" rx="3.6" ry="9"/>
+                <path class="lang-globe-equator" d="M3.2 12h17.6"/>
+                <path class="lang-globe-lat" d="M5.1 7.6h13.8M5.1 16.4h13.8" opacity="0.85"/>
+              </g>
+            </svg>
+            <svg class="lang-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </span>
+        </button>
+        <div class="lang-menu" id="lang-menu" role="menu" hidden>
+          <button type="button" class="lang-menu-item lang-btn active" role="menuitem" data-lang="en" aria-current="true">
+            <span class="lang-menu-check" aria-hidden="true"></span>
+            <span class="lang-menu-label">English</span>
+          </button>
+          <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="sw">
+            <span class="lang-menu-check" aria-hidden="true"></span>
+            <span class="lang-menu-label">Swahili</span>
+          </button>
+          <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="fr">
+            <span class="lang-menu-check" aria-hidden="true"></span>
+            <span class="lang-menu-label">Français</span>
+          </button>
+          <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="hi">
+            <span class="lang-menu-check" aria-hidden="true"></span>
+            <span class="lang-menu-label">हिन्दी</span>
+          </button>
+          <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="ar">
+            <span class="lang-menu-check" aria-hidden="true"></span>
+            <span class="lang-menu-label">العربية</span>
+          </button>
+        </div>
+      </li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" data-i18n-aria="nav.menu" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="nav-mobile" id="nav-mobile" style="display:none">
+  <a href="index.html" data-i18n="nav.home">Home</a><a href="about.html" data-i18n="nav.about">About</a>
+  <div class="mob-section" data-i18n="mob.companies">Subsidiaries</div>
+  <div class="mob-accordion">
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-energies" data-i18n="nav.dd.energies">Lake Energies</button>
+    <div class="mob-acc-panel" id="mob-acc-energies" hidden>
+      <a href="lake-oil.html" data-i18n="nav.co.lakeOil">Lake Oil</a>
+      <a href="lake-aviation.html" data-i18n="nav.co.lakeAviation">Lake Aviation</a>
+      <a href="lake-gas.html" data-i18n="nav.co.lakeGas">Lake Gas</a>
+      <a href="lake-lubes.html" data-i18n="nav.co.lakeLubes">Lake Lubes</a>
+    </div>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-manufacturing" data-i18n="nav.dd.manufacturing">Manufacturing</button>
+    <div class="mob-acc-panel" id="mob-acc-manufacturing" hidden>
+      <a href="lake-buildings.html" data-i18n="nav.co.lakeBuildings">Lake Buildings</a>
+      <a href="lake-plastics.html" data-i18n="nav.co.lakePlastics">Lake Plastics</a>
+      <a href="lake-steel.html" data-i18n="nav.co.lakeSteel">Lake Steel</a>
+      <a href="lake-cylinders.html" data-i18n="nav.co.lakeCylinders">Lake Cylinders</a>
+      <a href="gulf-aggregates.html" data-i18n="nav.co.gulfAggregates">Gulf Aggregates</a>
+      <a href="atl.html" data-i18n="nav.co.atl">ATL</a>
+      <a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a>
+    </div>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-logistics" data-i18n="nav.dd.logisticsCos">Logistics</button>
+    <div class="mob-acc-panel" id="mob-acc-logistics" hidden>
+      <a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a>
+      <a href="aill.html" data-i18n="nav.co.aill">AILL</a>
+      <a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a>
+    </div>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-realestate" data-i18n="nav.dd.realEstate">Real Estate</button>
+    <div class="mob-acc-panel" id="mob-acc-realestate" hidden>
+      <a href="cross-country.html" data-i18n="nav.co.crossCountry">Cross Country</a>
+      <a href="ocean-galleria.html" data-i18n="nav.co.oceanGalleria">Ocean Galleria</a>
+    </div>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-agro" data-i18n="nav.dd.agro">Agro Processing</button>
+    <div class="mob-acc-panel" id="mob-acc-agro" hidden>
+      <a href="lake-agro.html" data-i18n="nav.co.lakeAgro">Lake Agro</a>
+    </div>
+  </div>
+  <div class="mob-section" data-i18n="mob.network">Network</div>
+  <a href="africa-network.html" data-i18n="nav.africaMapShort">Africa Map</a><a href="station-locator.html" data-i18n="nav.stations">Station Locator</a><a href="fleet.html" data-i18n="nav.fleet">Our Fleet</a>
+  <div class="mob-section" data-i18n="mob.company">Corporate</div>
+  <a href="history.html" data-i18n="nav.historyShort">History</a><a href="leadership.html" data-i18n="nav.leadership">Leadership</a><a href="csr.html" data-i18n="nav.csrShort">CSR</a>
+  <a href="investors.html" data-i18n="nav.investorsShort">Investors</a><a href="projects.html" data-i18n="nav.projectsShort">Projects</a><a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+  <div class="mob-section" data-i18n="mob.more">More</div>
+  <a href="news.html" data-i18n="nav.news">News</a><a href="careers.html" data-i18n="nav.careers">Careers</a><a href="contact.html" data-i18n="nav.contact">Contact Us</a>
+  <div class="mob-section" data-i18n="mob.language">Language</div>
+  <div class="lang-switcher lang-switcher--mobile" data-i18n-aria="lang.label" aria-label="Language">
+    <button type="button" class="lang-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu-mobile" data-i18n-title="lang.label" title="Language">
+      <span class="lang-pair" aria-hidden="false">
+        <span class="lang-pair-selected" data-lang-label>English</span>
+        <span class="lang-pair-sep" aria-hidden="true">|</span>
+        <span class="lang-pair-suggest" data-lang-suggest data-lang="sw" role="link" tabindex="-1">Swahili</span>
+      </span>
+      <span class="lang-icons" aria-hidden="true">
+        <svg class="lang-globe" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+          <g class="lang-globe-spin">
+            <circle class="lang-globe-rim" cx="12" cy="12" r="9"/>
+            <ellipse class="lang-globe-meridian" cx="12" cy="12" rx="3.6" ry="9"/>
+            <path class="lang-globe-equator" d="M3.2 12h17.6"/>
+            <path class="lang-globe-lat" d="M5.1 7.6h13.8M5.1 16.4h13.8" opacity="0.85"/>
+          </g>
+        </svg>
+        <svg class="lang-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+          <path d="M6 9l6 6 6-6"/>
+        </svg>
+      </span>
+    </button>
+    <div class="lang-menu" id="lang-menu-mobile" role="menu" hidden>
+      <button type="button" class="lang-menu-item lang-btn active" role="menuitem" data-lang="en" aria-current="true">
+        <span class="lang-menu-check" aria-hidden="true"></span>
+        <span class="lang-menu-label">English</span>
+      </button>
+      <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="sw">
+        <span class="lang-menu-check" aria-hidden="true"></span>
+        <span class="lang-menu-label">Swahili</span>
+      </button>
+      <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="fr">
+        <span class="lang-menu-check" aria-hidden="true"></span>
+        <span class="lang-menu-label">Français</span>
+      </button>
+      <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="hi">
+        <span class="lang-menu-check" aria-hidden="true"></span>
+        <span class="lang-menu-label">हिन्दी</span>
+      </button>
+      <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="ar">
+        <span class="lang-menu-check" aria-hidden="true"></span>
+        <span class="lang-menu-label">العربية</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="page-wrapper">
+<section class="page-hero">
+  <div class="hero-media" style="background-image:url('assets/images/atl/tanker-1.jpg')" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span>/</span><span data-i18n="atl.crumb.cat">Manufacturing</span><span>/</span><span data-i18n="atl.crumb.name">ATL</span></nav>
+    <div class="eyebrow" data-i18n="atl.hero.eyebrow">ATL Limited · Est. 2019</div>
+    <h1 data-i18n="atl.hero.title">ATL</h1>
+    <p data-i18n="atl.hero.lede">Aluminium Trailers Ltd - Tanzania's aluminium fuel tanker and custom trailer manufacturer. Your trailer partner.</p>
+  </div>
+</section>
+
+<section class="fs-section" id="intro">
+  <div class="container">
+    <div class="fs-split-even">
+      <div>
+        <div class="co-logo-row"><img src="assets/images/logos/companies/atl.png?v=52" alt="ATL Aluminium Trailers" width="160" height="48"></div>
+        <div class="fs-marker"><span class="fs-marker-no">01</span><span class="fs-eyebrow" data-i18n="atl.s1.eyebrow">Company Introduction</span></div>
+        <h2 class="fs-display" data-i18n="atl.s1.title">Engineered To Last</h2>
+        <hr class="fs-rule" style="margin:var(--sp-5) 0">
+        <p class="fs-lede" data-i18n="atl.s1.lede">ATL Limited (Aluminum Trailers Ltd), established in 2019, is the only manufacturer of high-quality aluminum trailers in Tanzania. We specialize in innovative, durable fuel transportation solutions for East and Central Africa.</p>
+        <p style="margin-top:14px" data-i18n="atl.s1.p2">With a focus on excellence, ATL has earned a reputation as a reliable name in trailer manufacturing, delivering tankers that consistently meet and surpass customer expectations. Our strategy expands the range into premium customized trailers across the region.</p>
+        <ul class="fs-check">
+          <li><span>&#10003;</span><span data-i18n="atl.s1.check1">Only aluminium trailer manufacturer in Tanzania</span></li>
+          <li><span>&#10003;</span><span data-i18n="atl.s1.check2">Fuel tankers engineered for African operating conditions</span></li>
+          <li><span>&#10003;</span><span data-i18n="atl.s1.check3">Custom builds with technical support and warranty</span></li>
+          <li><span>&#10003;</span><span data-i18n="atl.s1.check4">Facility at Kipawa, Nyerere Road (opp. JNIA Terminal 3)</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="info-panel fs-on-dark fs-corners">
+          <h3 data-i18n="atl.glance.title">At a Glance</h3>
+          <div>
+            <div class="info-row"><span data-i18n="atl.glance.est">Established</span><span class="badge badge-yellow">2019</span></div>
+            <div class="info-row"><span data-i18n="atl.glance.spec">Specialty</span><span class="badge badge-yellow" data-i18n="atl.glance.specVal">Aluminium tankers</span></div>
+            <div class="info-row"><span data-i18n="atl.glance.loc">Location</span><span class="badge badge-yellow" data-i18n="atl.glance.locVal">Dar es Salaam</span></div>
+            <div class="info-row"><span data-i18n="atl.glance.hours">Hours</span><span class="badge badge-yellow" data-i18n="atl.glance.hoursVal">Mon-Fri 8:00-16:30</span></div>
+            <div class="info-row"><span data-i18n="atl.glance.sat">Saturday</span><span class="badge badge-yellow" data-i18n="atl.glance.satVal">8:00-12:30</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fs-section fs-on-dark" id="about">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">02</span><span class="fs-eyebrow" data-i18n="atl.s2.eyebrow">About the Company</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)" data-i18n="atl.s2.title">Mission, Vision &amp; Values</h2>
+    <div class="fs-split-even">
+      <div>
+        <h3 style="color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px" data-i18n="atl.s2.mission">Mission</h3>
+        <p data-i18n="atl.s2.mission.body">To design and manufacture the highest quality trailers by fostering a culture of integrity, excellence, and continuous improvement.</p>
+      </div>
+      <div>
+        <h3 style="color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px" data-i18n="atl.s2.vision">Vision</h3>
+        <p data-i18n="atl.s2.vision.body">To become the leading trailer manufacturer in East and Central Africa, providing sustainable solutions focused on safety, innovation and customization.</p>
+      </div>
+    </div>
+    <div class="val-mini-grid">
+      <div class="val-mini-tile"><h4 data-i18n="atl.val.integrity">Integrity</h4><p data-i18n="atl.val.integrity.d">Honesty, transparency and accountability. We deliver on promises and maintain a strong moral compass.</p></div>
+      <div class="val-mini-tile"><h4 data-i18n="atl.val.people">People</h4><p data-i18n="atl.val.people.d">Employees are our greatest asset - safety, inclusion, professional development and a positive culture.</p></div>
+      <div class="val-mini-tile"><h4 data-i18n="atl.val.sust">Sustainability</h4><p data-i18n="atl.val.sust.d">Lower impact materials and processes; products that support greener transport requirements.</p></div>
+      <div class="val-mini-tile"><h4 data-i18n="atl.val.cust">Customers</h4><p data-i18n="atl.val.cust.d">Long-term partners built on trust, value, quality and reliability - not one-off sales.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="fs-section section-light" id="brand-promise">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">03</span><span class="fs-eyebrow" data-i18n="atl.s3.eyebrow">Brand Promise</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)" data-i18n="atl.s3.title">Savings · Safety · Solutions</h2>
+    <div class="grid-3">
+      <div class="fs-card" style="padding:var(--sp-6)">
+        <h4 style="font-family:var(--font-display);font-weight:400;font-size:1.2rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px" data-i18n="atl.s3.savings">Savings</h4>
+        <ul class="fs-check" style="margin-top:0">
+          <li><span>&#10003;</span><span data-i18n="atl.s3.savings.1">Light trailers</span></li>
+          <li><span>&#10003;</span><span data-i18n="atl.s3.savings.2">More payload</span></li>
+          <li><span>&#10003;</span><span data-i18n="atl.s3.savings.3">Increased fuel efficiency</span></li>
+          <li><span>&#10003;</span><span data-i18n="atl.s3.savings.4">Long-term savings on maintenance and repairs</span></li>
+        </ul>
+      </div>
+      <div class="fs-card" style="padding:var(--sp-6)">
+        <h4 style="font-family:var(--font-display);font-weight:400;font-size:1.2rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px" data-i18n="atl.s3.safety">Safety</h4>
+        <ul class="fs-check" style="margin-top:0">
+          <li><span>&#10003;</span><span data-i18n="atl.s3.safety.1">Air suspension for tankers</span></li>
+          <li><span>&#10003;</span><span data-i18n="atl.s3.safety.2">Reliable braking systems</span></li>
+          <li><span>&#10003;</span><span data-i18n="atl.s3.safety.3">Strategic flooding points</span></li>
+          <li><span>&#10003;</span><span data-i18n="atl.s3.safety.4">Secure coupling systems</span></li>
+          <li><span>&#10003;</span><span data-i18n="atl.s3.safety.5">High-visibility reflectors</span></li>
+        </ul>
+      </div>
+      <div class="fs-card" style="padding:var(--sp-6)">
+        <h4 style="font-family:var(--font-display);font-weight:400;font-size:1.2rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px" data-i18n="atl.s3.solutions">Solutions</h4>
+        <ul class="fs-check" style="margin-top:0">
+          <li><span>&#10003;</span><span data-i18n="atl.s3.solutions.1">Customized tailor designs</span></li>
+          <li><span>&#10003;</span><span data-i18n="atl.s3.solutions.2">Technical support</span></li>
+          <li><span>&#10003;</span><span data-i18n="atl.s3.solutions.3">Warranty and maintenance</span></li>
+          <li><span>&#10003;</span><span data-i18n="atl.s3.solutions.4">Personalized service</span></li>
+          <li><span>&#10003;</span><span data-i18n="atl.s3.solutions.5">Cost-effectiveness</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fs-section" id="why-aluminium">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">04</span><span class="fs-eyebrow" data-i18n="atl.s4.eyebrow">Why Aluminium</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)" data-i18n="atl.s4.title">Material Advantages</h2>
+    <div class="grid-3">
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase" data-i18n="atl.s4.non.title">Non-Reactive</h4><p style="font-size:.86rem;margin-top:6px" data-i18n="atl.s4.non.body">Aluminum is non-reactive with most fuels, helping prevent contamination - especially important for sensitive fuels including aviation fuel.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase" data-i18n="atl.s4.corr.title">Corrosion Resistant</h4><p style="font-size:.86rem;margin-top:6px" data-i18n="atl.s4.corr.body">Naturally resists rust in harsh weather and moisture, reducing maintenance and prolonging tanker life.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase" data-i18n="atl.s4.fuel.title">Fuel Efficiency</h4><p style="font-size:.86rem;margin-top:6px" data-i18n="atl.s4.fuel.body">Lower tare weight means more legal payload and less energy to haul the tanker.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase" data-i18n="atl.s4.str.title">Strength &amp; Safety</h4><p style="font-size:.86rem;margin-top:6px" data-i18n="atl.s4.str.body">High strength-to-weight ratio for transport stresses, with impact absorption that supports operational safety.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase" data-i18n="atl.s4.env.title">Environment</h4><p style="font-size:.86rem;margin-top:6px" data-i18n="atl.s4.env.body">Highly recyclable aluminium with lower recycling energy versus primary production - aligned with strict fuel-transport standards.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase" data-i18n="atl.s4.custom.title">Custom Range</h4><p style="font-size:.86rem;margin-top:6px" data-i18n="atl.s4.custom.body">Expanding beyond fuel tankers into premium customized trailers for regional logistics needs.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="fs-section section-light" id="products">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">05</span><span class="fs-eyebrow" data-i18n="atl.s5.eyebrow">Products</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)" data-i18n="atl.s5.title">Tankers &amp; Custom Trailers for Africa</h2>
+    <p class="fs-lede" style="max-width:70ch;margin-bottom:var(--sp-6)" data-i18n="atl.s5.lede">Discover our range of high-quality aluminum fuel tankers designed for safety, durability, and efficiency. Each model is built to meet industry standards and tailored to your specific needs.</p>
+    <div class="prod-catalog">
+      <div class="prod-catalog-card">
+        <div class="fs-media" style="aspect-ratio:4/3;margin-bottom:var(--sp-3)"><img src="assets/images/atl/tanker-1.jpg" alt="ATL aluminium fuel tanker" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
+        <h4 data-i18n="atl.s5.tankers.title">Aluminium Fuel Tankers</h4>
+        <p data-i18n="atl.s5.tankers.body">High-quality aluminum fuel tankers designed for safety, durability and efficiency on African routes.</p>
+      </div>
+      <div class="prod-catalog-card">
+        <div class="fs-media" style="aspect-ratio:4/3;margin-bottom:var(--sp-3)"><img src="assets/images/atl/tanker-2.jpg" alt="ATL trailer manufacturing" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
+        <h4 data-i18n="atl.s5.custom.title">Custom Trailers</h4>
+        <p data-i18n="atl.s5.custom.body">Tailored trailer configurations to match payload, coupling and operating requirements.</p>
+      </div>
+      <div class="prod-catalog-card">
+        <div class="fs-media" style="aspect-ratio:4/3;margin-bottom:var(--sp-3)"><img src="assets/images/atl/tanker-3.png" alt="ATL tanker detail" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
+        <h4 data-i18n="atl.s5.support.title">Support &amp; Warranty</h4>
+        <p data-i18n="atl.s5.support.body">Technical support, warranty coverage and maintenance partnership after delivery.</p>
+      </div>
+    </div>
+    <div class="img-mosaic" style="margin-top:var(--sp-8)">
+      <div class="fs-media"><img src="assets/images/atl/facility-1.jpg" alt="ATL facility and tanker" loading="lazy" decoding="async"></div>
+      <div class="fs-media"><img src="assets/images/atl/facility-2.jpg" alt="ATL manufacturing" loading="lazy" decoding="async"></div>
+      <div class="fs-media"><img src="assets/images/atl/tanker-1.jpg" alt="ATL aluminium tanker on road" loading="lazy" decoding="async"></div>
+      <div class="fs-media"><img src="assets/images/atl/tanker-2.jpg" alt="ATL custom trailer build" loading="lazy" decoding="async"></div>
+    </div>
+  </div>
+</section>
+
+<section class="fs-section fs-on-dark" id="testimonials">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">06</span><span class="fs-eyebrow" data-i18n="atl.s6.eyebrow">Testimonials</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)" data-i18n="atl.s6.title">What Clients Say</h2>
+    <p style="max-width:70ch;margin-bottom:var(--sp-6);color:var(--ink-mute)" data-i18n="atl.s6.lede">At ATL, we pride ourselves on trailers that deliver unmatched performance, durability, and value. Hear from the people who rely on our aluminum trailers every day.</p>
+    <div class="fs-split-even">
+      <blockquote style="margin:0;padding:0;border:none">
+        <p style="font-size:1.05rem;line-height:1.7;color:var(--ink-mute)" data-i18n="atl.s6.q1">"Thank you, Aluminum Trailers Limited. Looking forward for more transformation of our trailers with you. As you won't find a better customer servicing of high quality manufacturing anywhere else in East Africa, it just allows us to rely on you comfortably."</p>
+        <p style="margin-top:14px;color:var(--gold);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.78rem" data-i18n="atl.s6.q1.by">MOIL Company CEO</p>
+      </blockquote>
+      <blockquote style="margin:0;padding:0;border:none">
+        <p style="font-size:1.05rem;line-height:1.7;color:var(--ink-mute)" data-i18n="atl.s6.q2">"From fabrication to manufacturing quality - the effective best manufacturing tanker company I have dealt with. Higher volumes loaded, many trips in a short time. The overall merits of the trailer are amazing."</p>
+        <p style="margin-top:14px;color:var(--gold);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.78rem" data-i18n="atl.s6.q2.by">Orange Gas Co. Ltd CEO</p>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="fs-section section-light" id="partners">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">07</span><span class="fs-eyebrow" data-i18n="atl.s7.eyebrow">Partners</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)" data-i18n="atl.s7.title">Financial Partners</h2>
+    <p class="fs-lede" style="max-width:65ch;margin-bottom:var(--sp-6)" data-i18n="atl.s7.lede">ATL works with leading regional financial and commercial partners supporting fleet and manufacturing growth.</p>
+    <div class="prod-catalog">
+      <div class="prod-catalog-card" style="display:flex;align-items:center;justify-content:center;min-height:120px"><img src="assets/images/atl/partner-crdb.png" alt="CRDB" loading="lazy" style="max-height:64px;width:auto;object-fit:contain"></div>
+      <div class="prod-catalog-card" style="display:flex;align-items:center;justify-content:center;min-height:120px"><img src="assets/images/atl/partner-stanbic.jpg" alt="Stanbic" loading="lazy" style="max-height:64px;width:auto;object-fit:contain"></div>
+      <div class="prod-catalog-card" style="display:flex;align-items:center;justify-content:center;min-height:120px"><img src="assets/images/atl/partner-kcb.jpg" alt="KCB" loading="lazy" style="max-height:48px;width:auto;object-fit:contain"></div>
+    </div>
+  </div>
+</section>
+
+<section class="fs-section" id="visit">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">08</span><span class="fs-eyebrow" data-i18n="atl.s8.eyebrow">Location</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)" data-i18n="atl.s8.title">Visit ATL</h2>
+    <div class="ct-info fs-on-dark fs-corners">
+      <h3 data-i18n="atl.s8.name">ATL Limited</h3>
+      <div class="ct-rows">
+        <div class="ct-row"><div class="ct-ico" aria-hidden="true">📍</div><div><div class="ct-label" data-i18n="atl.s8.address">Address</div><span class="ct-strong" data-i18n="atl.s8.address.line">Kipawa, Nyerere Road</span><span class="ct-dim" data-i18n="atl.s8.address.dim">Opposite Julius Nyerere Airport Terminal 3, Dar es Salaam</span></div></div>
+        <div class="ct-row"><div class="ct-ico" aria-hidden="true">🕒</div><div><div class="ct-label" data-i18n="atl.s8.hours">Work Hours</div><span class="ct-strong" data-i18n="atl.s8.hours.line">Mon-Fri 8:00am - 16:30pm</span><span class="ct-dim" data-i18n="atl.s8.hours.dim">Sat 8:00am - 12:30pm</span></div></div>
+        <div class="ct-row"><div class="ct-ico" aria-hidden="true">🌐</div><div><div class="ct-label" data-i18n="atl.s8.web">Website</div><span class="ct-strong">atl-tz.com</span><span class="ct-dim" data-i18n="atl.s8.web.dim">Content mirrored on this Lake Group page</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group">
+        </div>
+        <p class="footer-motto" style="color:var(--yellow);font-weight:600;font-size:0.95rem;letter-spacing:0.04em" data-i18n="footer.motto">Quality, Service, Safety, Professionalism</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/lake-oil" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.linkedin" aria-label="LinkedIn"><span class="lg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span data-i18n="footer.linkedin">LinkedIn</span></a>
+          <a href="https://www.facebook.com/lakeoilgroup" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.facebook" aria-label="Facebook"><span class="lg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span><span data-i18n="footer.facebook">Facebook</span></a>
+          <a href="https://twitter.com/lakeoilgroup" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.twitter" aria-label="X / Twitter"><span class="lg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4l7.2 8.4L4.3 20H7l5.4-5.9L16.8 20H20l-7.4-8.7L19.5 4H16.8l-5 5.5L7.5 4H4z"/></svg></span><span data-i18n="footer.twitter">X / Twitter</span></a>
+          <a href="https://www.youtube.com/@lakeoilgroup" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.youtube" aria-label="YouTube"><span class="lg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22.5 7.2a2.8 2.8 0 0 0-2-2C18.7 4.8 12 4.8 12 4.8s-6.7 0-8.5.4a2.8 2.8 0 0 0-2 2A29 29 0 0 0 1.2 12a29 29 0 0 0 .3 4.8 2.8 2.8 0 0 0 2 2c1.8.4 8.5.4 8.5.4s6.7 0 8.5-.4a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22.8 12a29 29 0 0 0-.3-4.8z"/><path d="M10 15.2V8.8L15.5 12 10 15.2z" fill="currentColor" stroke="none"/></svg></span><span data-i18n="footer.youtube">YouTube</span></a>
+        </div>
+        <div style="margin-top:20px;display:flex;gap:10px">
+          <a href="contact.html" class="btn btn-outline btn-sm" data-i18n="footer.contact">Contact Us</a>
+        </div>
+      </div>
+      <div class="footer-col"><h5 data-i18n="footer.services">Subsidiaries</h5><ul>
+        <li><a href="lake-oil.html" data-i18n="nav.co.lakeOil">Lake Oil</a></li><li><a href="lake-gas.html" data-i18n="nav.co.lakeGas">Lake Gas</a></li>
+        <li><a href="lake-lubes.html" data-i18n="nav.co.lakeLubes">Lake Lubes</a></li><li><a href="lake-steel.html" data-i18n="nav.co.lakeSteel">Lake Steel</a></li>
+        <li><a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a></li><li><a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a></li>
+        <li><a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a></li><li><a href="services.html" data-i18n="footer.viewAllCompanies">View All Subsidiaries</a></li>
+      </ul></div>
+      <div class="footer-col"><h5 data-i18n="footer.company">Corporate</h5><ul>
+        <li><a href="about.html" data-i18n="nav.aboutUs">About Us</a></li><li><a href="history.html" data-i18n="nav.historyShort">History</a></li>
+        <li><a href="leadership.html" data-i18n="nav.leadership">Leadership</a></li><li><a href="csr.html" data-i18n="nav.csrShort">CSR</a></li>
+        <li><a href="investors.html" data-i18n="nav.investorsShort">Investors</a></li><li><a href="projects.html" data-i18n="nav.projectsShort">Projects</a></li>
+        <li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
+      </ul></div>
+      <div class="footer-col"><h5 data-i18n="footer.contactHeading">Contact</h5><ul>
+        <li><a href="contact.html" data-i18n="footer.address">Plot 49, Mikocheni Light Industrial, Dar es Salaam</a></li>
+        <li><a href="tel:+255222780510">+255 222 780 510</a></li>
+        <li><a href="tel:+255222780479">+255 222 780 479</a></li>
+        <li><a href="mailto:admin@lakeoilgroup.com">admin@lakeoilgroup.com</a></li>
+        <li><a href="contact.html" data-i18n="footer.contact">Contact Us</a></li>
+      </ul>
+      <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:5px">
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/tz.svg" alt="" class="flag-icon" width="20" height="15"> TZ</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/ke.svg" alt="" class="flag-icon" width="20" height="15"> KE</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/zm.svg" alt="" class="flag-icon" width="20" height="15"> ZM</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/rw.svg" alt="" class="flag-icon" width="20" height="15"> RW</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/bi.svg" alt="" class="flag-icon" width="20" height="15"> BI</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/cd.svg" alt="" class="flag-icon" width="20" height="15"> DRC</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/et.svg" alt="" class="flag-icon" width="20" height="15"> ET</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/mz.svg" alt="" class="flag-icon" width="20" height="15"> MZ</span>
+      </div></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Lake Group. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <div class="footer-bottom-links"><a href="#" data-i18n="footer.privacy">Privacy</a><a href="#" data-i18n="footer.terms">Terms</a><a href="contact.html" data-i18n="footer.contact">Contact Us</a></div>
+    </div>
+  </div>
+</footer>
+<div id="chat-widget">
+  <div id="chat-box">
+    <div id="chat-head"><h4 data-i18n="chat.title">Lake Group Assistant</h4><p data-i18n="chat.sub">Ask us anything</p></div>
+    <div id="chat-messages"><div class="msg msg-bot" data-i18n="chat.hello">Hello! How can I help you today?</div></div>
+    <div id="chat-input-row"><input type="text" id="chat-input" placeholder="Type a message..." data-i18n-placeholder="chat.placeholder"><button id="chat-send" data-i18n="chat.send">Send</button></div>
+  </div>
+  <button id="chat-btn" aria-label="Chat"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></button>
+</div>
+<script src="assets/i18n-content.js?v=51" defer></script>
+<script src="assets/i18n.js?v=51" defer></script>
+<script src="assets/site.js?v=51" defer></script>
+  <script src="assets/vendor/flexsearch/flexsearch.bundle.min.js" defer></script>
+  <script src="assets/assistant-kb.js" defer></script>
+  <script src="assets/assistant.js?v=51" defer></script>
+<script src="assets/pwa.js?v=44" defer></script>
+<script src="assets/flagship-motion.js?v=50" defer></script>
+<script src="assets/split-text.js?v=46" defer></script>
+</body></html>
+<!-- CONTENT NEEDED FROM CLIENT: named client case studies / testimonials for Lake Lubes, full product catalog with photography and technical data sheets, company-specific management profiles beyond the Group CEO, blending-plant and team photography, introductory and product-demo videos, real logo asset at assets/images/logos/companies/lake-lubes.png -->

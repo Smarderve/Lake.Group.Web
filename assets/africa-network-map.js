@@ -32,7 +32,7 @@
     { id: 'fuel-dar', country: 'tz', type: 'fuel', name: 'Lake Oil Depots', city: 'Dar es Salaam', lat: -6.82, lng: 39.25,
       desc: 'Bulk petroleum storage and distribution hub.' },
     { id: 'hub-dar', country: 'tz', type: 'logistics', name: 'Lake Trans Hub', city: 'Dar es Salaam', lat: -6.78, lng: 39.22,
-      desc: '700+ truck fleet coordination and bulk liquid haulage.' },
+      desc: '1,200+ truck fleet coordination and bulk liquid haulage.' },
 
     { id: 'fuel-nrb', country: 'ke', type: 'fuel', name: 'Lake Oil Kenya', city: 'Nairobi', lat: -1.2921, lng: 36.8219,
       desc: 'Petroleum distribution and retail network.' },

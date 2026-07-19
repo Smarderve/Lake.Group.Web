@@ -33,9 +33,9 @@ const LEADERS = [
     summary:
       'Forbes-featured entrepreneur who founded Lake Oil in 2006 and built Lake Group into one of East and Central Africa’s leading energy, logistics and industrial conglomerates.',
     paragraphs: [
-      'Born in 1980 into a family of traders, Awadh studied Business Administration at Brock University in Canada — supporting himself with odd jobs while building early trading instincts. By his mid-20s he had already moved into truck refurbishing and commodity trading. In 2006 he launched Lake Oil; official Group materials place him at 27 at founding.',
-      'His oversight today spans oil marketing, supply chain, downstream logistics and heavy industrial manufacturing across Tanzania, Kenya, Zambia, DRC, Burundi and Rwanda — with wider Group presence also in Ethiopia, Mozambique and Dubai (MERM). Under his chairmanship the Group has grown retail networks (85 stations in Tanzania alone), storage infrastructure, a 700+ truck fleet, LPG terminals, Lake Steel, ready-mix concrete and AFICD port-extension services.',
-      'In 2017 Forbes covered Lake Oil Group’s regional push — including Competition Authority of Kenya approval to acquire Hashi Energy’s Kenyan station network — and described the enterprise as a billion-dollar (revenue) integrated energy platform. Awadh has also been recognised by African Leadership Magazine (Young Business Leader of the Year, 2022) and as Young African Energy Leader of the Year (African Business Leadership Awards, 2023).',
+      'Born in 1980 into a family of traders, Awadh studied Business Administration at Brock University in Canada - supporting himself with odd jobs while building early trading instincts. By his mid-20s he had already moved into truck refurbishing and commodity trading. In 2006 he launched Lake Oil; official Group materials place him at 27 at founding.',
+      'His oversight today spans oil marketing, supply chain, downstream logistics and heavy industrial manufacturing across Tanzania, Kenya, Zambia, DRC, Burundi and Rwanda - with wider Group presence also in Ethiopia, Mozambique and Dubai (MERM). Under his chairmanship the Group has grown retail networks (152 stations in Tanzania alone), storage infrastructure, a 1,200+ truck fleet, LPG terminals, Lake Steel, ready-mix concrete and AFICD port-extension services.',
+      'In 2017 Forbes covered Lake Oil Group’s regional push - including Competition Authority of Kenya approval to acquire Hashi Energy’s Kenyan station network - and described the enterprise as a billion-dollar (revenue) integrated energy platform. Awadh has also been recognised by African Leadership Magazine (Young Business Leader of the Year, 2022) and as Young African Energy Leader of the Year (African Business Leadership Awards, 2023).',
     ],
     quote:
       'With a team of experienced engineers and business professionals across our units, Lake Group is fully geared to meet the demands of the global marketplace.',
@@ -47,7 +47,7 @@ const LEADERS = [
     meta: [
       ['Founded', '2006'],
       ['Countries', '8+'],
-      ['People', '4,600+'],
+      ['People', '30,000+'],
     ],
     links: [
       ['Meet the full team', 'leadership.html'],
@@ -64,9 +64,9 @@ const LEADERS = [
     photo: 'assets/images/leadership/sibtian-ansari.png',
     photoLogo: false,
     summary:
-      'Leads Lake Group’s structural industrial expansions — most notably Lake Steel — spanning production infrastructure, manufacturing output, concrete products and construction supply networks.',
+      'Leads Lake Group’s structural industrial expansions - most notably Lake Steel - spanning production infrastructure, manufacturing output, concrete products and construction supply networks.',
     paragraphs: [
-      'As Manufacturing CEO, Ansari’s mandate sits at the industrial heart of the Group’s diversification beyond petroleum. Lake Steel operates a computerized automatic rolling mill at Visiga, Kibaha (Plot 118, Block M), with throughput up to about 25 tonnes/hour and annual capacity around 100,000 MT — with publicly discussed expansion toward 150,000 MT.',
+      'As Manufacturing CEO, Ansari’s mandate sits at the industrial heart of the Group’s diversification beyond petroleum. Lake Steel operates a computerized automatic rolling mill at Visiga, Kibaha (Plot 118, Block M), with throughput up to about 25 tonnes/hour and annual capacity around 100,000 MT - with publicly discussed expansion toward 150,000 MT.',
       'The mill introduced high-strength corrosion-resistant (HS-CR) rebar to Tanzania, engineered to retain strength at elevated temperatures and deliver markedly higher corrosion resistance than ordinary rebar.',
       'His portfolio also connects to the Group’s construction-materials chain: Gulf Aggregates crushing plants, Lake Premix / GCCP ready-mix operations in Dar es Salaam, and the wider building-products ecosystem that supplies contractors and infrastructure projects.',
     ],
@@ -95,9 +95,9 @@ const LEADERS = [
     photo: 'assets/images/leadership/vivek-choudhary.png',
     photoLogo: false,
     summary:
-      'Owns enterprise technology architecture and digital strategy — from centralised SAP environments to logistics intelligence and cross-border data security.',
+      'Owns enterprise technology architecture and digital strategy - from centralised SAP environments to logistics intelligence and cross-border data security.',
     paragraphs: [
-      'Across a Group that runs fuel depots, 700+ trucks, ICD/CFS yards and multi-country retail, digital systems are the nervous system. Choudhary’s mandate focuses on optimising Lake Group’s centralised SAP stack — the operational backbone for shipment orders, inventory and financial posting across units such as Lake Trans and AFICD.',
+      'Across a Group that runs fuel depots, 1,200+ trucks, ICD/CFS yards and multi-country retail, digital systems are the nervous system. Choudhary’s mandate focuses on optimising Lake Group’s centralised SAP stack - the operational backbone for shipment orders, inventory and financial posting across units such as Lake Trans and AFICD.',
       'He embeds custom logistics and fleet-tracking intelligence so corridor movements stay visible from Dar to Ndola and beyond, and scales cross-border data security infrastructure protecting networks that connect Tanzania hubs with regional country operations.',
       'The goal is a single, resilient digital layer that lets manufacturing, energy and logistics executives act on the same real-time picture.',
     ],
@@ -128,8 +128,8 @@ const LEADERS = [
     summary:
       'Directs Associated Trans Logistics Ltd (ATL), operating alongside Lake Trans as a logistical backbone for fuel fleets, heavy haulage and multi-national cargo corridors.',
     paragraphs: [
-      'Shetty’s ATL wing sits next to Lake Trans Ltd. — the Group’s second company (2008) and primary petroleum haulage arm. Together they move product locally and in transit across Tanzania, Zambia, Rwanda, DRC, Burundi, Malawi, Kenya and Uganda.',
-      'Group messaging cites 700+ trucks; tanker capacities typically range 12,000–40,000 litres, with GPS tracking as standard. Workshops in Kibaha, Kigamboni, Morogoro, Nairobi and Ndola support asset uptime on the corridors that make Lake Group’s multi-country model possible.',
+      'Shetty’s ATL wing sits next to Lake Trans Ltd. - the Group’s second company (2008) and primary petroleum haulage arm. Together they move product locally and in transit across Tanzania, Zambia, Rwanda, DRC, Burundi, Malawi, Kenya and Uganda.',
+      'Group messaging cites 1,200+ trucks; tanker capacities typically range 12,000–40,000 litres, with GPS tracking as standard. Workshops in Kibaha, Kigamboni, Morogoro, Nairobi and Ndola support asset uptime on the corridors that make Lake Group’s multi-country model possible.',
       'ATL’s role is to keep the physical network seamless: routing fuel fleets, heavy haulage and cargo pipelines so depots, stations and industrial plants stay supplied.',
     ],
     mandate: [
@@ -139,7 +139,7 @@ const LEADERS = [
     ],
     meta: [
       ['ATL', 'Logistics unit'],
-      ['700+', 'Group trucks'],
+      ['1,200+', 'Group trucks'],
       ['8+', 'Corridor countries'],
     ],
     links: [
@@ -157,11 +157,11 @@ const LEADERS = [
     photo: 'assets/images/leadership/pankaj-kumar.png',
     photoLogo: false,
     summary:
-      'Oversees financial planning, risk analysis and corporate governance for African Inland Container Depot (AFICD) — Lake Group’s dry-port platform in Dar es Salaam.',
+      'Oversees financial planning, risk analysis and corporate governance for African Inland Container Depot (AFICD) - Lake Group’s dry-port platform in Dar es Salaam.',
     paragraphs: [
       'AFICD is a core Group asset: an inland container depot at Tazara / Pugu Road with rail siding toward the port (~6 km), serving landlocked markets including Rwanda, Burundi, Uganda, DRC, Zambia and Malawi.',
       'The Dar yard covers about 14,000 m² with capacity around 4,000 TEU, SAP-based operations, container repairs, and sister sites in Zambia (Ndola) and Mozambique (Beira). ACFS extends the brand into a larger CFS terminal with warehouse, weighbridge and reefer capacity.',
-      'As CFO, Kumar’s brief is capital discipline and governance around that cargo engine — planning, risk and controls for import-export volumes, customs-linked workflows and container clearing.',
+      'As CFO, Kumar’s brief is capital discipline and governance around that cargo engine - planning, risk and controls for import-export volumes, customs-linked workflows and container clearing.',
     ],
     mandate: [
       'Financial planning & performance for AFICD',
@@ -188,7 +188,7 @@ const LEADERS = [
     photo: LOGO,
     photoLogo: true,
     summary:
-      'Leads Group-wide operations across Lake Group’s energy, logistics and industrial units — coordinating day-to-day execution and operational performance.',
+      'Leads Group-wide operations across Lake Group’s energy, logistics and industrial units - coordinating day-to-day execution and operational performance.',
     paragraphs: [
       'As Director of Operations, Nuru is responsible for aligning day-to-day execution across Lake Group’s operating companies so energy, logistics and industrial units deliver reliably against Group standards.',
       'The role spans operational performance, coordination between business units, and continuous improvement of processes that keep depots, fleets, plants and commercial teams running as one organisation.',
@@ -219,11 +219,11 @@ const LEADERS = [
     photo: LOGO,
     photoLogo: true,
     summary:
-      'Manages Lake Agro project delivery — greenfield development, agribusiness programmes and related Group project coordination.',
+      'Manages Lake Agro project delivery - greenfield development, agribusiness programmes and related Group project coordination.',
     paragraphs: [
       'Nassoro Abubakari leads project delivery for Lake Agro, the Group’s agribusiness and greenfield development arm.',
       'The mandate covers planning and execution of agro programmes, coordination with Group support functions, and keeping delivery timelines aligned with commercial and operational goals.',
-      'Lake Agro sits within Lake Group’s wider diversification strategy — extending the organisation’s capabilities beyond energy and logistics into agriculture-linked development.',
+      'Lake Agro sits within Lake Group’s wider diversification strategy - extending the organisation’s capabilities beyond energy and logistics into agriculture-linked development.',
     ],
     mandate: [
       'Lake Agro project planning & delivery',
@@ -245,50 +245,106 @@ const LEADERS = [
 ];
 
 const DIR_STYLE = `
-/* Leadership directory — Aramco-inspired interactive grid */
+/* Leadership cards — match leadership.html directory language */
 .ld-intro { max-width: 720px; margin: 0 auto var(--sp-12); text-align: center; }
 .ld-intro .section-subtitle { margin-top: 14px; }
-.ld-team-label { margin-bottom: var(--sp-8); text-align: center; }
-.ld-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
-@media (max-width: 960px) { .ld-card-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 640px) { .ld-card-grid { grid-template-columns: 1fr; } }
+.ld-team-label { margin-bottom: var(--sp-10); text-align: center; }
+
 a.ld-person-card {
+  position: relative;
   display: flex; flex-direction: column; text-decoration: none; color: inherit;
-  background: var(--surface); border: 1px solid var(--line-2); overflow: hidden;
-  transition: transform .35s var(--ease-out, ease), box-shadow .35s ease, border-color .35s ease;
+  background: transparent;
+  border: none;
+  overflow: visible;
+  transition: transform .28s var(--ease-out, ease);
 }
-a.ld-person-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--color-brand-blue, #0181BB);
-  box-shadow: 0 18px 40px rgba(1, 63, 92, 0.12);
+a.ld-person-card:hover { transform: translateY(-3px); }
+a.ld-person-card:focus-visible {
+  outline: 2px solid var(--color-brand-blue, #0181BB);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
-.ld-person-photo { position: relative; aspect-ratio: 4/5; overflow: hidden; background: var(--ink-3, #0e2433); }
+
+.ld-person-photo {
+  position: relative;
+  aspect-ratio: 5 / 4;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #EEF1F5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .ld-person-photo img {
-  width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block;
-  transition: transform .55s var(--ease-out, ease);
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+  transition: transform .4s var(--ease-out, ease);
 }
-a.ld-person-card:hover .ld-person-photo img { transform: scale(1.05); }
-.ld-person-photo--logo { display: flex; align-items: center; justify-content: center; background: var(--surface); }
-.ld-person-photo--logo img { width: 52%; height: auto; object-fit: contain; }
+a.ld-person-card:hover .ld-person-photo img { transform: scale(1.02); }
+
+.ld-person-photo--logo { background: #EEF1F5; }
+.ld-person-photo--logo img {
+  width: 42%;
+  height: auto;
+  max-height: 55%;
+  object-fit: contain;
+}
 a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
-.ld-person-body { padding: 22px 22px 24px; display: flex; flex-direction: column; flex: 1; gap: 8px; }
+
+.ld-person-body {
+  padding: 16px 2px 0;
+  display: flex; flex-direction: column; flex: 1; gap: 4px;
+}
 .ld-person-body h3 {
   font-family: var(--font-display, var(--font-heading));
-  font-weight: 400; font-size: 1.35rem; letter-spacing: 0.02em; text-transform: uppercase; margin: 0;
-  color: var(--ink, var(--color-text-heading));
+  font-weight: 600;
+  font-size: 1.08rem;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  margin: 0;
+  color: #0A1628;
+  line-height: 1.25;
 }
 .ld-person-role {
-  color: var(--gold-deep, var(--color-brand-blue));
-  font-size: var(--fs-micro, 0.72rem); font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.16em; margin: 0;
+  color: #6B7280;
+  font-size: 0.875rem;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  margin: 0;
+  line-height: 1.4;
 }
-.ld-person-sum { font-size: 0.9rem; color: var(--mute, var(--color-text-body)); line-height: 1.55; margin: 4px 0 0; flex: 1; }
+/* Directory hides bios; profile nav shows a short clamp */
+.ld-person-sum { display: none; }
+.lp-nav .ld-person-sum {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 0.875rem;
+  color: var(--mute, var(--color-text-body));
+  line-height: 1.5;
+  margin: 6px 0 0;
+  flex: 1;
+}
+
 .ld-person-more {
-  margin-top: 14px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--color-brand-blue, #0181BB); display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 14px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--color-brand-blue, #0181BB);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
-.ld-person-more::after { content: "→"; transition: transform .25s ease; }
-a.ld-person-card:hover .ld-person-more::after { transform: translateX(4px); }
+
 .ld-panel { background: var(--ink); padding: var(--sp-12) var(--sp-8); text-align: center; margin-top: var(--sp-16); }
 .ld-panel h3 { color: #fff; font-family: var(--font-display, var(--font-heading)); font-weight: 400; font-size: clamp(1.7rem, 3vw, 2.4rem); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: var(--sp-3); }
 .ld-panel p { color: var(--ink-text, rgba(255,255,255,.85)); max-width: 560px; margin: 0 auto; }
@@ -324,10 +380,68 @@ a.ld-person-card:hover .ld-person-more::after { transform: translateX(4px); }
 .lp-contact strong { display: block; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-deep, var(--color-brand-blue)); margin-bottom: 4px; }
 .lp-contact a { color: var(--color-brand-blue, #0181BB); }
 .lp-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
-.lp-nav { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding: 28px 0 8px; border-top: 1px solid var(--line-2); margin-top: 40px; }
-.lp-nav a { text-decoration: none; color: var(--color-brand-blue, #0181BB); font-weight: 600; font-size: .9rem; }
-.lp-nav a:hover { text-decoration: underline; }
+
+/* Prev / next as full leadership cards */
+.lp-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px 28px;
+  padding: 36px 0 12px;
+  border-top: 1px solid var(--line-2);
+  margin-top: 48px;
+  align-items: stretch;
+}
+.lp-nav > a.ld-person-card { min-width: 0; }
+.lp-nav-all {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  padding-top: 4px;
+}
+.lp-nav-all .btn { text-decoration: none; }
+@media (max-width: 640px) {
+  .lp-nav {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 32px;
+  }
+}
 `;
+
+const LEADER_I18N = {
+  'ally-edha-awadh': { name: 'leadership.9', role: 'leadership.8', sum: 'leadership.104' },
+  'sibtian-ansari': { name: 'leadership.17', role: 'leadership.18', sum: 'leadership.105' },
+  'vivek-choudhary': { name: 'leadership.20', role: 'leadership.21', sum: 'leadership.106' },
+  'bhaskar-shetty': { name: 'leadership.23', role: 'leadership.24', sum: 'leadership.107' },
+  'pankaj-kumar': { name: 'leadership.26', role: 'leadership.27', sum: 'leadership.108' },
+  'juma-nuru': { name: 'leadership.51', role: 'leadership.52', sum: 'leadership.53' },
+  'nassoro-abubakari': { name: 'leadership.54', role: 'leadership.55', sum: 'leadership.56' },
+};
+
+function personCardHtml(leader) {
+  const photoClass = leader.photoLogo
+    ? 'ld-person-photo ld-person-photo--logo'
+    : 'ld-person-photo';
+  const keys = LEADER_I18N[leader.id] || {};
+  const nameKey = leader.i18nName || keys.name || '';
+  const roleKey = leader.i18nRole || keys.role || '';
+  const sumKey = leader.i18nSum || keys.sum || '';
+  const nameAttr = nameKey ? ` data-i18n="${nameKey}"` : '';
+  const roleAttr = roleKey ? ` data-i18n="${roleKey}"` : '';
+  const sumAttr = sumKey ? ` data-i18n="${sumKey}"` : '';
+  const altAttr = nameKey ? ` data-i18n-alt="${nameKey}"` : '';
+  return `<a class="ld-person-card" href="leadership-${leader.id}.html">
+          <div class="${photoClass}"><img src="${esc(leader.photo)}" alt="${esc(leader.name)}"${altAttr} loading="lazy" decoding="async"></div>
+          <div class="ld-person-body">
+            <h3><span${nameAttr}>${esc(leader.name)}</span></h3>
+            <p class="ld-person-role"><span${roleAttr}>${esc(leader.role)}</span></p>
+            <p class="ld-person-sum"><span${sumAttr}>${esc(leader.summary)}</span></p>
+            <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>
+          </div>
+        </a>`;
+}
 
 function esc(s) {
   return String(s)
@@ -412,7 +526,7 @@ function buildDirectory() {
 
     <div class="ld-panel reveal">
       <h3 data-i18n="leadership.48">21 Nationalities. One Team.</h3>
-      <p data-i18n="leadership.49">Lake Group's workforce reflects the rich diversity of the African continent, with 4,600+ professionals from 21 nationalities working together toward shared goals.</p>
+      <p data-i18n="leadership.49">Lake Group's workforce reflects the rich diversity of the African continent, with 30,000+ professionals from 21 nationalities working together toward shared goals.</p>
       <a data-i18n="leadership.50" href="careers.html" class="btn btn-primary" style="margin-top:24px">Join Our Team</a>
     </div>
   </div>
@@ -513,11 +627,13 @@ function buildProfile(leader, index) {
         <div class="lp-links">
           ${links}
         </div>
-        <div class="lp-nav">
-          <a href="leadership-${prev.id}.html">← ${esc(prev.name)}</a>
-          <a href="leadership.html">All leadership</a>
-          <a href="leadership-${next.id}.html">${esc(next.name)} →</a>
-        </div>
+        <nav class="lp-nav" aria-label="Related leadership profiles">
+          ${personCardHtml(prev)}
+          ${personCardHtml(next)}
+          <div class="lp-nav-all">
+            <a href="leadership.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.58">All leadership</a>
+          </div>
+        </nav>
       </article>
     </div>
   </div>
@@ -538,7 +654,7 @@ function buildProfile(leader, index) {
 </script>`;
 
   let head = pageHead({
-    title: `${leader.name} — ${leader.role} | Lake Group`,
+    title: `${leader.name} - ${leader.role} | Lake Group`,
     description: leader.summary,
     canonical: `leadership-${leader.id}.html`,
   });

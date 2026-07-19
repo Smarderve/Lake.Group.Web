@@ -63,51 +63,51 @@ const EDITS = {
     old: 'From 1 company in 2006 to 20+ subsidiaries, a track record of disciplined expansion and value creation over 18 years.',
     en: 'From 1 company in 2006 to 20+ subsidiaries, a track record of disciplined expansion and value creation over nearly two decades.',
     fr: "D'une seule société en 2006 à plus de 20 filiales : un historique d'expansion disciplinée et de création de valeur sur près de deux décennies.",
-    sw: 'Kutoka kampuni 1 mwaka 2006 hadi kampuni tanzu zaidi ya 20 — rekodi ya upanuzi wenye nidhamu na uundaji wa thamani kwa karibu miongo miwili.'
+    sw: 'Kutoka kampuni 1 mwaka 2006 hadi kampuni tanzu zaidi ya 20 - rekodi ya upanuzi wenye nidhamu na uundaji wa thamani kwa karibu miongo miwili.'
   },
 
   // ---- History timeline: dates & events corrected to verified record ----
   'history.10': { old: 'Logistics Division Launched', en: 'Logistics & First Regional Steps', fr: 'Logistique et premiers pas régionaux', sw: 'Usafirishaji na Hatua za Kwanza za Kikanda' },
   'history.11': {
     old: "Lake Trans Ltd. is established to handle bulk liquid haulage, rapidly expanding the Group's logistics footprint across Tanzania.",
-    en: "Lake Trans Ltd. is established as the Group's logistics arm. The same year, DRC Petroleum S.A.R.L. is founded in the Democratic Republic of Congo and Lake Petroleum Ltd. is incorporated in Zambia — the Group's first ventures beyond Tanzania.",
-    fr: "Lake Trans Ltd. est créée comme branche logistique du Groupe. La même année, DRC Petroleum S.A.R.L. est fondée en République démocratique du Congo et Lake Petroleum Ltd. est constituée en Zambie — les premières implantations du Groupe hors de Tanzanie.",
-    sw: 'Lake Trans Ltd. inaanzishwa kama tawi la usafirishaji la Kundi. Mwaka huo huo, DRC Petroleum S.A.R.L. inaanzishwa katika Jamhuri ya Kidemokrasia ya Kongo na Lake Petroleum Ltd. inasajiliwa nchini Zambia — hatua za kwanza za Kundi nje ya Tanzania.'
+    en: "Lake Trans Ltd. is established as the Group's logistics arm. The same year, DRC Petroleum S.A.R.L. is founded in the Democratic Republic of Congo and Lake Petroleum Ltd. is incorporated in Zambia - the Group's first ventures beyond Tanzania.",
+    fr: "Lake Trans Ltd. est créée comme branche logistique du Groupe. La même année, DRC Petroleum S.A.R.L. est fondée en République démocratique du Congo et Lake Petroleum Ltd. est constituée en Zambie - les premières implantations du Groupe hors de Tanzanie.",
+    sw: 'Lake Trans Ltd. inaanzishwa kama tawi la usafirishaji la Kundi. Mwaka huo huo, DRC Petroleum S.A.R.L. inaanzishwa katika Jamhuri ya Kidemokrasia ya Kongo na Lake Petroleum Ltd. inasajiliwa nchini Zambia - hatua za kwanza za Kundi nje ya Tanzania.'
   },
   'history.14': { old: 'Regional Expansion Begins', en: 'East African Footprint Grows', fr: "L'empreinte est-africaine s'étend", sw: 'Uwepo Afrika Mashariki Wapanuka' },
   'history.15': {
     old: 'Lake Group expands operations into Kenya, Zambia, Burundi and Rwanda, bringing fuel, LPG and lubricants to neighbouring markets.',
-    en: 'Burundi Petroleum opens its first petrol station in Burundi, and Lake Petroleum Rwanda — established in Kigali in 2011 — begins importing and distributing fuel across Rwanda.',
-    fr: 'Burundi Petroleum ouvre sa première station-service au Burundi, et Lake Petroleum Rwanda — créée à Kigali en 2011 — commence à importer et distribuer du carburant à travers le Rwanda.',
-    sw: 'Burundi Petroleum inafungua kituo chake cha kwanza cha mafuta nchini Burundi, na Lake Petroleum Rwanda — iliyoanzishwa Kigali mwaka 2011 — inaanza kuagiza na kusambaza mafuta kote Rwanda.'
+    en: 'Burundi Petroleum opens its first petrol station in Burundi, and Lake Petroleum Rwanda - established in Kigali in 2011 - begins importing and distributing fuel across Rwanda.',
+    fr: 'Burundi Petroleum ouvre sa première station-service au Burundi, et Lake Petroleum Rwanda - créée à Kigali en 2011 - commence à importer et distribuer du carburant à travers le Rwanda.',
+    sw: 'Burundi Petroleum inafungua kituo chake cha kwanza cha mafuta nchini Burundi, na Lake Petroleum Rwanda - iliyoanzishwa Kigali mwaka 2011 - inaanza kuagiza na kusambaza mafuta kote Rwanda.'
   },
   'history.16': { old: 'Lake Steel Launched', en: 'Lubricants & Composite Cylinders', fr: 'Lubrifiants et bouteilles composites', sw: 'Vilainishi na Mitungi ya Komposi' },
   'history.17': {
     old: 'Lake Steel Ltd. becomes the first company in Tanzania to introduce High Strength, Corrosion Resistant (HS-CR) reinforcement steel bars. A fully computerised rolling mill with 100,000 MT/yr capacity.',
-    en: "Lake Lubes Ltd. is established in Dar es Salaam to blend and market the Group's own lubricants, and Lake Gas launches Africa's first composite LPG cylinders — non-explosive, lightweight and translucent.",
-    fr: "Lake Lubes Ltd. est créée à Dar es Salaam pour formuler et commercialiser les lubrifiants du Groupe, et Lake Gas lance les premières bouteilles de GPL composites d'Afrique — non explosives, légères et translucides.",
-    sw: 'Lake Lubes Ltd. inaanzishwa Dar es Salaam kuchanganya na kuuza vilainishi vya Kundi, na Lake Gas inazindua mitungi ya kwanza ya LPG ya komposi barani Afrika — isiyolipuka, nyepesi na inayopitisha mwanga.'
+    en: "Lake Lubes Ltd. is established in Dar es Salaam to blend and market the Group's own lubricants, and Lake Gas launches Africa's first composite LPG cylinders - non-explosive, lightweight and translucent.",
+    fr: "Lake Lubes Ltd. est créée à Dar es Salaam pour formuler et commercialiser les lubrifiants du Groupe, et Lake Gas lance les premières bouteilles de GPL composites d'Afrique - non explosives, légères et translucides.",
+    sw: 'Lake Lubes Ltd. inaanzishwa Dar es Salaam kuchanganya na kuuza vilainishi vya Kundi, na Lake Gas inazindua mitungi ya kwanza ya LPG ya komposi barani Afrika - isiyolipuka, nyepesi na inayopitisha mwanga.'
   },
   'history.18': { old: 'DRC & Ethiopia Entry', en: 'Kenya Entry at Scale', fr: 'Entrée à grande échelle au Kenya', sw: 'Kuingia Kenya kwa Kiwango Kikubwa' },
   'history.19': {
     old: "DRC Petroleum Ltd. and Wadi Elsundus Petroleum Co. (Ethiopia) are established, bringing the Group's operational footprint to 7 countries.",
-    en: "The Competition Authority of Kenya approves Lake Oil's acquisition of Hashi Energy's Kenyan fuel-station network — a landmark step into East Africa's largest retail fuel market.",
-    fr: "L'Autorité de la concurrence du Kenya approuve l'acquisition par Lake Oil du réseau de stations-service kenyan de Hashi Energy — une étape majeure sur le plus grand marché de détail de carburant d'Afrique de l'Est.",
-    sw: 'Mamlaka ya Ushindani ya Kenya inaidhinisha Lake Oil kununua mtandao wa vituo vya mafuta vya Hashi Energy nchini Kenya — hatua muhimu katika soko kubwa zaidi la rejareja la mafuta Afrika Mashariki.'
+    en: "The Competition Authority of Kenya approves Lake Oil's acquisition of Hashi Energy's Kenyan fuel-station network - a landmark step into East Africa's largest retail fuel market.",
+    fr: "L'Autorité de la concurrence du Kenya approuve l'acquisition par Lake Oil du réseau de stations-service kenyan de Hashi Energy - une étape majeure sur le plus grand marché de détail de carburant d'Afrique de l'Est.",
+    sw: 'Mamlaka ya Ushindani ya Kenya inaidhinisha Lake Oil kununua mtandao wa vituo vya mafuta vya Hashi Energy nchini Kenya - hatua muhimu katika soko kubwa zaidi la rejareja la mafuta Afrika Mashariki.'
   },
   'history.20': { old: 'Container Depot & Dubai Expansion', en: 'Tanga LPG Terminal', fr: 'Terminal GPL de Tanga', sw: 'Kituo cha LPG cha Tanga' },
   'history.21': {
     old: "AFICD (African Inland Container Depot) is launched in Tanzania and Zambia. MERM (Middle East Ready Mix LLC) is established in Dubai, marking the Group's first presence outside Africa.",
-    en: "Lake Gas invests in Tanga, commissioning what opens as East Africa's largest LPG storage terminal — 1,000 MT of capacity, receiving ships through a dedicated single point mooring buoy.",
-    fr: "Lake Gas investit à Tanga et met en service ce qui devient à son ouverture le plus grand terminal de stockage de GPL d'Afrique de l'Est — 1 000 tonnes de capacité, recevant les navires via une bouée d'amarrage dédiée.",
-    sw: 'Lake Gas inawekeza Tanga na kuanzisha kituo kilichofunguliwa kikiwa kikubwa zaidi cha kuhifadhi LPG Afrika Mashariki — uwezo wa tani 1,000, kikipokea meli kupitia boya maalum la kufungia meli.'
+    en: "Lake Gas invests in Tanga, commissioning what opens as East Africa's largest LPG storage terminal - 1,000 MT of capacity, receiving ships through a dedicated single point mooring buoy.",
+    fr: "Lake Gas investit à Tanga et met en service ce qui devient à son ouverture le plus grand terminal de stockage de GPL d'Afrique de l'Est - 1 000 tonnes de capacité, recevant les navires via une bouée d'amarrage dédiée.",
+    sw: 'Lake Gas inawekeza Tanga na kuanzisha kituo kilichofunguliwa kikiwa kikubwa zaidi cha kuhifadhi LPG Afrika Mashariki - uwezo wa tani 1,000, kikipokea meli kupitia boya maalum la kufungia meli.'
   },
   'history.22': { old: '4,000+ Employees Milestone', en: 'Lake Steel Begins Production', fr: 'Lake Steel démarre sa production', sw: 'Lake Steel Yaanza Uzalishaji' },
   'history.23': {
     old: 'Lake Group surpasses 4,000 employees across 20+ subsidiaries, with 21 nationalities represented in the workforce. Mozambique operations begin.',
-    en: 'Lake Steel and Allied Products starts operations at Visiga, Kibaha — the first producer of high-strength, corrosion-resistant (HS-CR) rebar in Tanzania, with an annual capacity of 100,000 metric tonnes.',
-    fr: "Lake Steel and Allied Products démarre ses activités à Visiga, Kibaha — premier producteur de barres d'armature à haute résistance et anticorrosion (HS-CR) en Tanzanie, avec une capacité annuelle de 100 000 tonnes.",
-    sw: 'Lake Steel and Allied Products inaanza shughuli zake Visiga, Kibaha — mzalishaji wa kwanza wa nondo imara zenye ukinzani wa kutu (HS-CR) nchini Tanzania, na uwezo wa tani 100,000 kwa mwaka.'
+    en: 'Lake Steel and Allied Products starts operations at Visiga, Kibaha - the first producer of high-strength, corrosion-resistant (HS-CR) rebar in Tanzania, with an annual capacity of 100,000 metric tonnes.',
+    fr: "Lake Steel and Allied Products démarre ses activités à Visiga, Kibaha - premier producteur de barres d'armature à haute résistance et anticorrosion (HS-CR) en Tanzanie, avec une capacité annuelle de 100 000 tonnes.",
+    sw: 'Lake Steel and Allied Products inaanza shughuli zake Visiga, Kibaha - mzalishaji wa kwanza wa nondo imara zenye ukinzani wa kutu (HS-CR) nchini Tanzania, na uwezo wa tani 100,000 kwa mwaka.'
   },
   'history.24': { old: 'Composite LPG Cylinders Launched', en: 'Recognition & LPG Expansion', fr: 'Reconnaissance et expansion du GPL', sw: 'Tuzo na Upanuzi wa LPG' },
   'history.25': {
@@ -120,9 +120,9 @@ const EDITS = {
   // ---- Fuel: no verified aviation fuel business; bunkering is verified ----
   'fuel.8': {
     old: 'We supply white petroleum products including petrol, diesel and aviation fuel through retail stations, bulk delivery and strategic storage facilities across the region.',
-    en: 'We supply white petroleum products — petrol and diesel — through retail stations, bulk delivery and strategic storage facilities across the region, and provide bunkering services for vessels calling at the port of Dar es Salaam.',
-    fr: 'Nous fournissons des produits pétroliers blancs — essence et diesel — via des stations-service, la livraison en vrac et des installations de stockage stratégiques dans toute la région, et assurons des services de soutage pour les navires faisant escale au port de Dar es Salaam.',
-    sw: 'Tunasambaza bidhaa nyeupe za petroli — petroli na dizeli — kupitia vituo vya rejareja, usambazaji wa jumla na maghala ya kimkakati kote kanda, na kutoa huduma za kujaza mafuta meli zinazotia nanga katika bandari ya Dar es Salaam.'
+    en: 'We supply white petroleum products - petrol and diesel - through retail stations, bulk delivery and strategic storage facilities across the region, and provide bunkering services for vessels calling at the port of Dar es Salaam.',
+    fr: 'Nous fournissons des produits pétroliers blancs - essence et diesel - via des stations-service, la livraison en vrac et des installations de stockage stratégiques dans toute la région, et assurons des services de soutage pour les navires faisant escale au port de Dar es Salaam.',
+    sw: 'Tunasambaza bidhaa nyeupe za petroli - petroli na dizeli - kupitia vituo vya rejareja, usambazaji wa jumla na maghala ya kimkakati kote kanda, na kutoa huduma za kujaza mafuta meli zinazotia nanga katika bandari ya Dar es Salaam.'
   },
 
   // ---- Fleet: official tanker capacity is 12,000–40,000 litres ----
@@ -144,16 +144,16 @@ const EDITS = {
   'csr.18': { old: 'Education & Skills', en: 'Healthcare Support', fr: 'Soutien aux soins de santé', sw: 'Kusaidia Huduma za Afya' },
   'csr.19': {
     old: 'Supporting scholarships, vocational training and STEM education for youth in Tanzania and across the region, building the next generation of energy professionals.',
-    en: "Donating medical equipment to maternal wards in Dar es Salaam's municipal hospitals — delivery beds, delivery kits, wheelchairs, stretchers and BP machines — and supporting referral hospitals such as Temeke.",
-    fr: "Don d'équipements médicaux aux maternités des hôpitaux municipaux de Dar es Salaam — lits d'accouchement, kits d'accouchement, fauteuils roulants, brancards et tensiomètres — et soutien aux hôpitaux de référence comme Temeke.",
-    sw: 'Kutoa vifaa tiba kwa wodi za wazazi katika hospitali za manispaa za Dar es Salaam — vitanda vya kujifungulia, vifaa vya kujifungulia, viti vya magurudumu, machela na mashine za kupima presha — na kusaidia hospitali za rufaa kama Temeke.'
+    en: "Donating medical equipment to maternal wards in Dar es Salaam's municipal hospitals - delivery beds, delivery kits, wheelchairs, stretchers and BP machines - and supporting referral hospitals such as Temeke.",
+    fr: "Don d'équipements médicaux aux maternités des hôpitaux municipaux de Dar es Salaam - lits d'accouchement, kits d'accouchement, fauteuils roulants, brancards et tensiomètres - et soutien aux hôpitaux de référence comme Temeke.",
+    sw: 'Kutoa vifaa tiba kwa wodi za wazazi katika hospitali za manispaa za Dar es Salaam - vitanda vya kujifungulia, vifaa vya kujifungulia, viti vya magurudumu, machela na mashine za kupima presha - na kusaidia hospitali za rufaa kama Temeke.'
   },
   'csr.20': { old: 'Community Infrastructure', en: 'Children & Community Welfare', fr: 'Enfance et bien-être communautaire', sw: 'Watoto na Ustawi wa Jamii' },
   'csr.21': {
     old: 'Contributing to the construction and renovation of community facilities, roads, water points, health clinics and public amenities in operational areas.',
-    en: 'Assisting needy children and orphanage centres, supporting places of worship, and providing emergency relief — including food and LPG cooking sets for flood-affected families in Rufiji.',
-    fr: "Aide aux enfants démunis et aux orphelinats, soutien aux lieux de culte et secours d'urgence — notamment des vivres et des kits de cuisson au GPL pour les familles touchées par les inondations à Rufiji.",
-    sw: 'Kusaidia watoto wenye uhitaji na vituo vya yatima, kuunga mkono nyumba za ibada, na kutoa msaada wa dharura — ikiwemo chakula na mitungi ya gesi ya kupikia kwa familia zilizoathiriwa na mafuriko Rufiji.'
+    en: 'Assisting needy children and orphanage centres, supporting places of worship, and providing emergency relief - including food and LPG cooking sets for flood-affected families in Rufiji.',
+    fr: "Aide aux enfants démunis et aux orphelinats, soutien aux lieux de culte et secours d'urgence - notamment des vivres et des kits de cuisson au GPL pour les familles touchées par les inondations à Rufiji.",
+    sw: 'Kusaidia watoto wenye uhitaji na vituo vya yatima, kuunga mkono nyumba za ibada, na kutoa msaada wa dharura - ikiwemo chakula na mitungi ya gesi ya kupikia kwa familia zilizoathiriwa na mafuriko Rufiji.'
   },
   'csr.23': {
     old: 'Responsible handling of petroleum products, zero-tolerance for spillage, and progressive adoption of cleaner operations. Active reclamation of quarry land at Lugoba.',
@@ -164,9 +164,9 @@ const EDITS = {
   'csr.26': { old: 'Food Security', en: 'Clean Cooking Access', fr: 'Accès à la cuisson propre', sw: 'Upatikanaji wa Nishati Safi ya Kupikia' },
   'csr.27': {
     old: 'Supporting reliable LPG access for households across East Africa, reducing dependence on charcoal, improving air quality and lowering deforestation pressure.',
-    en: 'Expanding reliable LPG access for households across East Africa — reducing dependence on charcoal, improving indoor air quality and easing deforestation pressure.',
-    fr: "Élargir l'accès fiable au GPL pour les ménages d'Afrique de l'Est — réduire la dépendance au charbon de bois, améliorer la qualité de l'air intérieur et alléger la pression de déforestation.",
-    sw: 'Kupanua upatikanaji wa uhakika wa LPG kwa kaya Afrika Mashariki — kupunguza utegemezi wa mkaa, kuboresha hewa ndani ya nyumba na kupunguza shinikizo la ukataji miti.'
+    en: 'Expanding reliable LPG access for households across East Africa - reducing dependence on charcoal, improving indoor air quality and easing deforestation pressure.',
+    fr: "Élargir l'accès fiable au GPL pour les ménages d'Afrique de l'Est - réduire la dépendance au charbon de bois, améliorer la qualité de l'air intérieur et alléger la pression de déforestation.",
+    sw: 'Kupanua upatikanaji wa uhakika wa LPG kwa kaya Afrika Mashariki - kupunguza utegemezi wa mkaa, kuboresha hewa ndani ya nyumba na kupunguza shinikizo la ukataji miti.'
   },
 
   // ---- Sustainability: soften unverifiable claims, use verified facts ----
@@ -194,9 +194,9 @@ const EDITS = {
   },
   'leadership.33': {
     old: "Flagship petroleum importer, depot operator and retail network, Tanzania's top fuel distributors. MD: Abdulrahman Mohamed",
-    en: "Flagship petroleum importer, depot operator and retail network — among Tanzania's top five fuel distributors. MD: Abdulrahman Mohamed",
-    fr: 'Importateur pétrolier phare, exploitant de dépôts et réseau de détail — parmi les cinq premiers distributeurs de carburant de Tanzanie. DG : Abdulrahman Mohamed',
-    sw: 'Kampuni kiongozi ya uagizaji wa mafuta, uendeshaji wa maghala na mtandao wa rejareja — miongoni mwa wasambazaji watano wakubwa wa mafuta Tanzania. MD: Abdulrahman Mohamed'
+    en: "Flagship petroleum importer, depot operator and retail network - among Tanzania's top five fuel distributors. MD: Abdulrahman Mohamed",
+    fr: 'Importateur pétrolier phare, exploitant de dépôts et réseau de détail - parmi les cinq premiers distributeurs de carburant de Tanzanie. DG : Abdulrahman Mohamed',
+    sw: 'Kampuni kiongozi ya uagizaji wa mafuta, uendeshaji wa maghala na mtandao wa rejareja - miongoni mwa wasambazaji watano wakubwa wa mafuta Tanzania. MD: Abdulrahman Mohamed'
   },
   'leadership.42': { old: 'Gulf Cement & Concrete Products (GCCP)', en: 'Gulf Concrete & Cement Products (GCCP)', fr: 'Gulf Concrete & Cement Products (GCCP)', sw: 'Gulf Concrete & Cement Products (GCCP)' },
 
@@ -212,22 +212,22 @@ const EDITS = {
   // ---- Projects: replace unverified JNHPP claim with verified Tanga terminal ----
   'projects.10': {
     old: 'Julius Nyerere Hydropower – Concrete Supply',
-    en: "Tanga LPG Import Terminal — East Africa's Largest",
-    fr: "Terminal d'importation de GPL de Tanga — le plus grand d'Afrique de l'Est",
-    sw: 'Kituo cha Kuagiza LPG cha Tanga — Kikubwa Zaidi Afrika Mashariki'
+    en: "Tanga LPG Import Terminal - East Africa's Largest",
+    fr: "Terminal d'importation de GPL de Tanga - le plus grand d'Afrique de l'Est",
+    sw: 'Kituo cha Kuagiza LPG cha Tanga - Kikubwa Zaidi Afrika Mashariki'
   },
   'projects.11': {
     old: "GCCP supplied specialist high-performance ready-mix concrete to support civil works on Tanzania's flagship 2,115 MW Julius Nyerere Hydropower Project at Stiegler's Gorge.",
-    en: "Lake Gas built East Africa's largest LPG storage terminal at Tanga — commissioned at 1,000 MT and later expanded to 3,000 MT — with a dedicated single point mooring buoy that lets ships discharge directly to the terminal.",
-    fr: "Lake Gas a construit à Tanga le plus grand terminal de stockage de GPL d'Afrique de l'Est — mis en service à 1 000 tonnes puis porté à 3 000 tonnes — doté d'une bouée d'amarrage dédiée permettant aux navires de décharger directement vers le terminal.",
-    sw: 'Lake Gas ilijenga kituo kikubwa zaidi cha kuhifadhi LPG Afrika Mashariki huko Tanga — kilichoanzishwa kwa tani 1,000 na baadaye kupanuliwa hadi tani 3,000 — chenye boya maalum la kufungia meli linaloruhusu meli kushusha gesi moja kwa moja kituoni.'
+    en: "Lake Gas built East Africa's largest LPG storage terminal at Tanga - commissioned at 1,000 MT and later expanded to 3,000 MT - with a dedicated single point mooring buoy that lets ships discharge directly to the terminal.",
+    fr: "Lake Gas a construit à Tanga le plus grand terminal de stockage de GPL d'Afrique de l'Est - mis en service à 1 000 tonnes puis porté à 3 000 tonnes - doté d'une bouée d'amarrage dédiée permettant aux navires de décharger directement vers le terminal.",
+    sw: 'Lake Gas ilijenga kituo kikubwa zaidi cha kuhifadhi LPG Afrika Mashariki huko Tanga - kilichoanzishwa kwa tani 1,000 na baadaye kupanuliwa hadi tani 3,000 - chenye boya maalum la kufungia meli linaloruhusu meli kushusha gesi moja kwa moja kituoni.'
   },
   'projects.13': { old: 'Concrete & Aggregate', en: 'LPG Gas', fr: 'GPL', sw: 'Gesi ya LPG' },
   'projects.23': {
     old: "Tanzania's first HS-CR rebar producer. The fully computerised 25T/hr rolling mill has supplied 100,000+ MT of high-strength corrosion-resistant steel to the construction sector.",
-    en: "Tanzania's first HS-CR rebar producer. The fully computerised rolling mill at Visiga, Kibaha runs at up to 25 tonnes per hour — 100,000 MT annual capacity — and its bars are approved for use in government projects.",
-    fr: "Premier producteur tanzanien de barres d'armature HS-CR. Le laminoir entièrement informatisé de Visiga, Kibaha, tourne jusqu'à 25 tonnes par heure — soit 100 000 tonnes de capacité annuelle — et ses barres sont approuvées pour les projets gouvernementaux.",
-    sw: 'Mzalishaji wa kwanza wa nondo za HS-CR Tanzania. Kinu cha kusaga chuma kinachoendeshwa kikamilifu kwa kompyuta huko Visiga, Kibaha, hufanya kazi hadi tani 25 kwa saa — uwezo wa tani 100,000 kwa mwaka — na nondo zake zimeidhinishwa kutumika katika miradi ya serikali.'
+    en: "Tanzania's first HS-CR rebar producer. The fully computerised rolling mill at Visiga, Kibaha runs at up to 25 tonnes per hour - 100,000 MT annual capacity - and its bars are approved for use in government projects.",
+    fr: "Premier producteur tanzanien de barres d'armature HS-CR. Le laminoir entièrement informatisé de Visiga, Kibaha, tourne jusqu'à 25 tonnes par heure - soit 100 000 tonnes de capacité annuelle - et ses barres sont approuvées pour les projets gouvernementaux.",
+    sw: 'Mzalishaji wa kwanza wa nondo za HS-CR Tanzania. Kinu cha kusaga chuma kinachoendeshwa kikamilifu kwa kompyuta huko Visiga, Kibaha, hufanya kazi hadi tani 25 kwa saa - uwezo wa tani 100,000 kwa mwaka - na nondo zake zimeidhinishwa kutumika katika miradi ya serikali.'
   },
   'projects.29': {
     old: "Middle East Ready Mix LLC (MERM), Lake Group's Dubai-based premix concrete operation, is one of the largest ready-mix plants in the UAE, serving major construction projects.",
@@ -284,9 +284,9 @@ const EDITS = {
   },
   'media_center.15': {
     old: "Tanzania's first HS-CR rebar manufacturer, Lake Steel Ltd., has celebrated a major production milestone, 500,000 metric tonnes of high-strength corrosion-resistant rebars since commissioning.",
-    en: "Lake Gas has expanded its Tanga terminal — opened as East Africa's largest LPG storage facility — from 1,000 to 3,000 metric tonnes, strengthening supply to Tanzania and neighbouring markets.",
-    fr: "Lake Gas a agrandi son terminal de Tanga — inauguré comme la plus grande installation de stockage de GPL d'Afrique de l'Est — de 1 000 à 3 000 tonnes, renforçant l'approvisionnement de la Tanzanie et des marchés voisins.",
-    sw: 'Lake Gas imepanua kituo chake cha Tanga — kilichofunguliwa kikiwa ghala kubwa zaidi la kuhifadhi LPG Afrika Mashariki — kutoka tani 1,000 hadi tani 3,000, ikiimarisha usambazaji Tanzania na masoko jirani.'
+    en: "Lake Gas has expanded its Tanga terminal - opened as East Africa's largest LPG storage facility - from 1,000 to 3,000 metric tonnes, strengthening supply to Tanzania and neighbouring markets.",
+    fr: "Lake Gas a agrandi son terminal de Tanga - inauguré comme la plus grande installation de stockage de GPL d'Afrique de l'Est - de 1 000 à 3 000 tonnes, renforçant l'approvisionnement de la Tanzanie et des marchés voisins.",
+    sw: 'Lake Gas imepanua kituo chake cha Tanga - kilichofunguliwa kikiwa ghala kubwa zaidi la kuhifadhi LPG Afrika Mashariki - kutoka tani 1,000 hadi tani 3,000, ikiimarisha usambazaji Tanzania na masoko jirani.'
   },
   'media_center.18': { old: 'Oct 1, 2024', en: 'June 2014', fr: 'Juin 2014', sw: 'Juni 2014' },
   'media_center.19': {
@@ -297,9 +297,9 @@ const EDITS = {
   },
   'media_center.20': {
     old: 'Lake Group has reported continued workforce growth, now employing over 4,600 professionals across 20+ subsidiaries in 8 countries, representing 21 nationalities.',
-    en: 'Lake Gas introduced composite LPG cylinders — non-explosive, non-corrosive, lightweight and translucent — at a launch event in Dar es Salaam on 18 June 2014, a first for the African market.',
-    fr: 'Lake Gas a présenté les bouteilles de GPL composites — non explosives, anticorrosion, légères et translucides — lors d\'un lancement à Dar es Salaam le 18 juin 2014, une première sur le marché africain.',
-    sw: 'Lake Gas ilizindua mitungi ya LPG ya komposi — isiyolipuka, isiyoshika kutu, nyepesi na inayopitisha mwanga — katika hafla ya uzinduzi Dar es Salaam tarehe 18 Juni 2014, ya kwanza katika soko la Afrika.'
+    en: 'Lake Gas introduced composite LPG cylinders - non-explosive, non-corrosive, lightweight and translucent - at a launch event in Dar es Salaam on 18 June 2014, a first for the African market.',
+    fr: 'Lake Gas a présenté les bouteilles de GPL composites - non explosives, anticorrosion, légères et translucides - lors d\'un lancement à Dar es Salaam le 18 juin 2014, une première sur le marché africain.',
+    sw: 'Lake Gas ilizindua mitungi ya LPG ya komposi - isiyolipuka, isiyoshika kutu, nyepesi na inayopitisha mwanga - katika hafla ya uzinduzi Dar es Salaam tarehe 18 Juni 2014, ya kwanza katika soko la Afrika.'
   },
   'media_center.11': { old: 'Download PDF', en: 'Read more', fr: 'Lire la suite', sw: 'Soma zaidi' },
   'media_center.16': { old: 'Download PDF', en: 'Read more', fr: 'Lire la suite', sw: 'Soma zaidi' },
@@ -310,9 +310,9 @@ const EDITS = {
   // ---- News page ----
   'news.4': {
     old: "What's happening at announcements, expansions, product launches and community activities.",
-    en: 'News from across Lake Group — announcements, expansions, product launches and community activities.',
-    fr: 'Les actualités du Groupe Lake — annonces, expansions, lancements de produits et activités communautaires.',
-    sw: 'Habari kutoka kote katika Kundi la Lake — matangazo, upanuzi, uzinduzi wa bidhaa na shughuli za kijamii.'
+    en: 'News from across Lake Group - announcements, expansions, product launches and community activities.',
+    fr: 'Les actualités du Groupe Lake - annonces, expansions, lancements de produits et activités communautaires.',
+    sw: 'Habari kutoka kote katika Kundi la Lake - matangazo, upanuzi, uzinduzi wa bidhaa na shughuli za kijamii.'
   },
   'news.20': { old: 'Upcoming Events', en: 'Event Highlights', fr: 'Temps forts des événements', sw: 'Matukio Muhimu' },
   'news.21': { old: 'Jan 2025', en: 'Jun 2014', fr: 'Juin 2014', sw: 'Juni 2014' },
@@ -335,9 +335,9 @@ const EDITS = {
   // ---- Station locator: Lake Oil stations are officially open 24 hours ----
   'station_locator.4': {
     old: 'Locate the nearest Lake Oil fuel station, check opening hours and available services.',
-    en: 'Locate the nearest Lake Oil fuel station and see the services available — Lake Oil stations are open 24 hours.',
-    fr: 'Trouvez la station-service Lake Oil la plus proche et découvrez les services disponibles — les stations Lake Oil sont ouvertes 24h/24.',
-    sw: 'Tafuta kituo cha mafuta cha Lake Oil kilicho karibu nawe na uone huduma zinazopatikana — vituo vya Lake Oil viko wazi saa 24.'
+    en: 'Locate the nearest Lake Oil fuel station and see the services available - Lake Oil stations are open 24 hours.',
+    fr: 'Trouvez la station-service Lake Oil la plus proche et découvrez les services disponibles - les stations Lake Oil sont ouvertes 24h/24.',
+    sw: 'Tafuta kituo cha mafuta cha Lake Oil kilicho karibu nawe na uone huduma zinazopatikana - vituo vya Lake Oil viko wazi saa 24.'
   },
   'station_locator.26': {
     old: 'Mon–Sun 6:00am – 10:00pm \u00a0|\u00a0 Petrol, Diesel, LPG',

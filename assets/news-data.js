@@ -271,7 +271,7 @@ window.LAKE_NEWS = [
     bannerImage: "assets/images/news/5/photo_1.jpg",
     description: [
       "On 9th September 2016 Lake Group family has presented special mattresses for Maternal Wards and fruits to Temeke Referral District Hospital as part of Eid Al Adha celebrations",
-      "Mr Khalid Mohamed who is the Executive Director lead the delegation of Lake Group and presented the commodities to Dr. A. Malima the Chief Medical Officer of the Hospital in Dar es Salaam.",
+      "A Lake Group delegation presented the commodities to Dr. A. Malima, the Chief Medical Officer of the Hospital in Dar es Salaam.",
       "Special thanks goes to Ally Edha Awadh – The Group CEO, all employees and the steering committee of the event for moral support, materially and monetary contributions.",
       "Let us always share the small portion we have with the society."
     ],

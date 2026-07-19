@@ -7,20 +7,34 @@
     return r.top < window.innerHeight && r.bottom > 0;
   }
 
+  function formatCounterDisplay(n, prefix, suffix) {
+    const grouped = Number(n).toLocaleString('en-US');
+    const raw = (prefix || '') + grouped + (suffix || '');
+    if (window.LakeI18n && typeof LakeI18n.formatNumberForLang === 'function') {
+      return LakeI18n.formatNumberForLang(LakeI18n.current || 'en', raw);
+    }
+    return raw;
+  }
+
+  function paintCounter(el, value) {
+    const suffix = el.dataset.suffix || '';
+    const prefix = el.dataset.prefix || '';
+    el.textContent = formatCounterDisplay(value, prefix, suffix);
+  }
+
   function animateCounter(el) {
     if (el.dataset.animated === '1') return;
     el.dataset.animated = '1';
     const target = parseInt(el.dataset.count, 10);
     if (isNaN(target)) return;
-    const suffix = el.dataset.suffix || '';
-    const prefix = el.dataset.prefix || '';
     const duration = 1600;
     const start = performance.now();
     const step = (now) => {
       const progress = Math.min((now - start) / duration, 1);
       const ease = 1 - Math.pow(1 - progress, 3);
-      el.textContent = prefix + Math.floor(ease * target).toLocaleString() + suffix;
+      paintCounter(el, Math.floor(ease * target));
       if (progress < 1) requestAnimationFrame(step);
+      else paintCounter(el, target);
     };
     requestAnimationFrame(step);
   }
@@ -28,9 +42,17 @@
   function setCounterFallback(el) {
     const target = parseInt(el.dataset.count, 10);
     if (isNaN(target)) return;
-    const suffix = el.dataset.suffix || '';
-    const prefix = el.dataset.prefix || '';
-    el.textContent = prefix + target.toLocaleString() + suffix;
+    paintCounter(el, target);
+  }
+
+  function refreshCountersForLang() {
+    document.querySelectorAll('[data-count]').forEach((el) => {
+      const target = parseInt(el.dataset.count, 10);
+      if (isNaN(target)) return;
+      // After animation, show final localized value; if not yet animated, keep fallback.
+      if (el.dataset.animated === '1') paintCounter(el, target);
+      else setCounterFallback(el);
+    });
   }
 
   function initReveal() {
@@ -93,7 +115,7 @@
     }, 2500);
   }
 
-  // "Our Companies" mega-menu: CSS alone (`.has-dropdown:hover`/
+  // "Subsidiaries" mega-menu: CSS alone (`.has-dropdown:hover`/
   // `:focus-within`) already opens the panel on hover and on keyboard Tab.
   // This adds click-to-toggle (desktop click + touch, which get no
   // :hover), Escape-to-close (returning focus to the trigger), ArrowDown to
@@ -160,7 +182,7 @@
     });
   }
 
-  // Mobile "Our Companies" accordion: each category button toggles its own
+  // Mobile "Subsidiaries" accordion: each category button toggles its own
   // company-links panel independently (multiple can be open at once).
   function initMobileAccordion() {
     document.querySelectorAll('.mob-acc-btn').forEach(btn => {
@@ -214,7 +236,7 @@
     });
 
     // A current page reached through a dropdown/mega-menu (e.g. a company
-    // page under "Our Companies") should also light up its top-level
+    // page under "Subsidiaries") should also light up its top-level
     // trigger so the parent nav item reads as active, not just the buried
     // child link. Mark the trigger with .active (persistent accent) so it is
     // distinct beyond hover.
@@ -266,9 +288,9 @@
     const botReplyFallbacks = {
       fuel: 'Lake Oil supplies petroleum products across Tanzania, Kenya, Zambia, DRC, Rwanda, Burundi & Ethiopia. Contact admin@lakeoilgroup.com for pricing.',
       lpg: 'Lake Gas offers 6kg, 10kg, 15kg and 38kg cylinders for domestic and commercial use. Available in 6 countries across East & Central Africa.',
-      truck: 'Lake Trans operates a fleet of 700+ trucks across East & Central Africa for bulk liquid haulage and general cargo.',
+      truck: 'Lake Trans operates a fleet of 1,200+ trucks across East & Central Africa for bulk liquid haulage and general cargo.',
       contact: 'Our headquarters: Plot 49, Mikocheni Light Industrial Area, Dar es Salaam. Tel: +255 222780510 | Email: admin@lakeoilgroup.com',
-      station: 'Visit our Station Locator page to find the nearest Lake Oil fuel station. We have 85+ stations across Tanzania and the region.',
+      station: 'Visit our Station Locator page to find the nearest Lake Oil fuel station. We have 152 stations across Tanzania and the region.',
       careers: "We're always looking for talented people. Visit our Careers page to explore opportunities across our 20+ subsidiaries.",
       steel: 'Lake Steel is the first company in Tanzania to introduce High Strength Corrosion Resistant (HS-CR) rebars with 100,000 MT annual capacity.',
       concrete: "GCCP (Gulf Concrete & Cement Products) is Dar es Salaam's leading ready-mix concrete supplier, established 2010.",
@@ -333,6 +355,18 @@
     chatBtn.addEventListener('click', () => chatBox.classList.toggle('open'));
     if (chatSend) chatSend.addEventListener('click', sendMessage);
     if (chatInput) chatInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendMessage(); });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && chatBox.classList.contains('open')) {
+        chatBox.classList.remove('open');
+      }
+    });
+    document.addEventListener('pointerdown', (e) => {
+      if (!chatBox.classList.contains('open')) return;
+      const t = e.target;
+      if (chatBox.contains(t) || chatBtn.contains(t)) return;
+      chatBox.classList.remove('open');
+    }, true);
   }
 
   function initAnchors() {
@@ -395,34 +429,50 @@
   }
 
   // Company pages set data-company-logo / data-company-alt on <body>.
-  // Nav chrome is overwritten by normalize_nav.js from a shared template
-  // that always uses the Lake Group mark — swap after paint so company
-  // pages show their own logo while the link still goes to index.html.
-  function initCompanyNavLogo() {
+  // Nav/footer chrome is overwritten by normalize_nav.js from a shared
+  // template that always uses the Lake Group mark - swap after paint so
+  // company pages show their own logo in nav and footer.
+  function markLetterboxedNavLogo(img) {
+    if (!img || !img.naturalWidth || !img.naturalHeight) return;
+    // Tight group mark is ~2.6:1. Legacy square letterboxed company PNGs (~1:1 with ~18% mark fill)
+    // were trimmed to wide assets; letterbox scale remains as a fallback for any leftover squares.
+    const ratio = img.naturalWidth / img.naturalHeight;
+    img.classList.toggle('nav-logo-img--letterboxed', ratio < 1.35);
+  }
+
+  function initCompanyBranding() {
     const src = document.body && document.body.getAttribute('data-company-logo');
     if (!src) return;
     const alt = document.body.getAttribute('data-company-alt') || '';
-    const link = document.querySelector('.site-nav .nav-logo');
-    const img = link && link.querySelector('img');
-    if (!img) return;
-    link.classList.add('nav-logo--company');
-    img.src = src;
-    if (alt) img.alt = alt;
-    // Match homepage Lake Group nav mark (60px / 45px scrolled via CSS).
-    // Strip template inline height and width/height attrs so stylesheet
-    // rules win (inline !important would block scrolled 54px).
-    img.removeAttribute('width');
-    img.removeAttribute('height');
-    img.style.removeProperty('height');
-    img.style.removeProperty('width');
-    img.style.removeProperty('max-width');
-    img.style.removeProperty('max-height');
-    // Size comes only from --nav-logo-height in tokens.css — never set here.
+
+    const navLink = document.querySelector('.site-nav .nav-logo');
+    const navImg = navLink && navLink.querySelector('img');
+    if (navImg) {
+      navLink.classList.add('nav-logo--company');
+      navImg.src = src;
+      if (alt) navImg.alt = alt;
+      navImg.removeAttribute('width');
+      navImg.removeAttribute('height');
+      navImg.style.removeProperty('height');
+      navImg.style.removeProperty('width');
+      navImg.style.removeProperty('max-width');
+      navImg.style.removeProperty('max-height');
+      // Size from tokens.css only; letterbox class applied after decode.
+      const applyLetterbox = () => markLetterboxedNavLogo(navImg);
+      if (navImg.complete && navImg.naturalWidth) applyLetterbox();
+      else navImg.addEventListener('load', applyLetterbox, { once: true });
+    }
+
+    const footerImg = document.querySelector('.site-footer .footer-logo img');
+    if (footerImg) {
+      footerImg.src = src;
+      if (alt) footerImg.alt = alt;
+    }
   }
 
   document.addEventListener('DOMContentLoaded', () => {
     initNav();
-    initCompanyNavLogo();
+    initCompanyBranding();
     initReveal();
     initCounters();
     initTabs();
@@ -430,8 +480,10 @@
     initAnchors();
     initForms();
     initCurrency();
+    document.addEventListener('lake-i18n-applied', refreshCountersForLang);
     if (window.LakeI18n) window.LakeI18n.init();
+    else refreshCountersForLang();
     window.addEventListener('scroll', initReveal, { passive: true });
-    window.LakeSite = { initReveal, initCounters };
+    window.LakeSite = { initReveal, initCounters, refreshCountersForLang };
   });
 })();

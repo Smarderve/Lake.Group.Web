@@ -10,12 +10,13 @@
    ========================================================================== */
 
 @import url("tokens.css?v=44");
+@import url("ui-icons.css?v=46");
 
 /* --------------------------------------------------------------------------
    1. THEME-ONLY TOKENS (motion + shadows; brand lives in tokens.css)
    -------------------------------------------------------------------------- */
 :root {
-  /* Motion tokens — snappy 300–500ms range */
+  /* Motion tokens - snappy 300–500ms range */
   --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
   --dur-fast: 0.2s;
@@ -104,7 +105,7 @@ button:focus-visible,
 }
 .site-nav.nav-hidden { transform: translateY(-100%); }
 
-/* Desktop nav rhythm — home sentence-case + soft pill active */
+/* Desktop nav rhythm - home sentence-case + soft pill active */
 .nav-links { gap: 2px; }
 .nav-links > li > a {
   color: var(--nav-link-color);
@@ -131,11 +132,12 @@ button:focus-visible,
 .site-nav .nav-logo img {
   height: var(--nav-logo-height) !important;
   width: auto !important;
+  max-width: none !important;
   max-height: var(--nav-logo-height);
   object-fit: contain;
   transition: transform var(--dur-fast) var(--ease-out), height 0.3s var(--ease-smooth);
 }
-/* Company pages: same logo size as group mark (swap via site.js — src/alt only) */
+/* Company pages: same token height; letterboxed squares get optical scale via site.js class */
 body[data-company-logo] {
   --nav-h: var(--navbar-height);
 }
@@ -147,6 +149,24 @@ body[data-company-logo] .site-nav {
 body[data-company-logo] .site-nav .nav-logo {
   max-width: none;
   overflow: visible;
+}
+.nav-logo.nav-logo--company img,
+body[data-company-logo] .site-nav .nav-logo img {
+  height: var(--nav-logo-height) !important;
+  width: auto !important;
+  max-width: none !important;
+  max-height: var(--nav-logo-height);
+  object-fit: contain;
+}
+body[data-company-logo] .site-nav .nav-logo img.nav-logo-img--letterboxed,
+.nav-logo.nav-logo--company img.nav-logo-img--letterboxed {
+  height: calc(var(--nav-logo-height) * var(--nav-logo-letterbox-scale, 1.15)) !important;
+  max-height: none !important;
+}
+body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--letterboxed,
+.site-nav.nav-scrolled .nav-logo.nav-logo--company img.nav-logo-img--letterboxed {
+  height: calc(var(--nav-logo-height-scrolled) * var(--nav-logo-letterbox-scale, 1.15)) !important;
+  max-height: none !important;
 }
 /* Company pages: cover remaining viewport below fixed nav (home-hero parity) */
 body[data-company-logo] .page-hero {
@@ -163,29 +183,183 @@ body[data-company-logo] .page-hero .container { width: 100%; }
   body[data-company-logo] .page-hero { padding: 24px 0 40px; }
 }
 
-/* Language switcher — home yellow pill buttons */
+/* Language switcher - globe + English|Swahili + dropdown */
 .lang-switcher {
-  display: flex; align-items: center; gap: 3px; margin-left: 10px; margin-right: 6px;
+  position: relative;
+  display: flex; align-items: center;
+  margin-left: 10px; margin-right: 6px;
   border: none; border-radius: 0; overflow: visible;
   background: transparent;
 }
+.lang-trigger {
+  -webkit-appearance: none; appearance: none;
+  display: inline-flex; align-items: center; gap: 7px;
+  background: transparent; border: 0;
+  padding: 6px 4px;
+  color: rgba(255,255,255,0.9); cursor: pointer; line-height: 1;
+  font-family: inherit;
+  border-radius: 8px;
+  transition: color 0.16s ease, background 0.16s ease;
+}
+.lang-trigger:hover { color: #fff; background: rgba(255,255,255,0.08); }
+.lang-trigger:focus-visible {
+  outline: 2px solid var(--color-yellow-accent, var(--yellow));
+  outline-offset: 3px;
+}
+.lang-current,
+.lang-pair {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.lang-pair-selected {
+  color: var(--color-yellow-accent, var(--yellow));
+}
+.lang-pair-sep {
+  color: rgba(255,255,255,0.45);
+  font-weight: 500;
+}
+.lang-pair-suggest {
+  color: rgba(255,255,255,0.92);
+  font-weight: 500;
+  cursor: pointer;
+}
+.lang-pair-suggest:hover { color: #fff; }
+.lang-icons {
+  display: inline-flex; align-items: center; gap: 2px;
+  color: rgba(255,255,255,0.88);
+}
+.lang-globe, .lang-chevron { display: block; flex: none; }
+.lang-chevron { opacity: 0.85; transition: transform 0.2s ease; }
+.lang-switcher.is-open .lang-chevron { transform: rotate(180deg); }
+.lang-menu-item,
 .lang-btn {
   -webkit-appearance: none; appearance: none;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.25);
-  color: rgba(255,255,255,0.85);
-  padding: 5px 8px; font-size: 0.7rem; font-weight: 700;
-  cursor: pointer; line-height: 1; text-decoration: none;
-  border-radius: 3px; font-family: inherit;
-  transition: all 0.15s ease;
+  background: transparent; border: 0;
+  color: rgba(255,255,255,0.9);
+  padding: 0; font-size: 0.84rem; font-weight: 500;
+  cursor: pointer; line-height: 1.2; text-decoration: none;
+  border-radius: 0; font-family: inherit;
+  transition: color 0.15s ease, background 0.15s ease;
 }
-.lang-btn + .lang-btn { border-left: 1px solid rgba(255,255,255,0.25); }
-.lang-btn.active,
-.lang-btn:hover {
-  background: var(--yellow); color: var(--blue); border-color: var(--yellow);
-  text-decoration: none;
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 8px); right: 0; left: auto;
+  min-width: 176px;
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 8px;
+  background:
+    linear-gradient(180deg, rgba(1, 102, 148, 0.98) 0%, rgba(1, 63, 92, 0.99) 100%);
+  border: 0;
+  border-radius: 12px;
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.38),
+    0 4px 12px rgba(0,0,0,0.22);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  z-index: 1200;
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
 }
-.lang-btn:focus-visible { outline: 2px solid var(--yellow); outline-offset: 2px; }
+.lang-switcher.is-open .lang-menu:not([hidden]) {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.lang-menu[hidden] { display: none !important; }
+.lang-menu-item {
+  display: flex; align-items: center; gap: 10px;
+  width: 100%;
+  text-align: start;
+  padding: 10px 12px;
+  font-size: 0.84rem;
+  color: rgba(255,255,255,0.9);
+  border-radius: 8px;
+  border: 0;
+  position: relative;
+}
+.lang-menu-check {
+  width: 14px; height: 14px; flex: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  opacity: 0;
+  color: var(--color-yellow-accent, var(--yellow));
+}
+.lang-menu-check::before {
+  content: "";
+  width: 8px; height: 4px;
+  border-inline-start: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg) translateY(-1px);
+}
+.lang-menu-label { flex: 1; min-width: 0; }
+.lang-menu-item:hover {
+  background: rgba(255,242,0,0.1);
+  color: #fff;
+}
+.lang-menu-item:focus-visible {
+  outline: 2px solid var(--color-yellow-accent, var(--yellow));
+  outline-offset: 1px;
+}
+.lang-menu-item.active,
+.lang-btn.active {
+  color: var(--color-yellow-accent, var(--yellow));
+  background: rgba(255,242,0,0.12);
+  border: 0;
+  font-weight: 650;
+}
+.lang-menu-item.active .lang-menu-check { opacity: 1; }
+.lang-switcher--mobile {
+  margin: 8px 16px 18px;
+  flex-direction: column; align-items: stretch; gap: 8px;
+  width: calc(100% - 32px);
+}
+.lang-switcher--mobile .lang-trigger {
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.06);
+  border: 0;
+  border-radius: 10px;
+}
+.lang-switcher--mobile .lang-menu {
+  position: static; min-width: 0; width: 100%;
+  margin-top: 0; box-shadow: none;
+  opacity: 1; transform: none; pointer-events: auto;
+}
+/* Header chrome stays LTR in all languages: logo LEFT, tabs RIGHT. */
+.site-nav,
+.site-nav .nav-inner,
+.site-nav .nav-links,
+.site-nav .lang-switcher,
+.site-nav .lang-trigger,
+.site-nav .lang-pair,
+.site-nav .nav-megamenu,
+.site-nav .nav-dropdown {
+  direction: ltr !important;
+}
+.site-nav .nav-links {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+.site-nav .lang-switcher { margin-left: 10px; margin-right: 6px; }
+.site-nav .lang-menu { right: 0; left: auto; }
+html[dir="rtl"] .nav-mobile { direction: rtl; }
+html[dir="rtl"] .nav-mobile a { border-left: 0; border-right: 2px solid transparent; }
+html[dir="rtl"] .nav-mobile a:hover { border-right-color: var(--yellow, var(--gold)); }
+html[dir="rtl"] .mm-ext-icon,
+html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
+.site-nav .nav-megamenu {
+  direction: ltr !important;
+  scrollbar-gutter: stable;
+}
+.site-nav .nav-megamenu .dd-label,
+.site-nav .nav-megamenu .mm-company span {
+  unicode-bidi: plaintext;
+}
 
 .breadcrumb a { transition: color var(--dur-fast) ease, transform var(--dur-fast) var(--ease-out); }
 .breadcrumb a:hover { color: var(--yellow); transform: translateX(2px); }
@@ -195,13 +369,11 @@ body[data-company-logo] .page-hero .container { width: 100%; }
   background: linear-gradient(180deg, rgba(1,102,148,0.96), rgba(1,63,92,0.98));
   backdrop-filter: blur(18px) saturate(1.25);
   -webkit-backdrop-filter: blur(18px) saturate(1.25);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-top: 2px solid var(--yellow);
+  border: 0;
   border-radius: var(--radius-lg);
   box-shadow:
     0 28px 56px -20px rgba(0,0,0,0.55),
-    0 10px 22px -12px rgba(0,0,0,0.4),
-    inset 0 1px 0 rgba(255,255,255,0.08);
+    0 10px 22px -12px rgba(0,0,0,0.4);
   transition: opacity 0.22s var(--ease-smooth), transform 0.22s var(--ease-smooth);
 }
 .nav-dropdown a {
@@ -220,7 +392,7 @@ body[data-company-logo] .page-hero .container { width: 100%; }
   opacity: 1; pointer-events: auto; transform: translateY(0);
 }
 
-/* MEGA MENU  "Our Companies" (vertical categories, horizontal companies)
+/* MEGA MENU  "Subsidiaries" (vertical categories, horizontal companies)
    Position relative to .site-nav (not the trigger li) so a ~1180px panel
    stays viewport-centered. Clamp height to the visible area and scroll
    inside the panel on short laptop viewports. */
@@ -315,10 +487,10 @@ body[data-company-logo] .page-hero .container { width: 100%; }
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 8px;
+  gap: 5px;
   flex: 0 0 auto;
-  width: 180px;
-  padding: 12px 10px !important;
+  width: 112px;
+  padding: 6px 5px !important;
   border-radius: var(--radius);
   border-left: 0 !important;
   color: rgba(255,255,255,0.82);
@@ -334,7 +506,7 @@ body[data-company-logo] .page-hero .container { width: 100%; }
   max-width: 100%;
 }
 .mm-company img {
-  height: 112px; width: auto; max-width: 168px; flex: none;
+  height: 32px; width: auto; max-width: 96px; flex: none;
   object-fit: contain;
   aspect-ratio: auto;
   background: transparent;
@@ -343,16 +515,27 @@ body[data-company-logo] .page-hero .container { width: 100%; }
   box-shadow: none;
   transition: opacity 0.18s ease;
 }
-/* Short viewports: keep logos large; panel scrolls if needed */
+/* ATL / Agro: match optical size of Lake wordmarks */
+.mm-company img[src*="atl.png"],
+.mm-company img[src*="lake-agro.png"] {
+  height: 28px;
+  max-width: 88px;
+}
+/* Short viewports: compact logos; panel scrolls if needed */
 @media (max-height: 900px) {
   .nav-megamenu { gap: 6px; padding: 10px 12px; }
   .nav-megamenu .mm-company,
-  .mm-company { width: 156px; padding: 10px 8px !important; gap: 6px; }
-  .mm-company img { height: 92px; max-width: 140px; }
+  .mm-company { width: 120px; padding: 6px 5px !important; gap: 4px; }
+  .mm-company img { height: 28px; max-width: 84px; }
+  .mm-company img[src*="atl.png"],
+  .mm-company img[src*="lake-agro.png"] {
+    height: 24px;
+    max-width: 76px;
+  }
   .mm-col .dd-label { padding: 0 6px 4px; }
   .nav-megamenu .mm-company:hover,
   .nav-megamenu .mm-company:focus-visible,
-  .mm-company:hover, .mm-company:focus-visible { padding-left: 8px !important; }
+  .mm-company:hover, .mm-company:focus-visible { padding-left: 6px !important; }
 }
 .nav-megamenu .mm-company:hover,
 .nav-megamenu .mm-company:focus-visible,
@@ -362,7 +545,7 @@ body[data-company-logo] .page-hero .container { width: 100%; }
   border-left: 0 !important;
   border-left-color: transparent;
   transform: none;
-  padding-left: 10px !important;
+  padding-left: 6px !important;
 }
 .mm-company:hover img, .mm-company:focus-visible img {
   transform: none;
@@ -395,7 +578,7 @@ body[data-company-logo] .page-hero .container { width: 100%; }
 .nav-mobile a:hover { background: rgba(255,255,255,0.06); color: var(--yellow); }
 .mob-section { color: var(--yellow); }
 
-/* "Our Companies" mobile accordion: one collapsible category per button */
+/* "Subsidiaries" mobile accordion: one collapsible category per button */
 .mob-accordion { display: flex; flex-direction: column; }
 .mob-acc-btn {
   display: flex; align-items: center; justify-content: space-between; gap: 8px;
@@ -578,7 +761,7 @@ body[data-company-logo] .page-hero .container { width: 100%; }
 .social-link:hover { color: var(--yellow); border-color: var(--yellow); }
 
 /* --------------------------------------------------------------------------
-   12. CHAT WIDGET  brand (legacy fallback — assistant.js replaces mount DOM)
+   12. CHAT WIDGET  brand (legacy fallback - assistant.js replaces mount DOM)
    -------------------------------------------------------------------------- */
 #chat-btn {
   background: var(--color-yellow-accent, var(--yellow));
@@ -640,10 +823,10 @@ html.lg-motion.lg-ready body { animation: lg-page-fade 0.4s ease-out both; }
 /* --------------------------------------------------------------------------
    14. INDEX-ONLY POLISH (safe no-ops elsewhere)
    -------------------------------------------------------------------------- */
-/* Marquee: pause on hover */
+/* Marquee: pause on hover (text marquees on interior pages; home uses LogoLoop) */
 .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
 
-/* Nav settle on load (backwards only — must not block .nav-hidden) */
+/* Nav settle on load (backwards only - must not block .nav-hidden) */
 html.lg-motion .site-nav {
   animation: lg-nav-settle 0.4s var(--ease-out) backwards;
 }

@@ -18,7 +18,8 @@ const TPL_DIR = path.join(ROOT, 'scripts', 'templates');
 
 function readTpl(name) {
   let content = fs.readFileSync(path.join(TPL_DIR, name), 'utf8');
-  content = content.replace(/\r\n/g, '\n').replace(/\n/g, '\r\n');
+  // Normalize any mix of CR/LF to CRLF once (avoid \r\r\n doubling).
+  content = content.replace(/\r\n/g, '\n').replace(/\r/g, '\n').replace(/\n/g, '\r\n');
   return content;
 }
 

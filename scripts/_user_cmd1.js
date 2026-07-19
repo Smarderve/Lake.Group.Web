@@ -1,0 +1,10 @@
+﻿const fs=require('fs');
+const h=fs.readFileSync('lake-agro.html','utf8');
+const i=h.indexOf('<section class="page-hero">');
+console.log(h.slice(i, i+700));
+console.log('---');
+const j=JSON.parse(fs.readFileSync('assets/i18n-content.json','utf8'));
+console.log('sw lede:', j.sw['agro.hero.lede']);
+console.log('ar lede:', j.ar['agro.hero.lede']);
+console.log('fr atl lede:', j.fr['atl.hero.lede']);
+console.log('js has agro.hero.lede', fs.readFileSync('assets/i18n-content.js','utf8').includes('agro.hero.lede'));

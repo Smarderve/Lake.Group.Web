@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lake Agro - creating customers and food for life through plantations, integrated Ag Parks and agribusiness processing across Africa.">
+  <meta property="og:title" content="Lake Agro | Agro Processing | Lake Group">
+  <meta property="og:description" content="Lake Agro - creating customers and food for life through plantations, integrated Ag Parks and agribusiness processing across Africa.">
+  <meta property="og:image" content="assets/images/og-cover.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://www.lakeoilgroup.com/lake-agro.html">
+  <link rel="icon" href="favicon.ico?v=43" sizes="32x32">
+  <link rel="icon" href="assets/icons/pwa/icon-192.png?v=43" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/icons/pwa/apple-touch-icon.png?v=43">
+  <title>Lake Agro | Agro Processing | Lake Group</title>
+  <meta name="theme-color" content="#008435">
+  <link rel="manifest" href="manifest.webmanifest">
+  <style>
+/* ==========================================================================
+   MERIDIAN PAGE LAYER - company profile page
+   Chrome + shared components come from assets/flagship.css?v=50. This block only
+   composes generic company-profile widgets reused across all /company pages.
+   ========================================================================== */
+.fs-check{list-style:none;display:flex;flex-direction:column;margin-top:var(--sp-6)}
+.fs-check li{display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line-2);font-size:.95rem;color:var(--mute);line-height:1.65}
+.fs-check li:first-child{border-top:1px solid var(--line-2)}
+.fs-check li span:first-child{color:var(--gold-deep);font-weight:700;flex:none}
+
+.co-logo-row{display:flex;align-items:center;gap:var(--sp-5);margin-bottom:var(--sp-6);flex-wrap:wrap}
+.co-logo-row img{height:48px;width:auto;max-width:160px;object-fit:contain;background:transparent;border:none;padding:0;border-radius:0}
+
+.info-panel{background:var(--ink);padding:var(--sp-8);position:relative}
+.info-panel h3{font-family:var(--font-display);font-weight:400;font-size:var(--fs-title);letter-spacing:.02em;text-transform:uppercase;color:var(--white);margin-bottom:var(--sp-5)}
+.info-row{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-4);padding:13px 0;border-bottom:1px solid var(--ink-line-2)}
+.info-row:first-of-type{border-top:1px solid var(--ink-line)}
+.info-row>span:first-child{color:rgba(233,237,248,0.85);font-size:.92rem}
+
+.stat-panel2{background:var(--ink);padding:var(--sp-8);position:relative}
+.stat-panel2 h3{font-family:var(--font-display);font-weight:400;font-size:var(--fs-title);letter-spacing:.02em;text-transform:uppercase;color:var(--white);margin-bottom:var(--sp-6)}
+.stat-grid2{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-6)}
+.stat-tile2{position:relative;padding:var(--sp-4) 0 var(--sp-3)}
+.stat-tile2::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ink-line)}
+.stat-tile2::before{content:'';position:absolute;left:0;bottom:-3.5px;width:8px;height:8px;background:var(--gold);z-index:1}
+.stat-tile2 .stat-no2{font-family:var(--font-display);font-weight:400;font-size:clamp(2.2rem,4vw,3.2rem);line-height:.95;color:var(--white);display:block}
+.stat-tile2 .stat-no2.gold{color:var(--gold)}
+.stat-tile2 p{font-size:var(--fs-micro);font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute);margin-top:var(--sp-2)}
+
+.val-mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-4);margin-top:var(--sp-8)}
+@media(max-width:960px){.val-mini-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.val-mini-grid{grid-template-columns:1fr}}
+.val-mini-tile{position:relative;text-align:center;padding:var(--sp-6) var(--sp-4);border:1px solid var(--ink-line-2)}
+.val-mini-tile::before{content:'';position:absolute;top:-1px;left:-1px;width:8px;height:8px;background:var(--gold)}
+.val-mini-tile h4{font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;color:var(--white);margin-bottom:6px}
+.val-mini-tile p{font-size:.82rem;color:var(--ink-mute)}
+
+.mgmt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:var(--sp-6)}
+.mgmt-card .leader-photo{height:200px;overflow:hidden;background:var(--paper-2)}
+.mgmt-card .leader-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.mgmt-role{color:var(--gold-deep);font-size:var(--fs-micro);font-weight:700;text-transform:uppercase;letter-spacing:.18em;margin:6px 0 10px}
+
+.prod-catalog{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5)}
+@media(max-width:860px){.prod-catalog{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.prod-catalog{grid-template-columns:1fr}}
+.prod-catalog-card{background:var(--surface);border:1px solid var(--line-2);padding:var(--sp-5)}
+.prod-catalog-card .fs-media{aspect-ratio:4/3;margin-bottom:var(--sp-3)}
+.prod-catalog-card .prod-glyph{aspect-ratio:4/3;margin-bottom:var(--sp-3);display:flex;align-items:center;justify-content:center;background:var(--paper-2);font-size:2.2rem}
+.prod-catalog-card h4{font-family:var(--font-display);font-weight:400;font-size:1.1rem;letter-spacing:.03em;text-transform:uppercase;color:var(--text)}
+.prod-catalog-card p{font-size:.85rem;margin-top:4px;line-height:1.6}
+
+.img-mosaic{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+@media(max-width:720px){.img-mosaic{grid-template-columns:1fr 1fr}}
+.img-mosaic .fs-media{aspect-ratio:4/3}
+.img-mosaic img{width:100%;height:100%;object-fit:cover;display:block}
+
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5)}
+@media(max-width:860px){.video-grid{grid-template-columns:1fr}}
+.video-card{background:var(--ink-2);border:1px solid var(--ink-line-2);padding:var(--sp-5)}
+.video-card .video-frame{aspect-ratio:16/9;background:var(--ink-3);display:flex;align-items:center;justify-content:center;color:var(--ink-mute);margin-bottom:var(--sp-3);font-size:1.6rem}
+.video-card h4{color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1rem;letter-spacing:.03em;text-transform:uppercase}
+.video-card p{color:var(--ink-mute);font-size:.82rem;margin-top:4px}
+
+.content-placeholder{border:1px dashed var(--border);padding:var(--sp-6);color:var(--muted);font-style:italic;font-size:.92rem;line-height:1.7;background:var(--paper-2)}
+.content-placeholder strong{font-style:normal;color:var(--text)}
+.fs-on-dark .content-placeholder{border-color:var(--ink-line);color:var(--ink-mute);background:var(--ink-2)}
+
+.ct-info{background:var(--ink);padding:var(--sp-8)}
+.ct-info h3{color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.4rem;text-transform:uppercase;letter-spacing:0.03em;margin-bottom:var(--sp-6)}
+.ct-rows{display:flex;flex-direction:column;gap:var(--sp-5)}
+.ct-row{display:flex;gap:var(--sp-4);align-items:flex-start}
+.ct-ico{width:40px;height:40px;border:1px solid var(--ink-line);display:flex;align-items:center;justify-content:center;font-size:1.05rem;flex-shrink:0}
+.ct-label{color:var(--gold);font-size:var(--fs-micro);font-weight:700;text-transform:uppercase;letter-spacing:0.22em;margin-bottom:4px}
+.ct-strong{color:var(--white);font-size:0.92rem;display:block}
+.ct-dim{color:var(--ink-mute);font-size:0.85rem;display:block}
+
+/* Lake Agro green theme - full chrome including navbar (scoped to this page).
+   Dropdown/lang panel greens + lang contrast live in flagship.css co-theme-agro. */
+body.co-theme-agro {
+  --gold: var(--color-agro-green-bright);
+  --gold-deep: var(--color-agro-green);
+  /* Orange accents on green nav (not lime — low contrast vs forest green) */
+  --color-yellow-accent: var(--color-agro-orange);
+  --color-yellow-deep: #c96a1a; /* deeper orange hover; never Lake #E6D900 */
+  --yellow: var(--color-agro-orange);
+  --color-navbar-bg: var(--color-agro-green);
+  --color-navbar-bg-scrolled: rgba(0, 75, 30, 0.96);
+  --color-navbar-border: transparent;
+  --nav-link-active-color: #fff;
+  --color-brand-blue: var(--color-agro-green);
+  --color-brand-blue-light: var(--color-agro-green-bright);
+  --color-brand-blue-deep: var(--color-agro-green-deep);
+  --color-brand-blue-darkest: #012814;
+  --btn-primary-bg: var(--color-agro-green-bright);
+  --btn-primary-color: #012814;
+  --hero-overlay-gradient: linear-gradient(105deg,
+    rgba(0, 75, 30, 0.92) 0%,
+    rgba(0, 132, 53, 0.75) 45%,
+    rgba(0, 132, 53, 0.22) 100%);
+}
+body.co-theme-agro .site-nav,
+body.co-theme-agro .site-nav.nav-scrolled {
+  background: var(--color-navbar-bg);
+  border-bottom-color: transparent;
+}
+body.co-theme-agro .site-nav.nav-scrolled {
+  background: var(--color-navbar-bg-scrolled);
+}
+body.co-theme-agro .mobile-nav,
+body.co-theme-agro .mobile-nav-panel {
+  background: var(--color-agro-green-deep);
+}
+/* Wide tight-crop Agro mark: keep readable without dominating the bar */
+body.co-theme-agro .site-nav .nav-logo img {
+  height: calc(var(--nav-logo-height) * 0.88) !important;
+  max-height: calc(var(--nav-logo-height) * 0.88);
+  max-width: min(220px, 42vw);
+}
+body.co-theme-agro .site-nav.nav-scrolled .nav-logo img {
+  height: calc(var(--nav-logo-height-scrolled) * 0.88) !important;
+  max-height: calc(var(--nav-logo-height-scrolled) * 0.88);
+}
+/* Hero eyebrow: white (not lime-on-green). Markers keep bright green on light sections. */
+body.co-theme-agro .page-hero .eyebrow {
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+}
+body.co-theme-agro .page-hero .eyebrow::before {
+  background: var(--color-agro-orange);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+body.co-theme-agro .page-hero .breadcrumb a,
+body.co-theme-agro .page-hero .breadcrumb span {
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+body.co-theme-agro .page-hero .breadcrumb a:hover { color: #fff; }
+body.co-theme-agro .fs-marker-no { color: var(--color-agro-green-bright); }
+body.co-theme-agro .badge-yellow {
+  border-color: rgba(230, 126, 34, 0.45);
+  background: rgba(230, 126, 34, 0.12);
+  color: var(--color-agro-orange);
+}
+body.co-theme-agro .val-mini-tile::before,
+body.co-theme-agro .stat-tile2::before { background: var(--color-agro-green-bright); }
+body.co-theme-agro .fs-section.fs-on-dark {
+  background: linear-gradient(160deg, var(--color-agro-green-deep) 0%, #013220 55%, #012814 100%);
+}
+body.co-theme-agro .info-panel,
+body.co-theme-agro .ct-info { background: var(--color-agro-green-deep); }
+body.co-theme-agro .btn-outline-dark {
+  border-color: var(--color-agro-green);
+  color: var(--color-agro-green-deep);
+}
+body.co-theme-agro .btn-outline-dark:hover {
+  background: var(--color-agro-green);
+  color: #fff;
+  border-color: var(--color-agro-green);
+}
+body.co-theme-agro .site-footer {
+  background: var(--color-agro-green-deep);
+}
+body.co-theme-agro .footer-motto { color: #c8e63a !important; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Lake Agro",
+      "description": "Lake Agro develops plantations and integrated Ag Parks to strengthen African food systems and create agricultural jobs.",
+      "url": "https://www.lakeoilgroup.com/lake-agro.html",
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Lake Group",
+        "url": "https://www.lakeoilgroup.com/"
+      },
+      "areaServed": "East and Central Africa"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.lakeoilgroup.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Agro Processing"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Lake Agro",
+          "item": "https://www.lakeoilgroup.com/lake-agro.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="assets/tokens.css?v=50">
+<link rel="stylesheet" href="assets/flagship.css?v=50">
+<link rel="stylesheet" href="assets/split-text.css?v=46">
+  <link rel="stylesheet" href="assets/assistant.css?v=52">
+</head><body data-company-logo="assets/images/logos/companies/lake-agro.png?v=50" data-company-alt="Lake Agro" class="co-theme-agro">
+<nav class="site-nav" dir="ltr">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="about.html" data-i18n="nav.about">About</a></li>
+      <li class="has-dropdown has-megamenu">
+        <a href="services.html" id="nav-companies-trigger" data-i18n="nav.companies" aria-haspopup="true" aria-expanded="false" aria-controls="nav-companies-menu">Subsidiaries &#9662;</a>
+        <div class="nav-dropdown nav-megamenu" id="nav-companies-menu" role="menu" data-i18n-aria="mob.companies" aria-label="Subsidiaries">
+          <div class="mm-col" role="none">
+            <div class="dd-label" data-i18n="nav.dd.energies">Lake Energies</div>
+            <a href="lake-oil.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-oil.png" alt="Lake Oil" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeOil">Lake Oil</span></a>
+            <a href="lake-aviation.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-aviation.png" alt="Lake Aviation" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeAviation">Lake Aviation</span></a>
+            <a href="lake-gas.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-gas.png" alt="Lake Gas" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeGas">Lake Gas</span></a>
+            <a href="lake-lubes.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-lubes.png" alt="Lake Lubes" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeLubes">Lake Lubes</span></a>
+          </div>
+          <div class="mm-col" role="none">
+            <div class="dd-label" data-i18n="nav.dd.manufacturing">Manufacturing</div>
+            <a href="lake-buildings.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-buildings.png" alt="Lake Buildings" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeBuildings">Lake Buildings</span></a>
+            <a href="lake-plastics.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-plastics.png" alt="Lake Plastics" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakePlastics">Lake Plastics</span></a>
+            <a href="lake-steel.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-steel.png" alt="Lake Steel" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeSteel">Lake Steel</span></a>
+            <a href="lake-cylinders.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="Lake Cylinders" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeCylinders">Lake Cylinders</span></a>
+            <a href="gulf-aggregates.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/gulf-aggregates.png" alt="Gulf Aggregates" loading="lazy" width="56" height="32"><span data-i18n="nav.co.gulfAggregates">Gulf Aggregates</span></a>
+            <a href="atl.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/atl.png?v=52" alt="ATL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.atl">ATL</span></a>
+            <a href="lake-premix-cement.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-premix-cement.png" alt="Lake Premix and Cement" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</span></a>
+          </div>
+          <div class="mm-col" role="none">
+            <div class="dd-label" data-i18n="nav.dd.logisticsCos">Logistics</div>
+            <a href="aficd.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="AFICD" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aficd">AFICD</span></a>
+            <a href="aill.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="AILL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aill">AILL</span></a>
+            <a href="lake-trans.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-trans.png" alt="Lake Trans" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeTrans">Lake Trans</span></a>
+          </div>
+          <div class="mm-col" role="none">
+            <div class="dd-label" data-i18n="nav.dd.realEstate">Real Estate</div>
+            <a href="cross-country.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/cross-country.png?v=50" alt="Cross Country" loading="lazy" width="56" height="32"><span data-i18n="nav.co.crossCountry">Cross Country</span></a>
+            <a href="ocean-galleria.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/ocean-galleria.png?v=50" alt="Ocean Galleria" loading="lazy" width="56" height="32"><span data-i18n="nav.co.oceanGalleria">Ocean Galleria</span></a>
+          </div>
+          <div class="mm-col" role="none">
+            <div class="dd-label" data-i18n="nav.dd.agro">Agro Processing</div>
+            <a href="lake-agro.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-agro.png?v=50" alt="Lake Agro" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeAgro">Lake Agro</span></a>
+          </div>
+        </div>
+      </li>
+      <li class="has-dropdown"><a href="africa-network.html" data-i18n="nav.network">Network &#9662;</a>
+        <div class="nav-dropdown">
+          <a href="africa-network.html" data-i18n="nav.africaMap">Africa Operations Map</a>
+          <a href="station-locator.html" data-i18n="nav.stations">Station Locator</a>
+          <a href="fleet.html" data-i18n="nav.fleet">Our Fleet</a>
+        </div>
+      </li>
+      <li class="has-dropdown"><a href="about.html" data-i18n="nav.company">Corporate &#9662;</a>
+        <div class="nav-dropdown">
+          <a href="history.html" data-i18n="nav.history">Our History</a><a href="leadership.html" data-i18n="nav.leadership">Leadership</a>
+          <a href="csr.html" data-i18n="nav.csr">CSR &amp; Sustainability</a><a href="investors.html" data-i18n="nav.investors">Investor Relations</a>
+          <a href="projects.html" data-i18n="nav.projects">Major Projects</a><a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+        </div>
+      </li>
+      <li><a href="news.html" data-i18n="nav.news">News</a></li>
+      <li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
+      <li><a href="contact.html" data-i18n="nav.contact">Contact Us</a></li>
+      <li class="lang-switcher" data-i18n-aria="lang.label" aria-label="Language">
+        <button type="button" class="lang-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" data-i18n-title="lang.label" title="Language">
+          <span class="lang-pair" aria-hidden="false">
+            <span class="lang-pair-selected" data-lang-label>English</span>
+            <span class="lang-pair-sep" aria-hidden="true">|</span>
+            <span class="lang-pair-suggest" data-lang-suggest data-lang="sw" role="link" tabindex="-1">Swahili</span>
+          </span>
+          <span class="lang-icons" aria-hidden="true">
+            <svg class="lang-globe" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+              <g class="lang-globe-spin">
+                <circle class="lang-globe-rim" cx="12" cy="12" r="9"/>
+                <ellipse class="lang-globe-meridian" cx="12" cy="12" rx="3.6" ry="9"/>
+                <path class="lang-globe-equator" d="M3.2 12h17.6"/>
+                <path class="lang-globe-lat" d="M5.1 7.6h13.8M5.1 16.4h13.8" opacity="0.85"/>
+              </g>
+            </svg>
+            <svg class="lang-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </span>
+        </button>
+        <div class="lang-menu" id="lang-menu" role="menu" hidden>
+          <button type="button" class="lang-menu-item lang-btn active" role="menuitem" data-lang="en" aria-current="true">
+            <span class="lang-menu-check" aria-hidden="true"></span>
+            <span class="lang-menu-label">English</span>
+          </button>
+          <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="sw">
+            <span class="lang-menu-check" aria-hidden="true"></span>
+            <span class="lang-menu-label">Swahili</span>
+          </button>
+          <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="fr">
+            <span class="lang-menu-check" aria-hidden="true"></span>
+            <span class="lang-menu-label">Français</span>
+          </button>
+          <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="hi">
+            <span class="lang-menu-check" aria-hidden="true"></span>
+            <span class="lang-menu-label">हिन्दी</span>
+          </button>
+          <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="ar">
+            <span class="lang-menu-check" aria-hidden="true"></span>
+            <span class="lang-menu-label">العربية</span>
+          </button>
+        </div>
+      </li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" data-i18n-aria="nav.menu" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="nav-mobile" id="nav-mobile" style="display:none">
+  <a href="index.html" data-i18n="nav.home">Home</a><a href="about.html" data-i18n="nav.about">About</a>
+  <div class="mob-section" data-i18n="mob.companies">Subsidiaries</div>
+  <div class="mob-accordion">
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-energies" data-i18n="nav.dd.energies">Lake Energies</button>
+    <div class="mob-acc-panel" id="mob-acc-energies" hidden>
+      <a href="lake-oil.html" data-i18n="nav.co.lakeOil">Lake Oil</a>
+      <a href="lake-aviation.html" data-i18n="nav.co.lakeAviation">Lake Aviation</a>
+      <a href="lake-gas.html" data-i18n="nav.co.lakeGas">Lake Gas</a>
+      <a href="lake-lubes.html" data-i18n="nav.co.lakeLubes">Lake Lubes</a>
+    </div>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-manufacturing" data-i18n="nav.dd.manufacturing">Manufacturing</button>
+    <div class="mob-acc-panel" id="mob-acc-manufacturing" hidden>
+      <a href="lake-buildings.html" data-i18n="nav.co.lakeBuildings">Lake Buildings</a>
+      <a href="lake-plastics.html" data-i18n="nav.co.lakePlastics">Lake Plastics</a>
+      <a href="lake-steel.html" data-i18n="nav.co.lakeSteel">Lake Steel</a>
+      <a href="lake-cylinders.html" data-i18n="nav.co.lakeCylinders">Lake Cylinders</a>
+      <a href="gulf-aggregates.html" data-i18n="nav.co.gulfAggregates">Gulf Aggregates</a>
+      <a href="atl.html" data-i18n="nav.co.atl">ATL</a>
+      <a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a>
+    </div>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-logistics" data-i18n="nav.dd.logisticsCos">Logistics</button>
+    <div class="mob-acc-panel" id="mob-acc-logistics" hidden>
+      <a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a>
+      <a href="aill.html" data-i18n="nav.co.aill">AILL</a>
+      <a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a>
+    </div>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-realestate" data-i18n="nav.dd.realEstate">Real Estate</button>
+    <div class="mob-acc-panel" id="mob-acc-realestate" hidden>
+      <a href="cross-country.html" data-i18n="nav.co.crossCountry">Cross Country</a>
+      <a href="ocean-galleria.html" data-i18n="nav.co.oceanGalleria">Ocean Galleria</a>
+    </div>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-agro" data-i18n="nav.dd.agro">Agro Processing</button>
+    <div class="mob-acc-panel" id="mob-acc-agro" hidden>
+      <a href="lake-agro.html" data-i18n="nav.co.lakeAgro">Lake Agro</a>
+    </div>
+  </div>
+  <div class="mob-section" data-i18n="mob.network">Network</div>
+  <a href="africa-network.html" data-i18n="nav.africaMapShort">Africa Map</a><a href="station-locator.html" data-i18n="nav.stations">Station Locator</a><a href="fleet.html" data-i18n="nav.fleet">Our Fleet</a>
+  <div class="mob-section" data-i18n="mob.company">Corporate</div>
+  <a href="history.html" data-i18n="nav.historyShort">History</a><a href="leadership.html" data-i18n="nav.leadership">Leadership</a><a href="csr.html" data-i18n="nav.csrShort">CSR</a>
+  <a href="investors.html" data-i18n="nav.investorsShort">Investors</a><a href="projects.html" data-i18n="nav.projectsShort">Projects</a><a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+  <div class="mob-section" data-i18n="mob.more">More</div>
+  <a href="news.html" data-i18n="nav.news">News</a><a href="careers.html" data-i18n="nav.careers">Careers</a><a href="contact.html" data-i18n="nav.contact">Contact Us</a>
+  <div class="mob-section" data-i18n="mob.language">Language</div>
+  <div class="lang-switcher lang-switcher--mobile" data-i18n-aria="lang.label" aria-label="Language">
+    <button type="button" class="lang-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu-mobile" data-i18n-title="lang.label" title="Language">
+      <span class="lang-pair" aria-hidden="false">
+        <span class="lang-pair-selected" data-lang-label>English</span>
+        <span class="lang-pair-sep" aria-hidden="true">|</span>
+        <span class="lang-pair-suggest" data-lang-suggest data-lang="sw" role="link" tabindex="-1">Swahili</span>
+      </span>
+      <span class="lang-icons" aria-hidden="true">
+        <svg class="lang-globe" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+          <g class="lang-globe-spin">
+            <circle class="lang-globe-rim" cx="12" cy="12" r="9"/>
+            <ellipse class="lang-globe-meridian" cx="12" cy="12" rx="3.6" ry="9"/>
+            <path class="lang-globe-equator" d="M3.2 12h17.6"/>
+            <path class="lang-globe-lat" d="M5.1 7.6h13.8M5.1 16.4h13.8" opacity="0.85"/>
+          </g>
+        </svg>
+        <svg class="lang-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+          <path d="M6 9l6 6 6-6"/>
+        </svg>
+      </span>
+    </button>
+    <div class="lang-menu" id="lang-menu-mobile" role="menu" hidden>
+      <button type="button" class="lang-menu-item lang-btn active" role="menuitem" data-lang="en" aria-current="true">
+        <span class="lang-menu-check" aria-hidden="true"></span>
+        <span class="lang-menu-label">English</span>
+      </button>
+      <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="sw">
+        <span class="lang-menu-check" aria-hidden="true"></span>
+        <span class="lang-menu-label">Swahili</span>
+      </button>
+      <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="fr">
+        <span class="lang-menu-check" aria-hidden="true"></span>
+        <span class="lang-menu-label">Français</span>
+      </button>
+      <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="hi">
+        <span class="lang-menu-check" aria-hidden="true"></span>
+        <span class="lang-menu-label">हिन्दी</span>
+      </button>
+      <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="ar">
+        <span class="lang-menu-check" aria-hidden="true"></span>
+        <span class="lang-menu-label">العربية</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="page-wrapper">
+<section class="page-hero">
+  <div class="hero-media" style="background-image:url('assets/images/lake-agro/slid1.jpg')" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span>/</span><span data-i18n="agro.crumb.cat">Agro Processing</span><span>/</span><span data-i18n="agro.crumb.name">Lake Agro</span></nav>
+    <div class="eyebrow" data-i18n="agro.hero.eyebrow">Lake Agro · Dar es Salaam</div>
+    <h1 data-i18n="agro.hero.title">Lake Agro</h1>
+    <p data-i18n="agro.hero.lede">Creating customers and food for life through plantations, integrated Ag Parks and agribusiness processing across Africa.</p>
+  </div>
+</section>
+
+<section class="fs-section" id="why-we-are">
+  <div class="container">
+    <div class="fs-split-even">
+      <div>
+        <div class="co-logo-row"><img src="assets/images/logos/companies/lake-agro.png?v=50" alt="Lake Agro" width="320" height="72"></div>
+        <div class="fs-marker"><span class="fs-marker-no">01</span><span class="fs-eyebrow" data-i18n="agro.s1.eyebrow">Why We Are</span></div>
+        <h2 class="fs-display" data-i18n="agro.s1.title">Food Systems for Africa</h2>
+        <hr class="fs-rule" style="margin:var(--sp-5) 0">
+        <p class="fs-lede" data-i18n="agro.s1.lede">Private business communities partnering with governments, development financial institutions (DFIs) and initiatives like the Africa Savannahs Initiative to assist Africa to feed itself and create jobs for youth and women.</p>
+        <p style="margin-top:14px" data-i18n="agro.s1.p2">At least 233 million people were estimated to be hungry or undernourished in sub-Saharan Africa (UN FAO, 2014). Africa's food challenge is compounded by a population expected to double to 2.4 billion by 2050.</p>
+        <p style="margin-top:14px" data-i18n="agro.s1.p3" data-i18n-html>Africa's Agriculture Status Report 2017 (Alliance for a Green Revolution in Africa) notes the continent's food market is growing rapidly, with opportunities estimated at more than <strong>$1 trillion every year by 2030</strong>, helping substitute food imports with high-value food made in Africa.</p>
+      </div>
+      <div>
+        <div class="info-panel fs-on-dark fs-corners">
+          <h3 data-i18n="agro.glance.title">At a Glance</h3>
+          <div>
+            <div class="info-row"><span data-i18n="agro.glance.hq">HQ city</span><span class="badge badge-yellow">Dar es Salaam</span></div>
+            <div class="info-row"><span data-i18n="agro.glance.email">Email</span><span class="badge badge-yellow">info@lakeagro.com</span></div>
+            <div class="info-row"><span data-i18n="agro.glance.phone">Phone</span><span class="badge badge-yellow">+255 222 780 510</span></div>
+            <div class="info-row"><span data-i18n="agro.glance.tagline">Tagline</span><span class="badge badge-yellow" data-i18n="agro.glance.taglineVal">Food for life</span></div>
+          </div>
+        </div>
+        <div class="fs-media" style="margin-top:var(--sp-5);aspect-ratio:16/10"><img src="assets/images/lake-agro/tanzania.jpg" alt="Lake Agro operations in Tanzania" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fs-section fs-on-dark" id="what-we-are">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">02</span><span class="fs-eyebrow" data-i18n="agro.s2.eyebrow">What We Are</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)" data-i18n="agro.s2.title">Secure · Establish · Consolidate</h2>
+    <p class="fs-lede" style="max-width:70ch;margin-bottom:var(--sp-8)" data-i18n="agro.s2.lede">We secure, establish and consolidate farm platforms via greenfield projects or existing farm acquisitions in selected markets within our network of countries where economies of scale can be achieved.</p>
+    <div class="grid-3">
+      <div class="fs-card" style="padding:var(--sp-6);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12)"><h4 style="color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase" data-i18n="agro.card.land.title">Land Availability</h4><p style="font-size:.86rem;margin-top:6px;color:var(--ink-mute)" data-i18n="agro.card.land.body">Underutilized, cost-effective land with mineralized, diversified soils along water basins and catchments whose mass exceeds farmed land to ensure water perennity over 20 years.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12)"><h4 style="color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase" data-i18n="agro.card.access.title">Accessibility</h4><p style="font-size:.86rem;margin-top:6px;color:var(--ink-mute)" data-i18n="agro.card.access.body">Countries connected by rail and established transport corridors for accessible set-up or distribution of final produce within country or for export.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12)"><h4 style="color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase" data-i18n="agro.card.prox.title">Proximity</h4><p style="font-size:.86rem;margin-top:6px;color:var(--ink-mute)" data-i18n="agro.card.prox.body">Multiple continental export hubs across the network region, including major South East and Asia-facing ports and Atlantic hub access in Namibia.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12)"><h4 style="color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase" data-i18n="agro.card.tech.title">Technical Know-How</h4><p style="font-size:.86rem;margin-top:6px;color:var(--ink-mute)" data-i18n="agro.card.tech.body">Established technical capability in-country for ag technology transfer and adequate management of farms and Integrated Ag Parks.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12)"><h4 style="color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase" data-i18n="agro.card.capital.title">Capital Availability</h4><p style="font-size:.86rem;margin-top:6px;color:var(--ink-mute)" data-i18n="agro.card.capital.body">International funding, local ag funding, specialist or development banks, and African institutional funding to bridge food-security needs.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12)"><h4 style="color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase" data-i18n="agro.card.group.title">Group Backing</h4><p style="font-size:.86rem;margin-top:6px;color:var(--ink-mute)" data-i18n="agro.card.group.body">Central Lake Group functions (IT, legal, audit, finance, treasury, HR) support Lake Agro operations and growth plans.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="fs-section section-light" id="how-we-are">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">03</span><span class="fs-eyebrow" data-i18n="agro.s3.eyebrow">How We Are</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)" data-i18n="agro.s3.title">3P Strategy - Prep · Plan · Process</h2>
+    <div class="grid-3">
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase" data-i18n="agro.s3.prep.title">Prep</h4><p style="font-size:.86rem;margin-top:6px" data-i18n="agro.s3.prep.body">Deploy Phase 1 growth; rapid turnaround of underperforming Phase 2 acquisitions; lift yields and land development on greenfield plantation farms.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase" data-i18n="agro.s3.plan.title">Plan</h4><p style="font-size:.86rem;margin-top:6px" data-i18n="agro.s3.plan.body">Add Integrated Ag Parks in Phase 1 for consolidation and value addition; select and acquire Phase 2 market-entry farms.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase" data-i18n="agro.s3.process.title">Process</h4><p style="font-size:.86rem;margin-top:6px" data-i18n="agro.s3.process.body">Stand up processing as Phase 1 farms stabilize; reorganize value-addition facilities to accommodate Integrated Ag Parks in Phase 2.</p></div>
+    </div>
+    <p style="margin-top:var(--sp-8);max-width:75ch;line-height:1.7" data-i18n="agro.s3.yields" data-i18n-html>Target average yields above <strong>11 t/ha</strong> of arable land across commoditized crops including wheat, soybean, maize, rice, sunflower, sugar and protein (beef), with rotational diversification into teak, beans and horticulture (fruit) where land permits.</p>
+  </div>
+</section>
+
+<section class="fs-section" id="crops">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">04</span><span class="fs-eyebrow" data-i18n="agro.s4.eyebrow">Crops &amp; Outputs</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)" data-i18n="agro.s4.title">Production Focus</h2>
+    <div class="prod-catalog">
+      <div class="prod-catalog-card"><div class="fs-media" style="aspect-ratio:4/3;margin-bottom:var(--sp-3)"><img src="assets/images/lake-agro/slid2.jpg" alt="Grain and oilseed production" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div><h4 data-i18n="agro.s4.grains.title">Grains &amp; Oilseeds</h4><p data-i18n="agro.s4.grains.body">Wheat, maize, rice, soybean and sunflower platforms for regional food security and processing feedstocks.</p></div>
+      <div class="prod-catalog-card"><div class="fs-media" style="aspect-ratio:4/3;margin-bottom:var(--sp-3)"><img src="assets/images/lake-agro/slid1.jpg" alt="Plantation and sugar crops" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div><h4 data-i18n="agro.s4.sugar.title">Sugar &amp; Cash Crops</h4><p data-i18n="agro.s4.sugar.body">Sugar and related cash crops as core processing feedstocks within the Ag Park model.</p></div>
+      <div class="prod-catalog-card"><div class="fs-media" style="aspect-ratio:4/3;margin-bottom:var(--sp-3)"><img src="assets/images/lake-agro/tanzania.jpg" alt="Protein and diversification crops" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div><h4 data-i18n="agro.s4.protein.title">Protein &amp; Diversification</h4><p data-i18n="agro.s4.protein.body">Beef protein plus teak, beans and fruit horticulture in buffer spaces where land permits.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="fs-section fs-on-dark" id="projects">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">05</span><span class="fs-eyebrow" data-i18n="agro.s5.eyebrow">Projects</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)" data-i18n="agro.s5.title">Plantations &amp; Ag Parks</h2>
+    <div class="fs-split-even">
+      <div>
+        <h3 style="color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.25rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:12px" data-i18n="agro.s5.serenje.title">Serenje Plantation</h3>
+        <p style="color:var(--ink-mute);line-height:1.7" data-i18n="agro.s5.serenje.body">Operations oversee the Serenje plantation platform with specialties in agronomy, crop harvesting, disease control, seed/fertilizer/input management, equipment procurement, works contracting and irrigation project oversight.</p>
+      </div>
+      <div>
+        <h3 style="color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.25rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:12px" data-i18n="agro.s5.parks.title">Integrated Ag Parks</h3>
+        <p style="color:var(--ink-mute);line-height:1.7" data-i18n="agro.s5.parks.body">Ag Parks consolidate produce and add value through processing. As the first Ag Park team is constituted, capacity is expected to roughly double, supported by Rising Stars projects that attract and retain talent.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fs-section section-light" id="human-capital">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">06</span><span class="fs-eyebrow" data-i18n="agro.s6.eyebrow">People</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)" data-i18n="agro.s6.title">Human Capital</h2>
+    <p style="max-width:75ch;line-height:1.7;margin-bottom:var(--sp-6)" data-i18n="agro.s6.lede">People are Lake Agro's biggest company asset. Farming does not exist without human capital and equity. About 60 roles oversee Serenje plantation and Tanzania regional offices, scaling as Ag Park teams form.</p>
+    <div class="val-mini-grid">
+      <div class="val-mini-tile"><h4 data-i18n="agro.s6.agronomy">Agronomy</h4><p data-i18n="agro.s6.agronomy.d">Crop science, harvesting, disease control</p></div>
+      <div class="val-mini-tile"><h4 data-i18n="agro.s6.inputs">Inputs</h4><p data-i18n="agro.s6.inputs.d">Seed, fertilizer and input management</p></div>
+      <div class="val-mini-tile"><h4 data-i18n="agro.s6.equip">Equipment</h4><p data-i18n="agro.s6.equip.d">Fleet management and procurement</p></div>
+      <div class="val-mini-tile"><h4 data-i18n="agro.s6.irrig">Irrigation</h4><p data-i18n="agro.s6.irrig.d">Works, contracting and water projects</p></div>
+      <div class="val-mini-tile"><h4 data-i18n="agro.s6.finance">Finance</h4><p data-i18n="agro.s6.finance.d">Control, treasury and planning</p></div>
+      <div class="val-mini-tile"><h4 data-i18n="agro.s6.strategy">Strategy</h4><p data-i18n="agro.s6.strategy.d">Ag project planning and leadership</p></div>
+      <div class="val-mini-tile"><h4 data-i18n="agro.s6.it">Group IT/Legal</h4><p data-i18n="agro.s6.it.d">Shared Lake Group central roles</p></div>
+      <div class="val-mini-tile"><h4 data-i18n="agro.s6.talent">Talent</h4><p data-i18n="agro.s6.talent.d">Rising Stars and sustainability pools</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="fs-section" id="commitments">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">07</span><span class="fs-eyebrow" data-i18n="agro.s7.eyebrow">Commitments</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)" data-i18n="agro.s7.title">People Support Our Business</h2>
+    <p class="fs-lede" style="max-width:70ch;margin-bottom:var(--sp-8)" data-i18n="agro.s7.lede">Programs and pledges from Lake Agro's commitments: local content, grower support, health, training and E/S standards.</p>
+    <div class="grid-3">
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase" data-i18n="agro.s7.grower.title">Grower Programs</h4><ul class="fs-check" style="margin-top:8px"><li><span>&#10003;</span><span data-i18n="agro.s7.grower.1">Local content and direct-to-farm contracts</span></li><li><span>&#10003;</span><span data-i18n="agro.s7.grower.2">Private-sector connection platform</span></li><li><span>&#10003;</span><span data-i18n="agro.s7.grower.3">Mechanization workshops and demos</span></li><li><span>&#10003;</span><span data-i18n="agro.s7.grower.4">AMCO structuring around growers</span></li><li><span>&#10003;</span><span data-i18n="agro.s7.grower.5">Inputs/outputs and green-farming training</span></li></ul></div>
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase" data-i18n="agro.s7.health.title">Health Support</h4><ul class="fs-check" style="margin-top:8px"><li><span>&#10003;</span><span data-i18n="agro.s7.health.1">Support health-centre facilities at plantations and Ag Parks</span></li><li><span>&#10003;</span><span data-i18n="agro.s7.health.2">Stocked pharmacy and dispensary</span></li><li><span>&#10003;</span><span data-i18n="agro.s7.health.3">Emergency and operating rooms</span></li><li><span>&#10003;</span><span data-i18n="agro.s7.health.4">Medivac and air-evacuation readiness</span></li><li><span>&#10003;</span><span data-i18n="agro.s7.health.5">Specialist snake and arachnid treatment capacity</span></li></ul></div>
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase" data-i18n="agro.s7.train.title">Agri Training</h4><ul class="fs-check" style="margin-top:8px"><li><span>&#10003;</span><span data-i18n="agro.s7.train.1">Vocational centres for farmers, workers and specialists</span></li><li><span>&#10003;</span><span data-i18n="agro.s7.train.2">Mechanization and processing value-chain training</span></li><li><span>&#10003;</span><span data-i18n="agro.s7.train.3">HSE programs in commercial farming</span></li><li><span>&#10003;</span><span data-i18n="agro.s7.train.4">Machinery and equipment technical courses</span></li><li><span>&#10003;</span><span data-i18n="agro.s7.train.5">Seed/crop and environmental management certifications</span></li></ul></div>
+    </div>
+    <div class="fs-split-even" style="margin-top:var(--sp-8)">
+      <div>
+        <h3 style="font-family:var(--font-display);font-weight:400;font-size:1.2rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px" data-i18n="agro.s7.csr.title">Corporate Social Responsibility</h3>
+        <p style="font-size:.9rem;line-height:1.7" data-i18n="agro.s7.csr.body">Lake Group considers contribution to the community a high priority. We create local labour, train employees and improve professional know-how across operations.</p>
+      </div>
+      <div>
+        <h3 style="font-family:var(--font-display);font-weight:400;font-size:1.2rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px" data-i18n="agro.s7.es.title">Environmental &amp; Social</h3>
+        <p style="font-size:.9rem;line-height:1.7" data-i18n="agro.s7.es.body">Projects follow high E/S standards, including IFC Performance Standards for new CAPEX. No people are harmed, resettled or lose land or property as a result of our activities. Dedicated teams ensure compliance on each project.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fs-section section-light" id="sustainability-projects">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">08</span><span class="fs-eyebrow" data-i18n="agro.s8.eyebrow">Quality Sustainability</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)" data-i18n="agro.s8.title">Ensures Sustainability</h2>
+    <p style="max-width:75ch;line-height:1.7;margin-bottom:var(--sp-4)" data-i18n="agro.s8.p1">All departments (IT, legal counsel, auditing and human resources) are streamlined to help achieve future strategies. A talent pool of human resources allows Lake Agro to operate and maintain project sustainability financially, socially and on a production basis.</p>
+    <p style="max-width:75ch;line-height:1.7" data-i18n="agro.s8.p2">Leadership technical know-how entrenches a deep understanding of how to plan, run and execute plantations - and how to secure or improve them over time.</p>
+  </div>
+</section>
+
+<section class="fs-section fs-on-dark" id="reach">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">09</span><span class="fs-eyebrow" data-i18n="agro.s9.eyebrow">Locations</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)" data-i18n="agro.s9.title">Reach Lake Agro</h2>
+    <div class="ct-info fs-corners">
+      <h3 data-i18n="agro.s9.name">Lake Agro</h3>
+      <div class="ct-rows">
+        <div class="ct-row"><div class="ct-ico" aria-hidden="true">📍</div><div><div class="ct-label" data-i18n="agro.s9.address">Address</div><span class="ct-strong" data-i18n="agro.s9.address.line">Plot 72 &amp; 73, Vijibweni Area, Kigamboni</span><span class="ct-dim" data-i18n="agro.s9.address.dim">P.O. Box 5055, Dar es Salaam, Tanzania · Serenje plantation operations</span></div></div>
+        <div class="ct-row"><div class="ct-ico" aria-hidden="true">✉️</div><div><div class="ct-label" data-i18n="agro.s9.email">Email</div><span class="ct-strong"><a href="mailto:info@lakeagro.com" style="color:var(--gold)">info@lakeagro.com</a></span></div></div>
+        <div class="ct-row"><div class="ct-ico" aria-hidden="true">📞</div><div><div class="ct-label" data-i18n="agro.s9.phone">Phone</div><span class="ct-strong"><a href="tel:+255222780479" style="color:var(--gold)">+255 222 780 479</a></span></div></div>
+        <div class="ct-row"><div class="ct-ico" aria-hidden="true">🌐</div><div><div class="ct-label" data-i18n="agro.s9.web">Website</div><span class="ct-strong">lakeagro.com</span><span class="ct-dim" data-i18n="agro.s9.web.dim">Content mirrored on this Lake Group page</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group">
+        </div>
+        <p class="footer-motto" style="color:var(--yellow);font-weight:600;font-size:0.95rem;letter-spacing:0.04em" data-i18n="footer.motto">Quality, Service, Safety, Professionalism</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/lake-oil" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.linkedin" aria-label="LinkedIn"><span class="lg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span data-i18n="footer.linkedin">LinkedIn</span></a>
+          <a href="https://www.facebook.com/lakeoilgroup" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.facebook" aria-label="Facebook"><span class="lg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span><span data-i18n="footer.facebook">Facebook</span></a>
+          <a href="https://twitter.com/lakeoilgroup" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.twitter" aria-label="X / Twitter"><span class="lg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4l7.2 8.4L4.3 20H7l5.4-5.9L16.8 20H20l-7.4-8.7L19.5 4H16.8l-5 5.5L7.5 4H4z"/></svg></span><span data-i18n="footer.twitter">X / Twitter</span></a>
+          <a href="https://www.youtube.com/@lakeoilgroup" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.youtube" aria-label="YouTube"><span class="lg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22.5 7.2a2.8 2.8 0 0 0-2-2C18.7 4.8 12 4.8 12 4.8s-6.7 0-8.5.4a2.8 2.8 0 0 0-2 2A29 29 0 0 0 1.2 12a29 29 0 0 0 .3 4.8 2.8 2.8 0 0 0 2 2c1.8.4 8.5.4 8.5.4s6.7 0 8.5-.4a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22.8 12a29 29 0 0 0-.3-4.8z"/><path d="M10 15.2V8.8L15.5 12 10 15.2z" fill="currentColor" stroke="none"/></svg></span><span data-i18n="footer.youtube">YouTube</span></a>
+        </div>
+        <div style="margin-top:20px;display:flex;gap:10px">
+          <a href="contact.html" class="btn btn-outline btn-sm" data-i18n="footer.contact">Contact Us</a>
+        </div>
+      </div>
+      <div class="footer-col"><h5 data-i18n="footer.services">Subsidiaries</h5><ul>
+        <li><a href="lake-oil.html" data-i18n="nav.co.lakeOil">Lake Oil</a></li><li><a href="lake-gas.html" data-i18n="nav.co.lakeGas">Lake Gas</a></li>
+        <li><a href="lake-lubes.html" data-i18n="nav.co.lakeLubes">Lake Lubes</a></li><li><a href="lake-steel.html" data-i18n="nav.co.lakeSteel">Lake Steel</a></li>
+        <li><a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a></li><li><a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a></li>
+        <li><a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a></li><li><a href="services.html" data-i18n="footer.viewAllCompanies">View All Subsidiaries</a></li>
+      </ul></div>
+      <div class="footer-col"><h5 data-i18n="footer.company">Corporate</h5><ul>
+        <li><a href="about.html" data-i18n="nav.aboutUs">About Us</a></li><li><a href="history.html" data-i18n="nav.historyShort">History</a></li>
+        <li><a href="leadership.html" data-i18n="nav.leadership">Leadership</a></li><li><a href="csr.html" data-i18n="nav.csrShort">CSR</a></li>
+        <li><a href="investors.html" data-i18n="nav.investorsShort">Investors</a></li><li><a href="projects.html" data-i18n="nav.projectsShort">Projects</a></li>
+        <li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
+      </ul></div>
+      <div class="footer-col"><h5 data-i18n="footer.contactHeading">Contact</h5><ul>
+        <li><a href="contact.html" data-i18n="footer.address">Plot 49, Mikocheni Light Industrial, Dar es Salaam</a></li>
+        <li><a href="tel:+255222780510">+255 222 780 510</a></li>
+        <li><a href="tel:+255222780479">+255 222 780 479</a></li>
+        <li><a href="mailto:admin@lakeoilgroup.com">admin@lakeoilgroup.com</a></li>
+        <li><a href="contact.html" data-i18n="footer.contact">Contact Us</a></li>
+      </ul>
+      <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:5px">
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/tz.svg" alt="" class="flag-icon" width="20" height="15"> TZ</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/ke.svg" alt="" class="flag-icon" width="20" height="15"> KE</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/zm.svg" alt="" class="flag-icon" width="20" height="15"> ZM</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/rw.svg" alt="" class="flag-icon" width="20" height="15"> RW</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/bi.svg" alt="" class="flag-icon" width="20" height="15"> BI</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/cd.svg" alt="" class="flag-icon" width="20" height="15"> DRC</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/et.svg" alt="" class="flag-icon" width="20" height="15"> ET</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/mz.svg" alt="" class="flag-icon" width="20" height="15"> MZ</span>
+      </div></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Lake Group. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <div class="footer-bottom-links"><a href="#" data-i18n="footer.privacy">Privacy</a><a href="#" data-i18n="footer.terms">Terms</a><a href="contact.html" data-i18n="footer.contact">Contact Us</a></div>
+    </div>
+  </div>
+</footer>
+<div id="chat-widget">
+  <div id="chat-box">
+    <div id="chat-head"><h4 data-i18n="chat.title">Lake Group Assistant</h4><p data-i18n="chat.sub">Ask us anything</p></div>
+    <div id="chat-messages"><div class="msg msg-bot" data-i18n="chat.hello">Hello! How can I help you today?</div></div>
+    <div id="chat-input-row"><input type="text" id="chat-input" placeholder="Type a message..." data-i18n-placeholder="chat.placeholder"><button id="chat-send" data-i18n="chat.send">Send</button></div>
+  </div>
+  <button id="chat-btn" aria-label="Chat"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></button>
+</div>
+<script src="assets/i18n-content.js?v=51" defer></script>
+<script src="assets/i18n.js?v=51" defer></script>
+<script src="assets/site.js?v=51" defer></script>
+  <script src="assets/vendor/flexsearch/flexsearch.bundle.min.js" defer></script>
+  <script src="assets/assistant-kb.js" defer></script>
+  <script src="assets/assistant.js?v=52" defer></script>
+<script src="assets/pwa.js?v=44" defer></script>
+<script src="assets/flagship-motion.js?v=50" defer></script>
+<script src="assets/split-text.js?v=46" defer></script>
+</body></html>
+<!-- CONTENT NEEDED FROM CLIENT: named client case studies / testimonials for Lake Lubes, full product catalog with photography and technical data sheets, company-specific management profiles beyond the Group CEO, blending-plant and team photography, introductory and product-demo videos, real logo asset at assets/images/logos/companies/lake-lubes.png -->

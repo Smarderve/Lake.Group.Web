@@ -84,7 +84,7 @@ const SERVICES = {
   'fuel.html': {
     name: 'Fuel & Petroleum',
     description:
-      'Lake Oil — Top 5 petroleum distributor in Tanzania with 85+ retail stations and bulk supply across 8 countries.',
+      'Lake Oil - Top 5 petroleum distributor in Tanzania with 85+ retail stations and bulk supply across 8 countries.',
   },
   'lpg.html': {
     name: 'LPG Gas',
@@ -104,7 +104,7 @@ const SERVICES = {
   'concrete.html': {
     name: 'Concrete & Aggregate',
     description:
-      "Gulf Concrete & Cement Products — Dar es Salaam's leading ready-mix concrete and aggregate supplier.",
+      "Gulf Concrete & Cement Products - Dar es Salaam's leading ready-mix concrete and aggregate supplier.",
   },
   'logistics.html': {
     name: 'Transport & Haulage',
@@ -155,7 +155,7 @@ function jsonLdFor(file, html) {
   } else if (file === 'contact.html') {
     graph.push({
       '@type': 'ContactPage',
-      name: 'Contact Us — Lake Group',
+      name: 'Contact Us - Lake Group',
       url: pageUrl(file),
       about: { '@id': ORG_ID },
     });
@@ -175,7 +175,7 @@ function jsonLdFor(file, html) {
   } else if (file === 'news.html') {
     graph.push({
       '@type': 'CollectionPage',
-      name: 'News & Events — Lake Group',
+      name: 'News & Events - Lake Group',
       url: pageUrl(file),
       description:
         'Latest announcements, expansions and community activities from Lake Group across Africa.',

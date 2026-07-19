@@ -132,7 +132,7 @@
     // 3. Standalone rows/tiles outside grids.
     tagOrphans();
 
-    // 4. All content images — reveal + hover zoom.
+    // 4. All content images - reveal + hover zoom.
     enhanceImages();
   }
 
@@ -289,7 +289,7 @@
       autoTagReveals();
       if (window.LakeSite && typeof window.LakeSite.initReveal === 'function') {
         window.LakeSite.initReveal();
-        /* site.js only watches .reveal — ensure reveal-img gets observed too */
+        /* site.js only watches .reveal - ensure reveal-img gets observed too */
         localInitReveal();
       } else {
         localInitReveal();

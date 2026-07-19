@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lake Group: Our Story</title>
 <meta name="description" content="The Lake Group story  from one fuel depot in Dar es Salaam in 2006 to an energy, logistics and industrial group operating across 8 African countries. An immersive scroll experience.">
+  <meta property="og:title" content="Lake Group: Our Story">
+  <meta property="og:description" content="The Lake Group story from one fuel depot in Dar es Salaam in 2006 to an energy, logistics and industrial group operating across 8 African countries.">
+  <meta property="og:image" content="assets/images/og-cover.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://www.lakeoilgroup.com/our-story.html">
   <link rel="icon" href="favicon.ico?v=43" sizes="32x32">
   <link rel="icon" href="assets/icons/pwa/icon-192.png?v=43" type="image/png" sizes="192x192">
@@ -12,7 +17,7 @@
   <meta name="theme-color" content="#0181BB">
   <link rel="manifest" href="manifest.webmanifest">
 <style>
-  @import url("assets/tokens.css?v=44");
+  @import url("assets/tokens.css?v=47");
   @import url('assets/fonts/fonts.css');
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -203,10 +208,9 @@
      overlays so the language can be changed at any point) */
   .lang-switcher {
     position: fixed; top: 2.2rem; right: 2.5rem; z-index: 400;
-    display: flex; align-items: center; gap: 3px;
+    display: flex; align-items: center; gap: 0;
   }
-  .lang-btn { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.25); color:rgba(255,255,255,0.85); padding:5px 8px; font-size:0.7rem; font-weight:700; cursor:pointer; border-radius:3px; font-family:'Inter',sans-serif; transition:all 0.15s; }
-  .lang-btn.active, .lang-btn:hover { background:var(--yellow); color:var(--blue2); border-color:var(--yellow); }
+  html[dir="rtl"] .lang-switcher { right: auto; left: 2.5rem; }
 
   /* The i18n dictionary strings use bare <em> (no inline styles), so style
      it here to match the original inline-styled markup. Meridian keys gold
@@ -345,8 +349,8 @@
   .cta-btn:hover { opacity: 0.85; }
   .ending-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; margin-top: 0.6rem; }
 </style>
-<link rel="stylesheet" href="assets/tokens.css?v=44">
-<link rel="stylesheet" href="assets/flagship.css?v=44">
+<link rel="stylesheet" href="assets/tokens.css?v=47">
+<link rel="stylesheet" href="assets/flagship.css?v=47">
   <link rel="stylesheet" href="assets/assistant.css?v=45">
 </head>
 <body>
@@ -359,9 +363,31 @@
 </div>
 
 <div class="lang-switcher" aria-label="Language">
-  <button type="button" class="lang-btn active" data-lang="en">EN</button>
-  <button type="button" class="lang-btn" data-lang="fr">FR</button>
-  <button type="button" class="lang-btn" data-lang="sw">SW</button>
+  <div class="lang-chrome">
+    <button type="button" class="lang-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu-story" title="Language">
+      <svg class="lang-globe" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M3 12h18"/>
+        <path d="M12 3a14 14 0 0 1 0 18"/>
+        <path d="M12 3a14 14 0 0 0 0 18"/>
+      </svg>
+      <svg class="lang-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M6 9l6 6 6-6"/>
+      </svg>
+    </button>
+    <div class="lang-quick" role="group" aria-label="Quick languages">
+      <button type="button" class="lang-quick-btn lang-btn active" data-lang="en">English</button>
+      <span class="lang-pipe" aria-hidden="true">|</span>
+      <button type="button" class="lang-quick-btn lang-btn" data-lang="sw">Swahili</button>
+    </div>
+  </div>
+  <div class="lang-menu" id="lang-menu-story" role="menu" hidden>
+    <button type="button" class="lang-menu-item lang-btn active" role="menuitem" data-lang="en">English</button>
+    <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="sw">Swahili</button>
+    <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="fr">Français</button>
+    <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="hi">हिन्दी</button>
+    <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="ar">العربية</button>
+  </div>
 </div>
 
 <!-- START SCREEN -->
@@ -402,7 +428,7 @@
     <div class="text-block">
       <div class="gold-line"></div>
       <p class="body-text" data-i18n="ose.s2.body">
-        It began with a single fuel outlet in Dar es Salaam. No fleet, no network, no certainty — just a belief that East Africa deserved a more reliable energy supply chain.
+        It began with a single fuel outlet in Dar es Salaam. No fleet, no network, no certainty - just a belief that East Africa deserved a more reliable energy supply chain.
       </p>
     </div>
     <p class="photo-label" data-i18n="ose.s2.label" data-i18n-html>Lake Oil · Est. 2006</p>
@@ -416,7 +442,7 @@
     <div class="tint tint-navy"></div>
     <div class="text-block">
       <span class="eyebrow" data-i18n="ose.s3.eyebrow">from one truck</span>
-      <h2 class="display size-lg" data-i18n="ose.s3.title" data-i18n-html>to a fleet of<br><em>700+.</em></h2>
+      <h2 class="display size-lg" data-i18n="ose.s3.title" data-i18n-html>to a fleet of<br><em>1,200+.</em></h2>
     </div>
     <p class="photo-label" data-i18n="ose.s3.label">Lake Trans: bulk haulage across East Africa</p>
   </div>
@@ -461,7 +487,7 @@
       <div class="gold-line"></div>
       <p class="body-text" data-i18n="ose.s6.body">
         Every depot, every truck, every cylinder is run by people.
-        4,600+ of them, from 21 nationalities, across 8 countries.
+        30,000+ of them, from 21 nationalities, across 8 countries.
         That's the part no spreadsheet can capture.
       </p>
     </div>
@@ -513,10 +539,10 @@
     "From a single fuel outlet to one of East Africa's<br>largest energy and industrial conglomerates."
   </h2>
   <div class="ending-stats">
-    <div class="ending-stat"><div class="num">4,600+</div><div class="lbl" data-i18n="ose.ending.employees">Employees</div></div>
-    <div class="ending-stat"><div class="num">700+</div><div class="lbl" data-i18n="ose.ending.trucks">Trucks</div></div>
-    <div class="ending-stat"><div class="num">85+</div><div class="lbl" data-i18n="ose.ending.stations">Fuel Stations</div></div>
-    <div class="ending-stat"><div class="num">8</div><div class="lbl" data-i18n="ose.ending.countries">Countries</div></div>
+    <div class="ending-stat"><div class="num" data-i18n-number data-number="30,000+">30,000+</div><div class="lbl" data-i18n="ose.ending.employees">Employees</div></div>
+    <div class="ending-stat"><div class="num" data-i18n-number data-number="1,200+">1,200+</div><div class="lbl" data-i18n="ose.ending.trucks">Trucks</div></div>
+    <div class="ending-stat"><div class="num" data-i18n-number data-number="152">152</div><div class="lbl" data-i18n="ose.ending.stations">Fuel Stations</div></div>
+    <div class="ending-stat"><div class="num" data-i18n-number data-number="8">8</div><div class="lbl" data-i18n="ose.ending.countries">Countries</div></div>
   </div>
   <p class="ending-name" data-i18n="ose.estLine">Lake Group, est. 2006</p>
   <div class="ending-actions">
@@ -593,12 +619,13 @@
 <!-- i18n: content dictionary must load before the engine (same order as
      every other page). This page has no site nav, so LakeI18n.init() is
      called directly instead of via assets/site.js. -->
-<script src="assets/i18n.js?v=44"></script>
+<script src="assets/i18n-content.js?v=51"></script>
+<script src="assets/i18n.js?v=51"></script>
 <script>window.LakeI18n.init();</script>
 <script src="assets/pwa.js?v=44" defer></script>
 <script src="assets/flagship-motion.js?v=44" defer></script>
   <script src="assets/vendor/flexsearch/flexsearch.bundle.min.js" defer></script>
   <script src="assets/assistant-kb.js" defer></script>
-  <script src="assets/assistant.js?v=45" defer></script>
+  <script src="assets/assistant.js?v=51" defer></script>
 </body>
 </html>

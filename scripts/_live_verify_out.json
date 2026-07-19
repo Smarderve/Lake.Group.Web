@@ -1,0 +1,156 @@
+{
+  "home": {
+    "navLogo": {
+      "height": "60px",
+      "maxHeight": "60px",
+      "rectH": 60,
+      "rectW": 157.5,
+      "naturalW": 1383,
+      "naturalH": 527,
+      "className": "",
+      "src": "assets/images/logos/LAKE_GROUP_LOGO.png"
+    },
+    "footerLogo": {
+      "height": "56px",
+      "maxHeight": "none",
+      "rectH": 56,
+      "rectW": 147,
+      "naturalW": 1383,
+      "naturalH": 527,
+      "className": "",
+      "src": "assets/images/logos/LAKE_GROUP_LOGO.png"
+    },
+    "marqueeBg": "rgb(1, 129, 187)",
+    "marqueeH": 91,
+    "loop": {
+      "listStyle": "none",
+      "imgCount": 42,
+      "imgH": "48px",
+      "blankTargets": 0,
+      "sampleHrefs": [
+        "lake-oil.html",
+        "lake-gas.html",
+        "lake-lubes.html",
+        "lake-steel.html",
+        "lake-trans.html",
+        "lake-aviation.html",
+        "lake-buildings.html",
+        "lake-plastics.html",
+        "lake-premix-cement.html",
+        "gulf-aggregates.html",
+        "atl.html",
+        "lake-agro.html",
+        "cross-country.html",
+        "ocean-galleria.html"
+      ],
+      "fade": "#0181BB"
+    }
+  },
+  "ar": {
+    "badge": "تأسست فيتنزانيا",
+    "badgeNum": "٢٠٠٦",
+    "nums": [
+      "٤,٦٠٠+",
+      "٧٠٠+",
+      "٨٥+",
+      "٨"
+    ],
+    "stripNums": [
+      "٤,٦٠٠+",
+      "٧٠٠+",
+      "٨٥+",
+      "٨",
+      "٢٠+"
+    ],
+    "about": "تأسست مجموعة ليك عام ٢٠٠٦ من منفذ وقود واحد في دار السلام، ونمت لتصبح واحدة من أكبر تكتلات الطاقة والخدمات اللوجستية والصناعة في شرق ووسط أفريقيا.",
+    "eyebrow": "تأسست ٢٠٠٦ · دار السلام، تنزانيا",
+    "latinGeo": []
+  },
+  "lubes": {
+    "nav": {
+      "height": "60px",
+      "maxHeight": "60px",
+      "rectH": 60,
+      "rectW": 155.1,
+      "naturalW": 1375,
+      "naturalH": 532,
+      "className": "",
+      "src": "assets/images/logos/companies/lake-lubes.png"
+    },
+    "letterbox": false,
+    "company": true,
+    "footer": {
+      "height": "56px",
+      "maxHeight": "none",
+      "rectH": 56,
+      "rectW": 144.7,
+      "naturalW": 1375,
+      "naturalH": 532,
+      "className": "",
+      "src": "assets/images/logos/companies/lake-lubes.png"
+    },
+    "footerSrc": "assets/images/logos/companies/lake-lubes.png"
+  },
+  "gas": {
+    "nav": {
+      "height": "60px",
+      "maxHeight": "60px",
+      "rectH": 60,
+      "rectW": 153.6,
+      "naturalW": 1403,
+      "naturalH": 548,
+      "className": "",
+      "src": "assets/images/logos/companies/lake-gas.png"
+    },
+    "letterbox": false,
+    "footer": {
+      "height": "56px",
+      "maxHeight": "none",
+      "rectH": 56,
+      "rectW": 143.4,
+      "naturalW": 1403,
+      "naturalH": 548,
+      "className": "",
+      "src": "assets/images/logos/companies/lake-gas.png"
+    }
+  },
+  "atl": {
+    "title": "ATL | Aluminium Trailers | Lake Group",
+    "h1": "ATL",
+    "navSrc": "assets/images/logos/companies/atl.png",
+    "img404": [
+      "http://127.0.0.1:8788/assets/images/atl/tanker-1.jpg",
+      "http://127.0.0.1:8788/assets/images/atl/tanker-2.jpg",
+      "http://127.0.0.1:8788/assets/images/atl/tanker-3.png"
+    ]
+  },
+  "agro": {
+    "title": "Lake Agro | Agro Processing | Lake Group",
+    "theme": true,
+    "gold": "#489f10",
+    "navSrc": "assets/images/logos/companies/lake-agro.png"
+  },
+  "mobile": {
+    "footer": {
+      "height": "48px",
+      "maxHeight": "none",
+      "rectH": 48,
+      "rectW": 126,
+      "naturalW": 1383,
+      "naturalH": 527,
+      "className": "",
+      "src": "assets/images/logos/LAKE_GROUP_LOGO.png"
+    },
+    "marqueeH": 74,
+    "nav": {
+      "height": "60px",
+      "maxHeight": "60px",
+      "rectH": 60,
+      "rectW": 157.5,
+      "naturalW": 1383,
+      "naturalH": 527,
+      "className": "",
+      "src": "assets/images/logos/LAKE_GROUP_LOGO.png"
+    }
+  }
+}

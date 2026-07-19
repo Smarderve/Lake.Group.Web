@@ -19,6 +19,7 @@
 
 @import url("tokens.css?v=44");
 @import url('fonts/fonts.css');
+@import url("ui-icons.css?v=46");
 
 /* --------------------------------------------------------------------------
    1. FLAGSHIP-ONLY TOKENS (editorial surfaces; brand chrome in tokens.css)
@@ -43,7 +44,7 @@
   --navy2:  #016694;
   --navy3:  #013F5C;
 
-  /* Ink system — mid-page immersive content bands ONLY (not nav / page-hero) */
+  /* Ink system - mid-page immersive content bands ONLY (not nav / page-hero) */
   --ink:        #013F5C; /* remapped from near-black #070C1E → deepest brand blue */
   --ink-2:      #016694;
   --ink-3:      #0181BB;
@@ -92,7 +93,7 @@
   --shadow-2: 0 10px 30px -12px rgba(1,63,92,0.22);
   --shadow-3: 0 24px 60px -20px rgba(1,63,92,0.38);
 
-  /* Motion tokens — snappy 300–500ms (clip/mask slightly longer) */
+  /* Motion tokens - snappy 300–500ms (clip/mask slightly longer) */
   --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
   --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
   --ease-snap:  cubic-bezier(0.34, 1.3, 0.64, 1);
@@ -322,6 +323,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .site-nav .nav-logo img {
   height: var(--nav-logo-height) !important;
   width: auto !important;
+  max-width: none !important; /* defeat global img { max-width: 100% } */
   max-height: var(--nav-logo-height);
   display: block;
   object-fit: contain;
@@ -332,7 +334,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
   height: var(--nav-logo-height-scrolled) !important;
   max-height: var(--nav-logo-height-scrolled);
 }
-/* Company pages: same size as group mark (data-company-logo swap via site.js) */
+/* Company pages: same token height; letterboxed squares get optical scale via site.js class */
 body[data-company-logo] { --nav-h: var(--navbar-height); }
 body[data-company-logo] .site-nav { overflow: visible; }
 body[data-company-logo] .site-nav.nav-scrolled { height: var(--navbar-height-scrolled); }
@@ -341,6 +343,24 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-links > li { height: var(--n
 body[data-company-logo] .site-nav .nav-logo {
   max-width: none;
   overflow: visible;
+}
+.nav-logo.nav-logo--company img,
+body[data-company-logo] .site-nav .nav-logo img {
+  height: var(--nav-logo-height) !important;
+  width: auto !important;
+  max-width: none !important;
+  max-height: var(--nav-logo-height);
+  object-fit: contain;
+}
+body[data-company-logo] .site-nav .nav-logo img.nav-logo-img--letterboxed,
+.nav-logo.nav-logo--company img.nav-logo-img--letterboxed {
+  height: calc(var(--nav-logo-height) * var(--nav-logo-letterbox-scale, 1.15)) !important;
+  max-height: none !important;
+}
+body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--letterboxed,
+.site-nav.nav-scrolled .nav-logo.nav-logo--company img.nav-logo-img--letterboxed {
+  height: calc(var(--nav-logo-height-scrolled) * var(--nav-logo-letterbox-scale, 1.15)) !important;
+  max-height: none !important;
 }
 
 .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; margin-left: auto; }
@@ -374,15 +394,13 @@ body[data-company-logo] .site-nav .nav-logo {
   background: linear-gradient(180deg, rgba(1,102,148,0.96), rgba(1,63,92,0.98));
   backdrop-filter: blur(18px) saturate(1.25);
   -webkit-backdrop-filter: blur(18px) saturate(1.25);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-top: 2px solid var(--yellow);
+  border: 0;
   border-radius: 10px;
   padding: 8px;
   min-width: 220px;
   box-shadow:
     0 28px 56px -20px rgba(0,0,0,0.55),
-    0 10px 22px -12px rgba(0,0,0,0.4),
-    inset 0 1px 0 rgba(255,255,255,0.08);
+    0 10px 22px -12px rgba(0,0,0,0.4);
   opacity: 0; pointer-events: none; transform: translateY(-6px);
   transform-origin: top center;
   transition: opacity 0.22s var(--ease-out), transform 0.22s var(--ease-out);
@@ -424,7 +442,7 @@ body[data-company-logo] .site-nav .nav-logo {
 }
 
 /* --------------------------------------------------------------------------
-   6b. MEGA MENU  "Our Companies" (vertical categories, horizontal companies)
+   6b. MEGA MENU  "Subsidiaries" (vertical categories, horizontal companies)
    Position relative to .site-nav (not the trigger li) so a ~1180px panel
    stays viewport-centered. Clamp height to the visible area and scroll
    inside the panel on short laptop viewports.
@@ -496,10 +514,10 @@ body[data-company-logo] .site-nav .nav-logo {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 8px;
+  gap: 5px;
   flex: 0 0 auto;
-  width: 180px;
-  padding: 12px 10px !important;
+  width: 112px;
+  padding: 6px 5px !important;
   border-radius: 8px;
   border-left: 0 !important;
   color: rgba(233,237,248,0.82);
@@ -516,7 +534,7 @@ body[data-company-logo] .site-nav .nav-logo {
   max-width: 100%;
 }
 .mm-company img {
-  height: 112px; width: auto; max-width: 168px; flex: none;
+  height: 32px; width: auto; max-width: 96px; flex: none;
   object-fit: contain;
   aspect-ratio: auto;
   background: transparent;
@@ -525,16 +543,27 @@ body[data-company-logo] .site-nav .nav-logo {
   box-shadow: none;
   transition: opacity var(--dur-1) ease;
 }
-/* Short viewports: keep logos large; panel scrolls if needed */
+/* ATL / Agro: match optical size of Lake wordmarks */
+.mm-company img[src*="atl.png"],
+.mm-company img[src*="lake-agro.png"] {
+  height: 28px;
+  max-width: 88px;
+}
+/* Short viewports: compact logos; panel scrolls if needed */
 @media (max-height: 900px) {
   .nav-megamenu { gap: 6px; padding: 10px 12px; }
   .nav-megamenu .mm-company,
-  .mm-company { width: 156px; padding: 10px 8px !important; gap: 6px; }
-  .mm-company img { height: 92px; max-width: 140px; }
+  .mm-company { width: 120px; padding: 6px 5px !important; gap: 4px; }
+  .mm-company img { height: 28px; max-width: 84px; }
+  .mm-company img[src*="atl.png"],
+  .mm-company img[src*="lake-agro.png"] {
+    height: 24px;
+    max-width: 76px;
+  }
   .mm-col .dd-label { padding: 0 6px 4px; }
   .nav-megamenu .mm-company:hover,
   .nav-megamenu .mm-company:focus-visible,
-  .mm-company:hover, .mm-company:focus-visible { padding-left: 8px !important; }
+  .mm-company:hover, .mm-company:focus-visible { padding-left: 6px !important; }
 }
 .nav-megamenu .mm-company:hover,
 .nav-megamenu .mm-company:focus-visible,
@@ -544,7 +573,7 @@ body[data-company-logo] .site-nav .nav-logo {
   border-left-color: transparent;
   background: rgba(5,153,211,0.16);
   transform: none;
-  padding-left: 10px !important;
+  padding-left: 6px !important;
 }
 .mm-company:hover img, .mm-company:focus-visible img {
   transform: none;
@@ -616,7 +645,7 @@ body[data-company-logo] .site-nav .nav-logo {
 .nav-mobile a:hover { color: var(--gold); border-left-color: var(--gold); background: rgba(255,255,255,0.03); }
 .mob-section { padding: 14px 16px 4px; font-size: 0.62rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
 
-/* "Our Companies" mobile accordion: one collapsible category per button */
+/* "Subsidiaries" mobile accordion: one collapsible category per button */
 .mob-accordion { display: flex; flex-direction: column; }
 .mob-acc-btn {
   display: flex; align-items: center; justify-content: space-between; gap: 8px;
@@ -654,31 +683,188 @@ body[data-company-logo] .site-nav .nav-logo {
 .mob-external { justify-content: flex-start; }
 .mob-ext-icon { flex: none; margin-left: 6px; opacity: 0.55; }
 
-/* Language switcher â€” home yellow pill buttons */
+/* Language switcher - globe + English|Swahili + dropdown */
 .lang-switcher {
-  display: flex; align-items: center; gap: 3px; margin-left: 10px; margin-right: 6px;
+  position: relative;
+  display: flex; align-items: center;
+  margin-left: 10px; margin-right: 6px;
   border: none; border-radius: 0; overflow: visible;
   background: transparent;
 }
+.lang-trigger {
+  -webkit-appearance: none; appearance: none;
+  display: inline-flex; align-items: center; gap: 7px;
+  background: transparent; border: 0;
+  padding: 6px 4px;
+  color: rgba(255,255,255,0.9); cursor: pointer; line-height: 1;
+  font-family: var(--font-body), inherit;
+  border-radius: 8px;
+  transition: color 0.16s ease, background 0.16s ease;
+}
+.lang-trigger:hover { color: #fff; background: rgba(255,255,255,0.08); }
+.lang-trigger:focus-visible {
+  outline: 2px solid var(--color-yellow-accent, var(--yellow, var(--gold)));
+  outline-offset: 3px;
+}
+.lang-current,
+.lang-pair {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.lang-pair-selected {
+  color: var(--color-yellow-accent, var(--yellow, var(--gold)));
+}
+.lang-pair-sep {
+  color: rgba(255,255,255,0.45);
+  font-weight: 500;
+}
+.lang-pair-suggest {
+  color: rgba(255,255,255,0.92);
+  font-weight: 500;
+  cursor: pointer;
+}
+.lang-pair-suggest:hover { color: #fff; }
+.lang-icons {
+  display: inline-flex; align-items: center; gap: 2px;
+  color: rgba(255,255,255,0.88);
+}
+.lang-globe, .lang-chevron { display: block; flex: none; }
+.lang-chevron { opacity: 0.85; transition: transform 0.2s ease; }
+.lang-switcher.is-open .lang-chevron { transform: rotate(180deg); }
+.lang-menu-item,
 .lang-btn {
   -webkit-appearance: none; appearance: none;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.25);
-  color: rgba(255,255,255,0.85);
-  padding: 5px 8px; font-size: 0.7rem; font-weight: 700;
-  cursor: pointer; font-family: var(--font-body); line-height: 1;
-  text-decoration: none; border-radius: 3px;
-  transition: all 0.15s ease;
+  background: transparent; border: 0;
+  color: rgba(255,255,255,0.9);
+  padding: 0; font-size: 0.84rem; font-weight: 500;
+  cursor: pointer; line-height: 1.2; text-decoration: none;
+  border-radius: 0; font-family: var(--font-body), inherit;
+  transition: color 0.15s ease, background 0.15s ease;
 }
-.lang-btn + .lang-btn { border-left: 1px solid rgba(255,255,255,0.25); }
-.lang-btn.active,
-.lang-btn:hover {
-  background: var(--yellow); color: var(--blue); border-color: var(--yellow);
-  text-decoration: none;
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 8px); right: 0; left: auto;
+  min-width: 176px;
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 8px;
+  background:
+    linear-gradient(180deg, rgba(1, 102, 148, 0.98) 0%, rgba(1, 63, 92, 0.99) 100%);
+  border: 0;
+  border-radius: 12px;
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.38),
+    0 4px 12px rgba(0,0,0,0.22);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  z-index: 1200;
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
 }
-.lang-btn:focus-visible { outline: 2px solid var(--yellow); outline-offset: 2px; }
+.lang-switcher.is-open .lang-menu:not([hidden]) {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.lang-menu[hidden] { display: none !important; }
+.lang-menu-item {
+  display: flex; align-items: center; gap: 10px;
+  width: 100%;
+  text-align: start;
+  padding: 10px 12px;
+  font-size: 0.84rem;
+  color: rgba(255,255,255,0.9);
+  border-radius: 8px;
+  border: 0;
+  position: relative;
+}
+.lang-menu-check {
+  width: 14px; height: 14px; flex: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  opacity: 0;
+  color: var(--color-yellow-accent, var(--yellow, var(--gold)));
+}
+.lang-menu-check::before {
+  content: "";
+  width: 8px; height: 4px;
+  border-inline-start: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg) translateY(-1px);
+}
+.lang-menu-label { flex: 1; min-width: 0; }
+.lang-menu-item:hover {
+  background: rgba(255,242,0,0.1);
+  color: #fff;
+}
+.lang-menu-item:focus-visible {
+  outline: 2px solid var(--color-yellow-accent, var(--yellow, var(--gold)));
+  outline-offset: 1px;
+}
+.lang-menu-item.active,
+.lang-btn.active {
+  color: var(--color-yellow-accent, var(--yellow, var(--gold)));
+  background: rgba(255,242,0,0.12);
+  border: 0;
+  font-weight: 650;
+}
+.lang-menu-item.active .lang-menu-check { opacity: 1; }
+.lang-switcher--mobile {
+  margin: 8px 16px 18px;
+  flex-direction: column; align-items: stretch; gap: 8px;
+  width: calc(100% - 32px);
+}
+.lang-switcher--mobile .lang-trigger {
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.06);
+  border: 0;
+  border-radius: 10px;
+}
+.lang-switcher--mobile .lang-menu {
+  position: static; min-width: 0; width: 100%;
+  margin-top: 0; box-shadow: none;
+  opacity: 1; transform: none; pointer-events: auto;
+}
+/* Header chrome stays LTR in all languages: logo LEFT, tabs RIGHT.
+   Page content still uses document dir=rtl for Arabic body copy. */
+.site-nav,
+.site-nav .nav-inner,
+.site-nav .nav-links,
+.site-nav .lang-switcher,
+.site-nav .lang-trigger,
+.site-nav .lang-pair,
+.site-nav .nav-megamenu,
+.site-nav .nav-dropdown {
+  direction: ltr !important;
+}
+.site-nav .nav-links {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+.site-nav .lang-switcher { margin-left: 10px; margin-right: 6px; }
+.site-nav .lang-menu { right: 0; left: auto; }
+/* Mobile drawer may follow page RTL for readable Arabic labels */
+html[dir="rtl"] .nav-mobile { direction: rtl; }
+html[dir="rtl"] .nav-mobile a { border-left: 0; border-right: 2px solid transparent; }
+html[dir="rtl"] .nav-mobile a:hover { border-right-color: var(--gold, var(--yellow)); }
+html[dir="rtl"] .mm-ext-icon,
+html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
+/* Keep megamenu scrollbar on the right (avoids bright RTL left rail) */
+.site-nav .nav-megamenu {
+  direction: ltr !important;
+  scrollbar-gutter: stable;
+}
+.site-nav .nav-megamenu .dd-label,
+.site-nav .nav-megamenu .mm-company span {
+  unicode-bidi: plaintext;
+}
 
-/* Directory "Our Companies" external row icon (services.html): ATL / Lake
+/* Directory "Subsidiaries" external row icon (services.html): ATL / Lake
    Agro open in a new tab, so the row carries the same leave-the-site glyph. */
 .div-ext-icon {
   flex: none; margin-left: 8px; vertical-align: -1px;
@@ -712,14 +898,14 @@ body[data-company-logo] .site-nav .nav-logo {
 }
 
 /* --------------------------------------------------------------------------
-   7. PAGE HERO — full-bleed photography + shared navy/blue gradient overlay
+   7. PAGE HERO - full-bleed photography + shared navy/blue gradient overlay
    -------------------------------------------------------------------------- */
 .page-hero {
   background: var(--color-hero-bg); /* darkest blue fallback under photo */
   padding: calc(var(--navbar-height) + var(--sp-20)) 0 var(--sp-20);
   position: relative; overflow: hidden;
 }
-/* Shared photo layer — keep photography visible (not washed out) */
+/* Shared photo layer - keep photography visible (not washed out) */
 .page-hero .hero-media,
 .page-hero .page-hero-photo {
   position: absolute;
@@ -733,7 +919,7 @@ body[data-company-logo] .site-nav .nav-logo {
   pointer-events: none;
   transform-origin: center center;
 }
-/* Shared gradient overlay — brand blue/navy → transparent (no candy red) */
+/* Shared gradient overlay - brand blue/navy → transparent (no candy red) */
 .page-hero .hero-overlay,
 .page-hero .page-hero-overlay {
   position: absolute;
@@ -742,7 +928,7 @@ body[data-company-logo] .site-nav .nav-logo {
   pointer-events: none;
   background: var(--hero-overlay-gradient);
 }
-/* Company pages: .page-wrapper already clears the fixed nav — fill the
+/* Company pages: .page-wrapper already clears the fixed nav - fill the
    remaining viewport like home `.hero { min-height: 100vh }` so content
    below does not peek until scroll. */
 body[data-company-logo] .page-hero {
@@ -757,7 +943,7 @@ body[data-company-logo] .page-hero {
 body[data-company-logo] .page-hero .container {
   width: 100%;
 }
-.page-hero::before { /* faint meridian grid — above photo, under text */
+.page-hero::before { /* faint meridian grid - above photo, under text */
   content: ''; position: absolute; inset: 0; z-index: 1;
   background-image:
     linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
@@ -1141,7 +1327,10 @@ body[data-company-logo] .page-hero h1 {
 @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } }
 .footer-brand p { font-size: var(--fs-small); margin-top: var(--sp-4); line-height: 1.7; max-width: 300px; }
 .footer-logo { display: inline-block; background: transparent; padding: 0; border-radius: 0; }
-.footer-logo img { height: 40px; width: auto; display: block; }
+.footer-logo img { height: var(--footer-logo-height, 56px); width: auto; display: block; max-width: min(280px, 100%); object-fit: contain; }
+@media (max-width: 720px) {
+  .footer-logo img { height: var(--footer-logo-height-mobile, 48px); }
+}
 .footer-motto { color: var(--gold) !important; font-size: var(--fs-micro) !important; font-weight: 700 !important; letter-spacing: 0.26em !important; text-transform: uppercase; }
 .footer-col h5 {
   display: flex; align-items: center; gap: 10px;
@@ -1178,7 +1367,7 @@ body[data-company-logo] .page-hero h1 {
 .site-footer .country-tag { border-color: var(--ink-line); color: var(--ink-text); background: transparent !important; }
 
 /* --------------------------------------------------------------------------
-   19. CHAT WIDGET (legacy fallback — assistant.js replaces mount DOM)
+   19. CHAT WIDGET (legacy fallback - assistant.js replaces mount DOM)
    Brand: Deep Blue / Sunrise Yellow / White (tokens.css)
    -------------------------------------------------------------------------- */
 #chat-widget { position: fixed; bottom: 26px; right: 26px; z-index: 9999; }
@@ -1301,7 +1490,7 @@ html.fs-motion .reveal-img.visible.img-hover-zoom:hover {
   to   { opacity: 1; transform: none; }
 }
 
-/* Nav settle on load (backwards only — must not block .nav-hidden) */
+/* Nav settle on load (backwards only - must not block .nav-hidden) */
 html.fs-motion .site-nav {
   animation: fs-nav-settle 0.4s var(--ease-out) backwards;
 }
@@ -1573,4 +1762,77 @@ html.fs-motion [data-fx-scroll] {
   .img-hover-zoom { transform: none !important; }
   html.fs-motion [data-fx-scroll] { transform: none !important; }
   html.fs-motion.fs-ready body { animation: none !important; }
+}
+
+/* --------------------------------------------------------------------------
+   Lake Agro page chrome (body.co-theme-agro)
+   Dropdowns use hardcoded blue gradients elsewhere; remap panels + lang
+   contrast here so green nav stays coherent. Yellow/lime nav hairlines off.
+   -------------------------------------------------------------------------- */
+body.co-theme-agro .site-nav,
+body.co-theme-agro .site-nav.nav-scrolled {
+  border-bottom-color: transparent;
+  border-top: 0;
+  box-shadow: none;
+}
+body.co-theme-agro .nav-dropdown,
+body.co-theme-agro .nav-megamenu,
+body.co-theme-agro .lang-menu {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 132, 53, 0.98) 0%,
+    rgba(0, 75, 30, 0.99) 100%
+  );
+}
+body.co-theme-agro .nav-megamenu {
+  scrollbar-color: var(--color-agro-green-bright) rgba(0, 132, 53, 0.22);
+}
+body.co-theme-agro .nav-megamenu::-webkit-scrollbar-track {
+  background: rgba(0, 132, 53, 0.18);
+}
+body.co-theme-agro .nav-megamenu::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-agro-green-bright) 0%, var(--color-agro-green) 100%);
+}
+body.co-theme-agro .nav-megamenu::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-agro-orange) 0%, var(--color-agro-green-bright) 55%, var(--color-agro-green) 100%);
+}
+body.co-theme-agro .nav-dropdown a:hover,
+body.co-theme-agro .nav-dropdown a:focus-visible,
+body.co-theme-agro .mm-company:hover,
+body.co-theme-agro .mm-company:focus-visible {
+  color: #fff;
+  background: rgba(230, 126, 34, 0.18);
+}
+body.co-theme-agro .lang-pair-selected {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+}
+body.co-theme-agro .lang-pair-suggest {
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 500;
+}
+body.co-theme-agro .lang-menu-item.active,
+body.co-theme-agro .lang-btn.active {
+  color: #fff;
+  background: rgba(230, 126, 34, 0.2);
+  font-weight: 700;
+}
+body.co-theme-agro .lang-menu-check {
+  color: var(--color-agro-orange);
+}
+body.co-theme-agro .lang-trigger:focus-visible,
+body.co-theme-agro .lang-menu-item:focus-visible {
+  outline-color: var(--color-agro-orange);
+}
+body.co-theme-agro .mobile-nav,
+body.co-theme-agro .nav-mobile,
+body.co-theme-agro .mobile-nav-panel {
+  background: var(--color-agro-green-deep);
+  border-bottom-color: transparent;
+}
+body.co-theme-agro .mob-acc-panel {
+  background: rgba(1, 40, 20, 0.55);
 }

@@ -216,7 +216,7 @@ async function main() {
   console.log('\nWrote', out);
 
   if (!logoOk || heroFails.length) process.exit(1);
-  console.log('\nSTEP 3 COMPLETE — all checks passed');
+  console.log('\nSTEP 3 COMPLETE - all checks passed');
 }
 
 main().catch((e) => {

@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /*
  * Idempotently injects PWA tags into every root HTML page:
- *   <head>  — theme-color meta + manifest link (after </title>)
- *   <body>  — <script src="assets/pwa.js" defer></script> (before final </body>)
+ *   <head> - theme-color meta + manifest link (after </title>)
+ *   <body> - <script src="assets/pwa.js" defer></script> (before final </body>)
  *
  * Makes targeted string insertions only; never reformats or rewrites
  * surrounding markup. Safe to re-run.

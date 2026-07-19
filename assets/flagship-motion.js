@@ -96,7 +96,7 @@
 
       img.classList.add('img-hover-zoom');
 
-      /* Parent already tagged with fx-clip — only hover zoom on the img */
+      /* Parent already tagged with fx-clip - only hover zoom on the img */
       if (img.closest('.fx-clip, .fs-media, .photo-card, .leader-photo, .news-thumb, .g-item')) {
         return;
       }
@@ -170,7 +170,7 @@
       tag(li, i % 2 ? 'fx-left' : 'fx-rise', Math.min(i % 6, 3) * 0.04);
     });
 
-    /* All content images — clip / scale-settle + hover zoom. */
+    /* All content images - clip / scale-settle + hover zoom. */
     enhanceImages();
   }
 

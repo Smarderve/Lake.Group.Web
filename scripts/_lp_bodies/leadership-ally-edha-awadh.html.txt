@@ -1,0 +1,53 @@
+
+        <div class="lp-unit">Group Leadership</div>
+        <h1 class="lp-name">Ally Edha Awadh</h1>
+        <p class="lp-role">Executive Chairman &amp; Owner</p>
+        <p class="lp-lede">Forbes-featured entrepreneur who founded Lake Oil in 2006 and built Lake Group into one of East and Central Africa’s leading energy, logistics and industrial conglomerates.</p>
+        <p>Born in 1980 into a family of traders, Awadh studied Business Administration at Brock University in Canada — supporting himself with odd jobs while building early trading instincts. By his mid-20s he had already moved into truck refurbishing and commodity trading. In 2006 he launched Lake Oil; official Group materials place him at 27 at founding.</p>
+        <p>His oversight today spans oil marketing, supply chain, downstream logistics and heavy industrial manufacturing across Tanzania, Kenya, Zambia, DRC, Burundi and Rwanda — with wider Group presence also in Ethiopia, Mozambique and Dubai (MERM). Under his chairmanship the Group has grown retail networks (152 stations in Tanzania alone), storage infrastructure, a 1,200+ truck fleet, LPG terminals, Lake Steel, ready-mix concrete and AFICD port-extension services.</p>
+        <p>In 2017 Forbes covered Lake Oil Group’s regional push — including Competition Authority of Kenya approval to acquire Hashi Energy’s Kenyan station network — and described the enterprise as a billion-dollar (revenue) integrated energy platform. Awadh has also been recognised by African Leadership Magazine (Young Business Leader of the Year, 2022) and as Young African Energy Leader of the Year (African Business Leadership Awards, 2023).</p>
+        <blockquote class="lp-quote">“With a team of experienced engineers and business professionals across our units, Lake Group is fully geared to meet the demands of the global marketplace.”</blockquote>
+        <ul class="lp-mandate">
+          <li><span>01</span><span>Group strategy across energy, logistics and industry</span></li>
+          <li><span>02</span><span>Regional expansion and capital partnerships</span></li>
+          <li><span>03</span><span>Governance and long-term value creation</span></li>
+        </ul>
+        <div class="lp-meta">
+        <div><strong>Founded</strong><span>2006</span></div>
+        <div><strong>Countries</strong><span>8+</span></div>
+        <div><strong>People</strong><span>30,000+</span></div>
+        </div>
+        <div class="lp-contact">
+          <div><strong>Group HQ</strong><span>Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055, Dar es Salaam, Tanzania</span></div>
+          <div><strong>Phone</strong><a href="tel:+255222780510">+255 222 780 510</a> · <a href="tel:+255222780479">+255 222 780 479</a></div>
+          <div><strong>Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20Office%20of%20the%20Chairman">admin@lakeoilgroup.com</a></div>
+        </div>
+        <div class="lp-links">
+          <a href="leadership.html" class="btn btn-outline-dark btn-sm">Meet the full team</a>
+          <a href="history.html" class="btn btn-outline-dark btn-sm">Our history</a>
+          <a href="contact.html" class="btn btn-outline-dark btn-sm">Contact Group HQ</a>
+        </div>
+        <nav class="lp-nav" aria-label="Related leadership profiles">
+          <a class="ld-person-card" href="leadership-nassoro-abubakari.html">
+          <div class="ld-person-photo ld-person-photo--logo"><img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Nassoro Abubakari" data-i18n-alt="leadership.54" loading="lazy" decoding="async"></div>
+          <div class="ld-person-body">
+            <h3><span data-i18n="leadership.54">Nassoro Abubakari</span></h3>
+            <p class="ld-person-role"><span data-i18n="leadership.55">Project Manager · Lake Agro</span></p>
+            <p class="ld-person-sum"><span data-i18n="leadership.56">Manages Lake Agro project delivery - greenfield development, agribusiness programmes and related Group project coordination.</span></p>
+            <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>
+          </div>
+        </a>
+          <a class="ld-person-card" href="leadership-sibtian-ansari.html">
+          <div class="ld-person-photo"><img src="assets/images/leadership/sibtian-ansari.png" alt="Sibtian Ansari" data-i18n-alt="leadership.17" loading="lazy" decoding="async"></div>
+          <div class="ld-person-body">
+            <h3><span data-i18n="leadership.17">Sibtian Ansari</span></h3>
+            <p class="ld-person-role"><span data-i18n="leadership.18">CEO · Manufacturing Division</span></p>
+            <p class="ld-person-sum"><span data-i18n="leadership.105">Leads Lake Group’s structural industrial expansions - most notably Lake Steel - spanning production infrastructure, manufacturing output, concrete products and construction supply networks.</span></p>
+            <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>
+          </div>
+        </a>
+          <div class="lp-nav-all">
+            <a href="leadership.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.58">All leadership</a>
+          </div>
+        </nav>
+      

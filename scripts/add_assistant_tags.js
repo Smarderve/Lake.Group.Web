@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /*
  * Idempotently wires the offline knowledge assistant into every root HTML
- * page (pattern borrowed from add_seo_tags.js — targeted string insertions
+ * page (pattern borrowed from add_seo_tags.js - targeted string insertions
  * only, never reformats surrounding markup, safe to re-run):
  *
  *   - <link rel="stylesheet" href="assets/assistant.css"> before </head>

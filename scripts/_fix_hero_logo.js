@@ -51,7 +51,7 @@ function ensureHeroLayers(html, photoUrl) {
     `<div class="hero-media" style="background-image:url('$1')" aria-hidden="true"></div>\n  <div class="hero-overlay" aria-hidden="true"></div>`
   );
 
-  // Already has hero-media — ensure overlay follows it
+  // Already has hero-media - ensure overlay follows it
   if (/class="hero-media"/.test(html) && /class="page-hero"/.test(html)) {
     if (!/class="hero-overlay"/.test(html)) {
       html = html.replace(
@@ -169,14 +169,14 @@ body[data-company-logo] .site-nav .nav-logo {
   s = s.replace(
     /\/\* --------------------------------------------------------------------------\n   7\. PAGE HERO  oversized editorial masthead on brand blue \(tokens\)\n   -------------------------------------------------------------------------- \*\/\n\.page-hero \{\n  background: var\(--color-hero-bg\);\n  padding: calc\(var\(--navbar-height\) \+ var\(--sp-20\)\) 0 var\(--sp-20\);\n  position: relative; overflow: hidden;\n\}/,
     `/* --------------------------------------------------------------------------
-   7. PAGE HERO — full-bleed photography + shared navy/blue gradient overlay
+   7. PAGE HERO - full-bleed photography + shared navy/blue gradient overlay
    -------------------------------------------------------------------------- */
 .page-hero {
   background: var(--color-hero-bg); /* darkest blue fallback under photo */
   padding: calc(var(--navbar-height) + var(--sp-20)) 0 var(--sp-20);
   position: relative; overflow: hidden;
 }
-/* Shared photo layer — opacity 1 so photography stays visible */
+/* Shared photo layer - opacity 1 so photography stays visible */
 .page-hero .hero-media,
 .page-hero .page-hero-photo {
   position: absolute;
@@ -189,7 +189,7 @@ body[data-company-logo] .site-nav .nav-logo {
   filter: saturate(0.92) contrast(1.05);
   pointer-events: none;
 }
-/* Shared gradient overlay — brand blue/navy → transparent (no candy red) */
+/* Shared gradient overlay - brand blue/navy → transparent (no candy red) */
 .page-hero .hero-overlay,
 .page-hero .page-hero-overlay {
   position: absolute;
@@ -203,7 +203,7 @@ body[data-company-logo] .site-nav .nav-logo {
   // Soften decorative ::before/::after so they don't hide the photo
   s = s.replace(
     /\.page-hero::before \{ \/\* faint meridian grid \*\/\n  content: ''; position: absolute; inset: 0;\n  background-image:\n    linear-gradient\(to right, var\(--ink-line-2\) 1px, transparent 1px\),\n    linear-gradient\(to bottom, var\(--ink-line-2\) 1px, transparent 1px\);\n  background-size: 120px 120px;\n  mask-image: radial-gradient\(ellipse 90% 100% at 50% 0%, black 30%, transparent 78%\);\n  -webkit-mask-image: radial-gradient\(ellipse 90% 100% at 50% 0%, black 30%, transparent 78%\);\n\}/,
-    `.page-hero::before { /* faint meridian grid — sit above photo, under text */
+    `.page-hero::before { /* faint meridian grid - sit above photo, under text */
   content: ''; position: absolute; inset: 0; z-index: 1;
   background-image:
     linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
@@ -253,7 +253,7 @@ function patchTheme() {
 .page-hero .container { position: relative; z-index: 2; }`
   );
 
-  // Single logo declaration — remove duplicate company height blocks
+  // Single logo declaration - remove duplicate company height blocks
   s = s.replace(
     /\.site-nav\.nav-scrolled \.nav-logo img \{ height: var\(--nav-logo-height-scrolled\) !important; \}/,
     `.site-nav.nav-scrolled .nav-logo img {
@@ -272,7 +272,7 @@ function patchTheme() {
   object-fit: contain;
   transition: transform var(--dur-fast) var(--ease-out), height 0.3s var(--ease-smooth);
 }
-/* Company pages: same logo size as group mark (swap via site.js — src/alt only) */
+/* Company pages: same logo size as group mark (swap via site.js - src/alt only) */
 body[data-company-logo] {
   --nav-h: var(--navbar-height);
 }
@@ -309,7 +309,7 @@ function patchSiteJs() {
     img.style.removeProperty('width');
     img.style.removeProperty('max-width');
     img.style.removeProperty('max-height');
-    // Size comes only from --nav-logo-height in tokens.css — never set here.`;
+    // Size comes only from --nav-logo-height in tokens.css - never set here.`;
   if (s.includes(old)) {
     s = s.replace(old, neu);
     fs.writeFileSync(p, s, 'utf8');

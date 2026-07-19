@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// QA: cross-page consistency matrix — required head tags/scripts per page,
+// QA: cross-page consistency matrix - required head tags/scripts per page,
 // plus static accessibility checks (img alt, single h1, labels, canonical).
 const fs = require('fs');
 const path = require('path');

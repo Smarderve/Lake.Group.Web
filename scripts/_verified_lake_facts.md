@@ -39,8 +39,8 @@ Press/secondary sources:
 | Group HQ address | Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055, Dar es Salaam, Tanzania | [official] contact |
 | Group email | admin@lakeoilgroup.com | [official] contact |
 | Group phones | (+255) 222 780 510, (+255) 222 780 479 | [official] contact |
-| Workforce | 4,600+ employees, 21 nationalities | [official] about |
-| Fleet (group) | "more than 700 trucks" (about page); CEO message says "about 600 units"; Lake Trans page says 750 vehicles / title "more than 850" — OFFICIAL NUMBERS CONFLICT, prefer "700+" from about page | [official] about, laketrans data |
+| Workforce | 30,000+ employees, 21 nationalities | [official] about |
+| Fleet (group) | 1,200+ trucks (site source of truth, 2026) | [official] about |
 | Positioning | "one of East and Central Africa's fastest growing energy trading and transportation conglomerates"; "one of the 5 largest distributors of petroleum products in Tanzania" | [official] home |
 | Petroleum trading countries | Tanzania, Zambia, DRC, Burundi, Kenya, Ethiopia, Rwanda | [official] about |
 | Own oil storage in | Tanzania, Kenya, Burundi, DRC | [official] about |
@@ -59,7 +59,7 @@ Press/secondary sources:
 - Leading oil marketing company in Tanzania; one of top-5 petroleum distributors. [official]
 - Kigamboni (Dar es Salaam) depot: 38 million litres storage capacity, direct pipeline
   access to oil import jetty. [official app_config TA.OIL; East Africa Today]
-- 85 owned retail stations across Tanzania. [official app_config TA.OIL]
+- 152 fuel stations (group source of truth, 2026). [official] site stats
 - Own logistics fleet of 300 tankers (Lake Oil's own fleet, distinct from Lake Trans). [official app_config TA.OIL]
 - Stations offer convenience stores, car washes, co-branded fast food, mechanical
   services, LUKU prepaid electricity, ATMs; open 24 hours. [official app_config]
@@ -186,9 +186,9 @@ Press/secondary sources:
 
 ## Explicitly NOT verifiable from official sources (do not state as fact)
 - Any specific revenue figure (Forbes 2017 estimated group revenue >$1bn — press only).
-- Employee counts other than "4,600+"; LinkedIn self-reported headcount is much lower
+- Employee counts other than "30,000+"; LinkedIn self-reported headcount is much lower
   (176 registered profiles) — not usable.
-- Station counts other than: TZ 85, KE 40, ZA 25, BU 16, RW 10, DRC 8 (official app_config).
+- Station counts other than the group total of 152 (per-country breakdown pending client refresh).
 - Any ISO or other certification — no certification is named anywhere on the official site.
 - Any named executives other than Ally Edha Awadh (CEO/Chairman). LinkedIn shows other
   staff (CFO Bhanupratapsingh Kshatriya, CIO YSV Kumar Babu, etc.) but these are not on

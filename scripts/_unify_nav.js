@@ -61,7 +61,7 @@ function replaceOnce(src, find, repl, label) {
 }
 
 /* --------------------------------------------------------------------------
-   3. theme.css — tokens, logo size, company reset, sentence-case links, pill active, home lang switcher
+   3. theme.css - tokens, logo size, company reset, sentence-case links, pill active, home lang switcher
    -------------------------------------------------------------------------- */
 {
   const p = path.join(ROOT, 'assets/theme.css');
@@ -126,7 +126,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img {
   height: 80px !important;
 }`;
 
-  const newCompanyBlock = `/* Desktop nav rhythm — home sentence-case + soft pill active */
+  const newCompanyBlock = `/* Desktop nav rhythm - home sentence-case + soft pill active */
 .nav-links { gap: 2px; }
 .nav-links > li > a {
   color: rgba(255,255,255,0.85);
@@ -179,7 +179,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img {
   if (s.includes(oldCompanyBlock)) {
     s = s.replace(oldCompanyBlock, newCompanyBlock);
   } else {
-    console.error('MISS: theme company/nav links block — applying regex fallbacks');
+    console.error('MISS: theme company/nav links block - applying regex fallbacks');
     s = s.replace(/\.site-nav\.nav-scrolled \.nav-logo img \{ height: 54px !important; \}/, '.site-nav.nav-scrolled .nav-logo img { height: var(--nav-logo-h-scrolled) !important; }');
     s = s.replace(/\.nav-logo img \{ height: 72px !important;/, '.nav-logo img { height: var(--nav-logo-h) !important;');
     s = s.replace(/letter-spacing: 0\.08em;\n  gap: 4px;/, 'letter-spacing: normal;\n  text-transform: none;\n  gap: 5px;');
@@ -208,8 +208,8 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img {
     '.site-nav.nav-scrolled .nav-logo img { height: var(--nav-logo-h-scrolled) !important; }'
   );
 
-  // Language switcher — home yellow pill style
-  const oldLang = `/* Language switcher — no capsule/plate; active via color + underline */
+  // Language switcher - home yellow pill style
+  const oldLang = `/* Language switcher - no capsule/plate; active via color + underline */
 .lang-switcher {
   display: flex; align-items: center; gap: 2px; margin-left: 10px;
   border: none; border-radius: 0; overflow: visible;
@@ -230,7 +230,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img {
 .lang-btn:hover:not(.active) { color: #fff; background: transparent; transform: translateY(-1px); }
 .lang-btn:focus-visible { outline: 2px solid var(--yellow); outline-offset: 2px; }`;
 
-  const newLang = `/* Language switcher — home yellow pill buttons */
+  const newLang = `/* Language switcher - home yellow pill buttons */
 .lang-switcher {
   display: flex; align-items: center; gap: 3px; margin-left: 10px; margin-right: 6px;
   border: none; border-radius: 0; overflow: visible;
@@ -261,7 +261,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img {
 }
 
 /* --------------------------------------------------------------------------
-   4. flagship.css — replace ink drafting nav with home blue bar
+   4. flagship.css - replace ink drafting nav with home blue bar
    -------------------------------------------------------------------------- */
 {
   const p = path.join(ROOT, 'assets/flagship.css');
@@ -269,7 +269,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img {
 
   s = s.replace(
     /  \/\* Chrome \*\/\n  --nav-h: 84px;/,
-    '  /* Chrome — aligned to home (index.html) nav bar */\n  --nav-h: 72px;\n  --nav-logo-h: 60px;          /* ~17% below prior 72px global mark */\n  --nav-logo-h-scrolled: 45px;'
+    '  /* Chrome - aligned to home (index.html) nav bar */\n  --nav-h: 72px;\n  --nav-logo-h: 60px;          /* ~17% below prior 72px global mark */\n  --nav-logo-h-scrolled: 45px;'
   );
   if (!s.includes('--nav-logo-h')) {
     s = s.replace(/--nav-h: 84px;/, '--nav-h: 72px;\n  --nav-logo-h: 60px;\n  --nav-logo-h-scrolled: 45px;');
@@ -359,7 +359,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img {
 }
 /* Hide flagship-era chevron glyph; markup already includes ▾ */
 .nav-links > li.has-dropdown > a::before { content: none; display: none; }
-.nav-links > li > a::after { display: none; } /* no underline active — pill bg instead */
+.nav-links > li > a::after { display: none; } /* no underline active - pill bg instead */
 .nav-links > li > a:hover,
 .nav-links > li > a.active {
   color: var(--yellow);
@@ -433,7 +433,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img {
     '.nav-mobile {\n  display: none !important;\n  position: fixed; top: var(--nav-h); left: 0; right: 0; z-index: 999;\n  background: var(--blue2);\n  border-bottom: 2px solid var(--yellow);'
   );
 
-  const oldFsLang = `/* Language switcher — no capsule/plate; active via color + underline */
+  const oldFsLang = `/* Language switcher - no capsule/plate; active via color + underline */
 .lang-switcher {
   display: flex; align-items: center; gap: 2px; margin-left: var(--sp-3);
   border: none; border-radius: 0; overflow: visible;
@@ -455,7 +455,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img {
 .lang-btn:hover:not(.active) { color: #fff; background: transparent; }
 .lang-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }`;
 
-  const newFsLang = `/* Language switcher — home yellow pill buttons */
+  const newFsLang = `/* Language switcher - home yellow pill buttons */
 .lang-switcher {
   display: flex; align-items: center; gap: 3px; margin-left: 10px; margin-right: 6px;
   border: none; border-radius: 0; overflow: visible;
