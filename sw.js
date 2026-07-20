@@ -11,7 +11,7 @@
 
 'use strict';
 
-const VERSION = 'v46';
+const VERSION = 'v47';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -234,12 +234,13 @@ function classify(request, url) {
 
   const path = url.pathname;
 
-  // Design chrome + news/3D bundles: network only (no stale cache fallback).
+  // Design chrome: network only (no stale cache fallback).
   // Interiors load nav/hero from flagship.css (+ tokens). Home also has large
   // inline nav rules, so a stale CSS cache made only interiors look "old".
+  // hero-globe.bundle.js uses network-first (below) so first paint stays fresh
+  // but the island still works offline after a successful visit.
   if (
     path.endsWith('/assets/news-data.js') ||
-    path.endsWith('/assets/hero-3d.bundle.js') ||
     path.endsWith('/assets/tokens.css') ||
     path.endsWith('/assets/theme.css') ||
     path.endsWith('/assets/flagship.css') ||
@@ -250,6 +251,11 @@ function classify(request, url) {
     path.endsWith('/sw.js')
   ) {
     return 'network-only-asset';
+  }
+
+  // Globe island: prefer network, fall back to cache for offline.
+  if (path.endsWith('/assets/hero-globe.bundle.js')) {
+    return 'network-first-asset';
   }
 
   // Fonts: immutable, cache forever.

@@ -2,3 +2,4 @@ node_modules
 _live_probe/
 scripts/_brand_icon_debug/
 scripts/_planet_src/
+scripts/_chrome_profile_*/

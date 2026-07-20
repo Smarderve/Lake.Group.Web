@@ -3,9 +3,16 @@
   "private": true,
   "scripts": {
     "serve": "npx firebase emulators:start --only hosting",
-    "deploy": "npx firebase deploy --only hosting"
+    "deploy": "npx firebase deploy --only hosting",
+    "build:hero-globe": "node scripts/build_hero_globe.js"
   },
   "devDependencies": {
+    "esbuild": "^0.28.1",
     "firebase-tools": "^13.35.1"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-globe.gl": "^2.38.0"
   }
 }

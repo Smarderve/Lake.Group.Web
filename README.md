@@ -14,21 +14,14 @@ HTTP. Two separate causes, both fixed:
    instead of fetching. Every page's `<head>`/`<body>` now loads
    `i18n-content.js` immediately before `i18n.js`.
 
-2. **The 3D hero** was loaded as `<script type="module" src="assets/hero-3d.js">`.
-   Module scripts are blocked entirely under `file://` (a stricter rule
-   than plain `fetch()` — this applies even to local same-folder imports).
-   Fixed by bundling `hero-3d.js` + the three.js import into a single
-   classic script with no `import`/`export` statements:
-   `assets/hero-3d.bundle.js`, built via `scripts/build_hero_bundle.sh`
-   (uses esbuild). `index.html` now loads the bundle, not the raw module
-   file. There was also a leftover explicit guard in the old code that
-   detected `file://` and showed a "run a local server" message instead
-   of trying to render — that's now removed since the bundle doesn't need
-   it.
+2. **The 3D hero** was loaded as an ES module. Module scripts are blocked
+   under `file://`. Fixed by bundling a React + `react-globe.gl` island into
+   a classic IIFE: `assets/hero-globe.bundle.js`, built via
+   `npm run build:hero-globe` (`scripts/build_hero_globe.js`). `index.html`
+   lazy-loads that bundle when `#fuel-experience` nears the viewport.
 
-**If you edit `assets/hero-3d.js` in the future, re-run
-`bash scripts/build_hero_bundle.sh` to regenerate the bundle** — editing
-`hero-3d.js` alone won't change what's actually loaded by `index.html`.
+**If you edit `assets/hero-globe/*`, re-run `npm run build:hero-globe`** —
+editing the source alone won't change what's loaded by `index.html`.
 Likewise, if you edit translations via `scripts/translation_dict.py`,
 re-run `build_master_en.py` then `build_i18n_content.py` — that second
 script now produces both `i18n-content.json` (for reference/tooling) and
@@ -89,20 +82,15 @@ Two honest paths forward:
 What I did **not** do: silently leave it in place with no explanation,
 which is how it ended up orphaned in the first place.
 
-## 3D hero (`assets/hero-3d.js`)
+## 3D hero (`assets/hero-globe/`)
 
-This is the 3D animation that's actually live, on the homepage. It was
-rewritten for performance:
+Homepage globe in `#fuel-experience` / `#experience-3d-panel`. Source is a
+small React island using `react-globe.gl`, bundled to
+`assets/hero-globe.bundle.js`. Textures are local under
+`assets/images/globe/` (no CDN). Nine hub-spoke markers (Dar HQ → 8 sites)
+with brand-yellow arcs; respects `prefers-reduced-motion`.
 
-- Geometry buffers for the petrol stream are built once and updated in
-  place every frame (`updateTubeBuffers`), instead of the original
-  approach of calling `new THREE.TubeGeometry(...)` on nearly every frame
-  — that repeated allocation was the main source of jank.
-- An `IntersectionObserver` pauses the render loop when the hero scrolls
-  out of view (in addition to the existing tab-visibility pause).
-- A runtime FPS monitor (`maybeDemoteQuality`) detects sustained
-  sub-30fps and demotes pixel ratio live, catching mid-tier devices that
-  the boot-time low/high quality split misses.
+Rebuild: `npm run build:hero-globe`
 
 ## Translations (EN / FR / PT)
 

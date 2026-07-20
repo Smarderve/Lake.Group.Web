@@ -1541,7 +1541,7 @@
       height: 480px;
       min-height: 480px;
       align-self: stretch;
-      background: transparent;
+      background: var(--blue3);
       border-radius: var(--radius-lg);
       overflow: visible;
       box-shadow: none;
@@ -1554,11 +1554,26 @@
         border-radius: 0;
         margin: 0 -24px;
         width: calc(100% + 48px);
-        background: var(--white);
+        background: var(--blue3);
         box-shadow: none;
         border: none;
         overflow: hidden;
       }
+    }
+
+    #hero-globe-root {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: transparent;
+    }
+
+    #hero-globe-root > div {
+      width: 100% !important;
+      height: 100% !important;
     }
 
     .experience-3d-panel canvas {
@@ -1575,7 +1590,7 @@
     }
 
     .experience-3d-panel.is-loading {
-      background: var(--white);
+      background: var(--blue3);
     }
 
     .experience-3d-panel.is-loading::before {
@@ -2714,13 +2729,13 @@
   <script src="assets/assistant-kb.js" defer></script>
   <script src="assets/assistant.js?v=51" defer></script>
   <script>
-    // Lazy-load the ~0.5MB 3D bundle only when the experience section
+    // Lazy-load the react-globe.gl island only when the experience section
     // approaches the viewport, instead of blocking initial page load with it.
     (function () {
       var section = document.getElementById("fuel-experience");
       function load() {
         var s = document.createElement("script");
-        s.src = "assets/hero-3d.bundle.js?v=12";
+        s.src = "assets/hero-globe.bundle.js?v=1";
         document.body.appendChild(s);
       }
       if (!section || !("IntersectionObserver" in window)) {
