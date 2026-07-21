@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    LAKE GROUP  FLAGSHIP DESIGN SYSTEM  (flagship.css)
    ==========================================================================
    Complete visual reset. Replaces theme.css on migrated pages (a migrated
@@ -1476,14 +1476,15 @@ body[data-company-logo] .page-hero h1 {
    -------------------------------------------------------------------------- */
 #chat-widget { position: fixed; bottom: 26px; right: 26px; z-index: 9999; }
 #chat-btn {
-  width: 54px; height: 54px; border-radius: var(--radius, 4px);
-  background: var(--color-yellow-accent, var(--gold)); border: none; cursor: pointer;
+  width: 58px; height: 58px; padding: 0; border-radius: 0;
+  background: transparent; border: none; cursor: pointer;
+  color: var(--color-yellow-accent, #FFF200);
   display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 8px 28px rgba(1, 129, 187, 0.28), 0 2px 8px rgba(255, 242, 0, 0.35);
-  transition: transform var(--dur-1) var(--ease-out), background var(--dur-1) ease;
+  box-shadow: none;
+  transition: transform var(--dur-1) var(--ease-out), color var(--dur-1) ease, filter var(--dur-1) ease;
 }
-#chat-btn:hover { transform: translateY(-3px); background: var(--color-yellow-deep, #E6D900); }
-#chat-btn svg { width: 24px; height: 24px; fill: none; stroke: var(--color-brand-blue-darkest, var(--ink)); stroke-width: 2.2; }
+#chat-btn:hover { transform: translateY(-3px) scale(1.04); background: transparent; color: var(--color-yellow-deep, #E6D900); filter: brightness(0.97); }
+#chat-btn svg { width: 100%; height: 100%; display: block; overflow: visible; filter: none; }
 #chat-box {
   position: absolute; bottom: 66px; right: 0; width: 320px;
   background: var(--color-white, var(--surface)); border-radius: var(--radius-lg, 10px);

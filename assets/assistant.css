@@ -35,7 +35,6 @@
   --la-radius-lg: var(--radius-lg, 10px);
   --la-font: var(--font-body, 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif);
   --la-shadow: var(--shadow-lg, 0 14px 48px rgba(1, 63, 92, 0.18));
-  --la-shadow-fab: 0 8px 28px rgba(1, 129, 187, 0.28), 0 2px 8px rgba(255, 242, 0, 0.35);
 
   position: fixed;
   bottom: 26px;
@@ -49,39 +48,37 @@
 }
 
 /* --------------------------------------------------------------------------
-   Launcher - yellow FAB like site primary CTA / legacy #chat-btn
+   Launcher - full-bleed yellow chat-bubble graphic (not a square button)
+   Color = --color-yellow-accent / --la-gold (#FFF200); dots are navy in SVG
    -------------------------------------------------------------------------- */
 #chat-widget.la-widget .la-launcher {
-  width: 56px;
-  height: 56px;
+  width: 58px;
+  height: 58px;
+  padding: 0;
   border: none;
-  border-radius: var(--la-radius);
-  background: var(--la-gold);
-  color: var(--la-ink);
+  border-radius: 0;
+  background: transparent;
+  color: var(--la-gold);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--la-shadow-fab);
+  box-shadow: none;
   position: relative;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  transition: transform 0.18s ease, color 0.18s ease, filter 0.18s ease;
 }
 
-/* Brand tick: small blue square on the yellow FAB (pairs with yellow nav rule) */
+/* No decorative tick / star overlays — shape lives entirely in the SVG */
 #chat-widget.la-widget .la-launcher::before {
-  content: '';
-  position: absolute;
-  top: -3px;
-  left: 8px;
-  width: 6px;
-  height: 6px;
-  background: var(--la-blue);
+  content: none;
+  display: none;
 }
 
 #chat-widget.la-widget .la-launcher:hover {
-  transform: translateY(-2px);
-  background: var(--la-gold-deep);
-  box-shadow: 0 12px 32px rgba(1, 129, 187, 0.34), 0 4px 12px rgba(255, 242, 0, 0.4);
+  transform: translateY(-2px) scale(1.04);
+  background: transparent;
+  color: var(--la-gold-deep);
+  filter: brightness(0.97);
 }
 
 #chat-widget.la-widget .la-launcher:focus-visible {
@@ -89,9 +86,13 @@
   outline-offset: 3px;
 }
 
-#chat-widget.la-widget .la-launcher svg {
-  width: 26px;
-  height: 26px;
+#chat-widget.la-widget .la-launcher svg,
+#chat-widget.la-widget .la-launcher .la-fab-icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: none;
+  overflow: visible;
 }
 
 /* --------------------------------------------------------------------------
@@ -419,7 +420,6 @@ body.co-theme-agro #chat-widget.la-widget {
   --la-line: rgba(0, 132, 53, 0.14);
   --la-line-strong: rgba(0, 75, 30, 0.28);
   --la-shadow: 0 14px 48px rgba(0, 75, 30, 0.22);
-  --la-shadow-fab: 0 8px 28px rgba(0, 132, 53, 0.28), 0 2px 8px rgba(230, 126, 34, 0.35);
 }
 
 /* Header: deep → solid Agro green (matches nav), orange hairline accent */
@@ -444,20 +444,22 @@ body.co-theme-agro #chat-widget.la-widget .la-iconbtn:focus-visible {
   outline-color: var(--color-agro-orange, #e67e22);
 }
 
-/* FAB: Agro orange CTA + green brand tick (no Lake yellow / blue) */
+/* FAB: Agro-tinted bubble (same full-graphic treatment, brand agro orange) */
 body.co-theme-agro #chat-widget.la-widget .la-launcher {
-  background: var(--color-agro-orange, #e67e22);
-  color: var(--la-ink);
-  box-shadow: var(--la-shadow-fab);
+  background: transparent;
+  color: var(--color-agro-orange, #e67e22);
+  --la-blue-light: var(--color-agro-green, #008435);
 }
 
 body.co-theme-agro #chat-widget.la-widget .la-launcher::before {
-  background: var(--color-agro-green, #008435);
+  content: none;
+  display: none;
 }
 
 body.co-theme-agro #chat-widget.la-widget .la-launcher:hover {
-  background: var(--la-gold-deep);
-  box-shadow: 0 12px 32px rgba(0, 132, 53, 0.34), 0 4px 12px rgba(230, 126, 34, 0.4);
+  background: transparent;
+  color: #c96a1a;
+  filter: brightness(1.05);
 }
 
 body.co-theme-agro #chat-widget.la-widget .la-launcher:focus-visible {

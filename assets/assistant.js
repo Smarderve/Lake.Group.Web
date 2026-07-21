@@ -353,8 +353,16 @@
     launcher.setAttribute('aria-controls', 'la-panel');
     launcher.setAttribute('data-i18n-aria', 'assistant.open');
     launcher.setAttribute('aria-label', t('assistant.open'));
+    /* Clean FAB: yellow bubble + navy dots + right-side tail (faces left).
+       Fills the launcher (currentColor = brand yellow from assistant.css). */
     launcher.innerHTML =
-      '<svg viewBox="0 0 24 24" aria-hidden="true"><g class="la-fab-bubble"><path class="la-fab-stroke" d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M8 9.5h8M8 13h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></g></svg>';
+      '<svg class="la-fab-icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false">' +
+      '<path class="la-fab-body" fill="currentColor" d="M44 8h-24c-8.8 0-16 7.2-16 16v10c0 8.8 7.2 16 16 16H36L49.5 59.8c.5.5 1.4.1 1.4-.6V50H44c8.8 0 16-7.2 16-16V24c0-8.8-7.2-16-16-16z"/>' +
+      '<ellipse class="la-fab-sheen" cx="32" cy="18" rx="16" ry="5.5" fill="#ffffff" opacity="0.28"/>' +
+      '<circle class="la-fab-dot" cx="23.5" cy="27" r="3.15" fill="#0181BB"/>' +
+      '<circle class="la-fab-dot" cx="32" cy="27" r="3.15" fill="#0181BB"/>' +
+      '<circle class="la-fab-dot" cx="40.5" cy="27" r="3.15" fill="#0181BB"/>' +
+      '</svg>';
 
     mount.appendChild(panel);
     mount.appendChild(launcher);
