@@ -80,7 +80,7 @@ function main() {
   const canonicalFooter = readTpl('footer.html');
   const canonicalChat = readTpl('chat_widget.html');
 
-  const NAV_OPEN = '<nav class="site-nav">';
+  const NAV_OPEN_RE = /<nav class="site-nav"[^>]*>/;
   const MOBILE_OPEN_RE = /<div class="nav-mobile" id="nav-mobile"[^>]*>/;
   const FOOTER_OPEN = '<footer class="site-footer">';
   const CHAT_OPEN_RE = /<div id="chat-widget">/;
@@ -93,7 +93,7 @@ function main() {
     let anyChange = false;
     let c;
 
-    [raw, c] = replaceSimpleBlock(raw, NAV_OPEN, '</nav>', canonicalNav);
+    [raw, c] = replaceBalancedBlock(raw, NAV_OPEN_RE, canonicalNav, 'nav');
     anyChange = anyChange || c;
 
     [raw, c] = replaceBalancedBlock(raw, MOBILE_OPEN_RE, canonicalMobile, 'div');

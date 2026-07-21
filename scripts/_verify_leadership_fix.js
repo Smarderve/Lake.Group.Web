@@ -11,8 +11,7 @@ const pages = [
   'leadership-ally-edha-awadh.html',
   'leadership-bibhuti-singh.html',
   'leadership-dileep-kumar.html',
-  'leadership-sridhar-mani.html',
-  'leadership-nassoro-abubakari.html'
+  'leadership-sridhar-mani.html'
 ];
 
 let ok = true;

@@ -36,7 +36,6 @@
   // or before dictionaries load. Keys mirror assistant.* in i18n-content.
   var FALLBACK = {
     'assistant.title': 'Lake Group Assistant',
-    'assistant.sub': '',
     'assistant.placeholder': 'Ask about our services, countries\u2026',
     'assistant.send': 'Send',
     'assistant.open': 'Open the Lake Group assistant',
@@ -297,7 +296,6 @@
       '<span class="la-tick" aria-hidden="true"></span>' +
       '<div class="la-head-txt">' +
       '<h4 data-i18n="assistant.title"></h4>' +
-      '<p data-i18n="assistant.sub"></p>' +
       '</div>';
 
     var actions = document.createElement('div');
@@ -380,7 +378,6 @@
   function translateUI() {
     refs.panel.setAttribute('aria-label', t('assistant.title'));
     refs.panel.querySelector('h4').textContent = t('assistant.title');
-    refs.panel.querySelector('.la-head-txt p').textContent = t('assistant.sub');
     refs.input.placeholder = t('assistant.placeholder');
     refs.input.setAttribute('aria-label', t('assistant.placeholder'));
     refs.form.querySelector('.la-send').textContent = t('assistant.send');

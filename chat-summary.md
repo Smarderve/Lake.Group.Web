@@ -261,7 +261,7 @@ Created all 17 root HTML files with full 8-section structure, titles/meta/canoni
 `lake-oil.html`, `lake-aviation.html`, `lake-gas.html`, `lake-lubes.html`, `lake-buildings.html`, `lake-plastics.html`, `lake-steel.html`, `lake-cylinders.html`, `gulf-aggregates.html`, `atl.html`, `lake-premix-cement.html`, `aficd.html`, `aill.html`, `lake-trans.html`, `cross-country.html`, `ocean-galleria.html`, `lake-agro.html`.
 
 - **Real content reused (8):** Lake Oil, Gas, Lubes, Steel, Trans, Premix & Cement (GCCP ready-mix), Gulf Aggregates (GCCP quarry), AFICD — still with honest gaps (case studies, per-company management photos, etc.).
-- **Placeholder-heavy (9):** Aviation, Buildings, Plastics, Cylinders, ATL, AILL, Cross Country, Ocean Galleria, Lake Agro — short intros, `.content-placeholder` boxes, shared HQ contact + form; Lake Agro noted one genuine leadership nugget (Nassoro Abubakari overseeing greenfield development).
+- **Placeholder-heavy (9):** Aviation, Buildings, Plastics, Cylinders, ATL, AILL, Cross Country, Ocean Galleria, Lake Agro — short intros, `.content-placeholder` boxes, shared HQ contact + form.
 - Aggregated “content needed from client” lists left in trailing HTML comments.
 
 #### Worker: palette + mega-menu ([245b544c…](245b544c-ce93-4b9d-a95c-1c114bcd3607))

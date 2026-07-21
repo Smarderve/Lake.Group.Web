@@ -83,18 +83,6 @@ const LEADERS = [
     summary:
       'Leads Group-wide operations across Lake Group’s energy, logistics and industrial units - coordinating day-to-day execution and operational performance.',
   },
-  {
-    id: 'nassoro-abubakari',
-    name: 'Nassoro Abubakari',
-    role: 'Project Manager · Lake Agro',
-    photo: 'assets/images/logos/LAKE_GROUP_LOGO.png',
-    photoLogo: true,
-    nameKey: 'leadership.54',
-    roleKey: 'leadership.55',
-    sumKey: 'leadership.56',
-    summary:
-      'Manages Lake Agro project delivery - greenfield development, agribusiness programmes and related Group project coordination.',
-  },
 ];
 
 const byId = Object.fromEntries(LEADERS.map((l) => [l.id, l]));
@@ -122,7 +110,7 @@ a.ld-person-card:focus-visible {
 
 .ld-person-photo {
   position: relative;
-  aspect-ratio: 5 / 4;
+  aspect-ratio: 4 / 3;
   border-radius: 10px;
   overflow: hidden;
   background: #EEF1F5;
@@ -133,21 +121,23 @@ a.ld-person-card:focus-visible {
 .ld-person-photo img {
   width: 100%;
   height: 100%;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  object-position: center center;
+  object-fit: cover;
+  object-position: center 20%;
   display: block;
   transition: transform .4s var(--ease-out, ease);
 }
 a.ld-person-card:hover .ld-person-photo img { transform: scale(1.02); }
 
-.ld-person-photo--logo { background: #EEF1F5; }
+.ld-person-photo--logo {
+  background: #EEF1F5;
+}
 .ld-person-photo--logo img {
-  width: 42%;
+  width: auto;
   height: auto;
+  max-width: 58%;
   max-height: 55%;
   object-fit: contain;
+  object-position: center center;
 }
 a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
 

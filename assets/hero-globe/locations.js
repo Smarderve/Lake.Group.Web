@@ -106,14 +106,13 @@ export function buildPoints() {
 }
 
 export function buildArcs() {
-  return LOCATIONS.filter((l) => !l.hub).map((loc, i) => ({
+  return LOCATIONS.filter((l) => !l.hub).map((loc) => ({
     startLat: HQ.lat,
     startLng: HQ.lng,
     endLat: loc.lat,
     endLng: loc.lng,
     color: BRAND_YELLOW,
     id: loc.id,
-    dashInitialGap: (i * 0.17) % 1,
   }));
 }
 

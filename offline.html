@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -13,14 +13,14 @@
   <!-- flagship.css is precached by the service worker, but this page must
        render with zero external dependencies: the inline block below is a
        complete standalone Meridian layer and intentionally loads after it. -->
-  <link rel="stylesheet" href="assets/tokens.css?v=47">
-<link rel="stylesheet" href="assets/flagship.css?v=47">
-  <link rel="stylesheet" href="assets/assistant.css?v=45">
+  <link rel="stylesheet" href="assets/tokens.css?v=56">
+<link rel="stylesheet" href="assets/flagship.css?v=68">
+  <link rel="stylesheet" href="assets/assistant.css?v=56">
   <style>
     /* ======================================================================
        MERIDIAN UTILITY PAGE  offline fallback. Fully self-contained.
        ====================================================================== */
-    @import url("assets/tokens.css?v=47");
+    @import url("assets/tokens.css?v=56");
     @import url('assets/fonts/fonts.css');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -180,7 +180,7 @@
       <a href="contact.html">Contact</a>
     </nav>
     <button class="retry" onclick="location.reload()">Retry Connection</button>
-    <p class="status" id="net-status"><span class="dot"></span><span id="net-text">Offline  waiting for connection…</span></p>
+    <p class="status" id="net-status"><span class="dot"></span><span id="net-text">Offline  waiting for connection?</span></p>
   </main>
   <script>
     (function () {
@@ -188,7 +188,7 @@
       var textEl = document.getElementById('net-text');
       function onOnline() {
         statusEl.classList.add('online');
-        textEl.textContent = 'Back online  reloading…';
+        textEl.textContent = 'Back online  reloading?';
         // Small delay so the user sees the status flip before navigation.
         // If the browser is showing offline.html under its own URL (opened
         // directly, not as a fallback for another page), reloading would
@@ -207,10 +207,10 @@
       if (navigator.onLine) onOnline();
     })();
   </script>
-<script src="assets/pwa.js?v=44" defer></script>
-<script src="assets/flagship-motion.js?v=44" defer></script>
+<script src="assets/pwa.js?v=56" defer></script>
+<script src="assets/flagship-motion.js?v=56" defer></script>
   <script src="assets/vendor/flexsearch/flexsearch.bundle.min.js" defer></script>
   <script src="assets/assistant-kb.js" defer></script>
-  <script src="assets/assistant.js?v=51" defer></script>
+  <script src="assets/assistant.js?v=56" defer></script>
 </body>
 </html>

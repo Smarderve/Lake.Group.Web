@@ -28,12 +28,12 @@
           <a href="contact.html" class="btn btn-outline-dark btn-sm">Contact Group HQ</a>
         </div>
         <nav class="lp-nav" aria-label="Related leadership profiles">
-          <a class="ld-person-card" href="leadership-nassoro-abubakari.html">
-          <div class="ld-person-photo ld-person-photo--logo"><img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Nassoro Abubakari" data-i18n-alt="leadership.54" loading="lazy" decoding="async"></div>
+          <a class="ld-person-card" href="leadership-juma-nuru.html">
+          <div class="ld-person-photo ld-person-photo--logo"><img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Juma Nuru" data-i18n-alt="leadership.51" loading="lazy" decoding="async"></div>
           <div class="ld-person-body">
-            <h3><span data-i18n="leadership.54">Nassoro Abubakari</span></h3>
-            <p class="ld-person-role"><span data-i18n="leadership.55">Project Manager · Lake Agro</span></p>
-            <p class="ld-person-sum"><span data-i18n="leadership.56">Manages Lake Agro project delivery - greenfield development, agribusiness programmes and related Group project coordination.</span></p>
+            <h3><span data-i18n="leadership.51">Juma Nuru</span></h3>
+            <p class="ld-person-role"><span data-i18n="leadership.52">Director of Operations · Lake Group</span></p>
+            <p class="ld-person-sum"><span data-i18n="leadership.53">Leads Group-wide operations across Lake Group’s energy, logistics and industrial units - coordinating day-to-day execution and operational performance.</span></p>
             <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>
           </div>
         </a>

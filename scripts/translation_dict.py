@@ -454,8 +454,8 @@ TERMS_FR = {
     "African Inland Container Depot Network": "Réseau de dépôts intérieurs de conteneurs africains",
     "After-Sales Services": "Services après-vente",
     "Aggregate Plant Cap.": "Capacité de l'installation de granulats",
-    "Agricultural and greenfield project development. Projects Manager: Nassoro Abubakari":
-        "Développement de projets agricoles et de terrains vierges. Chef de projets : Nassoro Abubakari",
+    "Agricultural and greenfield project development.":
+        "Développement agricole et projets greenfield.",
     "All petroleum transport operations are governed by strict zero-tolerance spillage protocols. Our tanker fleet is regularly inspected and certified.":
         "Toutes les opérations de transport de pétrole sont régies par des protocoles stricts de tolérance zéro envers les déversements. Notre flotte de camions-citernes est régulièrement inspectée et certifiée.",
     "Ally Edha Awadh": "Ally Edha Awadh",
@@ -724,7 +724,6 @@ TERMS_FR = {
         "M. Awadh a fondé Lake Oil à 27 ans et en a fait l'un des plus grands conglomérats d'énergie, de logistique et industriels d'Afrique de l'Est et centrale, présent en Tanzanie, au Kenya, en Zambie, en RDC, au Burundi, au Rwanda, en Éthiopie et au Mozambique, avec plus de 4 600 employés de 21 nationalités.",
     "Multiple Locations": "Plusieurs sites", "Multiple Services": "Plusieurs services",
     "Mwanza City, Lake Victoria Region": "Ville de Mwanza, région du lac Victoria",
-    "Nassoro Abubakari": "Nassoro Abubakari",
     "Network in Action": "Réseau en action",
     "No compromise on quality, from fuel and LPG to steel, lubricants and ready-mix concrete.":
         "Aucun compromis sur la qualité, du carburant et du GPL à l'acier, aux lubrifiants et au béton prêt à l'emploi.",
@@ -1584,8 +1583,8 @@ TERMS_PT = {
     "African Inland Container Depot Network": "Rede de Depósitos Interiores de Contentores Africanos",
     "After-Sales Services": "Serviços pós-venda",
     "Aggregate Plant Cap.": "Capacidade da instalação de agregados",
-    "Agricultural and greenfield project development. Projects Manager: Nassoro Abubakari":
-        "Desenvolvimento de projetos agrícolas e de novos terrenos. Gestor de Projetos: Nassoro Abubakari",
+    "Agricultural and greenfield project development.":
+        "Desenvolvimento de projetos agrícolas e de novos terrenos.",
     "All petroleum transport operations are governed by strict zero-tolerance spillage protocols. Our tanker fleet is regularly inspected and certified.":
         "Todas as operações de transporte de petróleo são regidas por protocolos estritos de tolerância zero a derrames. A nossa frota de camiões-cisterna é regularmente inspecionada e certificada.",
     "Ally Edha Awadh": "Ally Edha Awadh",
@@ -1854,7 +1853,6 @@ TERMS_PT = {
         "O Sr. Awadh fundou a Lake Oil aos 27 anos e transformou-a num dos maiores conglomerados de energia, logística e industriais da África Oriental e Central, presente na Tanzânia, Quénia, Zâmbia, RDC, Burundi, Ruanda, Etiópia e Moçambique, com mais de 4.600 colaboradores de 21 nacionalidades.",
     "Multiple Locations": "Múltiplas localizações", "Multiple Services": "Múltiplos serviços",
     "Mwanza City, Lake Victoria Region": "Cidade de Mwanza, região do Lago Victoria",
-    "Nassoro Abubakari": "Nassoro Abubakari",
     "Network in Action": "Rede em ação",
     "No compromise on quality, from fuel and LPG to steel, lubricants and ready-mix concrete.":
         "Sem compromissos na qualidade, do combustível e GLP ao aço, lubrificantes e betão pronto.",

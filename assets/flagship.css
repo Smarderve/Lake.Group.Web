@@ -442,16 +442,14 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
 }
 
 /* --------------------------------------------------------------------------
-   6b. MEGA MENU  "Subsidiaries" (vertical categories, horizontal companies)
+   6b. MEGA MENU  "Subsidiaries" (two-pane: category rail + company grid)
    Position relative to .site-nav (not the trigger li) so a ~1180px panel
    stays viewport-centered. Clamp height to the visible area and scroll
    inside the panel on short laptop viewports.
    -------------------------------------------------------------------------- */
 .nav-links > li.has-megamenu { position: static; }
 .nav-megamenu {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  display: block;
   width: min(96vw, 1180px);
   min-width: 0;
   max-width: min(96vw, 1180px);
@@ -461,18 +459,15 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   overflow-y: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
-  padding: 14px 16px;
+  padding: 24px 28px;
   left: 50%;
   right: auto;
   transform: translate(-50%, -10px) scale(0.985);
   transform-origin: top center;
-  /* Thin on-brand scrollbar (Deep Blue / Light Blue / white) */
   scrollbar-width: thin;
   scrollbar-color: #0599D3 rgba(1, 129, 187, 0.18);
 }
-.nav-megamenu::-webkit-scrollbar {
-  width: 6px;
-}
+.nav-megamenu::-webkit-scrollbar { width: 6px; }
 .nav-megamenu::-webkit-scrollbar-track {
   background: rgba(1, 129, 187, 0.14);
   border-radius: 999px;
@@ -493,48 +488,142 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
 .has-dropdown:focus-within .nav-megamenu {
   transform: translate(-50%, 0) scale(1);
 }
-/* Category sections stack vertically; companies wrap in a horizontal row */
-.mm-col {
+
+/* Two-pane layout: spaced category blocks (left) + logos (right) */
+.mm-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 268px) minmax(0, 1fr);
+  gap: 20px 28px;
+  align-items: stretch;
+  min-height: 300px;
+}
+.mm-cats {
+  display: flex;
+  flex-direction: column;
+  gap: 14px; /* spaced blocks — not a tight stacked list */
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  align-self: start;
+}
+.mm-cat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  margin: 0;
+  padding: 14px 16px;
+  border: 0 !important;
+  border-left: 0 !important; /* no yellow accent bar */
+  border-radius: 8px;
+  background: rgba(1, 129, 187, 0.06); /* near-transparent idle */
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.mm-cat::after {
+  content: '';
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-right: 2.25px solid rgba(255, 255, 255, 0.95);
+  border-top: 2.25px solid rgba(255, 255, 255, 0.95);
+  transform: rotate(45deg);
+  opacity: 1;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+.mm-cat:hover,
+.mm-cat:focus-visible {
+  background: rgba(5, 153, 211, 0.22); /* #0599D3 wash */
+  color: #FFF200;
+  outline: none;
+}
+.mm-cat:hover::after,
+.mm-cat:focus-visible::after {
+  border-color: #FFF200;
+  opacity: 1;
+}
+.mm-cat.is-active {
+  background: rgba(1, 102, 148, 0.92);
+  color: #FFF200;
+  border-left: 0 !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 242, 0, 0.18);
+}
+.mm-cat.is-active::after {
+  border-color: #FFF200;
+  opacity: 1;
+}
+.mm-cat.is-active:hover,
+.mm-cat.is-active:focus-visible {
+  background: rgba(5, 153, 211, 0.55);
+  color: #FFF200;
+}
+
+.mm-panes {
+  position: relative;
+  min-width: 0;
+  min-height: 240px;
+}
+.mm-pane {
+  display: none;
+}
+.mm-pane.is-active {
+  display: block;
+}
+.mm-companies {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: 4px 2px;
+  gap: 18px 16px;
   min-width: 0;
-  padding: 0;
-  border-left: 0;
 }
-.mm-col .dd-label {
-  flex: 0 0 100%;
-  padding: 0 6px 6px;
-  margin-bottom: 0;
+.mm-pane.is-active .mm-companies.is-entering {
+  animation: mmPaneEnter 0.52s var(--ease-out) both;
 }
+@keyframes mmPaneEnter {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .nav-megamenu .mm-company,
 .mm-company {
   display: flex !important;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 5px;
+  gap: 8px;
   flex: 0 0 auto;
-  width: 112px;
-  padding: 6px 5px !important;
+  width: 148px;
+  padding: 14px 12px !important;
   border-radius: 8px;
   border-left: 0 !important;
   color: rgba(233,237,248,0.82);
-  font-size: 0.72rem; font-weight: 500;
+  font-size: 0.78rem; font-weight: 500;
   letter-spacing: 0.005em;
   line-height: 1.2;
   text-align: center;
   white-space: normal;
   position: relative;
-  transition: color var(--dur-1) ease, background var(--dur-1) ease;
+  background: transparent;
+  transition: background-color 160ms ease-out;
 }
 .mm-company span {
   display: block;
   max-width: 100%;
 }
 .mm-company img {
-  height: 32px; width: auto; max-width: 96px; flex: none;
+  height: 68px; width: auto; max-width: 132px; flex: none;
   object-fit: contain;
   object-position: center;
   aspect-ratio: auto;
@@ -543,90 +632,83 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   padding: 0;
   box-shadow: none;
   overflow: visible;
-  transition: opacity var(--dur-1) ease;
 }
-/* ATL interlocking mark needs full circle height — never cover-crop */
+/* Light chip behind navy-low-contrast logos (do not filter/recolor PNGs).
+   Ocean Galleria intentionally has no chip. */
+.mm-company img[src*="cross-country.png"],
+.mm-company img[src*="lake-agro.png"],
 .mm-company img[src*="atl.png"] {
-  height: 30px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px 10px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.14);
+}
+.mm-company img[src*="atl.png"] {
+  height: 64px;
   width: auto;
-  max-width: 96px;
-  max-height: 30px;
+  max-width: 132px;
+  max-height: 64px;
   object-fit: contain;
   overflow: visible;
 }
 .mm-company img[src*="lake-agro.png"] {
-  height: 28px;
-  max-width: 88px;
+  height: 60px;
+  max-width: 124px;
 }
-/* Short viewports: compact logos; panel scrolls if needed */
+.mm-company img[src*="cross-country.png"] {
+  height: 64px;
+  max-width: 128px;
+}
+.mm-company img[src*="ocean-galleria.png"] {
+  height: 68px;
+  max-width: 132px;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
 @media (max-height: 900px) {
-  .nav-megamenu { gap: 6px; padding: 10px 12px; }
+  .nav-megamenu { padding: 18px 22px; }
+  .mm-layout { gap: 16px 22px; min-height: 260px; }
+  .mm-cats { gap: 12px; padding: 0; }
+  .mm-cat { padding: 12px 14px; font-size: 0.82rem; }
   .nav-megamenu .mm-company,
-  .mm-company { width: 120px; padding: 6px 5px !important; gap: 4px; }
-  .mm-company img { height: 28px; max-width: 84px; }
+  .mm-company { width: 136px; padding: 12px 10px !important; gap: 6px; }
+  .mm-company img { height: 56px; max-width: 116px; }
   .mm-company img[src*="atl.png"] {
-    height: 26px;
-    max-width: 88px;
-    max-height: 26px;
+    height: 52px;
+    max-width: 116px;
+    max-height: 52px;
+    padding: 6px 8px;
   }
   .mm-company img[src*="lake-agro.png"] {
-    height: 24px;
-    max-width: 76px;
+    height: 50px;
+    max-width: 108px;
+    padding: 6px 8px;
   }
-  .mm-col .dd-label { padding: 0 6px 4px; }
-  .nav-megamenu .mm-company:hover,
-  .nav-megamenu .mm-company:focus-visible,
-  .mm-company:hover, .mm-company:focus-visible { padding-left: 6px !important; }
+  .mm-company img[src*="cross-country.png"] {
+    height: 52px;
+    max-width: 112px;
+    padding: 6px 8px;
+  }
+  .mm-company img[src*="ocean-galleria.png"] {
+    height: 56px;
+    max-width: 116px;
+    padding: 0;
+  }
 }
+/* Hover: subtle tile background darken only — no lift, scale, shadow, brightness, or underline flash */
 .nav-megamenu .mm-company:hover,
 .nav-megamenu .mm-company:focus-visible,
 .mm-company:hover, .mm-company:focus-visible {
-  color: #fff;
   border-left: 0 !important;
   border-left-color: transparent;
-  background: rgba(5,153,211,0.16);
-  transform: none;
-  padding-left: 6px !important;
+  background: rgba(0, 0, 0, 0.2);
 }
-.mm-company:hover img, .mm-company:focus-visible img {
-  transform: none;
-  box-shadow: none;
-  opacity: 1;
-}
-/* External-company link icon (ATL, Lake Agro leave the site in a new tab) */
 .mm-ext-icon {
   position: absolute; top: 8px; right: 8px;
   flex: none; margin-left: 0; opacity: 0.5;
-  transition: opacity var(--dur-1) ease, transform var(--dur-1) var(--ease-out);
 }
-.mm-company:hover .mm-ext-icon, .mm-company:focus-visible .mm-ext-icon { opacity: 1; transform: translate(1px, -1px); }
-
-/* Staggered category reveal: rows settle up + in behind the panel motion */
-.nav-megamenu .mm-col {
-  opacity: 0; transform: translateY(8px);
-  transition: opacity 0.32s var(--ease-out), transform 0.32s var(--ease-out);
-}
-
-.has-dropdown:hover .nav-megamenu .mm-col,
-.has-dropdown:focus-within .nav-megamenu .mm-col,
-.has-dropdown.is-open .nav-megamenu .mm-col {
-  opacity: 1; transform: translateY(0);
-}
-.has-dropdown:hover .nav-megamenu .mm-col:nth-child(1),
-.has-dropdown:focus-within .nav-megamenu .mm-col:nth-child(1),
-.has-dropdown.is-open .nav-megamenu .mm-col:nth-child(1) { transition-delay: 0.02s; }
-.has-dropdown:hover .nav-megamenu .mm-col:nth-child(2),
-.has-dropdown:focus-within .nav-megamenu .mm-col:nth-child(2),
-.has-dropdown.is-open .nav-megamenu .mm-col:nth-child(2) { transition-delay: 0.06s; }
-.has-dropdown:hover .nav-megamenu .mm-col:nth-child(3),
-.has-dropdown:focus-within .nav-megamenu .mm-col:nth-child(3),
-.has-dropdown.is-open .nav-megamenu .mm-col:nth-child(3) { transition-delay: 0.10s; }
-.has-dropdown:hover .nav-megamenu .mm-col:nth-child(4),
-.has-dropdown:focus-within .nav-megamenu .mm-col:nth-child(4),
-.has-dropdown.is-open .nav-megamenu .mm-col:nth-child(4) { transition-delay: 0.14s; }
-.has-dropdown:hover .nav-megamenu .mm-col:nth-child(5),
-.has-dropdown:focus-within .nav-megamenu .mm-col:nth-child(5),
-.has-dropdown.is-open .nav-megamenu .mm-col:nth-child(5) { transition-delay: 0.18s; }
 
 @media (max-width: 1120px) {
   .nav-megamenu { display: none; }
@@ -872,7 +954,7 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
   direction: ltr !important;
   scrollbar-gutter: stable;
 }
-.site-nav .nav-megamenu .dd-label,
+.site-nav .nav-megamenu .mm-cat,
 .site-nav .nav-megamenu .mm-company span {
   unicode-bidi: plaintext;
 }
@@ -900,11 +982,14 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
   .has-dropdown:hover .nav-megamenu,
   .has-dropdown:focus-within .nav-megamenu,
   .has-dropdown.is-open .nav-megamenu { transform: translateX(-50%) !important; }
-  .nav-megamenu .mm-col {
-    opacity: 1 !important; transform: none !important;
-    transition: none !important; transition-delay: 0s !important;
+  .mm-pane.is-active .mm-companies.is-entering,
+  .mm-companies {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
-  .mm-company, .mm-company img, .mm-ext-icon,
+  .mm-cat { transition: none !important; }
+  .mm-company, .mm-company img, .mm-company span, .mm-ext-icon,
   .nav-links > li > a::after,
   .site-nav .nav-logo, .site-nav .nav-logo img,
   .mob-acc-panel, .mob-acc-btn::after { transition: none !important; }
@@ -1371,12 +1456,18 @@ body[data-company-logo] .page-hero h1 {
 .footer-bottom-links a:hover { color: var(--gold); }
 .footer-social { margin-top: var(--sp-5); display: flex; flex-wrap: wrap; gap: var(--sp-2); }
 .social-link {
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--ink-mute); padding: 8px 14px;
-  border: 1px solid var(--ink-line); border-radius: 0;
-  transition: color var(--dur-1) ease, border-color var(--dur-1) ease;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; padding: 0;
+  color: var(--ink-mute);
+  border: none; border-radius: 0;
+  background: transparent;
+  transition: color var(--dur-1) ease, opacity var(--dur-1) ease;
 }
-.social-link:hover { color: var(--gold); border-color: var(--gold); }
+.social-link:hover { color: var(--gold); }
+.social-link:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
 .site-footer .country-tag { border-color: var(--ink-line); color: var(--ink-text); background: transparent !important; }
 
 /* --------------------------------------------------------------------------
@@ -1810,9 +1901,7 @@ body.co-theme-agro .nav-megamenu::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, var(--color-agro-orange) 0%, var(--color-agro-green-bright) 55%, var(--color-agro-green) 100%);
 }
 body.co-theme-agro .nav-dropdown a:hover,
-body.co-theme-agro .nav-dropdown a:focus-visible,
-body.co-theme-agro .mm-company:hover,
-body.co-theme-agro .mm-company:focus-visible {
+body.co-theme-agro .nav-dropdown a:focus-visible {
   color: #fff;
   background: rgba(230, 126, 34, 0.18);
 }

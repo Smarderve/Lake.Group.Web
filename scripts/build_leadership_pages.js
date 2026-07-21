@@ -243,37 +243,6 @@ const LEADERS = [
     ],
     emailSubject: 'Attention: Director of Operations (Juma Nuru)',
   },
-  {
-    id: 'nassoro-abubakari',
-    name: 'Nassoro Abubakari',
-    role: 'Project Manager · Lake Agro',
-    unit: 'Agro Processing',
-    photo: LOGO,
-    photoLogo: true,
-    summary:
-      'Manages Lake Agro project delivery - greenfield development, agribusiness programmes and related Group project coordination.',
-    paragraphs: [
-      'Nassoro Abubakari leads project delivery for Lake Agro, the Group’s agribusiness and greenfield development arm.',
-      'The mandate covers planning and execution of agro programmes, coordination with Group support functions, and keeping delivery timelines aligned with commercial and operational goals.',
-      'Lake Agro sits within Lake Group’s wider diversification strategy - extending the organisation’s capabilities beyond energy and logistics into agriculture-linked development.',
-    ],
-    mandate: [
-      'Lake Agro project planning & delivery',
-      'Greenfield and agribusiness programme coordination',
-      'Stakeholder alignment with Group functions',
-    ],
-    meta: [
-      ['Unit', 'Lake Agro'],
-      ['Focus', 'Projects'],
-      ['Type', 'Greenfield / Agro'],
-    ],
-    links: [
-      ['Lake Agro', 'https://lakeagro.com/'],
-      ['Major projects', 'projects.html'],
-      ['Contact', 'contact.html'],
-    ],
-    emailSubject: 'Attention: Project Manager Lake Agro (Nassoro Abubakari)',
-  },
 ];
 
 const DIR_STYLE = `
@@ -299,7 +268,7 @@ a.ld-person-card:focus-visible {
 
 .ld-person-photo {
   position: relative;
-  aspect-ratio: 5 / 4;
+  aspect-ratio: 4 / 3;
   border-radius: 10px;
   overflow: hidden;
   background: #EEF1F5;
@@ -310,21 +279,23 @@ a.ld-person-card:focus-visible {
 .ld-person-photo img {
   width: 100%;
   height: 100%;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  object-position: center center;
+  object-fit: cover;
+  object-position: center 20%;
   display: block;
   transition: transform .4s var(--ease-out, ease);
 }
 a.ld-person-card:hover .ld-person-photo img { transform: scale(1.02); }
 
-.ld-person-photo--logo { background: #EEF1F5; }
+.ld-person-photo--logo {
+  background: #EEF1F5;
+}
 .ld-person-photo--logo img {
-  width: 42%;
+  width: auto;
   height: auto;
+  max-width: 58%;
   max-height: 55%;
   object-fit: contain;
+  object-position: center center;
 }
 a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
 
@@ -450,7 +421,6 @@ const LEADER_I18N = {
   'mohammed-khalid': { name: 'leadership.23', role: 'leadership.24', sum: 'leadership.107' },
   'bibhuti-singh': { name: 'leadership.26', role: 'leadership.27', sum: 'leadership.108' },
   'juma-nuru': { name: 'leadership.51', role: 'leadership.52', sum: 'leadership.53' },
-  'nassoro-abubakari': { name: 'leadership.54', role: 'leadership.55', sum: 'leadership.56' },
 };
 
 function personCardHtml(leader) {

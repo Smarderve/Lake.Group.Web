@@ -120,23 +120,56 @@ html[dir="rtl"] a.ld-person-card:focus-visible .ld-person-more::after {
   transform: translateX(-4px);
 }
 
-/* Footer social icon buttons */
+/* Footer contact row icons (Iconify) */
+.footer-contact-link {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.45;
+}
+.footer-contact-ico {
+  flex: none;
+  margin-top: 0.15em;
+  color: var(--gold, var(--color-yellow-accent, #FFF200));
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+.footer-contact-link:hover .footer-contact-ico {
+  color: var(--color-yellow-accent, #FFF200);
+}
+
+/* Footer social icon-only buttons (Iconify simple-icons paths, inline SVG) */
 .footer-social .social-link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 0;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
 }
+.footer-social .social-link .footer-social-ico,
 .footer-social .social-link .lg-ico {
-  font-size: 14px;
-  opacity: 0.85;
-  transition: transform 0.22s ease, opacity 0.22s ease, color 0.22s ease;
+  flex: none;
+  display: block;
+  width: 18px;
+  height: 18px;
+  color: rgba(255, 255, 255, 0.92);
+  opacity: 1;
+  transition: transform 0.22s ease, color 0.22s ease;
 }
-.footer-social .social-link .lg-ico svg {
+.footer-social .social-link .footer-social-ico,
+.footer-social .social-link .lg-ico svg,
+.footer-social .social-link svg.footer-social-ico {
   fill: currentColor;
   stroke: none;
 }
+.footer-social .social-link:hover .footer-social-ico,
 .footer-social .social-link:hover .lg-ico {
-  opacity: 1;
   color: var(--gold, var(--color-yellow-accent, #FFF200));
   transform: translateY(-1px);
 }
@@ -208,6 +241,7 @@ html[dir="rtl"] a.ld-person-card:focus-visible .ld-person-more::after {
   .career-icon .msi,
   .value-icon .msi,
   .ct-ico.lg-ico,
+  .footer-social .social-link .footer-social-ico,
   .footer-social .social-link .lg-ico,
   .ld-person-more::after {
     animation: none !important;

@@ -10,6 +10,36 @@ import {
   BRAND_YELLOW_RING,
 } from './locations.js';
 
+/** Entrance timing (ms) — ease-out draw, once per load when section is visible. */
+const MARKER_START_MS = 350;
+const MARKER_STAGGER_MS = 95;
+const ARC_PAUSE_MS = 380;
+const ARC_DRAW_MS = 720;
+const ARC_STAGGER_MS = 160;
+const ARC_DRAW_GAP = 1.2;
+
+function easeOutCubic(t) {
+  return 1 - Math.pow(1 - t, 3);
+}
+
+function solidifyArc(arc) {
+  return {
+    ...arc,
+    dashLength: 1,
+    dashGap: 0,
+    dashAnimateTime: 0,
+  };
+}
+
+function drawingArc(arc, progress = 0) {
+  return {
+    ...arc,
+    dashLength: progress,
+    dashGap: ARC_DRAW_GAP,
+    dashAnimateTime: 0,
+  };
+}
+
 function usePanelSize(panelEl) {
   const [size, setSize] = useState(() => {
     if (!panelEl) return { w: 640, h: 480 };
@@ -71,21 +101,129 @@ export default function HeroGlobe({ panelEl }) {
   const reduced = useReducedMotion();
   const brandYellow = useMemo(() => readBrandYellow(), []);
 
-  const points = useMemo(() => {
+  const allPoints = useMemo(() => {
     return buildPoints().map((p) => ({
       ...p,
       color: brandYellow,
     }));
   }, [brandYellow]);
 
-  const arcs = useMemo(() => {
+  const allArcs = useMemo(() => {
     return buildArcs().map((a) => ({
       ...a,
       color: brandYellow,
     }));
   }, [brandYellow]);
 
-  const rings = useMemo(() => (reduced ? [] : buildRings()), [reduced]);
+  const allRings = useMemo(() => (reduced ? [] : buildRings()), [reduced]);
+
+  const [pointsData, setPointsData] = useState([]);
+  const [arcsData, setArcsData] = useState([]);
+  const [ringsData, setRingsData] = useState([]);
+  const [globeReady, setGlobeReady] = useState(false);
+  const [sectionVisible, setSectionVisible] = useState(false);
+  const sequenceStartedRef = useRef(false);
+  const timersRef = useRef([]);
+  const rafRef = useRef([]);
+
+  const clearScheduled = useCallback(() => {
+    timersRef.current.forEach((id) => clearTimeout(id));
+    timersRef.current = [];
+    rafRef.current.forEach((id) => cancelAnimationFrame(id));
+    rafRef.current = [];
+  }, []);
+
+  const schedule = useCallback((fn, ms) => {
+    const id = setTimeout(fn, ms);
+    timersRef.current.push(id);
+    return id;
+  }, []);
+
+  const showFinalState = useCallback(() => {
+    setPointsData(allPoints);
+    setArcsData(allArcs.map(solidifyArc));
+    setRingsData(allRings);
+  }, [allPoints, allArcs, allRings]);
+
+  const runEntrance = useCallback(() => {
+    clearScheduled();
+    setPointsData([]);
+    setArcsData([]);
+    setRingsData([]);
+
+    // 1) Markers — HQ first (locations order), then spokes; ring with HQ.
+    allPoints.forEach((point, i) => {
+      schedule(() => {
+        setPointsData((prev) => {
+          if (prev.some((p) => p.id === point.id)) return prev;
+          return [...prev, point];
+        });
+        if (point.hub && allRings.length) {
+          setRingsData(allRings);
+        }
+      }, MARKER_START_MS + i * MARKER_STAGGER_MS);
+    });
+
+    const arcsStartAt =
+      MARKER_START_MS + allPoints.length * MARKER_STAGGER_MS + ARC_PAUSE_MS;
+
+    // 2) Arcs — TZ HQ → each country; progressive dashLength 0→1, then solid.
+    allArcs.forEach((arc, i) => {
+      const startAt = arcsStartAt + i * ARC_STAGGER_MS;
+
+      schedule(() => {
+        setArcsData((prev) => {
+          if (prev.some((a) => a.id === arc.id)) return prev;
+          return [...prev, drawingArc(arc, 0)];
+        });
+
+        const t0 = performance.now();
+        const tick = (now) => {
+          const raw = Math.min(1, (now - t0) / ARC_DRAW_MS);
+          const progress = easeOutCubic(raw);
+          setArcsData((prev) =>
+            prev.map((a) => (a.id === arc.id ? drawingArc(arc, progress) : a)),
+          );
+          if (raw < 1) {
+            const rafId = requestAnimationFrame(tick);
+            rafRef.current.push(rafId);
+          } else {
+            setArcsData((prev) =>
+              prev.map((a) => (a.id === arc.id ? solidifyArc(arc) : a)),
+            );
+          }
+        };
+        const rafId = requestAnimationFrame(tick);
+        rafRef.current.push(rafId);
+      }, startAt);
+    });
+  }, [allPoints, allArcs, allRings, clearScheduled, schedule]);
+
+  // Reduced motion: final state immediately. Else: once when ready + visible.
+  // Do not clear timers on dep churn — that would abort a running once-per-load sequence.
+  useEffect(() => {
+    if (reduced) {
+      sequenceStartedRef.current = true;
+      clearScheduled();
+      showFinalState();
+      return undefined;
+    }
+    if (!globeReady || !sectionVisible || sequenceStartedRef.current) {
+      return undefined;
+    }
+    sequenceStartedRef.current = true;
+    runEntrance();
+    return undefined;
+  }, [
+    reduced,
+    globeReady,
+    sectionVisible,
+    runEntrance,
+    showFinalState,
+    clearScheduled,
+  ]);
+
+  useEffect(() => () => clearScheduled(), [clearScheduled]);
 
   const onGlobeReady = useCallback(() => {
     const g = globeRef.current;
@@ -100,6 +238,7 @@ export default function HeroGlobe({ panelEl }) {
       controls.minPolarAngle = Math.PI * 0.25;
       controls.maxPolarAngle = Math.PI * 0.75;
     }
+    setGlobeReady(true);
   }, [reduced]);
 
   useEffect(() => {
@@ -114,13 +253,17 @@ export default function HeroGlobe({ panelEl }) {
   }, [reduced]);
 
   useEffect(() => {
-    if (!panelEl) return undefined;
+    if (!panelEl) {
+      setSectionVisible(true);
+      return undefined;
+    }
     const io = new IntersectionObserver(
       (entries) => {
         const g = globeRef.current;
+        const visible = !!(entries[0] && entries[0].isIntersecting);
+        setSectionVisible(visible);
         if (!g) return;
         const controls = g.controls && g.controls();
-        const visible = entries[0] && entries[0].isIntersecting;
         if (controls) {
           controls.autoRotate = !!(visible && !reduced);
         }
@@ -147,22 +290,21 @@ export default function HeroGlobe({ panelEl }) {
       atmosphereAltitude={0.14}
       animateIn={!reduced}
       onGlobeReady={onGlobeReady}
-      pointsData={points}
+      pointsData={pointsData}
       pointLat="lat"
       pointLng="lng"
       pointColor="color"
       pointAltitude={0.01}
       pointRadius="size"
       pointResolution={12}
-      arcsData={arcs}
+      arcsData={arcsData}
       arcColor="color"
-      arcAltitude={0.18}
+      arcAltitude={0.12}
       arcStroke={0.6}
-      arcDashLength={reduced ? 1 : 0.45}
-      arcDashGap={reduced ? 0 : 0.35}
-      arcDashAnimateTime={reduced ? 0 : 2200}
-      arcDashInitialGap="dashInitialGap"
-      ringsData={rings}
+      arcDashLength="dashLength"
+      arcDashGap="dashGap"
+      arcDashAnimateTime="dashAnimateTime"
+      ringsData={ringsData}
       ringColor={() => BRAND_YELLOW_RING}
       ringMaxRadius="maxR"
       ringPropagationSpeed="propagationSpeed"

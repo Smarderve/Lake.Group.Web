@@ -2,6 +2,17 @@
 (function () {
   'use strict';
 
+  /* Iconify web component for footer / chrome icons */
+  (function ensureIconify() {
+    if (typeof customElements !== 'undefined' && customElements.get('iconify-icon')) return;
+    if (document.querySelector('script[data-lake-iconify]')) return;
+    var s = document.createElement('script');
+    s.src = 'https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js';
+    s.async = true;
+    s.setAttribute('data-lake-iconify', '1');
+    document.head.appendChild(s);
+  })();
+
   function isInViewport(el) {
     const r = el.getBoundingClientRect();
     return r.top < window.innerHeight && r.bottom > 0;
@@ -115,44 +126,212 @@
     }, 2500);
   }
 
-  // "Subsidiaries" mega-menu: CSS alone (`.has-dropdown:hover`/
-  // `:focus-within`) already opens the panel on hover and on keyboard Tab.
-  // This adds click-to-toggle (desktop click + touch, which get no
-  // :hover), Escape-to-close (returning focus to the trigger), ArrowDown to
-  // jump into the menu, and click-outside/focus-outside to close - all
-  // driven by a single `.is-open` class the CSS also keys off of.
+  // Desktop nav dropdowns + Subsidiaries mega-menu.
+  // CSS `:hover` / `:focus-within` still open panels; this layer keeps
+  // `.is-open` + aria-expanded in sync (needed where pages use
+  // `.is-open`-only !important rules), adds hover-intent open/close,
+  // click-to-toggle (touch), Escape, ArrowDown into the panel, and
+  // click-outside close. Mega-menu category tabs swap the logo grid with
+  // a restartable translateY enter animation.
   function initMegaMenu() {
-    const items = document.querySelectorAll('.has-dropdown.has-megamenu');
+    const items = document.querySelectorAll('.nav-links > li.has-dropdown');
     if (!items.length) return;
 
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const OPEN_DELAY_MS = 120;
+    const CLOSE_DELAY_MS = 180;
+
+    function canHoverOpen() {
+      try {
+        return window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      } catch (_) {
+        return true;
+      }
+    }
+
     function closeItem(item, focusTrigger) {
+      if (item._navOpenTimer) {
+        clearTimeout(item._navOpenTimer);
+        item._navOpenTimer = null;
+      }
+      if (item._navCloseTimer) {
+        clearTimeout(item._navCloseTimer);
+        item._navCloseTimer = null;
+      }
       if (!item.classList.contains('is-open')) return;
       item.classList.remove('is-open');
-      const trigger = item.querySelector('a');
+      const trigger = item.querySelector(':scope > a');
       if (trigger) {
         trigger.setAttribute('aria-expanded', 'false');
         if (focusTrigger) trigger.focus();
       }
     }
 
+    function openItem(item) {
+      if (item._navCloseTimer) {
+        clearTimeout(item._navCloseTimer);
+        item._navCloseTimer = null;
+      }
+      if (item._navOpenTimer) {
+        clearTimeout(item._navOpenTimer);
+        item._navOpenTimer = null;
+      }
+      closeAll(item);
+      item.classList.add('is-open');
+      const trigger = item.querySelector(':scope > a');
+      if (trigger) trigger.setAttribute('aria-expanded', 'true');
+    }
+
     function closeAll(except) {
       items.forEach(item => { if (item !== except) closeItem(item, false); });
     }
 
+    function playPaneEnter(pane) {
+      const grid = pane && pane.querySelector('.mm-companies');
+      if (!grid) return;
+      grid.classList.remove('is-entering');
+      if (reduceMotion.matches) return;
+      // Force restart so rapid category switches never stack mid-flight.
+      void grid.offsetWidth;
+      grid.classList.add('is-entering');
+    }
+
+    function selectCategory(menu, catId, opts) {
+      const options = opts || {};
+      const cats = menu.querySelectorAll('.mm-cat');
+      const panes = menu.querySelectorAll('.mm-pane');
+      if (!cats.length || !panes.length) return;
+
+      let matched = false;
+      cats.forEach(btn => {
+        const on = btn.getAttribute('data-mm-cat') === catId;
+        btn.classList.toggle('is-active', on);
+        btn.setAttribute('aria-selected', String(on));
+        btn.tabIndex = on ? 0 : -1;
+        if (on) matched = true;
+      });
+      if (!matched && cats[0]) {
+        selectCategory(menu, cats[0].getAttribute('data-mm-cat'), options);
+        return;
+      }
+
+      panes.forEach(pane => {
+        const on = pane.getAttribute('data-mm-pane') === catId;
+        pane.classList.toggle('is-active', on);
+        if (on) {
+          pane.removeAttribute('hidden');
+          if (options.animate !== false) playPaneEnter(pane);
+          else {
+            const grid = pane.querySelector('.mm-companies');
+            if (grid) grid.classList.remove('is-entering');
+          }
+        } else {
+          pane.setAttribute('hidden', '');
+          const grid = pane.querySelector('.mm-companies');
+          if (grid) grid.classList.remove('is-entering');
+        }
+      });
+    }
+
+    function initCategoryTabs(menu) {
+      const cats = menu.querySelectorAll('.mm-cat');
+      if (!cats.length) return;
+
+      const active = menu.querySelector('.mm-cat.is-active') || cats[0];
+      selectCategory(menu, active.getAttribute('data-mm-cat'), { animate: false });
+
+      cats.forEach((btn, index) => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          selectCategory(menu, btn.getAttribute('data-mm-cat'), { animate: true });
+        });
+
+        btn.addEventListener('keydown', (e) => {
+          let next = -1;
+          if (e.key === 'ArrowDown' || e.key === 'ArrowRight') next = (index + 1) % cats.length;
+          else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') next = (index - 1 + cats.length) % cats.length;
+          else if (e.key === 'Home') next = 0;
+          else if (e.key === 'End') next = cats.length - 1;
+          else if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            selectCategory(menu, btn.getAttribute('data-mm-cat'), { animate: true });
+            return;
+          } else {
+            return;
+          }
+          e.preventDefault();
+          const target = cats[next];
+          selectCategory(menu, target.getAttribute('data-mm-cat'), { animate: true });
+          target.focus();
+        });
+      });
+
+      // Hover intent: swap pane while pointer moves across category blocks.
+      cats.forEach(btn => {
+        btn.addEventListener('mouseenter', () => {
+          if (btn.classList.contains('is-active')) return;
+          selectCategory(menu, btn.getAttribute('data-mm-cat'), { animate: true });
+        });
+      });
+    }
+
     items.forEach(item => {
-      const trigger = item.querySelector('a');
+      const trigger = item.querySelector(':scope > a');
       const menu = item.querySelector('.nav-dropdown');
       if (!trigger || !menu) return;
 
+      const isMega = item.classList.contains('has-megamenu');
       trigger.setAttribute('aria-haspopup', 'true');
       trigger.setAttribute('aria-expanded', 'false');
+      if (isMega) initCategoryTabs(menu);
 
       trigger.addEventListener('click', (e) => {
+        const hoverCapable = canHoverOpen();
+        // Desktop fine-pointer: simple dropdown triggers keep their href
+        // (hover already reveals the panel). Mega trigger and touch/coarse
+        // pointers toggle `.is-open` instead.
+        if (!isMega && hoverCapable) return;
+
         e.preventDefault();
+        if (item._navOpenTimer) {
+          clearTimeout(item._navOpenTimer);
+          item._navOpenTimer = null;
+        }
+        if (item._navCloseTimer) {
+          clearTimeout(item._navCloseTimer);
+          item._navCloseTimer = null;
+        }
         const willOpen = !item.classList.contains('is-open');
         closeAll(item);
         item.classList.toggle('is-open', willOpen);
         trigger.setAttribute('aria-expanded', String(willOpen));
+      });
+
+      // Desktop hover-intent open/close (fine pointer only).
+      item.addEventListener('mouseenter', () => {
+        if (!canHoverOpen()) return;
+        if (item._navCloseTimer) {
+          clearTimeout(item._navCloseTimer);
+          item._navCloseTimer = null;
+        }
+        if (item.classList.contains('is-open') || item._navOpenTimer) return;
+        item._navOpenTimer = setTimeout(() => {
+          item._navOpenTimer = null;
+          openItem(item);
+        }, OPEN_DELAY_MS);
+      });
+      item.addEventListener('mouseleave', () => {
+        if (!canHoverOpen()) return;
+        if (item._navOpenTimer) {
+          clearTimeout(item._navOpenTimer);
+          item._navOpenTimer = null;
+        }
+        if (item._navCloseTimer) clearTimeout(item._navCloseTimer);
+        item._navCloseTimer = setTimeout(() => {
+          item._navCloseTimer = null;
+          if (!item.matches(':focus-within')) closeItem(item, false);
+        }, CLOSE_DELAY_MS);
       });
 
       item.addEventListener('keydown', (e) => {
@@ -160,11 +339,16 @@
           closeItem(item, true);
         } else if (e.key === 'ArrowDown' && e.target === trigger) {
           e.preventDefault();
-          closeAll(item);
-          item.classList.add('is-open');
-          trigger.setAttribute('aria-expanded', 'true');
-          const firstLink = menu.querySelector('a');
-          if (firstLink) firstLink.focus();
+          openItem(item);
+          if (isMega) {
+            const firstCat = menu.querySelector('.mm-cat.is-active') || menu.querySelector('.mm-cat');
+            const firstLink = menu.querySelector('.mm-pane.is-active .mm-company');
+            if (firstCat) firstCat.focus();
+            else if (firstLink) firstLink.focus();
+          } else {
+            const firstLink = menu.querySelector('a');
+            if (firstLink) firstLink.focus();
+          }
         }
       });
 

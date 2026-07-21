@@ -39,7 +39,6 @@ const ROLE_FIXES = {
     'leadership.27': 'المدير المالي · AFICD',
     'leadership.24': 'المدير العام · ATL',
     'leadership.52': 'مدير العمليات · مجموعة ليك',
-    'leadership.55': 'مدير المشروع · ليك أغرو',
     'leadership.17': 'ديليب كومار',
     'leadership.9': 'علي إضحى عوض',
   },
@@ -48,7 +47,6 @@ const ROLE_FIXES = {
     'leadership.27': 'मुख्य वित्तीय अधिकारी · AFICD',
     'leadership.24': 'प्रबंध निदेशक · ATL',
     'leadership.52': 'संचालन निदेशक · लेक ग्रुप',
-    'leadership.55': 'परियोजना प्रबंधक · लेक एग्रो',
     'leadership.9': 'अल्ली एधा अवध',
   },
   sw: {
@@ -174,7 +172,6 @@ const NAME_KEYS = {
   'Mohammed Khalid': 'leadership.23',
   'Bibhuti Singh': 'leadership.26',
   'Juma Nuru': 'leadership.51',
-  'Nassoro Abubakari': 'leadership.54',
 };
 
 const CT_ICONS = {

@@ -155,13 +155,6 @@
   line-height: 1.2;
 }
 
-#chat-widget.la-widget .la-head p {
-  margin: 2px 0 0;
-  color: var(--la-on-brand-muted);
-  font-size: 0.72rem;
-  line-height: 1.3;
-}
-
 #chat-widget.la-widget .la-head-actions {
   display: flex;
   gap: 4px;

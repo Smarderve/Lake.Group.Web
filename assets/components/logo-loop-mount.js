@@ -20,7 +20,10 @@
     { src: 'assets/images/logos/companies/lake-buildings.png', alt: 'Lake Buildings', title: 'Lake Buildings', href: 'lake-buildings.html' },
     { src: 'assets/images/logos/companies/lake-plastics.png', alt: 'Lake Plastics', title: 'Lake Plastics', href: 'lake-plastics.html' },
     { src: 'assets/images/logos/companies/lake-premix-cement.png', alt: 'Lake Premix & Cement', title: 'Lake Premix & Cement', href: 'lake-premix-cement.html' },
+    { src: 'assets/images/logos/companies/lake-cylinders.png?v=58', alt: 'Lake Cylinders', title: 'Lake Cylinders', href: 'lake-cylinders.html' },
     { src: 'assets/images/logos/companies/gulf-aggregates.png', alt: 'Gulf Aggregates', title: 'Gulf Aggregates', href: 'gulf-aggregates.html' },
+    { src: 'assets/images/logos/companies/aficd.png?v=58', alt: 'AFICD', title: 'AFICD', href: 'aficd.html' },
+    { src: 'assets/images/logos/companies/aill.png?v=58', alt: 'AILL', title: 'AILL', href: 'aill.html' },
     /* Tight-crop marks read larger than padded Lake logos at the same CSS height */
     /* Circles-only ATL mark (no tagline) — matches brand sheet */
     { src: 'assets/images/logos/companies/atl.png?v=53', alt: 'ATL', title: 'ATL', href: 'atl.html', scale: 0.9 },

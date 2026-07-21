@@ -11,7 +11,7 @@
 
 'use strict';
 
-const VERSION = 'v47';
+const VERSION = 'v52';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -35,6 +35,8 @@ const PRECACHE_URLS = [
   './manifest.webmanifest',
   './assets/pwa.js',
   './assets/site.js',
+  './assets/skeleton.css',
+  './assets/skeleton.js',
   // Design chrome is intentionally NOT precached: interiors depend on
   // flagship.css + tokens.css for the blue nav. Precaching them made
   // Checkpoint 001/002 deploys look "home-only new" for returning visitors.

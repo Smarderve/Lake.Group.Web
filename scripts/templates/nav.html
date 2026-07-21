@@ -9,37 +9,53 @@
       <li class="has-dropdown has-megamenu">
         <a href="services.html" id="nav-companies-trigger" data-i18n="nav.companies" aria-haspopup="true" aria-expanded="false" aria-controls="nav-companies-menu">Subsidiaries &#9662;</a>
         <div class="nav-dropdown nav-megamenu" id="nav-companies-menu" role="menu" data-i18n-aria="mob.companies" aria-label="Subsidiaries">
-          <div class="mm-col" role="none">
-            <div class="dd-label" data-i18n="nav.dd.energies">Lake Energies</div>
-            <a href="lake-oil.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-oil.png" alt="Lake Oil" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeOil">Lake Oil</span></a>
-            <a href="lake-aviation.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-aviation.png" alt="Lake Aviation" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeAviation">Lake Aviation</span></a>
-            <a href="lake-gas.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-gas.png" alt="Lake Gas" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeGas">Lake Gas</span></a>
-            <a href="lake-lubes.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-lubes.png" alt="Lake Lubes" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeLubes">Lake Lubes</span></a>
-          </div>
-          <div class="mm-col" role="none">
-            <div class="dd-label" data-i18n="nav.dd.manufacturing">Manufacturing</div>
-            <a href="lake-buildings.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-buildings.png" alt="Lake Buildings" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeBuildings">Lake Buildings</span></a>
-            <a href="lake-plastics.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-plastics.png" alt="Lake Plastics" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakePlastics">Lake Plastics</span></a>
-            <a href="lake-steel.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-steel.png" alt="Lake Steel" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeSteel">Lake Steel</span></a>
-            <a href="lake-cylinders.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="Lake Cylinders" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeCylinders">Lake Cylinders</span></a>
-            <a href="gulf-aggregates.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/gulf-aggregates.png" alt="Gulf Aggregates" loading="lazy" width="56" height="32"><span data-i18n="nav.co.gulfAggregates">Gulf Aggregates</span></a>
-            <a href="atl.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/atl.png?v=53" alt="ATL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.atl">ATL</span></a>
-            <a href="lake-premix-cement.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-premix-cement.png" alt="Lake Premix and Cement" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</span></a>
-          </div>
-          <div class="mm-col" role="none">
-            <div class="dd-label" data-i18n="nav.dd.logisticsCos">Logistics</div>
-            <a href="aficd.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="AFICD" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aficd">AFICD</span></a>
-            <a href="aill.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="AILL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aill">AILL</span></a>
-            <a href="lake-trans.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-trans.png" alt="Lake Trans" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeTrans">Lake Trans</span></a>
-          </div>
-          <div class="mm-col" role="none">
-            <div class="dd-label" data-i18n="nav.dd.realEstate">Real Estate</div>
-            <a href="cross-country.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/cross-country.png" alt="Cross Country" loading="lazy" width="56" height="32"><span data-i18n="nav.co.crossCountry">Cross Country</span></a>
-            <a href="ocean-galleria.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/ocean-galleria.png" alt="Ocean Galleria" loading="lazy" width="56" height="32"><span data-i18n="nav.co.oceanGalleria">Ocean Galleria</span></a>
-          </div>
-          <div class="mm-col" role="none">
-            <div class="dd-label" data-i18n="nav.dd.agro">Agro Processing</div>
-            <a href="lake-agro.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-agro.png?v=48" alt="Lake Agro" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeAgro">Lake Agro</span></a>
+          <div class="mm-layout">
+            <div class="mm-cats" role="tablist" aria-orientation="vertical" aria-label="Subsidiary categories">
+              <button type="button" class="mm-cat is-active" role="tab" id="mm-tab-energies" data-mm-cat="energies" aria-controls="mm-pane-energies" aria-selected="true" tabindex="0" data-i18n="nav.dd.energies">Lake Energies</button>
+              <button type="button" class="mm-cat" role="tab" id="mm-tab-manufacturing" data-mm-cat="manufacturing" aria-controls="mm-pane-manufacturing" aria-selected="false" tabindex="-1" data-i18n="nav.dd.manufacturing">Manufacturing</button>
+              <button type="button" class="mm-cat" role="tab" id="mm-tab-logistics" data-mm-cat="logistics" aria-controls="mm-pane-logistics" aria-selected="false" tabindex="-1" data-i18n="nav.dd.logisticsCos">Logistics</button>
+              <button type="button" class="mm-cat" role="tab" id="mm-tab-realestate" data-mm-cat="realestate" aria-controls="mm-pane-realestate" aria-selected="false" tabindex="-1" data-i18n="nav.dd.realEstate">Real Estate</button>
+              <button type="button" class="mm-cat" role="tab" id="mm-tab-agro" data-mm-cat="agro" aria-controls="mm-pane-agro" aria-selected="false" tabindex="-1" data-i18n="nav.dd.agro">Agro Processing</button>
+            </div>
+            <div class="mm-panes">
+              <div class="mm-pane is-active" role="tabpanel" id="mm-pane-energies" data-mm-pane="energies" aria-labelledby="mm-tab-energies">
+                <div class="mm-companies">
+                  <a href="lake-oil.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-oil.png" alt="Lake Oil" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeOil">Lake Oil</span></a>
+                  <a href="lake-aviation.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-aviation.png" alt="Lake Aviation" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeAviation">Lake Aviation</span></a>
+                  <a href="lake-gas.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-gas.png" alt="Lake Gas" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeGas">Lake Gas</span></a>
+                  <a href="lake-lubes.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-lubes.png" alt="Lake Lubes" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeLubes">Lake Lubes</span></a>
+                </div>
+              </div>
+              <div class="mm-pane" role="tabpanel" id="mm-pane-manufacturing" data-mm-pane="manufacturing" aria-labelledby="mm-tab-manufacturing" hidden>
+                <div class="mm-companies">
+                  <a href="lake-buildings.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-buildings.png" alt="Lake Buildings" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeBuildings">Lake Buildings</span></a>
+                  <a href="lake-plastics.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-plastics.png" alt="Lake Plastics" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakePlastics">Lake Plastics</span></a>
+                  <a href="lake-steel.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-steel.png" alt="Lake Steel" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeSteel">Lake Steel</span></a>
+                  <a href="lake-cylinders.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="Lake Cylinders" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeCylinders">Lake Cylinders</span></a>
+                  <a href="gulf-aggregates.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/gulf-aggregates.png" alt="Gulf Aggregates" loading="lazy" width="56" height="32"><span data-i18n="nav.co.gulfAggregates">Gulf Aggregates</span></a>
+                  <a href="atl.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/atl.png?v=53" alt="ATL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.atl">ATL</span></a>
+                  <a href="lake-premix-cement.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-premix-cement.png" alt="Lake Premix and Cement" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</span></a>
+                </div>
+              </div>
+              <div class="mm-pane" role="tabpanel" id="mm-pane-logistics" data-mm-pane="logistics" aria-labelledby="mm-tab-logistics" hidden>
+                <div class="mm-companies">
+                  <a href="aficd.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="AFICD" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aficd">AFICD</span></a>
+                  <a href="aill.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="AILL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aill">AILL</span></a>
+                  <a href="lake-trans.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-trans.png" alt="Lake Trans" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeTrans">Lake Trans</span></a>
+                </div>
+              </div>
+              <div class="mm-pane" role="tabpanel" id="mm-pane-realestate" data-mm-pane="realestate" aria-labelledby="mm-tab-realestate" hidden>
+                <div class="mm-companies">
+                  <a href="cross-country.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/cross-country.png" alt="Cross Country" loading="lazy" width="56" height="32"><span data-i18n="nav.co.crossCountry">Cross Country</span></a>
+                  <a href="ocean-galleria.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/ocean-galleria.png" alt="Ocean Galleria" loading="lazy" width="56" height="32"><span data-i18n="nav.co.oceanGalleria">Ocean Galleria</span></a>
+                </div>
+              </div>
+              <div class="mm-pane" role="tabpanel" id="mm-pane-agro" data-mm-pane="agro" aria-labelledby="mm-tab-agro" hidden>
+                <div class="mm-companies">
+                  <a href="lake-agro.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-agro.png?v=48" alt="Lake Agro" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeAgro">Lake Agro</span></a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </li>
@@ -108,4 +124,3 @@
     <button class="nav-toggle" id="nav-toggle" data-i18n-aria="nav.menu" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
-

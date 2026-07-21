@@ -33,7 +33,7 @@ All functional, visual, and PWA defects found during QA are fixed and verified. 
 
 ## Flagged, NOT fixed (needs client/editorial review)
 
-- **Leadership names and tenures** — `leadership.html` names executives (Juma Nuru, Nassoro Abubakari) beyond the founder/CEO. Per the research dataset (`scripts/_verified_lake_facts.md`), **only Ally Edha Awadh (Chairman & Group CEO) is verifiable from official Lake Group sources**; other executive names/titles/tenures could not be confirmed and must be validated by the client before launch.
+- **Leadership names and tenures** — `leadership.html` names executives (e.g. Juma Nuru) beyond the founder/CEO. Per the research dataset (`scripts/_verified_lake_facts.md`), **only Ally Edha Awadh (Chairman & Group CEO) is verifiable from official Lake Group sources**; other executive names/titles/tenures could not be confirmed and must be validated by the client before launch.
 - **"20+ subsidiaries" claim** (`index.html`) — the verified-facts dataset enumerates roughly 15 distinct legal entities/country operations from official sources. "20+" may be accurate internally but is not externally verifiable; confirm with the client.
 - **Fleet-size conflict** — official Lake Group sources themselves conflict (600 / 1,200+ / 750 / 850+ vehicles). The site should consistently use "1,200+" (the about-page figure) per the facts dataset; worth a final editorial sweep.
 - **i18n dictionary orphans** (`scripts/_qa_i18n_orphans.txt`) — 12 keys exist in the dictionary but not in page markup: 11 are `chat.reply.*` keys **used by the chat widget JS** (intentional), plus `about.34` which appears genuinely unused (harmless dead data, safe to leave).

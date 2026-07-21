@@ -33,17 +33,23 @@ window.LakeI18n = (function () {
   const STORAGE_KEY = 'lake-lang';
   const SUPPORTED = ['en', 'fr', 'sw', 'hi', 'ar'];
   const RTL_LANGS = ['ar'];
+  // ASCII-safe escapes so labels survive encoding mishaps in editors/tooling.
   const LANG_LABELS = {
     en: 'English',
-    fr: 'Français',
+    fr: 'Fran\u00e7ais',
     sw: 'Swahili',
-    hi: 'हिन्दी',
-    ar: 'العربية'
+    hi: '\u0939\u093f\u0928\u094d\u0926\u0940',
+    ar: '\u0627\u0644\u0639\u0631\u0628\u064a\u0629'
   };
 
   let dictionaries = null;
   let current = 'en';
+  let hoverOpenTimer = null;
   let hoverCloseTimer = null;
+  // Distinguish Tab focus (open menu) from pointer focus (click owns toggle).
+  let keyboardIntent = false;
+  const LANG_OPEN_DELAY_MS = 200;
+  const LANG_CLOSE_DELAY_MS = 180;
 
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -187,11 +193,19 @@ window.LakeI18n = (function () {
     });
   }
 
-  function closeAllMenus() {
+  function clearHoverTimers() {
+    if (hoverOpenTimer) {
+      clearTimeout(hoverOpenTimer);
+      hoverOpenTimer = null;
+    }
     if (hoverCloseTimer) {
       clearTimeout(hoverCloseTimer);
       hoverCloseTimer = null;
     }
+  }
+
+  function closeAllMenus() {
+    clearHoverTimers();
     document.querySelectorAll('.lang-switcher').forEach((root) => {
       root.classList.remove('is-open');
       const trigger = root.querySelector('.lang-trigger');
@@ -269,7 +283,9 @@ window.LakeI18n = (function () {
     root.dataset.i18nBound = '1';
 
     const trigger = root.querySelector('.lang-trigger');
+    const icons = root.querySelector('.lang-icons');
     if (trigger) {
+      // Click/tap is the primary open path on all devices.
       trigger.addEventListener('click', (e) => {
         // Pair suggestion click switches language immediately.
         const suggestEl = e.target.closest && e.target.closest('[data-lang-suggest]');
@@ -282,7 +298,14 @@ window.LakeI18n = (function () {
         }
         e.preventDefault();
         e.stopPropagation();
+        clearHoverTimers();
         toggleMenu(root);
+      });
+      // Keyboard only: open when Tab lands on the trigger (not pointer focus).
+      trigger.addEventListener('focus', () => {
+        if (!keyboardIntent) return;
+        clearHoverTimers();
+        toggleMenu(root, true);
       });
     }
 
@@ -294,30 +317,60 @@ window.LakeI18n = (function () {
       });
     });
 
-    // Desktop: open on hover; keep click/tap for touch + keyboard.
+    // Desktop hover: open only from the globe/icons hit-area (not English|Swahili
+    // text or surrounding nav padding), with intent delay like mega-menus.
+    if (icons) {
+      icons.addEventListener('mouseenter', () => {
+        if (!canHoverOpen()) return;
+        if (hoverCloseTimer) {
+          clearTimeout(hoverCloseTimer);
+          hoverCloseTimer = null;
+        }
+        if (root.classList.contains('is-open') || hoverOpenTimer) return;
+        hoverOpenTimer = setTimeout(() => {
+          hoverOpenTimer = null;
+          toggleMenu(root, true);
+        }, LANG_OPEN_DELAY_MS);
+      });
+      icons.addEventListener('mouseleave', () => {
+        if (hoverOpenTimer) {
+          clearTimeout(hoverOpenTimer);
+          hoverOpenTimer = null;
+        }
+      });
+    }
+
+    // Cancel pending close while pointer is over trigger + open panel.
     root.addEventListener('mouseenter', () => {
-      if (!canHoverOpen()) return;
       if (hoverCloseTimer) {
         clearTimeout(hoverCloseTimer);
         hoverCloseTimer = null;
       }
-      toggleMenu(root, true);
     });
     root.addEventListener('mouseleave', () => {
       if (!canHoverOpen()) return;
+      if (hoverOpenTimer) {
+        clearTimeout(hoverOpenTimer);
+        hoverOpenTimer = null;
+      }
       if (hoverCloseTimer) clearTimeout(hoverCloseTimer);
       hoverCloseTimer = setTimeout(() => {
-        if (!root.matches(':focus-within')) toggleMenu(root, false);
         hoverCloseTimer = null;
-      }, 140);
-    });
-    root.addEventListener('focusin', () => {
-      toggleMenu(root, true);
+        if (!root.matches(':focus-within')) toggleMenu(root, false);
+      }, LANG_CLOSE_DELAY_MS);
     });
   }
 
   function init() {
     loadDictionaries().then(() => applyAll(current));
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab' || e.key === 'ArrowDown' || e.key === 'ArrowUp' ||
+          e.key === 'Enter' || e.key === ' ') {
+        keyboardIntent = true;
+      }
+    }, true);
+    document.addEventListener('pointerdown', () => { keyboardIntent = false; }, true);
 
     document.querySelectorAll('.lang-switcher').forEach(bindSwitcher);
 

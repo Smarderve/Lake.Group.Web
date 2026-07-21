@@ -137,16 +137,6 @@ const NEW = {
     'leadership.144': 'Group-wide operational coordination',
     'leadership.145': 'Execution discipline across business units',
     'leadership.146': 'Performance monitoring and continuous improvement',
-    // Nassoro
-    'leadership.147':
-      'Nassoro Abubakari leads project delivery for Lake Agro, the Group’s agribusiness and greenfield development arm.',
-    'leadership.148':
-      'The mandate covers planning and execution of agro programmes, coordination with Group support functions, and keeping delivery timelines aligned with commercial and operational goals.',
-    'leadership.149':
-      'Lake Agro sits within Lake Group’s wider diversification strategy - extending the organisation’s capabilities beyond energy and logistics into agriculture-linked development.',
-    'leadership.150': 'Lake Agro project planning & delivery',
-    'leadership.151': 'Greenfield and agribusiness programme coordination',
-    'leadership.152': 'Stakeholder alignment with Group functions',
     'leadership.153': 'Multi-country',
     'leadership.16':
       'The executives driving Lake Group across energy, manufacturing, operations and agribusiness.'
@@ -269,15 +259,6 @@ NEW.fr = {
   'leadership.144': 'Coordination opérationnelle à l’échelle du Groupe',
   'leadership.145': 'Discipline d’exécution entre unités métier',
   'leadership.146': 'Suivi de performance et amélioration continue',
-  'leadership.147':
-    'Nassoro Abubakari dirige la livraison de projets pour Lake Agro, le bras agroalimentaire et de développement greenfield du Groupe.',
-  'leadership.148':
-    'Le mandat couvre la planification et l’exécution des programmes agro, la coordination avec les fonctions support du Groupe, et l’alignement des délais de livraison sur les objectifs commerciaux et opérationnels.',
-  'leadership.149':
-    'Lake Agro s’inscrit dans la stratégie de diversification plus large de Lake Group - étendant les capacités de l’organisation au-delà de l’énergie et de la logistique vers le développement lié à l’agriculture.',
-  'leadership.150': 'Planification et livraison des projets Lake Agro',
-  'leadership.151': 'Coordination des programmes greenfield et agroalimentaires',
-  'leadership.152': 'Alignement des parties prenantes avec les fonctions du Groupe',
   'leadership.153': 'Multi-pays',
   'leadership.16':
     'Les dirigeants qui pilotent Lake Group dans l’énergie, la fabrication, les opérations et l’agroalimentaire.'
@@ -399,15 +380,6 @@ NEW.sw = {
   'leadership.144': 'Uratibu wa kioperesheni kote katika Kundi',
   'leadership.145': 'Nidhamu ya utekelezaji katika vitengo vya biashara',
   'leadership.146': 'Ufuatiliaji wa utendaji na uboreshaji endelevu',
-  'leadership.147':
-    'Nassoro Abubakari anaongoza utoaji wa miradi kwa Lake Agro, tawi la Kilimo na maendeleo ya greenfield la Kundi.',
-  'leadership.148':
-    'Jukumu linajumuisha kupanga na kutekeleza programu za kilimo, uratibu na majukumu ya msaada ya Kundi, na kuweka ratiba za utoaji zikilingana na malengo ya kibiashara na uendeshaji.',
-  'leadership.149':
-    'Lake Agro iko ndani ya mkakati mpana wa mseto wa Lake Group - kupanua uwezo wa shirika zaidi ya nishati na usafirishaji hadi maendeleo yanayohusiana na kilimo.',
-  'leadership.150': 'Mipango na utoaji wa miradi ya Lake Agro',
-  'leadership.151': 'Uratibu wa programu za greenfield na kilimo biashara',
-  'leadership.152': 'Ulinganishaji wa wadau na majukumu ya Kundi',
   'leadership.153': 'Nchi nyingi',
   'leadership.16':
     'Watendaji wanaoendesha Lake Group katika nishati, utengenezaji, uendeshaji na kilimo biashara.'
@@ -529,15 +501,6 @@ NEW.hi = {
   'leadership.144': 'समूह-व्यापी परिचालन समन्वय',
   'leadership.145': 'व्यावसायिक इकाइयों में निष्पादन अनुशासन',
   'leadership.146': 'प्रदर्शन निगरानी और निरंतर सुधार',
-  'leadership.147':
-    'नस्सोरो अबूबकरी Lake Agro के लिए परियोजना डिलीवरी का नेतृत्व करते हैं - समूह की कृषि-व्यवसाय और ग्रीनफ़ील्ड विकास शाखा।',
-  'leadership.148':
-    'जनादेश में एग्रो कार्यक्रमों की योजना और निष्पादन, समूह सहायता कार्यों के साथ समन्वय, तथा वाणिज्यिक और परिचालन लक्ष्यों के साथ डिलीवरी समयसीमा का संरेखण शामिल है।',
-  'leadership.149':
-    'Lake Agro Lake Group की व्यापक विविधीकरण रणनीति के भीतर है - ऊर्जा और लॉजिस्टिक्स से आगे कृषि-संबद्ध विकास में संगठन की क्षमताओं का विस्तार।',
-  'leadership.150': 'Lake Agro परियोजना नियोजन और डिलीवरी',
-  'leadership.151': 'ग्रीनफ़ील्ड और कृषि-व्यवसाय कार्यक्रम समन्वय',
-  'leadership.152': 'समूह कार्यों के साथ हितधारक संरेखण',
   'leadership.153': 'बहु-देशीय',
   'leadership.16':
     'ऊर्जा, विनिर्माण, ऑपरेशन्स और कृषि-व्यवसाय में Lake Group को आगे बढ़ाने वाले कार्यकारी।'
@@ -659,15 +622,6 @@ NEW.ar = {
   'leadership.144': 'التنسيق التشغيلي على مستوى المجموعة',
   'leadership.145': 'انضباط التنفيذ عبر وحدات الأعمال',
   'leadership.146': 'مراقبة الأداء والتحسين المستمر',
-  'leadership.147':
-    'يقود ناسورو أبو بكر تسليم المشاريع لـ Lake Agro، ذراع الأعمال الزراعية وتطوير المشاريع الجديدة في المجموعة.',
-  'leadership.148':
-    'يشمل التفويض تخطيط وتنفيذ برامج الزراعة والتنسيق مع وظائف دعم المجموعة ومواءمة جداول التسليم مع الأهداف التجارية والتشغيلية.',
-  'leadership.149':
-    'تقع Lake Agro ضمن استراتيجية التنويع الأوسع لـ Lake Group - توسيع قدرات المنظمة خارج الطاقة واللوجستيات إلى التطوير المرتبط بالزراعة.',
-  'leadership.150': 'تخطيط وتسليم مشاريع Lake Agro',
-  'leadership.151': 'تنسيق برامج المشاريع الجديدة والأعمال الزراعية',
-  'leadership.152': 'مواءمة أصحاب المصلحة مع وظائف المجموعة',
   'leadership.153': 'متعدد البلدان',
   'leadership.16':
     'المسؤولون التنفيذيون الذين يقودون Lake Group عبر الطاقة والتصنيع والعمليات والأعمال الزراعية.'
@@ -754,15 +708,6 @@ function wireListing() {
       role: 'Director of Operations · Lake Group',
       sumKey: 'leadership.53',
       sum: 'Leads Group-wide operations across Lake Group’s energy, logistics and industrial units - coordinating day-to-day execution and operational performance.'
-    },
-    {
-      href: 'leadership-nassoro-abubakari.html',
-      nameKey: 'leadership.54',
-      name: 'Nassoro Abubakari',
-      roleKey: 'leadership.55',
-      role: 'Project Manager · Lake Agro',
-      sumKey: 'leadership.56',
-      sum: 'Manages Lake Agro project delivery - greenfield development, agribusiness programmes and related Group project coordination.'
     }
   ];
 
@@ -835,7 +780,7 @@ const PROFILES = {
           <a href="contact.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.67">Contact Group HQ</a>
         </div>
         <div class="lp-nav">
-          <a href="leadership-nassoro-abubakari.html">← Nassoro Abubakari</a>
+          <a href="leadership-juma-nuru.html">← Juma Nuru</a>
           <a href="leadership.html" data-i18n="leadership.58">All leadership</a>
           <a href="leadership-dileep-kumar.html">Dileep Kumar →</a>
         </div>
@@ -1026,44 +971,6 @@ const PROFILES = {
         </div>
         <div class="lp-nav">
           <a href="leadership-bibhuti-singh.html">← Bibhuti Singh</a>
-          <a href="leadership.html" data-i18n="leadership.58">All leadership</a>
-          <a href="leadership-nassoro-abubakari.html">Nassoro Abubakari →</a>
-        </div>
-      `
-  },
-  'leadership-nassoro-abubakari.html': {
-    name: 'Nassoro Abubakari',
-    article: `
-        <div class="lp-unit" data-i18n="leadership.79">Agro Processing</div>
-        <h1 class="lp-name">Nassoro Abubakari</h1>
-        <p class="lp-role" data-i18n="leadership.55">Project Manager · Lake Agro</p>
-        <p class="lp-lede" data-i18n="leadership.56">Manages Lake Agro project delivery - greenfield development, agribusiness programmes and related Group project coordination.</p>
-        <p data-i18n="leadership.147">${NEW.en['leadership.147']}</p>
-        <p data-i18n="leadership.148">${NEW.en['leadership.148']}</p>
-        <p data-i18n="leadership.149">${NEW.en['leadership.149']}</p>
-        
-        <ul class="lp-mandate">
-          <li><span>01</span><span data-i18n="leadership.150">${NEW.en['leadership.150']}</span></li>
-          <li><span>02</span><span data-i18n="leadership.151">${NEW.en['leadership.151']}</span></li>
-          <li><span>03</span><span data-i18n="leadership.152">${NEW.en['leadership.152']}</span></li>
-        </ul>
-        <div class="lp-meta">
-        <div><strong data-i18n="leadership.88">Unit</strong><span data-i18n="nav.co.lakeAgro">Lake Agro</span></div>
-        <div><strong data-i18n="leadership.80">Focus</strong><span data-i18n="leadership.89">Projects</span></div>
-        <div><strong data-i18n="leadership.90">Type</strong><span data-i18n="leadership.91">Greenfield / Agro</span></div>
-        </div>
-        <div class="lp-contact">
-          <div><strong data-i18n="leadership.59">Group HQ</strong><span data-i18n="leadership.109">${HQ_ADDR}</span></div>
-          <div><strong data-i18n="leadership.60">Phone</strong><a href="tel:+255222780510">+255 222 780 510</a> · <a href="tel:+255222780479">+255 222 780 479</a></div>
-          <div><strong data-i18n="leadership.61">Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20Project%20Manager%20Lake%20Agro%20(Nassoro%20Abubakari)">admin@lakeoilgroup.com</a></div>
-        </div>
-        <div class="lp-links">
-          <a href="https://lakeagro.com/" class="btn btn-outline-dark btn-sm" target="_blank" rel="noopener noreferrer" data-i18n="nav.co.lakeAgro">Lake Agro</a>
-          <a href="projects.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.71">Major projects</a>
-          <a href="contact.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.64">Contact</a>
-        </div>
-        <div class="lp-nav">
-          <a href="leadership-juma-nuru.html">← Juma Nuru</a>
           <a href="leadership.html" data-i18n="leadership.58">All leadership</a>
           <a href="leadership-ally-edha-awadh.html">Ally Edha Awadh →</a>
         </div>

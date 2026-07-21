@@ -1,0 +1,209 @@
+/* ==========================================================================
+   Lake Group — sitewide skeleton / first-paint loading overlay
+   Wired by scripts/add_skeleton_tags.js + assets/skeleton.js
+   Brand blues / neutral shimmer only (no purple).
+   ========================================================================== */
+
+/* Early veil before #lg-skel mounts (CSS may land before JS). */
+html.lg-loading {
+  overflow: hidden;
+}
+
+html.lg-loading::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 99989;
+  background: #ffffff;
+  pointer-events: none;
+}
+
+html.lg-skel-done::before {
+  display: none;
+}
+
+#lg-skel {
+  position: fixed;
+  inset: 0;
+  z-index: 99990;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  pointer-events: all;
+  opacity: 1;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+  visibility: visible;
+}
+
+#lg-skel.lg-skel-hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+html.lg-skel-done #lg-skel {
+  display: none;
+}
+
+.lg-skel-nav {
+  flex: 0 0 auto;
+  height: var(--navbar-height, 72px);
+  background: #0181bb;
+  border-bottom: 3px solid #fff200;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  gap: 28px;
+}
+
+.lg-skel-logo {
+  width: 140px;
+  height: 36px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.lg-skel-nav-links {
+  display: flex;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.lg-skel-pill {
+  width: 64px;
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.lg-skel-main {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: linear-gradient(160deg, #013f5c 0%, #0181bb 55%, #0599d3 100%);
+  padding: clamp(48px, 10vh, 96px) 24px 48px;
+}
+
+.lg-skel-hero {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.lg-skel-line {
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.lg-skel-eyebrow {
+  width: 120px;
+  height: 12px;
+}
+
+.lg-skel-title {
+  width: min(520px, 72%);
+  height: 48px;
+}
+
+.lg-skel-title-sm {
+  width: min(360px, 55%);
+  height: 36px;
+}
+
+.lg-skel-lede {
+  width: min(440px, 68%);
+  height: 14px;
+  margin-top: 4px;
+}
+
+.lg-skel-cta {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.lg-skel-btn {
+  width: 128px;
+  height: 40px;
+  border-radius: 4px;
+  background: rgba(255, 242, 0, 0.85);
+}
+
+.lg-skel-btn-ghost {
+  width: 112px;
+  height: 40px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.lg-skel-blocks {
+  max-width: 1200px;
+  width: 100%;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.lg-skel-card {
+  height: 88px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Shimmer — brand blue / white, not purple */
+.lg-skel-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.lg-skel-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 40%,
+    rgba(5, 153, 211, 0.28) 50%,
+    rgba(255, 255, 255, 0.08) 60%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  animation: lg-skel-shimmer 1.35s ease-in-out infinite;
+}
+
+@keyframes lg-skel-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (max-width: 760px) {
+  .lg-skel-nav-links {
+    display: none;
+  }
+
+  .lg-skel-blocks {
+    grid-template-columns: 1fr;
+  }
+
+  .lg-skel-title {
+    height: 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lg-skel-shimmer::after {
+    animation: none;
+    display: none;
+  }
+
+  #lg-skel {
+    transition: none;
+  }
+}
