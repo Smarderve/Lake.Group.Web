@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    LAKE GROUP  FLAGSHIP DESIGN SYSTEM  (flagship.css)
    ==========================================================================
    Complete visual reset. Replaces theme.css on migrated pages (a migrated
@@ -7,12 +7,12 @@
 
    Brand chrome (navbar, page-hero shell, logo size, blues/yellow) comes from
    assets/tokens.css. Flagship adds the MERIDIAN editorial layer:
-     Â· Deep brand-blue page heroes + optional photo overlays; ink bands only
+     Ã‚Â· Deep brand-blue page heroes + optional photo overlays; ink bands only
        for intentional mid-page dark content sections (not nav/hero chrome).
-     Â· Bebas Neue display + Inter body (Lacoste is print-only per guidelines;
+     Ã‚Â· Bebas Neue display + Inter body (Lacoste is print-only per guidelines;
        not licensed as a webfont here).
-     Â· MERIDIAN TICK + corner registration brackets; Sunrise Yellow accents.
-     Â· No Candy Red (user lock overrides guidelines red swatch).
+     Ã‚Â· MERIDIAN TICK + corner registration brackets; Sunrise Yellow accents.
+     Ã‚Â· No Candy Red (user lock overrides guidelines red swatch).
 
    Never style .experience-3d-* or #fuel-experience  owned elsewhere.
    ========================================================================== */
@@ -45,7 +45,7 @@
   --navy3:  #013F5C;
 
   /* Ink system - mid-page immersive content bands ONLY (not nav / page-hero) */
-  --ink:        #013F5C; /* remapped from near-black #070C1E → deepest brand blue */
+  --ink:        #013F5C; /* remapped from near-black #070C1E â†’ deepest brand blue */
   --ink-2:      #016694;
   --ink-3:      #0181BB;
   --ink-line:   rgba(255,255,255,0.14);
@@ -93,7 +93,7 @@
   --shadow-2: 0 10px 30px -12px rgba(1,63,92,0.22);
   --shadow-3: 0 24px 60px -20px rgba(1,63,92,0.38);
 
-  /* Motion tokens - snappy 300–500ms (clip/mask slightly longer) */
+  /* Motion tokens - snappy 300â€“500ms (clip/mask slightly longer) */
   --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
   --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
   --ease-snap:  cubic-bezier(0.34, 1.3, 0.64, 1);
@@ -321,46 +321,48 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .nav-logo:hover { transform: translateY(-2px) scale(1.02); box-shadow: none; }
 .nav-logo img,
 .site-nav .nav-logo img {
-  height: var(--nav-logo-height) !important;
+  /* Hard px fallbacks: if tokens.css is missing (stale/broken SW), logo must not go intrinsic. */
+  height: var(--nav-logo-height, 48px) !important;
   width: auto !important;
-  max-width: none !important; /* defeat global img { max-width: 100% } */
-  max-height: var(--nav-logo-height);
+  max-width: min(220px, 55vw) !important;
+  max-height: var(--nav-logo-height, 48px);
   display: block;
   object-fit: contain;
   transition: transform var(--dur-2) var(--ease-out), height 0.3s var(--ease-out);
 }
 .site-nav.nav-scrolled .nav-logo { padding: 0; }
 .site-nav.nav-scrolled .nav-logo img {
-  height: var(--nav-logo-height-scrolled) !important;
-  max-height: var(--nav-logo-height-scrolled);
+  height: var(--nav-logo-height-scrolled, 36px) !important;
+  max-height: var(--nav-logo-height-scrolled, 36px);
+  max-width: min(200px, 50vw) !important;
 }
 /* Company pages: same token height; letterboxed squares get optical scale via site.js class */
-body[data-company-logo] { --nav-h: var(--navbar-height); }
+body[data-company-logo] { --nav-h: var(--navbar-height, 72px); }
 body[data-company-logo] .site-nav { overflow: visible; }
-body[data-company-logo] .site-nav.nav-scrolled { height: var(--navbar-height-scrolled); }
-body[data-company-logo] .site-nav.nav-scrolled .nav-links > li { height: var(--navbar-height-scrolled); }
+body[data-company-logo] .site-nav.nav-scrolled { height: var(--navbar-height-scrolled, 60px); }
+body[data-company-logo] .site-nav.nav-scrolled .nav-links > li { height: var(--navbar-height-scrolled, 60px); }
 .nav-logo.nav-logo--company,
 body[data-company-logo] .site-nav .nav-logo {
-  max-width: none;
+  max-width: min(280px, 70vw);
   overflow: visible;
 }
 .nav-logo.nav-logo--company img,
 body[data-company-logo] .site-nav .nav-logo img {
-  height: var(--nav-logo-height) !important;
+  height: var(--nav-logo-height, 48px) !important;
   width: auto !important;
-  max-width: none !important;
-  max-height: var(--nav-logo-height);
+  max-width: min(260px, 65vw) !important;
+  max-height: var(--nav-logo-height, 48px);
   object-fit: contain;
 }
 body[data-company-logo] .site-nav .nav-logo img.nav-logo-img--letterboxed,
 .nav-logo.nav-logo--company img.nav-logo-img--letterboxed {
-  height: calc(var(--nav-logo-height) * var(--nav-logo-letterbox-scale, 1.15)) !important;
-  max-height: none !important;
+  height: calc(var(--nav-logo-height, 48px) * var(--nav-logo-letterbox-scale, 1.15)) !important;
+  max-height: calc(var(--nav-logo-height, 48px) * var(--nav-logo-letterbox-scale, 1.15)) !important;
 }
 body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--letterboxed,
 .site-nav.nav-scrolled .nav-logo.nav-logo--company img.nav-logo-img--letterboxed {
-  height: calc(var(--nav-logo-height-scrolled) * var(--nav-logo-letterbox-scale, 1.15)) !important;
-  max-height: none !important;
+  height: calc(var(--nav-logo-height-scrolled, 36px) * var(--nav-logo-letterbox-scale, 1.15)) !important;
+  max-height: calc(var(--nav-logo-height-scrolled, 36px) * var(--nav-logo-letterbox-scale, 1.15)) !important;
 }
 
 .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; margin-left: auto; }
@@ -377,9 +379,9 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   letter-spacing: var(--nav-link-letter-spacing); text-transform: var(--nav-link-transform);
   transition: color var(--dur-1) ease, background var(--dur-1) ease;
 }
-/* Hide flagship-era chevron glyph; markup already includes â–¾ */
+/* Hide flagship-era chevron glyph; markup already includes Ã¢â€“Â¾ */
 .nav-links > li.has-dropdown > a::before { content: none; display: none; }
-.nav-links > li > a::after { display: none; } /* no underline active â€” pill bg instead */
+.nav-links > li > a::after { display: none; } /* no underline active Ã¢â‚¬â€ pill bg instead */
 .nav-links > li > a:hover,
 .nav-links > li > a.active {
   color: var(--nav-link-active-color);
@@ -500,7 +502,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
 .mm-cats {
   display: flex;
   flex-direction: column;
-  gap: 14px; /* spaced blocks — not a tight stacked list */
+  gap: 14px; /* spaced blocks â€” not a tight stacked list */
   padding: 0;
   border-radius: 0;
   background: transparent;
@@ -697,7 +699,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
     padding: 0;
   }
 }
-/* Hover: subtle tile background darken only — no lift, scale, shadow, brightness, or underline flash */
+/* Hover: subtle tile background darken only â€” no lift, scale, shadow, brightness, or underline flash */
 .nav-megamenu .mm-company:hover,
 .nav-megamenu .mm-company:focus-visible,
 .mm-company:hover, .mm-company:focus-visible {
@@ -1017,7 +1019,7 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
   pointer-events: none;
   transform-origin: center center;
 }
-/* Shared gradient overlay - brand blue/navy → transparent (no candy red) */
+/* Shared gradient overlay - brand blue/navy â†’ transparent (no candy red) */
 .page-hero .hero-overlay,
 .page-hero .page-hero-overlay {
   position: absolute;
@@ -1265,7 +1267,7 @@ body[data-company-logo] .page-hero h1 {
 }
 .fs-media-caption::before { content: ''; width: 8px; height: 8px; background: var(--gold); flex: none; }
 
-/* Full-bleed band with parallax hook (flagship-motion sets --fxp 0â†’1) */
+/* Full-bleed band with parallax hook (flagship-motion sets --fxp 0Ã¢â€ â€™1) */
 .fs-band { position: relative; overflow: hidden; min-height: 58vh; }
 .fs-band .fs-band-img {
   position: absolute; inset: -12% 0;
@@ -1376,11 +1378,61 @@ body[data-company-logo] .page-hero h1 {
 /* No red in the brand palette: "red" badge intent now reads as dark-blue emphasis */
 .badge-red { border-color: rgba(1,63,92,0.4); color: var(--navy); background: rgba(1,63,92,0.06); }
 
+/* Company-name badges on dark ops panels: light text (not blue-deep on ink) */
+.fs-on-dark .badge-yellow,
+.fs-on-dark .badge-amber,
+.info-panel .badge-yellow,
+.info-panel .badge-amber,
+.info-panel .info-row .badge,
+.info-row .badge.badge-yellow,
+.depot-head .badge-yellow {
+  color: #fff !important;
+  border-color: rgba(255, 242, 0, 0.65) !important;
+  background: rgba(255, 242, 0, 0.16) !important;
+}
+
 .country-tag {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 4px 10px; border: 1px solid var(--line); border-radius: 0;
   font-size: 0.74rem; font-weight: 600; color: var(--text); background: transparent;
+  white-space: nowrap; max-width: 100%;
 }
+@media (max-width: 600px) {
+  .country-tag {
+    white-space: normal;
+    line-height: 1.25;
+  }
+}
+
+/* Operations-by-country panel (company pages) */
+.info-panel {
+  background: var(--ink);
+  padding: var(--sp-8);
+  position: relative;
+}
+.info-panel h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs-title);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: var(--sp-5);
+}
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: 13px 0;
+  border-bottom: 1px solid var(--ink-line-2);
+}
+.info-row:first-of-type { border-top: 1px solid var(--ink-line); }
+.info-row > span:first-child {
+  color: rgba(233, 237, 248, 0.92);
+  font-size: 0.92rem;
+}
+
 .flag-icon { width: 18px; height: 13px; object-fit: cover; flex-shrink: 0; }
 .flag-icon-lg { width: 28px; height: 20px; object-fit: cover; flex-shrink: 0; display: block; }
 
@@ -1450,7 +1502,14 @@ body[data-company-logo] .page-hero h1 {
   padding: var(--sp-6) 0;
   display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--sp-3);
 }
-.footer-bottom p { font-size: var(--fs-micro); letter-spacing: 0.08em; color: var(--ink-mute); }
+/* Copyright must stay high-contrast on dark teal footer (not --ink-mute gray) */
+.site-footer .footer-bottom p,
+.footer-bottom p {
+  font-size: var(--fs-micro);
+  letter-spacing: 0.08em;
+  color: #f5f7fb;
+  font-weight: 500;
+}
 .footer-bottom-links { display: flex; gap: var(--sp-5); }
 .footer-bottom-links a { font-size: var(--fs-micro); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); transition: color var(--dur-1) ease; }
 .footer-bottom-links a:hover { color: var(--gold); }
@@ -1559,13 +1618,13 @@ html.fs-motion .fx-mask {
 }
 html.fs-motion .fx-mask.in { clip-path: inset(0 0 -8% 0); transform: none; opacity: 1; }
 
-/* Wipe reveal for rules/eyebrows: left â†’ right */
+/* Wipe reveal for rules/eyebrows: left Ã¢â€ â€™ right */
 html.fs-motion .fx-wipe { opacity: 1; clip-path: inset(0 100% 0 0); }
 html.fs-motion .fx-wipe.in { clip-path: inset(0 -2% 0 0); }
 
 /* Image clip reveal: frame opens while the image settles from a zoom */
 html.fs-motion .fx-clip { opacity: 1; clip-path: inset(6% 8%); transition-duration: var(--dur-4); }
-html.fs-motion .fx-clip img { transform: scale(1.1); transition: transform var(--dur-4) var(--ease-out) var(--fx-d, 0s); }
+html.fs-motion .fx-clip img { transform: scale(1.03); transition: transform var(--dur-4) var(--ease-out) var(--fx-d, 0s); }
 html.fs-motion .fx-clip.in { clip-path: inset(0 0); }
 html.fs-motion .fx-clip.in img { transform: none; }
 
@@ -1573,7 +1632,7 @@ html.fs-motion .fx-clip.in img { transform: none; }
 html.fs-motion .fx-img,
 html.fs-motion .reveal-img {
   opacity: 0;
-  transform: scale(1.06);
+  transform: scale(1.03);
   transition:
     opacity var(--dur-3) var(--ease-out) var(--fx-d, var(--reveal-delay, 0s)),
     transform var(--dur-4) var(--ease-out) var(--fx-d, var(--reveal-delay, 0s));
@@ -1604,21 +1663,21 @@ html.fs-motion .site-nav {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Hero media: scale-in + gentle Ken Burns (matches home .hero-photo) */
+/* Hero media: soft settle + subtle infinite drift (never sticks enlarged) */
 html.fs-motion .page-hero .hero-media,
 html.fs-motion .page-hero .page-hero-photo {
   animation:
-    fs-hero-media-in 0.55s var(--ease-out) both,
-    fs-hero-ken 14s var(--ease-smooth) 0.55s both;
+    fs-hero-media-in 0.7s var(--ease-out) both,
+    fs-hero-ken 32s ease-in-out 0.7s infinite alternate;
   will-change: transform, opacity;
 }
 @keyframes fs-hero-media-in {
-  from { opacity: 0; transform: scale(1.1); }
+  from { opacity: 0; transform: scale(1.02); }
   to   { opacity: 1; transform: scale(1); }
 }
 @keyframes fs-hero-ken {
-  from { transform: scale(1); }
-  to   { transform: scale(1.05); }
+  from { transform: scale(1) translate3d(0, 0, 0); }
+  to   { transform: scale(1.025) translate3d(0, -0.4%, 0); }
 }
 
 /* Page entrance: nav + hero choreography (runs once, CSS-only, no CLS) */

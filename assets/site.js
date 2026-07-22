@@ -470,7 +470,7 @@
     // missing, the English fallback string is used so the chatbot never
     // shows a raw key or stays blank.
     const botReplyFallbacks = {
-      fuel: 'Lake Oil supplies petroleum products across Tanzania, Kenya, Zambia, DRC, Rwanda, Burundi & Ethiopia. Contact admin@lakeoilgroup.com for pricing.',
+      fuel: 'Lake Oil supplies petroleum products across Tanzania, Kenya, Zambia, DR Congo, Rwanda, Burundi & Ethiopia. Contact admin@lakeoilgroup.com for pricing.',
       lpg: 'Lake Gas offers 6kg, 10kg, 15kg and 38kg cylinders for domestic and commercial use. Available in 6 countries across East & Central Africa.',
       truck: 'Lake Trans operates a fleet of 1,200+ trucks across East & Central Africa for bulk liquid haulage and general cargo.',
       contact: 'Our headquarters: Plot 49, Mikocheni Light Industrial Area, Dar es Salaam. Tel: +255 222780510 | Email: admin@lakeoilgroup.com',

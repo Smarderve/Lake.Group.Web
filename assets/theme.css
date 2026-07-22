@@ -100,8 +100,9 @@ button:focus-visible,
   box-shadow: 0 8px 30px rgba(4,10,34,0.35);
 }
 .site-nav.nav-scrolled .nav-logo img {
-  height: var(--nav-logo-height-scrolled) !important;
-  max-height: var(--nav-logo-height-scrolled);
+  height: var(--nav-logo-height-scrolled, 36px) !important;
+  max-height: var(--nav-logo-height-scrolled, 36px);
+  max-width: min(200px, 50vw) !important;
 }
 .site-nav.nav-hidden { transform: translateY(-100%); }
 
@@ -130,16 +131,17 @@ button:focus-visible,
 .nav-logo:hover { transform: translateY(-2px) scale(1.02); box-shadow: var(--shadow-md); }
 .nav-logo img,
 .site-nav .nav-logo img {
-  height: var(--nav-logo-height) !important;
+  /* Hard px fallbacks: if tokens.css is missing (stale/broken SW), logo must not go intrinsic. */
+  height: var(--nav-logo-height, 48px) !important;
   width: auto !important;
-  max-width: none !important;
-  max-height: var(--nav-logo-height);
+  max-width: min(220px, 55vw) !important;
+  max-height: var(--nav-logo-height, 48px);
   object-fit: contain;
   transition: transform var(--dur-fast) var(--ease-out), height 0.3s var(--ease-smooth);
 }
 /* Company pages: same token height; letterboxed squares get optical scale via site.js class */
 body[data-company-logo] {
-  --nav-h: var(--navbar-height);
+  --nav-h: var(--navbar-height, 72px);
 }
 body[data-company-logo] .site-nav {
   height: var(--nav-h);
@@ -147,26 +149,26 @@ body[data-company-logo] .site-nav {
 }
 .nav-logo.nav-logo--company,
 body[data-company-logo] .site-nav .nav-logo {
-  max-width: none;
+  max-width: min(280px, 70vw);
   overflow: visible;
 }
 .nav-logo.nav-logo--company img,
 body[data-company-logo] .site-nav .nav-logo img {
-  height: var(--nav-logo-height) !important;
+  height: var(--nav-logo-height, 48px) !important;
   width: auto !important;
-  max-width: none !important;
-  max-height: var(--nav-logo-height);
+  max-width: min(260px, 65vw) !important;
+  max-height: var(--nav-logo-height, 48px);
   object-fit: contain;
 }
 body[data-company-logo] .site-nav .nav-logo img.nav-logo-img--letterboxed,
 .nav-logo.nav-logo--company img.nav-logo-img--letterboxed {
-  height: calc(var(--nav-logo-height) * var(--nav-logo-letterbox-scale, 1.15)) !important;
-  max-height: none !important;
+  height: calc(var(--nav-logo-height, 48px) * var(--nav-logo-letterbox-scale, 1.15)) !important;
+  max-height: calc(var(--nav-logo-height, 48px) * var(--nav-logo-letterbox-scale, 1.15)) !important;
 }
 body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--letterboxed,
 .site-nav.nav-scrolled .nav-logo.nav-logo--company img.nav-logo-img--letterboxed {
-  height: calc(var(--nav-logo-height-scrolled) * var(--nav-logo-letterbox-scale, 1.15)) !important;
-  max-height: none !important;
+  height: calc(var(--nav-logo-height-scrolled, 36px) * var(--nav-logo-letterbox-scale, 1.15)) !important;
+  max-height: calc(var(--nav-logo-height-scrolled, 36px) * var(--nav-logo-letterbox-scale, 1.15)) !important;
 }
 /* Company pages: cover remaining viewport below fixed nav (home-hero parity) */
 body[data-company-logo] .page-hero {
@@ -812,7 +814,10 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
 /* Badges / tags: brand */
 .badge-amber { background: rgba(255,242,0,0.18); color: var(--blue); }
 .badge-navy { background: var(--blue); color: var(--white); }
-.country-tag { background: rgba(1,129,187,0.08); color: var(--blue); }
+.country-tag { background: rgba(1,129,187,0.08); color: var(--blue); white-space: nowrap; max-width: 100%; }
+@media (max-width: 600px) {
+  .country-tag { white-space: normal; line-height: 1.25; }
+}
 
 /* Alerts (no red in the brand palette: dark-blue emphasis stands in for error/alert states) */
 .alert-info { background: rgba(1,129,187,0.06); border-color: var(--blue); color: var(--blue); }
@@ -843,6 +848,10 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
    11. FOOTER  brand surface + animated link underlines
    -------------------------------------------------------------------------- */
 .site-footer { background: var(--blue3); border-top: 3px solid var(--yellow); }
+.footer-bottom p {
+  color: #f5f7fb;
+  font-weight: 500;
+}
 .footer-col h5 { color: var(--yellow); }
 .footer-col ul a, .footer-bottom-links a {
   position: relative;
@@ -898,7 +907,7 @@ html.lg-motion .reveal.visible { opacity: 1; transform: none; will-change: auto;
 /* Image reveal: scale-settle (home hero media feel) */
 html.lg-motion .reveal-img {
   opacity: 0;
-  transform: scale(1.06);
+  transform: scale(1.03);
   transition: opacity var(--dur-slow) var(--ease-out), transform 0.5s var(--ease-out);
   transition-delay: var(--reveal-delay, 0s);
   will-change: opacity, transform;
@@ -928,13 +937,13 @@ html.lg-motion .site-nav {
   animation: lg-nav-settle 0.4s var(--ease-out) backwards;
 }
 
-/* Hero media: scale-in then gentle Ken Burns (transform only) */
+/* Hero media: soft settle, then subtle infinite drift (never sticks enlarged) */
 html.lg-motion .hero .hero-photo,
 html.lg-motion .page-hero .hero-media,
 html.lg-motion .page-hero .page-hero-photo {
   animation:
-    lg-hero-media-in 0.55s var(--ease-out) both,
-    lg-hero-ken 14s var(--ease-smooth) 0.55s both;
+    lg-hero-media-in 0.7s var(--ease-out) both,
+    lg-hero-ken 32s ease-in-out 0.7s infinite alternate;
   transform-origin: center center;
   will-change: transform, opacity;
 }
@@ -966,12 +975,12 @@ html.lg-motion.lg-ready body { animation: lg-page-fade 0.4s ease-out both; }
   to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes lg-hero-media-in {
-  from { opacity: 0; transform: scale(1.1); }
+  from { opacity: 0; transform: scale(1.02); }
   to   { opacity: 1; transform: scale(1); }
 }
 @keyframes lg-hero-ken {
-  from { transform: scale(1); }
-  to   { transform: scale(1.05); }
+  from { transform: scale(1) translate3d(0, 0, 0); }
+  to   { transform: scale(1.025) translate3d(0, -0.4%, 0); }
 }
 
 /* --------------------------------------------------------------------------
@@ -1125,3 +1134,7 @@ html.lg-motion .fs-magnetic, html.lg-motion .btn-primary {
   transform: translate(var(--mx, 0px), var(--my, 0px));
   transition: transform 0.3s var(--ease-out);
 }
+
+/* Footer copyright contrast on dark teal */
+.site-footer .footer-bottom p,
+.footer-bottom p { color: #f5f7fb; font-weight: 500; }

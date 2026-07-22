@@ -254,7 +254,7 @@ window.LAKE_NEWS = [
       "Lake Gas Ltd, recently inaugurated East Africa's biggest LPG storage facility in Tanga, Tanzania. This terminal can store 1000 MT of LPG and consists of two LPG bullets/tanks of 500 MT Capacity each. It can further take 6 more bullets/tanks of similar capacity for future expansion.",
       "In a one of its kind operation in Tanga, LPG ship will now discharge Gas through a private single mooring buoy exclusively built for this terminal.",
       "The operation of the terminal is fully automized with sensitive world class stock monitoring system for the in and out flow of stock. The facility complies with all the local, international standards and OISD norms.",
-      "The terminal will also act as a trading hub allowing the re-export of LPG to other markets in East Africa. It will serve as a reliable and secure source of LPG not only for Tanzania but also for its neighboring countries like Kenya, Zambia, DRC, Rwanda, Uganda and Burundi."
+      "The terminal will also act as a trading hub allowing the re-export of LPG to other markets in East Africa. It will serve as a reliable and secure source of LPG not only for Tanzania but also for its neighboring countries like Kenya, Zambia, DR Congo, Rwanda, Uganda and Burundi."
     ],
     images: [
       "assets/images/news/6/photo_2.jpg",

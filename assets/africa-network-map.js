@@ -12,7 +12,7 @@
     zm: { iso: 'ZM', name: 'Zambia', center: [-14.4, 28.3], zoom: 6 },
     rw: { iso: 'RW', name: 'Rwanda', center: [-1.94, 29.87], zoom: 8 },
     bi: { iso: 'BI', name: 'Burundi', center: [-3.37, 29.36], zoom: 8 },
-    cd: { iso: 'CD', name: 'DRC', center: [-4.0, 23.5], zoom: 5 },
+    cd: { iso: 'CD', name: 'DR Congo', center: [-4.0, 23.5], zoom: 5 },
     et: { iso: 'ET', name: 'Ethiopia', center: [9.03, 38.75], zoom: 5 },
     mz: { iso: 'MZ', name: 'Mozambique', center: [-18.25, 35.0], zoom: 5 },
     ae: { iso: 'AE', name: 'Dubai, UAE', center: [25.2, 55.27], zoom: 9 },

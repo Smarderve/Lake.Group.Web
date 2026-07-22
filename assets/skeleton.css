@@ -1,10 +1,9 @@
 /* ==========================================================================
    Lake Group — sitewide skeleton / first-paint loading overlay
    Wired by scripts/add_skeleton_tags.js + assets/skeleton.js
-   Brand blues / neutral shimmer only (no purple).
+   Mirrors real chrome: blue nav + yellow accent, full-bleed hero, cards, footer.
    ========================================================================== */
 
-/* Early veil before #lg-skel mounts (CSS may land before JS). */
 html.lg-loading {
   overflow: hidden;
 }
@@ -14,7 +13,7 @@ html.lg-loading::before {
   position: fixed;
   inset: 0;
   z-index: 99989;
-  background: #ffffff;
+  background: #013f5c;
   pointer-events: none;
 }
 
@@ -28,7 +27,7 @@ html.lg-skel-done::before {
   z-index: 99990;
   display: flex;
   flex-direction: column;
-  background: #ffffff;
+  background: #013f5c;
   pointer-events: all;
   opacity: 1;
   transition: opacity 0.35s ease, visibility 0.35s ease;
@@ -57,10 +56,12 @@ html.lg-skel-done #lg-skel {
 }
 
 .lg-skel-logo {
-  width: 140px;
-  height: 36px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.22);
+  width: 148px;
+  height: 40px;
+  max-height: 40px;
+  border-radius: 2px;
+  background: rgba(255, 242, 0, 0.85);
+  flex-shrink: 0;
 }
 
 .lg-skel-nav-links {
@@ -72,17 +73,32 @@ html.lg-skel-done #lg-skel {
 .lg-skel-pill {
   width: 64px;
   height: 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.22);
 }
 
 .lg-skel-main {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   min-height: 0;
-  background: linear-gradient(160deg, #013f5c 0%, #0181bb 55%, #0599d3 100%);
-  padding: clamp(48px, 10vh, 96px) 24px 48px;
+  position: relative;
+  background:
+    linear-gradient(105deg, rgba(1, 63, 92, 0.92) 0%, rgba(1, 129, 187, 0.72) 48%, rgba(1, 129, 187, 0.28) 100%),
+    linear-gradient(160deg, #013f5c 0%, #0181bb 55%, #0599d3 100%);
+  padding: clamp(56px, 12vh, 120px) 24px 48px;
+  overflow: hidden;
+}
+
+.lg-skel-main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #fff200;
 }
 
 .lg-skel-hero {
@@ -92,70 +108,125 @@ html.lg-skel-done #lg-skel {
   display: flex;
   flex-direction: column;
   gap: 18px;
+  position: relative;
+  z-index: 1;
 }
 
 .lg-skel-line {
-  border-radius: 6px;
+  border-radius: 4px;
   background: rgba(255, 255, 255, 0.18);
 }
 
 .lg-skel-eyebrow {
-  width: 120px;
+  width: 132px;
   height: 12px;
 }
 
 .lg-skel-title {
-  width: min(520px, 72%);
-  height: 48px;
+  width: min(640px, 88%);
+  height: clamp(42px, 7vw, 64px);
+  background: rgba(255, 255, 255, 0.28);
 }
 
 .lg-skel-title-sm {
-  width: min(360px, 55%);
-  height: 36px;
+  width: min(420px, 70%);
+  height: clamp(28px, 4.5vw, 44px);
+  background: rgba(255, 242, 0, 0.35);
 }
 
 .lg-skel-lede {
-  width: min(440px, 68%);
+  width: min(480px, 72%);
   height: 14px;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .lg-skel-cta {
   display: flex;
   gap: 12px;
-  margin-top: 12px;
+  margin-top: 16px;
 }
 
 .lg-skel-btn {
-  width: 128px;
-  height: 40px;
-  border-radius: 4px;
-  background: rgba(255, 242, 0, 0.85);
+  width: 140px;
+  height: 44px;
+  border-radius: 2px;
+  background: rgba(255, 242, 0, 0.92);
 }
 
 .lg-skel-btn-ghost {
-  width: 112px;
-  height: 40px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.2);
+  width: 120px;
+  height: 44px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.28);
 }
 
 .lg-skel-blocks {
   max-width: 1200px;
   width: 100%;
-  margin: 40px auto 0;
+  margin: clamp(36px, 6vh, 56px) auto 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .lg-skel-card {
   height: 88px;
-  border-radius: 8px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.lg-skel-footer {
+  flex: 0 0 auto;
+  background: #012a3d;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px 24px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: 16px;
+  max-width: 100%;
+}
+
+.lg-skel-foot-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lg-skel-foot-logo {
+  width: 120px;
+  height: 28px;
+  border-radius: 2px;
+  background: rgba(255, 242, 0, 0.55);
+}
+
+.lg-skel-foot-line {
+  height: 10px;
+  width: 72%;
+  border-radius: 3px;
   background: rgba(255, 255, 255, 0.12);
 }
 
-/* Shimmer — brand blue / white, not purple */
+.lg-skel-foot-line.sm {
+  width: 48%;
+}
+
+/* Home: taller hero title stack matching POWERING EAST AFRICA */
+#lg-skel[data-layout="home"] .lg-skel-title {
+  width: min(720px, 92%);
+  height: clamp(52px, 9vw, 88px);
+}
+#lg-skel[data-layout="home"] .lg-skel-title-sm {
+  width: min(520px, 78%);
+  height: clamp(40px, 7vw, 72px);
+}
+#lg-skel[data-layout="home"] .lg-skel-blocks {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .lg-skel-shimmer {
   position: relative;
   overflow: hidden;
@@ -168,9 +239,9 @@ html.lg-skel-done #lg-skel {
   background: linear-gradient(
     105deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.08) 40%,
-    rgba(5, 153, 211, 0.28) 50%,
-    rgba(255, 255, 255, 0.08) 60%,
+    rgba(255, 255, 255, 0.06) 40%,
+    rgba(5, 153, 211, 0.32) 50%,
+    rgba(255, 255, 255, 0.06) 60%,
     transparent 100%
   );
   transform: translateX(-100%);
@@ -188,8 +259,14 @@ html.lg-skel-done #lg-skel {
     display: none;
   }
 
-  .lg-skel-blocks {
-    grid-template-columns: 1fr;
+  .lg-skel-blocks,
+  #lg-skel[data-layout="home"] .lg-skel-blocks {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .lg-skel-footer {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
   }
 
   .lg-skel-title {

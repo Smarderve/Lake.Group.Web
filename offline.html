@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style id="lg-skel-critical">html.lg-loading{overflow:hidden}html.lg-loading::before{content:"";position:fixed;inset:0;z-index:99989;background:#013f5c;pointer-events:none}html.lg-skel-done::before{display:none}.nav-logo img,.site-nav .nav-logo img{height:var(--nav-logo-height,48px)!important;width:auto!important;max-width:min(220px,55vw)!important;max-height:var(--nav-logo-height,48px)!important;object-fit:contain}</style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <meta name="theme-color" content="#0181BB">
+  <meta name="robots" content="noindex">
   <link rel="manifest" href="manifest.webmanifest">
   <title>You're Offline | Lake Group</title>
   <link rel="canonical" href="https://www.lakeoilgroup.com/offline.html">
@@ -13,14 +15,14 @@
   <!-- flagship.css is precached by the service worker, but this page must
        render with zero external dependencies: the inline block below is a
        complete standalone Meridian layer and intentionally loads after it. -->
-  <link rel="stylesheet" href="assets/tokens.css?v=56">
-<link rel="stylesheet" href="assets/flagship.css?v=70">
+  <link rel="stylesheet" href="assets/tokens.css?v=58">
+<link rel="stylesheet" href="assets/flagship.css?v=73">
   <link rel="stylesheet" href="assets/assistant.css?v=60">
   <style>
     /* ======================================================================
        MERIDIAN UTILITY PAGE  offline fallback. Fully self-contained.
        ====================================================================== */
-    @import url("assets/tokens.css?v=56");
+    @import url("assets/tokens.css?v=58");
     @import url('assets/fonts/fonts.css');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -168,10 +170,10 @@
 </head>
 <body>
   <main class="card">
-    <div class="logo-wrap"><img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group"></div>
+    <div class="logo-wrap"><img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group" width="180" height="44"></div>
     <div class="badge">Connection Lost</div>
     <h1>You're currently <em>offline</em></h1>
-    <p class="lead">This page isn't available without an internet connection. Pages you've visited before are saved and still work  try one of these, or reconnect and retry.</p>
+    <p class="lead">This page isn't available without an internet connection. Pages you've visited before are saved and still work — try one of these, or reconnect and retry.</p>
     <nav class="links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -179,22 +181,17 @@
       <a href="africa-network.html">Africa Network</a>
       <a href="contact.html">Contact</a>
     </nav>
-    <button class="retry" onclick="location.reload()">Retry Connection</button>
-    <p class="status" id="net-status"><span class="dot"></span><span id="net-text">Offline  waiting for connection?</span></p>
+    <button class="retry" type="button" id="retry-btn">Retry Connection</button>
+    <p class="status" id="net-status"><span class="dot"></span><span id="net-text">Offline — waiting for connection</span></p>
   </main>
   <script>
     (function () {
       var statusEl = document.getElementById('net-status');
       var textEl = document.getElementById('net-text');
+      var retryBtn = document.getElementById('retry-btn');
       function onOnline() {
         statusEl.classList.add('online');
-        textEl.textContent = 'Back online  reloading?';
-        // Small delay so the user sees the status flip before navigation.
-        // If the browser is showing offline.html under its own URL (opened
-        // directly, not as a fallback for another page), reloading would
-        // just serve offline.html again in an endless loop  go home
-        // instead. In the fallback case the address bar still holds the
-        // page the user originally wanted, so a plain reload restores it.
+        textEl.textContent = 'Back online — reloading…';
         setTimeout(function () {
           if (/offline\.html$/.test(location.pathname)) {
             location.replace('index.html');
@@ -203,12 +200,22 @@
           }
         }, 800);
       }
+      retryBtn.addEventListener('click', function () {
+        retryBtn.disabled = true;
+        retryBtn.textContent = 'Checking…';
+        if (navigator.onLine) onOnline();
+        else {
+          retryBtn.disabled = false;
+          retryBtn.textContent = 'Retry Connection';
+          textEl.textContent = 'Still offline — check your connection';
+        }
+      });
       window.addEventListener('online', onOnline);
       if (navigator.onLine) onOnline();
     })();
   </script>
-<script src="assets/pwa.js?v=56" defer></script>
-<script src="assets/flagship-motion.js?v=56" defer></script>
+<script src="assets/pwa.js?v=58" defer></script>
+<script src="assets/flagship-motion.js?v=58" defer></script>
   <script src="assets/vendor/flexsearch/flexsearch.bundle.min.js" defer></script>
   <script src="assets/assistant-kb.js" defer></script>
   <script src="assets/assistant.js?v=60" defer></script>

@@ -14,6 +14,21 @@
   var FADE_MS = 380;
   var hidden = false;
 
+  function isHome() {
+    var path = (location.pathname || '').replace(/\\/g, '/');
+    return /(?:^|\/)(index\.html)?$/.test(path) || path === '/' || path.endsWith('/lake.group.web/');
+  }
+
+  function footCol() {
+    return (
+      '<div class="lg-skel-foot-col">' +
+      '<div class="lg-skel-foot-line lg-skel-shimmer"></div>' +
+      '<div class="lg-skel-foot-line sm lg-skel-shimmer"></div>' +
+      '<div class="lg-skel-foot-line sm lg-skel-shimmer"></div>' +
+      '</div>'
+    );
+  }
+
   function mount() {
     if (document.getElementById('lg-skel')) return;
     var host = document.body;
@@ -22,6 +37,12 @@
     var el = document.createElement('div');
     el.id = 'lg-skel';
     el.setAttribute('aria-hidden', 'true');
+    if (isHome()) el.setAttribute('data-layout', 'home');
+
+    var cards = isHome()
+      ? '<div class="lg-skel-card lg-skel-shimmer"></div>'.repeat(4)
+      : '<div class="lg-skel-card lg-skel-shimmer"></div>'.repeat(3);
+
     el.innerHTML =
       '<div class="lg-skel-nav">' +
       '<div class="lg-skel-logo lg-skel-shimmer"></div>' +
@@ -43,10 +64,18 @@
       '<div class="lg-skel-btn-ghost lg-skel-shimmer"></div>' +
       '</div></div>' +
       '<div class="lg-skel-blocks">' +
-      '<div class="lg-skel-card lg-skel-shimmer"></div>' +
-      '<div class="lg-skel-card lg-skel-shimmer"></div>' +
-      '<div class="lg-skel-card lg-skel-shimmer"></div>' +
-      '</div></div>';
+      cards +
+      '</div></div>' +
+      '<div class="lg-skel-footer">' +
+      '<div class="lg-skel-foot-col">' +
+      '<div class="lg-skel-foot-logo lg-skel-shimmer"></div>' +
+      '<div class="lg-skel-foot-line lg-skel-shimmer"></div>' +
+      '<div class="lg-skel-foot-line sm lg-skel-shimmer"></div>' +
+      '</div>' +
+      footCol() +
+      footCol() +
+      footCol() +
+      '</div>';
 
     host.insertBefore(el, host.firstChild);
   }
@@ -68,7 +97,6 @@
   else document.addEventListener('DOMContentLoaded', mount);
 
   if (document.readyState === 'complete') {
-    // Already loaded (bfcache / very fast cache) — hide on next frame.
     window.requestAnimationFrame(hide);
   } else {
     window.addEventListener('load', hide);
