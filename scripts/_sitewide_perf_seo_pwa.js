@@ -22,15 +22,7 @@ const V = {
   skeleton: '3',
 };
 
-const REDIRECT_STUBS = new Set([
-  'fuel.html',
-  'lpg.html',
-  'lubricants.html',
-  'steel.html',
-  'concrete.html',
-  'logistics.html',
-  'container-services.html',
-]);
+const REDIRECT_STUBS = new Set();
 
 function pageUrl(file) {
   return file === 'index.html' ? BASE : BASE + file;

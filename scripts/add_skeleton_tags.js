@@ -24,17 +24,10 @@ const JS_TAG = `<script src="${JS_SRC}"></script>`;
 const CRITICAL =
   '<style id="lg-skel-critical">html.lg-loading{overflow:hidden}html.lg-loading::before{content:"";position:fixed;inset:0;z-index:99989;background:#013f5c;pointer-events:none}html.lg-skel-done::before{display:none}.nav-logo img,.site-nav .nav-logo img{height:var(--nav-logo-height,48px)!important;width:auto!important;max-width:min(220px,55vw)!important;max-height:var(--nav-logo-height,48px)!important;object-fit:contain}</style>';
 
-// Utility / redirect stubs — skip (no chrome to skeleton).
+// Utility pages — skip (no chrome to skeleton).
 const SKIP = new Set([
   '404.html',
   'offline.html',
-  'fuel.html',
-  'lpg.html',
-  'lubricants.html',
-  'steel.html',
-  'concrete.html',
-  'logistics.html',
-  'container-services.html',
 ]);
 
 const files = fs

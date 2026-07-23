@@ -5,7 +5,7 @@
  *   - ensures og:title, og:description, og:type, og:url, og:site_name
  *   - ensures twitter:card=summary_large_image + twitter:image
  *
- * Skips redirect stubs (fuel.html, etc.) and utility pages (404/offline).
+ * Skips utility pages (404/offline).
  * Safe to re-run. Run from repo root: node scripts/add_og_meta.js
  */
 
@@ -21,13 +21,6 @@ const OG_IMAGE = BASE + 'assets/images/logos/LAKE_GROUP_LOGO.png';
 const SKIP = new Set([
   '404.html',
   'offline.html',
-  'fuel.html',
-  'lpg.html',
-  'lubricants.html',
-  'steel.html',
-  'concrete.html',
-  'logistics.html',
-  'container-services.html',
 ]);
 
 function pageUrl(file) {

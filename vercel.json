@@ -1,6 +1,20 @@
 {
   "cleanUrls": false,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/fuel.html", "destination": "/lake-oil.html", "permanent": true },
+    { "source": "/lpg.html", "destination": "/lake-gas.html", "permanent": true },
+    { "source": "/lubricants.html", "destination": "/lake-lubes.html", "permanent": true },
+    { "source": "/steel.html", "destination": "/lake-steel.html", "permanent": true },
+    { "source": "/concrete.html", "destination": "/lake-premix-cement.html", "permanent": true },
+    { "source": "/logistics.html", "destination": "/lake-trans.html", "permanent": true },
+    { "source": "/container-services.html", "destination": "/aficd.html", "permanent": true },
+    { "source": "/leadership-dileep.html", "destination": "/leadership-dileep-kumar.html", "permanent": true },
+    { "source": "/leadership-sibtian-ansari.html", "destination": "/leadership-dileep-kumar.html", "permanent": true },
+    { "source": "/leadership-vivek-choudhary.html", "destination": "/leadership-sridhar-mani.html", "permanent": true },
+    { "source": "/leadership-bhaskar-shetty.html", "destination": "/leadership-mohammed-khalid.html", "permanent": true },
+    { "source": "/leadership-pankaj-kumar.html", "destination": "/leadership-bibhuti-singh.html", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/sw.js",

@@ -149,7 +149,8 @@
       }
     }
 
-    function closeItem(item, focusTrigger) {
+    function closeItem(item, focusTrigger, opts) {
+      const options = opts || {};
       if (item._navOpenTimer) {
         clearTimeout(item._navOpenTimer);
         item._navOpenTimer = null;
@@ -159,7 +160,15 @@
         item._navCloseTimer = null;
       }
       if (!item.classList.contains('is-open')) return;
+      const menu = options.instant ? item.querySelector('.nav-dropdown') : null;
+      // Snap shut when another parent is taking over so the old panel cannot
+      // linger semi-transparent behind the new one during opacity transition.
+      if (menu) menu.style.transition = 'none';
       item.classList.remove('is-open');
+      if (menu) {
+        void menu.offsetWidth;
+        menu.style.transition = '';
+      }
       const trigger = item.querySelector(':scope > a');
       if (trigger) {
         trigger.setAttribute('aria-expanded', 'false');
@@ -176,14 +185,14 @@
         clearTimeout(item._navOpenTimer);
         item._navOpenTimer = null;
       }
-      closeAll(item);
+      closeAll(item, { instant: true });
       item.classList.add('is-open');
       const trigger = item.querySelector(':scope > a');
       if (trigger) trigger.setAttribute('aria-expanded', 'true');
     }
 
-    function closeAll(except) {
-      items.forEach(item => { if (item !== except) closeItem(item, false); });
+    function closeAll(except, opts) {
+      items.forEach(item => { if (item !== except) closeItem(item, false, opts); });
     }
 
     function playPaneEnter(pane) {
@@ -303,7 +312,7 @@
           item._navCloseTimer = null;
         }
         const willOpen = !item.classList.contains('is-open');
-        closeAll(item);
+        closeAll(item, { instant: true });
         item.classList.toggle('is-open', willOpen);
         trigger.setAttribute('aria-expanded', String(willOpen));
       });
@@ -315,6 +324,10 @@
           clearTimeout(item._navCloseTimer);
           item._navCloseTimer = null;
         }
+        // Exclusive controller: close siblings immediately on enter so rapid
+        // moves (Network → Corporate) never leave two `.is-open` panels stacked
+        // while CSS `:hover` already shows the newly hovered menu.
+        closeAll(item, { instant: true });
         if (item.classList.contains('is-open') || item._navOpenTimer) return;
         item._navOpenTimer = setTimeout(() => {
           item._navOpenTimer = null;
