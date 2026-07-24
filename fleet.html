@@ -30,7 +30,7 @@
 .veh-card{position:relative;background:var(--surface);border:1px solid var(--line-2);overflow:hidden;transition:transform var(--dur-2) var(--ease-out),box-shadow var(--dur-2) ease}
 .veh-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-2)}
 .veh-card::before{content:'';position:absolute;top:0;left:0;width:26px;height:2px;background:var(--gold);z-index:2}
-.veh-plate{background:var(--ink);height:140px;display:flex;align-items:center;justify-content:center;font-size:3.4rem;position:relative}
+.veh-plate{background:var(--ink);height:140px;display:flex;align-items:center;justify-content:center;font-size:3.4rem;position:relative;color:var(--gold)}
 .veh-plate::after{content:'';position:absolute;left:var(--sp-5);bottom:-4px;width:8px;height:8px;background:var(--gold)}
 .veh-body{padding:var(--sp-6)}
 .veh-body h3{font-family:var(--font-display);font-weight:400;font-size:1.4rem;letter-spacing:.03em;text-transform:uppercase;color:var(--text)}
@@ -190,44 +190,6 @@
   </div>
 </nav>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="nav-mobile" id="nav-mobile" style="display:none">
   <a href="index.html" data-i18n="nav.home">Home</a><a href="about.html" data-i18n="nav.about">About</a>
   <div class="mob-section" data-i18n="mob.companies">Subsidiaries</div>
@@ -317,56 +279,6 @@
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="page-wrapper">
 <section class="page-hero">
   <div class="hero-media" style="background-image:url('assets/images/banner/LakeTrans.jpg')" aria-hidden="true"></div>
@@ -405,7 +317,7 @@
     </div>
     <div class="grid-3">
       <div class="veh-card">
-        <div class="veh-plate" aria-hidden="true">&#9961;</div>
+        <div class="veh-plate" aria-hidden="true"><iconify-icon icon="mdi:ferry" width="40" height="40" aria-hidden="true"></iconify-icon></div>
         <div class="veh-body">
           <h3 data-i18n="fleet.12">Petroleum Tankers</h3>
           <p data-i18n="fleet.13">Heavy-duty tankers for bulk liquid petroleum transport, with capacities from 12,000 to 40,000 litres. Every tanker is GPS-tracked and operated under full regulatory licensing.</p>
@@ -417,7 +329,7 @@
         </div>
       </div>
       <div class="veh-card">
-        <div class="veh-plate" aria-hidden="true">&#128666;</div>
+        <div class="veh-plate" aria-hidden="true"><iconify-icon icon="mdi:truck-trailer" width="36" height="36" aria-hidden="true"></iconify-icon></div>
         <div class="veh-body">
           <h3 data-i18n="fleet.17">Flatbed &amp; Cargo Trucks</h3>
           <p data-i18n="fleet.18">Versatile flatbed and curtain-side trailers for steel, construction materials, containers and oversized cargo across the region.</p>
@@ -428,7 +340,7 @@
         </div>
       </div>
       <div class="veh-card">
-        <div class="veh-plate" aria-hidden="true">&#128665;</div>
+        <div class="veh-plate" aria-hidden="true"><iconify-icon icon="mdi:truck" width="40" height="40" aria-hidden="true"></iconify-icon></div>
         <div class="veh-body">
           <h3 data-i18n="fleet.21">LPG &amp; Gas Tankers</h3>
           <p data-i18n="fleet.22">Specialised pressurised tankers for bulk LPG transport between bottling plants and distribution points across East Africa.</p>
@@ -439,7 +351,7 @@
         </div>
       </div>
       <div class="veh-card">
-        <div class="veh-plate" aria-hidden="true">&#127950;</div>
+        <div class="veh-plate" aria-hidden="true"><iconify-icon icon="mdi:car-sports" width="40" height="40" aria-hidden="true"></iconify-icon></div>
         <div class="veh-body">
           <h3 data-i18n="fleet.25">Concrete Mixer Trucks</h3>
           <p data-i18n="fleet.26">20 truck mixers (12m� each) dedicated to GCCP ready-mix concrete delivery to construction sites across Dar es Salaam.</p>
@@ -450,7 +362,7 @@
         </div>
       </div>
       <div class="veh-card">
-        <div class="veh-plate" aria-hidden="true">&#128737;</div>
+        <div class="veh-plate" aria-hidden="true"><iconify-icon icon="mdi:shield" width="40" height="40" aria-hidden="true"></iconify-icon></div>
         <div class="veh-body">
           <h3 data-i18n="fleet.29">Container Handlers</h3>
           <p data-i18n="fleet.30">Reach stackers, terminal tractors and container trucks for AFICD inland depot operations in Tanzania, Zambia and Mozambique.</p>
@@ -461,7 +373,7 @@
         </div>
       </div>
       <div class="veh-card">
-        <div class="veh-plate" aria-hidden="true">&#128661;</div>
+        <div class="veh-plate" aria-hidden="true"><iconify-icon icon="mdi:car" width="40" height="40" aria-hidden="true"></iconify-icon></div>
         <div class="veh-body">
           <h3 data-i18n="fleet.33">Light Commercial Vehicles</h3>
           <p data-i18n="fleet.34">Support fleet of pickups, service vehicles and supervisor cars for field operations, maintenance and last-mile delivery support.</p>
@@ -533,19 +445,6 @@
   </div>
 </footer>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="chat-widget">
   <div id="chat-box">
     <div id="chat-head"><h4 data-i18n="chat.title">Lake Group Assistant</h4><p data-i18n="chat.sub">Ask us anything</p></div>
@@ -562,11 +461,6 @@
     </svg>
   </button>
 </div>
-
-
-
-
-
 
 <script src="assets/i18n-content.js?v=57" defer></script>
 <script src="assets/i18n.js?v=56" defer></script>

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lake Group management team — executive profiles, bios, professional photos and contact details for key leaders across energy, manufacturing, logistics and AFICD.">
+  <meta property="og:title" content="Leadership &amp; Management Team | Lake Group">
+  <meta property="og:description" content="Profiles, photos and contact details for Lake Group’s key management team.">
+  <meta property="og:image" content="assets/images/og-cover.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://www.lakeoilgroup.com/leadership.html">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="assets/icons/pwa/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/icons/pwa/apple-touch-icon.png">
+  <title>Leadership &amp; Management Team | Lake Group</title>
+  <meta name="theme-color" content="#1D3EA8">
+  <link rel="manifest" href="manifest.webmanifest">
+<style>
+/* ==========================================================================
+   MERIDIAN PAGE LAYER — leadership.html
+   ========================================================================== */
+:root{--amber:var(--gold-deep);--amber2:var(--gold);--navy:var(--ink);--bone:var(--paper-2)}
+.page-hero .hero-media{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.14;filter:saturate(.7) contrast(1.05)}
+
+/* Executive index ribbon */
+.ld-index{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:calc(-1 * var(--sp-10));position:relative;z-index:3}
+.ld-index a{display:flex;flex-direction:column;gap:6px;padding:var(--sp-5) var(--sp-4);background:var(--surface);text-decoration:none;color:inherit;transition:background var(--dur-1) ease}
+.ld-index a:hover{background:rgba(255,215,0,.07)}
+.ld-index .ix-no{font-family:var(--font-display);font-size:1.1rem;letter-spacing:.12em;color:var(--gold-deep)}
+.ld-index .ix-name{font-size:.82rem;font-weight:700;line-height:1.25;color:var(--text)}
+.ld-index .ix-role{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+@media(max-width:1100px){.ld-index{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.ld-index{grid-template-columns:1fr 1fr}}
+
+/* Dynamic Meridian photo frame */
+.ld-frame{
+  --frame-pad:10px;
+  position:relative;
+  display:block;
+  padding:var(--frame-pad);
+  background:linear-gradient(145deg,rgba(255,215,0,.14),transparent 42%),var(--ink-3);
+  isolation:isolate;
+}
+.ld-frame::before,.ld-frame::after{
+  content:"";position:absolute;width:22px;height:22px;border:2px solid var(--gold);
+  transition:width .45s var(--ease-out),height .45s var(--ease-out),opacity .3s ease;
+  z-index:3;pointer-events:none;
+}
+.ld-frame::before{top:2px;left:2px;border-right:0;border-bottom:0}
+.ld-frame::after{bottom:2px;right:2px;border-left:0;border-top:0}
+.ld-frame .ld-frame-inner{
+  position:relative;overflow:hidden;background:var(--ink-2);
+  outline:1px solid rgba(255,215,0,.22);
+}
+.ld-frame .ld-frame-inner::before{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(105deg,transparent 40%,rgba(255,215,0,.12) 50%,transparent 60%);
+  transform:translateX(-120%);
+  animation:ld-sheen 4.8s var(--ease-inout) infinite;
+}
+.ld-frame .ld-frame-tick{
+  position:absolute;top:var(--frame-pad);left:50%;width:8px;height:8px;margin-left:-4px;
+  background:var(--gold);z-index:4;
+  box-shadow:0 0 0 1px rgba(7,12,30,.35);
+  animation:ld-tick-pulse 2.4s var(--ease-inout) infinite;
+}
+.ld-frame img{
+  width:100%;height:100%;object-fit:cover;object-position:center top;display:block;
+  transform:scale(1.01);transition:transform .7s var(--ease-out),filter .45s ease;
+  filter:saturate(.92) contrast(1.04);
+}
+.ld-frame:hover::before,.ld-frame:hover::after{width:34px;height:34px}
+.ld-frame:hover img{transform:scale(1.05);filter:saturate(1) contrast(1.06)}
+.ld-frame:hover .ld-frame-inner::before{animation-duration:2.2s}
+@keyframes ld-sheen{
+  0%,70%{transform:translateX(-120%)}
+  100%{transform:translateX(120%)}
+}
+@keyframes ld-tick-pulse{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.55;transform:scale(.85)}
+}
+@media (prefers-reduced-motion:reduce){
+  .ld-frame .ld-frame-inner::before,.ld-frame .ld-frame-tick{animation:none}
+  .ld-frame img{transition:none}
+}
+
+/* Chairman feature — tighter portrait */
+.ld-chair{display:grid;grid-template-columns:minmax(200px,280px) 1fr;gap:var(--sp-8);align-items:start}
+.ld-chair-media{position:relative;max-width:280px}
+.ld-chair-media .ld-frame{max-width:280px}
+.ld-chair-media .ld-frame-inner{aspect-ratio:3/4}
+.ld-chair-badge{position:absolute;left:var(--frame-pad);bottom:var(--frame-pad);z-index:5;background:var(--gold);color:var(--ink);padding:7px 12px;font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.ld-chips{display:flex;flex-wrap:wrap;gap:8px;margin:var(--sp-4) 0}
+.ld-chip{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:7px 10px;border:1px solid var(--line);color:var(--mute)}
+.ld-quote{font-family:var(--font-serif);font-style:italic;font-size:1.02rem;line-height:1.65;color:rgba(240,243,252,.92);border-left:2px solid var(--gold);padding-left:var(--sp-4);margin:var(--sp-5) 0 0}
+@media(max-width:900px){.ld-chair{grid-template-columns:1fr}.ld-chair-media,.ld-chair-media .ld-frame{max-width:240px;margin:0 auto}}
+
+/* Profile deep-dives — smaller photos */
+.ld-profile{display:grid;grid-template-columns:220px 1fr;gap:var(--sp-8);align-items:start;padding:var(--sp-10) 0;border-top:1px solid var(--line)}
+.ld-profile--rev{grid-template-columns:1fr 220px}
+.ld-profile--rev .ld-profile-media{order:2}
+.ld-profile--rev .ld-profile-body{order:1}
+.ld-profile-media{position:relative;max-width:220px}
+.ld-profile-media .ld-frame-inner{aspect-ratio:3/4}
+.ld-role{color:var(--gold-deep);font-size:var(--fs-micro);font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin:var(--sp-2) 0 var(--sp-3)}
+.ld-mandate{margin-top:var(--sp-5);display:grid;gap:8px}
+.ld-mandate li{display:grid;grid-template-columns:18px 1fr;gap:10px;padding:8px 0;border-bottom:1px solid var(--line-2);font-size:.88rem;color:var(--mute);line-height:1.5}
+.ld-mandate li span:first-child{color:var(--gold-deep);font-weight:700}
+.ld-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-3);margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--line-2)}
+.ld-meta div strong{display:block;font-family:var(--font-display);font-weight:400;font-size:1.15rem;letter-spacing:.04em;color:var(--text);margin-bottom:2px}
+.ld-meta div span{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+@media(max-width:880px){
+  .ld-profile,.ld-profile--rev{grid-template-columns:1fr}
+  .ld-profile--rev .ld-profile-media,.ld-profile--rev .ld-profile-body{order:unset}
+  .ld-profile-media{max-width:200px;margin:0 auto}
+  .ld-meta{grid-template-columns:1fr}
+}
+
+.ld-cta{background:var(--ink);padding:var(--sp-12) 0;margin-top:var(--sp-6)}
+
+/* Contact strip on profiles */
+.ld-contact{margin-top:var(--sp-5);padding:var(--sp-4);border:1px solid var(--line);background:var(--surface);display:grid;gap:8px}
+.ld-contact--dark{border-color:var(--ink-line);background:rgba(255,255,255,.04)}
+.ld-contact strong{display:block;font-size:var(--fs-micro);letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:2px}
+.ld-contact--dark strong{color:var(--gold)}
+.ld-contact a{color:var(--text);text-decoration:underline;text-underline-offset:3px}
+.ld-contact--dark a{color:#fff}
+.ld-contact span,.ld-contact p{font-size:.84rem;color:var(--mute);line-height:1.45}
+.ld-contact--dark span,.ld-contact--dark p{color:var(--ink-mute)}
+
+/* Management team directory — compact cards */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5);margin-top:var(--sp-6)}
+@media(max-width:960px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.team-grid{grid-template-columns:1fr}}
+.team-card{display:flex;flex-direction:column;border:1px solid var(--line);background:var(--surface);min-height:100%}
+.team-card-photo{padding:10px 10px 0;background:var(--paper-2)}
+.team-card-photo .ld-frame{--frame-pad:6px}
+.team-card-photo .ld-frame-inner{aspect-ratio:1;max-height:180px}
+.team-card-photo .ld-frame-inner--logo{display:flex;align-items:center;justify-content:center;background:var(--surface)}
+.team-card-photo .ld-frame-inner--logo img{width:72%;height:auto;object-fit:contain;filter:none;transform:none}
+.team-card:hover .team-card-photo .ld-frame-inner--logo img{transform:none;filter:none}
+.team-card-body{padding:var(--sp-4);display:flex;flex-direction:column;gap:6px;flex:1}
+.team-card-body h3{font-family:var(--font-display);font-weight:400;font-size:1.15rem;letter-spacing:.03em;text-transform:uppercase;line-height:1.1}
+.team-expertise{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px}
+.team-expertise span{font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 7px;border:1px solid var(--line-2);color:var(--mute)}
+.team-card-contact{margin-top:auto;padding-top:var(--sp-3);border-top:1px solid var(--line-2);font-size:.78rem;color:var(--mute);display:grid;gap:3px}
+.team-card-contact a{color:var(--gold-deep);font-weight:600}
+
+.team-desk{display:grid;grid-template-columns:1.2fr 1fr;gap:var(--sp-6);margin-top:var(--sp-8);padding:var(--sp-6);background:var(--ink);color:#fff}
+.team-desk h3{font-family:var(--font-display);font-weight:400;font-size:var(--fs-title);letter-spacing:.02em;text-transform:uppercase;color:#fff;margin-bottom:var(--sp-3)}
+.team-desk p,.team-desk li{color:var(--ink-text);font-size:.88rem;line-height:1.6}
+.team-desk a{color:var(--gold)}
+.team-desk ul{list-style:none;display:grid;gap:8px;margin-top:var(--sp-3)}
+@media(max-width:720px){.team-desk{grid-template-columns:1fr}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Lake Group",
+  "url": "https://www.lakeoilgroup.com/",
+  "employee": [
+    {"@type": "Person", "name": "Ally Edha Awadh", "jobTitle": "Executive Chairman & Owner"},
+    {"@type": "Person", "name": "Sibtian Ansari", "jobTitle": "CEO, Manufacturing Division"},
+    {"@type": "Person", "name": "Vivek Choudhary", "jobTitle": "Director of Digital Transformation"},
+    {"@type": "Person", "name": "Bhaskar S. Shetty", "jobTitle": "Managing Director, ATL"},
+    {"@type": "Person", "name": "Pankaj Kumar", "jobTitle": "CFO, AFICD"},
+    {"@type": "Person", "name": "Juma Nuru", "jobTitle": "Director of Operations, Lake Group"},
+    {"@type": "Person", "name": "Nassoro Abubakari", "jobTitle": "Project Manager, Lake Agro"}
+  ]
+}
+</script>
+<link rel="stylesheet" href="assets/flagship.css">
+  <link rel="stylesheet" href="assets/assistant.css">
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group" style="height:46px;width:auto">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="about.html" data-i18n="nav.about">About</a></li>
+      <li class="has-dropdown"><a href="services.html" data-i18n="nav.services">Services &#9662;</a>
+        <div class="nav-dropdown">
+          <div class="dd-label" data-i18n="nav.dd.energy">Energy</div>
+          <a href="fuel.html" data-i18n="nav.fuel">Fuel &amp; Petroleum</a><a href="lpg.html" data-i18n="nav.lpg">LPG Gas</a><a href="lubricants.html" data-i18n="nav.lubricants">Lubricants</a>
+          <div class="dd-label" data-i18n="nav.dd.industry">Industry</div>
+          <a href="steel.html" data-i18n="nav.steel">Lake Steel</a><a href="concrete.html" data-i18n="nav.concrete">Concrete &amp; Aggregate</a>
+          <div class="dd-label" data-i18n="nav.dd.logistics">Logistics</div>
+          <a href="logistics.html" data-i18n="nav.logistics">Transport &amp; Haulage</a><a href="container-services.html" data-i18n="nav.containers">Container Services</a>
+        </div>
+      </li>
+      <li class="has-dropdown"><a href="africa-network.html" data-i18n="nav.network">Network &#9662;</a>
+        <div class="nav-dropdown">
+          <a href="africa-network.html" data-i18n="nav.africaMap">Africa Operations Map</a>
+          <a href="station-locator.html" data-i18n="nav.stations">Station Locator</a>
+          <a href="fleet.html" data-i18n="nav.fleet">Our Fleet</a>
+        </div>
+      </li>
+      <li class="has-dropdown"><a href="about.html" data-i18n="nav.company">Company &#9662;</a>
+        <div class="nav-dropdown">
+          <a href="history.html" data-i18n="nav.history">Our History</a><a href="leadership.html" data-i18n="nav.leadership">Leadership</a>
+          <a href="csr.html" data-i18n="nav.csr">CSR &amp; Sustainability</a><a href="investors.html" data-i18n="nav.investors">Investor Relations</a>
+          <a href="projects.html" data-i18n="nav.projects">Major Projects</a><a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+        </div>
+      </li>
+      <li><a href="news.html" data-i18n="nav.news">News</a></li>
+      <li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
+      <li class="lang-switcher" aria-label="Language">
+        <button type="button" class="lang-btn active" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="fr">FR</button>
+        <button type="button" class="lang-btn" data-lang="sw">SW</button>
+      </li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile" style="display:none">
+  <a href="index.html" data-i18n="nav.home">Home</a><a href="about.html" data-i18n="nav.about">About</a>
+  <div class="mob-section" data-i18n="mob.services">Services</div>
+  <a href="fuel.html" data-i18n="nav.fuelShort">Fuel</a><a href="lpg.html" data-i18n="nav.lpg">LPG Gas</a><a href="lubricants.html" data-i18n="nav.lubricants">Lubricants</a>
+  <a href="steel.html" data-i18n="nav.steelShort">Steel</a><a href="concrete.html" data-i18n="nav.concreteShort">Concrete</a><a href="logistics.html" data-i18n="nav.transportShort">Transport</a><a href="container-services.html" data-i18n="nav.containersShort">Containers</a>
+  <div class="mob-section" data-i18n="mob.network">Network</div>
+  <a href="africa-network.html" data-i18n="nav.africaMapShort">Africa Map</a><a href="station-locator.html" data-i18n="nav.stations">Station Locator</a><a href="fleet.html" data-i18n="nav.fleet">Our Fleet</a>
+  <div class="mob-section" data-i18n="mob.company">Company</div>
+  <a href="history.html" data-i18n="nav.historyShort">History</a><a href="leadership.html" data-i18n="nav.leadership">Leadership</a><a href="csr.html" data-i18n="nav.csrShort">CSR</a>
+  <a href="investors.html" data-i18n="nav.investorsShort">Investors</a><a href="projects.html" data-i18n="nav.projectsShort">Projects</a><a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+  <div class="mob-section" data-i18n="mob.more">More</div>
+  <a href="news.html" data-i18n="nav.news">News</a><a href="careers.html" data-i18n="nav.careers">Careers</a><a href="contact.html" data-i18n="footer.contact">Contact</a>
+</div>
+
+<div class="page-wrapper">
+<section class="page-hero">
+  <div class="hero-media" style="background-image:url('assets/images/banner/LakeOil.jpg')" aria-hidden="true"></div>
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">Home</a><span>/</span><a href="about.html">Company</a><span>/</span><span>Leadership</span></nav>
+    <div class="eyebrow">People &amp; governance</div>
+    <h1>Leadership &amp;<br>Management Team</h1>
+    <p>Profiles, professional photos and contact routes for the executives and managers driving Lake Group across East &amp; Central Africa.</p>
+  </div>
+</section>
+
+<section class="fs-section" style="padding-top:0">
+  <div class="container">
+    <nav class="ld-index" aria-label="Jump to section">
+      <a href="#ally-edha-awadh"><span class="ix-no">01</span><span class="ix-name">Ally Edha Awadh</span><span class="ix-role">Chairman / Owner</span></a>
+      <a href="#sibtian-ansari"><span class="ix-no">02</span><span class="ix-name">Sibtian Ansari</span><span class="ix-role">CEO Manufacturing</span></a>
+      <a href="#vivek-choudhary"><span class="ix-no">03</span><span class="ix-name">Vivek Choudhary</span><span class="ix-role">Digital Transformation</span></a>
+      <a href="#bhaskar-shetty"><span class="ix-no">04</span><span class="ix-name">Bhaskar S. Shetty</span><span class="ix-role">MD · ATL</span></a>
+      <a href="#pankaj-kumar"><span class="ix-no">05</span><span class="ix-name">Pankaj Kumar</span><span class="ix-role">CFO · AFICD</span></a>
+      <a href="#management-team"><span class="ix-no">06</span><span class="ix-name">Full team</span><span class="ix-role">Directory &amp; contacts</span></a>
+    </nav>
+  </div>
+</section>
+
+<!-- 01 CHAIRMAN -->
+<section class="fs-section fs-on-dark" id="ally-edha-awadh">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">01</span><span class="fs-eyebrow on-dark">Chairman / Owner</span></div>
+    <div class="ld-chair" style="margin-top:var(--sp-6)">
+      <div class="ld-chair-media">
+        <div class="ld-frame">
+          <span class="ld-frame-tick" aria-hidden="true"></span>
+          <div class="ld-frame-inner">
+            <img src="assets/images/leadership/ally-edha-awadh.png" alt="Ally Edha Awadh, Executive Chairman and Owner of Lake Group" width="560" height="700">
+          </div>
+          <div class="ld-chair-badge">Executive Chairman</div>
+        </div>
+      </div>
+      <div>
+        <h2 class="fs-display" style="color:#fff">Ally Edha Awadh</h2>
+        <p class="ld-role" style="color:var(--gold)">Founder · Executive Chairman · Owner</p>
+        <p class="fs-lede" style="color:var(--ink-text)">Forbes-featured Tanzanian entrepreneur who founded Lake Oil in 2006 and built Lake Group into one of East and Central Africa’s leading energy, logistics and industrial conglomerates.</p>
+        <div class="ld-chips">
+          <span class="ld-chip" style="border-color:var(--ink-line);color:var(--ink-mute)">Founded 2006</span>
+          <span class="ld-chip" style="border-color:var(--ink-line);color:var(--ink-mute)">8+ countries</span>
+          <span class="ld-chip" style="border-color:var(--ink-line);color:var(--ink-mute)">4,600+ employees</span>
+          <span class="ld-chip" style="border-color:var(--ink-line);color:var(--ink-mute)">Forbes profiled</span>
+        </div>
+        <p style="color:var(--ink-text);margin-top:var(--sp-4)">Born in 1980 into a family of traders, Awadh studied Business Administration at Brock University in Canada — supporting himself with odd jobs while building early trading instincts. By his mid-20s he had already moved into truck refurbishing and commodity trading. In 2006 he launched Lake Oil; official Group materials place him at 27 at founding, while press profiles often cite age 26.</p>
+        <p style="color:var(--ink-text);margin-top:14px">His oversight today spans oil marketing, supply chain, downstream logistics and heavy industrial manufacturing across Tanzania, Kenya, Zambia, DRC, Burundi and Rwanda — with wider Group presence also in Ethiopia, Mozambique and Dubai (MERM). Under his chairmanship the Group has grown retail networks (85 stations in Tanzania alone), storage infrastructure, a 700+ truck fleet, LPG terminals, Lake Steel, ready-mix concrete and AFICD port-extension services.</p>
+        <p style="color:var(--ink-text);margin-top:14px">In 2017 Forbes covered Lake Oil Group’s regional push — including Competition Authority of Kenya approval to acquire Hashi Energy’s Kenyan station network — and described the enterprise as a billion-dollar (revenue) integrated energy platform. Awadh has also been recognised by African Leadership Magazine (Young Business Leader of the Year, 2022) and as Young African Energy Leader of the Year (African Business Leadership Awards, 2023).</p>
+        <blockquote class="ld-quote">“With a team of experienced engineers and business professionals across our units, Lake Group is fully geared to meet the demands of the global marketplace.”</blockquote>
+        <div class="ld-contact ld-contact--dark">
+          <div><strong>Office</strong><span>Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055, Dar es Salaam, Tanzania</span></div>
+          <div><strong>Phone</strong><a href="tel:+255222780510">+255 222 780 510</a> · <a href="tel:+255222780479">+255 222 780 479</a></div>
+          <div><strong>Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20Office%20of%20the%20Chairman">admin@lakeoilgroup.com</a> <span>(Office of the Chairman)</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 SIBTIAN -->
+<section class="fs-section" id="sibtian-ansari">
+  <div class="container">
+    <article class="ld-profile">
+      <div class="ld-profile-media">
+        <div class="ld-frame">
+          <span class="ld-frame-tick" aria-hidden="true"></span>
+          <div class="ld-frame-inner">
+            <img src="assets/images/leadership/sibtian-ansari.png" alt="Sibtian Ansari, CEO of Manufacturing Division" loading="lazy" decoding="async" width="440" height="560">
+          </div>
+        </div>
+      </div>
+      <div class="ld-profile-body">
+        <div class="fs-marker"><span class="fs-marker-no">02</span><span class="fs-eyebrow">Manufacturing</span></div>
+        <h2 class="fs-display" style="margin-top:var(--sp-3)">Sibtian Ansari</h2>
+        <p class="ld-role">CEO · Manufacturing Division</p>
+        <p class="fs-lede">Leads Lake Group’s structural industrial expansions — most notably Lake Steel and Allied Products Ltd. — spanning production infrastructure, manufacturing output, concrete products and construction supply networks.</p>
+        <p style="margin-top:14px;color:var(--mute)">As Manufacturing CEO, Ansari’s mandate sits at the industrial heart of the Group’s diversification beyond petroleum. Lake Steel operates a computerized automatic rolling mill at Visiga, Kibaha (Plot 118, Block M), with throughput up to about 25 tonnes/hour and annual capacity around 100,000 MT — with publicly discussed expansion toward 150,000 MT. The mill introduced high-strength corrosion-resistant (HS-CR) rebar to Tanzania, engineered to retain strength at elevated temperatures and deliver markedly higher corrosion resistance than ordinary rebar.</p>
+        <p style="margin-top:14px;color:var(--mute)">His portfolio also connects to the Group’s construction-materials chain: Gulf Aggregates crushing plants, Lake Premix / GCCP ready-mix operations in Dar es Salaam, and the wider building-products ecosystem that supplies contractors and infrastructure projects. The brief is operational — turning capital plant into reliable output that feeds East Africa’s construction demand.</p>
+        <ul class="ld-mandate">
+          <li><span>01</span><span>Lake Steel production infrastructure &amp; mill output</span></li>
+          <li><span>02</span><span>Concrete products &amp; construction supply networks</span></li>
+          <li><span>03</span><span>Industrial expansion programmes across manufacturing units</span></li>
+        </ul>
+        <div class="ld-meta">
+          <div><strong>HS-CR</strong><span>Steel technology</span></div>
+          <div><strong>~100k MT</strong><span>Annual steel capacity</span></div>
+          <div><strong>Kibaha</strong><span>Mill location</span></div>
+        </div>
+        <div class="ld-contact">
+          <div><strong>Desk</strong><span>Manufacturing Division · Lake Steel / construction materials</span></div>
+          <div><strong>Phone</strong><a href="tel:+255222780510">+255 222 780 510</a></div>
+          <div><strong>Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20CEO%20Manufacturing%20%28Sibtian%20Ansari%29">admin@lakeoilgroup.com</a></div>
+        </div>
+        <div style="margin-top:var(--sp-5)">
+          <a href="steel.html" class="btn btn-outline-dark btn-sm">Lake Steel sector</a>
+          <a href="concrete.html" class="btn btn-outline-dark btn-sm" style="margin-left:8px">Concrete &amp; aggregate</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 03 VIVEK -->
+<section class="fs-section section-light" id="vivek-choudhary">
+  <div class="container">
+    <article class="ld-profile ld-profile--rev">
+      <div class="ld-profile-media">
+        <div class="ld-frame">
+          <span class="ld-frame-tick" aria-hidden="true"></span>
+          <div class="ld-frame-inner">
+            <img src="assets/images/leadership/vivek-choudhary.png" alt="Vivek Choudhary, Director of Digital Transformation" loading="lazy" decoding="async" width="440" height="560">
+          </div>
+        </div>
+      </div>
+      <div class="ld-profile-body">
+        <div class="fs-marker"><span class="fs-marker-no">03</span><span class="fs-eyebrow">Technology</span></div>
+        <h2 class="fs-display" style="margin-top:var(--sp-3)">Vivek Choudhary</h2>
+        <p class="ld-role">Director of Digital Transformation</p>
+        <p class="fs-lede">Owns enterprise technology architecture and digital strategy — from centralised SAP environments to logistics intelligence and cross-border data security.</p>
+        <p style="margin-top:14px;color:var(--mute)">Across a Group that runs fuel depots, 700+ trucks, ICD/CFS yards and multi-country retail, digital systems are the nervous system. Choudhary’s mandate focuses on optimising Lake Group’s centralised SAP stack — the same operational backbone used for shipment orders, inventory and financial posting across units such as Lake Trans and AFICD — and embedding custom logistics and fleet-tracking intelligence so corridor movements stay visible from Dar to Ndola and beyond.</p>
+        <p style="margin-top:14px;color:var(--mute)">He also scales cross-border data security infrastructure: protecting networks that connect Tanzania hubs (Kigamboni, Mikocheni, Tazara and more) with regional country operations. The goal is a single, resilient digital layer that lets manufacturing, energy and logistics executives act on the same real-time picture.</p>
+        <ul class="ld-mandate">
+          <li><span>01</span><span>Centralised SAP optimisation &amp; enterprise architecture</span></li>
+          <li><span>02</span><span>Fleet tracking &amp; logistics intelligence</span></li>
+          <li><span>03</span><span>Cross-border cybersecurity &amp; data infrastructure</span></li>
+        </ul>
+        <div class="ld-meta">
+          <div><strong>SAP</strong><span>Core ERP</span></div>
+          <div><strong>Fleet IQ</strong><span>Logistics systems</span></div>
+          <div><strong>Multi-country</strong><span>Security scope</span></div>
+        </div>
+        <div class="ld-contact">
+          <div><strong>Desk</strong><span>Digital Transformation · Group IT / SAP</span></div>
+          <div><strong>Phone</strong><a href="tel:+255222780510">+255 222 780 510</a></div>
+          <div><strong>Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20Director%20Digital%20Transformation%20%28Vivek%20Choudhary%29">admin@lakeoilgroup.com</a></div>
+        </div>
+        <div style="margin-top:var(--sp-5)">
+          <a href="fleet.html" class="btn btn-outline-dark btn-sm">Our fleet</a>
+          <a href="africa-network.html" class="btn btn-outline-dark btn-sm" style="margin-left:8px">Africa network</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 04 BHASKAR -->
+<section class="fs-section" id="bhaskar-shetty">
+  <div class="container">
+    <article class="ld-profile">
+      <div class="ld-profile-media">
+        <div class="ld-frame">
+          <span class="ld-frame-tick" aria-hidden="true"></span>
+          <div class="ld-frame-inner">
+            <img src="assets/images/leadership/bhaskar-shetty.png" alt="Bhaskar S. Shetty, Managing Director of ATL" loading="lazy" decoding="async" width="440" height="560">
+          </div>
+        </div>
+      </div>
+      <div class="ld-profile-body">
+        <div class="fs-marker"><span class="fs-marker-no">04</span><span class="fs-eyebrow">Logistics</span></div>
+        <h2 class="fs-display" style="margin-top:var(--sp-3)">Bhaskar S. Shetty</h2>
+        <p class="ld-role">Managing Director · Associated Trans Logistics Ltd (ATL)</p>
+        <p class="fs-lede">Directs ATL, operating structurally alongside Lake Trans as a logistical backbone for fuel distribution fleets, heavy haulage and multi-national cargo corridors.</p>
+        <p style="margin-top:14px;color:var(--mute)">Shetty’s ATL wing sits next to Lake Trans Ltd. — the Group’s second company (2008) and primary petroleum haulage arm. Together they move product locally and in transit across Tanzania, Zambia, Rwanda, DRC, Burundi, Malawi, Kenya and Uganda. Group messaging cites 700+ trucks; tanker capacities typically range 12,000–40,000 litres, with GPS tracking as standard.</p>
+        <p style="margin-top:14px;color:var(--mute)">ATL’s role is to keep the physical network seamless: routing fuel fleets, heavy haulage and cargo pipelines so depots, stations and industrial plants stay supplied. Workshops in Kibaha, Kigamboni, Morogoro, Nairobi and Ndola support asset uptime on the corridors that make Lake Group’s multi-country model possible.</p>
+        <ul class="ld-mandate">
+          <li><span>01</span><span>Fuel distribution fleet routing &amp; execution</span></li>
+          <li><span>02</span><span>Heavy haulage &amp; multi-national cargo pipelines</span></li>
+          <li><span>03</span><span>Coordination with Lake Trans corridor operations</span></li>
+        </ul>
+        <div class="ld-meta">
+          <div><strong>ATL</strong><span>Logistics unit</span></div>
+          <div><strong>700+</strong><span>Group trucks</span></div>
+          <div><strong>8+</strong><span>Corridor countries</span></div>
+        </div>
+        <div class="ld-contact">
+          <div><strong>Desk</strong><span>Associated Trans Logistics Ltd (ATL) · alongside Lake Trans</span></div>
+          <div><strong>Phone</strong><a href="tel:+255222780510">+255 222 780 510</a></div>
+          <div><strong>Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20MD%20ATL%20%28Bhaskar%20S.%20Shetty%29">admin@lakeoilgroup.com</a></div>
+        </div>
+        <div style="margin-top:var(--sp-5)">
+          <a href="logistics.html" class="btn btn-outline-dark btn-sm">Transport &amp; haulage</a>
+          <a href="fleet.html" class="btn btn-outline-dark btn-sm" style="margin-left:8px">Fleet profile</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 05 PANKAJ -->
+<section class="fs-section section-light" id="pankaj-kumar">
+  <div class="container">
+    <article class="ld-profile ld-profile--rev">
+      <div class="ld-profile-media">
+        <div class="ld-frame">
+          <span class="ld-frame-tick" aria-hidden="true"></span>
+          <div class="ld-frame-inner">
+            <img src="assets/images/leadership/pankaj-kumar.png" alt="Pankaj Kumar, CFO of AFICD" loading="lazy" decoding="async" width="440" height="560">
+          </div>
+        </div>
+      </div>
+      <div class="ld-profile-body">
+        <div class="fs-marker"><span class="fs-marker-no">05</span><span class="fs-eyebrow">Finance · Containers</span></div>
+        <h2 class="fs-display" style="margin-top:var(--sp-3)">Pankaj Kumar</h2>
+        <p class="ld-role">Chief Financial Officer · African Inland Container Depot (AFICD)</p>
+        <p class="fs-lede">Oversees financial planning, risk analysis and corporate governance for AFICD — Lake Group’s dry-port platform on Pugu Road, Dar es Salaam.</p>
+        <p style="margin-top:14px;color:var(--mute)">AFICD is a core Group asset: an inland container depot at Tazara / Pugu Road with rail siding toward the port (~6 km), serving landlocked markets including Rwanda, Burundi, Uganda, DRC, Zambia and Malawi. The Dar yard covers about 14,000 m² with capacity around 4,000 TEU, SAP-based operations, container repairs, and sister sites in Zambia (Ndola) and Mozambique (Beira). ACFS extends the brand into a larger CFS terminal with warehouse, weighbridge and reefer capacity.</p>
+        <p style="margin-top:14px;color:var(--mute)">As CFO, Kumar’s brief is capital discipline and governance around that cargo engine — planning, risk and controls for import-export volumes, customs-linked workflows and container clearing that keep the depot commercially sound while the Group scales corridor logistics.</p>
+        <ul class="ld-mandate">
+          <li><span>01</span><span>Financial planning &amp; performance for AFICD</span></li>
+          <li><span>02</span><span>Risk analysis &amp; corporate governance</span></li>
+          <li><span>03</span><span>Support for ICD / CFS commercial operations</span></li>
+        </ul>
+        <div class="ld-meta">
+          <div><strong>4,000</strong><span>TEU capacity (Dar)</span></div>
+          <div><strong>Pugu Rd</strong><span>Depot location</span></div>
+          <div><strong>3</strong><span>Country sites</span></div>
+        </div>
+        <div class="ld-contact">
+          <div><strong>Office</strong><span>AFICD · Tazara, Pugu Road, Dar es Salaam</span></div>
+          <div><strong>Phone</strong><a href="tel:+255222780510">+255 222 780 510</a></div>
+          <div><strong>Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20CFO%20AFICD%20%28Pankaj%20Kumar%29">admin@lakeoilgroup.com</a></div>
+        </div>
+        <div style="margin-top:var(--sp-5)">
+          <a href="container-services.html" class="btn btn-outline-dark btn-sm">Container services</a>
+          <a href="contact.html" class="btn btn-outline-dark btn-sm" style="margin-left:8px">Contact Group</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- MANAGEMENT TEAM DIRECTORY -->
+<section class="fs-section" id="management-team">
+  <div class="container">
+    <div class="fs-head fs-head-center">
+      <div class="fs-eyebrow" style="justify-content:center">Management team</div>
+      <h2 class="fs-display">Key management &amp; team</h2>
+      <p class="fs-lede" style="margin:12px auto 0;max-width:62ch">Bios, roles, expertise and contact routes for Lake Group’s executive and senior management team. Reach desks via Group HQ — messages are routed with the subject line noted on each card.</p>
+    </div>
+
+    <div class="team-grid">
+      <article class="team-card">
+        <div class="team-card-photo"><div class="ld-frame"><span class="ld-frame-tick" aria-hidden="true"></span><div class="ld-frame-inner"><img src="assets/images/leadership/ally-edha-awadh.png" alt="Ally Edha Awadh" loading="lazy" decoding="async"></div></div></div>
+        <div class="team-card-body">
+          <h3>Ally Edha Awadh</h3>
+          <p class="ld-role" style="margin:0">Executive Chairman &amp; Owner</p>
+          <p style="font-size:.88rem;color:var(--mute);line-height:1.55">Founder of Lake Group (2006). Oversees oil marketing, supply chain, logistics and industrial manufacturing across the region.</p>
+          <div class="team-expertise"><span>Strategy</span><span>Energy</span><span>M&amp;A</span></div>
+          <div class="team-card-contact">
+            <a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20Office%20of%20the%20Chairman">admin@lakeoilgroup.com</a>
+            <a href="tel:+255222780510">+255 222 780 510</a>
+            <a href="#ally-edha-awadh">Full profile →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="team-card-photo"><div class="ld-frame"><span class="ld-frame-tick" aria-hidden="true"></span><div class="ld-frame-inner"><img src="assets/images/leadership/sibtian-ansari.png" alt="Sibtian Ansari" loading="lazy" decoding="async"></div></div></div>
+        <div class="team-card-body">
+          <h3>Sibtian Ansari</h3>
+          <p class="ld-role" style="margin:0">CEO · Manufacturing Division</p>
+          <p style="font-size:.88rem;color:var(--mute);line-height:1.55">Leads Lake Steel and industrial expansions — production infrastructure, mill output, concrete products and construction supply.</p>
+          <div class="team-expertise"><span>Steel</span><span>Concrete</span><span>Plant ops</span></div>
+          <div class="team-card-contact">
+            <a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20CEO%20Manufacturing%20%28Sibtian%20Ansari%29">admin@lakeoilgroup.com</a>
+            <a href="tel:+255222780510">+255 222 780 510</a>
+            <a href="#sibtian-ansari">Full profile →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="team-card-photo"><div class="ld-frame"><span class="ld-frame-tick" aria-hidden="true"></span><div class="ld-frame-inner"><img src="assets/images/leadership/vivek-choudhary.png" alt="Vivek Choudhary" loading="lazy" decoding="async"></div></div></div>
+        <div class="team-card-body">
+          <h3>Vivek Choudhary</h3>
+          <p class="ld-role" style="margin:0">Director · Digital Transformation</p>
+          <p style="font-size:.88rem;color:var(--mute);line-height:1.55">Enterprise architecture, SAP optimisation, fleet/logistics intelligence and cross-border data security.</p>
+          <div class="team-expertise"><span>SAP</span><span>Cybersecurity</span><span>Fleet tech</span></div>
+          <div class="team-card-contact">
+            <a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20Director%20Digital%20Transformation">admin@lakeoilgroup.com</a>
+            <a href="tel:+255222780510">+255 222 780 510</a>
+            <a href="#vivek-choudhary">Full profile →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="team-card-photo"><div class="ld-frame"><span class="ld-frame-tick" aria-hidden="true"></span><div class="ld-frame-inner"><img src="assets/images/leadership/bhaskar-shetty.png" alt="Bhaskar S. Shetty" loading="lazy" decoding="async"></div></div></div>
+        <div class="team-card-body">
+          <h3>Bhaskar S. Shetty</h3>
+          <p class="ld-role" style="margin:0">Managing Director · ATL</p>
+          <p style="font-size:.88rem;color:var(--mute);line-height:1.55">Directs Associated Trans Logistics alongside Lake Trans — fuel fleets, heavy haulage and multi-national cargo corridors.</p>
+          <div class="team-expertise"><span>Haulage</span><span>Corridors</span><span>Fleet</span></div>
+          <div class="team-card-contact">
+            <a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20MD%20ATL%20%28Bhaskar%20S.%20Shetty%29">admin@lakeoilgroup.com</a>
+            <a href="tel:+255222780510">+255 222 780 510</a>
+            <a href="#bhaskar-shetty">Full profile →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="team-card-photo"><div class="ld-frame"><span class="ld-frame-tick" aria-hidden="true"></span><div class="ld-frame-inner"><img src="assets/images/leadership/pankaj-kumar.png" alt="Pankaj Kumar" loading="lazy" decoding="async"></div></div></div>
+        <div class="team-card-body">
+          <h3>Pankaj Kumar</h3>
+          <p class="ld-role" style="margin:0">CFO · AFICD</p>
+          <p style="font-size:.88rem;color:var(--mute);line-height:1.55">Financial planning, risk and governance for African Inland Container Depot — dry-port cargo, customs and clearing workflows.</p>
+          <div class="team-expertise"><span>Finance</span><span>Risk</span><span>ICD / CFS</span></div>
+          <div class="team-card-contact">
+            <a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20CFO%20AFICD%20%28Pankaj%20Kumar%29">admin@lakeoilgroup.com</a>
+            <a href="tel:+255222780510">+255 222 780 510</a>
+            <a href="#pankaj-kumar">Full profile →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="team-card-photo"><div class="ld-frame"><span class="ld-frame-tick" aria-hidden="true"></span><div class="ld-frame-inner ld-frame-inner--logo"><img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group" loading="lazy" decoding="async"></div></div></div>
+        <div class="team-card-body">
+          <h3>Juma Nuru</h3>
+          <p class="ld-role" style="margin:0">Director of Operations · Lake Group</p>
+          <p style="font-size:.88rem;color:var(--mute);line-height:1.55">Leads Group-wide operations across Lake Group’s energy, logistics and industrial units — coordinating day-to-day execution and operational performance.</p>
+          <div class="team-expertise"><span>Operations</span><span>Execution</span><span>Performance</span></div>
+          <div class="team-card-contact">
+            <a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20Director%20of%20Operations%20%28Juma%20Nuru%29">admin@lakeoilgroup.com</a>
+            <a href="tel:+255222780510">+255 222 780 510</a>
+            <a href="about.html">About →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="team-card-photo"><div class="ld-frame"><span class="ld-frame-tick" aria-hidden="true"></span><div class="ld-frame-inner ld-frame-inner--logo"><img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group" loading="lazy" decoding="async"></div></div></div>
+        <div class="team-card-body">
+          <h3>Nassoro Abubakari</h3>
+          <p class="ld-role" style="margin:0">Project Manager · Lake Agro</p>
+          <p style="font-size:.88rem;color:var(--mute);line-height:1.55">Manages Lake Agro project delivery — greenfield development, agribusiness programmes and related Group project coordination.</p>
+          <div class="team-expertise"><span>Lake Agro</span><span>Projects</span><span>Delivery</span></div>
+          <div class="team-card-contact">
+            <a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20Project%20Manager%20Lake%20Agro%20%28Nassoro%20Abubakari%29">admin@lakeoilgroup.com</a>
+            <a href="tel:+255222780510">+255 222 780 510</a>
+            <a href="projects.html">Projects →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="team-desk fs-corners">
+      <div>
+        <h3>Team contact desk</h3>
+        <p>For enquiries to any member of the management team, use Group HQ. Include the person’s name or role in the email subject so your message is routed correctly. Personal direct lines are not published for privacy and security.</p>
+        <ul>
+          <li><strong style="color:var(--gold)">Address</strong><br>Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055, Dar es Salaam, Tanzania</li>
+          <li><strong style="color:var(--gold)">Switchboard</strong><br><a href="tel:+255222780510">+255 222 780 510</a> · <a href="tel:+255222780479">+255 222 780 479</a></li>
+          <li><strong style="color:var(--gold)">General email</strong><br><a href="mailto:admin@lakeoilgroup.com">admin@lakeoilgroup.com</a></li>
+          <li><strong style="color:var(--gold)">LinkedIn</strong><br><a href="https://www.linkedin.com/company/lake-oil" target="_blank" rel="noopener">Lake Oil</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Country desks</h3>
+        <ul>
+          <li><a href="mailto:contact.zambia@lakeoilgroup.com">contact.zambia@lakeoilgroup.com</a> · +260 212 680 179</li>
+          <li><a href="mailto:contact.rwanda@lakeoilgroup.com">contact.rwanda@lakeoilgroup.com</a> · +250 786 395 115</li>
+          <li><a href="mailto:contact.burundi@lakeoilgroup.com">contact.burundi@lakeoilgroup.com</a> · +257 2227 5126</li>
+          <li><a href="mailto:contact.drc@lakeoilgroup.com">contact.drc@lakeoilgroup.com</a> · +243 816 910 191</li>
+        </ul>
+        <div style="margin-top:var(--sp-6);display:flex;gap:10px;flex-wrap:wrap">
+          <a href="contact.html" class="btn btn-primary">Contact form</a>
+          <a href="careers.html" class="btn btn-ghost">Careers</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ld-cta fs-on-dark">
+  <div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--sp-8);align-items:center">
+    <div>
+      <div class="fs-eyebrow on-dark">Careers</div>
+      <h2 class="fs-display" style="color:#fff;margin-top:var(--sp-3)">21 nationalities. One team.</h2>
+      <p style="color:var(--ink-mute);margin-top:var(--sp-3);max-width:42ch">4,600+ professionals power Lake Group across energy, manufacturing and logistics. Build with us.</p>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a href="careers.html" class="btn btn-primary">Join our team</a>
+      <a href="about.html" class="btn btn-ghost">About Lake Group</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/images/logos/LAKE_GROUP_LOGO.jpg" alt="Lake Group">
+        </div>
+        <p class="footer-motto" style="color:var(--yellow);font-weight:600;font-size:0.95rem;letter-spacing:0.04em" data-i18n="footer.motto">Quality, Service, Safety, Professionalism</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/lake-oil" class="social-link" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.facebook.com/lakeoilgroup" class="social-link" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://twitter.com/lakeoilgroup" class="social-link" target="_blank" rel="noopener">X / Twitter</a>
+          <a href="https://www.youtube.com/@lakeoilgroup" class="social-link" target="_blank" rel="noopener">YouTube</a>
+        </div>
+        <div style="margin-top:20px;display:flex;gap:10px">
+          <a href="contact.html" class="btn btn-outline btn-sm" data-i18n="footer.contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-col"><h5 data-i18n="footer.services">Services</h5><ul>
+        <li><a href="fuel.html" data-i18n="nav.fuel">Fuel &amp; Petroleum</a></li><li><a href="lpg.html" data-i18n="nav.lpg">LPG Gas</a></li>
+        <li><a href="lubricants.html" data-i18n="nav.lubricants">Lubricants</a></li><li><a href="steel.html" data-i18n="nav.steel">Lake Steel</a></li>
+        <li><a href="concrete.html" data-i18n="nav.concreteShort">Concrete</a></li><li><a href="logistics.html" data-i18n="nav.transportShort">Transport</a></li>
+        <li><a href="container-services.html" data-i18n="nav.containers">Container Services</a></li>
+      </ul></div>
+      <div class="footer-col"><h5 data-i18n="footer.company">Company</h5><ul>
+        <li><a href="about.html" data-i18n="nav.aboutUs">About Us</a></li><li><a href="history.html" data-i18n="nav.historyShort">History</a></li>
+        <li><a href="leadership.html" data-i18n="nav.leadership">Leadership</a></li><li><a href="csr.html" data-i18n="nav.csrShort">CSR</a></li>
+        <li><a href="investors.html" data-i18n="nav.investorsShort">Investors</a></li><li><a href="projects.html" data-i18n="nav.projectsShort">Projects</a></li>
+        <li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
+      </ul></div>
+      <div class="footer-col"><h5 data-i18n="footer.contactHeading">Contact</h5><ul>
+        <li><a href="#" data-i18n="footer.address">Plot 49, Mikocheni Light Industrial, Dar es Salaam</a></li>
+        <li><a href="tel:+255222780510">+255 222 780 510</a></li>
+        <li><a href="tel:+255222780479">+255 222 780 479</a></li>
+        <li><a href="mailto:admin@lakeoilgroup.com">admin@lakeoilgroup.com</a></li>
+      </ul>
+      <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:5px">
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/tz.svg" alt="" class="flag-icon" width="20" height="15"> TZ</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/ke.svg" alt="" class="flag-icon" width="20" height="15"> KE</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/zm.svg" alt="" class="flag-icon" width="20" height="15"> ZM</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/rw.svg" alt="" class="flag-icon" width="20" height="15"> RW</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/bi.svg" alt="" class="flag-icon" width="20" height="15"> BI</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/cd.svg" alt="" class="flag-icon" width="20" height="15"> DRC</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/et.svg" alt="" class="flag-icon" width="20" height="15"> ET</span>
+        <span class="country-tag" style="background:rgba(255,214,0,0.12);color:var(--yellow)"><img src="assets/images/flags/mz.svg" alt="" class="flag-icon" width="20" height="15"> MZ</span>
+      </div></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Lake Group. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <div class="footer-bottom-links"><a href="#" data-i18n="footer.privacy">Privacy</a><a href="#" data-i18n="footer.terms">Terms</a><a href="contact.html" data-i18n="footer.contact">Contact</a></div>
+    </div>
+  </div>
+</footer>
+<div id="chat-widget">
+  <div id="chat-box">
+    <div id="chat-head"><h4 data-i18n="chat.title">Lake Group Assistant</h4><p data-i18n="chat.sub">Ask us anything</p></div>
+    <div id="chat-messages"><div class="msg msg-bot" data-i18n="chat.hello">Hello! How can I help you today?</div></div>
+    <div id="chat-input-row"><input type="text" id="chat-input" placeholder="Type a message..." data-i18n-placeholder="chat.placeholder"><button id="chat-send" data-i18n="chat.send">Send</button></div>
+  </div>
+  <button id="chat-btn" aria-label="Chat"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></button>
+</div>
+<script src="assets/i18n-content.js" defer></script>
+<script src="assets/i18n.js" defer></script>
+<script src="assets/site.js" defer></script>
+  <script src="assets/vendor/flexsearch/flexsearch.bundle.min.js" defer></script>
+  <script src="assets/assistant-kb.js" defer></script>
+  <script src="assets/assistant.js" defer></script>
+<script src="assets/pwa.js" defer></script>
+<script src="assets/flagship-motion.js" defer></script>
+</body>
+</html>
