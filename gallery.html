@@ -31,31 +31,72 @@
 .g-count::before{content:'';width:8px;height:8px;background:var(--gold)}
 
 /* Filter register: drafting tabs */
-.gallery-filter-bar{display:flex;gap:0;flex-wrap:wrap;justify-content:center;margin-bottom:var(--sp-10);border:1px solid var(--line)}
-.gf-btn{padding:13px 22px;border:none;border-right:1px solid var(--line);background:var(--surface);border-radius:0;font-family:var(--font-body);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;color:var(--mute);transition:background var(--dur-1) ease,color var(--dur-1) ease}
+.gallery-filter-bar{display:flex;gap:0;flex-wrap:wrap;justify-content:center;margin:0 auto var(--sp-8);border:1px solid var(--line);max-width:1120px}
+.gf-btn{padding:12px 18px;border:none;border-right:1px solid var(--line);background:var(--surface);border-radius:0;font-family:var(--font-body);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;color:var(--mute);transition:background var(--dur-1) ease,color var(--dur-1) ease}
 .gf-btn:last-child{border-right:none}
 .gf-btn:hover{color:var(--text);background:var(--paper-2)}
 .gf-btn.active{background:var(--ink);color:var(--gold);position:relative}
 .gf-btn.active::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold)}
-@media(max-width:720px){.gallery-filter-bar{border:none;gap:8px}.gf-btn{border:1px solid var(--line)!important}}
+@media(max-width:720px){.gallery-filter-bar{border:none;gap:8px;justify-content:flex-start}.gf-btn{border:1px solid var(--line)!important;padding:10px 14px}}
 
-/* Mosaic: contact-sheet masonry */
-.gallery-masonry{columns:3;gap:14px}
-@media(max-width:860px){.gallery-masonry{columns:2}}
-@media(max-width:560px){.gallery-masonry{columns:1}}
-.g-item{break-inside:avoid;margin-bottom:14px;overflow:hidden;cursor:pointer;position:relative;background:var(--ink-3);border-radius:0}
-.g-item::before{content:'';position:absolute;top:0;left:0;width:26px;height:2px;background:var(--gold);z-index:3;transition:width var(--dur-2) var(--ease-out)}
-.g-item:hover::before{width:64px}
-.g-item img{width:100%;display:block;transition:transform var(--dur-3) var(--ease-out),filter var(--dur-2) ease;filter:saturate(.92)}
-.g-item:hover img{transform:scale(1.05);filter:saturate(1.05)}
-.g-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(1,63,92,0.9));padding:36px 14px 12px;color:#fff;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:0;transform:translateY(6px);transition:opacity var(--dur-2) var(--ease-out),transform var(--dur-2) var(--ease-out)}
-.g-label::before{content:'';display:inline-block;width:8px;height:8px;background:var(--gold);margin-right:10px}
-.g-item:hover .g-label{opacity:1;transform:none}
+/* Uniform photo grid — compact, even tiles (no runaway masonry heights) */
+.gallery-masonry{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+  max-width:1120px;
+  margin:0 auto;
+}
+@media(max-width:1020px){.gallery-masonry{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}}
+@media(max-width:720px){.gallery-masonry{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}}
+.g-item{
+  margin:0;
+  overflow:hidden;
+  cursor:pointer;
+  position:relative;
+  background:var(--ink-3);
+  aspect-ratio:4/3;
+  border:1px solid var(--line-2);
+  transition:border-color .25s ease,transform .3s var(--ease-out,ease);
+}
+.g-item.is-hidden{display:none}
+.g-item::before{
+  content:'';
+  position:absolute;top:0;left:0;width:22px;height:2px;
+  background:var(--gold);z-index:3;
+  transition:width .3s var(--ease-out,ease);
+}
+.g-item:hover{border-color:var(--color-brand-blue,#0181BB);transform:translateY(-2px)}
+.g-item:hover::before{width:48px}
+.g-item img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  display:block;
+  transition:transform .45s var(--ease-out,ease),filter .25s ease;
+  filter:saturate(.94);
+}
+.g-item:hover img{transform:scale(1.06);filter:saturate(1.05)}
+.g-label{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(180deg,transparent 0%,rgba(1,63,92,0.88) 70%);
+  padding:28px 12px 10px;
+  color:#fff;
+  font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  line-height:1.35;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  opacity:.92;
+  transition:opacity .25s ease,padding .25s ease;
+}
+.g-label::before{
+  content:'';display:inline-block;width:6px;height:6px;
+  background:var(--gold);margin-right:8px;vertical-align:middle;
+}
+.g-item:hover .g-label{opacity:1;padding-bottom:12px}
 
 /* Lightbox: darkroom plate */
-#lightbox{display:none;position:fixed;inset:0;background:rgba(1,63,92,0.96);z-index:9998;align-items:center;justify-content:center;flex-direction:column}
+#lightbox{display:none;position:fixed;inset:0;background:rgba(1,63,92,0.96);z-index:9998;align-items:center;justify-content:center;flex-direction:column;padding:24px}
 #lightbox.open{display:flex}
-#lb-img{max-width:90vw;max-height:80vh;border-radius:0;object-fit:contain;box-shadow:var(--shadow-3)}
+#lb-img{max-width:min(920px,88vw);max-height:78vh;width:auto;height:auto;border-radius:0;object-fit:contain;box-shadow:var(--shadow-3)}
 #lb-caption{color:rgba(233,237,248,0.75);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;margin-top:18px;text-align:center;max-width:640px;display:flex;align-items:center;gap:12px;justify-content:center}
 #lb-caption::before{content:'';width:8px;height:8px;background:var(--gold);flex:none}
 #lb-close{position:absolute;top:20px;right:24px;background:transparent;border:1px solid var(--ink-line);color:#fff;font-size:1.4rem;cursor:pointer;width:44px;height:44px;border-radius:0;display:flex;align-items:center;justify-content:center;transition:border-color var(--dur-1) ease,color var(--dur-1) ease}
@@ -429,8 +470,8 @@
         <img src="assets/images/n-slider/2.jpg" alt="Highest Service Standards" loading="lazy" decoding="async" width="2061" height="1380">
         <div data-i18n="gallery.16" class="g-label">Highest Service Standards</div>
       </div>
-<div class="g-item reveal" data-cat="fuel" data-src="assets/images/n-slider/3.jpg" data-caption="Largest Petroleum Distributors in Tanzania">
-        <img src="assets/images/n-slider/3.jpg" alt="Largest Petroleum Distributors in Tanzania" loading="lazy" decoding="async" width="2070" height="1380">
+<div class="g-item reveal" data-cat="fuel" data-src="assets/images/group/ops/terminal-overview.jpg?v=71" data-caption="Largest Petroleum Distributors in Tanzania">
+        <img src="assets/images/group/ops/terminal-overview.jpg?v=71" alt="Largest Petroleum Distributors in Tanzania" loading="lazy" decoding="async" width="2070" height="1380">
         <div data-i18n="gallery.17" class="g-label">Largest Petroleum Distributors in Tanzania</div>
       </div>
 <div class="g-item reveal" data-cat="operations" data-src="assets/images/n-slider/4.jpg" data-caption="Fastest Growing Company in Africa">
@@ -441,8 +482,8 @@
         <img src="assets/images/n-slider/5.jpg" alt="Pan-African Supply Chain Operations" loading="lazy" decoding="async" width="2070" height="1380">
         <div data-i18n="gallery.19" class="g-label">Pan-African Supply Chain Operations</div>
       </div>
-<div class="g-item reveal" data-cat="fuel" data-src="assets/images/n-slider/6.jpg" data-caption="Fuel Distribution Network">
-        <img src="assets/images/n-slider/6.jpg" alt="Fuel Distribution Network" loading="lazy" decoding="async" width="2453" height="1380">
+<div class="g-item reveal" data-cat="fuel" data-src="assets/images/group/ops/tanker-loading.jpg?v=71" data-caption="Fuel Distribution Network">
+        <img src="assets/images/group/ops/tanker-loading.jpg?v=71" alt="Fuel Distribution Network" loading="lazy" decoding="async" width="2453" height="1380">
         <div data-i18n="gallery.20" class="g-label">Fuel Distribution Network</div>
       </div>
 <div class="g-item reveal" data-cat="operations" data-src="assets/images/n-slider/7.jpg" data-caption="8 Countries, 30,000+ Employees">
@@ -453,22 +494,56 @@
         <img src="assets/images/n-slider/8.jpg" alt="Quality, Service, Safety, Professionalism" loading="lazy" decoding="async" width="2070" height="1380">
         <div data-i18n="gallery.22" class="g-label">Quality, Service, Safety, Professionalism</div>
       </div>
-<div class="g-item reveal" data-cat="fuel" data-src="assets/images/n-slider/9.jpg" data-caption="Petroleum Products across East Africa">
-        <img src="assets/images/n-slider/9.jpg" alt="Petroleum Products across East Africa" loading="lazy" decoding="async" width="3199" height="1687">
+<div class="g-item reveal" data-cat="fuel" data-src="assets/images/group/ops/depot-aerial.jpg?v=71" data-caption="Petroleum Products across East Africa">
+        <img src="assets/images/group/ops/depot-aerial.jpg?v=71" alt="Petroleum Products across East Africa" loading="lazy" decoding="async" width="3199" height="1687">
         <div data-i18n="gallery.23" class="g-label">Petroleum Products across East Africa</div>
       </div>
-<div class="g-item reveal" data-cat="fuel" data-src="assets/images/banner/LakeOil.jpg" data-caption="Lake Oil Ltd.: Fuel Station Operations">
-        <img src="assets/images/banner/LakeOil.jpg" alt="Lake Oil Ltd.: Fuel Station Operations" loading="lazy" decoding="async" width="2453" height="1380">
-        <div data-i18n="gallery.24" class="g-label">Lake Oil Ltd.: Fuel Station Operations</div>
+<div class="g-item reveal" data-cat="fuel" data-src="assets/images/banner/LakeOil1.jpg?v=70" data-caption="Lake Energies retail station">
+        <img src="assets/images/banner/LakeOil1.jpg?v=70" alt="Lake Energies retail station" loading="lazy" decoding="async" width="1600" height="900">
+        <div data-i18n="gallery.24" class="g-label">Lake Energies retail station</div>
       </div>
-<div class="g-item reveal" data-cat="fuel" data-src="assets/images/banner/LakeOil1.jpg" data-caption="Lake Oil Ltd.: Petroleum Supply Operations">
-        <img src="assets/images/banner/LakeOil1.jpg" alt="Lake Oil Ltd.: Petroleum Supply Operations" loading="lazy" decoding="async" width="2070" height="1380">
-        <div data-i18n="gallery.25" class="g-label">Lake Oil Ltd.: Petroleum Supply Operations</div>
+<div class="g-item reveal" data-cat="fuel" data-src="assets/images/banner/LakeOil.jpg?v=70" data-caption="Lake Oil depot and storage terminal">
+        <img src="assets/images/banner/LakeOil.jpg?v=70" alt="Lake Oil depot and storage terminal" loading="lazy" decoding="async" width="1600" height="900">
+        <div data-i18n="gallery.25" class="g-label">Lake Oil depot and storage terminal</div>
       </div>
-<div class="g-item reveal" data-cat="lpg" data-src="assets/images/banner/LakeGas.jpg" data-caption="Lake Gas Ltd.: LPG Distribution across East Africa">
-        <img src="assets/images/banner/LakeGas.jpg" alt="Lake Gas Ltd.: LPG Distribution across East Africa" loading="lazy" decoding="async" width="2070" height="1380">
+<div class="g-item reveal" data-cat="fuel" data-src="assets/images/lakeoil/current/fleet-loading.jpg?v=70" data-caption="Lake Energies tanker fleet at terminal">
+        <img src="assets/images/lakeoil/current/fleet-loading.jpg?v=70" alt="Lake Energies tanker fleet at terminal" loading="lazy" decoding="async" width="1600" height="900">
+        <div class="g-label">Lake Energies tanker fleet at terminal</div>
+      </div>
+<div class="g-item reveal" data-cat="fuel" data-src="assets/images/lakeoil/current/tanker-lake-energies.jpg?v=70" data-caption="Lake Energies fuel tanker">
+        <img src="assets/images/lakeoil/current/tanker-lake-energies.jpg?v=70" alt="Lake Energies fuel tanker" loading="lazy" decoding="async" width="1600" height="900">
+        <div class="g-label">Lake Energies fuel tanker</div>
+      </div>
+<div class="g-item reveal" data-cat="lpg" data-src="assets/images/lakegas/ops/cylinders-yard.jpg?v=71" data-caption="Lake Gas Ltd.: LPG Distribution across East Africa">
+        <img src="assets/images/lakegas/ops/cylinders-yard.jpg?v=71" alt="Lake Gas Ltd.: LPG Distribution across East Africa" loading="lazy" decoding="async" width="2070" height="1380">
         <div data-i18n="gallery.26" class="g-label">Lake Gas Ltd.: LPG Distribution across East Africa</div>
       </div>
+
+<div class="g-item reveal" data-cat="lpg" data-src="assets/images/lakegas/ops/filling-plant.jpg?v=71" data-caption="Lake Gas LPG filling plant">
+        <img src="assets/images/lakegas/ops/filling-plant.jpg?v=71" alt="Lake Gas LPG filling plant" loading="lazy" decoding="async" width="1600" height="900">
+      </div>
+<div class="g-item reveal" data-cat="lpg" data-src="assets/images/lakegas/ops/worker-silas.jpg?v=71" data-caption="Lake Gas operations team">
+        <img src="assets/images/lakegas/ops/worker-silas.jpg?v=71" alt="Lake Gas operations team" loading="lazy" decoding="async" width="1600" height="900">
+      </div>
+<div class="g-item reveal" data-cat="lpg" data-src="assets/images/lakegas/ops/cylinder-stacks.jpg?v=71" data-caption="Lake Gas cylinder storage">
+        <img src="assets/images/lakegas/ops/cylinder-stacks.jpg?v=71" alt="Lake Gas cylinder storage" loading="lazy" decoding="async" width="1600" height="900">
+      </div>
+<div class="g-item reveal" data-cat="operations" data-src="assets/images/lakesteel/ops/rebar-yard.jpg?v=71" data-caption="Lake Steel Visiga rebar yard">
+        <img src="assets/images/lakesteel/ops/rebar-yard.jpg?v=71" alt="Lake Steel Visiga rebar yard" loading="lazy" decoding="async" width="1600" height="900">
+      </div>
+<div class="g-item reveal" data-cat="operations" data-src="assets/images/lakesteel/ops/hot-rolling.jpg?v=71" data-caption="Lake Steel hot rolling mill">
+        <img src="assets/images/lakesteel/ops/hot-rolling.jpg?v=71" alt="Lake Steel hot rolling mill" loading="lazy" decoding="async" width="1600" height="900">
+      </div>
+<div class="g-item reveal" data-cat="operations" data-src="assets/images/laketrans/ops/fleet-inspection.jpg?v=71" data-caption="Fleet safety inspection">
+        <img src="assets/images/laketrans/ops/fleet-inspection.jpg?v=71" alt="Fleet safety inspection" loading="lazy" decoding="async" width="1600" height="900">
+      </div>
+<div class="g-item reveal" data-cat="operations" data-src="assets/images/lakeplastics/ops/blue-pipes.jpg?v=71" data-caption="Lake Plastics pipe production">
+        <img src="assets/images/lakeplastics/ops/blue-pipes.jpg?v=71" alt="Lake Plastics pipe production" loading="lazy" decoding="async" width="1600" height="900">
+      </div>
+<div class="g-item reveal" data-cat="operations" data-src="assets/images/lakebuildings/ops/lake-tanks.jpg?v=71" data-caption="Lake Tanks manufacturing">
+        <img src="assets/images/lakebuildings/ops/lake-tanks.jpg?v=71" alt="Lake Tanks manufacturing" loading="lazy" decoding="async" width="1600" height="900">
+      </div>
+
 <div class="g-item reveal" data-cat="lpg" data-src="assets/images/lakegas/products/gas1.jpg" data-caption="Lake Gas, 6kg Domestic LPG Cylinder">
         <img src="assets/images/lakegas/products/gas1.jpg" alt="Lake Gas, 6kg Domestic LPG Cylinder" loading="lazy" decoding="async" width="700" height="476">
         <div data-i18n="gallery.27" class="g-label">Lake Gas, 6kg Domestic LPG Cylinder</div>
@@ -589,10 +664,12 @@ function filterGallery(cat,btn){
   document.querySelectorAll('.gf-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   document.querySelectorAll('.g-item').forEach(el=>{
-    el.style.display=(cat==='all'||el.dataset.cat===cat)?'':'none';
+    const show = cat==='all' || el.dataset.cat===cat;
+    el.classList.toggle('is-hidden', !show);
+    el.style.display = '';
   });
 }
-const visItems=()=>[...document.querySelectorAll('.g-item')].filter(e=>e.style.display!=='none');
+const visItems=()=>[...document.querySelectorAll('.g-item')].filter(e=>!e.classList.contains('is-hidden'));
 let cur=0;
 function openLightbox(el){
   const all=visItems();

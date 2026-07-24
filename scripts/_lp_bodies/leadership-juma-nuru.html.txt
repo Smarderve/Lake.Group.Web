@@ -3,8 +3,10 @@
         <h1 class="lp-name">Juma Nuru</h1>
         <p class="lp-role">Director of Operations · Lake Group</p>
         <p class="lp-lede">Leads Group-wide operations across Lake Group’s energy, logistics and industrial units — coordinating day-to-day execution and operational performance.</p>
-        <p>As Director of Operations, Nuru is responsible for aligning day-to-day execution across Lake Group’s operating companies so energy, logistics and industrial units deliver reliably against Group standards.</p>
-        <p>The role spans operational performance, coordination between business units, and continuous improvement of processes that keep depots, fleets, plants and commercial teams running as one organisation.</p>
+                <p>As Director of Operations, Juma Nuru is responsible for aligning day-to-day execution across Lake Group's operating companies so energy, logistics and industrial units deliver reliably against Group standards.</p>
+        <p>As the Director of Operations, one of his key responsibilities is to ensure that all operations are executed efficiently and without disruption. This includes maintaining strong coordination between the operations team and management, so that everything runs seamlessly and in alignment with Lake Group goals.</p>
+        <blockquote class="lp-quote">As the Director of Operations, one of my key responsibilities is to ensure that all operations are executed efficiently and without disruption. This includes maintaining strong coordination between the operations team and management, so that everything runs seamlessly and in alignment with our goals.</blockquote>
+<p>The role spans operational performance, coordination between business units, and continuous improvement of processes that keep depots, fleets, plants and commercial teams running as one organisation.</p>
         <p>Working through Group HQ in Dar es Salaam, the operations desk supports country and unit leadership with clear priorities, escalation paths and performance visibility.</p>
         
         <ul class="lp-mandate">

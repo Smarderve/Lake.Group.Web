@@ -217,18 +217,20 @@ const LEADERS = [
     name: 'Juma Nuru',
     role: 'Director of Operations · Lake Group',
     unit: 'Operations',
-    photo: LOGO,
-    photoLogo: true,
+    photo: 'assets/images/leadership/juma-nuru.png',
+    photoLogo: false,
     summary:
       'Leads Group-wide operations across Lake Group’s energy, logistics and industrial units - coordinating day-to-day execution and operational performance.',
     paragraphs: [
-      'As Director of Operations, Nuru is responsible for aligning day-to-day execution across Lake Group’s operating companies so energy, logistics and industrial units deliver reliably against Group standards.',
-      'The role spans operational performance, coordination between business units, and continuous improvement of processes that keep depots, fleets, plants and commercial teams running as one organisation.',
-      'Working through Group HQ in Dar es Salaam, the operations desk supports country and unit leadership with clear priorities, escalation paths and performance visibility.',
+      'As Director of Operations, Juma Nuru is responsible for aligning day-to-day execution across Lake Group’s operating companies so energy, logistics and industrial units deliver reliably against Group standards.',
+      'One of his key responsibilities is to ensure that all operations are executed efficiently and without disruption. This includes maintaining strong coordination between the operations team and management, so that everything runs seamlessly and in alignment with Lake Group’s goals.',
+      'The role spans operational performance, coordination between business units, and continuous improvement of processes that keep depots, fleets, plants and commercial teams running as one organisation. Working through Group HQ in Dar es Salaam, the operations desk supports country and unit leadership with clear priorities, escalation paths and performance visibility.',
     ],
+    quote:
+      'As the Director of Operations, one of my key responsibilities is to ensure that all operations are executed efficiently and without disruption. This includes maintaining strong coordination between the operations team and management, so that everything runs seamlessly and in alignment with our goals.',
     mandate: [
-      'Group-wide operational coordination',
-      'Execution discipline across business units',
+      'Efficient, disruption-free Group operations',
+      'Coordination between operations and management',
       'Performance monitoring and continuous improvement',
     ],
     meta: [
