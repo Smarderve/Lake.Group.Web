@@ -24,7 +24,7 @@
   <style>
 /* ==========================================================================
    MERIDIAN PAGE LAYER - company profile page
-   Chrome + shared components come from assets/flagship.css?v=70. This block only
+   Chrome + shared components come from assets/flagship.css. This block only
    composes generic company-profile widgets reused across all /company pages.
    ========================================================================== */
 .fs-check{list-style:none;display:flex;flex-direction:column;margin-top:var(--sp-6)}
@@ -39,15 +39,8 @@
 .info-panel h3{font-family:var(--font-display);font-weight:400;font-size:var(--fs-title);letter-spacing:.02em;text-transform:uppercase;color:var(--white);margin-bottom:var(--sp-5)}
 .info-row{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-4);padding:13px 0;border-bottom:1px solid var(--ink-line-2)}
 .info-row:first-of-type{border-top:1px solid var(--ink-line)}
-.info-row>span:first-child{color:rgba(233,237,248,0.92);font-size:.92rem}
+.info-row>span:first-child{display:inline-flex;align-items:center;gap:8px;color:rgba(233,237,248,0.92);font-size:.92rem}
 .info-panel .badge-yellow,.info-panel .badge-amber,.info-row .badge{color:#fff!important;border-color:rgba(255,242,0,0.65)!important;background:rgba(255,242,0,0.16)!important}
-
-.depot-row{position:relative;padding:var(--sp-5) 0;border-bottom:1px solid var(--ink-line-2)}
-.depot-row:first-of-type{border-top:1px solid var(--ink-line)}
-.depot-row::before{content:'';position:absolute;left:0;top:-4px;width:8px;height:8px;background:var(--gold)}
-.depot-row .depot-head{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-4);margin-bottom:8px}
-.depot-row .depot-head>span:first-child{color:var(--white);font-weight:600;font-size:.95rem}
-.depot-row p{color:var(--ink-mute);font-size:.86rem}
 
 .stat-panel2{background:var(--ink);padding:var(--sp-8);position:relative}
 .stat-panel2 h3{font-family:var(--font-display);font-weight:400;font-size:var(--fs-title);letter-spacing:.02em;text-transform:uppercase;color:var(--white);margin-bottom:var(--sp-6)}
@@ -62,29 +55,67 @@
 .val-mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-4);margin-top:var(--sp-8)}
 @media(max-width:960px){.val-mini-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.val-mini-grid{grid-template-columns:1fr}}
-.val-mini-tile{position:relative;text-align:center;padding:var(--sp-6) var(--sp-4);border:1px solid var(--ink-line-2)}
+.val-mini-tile{position:relative;text-align:center;padding:var(--sp-6) var(--sp-4);border:1px solid var(--ink-line-2);background:rgba(255,255,255,0.02)}
 .val-mini-tile::before{content:'';position:absolute;top:-1px;left:-1px;width:8px;height:8px;background:var(--gold)}
 .val-mini-tile h4{font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;color:var(--white);margin-bottom:6px}
-.val-mini-tile p{font-size:.82rem;color:var(--ink-mute)}
-
-
-
-
-
+.val-mini-tile p{font-size:.82rem;color:var(--ink-mute);margin:0;line-height:1.5}
 
 .prod-catalog{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5)}
 @media(max-width:860px){.prod-catalog{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.prod-catalog{grid-template-columns:1fr}}
 .prod-catalog-card{background:var(--surface);border:1px solid var(--line-2);padding:var(--sp-5)}
-.prod-catalog-card .fs-media{aspect-ratio:4/3;margin-bottom:var(--sp-3)}
-.prod-catalog-card .prod-glyph{aspect-ratio:4/3;margin-bottom:var(--sp-3);display:flex;align-items:center;justify-content:center;background:var(--paper-2);font-size:2.2rem}
+.prod-catalog-card .fs-media{aspect-ratio:4/3;margin-bottom:var(--sp-3);overflow:hidden;background:var(--paper-2)}
+.prod-catalog-card .fs-media img{width:100%;height:100%;object-fit:contain;object-position:center;display:block}
+.prod-catalog-card .prod-glyph{
+  width:64px;height:64px;margin:0 0 var(--sp-4);
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(1,129,187,0.08);border:1px solid rgba(1,129,187,0.18);
+  color:var(--blue-deep, var(--blue));
+}
+.prod-catalog-card .prod-glyph iconify-icon{display:block;color:inherit}
 .prod-catalog-card h4{font-family:var(--font-display);font-weight:400;font-size:1.1rem;letter-spacing:.03em;text-transform:uppercase;color:var(--text)}
 .prod-catalog-card p{font-size:.85rem;margin-top:4px;line-height:1.6}
 
-.img-mosaic{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-@media(max-width:720px){.img-mosaic{grid-template-columns:1fr 1fr}}
-.img-mosaic .fs-media{aspect-ratio:4/3}
-.img-mosaic img{width:100%;height:100%;object-fit:cover;display:block}
+/* Gallery — Lake Oil pattern, compact photo size */
+.co-gal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:100%;max-width:820px}
+.co-gal__item{position:relative;overflow:hidden;margin:0;background:var(--ink-3);aspect-ratio:3/2;border-radius:2px}
+.co-gal__item--feat{grid-column:1 / -1;aspect-ratio:2/1}
+.co-gal__item img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .45s ease}
+.co-gal__item:hover img{transform:scale(1.03)}
+.co-gal__cap{position:absolute;left:0;right:0;bottom:0;padding:12px 14px 10px;background:linear-gradient(transparent,rgba(8,16,28,.75));color:#fff;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;pointer-events:none}
+.co-gal-label{margin:var(--sp-6) 0 var(--sp-3);font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.co-gal-products{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;max-width:820px}
+.co-gal-products .co-gal__item{aspect-ratio:1;background:#fff}
+.co-gal-products .co-gal__item img{object-fit:contain;padding:12px;background:#fff}
+@media(max-width:860px){.co-gal-products{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:720px){
+  .co-gal{gap:8px;max-width:100%}
+  .co-gal__item--feat{aspect-ratio:16/10}
+  .co-gal-products{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+.img-mosaic{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:820px}
+@media(max-width:720px){.img-mosaic{grid-template-columns:1fr 1fr;gap:8px;max-width:100%}}
+.img-mosaic .fs-media{aspect-ratio:3/2;overflow:hidden;background:var(--ink-3);border-radius:2px}
+.img-mosaic .fs-media--solo{grid-column:1 / -1;aspect-ratio:2/1;max-width:820px}
+.img-mosaic img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .4s ease}
+.img-mosaic .fs-media:hover img{transform:scale(1.03)}
+
+.co-gal-promo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 24px;max-width:720px;margin-top:var(--sp-2)}
+.co-gal-promo figure{margin:0}
+.co-gal-promo .co-gal__frame{aspect-ratio:3/4;max-height:380px;overflow:hidden;background:#0a2a6b;border-radius:2px}
+.co-gal-promo .co-gal__frame img{width:100%;height:100%;object-fit:contain;object-position:center;display:block}
+.co-gal-promo h3{font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase;margin:14px 0 6px;color:var(--text)}
+.co-gal-promo p{font-size:.86rem;line-height:1.65;color:var(--muted);max-width:42ch}
+@media(max-width:720px){.co-gal-promo{grid-template-columns:1fr;gap:24px;max-width:100%}.co-gal-promo .co-gal__frame{max-height:none}}
+
+.edge-ico{
+  width:56px;height:56px;margin:0 auto var(--sp-4);
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(1,129,187,0.08);border:1px solid rgba(1,129,187,0.18);
+  color:var(--blue-deep, var(--blue));
+}
+.edge-ico iconify-icon{display:block;color:inherit}
 
 .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5)}
 @media(max-width:860px){.video-grid{grid-template-columns:1fr}}
@@ -508,9 +539,9 @@
     </div>
     <div style="margin-top:var(--sp-10)">
       <h3 style="color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">History</h3>
-      <p style="max-width:80ch">AFICD was established as part of Lake Group's expansion into port and logistics services, growing to operate inland container depots in Tanzania, Zambia and Mozambique, with rail-linked logistics capability in Tanzania, extending the reach of East Africa's ports into the interior.</p>
+      <p style="max-width:80ch;line-height:1.75">AFICD was established as part of Lake Group's expansion into port and logistics services, growing to operate inland container depots in Tanzania, Zambia and Mozambique, with rail-linked logistics capability in Tanzania, extending the reach of East Africa's ports into the interior.</p>
     </div>
-    <div class="val-mini-grid">
+    <div class="val-mini-grid" aria-label="Core values">
       <div class="val-mini-tile"><h4>Quality</h4><p>No compromise on quality</p></div>
       <div class="val-mini-tile"><h4>Service</h4><p>Committed to excellence</p></div>
       <div class="val-mini-tile"><h4>Safety</h4><p>Safety is first, always</p></div>
@@ -568,9 +599,15 @@
   <div class="container">
     <div class="fs-marker"><span class="fs-marker-no">07</span><span class="fs-eyebrow">Images</span></div>
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Gallery</h2>
-    <div class="img-mosaic">
-      <div class="fs-media"><img src="assets/images/aficd/TA/photo_1.jpg" alt="AFICD inland container depot" loading="lazy" decoding="async"></div>
-      <div class="fs-media"><img src="assets/images/banner/AFICD.jpg" alt="AFICD container depot at sunset" loading="lazy" decoding="async"></div>
+    <div class="co-gal" aria-label="Aficd operations gallery">
+      <figure class="co-gal__item">
+        <img src="assets/images/aficd/TA/photo_1.jpg" alt="AFICD inland container depot" loading="lazy" decoding="async">
+        <figcaption class="co-gal__cap">inland container depot</figcaption>
+      </figure>
+      <figure class="co-gal__item">
+        <img src="assets/images/banner/AFICD.jpg" alt="AFICD container depot at sunset" loading="lazy" decoding="async">
+        <figcaption class="co-gal__cap">depot at sunset</figcaption>
+      </figure>
     </div>
     <div class="content-placeholder" style="margin-top:var(--sp-6)">
       Additional depot, equipment and team photography for AFICD across Tanzania, Zambia and Mozambique has not yet been provided by the client.
