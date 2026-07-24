@@ -59,6 +59,25 @@
 .img-mosaic img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .4s ease}
 .img-mosaic .fs-media:hover img{transform:scale(1.03)}
 
+.co-gal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:100%;max-width:1100px}
+.co-gal__item{position:relative;overflow:hidden;margin:0;background:var(--ink-3);aspect-ratio:16/10;border-radius:2px}
+.co-gal__item--feat{grid-column:1 / -1;aspect-ratio:21/9}
+.co-gal__item img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .45s ease}
+.co-gal__item:hover img{transform:scale(1.03)}
+.co-gal__cap{position:absolute;left:0;right:0;bottom:0;padding:14px 16px 12px;background:linear-gradient(transparent,rgba(8,16,28,.75));color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;pointer-events:none}
+.co-gal-label{margin:var(--sp-7) 0 var(--sp-3);font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.co-gal-promo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 28px;max-width:980px;margin-top:var(--sp-2)}
+.co-gal-promo figure{margin:0}
+.co-gal-promo .co-gal__frame{aspect-ratio:4/5;overflow:hidden;background:#0a2a6b;border-radius:2px}
+.co-gal-promo .co-gal__frame img{width:100%;height:100%;object-fit:contain;object-position:center;display:block}
+.co-gal-promo h3{font-family:var(--font-display);font-weight:400;font-size:1.15rem;letter-spacing:.03em;text-transform:uppercase;margin:16px 0 8px;color:var(--text)}
+.co-gal-promo p{font-size:.9rem;line-height:1.65;color:var(--muted);max-width:48ch}
+@media(max-width:720px){
+  .co-gal{gap:8px}
+  .co-gal__item--feat{aspect-ratio:16/10}
+  .co-gal-promo{grid-template-columns:1fr;gap:28px}
+}
+
 .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5)}
 @media(max-width:860px){.video-grid{grid-template-columns:1fr}}
 .video-card{background:var(--ink-2);border:1px solid var(--ink-line-2);padding:var(--sp-5)}
@@ -542,12 +561,33 @@
   <div class="container">
     <div class="fs-marker"><span class="fs-marker-no">07</span><span class="fs-eyebrow">Images</span></div>
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Gallery</h2>
-    <div class="img-mosaic">
-      <div class="fs-media"><img src="assets/images/lakelubes/ops/plant.jpg?v=81" alt="Lake Lubes blending plant" loading="lazy" decoding="async"></div>
-      <div class="fs-media"><img src="assets/images/lakelubes/products/LAKE_GREASE_MP_3_2.png" alt="Lake Lubes multi-purpose grease product" loading="lazy" decoding="async"></div>
+    <div class="co-gal" aria-label="Lake Lubes operations gallery">
+      <figure class="co-gal__item co-gal__item--feat">
+        <img src="assets/images/lakelubes/ops/plant.jpg?v=81" alt="Lake Lubes blending plant" loading="lazy" decoding="async">
+        <figcaption class="co-gal__cap">Blending plant</figcaption>
+      </figure>
+      <figure class="co-gal__item">
+        <img src="assets/images/lakelubes/products/LAKE_GREASE_MP_3_2.png" alt="Lake Lubes multi-purpose grease product" loading="lazy" decoding="async">
+        <figcaption class="co-gal__cap">MP3 grease</figcaption>
+      </figure>
     </div>
-    <div class="content-placeholder" style="margin-top:var(--sp-6)">
-      Additional blending-plant, team and full product-range photography for Lake Lubes has not yet been provided by the client.
+
+    <p class="co-gal-label">Product campaigns</p>
+    <div class="co-gal-promo" aria-label="Lake Lubes product campaign gallery">
+      <figure>
+        <div class="co-gal__frame">
+          <img src="assets/images/lakelubes/products/promo-range.jpg?v=82" alt="Lake Lubes product range campaign — grease, brake fluid and engine oils" loading="lazy" decoding="async">
+        </div>
+        <h3>Full product range</h3>
+        <p>Lake Lubes brings together multipurpose lithium grease, DOT4 brake fluid, HD XL Super engine oils and other automotive fluids in one trusted line. Built for everyday drivers and commercial fleets across East Africa — so your car gets the protection it deserves.</p>
+      </figure>
+      <figure>
+        <div class="co-gal__frame">
+          <img src="assets/images/lakelubes/products/promo-benefits.jpg?v=82" alt="Lake Lubes benefits campaign — machinery protection and lasting quality" loading="lazy" decoding="async">
+        </div>
+        <h3>Why Lake Lubes</h3>
+        <p>Engineered for machinery protection, long-kilometre performance and lasting quality. From the fill point to the open road, Lake Lubes keeps engines cleaner, cooler and running stronger — backed by Lake Energies and free call support on 080 071 04 44.</p>
+      </figure>
     </div>
   </div>
 </section>
