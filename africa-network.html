@@ -36,8 +36,18 @@
 @media (max-width: 900px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
 .network-intro { background: var(--paper); padding: var(--sp-20) 0; border-bottom: 1px solid var(--line-2); }
 .network-intro-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--sp-12); align-items: center; }
-@media (max-width: 880px) { .network-intro-inner { grid-template-columns: 1fr; } }
 .network-intro-inner img { width: 100%; object-fit: cover; aspect-ratio: 16/10; display: block; }
+.network-station-shot { overflow: hidden; background: #0b1c2c; box-shadow: 0 18px 40px rgba(8,20,36,.18); }
+.network-station-shot img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: center 45%;
+  image-rendering: -webkit-optimize-contrast;
+  transform: translateZ(0);
+}
+@media (max-width: 880px) { .network-intro-inner { grid-template-columns: 1fr; } }
 .network-flag-strip { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-4); }
 .pillar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-5); }
 @media (max-width: 900px) { .pillar-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -435,7 +445,9 @@
         <p data-i18n="africa_network.24" data-i18n-html="" style="margin-top:12px">Our petrol stations are instantly recognisable in <strong data-i18n="africa_network.25">eye-catching blue, white, yellow and red</strong>, the same bold Lake Group colours you'll see on the map below.</p>
       </div>
       <div>
-        <div class="fs-corners"><img src="assets/images/banner/LakeOil1.jpg?v=70" alt="Lake Group fuel station network" loading="lazy" decoding="async"></div>
+        <div class="fs-corners network-station-shot">
+          <img src="assets/images/lakeoil/current/station-africa-map.jpg?v=80" alt="Lake Energies fuel station" width="1800" height="1312" loading="lazy" decoding="async">
+        </div>
         <div class="network-flag-strip">
           <span class="country-tag"><img src="assets/images/flags/tz.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Tanzania HQ</span>
           <span class="country-tag"><img src="assets/images/flags/ke.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Kenya</span>
@@ -709,7 +721,7 @@
       <p data-i18n="africa_network.115" class="section-subtitle" style="margin:10px auto 0;max-width:560px">Fuel depots, LPG terminals, truck fleets, container depots and concrete plants, all connected through our Africa network.</p>
     </div>
     <div class="photo-feature reveal">
-      <img src="assets/images/banner/LakeOil.jpg?v=70" alt="Lake Oil petroleum operations" loading="lazy" decoding="async">
+      <img src="assets/images/banner/LakeOil.jpg?v=80" alt="Lake Oil petroleum operations" loading="lazy" decoding="async">
       <img src="assets/images/banner/LakeGas.jpg" alt="Lake Gas LPG terminal" loading="lazy" decoding="async">
       <img src="assets/images/banner/LakeTrans.jpg" alt="Lake Trans truck fleet" loading="lazy" decoding="async">
     </div>
