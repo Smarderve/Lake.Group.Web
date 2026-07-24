@@ -5,19 +5,17 @@
  * are relative, so the site keeps working if it is served from a subpath
  * (they resolve against this file's own location).
  *
- * Bump VERSION on any deploy that changes precached files; activation
- * deletes every cache from older versions.
+ * Bump VERSION on any deploy that changes HTML, images, or precached files;
+ * activation deletes every cache from older versions so offline matches online.
  *
- * v58 root-cause fix: design CSS (tokens/theme/flagship) must NEVER be
- * served as an empty 503 body. That left --nav-logo-height unset and blew
- * the yellow Lake Group logo across the homepage when a fetch blipped or
- * an old SW intercepted CSS. Prefer network, keep a cache fallback, and
- * if both fail return an emergency chrome CSS snippet with logo tokens.
+ * v59: respect ?v= cache-busting (do not serve old images via ignoreSearch
+ * while online), expand offline precache for Energies pages + hero photos,
+ * and force navigation/network fetches to revalidate so soft reloads update.
  */
 
 'use strict';
 
-const VERSION = 'v58';
+const VERSION = 'v59';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -25,11 +23,11 @@ const IMAGES_CACHE = `lake-images-${VERSION}`;
 const ASSETS_CACHE = `lake-assets-${VERSION}`;
 const KNOWN_CACHES = [PRECACHE, PAGES_CACHE, IMAGES_CACHE, ASSETS_CACHE];
 
-const IMAGE_CACHE_MAX_ENTRIES = 150;
-const ASSET_CACHE_MAX_ENTRIES = 80;
+const IMAGE_CACHE_MAX_ENTRIES = 180;
+const ASSET_CACHE_MAX_ENTRIES = 100;
 
-// Minimal app shell: home + offline + design chrome + scripts every page needs.
-// Versioned CSS URLs must match what HTML requests (?v=) so first paint hits.
+// Minimal app shell + frequently visited Energies pages + hero photos.
+// Versioned CSS/JS URLs must match what HTML requests (?v=) so first paint hits.
 const PRECACHE_URLS = [
   './index.html',
   './offline.html',
@@ -38,8 +36,16 @@ const PRECACHE_URLS = [
   './services.html',
   './africa-network.html',
   './contact.html',
+  './gallery.html',
+  './station-locator.html',
+  './lake-oil.html',
+  './lake-gas.html',
+  './lake-lubes.html',
+  './lake-aviation.html',
+  './lake-steel.html',
+  './lake-trans.html',
   './manifest.webmanifest',
-  './assets/pwa.js?v=58',
+  './assets/pwa.js?v=59',
   './assets/site.js?v=58',
   './assets/tokens.css?v=58',
   './assets/theme.css?v=73',
@@ -59,6 +65,11 @@ const PRECACHE_URLS = [
   './assets/assistant-kb.js',
   './assets/vendor/flexsearch/flexsearch.bundle.min.js',
   './assets/images/logos/LAKE_GROUP_LOGO.png',
+  './assets/images/banner/LakeOil.jpg?v=81',
+  './assets/images/banner/LakeOil1.jpg?v=81',
+  './assets/images/lakeoil/current/station-lake-energies.jpg',
+  './assets/images/lakeoil/current/depot-terminal.jpg',
+  './assets/images/lakegas/ops/cylinders-yard.jpg?v=82',
   './assets/icons/pwa/icon-192.png',
   './assets/icons/pwa/icon-512.png',
   './assets/fonts/fonts.css',
@@ -113,7 +124,7 @@ self.addEventListener('install', (event) => {
         PRECACHE_URLS.map(async (url) => {
           try {
             const res = await fetch(url, { cache: 'reload' });
-            if (res && res.ok) await cache.put(url, res);
+            if (res && res.ok) await cache.put(url, res.clone());
           } catch (err) {
             // Best-effort; missing optional assets must not block activation.
           }
@@ -136,6 +147,11 @@ self.addEventListener('activate', (event) => {
       await trimCache(IMAGES_CACHE, IMAGE_CACHE_MAX_ENTRIES);
       await trimCache(ASSETS_CACHE, ASSET_CACHE_MAX_ENTRIES);
       await self.clients.claim();
+      // Tell open tabs a fresh SW took over so they can reload to the new shell.
+      const clientsList = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
+      clientsList.forEach((client) => {
+        client.postMessage({ type: 'SW_ACTIVATED', version: VERSION });
+      });
     })()
   );
 });
@@ -199,11 +215,24 @@ async function matchAnyCache(request, opts) {
   return hit || null;
 }
 
-/** Exact match, then same path ignoring ?v= for offline recovery. */
-async function matchAsset(request) {
+/**
+ * Exact URL match first.
+ * ignoreSearch is ONLY for offline recovery — never while we can still
+ * fetch, or ?v= cache-busting is silently ignored and users keep old photos.
+ */
+async function matchAsset(request, { allowIgnoreSearch = false } = {}) {
   const exact = await matchAnyCache(request);
   if (exact) return exact;
+  if (!allowIgnoreSearch) return null;
   return matchAnyCache(request, { ignoreSearch: true });
+}
+
+function hasVersionQuery(request) {
+  try {
+    return new URL(request.url).searchParams.has('v');
+  } catch (err) {
+    return false;
+  }
 }
 
 function emergencyDesignResponse(isCss) {
@@ -226,16 +255,21 @@ function emergencyDesignResponse(isCss) {
   });
 }
 
+function networkFetch(request) {
+  // Bypass HTTP cache so soft navigations pick up deploys without hard refresh.
+  return fetch(request, { cache: 'no-cache' });
+}
+
 /* Strategies ---------------------------------------------------------- */
 
 async function networkFirst(request, cacheName, maxEntries) {
   try {
-    const response = await fetch(request);
+    const response = await networkFetch(request);
     await putInCache(cacheName, request, response, maxEntries);
     return response;
   } catch (err) {
     const cached =
-      (await matchAsset(request)) ||
+      (await matchAsset(request, { allowIgnoreSearch: true })) ||
       (await matchAnyCache(request, {
         ignoreSearch: request.mode === 'navigate',
       }));
@@ -252,38 +286,44 @@ async function networkFirst(request, cacheName, maxEntries) {
 async function networkFirstAsset(request) {
   const isCss = new URL(request.url).pathname.endsWith('.css');
   try {
-    const response = await fetch(request);
+    const response = await networkFetch(request);
     if (isCacheableResponse(response)) {
       await putInCache(ASSETS_CACHE, request, response, ASSET_CACHE_MAX_ENTRIES);
       await putInCache(PRECACHE, request, response);
       return response;
     }
-    const cached = await matchAsset(request);
+    const cached = await matchAsset(request, { allowIgnoreSearch: true });
     if (cached) return cached;
     if (isCss) return emergencyDesignResponse(true);
     return response;
   } catch (err) {
-    const cached = await matchAsset(request);
+    const cached = await matchAsset(request, { allowIgnoreSearch: true });
     if (cached) return cached;
     return emergencyDesignResponse(isCss);
   }
 }
 
 /**
- * Stale-while-revalidate for already-cached fonts/vendor/images — fast paint,
- * background refresh so repeat visits do not re-block on the network.
+ * Stale-while-revalidate — but never treat a different ?v= as a hit while online.
  */
 async function staleWhileRevalidate(request, cacheName, maxEntries) {
-  const cached = await matchAsset(request);
-  const networkPromise = fetch(request)
+  const allowLoose = !hasVersionQuery(request);
+  const cached = await matchAsset(request, { allowIgnoreSearch: allowLoose });
+  const networkPromise = networkFetch(request)
     .then(async (response) => {
       await putInCache(cacheName, request, response, maxEntries);
       return response;
     })
     .catch(() => null);
-  if (cached) return cached;
+  if (cached) {
+    // Kick off refresh; return stale only when queryless / unversioned.
+    networkPromise.catch(() => {});
+    return cached;
+  }
   const response = await networkPromise;
   if (response) return response;
+  const offline = await matchAsset(request, { allowIgnoreSearch: true });
+  if (offline) return offline;
   throw new Error('stale-while-revalidate: network failed and nothing cached');
 }
 
@@ -292,11 +332,17 @@ async function navigationHandler(request) {
     return await networkFirst(request, PAGES_CACHE);
   } catch (err) {
     const url = new URL(request.url);
-    if (url.pathname.endsWith('/')) {
-      const index = await caches.match(new URL('index.html', url).href);
+    // Prefer the exact page from any cache, then home, then offline shell.
+    const pageHit =
+      (await matchAsset(request, { allowIgnoreSearch: true })) ||
+      (await caches.match(new URL(url.pathname.replace(/^\//, './'), self.location.href).href));
+    if (pageHit) return pageHit;
+
+    if (url.pathname.endsWith('/') || url.pathname === '' || /\/index\.html?$/i.test(url.pathname)) {
+      const index = await caches.match(new URL('./index.html', self.location.href).href);
       if (index) return index;
     }
-    const offline = await caches.match(OFFLINE_URL);
+    const offline = await caches.match(new URL(OFFLINE_URL, self.location.href).href);
     if (offline) return offline;
     return new Response('You are offline.', {
       status: 503,
@@ -305,12 +351,22 @@ async function navigationHandler(request) {
   }
 }
 
+/**
+ * Cache-first with exact URL matching. Versioned (?v=) URLs always hit the
+ * network on miss so deploys replace photos instead of serving yesterday's.
+ */
 async function cacheFirst(request, cacheName, maxEntries) {
-  const cached = await matchAsset(request);
-  if (cached) return cached;
-  const response = await fetch(request);
-  await putInCache(cacheName, request, response, maxEntries);
-  return response;
+  const exact = await matchAsset(request, { allowIgnoreSearch: false });
+  if (exact) return exact;
+  try {
+    const response = await networkFetch(request);
+    await putInCache(cacheName, request, response, maxEntries);
+    return response;
+  } catch (err) {
+    const loose = await matchAsset(request, { allowIgnoreSearch: true });
+    if (loose) return loose;
+    throw err;
+  }
 }
 
 /* Routing ------------------------------------------------------------- */

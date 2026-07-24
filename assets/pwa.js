@@ -4,8 +4,9 @@
  * on every page. Safe to include anywhere — bails out silently when
  * service workers aren't supported (file://, old browsers).
  *
- * v58: auto-activate updates, periodic update checks, and a one-shot
- * recovery path if a stale/broken SW left design CSS unloaded (giant logo).
+ * v59: bump SW registration query, check for updates often, auto-apply
+ * waiting workers, and reload when a new SW activates so offline matches
+ * the latest deploy without a manual hard refresh.
  */
 (function () {
   'use strict';
@@ -21,15 +22,15 @@
   // Append a cache-busting query so browsers revalidate sw.js on deploy.
   try {
     var u = new URL(swUrl, location.href);
-    u.searchParams.set('v', '58');
+    u.searchParams.set('v', '59');
     swUrl = u.href;
   } catch (err2) {
-    swUrl = swUrl + (swUrl.indexOf('?') === -1 ? '?v=58' : '&v=58');
+    swUrl = swUrl + (swUrl.indexOf('?') === -1 ? '?v=59' : '&v=59');
   }
 
   var reloadingAfterUpdate = false;
   var expectingControllerChange = false;
-  var RECOVERY_KEY = 'lake-sw-recovery-v58';
+  var RECOVERY_KEY = 'lake-sw-recovery-v59';
 
   function activateWaitingWorker(worker) {
     if (!worker) return;
@@ -67,11 +68,11 @@
     ].join(';');
 
     var text = document.createElement('span');
-    text.textContent = 'A new version of this site is available.';
+    text.textContent = 'Site updated — refreshing offline copy\u2026';
 
     var button = document.createElement('button');
     button.type = 'button';
-    button.textContent = 'Refresh';
+    button.textContent = 'Refresh now';
     button.style.cssText = [
       'background:#FFF200',
       'color:#013F5C',
@@ -117,6 +118,11 @@
       toast.style.opacity = '1';
       toast.style.transform = 'translateY(0)';
     });
+
+    // Auto-apply shortly after showing so offline stays current without a click.
+    window.setTimeout(function () {
+      activateWaitingWorker(worker);
+    }, 1200);
   }
 
   function watchWorker(worker, registration) {
@@ -179,6 +185,11 @@
     } catch (err) { /* ignore */ }
   }
 
+  function pokeUpdate(registration) {
+    if (!registration || !registration.update) return;
+    registration.update().catch(function () {});
+  }
+
   window.addEventListener('load', function () {
     maybeRecoverBrokenStyles();
 
@@ -191,19 +202,23 @@
         if (registration.installing) watchWorker(registration.installing, registration);
       });
 
-      // Re-check for updates while the tab stays open (SPA-less MPA).
+      // Check often while the tab stays open — offline should track deploys.
       try {
         window.setInterval(function () {
-          registration.update().catch(function () {});
-        }, 60 * 60 * 1000);
+          pokeUpdate(registration);
+        }, 5 * 60 * 1000);
       } catch (err) { /* ignore */ }
 
-      // Also poke update when the tab becomes visible again.
       document.addEventListener('visibilitychange', function () {
-        if (document.visibilityState === 'visible') {
-          registration.update().catch(function () {});
-        }
+        if (document.visibilityState === 'visible') pokeUpdate(registration);
       });
+
+      window.addEventListener('online', function () {
+        pokeUpdate(registration);
+      });
+
+      // Immediate check after register (covers soft loads after a deploy).
+      pokeUpdate(registration);
     }).catch(function (err) {
       if (window.console && console.warn) console.warn('SW registration failed:', err);
     });
@@ -212,6 +227,15 @@
       if (reloadingAfterUpdate) return;
       var toast = document.getElementById('lake-pwa-toast');
       if (!expectingControllerChange && !toast) return;
+      reloadingAfterUpdate = true;
+      location.reload();
+    });
+
+    navigator.serviceWorker.addEventListener('message', function (event) {
+      if (!event.data || event.data.type !== 'SW_ACTIVATED') return;
+      if (reloadingAfterUpdate) return;
+      // Only reload when we asked for an update — not on first-ever install.
+      if (!expectingControllerChange) return;
       reloadingAfterUpdate = true;
       location.reload();
     });
