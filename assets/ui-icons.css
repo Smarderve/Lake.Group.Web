@@ -192,51 +192,17 @@ html[dir="rtl"] a.ld-person-card:focus-visible .ld-person-more::after {
   50% { opacity: 0.82; }
 }
 
-/* Lang globe - premium stroke icon + hover spin / meridian draw */
+/* Lang globe - static stroke icon (no spin / dash pulse) */
 .lang-globe {
   overflow: visible;
-}
-.lang-globe .lang-globe-spin {
-  transform-origin: 12px 12px;
-  transform-box: fill-box;
-}
-.lang-globe .lang-globe-meridian {
-  stroke-dasharray: 48;
-  stroke-dashoffset: 0;
 }
 .lang-trigger:hover .lang-icons,
 .lang-trigger:focus-visible .lang-icons,
 .lang-switcher.is-open .lang-icons {
   color: var(--color-yellow-accent, var(--yellow, #FFF200));
 }
-@media (prefers-reduced-motion: no-preference) {
-  .lang-trigger:hover .lang-globe-spin,
-  .lang-trigger:focus-visible .lang-globe-spin,
-  .lang-switcher.is-open .lang-globe-spin {
-    animation: lg-lang-spin 3.6s linear infinite;
-  }
-  .lang-trigger:hover .lang-globe-meridian,
-  .lang-trigger:focus-visible .lang-globe-meridian,
-  .lang-switcher.is-open .lang-globe-meridian {
-    animation: lg-lang-meridian 1.6s ease-in-out infinite;
-  }
-}
-@keyframes lg-lang-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-@keyframes lg-lang-meridian {
-  0%, 100% { stroke-dashoffset: 0; opacity: 1; }
-  50% { stroke-dashoffset: 18; opacity: 0.75; }
-}
 
 @media (prefers-reduced-motion: reduce) {
-  .lang-trigger:hover .lang-globe-spin,
-  .lang-trigger:focus-visible .lang-globe-spin,
-  .lang-switcher.is-open .lang-globe-spin,
-  .lang-trigger:hover .lang-globe-meridian,
-  .lang-trigger:focus-visible .lang-globe-meridian,
-  .lang-switcher.is-open .lang-globe-meridian,
   #chat-widget.la-widget .la-launcher:not(:hover) svg .la-fab-bubble,
   .career-icon .msi,
   .value-icon .msi,

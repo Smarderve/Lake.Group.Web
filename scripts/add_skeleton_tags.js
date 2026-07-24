@@ -16,25 +16,18 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
-const CSS_HREF = 'assets/skeleton.css?v=1';
-const JS_SRC = 'assets/skeleton.js?v=1';
+const CSS_HREF = 'assets/skeleton.css?v=3';
+const JS_SRC = 'assets/skeleton.js?v=3';
 const CSS_TAG = `<link rel="stylesheet" href="${CSS_HREF}">`;
 const JS_TAG = `<script src="${JS_SRC}"></script>`;
 // Tiny early veil so heavy <head> pages (index) don't flash content before skeleton.css.
 const CRITICAL =
-  '<style id="lg-skel-critical">html.lg-loading{overflow:hidden}html.lg-loading::before{content:"";position:fixed;inset:0;z-index:99989;background:#fff;pointer-events:none}html.lg-skel-done::before{display:none}</style>';
+  '<style id="lg-skel-critical">html.lg-loading{overflow:hidden}html.lg-loading::before{content:"";position:fixed;inset:0;z-index:99989;background:#013f5c;pointer-events:none}html.lg-skel-done::before{display:none}.nav-logo img,.site-nav .nav-logo img{height:var(--nav-logo-height,48px)!important;width:auto!important;max-width:min(220px,55vw)!important;max-height:var(--nav-logo-height,48px)!important;object-fit:contain}</style>';
 
-// Utility / redirect stubs — skip (no chrome to skeleton).
+// Utility pages — skip (no chrome to skeleton).
 const SKIP = new Set([
   '404.html',
   'offline.html',
-  'fuel.html',
-  'lpg.html',
-  'lubricants.html',
-  'steel.html',
-  'concrete.html',
-  'logistics.html',
-  'container-services.html',
 ]);
 
 const files = fs

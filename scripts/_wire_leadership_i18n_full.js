@@ -928,7 +928,6 @@ const PROFILES = {
         </div>
         <div class="lp-links">
           <a href="aficd.html" class="btn btn-outline-dark btn-sm" data-i18n="nav.co.aficd">AFICD</a>
-          <a href="container-services.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.72">Container services</a>
           <a href="contact.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.73">Contact Group</a>
         </div>
         <div class="lp-nav">

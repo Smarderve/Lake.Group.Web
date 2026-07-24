@@ -1,25 +1,35 @@
 /*
  * Lake Group PWA bootstrap: registers the service worker and shows a
  * small branded toast when a new version is ready. Loaded with `defer`
- * on every page. Safe to include anywhere  bails out silently when
+ * on every page. Safe to include anywhere — bails out silently when
  * service workers aren't supported (file://, old browsers).
+ *
+ * v58: auto-activate updates, periodic update checks, and a one-shot
+ * recovery path if a stale/broken SW left design CSS unloaded (giant logo).
  */
 (function () {
   'use strict';
 
   if (!('serviceWorker' in navigator)) return;
 
-  // Resolve sw.js relative to this script's own URL so the site keeps
-  // working when served from a subpath (pwa.js lives in assets/, sw.js
-  // one level up at the site root).
   var scriptEl = document.currentScript;
   var swUrl = 'sw.js';
   try {
     swUrl = new URL('../sw.js', scriptEl && scriptEl.src ? scriptEl.src : location.href).href;
-  } catch (err) { /* fall back to relative path */ }
+  } catch (err) { /* fall back */ }
+
+  // Append a cache-busting query so browsers revalidate sw.js on deploy.
+  try {
+    var u = new URL(swUrl, location.href);
+    u.searchParams.set('v', '58');
+    swUrl = u.href;
+  } catch (err2) {
+    swUrl = swUrl + (swUrl.indexOf('?') === -1 ? '?v=58' : '&v=58');
+  }
 
   var reloadingAfterUpdate = false;
   var expectingControllerChange = false;
+  var RECOVERY_KEY = 'lake-sw-recovery-v58';
 
   function activateWaitingWorker(worker) {
     if (!worker) return;
@@ -60,6 +70,7 @@
     text.textContent = 'A new version of this site is available.';
 
     var button = document.createElement('button');
+    button.type = 'button';
     button.textContent = 'Refresh';
     button.style.cssText = [
       'background:#FFF200',
@@ -75,6 +86,7 @@
     ].join(';');
 
     var close = document.createElement('button');
+    close.type = 'button';
     close.setAttribute('aria-label', 'Dismiss');
     close.textContent = '\u00d7';
     close.style.cssText = [
@@ -109,10 +121,6 @@
 
   function watchWorker(worker, registration) {
     worker.addEventListener('statechange', function () {
-      // "installed" + an existing controller means an update is ready.
-      // Auto-activate so interiors pick up new flagship.css without relying
-      // on the user noticing the toast (home often looked fine already
-      // because index.html ships nav chrome inline).
       if (worker.state === 'installed' && navigator.serviceWorker.controller) {
         activateWaitingWorker(registration.waiting || worker);
         showUpdateToast(registration.waiting || worker);
@@ -120,10 +128,61 @@
     });
   }
 
+  /**
+   * Detect the classic "giant unstyled logo" failure: design tokens never
+   * applied, so nav logo renders at intrinsic PNG size. Recover once by
+   * clearing Lake caches, unregistering the SW, and hard-reloading.
+   */
+  function maybeRecoverBrokenStyles() {
+    try {
+      if (sessionStorage.getItem(RECOVERY_KEY) === '1') return;
+      var logo = document.querySelector('.nav-logo img, .site-nav .nav-logo img');
+      if (!logo) return;
+
+      function check() {
+        var h = logo.getBoundingClientRect().height;
+        // Healthy logo is ~36–56px. > 120px means CSS tokens failed to apply.
+        if (h < 120) return;
+        sessionStorage.setItem(RECOVERY_KEY, '1');
+        if (window.console && console.warn) {
+          console.warn('[Lake PWA] Detected broken layout (oversized logo). Clearing SW caches…');
+        }
+        navigator.serviceWorker.getRegistrations().then(function (regs) {
+          return Promise.all(
+            regs.map(function (reg) {
+              if (reg.active) reg.active.postMessage({ type: 'CLEAR_CACHES' });
+              return reg.unregister();
+            })
+          );
+        }).then(function () {
+          return caches.keys();
+        }).then(function (keys) {
+          return Promise.all(
+            keys
+              .filter(function (k) { return k.indexOf('lake-') === 0; })
+              .map(function (k) { return caches.delete(k); })
+          );
+        }).then(function () {
+          location.reload();
+        }).catch(function () {
+          location.reload();
+        });
+      }
+
+      if (logo.complete) {
+        window.setTimeout(check, 400);
+      } else {
+        logo.addEventListener('load', function () {
+          window.setTimeout(check, 200);
+        });
+      }
+    } catch (err) { /* ignore */ }
+  }
+
   window.addEventListener('load', function () {
+    maybeRecoverBrokenStyles();
+
     navigator.serviceWorker.register(swUrl).then(function (registration) {
-      // An update may already be sitting in "waiting" (e.g. from a
-      // previous visit where the user dismissed the toast).
       if (registration.waiting && navigator.serviceWorker.controller) {
         activateWaitingWorker(registration.waiting);
         showUpdateToast(registration.waiting);
@@ -131,13 +190,24 @@
       registration.addEventListener('updatefound', function () {
         if (registration.installing) watchWorker(registration.installing, registration);
       });
+
+      // Re-check for updates while the tab stays open (SPA-less MPA).
+      try {
+        window.setInterval(function () {
+          registration.update().catch(function () {});
+        }, 60 * 60 * 1000);
+      } catch (err) { /* ignore */ }
+
+      // Also poke update when the tab becomes visible again.
+      document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState === 'visible') {
+          registration.update().catch(function () {});
+        }
+      });
     }).catch(function (err) {
-      // Registration failure (e.g. http on a non-localhost host) is
-      // non-fatal: the site simply works without offline support.
       if (window.console && console.warn) console.warn('SW registration failed:', err);
     });
 
-    // Reload once the new worker takes control (auto-activate or toast).
     navigator.serviceWorker.addEventListener('controllerchange', function () {
       if (reloadingAfterUpdate) return;
       var toast = document.getElementById('lake-pwa-toast');

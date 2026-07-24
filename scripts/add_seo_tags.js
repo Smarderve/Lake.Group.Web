@@ -56,67 +56,24 @@ const BREADCRUMB_NAMES = {
   'about.html': 'About Us',
   'africa-network.html': 'Africa Network',
   'careers.html': 'Careers',
-  'concrete.html': 'Concrete & Aggregate',
   'contact.html': 'Contact Us',
-  'container-services.html': 'Container Services',
   'csr.html': 'CSR & Sustainability',
   'fleet.html': 'Our Fleet',
-  'fuel.html': 'Fuel & Petroleum',
   'gallery.html': 'Gallery',
   'history.html': 'Our History',
   'investors.html': 'Investor Relations',
   'leadership.html': 'Leadership',
-  'logistics.html': 'Transport & Haulage',
-  'lpg.html': 'LPG Gas',
-  'lubricants.html': 'Lubricants',
   'media-center.html': 'Media Center',
   'news-article.html': 'Article',
   'news.html': 'News & Events',
   'projects.html': 'Major Projects',
-  'services.html': 'Services',
+  'services.html': 'Subsidiaries',
   'station-locator.html': 'Station Locator',
-  'steel.html': 'Lake Steel',
   'sustainability.html': 'Sustainability',
 };
 
-// Service JSON-LD: name/description mirror each page's meta description.
-const SERVICES = {
-  'fuel.html': {
-    name: 'Fuel & Petroleum',
-    description:
-      'Lake Oil - Top 5 petroleum distributor in Tanzania with 85+ retail stations and bulk supply across 8 countries.',
-  },
-  'lpg.html': {
-    name: 'LPG Gas',
-    description:
-      'LPG bottling, composite cylinders and distribution across East and Central Africa.',
-  },
-  'lubricants.html': {
-    name: 'Lubricants',
-    description:
-      'Lake Lubes manufactures quality lubricants and greases for automotive and industrial applications.',
-  },
-  'steel.html': {
-    name: 'Lake Steel',
-    description:
-      "Tanzania's first HS-CR rebar manufacturer with 100,000 MT annual rolling mill capacity.",
-  },
-  'concrete.html': {
-    name: 'Concrete & Aggregate',
-    description:
-      "Gulf Concrete & Cement Products - Dar es Salaam's leading ready-mix concrete and aggregate supplier.",
-  },
-  'logistics.html': {
-    name: 'Transport & Haulage',
-    description:
-      'Bulk liquid and dry cargo haulage with 700+ trucks across Tanzania, Kenya, Zambia and the wider region.',
-  },
-  'container-services.html': {
-    name: 'Container Services',
-    description:
-      'Inland container depot and freight station services across Tanzania, Zambia and Mozambique.',
-  },
-};
+// Legacy service-hub JSON-LD map (company pages carry their own structured data).
+const SERVICES = {};
 
 // dashboard.html (demo portal) and offline.html are excluded from search
 // (robots.txt), so they get icons/canonical but no structured data.

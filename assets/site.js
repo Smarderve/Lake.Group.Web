@@ -149,7 +149,8 @@
       }
     }
 
-    function closeItem(item, focusTrigger) {
+    function closeItem(item, focusTrigger, opts) {
+      const options = opts || {};
       if (item._navOpenTimer) {
         clearTimeout(item._navOpenTimer);
         item._navOpenTimer = null;
@@ -159,7 +160,15 @@
         item._navCloseTimer = null;
       }
       if (!item.classList.contains('is-open')) return;
+      const menu = options.instant ? item.querySelector('.nav-dropdown') : null;
+      // Snap shut when another parent is taking over so the old panel cannot
+      // linger semi-transparent behind the new one during opacity transition.
+      if (menu) menu.style.transition = 'none';
       item.classList.remove('is-open');
+      if (menu) {
+        void menu.offsetWidth;
+        menu.style.transition = '';
+      }
       const trigger = item.querySelector(':scope > a');
       if (trigger) {
         trigger.setAttribute('aria-expanded', 'false');
@@ -176,14 +185,14 @@
         clearTimeout(item._navOpenTimer);
         item._navOpenTimer = null;
       }
-      closeAll(item);
+      closeAll(item, { instant: true });
       item.classList.add('is-open');
       const trigger = item.querySelector(':scope > a');
       if (trigger) trigger.setAttribute('aria-expanded', 'true');
     }
 
-    function closeAll(except) {
-      items.forEach(item => { if (item !== except) closeItem(item, false); });
+    function closeAll(except, opts) {
+      items.forEach(item => { if (item !== except) closeItem(item, false, opts); });
     }
 
     function playPaneEnter(pane) {
@@ -303,7 +312,7 @@
           item._navCloseTimer = null;
         }
         const willOpen = !item.classList.contains('is-open');
-        closeAll(item);
+        closeAll(item, { instant: true });
         item.classList.toggle('is-open', willOpen);
         trigger.setAttribute('aria-expanded', String(willOpen));
       });
@@ -315,6 +324,10 @@
           clearTimeout(item._navCloseTimer);
           item._navCloseTimer = null;
         }
+        // Exclusive controller: close siblings immediately on enter so rapid
+        // moves (Network → Corporate) never leave two `.is-open` panels stacked
+        // while CSS `:hover` already shows the newly hovered menu.
+        closeAll(item, { instant: true });
         if (item.classList.contains('is-open') || item._navOpenTimer) return;
         item._navOpenTimer = setTimeout(() => {
           item._navOpenTimer = null;
@@ -470,7 +483,7 @@
     // missing, the English fallback string is used so the chatbot never
     // shows a raw key or stays blank.
     const botReplyFallbacks = {
-      fuel: 'Lake Oil supplies petroleum products across Tanzania, Kenya, Zambia, DRC, Rwanda, Burundi & Ethiopia. Contact admin@lakeoilgroup.com for pricing.',
+      fuel: 'Lake Oil supplies petroleum products across Tanzania, Kenya, Zambia, DR Congo, Rwanda, Burundi & Ethiopia. Contact admin@lakeoilgroup.com for pricing.',
       lpg: 'Lake Gas offers 6kg, 10kg, 15kg and 38kg cylinders for domestic and commercial use. Available in 6 countries across East & Central Africa.',
       truck: 'Lake Trans operates a fleet of 1,200+ trucks across East & Central Africa for bulk liquid haulage and general cargo.',
       contact: 'Our headquarters: Plot 49, Mikocheni Light Industrial Area, Dar es Salaam. Tel: +255 222780510 | Email: admin@lakeoilgroup.com',
