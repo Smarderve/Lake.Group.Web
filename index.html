@@ -1879,25 +1879,271 @@
       gap: 4px;
     }
 
-    /* PHOTO FEATURE */
-    .photo-feature {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 4px;
-      border-radius: var(--radius-lg);
+    /* SEE LAKE GROUP IN ACTION — Visual Diary coverflow */
+    .action-in-view {
+      background:
+        radial-gradient(ellipse 80% 60% at 10% 0%, rgba(5, 153, 211, 0.45), transparent 55%),
+        radial-gradient(ellipse 70% 50% at 90% 100%, rgba(1, 63, 92, 0.55), transparent 50%),
+        var(--blue);
+      padding: 64px 0 72px;
       overflow: hidden;
     }
 
-    .photo-feature img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s;
+    .action-in-view .section-label {
+      color: var(--yellow);
     }
 
-    .photo-feature img:hover {
-      transform: scale(1.03);
+    .action-diary {
+      margin-top: 8px;
+      background: transparent;
+      border-radius: 0;
+      padding: 8px 0 0;
+      box-shadow: none;
+    }
+
+    .action-diary-lead {
+      text-align: center;
+      max-width: 520px;
+      margin: 0 auto 22px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.98rem;
+      line-height: 1.55;
+    }
+
+    .action-filters {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .action-filter {
+      appearance: none;
+      border: 1.5px solid rgba(255, 255, 255, 0.55);
+      background: transparent;
+      color: var(--white);
+      font: inherit;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 9px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+    }
+
+    .action-filter:hover {
+      transform: translateY(-1px);
+      border-color: var(--yellow);
+      color: var(--yellow);
+    }
+
+    .action-filter.is-active {
+      background: var(--yellow);
+      border-color: var(--yellow);
+      color: var(--blue);
+    }
+
+    .action-filter.is-active:hover {
+      color: var(--blue);
+      border-color: var(--yellow);
+    }
+
+    .action-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 4px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--yellow);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .action-more:hover {
+      color: var(--white);
+    }
+
+    .action-stage {
+      position: relative;
+      height: 420px;
+      perspective: 1400px;
+      perspective-origin: 50% 50%;
+      overflow: hidden;
+      margin: 8px auto 0;
+      max-width: 980px;
+    }
+
+    .action-track {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform-style: preserve-3d;
+    }
+
+    .action-tile {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: min(248px, 58vw);
+      height: min(360px, 72vw);
+      border-radius: 26px;
+      overflow: hidden;
+      background: #0b1c2c;
+      box-shadow: 0 18px 40px rgba(1, 63, 92, 0.22);
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      transform-origin: center center;
+      transition:
+        transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.4s ease,
+        box-shadow 0.4s ease,
+        filter 0.4s ease;
+      will-change: transform, opacity;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .action-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+      transform: scale(1.02);
+      transition: transform 0.6s ease;
+    }
+
+    .action-tile.is-active {
+      box-shadow: 0 28px 56px rgba(1, 63, 92, 0.35);
+    }
+
+    .action-tile.is-active img {
+      transform: scale(1.06);
+    }
+
+    .action-tile-cap {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 48px 16px 16px;
+      background: linear-gradient(transparent, rgba(1, 63, 92, 0.88));
+      color: var(--white);
+      text-align: left;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      pointer-events: none;
+    }
+
+    .action-tile.is-active .action-tile-cap {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .action-tile-cap strong {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .action-tile-cap span {
+      display: block;
+      margin-top: 2px;
+      font-size: 0.75rem;
+      opacity: 0.85;
+    }
+
+    .action-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .action-nav-btn {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255, 255, 255, 0.65);
+      background: transparent;
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .action-nav-btn:hover {
+      background: var(--yellow);
+      border-color: var(--yellow);
+      color: var(--blue);
+      transform: scale(1.04);
+    }
+
+    .action-nav-btn:focus-visible {
+      outline: 2px solid var(--yellow);
+      outline-offset: 3px;
+    }
+
+    .action-dots {
+      display: none;
+    }
+
+    .action-count {
+      min-width: 64px;
+      text-align: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: rgba(255, 255, 255, 0.7);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .action-foot {
+      text-align: center;
+      margin-top: 22px;
+    }
+
+    @media (max-width: 720px) {
+      .action-diary {
+        padding: 4px 0 0;
+      }
+
+      .action-stage {
+        height: 340px;
+      }
+
+      .action-tile {
+        width: min(200px, 54vw);
+        height: min(290px, 68vw);
+        border-radius: 20px;
+      }
+
+      .action-more {
+        width: 100%;
+        justify-content: center;
+        margin: 4px 0 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .action-tile,
+      .action-tile img,
+      .action-tile-cap,
+      .action-filter,
+      .action-nav-btn {
+        transition: none !important;
+      }
     }
 
     /* CTA BAND */
@@ -2571,29 +2817,50 @@
     </div>
   </section>
 
-  <!-- REAL PHOTO FEATURE, GCCP plant -->
-  <section class="section-sm" style="background: var(--blue); padding: 56px 0">
+  <!-- SEE LAKE GROUP IN ACTION — Visual Diary coverflow -->
+  <section class="section-sm action-in-view" id="in-action" aria-labelledby="in-action-title">
     <div class="container">
-      <div style="text-align: center; margin-bottom: 28px">
+      <div style="text-align: center; margin-bottom: 22px">
         <div data-i18n="index.66" class="section-label" style="justify-content: center">
           Our Operations
         </div>
-        <h2 data-i18n="index.67" class="section-title" style="color: var(--white)">
+        <h2 data-i18n="index.67" id="in-action-title" class="section-title" style="color: var(--white)">
           See Lake Group in Action
         </h2>
       </div>
-      <div class="photo-feature">
-        <img src="assets/images/gccp/photo_2.jpg" alt="GCCP Concrete Plant" loading="lazy" decoding="async" />
-        <img src="assets/images/gccp/photo_3.jpg" alt="GCCP Operations" loading="lazy" decoding="async" />
-        <img src="assets/images/gccp/photo_4.jpg" alt="Aggregate Production" loading="lazy" decoding="async" />
-      </div>
-      <div class="photo-feature" style="margin-top: 4px">
-        <img src="assets/images/merm/photo_1.jpg" alt="MERM Dubai" loading="lazy" decoding="async" />
-        <img src="assets/images/merm/photo_2.jpg" alt="MERM Ready Mix" loading="lazy" decoding="async" />
-        <img src="assets/images/gccp/photo_5.jpg" alt="Concrete Delivery" loading="lazy" decoding="async" />
-      </div>
-      <div style="text-align: center; margin-top: 28px">
-        <a data-i18n="index.68" href="gallery.html" class="btn btn-primary">View Full Gallery</a>
+
+      <div class="action-diary" data-action-gallery>
+        <p class="action-diary-lead" data-i18n="index.action.lead">
+          Depots, stations, LPG plants, and industrial sites across East Africa — swipe through live operations.
+        </p>
+
+        <div class="action-filters" role="tablist" aria-label="Filter operations">
+          <button type="button" class="action-filter is-active" role="tab" aria-selected="true" data-filter="all" data-i18n="index.action.all">All</button>
+          <button type="button" class="action-filter" role="tab" aria-selected="false" data-filter="oil" data-i18n="index.action.oil">Oil</button>
+          <button type="button" class="action-filter" role="tab" aria-selected="false" data-filter="gas" data-i18n="index.action.gas">Gas</button>
+          <button type="button" class="action-filter" role="tab" aria-selected="false" data-filter="industry" data-i18n="index.action.industry">Industry</button>
+          <button type="button" class="action-filter" role="tab" aria-selected="false" data-filter="logistics" data-i18n="index.action.logistics">Logistics</button>
+          <a href="gallery.html" class="action-more" data-i18n="index.68">View Full Gallery <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="action-stage" aria-roledescription="carousel" aria-live="polite">
+          <div class="action-track" data-action-track></div>
+        </div>
+
+        <div class="action-nav">
+          <button type="button" class="action-nav-btn" data-action-prev aria-label="Previous photo">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="action-dots" data-action-dots hidden></div>
+          <div class="action-count" data-action-count aria-live="polite">1 / 1</div>
+          <button type="button" class="action-nav-btn" data-action-next aria-label="Next photo">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        <div class="action-foot">
+          <a data-i18n="index.68" href="gallery.html" class="btn btn-primary">View Full Gallery</a>
+        </div>
       </div>
     </div>
   </section>
@@ -2691,7 +2958,7 @@
 </div>
 
   <script src="assets/components/logo-loop-mount.js?v=51" defer></script>
-  <script src="assets/i18n-content.js?v=57" defer></script>
+  <script src="assets/i18n-content.js?v=58" defer></script>
   <script src="assets/i18n.js?v=56" defer></script>
   <script src="assets/site.js?v=58" defer></script>
   <script src="assets/vendor/flexsearch/flexsearch.bundle.min.js" defer></script>
@@ -2721,6 +2988,168 @@
         { rootMargin: "600px 0px" },
       );
       io.observe(section);
+    })();
+  </script>
+  <script>
+    (function () {
+      var root = document.querySelector("[data-action-gallery]");
+      if (!root) return;
+
+      var ITEMS = [
+        { src: "assets/images/banner/LakeOil.jpg", cat: "oil", title: "Lake Oil Depot", sub: "Bulk petroleum terminal" },
+        { src: "assets/images/lakeoil/current/station-lake-energies.jpg", cat: "oil", title: "Lake Energies Station", sub: "Retail fuel network" },
+        { src: "assets/images/lakeoil/current/depot-terminal.jpg", cat: "oil", title: "Depot Terminal", sub: "Storage & dispatch" },
+        { src: "assets/images/lakeoil/current/fleet-loading.jpg", cat: "oil", title: "Fleet Loading", sub: "Road tanker operations" },
+        { src: "assets/images/group/ops/depot-aerial.jpg", cat: "oil", title: "Depot Aerial", sub: "East Africa footprint" },
+        { src: "assets/images/banner/LakeGas.jpg", cat: "gas", title: "Lake Gas", sub: "LPG infrastructure" },
+        { src: "assets/images/lakegas/ops/filling-plant.jpg", cat: "gas", title: "Filling Plant", sub: "Cylinder bottling" },
+        { src: "assets/images/lakegas/ops/cylinder-stacks.jpg", cat: "gas", title: "Cylinder Yard", sub: "Ready for distribution" },
+        { src: "assets/images/lakegas/ops/worker-silas.jpg", cat: "gas", title: "Plant Operations", sub: "Safety-first filling" },
+        { src: "assets/images/lakegas/ops/cylinder-warehouse.jpg", cat: "gas", title: "LPG Warehouse", sub: "Bulk cylinder storage" },
+        { src: "assets/images/lakesteel/ops/hot-rolling.jpg", cat: "industry", title: "Lake Steel", sub: "Hot rolling mill" },
+        { src: "assets/images/lakesteel/ops/rebar-yard.jpg", cat: "industry", title: "HS-CR Rebars", sub: "Finished steel yard" },
+        { src: "assets/images/lakelubes/ops/plant.jpg", cat: "industry", title: "Lake Lubes", sub: "Lubricant blending" },
+        { src: "assets/images/lakeplastics/ops/blue-pipes.jpg", cat: "industry", title: "Lake Plastics", sub: "Pipe manufacturing" },
+        { src: "assets/images/group/ops/tanker-loading.jpg", cat: "logistics", title: "Tanker Loading", sub: "Bulk haulage" },
+        { src: "assets/images/group/ops/depot-fleet.jpg", cat: "logistics", title: "Depot Fleet", sub: "Dispatch ready" },
+        { src: "assets/images/laketrans/ops/fleet-inspection.jpg", cat: "logistics", title: "Lake Trans", sub: "Fleet inspection" },
+        { src: "assets/images/lakeoil/current/tanker-lake-energies.jpg", cat: "logistics", title: "Energies Tanker", sub: "On-road delivery" }
+      ];
+
+      var track = root.querySelector("[data-action-track]");
+      var dotsEl = root.querySelector("[data-action-dots]");
+      var countEl = root.querySelector("[data-action-count]");
+      var filterBtns = root.querySelectorAll(".action-filter");
+      var prevBtn = root.querySelector("[data-action-prev]");
+      var nextBtn = root.querySelector("[data-action-next]");
+
+      var filter = "all";
+      var index = 0;
+      var tiles = [];
+      var autoTimer = null;
+      var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      function filtered() {
+        return filter === "all" ? ITEMS.slice() : ITEMS.filter(function (i) { return i.cat === filter; });
+      }
+
+      function layout() {
+        var n = tiles.length;
+        if (!n) return;
+        var stageW = track.parentElement.clientWidth || 800;
+        var step = Math.min(148, Math.max(96, stageW * 0.16));
+
+        tiles.forEach(function (btn, i) {
+          var raw = i - index;
+          var half = Math.floor(n / 2);
+          var d = raw;
+          if (n > 1) {
+            if (d > half) d -= n;
+            if (d < -half) d += n;
+          }
+
+          var abs = Math.abs(d);
+          var visible = abs <= 3;
+          var scale = abs === 0 ? 1 : abs === 1 ? 0.86 : abs === 2 ? 0.74 : 0.64;
+          var rot = d * -18;
+          var y = abs === 0 ? 0 : abs === 1 ? 18 : abs === 2 ? 36 : 48;
+          var x = d * step;
+          var z = 100 - abs * 20;
+          var opacity = visible ? (abs === 0 ? 1 : abs === 1 ? 0.92 : abs === 2 ? 0.72 : 0.4) : 0;
+
+          btn.classList.toggle("is-active", d === 0);
+          btn.setAttribute("aria-hidden", d === 0 ? "false" : "true");
+          btn.tabIndex = d === 0 ? 0 : -1;
+          btn.style.zIndex = String(z);
+          btn.style.opacity = String(opacity);
+          btn.style.pointerEvents = visible ? "auto" : "none";
+          btn.style.filter = abs === 0 ? "none" : "brightness(0.92)";
+          btn.style.transform =
+            "translate(-50%, -50%) translateX(" + x + "px) translateY(" + y + "px) rotateY(" + rot + "deg) scale(" + scale + ")";
+        });
+
+        if (countEl) countEl.textContent = (index + 1) + " / " + n;
+      }
+
+      function go(to) {
+        var n = tiles.length;
+        if (!n) return;
+        index = ((to % n) + n) % n;
+        layout();
+        restartAuto();
+      }
+
+      function build() {
+        var list = filtered();
+        track.innerHTML = "";
+        if (dotsEl) dotsEl.innerHTML = "";
+        tiles = [];
+        index = 0;
+
+        list.forEach(function (item, i) {
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "action-tile";
+          btn.setAttribute("aria-label", item.title + " — " + item.sub);
+          btn.innerHTML =
+            '<img src="' + item.src + '" alt="" loading="lazy" decoding="async" />' +
+            '<span class="action-tile-cap"><strong>' + item.title + "</strong><span>" + item.sub + "</span></span>";
+          btn.addEventListener("click", function () {
+            if (i === index) return;
+            go(i);
+          });
+          track.appendChild(btn);
+          tiles.push(btn);
+        });
+
+        layout();
+        restartAuto();
+      }
+
+      function restartAuto() {
+        if (autoTimer) clearInterval(autoTimer);
+        if (reduced || tiles.length < 2) return;
+        autoTimer = setInterval(function () { go(index + 1); }, 4200);
+      }
+
+      filterBtns.forEach(function (b) {
+        b.addEventListener("click", function () {
+          filter = b.getAttribute("data-filter") || "all";
+          filterBtns.forEach(function (x) {
+            var on = x === b;
+            x.classList.toggle("is-active", on);
+            x.setAttribute("aria-selected", on ? "true" : "false");
+          });
+          build();
+        });
+      });
+
+      if (prevBtn) prevBtn.addEventListener("click", function () { go(index - 1); });
+      if (nextBtn) nextBtn.addEventListener("click", function () { go(index + 1); });
+
+      var startX = 0;
+      track.addEventListener("pointerdown", function (e) {
+        startX = e.clientX;
+      });
+      track.addEventListener("pointerup", function (e) {
+        var dx = e.clientX - startX;
+        if (Math.abs(dx) < 40) return;
+        go(dx < 0 ? index + 1 : index - 1);
+      });
+
+      root.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowLeft") { e.preventDefault(); go(index - 1); }
+        if (e.key === "ArrowRight") { e.preventDefault(); go(index + 1); }
+      });
+
+      root.addEventListener("mouseenter", function () {
+        if (autoTimer) clearInterval(autoTimer);
+      });
+      root.addEventListener("mouseleave", restartAuto);
+
+      window.addEventListener("resize", function () { layout(); });
+
+      build();
     })();
   </script>
   <script src="assets/pwa.js?v=59" defer></script>
