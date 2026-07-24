@@ -52,21 +52,20 @@
 .prod-catalog-card h4{font-family:var(--font-display);font-weight:400;font-size:1.1rem;letter-spacing:.03em;text-transform:uppercase;color:var(--text)}
 .prod-catalog-card p{font-size:.85rem;margin-top:4px;line-height:1.6}
 
-.co-gal{display:grid;grid-template-columns:1.55fr 1fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:8px;width:100%;max-width:1100px;min-height:440px}
-.co-gal__item{position:relative;overflow:hidden;background:var(--ink-3);min-height:0;margin:0}
-.co-gal__item--feat{grid-row:span 2}
+.co-gal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:100%;max-width:1100px}
+.co-gal__item{position:relative;overflow:hidden;margin:0;background:var(--ink-3);aspect-ratio:16/10;border-radius:2px}
+.co-gal__item--feat{grid-column:1 / -1;aspect-ratio:21/9}
 .co-gal__item img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .45s ease}
-.co-gal__item:hover img{transform:scale(1.035)}
-.co-gal__cap{position:absolute;left:0;right:0;bottom:0;padding:14px 16px 12px;background:linear-gradient(transparent,rgba(8,16,28,.72));color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;pointer-events:none}
+.co-gal__item:hover img{transform:scale(1.03)}
+.co-gal__cap{position:absolute;left:0;right:0;bottom:0;padding:14px 16px 12px;background:linear-gradient(transparent,rgba(8,16,28,.75));color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;pointer-events:none}
 .co-gal-label{margin:var(--sp-7) 0 var(--sp-3);font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
-.co-gal-products{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;max-width:1100px}
+.co-gal-products{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;max-width:1100px}
 .co-gal-products .co-gal__item{aspect-ratio:1;background:#fff}
-.co-gal-products .co-gal__item img{object-fit:contain;padding:12px;background:#fff}
+.co-gal-products .co-gal__item img{object-fit:contain;padding:14px;background:#fff}
 @media(max-width:860px){.co-gal-products{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:720px){
-  .co-gal{grid-template-columns:1fr 1fr;grid-template-rows:auto;min-height:0;gap:6px}
-  .co-gal__item{aspect-ratio:4/3}
-  .co-gal__item--feat{grid-column:span 2;grid-row:auto;aspect-ratio:16/10}
+  .co-gal{gap:8px}
+  .co-gal__item--feat{aspect-ratio:16/10}
   .co-gal-products{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
@@ -430,7 +429,7 @@
 
 <div class="page-wrapper">
 <section class="page-hero">
-  <div class="hero-media" style="background-image:url('assets/images/lakegas/ops/cylinders-yard.jpg?v=80')" aria-hidden="true"></div>
+  <div class="hero-media" style="background-image:url('assets/images/lakegas/ops/cylinders-yard.jpg?v=81')" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container">
     <nav class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span>/</span><span>Lake Energies</span><span>/</span><span>Lake Gas</span></nav>
@@ -558,25 +557,25 @@
   <div class="container">
     <div class="fs-marker"><span class="fs-marker-no">07</span><span class="fs-eyebrow">Images</span></div>
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Gallery</h2>
-    <div class="co-gal" aria-label="Lake Gas operations gallery">
+        <div class="co-gal" aria-label="Lake Gas operations gallery">
       <figure class="co-gal__item co-gal__item--feat">
-        <img src="assets/images/lakegas/ops/cylinders-yard.jpg?v=80" alt="Lake Gas cylinder yard" loading="lazy" decoding="async">
+        <img src="assets/images/lakegas/ops/cylinders-yard.jpg?v=81" alt="Lake Gas cylinder yard" loading="lazy" decoding="async">
         <figcaption class="co-gal__cap">Cylinder yard</figcaption>
       </figure>
       <figure class="co-gal__item">
-        <img src="assets/images/lakegas/ops/filling-plant.jpg?v=80" alt="Lake Gas LPG filling plant" loading="lazy" decoding="async">
+        <img src="assets/images/lakegas/ops/filling-plant.jpg?v=81" alt="Lake Gas LPG filling plant" loading="lazy" decoding="async">
         <figcaption class="co-gal__cap">Filling plant</figcaption>
       </figure>
       <figure class="co-gal__item">
-        <img src="assets/images/lakegas/ops/cylinder-warehouse.jpg?v=80" alt="Lake Gas cylinder warehouse" loading="lazy" decoding="async">
+        <img src="assets/images/lakegas/ops/cylinder-warehouse.jpg?v=81" alt="Lake Gas cylinder warehouse" loading="lazy" decoding="async">
         <figcaption class="co-gal__cap">Warehouse</figcaption>
       </figure>
       <figure class="co-gal__item">
-        <img src="assets/images/lakegas/ops/worker-silas.jpg?v=80" alt="Lake Gas operations team" loading="lazy" decoding="async">
+        <img src="assets/images/lakegas/ops/worker-silas.jpg?v=81" alt="Lake Gas operations team" loading="lazy" decoding="async">
         <figcaption class="co-gal__cap">Operations</figcaption>
       </figure>
       <figure class="co-gal__item">
-        <img src="assets/images/lakegas/ops/cylinder-stacks.jpg?v=80" alt="Lake Gas depot operations" loading="lazy" decoding="async">
+        <img src="assets/images/lakegas/ops/cylinder-stacks.jpg?v=81" alt="Lake Gas depot operations" loading="lazy" decoding="async">
         <figcaption class="co-gal__cap">Plant floor</figcaption>
       </figure>
     </div>
