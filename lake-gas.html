@@ -24,7 +24,29 @@
   <style>
 /* ==========================================================================
    MERIDIAN PAGE LAYER - company profile page
-   Chrome + shared components come from assets/flagship.css?v=71'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ink-line)}
+   Chrome + shared components come from assets/flagship.css. This block only
+   composes generic company-profile widgets reused across all /company pages.
+   ========================================================================== */
+.fs-check{list-style:none;display:flex;flex-direction:column;margin-top:var(--sp-6)}
+.fs-check li{display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line-2);font-size:.95rem;color:var(--mute);line-height:1.65}
+.fs-check li:first-child{border-top:1px solid var(--line-2)}
+.fs-check li span:first-child{color:var(--gold-deep);font-weight:700;flex:none}
+
+.co-logo-row{display:flex;align-items:center;gap:var(--sp-5);margin-bottom:var(--sp-6);flex-wrap:wrap}
+.co-logo-row img{height:48px;width:auto;max-width:160px;object-fit:contain;background:transparent;border:none;padding:0;border-radius:0}
+
+.info-panel{background:var(--ink);padding:var(--sp-8);position:relative}
+.info-panel h3{font-family:var(--font-display);font-weight:400;font-size:var(--fs-title);letter-spacing:.02em;text-transform:uppercase;color:var(--white);margin-bottom:var(--sp-5)}
+.info-row{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-4);padding:13px 0;border-bottom:1px solid var(--ink-line-2)}
+.info-row:first-of-type{border-top:1px solid var(--ink-line)}
+.info-row>span:first-child{display:inline-flex;align-items:center;gap:8px;color:rgba(233,237,248,0.92);font-size:.92rem}
+.info-panel .badge-yellow,.info-panel .badge-amber,.info-row .badge{color:#fff!important;border-color:rgba(255,242,0,0.65)!important;background:rgba(255,242,0,0.16)!important}
+
+.stat-panel2{background:var(--ink);padding:var(--sp-8);position:relative}
+.stat-panel2 h3{font-family:var(--font-display);font-weight:400;font-size:var(--fs-title);letter-spacing:.02em;text-transform:uppercase;color:var(--white);margin-bottom:var(--sp-6)}
+.stat-grid2{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-6)}
+.stat-tile2{position:relative;padding:var(--sp-4) 0 var(--sp-3)}
+.stat-tile2::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ink-line)}
 .stat-tile2::before{content:'';position:absolute;left:0;bottom:-3.5px;width:8px;height:8px;background:var(--gold);z-index:1}
 .stat-tile2 .stat-no2{font-family:var(--font-display);font-weight:400;font-size:clamp(2.2rem,4vw,3.2rem);line-height:.95;color:var(--white);display:block}
 .stat-tile2 .stat-no2.gold{color:var(--gold)}
@@ -33,21 +55,17 @@
 .val-mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-4);margin-top:var(--sp-8)}
 @media(max-width:960px){.val-mini-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.val-mini-grid{grid-template-columns:1fr}}
-.val-mini-tile{position:relative;text-align:center;padding:var(--sp-6) var(--sp-4);border:1px solid var(--ink-line-2)}
+.val-mini-tile{position:relative;text-align:center;padding:var(--sp-6) var(--sp-4);border:1px solid var(--ink-line-2);background:rgba(255,255,255,0.02)}
 .val-mini-tile::before{content:'';position:absolute;top:-1px;left:-1px;width:8px;height:8px;background:var(--gold)}
 .val-mini-tile h4{font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;color:var(--white);margin-bottom:6px}
-.val-mini-tile p{font-size:.82rem;color:var(--ink-mute)}
-
-
-
-
-
+.val-mini-tile p{font-size:.82rem;color:var(--ink-mute);margin:0;line-height:1.5}
 
 .prod-catalog{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5)}
 @media(max-width:860px){.prod-catalog{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.prod-catalog{grid-template-columns:1fr}}
 .prod-catalog-card{background:var(--surface);border:1px solid var(--line-2);padding:var(--sp-5)}
-.prod-catalog-card .fs-media{aspect-ratio:4/3;margin-bottom:var(--sp-3)}
+.prod-catalog-card .fs-media{aspect-ratio:4/3;margin-bottom:var(--sp-3);overflow:hidden;background:var(--paper-2)}
+.prod-catalog-card .fs-media img{width:100%;height:100%;object-fit:contain;object-position:center;display:block}
 .prod-catalog-card .prod-glyph{aspect-ratio:4/3;margin-bottom:var(--sp-3);display:flex;align-items:center;justify-content:center;background:var(--paper-2);font-size:2.2rem}
 .prod-catalog-card h4{font-family:var(--font-display);font-weight:400;font-size:1.1rem;letter-spacing:.03em;text-transform:uppercase;color:var(--text)}
 .prod-catalog-card p{font-size:.85rem;margin-top:4px;line-height:1.6}
@@ -58,15 +76,9 @@
 .co-gal__item img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .45s ease}
 .co-gal__item:hover img{transform:scale(1.03)}
 .co-gal__cap{position:absolute;left:0;right:0;bottom:0;padding:14px 16px 12px;background:linear-gradient(transparent,rgba(8,16,28,.75));color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;pointer-events:none}
-.co-gal-label{margin:var(--sp-7) 0 var(--sp-3);font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
-.co-gal-products{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;max-width:1100px}
-.co-gal-products .co-gal__item{aspect-ratio:1;background:#fff}
-.co-gal-products .co-gal__item img{object-fit:contain;padding:14px;background:#fff}
-@media(max-width:860px){.co-gal-products{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:720px){
   .co-gal{gap:8px}
   .co-gal__item--feat{aspect-ratio:16/10}
-  .co-gal-products{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
 .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5)}
@@ -490,9 +502,9 @@
     </div>
     <div style="margin-top:var(--sp-10)">
       <h3 style="color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">History</h3>
-      <p style="max-width:80ch">Lake Gas is one of the founding sectors of Lake Group, which began with the opening of Lake Oil in Dar es Salaam in 2006 under founder Ally Edha Awadh. On 18 June 2014, Lake Gas launched Africa's first composite LPG cylinders - non-explosive, non-corrosive, lightweight and translucent - at a launch event in Dar es Salaam, a first for the African market.</p>
+      <p style="max-width:80ch;line-height:1.75">Lake Gas is one of the founding sectors of Lake Group, which began with the opening of Lake Oil in Dar es Salaam in 2006 under founder Ally Edha Awadh. On 18 June 2014, Lake Gas launched Africa&rsquo;s first composite LPG cylinders&mdash;non-explosive, non-corrosive, lightweight and translucent&mdash;at a launch event in Dar es Salaam, a first for the African market.</p>
     </div>
-    <div class="val-mini-grid">
+    <div class="val-mini-grid" aria-label="Core values">
       <div class="val-mini-tile"><h4>Quality</h4><p>No compromise on quality</p></div>
       <div class="val-mini-tile"><h4>Service</h4><p>Committed to excellence</p></div>
       <div class="val-mini-tile"><h4>Safety</h4><p>Safety is first, always</p></div>
@@ -557,35 +569,27 @@
   <div class="container">
     <div class="fs-marker"><span class="fs-marker-no">07</span><span class="fs-eyebrow">Images</span></div>
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Gallery</h2>
-        <div class="co-gal" aria-label="Lake Gas operations gallery">
+    <div class="co-gal" aria-label="Lake Gas operations gallery">
       <figure class="co-gal__item co-gal__item--feat">
-        <img src="assets/images/lakegas/ops/cylinders-yard.jpg?v=81" alt="Lake Gas cylinder yard" loading="lazy" decoding="async">
+        <img src="assets/images/lakegas/ops/cylinders-yard.jpg?v=82" alt="Lake Gas cylinder yard" loading="lazy" decoding="async">
         <figcaption class="co-gal__cap">Cylinder yard</figcaption>
       </figure>
       <figure class="co-gal__item">
-        <img src="assets/images/lakegas/ops/filling-plant.jpg?v=81" alt="Lake Gas LPG filling plant" loading="lazy" decoding="async">
+        <img src="assets/images/lakegas/ops/filling-plant.jpg?v=82" alt="Lake Gas LPG filling plant" loading="lazy" decoding="async">
         <figcaption class="co-gal__cap">Filling plant</figcaption>
       </figure>
       <figure class="co-gal__item">
-        <img src="assets/images/lakegas/ops/cylinder-warehouse.jpg?v=81" alt="Lake Gas cylinder warehouse" loading="lazy" decoding="async">
+        <img src="assets/images/lakegas/ops/cylinder-warehouse.jpg?v=82" alt="Lake Gas cylinder warehouse" loading="lazy" decoding="async">
         <figcaption class="co-gal__cap">Warehouse</figcaption>
       </figure>
       <figure class="co-gal__item">
-        <img src="assets/images/lakegas/ops/worker-silas.jpg?v=81" alt="Lake Gas operations team" loading="lazy" decoding="async">
+        <img src="assets/images/lakegas/ops/worker-silas.jpg?v=82" alt="Lake Gas operations team" loading="lazy" decoding="async">
         <figcaption class="co-gal__cap">Operations</figcaption>
       </figure>
       <figure class="co-gal__item">
-        <img src="assets/images/lakegas/ops/cylinder-stacks.jpg?v=81" alt="Lake Gas depot operations" loading="lazy" decoding="async">
+        <img src="assets/images/lakegas/ops/cylinder-stacks.jpg?v=82" alt="Lake Gas depot operations" loading="lazy" decoding="async">
         <figcaption class="co-gal__cap">Plant floor</figcaption>
       </figure>
-    </div>
-    <p class="co-gal-label">Cylinder range</p>
-    <div class="co-gal-products" aria-label="Lake Gas cylinder products">
-      <figure class="co-gal__item"><img src="assets/images/lakegas/products/gas1.jpg" alt="6kg LPG cylinder" loading="lazy" decoding="async"></figure>
-      <figure class="co-gal__item"><img src="assets/images/lakegas/products/gas4.jpg" alt="10kg composite LPG cylinder" loading="lazy" decoding="async"></figure>
-      <figure class="co-gal__item"><img src="assets/images/lakegas/products/gas2.jpg" alt="15kg LPG cylinder" loading="lazy" decoding="async"></figure>
-      <figure class="co-gal__item"><img src="assets/images/lakegas/products/gas3.jpg" alt="38kg LPG cylinder" loading="lazy" decoding="async"></figure>
-      <figure class="co-gal__item"><img src="assets/images/lakegas/products/gas5.jpg" alt="Lake Gas composite cylinder range" loading="lazy" decoding="async"></figure>
     </div>
   </div>
 </section>
