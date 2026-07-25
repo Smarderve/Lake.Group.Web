@@ -26,10 +26,6 @@
    MERIDIAN PAGE LAYER  gallery.html
    Chrome + shared components come from assets/flagship.css?v=71.
    ========================================================================== */
-/* Contact-sheet count chip */
-.g-count{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--gold);padding:6px 14px;font-family:var(--font-body);font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;vertical-align:middle;margin-left:14px;transform:translateY(-8px)}
-.g-count::before{content:'';width:8px;height:8px;background:var(--gold)}
-
 /* Filter register: drafting tabs */
 .gallery-filter-bar{display:flex;gap:0;flex-wrap:wrap;justify-content:center;margin:0 auto var(--sp-8);border:1px solid var(--line);max-width:1120px}
 .gf-btn{padding:12px 18px;border:none;border-right:1px solid var(--line);background:var(--surface);border-radius:0;font-family:var(--font-body);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;color:var(--mute);transition:background var(--dur-1) ease,color var(--dur-1) ease}
@@ -131,12 +127,12 @@
 }
 </script>
 <link rel="stylesheet" href="assets/tokens.css?v=58">
-<link rel="stylesheet" href="assets/flagship.css?v=73">
+<link rel="stylesheet" href="assets/flagship.css?v=75">
 <link rel="stylesheet" href="assets/split-text.css?v=46">
-  <link rel="stylesheet" href="assets/assistant.css?v=60">
-  <link rel="stylesheet" href="assets/skeleton.css?v=3">
+  <link rel="stylesheet" href="assets/assistant.css?v=69">
+  <link rel="stylesheet" href="assets/skeleton.css?v=4">
 </head><body>
-  <script src="assets/skeleton.js?v=3"></script>
+  <script src="assets/skeleton.js?v=4"></script>
 <nav class="site-nav" dir="ltr">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -373,16 +369,16 @@
   <div class="container">
     <div class="fs-head fs-head-center">
       <div data-i18n="gallery.5" class="fs-eyebrow" style="justify-content:center">Photo Library</div>
-      <h2 data-i18n="gallery.6" data-i18n-html="" class="fs-display">Lake Group in Action <span data-i18n="gallery.7" class="g-count">39 Photos</span></h2>
+      <h2 data-i18n="gallery.6" class="fs-display">Lake Group in Action</h2>
       <p data-i18n="gallery.8" class="fs-lede" style="margin:14px auto 0;max-width:58ch">Real photos sourced directly from lakeoilgroup.com, our operations across East Africa and the Middle East.</p>
     </div>
     <div class="gallery-filter-bar">
-      <button data-i18n="gallery.9" class="gf-btn active" onclick="filterGallery('all',this)">All (39)</button>
-      <button data-i18n="gallery.10" class="gf-btn" onclick="filterGallery('operations',this)">Operations (9)</button>
-      <button data-i18n="gallery.11" class="gf-btn" onclick="filterGallery('fuel',this)">Fuel &amp; Oil (5)</button>
-      <button data-i18n="gallery.12" class="gf-btn" onclick="filterGallery('lpg',this)">LPG Gas (5)</button>
-      <button data-i18n="gallery.13" class="gf-btn" onclick="filterGallery('concrete',this)">GCCP Concrete (12)</button>
-      <button data-i18n="gallery.14" class="gf-btn" onclick="filterGallery('dubai',this)">MERM Dubai (10)</button>
+      <button data-i18n="gallery.9" class="gf-btn active" onclick="filterGallery('all',this)">All</button>
+      <button data-i18n="gallery.10" class="gf-btn" onclick="filterGallery('operations',this)">Operations</button>
+      <button data-i18n="gallery.11" class="gf-btn" onclick="filterGallery('fuel',this)">Fuel &amp; Oil</button>
+      <button data-i18n="gallery.12" class="gf-btn" onclick="filterGallery('lpg',this)">LPG Gas</button>
+      <button data-i18n="gallery.13" class="gf-btn" onclick="filterGallery('concrete',this)">GCCP Concrete</button>
+      <button data-i18n="gallery.14" class="gf-btn" onclick="filterGallery('dubai',this)">MERM Dubai</button>
     </div>
     <div class="gallery-masonry" id="gallery-grid">
 <div class="g-item reveal" data-cat="operations" data-src="assets/images/n-slider/1.jpg" data-caption="Field Operations across East Africa">
@@ -467,26 +463,6 @@
         <img src="assets/images/lakebuildings/ops/lake-tanks.jpg?v=80" alt="Lake Tanks manufacturing" loading="lazy" decoding="async" width="1600" height="900">
       </div>
 
-<div class="g-item reveal" data-cat="lpg" data-src="assets/images/lakegas/products/gas1.jpg" data-caption="Lake Gas, 6kg Domestic LPG Cylinder">
-        <img src="assets/images/lakegas/products/gas1.jpg" alt="Lake Gas, 6kg Domestic LPG Cylinder" loading="lazy" decoding="async" width="700" height="476">
-        <div data-i18n="gallery.27" class="g-label">Lake Gas, 6kg Domestic LPG Cylinder</div>
-      </div>
-<div class="g-item reveal" data-cat="lpg" data-src="assets/images/lakegas/products/gas2.jpg" data-caption="Lake Gas, 15kg Cylinder for Hotels & Restaurants">
-        <img src="assets/images/lakegas/products/gas2.jpg" alt="Lake Gas, 15kg Cylinder for Hotels & Restaurants" loading="lazy" decoding="async" width="700" height="476">
-        <div data-i18n="gallery.28" class="g-label">Lake Gas, 15kg Cylinder for Hotels & Restaurants</div>
-      </div>
-<div class="g-item reveal" data-cat="lpg" data-src="assets/images/lakegas/products/gas3.jpg" data-caption="Lake Gas, 38kg Commercial LPG Cylinder">
-        <img src="assets/images/lakegas/products/gas3.jpg" alt="Lake Gas, 38kg Commercial LPG Cylinder" loading="lazy" decoding="async" width="700" height="476">
-        <div data-i18n="gallery.29" class="g-label">Lake Gas, 38kg Commercial LPG Cylinder</div>
-      </div>
-<div class="g-item reveal" data-cat="lpg" data-src="assets/images/lakegas/products/gas4.jpg" data-caption="Lake Gas, 10kg Composite Cylinder (Non-Explosive, Translucent)">
-        <img src="assets/images/lakegas/products/gas4.jpg" alt="Lake Gas, 10kg Composite Cylinder (Non-Explosive, Translucent)" loading="lazy" decoding="async" width="700" height="476">
-        <div data-i18n="gallery.30" class="g-label">Lake Gas, 10kg Composite Cylinder (Non-Explosive, Tran</div>
-      </div>
-<div class="g-item reveal" data-cat="lpg" data-src="assets/images/lakegas/products/gas5.jpg" data-caption="Lake Gas, Composite Cylinder Product Range">
-        <img src="assets/images/lakegas/products/gas5.jpg" alt="Lake Gas, Composite Cylinder Product Range" loading="lazy" decoding="async" width="700" height="476">
-        <div data-i18n="gallery.31" class="g-label">Lake Gas, Composite Cylinder Product Range</div>
-      </div>
 <div class="g-item reveal" data-cat="concrete" data-src="assets/images/gccp/photo_1.jpg" data-caption="GCCP, Gulf Concrete Batching Plant, Dar es Salaam">
         <img src="assets/images/gccp/photo_1.jpg" alt="GCCP, Gulf Concrete Batching Plant, Dar es Salaam" loading="lazy" decoding="async" width="2061" height="1380">
         <div data-i18n="gallery.32" class="g-label">GCCP, Gulf Concrete Batching Plant, Dar es Salaam</div>
@@ -577,7 +553,7 @@
       </div>
     </div>
     <div class="g-foot fs-on-dark">
-      <p data-i18n="gallery.54" data-i18n-html=""><strong data-i18n="gallery.55">39 real photos</strong> from Lake Group operations, GCCP, MERM Dubai, Lake Gas, Lake Oil &amp; more.</p>
+      <p data-i18n="gallery.54" data-i18n-html="">Real photos from Lake Group operations, GCCP, MERM Dubai, Lake Gas, Lake Oil &amp; more.</p>
       <p style="font-size:0.83rem;margin-top:6px" data-i18n="gallery.56" data-i18n-html="">Follow <a href="https://www.instagram.com/lakeoilltd/" target="_blank" rel="noopener">@lakeoilltd</a> on Instagram for the latest updates from the field.</p>
     </div>
   </div>
@@ -605,7 +581,8 @@ function showLB(i){
   const all=visItems();
   cur=(i+all.length)%all.length;
   document.getElementById('lb-img').src=all[cur].dataset.src;
-  document.getElementById('lb-caption').textContent=all[cur].dataset.caption;
+  const label=all[cur].querySelector('.g-label');
+  document.getElementById('lb-caption').textContent=(label&&label.textContent.trim())||all[cur].dataset.caption||'';
 }
 document.querySelectorAll('.g-item').forEach(el=>el.addEventListener('click',()=>openLightbox(el)));
 document.getElementById('lb-close').onclick=()=>{document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';};
@@ -693,9 +670,9 @@ document.addEventListener('keydown',e=>{
   </button>
 </div>
 
-<script src="assets/i18n-content.js?v=57" defer></script>
+<script src="assets/i18n-content.js?v=59" defer></script>
 <script src="assets/i18n.js?v=56" defer></script>
-<script src="assets/site.js?v=58" defer></script>
+<script src="assets/site.js?v=59" defer></script>
   <script src="assets/vendor/flexsearch/flexsearch.bundle.min.js" defer></script>
   <script src="assets/assistant-kb.js" defer></script>
   <script src="assets/assistant.js?v=60" defer></script>

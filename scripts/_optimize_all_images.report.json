@@ -1,0 +1,255 @@
+{
+  "scanned": 279,
+  "optimized": 233,
+  "noGain": 46,
+  "skippedTiny": 0,
+  "failed": 0,
+  "beforeBytes": 71158988,
+  "afterBytes": 43704169,
+  "savedBytes": 27454819,
+  "jpegQuality": 82,
+  "webpQuality": 82,
+  "notable": [
+    {
+      "rel": "assets\\images\\leadership\\khalid-hospital-donation.jpg",
+      "before": 878919,
+      "after": 193541,
+      "saved": 685378
+    },
+    {
+      "rel": "assets\\images\\news\\14\\photo_1.jpg",
+      "before": 878919,
+      "after": 193541,
+      "saved": 685378
+    },
+    {
+      "rel": "assets\\images\\news\\10\\photo_1.jpg",
+      "before": 772908,
+      "after": 158548,
+      "saved": 614360
+    },
+    {
+      "rel": "assets\\images\\news\\11\\photo_1.jpg",
+      "before": 767208,
+      "after": 154805,
+      "saved": 612403
+    },
+    {
+      "rel": "assets\\images\\news\\17\\photo_7.jpg",
+      "before": 705168,
+      "after": 159148,
+      "saved": 546020
+    },
+    {
+      "rel": "assets\\images\\news\\17\\photo_22.jpg",
+      "before": 660606,
+      "after": 146158,
+      "saved": 514448
+    },
+    {
+      "rel": "assets\\images\\news\\17\\photo_21.jpg",
+      "before": 608067,
+      "after": 128042,
+      "saved": 480025
+    },
+    {
+      "rel": "assets\\images\\news\\17\\photo_4.jpg",
+      "before": 530063,
+      "after": 91459,
+      "saved": 438604
+    },
+    {
+      "rel": "assets\\images\\n-slider\\9.webp",
+      "before": 851360,
+      "after": 444612,
+      "saved": 406748
+    },
+    {
+      "rel": "assets\\images\\news\\19\\photo_11.jpg",
+      "before": 615042,
+      "after": 217927,
+      "saved": 397115
+    },
+    {
+      "rel": "assets\\images\\n-slider\\9.jpg",
+      "before": 975549,
+      "after": 601655,
+      "saved": 373894
+    },
+    {
+      "rel": "assets\\images\\news\\19\\photo_18.jpg",
+      "before": 554889,
+      "after": 199778,
+      "saved": 355111
+    },
+    {
+      "rel": "assets\\images\\news\\19\\photo_5.jpg",
+      "before": 529670,
+      "after": 184938,
+      "saved": 344732
+    },
+    {
+      "rel": "assets\\images\\logos\\companies\\_pretrim\\cross-country.png",
+      "before": 471104,
+      "after": 129552,
+      "saved": 341552
+    },
+    {
+      "rel": "assets\\images\\atl\\tanker-3.png",
+      "before": 506289,
+      "after": 178302,
+      "saved": 327987
+    },
+    {
+      "rel": "assets\\images\\lakelubes\\products\\LAKE_GREASE_MP_3_2.png",
+      "before": 418204,
+      "after": 93858,
+      "saved": 324346
+    },
+    {
+      "rel": "assets\\images\\news\\19\\photo_2.jpg",
+      "before": 509645,
+      "after": 187913,
+      "saved": 321732
+    },
+    {
+      "rel": "assets\\images\\lakeoil\\current\\tanker-lake-energies.jpg",
+      "before": 781152,
+      "after": 478396,
+      "saved": 302756
+    },
+    {
+      "rel": "assets\\images\\news\\20\\photo_4.jpg",
+      "before": 491506,
+      "after": 189331,
+      "saved": 302175
+    },
+    {
+      "rel": "assets\\images\\news\\19\\photo_8.jpg",
+      "before": 527249,
+      "after": 225268,
+      "saved": 301981
+    },
+    {
+      "rel": "assets\\images\\news\\20\\photo_11.jpg",
+      "before": 490056,
+      "after": 188768,
+      "saved": 301288
+    },
+    {
+      "rel": "assets\\images\\news\\19\\photo_4.jpg",
+      "before": 432699,
+      "after": 132383,
+      "saved": 300316
+    },
+    {
+      "rel": "assets\\images\\news\\17\\photo_8.jpg",
+      "before": 371693,
+      "after": 73327,
+      "saved": 298366
+    },
+    {
+      "rel": "assets\\images\\news\\19\\photo_6.jpg",
+      "before": 458415,
+      "after": 162295,
+      "saved": 296120
+    },
+    {
+      "rel": "assets\\images\\news\\20\\photo_9.jpg",
+      "before": 483316,
+      "after": 190138,
+      "saved": 293178
+    },
+    {
+      "rel": "assets\\images\\lakeoil\\current\\fleet-loading.jpg",
+      "before": 744745,
+      "after": 455117,
+      "saved": 289628
+    },
+    {
+      "rel": "assets\\images\\news\\19\\photo_9.jpg",
+      "before": 395654,
+      "after": 106529,
+      "saved": 289125
+    },
+    {
+      "rel": "assets\\images\\logos\\companies\\cross-country.png",
+      "before": 381823,
+      "after": 95395,
+      "saved": 286428
+    },
+    {
+      "rel": "assets\\images\\news\\20\\photo_8.jpg",
+      "before": 463434,
+      "after": 177588,
+      "saved": 285846
+    },
+    {
+      "rel": "assets\\images\\news\\20\\photo_6.jpg",
+      "before": 454598,
+      "after": 173775,
+      "saved": 280823
+    },
+    {
+      "rel": "assets\\images\\news\\19\\photo_19.jpg",
+      "before": 407027,
+      "after": 127289,
+      "saved": 279738
+    },
+    {
+      "rel": "assets\\images\\news\\19\\photo_3.jpg",
+      "before": 483277,
+      "after": 205501,
+      "saved": 277776
+    },
+    {
+      "rel": "assets\\images\\news\\20\\photo_10.jpg",
+      "before": 440506,
+      "after": 169273,
+      "saved": 271233
+    },
+    {
+      "rel": "assets\\images\\banner\\LakeOil.jpg",
+      "before": 649060,
+      "after": 379049,
+      "saved": 270011
+    },
+    {
+      "rel": "assets\\images\\lakeoil\\current\\depot-terminal.jpg",
+      "before": 649060,
+      "after": 379049,
+      "saved": 270011
+    },
+    {
+      "rel": "assets\\images\\news\\20\\photo_5.jpg",
+      "before": 426916,
+      "after": 160124,
+      "saved": 266792
+    },
+    {
+      "rel": "assets\\images\\n-slider\\3.jpg",
+      "before": 610539,
+      "after": 344764,
+      "saved": 265775
+    },
+    {
+      "rel": "assets\\images\\news\\20\\photo_7.jpg",
+      "before": 426574,
+      "after": 161674,
+      "saved": 264900
+    },
+    {
+      "rel": "assets\\images\\news\\19\\photo_20.jpg",
+      "before": 542693,
+      "after": 278425,
+      "saved": 264268
+    },
+    {
+      "rel": "assets\\images\\news\\20\\photo_3.jpg",
+      "before": 402523,
+      "after": 139810,
+      "saved": 262713
+    }
+  ],
+  "retryNote": "Recovered 7 n-slider webp files after Windows EPERM"
+}

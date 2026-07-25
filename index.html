@@ -1216,6 +1216,7 @@
     /* HERO */
     .hero {
       min-height: 100vh;
+      min-height: 100dvh;
       background: var(--blue);
       position: relative;
       display: flex;
@@ -1236,10 +1237,17 @@
       position: absolute;
       inset: 0;
       z-index: 0;
-      background-image: url("assets/images/banner/LakeOil.jpg?v=81");
-      background-size: cover;
-      background-position: center;
+      overflow: hidden;
       opacity: 1;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Prefer trucks + Lake Oil tanks over empty sky / left apron */
+      object-position: 68% 42%;
+      display: block;
       filter: saturate(0.92) contrast(1.05);
     }
 
@@ -1247,6 +1255,7 @@
       position: absolute;
       inset: 0;
       z-index: 1;
+      /* Shared brand overlay from tokens.css — readability via lighter text, not heavier wash */
       background: var(--hero-overlay-gradient, linear-gradient(105deg,
           rgba(1, 63, 92, 0.92) 0%,
           rgba(1, 129, 187, 0.75) 45%,
@@ -1277,12 +1286,23 @@
     }
 
     @media (max-width: 860px) {
+      .hero-photo img {
+        object-position: 72% 40%;
+      }
+
       .hero-content {
         grid-template-columns: 1fr;
+        padding: 110px 20px 72px;
       }
 
       .hero-right {
         display: none;
+      }
+
+      /* Ken Burns upscales an already height-limited asset on tall phones — skip on small screens */
+      html.lg-motion .hero .hero-photo {
+        animation: lg-hero-media-in 0.7s var(--ease-out) both;
+        transform-origin: 72% 40%;
       }
     }
 
@@ -1331,10 +1351,11 @@
 
     .hero-sub {
       font-size: 1rem;
-      color: rgba(255, 255, 255, 0.72);
+      color: rgba(255, 255, 255, 0.96);
       margin: 18px 0 30px;
       max-width: 420px;
       line-height: 1.65;
+      text-shadow: 0 1px 2px rgba(1, 63, 92, 0.35);
     }
 
     .hero-actions {
@@ -1361,10 +1382,11 @@
 
     .hero-stat-label {
       font-size: 0.72rem;
-      color: rgba(255, 255, 255, 0.45);
+      color: rgba(255, 255, 255, 0.9);
       text-transform: uppercase;
       letter-spacing: 0.08em;
       margin-top: 2px;
+      text-shadow: 0 1px 2px rgba(1, 63, 92, 0.3);
     }
 
     .hero-right {
@@ -1977,6 +1999,40 @@
       max-width: 980px;
     }
 
+    .action-skel {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 2;
+      transition: opacity 0.35s ease;
+    }
+
+    .action-skel.is-done {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .action-skel-tile {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: min(248px, 58vw);
+      height: min(360px, 72vw);
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transform-origin: center center;
+    }
+
+    .action-skel-tile:nth-child(1) { transform: translate(-50%, -50%) translateX(-296px) translateY(48px) rotateY(36deg) scale(0.64); opacity: 0.4; }
+    .action-skel-tile:nth-child(2) { transform: translate(-50%, -50%) translateX(-148px) translateY(18px) rotateY(18deg) scale(0.86); opacity: 0.72; }
+    .action-skel-tile:nth-child(3) { transform: translate(-50%, -50%) scale(1); opacity: 0.9; z-index: 3; }
+    .action-skel-tile:nth-child(4) { transform: translate(-50%, -50%) translateX(148px) translateY(18px) rotateY(-18deg) scale(0.86); opacity: 0.72; }
+    .action-skel-tile:nth-child(5) { transform: translate(-50%, -50%) translateX(296px) translateY(48px) rotateY(-36deg) scale(0.64); opacity: 0.4; }
+
     .action-track {
       position: absolute;
       inset: 0;
@@ -2001,11 +2057,11 @@
       cursor: pointer;
       transform-origin: center center;
       transition:
-        transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.4s ease,
-        box-shadow 0.4s ease,
-        filter 0.4s ease;
-      will-change: transform, opacity;
+        transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.32s ease,
+        box-shadow 0.42s ease,
+        filter 0.42s ease;
+      will-change: transform, opacity, filter;
       -webkit-tap-highlight-color: transparent;
     }
 
@@ -2016,15 +2072,27 @@
       display: block;
       pointer-events: none;
       transform: scale(1.02);
-      transition: transform 0.6s ease;
+      transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .action-tile.is-active {
-      box-shadow: 0 28px 56px rgba(1, 63, 92, 0.35);
+      box-shadow:
+        0 32px 64px rgba(1, 63, 92, 0.42),
+        0 0 0 1px rgba(255, 242, 0, 0.16);
     }
 
     .action-tile.is-active img {
       transform: scale(1.06);
+    }
+
+    .action-tile.is-focusing img {
+      animation: action-img-settle 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    @keyframes action-img-settle {
+      0% { transform: scale(1.12); filter: brightness(0.94); }
+      55% { transform: scale(1.07); filter: brightness(1.08); }
+      100% { transform: scale(1.06); filter: brightness(1); }
     }
 
     .action-tile-cap {
@@ -2038,13 +2106,42 @@
       text-align: left;
       opacity: 0;
       transform: translateY(8px);
-      transition: opacity 0.35s ease, transform 0.35s ease;
+      transition: opacity 0.32s ease, transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
       pointer-events: none;
+    }
+
+    .action-tile-cap::after {
+      content: "";
+      position: absolute;
+      left: 16px;
+      bottom: 12px;
+      width: 0;
+      height: 2px;
+      background: var(--yellow);
+      border-radius: 1px;
+      opacity: 0;
+      box-shadow: none;
+      transition: width 0.32s ease, opacity 0.28s ease, box-shadow 0.28s ease;
     }
 
     .action-tile.is-active .action-tile-cap {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .action-tile.is-active .action-tile-cap::after {
+      width: 36px;
+      opacity: 1;
+    }
+
+    .action-tile.is-active.is-focusing .action-tile-cap::after {
+      animation: action-cap-accent 0.5s ease forwards;
+    }
+
+    @keyframes action-cap-accent {
+      0% { width: 0; opacity: 0; box-shadow: none; }
+      45% { width: 48px; opacity: 1; box-shadow: 0 0 14px rgba(255, 242, 0, 0.55); }
+      100% { width: 36px; opacity: 1; box-shadow: none; }
     }
 
     .action-tile-cap strong {
@@ -2129,6 +2226,18 @@
         border-radius: 20px;
       }
 
+      .action-skel-tile {
+        width: min(200px, 54vw);
+        height: min(290px, 68vw);
+        border-radius: 20px;
+      }
+
+      .action-skel-tile:nth-child(1) { transform: translate(-50%, -50%) translateX(-200px) translateY(40px) rotateY(32deg) scale(0.64); }
+      .action-skel-tile:nth-child(2) { transform: translate(-50%, -50%) translateX(-96px) translateY(18px) rotateY(18deg) scale(0.86); }
+      .action-skel-tile:nth-child(3) { transform: translate(-50%, -50%) scale(1); }
+      .action-skel-tile:nth-child(4) { transform: translate(-50%, -50%) translateX(96px) translateY(18px) rotateY(-18deg) scale(0.86); }
+      .action-skel-tile:nth-child(5) { transform: translate(-50%, -50%) translateX(200px) translateY(40px) rotateY(-32deg) scale(0.64); }
+
       .action-more {
         width: 100%;
         justify-content: center;
@@ -2142,7 +2251,18 @@
       .action-tile-cap,
       .action-filter,
       .action-nav-btn {
-        transition: none !important;
+        transition: opacity 0.2s ease !important;
+        animation: none !important;
+      }
+
+      .action-tile-cap::after,
+      .action-tile.is-active.is-focusing .action-tile-cap::after {
+        animation: none !important;
+        transition: opacity 0.2s ease !important;
+      }
+
+      .action-tile.is-focusing img {
+        animation: none !important;
       }
     }
 
@@ -2269,13 +2389,13 @@
     </script>
   <link rel="stylesheet" href="assets/tokens.css?v=58">
   <link rel="stylesheet" href="assets/split-text.css?v=46">
-<link rel="stylesheet" href="assets/theme.css?v=73" />
-  <link rel="stylesheet" href="assets/assistant.css?v=60">
-  <link rel="stylesheet" href="assets/skeleton.css?v=3">
+<link rel="stylesheet" href="assets/theme.css?v=75" />
+  <link rel="stylesheet" href="assets/assistant.css?v=69">
+  <link rel="stylesheet" href="assets/skeleton.css?v=4">
 </head>
 
 <body>
-  <script src="assets/skeleton.js?v=3"></script>
+  <script src="assets/skeleton.js?v=4"></script>
   <nav class="site-nav" dir="ltr">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -2495,8 +2615,17 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg"></div>
-    <div class="hero-photo"></div>
-    <div class="hero-overlay"></div>
+    <div class="hero-photo" aria-hidden="true">
+      <img
+        src="assets/images/banner/LakeOil.jpg?v=81"
+        alt=""
+        width="1800"
+        height="1190"
+        fetchpriority="high"
+        decoding="async"
+        loading="eager">
+    </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-accent"></div>
     <div class="hero-content">
       <div>
@@ -2834,7 +2963,7 @@
           Depots, stations, LPG plants, and industrial sites across East Africa — swipe through live operations.
         </p>
 
-        <div class="action-filters" role="tablist" aria-label="Filter operations">
+        <div class="action-filters" role="tablist" data-i18n-aria="index.action.filters" aria-label="Filter operations">
           <button type="button" class="action-filter is-active" role="tab" aria-selected="true" data-filter="all" data-i18n="index.action.all">All</button>
           <button type="button" class="action-filter" role="tab" aria-selected="false" data-filter="oil" data-i18n="index.action.oil">Oil</button>
           <button type="button" class="action-filter" role="tab" aria-selected="false" data-filter="gas" data-i18n="index.action.gas">Gas</button>
@@ -2844,16 +2973,23 @@
         </div>
 
         <div class="action-stage" aria-roledescription="carousel" aria-live="polite">
+          <div class="action-skel" data-action-skel aria-hidden="true">
+            <div class="action-skel-tile lg-skel-shimmer"></div>
+            <div class="action-skel-tile lg-skel-shimmer"></div>
+            <div class="action-skel-tile lg-skel-shimmer"></div>
+            <div class="action-skel-tile lg-skel-shimmer"></div>
+            <div class="action-skel-tile lg-skel-shimmer"></div>
+          </div>
           <div class="action-track" data-action-track></div>
         </div>
 
         <div class="action-nav">
-          <button type="button" class="action-nav-btn" data-action-prev aria-label="Previous photo">
+          <button type="button" class="action-nav-btn" data-action-prev data-i18n-aria="index.action.prev" aria-label="Previous photo">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="action-dots" data-action-dots hidden></div>
           <div class="action-count" data-action-count aria-live="polite">1 / 1</div>
-          <button type="button" class="action-nav-btn" data-action-next aria-label="Next photo">
+          <button type="button" class="action-nav-btn" data-action-next data-i18n-aria="index.action.next" aria-label="Next photo">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
         </div>
@@ -2958,9 +3094,9 @@
 </div>
 
   <script src="assets/components/logo-loop-mount.js?v=51" defer></script>
-  <script src="assets/i18n-content.js?v=58" defer></script>
+  <script src="assets/i18n-content.js?v=59" defer></script>
   <script src="assets/i18n.js?v=56" defer></script>
-  <script src="assets/site.js?v=58" defer></script>
+  <script src="assets/site.js?v=59" defer></script>
   <script src="assets/vendor/flexsearch/flexsearch.bundle.min.js" defer></script>
   <script src="assets/assistant-kb.js" defer></script>
   <script src="assets/assistant.js?v=60" defer></script>
@@ -2996,27 +3132,28 @@
       if (!root) return;
 
       var ITEMS = [
-        { src: "assets/images/banner/LakeOil.jpg", cat: "oil", title: "Lake Oil Depot", sub: "Bulk petroleum terminal" },
-        { src: "assets/images/lakeoil/current/station-lake-energies.jpg", cat: "oil", title: "Lake Energies Station", sub: "Retail fuel network" },
-        { src: "assets/images/lakeoil/current/depot-terminal.jpg", cat: "oil", title: "Depot Terminal", sub: "Storage & dispatch" },
-        { src: "assets/images/lakeoil/current/fleet-loading.jpg", cat: "oil", title: "Fleet Loading", sub: "Road tanker operations" },
-        { src: "assets/images/group/ops/depot-aerial.jpg", cat: "oil", title: "Depot Aerial", sub: "East Africa footprint" },
-        { src: "assets/images/banner/LakeGas.jpg", cat: "gas", title: "Lake Gas", sub: "LPG infrastructure" },
-        { src: "assets/images/lakegas/ops/filling-plant.jpg", cat: "gas", title: "Filling Plant", sub: "Cylinder bottling" },
-        { src: "assets/images/lakegas/ops/cylinder-stacks.jpg", cat: "gas", title: "Cylinder Yard", sub: "Ready for distribution" },
-        { src: "assets/images/lakegas/ops/worker-silas.jpg", cat: "gas", title: "Plant Operations", sub: "Safety-first filling" },
-        { src: "assets/images/lakegas/ops/cylinder-warehouse.jpg", cat: "gas", title: "LPG Warehouse", sub: "Bulk cylinder storage" },
-        { src: "assets/images/lakesteel/ops/hot-rolling.jpg", cat: "industry", title: "Lake Steel", sub: "Hot rolling mill" },
-        { src: "assets/images/lakesteel/ops/rebar-yard.jpg", cat: "industry", title: "HS-CR Rebars", sub: "Finished steel yard" },
-        { src: "assets/images/lakelubes/ops/plant.jpg", cat: "industry", title: "Lake Lubes", sub: "Lubricant blending" },
-        { src: "assets/images/lakeplastics/ops/blue-pipes.jpg", cat: "industry", title: "Lake Plastics", sub: "Pipe manufacturing" },
-        { src: "assets/images/group/ops/tanker-loading.jpg", cat: "logistics", title: "Tanker Loading", sub: "Bulk haulage" },
-        { src: "assets/images/group/ops/depot-fleet.jpg", cat: "logistics", title: "Depot Fleet", sub: "Dispatch ready" },
-        { src: "assets/images/laketrans/ops/fleet-inspection.jpg", cat: "logistics", title: "Lake Trans", sub: "Fleet inspection" },
-        { src: "assets/images/lakeoil/current/tanker-lake-energies.jpg", cat: "logistics", title: "Energies Tanker", sub: "On-road delivery" }
+        { src: "assets/images/banner/LakeOil.jpg", cat: "oil", tKey: "index.action.i01.t", sKey: "index.action.i01.s", title: "Lake Oil Depot", sub: "Bulk petroleum terminal" },
+        { src: "assets/images/lakeoil/current/station-lake-energies.jpg", cat: "oil", tKey: "index.action.i02.t", sKey: "index.action.i02.s", title: "Lake Energies Station", sub: "Retail fuel network" },
+        { src: "assets/images/lakeoil/current/depot-terminal.jpg", cat: "oil", tKey: "index.action.i03.t", sKey: "index.action.i03.s", title: "Depot Terminal", sub: "Storage & dispatch" },
+        { src: "assets/images/lakeoil/current/fleet-loading.jpg", cat: "oil", tKey: "index.action.i04.t", sKey: "index.action.i04.s", title: "Fleet Loading", sub: "Road tanker operations" },
+        { src: "assets/images/group/ops/depot-aerial.jpg", cat: "oil", tKey: "index.action.i05.t", sKey: "index.action.i05.s", title: "Depot Aerial", sub: "East Africa footprint" },
+        { src: "assets/images/banner/LakeGas.jpg", cat: "gas", tKey: "index.action.i06.t", sKey: "index.action.i06.s", title: "Lake Gas", sub: "LPG infrastructure" },
+        { src: "assets/images/lakegas/ops/filling-plant.jpg", cat: "gas", tKey: "index.action.i07.t", sKey: "index.action.i07.s", title: "Filling Plant", sub: "Cylinder bottling" },
+        { src: "assets/images/lakegas/ops/cylinder-stacks.jpg", cat: "gas", tKey: "index.action.i08.t", sKey: "index.action.i08.s", title: "Cylinder Yard", sub: "Ready for distribution" },
+        { src: "assets/images/lakegas/ops/worker-silas.jpg", cat: "gas", tKey: "index.action.i09.t", sKey: "index.action.i09.s", title: "Plant Operations", sub: "Safety-first filling" },
+        { src: "assets/images/lakegas/ops/cylinder-warehouse.jpg", cat: "gas", tKey: "index.action.i10.t", sKey: "index.action.i10.s", title: "LPG Warehouse", sub: "Bulk cylinder storage" },
+        { src: "assets/images/lakesteel/ops/hot-rolling.jpg", cat: "industry", tKey: "index.action.i11.t", sKey: "index.action.i11.s", title: "Lake Steel", sub: "Hot rolling mill" },
+        { src: "assets/images/lakesteel/ops/rebar-yard.jpg", cat: "industry", tKey: "index.action.i12.t", sKey: "index.action.i12.s", title: "HS-CR Rebars", sub: "Finished steel yard" },
+        { src: "assets/images/lakelubes/ops/plant.jpg", cat: "industry", tKey: "index.action.i13.t", sKey: "index.action.i13.s", title: "Lake Lubes", sub: "Lubricant blending" },
+        { src: "assets/images/lakeplastics/ops/blue-pipes.jpg", cat: "industry", tKey: "index.action.i14.t", sKey: "index.action.i14.s", title: "Lake Plastics", sub: "Pipe manufacturing" },
+        { src: "assets/images/group/ops/tanker-loading.jpg", cat: "logistics", tKey: "index.action.i15.t", sKey: "index.action.i15.s", title: "Tanker Loading", sub: "Bulk haulage" },
+        { src: "assets/images/group/ops/depot-fleet.jpg", cat: "logistics", tKey: "index.action.i16.t", sKey: "index.action.i16.s", title: "Depot Fleet", sub: "Dispatch ready" },
+        { src: "assets/images/laketrans/ops/fleet-inspection.jpg", cat: "logistics", tKey: "index.action.i17.t", sKey: "index.action.i17.s", title: "Lake Trans", sub: "Fleet inspection" },
+        { src: "assets/images/lakeoil/current/tanker-lake-energies.jpg", cat: "logistics", tKey: "index.action.i18.t", sKey: "index.action.i18.s", title: "Energies Tanker", sub: "On-road delivery" }
       ];
 
       var track = root.querySelector("[data-action-track]");
+      var skel = root.querySelector("[data-action-skel]");
       var dotsEl = root.querySelector("[data-action-dots]");
       var countEl = root.querySelector("[data-action-count]");
       var filterBtns = root.querySelectorAll(".action-filter");
@@ -3027,10 +3164,147 @@
       var index = 0;
       var tiles = [];
       var autoTimer = null;
-      var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var inView = false;
+      var hovered = false;
+      var reduceMq = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+      var reduced = !!(reduceMq && reduceMq.matches);
+      var stageEl = root.querySelector(".action-stage") || root;
+      var sectionEl = document.getElementById("in-action") || stageEl;
+
+      function t(key, fallback) {
+        if (window.LakeI18n && typeof window.LakeI18n.t === "function") {
+          var v = window.LakeI18n.t(key);
+          if (v) return v;
+        }
+        return fallback;
+      }
+
+      function itemCopy(item) {
+        return {
+          title: t(item.tKey, item.title),
+          sub: t(item.sKey, item.sub)
+        };
+      }
 
       function filtered() {
         return filter === "all" ? ITEMS.slice() : ITEMS.filter(function (i) { return i.cat === filter; });
+      }
+
+      function hideSkel() {
+        if (skel) skel.classList.add("is-done");
+      }
+
+      function ensureSrc(img, src, priority) {
+        if (!img || !src) return;
+        if (img.dataset.lgReady === "1" && img.getAttribute("src") === src) return;
+        img.decoding = "async";
+        if (priority === "high") {
+          img.loading = "eager";
+          try { img.fetchPriority = "high"; } catch (_) { /* ignore */ }
+        } else if (priority === "near") {
+          img.loading = "eager";
+          try { img.fetchPriority = "low"; } catch (_) { /* ignore */ }
+        } else {
+          img.loading = "lazy";
+        }
+        if (img.getAttribute("src") !== src) img.src = src;
+        img.dataset.lgReady = "1";
+      }
+
+      function preloadAround(center) {
+        var n = tiles.length;
+        if (!n) return;
+        for (var off = -2; off <= 2; off++) {
+          var i = ((center + off) % n + n) % n;
+          var btn = tiles[i];
+          if (!btn || !btn._item) continue;
+          var img = btn.querySelector("img");
+          ensureSrc(img, btn._item.src, off === 0 ? "high" : "near");
+        }
+      }
+
+      function idlePrefetchRest() {
+        var queue = tiles.slice();
+        var i = 0;
+        function step(deadline) {
+          var budget = deadline && typeof deadline.timeRemaining === "function"
+            ? deadline.timeRemaining()
+            : 16;
+          while (i < queue.length && budget > 6) {
+            var btn = queue[i++];
+            if (!btn || !btn._item) continue;
+            var img = btn.querySelector("img");
+            if (!img || img.dataset.lgReady === "1") continue;
+            var warm = new Image();
+            warm.decoding = "async";
+            warm.src = btn._item.src;
+            ensureSrc(img, btn._item.src, "idle");
+            budget -= 4;
+          }
+          if (i < queue.length) {
+            if ("requestIdleCallback" in window) {
+              requestIdleCallback(step, { timeout: 2000 });
+            } else {
+              window.setTimeout(function () { step(null); }, 220);
+            }
+          }
+        }
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(step, { timeout: 1400 });
+        } else {
+          window.setTimeout(function () { step(null); }, 380);
+        }
+      }
+
+      function waitNearbyThenHide() {
+        var n = tiles.length;
+        if (!n) {
+          hideSkel();
+          return;
+        }
+        var need = [];
+        for (var off = -2; off <= 2; off++) {
+          var i = ((index + off) % n + n) % n;
+          var img = tiles[i] && tiles[i].querySelector("img");
+          if (img && img.getAttribute("src") && !(img.complete && img.naturalWidth)) {
+            need.push(img);
+          }
+        }
+        if (!need.length) {
+          hideSkel();
+          return;
+        }
+        var left = need.length;
+        var settled = false;
+        function done() {
+          left -= 1;
+          if (!settled && left <= 0) {
+            settled = true;
+            hideSkel();
+          }
+        }
+        need.forEach(function (img) {
+          img.addEventListener("load", done, { once: true });
+          img.addEventListener("error", done, { once: true });
+        });
+        window.setTimeout(function () {
+          if (!settled) {
+            settled = true;
+            hideSkel();
+          }
+        }, 1400);
+      }
+
+      function pulseFocus() {
+        if (reduced || !tiles.length) return;
+        var active = tiles[index];
+        if (!active) return;
+        active.classList.remove("is-focusing");
+        void active.offsetWidth;
+        active.classList.add("is-focusing");
+        window.setTimeout(function () {
+          active.classList.remove("is-focusing");
+        }, 520);
       }
 
       function layout() {
@@ -3054,8 +3328,9 @@
           var rot = d * -18;
           var y = abs === 0 ? 0 : abs === 1 ? 18 : abs === 2 ? 36 : 48;
           var x = d * step;
+          var tz = abs === 0 ? 48 : abs === 1 ? 8 : abs === 2 ? -24 : -48;
           var z = 100 - abs * 20;
-          var opacity = visible ? (abs === 0 ? 1 : abs === 1 ? 0.92 : abs === 2 ? 0.72 : 0.4) : 0;
+          var opacity = visible ? (abs === 0 ? 1 : abs === 1 ? 0.9 : abs === 2 ? 0.68 : 0.38) : 0;
 
           btn.classList.toggle("is-active", d === 0);
           btn.setAttribute("aria-hidden", d === 0 ? "false" : "true");
@@ -3063,20 +3338,82 @@
           btn.style.zIndex = String(z);
           btn.style.opacity = String(opacity);
           btn.style.pointerEvents = visible ? "auto" : "none";
-          btn.style.filter = abs === 0 ? "none" : "brightness(0.92)";
+          if (reduced) {
+            btn.style.filter = abs === 0 ? "none" : "brightness(0.92)";
+          } else if (abs === 0) {
+            btn.style.filter = "brightness(1.06) contrast(1.04)";
+          } else if (abs === 1) {
+            btn.style.filter = "brightness(0.9) blur(0.35px)";
+          } else {
+            btn.style.filter = "brightness(0.84) blur(0.7px)";
+          }
           btn.style.transform =
-            "translate(-50%, -50%) translateX(" + x + "px) translateY(" + y + "px) rotateY(" + rot + "deg) scale(" + scale + ")";
+            "translate(-50%, -50%) translateX(" + x + "px) translateY(" + y + "px) translateZ(" + tz + "px) rotateY(" + rot + "deg) scale(" + scale + ")";
         });
 
         if (countEl) countEl.textContent = (index + 1) + " / " + n;
+      }
+
+      function stopAuto() {
+        if (autoTimer) {
+          clearInterval(autoTimer);
+          autoTimer = null;
+        }
+      }
+
+      /** True when the stage has layout and intersects (or is about to enter) the viewport. */
+      function isStageNearViewport() {
+        var el = stageEl;
+        if (!el || !el.getBoundingClientRect) return false;
+        var r = el.getBoundingClientRect();
+        if (r.width < 2 || r.height < 2) return false;
+        var vh = window.innerHeight || document.documentElement.clientHeight || 0;
+        /* Match IO lead: start a bit before fully on screen; pause when far away. */
+        return r.bottom > -40 && r.top < vh + 120;
+      }
+
+      function restartAuto() {
+        stopAuto();
+        if (reduced || !inView || hovered || tiles.length < 2) return;
+        autoTimer = setInterval(function () { go(index + 1); }, 3600);
+      }
+
+      function setInView(next) {
+        next = !!next;
+        if (next === inView) return;
+        inView = next;
+        if (inView) {
+          preloadAround(index);
+          waitNearbyThenHide();
+          pulseFocus();
+          restartAuto();
+          idlePrefetchRest();
+        } else {
+          stopAuto();
+        }
       }
 
       function go(to) {
         var n = tiles.length;
         if (!n) return;
         index = ((to % n) + n) % n;
+        preloadAround(index);
         layout();
+        pulseFocus();
         restartAuto();
+      }
+
+      function applyCaptions() {
+        tiles.forEach(function (btn) {
+          var item = btn._item;
+          if (!item) return;
+          var copy = itemCopy(item);
+          var strong = btn.querySelector(".action-tile-cap strong");
+          var span = btn.querySelector(".action-tile-cap span");
+          if (strong) strong.textContent = copy.title;
+          if (span) span.textContent = copy.sub;
+          btn.setAttribute("aria-label", copy.title + " — " + copy.sub);
+        });
       }
 
       function build() {
@@ -3085,15 +3422,18 @@
         if (dotsEl) dotsEl.innerHTML = "";
         tiles = [];
         index = 0;
+        if (skel) skel.classList.remove("is-done");
 
         list.forEach(function (item, i) {
+          var copy = itemCopy(item);
           var btn = document.createElement("button");
           btn.type = "button";
           btn.className = "action-tile";
-          btn.setAttribute("aria-label", item.title + " — " + item.sub);
+          btn._item = item;
+          btn.setAttribute("aria-label", copy.title + " — " + copy.sub);
           btn.innerHTML =
-            '<img src="' + item.src + '" alt="" loading="lazy" decoding="async" />' +
-            '<span class="action-tile-cap"><strong>' + item.title + "</strong><span>" + item.sub + "</span></span>";
+            '<img alt="" decoding="async" width="640" height="860" data-src="' + item.src + '" />' +
+            '<span class="action-tile-cap"><strong>' + copy.title + "</strong><span>" + copy.sub + "</span></span>";
           btn.addEventListener("click", function () {
             if (i === index) return;
             go(i);
@@ -3102,14 +3442,78 @@
           tiles.push(btn);
         });
 
+        preloadAround(0);
         layout();
+        waitNearbyThenHide();
+        /* If already in view (or fallback marked us), schedule the interval now. */
+        if (inView) {
+          pulseFocus();
+          idlePrefetchRest();
+        }
         restartAuto();
       }
 
-      function restartAuto() {
-        if (autoTimer) clearInterval(autoTimer);
-        if (reduced || tiles.length < 2) return;
-        autoTimer = setInterval(function () { go(index + 1); }, 4200);
+      /* Prefetch nearby tiles ~800px before arrival; never block autoplay on full set. */
+      (function earlyWarmStage() {
+        if (!stageEl || !("IntersectionObserver" in window)) return;
+        var io = new IntersectionObserver(function (entries) {
+          if (!entries[0] || !entries[0].isIntersecting) return;
+          io.disconnect();
+          preloadAround(index);
+          idlePrefetchRest();
+        }, { rootMargin: "800px 0px", threshold: 0 });
+        io.observe(stageEl);
+      })();
+
+      /* Start / pause autoplay when the section enters or leaves the viewport. */
+      (function observeStageView() {
+        function onIntersect(entries) {
+          var e = entries && entries[0];
+          if (!e) return;
+          setInView(e.isIntersecting);
+        }
+
+        if (!("IntersectionObserver" in window)) {
+          setInView(true);
+          return;
+        }
+
+        var io = new IntersectionObserver(onIntersect, {
+          /* Any intersection (with a small lead) starts autoplay; far away pauses. */
+          threshold: 0,
+          rootMargin: "120px 0px 80px 0px"
+        });
+        /* Observe the section — larger, more reliable than the stage alone. */
+        io.observe(sectionEl);
+
+        /* Safety: if IO never reports in-view but the stage has layout in viewport, start anyway. */
+        window.setTimeout(function () {
+          if (reduced || autoTimer || tiles.length < 2) return;
+          if (isStageNearViewport()) setInView(true);
+        }, 900);
+
+        /* Re-check after skeleton unlock / late layout (lg-loading overflow:hidden). */
+        window.addEventListener("load", function () {
+          window.setTimeout(function () {
+            if (reduced) return;
+            if (isStageNearViewport()) setInView(true);
+            else if (inView && !isStageNearViewport()) setInView(false);
+            else restartAuto();
+          }, 120);
+        });
+      })();
+
+      if (reduceMq) {
+        var onReduceChange = function () {
+          reduced = !!reduceMq.matches;
+          if (reduced) stopAuto();
+          else restartAuto();
+        };
+        if (typeof reduceMq.addEventListener === "function") {
+          reduceMq.addEventListener("change", onReduceChange);
+        } else if (typeof reduceMq.addListener === "function") {
+          reduceMq.addListener(onReduceChange);
+        }
       }
 
       filterBtns.forEach(function (b) {
@@ -3142,14 +3546,37 @@
         if (e.key === "ArrowRight") { e.preventDefault(); go(index + 1); }
       });
 
-      root.addEventListener("mouseenter", function () {
-        if (autoTimer) clearInterval(autoTimer);
-      });
-      root.addEventListener("mouseleave", restartAuto);
+      /*
+       * Pause on intentional hover only. Do NOT use mouseenter on the diary:
+       * scrolling the coverflow under a stationary cursor fires mouseenter and
+       * was permanently clearing the autoplay timer (hovered stuck true).
+       */
+      (function bindHoverPause() {
+        var hoverOk = window.matchMedia && window.matchMedia("(hover: hover)").matches;
+        if (!hoverOk || !stageEl) return;
+        stageEl.addEventListener("mousemove", function () {
+          if (hovered) return;
+          hovered = true;
+          stopAuto();
+        });
+        stageEl.addEventListener("mouseleave", function () {
+          if (!hovered) return;
+          hovered = false;
+          restartAuto();
+        });
+      })();
 
-      window.addEventListener("resize", function () { layout(); });
+      window.addEventListener("resize", function () {
+        layout();
+        if (isStageNearViewport()) setInView(true);
+        else setInView(false);
+      });
+      document.addEventListener("lake-i18n-applied", applyCaptions);
 
       build();
+
+      /* Immediate post-build sync in case the section is already on screen. */
+      if (isStageNearViewport()) setInView(true);
     })();
   </script>
   <script src="assets/pwa.js?v=59" defer></script>

@@ -667,6 +667,47 @@
     }
   }
 
+  /**
+   * Early warm for native lazy images: start fetch ~800px before viewport
+   * so users rarely see empty/pop-in, without blocking initial load.
+   * Coverflow manages its own ±2 preload — skip those tiles.
+   */
+  function initSmartLazyImages() {
+    const imgs = document.querySelectorAll('img[loading="lazy"]');
+    if (!imgs.length) return;
+
+    function warm(img) {
+      if (!img || img.dataset.lgWarmed === '1') return;
+      if (img.closest('[data-action-track]')) return;
+      img.dataset.lgWarmed = '1';
+      const src = img.currentSrc || img.getAttribute('src');
+      if (!src) return;
+      try { img.loading = 'eager'; } catch (_) { /* ignore */ }
+      if (img.complete && img.naturalWidth) return;
+      const probe = new Image();
+      probe.decoding = 'async';
+      probe.src = src;
+    }
+
+    if (typeof IntersectionObserver === 'undefined') {
+      imgs.forEach(warm);
+      return;
+    }
+
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        warm(e.target);
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '800px 0px', threshold: 0.01 });
+
+    imgs.forEach(function (img) {
+      if (img.closest('[data-action-track]')) return;
+      io.observe(img);
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     initNav();
     initCompanyBranding();
@@ -677,10 +718,11 @@
     initAnchors();
     initForms();
     initCurrency();
+    initSmartLazyImages();
     document.addEventListener('lake-i18n-applied', refreshCountersForLang);
     if (window.LakeI18n) window.LakeI18n.init();
     else refreshCountersForLang();
     window.addEventListener('scroll', initReveal, { passive: true });
-    window.LakeSite = { initReveal, initCounters, refreshCountersForLang };
+    window.LakeSite = { initReveal, initCounters, refreshCountersForLang, initSmartLazyImages };
   });
 })();

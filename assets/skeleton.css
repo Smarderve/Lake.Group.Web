@@ -227,6 +227,140 @@ html.lg-skel-done #lg-skel {
   grid-template-columns: repeat(4, 1fr);
 }
 
+/* Home coverflow — 5-card perspective matching #in-action (Checkpoint 027 geometry) */
+.lg-skel-home-action {
+  max-width: 980px;
+  width: 100%;
+  margin: clamp(28px, 5vh, 48px) auto 0;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.lg-skel-coverflow {
+  position: relative;
+  height: 340px;
+  margin: 0 auto;
+  max-width: 980px;
+}
+
+.lg-skel-cf-tile {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(248px, 58vw);
+  height: min(360px, 72vw);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transform-origin: center center;
+}
+
+.lg-skel-cf-tile:nth-child(1) {
+  transform: translate(-50%, -50%) translateX(-296px) translateY(48px) rotateY(36deg) scale(0.64);
+  opacity: 0.4;
+}
+.lg-skel-cf-tile:nth-child(2) {
+  transform: translate(-50%, -50%) translateX(-148px) translateY(18px) rotateY(18deg) scale(0.86);
+  opacity: 0.72;
+}
+.lg-skel-cf-tile:nth-child(3) {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0.9;
+  z-index: 3;
+  background: rgba(255, 255, 255, 0.18);
+}
+.lg-skel-cf-tile:nth-child(4) {
+  transform: translate(-50%, -50%) translateX(148px) translateY(18px) rotateY(-18deg) scale(0.86);
+  opacity: 0.72;
+}
+.lg-skel-cf-tile:nth-child(5) {
+  transform: translate(-50%, -50%) translateX(296px) translateY(48px) rotateY(-36deg) scale(0.64);
+  opacity: 0.4;
+}
+
+/* Gallery — filter tabs + photo grid matching gallery.html */
+.lg-skel-main--gallery {
+  justify-content: flex-start;
+  padding-top: clamp(40px, 8vh, 72px);
+  background:
+    linear-gradient(180deg, #f7f5f0 0%, #efece4 100%);
+}
+
+.lg-skel-main--gallery::before {
+  background: #fff200;
+}
+
+.lg-skel-gallery {
+  max-width: 1120px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.lg-skel-g-eyebrow {
+  width: 140px;
+  height: 12px;
+  margin: 0 auto 16px;
+  border-radius: 3px;
+  background: rgba(1, 63, 92, 0.18);
+}
+
+.lg-skel-g-title {
+  width: min(520px, 80%);
+  height: 42px;
+  margin: 0 auto 18px;
+  border-radius: 4px;
+  background: rgba(1, 63, 92, 0.28);
+}
+
+.lg-skel-g-lede {
+  width: min(480px, 70%);
+  height: 12px;
+  margin: 0 auto 28px;
+  border-radius: 3px;
+  background: rgba(1, 63, 92, 0.14);
+}
+
+.lg-skel-g-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 1px solid rgba(1, 63, 92, 0.14);
+  margin: 0 auto 22px;
+  max-width: 1120px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.lg-skel-g-tab {
+  flex: 1 1 0;
+  min-width: 88px;
+  height: 42px;
+  border-right: 1px solid rgba(1, 63, 92, 0.12);
+  background: rgba(1, 63, 92, 0.08);
+}
+
+.lg-skel-g-tab:last-child {
+  border-right: none;
+}
+
+.lg-skel-g-tab:first-child {
+  background: rgba(1, 63, 92, 0.55);
+}
+
+.lg-skel-g-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.lg-skel-g-cell {
+  aspect-ratio: 4 / 3;
+  border-radius: 2px;
+  background: rgba(1, 63, 92, 0.12);
+}
+
 .lg-skel-shimmer {
   position: relative;
   overflow: hidden;
@@ -271,6 +405,31 @@ html.lg-skel-done #lg-skel {
 
   .lg-skel-title {
     height: 36px;
+  }
+
+  .lg-skel-coverflow {
+    height: 280px;
+  }
+
+  .lg-skel-cf-tile:nth-child(1),
+  .lg-skel-cf-tile:nth-child(5) {
+    opacity: 0.2;
+  }
+
+  .lg-skel-g-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lg-skel-g-tabs {
+    border: none;
+    gap: 8px;
+    background: transparent;
+  }
+
+  .lg-skel-g-tab {
+    flex: 0 0 auto;
+    width: 92px;
+    border: 1px solid rgba(1, 63, 92, 0.14);
   }
 }
 

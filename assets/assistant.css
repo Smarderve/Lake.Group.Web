@@ -199,6 +199,24 @@
   flex-direction: column;
   gap: 10px;
   background: var(--la-paper);
+  scrollbar-width: auto;
+  scrollbar-color: var(--color-brand-blue, #0181bb) var(--color-brand-blue-darkest, #013f5c);
+}
+#chat-widget.la-widget .la-msgs::-webkit-scrollbar {
+  width: 10px;
+}
+#chat-widget.la-widget .la-msgs::-webkit-scrollbar-track {
+  background: var(--color-brand-blue-darkest, #013f5c);
+  border-radius: 999px;
+}
+#chat-widget.la-widget .la-msgs::-webkit-scrollbar-thumb {
+  background: var(--color-brand-blue, #0181bb);
+  border-radius: 999px;
+  border: 2px solid var(--color-brand-blue-darkest, #013f5c);
+  background-clip: padding-box;
+}
+#chat-widget.la-widget .la-msgs::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-blue-light, #0599d3);
 }
 
 #chat-widget.la-widget .la-msg {
@@ -518,7 +536,7 @@ body.co-theme-agro #chat-widget.la-widget .la-msgs {
 }
 
 body.co-theme-agro #chat-widget.la-widget .la-msgs::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 body.co-theme-agro #chat-widget.la-widget .la-msgs::-webkit-scrollbar-track {
