@@ -448,7 +448,7 @@ TERMS_FR = {
     "AFICD: African Inland Container Depot": "AFICD : Dépôt intérieur de conteneurs africain",
     "Abdulrahman Mohamed": "Abdulrahman Mohamed",
     "Account Manager:": "Gestionnaire de compte :",
-    "Africa Operations Network": "Réseau d'opérations en Afrique",
+    "Operations Network": "Réseau d'opérations",
     "African Inland Container Depot (AFICD)": "Dépôt intérieur de conteneurs africain (AFICD)",
     "African Inland Container Depot (AFICD) and Container Freight Station (ACFS), port extension solutions across East Africa.":
         "Dépôt intérieur de conteneurs africain (AFICD) et gare de fret pour conteneurs (ACFS), solutions d'extension portuaire en Afrique de l'Est.",
@@ -1578,7 +1578,7 @@ TERMS_PT = {
     "AFICD: African Inland Container Depot": "AFICD: Depósito Interior de Contentores Africano",
     "Abdulrahman Mohamed": "Abdulrahman Mohamed",
     "Account Manager:": "Gestor de conta:",
-    "Africa Operations Network": "Rede de Operações em África",
+    "Operations Network": "Rede de Operações",
     "African Inland Container Depot (AFICD)": "Depósito Interior de Contentores Africano (AFICD)",
     "African Inland Container Depot (AFICD) and Container Freight Station (ACFS), port extension solutions across East Africa.":
         "Depósito Interior de Contentores Africano (AFICD) e Estação de Frete de Contentores (ACFS), soluções de extensão portuária na África Oriental.",
