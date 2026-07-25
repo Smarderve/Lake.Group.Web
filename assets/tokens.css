@@ -32,10 +32,15 @@
   --color-light:             #EFF2FB;
 
   /* Lake Agro brand greens (sampled from lakeagro.com style.css + logo) */
-  --color-agro-green:         #008435;
-  --color-agro-green-deep:    #004b1e;
-  --color-agro-green-bright:  #489f10;
-  --color-agro-orange:        #e67e22;
+  --color-agro-green:         #008435; /* primary / CTAs / links */
+  --color-agro-green-mid:     #006b2b; /* mid surfaces / scrolled nav */
+  --color-agro-green-deep:    #004b1e; /* headers / dark bands / ink */
+  --color-agro-green-bright:  #489f10; /* light accent / highlights */
+  --color-agro-orange:        #e67e22; /* harvest accent (replaces sunrise yellow on agro) */
+  --color-agro-orange-deep:   #c96a1a;
+  --color-agro-ink:           #012814; /* near-black forest for dense chrome */
+  --color-agro-paper:         #f3f6f1; /* light section wash */
+  --color-agro-paper-2:       #e8efe6;
 
   /* - Text - */
   --color-text-heading:      #013F5C;

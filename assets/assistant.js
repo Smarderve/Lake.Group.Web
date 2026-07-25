@@ -354,14 +354,15 @@
     launcher.setAttribute('data-i18n-aria', 'assistant.open');
     launcher.setAttribute('aria-label', t('assistant.open'));
     /* Clean FAB: yellow bubble + navy dots + right-side tail (faces left).
-       Fills the launcher (currentColor = brand yellow from assistant.css). */
+       Bubble = currentColor (--la-gold). Dots = CSS .la-fab-dot / --la-fab-dot
+       so co-theme-agro can swap blue→green without hardcoded SVG fills. */
     launcher.innerHTML =
       '<svg class="la-fab-icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false">' +
       '<path class="la-fab-body" fill="currentColor" d="M44 8h-24c-8.8 0-16 7.2-16 16v10c0 8.8 7.2 16 16 16H36L49.5 59.8c.5.5 1.4.1 1.4-.6V50H44c8.8 0 16-7.2 16-16V24c0-8.8-7.2-16-16-16z"/>' +
       '<ellipse class="la-fab-sheen" cx="32" cy="18" rx="16" ry="5.5" fill="#ffffff" opacity="0.28"/>' +
-      '<circle class="la-fab-dot" cx="23.5" cy="27" r="3.15" fill="#0181BB"/>' +
-      '<circle class="la-fab-dot" cx="32" cy="27" r="3.15" fill="#0181BB"/>' +
-      '<circle class="la-fab-dot" cx="40.5" cy="27" r="3.15" fill="#0181BB"/>' +
+      '<circle class="la-fab-dot" cx="23.5" cy="27" r="3.15"/>' +
+      '<circle class="la-fab-dot" cx="32" cy="27" r="3.15"/>' +
+      '<circle class="la-fab-dot" cx="40.5" cy="27" r="3.15"/>' +
       '</svg>';
 
     mount.appendChild(panel);

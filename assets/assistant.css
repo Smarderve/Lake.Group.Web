@@ -95,6 +95,11 @@
   overflow: visible;
 }
 
+/* Eye dots — default Lake blue; themes override via --la-fab-dot */
+#chat-widget.la-widget .la-fab-dot {
+  fill: var(--la-fab-dot, var(--la-blue, #0181BB));
+}
+
 /* --------------------------------------------------------------------------
    Panel
    -------------------------------------------------------------------------- */
@@ -426,8 +431,11 @@ body.co-theme-agro #chat-widget.la-widget {
   --la-blue-light: var(--color-agro-green, #008435);
   --la-blue-deep: var(--color-agro-green-deep, #004b1e);
   --la-ink: #012814;
+  /* Panel accents stay harvest orange; FAB uses a brighter face for contrast */
   --la-gold: var(--color-agro-orange, #e67e22);
   --la-gold-deep: #c96a1a;
+  --la-fab-bubble: #ffcc33; /* high-luminance amber — pops on agro greens */
+  --la-fab-dot: #012814;    /* near-black forest ink on amber face */
   --la-paper: #f4f8f4;
   --la-paper-2: #e8f1ea;
   --la-surface: var(--color-white, #ffffff);
@@ -462,26 +470,90 @@ body.co-theme-agro #chat-widget.la-widget .la-iconbtn:focus-visible {
   outline-color: var(--color-agro-orange, #e67e22);
 }
 
-/* FAB: Agro-tinted bubble (same full-graphic treatment, brand agro orange) */
+/*
+   FAB visibility on agro greens:
+   Mid orange (#e67e22) blended into deep-green footer. Use bright amber face
+   + ink dots + white halo so the icon reads at a glance on hero/footer.
+*/
 body.co-theme-agro #chat-widget.la-widget .la-launcher {
   background: transparent;
-  color: var(--color-agro-orange, #e67e22);
-  --la-blue-light: var(--color-agro-green, #008435);
+  color: var(--la-fab-bubble, #ffcc33);
+  filter:
+    drop-shadow(0 0 0.75px #ffffff)
+    drop-shadow(0 0 3px rgba(255, 255, 255, 0.95))
+    drop-shadow(0 2px 4px rgba(1, 40, 20, 0.35))
+    drop-shadow(0 12px 24px rgba(1, 40, 20, 0.45));
 }
 
+/* Soft white disc behind bubble — separates icon from green page chrome */
 body.co-theme-agro #chat-widget.la-widget .la-launcher::before {
-  content: none;
-  display: none;
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 44%;
+  width: 48px;
+  height: 48px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow:
+    0 0 0 3px rgba(255, 255, 255, 0.98),
+    0 8px 20px rgba(1, 40, 20, 0.38);
+  z-index: 0;
+  pointer-events: none;
+}
+
+body.co-theme-agro #chat-widget.la-widget .la-launcher .la-fab-icon {
+  position: relative;
+  z-index: 1;
+}
+
+body.co-theme-agro #chat-widget.la-widget .la-fab-dot {
+  fill: var(--la-fab-dot, #012814);
 }
 
 body.co-theme-agro #chat-widget.la-widget .la-launcher:hover {
   background: transparent;
-  color: #c96a1a;
-  filter: brightness(1.05);
+  color: #ffe066;
+  filter:
+    drop-shadow(0 0 0.75px #ffffff)
+    drop-shadow(0 0 4px rgba(255, 255, 255, 1))
+    drop-shadow(0 4px 8px rgba(1, 40, 20, 0.4))
+    drop-shadow(0 14px 28px rgba(1, 40, 20, 0.5));
 }
 
 body.co-theme-agro #chat-widget.la-widget .la-launcher:focus-visible {
-  outline-color: var(--color-agro-green, #008435);
+  outline: 2px solid var(--color-agro-green, #008435);
+  outline-offset: 4px;
+}
+
+/* Legacy #chat-btn mount (before assistant.js upgrades the DOM) */
+body.co-theme-agro #chat-btn {
+  position: relative;
+  color: #ffcc33;
+  filter:
+    drop-shadow(0 0 0.75px #ffffff)
+    drop-shadow(0 0 3px rgba(255, 255, 255, 0.95))
+    drop-shadow(0 12px 24px rgba(1, 40, 20, 0.45));
+}
+body.co-theme-agro #chat-btn:hover {
+  color: #ffe066;
+}
+body.co-theme-agro #chat-btn .la-fab-dot {
+  fill: #012814;
+}
+
+@media (max-width: 600px) {
+  body.co-theme-agro #chat-widget.la-widget .la-launcher,
+  body.co-theme-agro #chat-btn {
+    width: 62px;
+    height: 62px;
+  }
+  body.co-theme-agro #chat-widget.la-widget .la-launcher::before {
+    width: 52px;
+    height: 52px;
+  }
 }
 
 /* Bubbles + links */

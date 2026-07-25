@@ -443,3 +443,48 @@ html.lg-skel-done #lg-skel {
     transition: none;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Lake Agro — green skeleton (only when body.co-theme-agro is present)
+   -------------------------------------------------------------------------- */
+html:has(body.co-theme-agro).lg-loading::before,
+html:has(body.co-theme-agro) #lg-skel {
+  background: #004b1e;
+}
+html:has(body.co-theme-agro) .lg-skel-nav {
+  background: #008435;
+  border-bottom-color: #e67e22;
+}
+html:has(body.co-theme-agro) .lg-skel-logo {
+  background: rgba(230, 126, 34, 0.9);
+}
+html:has(body.co-theme-agro) .lg-skel-main {
+  background:
+    linear-gradient(105deg, rgba(0, 75, 30, 0.92) 0%, rgba(0, 132, 53, 0.72) 48%, rgba(0, 132, 53, 0.28) 100%),
+    linear-gradient(160deg, #004b1e 0%, #008435 55%, #489f10 100%);
+}
+html:has(body.co-theme-agro) .lg-skel-main::before {
+  background: #e67e22;
+}
+html:has(body.co-theme-agro) .lg-skel-title-sm {
+  background: rgba(230, 126, 34, 0.4);
+}
+html:has(body.co-theme-agro) .lg-skel-btn {
+  background: rgba(230, 126, 34, 0.92);
+}
+html:has(body.co-theme-agro) .lg-skel-footer {
+  background: #012814;
+}
+html:has(body.co-theme-agro) .lg-skel-foot-logo {
+  background: rgba(230, 126, 34, 0.55);
+}
+html:has(body.co-theme-agro) .lg-skel-shimmer::after {
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.06) 40%,
+    rgba(72, 159, 16, 0.35) 50%,
+    rgba(255, 255, 255, 0.06) 60%,
+    transparent 100%
+  );
+}

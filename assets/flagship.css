@@ -1957,11 +1957,116 @@ html.fs-motion [data-fx-scroll] {
 }
 
 /* --------------------------------------------------------------------------
-   Lake Agro page chrome (body.co-theme-agro)
-   Dropdowns use hardcoded blue gradients elsewhere; remap panels + lang
-   contrast here so green nav stays coherent. Yellow/lime nav hairlines off.
+   Lake Agro page theme (body.co-theme-agro ONLY)
+   Remap shared brand/ink tokens → agri greens so hero, dark sections, labels,
+   buttons, and accents leave Lake Group blue. Other pages unchanged.
    -------------------------------------------------------------------------- */
-/* Page + panel scrollbars inherit Agro greens (yellow-accent remaps to bright green) */
+body.co-theme-agro {
+  /* Brand blues → Agro greens (aliases --blue/--navy inherit via tokens.css) */
+  --color-brand-blue:         var(--color-agro-green, #008435);
+  --color-brand-blue-light:   var(--color-agro-green-bright, #489f10);
+  --color-brand-blue-deep:    var(--color-agro-green-mid, #006b2b);
+  --color-brand-blue-darkest: var(--color-agro-green-deep, #004b1e);
+
+  --blue:       var(--color-agro-green, #008435);
+  --blue-light: var(--color-agro-green-bright, #489f10);
+  --blue2:      var(--color-agro-green-mid, #006b2b);
+  --blue3:      var(--color-agro-green-deep, #004b1e);
+  --blue-deep:  var(--color-agro-green-mid, #006b2b);
+  --navy:       var(--color-agro-green-deep, #004b1e);
+  --navy2:      var(--color-agro-green-mid, #006b2b);
+  --navy3:      var(--color-agro-green-deep, #004b1e);
+
+  /* Sunrise yellow → harvest orange on this page only */
+  --color-yellow-accent: var(--color-agro-orange, #e67e22);
+  --color-yellow-deep:   var(--color-agro-orange-deep, #c96a1a);
+  --color-yellow-muted:  #a85a12;
+  --yellow:  var(--color-yellow-accent);
+  --yellow2: var(--color-yellow-deep);
+  --yellow3: var(--color-yellow-muted);
+  --gold:       var(--color-yellow-accent);
+  --gold-deep:  var(--color-yellow-muted);
+  --amber:      var(--color-yellow-muted);
+  --amber2:     var(--color-yellow-deep);
+  --amber3:     var(--color-yellow-accent);
+
+  /* Chrome + hero */
+  --color-navbar-bg:          var(--color-agro-green, #008435);
+  --color-navbar-bg-scrolled: rgba(0, 75, 30, 0.96);
+  --color-navbar-border:      var(--color-agro-orange, #e67e22);
+  --color-hero-bg:            var(--color-agro-green-deep, #004b1e);
+  --hero-overlay-gradient: linear-gradient(
+    105deg,
+    rgba(0, 75, 30, 0.92) 0%,
+    rgba(0, 132, 53, 0.78) 45%,
+    rgba(0, 132, 53, 0.24) 100%
+  );
+
+  /* Ink bands (fs-on-dark / footer / info panels) */
+  --ink:   var(--color-agro-green-deep, #004b1e);
+  --ink-2: var(--color-agro-green-mid, #006b2b);
+  --ink-3: var(--color-agro-green, #008435);
+  --ink-text: rgba(232, 242, 234, 0.82);
+  --ink-mute: rgba(232, 242, 234, 0.55);
+
+  /* Light surfaces + readable forest headings */
+  --color-text-heading: var(--color-agro-ink, #012814);
+  --text:               var(--color-agro-ink, #012814);
+  --color-border:       rgba(0, 132, 53, 0.14);
+  --border:             var(--color-border);
+  --paper:   var(--color-agro-paper, #f3f6f1);
+  --paper-2: var(--color-agro-paper-2, #e8efe6);
+  --offwhite: var(--paper);
+  --light:    var(--paper-2);
+  --color-offwhite: var(--paper);
+  --color-light:    var(--paper-2);
+
+  --btn-primary-bg:    var(--color-agro-orange, #e67e22);
+  --btn-primary-color: var(--color-agro-ink, #012814);
+
+  --shadow:    0 2px 16px rgba(0, 75, 30, 0.08);
+  --shadow-md: 0 6px 28px rgba(0, 75, 30, 0.12);
+  --shadow-lg: 0 14px 48px rgba(0, 75, 30, 0.18);
+  --shadow-1:  0 1px 2px rgba(0, 75, 30, 0.06);
+  --shadow-2:  0 10px 30px -12px rgba(0, 75, 30, 0.22);
+  --shadow-3:  0 24px 60px -20px rgba(0, 75, 30, 0.38);
+
+  /* Nav labels: white on green (not remapped orange — that muddied pills) */
+  --nav-link-color: rgba(255, 255, 255, 0.95);
+  --nav-link-active-color: #ffffff;
+  --nav-link-hover-bg: rgba(255, 255, 255, 0.2);
+  --nav-link-active-bg: rgba(255, 255, 255, 0.24);
+  --color-text-on-brand: #ffffff;
+  --color-text-on-brand-muted: rgba(255, 255, 255, 0.92);
+  background: var(--paper);
+}
+
+/* Hardcoded Lake-blue icon wells in shared company-page CSS */
+body.co-theme-agro .prod-catalog-card .prod-glyph,
+body.co-theme-agro .edge-ico {
+  background: rgba(0, 132, 53, 0.08);
+  border-color: rgba(0, 132, 53, 0.18);
+  color: var(--color-agro-green-mid, #006b2b);
+}
+body.co-theme-agro .co-gal-promo .co-gal__frame {
+  background: var(--color-agro-green-deep, #004b1e);
+}
+body.co-theme-agro .alert-info {
+  background: rgba(0, 132, 53, 0.06);
+  border-color: var(--color-agro-green, #008435);
+  color: var(--color-agro-green-deep, #004b1e);
+}
+body.co-theme-agro .badge-blue,
+body.co-theme-agro .badge-navy {
+  background: var(--color-agro-green, #008435);
+  border-color: var(--color-agro-green, #008435);
+}
+body.co-theme-agro .btn-outline-dark:hover,
+body.co-theme-agro .btn-blue:hover {
+  box-shadow: 0 8px 24px rgba(0, 132, 53, 0.32);
+}
+
+/* Page + panel scrollbars inherit Agro greens */
 html:has(body.co-theme-agro) {
   scrollbar-color: var(--color-agro-green) var(--color-agro-green-deep);
 }
@@ -1985,12 +2090,30 @@ body.co-theme-agro::-webkit-scrollbar-thumb:hover,
 body.co-theme-agro *::-webkit-scrollbar-thumb:hover {
   background: var(--color-agro-green-bright);
 }
-body.co-theme-agro .site-nav,
-body.co-theme-agro .site-nav.nav-scrolled {
-  border-bottom-color: transparent;
+/*
+   Nav bar: .site-nav sets a literal background-color:#0181BB (and scrolled
+   rgba blue) AFTER the CSS-variable background shorthand — token remaps alone
+   cannot win. Force Agro greens here with equal/higher specificity.
+*/
+body.co-theme-agro .site-nav {
+  background: var(--color-agro-green, #008435);
+  background-color: var(--color-agro-green, #008435);
+  border-bottom: 3px solid var(--color-agro-orange, #e67e22);
   border-top: 0;
   box-shadow: none;
 }
+body.co-theme-agro .site-nav.nav-scrolled {
+  background: rgba(0, 75, 30, 0.96);
+  background-color: rgba(0, 75, 30, 0.96);
+  border-bottom-color: var(--color-agro-orange, #e67e22);
+  box-shadow: 0 8px 30px rgba(0, 40, 16, 0.35);
+}
+/* Value tiles ship with on-dark colors; keep them readable on light sections */
+body.co-theme-agro .val-mini-tile {
+  background: var(--color-agro-green-deep, #004b1e);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+/* Base .nav-dropdown uses a hardcoded blue gradient — override on Agro */
 body.co-theme-agro .nav-dropdown,
 body.co-theme-agro .nav-megamenu,
 body.co-theme-agro .lang-menu {
@@ -1999,7 +2122,66 @@ body.co-theme-agro .lang-menu {
     rgba(0, 132, 53, 0.98) 0%,
     rgba(0, 75, 30, 0.99) 100%
   );
+  background-color: var(--color-agro-green-deep, #004b1e);
 }
+body.co-theme-agro .nav-dropdown a:hover,
+body.co-theme-agro .nav-dropdown a:focus-visible {
+  color: #fff;
+  background: rgba(230, 126, 34, 0.18);
+}
+
+/*
+   Megamenu category rail (.mm-cat): base styles hardcode Lake teal/blue
+   washes + yellow active text (rgba(1,102,148) / #0599D3). Remap to agro
+   greens so the active pill matches the green panel — not blue-teal.
+*/
+body.co-theme-agro .mm-cat {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+body.co-theme-agro .mm-cat::after {
+  border-color: rgba(255, 255, 255, 0.95);
+}
+body.co-theme-agro .mm-cat:hover,
+body.co-theme-agro .mm-cat:focus-visible {
+  background: rgba(0, 132, 53, 0.42);
+  color: #fff;
+  outline: none;
+}
+body.co-theme-agro .mm-cat:hover::after,
+body.co-theme-agro .mm-cat:focus-visible::after {
+  border-color: #fff;
+}
+body.co-theme-agro .mm-cat.is-active {
+  background: var(--color-agro-green, #008435);
+  background-color: var(--color-agro-green, #008435);
+  color: #fff;
+  border-left: 0 !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+}
+body.co-theme-agro .mm-cat.is-active::after {
+  border-color: #fff;
+  opacity: 1;
+}
+body.co-theme-agro .mm-cat.is-active:hover,
+body.co-theme-agro .mm-cat.is-active:focus-visible {
+  background: var(--color-agro-green-mid, #006b2b);
+  background-color: var(--color-agro-green-mid, #006b2b);
+  color: #fff;
+}
+
+/* Mobile accordion categories — same on-brand green active treatment */
+body.co-theme-agro .mob-acc-btn:hover,
+body.co-theme-agro .mob-acc-btn[aria-expanded="true"] {
+  color: #fff;
+  border-left-color: var(--color-agro-orange, #e67e22);
+  background: var(--color-agro-green, #008435);
+}
+body.co-theme-agro .mob-acc-panel a:hover {
+  color: #fff;
+  background: rgba(0, 132, 53, 0.35);
+}
+
 body.co-theme-agro .nav-megamenu {
   scrollbar-color: var(--color-agro-green-bright) rgba(0, 132, 53, 0.22);
 }
@@ -2011,11 +2193,6 @@ body.co-theme-agro .nav-megamenu::-webkit-scrollbar-thumb {
 }
 body.co-theme-agro .nav-megamenu::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, var(--color-agro-orange) 0%, var(--color-agro-green-bright) 55%, var(--color-agro-green) 100%);
-}
-body.co-theme-agro .nav-dropdown a:hover,
-body.co-theme-agro .nav-dropdown a:focus-visible {
-  color: #fff;
-  background: rgba(230, 126, 34, 0.18);
 }
 body.co-theme-agro .lang-pair-selected {
   color: #fff;
@@ -2044,9 +2221,56 @@ body.co-theme-agro .lang-menu-item:focus-visible {
 body.co-theme-agro .mobile-nav,
 body.co-theme-agro .nav-mobile,
 body.co-theme-agro .mobile-nav-panel {
-  background: var(--color-agro-green-deep);
-  border-bottom-color: transparent;
+  background: var(--color-agro-green-deep, #004b1e);
+  background-color: var(--color-agro-green-deep, #004b1e);
+  border-bottom: 2px solid var(--color-agro-orange, #e67e22);
 }
 body.co-theme-agro .mob-acc-panel {
   background: rgba(1, 40, 20, 0.55);
+}
+
+/* Desktop nav labels + pills — high-contrast white on green */
+body.co-theme-agro .nav-links > li > a {
+  color: #ffffff;
+}
+body.co-theme-agro .nav-links > li > a:hover,
+body.co-theme-agro .nav-links > li > a.active,
+body.co-theme-agro .nav-links > li > a[aria-current="page"],
+body.co-theme-agro .nav-links > li.has-dropdown.is-open > a,
+body.co-theme-agro .nav-links > li.has-dropdown:hover > a,
+body.co-theme-agro .nav-links > li.has-dropdown:focus-within > a {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* Mobile drawer labels — same light treatment (avoid orange-from-gold remap) */
+body.co-theme-agro .nav-mobile a,
+body.co-theme-agro .mob-acc-btn {
+  color: rgba(255, 255, 255, 0.95);
+}
+body.co-theme-agro .nav-mobile a:hover {
+  color: #ffffff;
+  border-left-color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.1);
+}
+body.co-theme-agro .mob-section {
+  color: rgba(255, 255, 255, 0.72);
+}
+body.co-theme-agro .mob-acc-btn:hover,
+body.co-theme-agro .mob-acc-btn[aria-expanded="true"] {
+  color: #ffffff;
+  border-left-color: var(--color-agro-orange, #e67e22);
+  background: rgba(0, 132, 53, 0.85);
+}
+body.co-theme-agro .mob-acc-panel a {
+  color: rgba(255, 255, 255, 0.85);
+}
+body.co-theme-agro .lang-trigger {
+  color: rgba(255, 255, 255, 0.95);
+}
+body.co-theme-agro .lang-pair-selected {
+  color: #ffffff;
+}
+body.co-theme-agro .lang-pair-suggest {
+  color: rgba(255, 255, 255, 0.78);
 }
