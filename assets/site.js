@@ -33,19 +33,42 @@
     el.textContent = formatCounterDisplay(value, prefix, suffix);
   }
 
+  function prefersReducedMotion() {
+    try {
+      return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch (_) {
+      return false;
+    }
+  }
+
   function animateCounter(el) {
-    if (el.dataset.animated === '1') return;
-    el.dataset.animated = '1';
+    if (el.dataset.animated === '1' || el.dataset.counting === '1') return;
     const target = parseInt(el.dataset.count, 10);
     if (isNaN(target)) return;
+
+    if (prefersReducedMotion()) {
+      paintCounter(el, target);
+      el.dataset.animated = '1';
+      return;
+    }
+
+    // Mark in-flight so lake-i18n-applied cannot snap to the final value mid-count.
+    el.dataset.counting = '1';
+    paintCounter(el, 0);
+
     const duration = 1600;
     const start = performance.now();
     const step = (now) => {
       const progress = Math.min((now - start) / duration, 1);
       const ease = 1 - Math.pow(1 - progress, 3);
       paintCounter(el, Math.floor(ease * target));
-      if (progress < 1) requestAnimationFrame(step);
-      else paintCounter(el, target);
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        paintCounter(el, target);
+        el.dataset.counting = '0';
+        el.dataset.animated = '1';
+      }
     };
     requestAnimationFrame(step);
   }
@@ -58,11 +81,12 @@
 
   function refreshCountersForLang() {
     document.querySelectorAll('[data-count]').forEach((el) => {
+      // Never interrupt an in-flight count-up (i18n apply is sync via microtask).
+      if (el.dataset.counting === '1') return;
       const target = parseInt(el.dataset.count, 10);
       if (isNaN(target)) return;
-      // After animation, show final localized value; if not yet animated, keep fallback.
       if (el.dataset.animated === '1') paintCounter(el, target);
-      else setCounterFallback(el);
+      else paintCounter(el, 0);
     });
   }
 
@@ -93,53 +117,73 @@
 
   function initCounters() {
     const counters = document.querySelectorAll('[data-count]');
-    counters.forEach(el => {
-      if (isInViewport(el)) animateCounter(el);
-      else setCounterFallback(el);
-    });
+    if (!counters.length) return;
+
+    if (prefersReducedMotion()) {
+      counters.forEach((el) => {
+        setCounterFallback(el);
+        el.dataset.animated = '1';
+      });
+      return;
+    }
+
+    // Start at 0 so the final markup value is not visible before/during fade-in.
+    counters.forEach((el) => paintCounter(el, 0));
+
+    function startCounter(el) {
+      if (el.dataset.animated === '1' || el.dataset.counting === '1') return;
+      // Hero stats use CSS lg-fade-up (delay ~0.22s + 0.45s). Counting while
+      // opacity is 0 made the animation finish before the row was readable —
+      // worse after taller Jost hero type. Wait for the entrance, then count.
+      const heroDelay = el.closest('.hero-stats') ? 420 : 0;
+      if (heroDelay) {
+        window.setTimeout(() => animateCounter(el), heroDelay);
+      } else {
+        animateCounter(el);
+      }
+    }
 
     if (typeof IntersectionObserver === 'undefined') {
-      counters.forEach(animateCounter);
+      counters.forEach(startCounter);
       return;
     }
 
     const co = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          animateCounter(e.target);
-          co.unobserve(e.target);
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        co.unobserve(e.target);
+        startCounter(e.target);
+      });
+    }, { threshold: 0.35, rootMargin: '0px 0px -6% 0px' });
+
+    counters.forEach((el) => co.observe(el));
+
+    // Safety: if IO never fires, still run the count (do not paint the final
+    // value early — that was hiding the animation on slow scrolls).
+    window.setTimeout(() => {
+      counters.forEach((el) => {
+        if (el.dataset.animated !== '1' && el.dataset.counting !== '1') {
+          try { co.unobserve(el); } catch (_) { /* ignore */ }
+          animateCounter(el);
         }
       });
-    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
-
-    counters.forEach(el => {
-      if (el.dataset.animated !== '1') co.observe(el);
-    });
-
-    setTimeout(() => {
-      counters.forEach(el => {
-        if (el.dataset.animated !== '1') {
-          setCounterFallback(el);
-          el.dataset.animated = '1';
-        }
-      });
-    }, 2500);
+    }, 6000);
   }
 
   // Desktop nav dropdowns + Subsidiaries mega-menu.
-  // CSS `:hover` / `:focus-within` still open panels; this layer keeps
-  // `.is-open` + aria-expanded in sync (needed where pages use
-  // `.is-open`-only !important rules), adds hover-intent open/close,
-  // click-to-toggle (touch), Escape, ArrowDown into the panel, and
-  // click-outside close. Mega-menu category tabs swap the logo grid with
+  // Panels open via `.is-open` (hover-intent on the trigger link) or CSS
+  // `:focus-within` (keyboard). This layer syncs aria-expanded, adds open/
+  // close delays, click-to-toggle (touch), Escape, ArrowDown into the panel,
+  // and click-outside close. Mega-menu category tabs swap the logo grid with
   // a restartable translateY enter animation.
   function initMegaMenu() {
     const items = document.querySelectorAll('.nav-links > li.has-dropdown');
     if (!items.length) return;
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const OPEN_DELAY_MS = 120;
-    const CLOSE_DELAY_MS = 180;
+    // Open only after lingering on the actual label — not the tall li column.
+    const OPEN_DELAY_MS = 200;
+    const CLOSE_DELAY_MS = 220;
 
     function canHoverOpen() {
       try {
@@ -298,7 +342,7 @@
       trigger.addEventListener('click', (e) => {
         const hoverCapable = canHoverOpen();
         // Desktop fine-pointer: simple dropdown triggers keep their href
-        // (hover already reveals the panel). Mega trigger and touch/coarse
+        // (hover-intent reveals the panel). Mega trigger and touch/coarse
         // pointers toggle `.is-open` instead.
         if (!isMega && hoverCapable) return;
 
@@ -317,16 +361,16 @@
         trigger.setAttribute('aria-expanded', String(willOpen));
       });
 
-      // Desktop hover-intent open/close (fine pointer only).
-      item.addEventListener('mouseenter', () => {
+      // Desktop hover-intent: open only when the pointer lingers on the
+      // trigger link itself (tight hit box), not the full-height li.
+      trigger.addEventListener('mouseenter', () => {
         if (!canHoverOpen()) return;
         if (item._navCloseTimer) {
           clearTimeout(item._navCloseTimer);
           item._navCloseTimer = null;
         }
-        // Exclusive controller: close siblings immediately on enter so rapid
-        // moves (Network → Corporate) never leave two `.is-open` panels stacked
-        // while CSS `:hover` already shows the newly hovered menu.
+        // Exclusive controller: close siblings immediately so rapid moves
+        // (Network → Corporate) never leave two `.is-open` panels stacked.
         closeAll(item, { instant: true });
         if (item.classList.contains('is-open') || item._navOpenTimer) return;
         item._navOpenTimer = setTimeout(() => {
@@ -334,6 +378,24 @@
           openItem(item);
         }, OPEN_DELAY_MS);
       });
+      trigger.addEventListener('mouseleave', (e) => {
+        if (!canHoverOpen()) return;
+        // Keep pending/open only when moving into the panel (or its bridge).
+        if (e.relatedTarget && menu.contains(e.relatedTarget)) return;
+        if (item._navOpenTimer) {
+          clearTimeout(item._navOpenTimer);
+          item._navOpenTimer = null;
+        }
+      });
+      // Panel re-entry cancels a pending close (gap / bridge travel).
+      menu.addEventListener('mouseenter', () => {
+        if (!canHoverOpen()) return;
+        if (item._navCloseTimer) {
+          clearTimeout(item._navCloseTimer);
+          item._navCloseTimer = null;
+        }
+      });
+      // Close when leaving the whole item subtree (trigger + open panel).
       item.addEventListener('mouseleave', () => {
         if (!canHoverOpen()) return;
         if (item._navOpenTimer) {

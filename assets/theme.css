@@ -9,7 +9,7 @@
    NOTE: never style .experience-3d-* or #fuel-experience  owned elsewhere.
    ========================================================================== */
 
-@import url("tokens.css?v=60");
+@import url("tokens.css?v=62");
 @import url("fonts/fonts.css?v=60");
 @import url("ui-icons.css?v=46");
 
@@ -54,12 +54,34 @@ html {
 }
 
 /* --------------------------------------------------------------------------
-   2. TYPOGRAPHY RHYTHM (conservative)
+   2. TYPOGRAPHY RHYTHM (Jost — tokens.css scale)
    -------------------------------------------------------------------------- */
-body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-.section-title { letter-spacing: -0.015em; line-height: 1.18; margin-bottom: 14px; }
-.section-subtitle { font-size: 1.02rem; line-height: 1.75; max-width: 620px; }
-.page-hero { background: var(--color-hero-bg); position: relative; overflow: hidden; }
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-size: var(--body-size, 17px);
+  line-height: var(--body-line-height, 1.65);
+}
+.section-title {
+  font-size: var(--fs-display);
+  letter-spacing: var(--display-letter-spacing, -0.01em);
+  line-height: var(--display-line-height, 1.05);
+  margin-bottom: 14px;
+}
+.section-subtitle { font-size: var(--fs-lede); line-height: 1.7; max-width: 620px; }
+.page-hero {
+  background: var(--color-hero-bg);
+  position: relative;
+  overflow: hidden;
+  /* Match flagship: fill viewport below fixed nav (page-wrapper clears nav). */
+  min-height: calc(100vh - var(--nav-h, var(--navbar-height, 72px)));
+  min-height: calc(100dvh - var(--nav-h, var(--navbar-height, 72px)));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 32px 0 48px;
+}
 /* Shared hero photography + gradient (also defined in flagship.css) */
 .page-hero .hero-media,
 .page-hero .page-hero-photo {
@@ -73,9 +95,17 @@ body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; 
   position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background: var(--hero-overlay-gradient);
 }
-.page-hero .container { position: relative; z-index: 2; }
-.page-hero h1 { letter-spacing: 0.03em; }
-.page-hero p { line-height: 1.75; max-width: 600px; }
+.page-hero .container { position: relative; z-index: 2; width: 100%; }
+.page-hero h1 {
+  font-size: var(--fs-hero);
+  letter-spacing: var(--display-letter-spacing, -0.01em);
+  line-height: var(--display-line-height, 1.05);
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+.page-hero p { font-size: var(--fs-lede); line-height: 1.7; max-width: 600px; }
+body[data-company-logo] .page-hero h1 { font-size: var(--fs-hero-company); }
 .card-body p { line-height: 1.65; }
 
 /* Section rhythm: consistent scale, calmer on small screens */
@@ -88,7 +118,7 @@ body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; 
 @media (max-width: 720px) {
   .section { padding: 60px 0; }
   .section-sm { padding: 44px 0; }
-  .page-hero { padding: 118px 0 52px; }
+  .page-hero { padding: 24px 0 40px; }
   .container { padding: 0 20px; }
 }
 
@@ -136,7 +166,7 @@ button:focus-visible,
 .site-nav.nav-hidden { transform: translateY(-100%); }
 
 /* Desktop nav rhythm - home sentence-case + soft pill active */
-.nav-links { gap: 2px; }
+.nav-links { gap: 4px; }
 .nav-links > li > a {
   color: var(--nav-link-color);
   padding: var(--nav-link-padding);
@@ -199,20 +229,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   height: calc(var(--nav-logo-height-scrolled, 36px) * var(--nav-logo-letterbox-scale, 1.15)) !important;
   max-height: calc(var(--nav-logo-height-scrolled, 36px) * var(--nav-logo-letterbox-scale, 1.15)) !important;
 }
-/* Company pages: cover remaining viewport below fixed nav (home-hero parity) */
-body[data-company-logo] .page-hero {
-  min-height: calc(100vh - var(--nav-h));
-  min-height: calc(100dvh - var(--nav-h));
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-sizing: border-box;
-  padding: 32px 0 48px;
-}
-body[data-company-logo] .page-hero .container { width: 100%; }
-@media (max-width: 720px) {
-  body[data-company-logo] .page-hero { padding: 24px 0 40px; }
-}
+/* Company pages inherit full-viewport .page-hero; keep logo letterbox scale only */
 
 /* Language switcher - globe + English|Swahili + dropdown */
 .lang-switcher {
@@ -410,9 +427,9 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
   transform: translateX(3px);
 }
 
-/* Click-to-open / keyboard-open state, set by assets/site.js, on top of the
-   existing CSS-only :hover/:focus-within show. */
-.has-dropdown:hover .nav-dropdown,
+/* Open via JS `.is-open` (hover-intent on the trigger) or keyboard
+   `:focus-within`. No `li:hover` — full-height nav columns were opening
+   panels before the cursor reached the label. */
 .has-dropdown:focus-within .nav-dropdown,
 .has-dropdown.is-open .nav-dropdown {
   opacity: 1; pointer-events: auto; transform: translateY(0);
@@ -459,7 +476,6 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
   border-color: rgba(255, 255, 255, 0.35);
 }
 .has-dropdown.is-open .nav-megamenu,
-.has-dropdown:hover .nav-megamenu,
 .has-dropdown:focus-within .nav-megamenu {
   transform: translate(-50%, 0) scale(1);
 }
@@ -753,10 +769,10 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
    6. BUTTONS  one geometry, refined hover/press/focus
    -------------------------------------------------------------------------- */
 .btn {
-  padding: 13px 28px;
+  padding: var(--btn-padding, 13px 28px);
   border-radius: var(--radius);
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-weight: var(--btn-weight, 600);
+  font-size: var(--btn-size, 0.875rem);
   transition: transform var(--dur-fast) var(--ease-out),
               box-shadow var(--dur-fast) ease,
               background-color var(--dur-fast) ease,
@@ -965,25 +981,43 @@ html.lg-motion .site-nav {
   animation: lg-nav-settle 0.4s var(--ease-out) backwards;
 }
 
-/* Hero media: soft settle, then subtle infinite drift (never sticks enlarged) */
+/* Hero media: opacity fade on the frame, continuous Ken Burns on the photo.
+   Keep opacity and transform on separate targets so they never fight — that
+   conflict was reading as stacked / stepped growth on the home hero. */
 html.lg-motion .hero .hero-photo,
+html.lg-motion .page-hero .hero-media,
+html.lg-motion .page-hero .page-hero-photo {
+  animation: lg-hero-media-in 0.7s var(--ease-out) both;
+  transform-origin: center center;
+  will-change: opacity;
+  overflow: hidden;
+}
+
+/* Home: scale the <img>, not the full-bleed frame (avoids layered edge stacking) */
+html.lg-motion .hero .hero-photo img {
+  animation: lg-hero-ken 28s linear 0.7s infinite alternate;
+  transform-origin: 68% 42%;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Inner pages: background-image lives on the frame itself */
 html.lg-motion .page-hero .hero-media,
 html.lg-motion .page-hero .page-hero-photo {
   animation:
     lg-hero-media-in 0.7s var(--ease-out) both,
-    lg-hero-ken 32s ease-in-out 0.7s infinite alternate;
-  transform-origin: center center;
+    lg-hero-ken 28s linear 0.7s infinite alternate;
   will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 /* Hero: staggered entrance (opacity/transform only, no CLS) */
-.hero .hero-eyebrow, .hero h1, .hero .hero-sub, .hero .hero-actions, .hero .hero-stats, .hero .hero-right {
+.hero .hero-eyebrow, .hero h1, .hero .hero-sub, .hero .hero-stats, .hero .hero-right {
   animation: lg-fade-up 0.45s var(--ease-out) both;
 }
 .hero h1 { animation-delay: 0.08s; }
 .hero .hero-sub { animation-delay: 0.14s; }
-.hero .hero-actions { animation-delay: 0.2s; }
-.hero .hero-stats { animation-delay: 0.28s; }
+.hero .hero-stats { animation-delay: 0.22s; }
 .hero .hero-right { animation-delay: 0.16s; }
 
 /* Page-load: gentle body fade (opacity only) */
@@ -1003,12 +1037,12 @@ html.lg-motion.lg-ready body { animation: lg-page-fade 0.4s ease-out both; }
   to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes lg-hero-media-in {
-  from { opacity: 0; transform: scale(1.02); }
-  to   { opacity: 1; transform: scale(1); }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 @keyframes lg-hero-ken {
-  from { transform: scale(1) translate3d(0, 0, 0); }
-  to   { transform: scale(1.025) translate3d(0, -0.4%, 0); }
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(0, -0.5%, 0) scale(1.06); }
 }
 
 /* --------------------------------------------------------------------------
@@ -1039,10 +1073,11 @@ html.lg-motion.lg-ready body { animation: lg-page-fade 0.4s ease-out both; }
    15. REDUCED MOTION  single gate
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
-  body, .hero .hero-eyebrow, .hero h1, .hero .hero-sub, .hero .hero-actions,
+  body, .hero .hero-eyebrow, .hero h1, .hero .hero-sub,
   .hero .hero-stats, .hero .hero-right, .tab-pane.active,
   html.lg-motion .site-nav,
   html.lg-motion .hero .hero-photo,
+  html.lg-motion .hero .hero-photo img,
   html.lg-motion .page-hero .hero-media,
   html.lg-motion .page-hero .page-hero-photo { animation: none !important; }
   .reveal, .reveal-img { opacity: 1 !important; transform: none !important; transition: none !important; }
@@ -1052,7 +1087,6 @@ html.lg-motion.lg-ready body { animation: lg-page-fade 0.4s ease-out both; }
   .site-nav.nav-hidden { transform: none; }
   .nav-dropdown { transform: none !important; }
   .nav-megamenu,
-  .has-dropdown:hover .nav-megamenu,
   .has-dropdown:focus-within .nav-megamenu,
   .has-dropdown.is-open .nav-megamenu { transform: translateX(-50%) !important; }
   .nav-megamenu .mm-pane.is-active .mm-companies.is-entering,
