@@ -59,7 +59,7 @@ const PAGES = {
   concrete: { url: 'lake-premix-cement.html', titleKey: 'nav.co.lakePremixCement', title: 'Lake Premix & Cement' },
   logistics: { url: 'lake-trans.html', titleKey: 'nav.co.lakeTrans', title: 'Lake Trans' },
   container_services: { url: 'aficd.html', titleKey: 'nav.co.aficd', title: 'AFICD' },
-  africa_network: { url: 'africa-network.html', titleKey: 'nav.africaMap', title: 'Africa Operations Map' },
+  africa_network: { url: 'africa-network.html', titleKey: 'nav.africaMap', title: 'Operations Map' },
   station_locator: { url: 'station-locator.html', titleKey: 'nav.stations', title: 'Station Locator' },
   fleet: { url: 'fleet.html', titleKey: 'nav.fleet', title: 'Our Fleet' },
   careers: { url: 'careers.html', titleKey: 'nav.careers', title: 'Careers' },

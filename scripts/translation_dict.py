@@ -90,6 +90,7 @@ TERMS_FR = {
     "CSR & Sustainability": "RSE et durabilité",
     "Container Services": "Services de conteneurs",
     "Africa Operations Map": "Carte des opérations en Afrique",
+    "Operations Map": "Carte des opérations",
     "Station Locator": "Localisateur de stations",
     "Our Fleet": "Notre flotte",
     "Our History": "Notre histoire",
@@ -145,7 +146,7 @@ TERMS_FR = {
     "Services ▾": "Services ▾", "Network ▾": "Réseau ▾", "Company ▾": "Entreprise ▾",
     "Corporate ▾": "Corporatif ▾",
     "Fuel": "Carburant", "Steel": "Acier", "Concrete": "Béton", "Transport": "Transport",
-    "Containers": "Conteneurs", "Africa Map": "Carte Afrique", "CSR": "RSE",
+    "Containers": "Conteneurs", "Africa Map": "Carte Afrique", "Operations Map": "Carte des opérations", "CSR": "RSE",
     "Track": "Suivi",
     # --- Expanded coverage ---
     "About Lake Group": "À propos de Lake Group",
@@ -1223,6 +1224,7 @@ TERMS_PT = {
     "CSR & Sustainability": "RSC e sustentabilidade",
     "Container Services": "Serviços de contentores",
     "Africa Operations Map": "Mapa de operações em África",
+    "Operations Map": "Mapa de operações",
     "Station Locator": "Localizador de postos",
     "Our Fleet": "A nossa frota",
     "Our History": "A nossa história",
@@ -1275,7 +1277,7 @@ TERMS_PT = {
     "Services ▾": "Serviços ▾", "Network ▾": "Rede ▾", "Company ▾": "Empresa ▾",
     "Corporate ▾": "Corporativo ▾",
     "Fuel": "Combustível", "Steel": "Aço", "Concrete": "Betão", "Transport": "Transporte",
-    "Containers": "Contentores", "Africa Map": "Mapa África", "CSR": "RSC",
+    "Containers": "Contentores", "Africa Map": "Mapa África", "Operations Map": "Mapa de operações", "CSR": "RSC",
     "Track": "Rastrear",
     # --- Expanded coverage ---
     "About Lake Group": "Sobre o Lake Group",
