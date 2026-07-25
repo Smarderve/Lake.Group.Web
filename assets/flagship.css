@@ -17,7 +17,7 @@
    Never style .experience-3d-* or #fuel-experience  owned elsewhere.
    ========================================================================== */
 
-@import url("tokens.css?v=60");
+@import url("tokens.css?v=62");
 @import url('fonts/fonts.css?v=60');
 @import url("ui-icons.css?v=46");
 
@@ -106,15 +106,8 @@ html {
   --sp-12: 48px;--sp-16: 64px; --sp-20: 80px; --sp-24: 96px;
   --sp-30: 120px; --sp-36: 144px;
 
-  /* Type scale (responsive) */
-  --fs-hero:    clamp(4rem, 11vw, 9.5rem);
-  --fs-display: clamp(2.75rem, 6vw, 5.25rem);
-  --fs-title:   clamp(1.75rem, 3.2vw, 2.6rem);
-  --fs-lede:    clamp(1.05rem, 1.6vw, 1.3rem);
-  --fs-body:    1rem;
-  --fs-small:   0.86rem;
-  --fs-micro:   0.72rem;
-  --fs-stat:    clamp(3.25rem, 6vw, 5.5rem);
+  /* Type scale: canonical --fs-* live in tokens.css (imported above).
+     Do not redeclare here — overrides would fight the Jost retune. */
 
   /* Elevation */
   --shadow-1: 0 1px 2px rgba(1,63,92,0.06);
@@ -140,8 +133,8 @@ html {
 html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.7;
+  font-size: var(--body-size, 17px);
+  line-height: var(--body-line-height, 1.65);
   color: var(--text);
   background: var(--paper);
   overflow-x: clip;
@@ -149,7 +142,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-h1, h2, h3, h4, h5 { line-height: 1.15; font-weight: 700; }
+h1, h2, h3, h4, h5 { line-height: var(--display-line-height, 1.05); font-weight: 700; }
 p { color: var(--mute); }
 a { text-decoration: none; color: inherit; }
 strong { color: var(--text); font-weight: 600; }
@@ -161,8 +154,8 @@ img { max-width: 100%; }
   font-family: var(--font-display);
   font-weight: 700;
   font-size: var(--fs-display);
-  line-height: 0.95;
-  letter-spacing: 0.012em;
+  line-height: var(--display-line-height, 1.05);
+  letter-spacing: var(--display-letter-spacing, -0.01em);
   text-transform: uppercase;
   color: var(--text);
 }
@@ -170,10 +163,13 @@ img { max-width: 100%; }
   font-family: var(--font-display);
   font-weight: 700;
   font-size: var(--fs-hero);
-  line-height: 0.9;
-  letter-spacing: 0.01em;
+  line-height: var(--display-line-height, 1.05);
+  letter-spacing: var(--display-letter-spacing, -0.01em);
   text-transform: uppercase;
   color: #fff;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
 }
 .fs-outline { /* ghost outline word inside display headings */
   color: transparent;
@@ -199,8 +195,8 @@ img { max-width: 100%; }
    legible as small uppercase text at any reasonable "deep" shade. */
 .fs-eyebrow {
   display: inline-flex; align-items: center; gap: 14px;
-  font-size: var(--fs-micro); font-weight: 700;
-  letter-spacing: 0.32em; text-transform: uppercase;
+  font-size: var(--eyebrow-size, var(--fs-micro)); font-weight: 700;
+  letter-spacing: var(--eyebrow-letter-spacing, 0.16em); text-transform: uppercase;
   color: var(--blue-deep);
 }
 .fs-eyebrow::before {
@@ -245,8 +241,8 @@ img { max-width: 100%; }
 /* Oversized ghost index numeral for section corners */
 .fs-index {
   font-family: var(--font-display);
-  font-size: clamp(6rem, 14vw, 13rem);
-  line-height: 0.8;
+  font-size: clamp(4.5rem, 11vw, 9.5rem);
+  line-height: 0.85;
   color: transparent;
   -webkit-text-stroke: 1px rgba(10,16,36,0.14);
   user-select: none; pointer-events: none;
@@ -393,7 +389,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   max-height: calc(var(--nav-logo-height-scrolled, 36px) * var(--nav-logo-letterbox-scale, 1.15)) !important;
 }
 
-.nav-links { display: flex; align-items: center; gap: 2px; list-style: none; margin-left: auto; }
+.nav-links { display: flex; align-items: center; gap: 4px; list-style: none; margin-left: auto; }
 .nav-links > li { position: relative; height: var(--navbar-height); display: flex; align-items: center; }
 .site-nav.nav-scrolled .nav-links > li { height: var(--navbar-height-scrolled); }
 .nav-links > li > a {
@@ -416,9 +412,6 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   background: var(--nav-link-active-bg);
 }
 
-.has-dropdown:hover .nav-dropdown, .has-dropdown:focus-within .nav-dropdown {
-  opacity: 1; pointer-events: auto; transform: translateY(0);
-}
 .nav-dropdown {
   position: absolute; top: calc(100% + 6px); left: 0;
   background: linear-gradient(180deg, rgba(1,102,148,0.96), rgba(1,63,92,0.98));
@@ -436,14 +429,20 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   transition: opacity 0.22s var(--ease-out), transform 0.22s var(--ease-out);
 }
 .nav-dropdown::before { display: none; }
-.nav-dropdown::after { /* hover bridge */
-  content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px;
-}
-.has-dropdown:hover .nav-dropdown,
+/* Open via JS `.is-open` (hover-intent on the trigger link) or keyboard
+   `:focus-within`. Do NOT use `li:hover` — each nav `li` is full navbar
+   height, so CSS hover was opening the panel as soon as the cursor entered
+   that column, well before the label. */
 .has-dropdown:focus-within .nav-dropdown,
 .has-dropdown.is-open .nav-dropdown {
-  transform: translateY(0);
+  opacity: 1; pointer-events: auto; transform: translateY(0);
   transition: opacity var(--dur-1) var(--ease-out), transform 0.22s var(--ease-out);
+}
+/* Thin bridge only while open — fills the 6px gap to the panel without a
+   large invisible hover trap under the whole nav. */
+.has-dropdown.is-open > .nav-dropdown::after,
+.has-dropdown:focus-within > .nav-dropdown::after {
+  content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px;
 }
 .nav-dropdown a {
   display: flex; align-items: center; padding: 9px 14px;
@@ -460,15 +459,6 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
   color: rgba(255,255,255,0.3); font-weight: 700;
   border-bottom: none;
-}
-
-/* Click-to-open / keyboard-open state, set by assets/site.js. :hover and
-   :focus-within already open the panel via the rule above; this adds the
-   same open state for a JS-driven click toggle so touch/click users (who
-   get no :hover) and Enter/Space on the trigger both work, and lets the
-   panel be explicitly closed on Escape even while the mouse still hovers. */
-.has-dropdown.is-open .nav-dropdown {
-  opacity: 1; pointer-events: auto; transform: translateY(0);
 }
 
 /* --------------------------------------------------------------------------
@@ -514,7 +504,6 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   border-color: rgba(255, 255, 255, 0.35);
 }
 .has-dropdown.is-open .nav-megamenu,
-.has-dropdown:hover .nav-megamenu,
 .has-dropdown:focus-within .nav-megamenu {
   transform: translate(-50%, 0) scale(1);
 }
@@ -777,7 +766,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
 .nav-mobile.open { display: flex !important; }
 .nav-mobile a { display: block; padding: 12px 16px; color: rgba(233,237,248,0.8); font-size: 0.9rem; border-left: 2px solid transparent; }
 .nav-mobile a:hover { color: var(--gold); border-left-color: var(--gold); background: rgba(255,255,255,0.03); }
-.mob-section { padding: 14px 16px 4px; font-size: 0.62rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+.mob-section { padding: 14px 16px 4px; font-size: 0.72rem; letter-spacing: var(--eyebrow-letter-spacing, 0.16em); text-transform: uppercase; color: var(--gold); font-weight: 700; }
 
 /* "Subsidiaries" mobile accordion: one collapsible category per button */
 .mob-accordion { display: flex; flex-direction: column; }
@@ -1011,7 +1000,6 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
   .nav-dropdown { transform: none !important; transition: none !important; }
   /* Keep the horizontal centering translate; drop the entrance offset/scale. */
   .nav-megamenu,
-  .has-dropdown:hover .nav-megamenu,
   .has-dropdown:focus-within .nav-megamenu,
   .has-dropdown.is-open .nav-megamenu { transform: translateX(-50%) !important; }
   .mm-pane.is-active .mm-companies.is-entering,
@@ -1032,8 +1020,18 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
    -------------------------------------------------------------------------- */
 .page-hero {
   background: var(--color-hero-bg); /* darkest blue fallback under photo */
-  padding: calc(var(--navbar-height) + var(--sp-20)) 0 var(--sp-20);
-  position: relative; overflow: hidden;
+  position: relative;
+  overflow: hidden;
+  /* .page-wrapper already clears the fixed nav — fill the remaining
+     viewport like home `.hero { min-height: 100vh }` so the next section
+     (story embed yellow bands, white content, etc.) never peeks on load. */
+  min-height: calc(100vh - var(--nav-h));
+  min-height: calc(100dvh - var(--nav-h));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: var(--sp-8) 0 var(--sp-12);
 }
 /* Shared photo layer - keep photography visible (not washed out) */
 .page-hero .hero-media,
@@ -1058,20 +1056,10 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
   pointer-events: none;
   background: var(--hero-overlay-gradient);
 }
-/* Company pages: .page-wrapper already clears the fixed nav - fill the
-   remaining viewport like home `.hero { min-height: 100vh }` so content
-   below does not peek until scroll. */
-body[data-company-logo] .page-hero {
-  min-height: calc(100vh - var(--nav-h));
-  min-height: calc(100dvh - var(--nav-h));
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-sizing: border-box;
-  padding: var(--sp-8) 0 var(--sp-12);
-}
-body[data-company-logo] .page-hero .container {
-  width: 100%;
+@media (max-width: 720px) {
+  .page-hero {
+    padding: var(--sp-6) 0 var(--sp-10);
+  }
 }
 .page-hero::before { /* faint meridian grid - above photo, under text */
   content: ''; position: absolute; inset: 0; z-index: 1;
@@ -1089,33 +1077,38 @@ body[data-company-logo] .page-hero .container {
   width: 1px; height: 38%; background: linear-gradient(var(--gold), transparent);
   opacity: 0.45; pointer-events: none;
 }
-.page-hero .container { position: relative; z-index: 2; }
+.page-hero .container { position: relative; z-index: 2; width: 100%; }
 .page-hero h1 {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: var(--fs-hero);
-  line-height: 0.9;
-  letter-spacing: 0.01em;
+  line-height: var(--display-line-height, 1.05);
+  letter-spacing: var(--display-letter-spacing, -0.01em);
   text-transform: uppercase;
   color: #fff;
   margin: var(--sp-5) 0 var(--sp-6);
+  /* Break only at spaces — never mid-word (e.g. LEADERS|HIP) */
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  max-width: 100%;
 }
 /* Company pages: shorter names need a calmer hero title than full --fs-hero */
 body[data-company-logo] .page-hero h1 {
-  font-size: clamp(3rem, 7.2vw, 6rem);
-  line-height: 0.95;
+  font-size: var(--fs-hero-company);
+  line-height: var(--display-line-height, 1.05);
 }
 .page-hero h1 em, .page-hero h1 .fs-outline { font-style: normal; color: transparent; -webkit-text-stroke: 1.5px rgba(255,242,0,0.65); }
 .page-hero p { color: var(--ink-text); font-size: var(--fs-lede); font-weight: 300; max-width: 620px; }
 .page-hero .eyebrow {
   display: inline-flex; align-items: center; gap: 14px;
   border: 0; padding: 0;
-  font-size: var(--fs-micro); font-weight: 700;
-  letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold);
+  font-size: var(--eyebrow-size, var(--fs-micro)); font-weight: 700;
+  letter-spacing: var(--eyebrow-letter-spacing, 0.16em); text-transform: uppercase; color: var(--gold);
 }
 .page-hero .eyebrow::before { content: ''; width: 8px; height: 8px; background: var(--gold); }
 
-.breadcrumb { display: flex; gap: 10px; align-items: center; margin-bottom: var(--sp-8); font-size: var(--fs-micro); letter-spacing: 0.18em; text-transform: uppercase; }
+.breadcrumb { display: flex; gap: 10px; align-items: center; margin-bottom: var(--sp-8); font-size: var(--breadcrumb-size, var(--fs-micro)); letter-spacing: var(--breadcrumb-letter-spacing, 0.14em); text-transform: uppercase; }
 .breadcrumb a { color: var(--ink-mute); transition: color var(--dur-1) ease; }
 .breadcrumb a:hover { color: var(--gold); }
 .breadcrumb span { color: rgba(233,237,248,0.55); }
@@ -1128,8 +1121,8 @@ body[data-company-logo] .page-hero h1 {
   position: relative;
 }
 .fs-hero-meta::before { content: ''; position: absolute; left: 0; top: -4px; width: 8px; height: 8px; background: var(--gold); }
-.fs-hero-meta > div { font-size: var(--fs-micro); letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-mute); }
-.fs-hero-meta strong { display: block; color: #fff; font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 0.06em; font-weight: 700; margin-top: 4px; }
+.fs-hero-meta > div { font-size: var(--fs-micro); letter-spacing: var(--eyebrow-letter-spacing, 0.16em); text-transform: uppercase; color: var(--ink-mute); }
+.fs-hero-meta strong { display: block; color: #fff; font-family: var(--font-display); font-size: var(--fs-title); letter-spacing: var(--display-letter-spacing, -0.01em); font-weight: 700; margin-top: 4px; }
 
 /* --------------------------------------------------------------------------
    8. SECTION HEADERS
@@ -1144,7 +1137,7 @@ body[data-company-logo] .page-hero h1 {
 /* Legacy names mapped into the new language (rollout aid) */
 .section-label {
   display: inline-flex; align-items: center; gap: 14px;
-  font-size: var(--fs-micro); letter-spacing: 0.32em; text-transform: uppercase;
+  font-size: var(--eyebrow-size, var(--fs-micro)); letter-spacing: var(--eyebrow-letter-spacing, 0.16em); text-transform: uppercase;
   font-weight: 700; color: var(--blue-deep); margin-bottom: var(--sp-4);
 }
 .section-label::before { content: ''; width: 8px; height: 8px; background: var(--gold); }
@@ -1153,8 +1146,8 @@ body[data-company-logo] .page-hero h1 {
 .section-dark .section-label, .fs-on-dark .section-label { color: var(--gold); }
 .section-title {
   font-family: var(--font-display); font-weight: 700;
-  font-size: var(--fs-display); line-height: 0.95;
-  letter-spacing: 0.012em; text-transform: uppercase;
+  font-size: var(--fs-display); line-height: var(--display-line-height, 1.05);
+  letter-spacing: var(--display-letter-spacing, -0.01em); text-transform: uppercase;
   color: var(--text); margin-bottom: var(--sp-5);
 }
 .section-dark .section-title { color: #fff; }
@@ -1172,7 +1165,7 @@ body[data-company-logo] .page-hero h1 {
   padding: 16px 32px;
   border: 1px solid transparent; border-radius: 0;
   font-family: var(--font-body); font-weight: 700;
-  font-size: 0.76rem; letter-spacing: 0.2em; text-transform: uppercase;
+  font-size: var(--btn-size, 0.875rem); letter-spacing: 0.12em; text-transform: uppercase;
   cursor: pointer;
   clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%); /* notched corner */
   transition: background-color var(--dur-1) ease, color var(--dur-1) ease,
@@ -1194,8 +1187,8 @@ body[data-company-logo] .page-hero h1 {
 .btn-outline-dark, .btn-ghost-dark { background: transparent; color: var(--text); border-color: rgba(10,16,36,0.35); }
 .btn-outline-dark:hover, .btn-ghost-dark:hover { border-color: var(--text); background: var(--text); color: var(--paper); }
 
-.btn-sm { padding: 11px 22px; font-size: 0.68rem; }
-.btn-lg { padding: 20px 44px; font-size: 0.82rem; }
+.btn-sm { padding: 11px 22px; font-size: 0.78rem; letter-spacing: 0.1em; }
+.btn-lg { padding: 20px 44px; font-size: 0.94rem; letter-spacing: 0.1em; }
 
 /* Loading state: bar sweep + spinner dot */
 .btn.is-loading { pointer-events: none; color: transparent !important; }
@@ -1511,10 +1504,10 @@ body[data-company-logo] .page-hero h1 {
 @media (max-width: 720px) {
   .footer-logo img { height: var(--footer-logo-height-mobile, 48px); }
 }
-.footer-motto { color: var(--gold) !important; font-size: var(--fs-micro) !important; font-weight: 700 !important; letter-spacing: 0.26em !important; text-transform: uppercase; }
+.footer-motto { color: var(--gold) !important; font-size: var(--fs-micro) !important; font-weight: 700 !important; letter-spacing: var(--eyebrow-letter-spacing, 0.16em) !important; text-transform: uppercase; }
 .footer-col h5 {
   display: flex; align-items: center; gap: 10px;
-  color: #fff; font-size: var(--fs-micro); letter-spacing: 0.26em;
+  color: #fff; font-size: var(--fs-micro); letter-spacing: var(--eyebrow-letter-spacing, 0.16em);
   text-transform: uppercase; font-weight: 700; margin-bottom: var(--sp-5);
 }
 .footer-col h5::before { content: ''; width: 8px; height: 8px; background: var(--gold); flex: none; }
@@ -1895,7 +1888,8 @@ html.fs-motion [data-fx-scroll] {
 
 /* Dropdown labels */
 .dd-label { transition: color var(--dur-1) ease, padding-left var(--dur-1) var(--ease-out); }
-.has-dropdown:hover .dd-label { color: var(--gold); padding-left: 4px; }
+.has-dropdown.is-open .dd-label,
+.has-dropdown:focus-within .dd-label { color: var(--gold); padding-left: 4px; }
 
 /* Mobile section headers */
 .mob-section { transition: letter-spacing var(--dur-1) ease, color var(--dur-1) ease; }

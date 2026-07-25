@@ -81,11 +81,12 @@
                                   rgba(1, 129, 187, 0.22) 100%);
 
   /* - Nav link metrics (home sentence-case + soft pill) - */
-  --nav-link-size:           0.86rem;
+  /* Slightly larger than Bebas-era 0.84rem — Jost needs a touch more size at UI scale */
+  --nav-link-size:           0.875rem;
   --nav-link-weight:         500;
   --nav-link-letter-spacing: normal;
   --nav-link-transform:      none;
-  --nav-link-padding:        9px 13px;
+  --nav-link-padding:        9px 14px;
   --nav-link-radius:         999px;
   --nav-link-color:          var(--color-text-on-brand-muted);
   --nav-link-hover-bg:       rgba(255, 255, 255, 0.16);
@@ -93,24 +94,45 @@
   --nav-link-active-bg:      rgba(255, 255, 255, 0.16);
 
   /* - Eyebrow / breadcrumb (interior heroes) - */
-  --eyebrow-size:            0.72rem;
-  --eyebrow-letter-spacing:  0.12em;
+  --eyebrow-size:            0.75rem;
+  --eyebrow-letter-spacing:  0.16em; /* was 0.12–0.32; Jost + wide tracking reads loose */
   --eyebrow-weight:          700;
-  --breadcrumb-size:         0.72rem;
-  --breadcrumb-letter-spacing: 0.18em;
+  --breadcrumb-size:         0.75rem;
+  --breadcrumb-letter-spacing: 0.14em;
 
   /* - Buttons - */
   --btn-padding:             13px 28px;
-  --btn-size:                0.9rem;
+  --btn-size:                0.875rem;
   --btn-weight:              600;
   --btn-radius:              4px;
   --btn-primary-bg:          var(--color-yellow-accent);
   --btn-primary-color:       var(--color-brand-blue-darkest);
 
+  /* ========================================================================
+     Type scale (Jost) — single source for theme.css + flagship.css
+     Bebas Neue was condensed; same px looked billboard-large on Jost.
+     Clamps keep presence on desktop without oversized mobile/tablet titles.
+     ======================================================================== */
+  --fs-hero:    clamp(2rem, 5vw, 4.25rem);       /* page / home heroes */
+  --fs-display: clamp(1.7rem, 3.6vw, 3.1rem);    /* section titles / h2 */
+  --fs-h1:      var(--fs-hero);
+  --fs-h2:      var(--fs-display);
+  --fs-title:   clamp(1.35rem, 2.5vw, 2.1rem);   /* h3 / card titles */
+  --fs-h3:      var(--fs-title);
+  --fs-lede:    clamp(1.05rem, 1.35vw, 1.2rem);  /* supporting / hero sub */
+  --fs-body:    1.0625rem;                       /* ~17px reading size */
+  --fs-small:   0.875rem;
+  --fs-micro:   0.75rem;
+  --fs-stat:    clamp(2.5rem, 4.8vw, 4.25rem);
+  /* Company short-name heroes (calmer than full --fs-hero) */
+  --fs-hero-company: clamp(2rem, 4.6vw, 3.6rem);
+
   /* - Body type - */
-  --body-size:               16px;
-  --body-line-height:        1.7;
-  --title-letter-spacing:    -0.015em;
+  --body-size:               17px;
+  --body-line-height:        1.65;
+  --title-letter-spacing:    -0.02em;   /* Jost display: slight tighten */
+  --display-letter-spacing:  -0.01em;
+  --display-line-height:     1.05;     /* was ~0.95 for condensed Bebas */
 
   /* - Borders / elevation - */
   --color-border:            rgba(1, 129, 187, 0.12);
@@ -159,8 +181,67 @@
   --font-display: var(--font-heading);
 }
 
+/* Tablet: nudge display hierarchy down so Jost doesn’t dominate mid-widths */
+@media (max-width: 960px) {
+  :root {
+    --fs-hero:    clamp(1.9rem, 5.5vw, 3.5rem);
+    --fs-display: clamp(1.55rem, 3.8vw, 2.6rem);
+    --fs-title:   clamp(1.3rem, 2.8vw, 1.9rem);
+    --fs-stat:    clamp(2.25rem, 5.5vw, 3.5rem);
+    --fs-hero-company: clamp(1.85rem, 5vw, 3.1rem);
+    --nav-link-size: 0.86rem;
+  }
+}
+
 @media (max-width: 720px) {
   :root {
     --nav-logo-letterbox-scale: 1.35;
+    --fs-hero:    clamp(1.85rem, 7.2vw, 2.75rem);
+    --fs-display: clamp(1.45rem, 5.5vw, 2.15rem);
+    --fs-title:   clamp(1.25rem, 4.2vw, 1.7rem);
+    --fs-lede:    1.05rem;
+    --fs-stat:    clamp(2.1rem, 8vw, 2.85rem);
+    --fs-hero-company: clamp(1.75rem, 6.5vw, 2.5rem);
+    --nav-link-size: 0.9rem; /* mobile drawer / pill legibility */
+    --eyebrow-size: 0.72rem;
+    --breadcrumb-size: 0.72rem;
+    --body-size: 16px;
+    --body-line-height: 1.7;
+  }
+}
+
+/* Arabic / Hindi: Noto fallbacks + denser scripts — calm oversized display clamps */
+html[lang="ar"],
+html[lang="hi"] {
+  --fs-hero:    clamp(1.85rem, 4.5vw, 3.5rem);
+  --fs-display: clamp(1.5rem, 3.2vw, 2.65rem);
+  --fs-title:   clamp(1.25rem, 2.2vw, 1.9rem);
+  --fs-lede:    clamp(1.05rem, 1.3vw, 1.175rem);
+  --fs-stat:    clamp(2.25rem, 4.2vw, 3.5rem);
+  --fs-hero-company: clamp(1.75rem, 4.2vw, 3rem);
+  --title-letter-spacing: 0;
+  --display-letter-spacing: 0;
+  --display-line-height: 1.15;
+  --eyebrow-letter-spacing: 0.08em;
+  --breadcrumb-letter-spacing: 0.08em;
+  --body-line-height: 1.8;
+}
+
+html[lang="ar"] {
+  --body-line-height: 1.85;
+  --fs-body: 1.0625rem;
+}
+
+html[lang="hi"] {
+  --body-line-height: 1.75;
+}
+
+@media (max-width: 720px) {
+  html[lang="ar"],
+  html[lang="hi"] {
+    --fs-hero:    clamp(1.7rem, 6.5vw, 2.45rem);
+    --fs-display: clamp(1.35rem, 5vw, 1.95rem);
+    --fs-title:   clamp(1.2rem, 4vw, 1.55rem);
+    --fs-hero-company: clamp(1.6rem, 6vw, 2.25rem);
   }
 }

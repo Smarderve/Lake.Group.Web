@@ -67,7 +67,7 @@ const NEW = {
     'leadership.104':
       'Forbes-featured entrepreneur who founded Lake Oil in 2006 and built Lake Group into one of East and Central Africa’s leading energy, logistics and industrial conglomerates.',
     'leadership.105':
-      'Leads Lake Group’s structural industrial expansions - most notably Lake Steel - spanning production infrastructure, manufacturing output, concrete products and construction supply networks.',
+      "With over two decades of leadership experience spanning manufacturing, operations, logistics, administration and strategic business development, Dilip Kumar has built a distinguished career delivering operational excellence across diverse industries in India and East Africa.",
     'leadership.106':
       'Owns enterprise technology architecture and digital strategy - from centralised SAP environments to logistics intelligence and cross-border data security.',
     'leadership.107':
@@ -89,11 +89,13 @@ const NEW = {
     'leadership.116': 'Governance and long-term value creation',
     // Dilip Kumar
     'leadership.117':
-      'As Manufacturing CEO, Dilip Kumar’s mandate sits at the industrial heart of the Group’s diversification beyond petroleum. Lake Steel operates a computerized automatic rolling mill at Visiga, Kibaha (Plot 118, Block M), with throughput up to about 25 tonnes/hour and annual capacity around 100,000 MT - with publicly discussed expansion toward 150,000 MT.',
+      "Having been part of Lake Group for more than fourteen years, he has played a pivotal role in transforming the organization’s operational capabilities and supporting its expansion across multiple business verticals. His expertise ranges from establishing greenfield manufacturing facilities and industrial infrastructure to leading large-scale operational transformations, regulatory compliance, supply chain optimization and people development.",
     'leadership.118':
-      'The mill introduced high-strength corrosion-resistant (HS-CR) rebar to Tanzania, engineered to retain strength at elevated temperatures and deliver markedly higher corrosion resistance than ordinary rebar.',
+      "Throughout his career, Dilip has successfully led cross-functional teams, established manufacturing units from concept to commercial production, strengthened governance frameworks, and implemented systems that improved operational efficiency while maintaining the highest standards of safety and compliance.",
     'leadership.119':
-      'His portfolio also connects to the Group’s construction-materials chain: Gulf Aggregates crushing plants, Lake Premix / GCCP ready-mix operations in Dar es Salaam, and the wider building-products ecosystem that supplies contractors and infrastructure projects.',
+      "Known for his collaborative leadership style, strategic thinking and execution excellence, he has consistently delivered sustainable business growth by building high-performing teams, fostering innovation and developing scalable operational processes.",
+    'leadership.165':
+      "As Chief Executive Officer, Manufacturing, Dilip is committed to driving operational excellence, sustainable industrial growth and technological advancement while strengthening Lake Group’s position as a leading manufacturing organization across the region.",
     'leadership.120': 'Lake Steel production infrastructure & mill output',
     'leadership.121': 'Concrete products & construction supply networks',
     'leadership.122': 'Industrial expansion programmes across manufacturing units',
@@ -195,7 +197,7 @@ NEW.fr = {
   'leadership.104':
     'Entrepreneur mis en avant par Forbes, fondateur de Lake Oil en 2006, qui a fait de Lake Group l’un des principaux conglomérats énergétiques, logistiques et industriels d’Afrique de l’Est et centrale.',
   'leadership.105':
-    'Dirige les expansions industrielles structurelles de Lake Group - notamment Lake Steel - couvrant les infrastructures de production, la fabrication, les produits en béton et les réseaux d’approvisionnement construction.',
+    "Fort de plus de vingt ans d’expérience en leadership dans la fabrication, les opérations, la logistique, l’administration et le développement stratégique, Dilip Kumar a bâti une carrière remarquable au service de l’excellence opérationnelle dans divers secteurs en Inde et en Afrique de l’Est.",
   'leadership.106':
     'Porte l’architecture technologique d’entreprise et la stratégie digitale - des environnements SAP centralisés à l’intelligence logistique et à la sécurité des données transfrontalières.',
   'leadership.107':
@@ -215,11 +217,13 @@ NEW.fr = {
   'leadership.115': 'Expansion régionale et partenariats en capital',
   'leadership.116': 'Gouvernance et création de valeur à long terme',
   'leadership.117':
-    'En tant que PDG Manufacturing, le mandat de Dilip Kumar se situe au cœur industriel de la diversification du Groupe au-delà du pétrole. Lake Steel exploite un laminoir automatique informatisé à Visiga, Kibaha (Plot 118, Block M), avec un débit jusqu’à environ 25 tonnes/heure et une capacité annuelle d’environ 100 000 TM - avec une expansion discutée publiquement vers 150 000 TM.',
+    "Membre de Lake Group depuis plus de quatorze ans, il a joué un rôle déterminant dans la transformation des capacités opérationnelles de l’organisation et dans le soutien de son expansion à travers plusieurs verticales d’activité. Son expertise couvre la création d’installations de fabrication greenfield et d’infrastructures industrielles, ainsi que la conduite de transformations opérationnelles à grande échelle, la conformité réglementaire, l’optimisation de la chaîne d’approvisionnement et le développement des talents.",
   'leadership.118':
-    'L’usine a introduit en Tanzanie le fer à béton HS-CR (haute résistance à la corrosion), conçu pour conserver sa résistance à des températures élevées et offrir une résistance à la corrosion nettement supérieure au fer à béton ordinaire.',
+    "Tout au long de sa carrière, Dilip a dirigé avec succès des équipes transverses, créé des unités de fabrication du concept à la production commerciale, renforcé les cadres de gouvernance et mis en place des systèmes qui ont amélioré l’efficacité opérationnelle tout en maintenant les plus hauts standards de sécurité et de conformité.",
   'leadership.119':
-    'Son portefeuille s’étend aussi à la chaîne des matériaux de construction du Groupe : usines de concassage Gulf Aggregates, opérations de béton prêt à l’emploi Lake Premix / GCCP à Dar es Salaam, et l’écosystème plus large des produits de construction qui alimente les entrepreneurs et les projets d’infrastructure.',
+    "Reconnu pour son style de leadership collaboratif, sa pensée stratégique et son excellence dans l’exécution, il a constamment généré une croissance durable en constituant des équipes performantes, en favorisant l’innovation et en développant des processus opérationnels évolutifs.",
+    'leadership.165':
+      "En tant que Chief Executive Officer, Manufacturing, Dilip s’engage à promouvoir l’excellence opérationnelle, la croissance industrielle durable et le progrès technologique, tout en renforçant la position de Lake Group comme organisation manufacturière de premier plan dans la région.",
   'leadership.120': 'Infrastructures de production Lake Steel et sortie d’usine',
   'leadership.121': 'Produits en béton et réseaux d’approvisionnement construction',
   'leadership.122': 'Programmes d’expansion industrielle dans les unités de fabrication',
@@ -316,7 +320,7 @@ NEW.sw = {
   'leadership.104':
     'Mjasiriamali aliyetajwa na Forbes aliyeanzisha Lake Oil mwaka 2006 na kuijenga Lake Group kuwa mojawapo ya makundi makubwa ya nishati, usafirishaji na viwanda Afrika Mashariki na Kati.',
   'leadership.105':
-    'Anaongoza upanuzi wa viwanda wa kimuundo wa Lake Group - hasa Lake Steel - unaojumuisha miundombinu ya uzalishaji, pato la utengenezaji, bidhaa za saruji na mitandao ya ugavi wa ujenzi.',
+    "Akiwa na uzoefu wa uongozi wa zaidi ya miongo miwili unaojumuisha utengenezaji, shughuli, usafirishaji, utawala na maendeleo ya kimkakati ya biashara, Dilip Kumar amejenga taaluma mashuhuri katika kuleta ubora wa kiutendaji katika sekta mbalimbali nchini India na Afrika Mashariki.",
   'leadership.106':
     'Anamiliki usanifu wa teknolojia ya biashara na mkakati wa kidijitali - kutoka mazingira ya SAP yaliyowekwa katikati hadi akili ya usafirishaji na usalama wa data wa kuvuka mipaka.',
   'leadership.107':
@@ -336,11 +340,13 @@ NEW.sw = {
   'leadership.115': 'Upanuzi wa kikanda na ushirikiano wa mitaji',
   'leadership.116': 'Utawala na uundaji wa thamani wa muda mrefu',
   'leadership.117':
-    'Kama Mkurugenzi Mtendaji wa Utengenezaji, jukumu la Dilip Kumar liko katikati ya mseto wa viwanda wa Kundi zaidi ya petroli. Lake Steel inaendesha kiwanda cha rolling mill cha kiotomatiki chenye kompyuta huko Visiga, Kibaha (Plot 118, Block M), chenye uwezo wa hadi tani 25/saa na uwezo wa kila mwaka wa takriban MT 100,000 - na upanuzi unaozungumzwa hadharani kuelekea MT 150,000.',
+    "Akiwa sehemu ya Lake Group kwa zaidi ya miaka kumi na nne, amecheza jukumu muhimu katika kubadilisha uwezo wa kiutendaji wa shirika na kuunga mkono upanuzi wake katika wima mbalimbali za biashara. Utaalamu wake unajumuisha kuanzisha viwanda vipya na miundombinu ya viwanda, kuongoza mabadiliko makubwa ya kiutendaji, kufuata kanuni, kuboresha minyororo ya ugavi, na kukuza watu.",
   'leadership.118':
-    'Kiwanda kilileta Tanzania chuma cha HS-CR chenye nguvu na kinachostahimili kutu, kilichoundwa kudumisha nguvu katika joto la juu na kutoa ustahimilivu wa kutu ulio juu sana kuliko chuma cha kawaida.',
+    "Katika taaluma yake yote, Dilip ameongoza kwa ufanisi timu za nidhamu mbalimbali, kuanzisha vitengo vya utengenezaji kutoka dhana hadi uzalishaji wa kibiashara, kuimarisha mifumo ya utawala, na kutekeleza mifumo iliyoboresha ufanisi wa kiutendaji huku akidumisha viwango vya juu zaidi vya usalama na uzingatiaji wa kanuni.",
   'leadership.119':
-    'Pia jalada lake linaunganishwa na mnyororo wa vifaa vya ujenzi wa Kundi: mimea ya kusagisha ya Gulf Aggregates, shughuli za saruji tayari kuchanganywa za Lake Premix / GCCP huko Dar es Salaam, na mfumo mpana wa bidhaa za ujenzi unaotumikia makandarasi na miradi ya miundombinu.',
+    "Anajulikana kwa mtindo wake wa uongozi wa ushirikiano, fikra za kimkakati na ubora katika utekelezaji; ameendelea kuleta ukuaji endelevu wa biashara kwa kujenga timu zenye utendaji wa juu, kukuza ubunifu na kuendeleza michakato ya kiutendaji inayoweza kupanuka.",
+    'leadership.165':
+      "Kama Chief Executive Officer, Manufacturing, Dilip amejitolea kuendesha ubora wa kiutendaji, ukuaji endelevu wa viwanda na maendeleo ya kiteknolojia huku akiimarisha nafasi ya Lake Group kama shirika linaloongoza katika utengenezaji katika eneo hili.",
   'leadership.120': 'Miundombinu ya uzalishaji wa Lake Steel na pato la kiwanda',
   'leadership.121': 'Bidhaa za saruji na mitandao ya ugavi wa ujenzi',
   'leadership.122': 'Programu za upanuzi wa viwanda katika vitengo vya utengenezaji',
@@ -437,7 +443,7 @@ NEW.hi = {
   'leadership.104':
     'Forbes में प्रदर्शित उद्यमी जिन्होंने 2006 में Lake Oil की स्थापना की और Lake Group को पूर्वी और मध्य अफ़्रीका के अग्रणी ऊर्जा, लॉजिस्टिक्स और औद्योगिक समूहों में से एक बनाया।',
   'leadership.105':
-    'Lake Group के संरचनात्मक औद्योगिक विस्तार का नेतृत्व करते हैं - विशेष रूप से Lake Steel - जिसमें उत्पादन अवसंरचना, विनिर्माण आउटपुट, कंक्रीट उत्पाद और निर्माण आपूर्ति नेटवर्क शामिल हैं।',
+    "Com mais de duas décadas de experiência em liderança nas áreas de manufatura, operações, logística, administração e desenvolvimento estratégico de negócios, Dilip Kumar construiu uma carreira distinta na entrega de excelência operacional em diversos setores na Índia e na África Oriental.",
   'leadership.106':
     'एंटरप्राइज़ प्रौद्योगिकी आर्किटेक्चर और डिजिटल रणनीति के स्वामी - केंद्रीकृत SAP वातावरण से लेकर लॉजिस्टिक्स इंटेलिजेंस और सीमा-पार डेटा सुरक्षा तक।',
   'leadership.107':
@@ -457,11 +463,13 @@ NEW.hi = {
   'leadership.115': 'क्षेत्रीय विस्तार और पूंजी साझेदारियाँ',
   'leadership.116': 'गवर्नेंस और दीर्घकालिक मूल्य सृजन',
   'leadership.117':
-    'विनिर्माण मुख्य कार्यकारी अधिकारी के रूप में, दिलीप कुमार का जनादेश पेट्रोलियम से परे समूह के विविधीकरण के औद्योगिक केंद्र में है। लेक स्टील Visiga, Kibaha (Plot 118, Block M) में कम्प्यूटरीकृत स्वचालित रोलिंग मिल संचालित करता है, जिसकी थ्रूपुट लगभग 25 टन/घंटा और वार्षिक क्षमता लगभग 100,000 MT है - सार्वजनिक रूप से चर्चा किए गए विस्तार के साथ 150,000 MT की ओर।',
+    "Fazendo parte do Lake Group há mais de catorze anos, desempenhou um papel fundamental na transformação das capacidades operacionais da organização e no apoio à sua expansão em múltiplas verticais de negócio. A sua expertise abrange desde o estabelecimento de unidades industriais greenfield e infraestruturas industriais até a condução de transformações operacionais de grande escala, conformidade regulatória, otimização da cadeia de abastecimento e desenvolvimento de pessoas.",
   'leadership.118':
-    'मिल ने तंज़ानिया में उच्च-शक्ति जंग-प्रतिरोधी (HS-CR) रीबार पेश किया, जिसे ऊँचे तापमान पर शक्ति बनाए रखने और सामान्य रीबार से कहीं अधिक जंग प्रतिरोध देने के लिए डिज़ाइन किया गया है।',
+    "Ao longo da sua carreira, Dilip liderou com sucesso equipas multifuncionais, estabeleceu unidades de manufatura do conceito à produção comercial, reforçou estruturas de governação e implementou sistemas que melhoraram a eficiência operacional, mantendo os mais elevados padrões de segurança e conformidade.",
   'leadership.119':
-    'उनका पोर्टफ़ोलियो समूह की निर्माण-सामग्री श्रृंखला से भी जुड़ा है: Gulf Aggregates क्रशिंग प्लांट, दार एस सलाम में Lake Premix / GCCP रेडी-मिक्स संचालन, और व्यापक बिल्डिंग-प्रोडक्ट इकोसिस्टम जो ठेकेदारों और अवसंरचना परियोजनाओं की आपूर्ति करता है।',
+    "Conhecido pelo seu estilo de liderança colaborativa, pensamento estratégico e excelência na execução, tem consistentemente gerado crescimento sustentável ao construir equipas de elevado desempenho, promover a inovação e desenvolver processos operacionais escaláveis.",
+    'leadership.165':
+      "Como Chief Executive Officer, Manufacturing, Dilip está empenhado em impulsionar a excelência operacional, o crescimento industrial sustentável e o avanço tecnológico, ao mesmo tempo que reforça a posição do Lake Group como uma organização industrial líder na região.",
   'leadership.120': 'Lake Steel उत्पादन अवसंरचना और मिल आउटपुट',
   'leadership.121': 'कंक्रीट उत्पाद और निर्माण आपूर्ति नेटवर्क',
   'leadership.122': 'विनिर्माण इकाइयों में औद्योगिक विस्तार कार्यक्रम',
@@ -558,7 +566,7 @@ NEW.ar = {
   'leadership.104':
     'رائد أعمال أبرزته فوربس أسس Lake Oil عام 2006 وبنى Lake Group لتصبح من أبرز المجموعات الصناعية والطاقة واللوجستيات في شرق ووسط أفريقيا.',
   'leadership.105':
-    'يقود التوسعات الصناعية الهيكلية لـ Lake Group - ولا سيما Lake Steel - وتشمل بنية الإنتاج ومخرجات التصنيع ومنتجات الخرسانة وشبكات توريد البناء.',
+    "Con más de dos décadas de experiencia en liderazgo en manufactura, operaciones, logística, administración y desarrollo estratégico de negocios, Dilip Kumar ha construido una carrera destacada impulsando la excelencia operativa en diversas industrias de India y África Oriental.",
   'leadership.106':
     'يملك هندسة تكنولوجيا المؤسسة والاستراتيجية الرقمية - من بيئات SAP المركزية إلى ذكاء اللوجستيات وأمن البيانات عبر الحدود.',
   'leadership.107':
@@ -578,11 +586,13 @@ NEW.ar = {
   'leadership.115': 'التوسع الإقليمي وشراكات رأس المال',
   'leadership.116': 'الحوكمة وخلق القيمة على المدى الطويل',
   'leadership.117':
-    'بصفته الرئيس التنفيذي للتصنيع، يقع تفويض ديليب كومار في قلب التنويع الصناعي للمجموعة خارج النفط. وتشغّل ليك ستيل مطحنة درفلة آلية محوسبة في فيسيغا، كيباهة (القطعة ١١٨، البلوك M)، بطاقة إنتاج تصل إلى نحو ٢٥ طناً/ساعة وطاقة سنوية حوالي ١٠٠,٠٠٠ طن متري - مع توسع مناقش علناً نحو ١٥٠,٠٠٠ طن متري.',
+    "Tras más de catorce años en Lake Group, ha desempeñado un papel fundamental en la transformación de las capacidades operativas de la organización y en el apoyo a su expansión en múltiples verticales de negocio. Su experiencia abarca desde el establecimiento de instalaciones de manufactura greenfield e infraestructura industrial hasta la dirección de transformaciones operativas a gran escala, el cumplimiento normativo, la optimización de la cadena de suministro y el desarrollo de personas.",
   'leadership.118':
-    'أدخلت المطحنة حديد التسليح عالي القوة المقاوم للتآكل (HS-CR) إلى تنزانيا، المصمم للاحتفاظ بالقوة عند درجات حرارة مرتفعة وتقديم مقاومة تآكل أعلى بكثير من حديد التسليح العادي.',
+    "A lo largo de su carrera, Dilip ha liderado con éxito equipos multifuncionales, establecido unidades de manufactura desde el concepto hasta la producción comercial, fortalecido marcos de gobernanza e implementado sistemas que mejoraron la eficiencia operativa manteniendo los más altos estándares de seguridad y cumplimiento.",
   'leadership.119':
-    'يرتبط محفظته أيضاً بسلسلة مواد البناء للمجموعة: مصانع سحق Gulf Aggregates، وعمليات الخرسانة الجاهزة Lake Premix / GCCP في دار السلام، والنظام الأوسع لمنتجات البناء الذي يغذي المقاولين ومشاريع البنية التحتية.',
+    "Reconocido por su estilo de liderazgo colaborativo, pensamiento estratégico y excelencia en la ejecución, ha impulsado de forma constante un crecimiento empresarial sostenible mediante la creación de equipos de alto rendimiento, el fomento de la innovación y el desarrollo de procesos operativos escalables.",
+    'leadership.165':
+      "Como Chief Executive Officer, Manufacturing, Dilip está comprometido con impulsar la excelencia operativa, el crecimiento industrial sostenible y el avance tecnológico, al tiempo que fortalece la posición de Lake Group como una organización manufacturera líder en la región.",
   'leadership.120': 'بنية إنتاج Lake Steel ومخرجات المطحنة',
   'leadership.121': 'منتجات الخرسانة وشبكات توريد البناء',
   'leadership.122': 'برامج التوسع الصناعي عبر وحدات التصنيع',

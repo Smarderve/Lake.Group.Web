@@ -33,7 +33,7 @@ const LEADERS = [
     roleKey: 'leadership.18',
     sumKey: 'leadership.105',
     summary:
-      'Leads Lake Group’s structural industrial expansions - most notably Lake Steel - spanning production infrastructure, manufacturing output, concrete products and construction supply networks.',
+      "With over two decades of leadership experience spanning manufacturing, operations, logistics, administration and strategic business development, Dilip Kumar has built a distinguished career delivering operational excellence across diverse industries in India and East Africa.",
   },
 {
     id: 'bibhuti-singh',

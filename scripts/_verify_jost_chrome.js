@@ -16,7 +16,7 @@ const html = `<!doctype html><html lang="fr"><head>
 <link rel="preload" href="/assets/fonts/files/jost-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/files/jost-latin-ext-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css?v=60">
-<link rel="stylesheet" href="/assets/tokens.css?v=60">
+<link rel="stylesheet" href="/assets/tokens.css?v=62">
 <style>
 body{font-family:var(--font-body);font-weight:400;font-size:28px;padding:40px}
 h1{font-family:var(--font-heading);font-weight:700}

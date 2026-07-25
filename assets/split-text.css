@@ -16,6 +16,11 @@
   vertical-align: baseline;
 }
 
+/* Keep whole words intact when chars are nested (char mode) or animated (word mode) */
+.split-text .split-word {
+  white-space: nowrap;
+}
+
 /* Preserve block yellow line on home hero (<em>Central Africa</em>) */
 .hero h1.split-text em {
   display: block;

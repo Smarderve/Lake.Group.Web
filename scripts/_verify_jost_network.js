@@ -8,7 +8,7 @@ const root = path.resolve(__dirname, '..');
 const html = `<!doctype html><html lang="fr"><head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="/assets/fonts/fonts.css?v=60">
-<link rel="stylesheet" href="/assets/tokens.css?v=60">
+<link rel="stylesheet" href="/assets/tokens.css?v=62">
 <style>
 body{font-family:var(--font-body);font-weight:400;font-size:24px;padding:40px}
 h1{font-family:var(--font-heading);font-weight:700}

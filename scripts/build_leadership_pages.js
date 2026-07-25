@@ -64,11 +64,13 @@ const LEADERS = [
     photo: 'assets/images/leadership/sibtian-ansari.png',
     photoLogo: false,
     summary:
-      'Leads Lake Group’s structural industrial expansions - most notably Lake Steel - spanning production infrastructure, manufacturing output, concrete products and construction supply networks.',
+      "With over two decades of leadership experience spanning manufacturing, operations, logistics, administration and strategic business development, Dilip Kumar has built a distinguished career delivering operational excellence across diverse industries in India and East Africa.",
     paragraphs: [
-      'As Manufacturing CEO, Dilip Kumar’s mandate sits at the industrial heart of the Group’s diversification beyond petroleum. Lake Steel operates a computerized automatic rolling mill at Visiga, Kibaha (Plot 118, Block M), with throughput up to about 25 tonnes/hour and annual capacity around 100,000 MT - with publicly discussed expansion toward 150,000 MT.',
-      'The mill introduced high-strength corrosion-resistant (HS-CR) rebar to Tanzania, engineered to retain strength at elevated temperatures and deliver markedly higher corrosion resistance than ordinary rebar.',
-      'His portfolio also connects to the Group’s construction-materials chain: Gulf Aggregates crushing plants, Lake Premix / GCCP ready-mix operations in Dar es Salaam, and the wider building-products ecosystem that supplies contractors and infrastructure projects.',
+      "With over two decades of leadership experience spanning manufacturing, operations, logistics, administration and strategic business development, Dilip Kumar has built a distinguished career delivering operational excellence across diverse industries in India and East Africa.",
+      "Having been part of Lake Group for more than fourteen years, he has played a pivotal role in transforming the organization’s operational capabilities and supporting its expansion across multiple business verticals. His expertise ranges from establishing greenfield manufacturing facilities and industrial infrastructure to leading large-scale operational transformations, regulatory compliance, supply chain optimization and people development.",
+      "Throughout his career, Dilip has successfully led cross-functional teams, established manufacturing units from concept to commercial production, strengthened governance frameworks, and implemented systems that improved operational efficiency while maintaining the highest standards of safety and compliance.",
+      "Known for his collaborative leadership style, strategic thinking and execution excellence, he has consistently delivered sustainable business growth by building high-performing teams, fostering innovation and developing scalable operational processes.",
+      "As Chief Executive Officer, Manufacturing, Dilip is committed to driving operational excellence, sustainable industrial growth and technological advancement while strengthening Lake Group’s position as a leading manufacturing organization across the region.",
     ],
     mandate: [
       'Lake Steel production infrastructure & mill output',

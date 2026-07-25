@@ -102,19 +102,29 @@
   }
 
   function wrapCharsInText(text, className) {
+    // Nest chars inside word wrappers so inline-block chars cannot wrap mid-word
+    // (e.g. LEADERS|HIP). Line breaks stay at spaces only.
     var frag = document.createDocumentFragment();
-    var chars = Array.from(text);
-    for (var i = 0; i < chars.length; i++) {
-      var ch = chars[i];
-      if (ch === ' ') {
-        frag.appendChild(document.createTextNode(' '));
+    var parts = text.split(/(\s+)/);
+    for (var i = 0; i < parts.length; i++) {
+      var part = parts[i];
+      if (!part) continue;
+      if (/^\s+$/.test(part)) {
+        frag.appendChild(document.createTextNode(part));
         continue;
       }
-      var span = document.createElement('span');
-      span.className = className;
-      span.setAttribute('aria-hidden', 'true');
-      span.textContent = ch;
-      frag.appendChild(span);
+      var word = document.createElement('span');
+      word.className = 'split-word';
+      word.setAttribute('aria-hidden', 'true');
+      var chars = Array.from(part);
+      for (var j = 0; j < chars.length; j++) {
+        var span = document.createElement('span');
+        span.className = className;
+        span.setAttribute('aria-hidden', 'true');
+        span.textContent = chars[j];
+        word.appendChild(span);
+      }
+      frag.appendChild(word);
     }
     return frag;
   }

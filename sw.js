@@ -8,12 +8,12 @@
  * Bump VERSION on any deploy that changes HTML, images, or precached files;
  * activation deletes every cache from older versions so offline matches online.
  *
- * v61: Jost latin + latin-ext (accented Latin); Inter/Bebas files removed.
+ * v65: Nav dropdown hover-intent — no premature megamenu open.
  */
 
 'use strict';
 
-const VERSION = 'v61';
+const VERSION = 'v65';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -44,20 +44,20 @@ const PRECACHE_URLS = [
   './lake-trans.html',
   './manifest.webmanifest',
   './assets/pwa.js?v=60',
-  './assets/site.js?v=58',
-  './assets/tokens.css?v=60',
-  './assets/theme.css?v=77',
-  './assets/flagship.css?v=77',
+  './assets/site.js?v=60',
+  './assets/tokens.css?v=62',
+  './assets/theme.css?v=82',
+  './assets/flagship.css?v=82',
   './assets/skeleton.css?v=3',
   './assets/skeleton.js?v=3',
   './assets/motion.js?v=58',
   './assets/flagship-motion.js?v=58',
-  './assets/split-text.js',
-  './assets/split-text.css',
+  './assets/split-text.js?v=47',
+  './assets/split-text.css?v=47',
   './assets/vendor/gsap/gsap.min.js',
   './assets/vendor/gsap/ScrollTrigger.min.js',
   './assets/i18n.js?v=58',
-  './assets/i18n-content.js?v=58',
+  './assets/i18n-content.js?v=60',
   './assets/assistant.js?v=60',
   './assets/assistant.css?v=71',
   './assets/assistant-kb.js',
