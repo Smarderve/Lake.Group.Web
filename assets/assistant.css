@@ -33,7 +33,7 @@
   --la-line-strong: rgba(1, 129, 187, 0.22);
   --la-radius: var(--radius, 4px);
   --la-radius-lg: var(--radius-lg, 10px);
-  --la-font: var(--font-body, 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif);
+  --la-font: var(--font-body, 'Jost', 'Noto Sans Arabic', 'Noto Sans Devanagari', system-ui, -apple-system, 'Segoe UI', sans-serif);
   --la-shadow: var(--shadow-lg, 0 14px 48px rgba(1, 63, 92, 0.18));
 
   position: fixed;

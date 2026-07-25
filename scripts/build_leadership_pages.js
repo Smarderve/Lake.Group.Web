@@ -23,7 +23,7 @@ const footer = html.slice(footerStart);
 const LOGO = 'assets/images/logos/LAKE_GROUP_LOGO.png';
 
 const LEADERS = [
-  {
+{
     id: 'ally-edha-awadh',
     name: 'Ally Edha Awadh',
     role: 'Executive Chairman & Owner',
@@ -52,11 +52,73 @@ const LEADERS = [
     links: [
       ['Meet the full team', 'leadership.html'],
       ['Our history', 'history.html'],
-      ['Contact Group HQ', 'contact.html'],
+
     ],
-    emailSubject: 'Attention: Office of the Chairman',
+
   },
-  {
+{
+    id: 'dileep-kumar',
+    name: 'Dilip Kumar',
+    role: 'CEO · Manufacturing Division',
+    unit: 'Manufacturing',
+    photo: 'assets/images/leadership/sibtian-ansari.png',
+    photoLogo: false,
+    summary:
+      'Leads Lake Group’s structural industrial expansions - most notably Lake Steel - spanning production infrastructure, manufacturing output, concrete products and construction supply networks.',
+    paragraphs: [
+      'As Manufacturing CEO, Dilip Kumar’s mandate sits at the industrial heart of the Group’s diversification beyond petroleum. Lake Steel operates a computerized automatic rolling mill at Visiga, Kibaha (Plot 118, Block M), with throughput up to about 25 tonnes/hour and annual capacity around 100,000 MT - with publicly discussed expansion toward 150,000 MT.',
+      'The mill introduced high-strength corrosion-resistant (HS-CR) rebar to Tanzania, engineered to retain strength at elevated temperatures and deliver markedly higher corrosion resistance than ordinary rebar.',
+      'His portfolio also connects to the Group’s construction-materials chain: Gulf Aggregates crushing plants, Lake Premix / GCCP ready-mix operations in Dar es Salaam, and the wider building-products ecosystem that supplies contractors and infrastructure projects.',
+    ],
+    mandate: [
+      'Lake Steel production infrastructure & mill output',
+      'Concrete products & construction supply networks',
+      'Industrial expansion programmes across manufacturing units',
+    ],
+    meta: [
+      ['HS-CR', 'Steel technology'],
+      ['~100k MT', 'Annual capacity'],
+      ['Kibaha', 'Mill location'],
+    ],
+    links: [
+      ['Lake Steel', 'lake-steel.html'],
+      ['Lake Premix & Cement', 'lake-premix-cement.html'],
+      ['Gulf Aggregates', 'gulf-aggregates.html'],
+    ],
+
+  },
+{
+    id: 'bibhuti-singh',
+    name: 'Bibhuti Singh',
+    role: 'CFO · AFICD',
+    unit: 'Finance · Containers',
+    photo: 'assets/images/leadership/pankaj-kumar.png',
+    photoLogo: false,
+    summary:
+      'Oversees financial planning, risk analysis and corporate governance for African Inland Container Depot (AFICD) - Lake Group’s dry-port platform in Dar es Salaam.',
+    paragraphs: [
+      'AFICD is a core Group asset: an inland container depot at Tazara / Pugu Road with rail siding toward the port (~6 km), serving landlocked markets including Rwanda, Burundi, Uganda, DRC, Zambia and Malawi.',
+      'The Dar yard covers about 14,000 m² with capacity around 4,000 TEU, SAP-based operations, container repairs, and sister sites in Zambia (Ndola) and Mozambique (Beira). ACFS extends the brand into a larger CFS terminal with warehouse, weighbridge and reefer capacity.',
+      'As CFO, Singh’s brief is capital discipline and governance around that cargo engine - planning, risk and controls for import-export volumes, customs-linked workflows and container clearing.',
+    ],
+    mandate: [
+      'Financial planning & performance for AFICD',
+      'Risk analysis & corporate governance',
+      'Support for ICD / CFS commercial operations',
+    ],
+    meta: [
+      ['4,000', 'TEU capacity (Dar)'],
+      ['Pugu Rd', 'Depot location'],
+      ['3', 'Country sites'],
+    ],
+    links: [
+      ['AFICD', 'aficd.html'],
+      ['Container services', 'container-services.html'],
+
+    ],
+
+  },
+{
     id: 'biji-lapat',
     name: 'Biji Lapat',
     role: 'Managing Director · Lake Energies',
@@ -86,40 +148,9 @@ const LEADERS = [
       ['Lake Lubes', 'lake-lubes.html'],
       ['Lake Aviation', 'lake-aviation.html'],
     ],
-    emailSubject: 'Attention: MD Lake Energies (Biji Lapat)',
+
   },
-  {
-    id: 'dileep-kumar',
-    name: 'Dileep Kumar',
-    role: 'CEO · Manufacturing Division',
-    unit: 'Manufacturing',
-    photo: 'assets/images/leadership/sibtian-ansari.png',
-    photoLogo: false,
-    summary:
-      'Leads Lake Group’s structural industrial expansions - most notably Lake Steel - spanning production infrastructure, manufacturing output, concrete products and construction supply networks.',
-    paragraphs: [
-      'As Manufacturing CEO, Dileep Kumar’s mandate sits at the industrial heart of the Group’s diversification beyond petroleum. Lake Steel operates a computerized automatic rolling mill at Visiga, Kibaha (Plot 118, Block M), with throughput up to about 25 tonnes/hour and annual capacity around 100,000 MT - with publicly discussed expansion toward 150,000 MT.',
-      'The mill introduced high-strength corrosion-resistant (HS-CR) rebar to Tanzania, engineered to retain strength at elevated temperatures and deliver markedly higher corrosion resistance than ordinary rebar.',
-      'His portfolio also connects to the Group’s construction-materials chain: Gulf Aggregates crushing plants, Lake Premix / GCCP ready-mix operations in Dar es Salaam, and the wider building-products ecosystem that supplies contractors and infrastructure projects.',
-    ],
-    mandate: [
-      'Lake Steel production infrastructure & mill output',
-      'Concrete products & construction supply networks',
-      'Industrial expansion programmes across manufacturing units',
-    ],
-    meta: [
-      ['HS-CR', 'Steel technology'],
-      ['~100k MT', 'Annual capacity'],
-      ['Kibaha', 'Mill location'],
-    ],
-    links: [
-      ['Lake Steel', 'lake-steel.html'],
-      ['Lake Premix & Cement', 'lake-premix-cement.html'],
-      ['Gulf Aggregates', 'gulf-aggregates.html'],
-    ],
-    emailSubject: 'Attention: CEO Manufacturing (Dileep Kumar)',
-  },
-  {
+{
     id: 'sridhar-mani',
     name: 'Sridhar Mani',
     role: 'Director of Digital Transformation',
@@ -148,9 +179,9 @@ const LEADERS = [
       ['Africa network', 'africa-network.html'],
       ['AFICD', 'aficd.html'],
     ],
-    emailSubject: 'Attention: Director Digital Transformation (Sridhar Mani)',
+
   },
-  {
+{
     id: 'mohammed-khalid',
     name: 'Mohammed Khalid',
     role: 'Managing Director · ATL',
@@ -179,40 +210,9 @@ const LEADERS = [
       ['ATL', 'https://atl-tz.com'],
       ['Fleet profile', 'fleet.html'],
     ],
-    emailSubject: 'Attention: MD ATL (Mohammed Khalid)',
+
   },
-  {
-    id: 'bibhuti-singh',
-    name: 'Bibhuti Singh',
-    role: 'CFO · AFICD',
-    unit: 'Finance · Containers',
-    photo: 'assets/images/leadership/pankaj-kumar.png',
-    photoLogo: false,
-    summary:
-      'Oversees financial planning, risk analysis and corporate governance for African Inland Container Depot (AFICD) - Lake Group’s dry-port platform in Dar es Salaam.',
-    paragraphs: [
-      'AFICD is a core Group asset: an inland container depot at Tazara / Pugu Road with rail siding toward the port (~6 km), serving landlocked markets including Rwanda, Burundi, Uganda, DRC, Zambia and Malawi.',
-      'The Dar yard covers about 14,000 m² with capacity around 4,000 TEU, SAP-based operations, container repairs, and sister sites in Zambia (Ndola) and Mozambique (Beira). ACFS extends the brand into a larger CFS terminal with warehouse, weighbridge and reefer capacity.',
-      'As CFO, Singh’s brief is capital discipline and governance around that cargo engine - planning, risk and controls for import-export volumes, customs-linked workflows and container clearing.',
-    ],
-    mandate: [
-      'Financial planning & performance for AFICD',
-      'Risk analysis & corporate governance',
-      'Support for ICD / CFS commercial operations',
-    ],
-    meta: [
-      ['4,000', 'TEU capacity (Dar)'],
-      ['Pugu Rd', 'Depot location'],
-      ['3', 'Country sites'],
-    ],
-    links: [
-      ['AFICD', 'aficd.html'],
-      ['Container services', 'container-services.html'],
-      ['Contact Group', 'contact.html'],
-    ],
-    emailSubject: 'Attention: CFO AFICD (Bibhuti Singh)',
-  },
-  {
+{
     id: 'juma-nuru',
     name: 'Juma Nuru',
     role: 'Director of Operations · Lake Group',
@@ -241,9 +241,9 @@ const LEADERS = [
     links: [
       ['About Lake Group', 'about.html'],
       ['Our companies', 'services.html'],
-      ['Contact', 'contact.html'],
+
     ],
-    emailSubject: 'Attention: Director of Operations (Juma Nuru)',
+
   },
 ];
 
@@ -351,7 +351,7 @@ a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
 }
 
 .ld-panel { background: var(--ink); padding: var(--sp-12) var(--sp-8); text-align: center; margin-top: var(--sp-16); }
-.ld-panel h3 { color: #fff; font-family: var(--font-display, var(--font-heading)); font-weight: 400; font-size: clamp(1.7rem, 3vw, 2.4rem); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: var(--sp-3); }
+.ld-panel h3 { color: #fff; font-family: var(--font-display, var(--font-heading)); font-weight: 700; font-size: clamp(1.7rem, 3vw, 2.4rem); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: var(--sp-3); }
 .ld-panel p { color: var(--ink-text, rgba(255,255,255,.85)); max-width: 560px; margin: 0 auto; }
 
 /* Profile page */
@@ -368,7 +368,7 @@ a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
 .lp-photo--logo { display: flex; align-items: center; justify-content: center; background: var(--surface); aspect-ratio: 1; }
 .lp-photo--logo img { width: 58%; height: auto; object-fit: contain; }
 .lp-unit { color: var(--gold-deep, var(--color-brand-blue)); font-size: var(--fs-micro, .72rem); font-weight: 700; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 10px; }
-.lp-name { font-family: var(--font-display, var(--font-heading)); font-weight: 400; font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1; text-transform: uppercase; letter-spacing: .02em; margin: 0 0 10px; color: var(--ink, var(--color-text-heading)); }
+.lp-name { font-family: var(--font-display, var(--font-heading)); font-weight: 700; font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1; text-transform: uppercase; letter-spacing: .02em; margin: 0 0 10px; color: var(--ink, var(--color-text-heading)); }
 .lp-role { font-size: 1.05rem; color: var(--mute); margin: 0 0 22px; }
 .lp-lede { font-size: 1.12rem; line-height: 1.65; color: var(--ink, var(--color-text-heading)); margin: 0 0 22px; max-width: 62ch; }
 .lp-body p { font-size: .98rem; line-height: 1.75; color: var(--mute, var(--color-text-body)); margin: 0 0 16px; max-width: 68ch; }
@@ -381,9 +381,6 @@ a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
 .lp-meta div { padding: 16px; background: var(--surface); border: 1px solid var(--line-2); }
 .lp-meta strong { display: block; font-size: 1.15rem; color: var(--ink, var(--color-text-heading)); margin-bottom: 4px; }
 .lp-meta span { font-size: .82rem; color: var(--mute); }
-.lp-contact { display: grid; gap: 10px; margin: 28px 0; padding: 20px; border: 1px solid var(--line-2); background: var(--surface); }
-.lp-contact strong { display: block; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-deep, var(--color-brand-blue)); margin-bottom: 4px; }
-.lp-contact a { color: var(--color-brand-blue, #0181BB); }
 .lp-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
 
 /* Prev / next as full leadership cards */
@@ -623,11 +620,6 @@ function buildProfile(leader, index) {
         </ul>
         <div class="lp-meta">
         ${meta}
-        </div>
-        <div class="lp-contact">
-          <div><strong>Group HQ</strong><span>Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055, Dar es Salaam, Tanzania</span></div>
-          <div><strong>Phone</strong><a href="tel:+255222780510">+255 222 780 510</a> · <a href="tel:+255222780479">+255 222 780 479</a></div>
-          <div><strong>Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=${encodeURIComponent(leader.emailSubject)}">admin@lakeoilgroup.com</a></div>
         </div>
         <div class="lp-links">
           ${links}

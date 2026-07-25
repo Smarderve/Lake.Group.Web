@@ -87,9 +87,9 @@ const NEW = {
     'leadership.114': 'Group strategy across energy, logistics and industry',
     'leadership.115': 'Regional expansion and capital partnerships',
     'leadership.116': 'Governance and long-term value creation',
-    // Dileep Kumar
+    // Dilip Kumar
     'leadership.117':
-      'As Manufacturing CEO, Dileep Kumar’s mandate sits at the industrial heart of the Group’s diversification beyond petroleum. Lake Steel operates a computerized automatic rolling mill at Visiga, Kibaha (Plot 118, Block M), with throughput up to about 25 tonnes/hour and annual capacity around 100,000 MT - with publicly discussed expansion toward 150,000 MT.',
+      'As Manufacturing CEO, Dilip Kumar’s mandate sits at the industrial heart of the Group’s diversification beyond petroleum. Lake Steel operates a computerized automatic rolling mill at Visiga, Kibaha (Plot 118, Block M), with throughput up to about 25 tonnes/hour and annual capacity around 100,000 MT - with publicly discussed expansion toward 150,000 MT.',
     'leadership.118':
       'The mill introduced high-strength corrosion-resistant (HS-CR) rebar to Tanzania, engineered to retain strength at elevated temperatures and deliver markedly higher corrosion resistance than ordinary rebar.',
     'leadership.119':
@@ -215,7 +215,7 @@ NEW.fr = {
   'leadership.115': 'Expansion régionale et partenariats en capital',
   'leadership.116': 'Gouvernance et création de valeur à long terme',
   'leadership.117':
-    'En tant que PDG Manufacturing, le mandat de Dileep Kumar se situe au cœur industriel de la diversification du Groupe au-delà du pétrole. Lake Steel exploite un laminoir automatique informatisé à Visiga, Kibaha (Plot 118, Block M), avec un débit jusqu’à environ 25 tonnes/heure et une capacité annuelle d’environ 100 000 TM - avec une expansion discutée publiquement vers 150 000 TM.',
+    'En tant que PDG Manufacturing, le mandat de Dilip Kumar se situe au cœur industriel de la diversification du Groupe au-delà du pétrole. Lake Steel exploite un laminoir automatique informatisé à Visiga, Kibaha (Plot 118, Block M), avec un débit jusqu’à environ 25 tonnes/heure et une capacité annuelle d’environ 100 000 TM - avec une expansion discutée publiquement vers 150 000 TM.',
   'leadership.118':
     'L’usine a introduit en Tanzanie le fer à béton HS-CR (haute résistance à la corrosion), conçu pour conserver sa résistance à des températures élevées et offrir une résistance à la corrosion nettement supérieure au fer à béton ordinaire.',
   'leadership.119':
@@ -336,7 +336,7 @@ NEW.sw = {
   'leadership.115': 'Upanuzi wa kikanda na ushirikiano wa mitaji',
   'leadership.116': 'Utawala na uundaji wa thamani wa muda mrefu',
   'leadership.117':
-    'Kama Mkurugenzi Mtendaji wa Utengenezaji, jukumu la Dileep Kumar liko katikati ya mseto wa viwanda wa Kundi zaidi ya petroli. Lake Steel inaendesha kiwanda cha rolling mill cha kiotomatiki chenye kompyuta huko Visiga, Kibaha (Plot 118, Block M), chenye uwezo wa hadi tani 25/saa na uwezo wa kila mwaka wa takriban MT 100,000 - na upanuzi unaozungumzwa hadharani kuelekea MT 150,000.',
+    'Kama Mkurugenzi Mtendaji wa Utengenezaji, jukumu la Dilip Kumar liko katikati ya mseto wa viwanda wa Kundi zaidi ya petroli. Lake Steel inaendesha kiwanda cha rolling mill cha kiotomatiki chenye kompyuta huko Visiga, Kibaha (Plot 118, Block M), chenye uwezo wa hadi tani 25/saa na uwezo wa kila mwaka wa takriban MT 100,000 - na upanuzi unaozungumzwa hadharani kuelekea MT 150,000.',
   'leadership.118':
     'Kiwanda kilileta Tanzania chuma cha HS-CR chenye nguvu na kinachostahimili kutu, kilichoundwa kudumisha nguvu katika joto la juu na kutoa ustahimilivu wa kutu ulio juu sana kuliko chuma cha kawaida.',
   'leadership.119':
@@ -667,7 +667,7 @@ function wireListing() {
     {
       href: 'leadership-dileep-kumar.html',
       nameKey: 'leadership.17',
-      name: 'Dileep Kumar',
+      name: 'Dilip Kumar',
       roleKey: 'leadership.18',
       role: 'CEO · Manufacturing Division',
       sumKey: 'leadership.105',
@@ -740,57 +740,24 @@ function crumb(name) {
 }
 
 function contactBlock() {
-  return `<div class="lp-contact">
-          <div><strong data-i18n="leadership.59">Group HQ</strong><span data-i18n="leadership.109">${HQ_ADDR}</span></div>
-          <div><strong data-i18n="leadership.60">Phone</strong><a href="tel:+255222780510">+255 222 780 510</a> · <a href="tel:+255222780479">+255 222 780 479</a></div>
-          <div><strong data-i18n="leadership.61">Email</strong>`;
-}
+  return `
 
-const PROFILES = {
-  'leadership-ally-edha-awadh.html': {
-    name: 'Ally Edha Awadh',
-    replaceArticle: true,
-    article: `
-        <div class="lp-unit" data-i18n="leadership.5">Group Leadership</div>
-        <h1 class="lp-name">Ally Edha Awadh</h1>
-        <p class="lp-role" data-i18n="leadership.8">Executive Chairman &amp; Owner</p>
-        <p class="lp-lede" data-i18n="leadership.104">${NEW.en['leadership.104']}</p>
-        <p data-i18n="leadership.110">${NEW.en['leadership.110']}</p>
-        <p data-i18n="leadership.111">${NEW.en['leadership.111']}</p>
-        <p data-i18n="leadership.112">${NEW.en['leadership.112']}</p>
-        <blockquote class="lp-quote" data-i18n="leadership.113">${NEW.en['leadership.113']}</blockquote>
-        <ul class="lp-mandate">
-          <li><span>01</span><span data-i18n="leadership.114">${NEW.en['leadership.114']}</span></li>
-          <li><span>02</span><span data-i18n="leadership.115">${NEW.en['leadership.115']}</span></li>
-          <li><span>03</span><span data-i18n="leadership.116">${NEW.en['leadership.116']}</span></li>
-        </ul>
-        <div class="lp-meta">
-        <div><strong data-i18n="leadership.85">Founded</strong><span>2006</span></div>
-        <div><strong data-i18n="leadership.86">Countries</strong><span>8+</span></div>
-        <div><strong data-i18n="leadership.87">People</strong><span>4,600+</span></div>
-        </div>
-        <div class="lp-contact">
-          <div><strong data-i18n="leadership.59">Group HQ</strong><span data-i18n="leadership.109">${HQ_ADDR}</span></div>
-          <div><strong data-i18n="leadership.60">Phone</strong><a href="tel:+255222780510">+255 222 780 510</a> · <a href="tel:+255222780479">+255 222 780 479</a></div>
-          <div><strong data-i18n="leadership.61">Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20Office%20of%20the%20Chairman">admin@lakeoilgroup.com</a></div>
-        </div>
         <div class="lp-links">
           <a href="leadership.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.65">Meet the full team</a>
           <a href="history.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.66">Our history</a>
-          <a href="contact.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.67">Contact Group HQ</a>
         </div>
         <div class="lp-nav">
           <a href="leadership-juma-nuru.html">← Juma Nuru</a>
           <a href="leadership.html" data-i18n="leadership.58">All leadership</a>
-          <a href="leadership-dileep-kumar.html">Dileep Kumar →</a>
+          <a href="leadership-dileep-kumar.html">Dilip Kumar →</a>
         </div>
       `
   },
   'leadership-dileep-kumar.html': {
-    name: 'Dileep Kumar',
+    name: 'Dilip Kumar',
     article: `
         <div class="lp-unit" data-i18n="leadership.76">Manufacturing</div>
-        <h1 class="lp-name">Dileep Kumar</h1>
+        <h1 class="lp-name">Dilip Kumar</h1>
         <p class="lp-role" data-i18n="leadership.18">CEO · Manufacturing Division</p>
         <p class="lp-lede" data-i18n="leadership.105">${NEW.en['leadership.105']}</p>
         <p data-i18n="leadership.117">${NEW.en['leadership.117']}</p>
@@ -807,11 +774,7 @@ const PROFILES = {
         <div><strong>~100k MT</strong><span data-i18n="leadership.102">Annual capacity</span></div>
         <div><strong>Kibaha</strong><span data-i18n="leadership.103">Mill location</span></div>
         </div>
-        <div class="lp-contact">
-          <div><strong data-i18n="leadership.59">Group HQ</strong><span data-i18n="leadership.109">${HQ_ADDR}</span></div>
-          <div><strong data-i18n="leadership.60">Phone</strong><a href="tel:+255222780510">+255 222 780 510</a> · <a href="tel:+255222780479">+255 222 780 479</a></div>
-          <div><strong data-i18n="leadership.61">Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20CEO%20Manufacturing%20(Dileep Kumar)">admin@lakeoilgroup.com</a></div>
-        </div>
+
         <div class="lp-links">
           <a href="lake-steel.html" class="btn btn-outline-dark btn-sm" data-i18n="nav.co.lakeSteel">Lake Steel</a>
           <a href="lake-premix-cement.html" class="btn btn-outline-dark btn-sm" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a>
@@ -845,18 +808,14 @@ const PROFILES = {
         <div><strong>Fleet IQ</strong><span data-i18n="leadership.99">Logistics systems</span></div>
         <div><strong data-i18n="leadership.153">Multi-country</strong><span data-i18n="leadership.100">Security scope</span></div>
         </div>
-        <div class="lp-contact">
-          <div><strong data-i18n="leadership.59">Group HQ</strong><span data-i18n="leadership.109">${HQ_ADDR}</span></div>
-          <div><strong data-i18n="leadership.60">Phone</strong><a href="tel:+255222780510">+255 222 780 510</a> · <a href="tel:+255222780479">+255 222 780 479</a></div>
-          <div><strong data-i18n="leadership.61">Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20Director%20Digital%20Transformation%20(Sridhar%20Mani)">admin@lakeoilgroup.com</a></div>
-        </div>
+
         <div class="lp-links">
           <a href="fleet.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.69">Our fleet</a>
           <a href="africa-network.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.70">Africa network</a>
           <a href="aficd.html" class="btn btn-outline-dark btn-sm" data-i18n="nav.co.aficd">AFICD</a>
         </div>
         <div class="lp-nav">
-          <a href="leadership-dileep-kumar.html">← Dileep Kumar</a>
+          <a href="leadership-dileep-kumar.html">← Dilip Kumar</a>
           <a href="leadership.html" data-i18n="leadership.58">All leadership</a>
           <a href="leadership-mohammed-khalid.html">Mohammed Khalid →</a>
         </div>
@@ -883,11 +842,7 @@ const PROFILES = {
         <div><strong>700+</strong><span data-i18n="leadership.93">Group trucks</span></div>
         <div><strong>8+</strong><span data-i18n="leadership.94">Corridor countries</span></div>
         </div>
-        <div class="lp-contact">
-          <div><strong data-i18n="leadership.59">Group HQ</strong><span data-i18n="leadership.109">${HQ_ADDR}</span></div>
-          <div><strong data-i18n="leadership.60">Phone</strong><a href="tel:+255222780510">+255 222 780 510</a> · <a href="tel:+255222780479">+255 222 780 479</a></div>
-          <div><strong data-i18n="leadership.61">Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20MD%20ATL%20(Mohammed%20Khalid)">admin@lakeoilgroup.com</a></div>
-        </div>
+
         <div class="lp-links">
           <a href="lake-trans.html" class="btn btn-outline-dark btn-sm" data-i18n="nav.co.lakeTrans">Lake Trans</a>
           <a href="https://atl-tz.com" class="btn btn-outline-dark btn-sm" target="_blank" rel="noopener noreferrer" data-i18n="nav.co.atl">ATL</a>
@@ -921,14 +876,9 @@ const PROFILES = {
         <div><strong>Pugu Rd</strong><span data-i18n="leadership.96">Depot location</span></div>
         <div><strong>3</strong><span data-i18n="leadership.97">Country sites</span></div>
         </div>
-        <div class="lp-contact">
-          <div><strong data-i18n="leadership.59">Group HQ</strong><span data-i18n="leadership.109">${HQ_ADDR}</span></div>
-          <div><strong data-i18n="leadership.60">Phone</strong><a href="tel:+255222780510">+255 222 780 510</a> · <a href="tel:+255222780479">+255 222 780 479</a></div>
-          <div><strong data-i18n="leadership.61">Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20CFO%20AFICD%20(Bibhuti%20Singh)">admin@lakeoilgroup.com</a></div>
-        </div>
+
         <div class="lp-links">
           <a href="aficd.html" class="btn btn-outline-dark btn-sm" data-i18n="nav.co.aficd">AFICD</a>
-          <a href="contact.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.73">Contact Group</a>
         </div>
         <div class="lp-nav">
           <a href="leadership-mohammed-khalid.html">← Mohammed Khalid</a>
@@ -958,15 +908,10 @@ const PROFILES = {
         <div><strong data-i18n="leadership.81">Scope</strong><span data-i18n="leadership.82">Group-wide</span></div>
         <div><strong data-i18n="leadership.83">HQ</strong><span data-i18n="leadership.84">Dar es Salaam</span></div>
         </div>
-        <div class="lp-contact">
-          <div><strong data-i18n="leadership.59">Group HQ</strong><span data-i18n="leadership.109">${HQ_ADDR}</span></div>
-          <div><strong data-i18n="leadership.60">Phone</strong><a href="tel:+255222780510">+255 222 780 510</a> · <a href="tel:+255222780479">+255 222 780 479</a></div>
-          <div><strong data-i18n="leadership.61">Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20Director%20of%20Operations%20(Juma%20Nuru)">admin@lakeoilgroup.com</a></div>
-        </div>
+
         <div class="lp-links">
           <a href="about.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.62">About Lake Group</a>
           <a href="services.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.63">Our companies</a>
-          <a href="contact.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.64">Contact</a>
         </div>
         <div class="lp-nav">
           <a href="leadership-bibhuti-singh.html">← Bibhuti Singh</a>

@@ -13,11 +13,11 @@ The leaders published on the live Leadership page are **client-confirmed**:
 | # | Name | Title |
 |---|------|-------|
 | 1 | Ally Edha Awadh | Executive Chairman & Owner |
-| 2 | Biji Lapat | Managing Director · Lake Energies |
-| 3 | Dileep Kumar | CEO · Manufacturing Division |
-| 4 | Sridhar Mani | Director of Digital Transformation |
-| 5 | Mohammed Khalid | Managing Director · ATL |
-| 6 | Bibhuti Singh | CFO · AFICD |
+| 2 | Dilip Kumar | CEO · Manufacturing Division |
+| 3 | Bibhuti Singh | CFO · AFICD |
+| 4 | Biji Lapat | Managing Director · Lake Energies |
+| 5 | Sridhar Mani | Director of Digital Transformation |
+| 6 | Mohammed Khalid | Managing Director · ATL |
 | 7 | Juma Nuru | Director of Operations · Lake Group |
 | 8 | Nassoro Abubakari | Project Manager · Lake Agro |
 

@@ -11,9 +11,9 @@
        #0599D3, Sunrise Yellow #FFF200, White #FFFFFF.
      · Candy Red #D21404 is in the same PDF but intentionally OMITTED here
        per locked user decision (no red on the website).
-     · Lacoste is the print/guidelines typeface; no Lacoste webfont is
-       licensed in this repo. Web stacks follow home (index.html): Bebas Neue
-       display + Inter body.
+     · Lacoste Sans (Badani) is the print/guidelines typeface — exclusive,
+       not licensed as a webfont. Jost (OFL, via @fontsource) is the closest
+       free geometric stand-in: Regular body, Bold display/headings.
      · Navbar height, logo height, nav link metrics, active pill - home
        (index.html) + prior 60px logo standard (~17% below former 72px).
    ========================================================================== */
@@ -48,10 +48,18 @@
   --color-text-on-brand:     #FFFFFF;
   --color-text-on-brand-muted: rgba(255, 255, 255, 0.85);
 
-  /* - Type stacks (home; Lacoste unavailable as webfont) - */
-  --font-heading: "Bebas Neue", "Arial Narrow", sans-serif;
-  --font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-serif:   "Playfair Display", Georgia, serif;
+  /* - Type stacks (Jost = closest free Lacoste stand-in; not identical) - */
+  /* Jost first for all Latin (en/sw/fr/pt/es + accents via latin + latin-ext).
+     Arabic (ar) / Hindi (hi): Noto/system AFTER Jost so Latin letters still
+     prefer Jost; Arabic/Devanagari glyphs use the script fallbacks. */
+  --font-heading: "Jost", "Noto Sans Arabic", "Noto Naskh Arabic",
+                  "Noto Sans Devanagari", "Segoe UI", "Arial", sans-serif;
+  --font-body:    "Jost", "Noto Sans Arabic", "Noto Naskh Arabic",
+                  "Noto Sans Devanagari", system-ui, -apple-system,
+                  BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif:   "Playfair Display", "Jost", Georgia, serif;
+  --font-heading-weight: 700; /* Bold — guidelines: Lacoste Bold for headlines */
+  --font-body-weight:    400; /* Regular — guidelines: Lacoste Regular for body */
 
   /* - Chrome geometry - */
   --navbar-height:              72px;

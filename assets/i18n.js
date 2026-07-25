@@ -1,5 +1,5 @@
 /**
- * Lake Group i18n engine  EN / FR / SW / HI / AR.
+ * Lake Group i18n engine  EN / FR / SW / PT / ES / AR.
  *
  * Reads the full per-language content dictionary from
  * window.__LAKE_I18N_CONTENT__, which is set by assets/i18n-content.js
@@ -31,14 +31,15 @@
  */
 window.LakeI18n = (function () {
   const STORAGE_KEY = 'lake-lang';
-  const SUPPORTED = ['en', 'fr', 'sw', 'hi', 'ar'];
+  const SUPPORTED = ['en', 'fr', 'sw', 'pt', 'es', 'ar'];
   const RTL_LANGS = ['ar'];
   // ASCII-safe escapes so labels survive encoding mishaps in editors/tooling.
   const LANG_LABELS = {
     en: 'English',
     fr: 'Fran\u00e7ais',
     sw: 'Swahili',
-    hi: '\u0939\u093f\u0928\u094d\u0926\u0940',
+    pt: 'Portugu\u00eas',
+    es: 'Espa\u00f1ol',
     ar: '\u0627\u0644\u0639\u0631\u0628\u064a\u0629'
   };
 
@@ -69,13 +70,12 @@ window.LakeI18n = (function () {
       'Make sure assets/i18n-content.js is loaded with a <script> tag ' +
       'BEFORE assets/i18n.js on this page.'
     );
-    dictionaries = { en: {}, fr: {}, sw: {}, hi: {}, ar: {} };
+    dictionaries = { en: {}, fr: {}, sw: {}, pt: {}, es: {}, ar: {} };
     return Promise.resolve(dictionaries);
   }
 
   const DIGIT_MAPS = {
-    ar: ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'],
-    hi: ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९']
+    ar: ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩']
   };
 
   function formatNumberForLang(lang, value) {
@@ -106,7 +106,7 @@ window.LakeI18n = (function () {
     if (key) {
       let val = t(key, lang);
       if (val !== null) {
-        // Eastern Arabic / Devanagari digits for ar/hi display strings.
+        // Eastern Arabic digits for ar display strings.
         // Skip when data-i18n-latin-digits is present (e.g. emails, codes).
         if (!el.hasAttribute('data-i18n-latin-digits')) {
           val = localizeDigitsInText(lang, val);
@@ -189,7 +189,9 @@ window.LakeI18n = (function () {
       root.dataset.suggestLang = suggest;
     });
     document.querySelectorAll('.lang-trigger').forEach((trigger) => {
-      trigger.setAttribute('aria-label', label + ' | ' + suggestLabel);
+      // Compact mobile header shows selected language only; keep aria in sync.
+      trigger.setAttribute('aria-label', label);
+      trigger.setAttribute('title', label);
     });
   }
 

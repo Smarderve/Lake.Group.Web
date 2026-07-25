@@ -8,14 +8,12 @@
  * Bump VERSION on any deploy that changes HTML, images, or precached files;
  * activation deletes every cache from older versions so offline matches online.
  *
- * v59: respect ?v= cache-busting (do not serve old images via ignoreSearch
- * while online), expand offline precache for Energies pages + hero photos,
- * and force navigation/network fetches to revalidate so soft reloads update.
+ * v61: Jost latin + latin-ext (accented Latin); Inter/Bebas files removed.
  */
 
 'use strict';
 
-const VERSION = 'v59';
+const VERSION = 'v61';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -45,11 +43,11 @@ const PRECACHE_URLS = [
   './lake-steel.html',
   './lake-trans.html',
   './manifest.webmanifest',
-  './assets/pwa.js?v=59',
+  './assets/pwa.js?v=60',
   './assets/site.js?v=58',
-  './assets/tokens.css?v=58',
-  './assets/theme.css?v=75',
-  './assets/flagship.css?v=75',
+  './assets/tokens.css?v=60',
+  './assets/theme.css?v=77',
+  './assets/flagship.css?v=77',
   './assets/skeleton.css?v=3',
   './assets/skeleton.js?v=3',
   './assets/motion.js?v=58',
@@ -61,7 +59,7 @@ const PRECACHE_URLS = [
   './assets/i18n.js?v=58',
   './assets/i18n-content.js?v=58',
   './assets/assistant.js?v=60',
-  './assets/assistant.css?v=69',
+  './assets/assistant.css?v=71',
   './assets/assistant-kb.js',
   './assets/vendor/flexsearch/flexsearch.bundle.min.js',
   './assets/images/logos/LAKE_GROUP_LOGO.png',
@@ -72,14 +70,21 @@ const PRECACHE_URLS = [
   './assets/images/lakegas/ops/cylinders-yard.jpg?v=82',
   './assets/icons/pwa/icon-192.png',
   './assets/icons/pwa/icon-512.png',
-  './assets/fonts/fonts.css',
-  './assets/fonts/files/bebas-neue-latin-400-normal.woff2',
-  './assets/fonts/files/inter-latin-300-normal.woff2',
-  './assets/fonts/files/inter-latin-400-normal.woff2',
-  './assets/fonts/files/inter-latin-500-normal.woff2',
-  './assets/fonts/files/inter-latin-600-normal.woff2',
-  './assets/fonts/files/inter-latin-700-normal.woff2',
-  './assets/fonts/files/inter-latin-800-normal.woff2',
+  './assets/fonts/fonts.css?v=60',
+  './assets/fonts/files/jost-latin-100-normal.woff2',
+  './assets/fonts/files/jost-latin-300-normal.woff2',
+  './assets/fonts/files/jost-latin-400-normal.woff2',
+  './assets/fonts/files/jost-latin-500-normal.woff2',
+  './assets/fonts/files/jost-latin-600-normal.woff2',
+  './assets/fonts/files/jost-latin-700-normal.woff2',
+  './assets/fonts/files/jost-latin-800-normal.woff2',
+  './assets/fonts/files/jost-latin-ext-100-normal.woff2',
+  './assets/fonts/files/jost-latin-ext-300-normal.woff2',
+  './assets/fonts/files/jost-latin-ext-400-normal.woff2',
+  './assets/fonts/files/jost-latin-ext-500-normal.woff2',
+  './assets/fonts/files/jost-latin-ext-600-normal.woff2',
+  './assets/fonts/files/jost-latin-ext-700-normal.woff2',
+  './assets/fonts/files/jost-latin-ext-800-normal.woff2',
   './assets/fonts/files/playfair-display-latin-400-normal.woff2',
   './assets/fonts/files/playfair-display-latin-400-italic.woff2',
   './assets/fonts/files/playfair-display-latin-500-normal.woff2',

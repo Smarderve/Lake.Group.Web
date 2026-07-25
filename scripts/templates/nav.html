@@ -70,51 +70,55 @@
       <li><a href="news.html" data-i18n="nav.news">News</a></li>
       <li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
       <li><a href="contact.html" data-i18n="nav.contact">Contact Us</a></li>
-      <li class="lang-switcher" data-i18n-aria="lang.label" aria-label="Language">
-        <button type="button" class="lang-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" data-i18n-title="lang.label" title="Language">
-          <span class="lang-pair" aria-hidden="false">
-            <span class="lang-pair-selected" data-lang-label>English</span>
-            <span class="lang-pair-sep" aria-hidden="true">|</span>
-            <span class="lang-pair-suggest" data-lang-suggest data-lang="sw" role="link" tabindex="-1">Swahili</span>
-          </span>
-          <span class="lang-icons" aria-hidden="true">
-            <svg class="lang-globe" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" focusable="false">
-              <g class="lang-globe-spin">
-                <circle class="lang-globe-rim" cx="12" cy="12" r="9"/>
-                <ellipse class="lang-globe-meridian" cx="12" cy="12" rx="3.6" ry="9"/>
-                <path class="lang-globe-equator" d="M3.2 12h17.6"/>
-                <path class="lang-globe-lat" d="M5.1 7.6h13.8M5.1 16.4h13.8" opacity="0.85"/>
-              </g>
-            </svg>
-            <svg class="lang-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
-              <path d="M6 9l6 6 6-6"/>
-            </svg>
-          </span>
-        </button>
-        <div class="lang-menu" id="lang-menu" role="menu" hidden>
-          <button type="button" class="lang-menu-item lang-btn active" role="menuitem" data-lang="en" aria-current="true">
-            <span class="lang-menu-check" aria-hidden="true"></span>
-            <span class="lang-menu-label">English</span>
-          </button>
-          <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="sw">
-            <span class="lang-menu-check" aria-hidden="true"></span>
-            <span class="lang-menu-label">Swahili</span>
-          </button>
-          <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="fr">
-            <span class="lang-menu-check" aria-hidden="true"></span>
-            <span class="lang-menu-label">Français</span>
-          </button>
-          <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="hi">
-            <span class="lang-menu-check" aria-hidden="true"></span>
-            <span class="lang-menu-label">हिन्दी</span>
-          </button>
-          <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="ar">
-            <span class="lang-menu-check" aria-hidden="true"></span>
-            <span class="lang-menu-label">العربية</span>
-          </button>
-        </div>
-      </li>
     </ul>
+    <div class="lang-switcher" data-i18n-aria="lang.label" aria-label="Language">
+      <button type="button" class="lang-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" data-i18n-title="lang.label" title="Language">
+        <span class="lang-pair" aria-hidden="false">
+          <span class="lang-pair-selected" data-lang-label>English</span>
+          <span class="lang-pair-sep" aria-hidden="true">|</span>
+          <span class="lang-pair-suggest" data-lang-suggest data-lang="sw" role="link" tabindex="-1">Swahili</span>
+        </span>
+        <span class="lang-icons" aria-hidden="true">
+          <svg class="lang-globe" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+            <g class="lang-globe-spin">
+              <circle class="lang-globe-rim" cx="12" cy="12" r="9"/>
+              <ellipse class="lang-globe-meridian" cx="12" cy="12" rx="3.6" ry="9"/>
+              <path class="lang-globe-equator" d="M3.2 12h17.6"/>
+              <path class="lang-globe-lat" d="M5.1 7.6h13.8M5.1 16.4h13.8" opacity="0.85"/>
+            </g>
+          </svg>
+          <svg class="lang-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </span>
+      </button>
+      <div class="lang-menu" id="lang-menu" role="menu" hidden>
+        <button type="button" class="lang-menu-item lang-btn active" role="menuitem" data-lang="en" aria-current="true">
+          <span class="lang-menu-check" aria-hidden="true"></span>
+          <span class="lang-menu-label">English</span>
+        </button>
+        <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="sw">
+          <span class="lang-menu-check" aria-hidden="true"></span>
+          <span class="lang-menu-label">Swahili</span>
+        </button>
+        <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="fr">
+          <span class="lang-menu-check" aria-hidden="true"></span>
+          <span class="lang-menu-label">Français</span>
+        </button>
+        <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="pt">
+          <span class="lang-menu-check" aria-hidden="true"></span>
+          <span class="lang-menu-label">Português</span>
+        </button>
+        <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="es">
+          <span class="lang-menu-check" aria-hidden="true"></span>
+          <span class="lang-menu-label">Español</span>
+        </button>
+        <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="ar">
+          <span class="lang-menu-check" aria-hidden="true"></span>
+          <span class="lang-menu-label">العربية</span>
+        </button>
+      </div>
+    </div>
     <button class="nav-toggle" id="nav-toggle" data-i18n-aria="nav.menu" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>

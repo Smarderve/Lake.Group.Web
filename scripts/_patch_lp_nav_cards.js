@@ -11,7 +11,7 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 
 const LEADERS = [
-  {
+{
     id: 'ally-edha-awadh',
     name: 'Ally Edha Awadh',
     role: 'Executive Chairman &amp; Owner',
@@ -23,9 +23,9 @@ const LEADERS = [
     summary:
       'Forbes-featured entrepreneur who founded Lake Oil in 2006 and built Lake Group into one of East and Central Africa’s leading energy, logistics and industrial conglomerates.',
   },
-  {
+{
     id: 'dileep-kumar',
-    name: 'Dileep Kumar',
+    name: 'Dilip Kumar',
     role: 'CEO · Manufacturing Division',
     photo: 'assets/images/leadership/sibtian-ansari.png',
     photoLogo: false,
@@ -35,31 +35,7 @@ const LEADERS = [
     summary:
       'Leads Lake Group’s structural industrial expansions - most notably Lake Steel - spanning production infrastructure, manufacturing output, concrete products and construction supply networks.',
   },
-  {
-    id: 'sridhar-mani',
-    name: 'Sridhar Mani',
-    role: 'Director of Digital Transformation',
-    photo: 'assets/images/leadership/vivek-choudhary.png',
-    photoLogo: false,
-    nameKey: 'leadership.20',
-    roleKey: 'leadership.21',
-    sumKey: 'leadership.106',
-    summary:
-      'Owns enterprise technology architecture and digital strategy - from centralised SAP environments to logistics intelligence and cross-border data security.',
-  },
-  {
-    id: 'mohammed-khalid',
-    name: 'Mohammed Khalid',
-    role: 'Managing Director · ATL',
-    photo: 'assets/images/leadership/bhaskar-shetty.png',
-    photoLogo: false,
-    nameKey: 'leadership.23',
-    roleKey: 'leadership.24',
-    sumKey: 'leadership.107',
-    summary:
-      'Directs Associated Trans Logistics Ltd (ATL), operating alongside Lake Trans as a logistical backbone for fuel fleets, heavy haulage and multi-national cargo corridors.',
-  },
-  {
+{
     id: 'bibhuti-singh',
     name: 'Bibhuti Singh',
     role: 'CFO · AFICD',
@@ -71,12 +47,36 @@ const LEADERS = [
     summary:
       'Oversees financial planning, risk analysis and corporate governance for African Inland Container Depot (AFICD) - Lake Group’s dry-port platform in Dar es Salaam.',
   },
-  {
+{
+    id: 'sridhar-mani',
+    name: 'Sridhar Mani',
+    role: 'Director of Digital Transformation',
+    photo: 'assets/images/leadership/vivek-choudhary.png',
+    photoLogo: false,
+    nameKey: 'leadership.20',
+    roleKey: 'leadership.21',
+    sumKey: 'leadership.106',
+    summary:
+      'Owns enterprise technology architecture and digital strategy - from centralised SAP environments to logistics intelligence and cross-border data security.',
+  },
+{
+    id: 'mohammed-khalid',
+    name: 'Mohammed Khalid',
+    role: 'Managing Director · ATL',
+    photo: 'assets/images/leadership/bhaskar-shetty.png',
+    photoLogo: false,
+    nameKey: 'leadership.23',
+    roleKey: 'leadership.24',
+    sumKey: 'leadership.107',
+    summary:
+      'Directs Associated Trans Logistics Ltd (ATL), operating alongside Lake Trans as a logistical backbone for fuel fleets, heavy haulage and multi-national cargo corridors.',
+  },
+{
     id: 'juma-nuru',
     name: 'Juma Nuru',
     role: 'Director of Operations · Lake Group',
-    photo: 'assets/images/logos/LAKE_GROUP_LOGO.png',
-    photoLogo: true,
+    photo: 'assets/images/leadership/juma-nuru.png',
+    photoLogo: false,
     nameKey: 'leadership.51',
     roleKey: 'leadership.52',
     sumKey: 'leadership.53',
@@ -191,7 +191,7 @@ a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
 }
 
 .ld-panel { background: var(--ink); padding: var(--sp-12) var(--sp-8); text-align: center; margin-top: var(--sp-16); }
-.ld-panel h3 { color: #fff; font-family: var(--font-display, var(--font-heading)); font-weight: 400; font-size: clamp(1.7rem, 3vw, 2.4rem); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: var(--sp-3); }
+.ld-panel h3 { color: #fff; font-family: var(--font-display, var(--font-heading)); font-weight: 700; font-size: clamp(1.7rem, 3vw, 2.4rem); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: var(--sp-3); }
 .ld-panel p { color: var(--ink-text, rgba(255,255,255,.85)); max-width: 560px; margin: 0 auto; }
 
 /* Profile page */
@@ -208,7 +208,7 @@ a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
 .lp-photo--logo { display: flex; align-items: center; justify-content: center; background: var(--surface); aspect-ratio: 1; }
 .lp-photo--logo img { width: 58%; height: auto; object-fit: contain; }
 .lp-unit { color: var(--gold-deep, var(--color-brand-blue)); font-size: var(--fs-micro, .72rem); font-weight: 700; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 10px; }
-.lp-name { font-family: var(--font-display, var(--font-heading)); font-weight: 400; font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1; text-transform: uppercase; letter-spacing: .02em; margin: 0 0 10px; color: var(--ink, var(--color-text-heading)); }
+.lp-name { font-family: var(--font-display, var(--font-heading)); font-weight: 700; font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1; text-transform: uppercase; letter-spacing: .02em; margin: 0 0 10px; color: var(--ink, var(--color-text-heading)); }
 .lp-role { font-size: 1.05rem; color: var(--mute); margin: 0 0 22px; }
 .lp-lede { font-size: 1.12rem; line-height: 1.65; color: var(--ink, var(--color-text-heading)); margin: 0 0 22px; max-width: 62ch; }
 .lp-body p { font-size: .98rem; line-height: 1.75; color: var(--mute, var(--color-text-body)); margin: 0 0 16px; max-width: 68ch; }
@@ -221,9 +221,6 @@ a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
 .lp-meta div { padding: 16px; background: var(--surface); border: 1px solid var(--line-2); }
 .lp-meta strong { display: block; font-size: 1.15rem; color: var(--ink, var(--color-text-heading)); margin-bottom: 4px; }
 .lp-meta span { font-size: .82rem; color: var(--mute); }
-.lp-contact { display: grid; gap: 10px; margin: 28px 0; padding: 20px; border: 1px solid var(--line-2); background: var(--surface); }
-.lp-contact strong { display: block; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-deep, var(--color-brand-blue)); margin-bottom: 4px; }
-.lp-contact a { color: var(--color-brand-blue, #0181BB); }
 .lp-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
 
 /* Prev / next as full leadership cards */

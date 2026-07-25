@@ -9,16 +9,16 @@
    assets/tokens.css. Flagship adds the MERIDIAN editorial layer:
      Ã‚Â· Deep brand-blue page heroes + optional photo overlays; ink bands only
        for intentional mid-page dark content sections (not nav/hero chrome).
-     Ã‚Â· Bebas Neue display + Inter body (Lacoste is print-only per guidelines;
-       not licensed as a webfont here).
+     · Jost Bold display + Jost Regular body (closest free Lacoste stand-in;
+       exclusive Lacoste Sans is not licensed as a webfont here).
      Ã‚Â· MERIDIAN TICK + corner registration brackets; Sunrise Yellow accents.
      Ã‚Â· No Candy Red (user lock overrides guidelines red swatch).
 
    Never style .experience-3d-* or #fuel-experience  owned elsewhere.
    ========================================================================== */
 
-@import url("tokens.css?v=44");
-@import url('fonts/fonts.css');
+@import url("tokens.css?v=60");
+@import url('fonts/fonts.css?v=60');
 @import url("ui-icons.css?v=46");
 
 /* --------------------------------------------------------------------------
@@ -159,7 +159,7 @@ img { max-width: 100%; }
 /* Display treatments */
 .fs-display {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 700;
   font-size: var(--fs-display);
   line-height: 0.95;
   letter-spacing: 0.012em;
@@ -168,7 +168,7 @@ img { max-width: 100%; }
 }
 .fs-hero-title {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 700;
   font-size: var(--fs-hero);
   line-height: 0.9;
   letter-spacing: 0.01em;
@@ -752,9 +752,18 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
 }
 .nav-cta::after { display: none !important; }
 
-.nav-toggle { display: none; margin-left: auto; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 8px; }
+.nav-toggle { display: none; margin-left: 0; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 8px; flex: none; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: #fff; transition: transform var(--dur-1) ease; }
-@media (max-width: 1120px) { .nav-links { display: none; } .nav-toggle { display: flex; } }
+@media (max-width: 1120px) {
+  .nav-links { display: none; }
+  .site-nav .nav-toggle { display: flex; margin-left: 0; }
+  /* Keep compact lang control in sticky header (not only in drawer) */
+  .site-nav .lang-switcher { margin-left: auto; margin-right: 2px; }
+  .site-nav .lang-pair-sep,
+  .site-nav .lang-pair-suggest { display: none !important; }
+  .site-nav .lang-pair { gap: 0; }
+  .site-nav .lang-trigger { gap: 6px; padding: 6px 2px; }
+}
 
 .nav-mobile {
   display: none !important;
@@ -937,24 +946,6 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   font-weight: 650;
 }
 .lang-menu-item.active .lang-menu-check { opacity: 1; }
-.lang-switcher--mobile {
-  margin: 8px 16px 18px;
-  flex-direction: column; align-items: stretch; gap: 8px;
-  width: calc(100% - 32px);
-}
-.lang-switcher--mobile .lang-trigger {
-  justify-content: space-between;
-  width: 100%;
-  padding: 10px 12px;
-  background: rgba(255,255,255,0.06);
-  border: 0;
-  border-radius: 10px;
-}
-.lang-switcher--mobile .lang-menu {
-  position: static; min-width: 0; width: 100%;
-  margin-top: 0; box-shadow: none;
-  opacity: 1; transform: none; pointer-events: auto;
-}
 /* Header chrome stays LTR in all languages: logo LEFT, tabs RIGHT.
    Page content still uses document dir=rtl for Arabic body copy. */
 .site-nav,
@@ -967,11 +958,22 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
 .site-nav .nav-dropdown {
   direction: ltr !important;
 }
+.site-nav .nav-inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
 .site-nav .nav-links {
   margin-left: auto !important;
   margin-right: 0 !important;
 }
-.site-nav .lang-switcher { margin-left: 10px; margin-right: 6px; }
+/* Lang lives in sticky header chrome (sibling of .nav-links), not only drawer */
+.site-nav .lang-switcher {
+  flex: none;
+  margin-left: 10px;
+  margin-right: 6px;
+  align-self: center;
+}
 .site-nav .lang-menu { right: 0; left: auto; }
 /* Mobile drawer may follow page RTL for readable Arabic labels */
 html[dir="rtl"] .nav-mobile { direction: rtl; }
@@ -1090,7 +1092,7 @@ body[data-company-logo] .page-hero .container {
 .page-hero .container { position: relative; z-index: 2; }
 .page-hero h1 {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 700;
   font-size: var(--fs-hero);
   line-height: 0.9;
   letter-spacing: 0.01em;
@@ -1127,7 +1129,7 @@ body[data-company-logo] .page-hero h1 {
 }
 .fs-hero-meta::before { content: ''; position: absolute; left: 0; top: -4px; width: 8px; height: 8px; background: var(--gold); }
 .fs-hero-meta > div { font-size: var(--fs-micro); letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-mute); }
-.fs-hero-meta strong { display: block; color: #fff; font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 0.06em; font-weight: 400; margin-top: 4px; }
+.fs-hero-meta strong { display: block; color: #fff; font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 0.06em; font-weight: 700; margin-top: 4px; }
 
 /* --------------------------------------------------------------------------
    8. SECTION HEADERS
@@ -1150,7 +1152,7 @@ body[data-company-logo] .page-hero h1 {
 .section-label.dark::before { background: var(--gold); }
 .section-dark .section-label, .fs-on-dark .section-label { color: var(--gold); }
 .section-title {
-  font-family: var(--font-display); font-weight: 400;
+  font-family: var(--font-display); font-weight: 700;
   font-size: var(--fs-display); line-height: 0.95;
   letter-spacing: 0.012em; text-transform: uppercase;
   color: var(--text); margin-bottom: var(--sp-5);
@@ -1256,7 +1258,7 @@ body[data-company-logo] .page-hero h1 {
    -------------------------------------------------------------------------- */
 .fs-stat { position: relative; padding: var(--sp-5) 0 var(--sp-4); }
 .fs-stat .fs-stat-no, .stat-number {
-  font-family: var(--font-display); font-weight: 400;
+  font-family: var(--font-display); font-weight: 700;
   font-size: var(--fs-stat); line-height: 0.9;
   letter-spacing: 0.01em; color: var(--text); display: block;
 }
@@ -1362,7 +1364,7 @@ body[data-company-logo] .page-hero h1 {
 .fs-on-dark .fs-table td:first-child { color: #fff; }
 
 /* --------------------------------------------------------------------------
-   15. TIMELINE  drafting rail with Bebas years
+   15. TIMELINE  drafting rail with Jost years
    -------------------------------------------------------------------------- */
 .timeline, .fs-timeline { position: relative; padding-left: 0; }
 .timeline::before { display: none; }
@@ -1440,7 +1442,7 @@ body[data-company-logo] .page-hero h1 {
 }
 .info-panel h3 {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 700;
   font-size: var(--fs-title);
   letter-spacing: 0.02em;
   text-transform: uppercase;

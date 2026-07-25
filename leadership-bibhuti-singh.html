@@ -125,7 +125,7 @@ a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
 }
 
 .ld-panel { background: var(--ink); padding: var(--sp-12) var(--sp-8); text-align: center; margin-top: var(--sp-16); }
-.ld-panel h3 { color: #fff; font-family: var(--font-display, var(--font-heading)); font-weight: 400; font-size: clamp(1.7rem, 3vw, 2.4rem); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: var(--sp-3); }
+.ld-panel h3 { color: #fff; font-family: var(--font-display, var(--font-heading)); font-weight: 700; font-size: clamp(1.7rem, 3vw, 2.4rem); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: var(--sp-3); }
 .ld-panel p { color: var(--ink-text, rgba(255,255,255,.85)); max-width: 560px; margin: 0 auto; }
 
 /* Profile page */
@@ -142,7 +142,7 @@ a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
 .lp-photo--logo { display: flex; align-items: center; justify-content: center; background: var(--surface); aspect-ratio: 1; }
 .lp-photo--logo img { width: 58%; height: auto; object-fit: contain; }
 .lp-unit { color: var(--gold-deep, var(--color-brand-blue)); font-size: var(--fs-micro, .72rem); font-weight: 700; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 10px; }
-.lp-name { font-family: var(--font-display, var(--font-heading)); font-weight: 400; font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1; text-transform: uppercase; letter-spacing: .02em; margin: 0 0 10px; color: var(--ink, var(--color-text-heading)); }
+.lp-name { font-family: var(--font-display, var(--font-heading)); font-weight: 700; font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1; text-transform: uppercase; letter-spacing: .02em; margin: 0 0 10px; color: var(--ink, var(--color-text-heading)); }
 .lp-role { font-size: 1.05rem; color: var(--mute); margin: 0 0 22px; }
 .lp-lede { font-size: 1.12rem; line-height: 1.65; color: var(--ink, var(--color-text-heading)); margin: 0 0 22px; max-width: 62ch; }
 .lp-body p { font-size: .98rem; line-height: 1.75; color: var(--mute, var(--color-text-body)); margin: 0 0 16px; max-width: 68ch; }
@@ -155,9 +155,6 @@ a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
 .lp-meta div { padding: 16px; background: var(--surface); border: 1px solid var(--line-2); }
 .lp-meta strong { display: block; font-size: 1.15rem; color: var(--ink, var(--color-text-heading)); margin-bottom: 4px; }
 .lp-meta span { font-size: .82rem; color: var(--mute); }
-.lp-contact { display: grid; gap: 10px; margin: 28px 0; padding: 20px; border: 1px solid var(--line-2); background: var(--surface); }
-.lp-contact strong { display: block; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-deep, var(--color-brand-blue)); margin-bottom: 4px; }
-.lp-contact a { color: var(--color-brand-blue, #0181BB); }
 .lp-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
 
 /* Prev / next as full leadership cards */
@@ -200,9 +197,13 @@ a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
   "image": "https://www.lakeoilgroup.com/assets/images/leadership/pankaj-kumar.png"
 }
 </script>
-<link rel="stylesheet" href="assets/tokens.css?v=58">
-<link rel="stylesheet" href="assets/flagship.css?v=75">
-  <link rel="stylesheet" href="assets/assistant.css?v=69">
+<link rel="stylesheet" href="assets/tokens.css?v=60">
+  <link rel="preload" href="assets/fonts/files/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/files/jost-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/files/jost-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/files/jost-latin-ext-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="assets/flagship.css?v=78">
+  <link rel="stylesheet" href="assets/assistant.css?v=71">
   <link rel="stylesheet" href="assets/skeleton.css?v=4">
 </head>
 <body>
@@ -279,54 +280,60 @@ a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
       <li><a href="news.html" data-i18n="nav.news">News</a></li>
       <li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
       <li><a href="contact.html" data-i18n="nav.contact">Contact Us</a></li>
-      <li class="lang-switcher" data-i18n-aria="lang.label" aria-label="Language">
-        <button type="button" class="lang-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" data-i18n-title="lang.label" title="Language">
-          <span class="lang-pair" aria-hidden="false">
-            <span class="lang-pair-selected" data-lang-label>English</span>
-            <span class="lang-pair-sep" aria-hidden="true">|</span>
-            <span class="lang-pair-suggest" data-lang-suggest data-lang="sw" role="link" tabindex="-1">Swahili</span>
-          </span>
-          <span class="lang-icons" aria-hidden="true">
-            <svg class="lang-globe" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" focusable="false">
-              <g class="lang-globe-spin">
-                <circle class="lang-globe-rim" cx="12" cy="12" r="9"/>
-                <ellipse class="lang-globe-meridian" cx="12" cy="12" rx="3.6" ry="9"/>
-                <path class="lang-globe-equator" d="M3.2 12h17.6"/>
-                <path class="lang-globe-lat" d="M5.1 7.6h13.8M5.1 16.4h13.8" opacity="0.85"/>
-              </g>
-            </svg>
-            <svg class="lang-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
-              <path d="M6 9l6 6 6-6"/>
-            </svg>
-          </span>
-        </button>
-        <div class="lang-menu" id="lang-menu" role="menu" hidden>
-          <button type="button" class="lang-menu-item lang-btn active" role="menuitem" data-lang="en" aria-current="true">
-            <span class="lang-menu-check" aria-hidden="true"></span>
-            <span class="lang-menu-label">English</span>
-          </button>
-          <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="sw">
-            <span class="lang-menu-check" aria-hidden="true"></span>
-            <span class="lang-menu-label">Swahili</span>
-          </button>
-          <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="fr">
-            <span class="lang-menu-check" aria-hidden="true"></span>
-            <span class="lang-menu-label">Français</span>
-          </button>
-          <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="hi">
-            <span class="lang-menu-check" aria-hidden="true"></span>
-            <span class="lang-menu-label">हिन्दी</span>
-          </button>
-          <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="ar">
-            <span class="lang-menu-check" aria-hidden="true"></span>
-            <span class="lang-menu-label">العربية</span>
-          </button>
-        </div>
-      </li>
     </ul>
+    <div class="lang-switcher" data-i18n-aria="lang.label" aria-label="Language">
+      <button type="button" class="lang-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" data-i18n-title="lang.label" title="Language">
+        <span class="lang-pair" aria-hidden="false">
+          <span class="lang-pair-selected" data-lang-label>English</span>
+          <span class="lang-pair-sep" aria-hidden="true">|</span>
+          <span class="lang-pair-suggest" data-lang-suggest data-lang="sw" role="link" tabindex="-1">Swahili</span>
+        </span>
+        <span class="lang-icons" aria-hidden="true">
+          <svg class="lang-globe" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+            <g class="lang-globe-spin">
+              <circle class="lang-globe-rim" cx="12" cy="12" r="9"/>
+              <ellipse class="lang-globe-meridian" cx="12" cy="12" rx="3.6" ry="9"/>
+              <path class="lang-globe-equator" d="M3.2 12h17.6"/>
+              <path class="lang-globe-lat" d="M5.1 7.6h13.8M5.1 16.4h13.8" opacity="0.85"/>
+            </g>
+          </svg>
+          <svg class="lang-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </span>
+      </button>
+      <div class="lang-menu" id="lang-menu" role="menu" hidden>
+        <button type="button" class="lang-menu-item lang-btn active" role="menuitem" data-lang="en" aria-current="true">
+          <span class="lang-menu-check" aria-hidden="true"></span>
+          <span class="lang-menu-label">English</span>
+        </button>
+        <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="sw">
+          <span class="lang-menu-check" aria-hidden="true"></span>
+          <span class="lang-menu-label">Swahili</span>
+        </button>
+        <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="fr">
+          <span class="lang-menu-check" aria-hidden="true"></span>
+          <span class="lang-menu-label">Français</span>
+        </button>
+        <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="pt">
+          <span class="lang-menu-check" aria-hidden="true"></span>
+          <span class="lang-menu-label">Português</span>
+        </button>
+        <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="es">
+          <span class="lang-menu-check" aria-hidden="true"></span>
+          <span class="lang-menu-label">Español</span>
+        </button>
+        <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="ar">
+          <span class="lang-menu-check" aria-hidden="true"></span>
+          <span class="lang-menu-label">العربية</span>
+        </button>
+      </div>
+    </div>
     <button class="nav-toggle" id="nav-toggle" data-i18n-aria="nav.menu" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+
+
 
 
 <div class="nav-mobile" id="nav-mobile" style="display:none">
@@ -372,50 +379,10 @@ a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
   <a href="investors.html" data-i18n="nav.investorsShort">Investors</a><a href="projects.html" data-i18n="nav.projectsShort">Projects</a><a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
   <div class="mob-section" data-i18n="mob.more">More</div>
   <a href="news.html" data-i18n="nav.news">News</a><a href="careers.html" data-i18n="nav.careers">Careers</a><a href="contact.html" data-i18n="nav.contact">Contact Us</a>
-  <div class="mob-section" data-i18n="mob.language">Language</div>
-  <div class="lang-switcher lang-switcher--mobile" data-i18n-aria="lang.label" aria-label="Language">
-    <button type="button" class="lang-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu-mobile" data-i18n-title="lang.label" title="Language">
-      <span class="lang-pair" aria-hidden="false">
-        <span class="lang-pair-selected" data-lang-label>English</span>
-        <span class="lang-pair-sep" aria-hidden="true">|</span>
-        <span class="lang-pair-suggest" data-lang-suggest data-lang="sw" role="link" tabindex="-1">Swahili</span>
-      </span>
-      <span class="lang-icons" aria-hidden="true">
-        <svg class="lang-globe" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" focusable="false">
-          <circle class="lang-globe-rim" cx="12" cy="12" r="9"/>
-          <ellipse class="lang-globe-meridian" cx="12" cy="12" rx="3.6" ry="9"/>
-          <path class="lang-globe-equator" d="M3.2 12h17.6"/>
-          <path class="lang-globe-lat" d="M5.1 7.6h13.8M5.1 16.4h13.8" opacity="0.85"/>
-        </svg>
-        <svg class="lang-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
-          <path d="M6 9l6 6 6-6"/>
-        </svg>
-      </span>
-    </button>
-    <div class="lang-menu" id="lang-menu-mobile" role="menu" hidden>
-      <button type="button" class="lang-menu-item lang-btn active" role="menuitem" data-lang="en" aria-current="true">
-        <span class="lang-menu-check" aria-hidden="true"></span>
-        <span class="lang-menu-label">English</span>
-      </button>
-      <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="sw">
-        <span class="lang-menu-check" aria-hidden="true"></span>
-        <span class="lang-menu-label">Swahili</span>
-      </button>
-      <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="fr">
-        <span class="lang-menu-check" aria-hidden="true"></span>
-        <span class="lang-menu-label">Français</span>
-      </button>
-      <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="hi">
-        <span class="lang-menu-check" aria-hidden="true"></span>
-        <span class="lang-menu-label">हिन्दी</span>
-      </button>
-      <button type="button" class="lang-menu-item lang-btn" role="menuitem" data-lang="ar">
-        <span class="lang-menu-check" aria-hidden="true"></span>
-        <span class="lang-menu-label">العربية</span>
-      </button>
-    </div>
-  </div>
 </div>
+
+
+
 
 
 
@@ -455,14 +422,9 @@ a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
         <div><strong>Pugu Rd</strong><span data-i18n="leadership.96">Depot location</span></div>
         <div><strong>3</strong><span data-i18n="leadership.97">Country sites</span></div>
         </div>
-        <div class="lp-contact">
-          <div><strong data-i18n="leadership.59">Group HQ</strong><span data-i18n="leadership.109">Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055, Dar es Salaam, Tanzania</span></div>
-          <div><strong data-i18n="leadership.60">Phone</strong><a href="tel:+255222780510">+255 222 780 510</a> � <a href="tel:+255222780479">+255 222 780 479</a></div>
-          <div><strong data-i18n="leadership.61">Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20CFO%20AFICD%20(Bibhuti%20Singh)">admin@lakeoilgroup.com</a></div>
-        </div>
+
         <div class="lp-links">
           <a href="aficd.html" class="btn btn-outline-dark btn-sm" data-i18n="nav.co.aficd">AFICD</a>
-          <a href="contact.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.73">Contact Group</a>
         </div>
         <nav class="lp-nav" aria-label="Related leadership profiles">
           <a class="ld-person-card" href="leadership-mohammed-khalid.html">
@@ -475,7 +437,7 @@ a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
           </div>
         </a>
           <a class="ld-person-card" href="leadership-juma-nuru.html">
-          <div class="ld-person-photo ld-person-photo--logo"><img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Juma Nuru" data-i18n-alt="leadership.51" loading="lazy" decoding="async" width="180" height="48"></div>
+          <div class="ld-person-photo"><img src="assets/images/leadership/juma-nuru.png" alt="Juma Nuru" data-i18n-alt="leadership.51" loading="lazy" decoding="async"></div>
           <div class="ld-person-body">
             <h3><span data-i18n="leadership.51">Juma Nuru</span></h3>
             <p class="ld-person-role"><span data-i18n="leadership.52">Director of Operations � Lake Group</span></p>
@@ -550,6 +512,8 @@ a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
 </footer>
 
 
+
+
 <div id="chat-widget">
   <div id="chat-box">
     <div id="chat-head"><h4 data-i18n="chat.title">Lake Group Assistant</h4><p data-i18n="chat.sub">Ask us anything</p></div>
@@ -568,12 +532,14 @@ a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
 </div>
 
 
+
+
 <script src="assets/i18n-content.js?v=59" defer></script>
-<script src="assets/i18n.js?v=56" defer></script>
+<script src="assets/i18n.js?v=57" defer></script>
 <script src="assets/site.js?v=59" defer></script>
   <script src="assets/vendor/flexsearch/flexsearch.bundle.min.js" defer></script>
   <script src="assets/assistant-kb.js" defer></script>
   <script src="assets/assistant.js?v=60" defer></script>
-<script src="assets/pwa.js?v=59" defer></script>
+<script src="assets/pwa.js?v=60" defer></script>
 <script src="assets/flagship-motion.js?v=58" defer></script>
 </body></html>

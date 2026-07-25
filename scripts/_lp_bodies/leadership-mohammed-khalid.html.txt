@@ -17,11 +17,7 @@
         <div><strong>1,200+</strong><span>Group trucks</span></div>
         <div><strong>8+</strong><span>Corridor countries</span></div>
         </div>
-        <div class="lp-contact">
-          <div><strong>Group HQ</strong><span>Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055, Dar es Salaam, Tanzania</span></div>
-          <div><strong>Phone</strong><a href="tel:+255222780510">+255 222 780 510</a> · <a href="tel:+255222780479">+255 222 780 479</a></div>
-          <div><strong>Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20MD%20ATL%20(Mohammed%20Khalid)">admin@lakeoilgroup.com</a></div>
-        </div>
+
         <div class="lp-links">
           <a href="lake-trans.html" class="btn btn-outline-dark btn-sm">Lake Trans</a>
           <a href="https://atl-tz.com" class="btn btn-outline-dark btn-sm" target="_blank" rel="noopener noreferrer">ATL ↗</a>

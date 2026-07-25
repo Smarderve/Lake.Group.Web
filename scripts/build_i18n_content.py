@@ -4,6 +4,11 @@ Build assets/i18n-content.json from:
   - scripts/_master_en.json   (every data-i18n key -> English source text)
   - scripts/translation_dict.py (hand-translated phrases + term dictionary)
 
+NOTE: The live site locale set is en/fr/sw/pt/es/ar (Hindi removed). Prefer
+  scripts/build_pt_es_lang.js to refresh pt/es (and keep fr/sw/ar) rather than
+  running this script alone — this builder only emits en/fr/pt and would drop
+  sw/es/ar if used as a full rewrite.
+
 For French and Portuguese, each English value is translated by:
   1. Exact phrase match (PHRASES_FR / PHRASES_PT) - whole-string, highest
      priority, for hand-crafted natural sentences.

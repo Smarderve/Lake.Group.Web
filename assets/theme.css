@@ -9,7 +9,8 @@
    NOTE: never style .experience-3d-* or #fuel-experience  owned elsewhere.
    ========================================================================== */
 
-@import url("tokens.css?v=44");
+@import url("tokens.css?v=60");
+@import url("fonts/fonts.css?v=60");
 @import url("ui-icons.css?v=46");
 
 /* --------------------------------------------------------------------------
@@ -342,24 +343,6 @@ body[data-company-logo] .page-hero .container { width: 100%; }
   font-weight: 650;
 }
 .lang-menu-item.active .lang-menu-check { opacity: 1; }
-.lang-switcher--mobile {
-  margin: 8px 16px 18px;
-  flex-direction: column; align-items: stretch; gap: 8px;
-  width: calc(100% - 32px);
-}
-.lang-switcher--mobile .lang-trigger {
-  justify-content: space-between;
-  width: 100%;
-  padding: 10px 12px;
-  background: rgba(255,255,255,0.06);
-  border: 0;
-  border-radius: 10px;
-}
-.lang-switcher--mobile .lang-menu {
-  position: static; min-width: 0; width: 100%;
-  margin-top: 0; box-shadow: none;
-  opacity: 1; transform: none; pointer-events: auto;
-}
 /* Header chrome stays LTR in all languages: logo LEFT, tabs RIGHT. */
 .site-nav,
 .site-nav .nav-inner,
@@ -371,11 +354,22 @@ body[data-company-logo] .page-hero .container { width: 100%; }
 .site-nav .nav-dropdown {
   direction: ltr !important;
 }
+.site-nav .nav-inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
 .site-nav .nav-links {
   margin-left: auto !important;
   margin-right: 0 !important;
 }
-.site-nav .lang-switcher { margin-left: 10px; margin-right: 6px; }
+/* Lang lives in sticky header chrome (sibling of .nav-links), not only drawer */
+.site-nav .lang-switcher {
+  flex: none;
+  margin-left: 10px;
+  margin-right: 6px;
+  align-self: center;
+}
 .site-nav .lang-menu { right: 0; left: auto; }
 html[dir="rtl"] .nav-mobile { direction: rtl; }
 html[dir="rtl"] .nav-mobile a { border-left: 0; border-right: 2px solid transparent; }
@@ -692,7 +686,13 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
 /* Unified responsive breakpoint (canonical 1060px) */
 @media (max-width: 1060px) {
   .nav-links { display: none; }
-  .nav-toggle { display: flex; }
+  .site-nav .nav-toggle { display: flex; margin-left: 0; }
+  /* Keep compact lang control in sticky header (not only in drawer) */
+  .site-nav .lang-switcher { margin-left: auto; margin-right: 2px; }
+  .site-nav .lang-pair-sep,
+  .site-nav .lang-pair-suggest { display: none !important; }
+  .site-nav .lang-pair { gap: 0; }
+  .site-nav .lang-trigger { gap: 6px; padding: 6px 2px; }
 }
 
 /* Mobile menu: class-driven open state. !important intentionally beats the

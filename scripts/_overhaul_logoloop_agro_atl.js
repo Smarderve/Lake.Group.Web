@@ -306,12 +306,12 @@ const AGRO_BODY = `<div class="page-wrapper">
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Secure · Establish · Consolidate</h2>
     <p class="fs-lede" style="max-width:70ch;margin-bottom:var(--sp-8)">We secure, establish and consolidate farm platforms via greenfield projects or existing farm acquisitions in selected markets within our network of countries where economies of scale can be achieved.</p>
     <div class="grid-3">
-      <div class="fs-card" style="padding:var(--sp-6);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12)"><h4 style="color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Land Availability</h4><p style="font-size:.86rem;margin-top:6px;color:var(--ink-mute)">Underutilized, cost-effective land with mineralized, diversified soils along water basins and catchments whose mass exceeds farmed land to ensure water perennity over 20 years.</p></div>
-      <div class="fs-card" style="padding:var(--sp-6);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12)"><h4 style="color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Accessibility</h4><p style="font-size:.86rem;margin-top:6px;color:var(--ink-mute)">Countries connected by rail and established transport corridors for accessible set-up or distribution of final produce within country or for export.</p></div>
-      <div class="fs-card" style="padding:var(--sp-6);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12)"><h4 style="color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Proximity</h4><p style="font-size:.86rem;margin-top:6px;color:var(--ink-mute)">Multiple continental export hubs across the network region, including major South East and Asia-facing ports and Atlantic hub access in Namibia.</p></div>
-      <div class="fs-card" style="padding:var(--sp-6);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12)"><h4 style="color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Technical Know-How</h4><p style="font-size:.86rem;margin-top:6px;color:var(--ink-mute)">Established technical capability in-country for ag technology transfer and adequate management of farms and Integrated Ag Parks.</p></div>
-      <div class="fs-card" style="padding:var(--sp-6);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12)"><h4 style="color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Capital Availability</h4><p style="font-size:.86rem;margin-top:6px;color:var(--ink-mute)">International funding, local ag funding, specialist or development banks, and African institutional funding to bridge food-security needs.</p></div>
-      <div class="fs-card" style="padding:var(--sp-6);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12)"><h4 style="color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Group Backing</h4><p style="font-size:.86rem;margin-top:6px;color:var(--ink-mute)">Central Lake Group functions (IT, legal, audit, finance, treasury, HR) support Lake Agro operations and growth plans.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12)"><h4 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Land Availability</h4><p style="font-size:.86rem;margin-top:6px;color:var(--ink-mute)">Underutilized, cost-effective land with mineralized, diversified soils along water basins and catchments whose mass exceeds farmed land to ensure water perennity over 20 years.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12)"><h4 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Accessibility</h4><p style="font-size:.86rem;margin-top:6px;color:var(--ink-mute)">Countries connected by rail and established transport corridors for accessible set-up or distribution of final produce within country or for export.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12)"><h4 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Proximity</h4><p style="font-size:.86rem;margin-top:6px;color:var(--ink-mute)">Multiple continental export hubs across the network region, including major South East and Asia-facing ports and Atlantic hub access in Namibia.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12)"><h4 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Technical Know-How</h4><p style="font-size:.86rem;margin-top:6px;color:var(--ink-mute)">Established technical capability in-country for ag technology transfer and adequate management of farms and Integrated Ag Parks.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12)"><h4 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Capital Availability</h4><p style="font-size:.86rem;margin-top:6px;color:var(--ink-mute)">International funding, local ag funding, specialist or development banks, and African institutional funding to bridge food-security needs.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12)"><h4 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Group Backing</h4><p style="font-size:.86rem;margin-top:6px;color:var(--ink-mute)">Central Lake Group functions (IT, legal, audit, finance, treasury, HR) support Lake Agro operations and growth plans.</p></div>
     </div>
   </div>
 </section>
@@ -321,9 +321,9 @@ const AGRO_BODY = `<div class="page-wrapper">
     <div class="fs-marker"><span class="fs-marker-no">03</span><span class="fs-eyebrow">How We Are</span></div>
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)">3P Strategy - Prep · Plan · Process</h2>
     <div class="grid-3">
-      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Prep</h4><p style="font-size:.86rem;margin-top:6px">Deploy Phase 1 growth; rapid turnaround of underperforming Phase 2 acquisitions; lift yields and land development on greenfield plantation farms.</p></div>
-      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Plan</h4><p style="font-size:.86rem;margin-top:6px">Add Integrated Ag Parks in Phase 1 for consolidation and value addition; select and acquire Phase 2 market-entry farms.</p></div>
-      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Process</h4><p style="font-size:.86rem;margin-top:6px">Stand up processing as Phase 1 farms stabilize; reorganize value-addition facilities to accommodate Integrated Ag Parks in Phase 2.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Prep</h4><p style="font-size:.86rem;margin-top:6px">Deploy Phase 1 growth; rapid turnaround of underperforming Phase 2 acquisitions; lift yields and land development on greenfield plantation farms.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Plan</h4><p style="font-size:.86rem;margin-top:6px">Add Integrated Ag Parks in Phase 1 for consolidation and value addition; select and acquire Phase 2 market-entry farms.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Process</h4><p style="font-size:.86rem;margin-top:6px">Stand up processing as Phase 1 farms stabilize; reorganize value-addition facilities to accommodate Integrated Ag Parks in Phase 2.</p></div>
     </div>
     <p style="margin-top:var(--sp-8);max-width:75ch;line-height:1.7">Target average yields above <strong>11 t/ha</strong> of arable land across commoditized crops including wheat, soybean, maize, rice, sunflower, sugar and protein (beef), with rotational diversification into teak, beans and horticulture (fruit) where land permits.</p>
   </div>
@@ -347,11 +347,11 @@ const AGRO_BODY = `<div class="page-wrapper">
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Plantations &amp; Ag Parks</h2>
     <div class="fs-split-even">
       <div>
-        <h3 style="color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.25rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:12px">Serenje Plantation</h3>
+        <h3 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.25rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:12px">Serenje Plantation</h3>
         <p style="color:var(--ink-mute);line-height:1.7">Operations oversee the Serenje plantation platform with specialties in agronomy, crop harvesting, disease control, seed/fertilizer/input management, equipment procurement, works contracting and irrigation project oversight.</p>
       </div>
       <div>
-        <h3 style="color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.25rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:12px">Integrated Ag Parks</h3>
+        <h3 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.25rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:12px">Integrated Ag Parks</h3>
         <p style="color:var(--ink-mute);line-height:1.7">Ag Parks consolidate produce and add value through processing. As the first Ag Park team is constituted, capacity is expected to roughly double, supported by Rising Stars projects that attract and retain talent.</p>
       </div>
     </div>
@@ -381,9 +381,9 @@ const AGRO_BODY = `<div class="page-wrapper">
     <div class="fs-marker"><span class="fs-marker-no">07</span><span class="fs-eyebrow">Commitments</span></div>
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Programs &amp; Pledge</h2>
     <div class="grid-3">
-      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Food Security</h4><p style="font-size:.86rem;margin-top:6px">Substitute imports with high-value food made in Africa through plantation scale and processing.</p></div>
-      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Jobs</h4><p style="font-size:.86rem;margin-top:6px">Create employment for youth and women across farm teams, Ag Parks and supporting value chains.</p></div>
-      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Sustainability</h4><p style="font-size:.86rem;margin-top:6px">Operate plantations and parks for long-term financial, social and production sustainability day in, day out.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Food Security</h4><p style="font-size:.86rem;margin-top:6px">Substitute imports with high-value food made in Africa through plantation scale and processing.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Jobs</h4><p style="font-size:.86rem;margin-top:6px">Create employment for youth and women across farm teams, Ag Parks and supporting value chains.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Sustainability</h4><p style="font-size:.86rem;margin-top:6px">Operate plantations and parks for long-term financial, social and production sustainability day in, day out.</p></div>
     </div>
   </div>
 </section>
@@ -457,11 +457,11 @@ const ATL_BODY = `<div class="page-wrapper">
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Mission, Vision &amp; Values</h2>
     <div class="fs-split-even">
       <div>
-        <h3 style="color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Mission</h3>
+        <h3 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Mission</h3>
         <p>To design and manufacture the highest quality trailers by fostering a culture of integrity, excellence, and continuous improvement.</p>
       </div>
       <div>
-        <h3 style="color:var(--white);font-family:var(--font-display);font-weight:400;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Vision</h3>
+        <h3 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Vision</h3>
         <p>To become the leading trailer manufacturer in East and Central Africa, providing sustainable solutions focused on safety, innovation and customization.</p>
       </div>
     </div>
@@ -480,7 +480,7 @@ const ATL_BODY = `<div class="page-wrapper">
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Savings · Safety · Solutions</h2>
     <div class="grid-3">
       <div class="fs-card" style="padding:var(--sp-6)">
-        <h4 style="font-family:var(--font-display);font-weight:400;font-size:1.2rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Savings</h4>
+        <h4 style="font-family:var(--font-display);font-weight:700;font-size:1.2rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Savings</h4>
         <ul class="fs-check" style="margin-top:0">
           <li><span>&#10003;</span>Light trailers</li>
           <li><span>&#10003;</span>More payload</li>
@@ -489,7 +489,7 @@ const ATL_BODY = `<div class="page-wrapper">
         </ul>
       </div>
       <div class="fs-card" style="padding:var(--sp-6)">
-        <h4 style="font-family:var(--font-display);font-weight:400;font-size:1.2rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Safety</h4>
+        <h4 style="font-family:var(--font-display);font-weight:700;font-size:1.2rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Safety</h4>
         <ul class="fs-check" style="margin-top:0">
           <li><span>&#10003;</span>Air suspension for tankers</li>
           <li><span>&#10003;</span>Reliable braking systems</li>
@@ -499,7 +499,7 @@ const ATL_BODY = `<div class="page-wrapper">
         </ul>
       </div>
       <div class="fs-card" style="padding:var(--sp-6)">
-        <h4 style="font-family:var(--font-display);font-weight:400;font-size:1.2rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Solutions</h4>
+        <h4 style="font-family:var(--font-display);font-weight:700;font-size:1.2rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Solutions</h4>
         <ul class="fs-check" style="margin-top:0">
           <li><span>&#10003;</span>Customized tailor designs</li>
           <li><span>&#10003;</span>Technical support</li>
@@ -517,12 +517,12 @@ const ATL_BODY = `<div class="page-wrapper">
     <div class="fs-marker"><span class="fs-marker-no">04</span><span class="fs-eyebrow">Why Aluminium</span></div>
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Material Advantages</h2>
     <div class="grid-3">
-      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Non-Reactive</h4><p style="font-size:.86rem;margin-top:6px">Aluminum is non-reactive with most fuels, helping prevent contamination - especially important for sensitive fuels including aviation fuel.</p></div>
-      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Corrosion Resistant</h4><p style="font-size:.86rem;margin-top:6px">Naturally resists rust in harsh weather and moisture, reducing maintenance and prolonging tanker life.</p></div>
-      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Fuel Efficiency</h4><p style="font-size:.86rem;margin-top:6px">Lower tare weight means more legal payload and less energy to haul the tanker.</p></div>
-      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Strength &amp; Safety</h4><p style="font-size:.86rem;margin-top:6px">High strength-to-weight ratio for transport stresses, with impact absorption that supports operational safety.</p></div>
-      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Environment</h4><p style="font-size:.86rem;margin-top:6px">Highly recyclable aluminium with lower recycling energy versus primary production - aligned with strict fuel-transport standards.</p></div>
-      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:400;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Custom Range</h4><p style="font-size:.86rem;margin-top:6px">Expanding beyond fuel tankers into premium customized trailers for regional logistics needs.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Non-Reactive</h4><p style="font-size:.86rem;margin-top:6px">Aluminum is non-reactive with most fuels, helping prevent contamination - especially important for sensitive fuels including aviation fuel.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Corrosion Resistant</h4><p style="font-size:.86rem;margin-top:6px">Naturally resists rust in harsh weather and moisture, reducing maintenance and prolonging tanker life.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Fuel Efficiency</h4><p style="font-size:.86rem;margin-top:6px">Lower tare weight means more legal payload and less energy to haul the tanker.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Strength &amp; Safety</h4><p style="font-size:.86rem;margin-top:6px">High strength-to-weight ratio for transport stresses, with impact absorption that supports operational safety.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Environment</h4><p style="font-size:.86rem;margin-top:6px">Highly recyclable aluminium with lower recycling energy versus primary production - aligned with strict fuel-transport standards.</p></div>
+      <div class="fs-card" style="padding:var(--sp-6)"><h4 style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase">Custom Range</h4><p style="font-size:.86rem;margin-top:6px">Expanding beyond fuel tankers into premium customized trailers for regional logistics needs.</p></div>
     </div>
   </div>
 </section>

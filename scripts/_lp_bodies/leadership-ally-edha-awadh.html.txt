@@ -17,19 +17,14 @@
         <div><strong>Countries</strong><span>8+</span></div>
         <div><strong>People</strong><span>30,000+</span></div>
         </div>
-        <div class="lp-contact">
-          <div><strong>Group HQ</strong><span>Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055, Dar es Salaam, Tanzania</span></div>
-          <div><strong>Phone</strong><a href="tel:+255222780510">+255 222 780 510</a> · <a href="tel:+255222780479">+255 222 780 479</a></div>
-          <div><strong>Email</strong><a href="mailto:admin@lakeoilgroup.com?subject=Attention%3A%20Office%20of%20the%20Chairman">admin@lakeoilgroup.com</a></div>
-        </div>
+
         <div class="lp-links">
           <a href="leadership.html" class="btn btn-outline-dark btn-sm">Meet the full team</a>
           <a href="history.html" class="btn btn-outline-dark btn-sm">Our history</a>
-          <a href="contact.html" class="btn btn-outline-dark btn-sm">Contact Group HQ</a>
         </div>
         <nav class="lp-nav" aria-label="Related leadership profiles">
           <a class="ld-person-card" href="leadership-juma-nuru.html">
-          <div class="ld-person-photo ld-person-photo--logo"><img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Juma Nuru" data-i18n-alt="leadership.51" loading="lazy" decoding="async"></div>
+          <div class="ld-person-photo"><img src="assets/images/leadership/juma-nuru.png" alt="Juma Nuru" data-i18n-alt="leadership.51" loading="lazy" decoding="async"></div>
           <div class="ld-person-body">
             <h3><span data-i18n="leadership.51">Juma Nuru</span></h3>
             <p class="ld-person-role"><span data-i18n="leadership.52">Director of Operations · Lake Group</span></p>
@@ -38,9 +33,9 @@
           </div>
         </a>
           <a class="ld-person-card" href="leadership-dileep-kumar.html">
-          <div class="ld-person-photo"><img src="assets/images/leadership/sibtian-ansari.png" alt="Dileep Kumar" data-i18n-alt="leadership.17" loading="lazy" decoding="async"></div>
+          <div class="ld-person-photo"><img src="assets/images/leadership/sibtian-ansari.png" alt="Dilip Kumar" data-i18n-alt="leadership.17" loading="lazy" decoding="async"></div>
           <div class="ld-person-body">
-            <h3><span data-i18n="leadership.17">Dileep Kumar</span></h3>
+            <h3><span data-i18n="leadership.17">Dilip Kumar</span></h3>
             <p class="ld-person-role"><span data-i18n="leadership.18">CEO · Manufacturing Division</span></p>
             <p class="ld-person-sum"><span data-i18n="leadership.105">Leads Lake Group’s structural industrial expansions - most notably Lake Steel - spanning production infrastructure, manufacturing output, concrete products and construction supply networks.</span></p>
             <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>

@@ -2,86 +2,165 @@
  * Self-hosted fonts for the Lake Group site.
  *
  * Previously every page loaded fonts from fonts.googleapis.com via
- * @import. That's a hard dependency on internet access  with no
+ * @import. That's a hard dependency on internet access — with no
  * connection, browsers silently fall back to a generic system font
  * (ugly but not broken for text), and Material Symbols icons render as
  * blank/missing glyphs (genuinely broken, since there's no visual
  * fallback for an icon font).
  *
  * Font files here are sourced from the @fontsource project (the same
- * Google Fonts files, repackaged for self-hosting), restricted to the
- * "latin" subset (covers English, French and Portuguese - everything
- * this site needs) and only the weights actually used on the site, to
- * keep the total footprint small (~1.3MB across all four families).
+ * Google Fonts files, repackaged for self-hosting). Jost ships as
+ * separate latin + latin-ext subsets with unicode-range so accented
+ * Latin (French, Portuguese, Spanish, etc.) stays on Jost; Arabic /
+ * Devanagari fall through to Noto/system via --font-body stacks.
+ *
+ * Brand note: Lake Identity Guidelines specify Lacoste Sans (Badani) —
+ * exclusive / not licensed here. Jost (OFL) is the closest free geometric
+ * match (Futura-inspired): single-story a/g, circular bowls, horizontal
+ * terminals, Thin→ExtraBold. Closest free match, not identical to Lacoste.
  *
  * Usage: replace
  *   @import url('https://fonts.googleapis.com/css2?family=...');
  * with
- *   <link rel="stylesheet" href="assets/fonts/fonts.css">
+ *   <link rel="stylesheet" href="assets/fonts/fonts.css?v=60">
  * in the <head>, before the page's own <style> block.
  */
 
-/* ---- Bebas Neue (weight 400 only) ---- */
-@font-face {
-  font-family: 'Bebas Neue';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('./files/bebas-neue-latin-400-normal.woff2') format('woff2'),
-       url('./files/bebas-neue-latin-400-normal.woff') format('woff');
-}
+/* Unicode ranges from @fontsource/jost unicode.json */
+/* latin: U+0000-00FF + common Latin extras (covers é è ç ô œ …) */
+/* latin-ext: U+0100+ extended Latin (Eastern/Central European, etc.) */
 
-/* ---- Inter (300/400/500/600/700/800, normal) ---- */
+/* ---- Jost latin (100/300/400/500/600/700/800 — Lacoste stand-in) ---- */
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url('./files/jost-latin-100-normal.woff2') format('woff2'),
+       url('./files/jost-latin-100-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Jost';
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url('./files/inter-latin-300-normal.woff2') format('woff2'),
-       url('./files/inter-latin-300-normal.woff') format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url('./files/jost-latin-300-normal.woff2') format('woff2'),
+       url('./files/jost-latin-300-normal.woff') format('woff');
 }
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Jost';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('./files/inter-latin-400-normal.woff2') format('woff2'),
-       url('./files/inter-latin-400-normal.woff') format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url('./files/jost-latin-400-normal.woff2') format('woff2'),
+       url('./files/jost-latin-400-normal.woff') format('woff');
 }
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Jost';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('./files/inter-latin-500-normal.woff2') format('woff2'),
-       url('./files/inter-latin-500-normal.woff') format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url('./files/jost-latin-500-normal.woff2') format('woff2'),
+       url('./files/jost-latin-500-normal.woff') format('woff');
 }
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Jost';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('./files/inter-latin-600-normal.woff2') format('woff2'),
-       url('./files/inter-latin-600-normal.woff') format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url('./files/jost-latin-600-normal.woff2') format('woff2'),
+       url('./files/jost-latin-600-normal.woff') format('woff');
 }
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Jost';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('./files/inter-latin-700-normal.woff2') format('woff2'),
-       url('./files/inter-latin-700-normal.woff') format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url('./files/jost-latin-700-normal.woff2') format('woff2'),
+       url('./files/jost-latin-700-normal.woff') format('woff');
 }
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Jost';
   font-style: normal;
   font-weight: 800;
   font-display: swap;
-  src: url('./files/inter-latin-800-normal.woff2') format('woff2'),
-       url('./files/inter-latin-800-normal.woff') format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url('./files/jost-latin-800-normal.woff2') format('woff2'),
+       url('./files/jost-latin-800-normal.woff') format('woff');
 }
 
-/* ---- Playfair Display (400/500/600 normal, 400 italic) ---- */
+/* ---- Jost latin-ext (accented / extended Latin beyond U+00FF) ---- */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url('./files/jost-latin-ext-100-normal.woff2') format('woff2'),
+       url('./files/jost-latin-ext-100-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url('./files/jost-latin-ext-300-normal.woff2') format('woff2'),
+       url('./files/jost-latin-ext-300-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url('./files/jost-latin-ext-400-normal.woff2') format('woff2'),
+       url('./files/jost-latin-ext-400-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url('./files/jost-latin-ext-500-normal.woff2') format('woff2'),
+       url('./files/jost-latin-ext-500-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url('./files/jost-latin-ext-600-normal.woff2') format('woff2'),
+       url('./files/jost-latin-ext-600-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url('./files/jost-latin-ext-700-normal.woff2') format('woff2'),
+       url('./files/jost-latin-ext-700-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url('./files/jost-latin-ext-800-normal.woff2') format('woff2'),
+       url('./files/jost-latin-ext-800-normal.woff') format('woff');
+}
+
+/* ---- Playfair Display (400/500/600 normal, 400 italic) — quote serif only ---- */
 @font-face {
   font-family: 'Playfair Display';
   font-style: normal;

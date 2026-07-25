@@ -25,7 +25,7 @@
     u.searchParams.set('v', '59');
     swUrl = u.href;
   } catch (err2) {
-    swUrl = swUrl + (swUrl.indexOf('?') === -1 ? '?v=59' : '&v=59');
+    swUrl = swUrl + (swUrl.indexOf('?') === -1 ? '?v=61' : '&v=61');
   }
 
   var reloadingAfterUpdate = false;
@@ -57,7 +57,7 @@
       'border:1px solid rgba(255,242,0,0.5)',
       'border-radius:6px',
       'padding:12px 16px',
-      "font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif",
+      "font-family:'Jost','Noto Sans Arabic','Noto Sans Devanagari',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif",
       'font-size:0.85rem',
       'line-height:1.4',
       'box-shadow:0 8px 32px rgba(0,0,0,0.35)',

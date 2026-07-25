@@ -1,6 +1,8 @@
 /**
- * Build Hindi (hi) and Arabic (ar) dictionaries from English, then rewrite
- * assets/i18n-content.json + assets/i18n-content.js with full key parity.
+ * LEGACY: Build Hindi (hi) and Arabic (ar) dictionaries from English.
+ * Hindi has been removed from the site (see scripts/build_pt_es_lang.js for
+ * pt/es). Do not re-introduce hi into i18n-content without updating
+ * assets/i18n.js SUPPORTED and the nav templates.
  *
  * Run from repo root: node scripts/build_hi_ar_lang.js
  */
