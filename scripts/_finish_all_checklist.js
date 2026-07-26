@@ -35,9 +35,9 @@ function get(url) {
 }
 
 const ATL_NAV =
-  '<a href="atl.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/atl.png" alt="ATL" loading="lazy" width="110" height="68"><span data-i18n="nav.co.atl">ATL</span></a>';
+  '<a href="atl.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/atl.png?v=61" alt="ATL" loading="lazy" width="110" height="68"><span data-i18n="nav.co.atl">ATL</span></a>';
 const AGRO_NAV =
-  '<a href="lake-agro.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-agro.png" alt="Lake Agro" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakeAgro">Lake Agro</span></a>';
+  '<a href="lake-agro.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-agro.png?v=61" alt="Lake Agro" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakeAgro">Lake Agro</span></a>';
 const ATL_MOB = '<a href="atl.html" data-i18n="nav.co.atl">ATL</a>';
 const AGRO_MOB = '<a href="lake-agro.html" data-i18n="nav.co.lakeAgro">Lake Agro</a>';
 
@@ -74,11 +74,11 @@ function patchHtmlFile(file, raw) {
   // services directory rows
   s = s.replace(
     /<a href="https:\/\/atl-tz\.com" class="div-row div-external"[\s\S]*?<\/a>/g,
-    `<a href="atl.html" class="div-row"><div class="div-no">10</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/atl.png" alt="" loading="lazy"></span> <span>ATL (Aluminium Trailers)</span></h3></div><div class="div-side"><p data-i18n="services.desc.atl">Tanzania's aluminium fuel tanker and custom trailer manufacturer — engineered for African routes.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>`
+    `<a href="atl.html" class="div-row"><div class="div-no">10</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/atl.png?v=61" alt="" loading="lazy"></span> <span>ATL (Aluminium Trailers)</span></h3></div><div class="div-side"><p data-i18n="services.desc.atl">Tanzania's aluminium fuel tanker and custom trailer manufacturer — engineered for African routes.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>`
   );
   s = s.replace(
     /<a href="https:\/\/lakeagro\.com\/?" class="div-row div-external"[\s\S]*?<\/a>/g,
-    `<a href="lake-agro.html" class="div-row"><div class="div-no">17</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/lake-agro.png" alt="" loading="lazy"></span> <span>Lake Agro</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeAgro">Agribusiness plantations and integrated Ag Parks — creating customers and food for life across Africa.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>`
+    `<a href="lake-agro.html" class="div-row"><div class="div-no">17</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/lake-agro.png?v=61" alt="" loading="lazy"></span> <span>Lake Agro</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeAgro">Agribusiness plantations and integrated Ag Parks — creating customers and food for life across Africa.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>`
   );
 
   // contact directory
@@ -86,7 +86,7 @@ function patchHtmlFile(file, raw) {
     s = s.replace(
       /id="atl">[\s\S]*?<\/article>/,
       `id="atl">
-        <div class="ct-dir-logo"><img src="assets/images/logos/companies/atl.png" alt="ATL" loading="lazy"></div>
+        <div class="ct-dir-logo"><img src="assets/images/logos/companies/atl.png?v=61" alt="ATL" loading="lazy"></div>
         <div class="ct-dir-meta">
           <h3>ATL (Aluminium Trailers)</h3>
           <div class="ct-dir-div">Manufacturing</div>
@@ -103,7 +103,7 @@ function patchHtmlFile(file, raw) {
     s = s.replace(
       /id="lake-agro">[\s\S]*?<\/article>/,
       `id="lake-agro">
-        <div class="ct-dir-logo"><img src="assets/images/logos/companies/lake-agro.png" alt="Lake Agro" loading="lazy"></div>
+        <div class="ct-dir-logo"><img src="assets/images/logos/companies/lake-agro.png?v=61" alt="Lake Agro" loading="lazy"></div>
         <div class="ct-dir-meta">
           <h3>Lake Agro</h3>
           <div class="ct-dir-div">Agro Processing</div>
@@ -181,7 +181,7 @@ async function downloadAtlImages() {
 
 function ensureAgroLogo() {
   const src = path.join(ROOT, 'scripts', '_scraped', 'agro_logoresizey.png');
-  const dest = path.join(ROOT, 'assets', 'images', 'logos', 'companies', 'lake-agro.png');
+  const dest = path.join(ROOT, 'assets', 'images', 'logos', 'companies', 'lake-agro.png?v=61');
   if (fs.existsSync(src)) {
     fs.copyFileSync(src, dest);
     const b = fs.readFileSync(dest);
@@ -201,7 +201,7 @@ function ensureCompanyPages() {
   if (!/data-company-logo="assets\/images\/logos\/companies\/lake-agro\.png"/.test(agro)) {
     agro = agro.replace(
       /<body([^>]*)>/,
-      '<body data-company-logo="assets/images/logos/companies/lake-agro.png" data-company-alt="Lake Agro" class="co-theme-agro">'
+      '<body data-company-logo="assets/images/logos/companies/lake-agro.png?v=61" data-company-alt="Lake Agro" class="co-theme-agro">'
     );
     write('lake-agro.html', agro);
   }
@@ -235,7 +235,7 @@ body.co-theme-agro .ct-info { background: var(--color-agro-green-deep); }
   if (!/data-company-logo="assets\/images\/logos\/companies\/atl\.png"/.test(atl)) {
     atl = atl.replace(
       /<body([^>]*)>/,
-      '<body data-company-logo="assets/images/logos/companies/atl.png" data-company-alt="ATL">'
+      '<body data-company-logo="assets/images/logos/companies/atl.png?v=61" data-company-alt="ATL">'
     );
     write('atl.html', atl);
   }
@@ -289,8 +289,8 @@ function ensureMount() {
     m = m.replace(
       /\{ src: 'assets\/images\/logos\/companies\/gulf-aggregates\.png'[^}]+\}/,
       `{ src: 'assets/images/logos/companies/gulf-aggregates.png', alt: 'Gulf Aggregates', title: 'Gulf Aggregates', href: 'gulf-aggregates.html' },
-    { src: 'assets/images/logos/companies/atl.png', alt: 'ATL', title: 'ATL Aluminium Trailers', href: 'atl.html' },
-    { src: 'assets/images/logos/companies/lake-agro.png', alt: 'Lake Agro', title: 'Lake Agro', href: 'lake-agro.html' }`
+    { src: 'assets/images/logos/companies/atl.png?v=61', alt: 'ATL', title: 'ATL Aluminium Trailers', href: 'atl.html' },
+    { src: 'assets/images/logos/companies/lake-agro.png?v=61', alt: 'Lake Agro', title: 'Lake Agro', href: 'lake-agro.html' }`
     );
   }
   write('assets/components/logo-loop-mount.js', m);

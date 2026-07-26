@@ -653,8 +653,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   overflow: visible;
 }
 /* Light chip behind navy-low-contrast logos (do not filter/recolor PNGs).
-   Ocean Galleria intentionally has no chip. */
-.mm-company img[src*="cross-country.png"],
+   Cross Country + Ocean Galleria: no chip — transparent PNG on dark megamenu. */
 .mm-company img[src*="lake-agro.png"],
 .mm-company img[src*="atl.png"] {
   background: #fff;
@@ -671,20 +670,32 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   overflow: visible;
 }
 .mm-company img[src*="lake-agro.png"] {
-  height: 60px;
-  max-width: 124px;
-}
-.mm-company img[src*="cross-country.png"] {
   height: 64px;
-  max-width: 128px;
-}
-.mm-company img[src*="ocean-galleria.png"] {
-  height: 68px;
   max-width: 132px;
+}
+/* Tall stacked mark — taller than peers so visual weight matches Ocean Galleria. */
+.mm-company img[src*="cross-country.png"] {
+  height: 86px;
+  max-width: 162px;
+  max-height: 86px;
   background: transparent;
   border-radius: 0;
   padding: 0;
   box-shadow: none;
+}
+.mm-company img[src*="ocean-galleria.png"] {
+  height: 78px;
+  max-width: 150px;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
+/* Logos already include the wordmark — hide duplicate megamenu labels.
+   Accessible name comes from the img alt on the .mm-company link.
+   Scoped to .nav-megamenu so mobile accordion labels stay visible. */
+.nav-megamenu .mm-company > span {
+  display: none;
 }
 @media (max-height: 900px) {
   .nav-megamenu { padding: 18px 22px; }
@@ -701,18 +712,19 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
     padding: 6px 8px;
   }
   .mm-company img[src*="lake-agro.png"] {
-    height: 50px;
-    max-width: 108px;
+    height: 52px;
+    max-width: 116px;
     padding: 6px 8px;
   }
   .mm-company img[src*="cross-country.png"] {
-    height: 52px;
-    max-width: 112px;
-    padding: 6px 8px;
+    height: 74px;
+    max-width: 140px;
+    max-height: 74px;
+    padding: 0;
   }
   .mm-company img[src*="ocean-galleria.png"] {
-    height: 56px;
-    max-width: 116px;
+    height: 66px;
+    max-width: 138px;
     padding: 0;
   }
 }

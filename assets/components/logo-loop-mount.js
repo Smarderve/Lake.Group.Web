@@ -26,10 +26,10 @@
     { src: 'assets/images/logos/companies/aill.png?v=58', alt: 'AILL', title: 'AILL', href: 'aill.html' },
     /* Tight-crop marks read larger than padded Lake logos at the same CSS height */
     /* Circles-only ATL mark (no tagline) — matches brand sheet */
-    { src: 'assets/images/logos/companies/atl.png?v=53', alt: 'ATL', title: 'ATL', href: 'atl.html', scale: 0.9 },
-    { src: 'assets/images/logos/companies/lake-agro.png?v=50', alt: 'Lake Agro', title: 'Lake Agro', href: 'lake-agro.html', scale: 0.8 },
-    { src: 'assets/images/logos/companies/cross-country.png?v=50', alt: 'Cross Country', title: 'Cross Country', href: 'cross-country.html', scale: 0.85 },
-    { src: 'assets/images/logos/companies/ocean-galleria.png?v=50', alt: 'Ocean Galleria', title: 'Ocean Galleria', href: 'ocean-galleria.html', scale: 0.85 }
+    { src: 'assets/images/logos/companies/atl.png?v=61', alt: 'ATL', title: 'ATL', href: 'atl.html', scale: 0.9 },
+    { src: 'assets/images/logos/companies/lake-agro.png?v=61', alt: 'Lake Agro', title: 'Lake Agro', href: 'lake-agro.html', scale: 0.8 },
+    { src: 'assets/images/logos/companies/cross-country.png?v=62', alt: 'Cross Country', title: 'Cross Country', href: 'cross-country.html', scale: 0.85 },
+    { src: 'assets/images/logos/companies/ocean-galleria.png?v=61', alt: 'Ocean Galleria', title: 'Ocean Galleria', href: 'ocean-galleria.html', scale: 0.85 }
   ];
 
   var DEFAULTS = {

@@ -92,25 +92,25 @@ foreach ($p in @('scripts\_scraped\agro_logo_hires.png','scripts\_scraped\agro_l
   }
 }
 
-Write-Output '=== atl.png corner samples (before) ==='
-Sample-Corners 'assets\images\logos\companies\atl.png'
-$atlBmp = [System.Drawing.Bitmap]::FromFile((Resolve-Path 'assets\images\logos\companies\atl.png'))
+Write-Output '=== atl.png?v=61 corner samples (before) ==='
+Sample-Corners 'assets\images\logos\companies\atl.png?v=61'
+$atlBmp = [System.Drawing.Bitmap]::FromFile((Resolve-Path 'assets\images\logos\companies\atl.png?v=61'))
 $tl = $atlBmp.GetPixel(0,0)
 $needsAtlFix = ($tl.A -gt 200) -and ($tl.R -gt 200 -and $tl.G -gt 180 -and $tl.B -lt 120)
 $atlBmp.Dispose()
 Write-Output ("atl opaque yellow corners: {0}" -f $needsAtlFix)
 if ($needsAtlFix) {
-  $atlSrc = 'assets\images\logos\companies\atl.png'
+  $atlSrc = 'assets\images\logos\companies\atl.png?v=61'
   if (Test-Path 'scripts\_scraped\atl_logo_src.jpg') { $atlSrc = 'scripts\_scraped\atl_logo_src.jpg' }
-  Process-Logo $atlSrc 'assets\images\logos\companies\atl.png' $true
-  Write-Output '=== atl.png corner samples (after) ==='
-  Sample-Corners 'assets\images\logos\companies\atl.png'
+  Process-Logo $atlSrc 'assets\images\logos\companies\atl.png?v=61' $true
+  Write-Output '=== atl.png?v=61 corner samples (after) ==='
+  Sample-Corners 'assets\images\logos\companies\atl.png?v=61'
 }
 
 Write-Output '=== Processing lake-agro (no upscale; source width 532) ==='
-Process-Logo 'scripts\_scraped\agro_logo_hires.png' 'assets\images\logos\companies\lake-agro.png' $false
+Process-Logo 'scripts\_scraped\agro_logo_hires.png' 'assets\images\logos\companies\lake-agro.png?v=61' $false
 Write-Output '=== lake-agro corner samples ==='
-Sample-Corners 'assets\images\logos\companies\lake-agro.png'
+Sample-Corners 'assets\images\logos\companies\lake-agro.png?v=61'
 `;
 const out = 'c:/Users/aisha/Desktop/LakeGroup/lake.group.web/scripts/_reprocess_logos_noscale.ps1';
 fs.writeFileSync(out, ps1, 'utf8');

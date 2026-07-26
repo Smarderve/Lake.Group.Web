@@ -6,7 +6,7 @@ const path = require('path');
 const { execFileSync } = require('child_process');
 
 const ROOT = path.join(__dirname, '..');
-const DEST = path.join(ROOT, 'assets', 'images', 'logos', 'companies', 'atl.png');
+const DEST = path.join(ROOT, 'assets', 'images', 'logos', 'companies', 'atl.png?v=61');
 const TMP = path.join(ROOT, 'scripts', '_scraped');
 fs.mkdirSync(TMP, { recursive: true });
 
@@ -64,8 +64,8 @@ Write-Host "saved" $dst
     console.log('System.Drawing failed, trying ffmpeg');
     execFileSync('ffmpeg', ['-y', '-i', srcFile, DEST], { stdio: 'inherit' });
   }
-  if (!fs.existsSync(DEST)) throw new Error('atl.png missing');
-  console.log('atl.png bytes', fs.statSync(DEST).size);
+  if (!fs.existsSync(DEST)) throw new Error('atl.png?v=61 missing');
+  console.log('atl.png?v=61 bytes', fs.statSync(DEST).size);
 })().catch((e) => {
   console.error(e);
   process.exit(1);

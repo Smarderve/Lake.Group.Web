@@ -276,7 +276,7 @@ const AGRO_BODY = `<div class="page-wrapper">
   <div class="container">
     <div class="fs-split-even">
       <div>
-        <div class="co-logo-row"><img src="assets/images/logos/companies/lake-agro.png?v=${CACHE}" alt="Lake Agro" width="320" height="72"></div>
+        <div class="co-logo-row"><img src="assets/images/logos/companies/lake-agro.png?v=61?v=${CACHE}" alt="Lake Agro" width="320" height="72"></div>
         <div class="fs-marker"><span class="fs-marker-no">01</span><span class="fs-eyebrow">Why We Are</span></div>
         <h2 class="fs-display">Food Systems for Africa</h2>
         <hr class="fs-rule" style="margin:var(--sp-5) 0">
@@ -422,7 +422,7 @@ const ATL_BODY = `<div class="page-wrapper">
   <div class="container">
     <div class="fs-split-even">
       <div>
-        <div class="co-logo-row"><img src="assets/images/logos/companies/atl.png?v=${CACHE}" alt="ATL Aluminium Trailers" width="280" height="140"></div>
+        <div class="co-logo-row"><img src="assets/images/logos/companies/atl.png?v=61?v=${CACHE}" alt="ATL Aluminium Trailers" width="280" height="140"></div>
         <div class="fs-marker"><span class="fs-marker-no">01</span><span class="fs-eyebrow">Company Introduction</span></div>
         <h2 class="fs-display">Engineered To Last</h2>
         <hr class="fs-rule" style="margin:var(--sp-5) 0">
@@ -749,10 +749,10 @@ async function downloadAssets() {
   }
   console.log('leftover CTA issues', leftover);
 
-  const atl = fs.readFileSync(path.join(ROOT, 'assets/images/logos/companies/atl.png'));
-  const agro = fs.readFileSync(path.join(ROOT, 'assets/images/logos/companies/lake-agro.png'));
-  console.log('atl.png', atl.readUInt32BE(16) + 'x' + atl.readUInt32BE(20), atl.length);
-  console.log('lake-agro.png', agro.readUInt32BE(16) + 'x' + agro.readUInt32BE(20), agro.length);
+  const atl = fs.readFileSync(path.join(ROOT, 'assets/images/logos/companies/atl.png?v=61'));
+  const agro = fs.readFileSync(path.join(ROOT, 'assets/images/logos/companies/lake-agro.png?v=61'));
+  console.log('atl.png?v=61', atl.readUInt32BE(16) + 'x' + atl.readUInt32BE(20), atl.length);
+  console.log('lake-agro.png?v=61', agro.readUInt32BE(16) + 'x' + agro.readUInt32BE(20), agro.length);
   console.log('DONE cache', CACHE);
 })().catch((e) => {
   console.error(e);

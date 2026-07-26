@@ -32,7 +32,7 @@ function probeFor(c) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/assets/tokens.css?v=62">
-<link rel="stylesheet" href="/assets/flagship.css?v=80">
+<link rel="stylesheet" href="/assets/flagship.css?v=87">
 </head><body>
 <h1 style="font-size:var(--fs-hero)">H</h1>
 <h2 style="font-size:var(--fs-display)">S</h2>

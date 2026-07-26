@@ -17,7 +17,7 @@ let contact = read('contact.html');
 contact = contact.replace(
   /id="atl">[\s\S]*?<\/article>/,
   `id="atl">
-        <div class="ct-dir-logo"><img src="assets/images/logos/companies/atl.png" alt="ATL" loading="lazy"></div>
+        <div class="ct-dir-logo"><img src="assets/images/logos/companies/atl.png?v=61" alt="ATL" loading="lazy"></div>
         <div class="ct-dir-meta">
           <h3>ATL (Aluminium Trailers)</h3>
           <div class="ct-dir-div" data-i18n="contact.div.mfg">Manufacturing</div>
@@ -34,7 +34,7 @@ contact = contact.replace(
 contact = contact.replace(
   /id="lake-agro">[\s\S]*?<\/article>/,
   `id="lake-agro">
-        <div class="ct-dir-logo"><img src="assets/images/logos/companies/lake-agro.png" alt="Lake Agro" loading="lazy"></div>
+        <div class="ct-dir-logo"><img src="assets/images/logos/companies/lake-agro.png?v=61" alt="Lake Agro" loading="lazy"></div>
         <div class="ct-dir-meta">
           <h3>Lake Agro</h3>
           <div class="ct-dir-div" data-i18n="nav.dd.agro">Agro Processing</div>
@@ -55,23 +55,23 @@ let services = read('services.html');
 if (/atl-tz\.com|lakeagro\.com/.test(services)) {
   services = services.replace(
     /<a href="https:\/\/atl-tz\.com"[\s\S]*?<\/a>/,
-    `<a href="atl.html" class="div-row"><div class="div-no">10</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/atl.png" alt="" loading="lazy"></span> <span>ATL (Aluminium Trailers)</span></h3></div><div class="div-side"><p data-i18n="services.desc.atl">Tanzania's aluminium fuel tanker and custom trailer manufacturer — engineered for African routes.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>`
+    `<a href="atl.html" class="div-row"><div class="div-no">10</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/atl.png?v=61" alt="" loading="lazy"></span> <span>ATL (Aluminium Trailers)</span></h3></div><div class="div-side"><p data-i18n="services.desc.atl">Tanzania's aluminium fuel tanker and custom trailer manufacturer — engineered for African routes.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>`
   );
   // only first atl-tz might be nav - do careful replace for div-row
 }
 // Safer: target div-external rows
 services = services.replace(
   /<a href="https:\/\/atl-tz\.com" class="div-row div-external"[\s\S]*?<\/a>/,
-  `<a href="atl.html" class="div-row"><div class="div-no">10</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/atl.png" alt="" loading="lazy"></span> <span>ATL (Aluminium Trailers)</span></h3></div><div class="div-side"><p data-i18n="services.desc.atl">Tanzania's aluminium fuel tanker and custom trailer manufacturer — engineered for African routes.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>`
+  `<a href="atl.html" class="div-row"><div class="div-no">10</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/atl.png?v=61" alt="" loading="lazy"></span> <span>ATL (Aluminium Trailers)</span></h3></div><div class="div-side"><p data-i18n="services.desc.atl">Tanzania's aluminium fuel tanker and custom trailer manufacturer — engineered for African routes.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>`
 );
 services = services.replace(
   /<a href="https:\/\/lakeagro\.com\/?" class="div-row div-external"[\s\S]*?<\/a>/,
-  `<a href="lake-agro.html" class="div-row"><div class="div-no">17</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/lake-agro.png" alt="" loading="lazy"></span> <span>Lake Agro</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeAgro">Agribusiness plantations and integrated Ag Parks — creating customers and food for life across Africa.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>`
+  `<a href="lake-agro.html" class="div-row"><div class="div-no">17</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/lake-agro.png?v=61" alt="" loading="lazy"></span> <span>Lake Agro</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeAgro">Agribusiness plantations and integrated Ag Parks — creating customers and food for life across Africa.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>`
 );
 // bump services css if needed
 services = services
   .replace(/tokens\.css\?v=\d+/g, 'tokens.css?v=46')
-  .replace(/flagship\.css\?v=\d+/g, 'flagship.css?v=46')
+  .replace(/flagship\.css\?v=\d+/g, 'flagship.css?v=87')
   .replace(/site\.js\?v=\d+/g, 'site.js?v=46');
 write('services.html', services);
 
@@ -129,7 +129,7 @@ for (const f of fs.readdirSync(ROOT).filter((x) => x.endsWith('.html'))) {
 console.log('remaining external pages', remaining);
 
 // ensure agro logo correct size
-const agro = fs.readFileSync(path.join(ROOT, 'assets/images/logos/companies/lake-agro.png'));
-console.log('lake-agro.png', agro.readUInt32BE(16) + 'x' + agro.readUInt32BE(20));
-const atl = fs.readFileSync(path.join(ROOT, 'assets/images/logos/companies/atl.png'));
-console.log('atl.png', atl.readUInt32BE(16) + 'x' + atl.readUInt32BE(20));
+const agro = fs.readFileSync(path.join(ROOT, 'assets/images/logos/companies/lake-agro.png?v=61'));
+console.log('lake-agro.png?v=61', agro.readUInt32BE(16) + 'x' + agro.readUInt32BE(20));
+const atl = fs.readFileSync(path.join(ROOT, 'assets/images/logos/companies/atl.png?v=61'));
+console.log('atl.png?v=61', atl.readUInt32BE(16) + 'x' + atl.readUInt32BE(20));

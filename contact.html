@@ -56,8 +56,51 @@
   display: flex; align-items: center; justify-content: center;
   background: var(--ink);
 }
+/* Colorful logos with transparent PNGs — sit on the light page, not the ink plate */
+.ct-dir-logo:has(img[src*="atl.png"]),
+.ct-dir-logo:has(img[src*="lake-agro.png"]),
+.ct-dir-logo:has(img[src*="cross-country.png?v=62"]),
+.ct-dir-logo:has(img[src*="ocean-galleria.png"]) {
+  background: transparent;
+}
 .ct-dir-logo img { max-width: 78px; max-height: 48px; width: auto; height: auto; object-fit: contain; object-position: center; overflow: visible; }
-.ct-dir-logo img[src*="atl.png"] { max-width: 82px; max-height: 52px; }
+/* ATL — medium (between default and full large) */
+.ct-dir-item:has(img[src*="atl.png"]) { grid-template-columns: 110px 1fr; }
+.ct-dir-logo:has(img[src*="atl.png"]) { width: 110px; height: 64px; }
+.ct-dir-logo img[src*="atl.png"] { max-width: 100px; max-height: 58px; }
+/* Lake Agro transparent crop reads small — larger than peers for presence */
+.ct-dir-item:has(img[src*="lake-agro.png"]) { grid-template-columns: 180px 1fr; }
+.ct-dir-logo:has(img[src*="lake-agro.png"]) { width: 180px; height: 100px; }
+.ct-dir-logo img[src*="lake-agro.png"] { max-width: 168px; max-height: 92px; }
+/* Ocean Galleria gold script — widen column so max-width can breathe vs heading */
+.ct-dir-item:has(img[src*="ocean-galleria.png"]) { grid-template-columns: 150px 1fr; }
+.ct-dir-logo:has(img[src*="ocean-galleria.png"]) { width: 150px; height: 88px; }
+.ct-dir-logo img[src*="ocean-galleria.png"] { max-width: 140px; max-height: 80px; }
+/* Cross Country — same enlargement as Ocean Galleria */
+.ct-dir-item:has(img[src*="cross-country.png?v=62"]) { grid-template-columns: 150px 1fr; }
+.ct-dir-logo:has(img[src*="cross-country.png?v=62"]) { width: 150px; height: 88px; }
+.ct-dir-logo img[src*="cross-country.png?v=62"] { max-width: 140px; max-height: 80px; }
+/* Lake Energies — wide yellow/white wordmark; keep ink plate (white ENERGIES needs dark ground) */
+.ct-dir-item:has(img[src*="lake-energies.png"]) { grid-template-columns: 150px 1fr; }
+.ct-dir-logo:has(img[src*="lake-energies.png"]) { width: 150px; height: 88px; }
+.ct-dir-logo img[src*="lake-energies.png"] { max-width: 140px; max-height: 80px; }
+@media (max-width: 480px) {
+  .ct-dir-item:has(img[src*="atl.png"]) { grid-template-columns: 96px 1fr; }
+  .ct-dir-logo:has(img[src*="atl.png"]) { width: 96px; height: 56px; }
+  .ct-dir-logo img[src*="atl.png"] { max-width: 88px; max-height: 50px; }
+  .ct-dir-item:has(img[src*="lake-agro.png"]) { grid-template-columns: 140px 1fr; }
+  .ct-dir-logo:has(img[src*="lake-agro.png"]) { width: 140px; height: 80px; }
+  .ct-dir-logo img[src*="lake-agro.png"] { max-width: 128px; max-height: 72px; }
+  .ct-dir-item:has(img[src*="ocean-galleria.png"]) { grid-template-columns: 120px 1fr; }
+  .ct-dir-logo:has(img[src*="ocean-galleria.png"]) { width: 120px; height: 72px; }
+  .ct-dir-logo img[src*="ocean-galleria.png"] { max-width: 112px; max-height: 64px; }
+  .ct-dir-item:has(img[src*="cross-country.png?v=62"]) { grid-template-columns: 120px 1fr; }
+  .ct-dir-logo:has(img[src*="cross-country.png?v=62"]) { width: 120px; height: 72px; }
+  .ct-dir-logo img[src*="cross-country.png?v=62"] { max-width: 112px; max-height: 64px; }
+  .ct-dir-item:has(img[src*="lake-energies.png"]) { grid-template-columns: 120px 1fr; }
+  .ct-dir-logo:has(img[src*="lake-energies.png"]) { width: 120px; height: 72px; }
+  .ct-dir-logo img[src*="lake-energies.png"] { max-width: 112px; max-height: 64px; }
+}
 .ct-dir-meta { min-width: 0; }
 .ct-dir-meta h3 {
   font-family: var(--font-display); font-weight: 700; font-size: 1.35rem;
@@ -132,7 +175,7 @@
   <link rel="preload" href="assets/fonts/files/jost-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="assets/flagship.css?v=82">
+<link rel="stylesheet" href="assets/flagship.css?v=87">
 <link rel="stylesheet" href="assets/split-text.css?v=46">
   <link rel="stylesheet" href="assets/assistant.css?v=71">
   <link rel="stylesheet" href="assets/skeleton.css?v=4">
@@ -173,7 +216,7 @@
                   <a href="lake-steel.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-steel.png" alt="Lake Steel" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeSteel">Lake Steel</span></a>
                   <a href="lake-cylinders.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="Lake Cylinders" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeCylinders">Lake Cylinders</span></a>
                   <a href="gulf-aggregates.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/gulf-aggregates.png" alt="Gulf Aggregates" loading="lazy" width="56" height="32"><span data-i18n="nav.co.gulfAggregates">Gulf Aggregates</span></a>
-                  <a href="atl.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/atl.png?v=53" alt="ATL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.atl">ATL</span></a>
+                  <a href="atl.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/atl.png?v=61" alt="ATL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.atl">ATL</span></a>
                   <a href="lake-premix-cement.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-premix-cement.png" alt="Lake Premix and Cement" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</span></a>
                 </div>
               </div>
@@ -186,13 +229,13 @@
               </div>
               <div class="mm-pane" role="tabpanel" id="mm-pane-realestate" data-mm-pane="realestate" aria-labelledby="mm-tab-realestate" hidden>
                 <div class="mm-companies">
-                  <a href="cross-country.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/cross-country.png" alt="Cross Country" loading="lazy" width="56" height="32"><span data-i18n="nav.co.crossCountry">Cross Country</span></a>
-                  <a href="ocean-galleria.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/ocean-galleria.png" alt="Ocean Galleria" loading="lazy" width="56" height="32"><span data-i18n="nav.co.oceanGalleria">Ocean Galleria</span></a>
+                  <a href="cross-country.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/cross-country.png?v=62" alt="Cross Country" loading="lazy" width="56" height="32"><span data-i18n="nav.co.crossCountry">Cross Country</span></a>
+                  <a href="ocean-galleria.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/ocean-galleria.png?v=61" alt="Ocean Galleria" loading="lazy" width="56" height="32"><span data-i18n="nav.co.oceanGalleria">Ocean Galleria</span></a>
                 </div>
           </div>
               <div class="mm-pane" role="tabpanel" id="mm-pane-agro" data-mm-pane="agro" aria-labelledby="mm-tab-agro" hidden>
                 <div class="mm-companies">
-                  <a href="lake-agro.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-agro.png?v=48" alt="Lake Agro" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeAgro">Lake Agro</span></a>
+                  <a href="lake-agro.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-agro.png?v=61" alt="Lake Agro" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeAgro">Lake Agro</span></a>
           </div>
           </div>
           </div>
@@ -329,77 +372,6 @@
   <p data-i18n="contact.4">Reach Group headquarters or any subsidiary across East and Central Africa for enquiries, partnerships and supply.</p>
 </div></section>
 
-<section class="section" id="hq">
-  <div class="container">
-    <div class="fs-split-rev">
-      <div>
-        <div data-i18n="contact.5" class="section-label">Send a Message</div>
-        <h2 data-i18n="contact.6" class="section-title">We're Happy to Hear From You</h2>
-        <div class="divider-yellow"></div>
-        <form data-mock style="margin-top:32px">
-          <div class="form-row">
-            <div class="form-group"><label data-i18n="contact.7">Full Name *</label><input type="text" placeholder="Your name" data-i18n-placeholder="contact.32" required></div>
-            <div class="form-group"><label data-i18n="contact.8">Email *</label><input type="email" placeholder="your@email.com" data-i18n-placeholder="contact.33" required></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label data-i18n="contact.9">Phone</label><input type="tel" placeholder="+255 700 000 000"></div>
-            <div class="form-group"><label data-i18n="contact.10">Subject</label><input type="text" placeholder="How can we help?" data-i18n-placeholder="contact.34"></div>
-          </div>
-          <div class="form-group"><label data-i18n="contact.11">Message *</label><textarea rows="6" placeholder="Tell us what you need..." data-i18n-placeholder="contact.35" required></textarea></div>
-          <button data-i18n="contact.12" type="submit" class="btn btn-primary btn-lg" style="width:100%">Send Message &rarr;</button>
-        </form>
-      </div>
-      <div>
-        <div class="ct-info">
-          <h3 data-i18n="contact.13">Group Headquarters</h3>
-          <div class="ct-rows">
-            <div class="ct-row">
-              <div class="ct-ico lg-ico" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="lg-ico-draw" d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
-              <div>
-                <p data-i18n="contact.14" class="ct-label">Headquarters</p>
-                <p data-i18n="contact.15" class="ct-strong">Plot 49, Mikocheni Light Industrial Area</p>
-                <p data-i18n="contact.16" class="ct-dim">P.O.BOX 5055, Dar es Salaam, Tanzania</p>
-              </div>
-            </div>
-            <div class="ct-row">
-              <div class="ct-ico lg-ico" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="lg-ico-draw" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.6 2.6.7A2 2 0 0 1 22 16.9z"/></svg></div>
-              <div>
-                <p data-i18n="contact.17" class="ct-label">Phone</p>
-                <a href="tel:+255222780510" class="ct-strong">+255 222 780 510</a>
-                <a href="tel:+255222780479" class="ct-dim">+255 222 780 479</a>
-              </div>
-            </div>
-            <div class="ct-row">
-              <div class="ct-ico lg-ico" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="lg-ico-draw" d="M4 6h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/><path d="m22 8-10 7L2 8"/></svg></div>
-              <div>
-                <p data-i18n="contact.18" class="ct-label">Email</p>
-                <a data-i18n="contact.19" href="mailto:admin@lakeoilgroup.com" class="ct-strong">admin@lakeoilgroup.com</a>
-              </div>
-            </div>
-            <div class="ct-row">
-              <div class="ct-ico lg-ico" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle class="lg-ico-draw" cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-              <div>
-                <p data-i18n="contact.20" class="ct-label">Office Hours</p>
-                <p data-i18n="contact.21" class="ct-strong">Monday � Friday</p>
-                <p data-i18n="contact.22" class="ct-dim">9:00 AM � 6:00 PM EAT</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="ct-map">
-          <div class="ct-map-head">
-            <span data-i18n="contact.23">Mikocheni, Dar es Salaam, Tanzania</span>
-          </div>
-          <div class="ct-map-body">
-            <p data-i18n="contact.24">Coordinates: -6.762806, 39.241447</p>
-            <a data-i18n="contact.25" href="https://maps.google.com/maps?ll=-6.762806,39.241447&z=14" target="_blank" rel="noopener" class="btn btn-primary btn-sm" style="margin-top:8px">Open in Google Maps</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="fs-section section-light" id="subsidiaries">
   <div class="container">
     <div class="fs-head">
@@ -409,6 +381,21 @@
     </div>
 
     <div class="ct-dir">
+
+      <article class="ct-dir-item" id="lake-energies">
+        <div class="ct-dir-logo"><img src="assets/images/logos/companies/lake-energies.png" alt="Lake Energies" loading="lazy" decoding="async"></div>
+        <div class="ct-dir-meta">
+          <h3>Lake Energies</h3>
+          <div class="ct-dir-div" data-i18n="contact.div.energies">Lake Energies</div>
+          <div class="ct-dir-lines">
+            <span data-i18n="contact.note.viaHq">Via Group HQ - Plot 49, Mikocheni Light Industrial Area, Dar es Salaam</span>
+            <a href="tel:+255222780510">+255 222 780 510</a>
+            <a href="mailto:admin@lakeoilgroup.com">admin@lakeoilgroup.com</a>
+            <a href="lake-oil.html" data-i18n="contact.companyPage">Company page</a>
+          </div>
+          <span class="ct-src ct-src--hq" data-i18n="contact.src.hqUnpublished">Source: Group HQ (lakeoilgroup.com) - division line not published</span>
+        </div>
+      </article>
 
       <article class="ct-dir-item" id="lake-oil">
         <div class="ct-dir-logo"><img src="assets/images/logos/companies/lake-oil.png" alt="Lake Oil" loading="lazy" decoding="async"></div>
@@ -609,7 +596,7 @@
       </article>
 
       <article class="ct-dir-item" id="cross-country">
-        <div class="ct-dir-logo"><img src="assets/images/logos/companies/cross-country.png?v=50" alt="Cross Country" loading="lazy" decoding="async"></div>
+        <div class="ct-dir-logo"><img src="assets/images/logos/companies/cross-country.png?v=62" alt="Cross Country" loading="lazy" decoding="async"></div>
         <div class="ct-dir-meta">
           <h3>Cross Country</h3>
           <div class="ct-dir-div" data-i18n="contact.div.realEstate">Real Estate</div>
@@ -624,7 +611,7 @@
       </article>
 
       <article class="ct-dir-item" id="ocean-galleria">
-        <div class="ct-dir-logo"><img src="assets/images/logos/companies/ocean-galleria.png?v=50" alt="Ocean Galleria" loading="lazy" decoding="async"></div>
+        <div class="ct-dir-logo"><img src="assets/images/logos/companies/ocean-galleria.png?v=61" alt="Ocean Galleria" loading="lazy" decoding="async"></div>
         <div class="ct-dir-meta">
           <h3>Ocean Galleria</h3>
           <div class="ct-dir-div" data-i18n="contact.div.realEstate">Real Estate</div>
@@ -639,7 +626,7 @@
       </article>
 
       <article class="ct-dir-item" id="atl">
-        <div class="ct-dir-logo"><img src="assets/images/logos/companies/atl.png?v=53" alt="ATL" loading="lazy" decoding="async"></div>
+        <div class="ct-dir-logo"><img src="assets/images/logos/companies/atl.png?v=61" alt="ATL" loading="lazy" decoding="async"></div>
         <div class="ct-dir-meta">
           <h3>ATL (Aluminium Trailers)</h3>
           <div class="ct-dir-div">Manufacturing</div>
@@ -654,7 +641,7 @@
       </article>
 
       <article class="ct-dir-item" id="lake-agro">
-        <div class="ct-dir-logo"><img src="assets/images/logos/companies/lake-agro.png?v=50" alt="Lake Agro" loading="lazy" decoding="async"></div>
+        <div class="ct-dir-logo"><img src="assets/images/logos/companies/lake-agro.png?v=61" alt="Lake Agro" loading="lazy" decoding="async"></div>
         <div class="ct-dir-meta">
           <h3>Lake Agro</h3>
           <div class="ct-dir-div">Agro Processing</div>
@@ -737,6 +724,78 @@
     </div>
   </div>
 </section>
+
+<section class="section" id="hq">
+  <div class="container">
+    <div class="fs-split-rev">
+      <div>
+        <div data-i18n="contact.5" class="section-label">Send a Message</div>
+        <h2 data-i18n="contact.6" class="section-title">We're Happy to Hear From You</h2>
+        <div class="divider-yellow"></div>
+        <form data-mock style="margin-top:32px">
+          <div class="form-row">
+            <div class="form-group"><label data-i18n="contact.7">Full Name *</label><input type="text" placeholder="Your name" data-i18n-placeholder="contact.32" required></div>
+            <div class="form-group"><label data-i18n="contact.8">Email *</label><input type="email" placeholder="your@email.com" data-i18n-placeholder="contact.33" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label data-i18n="contact.9">Phone</label><input type="tel" placeholder="+255 700 000 000"></div>
+            <div class="form-group"><label data-i18n="contact.10">Subject</label><input type="text" placeholder="How can we help?" data-i18n-placeholder="contact.34"></div>
+          </div>
+          <div class="form-group"><label data-i18n="contact.11">Message *</label><textarea rows="6" placeholder="Tell us what you need..." data-i18n-placeholder="contact.35" required></textarea></div>
+          <button data-i18n="contact.12" type="submit" class="btn btn-primary btn-lg" style="width:100%">Send Message &rarr;</button>
+        </form>
+      </div>
+      <div>
+        <div class="ct-info">
+          <h3 data-i18n="contact.13">Group Headquarters</h3>
+          <div class="ct-rows">
+            <div class="ct-row">
+              <div class="ct-ico lg-ico" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="lg-ico-draw" d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+              <div>
+                <p data-i18n="contact.14" class="ct-label">Headquarters</p>
+                <p data-i18n="contact.15" class="ct-strong">Plot 49, Mikocheni Light Industrial Area</p>
+                <p data-i18n="contact.16" class="ct-dim">P.O.BOX 5055, Dar es Salaam, Tanzania</p>
+              </div>
+            </div>
+            <div class="ct-row">
+              <div class="ct-ico lg-ico" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="lg-ico-draw" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.6 2.6.7A2 2 0 0 1 22 16.9z"/></svg></div>
+              <div>
+                <p data-i18n="contact.17" class="ct-label">Phone</p>
+                <a href="tel:+255222780510" class="ct-strong">+255 222 780 510</a>
+                <a href="tel:+255222780479" class="ct-dim">+255 222 780 479</a>
+              </div>
+            </div>
+            <div class="ct-row">
+              <div class="ct-ico lg-ico" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="lg-ico-draw" d="M4 6h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/><path d="m22 8-10 7L2 8"/></svg></div>
+              <div>
+                <p data-i18n="contact.18" class="ct-label">Email</p>
+                <a data-i18n="contact.19" href="mailto:admin@lakeoilgroup.com" class="ct-strong">admin@lakeoilgroup.com</a>
+              </div>
+            </div>
+            <div class="ct-row">
+              <div class="ct-ico lg-ico" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle class="lg-ico-draw" cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+              <div>
+                <p data-i18n="contact.20" class="ct-label">Office Hours</p>
+                <p data-i18n="contact.21" class="ct-strong">Monday � Friday</p>
+                <p data-i18n="contact.22" class="ct-dim">9:00 AM � 6:00 PM EAT</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ct-map">
+          <div class="ct-map-head">
+            <span data-i18n="contact.23">Mikocheni, Dar es Salaam, Tanzania</span>
+          </div>
+          <div class="ct-map-body">
+            <p data-i18n="contact.24">Coordinates: -6.762806, 39.241447</p>
+            <a data-i18n="contact.25" href="https://maps.google.com/maps?ll=-6.762806,39.241447&z=14" target="_blank" rel="noopener" class="btn btn-primary btn-sm" style="margin-top:8px">Open in Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 </div>
 <footer class="site-footer">

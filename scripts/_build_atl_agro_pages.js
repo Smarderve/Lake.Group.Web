@@ -90,7 +90,7 @@ function wrapPage({
   html = html.slice(0, start) + bodyHtml + '\n' + html.slice(footer);
 
   html = html.replace(/tokens\.css\?v=\d+/g, 'tokens.css?v=46');
-  html = html.replace(/flagship\.css\?v=\d+/g, 'flagship.css?v=46');
+  html = html.replace(/flagship\.css\?v=\d+/g, 'flagship.css?v=87');
   html = html.replace(/site\.js\?v=\d+/g, 'site.js?v=46');
 
   fs.writeFileSync(path.join(ROOT, file), html);
@@ -113,7 +113,7 @@ const atlBody = `<div class="page-wrapper">
   <div class="container">
     <div class="fs-split-even">
       <div>
-        <div class="co-logo-row"><img src="assets/images/logos/companies/atl.png" alt="ATL Aluminium Trailers" width="320" height="200"></div>
+        <div class="co-logo-row"><img src="assets/images/logos/companies/atl.png?v=61" alt="ATL Aluminium Trailers" width="320" height="200"></div>
         <div class="fs-marker"><span class="fs-marker-no">01</span><span class="fs-eyebrow">Company Introduction</span></div>
         <h2 class="fs-display">Engineered To Last</h2>
         <hr class="fs-rule" style="margin:var(--sp-5) 0">
@@ -323,7 +323,7 @@ const agroBody = `<div class="page-wrapper">
   <div class="container">
     <div class="fs-split-even">
       <div>
-        <div class="co-logo-row"><img src="assets/images/logos/companies/lake-agro.png" alt="Lake Agro" width="320" height="72"></div>
+        <div class="co-logo-row"><img src="assets/images/logos/companies/lake-agro.png?v=61" alt="Lake Agro" width="320" height="72"></div>
         <div class="fs-marker"><span class="fs-marker-no">01</span><span class="fs-eyebrow">Company Introduction</span></div>
         <h2 class="fs-display">Food Systems for Africa</h2>
         <hr class="fs-rule" style="margin:var(--sp-5) 0">
@@ -431,7 +431,7 @@ wrapPage({
   description:
     'ATL Limited (Aluminum Trailers Ltd) — established 2019, Tanzania\'s aluminium fuel tanker and custom trailer manufacturer. Your trailer partner.',
   canonical: 'https://www.lakeoilgroup.com/atl.html',
-  dataLogo: 'assets/images/logos/companies/atl.png',
+  dataLogo: 'assets/images/logos/companies/atl.png?v=61',
   dataAlt: 'ATL',
   themeClass: '',
   bodyHtml: atlBody,
@@ -448,7 +448,7 @@ wrapPage({
   description:
     'Lake Agro — creating customers and food for life through plantations, integrated Ag Parks and agribusiness processing across Africa.',
   canonical: 'https://www.lakeoilgroup.com/lake-agro.html',
-  dataLogo: 'assets/images/logos/companies/lake-agro.png',
+  dataLogo: 'assets/images/logos/companies/lake-agro.png?v=61',
   dataAlt: 'Lake Agro',
   themeClass: 'co-theme-agro',
   extraHeadStyle: agroStyle,

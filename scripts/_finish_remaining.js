@@ -23,8 +23,8 @@ for (const f of ['index.html', 'about.html', 'atl.html', 'lake-agro.html', 'serv
     .replace(/i18n\.js\?v=\d+/g, 'i18n.js?v=47')
     .replace(/i18n-content\.js\?v=\d+/g, 'i18n-content.js?v=47')
     .replace(/tokens\.css\?v=\d+/g, 'tokens.css?v=46')
-    .replace(/flagship\.css\?v=\d+/g, 'flagship.css?v=46')
-    .replace(/theme\.css\?v=\d+/g, 'theme.css?v=46')
+    .replace(/flagship\.css\?v=\d+/g, 'flagship.css?v=87')
+    .replace(/theme\.css\?v=\d+/g, 'theme.css?v=87')
     .replace(/LogoLoop\.css\?v=\d+/g, 'LogoLoop.css?v=46')
     .replace(/logo-loop-mount\.js\?v=\d+/g, 'logo-loop-mount.js?v=46');
   if (next !== s) write(f, next);
@@ -42,7 +42,7 @@ if (/atl-tz\.com|lakeagro\.com/.test(contact) || /placeholder\.png" alt="ATL"/.t
   contact = contact.replace(
     /id="atl">[\s\S]*?<\/article>/,
     `id="atl">
-        <div class="ct-dir-logo"><img src="assets/images/logos/companies/atl.png" alt="ATL" loading="lazy"></div>
+        <div class="ct-dir-logo"><img src="assets/images/logos/companies/atl.png?v=61" alt="ATL" loading="lazy"></div>
         <div class="ct-dir-meta">
           <h3>ATL (Aluminium Trailers)</h3>
           <div class="ct-dir-div">Manufacturing</div>
@@ -59,7 +59,7 @@ if (/atl-tz\.com|lakeagro\.com/.test(contact) || /placeholder\.png" alt="ATL"/.t
   contact = contact.replace(
     /id="lake-agro">[\s\S]*?<\/article>/,
     `id="lake-agro">
-        <div class="ct-dir-logo"><img src="assets/images/logos/companies/lake-agro.png" alt="Lake Agro" loading="lazy"></div>
+        <div class="ct-dir-logo"><img src="assets/images/logos/companies/lake-agro.png?v=61" alt="Lake Agro" loading="lazy"></div>
         <div class="ct-dir-meta">
           <h3>Lake Agro</h3>
           <div class="ct-dir-div">Agro Processing</div>
@@ -81,11 +81,11 @@ let services = read('services.html');
 if (/div-external/.test(services) && /atl-tz|lakeagro/.test(services)) {
   services = services.replace(
     /<a href="https:\/\/atl-tz\.com" class="div-row div-external"[\s\S]*?<\/a>/,
-    `<a href="atl.html" class="div-row"><div class="div-no">10</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/atl.png" alt="" loading="lazy"></span> <span>ATL (Aluminium Trailers)</span></h3></div><div class="div-side"><p data-i18n="services.desc.atl">Tanzania's aluminium fuel tanker and custom trailer manufacturer — engineered for African routes.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>`
+    `<a href="atl.html" class="div-row"><div class="div-no">10</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/atl.png?v=61" alt="" loading="lazy"></span> <span>ATL (Aluminium Trailers)</span></h3></div><div class="div-side"><p data-i18n="services.desc.atl">Tanzania's aluminium fuel tanker and custom trailer manufacturer — engineered for African routes.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>`
   );
   services = services.replace(
     /<a href="https:\/\/lakeagro\.com\/?" class="div-row div-external"[\s\S]*?<\/a>/,
-    `<a href="lake-agro.html" class="div-row"><div class="div-no">17</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/lake-agro.png" alt="" loading="lazy"></span> <span>Lake Agro</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeAgro">Agribusiness plantations and integrated Ag Parks — creating customers and food for life across Africa.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>`
+    `<a href="lake-agro.html" class="div-row"><div class="div-no">17</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/lake-agro.png?v=61" alt="" loading="lazy"></span> <span>Lake Agro</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeAgro">Agribusiness plantations and integrated Ag Parks — creating customers and food for life across Africa.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>`
   );
   write('services.html', services);
 }
@@ -105,7 +105,7 @@ console.log('external remaining pages', rem);
 const mount = read('assets/components/logo-loop-mount.js');
 console.log('logoloop fade', (mount.match(/fadeOutColor:[^\n]+/) || [])[0]);
 console.log('logoloop has atl', /atl\.png/.test(mount), 'agro', /lake-agro\.png/.test(mount));
-const agro = fs.readFileSync(path.join(ROOT, 'assets/images/logos/companies/lake-agro.png'));
+const agro = fs.readFileSync(path.join(ROOT, 'assets/images/logos/companies/lake-agro.png?v=61'));
 console.log('agro dims', agro.readUInt32BE(16) + 'x' + agro.readUInt32BE(20));
 
 // Spot-check i18n

@@ -19,13 +19,13 @@ function write(p, s) {
 }
 function ensureAgroLogo() {
   const src = path.join(ROOT, 'scripts', '_scraped', 'agro_logoresizey.png');
-  const dest = path.join(ROOT, 'assets', 'images', 'logos', 'companies', 'lake-agro.png');
+  const dest = path.join(ROOT, 'assets', 'images', 'logos', 'companies', 'lake-agro.png?v=61');
   if (!fs.existsSync(src)) throw new Error('missing agro_logoresizey.png scrape');
   fs.copyFileSync(src, dest);
   const b = fs.readFileSync(dest);
   console.log('agro logo', b.readUInt32BE(16) + 'x' + b.readUInt32BE(20));
-  if (!fs.existsSync(path.join(ROOT, 'assets', 'images', 'logos', 'companies', 'atl.png'))) {
-    throw new Error('missing atl.png');
+  if (!fs.existsSync(path.join(ROOT, 'assets', 'images', 'logos', 'companies', 'atl.png?v=61'))) {
+    throw new Error('missing atl.png?v=61');
   }
 }
 
@@ -102,7 +102,7 @@ function patchIndexMarquee() {
   s = s.replace(/LogoLoop\.css\?v=\d+/g, 'LogoLoop.css?v=46');
   s = s.replace(/logo-loop-mount\.js\?v=\d+/g, 'logo-loop-mount.js?v=46');
   s = s.replace(/tokens\.css\?v=\d+/g, 'tokens.css?v=46');
-  s = s.replace(/theme\.css\?v=\d+/g, 'theme.css?v=46');
+  s = s.replace(/theme\.css\?v=\d+/g, 'theme.css?v=87');
   s = s.replace(/site\.js\?v=\d+/g, 'site.js?v=46');
   write('index.html', s);
 }
@@ -120,10 +120,10 @@ function patchMount() {
     { src: 'assets/images/logos/companies/lake-plastics.png', alt: 'Lake Plastics', title: 'Lake Plastics', href: 'lake-plastics.html' },
     { src: 'assets/images/logos/companies/lake-premix-cement.png', alt: 'Lake Premix & Cement', title: 'Lake Premix & Cement', href: 'lake-premix-cement.html' },
     { src: 'assets/images/logos/companies/gulf-aggregates.png', alt: 'Gulf Aggregates', title: 'Gulf Aggregates', href: 'gulf-aggregates.html' },
-    { src: 'assets/images/logos/companies/atl.png', alt: 'ATL', title: 'ATL Aluminium Trailers', href: 'atl.html' },
-    { src: 'assets/images/logos/companies/lake-agro.png', alt: 'Lake Agro', title: 'Lake Agro', href: 'lake-agro.html' },
-    { src: 'assets/images/logos/companies/cross-country.png', alt: 'Cross Country', title: 'Cross Country', href: 'cross-country.html' },
-    { src: 'assets/images/logos/companies/ocean-galleria.png', alt: 'Ocean Galleria', title: 'Ocean Galleria', href: 'ocean-galleria.html' }
+    { src: 'assets/images/logos/companies/atl.png?v=61', alt: 'ATL', title: 'ATL Aluminium Trailers', href: 'atl.html' },
+    { src: 'assets/images/logos/companies/lake-agro.png?v=61', alt: 'Lake Agro', title: 'Lake Agro', href: 'lake-agro.html' },
+    { src: 'assets/images/logos/companies/cross-country.png?v=62', alt: 'Cross Country', title: 'Cross Country', href: 'cross-country.html' },
+    { src: 'assets/images/logos/companies/ocean-galleria.png?v=61', alt: 'Ocean Galleria', title: 'Ocean Galleria', href: 'ocean-galleria.html' }
   ];`;
   s = s.replace(/var SUBSIDIARY_LOGOS = \[[\s\S]*?\];/, logos);
   s = s.replace(/fadeOutColor: 'var\(--color-yellow-accent\)'/, "fadeOutColor: 'var(--color-brand-blue)'");
@@ -146,11 +146,11 @@ function patchNavTemplates() {
       `<a href="https://atl-tz\\.com"[^>]*>[\\s\\S]*?</a>`,
       'g'
     ),
-    `<a href="atl.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/atl.png" alt="ATL" loading="lazy" width="110" height="68"><span data-i18n="nav.co.atl">ATL</span></a>`
+    `<a href="atl.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/atl.png?v=61" alt="ATL" loading="lazy" width="110" height="68"><span data-i18n="nav.co.atl">ATL</span></a>`
   );
   nav = nav.replace(
     new RegExp(`<a href="https://lakeagro\\.com/?"[^>]*>[\\s\\S]*?</a>`, 'g'),
-    `<a href="lake-agro.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-agro.png" alt="Lake Agro" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakeAgro">Lake Agro</span></a>`
+    `<a href="lake-agro.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-agro.png?v=61" alt="Lake Agro" loading="lazy" width="110" height="68"><span data-i18n="nav.co.lakeAgro">Lake Agro</span></a>`
   );
   write('scripts/templates/nav.html', nav);
 
@@ -170,11 +170,11 @@ function patchServices() {
   let s = read('services.html');
   s = s.replace(
     /<a href="https:\/\/atl-tz\.com" class="div-row div-external"[^>]*>[\s\S]*?<\/a>/,
-    `<a href="atl.html" class="div-row"><div class="div-no">10</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/atl.png" alt="" loading="lazy"></span> <span>ATL (Aluminium Trailers)</span></h3></div><div class="div-side"><p data-i18n="services.desc.atl">Tanzania's aluminium fuel tanker and custom trailer manufacturer — engineered for African routes.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>`
+    `<a href="atl.html" class="div-row"><div class="div-no">10</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/atl.png?v=61" alt="" loading="lazy"></span> <span>ATL (Aluminium Trailers)</span></h3></div><div class="div-side"><p data-i18n="services.desc.atl">Tanzania's aluminium fuel tanker and custom trailer manufacturer — engineered for African routes.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>`
   );
   s = s.replace(
     /<a href="https:\/\/lakeagro\.com\/?" class="div-row div-external"[^>]*>[\s\S]*?<\/a>/,
-    `<a href="lake-agro.html" class="div-row"><div class="div-no">17</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/lake-agro.png" alt="" loading="lazy"></span> <span>Lake Agro</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeAgro">Agribusiness plantations and integrated Ag Parks — creating customers and food for life across Africa.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>`
+    `<a href="lake-agro.html" class="div-row"><div class="div-no">17</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/lake-agro.png?v=61" alt="" loading="lazy"></span> <span>Lake Agro</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeAgro">Agribusiness plantations and integrated Ag Parks — creating customers and food for life across Africa.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>`
   );
   write('services.html', s);
 }
@@ -183,11 +183,11 @@ function patchContact() {
   let s = read('contact.html');
   s = s.replace(
     /src="assets\/images\/logos\/companies\/lake-group-placeholder\.png" alt="ATL"/,
-    'src="assets/images/logos/companies/atl.png" alt="ATL"'
+    'src="assets/images/logos/companies/atl.png?v=61" alt="ATL"'
   );
   s = s.replace(
     /src="assets\/images\/logos\/companies\/lake-group-placeholder\.png" alt="Lake Agro"/,
-    'src="assets/images/logos/companies/lake-agro.png" alt="Lake Agro"'
+    'src="assets/images/logos/companies/lake-agro.png?v=61" alt="Lake Agro"'
   );
   s = s.replace(
     /<a href="https:\/\/atl-tz\.com" target="_blank" rel="noopener noreferrer">atl-tz\.com<\/a>/,
@@ -206,8 +206,8 @@ function bumpCssJsVersions() {
     let s = read(f);
     const next = s
       .replace(/tokens\.css\?v=\d+/g, 'tokens.css?v=46')
-      .replace(/flagship\.css\?v=\d+/g, 'flagship.css?v=46')
-      .replace(/theme\.css\?v=\d+/g, 'theme.css?v=46')
+      .replace(/flagship\.css\?v=\d+/g, 'flagship.css?v=87')
+      .replace(/theme\.css\?v=\d+/g, 'theme.css?v=87')
       .replace(/site\.js\?v=\d+/g, 'site.js?v=46');
     if (next !== s) write(f, next);
   }

@@ -207,7 +207,7 @@ async function downloadToPng(url, destPath) {
   ];
   for (const u of agroCandidates) {
     try {
-      await downloadToPng(u, path.join(logoDir, 'lake-agro.png'));
+      await downloadToPng(u, path.join(logoDir, 'lake-agro.png?v=61'));
       break;
     } catch (e) {
       console.log('agro logo fail', u, e.message);
@@ -221,7 +221,7 @@ async function downloadToPng(url, destPath) {
   let atlOk = false;
   for (const u of atlLogoGuess) {
     try {
-      await downloadToPng(u, path.join(logoDir, 'atl.png'));
+      await downloadToPng(u, path.join(logoDir, 'atl.png?v=61'));
       atlOk = true;
       break;
     } catch (e) {
@@ -235,7 +235,7 @@ async function downloadToPng(url, destPath) {
     ];
     for (const u of extras) {
       try {
-        await downloadToPng(u, path.join(logoDir, 'atl.png'));
+        await downloadToPng(u, path.join(logoDir, 'atl.png?v=61'));
         atlOk = true;
         break;
       } catch (e) {
@@ -243,7 +243,7 @@ async function downloadToPng(url, destPath) {
       }
     }
   }
-  console.log('done atlOk', atlOk, 'agro', fs.existsSync(path.join(logoDir, 'lake-agro.png')));
+  console.log('done atlOk', atlOk, 'agro', fs.existsSync(path.join(logoDir, 'lake-agro.png?v=61')));
 })().catch((e) => {
   console.error(e);
   process.exit(1);

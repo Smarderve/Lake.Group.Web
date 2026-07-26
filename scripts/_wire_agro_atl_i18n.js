@@ -781,8 +781,8 @@ function wireAgro(html) {
     .replace(/flagship-motion\.js\?v=\d+/g, `flagship-motion.js?v=${CACHE}`)
     .replace(/flagship\.css\?v=\d+/g, `flagship.css?v=${CACHE}`)
     .replace(/tokens\.css\?v=\d+/g, `tokens.css?v=${CACHE}`)
-    .replace(/lake-agro\.png\?v=\d+/g, `lake-agro.png?v=${CACHE}`)
-    .replace(/atl\.png\?v=\d+/g, `atl.png?v=${CACHE}`);
+    .replace(/lake-agro\.png\?v=\d+/g, `lake-agro.png?v=61?v=${CACHE}`)
+    .replace(/atl\.png\?v=\d+/g, `atl.png?v=61?v=${CACHE}`);
 }
 
 function wireAtl(html) {
@@ -964,8 +964,8 @@ function wireAtl(html) {
     .replace(/flagship-motion\.js\?v=\d+/g, `flagship-motion.js?v=${CACHE}`)
     .replace(/flagship\.css\?v=\d+/g, `flagship.css?v=${CACHE}`)
     .replace(/tokens\.css\?v=\d+/g, `tokens.css?v=${CACHE}`)
-    .replace(/lake-agro\.png\?v=\d+/g, `lake-agro.png?v=${CACHE}`)
-    .replace(/atl\.png\?v=\d+/g, `atl.png?v=${CACHE}`);
+    .replace(/lake-agro\.png\?v=\d+/g, `lake-agro.png?v=61?v=${CACHE}`)
+    .replace(/atl\.png\?v=\d+/g, `atl.png?v=61?v=${CACHE}`);
 }
 
 function main() {

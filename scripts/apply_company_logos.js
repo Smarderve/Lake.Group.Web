@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Apply per-company branding on hosted company pages:
- * - data-company-logo / data-company-alt on <body> (for site.js nav + footer swap)
+ * - data-company-logo / data-company-alt on <body> (for site.js footer swap; nav unless data-nav-logo set)
  * - footer .footer-logo img src/alt set to the company mark
  * - enlarge .co-logo-row mark
  * - ensure .co-logo-row img src matches the company asset map
@@ -13,11 +13,16 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 
+const ENERGIES_NAV = {
+  logo: 'lake-energies.png',
+  alt: 'Lake Energies',
+};
+
 const PAGES = [
-  { file: 'lake-oil.html', logo: 'lake-oil.png', alt: 'Lake Oil' },
-  { file: 'lake-aviation.html', logo: 'lake-aviation.png', alt: 'Lake Aviation' },
-  { file: 'lake-gas.html', logo: 'lake-gas.png', alt: 'Lake Gas' },
-  { file: 'lake-lubes.html', logo: 'lake-lubes.png', alt: 'Lake Lubes' },
+  { file: 'lake-oil.html', logo: 'lake-oil.png', alt: 'Lake Oil', navLogo: ENERGIES_NAV.logo, navAlt: ENERGIES_NAV.alt },
+  { file: 'lake-aviation.html', logo: 'lake-aviation.png', alt: 'Lake Aviation', navLogo: ENERGIES_NAV.logo, navAlt: ENERGIES_NAV.alt },
+  { file: 'lake-gas.html', logo: 'lake-gas.png', alt: 'Lake Gas', navLogo: ENERGIES_NAV.logo, navAlt: ENERGIES_NAV.alt },
+  { file: 'lake-lubes.html', logo: 'lake-lubes.png', alt: 'Lake Lubes', navLogo: ENERGIES_NAV.logo, navAlt: ENERGIES_NAV.alt },
   { file: 'lake-buildings.html', logo: 'lake-buildings.png', alt: 'Lake Buildings' },
   { file: 'lake-plastics.html', logo: 'lake-plastics.png', alt: 'Lake Plastics' },
   { file: 'lake-steel.html', logo: 'lake-steel.png', alt: 'Lake Steel' },
@@ -27,8 +32,8 @@ const PAGES = [
   { file: 'aficd.html', logo: 'aficd.png', alt: 'AFICD' },
   { file: 'aill.html', logo: 'aill.png', alt: 'AILL' },
   { file: 'lake-trans.html', logo: 'lake-trans.png', alt: 'Lake Trans' },
-  { file: 'cross-country.html', logo: 'cross-country.png', alt: 'Cross Country' },
-  { file: 'ocean-galleria.html', logo: 'ocean-galleria.png', alt: 'Ocean Galleria' },
+  { file: 'cross-country.html', logo: 'cross-country.png?v=62', alt: 'Cross Country' },
+  { file: 'ocean-galleria.html', logo: 'ocean-galleria.png?v=61', alt: 'Ocean Galleria' },
 ];
 
 const LOGO_CSS_OLD =
@@ -39,11 +44,16 @@ const LOGO_CSS_NEW =
   '.co-logo-row{display:flex;align-items:center;gap:var(--sp-5);margin-bottom:var(--sp-6);flex-wrap:wrap}\r\n' +
   '.co-logo-row img{height:110px;width:auto;max-width:320px;object-fit:contain;background:transparent;border:none;padding:0;border-radius:0}';
 
-function ensureBodyAttrs(raw, logo, alt) {
+function ensureBodyAttrs(raw, logo, alt, navLogo, navAlt) {
   const logoPath = 'assets/images/logos/companies/' + logo;
-  const attrs =
+  let attrs =
     ' data-company-logo="' + logoPath + '"' +
     ' data-company-alt="' + alt.replace(/"/g, '&quot;') + '"';
+  if (navLogo) {
+    attrs +=
+      ' data-nav-logo="assets/images/logos/companies/' + navLogo + '"' +
+      ' data-nav-alt="' + String(navAlt || '').replace(/"/g, '&quot;') + '"';
+  }
 
   // Strip any prior company branding attrs, then set fresh ones.
   let out = raw.replace(
@@ -51,7 +61,9 @@ function ensureBodyAttrs(raw, logo, alt) {
     (full, rest) => {
       let r = rest
         .replace(/\sdata-company-logo="[^"]*"/gi, '')
-        .replace(/\sdata-company-alt="[^"]*"/gi, '');
+        .replace(/\sdata-company-alt="[^"]*"/gi, '')
+        .replace(/\sdata-nav-logo="[^"]*"/gi, '')
+        .replace(/\sdata-nav-alt="[^"]*"/gi, '');
       return '<body' + r + attrs + '>';
     }
   );
@@ -110,7 +122,7 @@ function main() {
       }
     }
 
-    raw = ensureBodyAttrs(raw, page.logo, page.alt);
+    raw = ensureBodyAttrs(raw, page.logo, page.alt, page.navLogo, page.navAlt);
     raw = ensureCoLogoRow(raw, page.logo, page.alt);
     raw = ensureFooterLogo(raw, page.logo, page.alt);
     raw = stripHeroLogo(raw);

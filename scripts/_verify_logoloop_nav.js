@@ -22,8 +22,8 @@ const logos = [
   'assets/images/logos/companies/lake-plastics.png',
   'assets/images/logos/companies/lake-premix-cement.png',
   'assets/images/logos/companies/gulf-aggregates.png',
-  'assets/images/logos/companies/cross-country.png',
-  'assets/images/logos/companies/ocean-galleria.png',
+  'assets/images/logos/companies/cross-country.png?v=62',
+  'assets/images/logos/companies/ocean-galleria.png?v=61',
 ];
 
 console.log('=== Path verification ===');

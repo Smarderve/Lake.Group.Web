@@ -245,8 +245,8 @@ function staticVerify() {
     arBadge: j.ar['about.badge'],
     darLatinAr: /\bDar es Salaam\b/.test(JSON.stringify(j.ar)),
     lubesPng: pngDims('assets/images/logos/companies/lake-lubes.png'),
-    atlPng: pngDims('assets/images/logos/companies/atl.png'),
-    agroPng: pngDims('assets/images/logos/companies/lake-agro.png'),
+    atlPng: pngDims('assets/images/logos/companies/atl.png?v=61'),
+    agroPng: pngDims('assets/images/logos/companies/lake-agro.png?v=61'),
     externalHrefs: ext,
     agroThemeCss: /body\.co-theme-agro\s*\{/.test(read('lake-agro.html')),
     footerToken: /footer-logo-height/.test(read('assets/tokens.css'))

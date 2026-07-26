@@ -688,9 +688,12 @@
   }
 
   // Company pages set data-company-logo / data-company-alt on <body>.
+  // Optional data-nav-logo / data-nav-alt override the top navbar mark only
+  // (e.g. Lake Energies family pages share the Energies lockup in nav while
+  // keeping the subsidiary mark in the footer).
   // Nav/footer chrome is overwritten by normalize_nav.js from a shared
   // template that always uses the Lake Group mark - swap after paint so
-  // company pages show their own logo in nav and footer.
+  // company pages show their branding in nav and footer.
   function markLetterboxedNavLogo(img) {
     if (!img || !img.naturalWidth || !img.naturalHeight) return;
     // Tight group mark is ~2.6:1. Legacy square letterboxed company PNGs (~1:1 with ~18% mark fill)
@@ -700,16 +703,18 @@
   }
 
   function initCompanyBranding() {
-    const src = document.body && document.body.getAttribute('data-company-logo');
-    if (!src) return;
-    const alt = document.body.getAttribute('data-company-alt') || '';
+    const companySrc = document.body && document.body.getAttribute('data-company-logo');
+    if (!companySrc) return;
+    const companyAlt = document.body.getAttribute('data-company-alt') || '';
+    const navSrc = document.body.getAttribute('data-nav-logo') || companySrc;
+    const navAlt = document.body.getAttribute('data-nav-alt') || companyAlt;
 
     const navLink = document.querySelector('.site-nav .nav-logo');
     const navImg = navLink && navLink.querySelector('img');
     if (navImg) {
       navLink.classList.add('nav-logo--company');
-      navImg.src = src;
-      if (alt) navImg.alt = alt;
+      navImg.src = navSrc;
+      if (navAlt) navImg.alt = navAlt;
       navImg.removeAttribute('width');
       navImg.removeAttribute('height');
       navImg.style.removeProperty('height');
@@ -724,8 +729,8 @@
 
     const footerImg = document.querySelector('.site-footer .footer-logo img');
     if (footerImg) {
-      footerImg.src = src;
-      if (alt) footerImg.alt = alt;
+      footerImg.src = companySrc;
+      if (companyAlt) footerImg.alt = companyAlt;
     }
   }
 

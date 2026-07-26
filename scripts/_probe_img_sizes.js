@@ -1,5 +1,5 @@
 ﻿const fs=require('fs');
-const paths=['assets/images/logos/companies/atl.png','assets/images/logos/companies/lake-agro.png','assets/images/logos/companies/_pretrim/lake-agro.png','scripts/_scraped/atl_logo_src.jpg','scripts/_scraped/agro_logo.png','scripts/_scraped/agro_logo2.png','scripts/_scraped/agro_logoresizey.png'];
+const paths=['assets/images/logos/companies/atl.png?v=61','assets/images/logos/companies/lake-agro.png?v=61','assets/images/logos/companies/_pretrim/lake-agro.png?v=61','scripts/_scraped/atl_logo_src.jpg','scripts/_scraped/agro_logo.png','scripts/_scraped/agro_logo2.png','scripts/_scraped/agro_logoresizey.png'];
 for (const p of paths) {
   if (!fs.existsSync(p)) { console.log('MISS', p, ''); continue; }
   const b = fs.readFileSync(p);

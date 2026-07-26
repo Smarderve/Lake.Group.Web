@@ -14,8 +14,8 @@ function exists(p) {
 const checks = {};
 checks.atl = exists('atl.html');
 checks.agro = exists('lake-agro.html');
-checks.atlPng = exists('assets/images/logos/companies/atl.png');
-checks.agroPng = exists('assets/images/logos/companies/lake-agro.png');
+checks.atlPng = exists('assets/images/logos/companies/atl.png?v=61');
+checks.agroPng = exists('assets/images/logos/companies/lake-agro.png?v=61');
 if (checks.atl) checks.atlBytes = fs.statSync(path.join(ROOT, 'atl.html')).size;
 if (checks.agro) checks.agroBytes = fs.statSync(path.join(ROOT, 'lake-agro.html')).size;
 
