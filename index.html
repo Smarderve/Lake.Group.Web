@@ -2001,12 +2001,20 @@
 
     .action-stage {
       position: relative;
-      height: 420px;
+      height: 460px;
       perspective: 1400px;
       perspective-origin: 50% 50%;
       overflow: hidden;
       margin: 8px auto 0;
       max-width: 980px;
+      touch-action: pan-y;
+      cursor: grab;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .action-stage.is-dragging {
+      cursor: grabbing;
     }
 
     .action-skel {
@@ -2049,7 +2057,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transform-style: preserve-3d;
+      /* Flat stacking so z-index reliably keeps the center tile on top */
+      transform-style: flat;
+      touch-action: pan-y;
     }
 
     .action-tile {
@@ -2057,52 +2067,51 @@
       left: 50%;
       top: 50%;
       width: min(248px, 58vw);
-      height: min(360px, 72vw);
+      aspect-ratio: 2 / 3;
+      height: auto;
       border-radius: 26px;
       overflow: hidden;
       background: #0b1c2c;
-      box-shadow: 0 18px 40px rgba(1, 63, 92, 0.22);
+      box-shadow: none;
       border: 0;
       padding: 0;
-      cursor: pointer;
+      cursor: grab;
       transform-origin: center center;
+      transform: translate(-50%, -50%) scale(0.72);
       transition:
-        transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.32s ease,
-        box-shadow 0.42s ease,
-        filter 0.42s ease;
-      will-change: transform, opacity, filter;
+        transform 0.32s cubic-bezier(0.25, 0.8, 0.25, 1),
+        opacity 0.28s ease;
+      will-change: transform, opacity;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
       -webkit-tap-highlight-color: transparent;
+      contain: layout style;
+      z-index: 1;
+      flex-shrink: 0;
     }
 
     .action-tile img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
       display: block;
       pointer-events: none;
-      transform: scale(1.02);
-      transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: translateZ(0);
     }
 
     .action-tile.is-active {
-      box-shadow:
-        0 32px 64px rgba(1, 63, 92, 0.42),
-        0 0 0 1px rgba(255, 242, 0, 0.16);
-    }
-
-    .action-tile.is-active img {
-      transform: scale(1.06);
+      z-index: 40 !important;
+      box-shadow: none;
+      cursor: default;
     }
 
     .action-tile.is-focusing img {
-      animation: action-img-settle 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+      animation: none;
     }
 
     @keyframes action-img-settle {
-      0% { transform: scale(1.12); filter: brightness(0.94); }
-      55% { transform: scale(1.07); filter: brightness(1.08); }
-      100% { transform: scale(1.06); filter: brightness(1); }
+      0%, 100% { transform: translateZ(0); }
     }
 
     .action-tile-cap {
@@ -2116,7 +2125,7 @@
       text-align: left;
       opacity: 0;
       transform: translateY(8px);
-      transition: opacity 0.32s ease, transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: opacity 0.28s ease, transform 0.28s ease;
       pointer-events: none;
     }
 
@@ -2150,7 +2159,6 @@
 
     @keyframes action-cap-accent {
       0% { width: 0; opacity: 0; box-shadow: none; }
-      45% { width: 48px; opacity: 1; box-shadow: 0 0 14px rgba(255, 242, 0, 0.55); }
       100% { width: 36px; opacity: 1; box-shadow: none; }
     }
 
@@ -2227,12 +2235,18 @@
       }
 
       .action-stage {
-        height: 340px;
+        height: 380px;
+        touch-action: none;
+      }
+
+      .action-track {
+        touch-action: none;
       }
 
       .action-tile {
-        width: min(200px, 54vw);
-        height: min(290px, 68vw);
+        width: min(210px, 56vw);
+        aspect-ratio: 2 / 3;
+        height: auto;
         border-radius: 20px;
       }
 
@@ -3111,27 +3125,21 @@
       var root = document.querySelector("[data-action-gallery]");
       if (!root) return;
 
+      /* One unique photo per company — no duplicates */
       var ITEMS = [
-        { src: "assets/images/banner/LakeOil.jpg", cat: "oil", tKey: "index.action.i01.t", sKey: "index.action.i01.s", title: "Lake Oil Depot", sub: "Bulk petroleum terminal" },
-        { src: "assets/images/lakeoil/current/station-lake-energies.jpg", cat: "oil", tKey: "index.action.i02.t", sKey: "index.action.i02.s", title: "Lake Energies Station", sub: "Retail fuel network" },
-        { src: "assets/images/lakeoil/current/depot-terminal.jpg", cat: "oil", tKey: "index.action.i03.t", sKey: "index.action.i03.s", title: "Depot Terminal", sub: "Storage & dispatch" },
-        { src: "assets/images/lakeoil/current/fleet-loading.jpg", cat: "oil", tKey: "index.action.i04.t", sKey: "index.action.i04.s", title: "Fleet Loading", sub: "Road tanker operations" },
-        { src: "assets/images/group/ops/depot-aerial.jpg", cat: "oil", tKey: "index.action.i05.t", sKey: "index.action.i05.s", title: "Depot Aerial", sub: "East Africa footprint" },
-        { src: "assets/images/banner/LakeGas.jpg", cat: "gas", tKey: "index.action.i06.t", sKey: "index.action.i06.s", title: "Lake Gas", sub: "LPG infrastructure" },
-        { src: "assets/images/lakegas/ops/filling-plant.jpg", cat: "gas", tKey: "index.action.i07.t", sKey: "index.action.i07.s", title: "Filling Plant", sub: "Cylinder bottling" },
-        { src: "assets/images/lakegas/ops/cylinder-stacks.jpg", cat: "gas", tKey: "index.action.i08.t", sKey: "index.action.i08.s", title: "Cylinder Yard", sub: "Ready for distribution" },
-        { src: "assets/images/lakegas/ops/worker-silas.jpg", cat: "gas", tKey: "index.action.i09.t", sKey: "index.action.i09.s", title: "Plant Operations", sub: "Safety-first filling" },
-        { src: "assets/images/lakegas/ops/cylinder-warehouse.jpg", cat: "gas", tKey: "index.action.i10.t", sKey: "index.action.i10.s", title: "LPG Warehouse", sub: "Bulk cylinder storage" },
-        { src: "assets/images/lakesteel/ops/hot-rolling.jpg", cat: "industry", tKey: "index.action.i11.t", sKey: "index.action.i11.s", title: "Lake Steel", sub: "Hot rolling mill" },
-        { src: "assets/images/lakesteel/ops/rebar-yard.jpg", cat: "industry", tKey: "index.action.i12.t", sKey: "index.action.i12.s", title: "HS-CR Rebars", sub: "Finished steel yard" },
-        { src: "assets/images/lakelubes/ops/plant.jpg", cat: "industry", tKey: "index.action.i13.t", sKey: "index.action.i13.s", title: "Lake Lubes", sub: "Lubricant blending" },
-        { src: "assets/images/lakeplastics/ops/blue-pipes.jpg", cat: "industry", tKey: "index.action.i14.t", sKey: "index.action.i14.s", title: "Lake Plastics", sub: "Pipe manufacturing" },
-        { src: "assets/images/group/ops/tanker-loading.jpg", cat: "logistics", tKey: "index.action.i15.t", sKey: "index.action.i15.s", title: "Tanker Loading", sub: "Bulk haulage" },
-        { src: "assets/images/group/ops/depot-fleet.jpg", cat: "logistics", tKey: "index.action.i16.t", sKey: "index.action.i16.s", title: "Depot Fleet", sub: "Dispatch ready" },
-        { src: "assets/images/laketrans/ops/fleet-inspection.jpg", cat: "logistics", tKey: "index.action.i17.t", sKey: "index.action.i17.s", title: "Lake Trans", sub: "Fleet inspection" },
-        { src: "assets/images/lakeoil/current/tanker-lake-energies.jpg", cat: "logistics", tKey: "index.action.i18.t", sKey: "index.action.i18.s", title: "Energies Tanker", sub: "On-road delivery" }
+        { src: "assets/images/banner/LakeOil.jpg", cat: "oil", tKey: "index.action.i01.t", sKey: "index.action.i01.s", title: "Lake Oil", sub: "Petroleum terminal & retail" },
+        { src: "assets/images/lakegas/ops/filling-plant.jpg", cat: "gas", tKey: "index.action.i02.t", sKey: "index.action.i02.s", title: "Lake Gas", sub: "LPG filling & cylinders" },
+        { src: "assets/images/lakesteel/ops/hot-rolling.jpg", cat: "industry", tKey: "index.action.i03.t", sKey: "index.action.i03.s", title: "Lake Steel", sub: "HS-CR rebar mill" },
+        { src: "assets/images/lakelubes/ops/plant.jpg", cat: "industry", tKey: "index.action.i04.t", sKey: "index.action.i04.s", title: "Lake Lubes", sub: "Lubricant blending plant" },
+        { src: "assets/images/lakeplastics/ops/blue-pipes.jpg", cat: "industry", tKey: "index.action.i05.t", sKey: "index.action.i05.s", title: "Lake Plastics", sub: "Pipe manufacturing" },
+        { src: "assets/images/lakebuildings/ops/lake-tanks.jpg", cat: "industry", tKey: "index.action.i06.t", sKey: "index.action.i06.s", title: "Lake Buildings", sub: "Industrial tanks & steelworks" },
+        { src: "assets/images/lake-agro/tanzania.jpg", cat: "industry", tKey: "index.action.i07.t", sKey: "index.action.i07.s", title: "Lake Agro", sub: "Agro processing" },
+        { src: "assets/images/banner/LakeTrans.jpg", cat: "logistics", tKey: "index.action.i08.t", sKey: "index.action.i08.s", title: "Lake Trans", sub: "Bulk liquid haulage" },
+        { src: "assets/images/banner/AFICD.jpg", cat: "logistics", tKey: "index.action.i09.t", sKey: "index.action.i09.s", title: "AFICD", sub: "Inland container depot" },
+        { src: "assets/images/atl/facility-1.jpg", cat: "logistics", tKey: "index.action.i10.t", sKey: "index.action.i10.s", title: "ATL", sub: "Aviation fuel logistics" }
       ];
 
+      var stage = root.querySelector(".action-stage");
       var track = root.querySelector("[data-action-track]");
       var skel = root.querySelector("[data-action-skel]");
       var dotsEl = root.querySelector("[data-action-dots]");
@@ -3150,6 +3158,7 @@
       var reduced = !!(reduceMq && reduceMq.matches);
       var stageEl = root.querySelector(".action-stage") || root;
       var sectionEl = document.getElementById("in-action") || stageEl;
+      var drag = { active: false, startX: 0, lastX: 0, moved: false, pointerId: null };
 
       function t(key, fallback) {
         if (window.LakeI18n && typeof window.LakeI18n.t === "function") {
@@ -3290,8 +3299,8 @@
       function layout() {
         var n = tiles.length;
         if (!n) return;
-        var stageW = track.parentElement.clientWidth || 800;
-        var step = Math.min(148, Math.max(96, stageW * 0.16));
+        var stageW = stage ? stage.clientWidth : (track.parentElement.clientWidth || 800);
+        var step = Math.min(150, Math.max(100, stageW * 0.165));
 
         tiles.forEach(function (btn, i) {
           var raw = i - index;
@@ -3304,13 +3313,12 @@
 
           var abs = Math.abs(d);
           var visible = abs <= 3;
-          var scale = abs === 0 ? 1 : abs === 1 ? 0.86 : abs === 2 ? 0.74 : 0.64;
-          var rot = d * -18;
-          var y = abs === 0 ? 0 : abs === 1 ? 18 : abs === 2 ? 36 : 48;
+          /* Uniform frames: no rotateY skew — only slide + scale */
+          var scale = abs === 0 ? 1.28 : abs === 1 ? 0.78 : abs === 2 ? 0.66 : 0.56;
+          var y = abs === 0 ? -8 : abs === 1 ? 26 : abs === 2 ? 44 : 56;
           var x = d * step;
-          var tz = abs === 0 ? 48 : abs === 1 ? 8 : abs === 2 ? -24 : -48;
-          var z = 100 - abs * 20;
-          var opacity = visible ? (abs === 0 ? 1 : abs === 1 ? 0.9 : abs === 2 ? 0.68 : 0.38) : 0;
+          var z = abs === 0 ? 50 : Math.max(2, 30 - abs * 8);
+          var opacity = visible ? (abs === 0 ? 1 : abs === 1 ? 0.78 : abs === 2 ? 0.5 : 0.28) : 0;
 
           btn.classList.toggle("is-active", d === 0);
           btn.setAttribute("aria-hidden", d === 0 ? "false" : "true");
@@ -3318,18 +3326,14 @@
           btn.style.zIndex = String(z);
           btn.style.opacity = String(opacity);
           btn.style.pointerEvents = visible ? "auto" : "none";
-          if (reduced) {
-            btn.style.filter = abs === 0 ? "none" : "brightness(0.92)";
-          } else if (abs === 0) {
-            btn.style.filter = "brightness(1.06) contrast(1.04)";
-          } else if (abs === 1) {
-            btn.style.filter = "brightness(0.9) blur(0.35px)";
-          } else {
-            btn.style.filter = "brightness(0.84) blur(0.7px)";
-          }
+          btn.style.filter = "none";
           btn.style.transform =
-            "translate(-50%, -50%) translateX(" + x + "px) translateY(" + y + "px) translateZ(" + tz + "px) rotateY(" + rot + "deg) scale(" + scale + ")";
+            "translate(-50%, -50%) translate3d(" + x + "px," + y + "px,0) scale(" + scale + ")";
         });
+
+        /* Paint order: active tile last so it always draws on top of neighbors */
+        var active = tiles[index];
+        if (active && active.parentNode === track) track.appendChild(active);
 
         if (countEl) countEl.textContent = (index + 1) + " / " + n;
       }
@@ -3412,9 +3416,13 @@
           btn._item = item;
           btn.setAttribute("aria-label", copy.title + " — " + copy.sub);
           btn.innerHTML =
-            '<img alt="" decoding="async" width="640" height="860" data-src="' + item.src + '" />' +
+            '<img alt="' + copy.title + '" decoding="async" width="640" height="860" draggable="false" data-src="' + item.src + '" />' +
             '<span class="action-tile-cap"><strong>' + copy.title + "</strong><span>" + copy.sub + "</span></span>";
-          btn.addEventListener("click", function () {
+          btn.addEventListener("click", function (e) {
+            if (drag.moved) {
+              e.preventDefault();
+              return;
+            }
             if (i === index) return;
             go(i);
           });
@@ -3511,15 +3519,53 @@
       if (prevBtn) prevBtn.addEventListener("click", function () { go(index - 1); });
       if (nextBtn) nextBtn.addEventListener("click", function () { go(index + 1); });
 
-      var startX = 0;
-      track.addEventListener("pointerdown", function (e) {
-        startX = e.clientX;
-      });
-      track.addEventListener("pointerup", function (e) {
-        var dx = e.clientX - startX;
-        if (Math.abs(dx) < 40) return;
-        go(dx < 0 ? index + 1 : index - 1);
-      });
+      function onPointerDown(e) {
+        if (e.pointerType === "mouse" && e.button !== 0) return;
+        drag.active = true;
+        drag.moved = false;
+        drag.startX = e.clientX;
+        drag.lastX = e.clientX;
+        drag.pointerId = e.pointerId;
+        if (stage) {
+          stage.classList.add("is-dragging");
+          try { stage.setPointerCapture(e.pointerId); } catch (err) {}
+        }
+        if (autoTimer) clearInterval(autoTimer);
+      }
+
+      function onPointerMove(e) {
+        if (!drag.active) return;
+        drag.lastX = e.clientX;
+        if (Math.abs(e.clientX - drag.startX) > 12) {
+          drag.moved = true;
+          if (e.cancelable) e.preventDefault();
+        }
+      }
+
+      function onPointerUp(e) {
+        if (!drag.active) return;
+        var dx = drag.lastX - drag.startX;
+        drag.active = false;
+        if (stage) stage.classList.remove("is-dragging");
+        if (drag.pointerId != null && stage) {
+          try { stage.releasePointerCapture(drag.pointerId); } catch (err) {}
+        }
+        drag.pointerId = null;
+        if (Math.abs(dx) >= 36) {
+          go(dx < 0 ? index + 1 : index - 1);
+        } else {
+          restartAuto();
+        }
+        /* Keep moved true briefly so click handlers ignore this gesture */
+        setTimeout(function () { drag.moved = false; }, 40);
+      }
+
+      if (stage) {
+        stage.addEventListener("pointerdown", onPointerDown, { passive: true });
+        stage.addEventListener("pointermove", onPointerMove, { passive: false });
+        stage.addEventListener("pointerup", onPointerUp);
+        stage.addEventListener("pointercancel", onPointerUp);
+      }
 
       root.addEventListener("keydown", function (e) {
         if (e.key === "ArrowLeft") { e.preventDefault(); go(index - 1); }
