@@ -143,13 +143,29 @@ button:focus-visible,
 /* --------------------------------------------------------------------------
    4. NAV  unified brand bar + scroll behaviour hooks (motion.js)
    -------------------------------------------------------------------------- */
+/* Never put transform/filter/perspective on html/body — that re-parents
+   position:fixed and makes the bar float mid-page over content. */
+html, body {
+  transform: none;
+  filter: none;
+  perspective: none;
+}
+.page-wrapper {
+  padding-top: var(--nav-h, var(--navbar-height, 72px));
+}
 .site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  height: var(--navbar-height, 72px);
   background: var(--color-navbar-bg, #0181BB);
   background-color: #0181BB;
   border-bottom: 3px solid var(--color-navbar-border, #FFF200);
   backdrop-filter: none;
-  transition: transform 0.38s var(--ease-smooth), box-shadow 0.3s ease, background-color 0.3s ease;
-  will-change: transform;
+  transition: transform 0.38s var(--ease-smooth), box-shadow 0.3s ease, background-color 0.3s ease, height 0.3s var(--ease-smooth);
 }
 .site-nav.nav-scrolled {
   background: var(--color-navbar-bg-scrolled, rgba(1, 102, 148, 0.96));
@@ -979,8 +995,8 @@ html.lg-motion .reveal-img.in.img-hover-zoom:hover {
   transform: scale(1.04);
 }
 
-/* Page-load fade */
-html.lg-motion.lg-ready body { animation: lg-page-fade 0.4s ease-out both; }
+/* Page-load fade on content wrapper — not body (protects fixed nav) */
+html.lg-motion.lg-ready .page-wrapper { animation: lg-page-fade 0.4s ease-out both; }
 
 /* --------------------------------------------------------------------------
    14. INDEX-ONLY POLISH (safe no-ops elsewhere)
@@ -1032,9 +1048,9 @@ html.lg-motion .page-hero .page-hero-photo {
 .hero .hero-stats { animation-delay: 0.22s; }
 .hero .hero-right { animation-delay: 0.16s; }
 
-/* Page-load: gentle body fade (opacity only) */
-body { animation: lg-page-fade 0.35s ease-out both; }
-html.lg-motion.lg-ready body { animation: lg-page-fade 0.4s ease-out both; }
+/* Page-load: gentle fade on content only (never on body/html) */
+.page-wrapper { animation: lg-page-fade 0.35s ease-out both; }
+html.lg-motion.lg-ready .page-wrapper { animation: lg-page-fade 0.4s ease-out both; }
 
 @keyframes lg-fade-up {
   from { opacity: 0; transform: translateY(16px); }
@@ -1113,7 +1129,8 @@ html.lg-motion.lg-ready body { animation: lg-page-fade 0.4s ease-out both; }
   .marquee-track { animation-play-state: paused !important; }
   .hero-scroll { animation: none !important; }
   .card, .div-card, .img-hover-zoom { transform: none !important; }
-  html.lg-motion.lg-ready body { animation: none !important; }
+  .page-wrapper,
+  html.lg-motion.lg-ready .page-wrapper { animation: none !important; }
 }
 
 /* --------------------------------------------------------------------------

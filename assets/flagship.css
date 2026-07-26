@@ -300,7 +300,14 @@ img { max-width: 100%; }
   html, body { overflow-x: clip; }
 }
 
-.page-wrapper { padding-top: var(--nav-h); }
+/* Clear fixed nav — never put transform/filter/perspective on html/body
+   (that re-parents position:fixed and makes the bar float mid-page). */
+html, body {
+  transform: none;
+  filter: none;
+  perspective: none;
+}
+.page-wrapper { padding-top: var(--nav-h, var(--navbar-height, 72px)); }
 
 /* --------------------------------------------------------------------------
    5. ACCESSIBILITY  focus states
@@ -318,7 +325,12 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
    6. NAV  brand blue bar (matches home / index.html)
    -------------------------------------------------------------------------- */
 .site-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
   height: var(--navbar-height, 72px);
   /* Literal fallbacks: interiors must match home even if tokens.css is stale/missing */
   background: var(--color-navbar-bg, #0181BB);
@@ -327,7 +339,6 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   transition: transform var(--dur-2) var(--ease-out), box-shadow 0.3s ease, background-color 0.3s ease, height 0.3s var(--ease-out);
-  will-change: transform;
 }
 .site-nav::after { display: none; } /* home uses full yellow border-bottom, not meridian tick */
 .site-nav.nav-scrolled {
@@ -1739,8 +1750,9 @@ html.fs-motion .reveal.visible, html.fs-motion .reveal.in { opacity: 1; transfor
 /* Magnetic CTA hook (flagship-motion sets --mx/--my in px) */
 html.fs-motion .fs-magnetic { transform: translate(var(--mx, 0px), var(--my, 0px)); transition: transform 0.3s var(--ease-out); }
 
-/* Page-load fade (opacity only  no CLS) */
-html.fs-motion.fs-ready body { animation: fs-page-in 0.4s var(--ease-out) both; }
+/* Page-load fade on .page-wrapper only — NEVER animate transform/opacity
+   containing-block props on body/html (breaks position:fixed nav). */
+html.fs-motion.fs-ready .page-wrapper { animation: fs-page-in 0.4s var(--ease-out) both; }
 @keyframes fs-page-in { from { opacity: 0; } to { opacity: 1; } }
 
 /* Scroll-linked parallax for [data-fx-scroll] */
@@ -1961,7 +1973,7 @@ html.fs-motion [data-fx-scroll] {
   .card, .fs-card, .div-card, .leader-card, .prj-card, .g-item, .news-item,
   .img-hover-zoom { transform: none !important; }
   html.fs-motion [data-fx-scroll] { transform: none !important; }
-  html.fs-motion.fs-ready body { animation: none !important; }
+  html.fs-motion.fs-ready .page-wrapper { animation: none !important; }
 }
 
 /* --------------------------------------------------------------------------

@@ -23,56 +23,260 @@
   <link rel="manifest" href="manifest.webmanifest">
   <style>
 /* ==========================================================================
-   MERIDIAN PAGE LAYER  news.html
-   Chrome + shared components come from assets/flagship.css?v=87.
+   News & insights hub — page-local (flagship chrome from assets/flagship.css)
+   Industrial-corporate newsroom: navy / brand blue / yellow, uniform cards.
    ========================================================================== */
-/* Newsroom layout: editorial feed + drafting side rail */
-.news-layout{display:grid;grid-template-columns:7.5fr 4fr;gap:var(--sp-16);align-items:start}
-@media(max-width:960px){.news-layout{grid-template-columns:1fr;gap:var(--sp-10)}}
+body.news-page{background:#f4f6f8;color:#0a1b2e;scroll-padding-top:var(--nav-h,var(--navbar-height,72px))}
+/* page-wrapper already clears the fixed nav — keep hero/content below the bar */
+body.news-page .page-wrapper{
+  padding-top:var(--nav-h,var(--navbar-height,72px));
+  margin-top:0;
+}
+body.news-page .page-hero{
+  min-height:0;min-height:unset;
+  padding:48px 0 40px;justify-content:flex-end;
+  margin-top:0;
+}
+@media(min-width:768px){body.news-page .page-hero{padding:64px 0 56px}}
+body.news-page .page-hero .hero-overlay{
+  background:linear-gradient(105deg,rgba(1,63,92,.88) 0%,rgba(1,63,92,.62) 48%,rgba(1,129,187,.35) 100%);
+}
+body.news-page .page-hero .breadcrumb{margin-bottom:18px}
+body.news-page .page-hero .eyebrow{color:#FFF200;letter-spacing:.2em}
+body.news-page .page-hero h1{margin:10px 0 12px;max-width:16ch;text-wrap:balance}
+body.news-page .page-hero p{margin:0;max-width:46ch;font-size:.98rem;color:rgba(255,255,255,.88)}
 
-/* Filter toolbar on a gauge rule */
-.news-filters{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:var(--sp-8);padding:var(--sp-4) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative}
-.news-filters::before{content:'';position:absolute;left:0;top:-4px;width:8px;height:8px;background:var(--gold)}
-.news-filters input[type=search],.news-filters select{padding:12px 14px;border:1px solid var(--line);border-radius:0;font-family:var(--font-body);font-size:.85rem;background:var(--surface);color:var(--text);outline:none;transition:border-color var(--dur-1) ease,box-shadow var(--dur-1) ease}
-.news-filters input[type=search]{flex:1;min-width:200px}
-.news-filters input:focus,.news-filters select:focus{border-color:var(--blue);box-shadow:inset 0 -2px 0 var(--gold)}
+.news-hub{padding:36px 0 72px;width:100%}
+.news-hub .news-shell{
+  max-width:1240px;width:100%;margin-inline:auto;padding:0 16px;box-sizing:border-box;
+}
+@media(min-width:768px){.news-hub .news-shell{padding:0 24px}}
 
-/* Feed rendered by assets/news.js into #news-list (.news-item markup fixed) */
-#news-list{display:flex;flex-direction:column;margin-top:var(--sp-8)}
-.news-item{display:grid;grid-template-columns:230px 1fr;gap:var(--sp-6);padding:var(--sp-6) 0;border-bottom:1px solid var(--line-2);position:relative}
-.news-item::before{content:'';position:absolute;left:0;bottom:-4px;width:8px;height:8px;background:var(--gold);opacity:0;transition:opacity var(--dur-1) ease}
-.news-item:hover::before{opacity:1}
-.news-thumb{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--ink-3);position:relative;border-radius:0;flex-shrink:0}
-.news-thumb::after{content:'';position:absolute;top:0;left:0;width:26px;height:2px;background:var(--gold);z-index:2}
-.news-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform var(--dur-3) var(--ease-out);filter:saturate(.92)}
-.news-thumb:hover img{transform:scale(1.05)}
-.news-item h3 a{color:var(--text);transition:color var(--dur-1) ease}
-.news-item h3 a:hover{color:var(--blue)}
-.news-read-more{color:var(--gold-deep);font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;display:inline-block;margin-top:12px;background-image:linear-gradient(var(--gold),var(--gold));background-repeat:no-repeat;background-position:0 100%;background-size:0% 2px;transition:background-size var(--dur-2) var(--ease-out)}
-.news-read-more:hover{background-size:100% 2px;text-decoration:none}
+/* Top band: featured + sidebar. Feed below spans full shell width (centered). */
+.news-hub__top{
+  display:grid;grid-template-columns:minmax(0,1fr);gap:28px;align-items:start;width:100%;
+}
+.news-hub__main{min-width:0;width:100%}
+.news-hub__feed{min-width:0;width:100%;margin-top:4px}
+@media(min-width:1080px){
+  .news-hub__top{grid-template-columns:minmax(0,1fr) minmax(260px,300px);gap:36px}
+}
 
-/* Featured story: first article gets the full editorial plate */
-#news-list .news-item:first-child{grid-template-columns:1fr;gap:var(--sp-4);padding-top:0}
-#news-list .news-item:first-child .news-thumb{aspect-ratio:16/7}
-#news-list .news-item:first-child .news-thumb::after{width:64px}
-#news-list .news-item:first-child h3{font-family:var(--font-display);font-weight:700;font-size:clamp(1.9rem,3.6vw,3rem)!important;line-height:.98;letter-spacing:.015em;text-transform:uppercase}
-@media(max-width:720px){.news-item{grid-template-columns:1fr}}
+.news-section-head{margin:0 0 18px}
+.news-section-head .fs-marker{margin-bottom:8px}
+.news-section-head h2{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(1.6rem,2.8vw,2.2rem);letter-spacing:.02em;
+  text-transform:uppercase;color:#013F5C;margin:0;line-height:1.05;
+}
 
-/* Side rail: event highlights on ink */
-.side-ink{background:var(--ink);padding:var(--sp-8);position:relative}
-.side-ink h4{display:flex;align-items:center;gap:12px;color:#fff;font-size:var(--fs-micro);letter-spacing:.26em;text-transform:uppercase;font-weight:700;margin-bottom:var(--sp-5)}
-.side-ink h4::before{content:'';width:8px;height:8px;background:var(--gold);flex:none}
-.ev-row{padding:var(--sp-4) 0;border-top:1px solid var(--ink-line-2)}
-.ev-row:last-child{border-bottom:1px solid var(--ink-line-2)}
-.ev-date{font-family:var(--font-display);font-size:1.3rem;letter-spacing:.06em;color:var(--gold);text-transform:uppercase}
-.ev-title{color:#fff!important;font-weight:600;font-size:.92rem;margin-top:2px}
-.ev-loc{font-size:.78rem;color:var(--ink-mute)!important;margin-top:2px}
+/* Featured split card */
+.news-featured{
+  display:grid;grid-template-columns:1fr;background:#fff;
+  border:1px solid #e3e5e0;margin-bottom:28px;overflow:hidden;
+}
+@media(min-width:900px){
+  .news-featured{grid-template-columns:1.05fr .95fr;min-height:340px}
+}
+.news-featured__body{
+  padding:28px 24px 32px;display:flex;flex-direction:column;justify-content:center;
+  background:#fff;position:relative;
+}
+.news-featured__body::before{
+  content:"";position:absolute;left:0;top:0;width:4px;height:100%;background:#FFF200;
+}
+@media(min-width:900px){.news-featured__body{padding:40px 36px}}
+.news-featured__meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-bottom:14px;min-height:28px}
+.news-featured__date{
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#5a6570;font-weight:600;
+  line-height:1;display:inline-flex;align-items:center;
+}
+.news-featured__title{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(1.45rem,2.6vw,2.15rem);line-height:1.08;
+  letter-spacing:.015em;text-transform:uppercase;margin:0 0 12px;color:#013F5C;
+}
+.news-featured__title a{color:inherit}
+.news-featured__title a:hover{color:#0181BB}
+.news-featured__excerpt{margin:0 0 22px;font-size:.95rem;line-height:1.65;color:#3d4a55;max-width:48ch}
+.news-featured__cta{
+  align-self:flex-start;display:inline-flex;align-items:center;gap:8px;
+  font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:#013F5C;border-bottom:2px solid #FFF200;padding-bottom:2px;
+  transition:color 160ms ease,border-color 160ms ease;
+}
+.news-featured__cta:hover{color:#0181BB;border-color:#0181BB}
+.news-featured__media{display:block;background:#013F5C;min-height:220px;position:relative;overflow:hidden}
+@media(min-width:900px){.news-featured__media{min-height:100%}}
+.news-featured__media img{
+  width:100%;height:100%;max-width:none;object-fit:cover;object-position:center;
+  display:block;position:absolute;inset:0;
+}
+.news-featured__media::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 40%,rgba(1,63,92,.35) 100%);
+  pointer-events:none;
+}
 
-/* Side rail: media enquiries on gold, notched corner */
-.side-gold{background:var(--gold);padding:var(--sp-8);margin-top:var(--sp-5);clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,0 100%)}
-.side-gold h4{font-family:var(--font-display);font-weight:700;font-size:1.5rem;letter-spacing:.03em;text-transform:uppercase;color:var(--ink);margin-bottom:var(--sp-2)}
-.side-gold p{color:rgba(1,63,92,0.72);font-size:.88rem;margin-bottom:var(--sp-5)}
-.side-gold .btn{width:100%}
+/* Toolbar */
+.news-toolbar{
+  display:flex;flex-direction:column;gap:14px;
+  padding:16px 0 6px;margin-bottom:8px;
+  border-top:1px solid #e3e5e0;border-bottom:1px solid #e3e5e0;
+}
+.news-toolbar__row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.news-toolbar input[type=search],
+.news-toolbar select{
+  padding:11px 14px;border:1px solid #d5d9de;border-radius:0;
+  font-family:var(--font-body);font-size:.85rem;background:#fff;color:#0a1b2e;
+  outline:none;transition:border-color 150ms ease,box-shadow 150ms ease;
+}
+.news-toolbar input[type=search]{flex:1;min-width:180px}
+.news-toolbar select{min-width:150px;cursor:pointer}
+.news-toolbar input:focus,.news-toolbar select:focus{
+  border-color:#0181BB;box-shadow:inset 0 -2px 0 #FFF200;
+}
+.news-filter-pills{display:flex;flex-wrap:wrap;gap:8px;padding:2px 0 10px}
+.news-filter-pill{
+  appearance:none;padding:8px 12px;border:1px solid #013F5C;background:transparent;
+  border-radius:0;font-family:var(--font-body);font-size:10px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;cursor:pointer;color:#013F5C;
+  transition:background 150ms ease,color 150ms ease,border-color 150ms ease;
+}
+.news-filter-pill:hover{background:rgba(1,63,92,.06)}
+.news-filter-pill.is-active{background:#FFF200;border-color:#FFF200;color:#013F5C}
+.news-filter-pill:focus-visible{outline:2px solid #0181BB;outline-offset:2px}
+
+.news-pill{
+  display:inline-flex;align-items:center;padding:5px 9px;background:#0181BB;color:#fff;
+  font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1.2;
+}
+.news-pill--muted{background:#013F5C}
+
+/* Uniform news card grid — fills main column width */
+#news-list{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;
+  margin-top:18px;width:100%;
+}
+@media(min-width:900px){
+  #news-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+}
+.news-card{
+  display:flex;flex-direction:column;background:#fff;border:1px solid #e3e5e0;
+  min-width:0;width:100%;height:100%;
+  transition:border-color 180ms ease,box-shadow 180ms ease;
+}
+.news-card:hover{border-color:#c5ccd3;box-shadow:0 10px 28px rgba(1,63,92,.08)}
+.news-card__media{
+  display:block;aspect-ratio:16/9;overflow:hidden;background:#013F5C;position:relative;
+  flex:none;
+}
+.news-card__media img{
+  position:absolute;inset:0;width:100%;height:100%;max-width:none;
+  object-fit:cover;object-position:center;display:block;
+  transition:transform 320ms ease;
+}
+.news-card:hover .news-card__media img{transform:scale(1.03)}
+.news-card__body{
+  padding:16px 18px 18px;display:flex;flex-direction:column;flex:1 1 auto;gap:10px;
+  min-height:0;
+}
+.news-card__meta{
+  display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;min-height:28px;
+}
+.news-card__meta .news-pill{flex:none;line-height:1.2}
+.news-card__date{
+  font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#5a6570;font-weight:600;
+  line-height:1;display:inline-flex;align-items:center;
+}
+.news-card__title{
+  font-family:var(--font-display);font-weight:700;font-size:1.02rem;
+  line-height:1.25;letter-spacing:.01em;margin:0;padding:0;color:#013F5C;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+}
+.news-card__title a{color:inherit}
+.news-card__title a:hover{color:#0181BB}
+.news-card__excerpt{
+  margin:0;padding:0;font-size:.84rem;line-height:1.55;color:#5a6570;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.news-card__foot{
+  margin-top:auto;padding-top:12px;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  border-top:1px solid #eef0f2;min-height:38px;
+}
+.news-card__more{
+  font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0181BB;
+  line-height:1;display:inline-flex;align-items:center;flex:none;
+}
+.news-card__more:hover{color:#013F5C}
+.news-card__share{display:flex;align-items:center;gap:6px;flex:none}
+.news-card__share a{
+  width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid #e3e5e0;font-size:.72rem;font-weight:700;color:#013F5C;line-height:1;
+  transition:background 150ms ease,border-color 150ms ease,color 150ms ease;
+}
+.news-card__share a:hover{background:#013F5C;border-color:#013F5C;color:#FFF200}
+
+.news-empty{color:#5a6570;padding:28px 0;margin:0}
+.news-empty--soft{font-size:.9rem}
+
+/* Sidebar */
+.news-aside{display:flex;flex-direction:column;gap:16px;min-width:0;width:100%}
+.news-side-panel{
+  background:#013F5C;padding:24px 22px;color:#fff;border:1px solid transparent;
+}
+.news-side-panel h3{
+  display:flex;align-items:center;gap:10px;margin:0 0 16px;
+  font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:#fff;
+}
+.news-side-panel h3::before{content:"";width:8px;height:8px;background:#FFF200;flex:none}
+.news-side-cats{display:flex;flex-direction:column;gap:0}
+.news-side-cat{
+  display:flex;justify-content:space-between;gap:12px;
+  padding:12px 0;border-top:1px solid rgba(255,255,255,.12);
+  font-size:.86rem;color:rgba(255,255,255,.88);
+}
+.news-side-cat:last-child{border-bottom:1px solid rgba(255,255,255,.12)}
+.news-side-cat span{color:#FFF200;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+
+.news-side-gold{
+  background:#FFF200;padding:24px 22px;
+  clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,0 100%);
+}
+.news-side-gold h3{
+  font-family:var(--font-display);font-weight:700;font-size:1.45rem;
+  letter-spacing:.03em;text-transform:uppercase;color:#013F5C;margin:0 0 8px;
+}
+.news-side-gold h3::before{display:none}
+.news-side-gold p{color:rgba(1,63,92,.72);font-size:.88rem;margin:0 0 18px;line-height:1.55}
+.news-side-gold .btn{width:100%}
+
+.ev-row{padding:14px 0;border-top:1px solid rgba(255,255,255,.12)}
+.ev-row:last-child{border-bottom:1px solid rgba(255,255,255,.12)}
+.ev-date{font-family:var(--font-display);font-size:1.15rem;letter-spacing:.06em;color:#FFF200;text-transform:uppercase}
+.ev-title{color:#fff;font-weight:600;font-size:.9rem;margin-top:2px}
+.ev-loc{font-size:.78rem;color:rgba(255,255,255,.55);margin-top:2px}
+
+/* Related row */
+.news-related-block{
+  margin-top:48px;padding-top:36px;border-top:1px solid #e3e5e0;
+}
+.news-related-block h2{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(1.3rem,2.2vw,1.7rem);letter-spacing:.02em;
+  text-transform:uppercase;color:#013F5C;margin:0 0 18px;
+}
+#news-related-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;
+}
+@media(min-width:900px){
+  #news-related-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .news-card,.news-card__media img,.news-filter-pill,.news-featured__cta{transition:none!important}
+  .news-card:hover .news-card__media img{transform:none}
+}
 </style>
 
 <script type="application/ld+json">
@@ -110,11 +314,11 @@
   <link rel="preload" href="assets/fonts/files/jost-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="assets/flagship.css?v=87">
+<link rel="stylesheet" href="assets/flagship.css?v=88">
 <link rel="stylesheet" href="assets/split-text.css?v=46">
   <link rel="stylesheet" href="assets/assistant.css?v=71">
   <link rel="stylesheet" href="assets/skeleton.css?v=4">
-</head><body>
+</head><body class="news-page">
   <script src="assets/skeleton.js?v=4"></script>
 <nav class="site-nav" dir="ltr">
   <div class="nav-inner">
@@ -301,26 +505,62 @@
   <div class="hero-media" style="background-image:url('assets/images/n-slider/8.jpg')" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container">
-  <nav class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span>/</span><span data-i18n="news.1">News & Events</span></nav>
-  <div data-i18n="news.2" class="eyebrow">Latest News</div><h1 data-i18n="news.3">News &amp; Events</h1><p data-i18n="news.4">News from across Lake Group  announcements, expansions, product launches and community activities.</p>
-</div></section>
+    <nav class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span>/</span><span data-i18n="news.1">News &amp; Events</span></nav>
+    <div data-i18n="news.2" class="eyebrow">Latest News</div>
+    <h1 data-i18n="news.3">News &amp; Events</h1>
+    <p data-i18n="news.4">News from across Lake Group — announcements, expansions, product launches and community activities.</p>
+  </div>
+</section>
 
-<section class="fs-section">
-  <div class="container">
-    <div class="news-layout">
-      <div>
-        <div class="fs-marker"><span class="fs-marker-no">01</span><span data-i18n="news.5" class="fs-eyebrow">Latest Stories</span></div>
-        <h2 data-i18n="news.6" class="fs-display">Recent News</h2>
-        <div class="news-filters">
+<section class="news-hub" aria-label="News hub">
+  <div class="news-shell">
+    <div class="news-hub__top">
+      <div class="news-hub__main">
+        <div class="news-section-head">
+          <div class="fs-marker"><span class="fs-marker-no">01</span><span data-i18n="news.5" class="fs-eyebrow">Latest Stories</span></div>
+          <h2 data-i18n="news.6">Recent News</h2>
+        </div>
+
+        <div id="news-featured" class="news-featured-host" aria-live="polite"></div>
+      </div>
+
+      <aside class="news-aside" aria-label="News sidebar">
+        <div class="news-side-panel">
+          <h3 data-i18n="news.20">Event Highlights</h3>
+          <div class="ev-row">
+            <p data-i18n="news.21" class="ev-date">Jun 2014</p>
+            <p data-i18n="news.22" class="ev-title">Composite LPG Cylinder Launch</p>
+            <p data-i18n="news.23" class="ev-loc">Dar es Salaam, Tanzania</p>
+          </div>
+          <div class="ev-row">
+            <p data-i18n="news.24" class="ev-date">2022</p>
+            <p data-i18n="news.25" class="ev-title">Tanga LPG Terminal Expansion</p>
+            <p data-i18n="news.26" class="ev-loc">Tanga, Tanzania</p>
+          </div>
+        </div>
+
+        <div class="news-side-panel">
+          <h3>Topics</h3>
+          <div class="news-side-cats">
+            <div class="news-side-cat"><span>Events</span> Corporate gatherings</div>
+            <div class="news-side-cat"><span>CSR</span> Community impact</div>
+            <div class="news-side-cat"><span>LPG</span> Energy &amp; gas</div>
+            <div class="news-side-cat"><span>Business</span> Growth &amp; markets</div>
+          </div>
+        </div>
+
+        <div class="news-side-gold">
+          <h3 data-i18n="news.27">Media Enquiries</h3>
+          <p data-i18n="news.28">For press releases, interviews or media partnerships:</p>
+          <a data-i18n="news.29" href="mailto:admin@lakeoilgroup.com" class="btn btn-blue btn-sm">Email Media Team</a>
+        </div>
+      </aside>
+    </div>
+
+    <div class="news-hub__feed">
+      <div class="news-toolbar">
+        <div class="news-toolbar__row">
           <input type="search" id="news-search" placeholder="Search news..." data-i18n-placeholder="news.36" aria-label="Search news..." data-i18n-aria="news.36">
-          <select id="news-category" aria-label="Filter by topic">
-            <option data-i18n="news.7" value="">All topics</option>
-            <option data-i18n="news.8" value="Events">Events</option>
-            <option data-i18n="news.9" value="Sports">Sports</option>
-            <option value="CSR">CSR</option>
-            <option data-i18n="news.10" value="Business">Business</option>
-            <option data-i18n="news.11" value="Product">Product</option>
-          </select>
           <select id="news-country" aria-label="Filter by country">
             <option data-i18n="news.12" value="">All countries</option>
             <option data-i18n="news.13" value="Tanzania">Tanzania</option>
@@ -333,30 +573,15 @@
             <option data-i18n="news.19" value="Ethiopia">Ethiopia</option>
           </select>
         </div>
-        <div id="news-list"></div>
+        <div id="news-filter-pills" class="news-filter-pills" role="toolbar" aria-label="Filter by topic"></div>
       </div>
-      <aside>
-        <div class="side-ink fs-on-dark fs-corners">
-          <h4 data-i18n="news.20">Event Highlights</h4>
-          <div>
-            <div class="ev-row">
-              <p data-i18n="news.21" class="ev-date">Jun 2014</p>
-              <p data-i18n="news.22" class="ev-title">Composite LPG Cylinder Launch</p>
-              <p data-i18n="news.23" class="ev-loc">Dar es Salaam, Tanzania</p>
-            </div>
-            <div class="ev-row">
-              <p data-i18n="news.24" class="ev-date">2022</p>
-              <p data-i18n="news.25" class="ev-title">Tanga LPG Terminal Expansion</p>
-              <p data-i18n="news.26" class="ev-loc">Tanga, Tanzania</p>
-            </div>
-          </div>
-        </div>
-        <div class="side-gold">
-          <h4 data-i18n="news.27">Media Enquiries</h4>
-          <p data-i18n="news.28">For press releases, interviews or media partnerships:</p>
-          <a data-i18n="news.29" href="mailto:admin@lakeoilgroup.com" class="btn btn-blue btn-sm">Email Media Team</a>
-        </div>
-      </aside>
+
+      <div id="news-list" aria-live="polite"></div>
+
+      <section id="news-related" class="news-related-block" hidden>
+        <h2>You may also be interested in</h2>
+        <div id="news-related-grid"></div>
+      </section>
     </div>
   </div>
 </section>
@@ -368,7 +593,7 @@
   <script src="assets/assistant-kb.js" defer></script>
   <script src="assets/assistant.js?v=60" defer></script>
 <script src="assets/news-data.js" defer></script>
-<script src="assets/news.js" defer></script>
+<script src="assets/news.js?v=62" defer></script>
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -452,6 +677,6 @@
 
 
 <script src="assets/pwa.js?v=60" defer></script>
-<script src="assets/flagship-motion.js?v=58" defer></script>
+<script src="assets/flagship-motion.js?v=59" defer></script>
 <script src="assets/split-text.js?v=46" defer></script>
 </body></html>

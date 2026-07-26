@@ -155,7 +155,7 @@ window.LAKE_NEWS = [
     title: "Composite cylinder launch on 18th June, 2014",
     date: "18 Jun, 2014",
     category: "LPG",
-    bannerImage: "assets/images/news/13/photo_1.jpg",
+    bannerImage: "assets/images/news/6/photo_1.jpg",
     description: [
       "It is a Pleasure to announce a New Milestone achieved by the \"LAKE GAS TEAM\" – The Launch of the \"COMPOSITE CYLINDERS\".",
       "The Composite Cylinder was officially Launched on 18th June, 2014 at the Program conducted at the Grand Hyatt Regency - Dar Es Saalam. The Guest of Honor – The Asst. Commissioner of Energy (Natural Gas) in the Ministry of Energy & Minerals- Mr. Nobert Kahyoza officiated the Launch by holding up the Composite Cylinder along with our Chairman and Managing Director – Mr. Ally Edah Awadh.",
@@ -234,7 +234,7 @@ window.LAKE_NEWS = [
     title: "Lake Group Expansion into Mozambique Market",
     date: "01 Jan, 2019",
     category: "Expansion",
-    bannerImage: "assets/images/news/7/photo_1.jpg",
+    bannerImage: "assets/images/news/3/photo_1.jpg",
     description: [
       "Africa Energy Intelligence's sources report that the Tanzanian oil trading and distribution firm Lake Group has set up shop in Mozambique.",
       "Its founder and CEO, Ally Edha Awadh, recently incorporated a subsidiary named Lake Oil Limited in Beira In central Mozambique.",

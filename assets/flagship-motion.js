@@ -33,7 +33,8 @@
 
   /* Zones owned by other systems  never auto-tag or decorate. */
   var SKIP_ZONES = '#fuel-experience, .experience-3d, .our-story-embed, .ose-stage, ' +
-    '.site-nav, .nav-mobile, #lightbox, #chat-widget, .page-hero';
+    '.site-nav, .nav-mobile, #lightbox, #chat-widget, .page-hero, ' +
+    '.news-card, .news-featured, #news-list, #news-related-grid, #news-featured';
 
   function inSkipZone(el) {
     return !!el.closest(SKIP_ZONES);
@@ -74,7 +75,8 @@
   }
 
   var IMG_SKIP = '.site-nav, .nav-mobile, .nav-megamenu, .nav-dropdown, .mm-company, ' +
-    '.footer-logo, .site-footer, #chat-widget, .flag-icon, .flag-icon-lg';
+    '.footer-logo, .site-footer, #chat-widget, .flag-icon, .flag-icon-lg, ' +
+    '.news-card__media, .news-featured__media, #news-list, #news-related-grid';
 
   function enhanceImages() {
     /* Media containers: clip-reveal (home hero photo-grid feel) */
@@ -141,7 +143,7 @@
       '.fs-section-sm > .container, .fs-section-sm > .fs-container, ' +
       '.section > .container, .section-sm > .container, ' +
       '.stats-band > .container, .cta-band > .container, ' +
-      '.page-wrapper > section:not(.page-hero):not(.our-story-embed)'
+      '.page-wrapper > section:not(.page-hero):not(.our-story-embed):not(.news-hub)'
     ).forEach(function (container) {
       if (inSkipZone(container) || container.hasAttribute('data-fx-tagged')) return;
       var idx = 0;
