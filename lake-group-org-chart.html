@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Interactive organisational chart of Lake Group companies owned by Mr. Ally Edha Awadh — energy, manufacturing, logistics, real estate, and agro-processing subsidiaries.">
+<title>Lake Group — Organisational Chart</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #f0f4f8;
+    color: #1a1a2e;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  .header {
+    background: linear-gradient(135deg, #003f5c 0%, #0181BB 100%);
+    color: #fff;
+    padding: 28px 24px 22px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .header h1 {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    position: relative; z-index: 1;
+  }
+  .header p {
+    font-size: 0.95rem; opacity: 0.85; margin-top: 4px;
+    position: relative; z-index: 1;
+  }
+  .header .meta {
+    display: flex; justify-content: center; gap: 20px;
+    margin-top: 10px; font-size: 0.8rem; opacity: 0.8;
+    position: relative; z-index: 1; flex-wrap: wrap;
+  }
+  .legend {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 14px 28px; padding: 14px 20px;
+    background: #fff; border-bottom: 1px solid #e2e8f0;
+    font-size: 0.82rem;
+  }
+  .legend-item { display: flex; align-items: center; gap: 7px; }
+  .legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+  .chart-wrap { max-width: 1400px; margin: 0 auto; padding: 40px 20px 60px; overflow-x: auto; }
+  .tree { display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .root-node { position: relative; display: flex; flex-direction: column; align-items: center; }
+  .root-card {
+    background: linear-gradient(135deg, #003f5c, #015f7a);
+    color: #fff; padding: 18px 36px; border-radius: 14px; text-align: center;
+    box-shadow: 0 8px 32px rgba(1,129,187,0.25);
+    position: relative; z-index: 2; min-width: 220px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .root-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(1,129,187,0.35); }
+  .root-card .name { font-size: 1.15rem; font-weight: 700; }
+  .root-card .title { font-size: 0.78rem; opacity: 0.85; margin-top: 2px; }
+  .root-card .badge {
+    display: inline-block; margin-top: 6px;
+    background: #cf9c2e; color: #fff;
+    font-size: 0.65rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    padding: 2px 10px; border-radius: 20px;
+  }
+  .root-connector { width: 2px; height: 30px; background: #b0c4d8; position: relative; }
+  .root-connector::after {
+    content: ''; position: absolute; bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid #b0c4d8;
+  }
+  .sectors-row { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; position: relative; padding-top: 10px; }
+  .sectors-row::before {
+    content: ''; position: absolute; top: 0; left: 30px; right: 30px;
+    height: 2px; background: #b0c4d8;
+  }
+  .sectors-row::after {
+    content: ''; position: absolute; top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 2px; height: 10px; background: #b0c4d8;
+  }
+  @media (max-width: 1100px) {
+    .sectors-row::before, .sectors-row::after,
+    .sector-group::before, .sector-connector, .sector-connector::after,
+    .companies-row::before, .company-node::before { display: none; }
+  }
+  .sector-group { display: flex; flex-direction: column; align-items: center; position: relative; min-width: 140px; }
+  .sector-group::before {
+    content: ''; position: absolute; top: 0; left: 50%;
+    width: 2px; height: 10px; background: #b0c4d8; transform: translateX(-50%);
+  }
+  .sector-card {
+    padding: 12px 18px; border-radius: 10px; text-align: center;
+    font-weight: 700; font-size: 0.82rem; letter-spacing: 0.03em; text-transform: uppercase;
+    color: #fff; box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    position: relative; z-index: 2; width: 100%; max-width: 180px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .sector-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  .sector-card .count {
+    display: block; font-size: 0.62rem; font-weight: 400;
+    opacity: 0.8; margin-top: 2px; text-transform: none; letter-spacing: 0;
+  }
+  .sector-connector { width: 2px; height: 20px; background: #cbd5e1; position: relative; }
+  .sector-connector::after {
+    content: ''; position: absolute; bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 7px solid #cbd5e1;
+  }
+  .companies-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; position: relative; padding-top: 8px; }
+  .companies-row::before { content: ''; position: absolute; top: 0; left: 10px; right: 10px; height: 2px; background: #e2e8f0; }
+  .company-node { display: flex; flex-direction: column; align-items: center; position: relative; }
+  .company-node::before { content: ''; position: absolute; top: 0; left: 50%; width: 2px; height: 8px; background: #e2e8f0; transform: translateX(-50%); }
+  .company-card {
+    background: #fff; border: 1.5px solid #e2e8f0; border-radius: 10px;
+    padding: 10px 14px; text-align: center;
+    font-size: 0.76rem; font-weight: 600; color: #1a1a2e;
+    min-width: 100px; max-width: 150px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: all 0.25s ease; position: relative; z-index: 2; outline: none;
+  }
+  .company-card:focus-visible { border-color: #0181BB; box-shadow: 0 0 0 3px rgba(1,129,187,0.3); transform: translateY(-2px); }
+  .company-card .subtitle { display: block; font-size: 0.62rem; font-weight: 400; color: #5a6a7a; margin-top: 2px; }
+  .company-card .countries-badge { display: inline-flex; align-items: center; gap: 3px; margin-top: 4px; font-size: 0.58rem; color: #0181BB; font-weight: 500; }
+  .company-card:hover { border-color: #0181BB; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(1,129,187,0.12); background: #f8fcff; }
+  .tooltip {
+    position: fixed; background: #1a2938; color: #fff;
+    font-size: 0.78rem; line-height: 1.55;
+    padding: 14px 18px; border-radius: 10px;
+    max-width: 340px; max-height: 50vh; overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    z-index: 999; pointer-events: none;
+    opacity: 0; transition: opacity 0.2s ease;
+  }
+  .tooltip.show { opacity: 1; }
+  .tooltip strong { color: #cf9c2e; }
+  .tooltip::before {
+    content: ''; position: absolute; top: -6px; left: 16px;
+    width: 12px; height: 12px; background: #1a2938;
+    transform: rotate(45deg); border-radius: 2px;
+  }
+  .s-energies     { background: linear-gradient(135deg, #0181BB, #00a0e6); }
+  .s-manufacturing { background: linear-gradient(135deg, #1B7350, #2a9d6a); }
+  .s-logistics    { background: linear-gradient(135deg, #C67B22, #e8962e); }
+  .s-realestate   { background: linear-gradient(135deg, #8B5CF6, #a78bfa); }
+  .s-agro         { background: linear-gradient(135deg, #B34A4A, #cc5c5c); }
+  .s-other        { background: linear-gradient(135deg, #6B7280, #9CA3AF); }
+  .scroll-hint { text-align: center; font-size: 0.75rem; color: #94a3b8; margin-top: 4px; display: none; }
+  @media (max-width: 1100px) { .scroll-hint { display: block; } }
+  .footer { text-align: center; padding: 20px; font-size: 0.72rem; color: #94a3b8; border-top: 1px solid #e2e8f0; background: #fff; }
+  .footer a { color: #0181BB; text-decoration: none; }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .root-node         { animation: fadeInUp 0.5s ease both; }
+  .sector-group      { animation: fadeInUp 0.5s ease both; }
+  .sectors-row .sector-group:nth-child(1) { animation-delay: 0.15s; }
+  .sectors-row .sector-group:nth-child(2) { animation-delay: 0.25s; }
+  .sectors-row .sector-group:nth-child(3) { animation-delay: 0.35s; }
+  .sectors-row .sector-group:nth-child(4) { animation-delay: 0.45s; }
+  .sectors-row .sector-group:nth-child(5) { animation-delay: 0.55s; }
+  .sectors-row .sector-group:nth-child(6) { animation-delay: 0.65s; }
+  @media (max-width: 640px) {
+    .chart-wrap { padding: 24px 10px 40px; }
+    .root-card { padding: 14px 24px; min-width: 160px; }
+    .root-card .name { font-size: 1rem; }
+    .sectors-row { gap: 14px; }
+    .sector-card { padding: 10px 14px; font-size: 0.72rem; max-width: 130px; }
+    .company-card { min-width: 80px; max-width: 120px; font-size: 0.68rem; padding: 8px 10px; }
+    .companies-row { gap: 6px; }
+  }
+  @media print {
+    .header { background: #003f5c !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .sector-card, .root-card { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .scroll-hint { display: none !important; }
+    .tooltip { display: none !important; }
+  }
+  .stat-bar { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; margin-bottom: 8px; }
+  .stat-pill {
+    background: rgba(255,255,255,0.12); border-radius: 12px;
+    padding: 2px 8px; font-size: 0.58rem; font-weight: 600; letter-spacing: 0.03em;
+    color: #cf9c2e; white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <h1>Lake Group — Organisational Chart</h1>
+  <p>Group companies &amp; subsidiaries owned by Mr. Ally Edha Awadh</p>
+  <div class="meta">
+    <span>🏢 18+ Companies</span>
+    <span>🌍 10+ Countries</span>
+    <span>👥 30,000+ Employees</span>
+    <span>📅 Est. 2006</span>
+    <span>💰 $1B Revenue (Forbes 2017)</span>
+  </div>
+</header>
+
+<nav class="legend" aria-label="Sector colour legend">
+  <span class="legend-item"><span class="legend-dot" style="background:#0181BB" aria-hidden="true"></span> Energies</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#1B7350" aria-hidden="true"></span> Manufacturing</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#C67B22" aria-hidden="true"></span> Logistics</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#8B5CF6" aria-hidden="true"></span> Real Estate</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#B34A4A" aria-hidden="true"></span> Agro Processing</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#6B7280" aria-hidden="true"></span> Associated</span>
+  <span class="legend-item" style="font-size:0.72rem;color:#94a3b8" aria-hidden="true">🖱 Hover for details</span>
+</nav>
+
+<div class="scroll-hint" aria-hidden="true">↔ Scroll horizontally to see all sectors</div>
+
+<div class="chart-wrap">
+  <div class="tree" role="tree" aria-label="Lake Group organisational hierarchy">
+
+    <!-- ROOT -->
+    <div class="root-node" role="treeitem" aria-expanded="true">
+      <div class="root-card">
+        <div class="name">Ally Edha Awadh</div>
+        <div class="title">Executive Chairman &amp; Owner</div>
+        <div class="badge">Founder, 2006</div>
+      </div>
+      <div class="root-connector" aria-hidden="true"></div>
+    </div>
+
+    <div class="sectors-row" role="group">
+
+      <!-- ═══ 1. Energies ═══ -->
+      <div class="sector-group" role="treeitem" aria-expanded="true">
+        <div class="sector-card s-energies" role="heading" aria-level="2">
+          Lake Energies <span class="count">4 companies</span>
+        </div>
+        <div class="sector-connector" aria-hidden="true"></div>
+        <div class="companies-row" role="group">
+          <div class="company-node">
+            <button class="company-card" type="button" data-tip="<strong>Lake Oil Ltd.</strong> — Flagship. Top 5 in Tanzania. 152 retail stations. Storage in 4 countries.<br><br>🌍 Tanzania · Kenya · Zambia · Burundi · DRC · Rwanda · Ethiopia · Mozambique · Uganda<br><br>📅 2006 &nbsp;|&nbsp; 💰 $1B revenue (Forbes 2017)">
+              Lake Oil <span class="subtitle">Petroleum distribution</span>
+              <span class="countries-badge">🌍 9 countries</span>
+            </button>
+          </div>
+          <div class="company-node">
+            <button class="company-card" type="button" data-tip="<strong>Lake Gas Ltd.</strong> — LPG marketing. Africa's first composite LPG cylinders (2014). $60M Kenya terminal (2025, 10,000 MT capacity). ~2% Kenyan cooking gas market share.<br><br>🌍 Tanzania · Kenya · Zambia · Rwanda · Burundi · DRC · Uganda">
+              Lake Gas <span class="subtitle">LPG &amp; cooking gas</span>
+              <span class="countries-badge">🌍 7 countries</span>
+            </button>
+          </div>
+          <div class="company-node">
+            <button class="company-card" type="button" data-tip="<strong>Lake Aviation Ltd.</strong> — Aviation fuel supply. Jet fuel &amp; services for regional airlines.<br><br>🌍 Tanzania">
+              Lake Aviation <span class="subtitle">Aviation fuel</span>
+            </button>
+          </div>
+          <div class="company-node">
+            <button class="company-card" type="button" data-tip="<strong>Lake Lubes Ltd.</strong> — Automotive &amp; industrial lubricants.<br><br>🌍 Tanzania · DR Congo">
+              Lake Lubes <span class="subtitle">Lubricants</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ 2. Manufacturing ═══ -->
+      <div class="sector-group" role="treeitem" aria-expanded="true">
+        <div class="sector-card s-manufacturing" role="heading" aria-level="2">
+          Manufacturing <span class="count">7 companies</span>
+        </div>
+        <div class="sector-connector" aria-hidden="true"></div>
+        <div class="companies-row" role="group">
+          <div class="company-node">
+            <button class="company-card" type="button" data-tip="<strong>Lake Steel Ltd.</strong> — First steel plant in Tanzania. 100,000 MT annual capacity. 25 MT/hour. HS-CR reinforcement bars.<br><br>🌍 Tanzania">
+              Lake Steel <span class="subtitle">Steel — 100K MT/yr</span>
+            </button>
+          </div>
+          <div class="company-node">
+            <button class="company-card" type="button" data-tip="<strong>Lake Buildings Ltd.</strong> — Building materials &amp; construction products.<br><br>🌍 Tanzania">
+              Lake Buildings <span class="subtitle">Construction materials</span>
+            </button>
+          </div>
+          <div class="company-node">
+            <button class="company-card" type="button" data-tip="<strong>Lake Plastics Ltd.</strong> — Plastics manufacturing for the regional market.<br><br>🌍 Tanzania">
+              Lake Plastics <span class="subtitle">Plastics</span>
+            </button>
+          </div>
+          <div class="company-node">
+            <button class="company-card" type="button" data-tip="<strong>Lake Cylinders Ltd.</strong> — LPG &amp; industrial gas cylinder manufacturing.<br><br>🌍 Tanzania">
+              Lake Cylinders <span class="subtitle">Cylinder mfg</span>
+            </button>
+          </div>
+          <div class="company-node">
+            <button class="company-card" type="button" data-tip="<strong>Lake Premix &amp; Cement (GCCP)</strong> — Leading ready-mix concrete. Est. 2010. Also operates in Dubai via MERM.<br><br>🌍 Tanzania · UAE (Dubai)">
+              Lake Premix &amp; Cement <span class="subtitle">Concrete</span>
+            </button>
+          </div>
+          <div class="company-node">
+            <button class="company-card" type="button" data-tip="<strong>Gulf Aggregates Ltd.</strong> — Quarrying &amp; aggregate supply for construction.<br><br>🌍 Tanzania">
+              Gulf Aggregates <span class="subtitle">Quarrying</span>
+            </button>
+          </div>
+          <div class="company-node">
+            <button class="company-card" type="button" data-tip="<strong>ATL — Africa Tank Lines</strong> — Aluminium tanker &amp; trailer manufacturer. Est. 2019.<br><br>🌍 Tanzania">
+              ATL <span class="subtitle">Tanker mfg</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ 3. Logistics ═══ -->
+      <div class="sector-group" role="treeitem" aria-expanded="true">
+        <div class="sector-card s-logistics" role="heading" aria-level="2">
+          Logistics <span class="count">3 companies</span>
+        </div>
+        <div class="sector-connector" aria-hidden="true"></div>
+        <div class="companies-row" role="group">
+          <div class="company-node">
+            <button class="company-card" type="button" data-tip="<strong>Lake Trans Ltd.</strong> — Fuel logistics. 1,200+ tanker trucks. Cross-border transport across 7 countries.<br><br>🌍 Tanzania · Kenya · Zambia · DRC · Burundi · Rwanda · Uganda">
+              Lake Trans <span class="subtitle">Fuel transport fleet</span>
+              <span class="countries-badge">🚛 1,200+ trucks</span>
+            </button>
+          </div>
+          <div class="company-node">
+            <button class="company-card" type="button" data-tip="<strong>AFICD</strong> — African Inland Container Depot. Port logistics, container storage &amp; customs.<br><br>🌍 Tanzania · Zambia · Mozambique">
+              AFICD <span class="subtitle">Container depot</span>
+            </button>
+          </div>
+          <div class="company-node">
+            <button class="company-card" type="button" data-tip="<strong>AILL</strong> — African Inland Logistics Ltd. Container freight station &amp; logistics support.<br><br>🌍 Tanzania">
+              AILL <span class="subtitle">Container freight</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ 4. Real Estate ═══ -->
+      <div class="sector-group" role="treeitem" aria-expanded="true">
+        <div class="sector-card s-realestate" role="heading" aria-level="2">
+          Real Estate <span class="count">2 companies</span>
+        </div>
+        <div class="sector-connector" aria-hidden="true"></div>
+        <div class="companies-row" role="group">
+          <div class="company-node">
+            <button class="company-card" type="button" data-tip="<strong>Cross Country Ltd.</strong> — Commercial &amp; residential property development.<br><br>🌍 Tanzania">
+              Cross Country <span class="subtitle">Property development</span>
+            </button>
+          </div>
+          <div class="company-node">
+            <button class="company-card" type="button" data-tip="<strong>Ocean Galleria Ltd.</strong> — Luxury waterfront mall in Masaki, Dar es Salaam. East Africa's first waterfront mall. Completion est. mid-2026.<br><br>🌍 Tanzania — Dar es Salaam">
+              Ocean Galleria <span class="subtitle">🏗️ Waterfront mall</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ 5. Agro ═══ -->
+      <div class="sector-group" role="treeitem" aria-expanded="true">
+        <div class="sector-card s-agro" role="heading" aria-level="2">
+          Agro Processing <span class="count">1 company</span>
+        </div>
+        <div class="sector-connector" aria-hidden="true"></div>
+        <div class="companies-row" role="group">
+          <div class="company-node">
+            <button class="company-card" type="button" data-tip="<strong>Lake Agro Ltd.</strong> — Commercial farming &amp; Integrated Ag Parks. 17,250-acre Yala Swamp lease (Kenya). Sh20B investment planned. Crops: wheat, soybean, maize, rice, sunflower, sugar, beef, fish.<br><br>🌍 Tanzania · Kenya · Zambia">
+              Lake Agro <span class="subtitle">🌾 Commercial farming</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ 6. Other ═══ -->
+      <div class="sector-group" role="treeitem" aria-expanded="true">
+        <div class="sector-card s-other" role="heading" aria-level="2">
+          Associated <span class="count">1 venture</span>
+        </div>
+        <div class="sector-connector" aria-hidden="true"></div>
+        <div class="companies-row" role="group">
+          <div class="company-node">
+            <button class="company-card" type="button" data-tip="<strong>MERM</strong> — Middle East Ready Mix LLC. Lake Group's ready-mix concrete operations in Dubai.<br><br>🌍 UAE (Dubai)">
+              MERM <span class="subtitle">Ready-mix — Dubai</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /sectors-row -->
+  </div><!-- /tree -->
+</div><!-- /chart-wrap -->
+
+<div class="tooltip" id="tooltip" role="tooltip" aria-live="polite"></div>
+
+<div class="footer">
+  Source: <a href="https://www.lakeoilgroup.com" target="_blank" rel="noopener">lakeoilgroup.com</a>
+  &nbsp;·&nbsp; Forbes Africa 2017 &nbsp;·&nbsp; Data as of July 2026
+  &nbsp;·&nbsp; Compiled by Freebuff AI Assistant
+</div>
+
+<script>
+(function() {
+  var tooltip = document.getElementById('tooltip');
+  var currentCard = null;
+  function showTooltip(el, e) {
+    var html = el.getAttribute('data-tip');
+    if (!html) return;
+    tooltip.innerHTML = html;
+    tooltip.classList.add('show');
+    currentCard = el;
+    if (e) positionTooltip(e);
+  }
+  function hideTooltip() { tooltip.classList.remove('show'); currentCard = null; }
+  function positionTooltip(e) {
+    var x = e.clientX + 18, y = e.clientY + 14;
+    var tw = tooltip.offsetWidth, th = tooltip.offsetHeight;
+    var ww = window.innerWidth, wh = window.innerHeight;
+    if (x + tw > ww - 12) x = e.clientX - tw - 18;
+    if (y + th > wh - 12) y = wh - th - 12;
+    if (x < 12) x = 12; if (y < 12) y = 12;
+    tooltip.style.left = x + 'px'; tooltip.style.top = y + 'px';
+  }
+  document.querySelectorAll('.company-card').forEach(function(card) {
+    card.addEventListener('mouseenter', function(e) { showTooltip(this, e); });
+    card.addEventListener('mousemove', function(e) { if (currentCard === this) positionTooltip(e); });
+    card.addEventListener('mouseleave', hideTooltip);
+    card.addEventListener('focus', function(e) {
+      var rect = this.getBoundingClientRect();
+      showTooltip(this, { clientX: rect.right, clientY: rect.top });
+    });
+    card.addEventListener('blur', hideTooltip);
+    card.addEventListener('keydown', function(e) { if (e.key === 'Escape') { this.blur(); hideTooltip(); } });
+  });
+  window.addEventListener('resize', hideTooltip);
+  window.addEventListener('scroll', hideTooltip);
+})();
+</script>
+</body>
+</html>

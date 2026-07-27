@@ -1,0 +1,1000 @@
+{
+  "_metadata": {
+    "report": "Lake Group of Companies — Verified Contact Data Export",
+    "version": "3.0",
+    "exported": "July 2026",
+    "dataSources": [
+      "lakeoilgroup.com (official website + contact pages)",
+      "linkedin.com/company/lake-oil-group",
+      "lakeagro.com",
+      "EWURA Tanzania (public registry)",
+      "TASAC Tanzania (dry port licensing)",
+      "Forbes Africa (2017 feature)",
+      "Business directories",
+      "News media reports",
+      "Kenya National Land Commission (Yala Swamp)",
+      "Google Maps cross-check (July 2026)",
+      "MX record verification"
+    ],
+    "verificationLevels": {
+      "VERIFIED": "Confirmed from official authoritative source",
+      "SECONDARY": "Found from credible secondary source",
+      "ESTIMATED": "Industry estimate / projection",
+      "UNVERIFIED": "Claimed but not independently confirmed"
+    }
+  },
+  "groupHeadquarters": {
+    "name": "Lake Group Head Office",
+    "entity": "Lake Group of Companies",
+    "address": "Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055",
+    "city": "Dar es Salaam",
+    "country": "Tanzania",
+    "phone": [
+      "+255 222 780 510",
+      "+255 222 780 479"
+    ],
+    "email": "admin@lakeoilgroup.com",
+    "website": "https://www.lakeoilgroup.com",
+    "linkedin": "https://www.linkedin.com/company/lake-oil-group",
+    "facebook": "https://www.facebook.com/lakeoilgroup",
+    "instagram": "https://www.instagram.com/lakeoilltd/",
+    "verification": "VERIFIED — lakeoilgroup.com/lakegroup/contact.html",
+    "mxRecord": "jaldimail.net (active)",
+    "id": "lake-group-hq",
+    "type": "headquarters"
+  },
+  "subsidiaries": [
+    {
+      "name": "Lake Oil Ltd.",
+      "sector": "Lake Energies (Energy & Petroleum)",
+      "established": "2006",
+      "ceo": "Ally Edha Awadh — Founder & Executive Chairman",
+      "description": "Flagship company, one of Tanzania's top 5 petroleum distributors. Forbes Africa profiled as $1B integrated energy platform in 2017.",
+      "headquarters": "Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055, Dar es Salaam, Tanzania",
+      "phone": [
+        "+255 222 780 510"
+      ],
+      "email": "admin@lakeoilgroup.com",
+      "website": "https://www.lakeoilgroup.com",
+      "linkedin": "https://www.linkedin.com/company/lake-oil-group",
+      "facebook": "https://www.facebook.com/lakeoilgroup",
+      "instagram": "https://www.instagram.com/lakeoilltd/",
+      "services": [
+        "Retail fuel stations across Tanzania",
+        "Bulk petroleum supply for corporate and government clients",
+        "Oil storage facilities in Tanzania, Kenya, Burundi and DR Congo",
+        "Marine bunkering services at Port of Dar es Salaam"
+      ],
+      "products": [
+        "Petrol (Gasoline)",
+        "Diesel",
+        "Marine bunkering fuel"
+      ],
+      "countries": [
+        {
+          "country": "Tanzania",
+          "entity": "Lake Oil Ltd.",
+          "location": "Dar es Salaam (HQ); retail stations and storage nationwide"
+        },
+        {
+          "country": "Kenya",
+          "entity": "Lake Oil Ltd.",
+          "location": "Retail and storage operations"
+        },
+        {
+          "country": "Zambia",
+          "entity": "Lake Petroleum Ltd.",
+          "location": "Bulk fuel supply"
+        },
+        {
+          "country": "Burundi",
+          "entity": "Burundi Petroleum Ltd.",
+          "location": "Storage and distribution"
+        },
+        {
+          "country": "DR Congo",
+          "entity": "DRC Petroleum Ltd.",
+          "location": "Storage and distribution"
+        },
+        {
+          "country": "Rwanda",
+          "entity": "Lake Petroleum Ltd.",
+          "location": "Supply and trading"
+        },
+        {
+          "country": "Uganda",
+          "entity": "Lake Petroleum Ltd.",
+          "location": "Distribution"
+        },
+        {
+          "country": "Ethiopia",
+          "entity": "Wadi Elsundus Petroleum",
+          "location": "Trading [SECONDARY]"
+        },
+        {
+          "country": "Mozambique",
+          "entity": "Lake Oil LDA",
+          "location": "Supply operations [SECONDARY]"
+        }
+      ],
+      "verification": {
+        "level": "VERIFIED",
+        "license": "EWURA Oil Marketing Company (OMC) — active (2024 order)",
+        "detail": "official website"
+      },
+      "id": "lake-oil-ltd",
+      "type": "subsidiary"
+    },
+    {
+      "name": "Lake Gas Ltd.",
+      "sector": "Lake Energies (Energy & Petroleum)",
+      "established": "N/A — vertical of Lake Group",
+      "ceo": "Part of Lake Energies division",
+      "description": "LPG marketing arm. Launched $60M, 10,000 MT LPG import terminal in Vipingo, Kilifi, Kenya in 2025. Africa's first composite LPG cylinders launched 2014.",
+      "headquarters": "Plot 49, Mikocheni Light Industrial Area, Dar es Salaam, Tanzania",
+      "phone": [
+        "+255 222 780 510"
+      ],
+      "email": "admin@lakeoilgroup.com",
+      "website": "https://www.lakeoilgroup.com",
+      "facebook": "https://www.facebook.com/lakeoilgroup",
+      "instagram": "https://www.instagram.com/lakeoilltd/",
+      "services": [
+        "LPG bottling and distribution",
+        "LPG terminal storage and import (Vipingo, Kenya)",
+        "Retail cooking gas through dealer network"
+      ],
+      "products": [
+        "LPG for domestic cooking",
+        "Composite LPG cylinders",
+        "Commercial/industrial LPG bulk supply"
+      ],
+      "countries": [
+        {
+          "country": "Tanzania",
+          "entity": "Lake Gas Ltd.",
+          "location": "Dar es Salaam (HQ); Kigamboni LPG terminal"
+        },
+        {
+          "country": "Kenya",
+          "entity": "Lake Gas Ltd.",
+          "location": "Vipingo, Kilifi County — 10,000 MT terminal [SECONDARY]"
+        },
+        {
+          "country": "Zambia",
+          "entity": "Lake Gas Ltd.",
+          "location": "Distribution"
+        },
+        {
+          "country": "Rwanda",
+          "entity": "Lake Gas Ltd.",
+          "location": "Supply"
+        },
+        {
+          "country": "Burundi",
+          "entity": "Lake Gas Ltd.",
+          "location": "Distribution"
+        },
+        {
+          "country": "DR Congo",
+          "entity": "Lake Gas Ltd.",
+          "location": "Supply"
+        },
+        {
+          "country": "Uganda",
+          "entity": "Lake Gas Ltd.",
+          "location": "Distribution"
+        }
+      ],
+      "verification": {
+        "level": "VERIFIED",
+        "license": "EWURA LPG License — active (2024 order)",
+        "detail": "official website + EWURA records"
+      },
+      "id": "lake-gas-ltd",
+      "type": "subsidiary"
+    },
+    {
+      "name": "Lake Aviation Ltd.",
+      "sector": "Lake Energies",
+      "description": "Aviation fuel supply arm. Provides Jet A-1 fuel.",
+      "headquarters": "Same as Lake Group HQ",
+      "phone": [
+        "+255 222 780 510"
+      ],
+      "email": "admin@lakeoilgroup.com",
+      "website": "https://www.lakeoilgroup.com",
+      "products": [
+        "Jet A-1 aviation fuel"
+      ],
+      "countries": [
+        {
+          "country": "Tanzania",
+          "entity": "Lake Aviation",
+          "location": "Dar es Salaam; airport operations nationwide"
+        }
+      ],
+      "verification": {
+        "level": "VERIFIED",
+        "detail": "via Group HQ"
+      },
+      "id": "lake-aviation-ltd",
+      "type": "subsidiary"
+    },
+    {
+      "name": "Lake Lubes Ltd.",
+      "sector": "Lake Energies",
+      "description": "Lubricants division. Supplies automotive and industrial lubricants.",
+      "headquarters": "Same as Lake Group HQ",
+      "phone": [
+        "+255 222 780 510"
+      ],
+      "email": "admin@lakeoilgroup.com",
+      "website": "https://www.lakeoilgroup.com",
+      "products": [
+        "Engine oils",
+        "Gear oils / transmission fluids",
+        "Hydraulic oils",
+        "Industrial greases"
+      ],
+      "countries": [
+        {
+          "country": "Tanzania",
+          "entity": "Lake Lubes",
+          "location": "Dar es Salaam; distribution nationwide"
+        },
+        {
+          "country": "DR Congo",
+          "entity": "Lake Lubes",
+          "location": "Supply operations"
+        }
+      ],
+      "verification": {
+        "level": "VERIFIED",
+        "detail": "via Group HQ"
+      },
+      "id": "lake-lubes-ltd",
+      "type": "subsidiary"
+    },
+    {
+      "name": "Lake Steel & Allied Products Ltd.",
+      "sector": "Manufacturing",
+      "description": "Steel manufacturing plant in Kibaha, Pwani Region. Produces HS-CR reinforcement steel bars. Features a fully computerized automated rolling mill.",
+      "headquarters": "Plot 118, Block M, Visiga, Kibaha, Pwani Region, Tanzania",
+      "phone": [
+        "+255 222 780 510"
+      ],
+      "email": "admin@lakeoilgroup.com",
+      "website": "https://www.lakeoilgroup.com",
+      "operationalSpecs": {
+        "millType": "Fully computerized automated steel rolling mill",
+        "hourlyCapacity": "25 metric tons per hour",
+        "annualCapacity": "~100,000 metric tons per year",
+        "primaryProduct": "HS-CR (High Strength — Cold Rolled) reinforcement bars",
+        "techSpec": "Retains structural integrity up to 600°C (standard rebar: ~350°C)",
+        "keyFeature": "Corrosion-resistant — designed for coastal, saline, industrial environments",
+        "qualityStandard": "Tanzania Bureau of Standards (TBS) compliant"
+      },
+      "products": [
+        "HS-CR reinforcement steel bars",
+        "Steel billets"
+      ],
+      "countries": [
+        {
+          "country": "Tanzania",
+          "entity": "Lake Steel",
+          "location": "Visiga, Kibaha, Pwani Region — automated rolling mill"
+        }
+      ],
+      "verification": {
+        "level": "VERIFIED",
+        "detail": "official website + LinkedIn employee profiles"
+      },
+      "id": "lake-steel-allied-products-ltd",
+      "type": "subsidiary"
+    },
+    {
+      "name": "Lake Buildings Solutions Ltd.",
+      "sector": "Manufacturing",
+      "description": "Building materials and construction solutions arm.",
+      "headquarters": "Same as Lake Group HQ",
+      "phone": [
+        "+255 222 780 510"
+      ],
+      "email": "admin@lakeoilgroup.com",
+      "website": "https://www.lakeoilgroup.com",
+      "countries": [
+        {
+          "country": "Tanzania",
+          "entity": "Lake Buildings",
+          "location": "Manufacturing and distribution nationwide"
+        }
+      ],
+      "verification": {
+        "level": "VERIFIED",
+        "detail": "via Group HQ"
+      },
+      "id": "lake-buildings-solutions-ltd",
+      "type": "subsidiary"
+    },
+    {
+      "name": "Lake Plastics Ltd.",
+      "sector": "Manufacturing",
+      "description": "Plastics manufacturing arm.",
+      "headquarters": "Same as Lake Group HQ",
+      "phone": [
+        "+255 222 780 510"
+      ],
+      "email": "admin@lakeoilgroup.com",
+      "website": "https://www.lakeoilgroup.com",
+      "products": [
+        "Plastic products for packaging",
+        "Construction plastic materials"
+      ],
+      "countries": [
+        {
+          "country": "Tanzania",
+          "entity": "Lake Plastics",
+          "location": "Manufacturing; nationwide distribution"
+        }
+      ],
+      "verification": {
+        "level": "VERIFIED",
+        "detail": "via Group HQ"
+      },
+      "id": "lake-plastics-ltd",
+      "type": "subsidiary"
+    },
+    {
+      "name": "Lake Cylinders Ltd.",
+      "sector": "Manufacturing",
+      "description": "Cylinder manufacturing facility producing LPG cylinders.",
+      "headquarters": "Same as Lake Group HQ",
+      "phone": [
+        "+255 222 780 510"
+      ],
+      "email": "admin@lakeoilgroup.com",
+      "website": "https://www.lakeoilgroup.com",
+      "products": [
+        "LPG cylinders (domestic and commercial)"
+      ],
+      "countries": [
+        {
+          "country": "Tanzania",
+          "entity": "Lake Cylinders",
+          "location": "Manufacturing; supplies Lake Gas network"
+        }
+      ],
+      "verification": {
+        "level": "VERIFIED",
+        "detail": "via Group HQ"
+      },
+      "id": "lake-cylinders-ltd",
+      "type": "subsidiary"
+    },
+    {
+      "name": "Lake Premix & Cement (GCCP)",
+      "sector": "Manufacturing",
+      "established": "2010",
+      "description": "Gulf Concrete and Cement Products Company Ltd (GCCP). One of leading ready-mix concrete suppliers in Dar es Salaam.",
+      "headquarters": "Plot 49, Mikocheni Industrial Area, P.O. BOX 5055, Dar Es Salaam",
+      "phone": [
+        "+255 744 592 426"
+      ],
+      "email": "venkat.galla@lakeoilgroup.com",
+      "website": "https://www.lakeoilgroup.com",
+      "services": [
+        "Ready-mix concrete supply",
+        "Concrete pumping",
+        "Construction material consulting"
+      ],
+      "products": [
+        "Ready-mix concrete (various grades)",
+        "Cement and cement-based products"
+      ],
+      "countries": [
+        {
+          "country": "Tanzania",
+          "entity": "GCCP / Lake Premix",
+          "location": "Dar es Salaam (HQ); multiple batching plants"
+        }
+      ],
+      "contactPerson": "Venkat Galla",
+      "verification": {
+        "level": "VERIFIED",
+        "detail": "gccp/contact.html"
+      },
+      "id": "lake-premix-cement-gccp",
+      "type": "subsidiary"
+    },
+    {
+      "name": "Gulf Aggregates (T) Ltd.",
+      "sector": "Manufacturing",
+      "description": "Quarrying and aggregate supply company.",
+      "headquarters": "Same as Lake Group HQ",
+      "phone": [
+        "+255 222 780 510"
+      ],
+      "email": "admin@lakeoilgroup.com",
+      "website": "https://www.lakeoilgroup.com",
+      "products": [
+        "Crushed stone aggregates (various grades)",
+        "Road base materials"
+      ],
+      "countries": [
+        {
+          "country": "Tanzania",
+          "entity": "Gulf Aggregates",
+          "location": "Quarry operations; nationwide"
+        }
+      ],
+      "verification": {
+        "level": "VERIFIED",
+        "detail": "via Group HQ"
+      },
+      "id": "gulf-aggregates-t-ltd",
+      "type": "subsidiary"
+    },
+    {
+      "name": "ATL — Africa Tank Lines Ltd.",
+      "sector": "Manufacturing",
+      "established": "~2019 [SECONDARY]",
+      "description": "Manufacturer of aluminium tankers and custom trailers for petroleum transport.",
+      "headquarters": "Same as Lake Group HQ",
+      "phone": [
+        "+255 222 780 510"
+      ],
+      "email": "admin@lakeoilgroup.com",
+      "website": "https://www.lakeoilgroup.com",
+      "products": [
+        "Aluminium fuel tankers",
+        "Water tankers",
+        "Custom-built trailers"
+      ],
+      "countries": [
+        {
+          "country": "Tanzania",
+          "entity": "ATL",
+          "location": "Dar es Salaam; manufacturing plant"
+        }
+      ],
+      "verification": {
+        "level": "VERIFIED",
+        "detail": "via Group HQ"
+      },
+      "id": "atl-africa-tank-lines-ltd",
+      "type": "subsidiary"
+    },
+    {
+      "name": "Lake Trans Ltd.",
+      "sector": "Logistics",
+      "description": "Logistics division with large tanker truck fleet for petroleum distribution across East and Central Africa.",
+      "headquarters": "Same as Lake Group HQ",
+      "phone": [
+        "+255 222 780 510"
+      ],
+      "email": "admin@lakeoilgroup.com",
+      "website": "https://www.lakeoilgroup.com",
+      "operationalSpecs": {
+        "totalFleetSize": "750 vehicles [SECONDARY]",
+        "localTankerTrucks": 200,
+        "transitPetroleumTankers": 500,
+        "otherVehicles": "50+ (tippers, mixers)",
+        "association": "Tanzania Truck Owners Association (TATOA) member"
+      },
+      "services": [
+        "Petroleum product transportation",
+        "Cross-border fuel distribution",
+        "Bulk liquid transport",
+        "Supply chain logistics"
+      ],
+      "countries": [
+        {
+          "country": "Tanzania",
+          "entity": "Lake Trans",
+          "location": "Dar es Salaam (HQ); fleet nationwide"
+        },
+        {
+          "country": "Kenya",
+          "entity": "Lake Trans",
+          "location": "Cross-border fuel transport"
+        },
+        {
+          "country": "Zambia",
+          "entity": "Lake Trans",
+          "location": "Fuel transport"
+        },
+        {
+          "country": "DR Congo",
+          "entity": "Lake Trans",
+          "location": "Fuel transport"
+        },
+        {
+          "country": "Burundi",
+          "entity": "Lake Trans",
+          "location": "Fuel distribution"
+        },
+        {
+          "country": "Rwanda",
+          "entity": "Lake Trans",
+          "location": "Fuel transport"
+        },
+        {
+          "country": "Uganda",
+          "entity": "Lake Trans",
+          "location": "Fuel distribution"
+        }
+      ],
+      "verification": {
+        "level": "VERIFIED",
+        "detail": "official website"
+      },
+      "id": "lake-trans-ltd",
+      "type": "subsidiary"
+    },
+    {
+      "name": "AFICD — African Inland Container Depot Ltd.",
+      "sector": "Logistics",
+      "description": "Inland Container Depot (ICD) operator. Licensed Dry Port Operator by TASAC.",
+      "headquarters": "Plot 72 & 73, Vijibweni Area, Kigamboni, Dar es Salaam, Tanzania",
+      "phone": [
+        "+255 787 535 757",
+        "+255 222 780 510"
+      ],
+      "email": "info@aficd.co.tz",
+      "backupEmail": "admin@lakeoilgroup.com",
+      "website": "https://www.lakeoilgroup.com",
+      "operationalSpecs": {
+        "yardArea": "~14,000 square meters",
+        "storageCapacity": "4,000 TEUs",
+        "stackingHeight": "Up to 5 containers high",
+        "equipment": "Front-loader forklifts, material handling machinery",
+        "regulator": "TASAC (Tanzania Shipping Agencies Corp.)"
+      },
+      "services": [
+        "Inland container depot operations",
+        "Container storage and stacking",
+        "Customs clearance services",
+        "Cargo handling and warehousing"
+      ],
+      "countries": [
+        {
+          "country": "Tanzania",
+          "entity": "AFICD",
+          "location": "Plot 72 & 73, Vijibweni, Kigamboni, Dar es Salaam — dry port [SECONDARY: TASAC]"
+        }
+      ],
+      "verification": {
+        "level": "SECONDARY",
+        "license": "TASAC Dry Port Operator — active (2025 license)",
+        "detail": "TASAC records + business directories"
+      },
+      "id": "aficd-african-inland-container-depot-ltd",
+      "type": "subsidiary"
+    },
+    {
+      "name": "AILL — African Inland Logistics Ltd.",
+      "sector": "Logistics",
+      "description": "Logistics support and container freight station services.",
+      "headquarters": "Same as Lake Group HQ",
+      "phone": [
+        "+255 222 780 510"
+      ],
+      "email": "admin@lakeoilgroup.com",
+      "website": "https://www.lakeoilgroup.com",
+      "countries": [
+        {
+          "country": "Tanzania",
+          "entity": "AILL",
+          "location": "Dar es Salaam"
+        }
+      ],
+      "verification": {
+        "level": "VERIFIED",
+        "detail": "via Group HQ"
+      },
+      "id": "aill-african-inland-logistics-ltd",
+      "type": "subsidiary"
+    },
+    {
+      "name": "Cross Country Ltd.",
+      "sector": "Real Estate",
+      "description": "⚠️ CAUTION: Multiple business directory searches found no independent verification of this as a Lake Group subsidiary. May be a misattribution.",
+      "headquarters": "Dar es Salaam, Tanzania",
+      "phone": [
+        "+255 222 780 510"
+      ],
+      "email": "admin@lakeoilgroup.com",
+      "website": "https://www.lakeoilgroup.com",
+      "countries": [
+        {
+          "country": "Tanzania",
+          "entity": "Cross Country",
+          "location": "Dar es Salaam — caution: may be misattributed"
+        }
+      ],
+      "verification": {
+        "level": "UNVERIFIED",
+        "detail": "possible misattribution"
+      },
+      "id": "cross-country-ltd",
+      "type": "subsidiary"
+    },
+    {
+      "name": "Ocean Galleria Ltd.",
+      "sector": "Real Estate",
+      "established": "Under development",
+      "description": "Luxury waterfront lifestyle and shopping destination under development in Masaki, Dar es Salaam.",
+      "headquarters": "Masaki, Dar es Salaam, Tanzania",
+      "phone": [
+        "+255 756 788 222",
+        "+255 222 780 510"
+      ],
+      "email": "sales.ccdl@lakeoilgroup.com",
+      "website": "https://www.lakeoilgroup.com",
+      "facebook": "https://www.facebook.com/lakeoilgroup",
+      "instagram": "https://www.instagram.com/lakeoilltd/",
+      "products": [
+        "Retail spaces",
+        "Dining venues",
+        "Entertainment facilities"
+      ],
+      "countries": [
+        {
+          "country": "Tanzania",
+          "entity": "Ocean Galleria",
+          "location": "Masaki, Dar es Salaam — luxury waterfront development"
+        }
+      ],
+      "verification": {
+        "level": "SECONDARY",
+        "detail": "business directory"
+      },
+      "id": "ocean-galleria-ltd",
+      "type": "subsidiary"
+    },
+    {
+      "name": "Lake Agro Ltd.",
+      "sector": "Agro Processing",
+      "description": "Agribusiness arm. Secured 17,250-acre lease in Yala Swamp, Kenya for rice, sugarcane, soya, fish farming.",
+      "headquarters": "Dar es Salaam, Tanzania",
+      "phone": [
+        "+255 222 780 510",
+        "+255 222 780 479"
+      ],
+      "email": "info@lakeagro.com",
+      "alternateEmail": "admin@lakeoilgroup.com",
+      "website": "https://lakeagro.com",
+      "products": [
+        "Rice",
+        "Sugarcane",
+        "Soya",
+        "Maize",
+        "Fish (aquaculture)"
+      ],
+      "countries": [
+        {
+          "country": "Tanzania",
+          "entity": "Lake Agro",
+          "location": "Dar es Salaam (HQ); commercial farming"
+        },
+        {
+          "country": "Kenya",
+          "entity": "Lake Agro",
+          "location": "Yala Swamp, Siaya County — 17,250-acre lease [SECONDARY: Kenya NLC]"
+        },
+        {
+          "country": "Zambia",
+          "entity": "Lake Agro",
+          "location": "Integrated Ag Parks"
+        }
+      ],
+      "verification": {
+        "level": "VERIFIED",
+        "detail": "lakeagro.com (active domain)"
+      },
+      "id": "lake-agro-ltd",
+      "type": "subsidiary"
+    },
+    {
+      "name": "MERM — Middle East Ready Mix LLC",
+      "sector": "Associated Ventures",
+      "description": "Ready-mix concrete operations in Dubai, UAE.",
+      "headquarters": "Dubai, United Arab Emirates (specific address not published)",
+      "phone": [
+        "+255 222 780 510"
+      ],
+      "email": "admin@lakeoilgroup.com",
+      "website": "https://www.lakeoilgroup.com",
+      "products": [
+        "Ready-mix concrete"
+      ],
+      "countries": [
+        {
+          "country": "UAE (Dubai)",
+          "entity": "MERM",
+          "location": "Dubai; ready-mix concrete production"
+        }
+      ],
+      "verification": {
+        "level": "UNVERIFIED",
+        "detail": "specific Dubai contact details not published"
+      },
+      "id": "merm-middle-east-ready-mix-llc",
+      "type": "subsidiary"
+    }
+  ],
+  "countryAddresses": [
+    {
+      "country": "Tanzania",
+      "entity": "Lake Group HQ",
+      "city": "Dar es Salaam",
+      "address": "Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055",
+      "phone": [
+        "+255 222 780 510",
+        "+255 222 780 479"
+      ],
+      "email": "admin@lakeoilgroup.com",
+      "verification": {
+        "source": "Official website",
+        "email": "✅ On website + MX: jaldimail.net",
+        "phone": "✅ On website + Tanzania Pages"
+      },
+      "id": "tanzania-lake-group-hq",
+      "type": "operational_address"
+    },
+    {
+      "country": "Tanzania",
+      "entity": "Lake Steel",
+      "city": "Kibaha",
+      "address": "Plot 118, Block M, Visiga, Kibaha, Pwani Region",
+      "phone": [
+        "+255 222 780 510"
+      ],
+      "email": "admin@lakeoilgroup.com",
+      "verification": {
+        "source": "Official website",
+        "email": "✅ Via Group HQ"
+      },
+      "id": "tanzania-lake-steel",
+      "type": "operational_address"
+    },
+    {
+      "country": "Tanzania",
+      "entity": "AFICD Depot",
+      "city": "Kigamboni",
+      "address": "Plot 72 & 73, Vijibweni, Kigamboni, Dar es Salaam",
+      "phone": [
+        "+255 787 535 757"
+      ],
+      "email": "info@aficd.co.tz",
+      "verification": {
+        "source": "Regulator (TASAC)",
+        "email": "✅ Outlook 365",
+        "phone": "✅ TASAC list"
+      },
+      "id": "tanzania-aficd-depot",
+      "type": "operational_address"
+    },
+    {
+      "country": "Kenya",
+      "entity": "Lake Gas Terminal",
+      "city": "Vipingo, Kilifi",
+      "address": "Vipingo, Kilifi County, Coast Region",
+      "phone": [
+        "+254 715 468 473"
+      ],
+      "email": "contact.kenya@lakeoilgroup.com",
+      "verification": {
+        "source": "News / social media",
+        "email": "✅ jaldimail.net",
+        "emailNote": "Not on official website, used on social media"
+      },
+      "id": "kenya-lake-gas-terminal",
+      "type": "operational_address"
+    },
+    {
+      "country": "Kenya",
+      "entity": "Lake Oil Kenya",
+      "city": "Nairobi",
+      "address": "P.O. Box 15981-00100, Nairobi",
+      "email": "contact.kenya@lakeoilgroup.com",
+      "verification": {
+        "source": "Business directory",
+        "email": "✅ jaldimail.net"
+      },
+      "id": "kenya-lake-oil-kenya",
+      "type": "operational_address"
+    },
+    {
+      "country": "Zambia",
+      "entity": "Lake Petroleum Ltd.",
+      "city": "Ndola",
+      "address": "Plot 10958, Corner of Lima/Luanshya Road, P.O. Box 71030",
+      "email": "contact.zambia@lakeoilgroup.com",
+      "verification": {
+        "source": "Official website",
+        "email": "✅ On website + MX: jaldimail.net"
+      },
+      "id": "zambia-lake-petroleum-ltd",
+      "type": "operational_address"
+    },
+    {
+      "country": "Zambia",
+      "entity": "Lake Group Depot",
+      "city": "Ndola",
+      "address": "Plot 39643, Kabwe Road, Mbwanamkubwa (opp. INDENI Petroleum)",
+      "phone": [
+        "+255 222 780 510"
+      ],
+      "email": "admin@lakeoilgroup.com",
+      "verification": {
+        "source": "Business directory"
+      },
+      "id": "zambia-lake-group-depot",
+      "type": "operational_address"
+    },
+    {
+      "country": "DR Congo",
+      "entity": "DRC Petroleum S.A.R.L.",
+      "city": "Lubumbashi",
+      "address": "Kasavubu - Kimbangu, Katanga province",
+      "email": "contact.drc@lakeoilgroup.com",
+      "verification": {
+        "source": "Official website",
+        "email": "✅ On website + MX: jaldimail.net"
+      },
+      "id": "dr-congo-drc-petroleum-s-a-r-l",
+      "type": "operational_address"
+    },
+    {
+      "country": "DR Congo",
+      "entity": "Lake Region Ventures",
+      "city": "Lubumbashi",
+      "address": "1818-9, Avenue Club Nautique, Haut-Katanga",
+      "phone": [
+        "+255 222 780 510"
+      ],
+      "email": "admin@lakeoilgroup.com",
+      "verification": {
+        "source": "Official website (lakeregionventures.com)"
+      },
+      "id": "dr-congo-lake-region-ventures",
+      "type": "operational_address"
+    },
+    {
+      "country": "DR Congo",
+      "entity": "Lake Group Operations",
+      "city": "Goma",
+      "address": "Avenue Commerce, Nord Kivu",
+      "phone": [
+        "+255 222 780 510"
+      ],
+      "email": "admin@lakeoilgroup.com",
+      "verification": {
+        "source": "Official website (lakeregionventures.com)"
+      },
+      "id": "dr-congo-lake-group-operations",
+      "type": "operational_address"
+    },
+    {
+      "country": "Burundi",
+      "entity": "Burundi Petroleum Ltd.",
+      "city": "Bujumbura",
+      "address": "Quartier Industrial, Avenue Maragarazi, Plot 16, P.O. Box 6834",
+      "phone": [
+        "+255 222 780 510"
+      ],
+      "email": "admin@lakeoilgroup.com",
+      "verification": {
+        "source": "Official website"
+      },
+      "id": "burundi-burundi-petroleum-ltd",
+      "type": "operational_address"
+    },
+    {
+      "country": "Rwanda",
+      "entity": "Lake Petroleum Rwanda Ltd.",
+      "city": "Kigali",
+      "address": "Plot 645, KN 59 ST 16, Nyarugenge, P.O. Box 7252",
+      "phone": [
+        "+250 786395115"
+      ],
+      "email": "contact.rwanda@lakeoilgroup.com",
+      "verification": {
+        "source": "Official website",
+        "email": "✅ On website + MX: jaldimail.net"
+      },
+      "id": "rwanda-lake-petroleum-rwanda-ltd",
+      "type": "operational_address"
+    },
+    {
+      "country": "Uganda",
+      "entity": "Lake Oil Uganda Ltd.",
+      "city": "Kampala",
+      "address": "Namanve Industrial Area, Block 113, Mukono District",
+      "phone": [
+        "+255 222 780 510"
+      ],
+      "email": "admin@lakeoilgroup.com",
+      "verification": {
+        "source": "Business directory"
+      },
+      "id": "uganda-lake-oil-uganda-ltd",
+      "type": "operational_address"
+    },
+    {
+      "country": "Mozambique",
+      "entity": "Lake Oil LDA",
+      "city": "Beira",
+      "address": "Adjacent to CFM parking, Munhava main road, Munhava matope",
+      "phone": [
+        "+258 84 621 2219"
+      ],
+      "email": "admin@lakeoilgroup.com",
+      "verification": {
+        "source": "Official website",
+        "phoneNote": "On website but not verified elsewhere"
+      },
+      "id": "mozambique-lake-oil-lda",
+      "type": "operational_address"
+    },
+    {
+      "country": "Ethiopia",
+      "entity": "Wadi Elsundus Petroleum",
+      "city": "Addis Ababa",
+      "address": "Gulf Aziz Building, 5th Floor, Room 502, Bole Medhanialem, P.O. Box 464",
+      "phone": [
+        "+251 903 182 752"
+      ],
+      "email": "admin@lakeoilgroup.com",
+      "verification": {
+        "source": "Official website"
+      },
+      "id": "ethiopia-wadi-elsundus-petroleum",
+      "type": "operational_address"
+    },
+    {
+      "country": "UAE (Dubai)",
+      "entity": "MERM — Middle East Ready Mix LLC",
+      "city": "Dubai",
+      "address": "Specific address not published",
+      "email": "admin@lakeoilgroup.com",
+      "verification": {
+        "source": "Unverified"
+      },
+      "id": "uae-dubai-merm-middle-east-ready-mix-llc",
+      "type": "operational_address"
+    }
+  ],
+  "keyMetrics": {
+    "founded": "2006",
+    "founder": "Ally Edha Awadh",
+    "headquarters": "Dar es Salaam, Tanzania",
+    "sectors": [
+      "Lake Energies",
+      "Manufacturing",
+      "Logistics",
+      "Real Estate",
+      "Agro Processing"
+    ],
+    "subsidiaries": "~18 operating companies",
+    "countries": [
+      "Tanzania",
+      "Kenya",
+      "Zambia",
+      "DR Congo",
+      "Burundi",
+      "Rwanda",
+      "Uganda",
+      "Mozambique",
+      "Ethiopia",
+      "UAE"
+    ],
+    "employees": "4,601+ (LinkedIn reported)",
+    "retailFuelStations": "152+",
+    "tankerFleet": "750 vehicles (200 local tankers, 500 transit, 50+ other)",
+    "forbesFeature": "2017 — $1 billion revenue (Forbes Africa)",
+    "marketPosition": "Top 5 petroleum distributors in Tanzania"
+  }
+}
