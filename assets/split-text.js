@@ -29,7 +29,10 @@
   };
 
   var reducedMotion =
-    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.matchMedia && (
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      window.matchMedia('(max-width: 720px)').matches
+    );
 
   var gsapReady = null;
   var instances = [];
@@ -233,6 +236,12 @@
     if (!el || el.dataset.splitEnhanced === '1') return null;
     if (!el.textContent || !el.textContent.trim()) return null;
 
+    // Phones / reduced-motion: leave plain markup — faster paint, no GSAP wraps.
+    if (reducedMotion) {
+      el.classList.add('split-text--ready', 'split-text--done');
+      return { el: el, revert: function () { /* plain */ } };
+    }
+
     storeOriginal(el);
     var opts = Object.assign({}, DEFAULTS, options || {});
     var mode = resolveSplitType(el, opts.splitType);
@@ -252,12 +261,6 @@
 
     var targets = collectTargets(el, className);
     if (!targets.length) {
-      el.classList.add('split-text--ready', 'split-text--done');
-      return { el: el, revert: function () { revert(el); } };
-    }
-
-    if (reducedMotion) {
-      gsap.set(targets, { opacity: 1, y: 0, clearProps: 'willChange' });
       el.classList.add('split-text--ready', 'split-text--done');
       return { el: el, revert: function () { revert(el); } };
     }
@@ -353,6 +356,14 @@
   }
 
   function enhanceAll(options) {
+    if (reducedMotion) {
+      document.querySelectorAll(SELECTOR).forEach(function (el) {
+        if (el && el.textContent && el.textContent.trim()) {
+          el.classList.add('split-text--ready', 'split-text--done');
+        }
+      });
+      return Promise.resolve(instances);
+    }
     return ensureGsap().then(function (gsap) {
       return waitForFonts().then(function () {
         document.querySelectorAll(SELECTOR).forEach(function (el) {

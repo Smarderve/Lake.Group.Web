@@ -49,3 +49,34 @@ html.fs-motion .page-hero h1.split-text {
     transform: none !important;
   }
 }
+
+/* Phones: skip char animation — titles must paint immediately and stay readable */
+@media (max-width: 720px) {
+  .hero h1,
+  .page-hero h1,
+  .hero h1.split-text,
+  .page-hero h1.split-text {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    visibility: visible !important;
+  }
+
+  .hero h1.split-text .split-char,
+  .hero h1.split-text .split-word,
+  .page-hero h1.split-text .split-char,
+  .page-hero h1.split-text .split-word,
+  .hero h1.split-text:not(.split-text--ready) .split-char,
+  .hero h1.split-text:not(.split-text--ready) .split-word,
+  .page-hero h1.split-text:not(.split-text--ready) .split-char,
+  .page-hero h1.split-text:not(.split-text--ready) .split-word {
+    opacity: 1 !important;
+    transform: none !important;
+    will-change: auto;
+  }
+
+  .split-text .split-word {
+    white-space: normal;
+  }
+}

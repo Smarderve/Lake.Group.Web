@@ -1,0 +1,255 @@
+/* ==========================================================================
+   Lake Group — MOBILE UX (assets/mobile.css)
+   Imported by theme.css + flagship.css. Keep phones even, fast, and smooth.
+   ========================================================================== */
+
+/* Base: prevent sideways scroll, keep type readable, respect notches */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+img,
+video,
+svg,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 720px) {
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  /* Kill staggered hero fade-up on phones (conflicts with split-text / feels laggy) */
+  .hero .hero-eyebrow,
+  .hero h1,
+  .hero .hero-sub,
+  .hero .hero-stats,
+  .hero .hero-right,
+  html.fs-motion .page-hero h1 {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+
+  .container,
+  .nav-inner,
+  .page-wrapper > .container {
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  /* Even vertical rhythm */
+  .section {
+    padding: 52px 0;
+  }
+  .section-sm {
+    padding: 40px 0;
+  }
+
+  h1,
+  h2,
+  .section-title,
+  .page-hero h1,
+  .hero h1 {
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+  }
+
+  p,
+  .section-subtitle,
+  .hero-sub,
+  .page-hero p {
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+    max-width: 100%;
+  }
+
+  /* Touch-friendly controls */
+  .btn,
+  .btn-primary,
+  .btn-outline,
+  .btn-blue,
+  .btn-white,
+  .btn-lg,
+  .action-filter,
+  .action-nav-btn,
+  .tab-btn,
+  .mm-cat {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .btn,
+  .btn-primary,
+  .btn-outline,
+  .btn-blue,
+  .btn-white {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 1.15rem;
+    padding-right: 1.15rem;
+    width: auto;
+    max-width: 100%;
+  }
+
+  .btn-lg {
+    width: 100%;
+  }
+
+  /* Cards / grids: even single column */
+  .card,
+  .div-card,
+  .photo-card,
+  .leader-card,
+  .g-item,
+  .ld-person-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .div-card,
+  .card {
+    padding: 20px 16px;
+  }
+
+  /* Media that can bleed past the viewport */
+  iframe,
+  table {
+    max-width: 100%;
+  }
+
+  .table-wrap,
+  .data-table-wrap,
+  .tab-nav {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+  }
+
+  /* Footer: clearer stacking */
+  .footer-grid {
+    gap: 28px;
+  }
+
+  .footer-brand p {
+    max-width: 100%;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  /* CTA bands */
+  .cta-band,
+  .cta-inner {
+    text-align: center;
+  }
+
+  .cta-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+
+  .cta-inner > div {
+    width: 100%;
+  }
+
+  /* Chat FAB: clear home indicator */
+  #chat-btn,
+  #chat-widget #chat-btn {
+    bottom: max(16px, env(safe-area-inset-bottom, 0px));
+    right: max(14px, env(safe-area-inset-right, 0px));
+  }
+
+  #chat-box {
+    width: min(100vw - 24px, 380px);
+    max-height: min(70dvh, 520px);
+    right: max(12px, env(safe-area-inset-right, 0px));
+    bottom: max(76px, calc(env(safe-area-inset-bottom, 0px) + 72px));
+  }
+
+  /* Soften expensive motion on phones for smoother scroll */
+  html.lg-motion .hero .hero-photo img,
+  html.lg-motion .page-hero .hero-media,
+  html.lg-motion .page-hero .page-hero-photo {
+    animation: none !important;
+  }
+
+  .reveal,
+  .reveal-img {
+    transition-duration: 0.35s;
+  }
+
+  /* Marquee / logo loops: contain overflow, shorter track feel */
+  .marquee-wrap,
+  .logoloop,
+  [data-logo-loop] {
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  /* Forms */
+  .form-group input,
+  .form-group select,
+  .form-group textarea,
+  input,
+  select,
+  textarea {
+    font-size: 16px; /* avoid iOS zoom-on-focus */
+    max-width: 100%;
+  }
+
+  /* Page heroes: fill phone viewport without oversized empty space */
+  .page-hero {
+    min-height: auto;
+    padding: 28px 0 36px;
+  }
+
+  .page-hero .container {
+    padding-top: 8px;
+  }
+
+  /* Country tags / chips wrap evenly */
+  .country-tag,
+  .badge {
+    max-width: 100%;
+  }
+}
+
+/* Extra-narrow phones */
+@media (max-width: 400px) {
+  .section {
+    padding: 44px 0;
+  }
+
+  .section-sm {
+    padding: 36px 0;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+  }
+}
+
+/* Prefer reduced data / low power: skip decorative motion */
+@media (max-width: 720px) and (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

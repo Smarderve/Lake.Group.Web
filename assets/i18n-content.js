@@ -1784,7 +1784,7 @@ window.__LAKE_I18N_CONTENT__ = {
     "footer.tiktok": "TikTok",
     "footer.whatsapp": "WhatsApp",
     "leadership.147": "As the Director of Operations, one of my key responsibilities is to ensure that all operations are executed efficiently and without disruption. This includes maintaining strong coordination between the operations team and management, so that everything runs seamlessly and in alignment with our goals.",
-    "index.action.lead": "Depots, stations, LPG plants, and industrial sites across East Africa — swipe through live operations.",
+    "index.action.lead": "Depots, stations, LPG plants, and industrial sites across East Africa — drag or swipe to browse live operations.",
     "index.action.all": "All",
     "index.action.oil": "Oil",
     "index.action.gas": "Gas",
