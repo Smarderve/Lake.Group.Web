@@ -61,11 +61,56 @@ function Wipe-Band([System.Drawing.Bitmap]$bmp, [int]$x0, [int]$y0, [int]$x1, [i
   }
 }
 
+function Measure-InternalLeading([single]$fontSize) {
+  # Render a tall capital "O" on a temp bitmap and measure where the first
+  # visible pixel appears vs where DrawString was called. The difference is
+  # the internal leading that GDI+ adds above the cap line.
+  $tmp = New-Object System.Drawing.Bitmap 200, 400
+  $tg = [System.Drawing.Graphics]::FromImage($tmp)
+  $tg.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::AntiAlias
+  $tg.TextRenderingHint = [System.Drawing.Text.TextRenderingHint]::AntiAliasGridFit
+  $tFont = New-Object System.Drawing.Font 'Arial', $fontSize, ([System.Drawing.FontStyle]::Bold), ([System.Drawing.GraphicsUnit]::Pixel)
+  $tBrush = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(255,255,255,255))
+  $tg.Clear([System.Drawing.Color]::FromArgb(0,0,0,0))
+  $tg.DrawString('O', $tFont, $tBrush, 10.0, 10.0)
+  
+  # Find topmost non-transparent pixel
+  $topY = -1
+  :outer for ($y = 0; $y -lt $tmp.Height; $y++) {
+    for ($x = 0; $x -lt $tmp.Width; $x++) {
+      $c = $tmp.GetPixel($x, $y)
+      if ($c.A -gt 60) { $topY = $y; break outer }
+    }
+  }
+  $tFont.Dispose(); $tBrush.Dispose(); $tg.Dispose(); $tmp.Dispose()
+  
+  # DrawString was called at Y=10. The first visible pixel is at $topY.
+  # Offset = 10 - topY (positive = text starts below draw point)
+  $leading = 10.0 - [single]$topY
+  Write-Host "  Internal leading: $([Math]::Round($leading,1)) px (fontSize=$([Math]::Round($fontSize))px)"
+  return $leading
+}
+
 function New-Logo([string]$subtitle, [string]$outName) {
   $bmp = $src.Clone()
+
+  # Bold weight — font size calculated to produce a cap height matching the
+  # original GROUP band height. Arial's cap height is ~73.5% of em height,
+  # so multiply band height by 1/0.735 ≈ 1.36 to match reference logos.
+  $targetH = [Math]::Max(14, ($maxY - $minY + 1))
+  $fontSize = [single]($targetH * 1.36)
+  $font = New-Object System.Drawing.Font 'Arial', $fontSize, ([System.Drawing.FontStyle]::Bold), ([System.Drawing.GraphicsUnit]::Pixel)
+
+  # Measure GDI+ internal leading so we can offset text upward to sit where GROUP was.
+  # leading is negative (text appears below draw point), so minY + leading shifts text UP.
+  $leading = Measure-InternalLeading $fontSize
+  $textY = [single]($minY) + $leading
+  if ($textY -lt 0) { $textY = 0 }
+
+  # Wipe band: y0 now uses the adjusted textY position, giving ~13px more upward clearance
   $padY = 14
   $x0 = 0
-  $y0 = [Math]::Max(0, $minY - $padY)
+  $y0 = [Math]::Max(0, [int][Math]::Floor($textY) - 2)
   $x1 = $src.Width - 1
   $y1 = [Math]::Min($src.Height - 1, $maxY + $padY)
   # Full-width wipe of subtitle band eliminates GROUP ghosts between letters
@@ -77,11 +122,6 @@ function New-Logo([string]$subtitle, [string]$outName) {
   $g.CompositingMode = [System.Drawing.Drawing2D.CompositingMode]::SourceOver
   $g.CompositingQuality = [System.Drawing.Drawing2D.CompositingQuality]::HighQuality
   $g.PixelOffsetMode = [System.Drawing.Drawing2D.PixelOffsetMode]::HighQuality
-
-  # Match optical weight of real Lake subtitles (GAS/OIL): medium, not heavy Bold.
-  $targetH = [Math]::Max(14, ($maxY - $minY + 1))
-  $fontSize = [single]($targetH * 0.92)
-  $font = New-Object System.Drawing.Font 'Arial', $fontSize, ([System.Drawing.FontStyle]::Regular), ([System.Drawing.GraphicsUnit]::Pixel)
 
   $chars = $subtitle.ToCharArray()
   $charWidths = New-Object System.Collections.Generic.List[double]
@@ -100,7 +140,6 @@ function New-Logo([string]$subtitle, [string]$outName) {
   if ($subtitle.Length -ge 8) {
     $desired = [Math]::Min($maxRight - $spanLeft, [Math]::Max($spanWidth, $natural * 1.15))
   } else {
-    # Short acronyms: match original GROUP span (wide tracking)
     $desired = $spanWidth
   }
 
@@ -118,7 +157,6 @@ function New-Logo([string]$subtitle, [string]$outName) {
   if ($startX + $totalW -gt $maxRight) { $startX = $maxRight - $totalW }
 
   $brush = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(255, 255, 255, 255))
-  $textY = [single]($minY)
   $xPos = $startX
   for ($i = 0; $i -lt $chars.Length; $i++) {
     $g.DrawString([string]$chars[$i], $font, $brush, [single]$xPos, $textY)
