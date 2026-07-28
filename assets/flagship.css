@@ -443,8 +443,11 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
 /* Open via JS `.is-open` (hover-intent on the trigger link) or keyboard
    `:focus-within`. Do NOT use `li:hover` — each nav `li` is full navbar
    height, so CSS hover was opening the panel as soon as the cursor entered
-   that column, well before the label. */
-.has-dropdown:focus-within .nav-dropdown,
+   that column, well before the label.
+   NOTE: `:focus-within` requires `.is-open` so removing the class always
+   hides the panel — the Escape key re-focuses the trigger after closing,
+   and without this guard the CSS would keep the panel visible via focus. */
+.has-dropdown.is-open:focus-within .nav-dropdown,
 .has-dropdown.is-open .nav-dropdown {
   opacity: 1; pointer-events: auto; transform: translateY(0);
   transition: opacity var(--dur-1) var(--ease-out), transform 0.22s var(--ease-out);
@@ -452,7 +455,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
 /* Thin bridge only while open — fills the 6px gap to the panel without a
    large invisible hover trap under the whole nav. */
 .has-dropdown.is-open > .nav-dropdown::after,
-.has-dropdown:focus-within > .nav-dropdown::after {
+.has-dropdown.is-open:focus-within > .nav-dropdown::after {
   content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px;
 }
 .nav-dropdown a {
@@ -515,7 +518,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   border-color: rgba(255, 255, 255, 0.35);
 }
 .has-dropdown.is-open .nav-megamenu,
-.has-dropdown:focus-within .nav-megamenu {
+.has-dropdown.is-open:focus-within .nav-megamenu {
   transform: translate(-50%, 0) scale(1);
 }
 
@@ -1023,7 +1026,7 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
   .nav-dropdown { transform: none !important; transition: none !important; }
   /* Keep the horizontal centering translate; drop the entrance offset/scale. */
   .nav-megamenu,
-  .has-dropdown:focus-within .nav-megamenu,
+  .has-dropdown.is-open:focus-within .nav-megamenu,
   .has-dropdown.is-open .nav-megamenu { transform: translateX(-50%) !important; }
   .mm-pane.is-active .mm-companies.is-entering,
   .mm-companies {
@@ -1045,17 +1048,15 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
   background: var(--color-hero-bg); /* darkest blue fallback under photo */
   position: relative;
   overflow: hidden;
-  /* .page-wrapper already clears the fixed nav — fill the remaining
-     viewport like home `.hero { min-height: 100vh }` so the next section
-     (story embed yellow bands, white content, etc.) never peeks on load. */
-  min-height: calc(100vh - var(--nav-h));
-  min-height: calc(100dvh - var(--nav-h));
+  /* Compact half-screen hero for all sub-pages (matches news page). */
+  min-height: 320px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   box-sizing: border-box;
-  padding: var(--sp-8) 0 var(--sp-12);
+  padding: 48px 0 40px;
 }
+@media(min-width:768px){.page-hero{padding:64px 0 56px;min-height:380px}}
 /* Shared photo layer - keep photography visible (not washed out) */
 .page-hero .hero-media,
 .page-hero .page-hero-photo {
@@ -1913,7 +1914,7 @@ html.fs-motion [data-fx-scroll] {
 /* Dropdown labels */
 .dd-label { transition: color var(--dur-1) ease, padding-left var(--dur-1) var(--ease-out); }
 .has-dropdown.is-open .dd-label,
-.has-dropdown:focus-within .dd-label { color: var(--gold); padding-left: 4px; }
+.has-dropdown.is-open:focus-within .dd-label { color: var(--gold); padding-left: 4px; }
 
 /* Mobile section headers */
 .mob-section { transition: letter-spacing var(--dur-1) ease, color var(--dur-1) ease; }
@@ -2258,7 +2259,7 @@ body.co-theme-agro .nav-links > li > a.active,
 body.co-theme-agro .nav-links > li > a[aria-current="page"],
 body.co-theme-agro .nav-links > li.has-dropdown.is-open > a,
 body.co-theme-agro .nav-links > li.has-dropdown:hover > a,
-body.co-theme-agro .nav-links > li.has-dropdown:focus-within > a {
+body.co-theme-agro .nav-links > li.has-dropdown.is-open:focus-within > a {
   color: #ffffff;
   background: rgba(255, 255, 255, 0.22);
 }

@@ -8,7 +8,8 @@
   },
   "devDependencies": {
     "esbuild": "^0.28.1",
-    "firebase-tools": "^13.35.1"
+    "firebase-tools": "^13.35.1",
+    "sharp": "^0.35.3"
   },
   "dependencies": {
     "animejs": "^4.5.0",

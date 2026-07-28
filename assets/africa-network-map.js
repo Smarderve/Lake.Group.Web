@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  const OPS_ISO = new Set(['TZ', 'KE', 'ZM', 'RW', 'BI', 'CD', 'ET', 'MZ']);
+  const OPS_ISO = new Set(['TZ', 'KE', 'ZM', 'RW', 'BI', 'CD', 'ET', 'MZ', 'UG']);
   const COUNTRY_META = {
     tz: { iso: 'TZ', name: 'Tanzania', center: [-6.37, 34.9], zoom: 6 },
     ke: { iso: 'KE', name: 'Kenya', center: [-0.02, 37.9], zoom: 6 },
@@ -15,6 +15,7 @@
     cd: { iso: 'CD', name: 'DR Congo', center: [-4.0, 23.5], zoom: 5 },
     et: { iso: 'ET', name: 'Ethiopia', center: [9.03, 38.75], zoom: 5 },
     mz: { iso: 'MZ', name: 'Mozambique', center: [-18.25, 35.0], zoom: 5 },
+    ug: { iso: 'UG', name: 'Uganda', center: [1.37, 32.29], zoom: 7 },
     ae: { iso: 'AE', name: 'Dubai, UAE', center: [25.2, 55.27], zoom: 9 },
   };
 
@@ -25,14 +26,14 @@
       desc: 'Major Indian Ocean gateway for fuel, containers and regional trade.' },
     { id: 'aficd-dar', country: 'tz', type: 'container', name: 'AFICD Depot', city: 'Dar es Salaam', lat: -6.868, lng: 39.245,
       desc: 'African Inland Container Depot, port extension & container yard.' },
-    { id: 'steel-moro', country: 'tz', type: 'industrial', name: 'Lake Steel Mill', city: 'Morogoro', lat: -6.817, lng: 37.667,
-      desc: 'HS-CR rebar rolling mill, 100,000 MT annual capacity.' },
+    { id: 'steel-kibaha', country: 'tz', type: 'industrial', name: 'Lake Steel Mill', city: 'Kibaha', lat: -6.77, lng: 38.92,
+      desc: 'HS-CR rebar rolling mill, 100,000 MT annual capacity — Visiga, Kibaha, Pwani Region.' },
     { id: 'gccp-dar', country: 'tz', type: 'industrial', name: 'GCCP Ready-Mix', city: 'Dar es Salaam', lat: -6.75, lng: 39.18,
       desc: 'Gulf Concrete & Cement Products, ready-mix concrete plants.' },
     { id: 'fuel-dar', country: 'tz', type: 'fuel', name: 'Lake Oil Depots', city: 'Dar es Salaam', lat: -6.82, lng: 39.25,
       desc: 'Bulk petroleum storage and distribution hub.' },
     { id: 'hub-dar', country: 'tz', type: 'logistics', name: 'Lake Trans Hub', city: 'Dar es Salaam', lat: -6.78, lng: 39.22,
-      desc: '1,200+ truck fleet coordination and bulk liquid haulage.' },
+      desc: '750+ truck fleet coordination and bulk liquid haulage.' },
 
     { id: 'fuel-nrb', country: 'ke', type: 'fuel', name: 'Lake Oil Kenya', city: 'Nairobi', lat: -1.2921, lng: 36.8219,
       desc: 'Petroleum distribution and retail network.' },
@@ -58,19 +59,24 @@
 
     { id: 'fuel-lub', country: 'cd', type: 'fuel', name: 'DRC Petroleum', city: 'Lubumbashi', lat: -11.6647, lng: 27.4794,
       desc: 'Fuel supply in eastern DRC mining corridor.' },
-    { id: 'hub-kis', country: 'cd', type: 'logistics', name: 'Lake Trans DRC', city: 'Kisangani', lat: 0.515, lng: 25.191,
-      desc: 'River & road logistics in central Africa.' },
+    { id: 'hub-gom', country: 'cd', type: 'logistics', name: 'Lake Trans DRC', city: 'Goma', lat: -1.679, lng: 29.223,
+      desc: 'Fuel distribution hub for eastern DRC and Lake Region Ventures.' },
 
     { id: 'fuel-add', country: 'et', type: 'fuel', name: 'Wadi Elsundus Petroleum', city: 'Addis Ababa', lat: 9.032, lng: 38.746,
       desc: 'Petroleum operations in Ethiopia.' },
 
-    { id: 'port-map', country: 'mz', type: 'port', name: 'Maputo Port', city: 'Maputo', lat: -25.9692, lng: 32.5732,
-      desc: 'Southern corridor port for fuel and containers.' },
-    { id: 'aficd-mz', country: 'mz', type: 'container', name: 'AFICD Mozambique', city: 'Maputo', lat: -25.95, lng: 32.55,
+    { id: 'fuel-beira', country: 'mz', type: 'fuel', name: 'Lake Oil LDA', city: 'Beira', lat: -19.8436, lng: 34.8389,
+      desc: 'Fuel supply operations in Mozambique.' },
+    { id: 'aficd-beira', country: 'mz', type: 'container', name: 'AFICD Mozambique', city: 'Beira', lat: -19.82, lng: 34.84,
       desc: 'Container depot and freight services.' },
 
     { id: 'merm-dxb', country: 'ae', type: 'industrial', name: 'MERM Ready Mix', city: 'Dubai', lat: 25.2048, lng: 55.2708,
       desc: 'Middle East Ready Mix LLC, major UAE concrete plant.' },
+
+    { id: 'fuel-kla', country: 'ug', type: 'fuel', name: 'Lake Oil Uganda', city: 'Kampala', lat: 0.3136, lng: 32.5811,
+      desc: 'Fuel distribution serving Uganda and the northern corridor.' },
+    { id: 'hub-kla', country: 'ug', type: 'logistics', name: 'Lake Trans Uganda', city: 'Kampala', lat: 0.34, lng: 32.58,
+      desc: 'Cross-border fuel transport across Uganda and South Sudan.' },
   ];
 
   const PIPELINES = [
@@ -78,8 +84,8 @@
       coords: [[-6.85, 39.28], [-7.5, 38.5], [-9.0, 36.5], [-11.0, 34.0], [-13.0, 32.5], [-15.4, 28.3]],
       desc: 'Dar es Salaam → Lusaka petroleum pipeline corridor.' },
     { name: 'Northern Logistics Corridor', color: '#0181BB', weight: 3, dash: null,
-      coords: [[-6.79, 39.21], [-4.04, 39.67], [-1.29, 36.82], [-1.94, 30.06], [-3.36, 29.36]],
-      desc: 'Dar → Mombasa → Nairobi → Kigali → Bujumbura supply chain.' },
+      coords: [[-6.79, 39.21], [-4.04, 39.67], [-1.29, 36.82], [0.31, 32.58], [-1.94, 30.06], [-3.36, 29.36]],
+      desc: 'Dar → Mombasa → Nairobi → Kampala → Kigali → Bujumbura supply chain.' },
     { name: 'Southern Africa Route', color: '#0181BB', weight: 3, dash: null,
       coords: [[-6.79, 39.21], [-15.39, 28.32], [-25.97, 32.57]],
       desc: 'East coast to Lusaka and Maputo logistics corridor.' },

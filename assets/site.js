@@ -181,9 +181,10 @@
     if (!items.length) return;
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    // Open only after lingering on the actual label — not the tall li column.
-    const OPEN_DELAY_MS = 200;
-    const CLOSE_DELAY_MS = 220;
+    // Open only after the pointer has clearly committed to the trigger (not just
+    // passing through the column or the padding around the label text).
+    const OPEN_DELAY_MS = 400;
+    const CLOSE_DELAY_MS = 350;
 
     function canHoverOpen() {
       try {
@@ -386,6 +387,18 @@
           clearTimeout(item._navOpenTimer);
           item._navOpenTimer = null;
         }
+        // If the panel is already open and the cursor leaves the trigger
+        // for an unknown target (not another nav item, not the panel),
+        // start a brief close delay so the panel doesn't flap.
+        if (item.classList.contains('is-open') &&
+            e.relatedTarget &&
+            !e.relatedTarget.closest('.nav-links')) {
+          if (item._navCloseTimer) clearTimeout(item._navCloseTimer);
+          item._navCloseTimer = setTimeout(() => {
+            item._navCloseTimer = null;
+            if (!item.matches(':focus-within')) closeItem(item, false);
+          }, CLOSE_DELAY_MS);
+        }
       });
       // Panel re-entry cancels a pending close (gap / bridge travel).
       menu.addEventListener('mouseenter', () => {
@@ -439,6 +452,15 @@
         }
       });
     });
+
+    // On scroll, close any open dropdown (the CSS now requires `.is-open`
+    // so stray `:focus-within` can't keep a panel visible, but this avoids
+    // clutter when the user scrolls past the nav).
+    window.addEventListener('scroll', () => {
+      items.forEach(item => {
+        if (item.classList.contains('is-open')) closeItem(item, false);
+      });
+    }, { passive: true });
   }
 
   // Mobile "Subsidiaries" accordion: each category button toggles its own

@@ -229,6 +229,22 @@ a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
   }
 }
 
+/* --- Ken Burns slow-zoom on hero background --- */
+@keyframes hero-zoom {
+  0%   { transform: scale(1) translateZ(0); }
+  100% { transform: scale(1.06) translateZ(0); }
+}
+body .page-hero .hero-media {
+  animation: hero-zoom 14s var(--ease-out, ease) forwards 0.5s;
+  transform-origin: center 40%;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  body .page-hero .hero-media {
+    animation: none;
+  }
+}
+
 </style>
 <script type="application/ld+json">
 {
@@ -321,7 +337,7 @@ a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
         </div>
       </li>
       <li><a href="leadership.html" data-i18n="nav.leadership">Leadership</a></li>
-      <li class="has-dropdown"><a href="about.html" data-i18n="nav.company">Corporate &#9662;</a>
+      <li class="has-dropdown"><a href="javascript:void(0)" data-i18n="nav.company" role="button" tabindex="0">Corporate &#9662;</a>
         <div class="nav-dropdown">
           <a href="history.html" data-i18n="nav.history">Our History</a><a href="africa-network.html" data-i18n="nav.network">Operations Map</a>
           <a href="csr.html" data-i18n="nav.csr">CSR &amp; Sustainability</a><a href="investors.html" data-i18n="nav.investors">Investor Relations</a>
@@ -535,7 +551,7 @@ a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
 
     <div class="ld-panel reveal">
       <h3 data-i18n="leadership.48">21 Nationalities. One Team.</h3>
-      <p data-i18n="leadership.49">Lake Group's workforce reflects the rich diversity of the African continent, with 30,000+ professionals from 21 nationalities working together toward shared goals.</p>
+      <p data-i18n="leadership.49">Lake Group's workforce reflects the rich diversity of the African continent, with <30,000+< professionals from 21 nationalities working together toward shared goals.</p>
       <a data-i18n="leadership.50" href="careers.html" class="btn btn-primary" style="margin-top:24px">Join Our Team</a>
     </div>
   </div>
