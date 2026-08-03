@@ -1,0 +1,42 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# payload
+/dist/
+/export/
+/.payload
+
+# generated types (regenerate with `npm run generate:types`)
+/src/payload-types.ts
+
+# local env files — never commit real secrets
+.env
+.env*.local
+
+# uploads
+/media
+
+# embedded local Postgres (npm run db:start)
+/.pgdata
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo

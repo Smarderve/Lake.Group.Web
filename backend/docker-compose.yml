@@ -1,0 +1,70 @@
+# Self-hosted Lake Group CMS — PostgreSQL + Payload
+#
+#   cp .env.example .env   (then edit secrets)
+#   docker compose up -d --build
+#
+# The CMS is then available at http://localhost:3000/admin
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: lake
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-lake_change_me}
+      POSTGRES_DB: lakegroup_cms
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U lake -d lakegroup_cms']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # One-shot: create/apply DB schema before the CMS starts.
+  #   docker compose run --rm migrate
+  # Runs from the `builder` image because the slim runtime image only ships
+  # the compiled Next.js standalone bundle (no node_modules/.bin).
+  migrate:
+    build:
+      context: .
+      target: builder
+      args:
+        DATABASE_URI_ARG: postgres://lake:${POSTGRES_PASSWORD:-lake_change_me}@db:5432/lakegroup_cms
+    restart: 'no'
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URI: postgres://lake:${POSTGRES_PASSWORD:-lake_change_me}@db:5432/lakegroup_cms
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET:?Set PAYLOAD_SECRET in .env — e.g. openssl rand -base64 48}
+      NODE_ENV: production
+    command: ['npx', 'payload', 'migrate']
+
+  cms:
+    build:
+      context: .
+      args:
+        DATABASE_URI_ARG: postgres://lake:${POSTGRES_PASSWORD:-lake_change_me}@db:5432/lakegroup_cms
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URI: postgres://lake:${POSTGRES_PASSWORD:-lake_change_me}@db:5432/lakegroup_cms
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET:?Set PAYLOAD_SECRET in .env — e.g. openssl rand -base64 48}
+      PAYLOAD_PUBLIC_SERVER_URL: ${PAYLOAD_PUBLIC_SERVER_URL:-http://localhost:3000}
+      # First boot before migrations exist: set PAYLOAD_PUSH=true in .env
+      CORS_ORIGINS: ${CORS_ORIGINS:-}
+      CSRF_ORIGINS: ${CSRF_ORIGINS:-}
+      PAYLOAD_PUSH: ${PAYLOAD_PUSH:-false}
+      NODE_ENV: production
+    ports:
+      - '3000:3000'
+    volumes:
+      # Uploaded media (images, logos, flags) lives outside the container.
+      - media-data:/app/media
+
+volumes:
+  db-data:
+  media-data:
