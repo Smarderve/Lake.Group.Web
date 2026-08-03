@@ -1,0 +1,192 @@
+name: Accessibility Audit
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '*.html'
+      - 'assets/**/*.css'
+      - 'assets/**/*.js'
+      - 'scripts/**'
+  push:
+    branches: [main]
+    paths:
+      - '*.html'
+      - 'assets/**/*.css'
+      - 'assets/**/*.js'
+      - 'scripts/**'
+
+jobs:
+  mobile-text-audit:
+    name: Mobile Text Font-Size Audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run mobile text audit
+        run: node scripts/_audit_mobile_text.js --viewport 375 --min-px 11
+
+      - name: Upload audit report on failure
+        if: failure()
+        run: |
+          echo "## Mobile Text Audit Failed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Font-size regressions detected. Elements below 11px minimum:" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          node scripts/_audit_mobile_text.js --viewport 375 --min-px 11 2>&1 >> $GITHUB_STEP_SUMMARY || true
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### How to fix" >> $GITHUB_STEP_SUMMARY
+          echo "- Use \`clamp(11px, ..., ...)\` for responsive font sizes" >> $GITHUB_STEP_SUMMARY
+          echo "- Check the global safety net in \`assets/flagship.css\` @media (max-width: 480px)" >> $GITHUB_STEP_SUMMARY
+          echo "- Run \`node scripts/_audit_mobile_text.js\` locally to verify fixes" >> $GITHUB_STEP_SUMMARY
+
+  overflow-audit:
+    name: Mobile Horizontal Overflow Audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run overflow audit
+        run: node scripts/_audit_overflow.js --viewport 375
+
+      - name: Upload overflow report on failure
+        if: failure()
+        run: |
+          echo "## Overflow Audit Failed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Horizontal overflow detected on mobile viewport:" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          node scripts/_audit_overflow.js --viewport 375 2>&1 >> $GITHUB_STEP_SUMMARY || true
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### How to fix" >> $GITHUB_STEP_SUMMARY
+          echo "- Check for elements with \`overflow: visible\` or fixed widths exceeding 375px" >> $GITHUB_STEP_SUMMARY
+          echo "- Use \`max-width: 100%\` or \`clamp()\` for responsive widths" >> $GITHUB_STEP_SUMMARY
+          echo "- Run \`node scripts/_audit_overflow.js\` locally to verify fixes" >> $GITHUB_STEP_SUMMARY
+
+  visual-regression:
+    name: Visual Regression Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run visual regression test
+        run: node scripts/_visual_regression.js --compare
+
+      - name: Upload diff screenshots on failure
+        if: failure()
+        run: |
+          echo "## Visual Regression Failed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Screenshot differences detected at 375px and 768px viewports:" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          node scripts/_visual_regression.js --compare 2>&1 >> $GITHUB_STEP_SUMMARY || true
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### How to fix" >> $GITHUB_STEP_SUMMARY
+          echo "- Review the diff images in \`scripts/_visual_baselines/_diffs/\`" >> $GITHUB_STEP_SUMMARY
+          echo "- If changes are intentional, update baselines: \`node scripts/_visual_regression.js --update\`" >> $GITHUB_STEP_SUMMARY
+          echo "- Commit the updated baselines to \`scripts/_visual_baselines/\`" >> $GITHUB_STEP_SUMMARY
+
+  comprehensive-accessibility:
+    name: Comprehensive Accessibility Audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run comprehensive accessibility audit
+        run: node scripts/_accessibility_audit.js --viewport 1280 --min-px 11
+
+      - name: Generate JSON report
+        if: always()
+        run: node scripts/_accessibility_audit.js --json > accessibility-report.json || true
+
+      - name: Upload accessibility report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: accessibility-report
+          path: accessibility-report.json
+          retention-days: 30
+
+      - name: Upload audit report on failure
+        if: failure()
+        run: |
+          echo "## Comprehensive Accessibility Audit Failed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Accessibility violations detected across HTML pages:" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          node scripts/_accessibility_audit.js --viewport 1280 --min-px 11 2>&1 >> $GITHUB_STEP_SUMMARY || true
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### How to fix" >> $GITHUB_STEP_SUMMARY
+          echo "- **Contrast**: Ensure text meets WCAG AA ratios (4.5:1 normal, 3:1 large)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Font-size**: Use \`clamp(11px, ..., ...)\` for responsive text" >> $GITHUB_STEP_SUMMARY
+          echo "- **Alt text**: Add descriptive \`alt\` attributes to all images" >> $GITHUB_STEP_SUMMARY
+          echo "- **ARIA labels**: Add \`aria-label\` to buttons and links without visible text" >> $GITHUB_STEP_SUMMARY
+          echo "- Run \`node scripts/_accessibility_audit.js\` locally to verify fixes" >> $GITHUB_STEP_SUMMARY

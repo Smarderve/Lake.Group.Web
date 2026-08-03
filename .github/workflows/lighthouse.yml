@@ -1,0 +1,141 @@
+name: Lighthouse Performance Budget
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '*.html'
+      - 'assets/**/*.css'
+      - 'assets/**/*.js'
+      - 'scripts/**'
+  push:
+    branches: [main]
+    paths:
+      - '*.html'
+      - 'assets/**/*.css'
+      - 'assets/**/*.js'
+      - 'scripts/**'
+  workflow_dispatch:
+    inputs:
+      serve_base:
+        description: 'Override serve base URL (default: http://localhost:3000)'
+        required: false
+        default: ''
+
+jobs:
+  # -----------------------------------------------------------
+  # Step 1 – Discover all testable pages and build a matrix
+  # -----------------------------------------------------------
+  discover-pages:
+    name: Discover Pages
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      matrix: ${{ steps.pages.outputs.matrix }}
+      count: ${{ steps.pages.outputs.count }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Enumerate HTML pages
+        id: pages
+        run: |
+          MATRIX=$(node scripts/_pages_list.js --matrix --dual-viewport)
+          COUNT=$(echo "$MATRIX" | node -e "const d=require('fs').readFileSync('/dev/stdin','utf8');const m=JSON.parse(d);console.log(m.include.length/2)")
+          if [ "$COUNT" -eq 0 ]; then
+            echo "❌ No HTML pages found — aborting"
+            exit 1
+          fi
+          echo "matrix=$MATRIX" >> "$GITHUB_OUTPUT"
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          echo "📄 Found $COUNT pages × 2 viewports = $(echo "$COUNT" | node -e "process.stdout=String(Number(require('fs').readFileSync('/dev/stdin','utf8'))*2)") jobs"
+
+  # -----------------------------------------------------------
+  # Step 2 – Run Lighthouse on each page in parallel
+  # -----------------------------------------------------------
+  lighthouse-audit:
+    name: Lighthouse – ${{ matrix.page }} (${{ matrix.label }})
+    needs: discover-pages
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.discover-pages.outputs.matrix) }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli
+
+      - name: Run Lighthouse CI
+        run: |
+          lhci autorun --collect.url="${{ matrix.url }}" --collect.preset="${{ matrix.preset }}" || {
+            EXIT_CODE=$?
+            echo "## ❌ Lighthouse Failed for \`${{ matrix.file }}\` (${{ matrix.label }})" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "One or more categories scored below **90** on **${{ matrix.label }}**." >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Troubleshooting" >> $GITHUB_STEP_SUMMARY
+            echo "- Open the Lighthouse report link above for full details" >> $GITHUB_STEP_SUMMARY
+            echo "- Common fixes: compress images, defer non-critical JS, add aria labels" >> $GITHUB_STEP_SUMMARY
+            echo "- Run locally: \`npx lhci autorun --collect.url=<page> --collect.preset=<desktop|mobile>\`" >> $GITHUB_STEP_SUMMARY
+            exit $EXIT_CODE
+          }
+
+      - name: Success summary
+        if: success()
+        run: |
+          echo "## ✅ \`${{ matrix.file }}\` (${{ matrix.label }}) – All scores ≥ 90" >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload LHCI artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lhci-results-${{ matrix.page }}-${{ matrix.viewport }}
+          path: .lighthouseci/
+          retention-days: 14
+
+  # -----------------------------------------------------------
+  # Step 3 – Final gate (requires all pages to pass)
+  # -----------------------------------------------------------
+  budget-gate:
+    name: Performance Budget Gate
+    needs: [discover-pages, lighthouse-audit]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Evaluate results
+        run: |
+          echo "## 📊 Lighthouse Performance Budget Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Pages audited: **${{ needs.discover-pages.outputs.count }}** (× 2 viewports = ${{ needs.discover-pages.outputs.count }} desktop + ${{ needs.discover-pages.outputs.count }} mobile)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ needs.lighthouse-audit.result }}" = "success" ]; then
+            echo "✅ **All pages passed** – every category scored ≥ 90." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **One or more pages failed** the performance budget." >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Review the failed job artifacts for detailed Lighthouse reports." >> $GITHUB_STEP_SUMMARY
+            exit 1
+          fi

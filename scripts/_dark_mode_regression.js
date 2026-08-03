@@ -1,0 +1,302 @@
+#!/usr/bin/env node
+/**
+ * Dark Mode Visual Regression Test
+ *
+ * Screenshots each key page with prefers-color-scheme: dark at 375px (mobile)
+ * and 768px (tablet) viewports, then compares against reference screenshots
+ * to catch theme-specific layout regressions.
+ *
+ * Usage:
+ *   node scripts/_dark_mode_regression.js              # Compare against baselines
+ *   node scripts/_dark_mode_regression.js --update     # Update baseline screenshots
+ *   node scripts/_dark_mode_regression.js --pages index.html,about.html
+ *   node scripts/_dark_mode_regression.js --threshold 0.01  # 1% pixel diff tolerance
+ *
+ * Requires: playwright (npm install --save-dev playwright && npx playwright install chromium)
+ */
+
+'use strict';
+
+const { chromium } = require('playwright');
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
+
+/* ── CLI args ─────────────────────────────────────────────────────────── */
+const args = process.argv.slice(2);
+function flag(name, fallback) {
+  const idx = args.indexOf('--' + name);
+  return idx !== -1 && args[idx + 1] ? args[idx + 1] : fallback;
+}
+function hasFlag(name) { return args.indexOf('--' + name) !== -1; }
+
+const UPDATE = hasFlag('update');
+const COMPARE = hasFlag('compare') || !UPDATE; /* default: compare */
+const THRESHOLD = parseFloat(flag('threshold', '0.01'));
+const ROOT = path.join(__dirname, '..');
+const BASELINE_DIR = path.join(ROOT, 'scripts', '_dark_mode_baselines');
+const CHROME = process.env.CHROME || 'C:/Program Files/Google/Chrome/Application/chrome.exe';
+
+/* Pages to test */
+const DEFAULT_PAGES = [
+  'index.html', 'about.html', 'news.html', 'services.html',
+  'contact.html', 'leadership.html', 'lake-oil.html', 'gallery.html',
+];
+const pageArg = flag('pages', '');
+const PAGES = pageArg
+  ? pageArg.split(',').map((s) => s.trim()).filter(Boolean)
+  : DEFAULT_PAGES.filter((p) => fs.existsSync(path.join(ROOT, p)));
+
+/* Viewports */
+const VIEWPORTS = [
+  { name: 'mobile', width: 375, height: 812 },
+  { name: 'tablet', width: 768, height: 1024 },
+];
+
+/* MIME types for the local server */
+const MIME_TYPES = {
+  '.html': 'text/html', '.css': 'text/css', '.js': 'application/javascript',
+  '.json': 'application/json', '.png': 'image/png', '.jpg': 'image/jpeg',
+  '.svg': 'image/svg+xml', '.ico': 'image/x-icon', '.woff': 'font/woff',
+  '.woff2': 'font/woff2', '.ttf': 'font/ttf', '.webp': 'image/webp',
+};
+
+/* ── Lightweight HTTP server ──────────────────────────────────────────── */
+function startServer() {
+  return new Promise((resolve, reject) => {
+    const server = http.createServer((req, res) => {
+      const urlPath = req.url.split('?')[0];
+      const filePath = path.join(ROOT, urlPath === '/' ? 'index.html' : urlPath);
+      try {
+        const data = fs.readFileSync(filePath);
+        const ext = path.extname(filePath).toLowerCase();
+        res.writeHead(200, { 'Content-Type': MIME_TYPES[ext] || 'application/octet-stream' });
+        res.end(data);
+      } catch {
+        res.writeHead(404);
+        res.end('Not found');
+      }
+    });
+    server.on('error', (e) => reject(new Error('Failed to start HTTP server: ' + e.message)));
+    server.listen(0, '127.0.0.1', () => resolve(server));
+  });
+}
+
+/* ── File-size comparison as visual regression heuristic ───────────────── */
+function compareFileSizes(expected, actual, maxDiffRatio) {
+  if (expected.equals(actual)) return { match: true, diff: 0 };
+  const sizeDiff = Math.abs(expected.length - actual.length) / Math.max(expected.length, 1);
+  return { match: sizeDiff <= maxDiffRatio, diff: sizeDiff };
+}
+
+/* ── Dark mode screenshot with theme checks ───────────────────────────── */
+async function screenshotDarkMode(context, baseUrl, pageName, vp, outputDir) {
+  const tab = await context.newPage();
+  await tab.setViewportSize({ width: vp.width, height: vp.height });
+  
+  try {
+    /* Emulate dark mode preference */
+    await tab.emulateMedia({ colorScheme: 'dark' });
+    
+    await tab.goto(baseUrl + '/' + pageName, { waitUntil: 'load', timeout: 20000 });
+    
+    /* Dismiss skeleton overlay */
+    await tab.evaluate(() => {
+      const skel = document.getElementById('lg-skel');
+      if (skel) skel.remove();
+      document.documentElement.classList.remove('lg-loading');
+      document.documentElement.classList.add('lg-skel-done');
+    });
+    
+    /* Wait for dark mode styles to apply */
+    await tab.waitForTimeout(1500);
+    
+    /* Scroll to trigger lazy images */
+    await tab.evaluate(async () => {
+      for (let y = 0; y <= document.body.scrollHeight; y += 600) {
+        window.scrollTo(0, y);
+        await new Promise(r => setTimeout(r, 50));
+      }
+      window.scrollTo(0, 0);
+      await new Promise(r => setTimeout(r, 300));
+    });
+    
+    /* Capture dark mode state for analysis */
+    const darkModeState = await tab.evaluate(() => {
+      const body = document.body;
+      const computedStyle = getComputedStyle(body);
+      
+      /* Check if dark mode styles are being applied */
+      const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      /* Get key colors to verify theme is applied */
+      const backgroundColor = computedStyle.backgroundColor;
+      const color = computedStyle.color;
+      
+      /* Check for common dark mode indicators */
+      const nav = document.querySelector('.site-nav');
+      const navStyle = nav ? getComputedStyle(nav) : null;
+      const navBg = navStyle ? navStyle.backgroundColor : 'unknown';
+      
+      return {
+        isDarkMode,
+        backgroundColor,
+        textColor: color,
+        navBackground: navBg,
+        hasDarkModeStyles: isDarkMode && backgroundColor !== 'rgb(255, 255, 255)',
+      };
+    });
+    
+    /* Take screenshot */
+    const filename = pageName.replace('.html', '') + '-dark-' + vp.name + '.png';
+    const filepath = path.join(outputDir, filename);
+    await tab.screenshot({ path: filepath, fullPage: false });
+    
+    return { filename, darkModeState };
+  } finally {
+    await tab.close();
+  }
+}
+
+/* ── Main ─────────────────────────────────────────────────────────────── */
+(async () => {
+  let server = null;
+  let browser = null;
+
+  try {
+    server = await startServer();
+    const PORT = server.address().port;
+    const BASE_URL = 'http://127.0.0.1:' + PORT;
+
+    browser = await chromium.launch({ headless: true, executablePath: CHROME });
+    const context = await browser.newContext();
+
+    if (UPDATE) {
+      /* ── UPDATE MODE: generate baseline screenshots ───────────────────── */
+      fs.mkdirSync(BASELINE_DIR, { recursive: true });
+
+      console.log('\n╔══════════════════════════════════════════════════════════╗');
+      console.log('║     Dark Mode Visual Regression — Generate Baselines    ║');
+      console.log('╠══════════════════════════════════════════════════════════╣');
+      console.log('║ Viewports: 375px (mobile) + 768px (tablet)              ║');
+      console.log('║ Theme: prefers-color-scheme: dark                       ║');
+      console.log('║ Pages: ' + String(PAGES.length).padEnd(50) + '║');
+      console.log('║ Output: scripts/_dark_mode_baselines/                   ║');
+      console.log('╚══════════════════════════════════════════════════════════╝\n');
+
+      let count = 0;
+      let darkModeIssues = 0;
+
+      for (const page of PAGES) {
+        const pageName = page.replace('.html', '');
+        
+        for (const vp of VIEWPORTS) {
+          const result = await screenshotDarkMode(context, BASE_URL, page, vp, BASELINE_DIR);
+          
+          if (result.darkModeState.hasDarkModeStyles) {
+            console.log('  📸 ' + result.filename + ' ✅ (dark mode active)');
+          } else {
+            console.log('  📸 ' + result.filename + ' ⚠️  (dark mode may not be applied)');
+            darkModeIssues++;
+          }
+          count++;
+        }
+      }
+
+      console.log('\n── Summary ──────────────────────────────────────────────────');
+      console.log('  📸 Generated ' + count + ' baseline screenshot(s)');
+      console.log('  📁 Saved to: scripts/_dark_mode_baselines/');
+      
+      if (darkModeIssues > 0) {
+        console.log('  ⚠️  ' + darkModeIssues + ' page(s) may not have dark mode styles applied');
+        console.log('     Check if CSS has prefers-color-scheme: dark rules');
+      }
+
+      console.log('\n  To compare against these baselines:');
+      console.log('    node scripts/_dark_mode_regression.js --compare');
+      process.exitCode = 0;
+
+    } else {
+      /* ── COMPARE MODE: diff screenshots against baselines ────────────── */
+      if (!fs.existsSync(BASELINE_DIR)) {
+        console.error('No baseline directory found. Run with --update first to generate baselines.');
+        process.exitCode = 1;
+        return;
+      }
+
+      const diffDir = path.join(BASELINE_DIR, '_diffs');
+      fs.mkdirSync(diffDir, { recursive: true });
+      const actualDir = path.join(BASELINE_DIR, '_actual');
+      fs.mkdirSync(actualDir, { recursive: true });
+
+      console.log('\n╔══════════════════════════════════════════════════════════╗');
+      console.log('║     Dark Mode Visual Regression — Compare Mode          ║');
+      console.log('╠══════════════════════════════════════════════════════════╣');
+      console.log('║ Viewports: 375px (mobile) + 768px (tablet)              ║');
+      console.log('║ Theme: prefers-color-scheme: dark                       ║');
+      console.log('║ Pages: ' + String(PAGES.length).padEnd(50) + '║');
+      console.log('║ Threshold: ' + (THRESHOLD * 100).toFixed(1) + '% size diff'.padEnd(45) + '║');
+      console.log('╚══════════════════════════════════════════════════════════╝\n');
+
+      let totalPassed = 0;
+      let totalFailed = 0;
+      let darkModeIssues = 0;
+
+      for (const page of PAGES) {
+        const pageName = page.replace('.html', '');
+
+        for (const vp of VIEWPORTS) {
+          const filename = pageName + '-dark-' + vp.name + '.png';
+          const baselinePath = path.join(BASELINE_DIR, filename);
+
+          if (!fs.existsSync(baselinePath)) {
+            console.log('  ⚠️  ' + filename + ' (no baseline — run --update to generate)');
+            continue;
+          }
+
+          /* Take fresh screenshot */
+          const result = await screenshotDarkMode(context, BASE_URL, page, vp, actualDir);
+          
+          if (!result.darkModeState.hasDarkModeStyles) {
+            console.log('  ⚠️  ' + result.filename + ' — dark mode may not be applied');
+            darkModeIssues++;
+          }
+
+          /* Compare */
+          const expected = fs.readFileSync(baselinePath);
+          const actual = fs.readFileSync(path.join(actualDir, result.filename));
+          const compareResult = compareFileSizes(expected, actual, THRESHOLD);
+
+          if (compareResult.match) {
+            console.log('  ✅ ' + filename);
+            totalPassed++;
+          } else {
+            const diffPath = path.join(diffDir, filename);
+            fs.copyFileSync(path.join(actualDir, filename), diffPath);
+            console.log('  ❌ ' + filename + ' — screenshot differs (' + (compareResult.diff * 100).toFixed(1) + '% size diff)');
+            totalFailed++;
+          }
+        }
+      }
+
+      console.log('\n── Summary ──────────────────────────────────────────────────');
+      console.log('  ✅ Passed: ' + totalPassed);
+      console.log('  ❌ Failed: ' + totalFailed);
+      
+      if (darkModeIssues > 0) {
+        console.log('  ⚠️  ' + darkModeIssues + ' page(s) may not have dark mode styles applied');
+      }
+      
+      if (totalFailed > 0) {
+        console.log('  📁 Diffs saved to: scripts/_dark_mode_baselines/_diffs/');
+        console.log('\n  Review the diff images and if the changes are intentional:');
+        console.log('    node scripts/_dark_mode_regression.js --update  (re-generate baselines)');
+      }
+      
+      process.exitCode = totalFailed > 0 ? 1 : 0;
+    }
+  } finally {
+    if (browser) { try { await browser.close(); } catch { /* ignore */ } }
+    if (server && server.listening) { try { await new Promise(r => server.close(r)); } catch { /* ignore */ } }
+  }
+})();

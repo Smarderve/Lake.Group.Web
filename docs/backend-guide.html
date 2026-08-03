@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lake Group CMS — Backend Developer Guide</title>
+<style>
+@page { margin: 2cm 2.2cm; size: A4; }
+@media print {
+  .page-break { page-break-before: always; }
+  .cover { page-break-after: always; }
+  a { color: #0E1F5A; text-decoration: none; }
+  pre, table { page-break-inside: avoid; }
+}
+* { box-sizing: border-box; }
+html { font-size: 11pt; }
+body {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.65;
+  color: #1a2340;
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 24px 32px 80px;
+  background: #fff;
+}
+.cover {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(160deg, #0E1F5A 0%, #1D3EA8 55%, #0E1F5A 100%);
+  color: #fff;
+  margin: -24px -32px 48px;
+  padding: 80px 40px;
+}
+.cover-inner { max-width: 640px; }
+.cover-eyebrow { color: #FFD700; letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.75rem; margin-bottom: 24px; }
+.cover-title { font-size: 2.8rem; line-height: 1.15; margin: 0 0 20px; font-weight: 800; }
+.cover-sub { font-size: 1.15rem; opacity: 0.9; margin-bottom: 32px; }
+.cover-meta, .cover-stats { font-size: 0.9rem; opacity: 0.75; }
+h2 { color: #0E1F5A; font-size: 1.65rem; border-bottom: 3px solid #FFD700; padding-bottom: 8px; margin-top: 2.5em; }
+h3 { color: #0E1F5A; font-size: 1.2rem; margin-top: 1.8em; }
+h4 { color: #1D3EA8; font-size: 1rem; margin-top: 1.2em; }
+.lede { font-size: 1.05rem; color: #3a4560; }
+.toc-list { list-style: none; padding: 0; columns: 2; column-gap: 40px; }
+.toc-list li { margin: 8px 0; break-inside: avoid; }
+.toc-list a { color: #0E1F5A; text-decoration: none; }
+.toc-num { color: #FFD700; font-weight: 700; margin-right: 6px; }
+.toc-guide { margin-bottom: 2em; }
+.toc-guide h2 { margin-top: 0; }
+.toc-guide h3 { font-size: 1rem; margin-top: 1.4em; color: #1D3EA8; }
+.toc-sub { list-style: none; padding: 0; margin: 0.4em 0 0; font-size: 0.92rem; }
+.toc-sub li { margin: 4px 0; padding-left: 1.2em; position: relative; }
+.toc-sub li::before { content: "→"; position: absolute; left: 0; color: #FFD700; font-weight: 700; }
+.toc-sub a { color: #2a3a6a; }
+.toc-box { background: #f4f6fb; border: 1px solid #d8deec; border-left: 4px solid #FFD700; padding: 14px 18px; margin: 1em 0; font-size: 0.92rem; }
+.toc-quick { font-size: 0.88rem; }
+.toc-quick td:first-child { font-weight: 600; color: #0E1F5A; white-space: nowrap; }
+code, pre { font-family: 'SF Mono', 'Consolas', 'Liberation Mono', monospace; font-size: 0.88em; }
+pre, .code-block, .diagram, .file-tree {
+  background: #f4f6fb;
+  border: 1px solid #d8deec;
+  border-left: 4px solid #FFD700;
+  padding: 14px 18px;
+  overflow-x: auto;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+table.data-table { width: 100%; border-collapse: collapse; margin: 1.2em 0; font-size: 0.92rem; }
+table.data-table th { background: #0E1F5A; color: #fff; text-align: left; padding: 10px 12px; }
+table.data-table td { border: 1px solid #dde3f0; padding: 8px 12px; vertical-align: top; }
+table.data-table tr:nth-child(even) td { background: #f8f9fd; }
+.tag { display: inline-block; background: #eef1f8; border: 1px solid #d8deec; border-radius: 3px; padding: 0 8px; font-size: 0.82em; font-weight: 600; color: #0E1F5A; }
+.tag.req { background: #fff4e5; border-color: #ffd700; color: #8a6d00; }
+.tag.pub { background: #e8f5ee; border-color: #7fd1ae; color: #0a6b45; }
+.tag.auth { background: #fdeeee; border-color: #f3a6a6; color: #a11; }
+kbd { background: #0E1F5A; color: #fff; border-radius: 3px; padding: 1px 7px; font-family: 'SF Mono', Consolas, monospace; font-size: 0.85em; }
+.chapter { margin-bottom: 3em; }
+.note { background: #f4f6fb; border: 1px solid #d8deec; border-left: 4px solid #1D3EA8; padding: 12px 16px; margin: 1em 0; font-size: 0.92rem; }
+.warn { background: #fff8ec; border: 1px solid #f0e2c0; border-left: 4px solid #FFD700; padding: 12px 16px; margin: 1em 0; font-size: 0.92rem; }
+</style>
+</head>
+<body>
+
+<section class="cover page-break">
+  <div class="cover-inner">
+    <p class="cover-eyebrow">Internal Documentation</p>
+    <h1 class="cover-title">Lake Group CMS<br>Backend Developer Guide</h1>
+    <p class="cover-sub">Self-Hosted Payload 3 Backend — Architecture, Collections, API &amp; Deployment</p>
+    <p class="cover-meta">Version aligned with repository · July 2026<br>Backend lives in <code>backend/</code> · Admin UI at <code>HOST:3000/admin</code></p>
+    <p class="cover-stats">Payload 3 · Next.js 15 · React 19 · PostgreSQL 16 · Docker Compose · Lexical editor</p>
+  </div>
+</section>
+
+<!-- ================================================================
+     CONTENTS GUIDE — quick navigation (read this first)
+     ================================================================ -->
+<section class="toc-guide page-break">
+  <h2>Contents Guide — How to Find What You Need</h2>
+  <p class="lede">Use this page as a roadmap. Each row links to the chapter that explains <strong>what</strong> the piece is, <strong>where</strong> it lives in <code>backend/</code>, <strong>why</strong> it was built this way, and <strong>how</strong> to run it.</p>
+
+  <div class="toc-box">
+    <strong>Tip:</strong> Open this file in a browser and click any blue link to jump straight to that section. In a print/PDF view, use the bookmark panel or search (Ctrl+F) for filenames like <code>payload.config.ts</code>, <code>docker-compose.yml</code>, or collection names like <code>news</code>.
+  </div>
+
+  <h3>Find by Concern</h3>
+  <table class="data-table toc-quick">
+    <thead><tr><th>Looking for…</th><th>Key files</th><th>Section</th></tr></thead>
+    <tbody>
+      <tr><td>What the CMS is / why it exists</td><td><code>backend/README.md</code></td><td><a href="#sec-1">§1</a></td></tr>
+      <tr><td>Technology stack</td><td><code>backend/package.json</code></td><td><a href="#sec-2">§2</a></td></tr>
+      <tr><td>Directory layout</td><td><code>backend/</code> tree</td><td><a href="#sec-3">§3</a></td></tr>
+      <tr><td>Core config (DB, CORS, editor)</td><td><code>src/payload.config.ts</code></td><td><a href="#sec-4">§4</a></td></tr>
+      <tr><td>Access rules</td><td><code>src/access/index.ts</code></td><td><a href="#sec-5">§5</a></td></tr>
+      <tr><td>News collection</td><td><code>src/collections/News.ts</code></td><td><a href="#sec-6a">§6</a></td></tr>
+      <tr><td>Leaders collection</td><td><code>src/collections/Leaders.ts</code></td><td><a href="#sec-6b">§6</a></td></tr>
+      <tr><td>Companies collection</td><td><code>src/collections/Companies.ts</code></td><td><a href="#sec-6c">§6</a></td></tr>
+      <tr><td>Countries collection</td><td><code>src/collections/Countries.ts</code></td><td><a href="#sec-6d">§6</a></td></tr>
+      <tr><td>Media &amp; Users</td><td><code>src/collections/Media.ts</code>, <code>Users.ts</code></td><td><a href="#sec-6e">§6</a></td></tr>
+      <tr><td>Admin UI &amp; REST routes</td><td><code>src/app/(payload)/</code></td><td><a href="#sec-7">§7</a></td></tr>
+      <tr><td>Docker &amp; production</td><td><code>docker-compose.yml</code>, <code>Dockerfile</code></td><td><a href="#sec-8">§8</a></td></tr>
+      <tr><td>Environment variables</td><td><code>.env.example</code></td><td><a href="#sec-9">§9</a></td></tr>
+      <tr><td>Seeding site content</td><td><code>scripts/seed.ts</code> etc.</td><td><a href="#sec-10">§10</a></td></tr>
+      <tr><td>REST API reference</td><td><code>/api/…</code> endpoints</td><td><a href="#sec-11">§11</a></td></tr>
+      <tr><td>Wiring static pages / dashboard</td><td><code>ADMIN_ROUTE_PLAN.md</code></td><td><a href="#sec-12">§12</a></td></tr>
+      <tr><td>Everyday commands</td><td><code>package.json</code> scripts</td><td><a href="#sec-13">§13</a></td></tr>
+      <tr><td>Security &amp; troubleshooting</td><td><code>.env.example</code>, access rules</td><td><a href="#sec-14">§14</a></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<nav class="toc page-break"><h2>Full Table of Contents</h2><ol class="toc-list">
+  <li><a href="#sec-1"><span class="toc-num">1.</span> Architecture Overview</a></li>
+  <li><a href="#sec-2"><span class="toc-num">2.</span> Technology Stack (with rationale)</a></li>
+  <li><a href="#sec-3"><span class="toc-num">3.</span> Repository Layout</a></li>
+  <li><a href="#sec-4"><span class="toc-num">4.</span> Core Configuration (payload.config.ts)</a></li>
+  <li><a href="#sec-5"><span class="toc-num">5.</span> Access Control</a></li>
+  <li><a href="#sec-6"><span class="toc-num">6.</span> Collections Reference (6 collections)</a></li>
+  <li><a href="#sec-7"><span class="toc-num">7.</span> Application Routes</a></li>
+  <li><a href="#sec-8"><span class="toc-num">8.</span> Docker &amp; Deployment</a></li>
+  <li><a href="#sec-9"><span class="toc-num">9.</span> Environment Variables</a></li>
+  <li><a href="#sec-10"><span class="toc-num">10.</span> Seeding Scripts</a></li>
+  <li><a href="#sec-11"><span class="toc-num">11.</span> REST API Reference</a></li>
+  <li><a href="#sec-12"><span class="toc-num">12.</span> Static-Site Integration Plan</a></li>
+  <li><a href="#sec-13"><span class="toc-num">13.</span> Useful Commands</a></li>
+  <li><a href="#sec-14"><span class="toc-num">14.</span> Security Notes &amp; Troubleshooting</a></li>
+</ol></nav>
+
+<section id="sec-1" class="chapter page-break">
+<h2>1. Architecture Overview</h2>
+<p class="lede">The backend is a <strong>self-hosted headless CMS</strong> (Payload 3 running inside Next.js 15) with a PostgreSQL database. It does <em>not</em> serve the public website — the static site keeps living at the repo root and consumes this backend's REST API.</p>
+
+<h3>1.1 High-Level Diagram</h3>
+<pre class="diagram">┌──────────────────────────────────────────────────────────────────┐
+│                    Static Website (repo root)                       │
+│  *.html pages · assets/ · sw.js · manifest.webmanifest              │
+│  ── reads content via REST ──────────────┐                          │
+└──────────────────────────────────────────│──────────────────────────┘
+                                           ▼
+┌──────────────────────────────────────────────────────────────────┐
+│                backend/  (Payload CMS — port 3000)                  │
+│  ┌──────────────────────────┐   ┌──────────────────────────────┐   │
+│  │  /admin  Admin dashboard │   │  /api/{collection}  REST API │   │
+│  │  (first-user bootstrap)  │   │  GET public · write = auth   │   │
+│  └──────────────────────────┘   └──────────────────────────────┘   │
+│  Collections: Users · Media · Countries · Companies · Leaders · News│
+└──────────────────────────────────┬──────────────────────────────────┘
+                                   ▼
+                    ┌────────────────────────────┐
+                    │   PostgreSQL 16 (Docker)     │
+                    │  lakegroup_cms · db-data vol │
+                    │  uploaded media · media-data │
+                    └────────────────────────────┘</pre>
+
+<h3>1.2 Design Principles</h3>
+<ul>
+<li><strong>Content owns the data; static owns the presentation.</strong> The site shell stays hand-authored HTML; the CMS becomes the single source of truth for news, leadership, companies, countries and media.</li>
+<li><strong>Public read, authenticated write.</strong> Every content collection is readable without a token (so the website can fetch it), while create/update/delete require a signed-in admin. See §5.</li>
+<li><strong>Idempotent seeding.</strong> Existing static-site data can be migrated into the CMS and re-run safely — upserts by unique keys, media uploaded once. See §10.</li>
+<li><strong>Self-hosted.</strong> No third-party SaaS; PostgreSQL + uploads persist in Docker named volumes. See §8.</li>
+</ul>
+
+<h3>1.3 What the CMS Is NOT</h3>
+<p>It is not a page builder for the whole site, and it is not deployed to Vercel with the static pages. It is a content API + admin panel that the static pages are progressively wired to consume (see §12).</p>
+</section>
+
+<section id="sec-2" class="chapter page-break">
+<h2>2. Technology Stack</h2>
+<p class="lede">Complete inventory of backend technologies with rationale.</p>
+<table class="data-table">
+<thead><tr><th>Technology</th><th>Role</th><th>Why Chosen</th></tr></thead>
+<tbody>
+<tr><td><code>Payload 3 (^3.0.0)</code></td><td>Headless CMS core</td><td>TypeScript-first, config-as-code collections, built-in REST &amp; auth, easy self-hosting</td></tr>
+<tr><td><code>Next.js (~15.4.11)</code></td><td>Server host for Payload</td><td>Payload 3's official runtime; gives us <code>/admin</code> + <code>/api</code> app router routes</td></tr>
+<tr><td><code>React 19 / react-dom 19</code></td><td>Admin UI rendering</td><td>Required by Next.js 15 + Payload 3 admin panel</td></tr>
+<tr><td><code>@payloadcms/db-postgres</code></td><td>Database adapter</td><td>Postgres is battle-tested, supports migrations and production reliability</td></tr>
+<tr><td><code>PostgreSQL 16 (alpine)</code></td><td>Database</td><td>Runs in Docker Compose; health-checked; data in <code>db-data</code> volume</td></tr>
+<tr><td><code>@payloadcms/richtext-lexical</code></td><td>Rich-text editor</td><td>Payload 3 default editor; JSON state storage compatible with seed script</td></tr>
+<tr><td><code>TypeScript (^5.7.0)</code></td><td>Language</td><td>Strict typing across config, collections and scripts; generated <code>payload-types.ts</code></td></tr>
+<tr><td><code>tsx</code></td><td>Script runner</td><td>Runs <code>verify-site-data.ts</code> directly without a DB</td></tr>
+<tr><td><code>cross-env</code></td><td>Env wrapper</td><td>Portable <code>NODE_ENV</code> across Windows/macOS/Linux npm scripts</td></tr>
+<tr><td><code>Docker + Compose</code></td><td>Deployment</td><td>Multi-stage build → slim runtime; one <code>docker compose up</code> for Postgres + CMS</td></tr>
+<tr><td><code>Next.js standalone output</code></td><td>Runtime packaging</td><td><code>output: 'standalone'</code> keeps the Docker runtime image minimal</td></tr>
+</tbody>
+</table>
+
+<h3>2.1 package.json scripts</h3>
+<pre class="code-block">dev              cross-env NODE_ENV=development next dev
+build            cross-env NODE_ENV=production next build
+start            cross-env NODE_ENV=production next start
+lint             next lint
+generate:types   cross-env NODE_ENV=production payload generate:types
+generate:importmap payload generate:importmap
+seed             payload run scripts/seed.ts
+seed:verify      tsx scripts/verify-site-data.ts
+payload          payload</pre>
+<p><code>engines.node</code> requires <code>&gt;=18.20.0</code> (Docker image uses Node 20).</p>
+</section>
+
+<section id="sec-3" class="chapter page-break">
+<h2>3. Repository Layout</h2>
+<pre class="file-tree">backend/
+├── .dockerignore / .gitignore
+├── ADMIN_ROUTE_PLAN.md      # how the static site + dashboard wire into the CMS
+├── README.md                # quick start + seeding table
+├── docker-compose.yml       # Postgres 16 + migrate + CMS services
+├── Dockerfile               # multi-stage build → standalone runtime
+├── next.config.mjs          # withPayload + output:'standalone'
+├── package.json / tsconfig.json / next-env.d.ts
+├── src/
+│   ├── payload.config.ts    # collections, db, editor, CORS, secret
+│   ├── access/index.ts      # isAuthenticated / isAdmin rules
+│   ├── collections/         # Users, Media, Countries, Companies, Leaders, News
+│   └── app/
+│       ├── (payload)/       # /admin UI + /api catch-all routes
+│       │   ├── layout.tsx
+│       │   ├── admin/importMap.js
+│       │   ├── admin/[[...segments]]/page.tsx + not-found.tsx
+│       │   └── api/[...slug]/route.ts
+│       └── (frontend)/      # landing page at /
+│           ├── layout.tsx · globals.css · page.tsx
+└── scripts/
+    ├── site-data.ts         # pure extraction of static-site content (no Payload imports)
+    ├── seed.ts              # idempotent import into the DB
+    └── verify-site-data.ts  # dry-run validation without a database</pre>
+
+<h3>3.1 next.config.mjs &amp; tsconfig.json</h3>
+<p><code>next.config.mjs</code> wraps the config with <code>withPayload</code> and sets <code>output: 'standalone'</code> so the Docker runtime only ships compiled output. <code>tsconfig.json</code> is strict-mode TypeScript with path aliases <code>@/* → ./src/*</code> and <code>@payload-config → ./src/payload.config.ts</code>, bundler module resolution, and JSX preserve (Next.js).</p>
+</section>
+
+<section id="sec-4" class="chapter page-break">
+<h2>4. Core Configuration (payload.config.ts)</h2>
+<p class="lede"><code>src/payload.config.ts</code> is the single source of truth for the CMS. It is <code>buildConfig()</code> from Payload, exported as default.</p>
+<table class="data-table">
+<thead><tr><th>Setting</th><th>Value</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><code>admin.user</code></td><td><code>Users.slug</code></td><td>The collection that authenticates the dashboard</td></tr>
+<tr><td><code>admin.meta</code></td><td>titleSuffix <code>— Lake Group CMS</code>, custom description, favicon</td><td>Branding for the admin browser tab</td></tr>
+<tr><td><code>collections</code></td><td><code>[Users, Media, Countries, Companies, Leaders, News]</code></td><td>Registration order = sidebar order in admin</td></tr>
+<tr><td><code>editor</code></td><td><code>lexicalEditor()</code></td><td>Default Payload 3 rich-text editor</td></tr>
+<tr><td><code>secret</code></td><td><code>process.env.PAYLOAD_SECRET</code></td><td>Signs auth tokens; required (empty string if unset)</td></tr>
+<tr><td><code>typescript.outputFile</code></td><td><code>payload-types.ts</code></td><td>Generated by <code>npm run generate:types</code></td></tr>
+<tr><td><code>db</code></td><td><code>postgresAdapter({ pool: { connectionString: DATABASE_URI } })</code></td><td>See push behaviour below</td></tr>
+<tr><td><code>db.push</code></td><td><code>PAYLOAD_PUSH==='true' || NODE_ENV !== 'production'</code></td><td>Dev: auto-creates tables on boot. Prod: use <code>payload migrate</code></td></tr>
+<tr><td><code>cors</code></td><td><code>CORS_ORIGINS</code> (comma-split)</td><td>Whitelist origins allowed to call the REST API</td></tr>
+<tr><td><code>csrf</code></td><td><code>CSRF_ORIGINS</code> (comma-split)</td><td>Whitelist origins allowed to submit requests</td></tr>
+<tr><td><code>serverURL</code></td><td><code>PAYLOAD_PUBLIC_SERVER_URL</code></td><td>Used for admin redirects &amp; absolute links</td></tr>
+</tbody>
+</table>
+
+<div class="warn"><strong>Schema push vs. migrations:</strong> in dev (<code>NODE_ENV !== production</code>) Payload auto-creates/updates tables on boot so <code>npm run dev</code> works with a fresh DB. In production you should apply schema via <code>payload migrate</code> (the compose <code>migrate</code> service does this), or set <code>PAYLOAD_PUSH=true</code> for a first boot before migrations exist.</div>
+</section>
+
+<section id="sec-5" class="chapter page-break">
+<h2>5. Access Control</h2>
+<p class="lede">All rules live in <code>src/access/index.ts</code> and are imported by every collection.</p>
+<pre class="code-block">export const isAuthenticated: Access = ({ req: { user } }) =&gt; Boolean(user)
+
+export const isAdmin: Access = ({ req: { user } }) =&gt; {
+  if (!user) return false
+  return user.collection === 'users'
+}</pre>
+<table class="data-table">
+<thead><tr><th>Rule</th><th>Allows</th><th>Used by</th></tr></thead>
+<tbody>
+<tr><td><code>isAuthenticated</code></td><td>Any signed-in admin user</td><td>Media, Countries, Companies, Leaders, News — create/update/delete</td></tr>
+<tr><td><code>isAdmin</code></td><td>Only users from the <code>users</code> collection</td><td>Users — all operations (read included)</td></tr>
+<tr><td><code>() =&gt; true</code></td><td>Public (anonymous)</td><td>Read on Media, Countries, Companies, Leaders, News; <code>Media.read</code></td></tr>
+</tbody>
+</table>
+<div class="note"><strong>Net effect:</strong> anyone can <code>GET</code> public content; only logged-in admins can write. The <code>users</code> collection itself is fully locked down (even listing users requires admin).</div>
+</section>
+
+<section id="sec-6" class="chapter page-break">
+<h2>6. Collections Reference</h2>
+<p class="lede">Six collections, each mirroring a piece of the existing static site. Field markers: <span class="tag req">required</span> <span class="tag pub">public read</span> <span class="tag auth">auth write</span>.</p>
+
+<h3 id="sec-6a">6.1 News — <code>news</code></h3>
+<p>News articles. Mirrors <code>window.LAKE_NEWS</code> in <code>assets/news-data.js</code>. Admin group <em>Content</em>, title field <code>title</code>, list searchable on <code>title</code>/<code>excerpt</code>.</p>
+<table class="data-table">
+<thead><tr><th>Field</th><th>Type</th><th>Constraints</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><code>legacyId</code></td><td>number</td><td></td><td>ID from the legacy dataset (seed migration key)</td></tr>
+<tr><td><code>title</code></td><td>text</td><td><span class="tag req">required</span></td><td>Article headline</td></tr>
+<tr><td><code>slug</code></td><td>text</td><td><span class="tag req">required</span> · unique · indexed</td><td>URL slug, e.g. <code>lake-gas-kenya-import-market</code></td></tr>
+<tr><td><code>status</code></td><td>select</td><td>default <code>published</code> · indexed · sidebar</td><td><code>draft | published | archived</code></td></tr>
+<tr><td><code>date</code></td><td>date</td><td><span class="tag req">required</span> · indexed</td><td>Publication date</td></tr>
+<tr><td><code>category</code></td><td>select</td><td><span class="tag req">required</span> · indexed</td><td>Expansion, LPG, Awards, Business, Logistics, Events, Sports, CSR, Announcements</td></tr>
+<tr><td><code>excerpt</code></td><td>textarea</td><td></td><td>Card &amp; meta-description summary</td></tr>
+<tr><td><code>bannerImage</code></td><td>upload → media</td><td></td><td>Hero image</td></tr>
+<tr><td><code>description</code></td><td>array</td><td></td><td>Rows of <code>paragraph</code> (textarea)</td></tr>
+<tr><td><code>images</code></td><td>array</td><td></td><td>Gallery rows of <code>image</code> (upload → media)</td></tr>
+<tr><td><code>videoUrl</code></td><td>text</td><td></td><td>Optional YouTube/external video</td></tr>
+<tr><td><code>relatedCompanies</code></td><td>relationship → companies</td><td>hasMany</td><td></td></tr>
+<tr><td><code>countries</code></td><td>relationship → countries</td><td>hasMany</td><td></td></tr>
+</tbody>
+</table>
+
+<h3 id="sec-6b">6.2 Leaders — <code>leaders</code></h3>
+<p>Leadership profiles. Mirrors <code>leadership-*.html</code> pages. Admin group <em>Content</em>, title field <code>name</code>.</p>
+<table class="data-table">
+<thead><tr><th>Field</th><th>Type</th><th>Constraints</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><code>name</code></td><td>text</td><td><span class="tag req">required</span></td><td></td></tr>
+<tr><td><code>role</code></td><td>text</td><td><span class="tag req">required</span></td><td>e.g. Executive Chairman &amp; Owner</td></tr>
+<tr><td><code>unit</code></td><td>text</td><td></td><td>e.g. Group Leadership</td></tr>
+<tr><td><code>slug</code></td><td>text</td><td><span class="tag req">required</span> · unique · indexed</td><td>e.g. <code>ally-edha-awadh</code></td></tr>
+<tr><td><code>featured</code></td><td>checkbox</td><td>default false · indexed · sidebar</td><td>Executive Chairman slot</td></tr>
+<tr><td><code>sortOrder</code></td><td>number</td><td>default 100 · sidebar</td><td>Directory ordering</td></tr>
+<tr><td><code>photo</code></td><td>upload → media</td><td></td><td>Portrait</td></tr>
+<tr><td><code>isLogo</code></td><td>checkbox</td><td>default false</td><td>Render logo instead of photo on cards</td></tr>
+<tr><td><code>lede</code></td><td>textarea</td><td></td><td>One-line summary</td></tr>
+<tr><td><code>bio</code></td><td>richText</td><td></td><td>Lexical rich text</td></tr>
+<tr><td><code>quote</code></td><td>textarea</td><td></td><td></td></tr>
+<tr><td><code>mandate</code></td><td>array</td><td></td><td>Rows of <code>item</code> (text) — responsibilities</td></tr>
+<tr><td><code>facts</code></td><td>array</td><td></td><td>Rows of <code>label</code> + <code>value</code></td></tr>
+<tr><td><code>company</code></td><td>relationship → companies</td><td></td><td>Optional link to subsidiary</td></tr>
+</tbody>
+</table>
+
+<h3 id="sec-6c">6.3 Companies — <code>companies</code></h3>
+<p>Subsidiaries. Mirrors the megamenu divisions and company pages (<code>lake-oil.html</code>, <code>lake-steel.html</code>, …). Admin group <em>Company Data</em>, title field <code>name</code>.</p>
+<table class="data-table">
+<thead><tr><th>Field</th><th>Type</th><th>Constraints</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><code>name</code></td><td>text</td><td><span class="tag req">required</span></td><td></td></tr>
+<tr><td><code>slug</code></td><td>text</td><td><span class="tag req">required</span> · unique · indexed</td><td>e.g. <code>lake-oil</code></td></tr>
+<tr><td><code>division</code></td><td>select</td><td><span class="tag req">required</span></td><td>energies · manufacturing · logistics · realestate · agro</td></tr>
+<tr><td><code>tagline</code></td><td>text</td><td></td><td>Short strap line</td></tr>
+<tr><td><code>description</code></td><td>richText</td><td></td><td>Lexical rich text</td></tr>
+<tr><td><code>logo</code></td><td>upload → media</td><td></td><td></td></tr>
+<tr><td><code>heroImage</code></td><td>upload → media</td><td></td><td></td></tr>
+<tr><td><code>pageUrl</code></td><td>text</td><td></td><td>Legacy static page, e.g. <code>lake-oil.html</code></td></tr>
+<tr><td><code>founded</code></td><td>text</td><td></td><td>Year string</td></tr>
+<tr><td><code>sortOrder</code></td><td>number</td><td>default 100 · sidebar</td><td></td></tr>
+<tr><td><code>featured</code></td><td>checkbox</td><td>default false · sidebar</td><td></td></tr>
+<tr><td><code>headquarters</code></td><td>relationship → countries</td><td></td><td>Country of HQ</td></tr>
+<tr><td><code>countries</code></td><td>relationship → countries</td><td>hasMany</td><td>Countries of operation</td></tr>
+<tr><td><code>keyStats</code></td><td>array</td><td></td><td>Rows of <code>label</code> + <code>value</code></td></tr>
+</tbody>
+</table>
+
+<h3 id="sec-6d">6.4 Countries — <code>countries</code></h3>
+<p>Countries of operation. Mirrors <code>COUNTRY_META</code> in <code>assets/africa-network-map.js</code> + flag SVGs. Admin group <em>Company Data</em>, title field <code>name</code>.</p>
+<table class="data-table">
+<thead><tr><th>Field</th><th>Type</th><th>Constraints</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><code>name</code></td><td>text</td><td><span class="tag req">required</span></td><td></td></tr>
+<tr><td><code>code</code></td><td>text</td><td><span class="tag req">required</span> · unique · indexed</td><td>ISO 3166-1 alpha-2 (TZ, KE, ZM…)</td></tr>
+<tr><td><code>isOperational</code></td><td>checkbox</td><td>default true · indexed · sidebar</td><td></td></tr>
+<tr><td><code>isHeadquarters</code></td><td>checkbox</td><td>default false · sidebar</td><td></td></tr>
+<tr><td><code>flag</code></td><td>upload → media</td><td></td><td>Flag SVG</td></tr>
+<tr><td><code>summary</code></td><td>textarea</td><td></td><td>Operations-map country panel text</td></tr>
+<tr><td><code>lat</code> / <code>lng</code></td><td>number</td><td></td><td>Map centre coordinates</td></tr>
+<tr><td><code>defaultZoom</code></td><td>number</td><td>default 6</td><td></td></tr>
+<tr><td><code>subsidiaryCount</code></td><td>number</td><td></td><td>Subsidiaries in this country</td></tr>
+</tbody>
+</table>
+
+<h3 id="sec-6e">6.5 Media — <code>media</code></h3>
+<p>Uploaded images: news banners, gallery photos, portraits, logos, flags. Admin group <em>Content</em>, title field <code>alt</code>. Reads public; writes authenticated.</p>
+<ul>
+<li><strong>Storage:</strong> <code>staticDir: 'media'</code> → <code>backend/media/</code>, persisted via the Docker <code>media-data</code> volume.</li>
+<li><strong>Generated sizes:</strong> <code>thumbnail</code> 400×300, <code>card</code> 768×576, <code>hero</code> 1920×1080 (all centre-cropped).</li>
+<li><strong>MIME allow-list:</strong> <code>image/*</code> only.</li>
+<li><strong>Fields:</strong> <code>alt</code> (text, <span class="tag req">required</span>) — everything else is auto (filename, sizes, mimeType, filesize).</li>
+</ul>
+
+<h3 id="sec-6f">6.6 Users — <code>users</code></h3>
+<p>Admin accounts. <code>auth: true</code> (email + password). Admin group <em>System</em>, title field <code>email</code>. <strong>All</strong> operations require <code>isAdmin</code>. The first user is bootstrapped through the admin UI "create first user" screen.</p>
+<table class="data-table">
+<thead><tr><th>Field</th><th>Type</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><code>name</code></td><td>text</td><td></td></tr>
+<tr><td><code>role</code></td><td>select</td><td><code>editor</code> (default) | <code>admin</code> — reserved for future fine-grained permissions</td></tr>
+<tr><td><code>email</code> / <code>password</code></td><td>auth fields</td><td>From Payload's built-in <code>auth: true</code></td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="sec-7" class="chapter page-break">
+<h2>7. Application Routes</h2>
+<p class="lede">The Next.js app router hosts both the admin panel and the REST API.</p>
+
+<h3>7.1 <code>src/app/(payload)/</code> — admin &amp; API</h3>
+<table class="data-table">
+<thead><tr><th>File</th><th>Purpose</th></tr></thead>
+<tbody>
+<tr><td><code>layout.tsx</code></td><td>Payload <code>RootLayout</code> with server functions + import map (auto-generated)</td></tr>
+<tr><td><code>admin/importMap.js</code></td><td>Client-side component map for admin custom fields (auto-generated)</td></tr>
+<tr><td><code>admin/[[...segments]]/page.tsx</code></td><td>Renders the admin dashboard at <code>/admin</code> (catch-all)</td></tr>
+<tr><td><code>admin/[[...segments]]/not-found.tsx</code></td><td>Admin 404 fallback</td></tr>
+<tr><td><code>api/[...slug]/route.ts</code></td><td>Catch-all REST handlers — <code>GET / POST / DELETE / PATCH / PUT / OPTIONS</code> via <code>REST_*</code> from <code>@payloadcms/next/routes</code></td></tr>
+</tbody>
+</table>
+
+<h3>7.2 <code>src/app/(frontend)/</code> — landing page</h3>
+<p>Renders a branded landing page at <code>/</code> linking to <code>/admin</code> and the five public APIs (<code>/api/news</code>, <code>/api/leaders</code>, <code>/api/companies</code>, <code>/api/countries</code>, <code>/api/media</code>). <code>globals.css</code> defines the navy/gold brand tokens (<code>--navy #013f5c</code>, <code>--blue #0181bb</code>, <code>--gold #fff200</code>).</p>
+</section>
+
+<section id="sec-8" class="chapter page-break">
+<h2>8. Docker &amp; Deployment</h2>
+
+<h3>8.1 docker-compose.yml services</h3>
+<table class="data-table">
+<thead><tr><th>Service</th><th>Image / Build</th><th>Purpose</th><th>Volumes / Ports</th></tr></thead>
+<tbody>
+<tr><td><code>db</code></td><td><code>postgres:16-alpine</code></td><td>PostgreSQL, user <code>lake</code>, DB <code>lakegroup_cms</code>, pg_isready healthcheck (5s interval)</td><td><code>db-data:/var/lib/postgresql/data</code></td></tr>
+<tr><td><code>migrate</code></td><td>build target <code>builder</code></td><td>One-shot schema apply: <code>npx payload migrate</code>; runs from builder image (runtime image lacks node_modules/.bin)</td><td>—</td></tr>
+<tr><td><code>cms</code></td><td>build (default target)</td><td>The CMS server; waits for healthy <code>db</code>; env: DB URI, secret, CORS, push flag</td><td><code>3000:3000</code> · <code>media-data:/app/media</code></td></tr>
+</tbody>
+</table>
+<p><strong>Volumes:</strong> <code>db-data</code> (Postgres data) and <code>media-data</code> (uploads) — both survive container restarts/recreates.</p>
+
+<h3>8.2 Dockerfile stages</h3>
+<table class="data-table">
+<thead><tr><th>Stage</th><th>Base</th><th>What happens</th></tr></thead>
+<tbody>
+<tr><td><code>base</code></td><td><code>node:20-alpine</code></td><td>Adds <code>libc6-compat</code>; WORKDIR <code>/app</code></td></tr>
+<tr><td><code>deps</code></td><td>base</td><td><code>npm ci</code> from package.json + lockfile</td></tr>
+<tr><td><code>builder</code></td><td>base</td><td>Copies deps + source; sets <code>DATABASE_URI</code> arg (build-time only) and dummy secret; <code>npm run build</code></td></tr>
+<tr><td><code>runner</code></td><td>base</td><td>Non-root <code>nextjs</code> user, <code>/app/media</code> owned by it; copies <code>.next/standalone</code>, <code>.next/static</code>, <code>public</code>; <code>CMD ["node", "server.js"]</code></td></tr>
+</tbody>
+</table>
+
+<h3>8.3 Quick start</h3>
+<pre class="code-block"># Local dev (Postgres in Docker, CMS on host)
+cd backend
+npm install
+cp .env.example .env            # set DATABASE_URI + PAYLOAD_SECRET
+docker compose up -d db         # start only Postgres
+npm run dev                     # http://localhost:3000/admin
+
+# Production (company servers)
+cd backend
+cp .env.example .env            # set PAYLOAD_SECRET, POSTGRES_PASSWORD, CORS_ORIGINS
+docker compose up -d --build    # migrate + cms + db
+</pre>
+<p>First visit to <code>/admin</code> shows a "create first user" screen — that becomes the admin account. Data survives restarts: Postgres in <code>db-data</code>, uploads in <code>media-data</code>.</p>
+</section>
+
+<section id="sec-9" class="chapter page-break">
+<h2>9. Environment Variables</h2>
+<p class="lede">All variables come from <code>.env.example</code> → copy to <code>.env</code>. Never commit the real <code>.env</code>.</p>
+<table class="data-table">
+<thead><tr><th>Variable</th><th>Default</th><th>Purpose</th></tr></thead>
+<tbody>
+<tr><td><code>DATABASE_URI</code></td><td><code>postgres://lake:lake_change_me@localhost:5432/lakegroup_cms</code></td><td>Postgres connection string (Docker: host <code>db</code> instead of localhost)</td></tr>
+<tr><td><code>PAYLOAD_SECRET</code></td><td><code>change_me_…</code></td><td>Signs auth tokens / encrypts payloads. Generate: <code>openssl rand -base64 48</code></td></tr>
+<tr><td><code>PAYLOAD_PUBLIC_SERVER_URL</code></td><td><code>http://localhost:3000</code></td><td>Public URL for admin redirects &amp; absolute links</td></tr>
+<tr><td><code>CORS_ORIGINS</code></td><td><em>empty</em></td><td>Comma-separated browser origins allowed to call the REST API (the static site origin)</td></tr>
+<tr><td><code>CSRF_ORIGINS</code></td><td><em>empty</em></td><td>Comma-separated origins allowed to submit requests</td></tr>
+<tr><td><code>PAYLOAD_PUSH</code></td><td><code>false</code></td><td>Force schema auto-create/update on boot (first production boot before migrations)</td></tr>
+<tr><td><code>POSTGRES_PASSWORD</code></td><td><code>lake_change_me</code></td><td>Docker Compose only — password for the bundled Postgres container</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="sec-10" class="chapter page-break">
+<h2>10. Seeding Scripts</h2>
+<p class="lede">Three scripts migrate the static site's existing content into the CMS. Located in <code>backend/scripts/</code>.</p>
+
+<h3>10.1 <code>site-data.ts</code> — pure extraction</h3>
+<p>No Payload imports, so it can run without a database. Walks up from <code>cwd</code> to find the repo root (the folder containing <code>assets/news-data.js</code>).</p>
+<table class="data-table">
+<thead><tr><th>Function</th><th>Reads from</th><th>Produces</th></tr></thead>
+<tbody>
+<tr><td><code>loadNews()</code></td><td><code>assets/news-data.js</code> → <code>window.LAKE_NEWS</code></td><td><code>NewsSeed[]</code> — legacyId, title, slug (slugified, deduped), date (parsed), category, excerpt, bannerImage, images, videoUrl, paragraphs</td></tr>
+<tr><td><code>loadCountries()</code></td><td><code>assets/africa-network-map.js</code> → <code>COUNTRY_META</code> (regex-parsed)</td><td><code>CountrySeed[]</code> — key, name, ISO code, lat/lng, zoom, isHeadquarters (TZ)</td></tr>
+<tr><td><code>loadLeaders()</code></td><td><code>leadership-*.html</code> profiles (+ order/featured from <code>leadership.html</code>)</td><td><code>LeaderSeed[]</code> — slug, name, role, unit, lede, bio paragraphs, quote, mandate, facts, photo, isLogo, featured, sortOrder</td></tr>
+<tr><td><code>findRepoRoot / assetPath / exists</code></td><td>—</td><td>Path helpers (strips query strings, resolves relative assets, skips external URLs)</td></tr>
+<tr><td><code>parseSiteDate / slugify / mimeFor / mediaName</code></td><td>—</td><td>Format helpers ("15 Feb, 2026" → ISO; mime lookup; basename)</td></tr>
+</tbody>
+</table>
+
+<h3>10.2 <code>seed.ts</code> — import into the DB</h3>
+<p>Run from <code>backend/</code> with <code>npm run seed</code> (requires a reachable database). <strong>Idempotent:</strong> upserts by unique keys — countries by <code>code</code>, news by <code>legacyId</code>, leaders by <code>slug</code>; re-running updates instead of duplicating.</p>
+<ul>
+<li>Media uploaded once and cached per absolute path (<code>ensureMedia</code>); failures warn and continue (best-effort).</li>
+<li>News galleries capped at 12 images per article (<code>MAX_GALLERY</code>).</li>
+<li>Unknown news categories fall back to <code>Announcements</code>; plain paragraphs are converted to Lexical rich-text state (<code>paragraphsToLexical</code>).</li>
+</ul>
+
+<h3>10.3 <code>verify-site-data.ts</code> — dry-run checks</h3>
+<p>Run with <code>npm run seed:verify</code> (no database needed). Validates the extraction against real site files and exits non-zero on failure:</p>
+<ul>
+<li>News: ≥ 30 articles, all dates parseable, slugs unique, banner paths noted if missing.</li>
+<li>Countries: ≥ 9, Tanzania is HQ, all flag SVGs exist.</li>
+<li>Leaders: ≥ 7, exactly one featured, all have name + role, photos exist (except logo entries).</li>
+</ul>
+</section>
+
+<section id="sec-11" class="chapter page-break">
+<h2>11. REST API Reference</h2>
+<p class="lede">Payload's REST API is mounted by the catch-all route at <code>/api/…</code>. Reads are public; writes require a session cookie set by <code>POST /api/users/login</code>.</p>
+
+<h3>11.1 Endpoints</h3>
+<table class="data-table">
+<thead><tr><th>Collection</th><th>List</th><th>Single</th><th>Auth</th></tr></thead>
+<tbody>
+<tr><td>News</td><td><code>GET /api/news</code></td><td><code>GET /api/news/{id}</code></td><td>write only</td></tr>
+<tr><td>Leaders</td><td><code>GET /api/leaders</code></td><td><code>GET /api/leaders/{id}</code></td><td>write only</td></tr>
+<tr><td>Companies</td><td><code>GET /api/companies</code></td><td><code>GET /api/companies/{id}</code></td><td>write only</td></tr>
+<tr><td>Countries</td><td><code>GET /api/countries</code></td><td><code>GET /api/countries/{id}</code></td><td>write only</td></tr>
+<tr><td>Media</td><td><code>GET /api/media</code></td><td><code>GET /api/media/{id}</code></td><td>write only</td></tr>
+<tr><td>Users</td><td><code>GET /api/users</code> (admin only)</td><td>—</td><td>admin</td></tr>
+</tbody>
+</table>
+
+<h3>11.2 Example — news feed</h3>
+<pre class="code-block">const res = await fetch('https://cms.example.com/api/news?limit=12&amp;sort=-date&amp;depth=1')
+const { docs } = await res.json()
+// docs[].title, docs[].date, docs[].category, docs[].bannerImage.url, …</pre>
+<p>Filter by status: <code>?where[status][equals]=published</code>.</p>
+
+<h3>11.3 Example — sign in (for writes)</h3>
+<pre class="code-block">// Payload sets a secure httpOnly `payload-token` cookie
+const res = await fetch('https://cms.example.com/api/users/login', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  credentials: 'include',
+  body: JSON.stringify({ email, password }),
+})
+
+await fetch(`https://cms.example.com/api/news/${id}`, {
+  method: 'PATCH',
+  credentials: 'include',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ title: 'New title' }),
+})</pre>
+</section>
+
+<section id="sec-12" class="chapter page-break">
+<h2>12. Static-Site Integration Plan</h2>
+<p class="lede">How the existing static pages and <code>dashboard.html</code> plug into the CMS (from <code>ADMIN_ROUTE_PLAN.md</code>).</p>
+
+<h3>12.1 The admin dashboard — two options</h3>
+<table class="data-table">
+<thead><tr><th>Option</th><th>Approach</th><th>Effort</th></tr></thead>
+<tbody>
+<tr><td><strong>A (recommended now)</strong></td><td>Redirect the fake <code>doLogin()</code> in <code>dashboard.html</code> to <code>https://cms.example.com/admin</code>. Zero frontend work; the content team gets Payload's battle-tested admin (search, filters, drafts, uploads).</td><td>Minimal</td></tr>
+<tr><td><strong>B (later phase)</strong></td><td>Keep <code>dashboard.html</code> and talk to Payload's REST API directly (login + CRUD with <code>credentials: 'include'</code>). Requires <code>CORS_ORIGINS</code> to include the dashboard origin.</td><td>Medium</td></tr>
+</tbody>
+</table>
+
+<h3>12.2 Page wiring (phase 2)</h3>
+<table class="data-table">
+<thead><tr><th>Page</th><th>Endpoint</th></tr></thead>
+<tbody>
+<tr><td><code>news.html</code></td><td><code>GET /api/news?sort=-date&amp;depth=1</code></td></tr>
+<tr><td><code>news-article.html</code></td><td><code>GET /api/news/{id}</code> (by slug)</td></tr>
+<tr><td><code>leadership.html</code></td><td><code>GET /api/leaders?sort=sortOrder&amp;depth=1</code></td></tr>
+<tr><td><code>leadership-*.html</code></td><td><code>GET /api/leaders?where[slug][equals]=…</code></td></tr>
+<tr><td><code>africa-network.html</code></td><td><code>GET /api/countries</code> + <code>GET /api/companies</code></td></tr>
+<tr><td>Megamenu</td><td><code>GET /api/companies?sort=sortOrder</code></td></tr>
+</tbody>
+</table>
+<p>Strategy: keep the static HTML shell; swap the hardcoded JS globals (<code>window.LAKE_NEWS</code>, <code>COUNTRY_META</code>) for <code>fetch</code> calls, collection-by-collection — News first as the proof of concept.</p>
+</section>
+
+<section id="sec-13" class="chapter page-break">
+<h2>13. Useful Commands</h2>
+<table class="data-table">
+<thead><tr><th>Command</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td><code>npm install</code></td><td>Install dependencies (from <code>backend/</code>)</td></tr>
+<tr><td><code>npm run dev</code></td><td>Start dev server → <code>http://localhost:3000</code></td></tr>
+<tr><td><code>docker compose up -d db</code></td><td>Start only Postgres for local dev</td></tr>
+<tr><td><code>docker compose up -d --build</code></td><td>Build + start full stack (db → migrate → cms)</td></tr>
+<tr><td><code>docker compose run --rm migrate</code></td><td>Apply DB schema migrations manually</td></tr>
+<tr><td><code>npm run generate:types</code></td><td>Regenerate <code>src/payload-types.ts</code> from collections</td></tr>
+<tr><td><code>npm run generate:importmap</code></td><td>Regenerate the admin import map</td></tr>
+<tr><td><code>npm run seed:verify</code></td><td>Dry-run extraction checks (no DB)</td></tr>
+<tr><td><code>npm run seed</code></td><td>Import static-site content into the CMS (idempotent)</td></tr>
+<tr><td><code>npx payload migrate</code></td><td>Create/apply SQL migrations</td></tr>
+<tr><td><code>npx payload create-user</code></td><td>Create an admin from the CLI</td></tr>
+<tr><td><code>npm run build / start</code></td><td>Production build / run</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="sec-14" class="chapter page-break">
+<h2>14. Security Notes &amp; Troubleshooting</h2>
+
+<h3>14.1 Security</h3>
+<ul>
+<li><strong>Writes require login</strong> — read access is public so the website can fetch content; the <code>users</code> collection is admin-only read.</li>
+<li><strong>Strong secrets:</strong> set a real <code>PAYLOAD_SECRET</code> and <code>POSTGRES_PASSWORD</code>; never commit <code>.env</code>.</li>
+<li><strong>Network placement:</strong> if only internal editors manage the CMS, put it behind the company VPN/firewall rather than a public URL.</li>
+<li><strong>CORS-locked:</strong> the REST API only accepts browser calls from origins listed in <code>CORS_ORIGINS</code>.</li>
+<li><strong>Non-root container:</strong> the Docker runtime runs as the unprivileged <code>nextjs</code> user.</li>
+</ul>
+
+<h3>14.2 Troubleshooting</h3>
+<table class="data-table">
+<thead><tr><th>Symptom</th><th>Likely cause / fix</th></tr></thead>
+<tbody>
+<tr><td><code>DATABASE_URI</code> connect errors in dev</td><td>Postgres not running → <code>docker compose up -d db</code>; or host should be <code>localhost</code>, not <code>db</code></td></tr>
+<tr><td>Schema missing in production boot</td><td>Run <code>docker compose run --rm migrate</code>; or set <code>PAYLOAD_PUSH=true</code> once for first boot</td></tr>
+<tr><td>Browser fetch blocked from the site</td><td>Add the site origin to <code>CORS_ORIGINS</code> (and <code>CSRF_ORIGINS</code> for writes)</td></tr>
+<tr><td><code>PAYLOAD_SECRET</code> error on compose up</td><td>Missing in <code>.env</code> — generate with <code>openssl rand -base64 48</code></td></tr>
+<tr><td>Uploads lost after container recreate</td><td>Should not happen — <code>media-data</code> volume persists <code>/app/media</code>; verify volume exists with <code>docker volume ls</code></td></tr>
+<tr><td><code>seed</code> finds wrong repo root</td><td>Run from <code>backend/</code>; <code>findRepoRoot</code> walks up to the folder containing <code>assets/news-data.js</code></td></tr>
+<tr><td>Seed skips a leader/news item</td><td>Run <code>npm run seed:verify</code> first; check output for missing banners/photos (skipped gracefully)</td></tr>
+</tbody>
+</table>
+
+<div class="note"><strong>Related docs:</strong> <code>docs/Lake_Group_CMS_Backend_Documentation.docx</code> (Word version of this guide) · <code>docs/developer-guide.html</code> (the static-site developer guide) · <code>backend/README.md</code> (quick start) · <code>backend/ADMIN_ROUTE_PLAN.md</code> (wiring plan).</div>
+</section>
+
+</body>
+</html>

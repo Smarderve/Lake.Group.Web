@@ -1,1 +1,9 @@
 node_modules
+
+# Local caches and workspace state
+.freebuff/
+archive/_tmp/
+backend/.env
+backend/.next/
+backend/.pgdata/
+scripts/_chrome_profile*
