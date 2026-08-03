@@ -94,12 +94,14 @@
 
 .ose-text { position: relative; z-index: 5; text-align: center; max-width: 680px; padding: 1.5rem; }
 .ose-eyebrow {
-  font-size: 10px; font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase;
+  font-size: clamp(11px, 2.4vw, 13px); font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase;
   color: var(--yellow); display: block; margin-bottom: 1.1rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
   opacity: 0; transform: translateY(8px); transition: opacity 0.9s ease 0.4s, transform 0.9s ease 0.4s;
 }
 .ose-display {
   font-family: var(--font-display); font-weight: 700; line-height: 1.12; color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
   opacity: 0; transform: translateY(12px); transition: opacity 1.1s ease 0.7s, transform 1.1s ease 0.7s;
 }
 .ose-display em { color: var(--yellow); font-style: normal; }
@@ -109,6 +111,7 @@
 .ose-body {
   font-family: var(--font-body); font-weight: 300; font-size: clamp(0.95rem, 1.7vw, 1.15rem);
   line-height: 1.7; color: rgba(247,248,255,0.85); max-width: 540px; margin: 0 auto;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
   opacity: 0; transform: translateY(8px); transition: opacity 1.1s ease 0.9s, transform 1.1s ease 0.9s;
 }
 .ose-body.ose-small { font-size: clamp(0.85rem, 1.5vw, 1rem); margin-top: 0.4rem; }
@@ -123,7 +126,7 @@
 
 .ose-label {
   position: absolute; bottom: 1.8rem; left: 50%; transform: translateX(-50%); z-index: 6;
-  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,242,0,0.6);
+  font-size: clamp(11px, 2.2vw, 12px); letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,242,0,0.6);
   white-space: nowrap; opacity: 0; transition: opacity 0.9s ease 1.2s;
 }
 .ose-scene.ose-active .ose-label { opacity: 1; }
@@ -143,7 +146,7 @@
 
 .ose-skip-hint {
   position: absolute; top: 1.8rem; left: 2rem; z-index: 20;
-  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,242,0,0.5);
+  font-size: clamp(11px, 2.4vw, 12px); letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,242,0,0.5);
   background: none; border: none; cursor: pointer; font-family: inherit;
 }
 .ose-skip-hint:hover { color: var(--yellow); }
@@ -156,18 +159,25 @@
   opacity: 0; pointer-events: none; transition: opacity 1.6s ease;
 }
 .ose-ending.ose-show { opacity: 1; pointer-events: auto; }
-.ose-ending-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(255,242,0,0.7); }
+.ose-ending-eyebrow { font-size: clamp(11px, 2.4vw, 13px); font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(255,242,0,0.7); }
 .ose-ending-quote { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.3rem, 3vw, 2.1rem); color: #fff; line-height: 1.3; max-width: 640px; }
 .ose-ending-stats { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; margin-top: 0.3rem; }
 .ose-stat { text-align: center; }
 .ose-stat-num { font-family: var(--font-display); font-size: 1.7rem; color: var(--yellow); }
-.ose-stat-lbl { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(247,248,255,0.55); margin-top: 2px; }
+.ose-stat-lbl { font-size: clamp(11px, 2.2vw, 12px); letter-spacing: 0.12em; text-transform: uppercase; color: rgba(247,248,255,0.55); margin-top: 2px; }
 .ose-replay {
   margin-top: 0.8rem; padding: 0.6rem 1.8rem; border: 1px solid rgba(255,242,0,0.45); background: transparent;
-  color: rgba(255,242,0,0.85); font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,242,0,0.85); font-size: clamp(11px, 2.4vw, 12px); font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
   cursor: pointer; border-radius: 2px; transition: border-color 0.3s, color 0.3s, background 0.3s; font-family: inherit;
 }
 .ose-replay:hover { border-color: var(--yellow); color: var(--blue3); background: var(--yellow); }
+
+/* Accessibility: disable text-shadows for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .ose-eyebrow, .ose-display, .ose-body {
+    text-shadow: none !important;
+  }
+}
 </style>
 <script type="application/ld+json">
 {
@@ -200,7 +210,8 @@
   <link rel="stylesheet" href="assets/skeleton.css?v=4">
 </head><body>
   <script src="assets/skeleton.js?v=4"></script>
-<nav class="site-nav" dir="ltr">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<nav class="site-nav" dir="ltr" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
       <img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group" width="180" height="48" decoding="async">
@@ -381,7 +392,7 @@
 
 
 <div class="page-wrapper">
-<section class="page-hero">
+<main id="main-content"><section class="page-hero">
   <div class="hero-media" style="background-image:url('assets/images/group/ops/depot-aerial.jpg?v=80')" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container" style="position:relative;z-index:2">
@@ -396,7 +407,7 @@
   <div class="ose-stage" id="ose-stage">
 
     <div class="ose-scene" id="ose-s1">
-      <div class="ose-photo-bg"><img class="ose-photo" src="lake-story-assets/scene1.jpg" alt="Lake Oil storage terminal"></div>
+      <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/our-story/scene1.jpg" alt="Lake Oil storage terminal"></div>
       <div class="ose-tint ose-tint-dark"></div>
       <div class="ose-text">
         <span class="ose-eyebrow" data-i18n="ose.s1.eyebrow">Dar es Salaam, Tanzania</span>
@@ -416,17 +427,17 @@
     </div>
 
     <div class="ose-scene" id="ose-s3">
-      <div class="ose-photo-bg"><img class="ose-photo" src="lake-story-assets/scene3.jpg" alt="Lake Trans fleet of trucks"></div>
+      <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/our-story/scene3.jpg" alt="Lake Trans fleet of trucks"></div>
       <div class="ose-tint ose-tint-navy"></div>
       <div class="ose-text">
         <span class="ose-eyebrow" data-i18n="ose.s3.eyebrow">from one truck</span>
-        <h2 class="ose-display ose-lg" data-i18n="ose.s3.title" data-i18n-html="">to a fleet of<br><em>750+.</em></h2>
+        <h2 class="ose-display ose-lg" data-i18n="ose.s3.title" data-i18n-html="">to a fleet of<br><em>1,200+</em></h2>
       </div>
       <p class="ose-label" data-i18n="ose.s3.label">Lake Trans: bulk haulage across East Africa</p>
     </div>
 
     <div class="ose-scene" id="ose-s4">
-      <div class="ose-photo-bg"><img class="ose-photo" src="lake-story-assets/scene4.jpg" alt="Lake Gas LPG cylinders"></div>
+      <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/our-story/scene4.jpg" alt="Lake Gas LPG cylinders"></div>
       <div class="ose-tint ose-tint-gold"></div>
       <div class="ose-text">
         <span class="ose-eyebrow" data-i18n="ose.s4.eyebrow">and along the way</span>
@@ -447,11 +458,11 @@
     </div>
 
     <div class="ose-scene" id="ose-s6">
-      <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/leadership/group-event-2018.jpg" alt="Lake Group leadership team"></div>
+      <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/leadership/annual-event.jpg" alt="Lake Group annual team event"></div>
       <div class="ose-tint ose-tint-navy"></div>
       <div class="ose-text">
         <div class="ose-line"></div>
-        <p class="ose-body" data-i18n="ose.s6.body">Every depot, every truck, every cylinder is run by people. 30,000+ of them, from 21 nationalities, across 8 countries. That's the part no spreadsheet can capture.</p>
+        <p class="ose-body" data-i18n="ose.s6.body">Every depot, every truck, every cylinder is run by people. 30,000+ of them, from 21 nationalities, across 9 countries. That's the part no spreadsheet can capture.</p>
       </div>
       <p class="ose-label" data-i18n="ose.s6.label">our team, our story</p>
     </div>
@@ -461,7 +472,7 @@
       <div class="ose-tint ose-tint-gold"></div>
       <div class="ose-text">
         <span class="ose-eyebrow" data-i18n="ose.s7.eyebrow">today</span>
-        <h2 class="ose-display ose-lg" data-i18n="ose.s7.title" data-i18n-html="">across <em>8 countries</em><br>and counting.</h2>
+        <h2 class="ose-display ose-lg" data-i18n="ose.s7.title" data-i18n-html="">across <em>9 countries</em><br>and counting.</h2>
         <div class="ose-line"></div>
         <p class="ose-body ose-small" data-i18n="ose.s7.body">Tanzania &middot; Kenya &middot; Zambia &middot; Rwanda &middot; Burundi &middot; DR Congo &middot; Ethiopia &middot; Mozambique</p>
       </div>
@@ -483,7 +494,7 @@
       <h3 class="ose-ending-quote" data-i18n="ose.ending.quote">"From a single fuel outlet to one of East Africa's largest energy and industrial conglomerates."</h3>
       <div class="ose-ending-stats">
         <div class="ose-stat"><div class="ose-stat-num" data-i18n-number data-number="30,000+">30,000+</div><div class="ose-stat-lbl" data-i18n="ose.ending.employees">Employees</div></div>
-        <div class="ose-stat"><div class="ose-stat-num" data-i18n-number data-number="750+">750+</div><div class="ose-stat-lbl" data-i18n="ose.ending.trucks">Trucks</div></div>
+        <div class="ose-stat"><div class="ose-stat-num" data-i18n-number data-number="1,200+">1,200+</div><div class="ose-stat-lbl" data-i18n="ose.ending.trucks">Trucks</div></div>
         <div class="ose-stat"><div class="ose-stat-num" data-i18n-number data-number="152">152</div><div class="ose-stat-lbl" data-i18n="ose.ending.stations">Fuel Stations</div></div>
         <div class="ose-stat"><div class="ose-stat-num" data-i18n-number data-number="8">8</div><div class="ose-stat-lbl" data-i18n="ose.ending.countries">Countries</div></div>
       </div>
@@ -503,7 +514,7 @@
         <hr class="fs-rule" style="max-width:220px;margin-bottom:var(--sp-6)">
         <p data-i18n="about.7" data-i18n-html="">Lake Group was established in 2006 with the opening of its flagship company, Lake Oil: a humble beginning in Dar es Salaam, Tanzania.</p>
         <p data-i18n="about.9" style="margin-top:12px">Since inception, the growth story of Lake Group has been vertical, becoming one of the fastest-growing energy trading, logistics and construction supply material conglomerates in East and Central Africa and the Middle East.</p>
-        <p data-i18n="about.10" data-i18n-html="" style="margin-top:12px">Today, Lake Group distributes petroleum products in 8 countries, owns storage facilities across the region, manufactures lubricants and ready-mix concrete, and operates a fleet of more than <strong data-i18n="about.11">1,200 trucks</strong>.</p>
+        <p data-i18n="about.10" data-i18n-html="" style="margin-top:12px">Today, Lake Group distributes petroleum products in 9 countries, owns storage facilities across the region, manufactures lubricants and ready-mix concrete, and operates a fleet of more than <strong data-i18n="about.11">1,200 trucks</strong>.</p>
         <p data-i18n="about.12" data-i18n-html="" style="margin-top:12px">With a diverse mix of <strong data-i18n="about.13">21 nationalities</strong> and a total workforce of <strong data-i18n="about.14">30,000+ employees</strong>, Lake Group continues to grow with purpose.</p>
         <div style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap">
           <a data-i18n="about.15" href="history.html" class="btn btn-primary">Our Full History</a>
@@ -516,7 +527,7 @@
             <span data-i18n="about.17" class="fs-stat-label">Employees</span>
           </div>
           <div class="fs-stat">
-            <span class="fs-stat-no" data-count="750" data-suffix="+">750+</span>
+            <span class="fs-stat-no" data-count="1200" data-suffix="+">1,200+</span>
             <span data-i18n="about.18" class="fs-stat-label">Trucks</span>
           </div>
           <div class="fs-stat">
@@ -561,7 +572,7 @@
   </div>
 </section>
 </div>
-<footer class="site-footer">
+<footer class="site-footer" role="contentinfo">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
@@ -602,14 +613,14 @@
         <li><a href="contact.html" data-i18n="footer.contact">Contact Us</a></li>
       </ul>
       <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:5px">
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/tz.svg" alt="" class="flag-icon" width="20" height="15"> Tanzania</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/ke.svg" alt="" class="flag-icon" width="20" height="15"> Kenya</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/zm.svg" alt="" class="flag-icon" width="20" height="15"> Zambia</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/rw.svg" alt="" class="flag-icon" width="20" height="15"> Rwanda</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/bi.svg" alt="" class="flag-icon" width="20" height="15"> Burundi</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/cd.svg" alt="" class="flag-icon" width="20" height="15"> DR Congo</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/et.svg" alt="" class="flag-icon" width="20" height="15"> Ethiopia</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/mz.svg" alt="" class="flag-icon" width="20" height="15"> Mozambique</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/tz.svg" alt="Tanzania flag" class="flag-icon" width="20" height="15"> Tanzania</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/ke.svg" alt="Kenya flag" class="flag-icon" width="20" height="15"> Kenya</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/zm.svg" alt="Zambia flag" class="flag-icon" width="20" height="15"> Zambia</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/rw.svg" alt="Rwanda flag" class="flag-icon" width="20" height="15"> Rwanda</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/bi.svg" alt="Burundi flag" class="flag-icon" width="20" height="15"> Burundi</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/cd.svg" alt="DR Congo flag" class="flag-icon" width="20" height="15"> DR Congo</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/et.svg" alt="Ethiopia flag" class="flag-icon" width="20" height="15"> Ethiopia</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/mz.svg" alt="Mozambique flag" class="flag-icon" width="20" height="15"> Mozambique</span>
       </div></div>
     </div>
     <div class="footer-bottom">
@@ -622,7 +633,7 @@
 
 
 
-<div id="chat-widget">
+<div id="chat-widget" class="la-widget">
   <div id="chat-box">
     <div id="chat-head"><h4 data-i18n="chat.title">Lake Group Assistant</h4><p data-i18n="chat.sub">Ask us anything</p></div>
     <div id="chat-messages"><div class="msg msg-bot" data-i18n="chat.hello">Hello! How can I help you today?</div></div>

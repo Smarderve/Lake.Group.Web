@@ -1,5 +1,6 @@
 const docx = require("docx");
 const fs = require("fs");
+const path = require("path");
 
 const {
   Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell,
@@ -754,7 +755,7 @@ async function main() {
   const finScale = [
     ["Annual Revenue (2017, Forbes)", "$1 billion (reported by Forbes Africa in 2017 feature)"],
     ["Current Revenue Estimate", "Not publicly disclosed; group has diversified significantly since 2017"],
-    ["Employees (Direct & Indirect)", "30,000+ (company website); 4,600+ (direct employment, industry sources)"],
+    ["Employees (Direct & Indirect)", "30,000+ (direct and indirect employment)"],
     ["Tanker Truck Fleet", "1,200+ (company website); 700+ (industry sources 2023-2025)"],
     ["Retail Fuel Stations", "152+"],
     ["Countries of Operation", "10+ across East, Central & Southern Africa, and UAE"],
@@ -1020,7 +1021,9 @@ async function main() {
   });
 
   const buffer = await Packer.toBuffer(doc);
-  const outPath = "Lake_Group_Company_Profile.docx";
+  const outDir = path.join(__dirname, "..", "docs");
+  fs.mkdirSync(outDir, { recursive: true });
+  const outPath = path.join(outDir, "Lake_Group_Company_Profile.docx");
   fs.writeFileSync(outPath, buffer);
   console.log("✅ DOCX file generated:", outPath);
   console.log("   File size:", (buffer.length / 1024).toFixed(1), "KB");

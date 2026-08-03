@@ -24,6 +24,7 @@ const SCAN_DIRS = [
 const SKIP_DIR_NAMES = new Set([
   'node_modules',
   'lake-3d',
+  'archive',
   '_scraped',
   '_qa_screens',
   '.git',

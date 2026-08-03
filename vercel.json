@@ -13,7 +13,8 @@
     { "source": "/leadership-sibtian-ansari.html", "destination": "/leadership-dileep-kumar.html", "permanent": true },
     { "source": "/leadership-vivek-choudhary.html", "destination": "/leadership-sridhar-mani.html", "permanent": true },
     { "source": "/leadership-bhaskar-shetty.html", "destination": "/leadership-mohammed-khalid.html", "permanent": true },
-    { "source": "/leadership-pankaj-kumar.html", "destination": "/leadership-bibhuti-singh.html", "permanent": true }
+    { "source": "/leadership-pankaj-kumar.html", "destination": "/leadership-bibhuti-singh.html", "permanent": true },
+    { "source": "/lake-story-assets/:path*", "destination": "/assets/images/our-story/:path*", "permanent": true }
   ],
   "headers": [
     {

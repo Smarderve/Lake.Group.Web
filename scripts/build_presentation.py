@@ -762,7 +762,7 @@ CACHE_MATRIX = [
     ("network-first-asset", "Network-first", "news-data.js, hero-3d.bundle.js"),
     ("cache-first-asset", "Cache-first", "/assets/fonts/, /assets/vendor/"),
     ("cache-first-image", "Cache-first + LRU (150)", "Most /assets/images/"),
-    ("swr-image", "Stale-while-revalidate", "n-slider, lake-story-assets, products/"),
+    ("swr-image", "Stale-while-revalidate", "n-slider, our-story, products/"),
     ("swr-asset", "Stale-while-revalidate", "site.js, i18n, assistant, manifest"),
 ]
 

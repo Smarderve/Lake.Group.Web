@@ -290,13 +290,13 @@ const EDITS = {
   },
   'media_center.18': { old: 'Oct 1, 2024', en: 'June 2014', fr: 'Juin 2014', sw: 'Juni 2014' },
   'media_center.19': {
-    old: 'Lake Group Workforce Exceeds 4,600 Employees Across 8 Countries',
+    old: 'Lake Group Workforce Exceeds 30,000 Employees Across 9 Countries',
     en: "Lake Gas Launches Africa's First Composite LPG Cylinders",
     fr: "Lake Gas lance les premières bouteilles de GPL composites d'Afrique",
     sw: 'Lake Gas Yazindua Mitungi ya Kwanza ya LPG ya Komposi Afrika'
   },
   'media_center.20': {
-    old: 'Lake Group has reported continued workforce growth, now employing over 4,600 professionals across 20+ subsidiaries in 8 countries, representing 21 nationalities.',
+    old: 'Lake Group has reported continued workforce growth, now employing over 30,000 professionals across 20+ subsidiaries in 9 countries, representing 21 nationalities.',
     en: 'Lake Gas introduced composite LPG cylinders - non-explosive, non-corrosive, lightweight and translucent - at a launch event in Dar es Salaam on 18 June 2014, a first for the African market.',
     fr: 'Lake Gas a présenté les bouteilles de GPL composites - non explosives, anticorrosion, légères et translucides - lors d\'un lancement à Dar es Salaam le 18 juin 2014, une première sur le marché africain.',
     sw: 'Lake Gas ilizindua mitungi ya LPG ya komposi - isiyolipuka, isiyoshika kutu, nyepesi na inayopitisha mwanga - katika hafla ya uzinduzi Dar es Salaam tarehe 18 Juni 2014, ya kwanza katika soko la Afrika.'

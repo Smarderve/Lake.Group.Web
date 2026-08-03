@@ -58,7 +58,7 @@ const NEW_KEYS = {
     'services.breadcrumb': 'Subsidiaries',
     'services.hero.lede': '17 independent companies across five divisions - Lake Energies, Manufacturing, Logistics, Real Estate and Agro Processing.',
     'services.intro': 'Every Lake Group company now has its own dedicated page. Browse by division below, or use the "Subsidiaries" menu at the top of any page.',
-    'services.desc.lakeOil': 'Top 5 petroleum distributor in Tanzania. Retail stations, bulk supply and storage across 8 countries.',
+    'services.desc.lakeOil': 'Top 5 petroleum distributor in Tanzania. Retail stations, bulk supply and storage across 9 countries.',
     'services.desc.lakeAviation': "Lake Group's aviation services division.",
     'services.desc.lakeGas': 'LPG bottling and distribution with cylinders for domestic and commercial use across 6 countries.',
     'services.desc.lakeLubes': 'Manufactures and distributes automotive, industrial and specialty lubricants in 5 countries.',
@@ -194,7 +194,7 @@ const NEW_KEYS = {
     'services.breadcrumb': 'Filiales',
     'services.hero.lede': '17 sociétés indépendantes dans cinq divisions - Lake Energies, Fabrication, Logistique, Immobilier et Agroalimentaire.',
     'services.intro': 'Chaque société Lake Group a désormais sa propre page. Parcourez par division ci-dessous, ou utilisez le menu « Filiales » en haut de chaque page.',
-    'services.desc.lakeOil': 'Distributeur pétrolier parmi les 5 premiers en Tanzanie. Stations, vrac et stockage dans 8 pays.',
+    'services.desc.lakeOil': 'Distributeur pétrolier parmi les 5 premiers en Tanzanie. Stations, vrac et stockage dans 9 pays.',
     'services.desc.lakeAviation': 'Division des services aéronautiques de Lake Group.',
     'services.desc.lakeGas': 'Embouteillage et distribution de GPL pour usages domestiques et commerciaux dans 6 pays.',
     'services.desc.lakeLubes': 'Fabrique et distribue des lubrifiants automobiles, industriels et spécialisés dans 5 pays.',
@@ -541,7 +541,7 @@ function patchServices() {
   raw = raw.replace(/<span class="svc-link">Learn more<\/span>/g, '<span class="svc-link" data-i18n="common.learnMore">Learn more</span>');
 
   const descs = [
-    ['Top 5 petroleum distributor in Tanzania. Retail stations, bulk supply and storage across 8 countries.', 'services.desc.lakeOil'],
+    ['Top 5 petroleum distributor in Tanzania. Retail stations, bulk supply and storage across 9 countries.', 'services.desc.lakeOil'],
     ["Lake Group's aviation services division.", 'services.desc.lakeAviation'],
     ['LPG bottling and distribution with cylinders for domestic and commercial use across 6 countries.', 'services.desc.lakeGas'],
     ['Manufactures and distributes automotive, industrial and specialty lubricants in 5 countries.', 'services.desc.lakeLubes'],

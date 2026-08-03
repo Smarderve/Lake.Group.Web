@@ -17,21 +17,21 @@ PHRASES_FR = {
         "Bienvenue chez un pionnier diversifié de la commercialisation de carburant, du transport, de l'embouteillage de GPL, de la fabrication de bouteilles et de la production de béton. Avec notre équipe expérimentée dans toutes nos unités d'affaires, nous sommes pleinement équipés pour répondre aux exigences du marché mondial.",
     "With a team of experienced engineers and business professionals across our units, Lake Group is fully geared to meet the demands of the global marketplace, from fuel marketing and haulage to LPG, steel, lubricants and concrete.":
         "Avec une équipe d'ingénieurs expérimentés et de professionnels dans toutes nos unités, Lake Group est pleinement équipé pour répondre aux exigences du marché mondial, de la commercialisation de carburant et du transport au GPL, à l'acier, aux lubrifiants et au béton.",
-    "One of Africa's fastest-growing energy, logistics & construction conglomerates, operating across 8 countries with 4,600+ employees and 700+ trucks on the road.":
-        "L'un des conglomérats d'énergie, de logistique et de construction à la croissance la plus rapide d'Afrique, présent dans 8 pays avec plus de 4 600 employés et plus de 700 camions sur les routes.",
+    "One of Africa's fastest-growing energy, logistics & construction conglomerates, operating across 9 countries with 30,000+ employees and 1,200+ trucks on the road.":
+        "L'un des conglomérats d'énergie, de logistique et de construction à la croissance la plus rapide d'Afrique, présent dans 9 pays avec plus de 4 600 employés et plus de 700 camions sur les routes.",
     "Founded by CEO & Chairman Ally Edha Awadh in 2006 at just 27 years old, Lake Group has grown from a single fuel outlet into one of East and Central Africa's largest energy, logistics and industrial conglomerates.":
         "Fondé par le PDG et président Ally Edha Awadh en 2006, à seulement 27 ans, Lake Group est passé d'une seule station-service à l'un des plus grands conglomérats d'énergie, de logistique et industriels d'Afrique de l'Est et centrale.",
-    "Today, with 4,600+ employees across 21 nationalities, 700+ trucks, 85+ fuel stations and 20+ subsidiaries, Lake Group powers everyday life across Tanzania, Kenya, Zambia, Rwanda, Burundi, DRC, Ethiopia and Mozambique.":
+    "Today, with 30,000+ employees across 21 nationalities, 1,200+ trucks, 85+ fuel stations and 20+ subsidiaries, Lake Group powers everyday life across Tanzania, Kenya, Zambia, Rwanda, Burundi, DRC, Ethiopia and Mozambique.":
         "Aujourd'hui, avec plus de 4 600 employés de 21 nationalités, plus de 700 camions, plus de 85 stations-service et plus de 20 filiales, Lake Group alimente la vie quotidienne en Tanzanie, au Kenya, en Zambie, au Rwanda, au Burundi, en RDC, en Éthiopie et au Mozambique.",
     "Every litre Lake Group delivers follows the same journey: refined petroleum flowing through our network to storage terminals and fuel stations across East and Central Africa.":
         "Chaque litre livré par Lake Group suit le même parcours : du pétrole raffiné qui circule dans notre réseau jusqu'aux terminaux de stockage et aux stations-service d'Afrique de l'Est et centrale.",
     "From fuel stations to steel mills, Lake Group operates across the full energy and industrial value chain of East Africa.":
         "Des stations-service aux aciéries, Lake Group est présent sur toute la chaîne de valeur énergétique et industrielle de l'Afrique de l'Est.",
-    "4,600+ jobs across 8 countries, with a strong preference for hiring and developing local talent at every level of the organisation.":
-        "Plus de 4 600 emplois dans 8 pays, avec une forte préférence pour le recrutement et le développement des talents locaux à tous les niveaux de l'organisation.",
-    "700+ truck fleet providing bulk liquid transport and regional cargo haulage across East and Central Africa.":
+    "30,000+ jobs across 9 countries, with a strong preference for hiring and developing local talent at every level of the organisation.":
+        "Plus de 4 600 emplois dans 9 pays, avec une forte préférence pour le recrutement et le développement des talents locaux à tous les niveaux de l'organisation.",
+    "1,200+ truck fleet providing bulk liquid transport and regional cargo haulage across East and Central Africa.":
         "Une flotte de plus de 700 camions assurant le transport de liquides en vrac et le transport régional de marchandises en Afrique de l'Est et centrale.",
-    "700+ truck logistics fleet for petroleum, dry cargo and cross-border haulage across East Africa.":
+    "1,200+ truck logistics fleet for petroleum, dry cargo and cross-border haulage across East Africa.":
         "Une flotte logistique de plus de 700 camions pour le pétrole, le fret sec et le transport transfrontalier en Afrique de l'Est.",
     "Lake Oil Ltd. is the flagship company of Lake Group and one of Tanzania's top 5 distributors of petroleum products. Founded in 2006, it has established a strong footprint across all of East and Central Africa.":
         "Lake Oil Ltd. est la société phare de Lake Group et l'un des 5 plus grands distributeurs de produits pétroliers de Tanzanie. Fondée en 2006, elle s'est solidement implantée dans toute l'Afrique de l'Est et centrale.",
@@ -52,21 +52,21 @@ PHRASES_PT = {
         "Bem-vindo a um pioneiro diversificado na comercialização de combustíveis, transporte, engarrafamento de GLP, fabrico de cilindros e produção de betão. Com a nossa equipa experiente em todas as unidades de negócio, estamos totalmente preparados para responder às exigências do mercado global.",
     "With a team of experienced engineers and business professionals across our units, Lake Group is fully geared to meet the demands of the global marketplace, from fuel marketing and haulage to LPG, steel, lubricants and concrete.":
         "Com uma equipa de engenheiros experientes e profissionais de negócios em todas as nossas unidades, o Lake Group está totalmente preparado para responder às exigências do mercado global, desde a comercialização de combustíveis e transporte até GLP, aço, lubrificantes e betão.",
-    "One of Africa's fastest-growing energy, logistics & construction conglomerates, operating across 8 countries with 4,600+ employees and 700+ trucks on the road.":
-        "Um dos conglomerados de energia, logística e construção que mais cresce em África, presente em 8 países com mais de 4.600 colaboradores e mais de 700 camiões em circulação.",
+    "One of Africa's fastest-growing energy, logistics & construction conglomerates, operating across 9 countries with 30,000+ employees and 1,200+ trucks on the road.":
+        "Um dos conglomerados de energia, logística e construção que mais cresce em África, presente em 9 países com mais de 4.600 colaboradores e mais de 700 camiões em circulação.",
     "Founded by CEO & Chairman Ally Edha Awadh in 2006 at just 27 years old, Lake Group has grown from a single fuel outlet into one of East and Central Africa's largest energy, logistics and industrial conglomerates.":
         "Fundado pelo CEO e Presidente Ally Edha Awadh em 2006, com apenas 27 anos, o Lake Group cresceu de um único posto de combustível para um dos maiores conglomerados de energia, logística e industriais da África Oriental e Central.",
-    "Today, with 4,600+ employees across 21 nationalities, 700+ trucks, 85+ fuel stations and 20+ subsidiaries, Lake Group powers everyday life across Tanzania, Kenya, Zambia, Rwanda, Burundi, DRC, Ethiopia and Mozambique.":
+    "Today, with 30,000+ employees across 21 nationalities, 1,200+ trucks, 85+ fuel stations and 20+ subsidiaries, Lake Group powers everyday life across Tanzania, Kenya, Zambia, Rwanda, Burundi, DRC, Ethiopia and Mozambique.":
         "Hoje, com mais de 4.600 colaboradores de 21 nacionalidades, mais de 700 camiões, mais de 85 postos de combustível e mais de 20 subsidiárias, o Lake Group impulsiona o dia a dia na Tanzânia, Quénia, Zâmbia, Ruanda, Burundi, RDC, Etiópia e Moçambique.",
     "Every litre Lake Group delivers follows the same journey: refined petroleum flowing through our network to storage terminals and fuel stations across East and Central Africa.":
         "Cada litro entregue pelo Lake Group segue o mesmo percurso: petróleo refinado a fluir pela nossa rede até terminais de armazenamento e postos de combustível em toda a África Oriental e Central.",
     "From fuel stations to steel mills, Lake Group operates across the full energy and industrial value chain of East Africa.":
         "Dos postos de combustível às siderúrgicas, o Lake Group opera em toda a cadeia de valor energética e industrial da África Oriental.",
-    "4,600+ jobs across 8 countries, with a strong preference for hiring and developing local talent at every level of the organisation.":
-        "Mais de 4.600 empregos em 8 países, com forte preferência pela contratação e desenvolvimento de talento local em todos os níveis da organização.",
-    "700+ truck fleet providing bulk liquid transport and regional cargo haulage across East and Central Africa.":
+    "30,000+ jobs across 9 countries, with a strong preference for hiring and developing local talent at every level of the organisation.":
+        "Mais de 4.600 empregos em 9 países, com forte preferência pela contratação e desenvolvimento de talento local em todos os níveis da organização.",
+    "1,200+ truck fleet providing bulk liquid transport and regional cargo haulage across East and Central Africa.":
         "Uma frota de mais de 700 camiões que assegura o transporte de líquidos a granel e o transporte regional de carga em toda a África Oriental e Central.",
-    "700+ truck logistics fleet for petroleum, dry cargo and cross-border haulage across East Africa.":
+    "1,200+ truck logistics fleet for petroleum, dry cargo and cross-border haulage across East Africa.":
         "Uma frota logística de mais de 700 camiões para petróleo, carga seca e transporte transfronteiriço na África Oriental.",
     "Lake Oil Ltd. is the flagship company of Lake Group and one of Tanzania's top 5 distributors of petroleum products. Founded in 2006, it has established a strong footprint across all of East and Central Africa.":
         "A Lake Oil Ltd. é a empresa principal do Lake Group e um dos 5 maiores distribuidores de produtos petrolíferos da Tanzânia. Fundada em 2006, estabeleceu uma forte presença em toda a África Oriental e Central.",
@@ -114,9 +114,9 @@ TERMS_FR = {
     "Ranked among the top 5 petroleum distributors in Tanzania by volume.": "Classé parmi les 5 premiers distributeurs de pétrole en Tanzanie par volume.",
     "Own Storage": "Stockage propre",
     "Strategic storage facilities in Tanzania, Kenya, Burundi and DRC.": "Installations de stockage stratégiques en Tanzanie, au Kenya, au Burundi et en RDC.",
-    "700+ Trucks": "Plus de 700 camions",
+    "1,200+ Trucks": "Plus de 700 camions",
     "Integrated logistics fleet for reliable, on-time delivery every time.": "Flotte logistique intégrée pour une livraison fiable et ponctuelle à chaque fois.",
-    "8 Countries": "8 pays",
+    "9 Countries": "9 pays",
     "Pan-African fuel supply capability across East and Central Africa.": "Capacité d'approvisionnement en carburant panafricaine en Afrique de l'Est et centrale.",
     "Request Fuel Supply Quote": "Demander un devis d'approvisionnement",
     "Find a Station": "Trouver une station",
@@ -222,8 +222,8 @@ TERMS_FR = {
     "Clean Energy for Every Kitchen": "Une énergie propre pour chaque cuisine",
     "Active corporate social responsibility across all markets, building brand equity, local goodwill and sustainable business relationships.":
         "Une responsabilité sociale active sur tous les marchés, renforçant la notoriété de la marque, la bonne volonté locale et des relations d'affaires durables.",
-    "As a major energy and logistics company operating across 8 countries, Lake Group recognises its responsibility to operate in a manner that minimises environmental impact and contributes to sustainable development across Africa.":
-        "En tant que grande entreprise d'énergie et de logistique présente dans 8 pays, Lake Group reconnaît sa responsabilité d'agir de manière à minimiser son impact environnemental et à contribuer au développement durable en Afrique.",
+    "As a major energy and logistics company operating across 9 countries, Lake Group recognises its responsibility to operate in a manner that minimises environmental impact and contributes to sustainable development across Africa.":
+        "En tant que grande entreprise d'énergie et de logistique présente dans 9 pays, Lake Group reconnaît sa responsabilité d'agir de manière à minimiser son impact environnemental et à contribuer au développement durable en Afrique.",
     "As one of East Africa's largest private employers, Lake Group takes its social and environmental responsibilities seriously. The Group regularly provides support to community development through many of its CSR activities and is one of the leaders among its peers.":
         "En tant que l'un des plus grands employeurs privés d'Afrique de l'Est, Lake Group prend au sérieux ses responsabilités sociales et environnementales. Le Groupe soutient régulièrement le développement communautaire à travers de nombreuses activités de RSE et figure parmi les leaders de son secteur.",
     "Contributing to the construction and renovation of community facilities, roads, water points, health clinics and public amenities in operational areas.":
@@ -256,8 +256,8 @@ TERMS_FR = {
     "Eight Sectors. One Vision.": "Huit secteurs. Une seule vision.",
     "Eight distinct business lines across energy, logistics, manufacturing and construction reduce single-sector risk and provide stable multi-stream revenue.":
         "Huit secteurs d'activité distincts dans l'énergie, la logistique, la fabrication et la construction réduisent le risque sectoriel unique et assurent des revenus stables et diversifiés.",
-    "From fuel stations to steel mills, eight sectors, one vision, across eight countries.":
-        "Des stations-service aux aciéries : huit secteurs, une seule vision, dans huit pays.",
+    "From fuel stations to steel mills, eight sectors, one vision, across nine countries.":
+        "Des stations-service aux aciéries : huit secteurs, une seule vision, dans neuf pays.",
     "Fuel depots, LPG terminals, truck fleets, container depots and concrete plants, all connected through our Africa network.":
         "Dépôts de carburant, terminaux GPL, flottes de camions, dépôts de conteneurs et centrales à béton, tous connectés via notre réseau africain.",
     "Energy for Africa. Responsibly.": "De l'énergie pour l'Afrique. En toute responsabilité.",
@@ -354,7 +354,7 @@ TERMS_FR = {
         "Lake Oil fournit des produits pétroliers en Tanzanie, au Kenya, en Zambie, en RDC, au Rwanda, au Burundi et en Éthiopie. Contactez admin@lakeoilgroup.com pour les tarifs.",
     "Lake Gas offers 6kg, 10kg, 15kg and 38kg cylinders for domestic and commercial use. Available in 7 countries across East & Central Africa.":
         "Lake Gas propose des bouteilles de 6 kg, 10 kg, 15 kg et 38 kg pour usage domestique et commercial. Disponible dans 7 pays d'Afrique de l'Est et centrale.",
-    "Lake Trans operates a fleet of 700+ trucks across East & Central Africa for bulk liquid haulage and general cargo.":
+    "Lake Trans operates a fleet of 1,200+ trucks across East & Central Africa for bulk liquid haulage and general cargo.":
         "Lake Trans exploite une flotte de plus de 700 camions en Afrique de l'Est et centrale pour le transport de liquides en vrac et de marchandises générales.",
     "Our headquarters: Plot 49, Mikocheni Light Industrial Area, Dar es Salaam. Tel: +255 222780510 | Email: admin@lakeoilgroup.com":
         "Notre siège : Plot 49, Mikocheni Light Industrial Area, Dar es Salaam. Tél : +255 222780510 | E-mail : admin@lakeoilgroup.com",
@@ -418,9 +418,9 @@ TERMS_FR = {
     "38 Kg Cylinder": "Bouteille de 38 kg",
     "39 real photos": "39 photos réelles",
     "4,000+ Employees Milestone": "Cap des 4 000 employés franchi",
-    "4,600+ Employees. 8 Countries. Still Growing.": "Plus de 4 600 employés. 8 pays. Toujours en croissance.",
+    "30,000+ Employees. 9 Countries. Still Growing.": "Plus de 4 600 employés. 9 pays. Toujours en croissance.",
     "6 Kg Cylinder": "Bouteille de 6 kg",
-    "8 Countries, 4,600+ Employees": "8 pays, plus de 4 600 employés",
+    "9 Countries, 30,000+ Employees": "9 pays, plus de 4 600 employés",
     "85+ Stations Across Tanzania": "Plus de 85 stations en Tanzanie",
     "<strong>39 real photos</strong> from Lake Group operations, GCCP, MERM Dubai, Lake Gas, Lake Oil & more.":
         "<strong>39 photos réelles</strong> des opérations de Lake Group, GCCP, MERM Dubaï, Lake Gas, Lake Oil et plus encore.",
@@ -550,7 +550,7 @@ TERMS_FR = {
         "Gulf Concrete and Cement Products, fournisseur leader du marché du béton prêt à l'emploi à Dar es Salaam depuis 2010.",
     "Hazmat Certified": "Certifié matières dangereuses",
     "Headquarters · 10 subsidiaries": "Siège social · 10 filiales",
-    "Heads people strategy and workforce development for Lake Oil, supporting the Group's diverse team of 4,600+ professionals across East and Central Africa.":
+    "Heads people strategy and workforce development for Lake Oil, supporting the Group's diverse team of 30,000+ professionals across East and Central Africa.":
         "Dirige la stratégie RH et le développement des effectifs pour Lake Oil, soutenant l'équipe diversifiée de plus de 4 600 professionnels du Groupe en Afrique de l'Est et centrale.",
     "Heavy-duty flatbed and cargo trucks for construction materials, steel, containers and general freight.":
         "Camions plateaux et cargo robustes pour matériaux de construction, acier, conteneurs et fret général.",
@@ -575,8 +575,8 @@ TERMS_FR = {
     "Industrial pollution zones": "Zones de pollution industrielle",
     "Inland depot serving the Zambia-Tanzania corridor": "Dépôt intérieur desservant le corridor Zambie-Tanzanie",
     "Interactive Experience": "Expérience interactive",
-    "Interactive map of Lake Group's presence across 8 countries in East and Central Africa, plus Dubai.":
-        "Carte interactive de la présence de Lake Group dans 8 pays d'Afrique de l'Est et centrale, ainsi qu'à Dubaï.",
+    "Interactive map of Lake Group's presence across 9 countries in East and Central Africa, plus Dubai.":
+        "Carte interactive de la présence de Lake Group dans 9 pays d'Afrique de l'Est et centrale, ainsi qu'à Dubaï.",
     "Invoice, Dec 2024": "Facture, déc. 2024",
     "Join our team or partner with us across Africa.": "Rejoignez notre équipe ou devenez partenaire à travers l'Afrique.",
     "Julius Nyerere Hydropower – Concrete Supply": "Hydroélectrique Julius Nyerere – Approvisionnement en béton",
@@ -621,17 +621,17 @@ TERMS_FR = {
         "Lake Group annonce son expansion au Mozambique avec un nouveau dépôt de carburant et des opérations AFICD",
     "Lake Group Gallery": "Galerie Lake Group",
     "Lake Group News": "Actualités Lake Group",
-    "Lake Group Workforce Exceeds 4,600 Employees Across 8 Countries": "L'effectif de Lake Group dépasse 4 600 employés dans 8 pays",
+    "Lake Group Workforce Exceeds 30,000 Employees Across 9 Countries": "L'effectif de Lake Group dépasse 4 600 employés dans 9 pays",
     "Lake Group continues to expand, deepening its regional footprint, investing in new technologies, and driving economic development across East and Central Africa.":
         "Lake Group continue de se développer, renforçant son empreinte régionale, investissant dans de nouvelles technologies et stimulant le développement économique en Afrique de l'Est et centrale.",
     "Lake Group expands operations into Kenya, Zambia, Burundi and Rwanda, bringing fuel, LPG and lubricants to neighbouring markets.":
         "Lake Group étend ses opérations au Kenya, en Zambie, au Burundi et au Rwanda, apportant carburant, GPL et lubrifiants aux marchés voisins.",
-    "Lake Group has demonstrated consistent and significant growth since its founding in 2006. From a single petroleum distributor in Dar es Salaam, it has grown into a diversified conglomerate operating across 8 countries with 20+ subsidiaries.":
-        "Lake Group a démontré une croissance constante et significative depuis sa création en 2006. D'un seul distributeur de pétrole à Dar es Salaam, il est devenu un conglomérat diversifié présent dans 8 pays avec plus de 20 filiales.",
+    "Lake Group has demonstrated consistent and significant growth since its founding in 2006. From a single petroleum distributor in Dar es Salaam, it has grown into a diversified conglomerate operating across 9 countries with 20+ subsidiaries.":
+        "Lake Group a démontré une croissance constante et significative depuis sa création en 2006. D'un seul distributeur de pétrole à Dar es Salaam, il est devenu un conglomérat diversifié présent dans 9 pays avec plus de 20 filiales.",
     "Lake Group has formally inaugurated its Mozambique operations, establishing Lake Oil LDA and an AFICD inland container depot to serve growing trade flows along the Beira corridor.":
         "Lake Group a officiellement inauguré ses opérations au Mozambique, établissant Lake Oil LDA et un dépôt intérieur de conteneurs AFICD pour servir les flux commerciaux croissants le long du corridor de Beira.",
-    "Lake Group has reported continued workforce growth, now employing over 4,600 professionals across 20+ subsidiaries in 8 countries, representing 21 nationalities.":
-        "Lake Group a annoncé une croissance continue de ses effectifs, employant désormais plus de 4 600 professionnels dans plus de 20 filiales et 8 pays, représentant 21 nationalités.",
+    "Lake Group has reported continued workforce growth, now employing over 30,000 professionals across 20+ subsidiaries in 9 countries, representing 21 nationalities.":
+        "Lake Group a annoncé une croissance continue de ses effectifs, employant désormais plus de 4 600 professionnels dans plus de 20 filiales et 9 pays, représentant 21 nationalités.",
     "Lake Group in Action <span class=\"g-count\">39 Photos</span>": "Lake Group en action <span class=\"g-count\">39 photos</span>",
     "Lake Group is geographically spread across every region of Tanzania and neighbouring countries of Zambia, DRC, Burundi, Rwanda and Kenya, with operations in Ethiopia, Mozambique and a major premix plant in Dubai.":
         "Lake Group est géographiquement présent dans toutes les régions de Tanzanie et des pays voisins (Zambie, RDC, Burundi, Rwanda et Kenya), avec des opérations en Éthiopie, au Mozambique et une importante centrale à béton à Dubaï.",
@@ -639,7 +639,7 @@ TERMS_FR = {
         "Lake Group offre des carrières à fort impact : vous travaillerez au sein de l'une des entreprises les plus dynamiques d'Afrique de l'Est, avec de réelles opportunités de progresser, de diriger et de faire la différence.",
     "Lake Group surpasses 4,000 employees across 20+ subsidiaries, with 21 nationalities represented in the workforce. Mozambique operations begin.":
         "Lake Group dépasse les 4 000 employés dans plus de 20 filiales, avec 21 nationalités représentées dans l'effectif. Les opérations au Mozambique débutent.",
-    "Lake Group's workforce reflects the rich diversity of the African continent, with 4,600+ professionals from 21 nationalities working together toward shared goals.":
+    "Lake Group's workforce reflects the rich diversity of the African continent, with 30,000+ professionals from 21 nationalities working together toward shared goals.":
         "L'effectif de Lake Group reflète la riche diversité du continent africain, avec plus de 4 600 professionnels de 21 nationalités travaillant ensemble vers des objectifs communs.",
     "Lake Lubes Ltd": "Lake Lubes Ltd", "Lake Lubes Ltd.": "Lake Lubes Ltd.",
     "Lake Lubes Ltd. manufactures and distributes a comprehensive range of lubricants serving automotive, industrial and marine sectors across East and Central Africa.":
@@ -652,8 +652,8 @@ TERMS_FR = {
     "Lake Oil Ltd.: Petroleum Distribution": "Lake Oil Ltd. : Distribution de pétrole",
     "Lake Oil Ltd.: Petroleum Supply Operations": "Lake Oil Ltd. : Opérations d'approvisionnement en pétrole",
     "Lake Oil Stations": "Stations Lake Oil",
-    "Lake Oil and Lake Trans jointly operate one of East Africa's largest petroleum supply chains, distributing fuel to 8 countries with 700+ trucks running 24/7.":
-        "Lake Oil et Lake Trans exploitent conjointement l'une des plus grandes chaînes d'approvisionnement en pétrole d'Afrique de l'Est, distribuant du carburant à 8 pays avec plus de 700 camions fonctionnant 24h/24.",
+    "Lake Oil and Lake Trans jointly operate one of East Africa's largest petroleum supply chains, distributing fuel to 9 countries with 1,200+ trucks running 24/7.":
+        "Lake Oil et Lake Trans exploitent conjointement l'une des plus grandes chaînes d'approvisionnement en pétrole d'Afrique de l'Est, distribuant du carburant à 9 pays avec plus de 700 camions fonctionnant 24h/24.",
     "Lake Oil: Arusha Town": "Lake Oil : Ville d'Arusha", "Lake Oil: Dodoma": "Lake Oil : Dodoma",
     "Lake Oil: Kariakoo": "Lake Oil : Kariakoo", "Lake Oil: Mikocheni": "Lake Oil : Mikocheni",
     "Lake Oil: Mwanza": "Lake Oil : Mwanza",
@@ -670,7 +670,7 @@ TERMS_FR = {
     "Lake Trans Ltd": "Lake Trans Ltd", "Lake Trans Ltd.": "Lake Trans Ltd.",
     "Lake Trans Ltd. is established to handle bulk liquid haulage, rapidly expanding the Group's logistics footprint across Tanzania.":
         "Lake Trans Ltd. est créée pour gérer le transport de liquides en vrac, élargissant rapidement l'empreinte logistique du Groupe en Tanzanie.",
-    "Lake Trans Ltd. is one of East Africa's largest logistics operators, running a fleet of 700+ trucks for bulk liquid haulage, general cargo and regional cross-border transport.":
+    "Lake Trans Ltd. is one of East Africa's largest logistics operators, running a fleet of 1,200+ trucks for bulk liquid haulage, general cargo and regional cross-border transport.":
         "Lake Trans Ltd. est l'un des plus grands opérateurs logistiques d'Afrique de l'Est, exploitant une flotte de plus de 700 camions pour le transport de liquides en vrac, de marchandises générales et le transport régional transfrontalier.",
     "Lake Trans Ltd.: Transport & Haulage": "Lake Trans Ltd. : Transport et acheminement",
     "Largest Petroleum Distributors in Tanzania": "Plus grands distributeurs de pétrole en Tanzanie",
@@ -682,7 +682,7 @@ TERMS_FR = {
     "Local CSR programmes active": "Programmes RSE locaux actifs",
     "Local Employment": "Emploi local",
     "Local jobs created": "Emplois locaux créés",
-    "Local jobs created across 8 countries": "Emplois locaux créés dans 8 pays",
+    "Local jobs created across 9 countries": "Emplois locaux créés dans 9 pays",
     "Locate the nearest Lake Oil fuel station, check opening hours and available services.":
         "Localisez la station-service Lake Oil la plus proche, consultez les horaires d'ouverture et les services disponibles.",
     "Logistics / Transport": "Logistique / Transport",
@@ -721,7 +721,7 @@ TERMS_FR = {
     "Mon–Sun 5:00am – 11:00pm  |  Petrol, Diesel, Lubricants": "Lun-Dim 5h00-23h00 | Essence, diesel, lubrifiants",
     "Mon–Sun 5:30am – 10:00pm  |  Petrol, Diesel, LPG": "Lun-Dim 5h30-22h00 | Essence, diesel, GPL",
     "Mon–Sun 6:00am – 9:00pm  |  Petrol, Diesel, Truck Diesel": "Lun-Dim 6h00-21h00 | Essence, diesel, diesel poids lourd",
-    "Mr. Awadh established Lake Oil at age 27 and grew it into one of East and Central Africa's largest energy, logistics and industrial conglomerates, operating across Tanzania, Kenya, Zambia, DRC, Burundi, Rwanda, Ethiopia and Mozambique with 4,600+ employees from 21 nationalities.":
+    "Mr. Awadh established Lake Oil at age 27 and grew it into one of East and Central Africa's largest energy, logistics and industrial conglomerates, operating across Tanzania, Kenya, Zambia, DRC, Burundi, Rwanda, Ethiopia and Mozambique with 30,000+ employees from 21 nationalities.":
         "M. Awadh a fondé Lake Oil à 27 ans et en a fait l'un des plus grands conglomérats d'énergie, de logistique et industriels d'Afrique de l'Est et centrale, présent en Tanzanie, au Kenya, en Zambie, en RDC, au Burundi, au Rwanda, en Éthiopie et au Mozambique, avec plus de 4 600 employés de 21 nationalités.",
     "Multiple Locations": "Plusieurs sites", "Multiple Services": "Plusieurs services",
     "Mwanza City, Lake Victoria Region": "Ville de Mwanza, région du lac Victoria",
@@ -734,7 +734,7 @@ TERMS_FR = {
         "Analyse d'huile, conseils techniques et soutien à la maintenance pour les clients de flottes d'entreprise.",
     "One of the largest premix concrete plants in the UAE, serving major Dubai construction projects.":
         "L'une des plus grandes centrales à béton des EAU, au service de grands projets de construction à Dubaï.",
-    "Ongoing investment in newer, fuel-efficient trucks, reducing per-kilometre emissions across our 700+ vehicle fleet while improving service reliability.":
+    "Ongoing investment in newer, fuel-efficient trucks, reducing per-kilometre emissions across our 1,200+ vehicle fleet while improving service reliability.":
         "Investissement continu dans des camions plus récents et économes en carburant, réduisant les émissions par kilomètre de notre flotte de plus de 700 véhicules tout en améliorant la fiabilité du service.",
     "Open Opportunities": "Postes ouverts",
     "Operating History": "Historique d'exploitation",
@@ -770,7 +770,7 @@ TERMS_FR = {
         "Plus de 700 camions spécialement conçus fonctionnant 24h/24 en Afrique de l'Est et centrale, l'épine dorsale de nos opérations logistiques.",
     "Oversees Group-wide executive operations and represents Lake Group at CSR initiatives, hospital donations and community outreach programmes across Dar es Salaam.":
         "Supervise les opérations exécutives à l'échelle du Groupe et représente Lake Group lors d'initiatives RSE, de dons hospitaliers et de programmes communautaires à Dar es Salaam.",
-    "Own storage facilities, truck fleet (700+), rolling mill, concrete plants, quarry and container depots, significant hard-asset base.":
+    "Own storage facilities, truck fleet (1,200+), rolling mill, concrete plants, quarry and container depots, significant hard-asset base.":
         "Installations de stockage propres, flotte de camions (plus de 700), laminoir, centrales à béton, carrière et dépôts de conteneurs : une base d'actifs corporels importante.",
     "Pan-African Footprint": "Empreinte panafricaine",
     "Pan-African Impact": "Impact panafricain",
@@ -796,7 +796,7 @@ TERMS_FR = {
     "Product Categories": "Catégories de produits",
     "Production Capacity": "Capacité de production",
     "Production Process": "Processus de production",
-    "Professionalism is the culture we cherish, 4,600+ staff from 21 nationalities, one team.":
+    "Professionalism is the culture we cherish, 30,000+ staff from 21 nationalities, one team.":
         "Le professionnalisme est la culture que nous chérissons : plus de 4 600 employés de 21 nationalités, une seule équipe.",
     "Projects Manager · Lake Group": "Chef de projets · Lake Group",
     "Proven Vertical Growth": "Croissance verticale avérée",
@@ -934,12 +934,12 @@ TERMS_FR = {
         "Ce qui se passe : annonces, expansions, lancements de produits et activités communautaires.",
     "Why Lake Group Stands Out Across Africa": "Pourquoi Lake Group se distingue en Afrique",
     "Why Work With Us": "Pourquoi travailler avec nous",
-    "With 4,600+ employees across 8 countries and 21 nationalities, we are a truly pan-African team united by shared values: Quality, Service, Safety and Professionalism.":
-        "Avec plus de 4 600 employés dans 8 pays et 21 nationalités, nous sommes une équipe véritablement panafricaine unie par des valeurs communes : qualité, service, sécurité et professionnalisme.",
+    "With 30,000+ employees across 9 countries and 21 nationalities, we are a truly pan-African team united by shared values: Quality, Service, Safety and Professionalism.":
+        "Avec plus de 4 600 employés dans 9 pays et 21 nationalités, nous sommes une équipe véritablement panafricaine unie par des valeurs communes : qualité, service, sécurité et professionnalisme.",
     "With operations in Tanzania, Zambia and Mozambique, our container services are positioned at strategic corridors to serve regional importers, exporters and shipping lines.":
         "Avec des opérations en Tanzanie, en Zambie et au Mozambique, nos services de conteneurs sont positionnés sur des corridors stratégiques pour servir les importateurs, exportateurs et compagnies maritimes régionaux.",
     "Within 4 working hours": "Dans les 4 heures ouvrables",
-    "Work alongside 21 nationalities across 8 countries": "Travaillez aux côtés de 21 nationalités dans 8 pays",
+    "Work alongside 21 nationalities across 9 countries": "Travaillez aux côtés de 21 nationalités dans 9 pays",
     "Work on projects that shape East Africa's development": "Travaillez sur des projets qui façonnent le développement de l'Afrique de l'Est",
     "X / Twitter": "X / Twitter", "YouTube": "YouTube",
     "Your Lake Group corporate account overview, track orders, manage deliveries and access account documents.":
@@ -970,7 +970,7 @@ TERMS_FR = {
         "À 27 ans, Ally Edha Awadh a ouvert une seule station-service à Dar es Salaam. Pas de flotte, pas de réseau, aucune certitude. Juste la conviction que l'Afrique de l'Est méritait une chaîne d'approvisionnement énergétique plus fiable.",
     "Ally Edha Awadh, Founder &amp; Chairman": "Ally Edha Awadh, fondateur et président",
     "from one truck": "d'un seul camion",
-    "to a fleet of<br><em>700+.</em>": "à une flotte de<br><em>plus de 700.</em>",
+    "to a fleet of<br><em>1,200+.</em>": "à une flotte de<br><em>plus de 700.</em>",
     "Lake Trans: bulk haulage across East Africa": "Lake Trans : transport en vrac en Afrique de l'Est",
     "and along the way": "et en chemin",
     "we brought clean<br>energy <em>home.</em>": "nous avons apporté une énergie<br>propre <em>à la maison.</em>",
@@ -979,11 +979,11 @@ TERMS_FR = {
     "eight sectors, one vision": "huit secteurs, une seule vision",
     "We built more than<br>a fuel company.": "Nous avons bâti plus<br>qu'une entreprise pétrolière.",
     "GCCP: Dar es Salaam's leading ready-mix concrete supplier": "GCCP : premier fournisseur de béton prêt à l'emploi de Dar es Salaam",
-    "Every depot, every truck, every cylinder is run by people. 4,600+ of them, from 21 nationalities, across 8 countries. That's the part no spreadsheet can capture.":
-        "Chaque dépôt, chaque camion, chaque bouteille est géré par des personnes. Plus de 4 600 d'entre elles, de 21 nationalités, dans 8 pays. C'est la partie qu'aucun tableau ne peut saisir.",
+    "Every depot, every truck, every cylinder is run by people. 30,000+ of them, from 21 nationalities, across 9 countries. That's the part no spreadsheet can capture.":
+        "Chaque dépôt, chaque camion, chaque bouteille est géré par des personnes. Plus de 4 600 d'entre elles, de 21 nationalités, dans 9 pays. C'est la partie qu'aucun tableau ne peut saisir.",
     "our team, our story": "notre équipe, notre histoire",
     "today": "aujourd'hui",
-    "across <em>8 countries</em><br>and counting.": "dans <em>8 pays</em><br>et toujours plus.",
+    "across <em>9 countries</em><br>and counting.": "dans <em>9 pays</em><br>et toujours plus.",
     "Tanzania &middot; Kenya &middot; Zambia &middot; Rwanda &middot; Burundi &middot; DRC &middot; Ethiopia &middot; Mozambique":
         "Tanzanie &middot; Kenya &middot; Zambie &middot; Rwanda &middot; Burundi &middot; RDC &middot; Éthiopie &middot; Mozambique",
     "Lake Group.": "Lake Group.",
@@ -1002,7 +1002,7 @@ TERMS_FR = {
     "250T/hr": "250 t/h",
     "25T/hr": "25 t/h",
     "30K": "30 k",
-    "4.6K+": "4,6 k+",
+    "30K+": "30 k+",
     "600°C": "600 °C",
     "Dec 10, 2024": "10 déc. 2024",
     "Dec 12, 2024": "12 déc. 2024",
@@ -1059,7 +1059,7 @@ TERMS_FR = {
     "<span class=\"marquee-sep\"></span>Ready-Mix Concrete": "<span class=\"marquee-sep\"></span>Béton prêt à l'emploi",
     "<span class=\"marquee-sep\"></span>HS-CR Steel Rebars": "<span class=\"marquee-sep\"></span>Barres d'armature HS-CR",
     "<span class=\"marquee-sep\"></span>Bulk Liquid Haulage": "<span class=\"marquee-sep\"></span>Transport de liquides en vrac",
-    "<span class=\"marquee-sep\"></span>8 Countries & Growing": "<span class=\"marquee-sep\"></span>8 pays et en croissance",
+    "<span class=\"marquee-sep\"></span>9 Countries & Growing": "<span class=\"marquee-sep\"></span>9 pays et en croissance",
     "<span class=\"marquee-sep\"></span>Tanzania Headquarters": "<span class=\"marquee-sep\"></span>Siège en Tanzanie",
     "<span class=\"marquee-sep\"></span>Mozambique · Dubai UAE": "<span class=\"marquee-sep\"></span>Mozambique · Dubaï É.A.U.",
     "<span class=\"marquee-sep\"></span>Petroleum Distribution": "<span class=\"marquee-sep\"></span>Distribution de pétrole",
@@ -1068,9 +1068,9 @@ TERMS_FR = {
     "<span class=\"marquee-sep\"></span>Burundi · DRC · Ethiopia": "<span class=\"marquee-sep\"></span>Burundi · RDC · Éthiopie",
     "<span class=\"marquee-sep\"></span>Lubricants Manufacturing": "<span class=\"marquee-sep\"></span>Fabrication de lubrifiants",
     "<span class=\"marquee-sep\"></span>LPG Bottling & Distribution": "<span class=\"marquee-sep\"></span>Embouteillage et distribution de GPL",
-    "<span class=\"marquee-sep\"></span>700+ Trucks · 4,600+ Employees": "<span class=\"marquee-sep\"></span>700+ camions · 4 600+ employés",
+    "<span class=\"marquee-sep\"></span>1,200+ Trucks · 30,000+ Employees": "<span class=\"marquee-sep\"></span>1,200+ camions · 4 600+ employés",
     "<span class=\"marquee-sep\"></span>85+ Fuel Stations, Blue, White, Yellow & Red": "<span class=\"marquee-sep\"></span>85+ stations-service, bleu, blanc, jaune et rouge",
-    "4,600+ employees": "4 600+ employés", "Mar 2025": "Mars 2025", "Jan 2025": "Janvier 2025",
+    "30,000+ employees": "4 600+ employés", "Mar 2025": "Mars 2025", "Jan 2025": "Janvier 2025",
     "20 units": "20 unités", "MT / Year": "T/an", "700 trucks": "700 camions",
     "39 Photos": "39 photos",
     # --- Batch 4: short labels and UI strings ---
@@ -1104,21 +1104,21 @@ TERMS_FR = {
     "From Drop to <span>LAKE OIL</span>": "De la goutte à <span>LAKE OIL</span>",
     "<strong>Formation</strong>Precision-refined fuel, ready for distribution.":
         "<strong>Formation</strong>Carburant raffiné avec précision, prêt à être distribué.",
-    "<strong>Flow</strong>Bulk haulage through 700+ Lake Trans trucks.":
+    "<strong>Flow</strong>Bulk haulage through 1,200+ Lake Trans trucks.":
         "<strong>Flux</strong>Transport en vrac par plus de 700 camions Lake Trans.",
-    "<strong>Storage</strong>LAKE OIL terminals filling across 8 countries.":
-        "<strong>Stockage</strong>Remplissage des terminaux LAKE OIL dans 8 pays.",
+    "<strong>Storage</strong>LAKE OIL terminals filling across 9 countries.":
+        "<strong>Stockage</strong>Remplissage des terminaux LAKE OIL dans 9 pays.",
     "Fueling <span>Progress</span>": "Alimenter le <span>progrès</span>",
     "Founded by CEO & Chairman <strong>Ally Edha Awadh</strong> in 2006 at just 27 years old, Lake Group has grown from a single fuel outlet into one of East and Central Africa's largest energy, logistics and industrial conglomerates.":
         "Fondé par le PDG et président <strong>Ally Edha Awadh</strong> en 2006, à seulement 27 ans, Lake Group est passé d'une seule station-service à l'un des plus grands conglomérats d'énergie, de logistique et industriels d'Afrique de l'Est et centrale.",
-    "Today, with <strong>4,600+ employees</strong> across 21 nationalities, 700+ trucks, 85+ fuel stations and 20+ subsidiaries, Lake Group powers everyday life across Tanzania, Kenya, Zambia, Rwanda, Burundi, DRC, Ethiopia and Mozambique.":
+    "Today, with <strong>30,000+ employees</strong> across 21 nationalities, 1,200+ trucks, 85+ fuel stations and 20+ subsidiaries, Lake Group powers everyday life across Tanzania, Kenya, Zambia, Rwanda, Burundi, DRC, Ethiopia and Mozambique.":
         "Aujourd'hui, avec plus de <strong>4 600 employés</strong> de 21 nationalités, plus de 700 camions, plus de 85 stations-service et plus de 20 filiales, Lake Group alimente la vie quotidienne en Tanzanie, au Kenya, en Zambie, au Rwanda, au Burundi, en RDC, en Éthiopie et au Mozambique.",
     "Trucks in Fleet": "Camions dans la flotte",
-    "Top 5 petroleum distributor in Tanzania. Retail stations, bulk supply and storage across 8 countries.":
-        "Top 5 des distributeurs de pétrole en Tanzanie. Stations-service, approvisionnement en vrac et stockage dans 8 pays.",
+    "Top 5 petroleum distributor in Tanzania. Retail stations, bulk supply and storage across 9 countries.":
+        "Top 5 des distributeurs de pétrole en Tanzanie. Stations-service, approvisionnement en vrac et stockage dans 9 pays.",
     "Lake Gas operates LPG bottling and distribution with cylinders for domestic and commercial use across 7 countries.":
         "Lake Gas exploite l'embouteillage et la distribution de GPL avec des bouteilles à usage domestique et commercial dans 7 pays.",
-    "Lake Trans operates 700+ trucks for bulk liquid haulage and regional logistics across East & Central Africa.":
+    "Lake Trans operates 1,200+ trucks for bulk liquid haulage and regional logistics across East & Central Africa.":
         "Lake Trans exploite plus de 700 camions pour le transport de liquides en vrac et la logistique régionale en Afrique de l'Est et centrale.",
     "GCCP, Dar es Salaam's leading ready-mix concrete supplier. 30,000 m³ aggregate monthly from our Lugoba quarry.":
         "GCCP, le principal fournisseur de béton prêt à l'emploi de Dar es Salaam. 30 000 m³ de granulats par mois depuis notre carrière de Lugoba.",
@@ -1138,8 +1138,8 @@ TERMS_FR = {
     "CEO & Chairman, Lake Group \u00a0|\u00a0 Founded Lake Group at age 27 in 2006":
         "PDG et président, Lake Group \u00a0|\u00a0 A fondé Lake Group à 27 ans en 2006",
     # --- fuel.html ---
-    "One of Tanzania's top 5 petroleum distributors, supplying quality fuel across 8 countries in East and Central Africa.":
-        "L'un des 5 plus grands distributeurs de pétrole en Tanzanie, fournissant un carburant de qualité dans 8 pays d'Afrique de l'Est et centrale.",
+    "One of Tanzania's top 5 petroleum distributors, supplying quality fuel across 9 countries in East and Central Africa.":
+        "L'un des 5 plus grands distributeurs de pétrole en Tanzanie, fournissant un carburant de qualité dans 9 pays d'Afrique de l'Est et centrale.",
     "<span style=\"color:var(--amber);font-weight:700\">\u2713</span>Retail fuel stations, 85+ across Tanzania and the region":
         "<span style=\"color:var(--amber);font-weight:700\">\u2713</span>Plus de 85 stations-service en Tanzanie et dans la région",
     "<span style=\"color:var(--amber);font-weight:700\">\u2713</span>Bulk petroleum supply for corporate and government clients":
@@ -1161,7 +1161,7 @@ TERMS_FR = {
         "Top 5 des distributeurs de pétrole en Tanzanie. Plus de 85 stations-service, approvisionnement et stockage de pétrole en vrac.",
     "Lake Gas LPG bottling and distribution. 6kg, 10kg, 15kg and 38kg cylinders for domestic and commercial use across 7 countries.":
         "Embouteillage et distribution de GPL par Lake Gas. Bouteilles de 6 kg, 10 kg, 15 kg et 38 kg à usage domestique et commercial dans 7 pays.",
-    "Lake Trans operates 700+ trucks for bulk liquid haulage and general cargo across East & Central Africa.":
+    "Lake Trans operates 1,200+ trucks for bulk liquid haulage and general cargo across East & Central Africa.":
         "Lake Trans exploite plus de 700 camions pour le transport de liquides en vrac et de marchandises générales en Afrique de l'Est et centrale.",
     "GCCP, Dar es Salaam's leading ready-mix concrete supplier. 30,000 m\u00b3 aggregate monthly.":
         "GCCP, le principal fournisseur de béton prêt à l'emploi de Dar es Salaam. 30 000 m³ de granulats par mois.",
@@ -1171,9 +1171,9 @@ TERMS_FR = {
         "Premier producteur de barres d'armature HS-CR en Tanzanie. Capacité du laminoir de 100 000 t/an.",
     "AFICD & ACFS inland container depot and freight station services across TZ, ZM and MZ.":
         "Services de dépôt de conteneurs intérieur et de gare de fret AFICD et ACFS en Tanzanie, en Zambie et au Mozambique.",
-    "Operations across 8 countries plus Dubai. Interactive map of all Lake Group facilities.":
-        "Opérations dans 8 pays plus Dubaï. Carte interactive de toutes les installations de Lake Group.",
-    "8 Countries + Dubai": "8 pays + Dubaï",
+    "Operations across 9 countries plus Dubai. Interactive map of all Lake Group facilities.":
+        "Opérations dans 9 pays plus Dubaï. Carte interactive de toutes les installations de Lake Group.",
+    "9 Countries + Dubai": "9 pays + Dubaï",
     "Explore the map \u2192": "Explorer la carte \u2192",
     # --- about.html ---
     "One of East and Central Africa's fastest growing energy trading and transportation conglomerates, founded 2006.":
@@ -1183,9 +1183,9 @@ TERMS_FR = {
     "Mr. Ally Edha Awadh": "M. Ally Edha Awadh",
     "Since inception, the growth story of Lake Group has been vertical, becoming one of the fastest-growing energy trading, logistics and construction supply material conglomerates in East and Central Africa and the Middle East.":
         "Depuis sa création, la croissance de Lake Group a été verticale, devenant l'un des conglomérats de négoce d'énergie, de logistique et de matériaux de construction à la croissance la plus rapide d'Afrique de l'Est et centrale et du Moyen-Orient.",
-    "Today, Lake Group distributes petroleum products in 8 countries, owns storage facilities across the region, manufactures lubricants and ready-mix concrete, and operates a fleet of more than <strong>700 trucks</strong>.":
-        "Aujourd'hui, Lake Group distribue des produits pétroliers dans 8 pays, possède des installations de stockage dans toute la région, fabrique des lubrifiants et du béton prêt à l'emploi, et exploite une flotte de plus de <strong>700 camions</strong>.",
-    "With a diverse mix of <strong>21 nationalities</strong> and a total workforce of <strong>4,600+ employees</strong>, Lake Group continues to grow with purpose.":
+    "Today, Lake Group distributes petroleum products in 9 countries, owns storage facilities across the region, manufactures lubricants and ready-mix concrete, and operates a fleet of more than <strong>700 trucks</strong>.":
+        "Aujourd'hui, Lake Group distribue des produits pétroliers dans 9 pays, possède des installations de stockage dans toute la région, fabrique des lubrifiants et du béton prêt à l'emploi, et exploite une flotte de plus de <strong>700 camions</strong>.",
+    "With a diverse mix of <strong>21 nationalities</strong> and a total workforce of <strong>30,000+ employees</strong>, Lake Group continues to grow with purpose.":
         "Avec un mélange diversifié de <strong>21 nationalités</strong> et un effectif total de plus de <strong>4 600 employés</strong>, Lake Group continue de croître avec détermination.",
     "21 nationalities": "21 nationalités",
     "Our Full History": "Notre histoire complète",
@@ -1248,9 +1248,9 @@ TERMS_PT = {
     "Ranked among the top 5 petroleum distributors in Tanzania by volume.": "Classificada entre os 5 maiores distribuidores de petróleo na Tanzânia por volume.",
     "Own Storage": "Armazenamento próprio",
     "Strategic storage facilities in Tanzania, Kenya, Burundi and DRC.": "Instalações de armazenamento estratégicas na Tanzânia, Quénia, Burundi e RDC.",
-    "700+ Trucks": "Mais de 700 camiões",
+    "1,200+ Trucks": "Mais de 700 camiões",
     "Integrated logistics fleet for reliable, on-time delivery every time.": "Frota logística integrada para entregas fiáveis e pontuais sempre.",
-    "8 Countries": "8 países",
+    "9 Countries": "9 países",
     "Pan-African fuel supply capability across East and Central Africa.": "Capacidade de fornecimento de combustível pan-africana na África Oriental e Central.",
     "Request Fuel Supply Quote": "Pedir orçamento de fornecimento de combustível",
     "Find a Station": "Encontrar um posto",
@@ -1353,8 +1353,8 @@ TERMS_PT = {
     "Clean Energy for Every Kitchen": "Energia limpa para cada cozinha",
     "Active corporate social responsibility across all markets, building brand equity, local goodwill and sustainable business relationships.":
         "Responsabilidade social corporativa ativa em todos os mercados, construindo valor de marca, boa vontade local e relações comerciais sustentáveis.",
-    "As a major energy and logistics company operating across 8 countries, Lake Group recognises its responsibility to operate in a manner that minimises environmental impact and contributes to sustainable development across Africa.":
-        "Como uma grande empresa de energia e logística presente em 8 países, o Lake Group reconhece a sua responsabilidade de operar de forma a minimizar o impacto ambiental e contribuir para o desenvolvimento sustentável em África.",
+    "As a major energy and logistics company operating across 9 countries, Lake Group recognises its responsibility to operate in a manner that minimises environmental impact and contributes to sustainable development across Africa.":
+        "Como uma grande empresa de energia e logística presente em 9 países, o Lake Group reconhece a sua responsabilidade de operar de forma a minimizar o impacto ambiental e contribuir para o desenvolvimento sustentável em África.",
     "As one of East Africa's largest private employers, Lake Group takes its social and environmental responsibilities seriously. The Group regularly provides support to community development through many of its CSR activities and is one of the leaders among its peers.":
         "Como um dos maiores empregadores privados da África Oriental, o Lake Group leva muito a sério as suas responsabilidades sociais e ambientais. O Grupo apoia regularmente o desenvolvimento comunitário através de muitas das suas atividades de RSC e é um dos líderes entre os seus pares.",
     "Contributing to the construction and renovation of community facilities, roads, water points, health clinics and public amenities in operational areas.":
@@ -1387,8 +1387,8 @@ TERMS_PT = {
     "Eight Sectors. One Vision.": "Oito setores. Uma só visão.",
     "Eight distinct business lines across energy, logistics, manufacturing and construction reduce single-sector risk and provide stable multi-stream revenue.":
         "Oito linhas de negócio distintas em energia, logística, fabrico e construção reduzem o risco de um único setor e garantem receitas estáveis e diversificadas.",
-    "From fuel stations to steel mills, eight sectors, one vision, across eight countries.":
-        "Dos postos de combustível às siderúrgicas: oito setores, uma só visão, em oito países.",
+    "From fuel stations to steel mills, eight sectors, one vision, across nine countries.":
+        "Dos postos de combustível às siderúrgicas: oito setores, uma só visão, em nove países.",
     "Fuel depots, LPG terminals, truck fleets, container depots and concrete plants, all connected through our Africa network.":
         "Depósitos de combustível, terminais de GLP, frotas de camiões, depósitos de contentores e centrais de betão, todos ligados através da nossa rede africana.",
     "Energy for Africa. Responsibly.": "Energia para África. Com responsabilidade.",
@@ -1484,7 +1484,7 @@ TERMS_PT = {
         "A Lake Oil fornece produtos petrolíferos na Tanzânia, Quénia, Zâmbia, RDC, Ruanda, Burundi e Etiópia. Contacte admin@lakeoilgroup.com para preços.",
     "Lake Gas offers 6kg, 10kg, 15kg and 38kg cylinders for domestic and commercial use. Available in 7 countries across East & Central Africa.":
         "A Lake Gas oferece cilindros de 6kg, 10kg, 15kg e 38kg para uso doméstico e comercial. Disponível em 7 países da África Oriental e Central.",
-    "Lake Trans operates a fleet of 700+ trucks across East & Central Africa for bulk liquid haulage and general cargo.":
+    "Lake Trans operates a fleet of 1,200+ trucks across East & Central Africa for bulk liquid haulage and general cargo.":
         "A Lake Trans opera uma frota de mais de 700 camiões na África Oriental e Central para transporte de líquidos a granel e carga geral.",
     "Our headquarters: Plot 49, Mikocheni Light Industrial Area, Dar es Salaam. Tel: +255 222780510 | Email: admin@lakeoilgroup.com":
         "A nossa sede: Plot 49, Mikocheni Light Industrial Area, Dar es Salaam. Tel: +255 222780510 | E-mail: admin@lakeoilgroup.com",
@@ -1548,9 +1548,9 @@ TERMS_PT = {
     "38 Kg Cylinder": "Cilindro de 38 kg",
     "39 real photos": "39 fotografias reais",
     "4,000+ Employees Milestone": "Marca de mais de 4.000 colaboradores",
-    "4,600+ Employees. 8 Countries. Still Growing.": "Mais de 4.600 colaboradores. 8 países. Ainda a crescer.",
+    "30,000+ Employees. 9 Countries. Still Growing.": "Mais de 4.600 colaboradores. 9 países. Ainda a crescer.",
     "6 Kg Cylinder": "Cilindro de 6 kg",
-    "8 Countries, 4,600+ Employees": "8 países, mais de 4.600 colaboradores",
+    "9 Countries, 30,000+ Employees": "9 países, mais de 4.600 colaboradores",
     "85+ Stations Across Tanzania": "Mais de 85 postos na Tanzânia",
     "<strong>39 real photos</strong> from Lake Group operations, GCCP, MERM Dubai, Lake Gas, Lake Oil & more.":
         "<strong>39 fotografias reais</strong> das operações do Lake Group, GCCP, MERM Dubai, Lake Gas, Lake Oil e mais.",
@@ -1680,7 +1680,7 @@ TERMS_PT = {
         "Gulf Concrete and Cement Products, fornecedor líder de mercado de betão pronto em Dar es Salaam desde 2010.",
     "Hazmat Certified": "Certificado para materiais perigosos",
     "Headquarters · 10 subsidiaries": "Sede · 10 subsidiárias",
-    "Heads people strategy and workforce development for Lake Oil, supporting the Group's diverse team of 4,600+ professionals across East and Central Africa.":
+    "Heads people strategy and workforce development for Lake Oil, supporting the Group's diverse team of 30,000+ professionals across East and Central Africa.":
         "Dirige a estratégia de pessoas e o desenvolvimento da força de trabalho da Lake Oil, apoiando a equipa diversificada do Grupo com mais de 4.600 profissionais na África Oriental e Central.",
     "Heavy-duty flatbed and cargo trucks for construction materials, steel, containers and general freight.":
         "Camiões plataforma e de carga robustos para materiais de construção, aço, contentores e carga geral.",
@@ -1705,8 +1705,8 @@ TERMS_PT = {
     "Industrial pollution zones": "Zonas de poluição industrial",
     "Inland depot serving the Zambia-Tanzania corridor": "Depósito interior que serve o corredor Zâmbia-Tanzânia",
     "Interactive Experience": "Experiência interativa",
-    "Interactive map of Lake Group's presence across 8 countries in East and Central Africa, plus Dubai.":
-        "Mapa interativo da presença do Lake Group em 8 países da África Oriental e Central, além de Dubai.",
+    "Interactive map of Lake Group's presence across 9 countries in East and Central Africa, plus Dubai.":
+        "Mapa interativo da presença do Lake Group em 9 países da África Oriental e Central, além de Dubai.",
     "Invoice, Dec 2024": "Fatura, dez. 2024",
     "Join our team or partner with us across Africa.": "Junte-se à nossa equipa ou seja nosso parceiro em toda a África.",
     "Julius Nyerere Hydropower – Concrete Supply": "Hidroelétrica Julius Nyerere – Fornecimento de betão",
@@ -1751,17 +1751,17 @@ TERMS_PT = {
         "Lake Group anuncia expansão para Moçambique com novo depósito de combustível e operações AFICD",
     "Lake Group Gallery": "Galeria Lake Group",
     "Lake Group News": "Notícias do Lake Group",
-    "Lake Group Workforce Exceeds 4,600 Employees Across 8 Countries": "Força de trabalho do Lake Group ultrapassa 4.600 colaboradores em 8 países",
+    "Lake Group Workforce Exceeds 30,000 Employees Across 9 Countries": "Força de trabalho do Lake Group ultrapassa 4.600 colaboradores em 9 países",
     "Lake Group continues to expand, deepening its regional footprint, investing in new technologies, and driving economic development across East and Central Africa.":
         "O Lake Group continua a expandir-se, aprofundando a sua presença regional, investindo em novas tecnologias e impulsionando o desenvolvimento económico na África Oriental e Central.",
     "Lake Group expands operations into Kenya, Zambia, Burundi and Rwanda, bringing fuel, LPG and lubricants to neighbouring markets.":
         "O Lake Group expande as operações para o Quénia, Zâmbia, Burundi e Ruanda, levando combustível, GLP e lubrificantes aos mercados vizinhos.",
-    "Lake Group has demonstrated consistent and significant growth since its founding in 2006. From a single petroleum distributor in Dar es Salaam, it has grown into a diversified conglomerate operating across 8 countries with 20+ subsidiaries.":
-        "O Lake Group tem demonstrado um crescimento consistente e significativo desde a sua fundação em 2006. De um único distribuidor de petróleo em Dar es Salaam, tornou-se um conglomerado diversificado presente em 8 países com mais de 20 subsidiárias.",
+    "Lake Group has demonstrated consistent and significant growth since its founding in 2006. From a single petroleum distributor in Dar es Salaam, it has grown into a diversified conglomerate operating across 9 countries with 20+ subsidiaries.":
+        "O Lake Group tem demonstrado um crescimento consistente e significativo desde a sua fundação em 2006. De um único distribuidor de petróleo em Dar es Salaam, tornou-se um conglomerado diversificado presente em 9 países com mais de 20 subsidiárias.",
     "Lake Group has formally inaugurated its Mozambique operations, establishing Lake Oil LDA and an AFICD inland container depot to serve growing trade flows along the Beira corridor.":
         "O Lake Group inaugurou formalmente as suas operações em Moçambique, estabelecendo a Lake Oil LDA e um depósito interior de contentores AFICD para servir os crescentes fluxos comerciais ao longo do corredor de Beira.",
-    "Lake Group has reported continued workforce growth, now employing over 4,600 professionals across 20+ subsidiaries in 8 countries, representing 21 nationalities.":
-        "O Lake Group reportou um crescimento contínuo da força de trabalho, empregando agora mais de 4.600 profissionais em mais de 20 subsidiárias em 8 países, representando 21 nacionalidades.",
+    "Lake Group has reported continued workforce growth, now employing over 30,000 professionals across 20+ subsidiaries in 9 countries, representing 21 nationalities.":
+        "O Lake Group reportou um crescimento contínuo da força de trabalho, empregando agora mais de 4.600 profissionais em mais de 20 subsidiárias em 9 países, representando 21 nacionalidades.",
     "Lake Group in Action <span class=\"g-count\">39 Photos</span>": "Lake Group em ação <span class=\"g-count\">39 fotografias</span>",
     "Lake Group is geographically spread across every region of Tanzania and neighbouring countries of Zambia, DRC, Burundi, Rwanda and Kenya, with operations in Ethiopia, Mozambique and a major premix plant in Dubai.":
         "O Lake Group está geograficamente presente em todas as regiões da Tanzânia e países vizinhos (Zâmbia, RDC, Burundi, Ruanda e Quénia), com operações na Etiópia, Moçambique e uma grande central de betão em Dubai.",
@@ -1769,7 +1769,7 @@ TERMS_PT = {
         "O Lake Group oferece carreiras com impacto real: vai trabalhar numa das empresas mais dinâmicas da África Oriental, com oportunidades genuínas de crescer, liderar e fazer a diferença.",
     "Lake Group surpasses 4,000 employees across 20+ subsidiaries, with 21 nationalities represented in the workforce. Mozambique operations begin.":
         "O Lake Group ultrapassa os 4.000 colaboradores em mais de 20 subsidiárias, com 21 nacionalidades representadas na força de trabalho. Iniciam-se as operações em Moçambique.",
-    "Lake Group's workforce reflects the rich diversity of the African continent, with 4,600+ professionals from 21 nationalities working together toward shared goals.":
+    "Lake Group's workforce reflects the rich diversity of the African continent, with 30,000+ professionals from 21 nationalities working together toward shared goals.":
         "A força de trabalho do Lake Group reflete a rica diversidade do continente africano, com mais de 4.600 profissionais de 21 nacionalidades a trabalhar juntos para objetivos comuns.",
     "Lake Lubes Ltd": "Lake Lubes Ltd", "Lake Lubes Ltd.": "Lake Lubes Ltd.",
     "Lake Lubes Ltd. manufactures and distributes a comprehensive range of lubricants serving automotive, industrial and marine sectors across East and Central Africa.":
@@ -1782,8 +1782,8 @@ TERMS_PT = {
     "Lake Oil Ltd.: Petroleum Distribution": "Lake Oil Ltd.: Distribuição de petróleo",
     "Lake Oil Ltd.: Petroleum Supply Operations": "Lake Oil Ltd.: Operações de fornecimento de petróleo",
     "Lake Oil Stations": "Postos Lake Oil",
-    "Lake Oil and Lake Trans jointly operate one of East Africa's largest petroleum supply chains, distributing fuel to 8 countries with 700+ trucks running 24/7.":
-        "A Lake Oil e a Lake Trans operam conjuntamente uma das maiores cadeias de fornecimento de petróleo da África Oriental, distribuindo combustível a 8 países com mais de 700 camiões a circular 24 horas por dia.",
+    "Lake Oil and Lake Trans jointly operate one of East Africa's largest petroleum supply chains, distributing fuel to 9 countries with 1,200+ trucks running 24/7.":
+        "A Lake Oil e a Lake Trans operam conjuntamente uma das maiores cadeias de fornecimento de petróleo da África Oriental, distribuindo combustível a 9 países com mais de 700 camiões a circular 24 horas por dia.",
     "Lake Oil: Arusha Town": "Lake Oil: Cidade de Arusha", "Lake Oil: Dodoma": "Lake Oil: Dodoma",
     "Lake Oil: Kariakoo": "Lake Oil: Kariakoo", "Lake Oil: Mikocheni": "Lake Oil: Mikocheni",
     "Lake Oil: Mwanza": "Lake Oil: Mwanza",
@@ -1800,7 +1800,7 @@ TERMS_PT = {
     "Lake Trans Ltd": "Lake Trans Ltd", "Lake Trans Ltd.": "Lake Trans Ltd.",
     "Lake Trans Ltd. is established to handle bulk liquid haulage, rapidly expanding the Group's logistics footprint across Tanzania.":
         "A Lake Trans Ltd. é fundada para gerir o transporte de líquidos a granel, expandindo rapidamente a presença logística do Grupo na Tanzânia.",
-    "Lake Trans Ltd. is one of East Africa's largest logistics operators, running a fleet of 700+ trucks for bulk liquid haulage, general cargo and regional cross-border transport.":
+    "Lake Trans Ltd. is one of East Africa's largest logistics operators, running a fleet of 1,200+ trucks for bulk liquid haulage, general cargo and regional cross-border transport.":
         "A Lake Trans Ltd. é um dos maiores operadores logísticos da África Oriental, operando uma frota de mais de 700 camiões para transporte de líquidos a granel, carga geral e transporte regional transfronteiriço.",
     "Lake Trans Ltd.: Transport & Haulage": "Lake Trans Ltd.: Transporte e logística",
     "Largest Petroleum Distributors in Tanzania": "Maiores distribuidores de petróleo na Tanzânia",
@@ -1812,7 +1812,7 @@ TERMS_PT = {
     "Local CSR programmes active": "Programas de RSC locais ativos",
     "Local Employment": "Emprego local",
     "Local jobs created": "Empregos locais criados",
-    "Local jobs created across 8 countries": "Empregos locais criados em 8 países",
+    "Local jobs created across 9 countries": "Empregos locais criados em 9 países",
     "Locate the nearest Lake Oil fuel station, check opening hours and available services.":
         "Localize o posto de combustível Lake Oil mais próximo, consulte horários e serviços disponíveis.",
     "Logistics / Transport": "Logística / Transporte",
@@ -1851,7 +1851,7 @@ TERMS_PT = {
     "Mon–Sun 5:00am – 11:00pm  |  Petrol, Diesel, Lubricants": "Seg-Dom 5h00-23h00 | Gasolina, gasóleo, lubrificantes",
     "Mon–Sun 5:30am – 10:00pm  |  Petrol, Diesel, LPG": "Seg-Dom 5h30-22h00 | Gasolina, gasóleo, GLP",
     "Mon–Sun 6:00am – 9:00pm  |  Petrol, Diesel, Truck Diesel": "Seg-Dom 6h00-21h00 | Gasolina, gasóleo, gasóleo para camiões",
-    "Mr. Awadh established Lake Oil at age 27 and grew it into one of East and Central Africa's largest energy, logistics and industrial conglomerates, operating across Tanzania, Kenya, Zambia, DRC, Burundi, Rwanda, Ethiopia and Mozambique with 4,600+ employees from 21 nationalities.":
+    "Mr. Awadh established Lake Oil at age 27 and grew it into one of East and Central Africa's largest energy, logistics and industrial conglomerates, operating across Tanzania, Kenya, Zambia, DRC, Burundi, Rwanda, Ethiopia and Mozambique with 30,000+ employees from 21 nationalities.":
         "O Sr. Awadh fundou a Lake Oil aos 27 anos e transformou-a num dos maiores conglomerados de energia, logística e industriais da África Oriental e Central, presente na Tanzânia, Quénia, Zâmbia, RDC, Burundi, Ruanda, Etiópia e Moçambique, com mais de 4.600 colaboradores de 21 nacionalidades.",
     "Multiple Locations": "Múltiplas localizações", "Multiple Services": "Múltiplos serviços",
     "Mwanza City, Lake Victoria Region": "Cidade de Mwanza, região do Lago Victoria",
@@ -1864,7 +1864,7 @@ TERMS_PT = {
         "Análise de óleo, aconselhamento técnico e apoio à manutenção para clientes de frotas corporativas.",
     "One of the largest premix concrete plants in the UAE, serving major Dubai construction projects.":
         "Uma das maiores centrais de betão pronto nos EAU, ao serviço de grandes projetos de construção em Dubai.",
-    "Ongoing investment in newer, fuel-efficient trucks, reducing per-kilometre emissions across our 700+ vehicle fleet while improving service reliability.":
+    "Ongoing investment in newer, fuel-efficient trucks, reducing per-kilometre emissions across our 1,200+ vehicle fleet while improving service reliability.":
         "Investimento contínuo em camiões mais recentes e eficientes em combustível, reduzindo as emissões por quilómetro na nossa frota de mais de 700 veículos, ao mesmo tempo que melhora a fiabilidade do serviço.",
     "Open Opportunities": "Vagas abertas",
     "Operating History": "Histórico operacional",
@@ -1900,7 +1900,7 @@ TERMS_PT = {
         "Mais de 700 camiões construídos especificamente, a operar 24 horas por dia na África Oriental e Central, a espinha dorsal das nossas operações logísticas.",
     "Oversees Group-wide executive operations and represents Lake Group at CSR initiatives, hospital donations and community outreach programmes across Dar es Salaam.":
         "Supervisiona as operações executivas em todo o Grupo e representa o Lake Group em iniciativas de RSC, doações hospitalares e programas comunitários em Dar es Salaam.",
-    "Own storage facilities, truck fleet (700+), rolling mill, concrete plants, quarry and container depots, significant hard-asset base.":
+    "Own storage facilities, truck fleet (1,200+), rolling mill, concrete plants, quarry and container depots, significant hard-asset base.":
         "Instalações de armazenamento próprias, frota de camiões (mais de 700), laminador, centrais de betão, pedreira e depósitos de contentores: uma base significativa de ativos tangíveis.",
     "Pan-African Footprint": "Presença pan-africana",
     "Pan-African Impact": "Impacto pan-africano",
@@ -1926,7 +1926,7 @@ TERMS_PT = {
     "Product Categories": "Categorias de produtos",
     "Production Capacity": "Capacidade de produção",
     "Production Process": "Processo de produção",
-    "Professionalism is the culture we cherish, 4,600+ staff from 21 nationalities, one team.":
+    "Professionalism is the culture we cherish, 30,000+ staff from 21 nationalities, one team.":
         "O profissionalismo é a cultura que valorizamos: mais de 4.600 colaboradores de 21 nacionalidades, uma só equipa.",
     "Projects Manager · Lake Group": "Gestor de Projetos · Lake Group",
     "Proven Vertical Growth": "Crescimento vertical comprovado",
@@ -2064,12 +2064,12 @@ TERMS_PT = {
         "O que está a acontecer: anúncios, expansões, lançamentos de produtos e atividades comunitárias.",
     "Why Lake Group Stands Out Across Africa": "Porque o Lake Group se destaca em África",
     "Why Work With Us": "Porque trabalhar connosco",
-    "With 4,600+ employees across 8 countries and 21 nationalities, we are a truly pan-African team united by shared values: Quality, Service, Safety and Professionalism.":
-        "Com mais de 4.600 colaboradores em 8 países e 21 nacionalidades, somos uma equipa verdadeiramente pan-africana unida por valores partilhados: qualidade, serviço, segurança e profissionalismo.",
+    "With 30,000+ employees across 9 countries and 21 nationalities, we are a truly pan-African team united by shared values: Quality, Service, Safety and Professionalism.":
+        "Com mais de 4.600 colaboradores em 9 países e 21 nacionalidades, somos uma equipa verdadeiramente pan-africana unida por valores partilhados: qualidade, serviço, segurança e profissionalismo.",
     "With operations in Tanzania, Zambia and Mozambique, our container services are positioned at strategic corridors to serve regional importers, exporters and shipping lines.":
         "Com operações na Tanzânia, Zâmbia e Moçambique, os nossos serviços de contentores estão posicionados em corredores estratégicos para servir importadores, exportadores e companhias de navegação regionais.",
     "Within 4 working hours": "No prazo de 4 horas úteis",
-    "Work alongside 21 nationalities across 8 countries": "Trabalhe ao lado de 21 nacionalidades em 8 países",
+    "Work alongside 21 nationalities across 9 countries": "Trabalhe ao lado de 21 nacionalidades em 9 países",
     "Work on projects that shape East Africa's development": "Trabalhe em projetos que moldam o desenvolvimento da África Oriental",
     "X / Twitter": "X / Twitter", "YouTube": "YouTube",
     "Your Lake Group corporate account overview, track orders, manage deliveries and access account documents.":
@@ -2100,7 +2100,7 @@ TERMS_PT = {
         "Aos 27 anos, Ally Edha Awadh abriu um único posto de combustível em Dar es Salaam. Sem frota, sem rede, sem certezas. Apenas a convicção de que a África Oriental merecia uma cadeia de abastecimento energético mais fiável.",
     "Ally Edha Awadh, Founder &amp; Chairman": "Ally Edha Awadh, fundador e presidente",
     "from one truck": "de um único camião",
-    "to a fleet of<br><em>700+.</em>": "para uma frota de<br><em>mais de 700.</em>",
+    "to a fleet of<br><em>1,200+.</em>": "para uma frota de<br><em>mais de 700.</em>",
     "Lake Trans: bulk haulage across East Africa": "Lake Trans: transporte a granel na África Oriental",
     "and along the way": "e ao longo do caminho",
     "we brought clean<br>energy <em>home.</em>": "trouxemos energia<br>limpa <em>para casa.</em>",
@@ -2109,11 +2109,11 @@ TERMS_PT = {
     "eight sectors, one vision": "oito setores, uma só visão",
     "We built more than<br>a fuel company.": "Construímos mais<br>do que uma empresa de combustíveis.",
     "GCCP: Dar es Salaam's leading ready-mix concrete supplier": "GCCP: principal fornecedor de betão pronto de Dar es Salaam",
-    "Every depot, every truck, every cylinder is run by people. 4,600+ of them, from 21 nationalities, across 8 countries. That's the part no spreadsheet can capture.":
-        "Cada depósito, cada camião, cada cilindro é gerido por pessoas. Mais de 4.600 delas, de 21 nacionalidades, em 8 países. Essa é a parte que nenhuma folha de cálculo consegue captar.",
+    "Every depot, every truck, every cylinder is run by people. 30,000+ of them, from 21 nationalities, across 9 countries. That's the part no spreadsheet can capture.":
+        "Cada depósito, cada camião, cada cilindro é gerido por pessoas. Mais de 4.600 delas, de 21 nacionalidades, em 9 países. Essa é a parte que nenhuma folha de cálculo consegue captar.",
     "our team, our story": "a nossa equipa, a nossa história",
     "today": "hoje",
-    "across <em>8 countries</em><br>and counting.": "em <em>8 países</em><br>e a continuar a crescer.",
+    "across <em>9 countries</em><br>and counting.": "em <em>9 países</em><br>e a continuar a crescer.",
     "Tanzania &middot; Kenya &middot; Zambia &middot; Rwanda &middot; Burundi &middot; DRC &middot; Ethiopia &middot; Mozambique":
         "Tanzânia &middot; Quénia &middot; Zâmbia &middot; Ruanda &middot; Burundi &middot; RDC &middot; Etiópia &middot; Moçambique",
     "Lake Group.": "Lake Group.",
@@ -2132,7 +2132,7 @@ TERMS_PT = {
     "250T/hr": "250 t/h",
     "25T/hr": "25 t/h",
     "30K": "30 mil",
-    "4.6K+": "4,6 mil+",
+    "30K+": "30 mil+",
     "600°C": "600 °C",
     "Dec 10, 2024": "10 dez. 2024",
     "Dec 12, 2024": "12 dez. 2024",
@@ -2189,7 +2189,7 @@ TERMS_PT = {
     "<span class=\"marquee-sep\"></span>Ready-Mix Concrete": "<span class=\"marquee-sep\"></span>Betão pronto",
     "<span class=\"marquee-sep\"></span>HS-CR Steel Rebars": "<span class=\"marquee-sep\"></span>Varões de aço HS-CR",
     "<span class=\"marquee-sep\"></span>Bulk Liquid Haulage": "<span class=\"marquee-sep\"></span>Transporte de líquidos a granel",
-    "<span class=\"marquee-sep\"></span>8 Countries & Growing": "<span class=\"marquee-sep\"></span>8 países e a crescer",
+    "<span class=\"marquee-sep\"></span>9 Countries & Growing": "<span class=\"marquee-sep\"></span>9 países e a crescer",
     "<span class=\"marquee-sep\"></span>Tanzania Headquarters": "<span class=\"marquee-sep\"></span>Sede na Tanzânia",
     "<span class=\"marquee-sep\"></span>Mozambique · Dubai UAE": "<span class=\"marquee-sep\"></span>Moçambique · Dubai EAU",
     "<span class=\"marquee-sep\"></span>Petroleum Distribution": "<span class=\"marquee-sep\"></span>Distribuição de petróleo",
@@ -2198,9 +2198,9 @@ TERMS_PT = {
     "<span class=\"marquee-sep\"></span>Burundi · DRC · Ethiopia": "<span class=\"marquee-sep\"></span>Burundi · RDC · Etiópia",
     "<span class=\"marquee-sep\"></span>Lubricants Manufacturing": "<span class=\"marquee-sep\"></span>Fabrico de lubrificantes",
     "<span class=\"marquee-sep\"></span>LPG Bottling & Distribution": "<span class=\"marquee-sep\"></span>Engarrafamento e distribuição de GLP",
-    "<span class=\"marquee-sep\"></span>700+ Trucks · 4,600+ Employees": "<span class=\"marquee-sep\"></span>700+ camiões · 4.600+ colaboradores",
+    "<span class=\"marquee-sep\"></span>1,200+ Trucks · 30,000+ Employees": "<span class=\"marquee-sep\"></span>1,200+ camiões · 4.600+ colaboradores",
     "<span class=\"marquee-sep\"></span>85+ Fuel Stations, Blue, White, Yellow & Red": "<span class=\"marquee-sep\"></span>85+ postos de combustível, azul, branco, amarelo e vermelho",
-    "4,600+ employees": "4.600+ colaboradores", "Mar 2025": "Março de 2025", "Jan 2025": "Janeiro de 2025",
+    "30,000+ employees": "4.600+ colaboradores", "Mar 2025": "Março de 2025", "Jan 2025": "Janeiro de 2025",
     "20 units": "20 unidades", "MT / Year": "T/ano", "700 trucks": "700 camiões",
     "39 Photos": "39 fotos",
     # --- Batch 4: short labels and UI strings ---
@@ -2234,21 +2234,21 @@ TERMS_PT = {
     "From Drop to <span>LAKE OIL</span>": "Da gota à <span>LAKE OIL</span>",
     "<strong>Formation</strong>Precision-refined fuel, ready for distribution.":
         "<strong>Formação</strong>Combustível refinado com precisão, pronto para distribuição.",
-    "<strong>Flow</strong>Bulk haulage through 700+ Lake Trans trucks.":
+    "<strong>Flow</strong>Bulk haulage through 1,200+ Lake Trans trucks.":
         "<strong>Fluxo</strong>Transporte a granel por mais de 700 camiões Lake Trans.",
-    "<strong>Storage</strong>LAKE OIL terminals filling across 8 countries.":
-        "<strong>Armazenamento</strong>Enchimento dos terminais LAKE OIL em 8 países.",
+    "<strong>Storage</strong>LAKE OIL terminals filling across 9 countries.":
+        "<strong>Armazenamento</strong>Enchimento dos terminais LAKE OIL em 9 países.",
     "Fueling <span>Progress</span>": "Impulsionando o <span>progresso</span>",
     "Founded by CEO & Chairman <strong>Ally Edha Awadh</strong> in 2006 at just 27 years old, Lake Group has grown from a single fuel outlet into one of East and Central Africa's largest energy, logistics and industrial conglomerates.":
         "Fundado pelo CEO e Presidente <strong>Ally Edha Awadh</strong> em 2006, com apenas 27 anos, o Lake Group cresceu de um único posto de combustível para um dos maiores conglomerados de energia, logística e industriais da África Oriental e Central.",
-    "Today, with <strong>4,600+ employees</strong> across 21 nationalities, 700+ trucks, 85+ fuel stations and 20+ subsidiaries, Lake Group powers everyday life across Tanzania, Kenya, Zambia, Rwanda, Burundi, DRC, Ethiopia and Mozambique.":
+    "Today, with <strong>30,000+ employees</strong> across 21 nationalities, 1,200+ trucks, 85+ fuel stations and 20+ subsidiaries, Lake Group powers everyday life across Tanzania, Kenya, Zambia, Rwanda, Burundi, DRC, Ethiopia and Mozambique.":
         "Hoje, com mais de <strong>4.600 colaboradores</strong> de 21 nacionalidades, mais de 700 camiões, mais de 85 postos de combustível e mais de 20 subsidiárias, o Lake Group impulsiona o dia a dia na Tanzânia, Quénia, Zâmbia, Ruanda, Burundi, RDC, Etiópia e Moçambique.",
     "Trucks in Fleet": "Camiões na frota",
-    "Top 5 petroleum distributor in Tanzania. Retail stations, bulk supply and storage across 8 countries.":
-        "Top 5 dos distribuidores de petróleo na Tanzânia. Postos de venda, fornecimento a granel e armazenamento em 8 países.",
+    "Top 5 petroleum distributor in Tanzania. Retail stations, bulk supply and storage across 9 countries.":
+        "Top 5 dos distribuidores de petróleo na Tanzânia. Postos de venda, fornecimento a granel e armazenamento em 9 países.",
     "Lake Gas operates LPG bottling and distribution with cylinders for domestic and commercial use across 7 countries.":
         "A Lake Gas opera o engarrafamento e distribuição de GLP com cilindros para uso doméstico e comercial em 7 países.",
-    "Lake Trans operates 700+ trucks for bulk liquid haulage and regional logistics across East & Central Africa.":
+    "Lake Trans operates 1,200+ trucks for bulk liquid haulage and regional logistics across East & Central Africa.":
         "A Lake Trans opera mais de 700 camiões para transporte de líquidos a granel e logística regional na África Oriental e Central.",
     "GCCP, Dar es Salaam's leading ready-mix concrete supplier. 30,000 m³ aggregate monthly from our Lugoba quarry.":
         "GCCP, o principal fornecedor de betão pronto de Dar es Salaam. 30.000 m³ de agregados mensais da nossa pedreira de Lugoba.",
@@ -2268,8 +2268,8 @@ TERMS_PT = {
     "CEO & Chairman, Lake Group \u00a0|\u00a0 Founded Lake Group at age 27 in 2006":
         "CEO e Presidente, Lake Group \u00a0|\u00a0 Fundou o Lake Group aos 27 anos em 2006",
     # --- fuel.html ---
-    "One of Tanzania's top 5 petroleum distributors, supplying quality fuel across 8 countries in East and Central Africa.":
-        "Um dos 5 maiores distribuidores de petróleo da Tanzânia, fornecendo combustível de qualidade em 8 países da África Oriental e Central.",
+    "One of Tanzania's top 5 petroleum distributors, supplying quality fuel across 9 countries in East and Central Africa.":
+        "Um dos 5 maiores distribuidores de petróleo da Tanzânia, fornecendo combustível de qualidade em 9 países da África Oriental e Central.",
     "<span style=\"color:var(--amber);font-weight:700\">\u2713</span>Retail fuel stations, 85+ across Tanzania and the region":
         "<span style=\"color:var(--amber);font-weight:700\">\u2713</span>Mais de 85 postos de combustível na Tanzânia e na região",
     "<span style=\"color:var(--amber);font-weight:700\">\u2713</span>Bulk petroleum supply for corporate and government clients":
@@ -2291,7 +2291,7 @@ TERMS_PT = {
         "Top 5 dos distribuidores de petróleo na Tanzânia. Mais de 85 postos de venda, fornecimento e armazenamento de petróleo a granel.",
     "Lake Gas LPG bottling and distribution. 6kg, 10kg, 15kg and 38kg cylinders for domestic and commercial use across 7 countries.":
         "Engarrafamento e distribuição de GLP pela Lake Gas. Cilindros de 6kg, 10kg, 15kg e 38kg para uso doméstico e comercial em 7 países.",
-    "Lake Trans operates 700+ trucks for bulk liquid haulage and general cargo across East & Central Africa.":
+    "Lake Trans operates 1,200+ trucks for bulk liquid haulage and general cargo across East & Central Africa.":
         "A Lake Trans opera mais de 700 camiões para transporte de líquidos a granel e carga geral na África Oriental e Central.",
     "GCCP, Dar es Salaam's leading ready-mix concrete supplier. 30,000 m\u00b3 aggregate monthly.":
         "GCCP, o principal fornecedor de betão pronto de Dar es Salaam. 30.000 m³ de agregados mensais.",
@@ -2301,9 +2301,9 @@ TERMS_PT = {
         "O primeiro produtor de varões HS-CR da Tanzânia. Capacidade da laminadora de 100.000 t/ano.",
     "AFICD & ACFS inland container depot and freight station services across TZ, ZM and MZ.":
         "Serviços de depósito de contentores interior e estação de frete AFICD e ACFS na Tanzânia, Zâmbia e Moçambique.",
-    "Operations across 8 countries plus Dubai. Interactive map of all Lake Group facilities.":
-        "Operações em 8 países, além de Dubai. Mapa interativo de todas as instalações do Lake Group.",
-    "8 Countries + Dubai": "8 países + Dubai",
+    "Operations across 9 countries plus Dubai. Interactive map of all Lake Group facilities.":
+        "Operações em 9 países, além de Dubai. Mapa interativo de todas as instalações do Lake Group.",
+    "9 Countries + Dubai": "9 países + Dubai",
     "Explore the map \u2192": "Explorar o mapa \u2192",
     # --- about.html ---
     "One of East and Central Africa's fastest growing energy trading and transportation conglomerates, founded 2006.":
@@ -2313,9 +2313,9 @@ TERMS_PT = {
     "Mr. Ally Edha Awadh": "Sr. Ally Edha Awadh",
     "Since inception, the growth story of Lake Group has been vertical, becoming one of the fastest-growing energy trading, logistics and construction supply material conglomerates in East and Central Africa and the Middle East.":
         "Desde a sua fundação, a história de crescimento do Lake Group tem sido vertical, tornando-se um dos conglomerados de comércio de energia, logística e materiais de construção que mais cresce na África Oriental e Central e no Médio Oriente.",
-    "Today, Lake Group distributes petroleum products in 8 countries, owns storage facilities across the region, manufactures lubricants and ready-mix concrete, and operates a fleet of more than <strong>700 trucks</strong>.":
-        "Hoje, o Lake Group distribui produtos petrolíferos em 8 países, possui instalações de armazenamento em toda a região, fabrica lubrificantes e betão pronto, e opera uma frota com mais de <strong>700 camiões</strong>.",
-    "With a diverse mix of <strong>21 nationalities</strong> and a total workforce of <strong>4,600+ employees</strong>, Lake Group continues to grow with purpose.":
+    "Today, Lake Group distributes petroleum products in 9 countries, owns storage facilities across the region, manufactures lubricants and ready-mix concrete, and operates a fleet of more than <strong>700 trucks</strong>.":
+        "Hoje, o Lake Group distribui produtos petrolíferos em 9 países, possui instalações de armazenamento em toda a região, fabrica lubrificantes e betão pronto, e opera uma frota com mais de <strong>700 camiões</strong>.",
+    "With a diverse mix of <strong>21 nationalities</strong> and a total workforce of <strong>30,000+ employees</strong>, Lake Group continues to grow with purpose.":
         "Com uma mistura diversificada de <strong>21 nacionalidades</strong> e uma força de trabalho total de mais de <strong>4.600 colaboradores</strong>, o Lake Group continua a crescer com propósito.",
     "21 nationalities": "21 nacionalidades",
     "Our Full History": "A nossa história completa",

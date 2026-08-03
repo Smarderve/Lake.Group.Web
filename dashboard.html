@@ -3,14 +3,14 @@
 <head>
   <style id="lg-skel-critical">html.lg-loading{overflow:hidden}html.lg-loading::before{content:"";position:fixed;inset:0;z-index:99989;background:#013f5c;pointer-events:none}html.lg-skel-done::before{display:none}.nav-logo img,.site-nav .nav-logo img{height:var(--nav-logo-height,48px)!important;width:auto!important;max-width:min(220px,55vw)!important;max-height:var(--nav-logo-height,48px)!important;object-fit:contain}</style>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <meta name="description" content="Lake Group client portal for tracking shipments and managing your account.">
-  <meta name="twitter:description" content="Lake Group client portal for tracking shipments and managing your account.">
-  <meta name="twitter:title" content="Client Dashboard | Lake Group">
+  <meta name="description" content="Lake Group content management console — sign in to manage news, leaders, companies, countries and media through the self-hosted CMS.">
+  <meta name="twitter:description" content="Lake Group content management console — sign in to manage news, leaders, companies, countries and media through the self-hosted CMS.">
+  <meta name="twitter:title" content="Content Management | Lake Group">
   <meta name="twitter:image" content="https://www.lakeoilgroup.com/assets/images/logos/LAKE_GROUP_LOGO.png">
   <meta property="og:site_name" content="Lake Group">
   <meta property="og:url" content="https://www.lakeoilgroup.com/dashboard.html">
-  <meta property="og:title" content="Client Dashboard | Lake Group">
-  <meta property="og:description" content="Lake Group client portal for tracking shipments and managing your account.">
+  <meta property="og:title" content="Content Management | Lake Group">
+  <meta property="og:description" content="Lake Group content management console — sign in to manage news, leaders, companies, countries and media through the self-hosted CMS.">
   <meta property="og:image" content="https://www.lakeoilgroup.com/assets/images/logos/LAKE_GROUP_LOGO.png">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
@@ -18,7 +18,7 @@
   <link rel="icon" href="favicon.ico?v=43" sizes="32x32">
   <link rel="icon" href="assets/icons/pwa/icon-192.png?v=43" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="assets/icons/pwa/apple-touch-icon.png?v=43">
-  <title>Client Dashboard | Lake Group</title>
+  <title>Content Management | Lake Group</title>
   <meta name="theme-color" content="#0181BB">
   <link rel="manifest" href="manifest.webmanifest">
   <style>
@@ -77,6 +77,58 @@
 .acct-cell p{font-size:.88rem}
 .acct-cell p+p{margin-top:8px}
 .acct-cell .badges{display:flex;flex-direction:column;gap:6px}
+
+/* CMS console (authenticated content management) */
+.login-note{margin-top:var(--sp-4);padding:10px 12px;border:1px solid rgba(255,242,0,.35);background:rgba(255,242,0,.08);color:var(--gold);font-size:.78rem;line-height:1.5}
+.login-error{margin-top:var(--sp-4);padding:10px 12px;border:1px solid rgba(224,86,86,.45);background:rgba(224,86,86,.08);color:#ff8f8f;font-size:.8rem;line-height:1.5}
+.cms-console{display:grid;grid-template-columns:220px 1fr;gap:var(--sp-8);align-items:start}
+@media(max-width:860px){.cms-console{grid-template-columns:1fr}}
+.cms-nav{display:flex;flex-direction:column;gap:6px;position:sticky;top:calc(var(--navbar-height,72px) + 16px)}
+@media(max-width:860px){.cms-nav{flex-direction:row;flex-wrap:wrap;position:static}}
+.cms-nav-btn{text-align:left;padding:12px 14px;background:var(--surface);border:1px solid var(--line-2);color:var(--text);font-size:.85rem;font-weight:600;cursor:pointer;position:relative;transition:border-color .2s,background .2s;font-family:var(--font-body)}
+.cms-nav-btn:hover{border-color:var(--gold)}
+.cms-nav-btn.is-active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.cms-nav-btn.is-active::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold)}
+.cms-nav-count{float:right;font-size:.72rem;color:var(--mute);margin-left:10px}
+.cms-main{min-width:0}
+.cms-toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--sp-5);padding-bottom:var(--sp-4);border-bottom:1px solid var(--line)}
+.cms-toolbar h3{font-family:var(--font-display);font-weight:700;font-size:1.15rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text);margin:0}
+.cms-toolbar-actions{display:flex;gap:8px;align-items:center}
+.cms-table-wrap{overflow-x:auto;border:1px solid var(--line);background:var(--surface)}
+.cms-table{margin:0;min-width:560px}
+.cms-table td,.cms-table th{vertical-align:middle}
+.cms-row-title{font-weight:600;color:var(--text)}
+.cms-thumb{width:52px;height:38px;object-fit:cover;display:block;background:var(--surface);border:1px solid var(--line-2)}
+.cms-actions{white-space:nowrap;text-align:right}
+.cms-actions .btn{margin-left:6px}
+.cms-del{color:#e05656!important;border-color:rgba(224,86,86,.45)!important}
+.cms-empty{text-align:center;padding:var(--sp-10) var(--sp-4);color:var(--mute);font-size:.9rem;margin:0}
+.cms-loading{text-align:center;padding:var(--sp-10) var(--sp-4);color:var(--mute);font-size:.9rem;margin:0}
+.cms-modal{position:fixed;inset:0;z-index:900;background:rgba(1,63,92,.6);display:flex;align-items:flex-start;justify-content:center;padding:6vh 16px 16px;overflow-y:auto}
+.cms-modal[hidden]{display:none}
+.cms-modal-card{width:min(680px,100%);background:var(--surface);border:1px solid var(--line);box-shadow:0 24px 60px rgba(0,0,0,.35);position:relative}
+.cms-modal-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold)}
+.cms-modal-head{display:flex;align-items:center;justify-content:space-between;padding:var(--sp-5) var(--sp-6);border-bottom:1px solid var(--line)}
+.cms-modal-head h3{font-family:var(--font-display);font-weight:700;font-size:1.05rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text);margin:0}
+.cms-modal-x{background:none;border:none;font-size:1.2rem;color:var(--mute);cursor:pointer;padding:4px 8px}
+.cms-modal-x:hover{color:var(--gold)}
+#cms-editor-form{padding:var(--sp-6);display:grid;gap:var(--sp-4);max-height:60vh;overflow-y:auto}
+.cms-fgroup{display:grid;gap:6px}
+.cms-fgroup label{font-size:var(--fs-micro);font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.cms-fgroup input[type=text],.cms-fgroup input[type=email],.cms-fgroup input[type=password],.cms-fgroup input[type=number],.cms-fgroup input[type=date],.cms-fgroup select,.cms-fgroup textarea{width:100%;padding:10px 12px;border:1px solid var(--line);background:#fff;color:var(--text);font-family:var(--font-body);font-size:.9rem}
+.cms-fgroup input:focus,.cms-fgroup select:focus,.cms-fgroup textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 2px rgba(255,242,0,.15)}
+.cms-fgroup textarea{min-height:90px;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem}
+.cms-fgroup .cms-hint{font-size:.72rem;color:var(--mute)}
+.cms-fgroup.cms-check-row{display:flex;align-items:center;gap:10px}
+.cms-fgroup.cms-check-row input{width:auto}
+.cms-fgroup.cms-check-row label{margin:0}
+.cms-adv{border:1px dashed var(--line-2);padding:var(--sp-4);background:rgba(1,63,92,.02)}
+.cms-adv summary{cursor:pointer;font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.cms-adv-inner{display:grid;gap:var(--sp-4);margin-top:var(--sp-3)}
+.cms-form-foot{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-4);padding-top:var(--sp-4);border-top:1px solid var(--line)}
+.cms-form-actions{display:flex;gap:8px;margin-left:auto}
+.cms-toast{position:fixed;right:18px;bottom:18px;z-index:950;background:var(--ink);color:#fff;padding:12px 18px;font-size:.85rem;border-left:3px solid var(--gold);box-shadow:0 10px 30px rgba(0,0,0,.35);max-width:340px}
+.cms-toast.cms-toast-err{border-left-color:#e05656}
 </style>
 
 <link rel="stylesheet" href="assets/tokens.css?v=62">
@@ -275,8 +327,8 @@
   <div class="hero-media" style="background-image:url('assets/images/n-slider/4.jpg')" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container">
-  <nav class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span>/</span><span data-i18n="dashboard.1">Client Dashboard</span></nav>
-  <div data-i18n="dashboard.2" class="eyebrow">Corporate Portal</div><h1 data-i18n="dashboard.3">Client Dashboard</h1><p data-i18n="dashboard.4">Your Lake Group corporate account overview, track orders, manage deliveries and access account documents.</p>
+  <nav class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span>/</span><span data-i18n="dashboard.1">Content Management</span></nav>
+  <div data-i18n="dashboard.2" class="eyebrow">CMS Console</div><h1 data-i18n="dashboard.3">Content Management Console</h1><p data-i18n="dashboard.4">Sign in to manage the Lake Group website — news, leaders, companies, countries and media.</p>
 </div></section>
 
 <section class="fs-section">
@@ -285,12 +337,16 @@
       <div class="login-card fs-on-dark fs-corners">
         <div class="login-head">
           <div class="login-glyph" aria-hidden="true"><iconify-icon icon="mdi:lock" width="28" height="28" aria-hidden="true"></iconify-icon></div>
-          <h2 data-i18n="dashboard.5">Sign In to Your Account</h2>
-          <p data-i18n="dashboard.6">Corporate clients only. Contact us for access.</p>
+          <h2 data-i18n="dashboard.5">Sign In to the CMS</h2>
+          <p data-i18n="dashboard.6">Authorized editors only.</p>
         </div>
-        <div class="form-group"><label data-i18n="dashboard.7">Email Address</label><input type="email" id="login-email" placeholder="your@company.com" data-i18n-placeholder="dashboard.75"></div>
+        <form id="login-form" novalidate>
+        <div class="form-group"><label data-i18n="dashboard.7">Email Address</label><input type="email" id="login-email" placeholder="your@company.com" data-i18n-placeholder="dashboard.75" autocomplete="username"></div>
         <div class="form-group"><label data-i18n="dashboard.8">Password</label><input type="password" id="login-pw" placeholder="��������" data-i18n-placeholder="dashboard.76"></div>
-        <button data-i18n="dashboard.9" class="btn btn-primary" onclick="doLogin()">Sign In</button>
+        <button type="submit" id="login-btn" data-i18n="dashboard.9" class="btn btn-primary">Sign In</button>
+        </form>
+        <p id="login-note" class="login-note" hidden></p>
+        <p id="login-error" class="login-error" hidden></p>
         <p class="login-foot" data-i18n="dashboard.10">Not a corporate client? <a data-i18n="dashboard.11" href="contact.html">Request access</a></p>
       </div>
     </div>
@@ -298,111 +354,53 @@
     <div id="dashboard-panel" style="display:none">
       <div class="dash-head">
         <div>
-          <h2>Welcome back, <span data-i18n="dashboard.12" id="dash-name">Corporate Client</span></h2>
-          <p data-i18n="dashboard.13">Here's your account summary for December 2024</p>
+          <h2>Welcome back, <span id="dash-name">Editor</span></h2>
+          <p data-i18n="dashboard.13">Manage Lake Group website content from the CMS.</p>
         </div>
         <button data-i18n="dashboard.14" class="btn btn-outline-dark btn-sm" onclick="doLogout()">Sign Out</button>
       </div>
 
-      <!-- KPI stat rail -->
-      <div class="kpi-rail">
-        <div class="kpi kpi-gold">
-          <div class="kpi-no">12</div>
-          <p data-i18n="dashboard.15">Active Orders</p>
-        </div>
-        <div class="kpi">
-          <div class="kpi-no">3</div>
-          <p data-i18n="dashboard.16">In Transit</p>
-        </div>
-        <div class="kpi">
-          <div class="kpi-no">47</div>
-          <p data-i18n="dashboard.17">Completed (YTD)</p>
-        </div>
-        <div class="kpi">
-          <div class="kpi-no">2</div>
-          <p data-i18n="dashboard.18">Pending Docs</p>
+      <!-- CMS KPI stat rail (populated from the API) -->
+      <div class="kpi-rail" id="cms-kpis"></div>
+
+      <!-- CMS console -->
+      <div class="cms-console">
+        <nav class="cms-nav" id="cms-nav" aria-label="Content collections"></nav>
+        <div class="cms-main">
+          <div class="cms-toolbar">
+            <h3 id="cms-col-title">News</h3>
+            <div class="cms-toolbar-actions">
+              <button type="button" class="btn btn-outline-dark btn-sm" id="cms-refresh" title="Refresh list">&#x21bb;</button>
+              <button type="button" class="btn btn-primary btn-sm" id="cms-new">+ New</button>
+            </div>
+          </div>
+          <div class="cms-table-wrap" id="cms-table-wrap"></div>
         </div>
       </div>
 
-      <!-- Tabs: Orders / Documents / Account -->
-      <div class="tab-container">
-        <div class="tab-nav">
-          <button data-i18n="dashboard.19" class="active" data-tab="dash-orders">Recent Orders</button>
-          <button data-i18n="dashboard.20" data-tab="dash-docs">Documents</button>
-          <button data-i18n="dashboard.21" data-tab="dash-account">Account</button>
-        </div>
-        <div id="dash-orders" class="tab-pane active">
-          <table class="fs-table">
-            <thead><tr>
-              <th data-i18n="dashboard.22">Order ID</th>
-              <th data-i18n="dashboard.23">Service</th>
-              <th data-i18n="dashboard.24">Date</th>
-              <th data-i18n="dashboard.25">Status</th>
-              <th></th>
-            </tr></thead>
-            <tbody>
-              <tr><td data-i18n="dashboard.26">LG-2024-8847</td><td data-i18n="dashboard.27">Petroleum, 50,000L</td><td data-i18n="dashboard.28">Dec 15, 2024</td><td><span data-i18n="dashboard.29" class="badge badge-green">Delivered</span></td><td></td></tr>
-              <tr><td data-i18n="dashboard.31">LG-2024-8831</td><td data-i18n="dashboard.32">LPG Bulk, 8MT</td><td data-i18n="dashboard.33">Dec 12, 2024</td><td><span data-i18n="dashboard.34" class="badge badge-yellow">In Transit</span></td><td></td></tr>
-              <tr><td data-i18n="dashboard.36">LG-2024-8802</td><td data-i18n="dashboard.37">Steel Rebar, 120MT</td><td data-i18n="dashboard.38">Dec 8, 2024</td><td><span data-i18n="dashboard.39" class="badge badge-green">Delivered</span></td><td><a data-i18n="dashboard.40" href="#" style="color:var(--gold-deep);font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase">View</a></td></tr>
-              <tr><td data-i18n="dashboard.41">LG-2024-8778</td><td data-i18n="dashboard.42">Concrete, 600m�</td><td data-i18n="dashboard.43">Dec 3, 2024</td><td><span data-i18n="dashboard.44" class="badge badge-green">Delivered</span></td><td><a data-i18n="dashboard.45" href="#" style="color:var(--gold-deep);font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase">View</a></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div id="dash-docs" class="tab-pane">
-          <div>
-            <div class="doc-row">
-              <div class="doc-info"><span class="doc-glyph" aria-hidden="true"><iconify-icon icon="mdi:file-document-outline" width="22" height="22" aria-hidden="true"></iconify-icon></span><div><p data-i18n="dashboard.47" class="doc-name">Invoice, Dec 2024</p><p data-i18n="dashboard.48" class="doc-date">Uploaded: Dec 20, 2024</p></div></div>
-              <a data-i18n="dashboard.49" href="#" class="btn btn-outline-dark btn-sm">Download</a>
-            </div>
-            <div class="doc-row">
-              <div class="doc-info"><span class="doc-glyph" aria-hidden="true"><iconify-icon icon="mdi:file-document-outline" width="22" height="22" aria-hidden="true"></iconify-icon></span><div><p data-i18n="dashboard.50" class="doc-name">Delivery Note, LG-2024-8847</p><p data-i18n="dashboard.51" class="doc-date">Uploaded: Dec 16, 2024</p></div></div>
-              <a data-i18n="dashboard.52" href="#" class="btn btn-outline-dark btn-sm">Download</a>
-            </div>
-            <div class="doc-row doc-alert">
-              <div class="doc-info"><span class="doc-glyph" aria-hidden="true"><iconify-icon icon="mdi:alert" width="22" height="22" aria-hidden="true"></iconify-icon></span><div><p data-i18n="dashboard.53" class="doc-name">Contract Renewal, Pending Signature</p><p data-i18n="dashboard.54" class="doc-date">Due: Jan 5, 2025</p></div></div>
-              <a data-i18n="dashboard.55" href="contact.html" class="btn btn-primary btn-sm">Review</a>
-            </div>
+      <!-- Editor modal -->
+      <div id="cms-editor" class="cms-modal" hidden role="dialog" aria-modal="true" aria-labelledby="cms-editor-title">
+        <div class="cms-modal-card">
+          <div class="cms-modal-head">
+            <h3 id="cms-editor-title">New record</h3>
+            <button type="button" id="cms-editor-close" class="cms-modal-x" aria-label="Close">&#x2715;</button>
           </div>
-        </div>
-        <div id="dash-account" class="tab-pane">
-          <div class="acct-grid">
-            <div class="acct-cell">
-              <h4 data-i18n="dashboard.56">Account Details</h4>
-              <p data-i18n="dashboard.57" data-i18n-html=""><strong data-i18n="dashboard.58">Company:</strong> Demo Corporation Ltd.</p>
-              <p data-i18n="dashboard.59" data-i18n-html=""><strong data-i18n="dashboard.60">Account #:</strong> LG-CORP-4821</p>
-              <p data-i18n="dashboard.61" data-i18n-html=""><strong data-i18n="dashboard.62">Credit Limit:</strong> USD 250,000</p>
-              <p data-i18n="dashboard.63" data-i18n-html=""><strong data-i18n="dashboard.64">Account Manager:</strong> Dar es Salaam Office</p>
-            </div>
-            <div class="acct-cell">
-              <h4 data-i18n="dashboard.65">Services Subscribed</h4>
-              <div class="badges">
-                <span data-i18n="dashboard.66" class="badge badge-yellow">Fuel &amp; Petroleum</span>
-                <span data-i18n="dashboard.67" class="badge badge-yellow">Transport &amp; Haulage</span>
-                <span data-i18n="dashboard.68" class="badge badge-yellow">Ready-Mix Concrete</span>
-              </div>
-            </div>
-          </div>
+          <form id="cms-editor-form" novalidate></form>
         </div>
       </div>
+
+      <!-- Toast -->
+      <div id="cms-toast" class="cms-toast" hidden></div>
     </div>
   </div>
 </section>
 <script>
-function doLogin() {
-  const email = document.getElementById('login-email').value;
-  const pw = document.getElementById('login-pw').value;
-  if (!email || !pw) { alert('Please enter your email and password.'); return; }
-  document.getElementById('login-panel').style.display = 'none';
-  document.getElementById('dashboard-panel').style.display = 'block';
-  document.getElementById('dash-name').textContent = email.split('@')[0].replace(/[._]/g,' ').replace(/\w/g,c=>c.toUpperCase());
-}
-function doLogout() {
-  document.getElementById('login-panel').style.display = 'block';
-  document.getElementById('dashboard-panel').style.display = 'none';
-  document.getElementById('login-email').value = '';
-  document.getElementById('login-pw').value = '';
-}
+  /* CMS endpoint — set to your self-hosted Payload origin, e.g.
+     window.LAKE_CMS_API_URL = 'https://cms.example.com';
+     (preserves any value injected before this script runs) */
+  window.LAKE_CMS_API_URL = window.LAKE_CMS_API_URL || '';
 </script>
+<script src="assets/dashboard-cms.js?v=1"></script>
 </div>
 <footer class="site-footer">
   <div class="container">
@@ -445,14 +443,14 @@ function doLogout() {
         <li><a href="contact.html" data-i18n="footer.contact">Contact Us</a></li>
       </ul>
       <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:5px">
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/tz.svg" alt="" class="flag-icon" width="20" height="15"> Tanzania</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/ke.svg" alt="" class="flag-icon" width="20" height="15"> Kenya</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/zm.svg" alt="" class="flag-icon" width="20" height="15"> Zambia</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/rw.svg" alt="" class="flag-icon" width="20" height="15"> Rwanda</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/bi.svg" alt="" class="flag-icon" width="20" height="15"> Burundi</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/cd.svg" alt="" class="flag-icon" width="20" height="15"> DR Congo</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/et.svg" alt="" class="flag-icon" width="20" height="15"> Ethiopia</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/mz.svg" alt="" class="flag-icon" width="20" height="15"> Mozambique</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/tz.svg" alt="Tanzania flag" class="flag-icon" width="20" height="15"> Tanzania</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/ke.svg" alt="Kenya flag" class="flag-icon" width="20" height="15"> Kenya</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/zm.svg" alt="Zambia flag" class="flag-icon" width="20" height="15"> Zambia</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/rw.svg" alt="Rwanda flag" class="flag-icon" width="20" height="15"> Rwanda</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/bi.svg" alt="Burundi flag" class="flag-icon" width="20" height="15"> Burundi</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/cd.svg" alt="DR Congo flag" class="flag-icon" width="20" height="15"> DR Congo</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/et.svg" alt="Ethiopia flag" class="flag-icon" width="20" height="15"> Ethiopia</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/mz.svg" alt="Mozambique flag" class="flag-icon" width="20" height="15"> Mozambique</span>
       </div></div>
     </div>
     <div class="footer-bottom">
@@ -465,7 +463,7 @@ function doLogout() {
 
 
 
-<div id="chat-widget">
+<div id="chat-widget" class="la-widget">
   <div id="chat-box">
     <div id="chat-head"><h4 data-i18n="chat.title">Lake Group Assistant</h4><p data-i18n="chat.sub">Ask us anything</p></div>
     <div id="chat-messages"><div class="msg msg-bot" data-i18n="chat.hello">Hello! How can I help you today?</div></div>

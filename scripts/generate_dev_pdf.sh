@@ -3,7 +3,7 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 HTML="$ROOT/docs/developer-guide.html"
-PDF="$ROOT/DEVELOPER_GUIDE.pdf"
+PDF="$ROOT/docs/DEVELOPER_GUIDE.pdf"
 CHROME="${CHROME:-google-chrome}"
 
 if [[ ! -f "$HTML" ]]; then

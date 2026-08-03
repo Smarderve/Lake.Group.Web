@@ -34,6 +34,50 @@ html.lg-skel-done::before {
   visibility: visible;
 }
 
+/* ---------- Progress bar (YouTube-style) ---------- */
+.lg-skel-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  z-index: 99999;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.lg-skel-progress__fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #fff200 0%, #f5e600 40%, #0599d3 100%);
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 0 8px rgba(255, 242, 0, 0.5), 0 0 2px rgba(255, 242, 0, 0.8);
+  transition: width 0.1s ease-out;
+  will-change: width;
+}
+
+/* Pulse glow when near completion */
+.lg-skel-progress__fill[style*="width: 100"] {
+  box-shadow: 0 0 12px rgba(255, 242, 0, 0.8), 0 0 4px rgba(255, 242, 0, 1);
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .lg-skel-progress__fill {
+    transition: width 0.3s ease;
+  }
+}
+
+/* Agro theme: green progress bar */
+html:has(body.co-theme-agro) .lg-skel-progress {
+  background: rgba(255, 255, 255, 0.08);
+}
+html:has(body.co-theme-agro) .lg-skel-progress__fill {
+  background: linear-gradient(90deg, #e67e22 0%, #d4741a 40%, #489f10 100%);
+  box-shadow: 0 0 8px rgba(230, 126, 34, 0.5), 0 0 2px rgba(230, 126, 34, 0.8);
+}
+
 #lg-skel.lg-skel-hide {
   opacity: 0;
   visibility: hidden;
@@ -441,6 +485,402 @@ html.lg-skel-done #lg-skel {
 
   #lg-skel {
     transition: none;
+  }
+}
+
+/* ==========================================================================
+   Page-specific skeleton variants
+   ========================================================================== */
+
+/* Shared: compact sub-page hero (all pages except home & gallery) */
+.lg-skel-main--subpage {
+  justify-content: flex-end;
+  padding: 48px 24px 40px;
+  min-height: 280px;
+}
+
+.lg-skel-hero--compact {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.lg-skel-breadcrumb {
+  width: 180px;
+  height: 10px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  margin-bottom: 8px;
+}
+
+/* ------------------------------------------------------------------ */
+/* News page skeleton                                                  */
+/* ------------------------------------------------------------------ */
+.lg-skel-news-hub {
+  max-width: 1200px;
+  width: 100%;
+  margin: 24px auto 0;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.lg-skel-news-top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.lg-skel-news-featured {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.lg-skel-news-feat-body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.lg-skel-news-feat-media {
+  min-height: 160px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.lg-skel-news-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lg-skel-news-events {
+  background: rgba(1, 63, 92, 0.6);
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lg-skel-ev-row {
+  height: 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.lg-skel-ev-row:last-child {
+  border-bottom: none;
+}
+
+.lg-skel-news-topics {
+  background: rgba(255, 242, 0, 0.12);
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 242, 0, 0.1);
+}
+
+.lg-skel-topic-row {
+  height: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.lg-skel-topic-row:last-child {
+  border-bottom: none;
+}
+
+.lg-skel-news-media {
+  background: rgba(255, 242, 0, 0.15);
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 242, 0, 0.12);
+  border-radius: 2px;
+}
+
+.lg-skel-news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.lg-skel-news-card {
+  height: 220px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ------------------------------------------------------------------ */
+/* Company page skeleton                                                */
+/* ------------------------------------------------------------------ */
+.lg-skel-company-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 24px auto 0;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.lg-skel-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.lg-skel-stat-tile {
+  height: 80px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 3px solid rgba(255, 242, 0, 0.3);
+}
+
+.lg-skel-company-about {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lg-skel-company-services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.lg-skel-svc-card {
+  height: 140px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ------------------------------------------------------------------ */
+/* Leadership page skeleton                                             */
+/* ------------------------------------------------------------------ */
+.lg-skel-leadership-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 24px auto 0;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.lg-skel-leader-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.lg-skel-leader-card {
+  height: 260px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Contact page skeleton                                                */
+/* ------------------------------------------------------------------ */
+.lg-skel-contact-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 24px auto 0;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.lg-skel-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.lg-skel-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lg-skel-form-field {
+  height: 36px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lg-skel-form-tall {
+  height: 100px;
+}
+
+.lg-skel-contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.lg-skel-contact-map {
+  height: 220px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lg-skel-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* History page skeleton                                                */
+/* ------------------------------------------------------------------ */
+.lg-skel-history-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 24px auto 0;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.lg-skel-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-left: 24px;
+  border-left: 2px solid rgba(255, 242, 0, 0.3);
+}
+
+.lg-skel-timeline-item {
+  height: 80px;
+  margin-left: 16px;
+  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  position: relative;
+}
+
+.lg-skel-timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -22px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 242, 0, 0.6);
+}
+
+/* ------------------------------------------------------------------ */
+/* Operations/Map page skeleton                                        */
+/* ------------------------------------------------------------------ */
+.lg-skel-ops-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 24px auto 0;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.lg-skel-ops-map {
+  height: 400px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lg-skel-ops-countries {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.lg-skel-ops-country {
+  height: 60px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ------------------------------------------------------------------ */
+/* Generic sub-page fallback skeleton                                   */
+/* ------------------------------------------------------------------ */
+.lg-skel-generic-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 24px auto 0;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ------------------------------------------------------------------ */
+/* Responsive overrides for page-specific skeletons                     */
+/* ------------------------------------------------------------------ */
+@media (min-width: 900px) {
+  .lg-skel-news-top {
+    grid-template-columns: 1fr 220px;
+  }
+
+  .lg-skel-news-featured {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+
+  .lg-skel-news-feat-media {
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 760px) {
+  .lg-skel-main--subpage {
+    padding: 36px 16px 28px;
+    min-height: 220px;
+  }
+
+  .lg-skel-news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lg-skel-stats-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .lg-skel-leader-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .lg-skel-contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lg-skel-ops-countries {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .lg-skel-company-services {
+    grid-template-columns: 1fr;
   }
 }
 

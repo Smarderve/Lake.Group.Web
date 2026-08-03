@@ -132,6 +132,51 @@
 .ct-label{color:var(--gold);font-size:var(--fs-micro);font-weight:700;text-transform:uppercase;letter-spacing:0.22em;margin-bottom:4px}
 .ct-strong{color:var(--white);font-size:0.92rem;display:block}
 .ct-dim{color:var(--ink-mute);font-size:0.85rem;display:block}
+
+/* Full-screen hero for Lake Agro — matches homepage .hero height */
+body.co-theme-agro .page-hero {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 100px 0 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* Prevent next section peeking behind hero on load */
+body.co-theme-agro #why-we-are {
+  position: relative;
+  z-index: 1;
+  background: var(--paper);
+}
+/* Optimize hero media position for landscape farm imagery */
+body.co-theme-agro .page-hero .hero-media {
+  background-size: cover;
+  background-position: center 30%;
+  animation:
+    agro-hero-media-in 0.7s var(--ease-out) both,
+    agro-hero-ken 32s ease-in-out 0.7s infinite alternate;
+  will-change: transform;
+}
+@keyframes agro-hero-media-in {
+  from { opacity: 0; transform: scale(1.02); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes agro-hero-ken {
+  from { transform: scale(1) translate3d(0, 0, 0); }
+  to   { transform: scale(1.025) translate3d(0, -0.4%, 0); }
+}
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  body.co-theme-agro .page-hero .hero-media {
+    animation: none;
+  }
+}
+/* Small screens: reduce hero top padding for better content visibility */
+@media (max-width: 480px) {
+  body.co-theme-agro .page-hero {
+    padding: 60px 0 60px;
+  }
+}
   </style>
 <script type="application/ld+json">
 {
@@ -572,14 +617,14 @@
         <li><a href="contact.html" data-i18n="footer.contact">Contact Us</a></li>
       </ul>
       <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:5px">
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/tz.svg" alt="" class="flag-icon" width="20" height="15"> Tanzania</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/ke.svg" alt="" class="flag-icon" width="20" height="15"> Kenya</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/zm.svg" alt="" class="flag-icon" width="20" height="15"> Zambia</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/rw.svg" alt="" class="flag-icon" width="20" height="15"> Rwanda</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/bi.svg" alt="" class="flag-icon" width="20" height="15"> Burundi</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/cd.svg" alt="" class="flag-icon" width="20" height="15"> DR Congo</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/et.svg" alt="" class="flag-icon" width="20" height="15"> Ethiopia</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/mz.svg" alt="" class="flag-icon" width="20" height="15"> Mozambique</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/tz.svg" alt="Tanzania flag" class="flag-icon" width="20" height="15"> Tanzania</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/ke.svg" alt="Kenya flag" class="flag-icon" width="20" height="15"> Kenya</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/zm.svg" alt="Zambia flag" class="flag-icon" width="20" height="15"> Zambia</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/rw.svg" alt="Rwanda flag" class="flag-icon" width="20" height="15"> Rwanda</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/bi.svg" alt="Burundi flag" class="flag-icon" width="20" height="15"> Burundi</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/cd.svg" alt="DR Congo flag" class="flag-icon" width="20" height="15"> DR Congo</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/et.svg" alt="Ethiopia flag" class="flag-icon" width="20" height="15"> Ethiopia</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/mz.svg" alt="Mozambique flag" class="flag-icon" width="20" height="15"> Mozambique</span>
       </div></div>
     </div>
     <div class="footer-bottom">
@@ -592,7 +637,7 @@
 
 
 
-<div id="chat-widget">
+<div id="chat-widget" class="la-widget">
   <div id="chat-box">
     <div id="chat-head"><h4 data-i18n="chat.title">Lake Group Assistant</h4><p data-i18n="chat.sub">Ask us anything</p></div>
     <div id="chat-messages"><div class="msg msg-bot" data-i18n="chat.hello">Hello! How can I help you today?</div></div>

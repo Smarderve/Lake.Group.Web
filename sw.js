@@ -13,7 +13,7 @@
 
 'use strict';
 
-const VERSION = 'v65';
+const VERSION = 'v68';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -379,11 +379,11 @@ async function cacheFirst(request, cacheName, maxEntries) {
 const AUTH_QUERY_PARAMS = /(^|[?&])(token|auth|key|apikey|api_key|signature|session|password)=/i;
 
 const SWR_IMAGE_RE =
-  /\/(assets\/images\/n-slider|lake-story-assets)\/|\/assets\/images\/[^?]*\/products\//;
+  /\/(assets\/images\/(?:n-slider|our-story))\/|\/assets\/images\/[^?]*\/products\//;
 
 /** Critical design / layout assets — always freshest-first with cache fallback. */
 const DESIGN_CHROME_RE =
-  /\/assets\/(tokens|theme|flagship|assistant|skeleton|split-text|LogoLoop|ui-icons)\.(css|js)$|\/assets\/(site|motion|flagship-motion|pwa|i18n|i18n-content|assistant|assistant-kb|news-data|news)\.js$/;
+  /\/assets\/(tokens|theme|flagship|assistant|skeleton|split-text|LogoLoop|ui-icons)\.(css|js)$|\/assets\/(site|motion|flagship-motion|pwa|i18n|i18n-content|assistant|assistant-kb|news-data|news-api|news)\.js$/;
 
 function classify(request, url) {
   if (request.mode === 'navigate' || request.destination === 'document') {

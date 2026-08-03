@@ -101,12 +101,12 @@ const CURATED_FACTS = [
     url: 'africa-network.html',
     en: {
       t: 'Where we operate',
-      s: 'Lake Group operates across 8 countries in Africa - Tanzania (headquarters), Kenya, Zambia, DR Congo, Rwanda, Burundi, Ethiopia and Mozambique - plus a presence in the UAE (Dubai) through MERM and SAFF.',
+      s: 'Lake Group operates across 9 countries in Africa - Tanzania (headquarters), Kenya, Zambia, DR Congo, Rwanda, Burundi, Ethiopia and Mozambique - plus a presence in the UAE (Dubai) through MERM and SAFF.',
       k: 'countries where operate operations locations presence africa which country region',
     },
     fr: {
       t: 'Où nous opérons',
-      s: 'Lake Group opère dans 8 pays d\u2019Afrique - la Tanzanie (siège), le Kenya, la Zambie, la RD Congo, le Rwanda, le Burundi, l\u2019Éthiopie et le Mozambique - avec aussi une présence aux Émirats arabes unis (Dubaï) via MERM et SAFF.',
+      s: 'Lake Group opère dans 9 pays d\u2019Afrique - la Tanzanie (siège), le Kenya, la Zambie, la RD Congo, le Rwanda, le Burundi, l\u2019Éthiopie et le Mozambique - avec aussi une présence aux Émirats arabes unis (Dubaï) via MERM et SAFF.',
       k: 'pays où opérez opérations présence afrique quels quelles régions implantation',
     },
     sw: {
@@ -367,12 +367,12 @@ const CURATED_FACTS = [
     url: 'careers.html',
     en: {
       t: 'Careers',
-      s: 'We are always looking for talented people across our group companies in 8 countries. Visit the Careers page to explore current opportunities and apply.',
+      s: 'We are always looking for talented people across our group companies in 9 countries. Visit the Careers page to explore current opportunities and apply.',
       k: 'careers jobs vacancies hiring work employment apply recruitment opportunity',
     },
     fr: {
       t: 'Carrières',
-      s: 'Nous recherchons en permanence des talents pour les sociétés de notre groupe dans 8 pays. Consultez la page Carrières pour découvrir les opportunités actuelles et postuler.',
+      s: 'Nous recherchons en permanence des talents pour les sociétés de notre groupe dans 9 pays. Consultez la page Carrières pour découvrir les opportunités actuelles et postuler.',
       k: 'carrières emplois postes recrutement travailler candidature postuler',
     },
     sw: {

@@ -43,15 +43,15 @@ window.LAKE_NEWS = [
     title: "Lake Group Founder Named Among Africa's Leading Energy Entrepreneurs",
     date: "10 Mar, 2025",
     category: "Awards",
-    bannerImage: "assets/images/leadership/ally-composite-launch.jpg?v=80",
+    bannerImage: "assets/images/leadership/ally-edha-awadh.png?v=80",
     description: [
       "Ally Edha Awadh, Founder and Executive Chairman of Lake Group, has been featured by Billionaires.Africa and other business publications as one of East Africa's leading energy entrepreneurs, alongside fellow Tanzanian tycoon Rostam Aziz of Taifa Gas.",
       "Under Awadh's leadership, Lake Group has grown from a single fuel outlet in Dar es Salaam in 2006 into a diversified conglomerate spanning petroleum distribution, LPG, steel manufacturing, logistics, real estate, and agro-processing across 9 countries in East and Central Africa.",
-      "The group operates a fleet of over 750 vehicles, 152+ retail fuel stations, and employs more than 30,000 people. Forbes Africa previously profiled the company as a $1 billion integrated energy platform in 2017.",
+      "The group operates a fleet of over 1,200 vehicles, 152+ retail fuel stations, and employs more than 30,000 people. Forbes Africa previously profiled the company as a $1 billion integrated energy platform in 2017.",
       "\"Our vision is to become the leading regional energy and industrial conglomerate,\" Awadh stated. \"We are building infrastructure that will serve East Africa for generations.\""
     ],
     images: [
-      "assets/images/leadership/ally-composite-launch.jpg",
+      "assets/images/leadership/ally-edha-awadh.png",
       "assets/images/leadership/ally-morocco-mou.jpg",
       "assets/images/leadership/ally-sino-trucks.jpg"
     ],
@@ -77,12 +77,12 @@ window.LAKE_NEWS = [
   },
   {
     id: 26,
-    title: "Lake Trans & ATL Fleet Expansion Reaches 750+ Vehicles for Regional Logistics",
+    title: "Lake Trans & ATL Fleet Expansion Reaches 1,200+ Vehicles for Regional Logistics",
     date: "09 Sep, 2023",
     category: "Logistics",
     bannerImage: "assets/images/group/ops/terminal-overview.jpg?v=80",
     description: [
-      "Lake Group's logistics division, comprising Lake Trans Ltd. and Associated Trans Logistics Ltd. (ATL), expanded its combined fleet to over 750 vehicles, strengthening its position as a leading transport and logistics provider in East and Central Africa.",
+      "Lake Group's logistics division, comprising Lake Trans Ltd. and Associated Trans Logistics Ltd. (ATL), expanded its combined fleet to over 1,200 vehicles, strengthening its position as a leading transport and logistics provider in East and Central Africa.",
       "The fleet includes fuel tankers, bulk liquid carriers, flatbed trucks, and container haulage vehicles operating across Tanzania, Kenya, Zambia, DR Congo, Rwanda, Burundi, and Ethiopia.",
       "Lake Trans specializes in bulk liquid petroleum haulage, serving Lake Oil's distribution network and third-party clients. ATL provides general cargo and container logistics, operating from the Dar es Salaam port corridor to inland destinations.",
       "The expanded fleet enables the group to move over 1.5 million metric tons of cargo annually across the region's major transport corridors, including the Central Corridor (Dar es Salaam — Zambia — DRC) and the Northern Corridor (Mombasa — Uganda — Rwanda)."
@@ -131,7 +131,7 @@ window.LAKE_NEWS = [
     description: [
       "Lake Gas Ltd, recently inaugurated East Africa's biggest LPG storage facility in Tanga, Tanzania. This terminal can store 1000 MT of LPG and consists of two LPG bullets/tanks of 500 MT Capacity each. It can further take 6 more bullets/tanks of similar capacity for future expansion.",
       "In a one of its kind operation in Tanga, LPG ship will now discharge Gas through a private single mooring buoy exclusively built for this terminal.",
-      "The operation of the terminal is fully automized with sensitive world class stock monitoring system for the in and out flow of stock. The facility complies with all the local, international standards and OISD norms.",
+      "The operation of the terminal is fully automated with sensitive world class stock monitoring system for the in and out flow of stock. The facility complies with all the local, international standards and OISD norms.",
       "The terminal will also act as a trading hub allowing the re-export of LPG to other markets in East Africa. It will serve as a reliable and secure source of LPG not only for Tanzania but also for its neighboring countries like Kenya, Zambia, DR Congo, Rwanda, Uganda and Burundi."
     ],
     images: [
@@ -177,11 +177,11 @@ window.LAKE_NEWS = [
     title: "Lake Group Celebrates 15 Years of Growth and Regional Expansion",
     date: "18 Nov, 2021",
     category: "Events",
-    bannerImage: "assets/images/leadership/ally-composite-launch.jpg?v=80",
+    bannerImage: "assets/images/leadership/annual-event.jpg?v=80",
     description: [
       "Lake Group commemorated its 15th anniversary, marking the journey from a single fuel outlet in Dar es Salaam in 2006 to a diversified conglomerate operating across 9 countries in East and Central Africa.",
       "Founded by Ally Edha Awadh at age 27, Lake Group grew from a petroleum trading company into a multi-sector enterprise spanning energy (Lake Oil, Lake Gas, Lake Aviation, Lake Lubes), manufacturing (Lake Steel, Lake Buildings, Lake Plastics, ATL), logistics (Lake Trans, AFICD, AILL), real estate (Cross Country, Ocean Galleria), and agro-processing (Lake Agro).",
-      "Over 15 years, the group built key infrastructure including the Kigamboni fuel terminal, Lake Gas LPG filling plant, Lake Steel rolling mill in Kibaha, and the Lake Trans fleet of over 750 vehicles.",
+      "Over 15 years, the group built key infrastructure including the Kigamboni fuel terminal, Lake Gas LPG filling plant, Lake Steel rolling mill in Kibaha, and the Lake Trans fleet of over 1,200 vehicles.",
       "The anniversary was celebrated with employees across all subsidiaries, recognizing the contributions of the 30,000+ workforce drawn from 21 nationalities."
     ],
     images: [],
@@ -253,7 +253,7 @@ window.LAKE_NEWS = [
     title: "Lake Group Women's Empowerment Initiative — International Women's Day 2021",
     date: "08 Mar, 2021",
     category: "CSR",
-    bannerImage: "assets/images/leadership/ally-composite-launch.jpg?v=80",
+    bannerImage: "assets/images/leadership/annual-event.jpg?v=80",
     description: [
       "Lake Group celebrated International Women's Day 2021 with community outreach and employee engagement initiatives across its operations in Tanzania, continuing the company's tradition of honoring women's contributions to the workplace and society.",
       "The company's women employees organized donation drives and community visits, providing essential supplies to local communities. The initiative also featured internal events recognizing the achievements of women across Lake Group's subsidiaries.",
@@ -268,12 +268,12 @@ window.LAKE_NEWS = [
     title: "Lake Group Launches COVID-19 Community Relief & Support Initiative",
     date: "15 May, 2020",
     category: "CSR",
-    bannerImage: "assets/images/leadership/ally-composite-launch.jpg?v=80",
+    bannerImage: "assets/images/leadership/annual-event.jpg?v=80",
     description: [
       "Lake Group mobilized its CSR arm to support communities across Tanzania during the COVID-19 pandemic, donating medical supplies, food packages, and sanitation materials to vulnerable communities in Dar es Salaam, Coast Region, and up-country areas.",
       "The initiative included distribution of face masks, hand sanitizers, and soap to markets, bus terminals, and public spaces. Lake Group also provided food relief packages to families affected by lockdown measures.",
       "Lake Oil fuel stations maintained operations throughout the pandemic to ensure continued supply of petroleum products for emergency services, healthcare workers, and essential logistics.",
-      "The company also implemented enhanced health and safety protocols across all its facilities and operations to protect its 4,600+ employees during the crisis."
+      "The company also implemented enhanced health and safety protocols across all its facilities and operations to protect its 30,000+ employees during the crisis."
     ],
     images: [],
     video: null
@@ -286,7 +286,7 @@ window.LAKE_NEWS = [
     category: "Logistics",
     bannerImage: "assets/images/group/ops/terminal-overview.jpg?v=80",
     description: [
-      "African International Container Depot Ltd. (AFICD) commenced operations at the Dar es Salaam port corridor, providing container freight station, warehousing, and cargo consolidation services for importers and exporters across Tanzania and the wider East African region.",
+      "African Inland Container Depot Ltd. (AFICD) commenced operations at the Dar es Salaam port corridor, providing container freight station, warehousing, and cargo consolidation services for importers and exporters across Tanzania and the wider East African region.",
       "The depot serves as a key logistics hub for containerized cargo moving through the Dar es Salaam port — East Africa's second-largest port — connecting to landlocked countries including Zambia, DR Congo, Rwanda, Burundi, and Uganda via the Central Corridor.",
       "AFICD offers container handling, storage, stuffing and stripping, customs bonding, and cargo distribution services, complementing Lake Trans's bulk liquid and general cargo transport operations. The depot handles both inbound and outbound container traffic for Lake Group subsidiaries and third-party clients.",
       "The launch of AFICD marked Lake Group's strategic expansion into container logistics and port-side services, strengthening its end-to-end supply chain capabilities across the region.",
@@ -320,7 +320,7 @@ window.LAKE_NEWS = [
     description: [
       "Lake Trans Ltd. expanded its heavy-duty vehicle fleet to over 200 units, strengthening its capacity to serve Lake Group's growing petroleum distribution and general cargo logistics needs across Tanzania and neighboring countries.",
       "The fleet expansion included fuel tankers for Lake Oil's distribution network, flatbed trucks for construction materials transport, and container haulage vehicles serving the Dar es Salaam port corridor. The expanded fleet enabled Lake Trans to serve routes across Tanzania, Zambia, and DR Congo.",
-      "Lake Trans's growth paralleled the overall expansion of Lake Group's logistics division, which later grew to become one of East Africa's largest privately-owned transport fleets with over 750 vehicles by 2023.",
+      "Lake Trans's growth paralleled the overall expansion of Lake Group's logistics division, which later grew to become one of East Africa's largest privately-owned transport fleets with over 1,200 vehicles by 2024.",
       "The fleet milestone was supported by Lake Group's partnership with international truck manufacturers and the company's investment in driver training, fleet management systems, and maintenance infrastructure at its Dar es Salaam depot.",
       "[Source: Lake Group official company data]"
     ],
@@ -351,7 +351,7 @@ window.LAKE_NEWS = [
     bannerImage: "assets/images/group/ops/terminal-overview.jpg?v=80",
     description: [
       "Lake Oil Ltd. continued its rapid retail network expansion, reaching over 80 branded fuel stations across Tanzania — nearly doubling its station count in just over a year. The growth reflected strong consumer acceptance of the Lake Oil brand in the competitive Tanzanian downstream petroleum market.",
-      "New station openings in 2016 included sites in the coastal regions (Tangai, Mtwara), lake zone (Mwanza, Bukoba), and northern corridor (Arusha, Moshi). Each station was built to consistent specifications with modern forecourt design, automated dispensers, and enhanced safety systems.",
+      "New station openings in 2016 included sites in the coastal regions (Tanga, Mtwara), lake zone (Mwanza, Bukoba), and northern corridor (Arusha, Moshi). Each station was built to consistent specifications with modern forecourt design, automated dispensers, and enhanced safety systems.",
       "The milestone strengthened Lake Oil's position as the fastest-growing domestic petroleum marketing company in Tanzania, competing alongside international majors and other local players in serving the country's growing demand for petroleum products.",
       "The retail network growth was powered by Lake Group's integrated supply chain — crude/product imports via the Kigamboni terminal, bulk haulage by Lake Trans, and storage at regional depots — ensuring reliable fuel supply to all stations.",
       "[Source: Lake Group official company data]"
@@ -502,8 +502,8 @@ window.LAKE_NEWS = [
     category: "CSR",
     bannerImage: "assets/images/news/14/photo_1.jpg",
     description: [
-      "CSR is corporate philanthropy. This includes monetary donations and aid given to local and non-profit organization and communities, including donations in areas such as education, health and poverty just to mention a few. CSR is the process with the aim of embrace responsibility for the company's actions and encourage a positive impact through its activities on the environment, consumers, employees, communities, stake holders and all other members of the public sphere who may also be considered as stake holders.",
-      "A company's sense of responsibility towards the community and environment is one of the Lake Group's policies which have been practiced since commencement of its operations in 2006 in Dar es salaam, Tanzania. In April 2014, Lake Group reached a decision to extend a helping hand to maternal wards by providing Medical equipments to three municipal in Dar es Salaam as hereunder: Beds for delivery, Tools for delivery (delivery kits), Wheel chairs, Stretchers for delivery purpose, BP Machines, Examination lumps",
+      "CSR is corporate philanthropy. This includes monetary donations and aid given to local and non-profit organization and communities, including donations in areas such as education, health and poverty just to mention a few. CSR is the process with the aim of embrace responsibility for the company's actions and encourage a positive impact through its activities on the environment, consumers, employees, communities, stakeholders and all other members of the public sphere who may also be considered as stake holders.",
+      "A company's sense of responsibility towards the community and environment is one of the Lake Group's policies which have been practiced since commencement of its operations in 2006 in Dar es salaam, Tanzania. In April 2014, Lake Group reached a decision to extend a helping hand to maternal wards by providing Medical equipments to three municipal in Dar es Salaam as hereunder: Beds for delivery, Tools for delivery (delivery kits), Wheel chairs, Stretchers for delivery purpose, BP Machines, Examination lamps",
       "The hospitals that enjoyed this aid were Mwananyamala Municipal Hospital – Kinondoni District, Amana Municipal Hospital – Ilala and Temeke hospital. Items were received by Dr. Kawawa and Dr. Mwaikasu on behalf of the Dar es Salaam Regional Commissioner at the occasion held at Mwananyamala Hospital.",
       "The Dar es Salaam medical in charge, said that \"The aid has been given in a right time due to the fact that many, public hospitals facing the shortage of medical equipments. We would like to encourage other companies to follow what has been started by Lake Group\".",
       "On the other hand, Lake Group representatives said that \"we believe this aid will help to reduce the death rate caused by preventable maternal problems, as a company, our happiness comes, when we contribute to improve health facilities in our community\". In addition, the company promised the Regional Health Committee to continue aiding in Health sector as much as we can."
@@ -519,8 +519,8 @@ window.LAKE_NEWS = [
     bannerImage: "assets/images/news/6/photo_1.jpg",
     description: [
       "It is a Pleasure to announce a New Milestone achieved by the \"LAKE GAS TEAM\" – The Launch of the \"COMPOSITE CYLINDERS\".",
-      "The Composite Cylinder was officially Launched on 18th June, 2014 at the Program conducted at the Grand Hyatt Regency - Dar Es Saalam. The Guest of Honor – The Asst. Commissioner of Energy (Natural Gas) in the Ministry of Energy & Minerals- Mr. Nobert Kahyoza officiated the Launch by holding up the Composite Cylinder along with our Chairman and Managing Director – Mr. Ally Edha Awadh.",
-      "Amid a crowd of more than 150 people, which compromised of Dignitaries and names from various works of life; the Launch was captured by an extensive crowd of Media and Press.",
+      "The Composite Cylinder was officially Launched on 18th June, 2014 at the Program conducted at the Grand Hyatt Regency - Dar Es Salaam. The Guest of Honor – The Asst. Commissioner of Energy (Natural Gas) in the Ministry of Energy & Minerals- Mr. Nobert Kahyoza officiated the Launch by holding up the Composite Cylinder along with our Chairman and Managing Director – Mr. Ally Edha Awadh.",
+      "Amid a crowd of more than 150 people, which comprised of Dignitaries and names from various works of life; the Launch was captured by an extensive crowd of Media and Press.",
       "The Launch of the composite cylinders in DAR marks a new revolution in the terms of a parallel cooking range, the cylinders are not only Aesthetically pleasing to look and graces the appearance of the kitchen; but also has the 4 unique features which makes it stand tall in comparison to our conventional steel cylinders. They are: Non Explosive, Non Corrosive, Light Weight, Translucent"
     ],
     images: [],
@@ -600,7 +600,7 @@ window.LAKE_NEWS = [
       "Africa Energy Intelligence's sources report that the Tanzanian oil trading and distribution firm Lake Group has set up shop in Mozambique.",
       "Its founder and CEO, Ally Edha Awadh, recently incorporated a subsidiary named Lake Oil Limited in Beira In central Mozambique.",
       "The move marked a further step in Lake Group's expansion in the region. Apart from Tanzania itself, the firm is active in Zambia, Kenya, Congo-K, Burundi and Rwanda. The company was founded in 2006 by Awadh, who was 27 at the time. Named Lake Oil, it worked initially in importing and storing oil products but Awadh later diversified his business by inaugurating a flurry of companies, including Lake Trans Ltd (transport).",
-      "The firm works with oil trading giants like Trafigura and Agusta Energy. Forbes Magazine listed Awadh as one of Africa's most promising young businessmen in 2014 and 2015. Lake Oil's arrival in Mozambique coincides with that of one of its competitors in Tanzania, the MeTL conglomerate of businessman Mohamed Dewji who will work out of Nacala in the north of the country."
+      "The firm works with oil trading giants like Trafigura and Augusta Energy. Forbes Magazine listed Awadh as one of Africa's most promising young businessmen in 2014 and 2015. Lake Oil's arrival in Mozambique coincides with that of one of its competitors in Tanzania, the MeTL conglomerate of businessman Mohamed Dewji who will work out of Nacala in the north of the country."
     ],
     images: [],
     video: null
@@ -647,7 +647,7 @@ window.LAKE_NEWS = [
     category: "Business",
     bannerImage: "assets/images/news/3/photo_1.jpg",
     description: [
-      "Mr. Ally Awadh of Lake Group signing an MOU during the visit by the Moroccan King, establishing a strategic investment partnership between Lake Group and Moroccan enterprises."
+      "Mr. Ally Edha Awadh of Lake Group signing an MOU during the visit by the Moroccan King, establishing a strategic investment partnership between Lake Group and Moroccan enterprises."
     ],
     images: [],
     video: null
@@ -671,7 +671,7 @@ window.LAKE_NEWS = [
     category: "Logistics",
     bannerImage: "assets/images/news/1/photo_1.jpg",
     description: [
-      "Mr. Ally Awadh signing an MOU with SINO Trucks during the visit to China, establishing a strategic partnership for fleet modernization and truck assembly."
+      "Mr. Ally Edha Awadh signing an MOU with SINO Trucks during the visit to China, establishing a strategic partnership for fleet modernization and truck assembly."
     ],
     images: [],
     video: null
