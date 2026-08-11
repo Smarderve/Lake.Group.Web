@@ -18,6 +18,11 @@ body.home .site-nav {
   -webkit-backdrop-filter: none;
   transition: background-color 0.3s ease, height 0.3s var(--ease-smooth), transform 0.38s var(--ease-smooth), box-shadow 0.3s ease;
 }
+/* Home's taller 84px bar: keep --nav-h in sync so the mobile drawer and
+   page-wrapper clear the fixed navbar instead of tucking under it. */
+body.home {
+  --nav-h: 84px;
+}
 body.home .site-nav.nav-scrolled {
   background: var(--color-brand-blue-deep, #016694);
   background-color: var(--color-brand-blue-deep, #016694);
