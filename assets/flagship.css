@@ -725,10 +725,14 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   box-shadow: none;
   overflow: visible;
 }
-/* Light chip behind navy-low-contrast logos (do not filter/recolor PNGs).
-   Cross Country + Ocean Galleria: no chip — transparent PNG on dark megamenu. */
+/* Light chip behind navy/low-contrast logos (do not filter/recolor PNGs).
+   AFICD (blue), ACFS (gray) and Cross Country (navy) read too dark against the
+   dark megamenu — the white chip keeps them visible, same as ATL / Lake Agro.
+   Gulf Aggregates + Ocean Galleria stay transparent (light content on dark). */
 .mm-company img[src*="lake-agro.png"],
-.mm-company img[src*="atl.png"] {
+.mm-company img[src*="atl.png"],
+.mm-company img[src*="aficd.png"],
+.mm-company img[src*="acfs.png"] {
   background: #fff;
   border-radius: 8px;
   padding: 8px 10px;
@@ -748,13 +752,13 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
 }
 /* Tall stacked mark — taller than peers so visual weight matches Ocean Galleria. */
 .mm-company img[src*="cross-country.png"] {
-  height: 86px;
-  max-width: 162px;
-  max-height: 86px;
-  background: transparent;
-  border-radius: 0;
-  padding: 0;
-  box-shadow: none;
+  height: 84px;
+  max-width: 160px;
+  max-height: 84px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px 10px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.14);
 }
 .mm-company img[src*="ocean-galleria.png"] {
   height: 78px;
@@ -793,7 +797,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
     height: 74px;
     max-width: 140px;
     max-height: 74px;
-    padding: 0;
+    padding: 4px 8px;
   }
   .mm-company img[src*="ocean-galleria.png"] {
     height: 66px;
@@ -807,7 +811,13 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
 .mm-company:hover, .mm-company:focus-visible {
   border-left: 0 !important;
   border-left-color: transparent;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.34);
+}
+/* Hover: darken the tile so light logos pop, and lift the logo with a soft
+   drop-shadow so it no longer blends into the darkened background. */
+.mm-company:hover img,
+.mm-company:focus-visible img {
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.55));
 }
 .mm-ext-icon {
   position: absolute; top: 8px; right: 8px;
@@ -1576,21 +1586,21 @@ body[data-company-logo] .page-hero h1 {
   width: 8px; height: 8px; background: var(--gold);
 }
 .footer-grid {
-  display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: var(--sp-12);
+  display: grid; grid-template-columns: 1.5fr 1.1fr 1.1fr 1.35fr 1.1fr; gap: var(--sp-12);
   padding-bottom: var(--sp-16);
 }
 @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--sp-8); } }
 @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } }
 .footer-brand p { font-size: var(--fs-small); margin-top: var(--sp-4); line-height: 1.7; max-width: 300px; }
 .footer-logo { display: inline-block; background: transparent; padding: 0; border-radius: 0; }
-.footer-logo img { height: var(--footer-logo-height, 56px); width: auto; display: block; max-width: min(280px, 100%); object-fit: contain; }
+.footer-logo img { height: var(--footer-logo-height, 34px); width: auto; display: block; max-width: 130px; object-fit: contain; }
 @media (max-width: 720px) {
-  .footer-logo img { height: var(--footer-logo-height-mobile, 48px); }
+  .footer-logo img { height: var(--footer-logo-height-mobile, 28px); max-width: 100px; }
 }
 .footer-motto { color: var(--gold) !important; font-size: var(--fs-micro) !important; font-weight: 700 !important; letter-spacing: var(--eyebrow-letter-spacing, 0.16em) !important; text-transform: uppercase; }
 .footer-col h5 {
   display: flex; align-items: center; gap: 10px;
-  color: #fff; font-size: var(--fs-micro); letter-spacing: var(--eyebrow-letter-spacing, 0.16em);
+  color: var(--gold); font-size: var(--fs-micro); letter-spacing: var(--eyebrow-letter-spacing, 0.16em);
   text-transform: uppercase; font-weight: 700; margin-bottom: var(--sp-5);
 }
 .footer-col h5::before { content: ''; width: 8px; height: 8px; background: var(--gold); flex: none; }
@@ -1619,17 +1629,26 @@ body[data-company-logo] .page-hero h1 {
 .footer-bottom-links { display: flex; gap: var(--sp-5); }
 .footer-bottom-links a { font-size: var(--fs-micro); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); transition: color var(--dur-1) ease; }
 .footer-bottom-links a:hover { color: var(--gold); }
-.footer-social { margin-top: var(--sp-5); display: flex; flex-wrap: wrap; gap: var(--sp-2); }
-.social-link {
+.footer-social { margin-top: var(--sp-5); display: flex; flex-wrap: wrap; gap: 12px; }
+.site-footer .social-link {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 40px; height: 40px; padding: 0;
-  color: var(--ink-mute);
-  border: none; border-radius: 0;
+  width: 42px; height: 42px; padding: 0;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 50%;
   background: transparent;
-  transition: color var(--dur-1) ease, opacity var(--dur-1) ease;
+  transition: background var(--dur-2) ease, color var(--dur-2) ease, border-color var(--dur-2) ease;
 }
-.social-link:hover { color: var(--gold); }
-.social-link:focus-visible {
+.site-footer .social-link:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--color-brand-blue-darkest, #013f5c);
+}
+.site-footer .social-link:hover .footer-social-ico,
+.site-footer .social-link:hover .lg-ico {
+  color: var(--color-brand-blue-darkest, #013f5c);
+  transform: translateY(0);
+}
+.site-footer .social-link:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 3px;
 }
@@ -2623,6 +2642,41 @@ canvas {
   }
 }
 
+/* YouTube embed sections (lake group videos on company pages) */
+.fs-video {
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  background: var(--ink-3, #0a1626);
+  border: 1px solid var(--ink-line-2, rgba(255, 255, 255, 0.08));
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: var(--shadow-3, 0 18px 40px rgba(8, 16, 28, 0.25));
+}
+.fs-video iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+.fs-videos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-6, 24px);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.fs-videos .fs-video {
+  max-width: none;
+  margin: 0;
+}
+@media (max-width: 760px) {
+  .fs-videos {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Prefer reduced data / low power: skip decorative motion */
 @media (max-width: 720px) and (prefers-reduced-motion: reduce) {
   *,
@@ -2633,5 +2687,148 @@ canvas {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* --------------------------------------------------------------------------
+   28. SMOOTHNESS LAYER - touch & motion polish (sitewide)
+   --------------------------------------------------------------------------
+   - Kills the tap-highlight flash on iOS/Android (replaced by a press cue).
+   - touch-action: manipulation removes the 300ms tap delay & double-tap zoom
+     on buttons/links so taps feel instant on mobile.
+   - Neutralizes sticky :hover on coarse-pointer devices: touch screens keep
+     the last hovered state after a tap, which leaves cards/links looking
+     permanently lifted. All decorative hover transforms/shadows are dropped
+     there; press feedback is provided via :active instead.
+   - Adds a subtle press cue (active) for cards/rows/logos on touch so taps
+     still feel tactile.
+   - Smooths scrolling edges (no bounce chaining) and image scaling.
+   -------------------------------------------------------------------------- */
+
+/* Tap highlight: replace the default flash with our own press cue */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a,
+button,
+[role="button"],
+input,
+select,
+textarea,
+summary {
+  touch-action: manipulation;
+}
+
+/* Touch / coarse-pointer devices: hover must not stick after the tap */
+@media (hover: none), (pointer: coarse) {
+  /* Neutralize decorative hover transforms that would stick */
+  .nav-logo:hover,
+  .btn:hover,
+  .btn:hover .fs-arrow,
+  .photo-card:hover img,
+  .img-hover-zoom:hover,
+  .badge:hover,
+  .country-tag:hover,
+  .division-item:hover,
+  .timeline-item:hover,
+  .division-item:hover .division-dot,
+  .fs-stat:hover,
+  .kpi:hover,
+  .fs-stat:hover .fs-stat-no,
+  .kpi:hover .kpi-no,
+  .leader-card:hover .leader-photo img,
+  .sus-item:hover,
+  .sus-item:hover .sus-emoji,
+  .section:hover .divider-yellow,
+  .fs-section:hover .fs-rule,
+  .marquee-item:hover,
+  .card:hover .card-icon,
+  .country-cell:hover .flag-icon-lg,
+  .country-tag:hover .flag-icon,
+  .footer-logo:hover img,
+  .mm-company:hover,
+  .mm-company:hover img,
+  .mm-company:hover span,
+  .div-row:hover,
+  .ev-row:hover,
+  .fs-marker:hover,
+  .nav-link:hover,
+  .nav-links a:hover,
+  .footer a:hover,
+  .breadcrumb a:hover {
+    transform: none !important;
+  }
+  .leader-card:hover,
+  .badge:hover,
+  .country-tag:hover {
+    box-shadow: none !important;
+  }
+  /* Sticky background darken on megamenu tiles: drop on touch */
+  .nav-megamenu .mm-company:hover,
+  .mm-company:hover {
+    background: transparent !important;
+  }
+
+  /* Press cue - tactile, instant, no layout shift */
+  .btn:active,
+  button:active,
+  .mm-company:active,
+  .photo-card:active,
+  .nav-logo:active,
+  .footer-logo:active,
+  .div-row:active,
+  .ev-row:active {
+    opacity: 0.78;
+  }
+
+  /* Overscroll containment: no bounce chaining when reaching page ends */
+  html,
+  body {
+    overscroll-behavior-y: contain;
+  }
+}
+
+/* Fine-pointer devices: add the missing opacity press-path transition without
+   clobbering existing property lists (border-color, background, etc. stay). */
+@media (hover: hover) and (pointer: fine) {
+  .photo-card,
+  .img-hover-zoom,
+  .badge,
+  .country-tag,
+  .division-item,
+  .timeline-item,
+  .fs-stat,
+  .kpi,
+  .sus-item,
+  .marquee-item,
+  .card,
+  .country-cell,
+  .footer-logo,
+  .mm-company,
+  .div-row,
+  .ev-row,
+  .leader-card {
+    transition-property: transform, box-shadow, opacity, background-color,
+      border-color, color;
+    transition-duration: var(--dur-2), var(--dur-2), var(--dur-1),
+      var(--dur-1), var(--dur-1), var(--dur-1);
+    transition-timing-function: var(--ease-out), ease, ease, ease, ease, ease;
+  }
+}
+
+/* Image scale polish: only promote the compositing layer while actually
+   hovering/animating, so grids of photos don't pin dozens of GPU layers. */
+.photo-card:hover img,
+.img-hover-zoom:hover,
+.gallery-tile:hover .gallery-tile__img {
+  will-change: transform;
+}
+
+/* Remove the tap-highlight flash on mobile nav / dropdowns as well */
+.site-nav a,
+.nav-mobile a,
+.nav-dropdown a,
+.mm-company a {
+  -webkit-tap-highlight-color: transparent;
 }
 

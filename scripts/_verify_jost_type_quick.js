@@ -3,6 +3,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const { resolveStatic } = require('./_safe_static.js');
 const { spawn } = require('child_process');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -61,9 +62,9 @@ document.body.setAttribute('data-report', JSON.stringify(o));
 }
 
 const server = http.createServer((req, res) => {
-  const urlPath = decodeURIComponent(req.url.split('?')[0]).replace(/^\//, '') || 'index.html';
-  const fp = path.join(ROOT, urlPath);
-  if (!fp.startsWith(ROOT) || !fs.existsSync(fp)) {
+  const urlPath = (req.url || '/').split('?')[0];
+  const fp = resolveStatic(ROOT, urlPath === '/' || urlPath === '' ? '/index.html' : urlPath);
+  if (!fp || !fs.existsSync(fp)) {
     res.writeHead(404);
     res.end('404');
     return;

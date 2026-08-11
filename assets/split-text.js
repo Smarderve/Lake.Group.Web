@@ -1,7 +1,7 @@
 /**
  * Split-text hero enhancement (vanilla port of React Bits <SplitText />).
  *
- * Static HTML site — no React mount. Manually wraps chars/words in spans
+ * Static HTML site . no React mount. Manually wraps chars/words in spans
  * (GSAP Club SplitText is not used) and animates with free gsap.fromTo.
  *
  * Targets: .hero h1, .page-hero h1
@@ -236,7 +236,7 @@
     if (!el || el.dataset.splitEnhanced === '1') return null;
     if (!el.textContent || !el.textContent.trim()) return null;
 
-    // Phones / reduced-motion: leave plain markup — faster paint, no GSAP wraps.
+    // Phones / reduced-motion: leave plain markup . faster paint, no GSAP wraps.
     if (reducedMotion) {
       el.classList.add('split-text--ready', 'split-text--done');
       return { el: el, revert: function () { /* plain */ } };
@@ -348,7 +348,7 @@
       delete el.dataset.splitOriginal;
       return;
     }
-    // Non-i18n heroes still contain char/word spans — restore plain markup.
+    // Non-i18n heroes still contain char/word spans . restore plain markup.
     if (el.dataset.splitOriginal != null) {
       el.innerHTML = el.dataset.splitOriginal;
       delete el.dataset.splitOriginal;

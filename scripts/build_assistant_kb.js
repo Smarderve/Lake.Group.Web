@@ -101,17 +101,17 @@ const CURATED_FACTS = [
     url: 'africa-network.html',
     en: {
       t: 'Where we operate',
-      s: 'Lake Group operates across 9 countries in Africa - Tanzania (headquarters), Kenya, Zambia, DR Congo, Rwanda, Burundi, Ethiopia and Mozambique - plus a presence in the UAE (Dubai) through MERM and SAFF.',
+      s: 'Lake Group operates across 10 countries - Tanzania (headquarters), Kenya, Zambia, DR Congo, Rwanda, Burundi, Ethiopia, Mozambique and Uganda - plus a presence in the UAE (Dubai) through MERM and SAFF.',
       k: 'countries where operate operations locations presence africa which country region',
     },
     fr: {
       t: 'Où nous opérons',
-      s: 'Lake Group opère dans 9 pays d\u2019Afrique - la Tanzanie (siège), le Kenya, la Zambie, la RD Congo, le Rwanda, le Burundi, l\u2019Éthiopie et le Mozambique - avec aussi une présence aux Émirats arabes unis (Dubaï) via MERM et SAFF.',
+      s: 'Lake Group opère dans 10 pays - la Tanzanie (siège), le Kenya, la Zambie, la RD Congo, le Rwanda, le Burundi, l\u2019Éthiopie, le Mozambique et l\u2019Ouganda - avec aussi une présence aux Émirats arabes unis (Dubaï) via MERM et SAFF.',
       k: 'pays où opérez opérations présence afrique quels quelles régions implantation',
     },
     sw: {
       t: 'Tunakofanya kazi',
-      s: 'Lake Group inafanya kazi katika nchi 8 za Afrika - Tanzania (makao makuu), Kenya, Zambia, DR Congo, Rwanda, Burundi, Ethiopia na Msumbiji - pamoja na uwepo katika Falme za Kiarabu (Dubai) kupitia MERM na SAFF.',
+      s: 'Lake Group inafanya kazi katika nchi 10 - Tanzania (makao makuu), Kenya, Zambia, DR Congo, Rwanda, Burundi, Ethiopia, Msumbiji na Uganda - pamoja na uwepo katika Falme za Kiarabu (Dubai) kupitia MERM na SAFF.',
       k: 'nchi gani wapi mnafanya kazi shughuli uwepo afrika mataifa mnaofanya',
     },
   },
@@ -367,17 +367,17 @@ const CURATED_FACTS = [
     url: 'careers.html',
     en: {
       t: 'Careers',
-      s: 'We are always looking for talented people across our group companies in 9 countries. Visit the Careers page to explore current opportunities and apply.',
+      s: 'We are always looking for talented people across our group companies in 10 countries. Visit the Careers page to explore current opportunities and apply.',
       k: 'careers jobs vacancies hiring work employment apply recruitment opportunity',
     },
     fr: {
       t: 'Carrières',
-      s: 'Nous recherchons en permanence des talents pour les sociétés de notre groupe dans 9 pays. Consultez la page Carrières pour découvrir les opportunités actuelles et postuler.',
+      s: 'Nous recherchons en permanence des talents pour les sociétés de notre groupe dans 10 pays. Consultez la page Carrières pour découvrir les opportunités actuelles et postuler.',
       k: 'carrières emplois postes recrutement travailler candidature postuler',
     },
     sw: {
       t: 'Ajira',
-      s: 'Daima tunatafuta watu wenye vipaji katika kampuni za kundi letu katika nchi 8. Tembelea ukurasa wa Ajira kuona nafasi zilizopo na kutuma maombi.',
+      s: 'Daima tunatafuta watu wenye vipaji katika kampuni za kundi letu katika nchi 10. Tembelea ukurasa wa Ajira kuona nafasi zilizopo na kutuma maombi.',
       k: 'ajira kazi nafasi kuajiriwa fursa maombi',
     },
   },

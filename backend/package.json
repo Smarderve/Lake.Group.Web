@@ -1,0 +1,52 @@
+{
+  "name": "lake-group-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Backend for the Lake Group website (Express + PostgreSQL + Prisma). Phase 1: foundation. Phase 2: auth, Postgres sessions, RBAC, TOTP MFA, rate limiting, audit log. No domain models yet.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.6.0"
+  },
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "start:prod": "NODE_ENV=production node src/index.js",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate deploy",
+    "db:migrate:dev": "prisma migrate dev",
+    "db:studio": "prisma studio",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "create-user": "node scripts/create-user.js",
+    "seed:metrics": "node scripts/seed-metrics.js",
+    "seed:content": "node scripts/seed-content.js",
+    "seed:all": "node scripts/seed-metrics.js && node scripts/seed-content.js",
+    "health:report": "node scripts/content-health-report.js",
+    "security:audit": "npm audit --audit-level=high",
+    "perf:load": "node scripts/load-check.js",
+    "db:backup": "node scripts/backup-db.js",
+    "db:restore": "node scripts/restore-db.js",
+    "postinstall": "prisma generate"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.9.1",
+    "@prisma/client": "^7.9.1",
+    "bcrypt": "^6.0.0",
+    "connect-pg-simple": "^10.0.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.6.2",
+    "express-session": "^1.19.0",
+    "otplib": "^13.4.1",
+    "pg": "^8.23.0",
+    "pino": "^10.3.1",
+    "pino-http": "^11.0.0",
+    "qrcode": "^1.5.4",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "prisma": "^7.9.1",
+    "supertest": "^7.2.2",
+    "vitest": "^4.1.10"
+  }
+}

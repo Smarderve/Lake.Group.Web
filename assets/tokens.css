@@ -64,13 +64,13 @@
   /* - Chrome geometry - */
   --navbar-height:              72px;
   --navbar-height-scrolled:     60px;
-  --nav-logo-height:            48px; /* ~65% of 72px bar — matches compact reference */
-  --nav-logo-height-scrolled:   36px;
+  --nav-logo-height:            38px; /* ~53% of 72px bar — compact */
+  --nav-logo-height-scrolled:   30px;
   /* Optical note: square letterboxed assets were trimmed; scale remains for any leftover 1:1 marks */
   --nav-logo-letterbox-scale:   1.15;
   /* Footer mark: visual weight near nav */
-  --footer-logo-height:            44px;
-  --footer-logo-height-mobile:     36px;
+  --footer-logo-height:            34px;
+  --footer-logo-height-mobile:     28px;
   --color-navbar-bg:            var(--color-brand-blue);
   --color-navbar-bg-scrolled:   rgba(1, 102, 148, 0.96);
   --color-navbar-border:        var(--color-yellow-accent);

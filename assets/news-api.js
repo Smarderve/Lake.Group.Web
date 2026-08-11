@@ -1,24 +1,27 @@
 /* =========================================================
- * Lake Group — News API loader
+ * Lake Group · News API loader (Phase 8 · Task 8.5)
  *
- * Fetches published articles from the self-hosted Payload CMS
- * (GET /api/news) and falls back to the bundled window.LAKE_NEWS
- * dataset when the API is unreachable or unconfigured.
+ * Fetches published articles from the Lake Group backend
+ * (GET /api/public/news — PUBLISHED + scheduled-visible only) and
+ * falls back to the bundled window.LAKE_NEWS dataset when the
+ * API is unreachable or unconfigured.
  *
  * Configure the endpoint BEFORE this script loads, e.g. in news.html:
- *   window.LAKE_NEWS_API_URL = 'https://cms.example.com';
- * Leave it empty to always use the bundled dataset.
+ *   window.LAKE_API_BASE = 'http://127.0.0.1:4000';
+ * (window.LAKE_NEWS_API_URL is honoured as a legacy alias.)
+ * Leave it unset and the bundled dataset renders instantly — news is the
+ * only loader that BLOCKS rendering, so it only probes when configured.
  * ========================================================= */
 (function () {
   'use strict';
 
-  var API_BASE = (window.LAKE_NEWS_API_URL || '').replace(/\/+$/, '');
-  var FETCH_TIMEOUT = 4000;   /* ms — fall back to bundled data if the CMS is slow */
+  var API_BASE = (window.LAKE_API_BASE || window.LAKE_NEWS_API_URL || '').replace(/\/+$/, '');
+  var FETCH_TIMEOUT = 4000;   /* ms — fall back to bundled data if the backend is slow */
   var MAX_ARTICLES = 100;
 
   var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-  /* No API configured → the bundled window.LAKE_NEWS is already ready. */
+  /* Unconfigured → the bundled window.LAKE_NEWS is already ready. */
   var pending = !!API_BASE;
   var readyCallbacks = [];
   var settled = false;
@@ -48,14 +51,8 @@
     });
   }
 
-  /* Payload media URLs may be relative to the CMS origin. */
-  function resolveUrl(url) {
-    if (!url) return '';
-    if (/^https?:\/\//i.test(url)) return url;
-    return API_BASE + (url.charAt(0) === '/' ? '' : '/') + url;
-  }
-
-  /* Payload returns ISO dates; the site displays "15 Feb, 2026". */
+  /* Backend publicationDate is ISO ("2026-02-15T00:00:00.000Z") — the site
+     displays "15 Feb, 2026". */
   function formatDisplayDate(iso) {
     if (!iso) return '';
     var m = String(iso).match(/^(\d{4})-(\d{2})-(\d{2})/);
@@ -69,33 +66,29 @@
     return d.getDate() + ' ' + MONTHS[d.getMonth()] + ', ' + d.getFullYear();
   }
 
-  /* Payload news doc → the site's LAKE_NEWS article shape. */
+  /* Backend news row → the site's LAKE_NEWS article shape. The row already
+     carries `category` (name) and `bannerImage` (hero media url) — the
+     public router resolves both so the frontend stays free of N+1 lookups. */
   function normalizeDoc(doc) {
     if (!doc || !doc.title) return null;
-    var paragraphs = (doc.description || []).map(function (p) {
-      return p && p.paragraph;
-    }).filter(Boolean);
-    if (!paragraphs.length && doc.excerpt) paragraphs = [doc.excerpt];
+    var banner = doc.bannerImage || '';
     return {
-      id: doc.legacyId != null ? doc.legacyId : doc.id,
+      id: doc.id,
       title: doc.title,
-      date: formatDisplayDate(doc.date),
+      date: formatDisplayDate(doc.publicationDate || doc.date),
       category: doc.category || 'News',
-      bannerImage: resolveUrl(doc.bannerImage && doc.bannerImage.url),
-      description: paragraphs,
-      images: (doc.images || []).map(function (g) {
-        return resolveUrl(g && g.image && g.image.url);
-      }).filter(Boolean),
-      video: doc.videoUrl || null
+      bannerImage: banner,
+      description: doc.body ? doc.body.split(/\n\n+/).filter(Boolean) : [],
+      images: banner ? [banner] : [],
+      video: null
     };
   }
 
   function loadFromApi() {
-    var url = API_BASE + '/api/news?limit=' + MAX_ARTICLES +
-      '&sort=-date&depth=2&where[status][equals]=published';
+    var url = API_BASE + '/api/public/news?limit=' + MAX_ARTICLES;
 
     var timer = setTimeout(function () {
-      settle(); /* CMS unreachable — keep the bundled dataset */
+      settle(); /* backend unreachable — keep the bundled dataset */
     }, FETCH_TIMEOUT);
 
     fetch(url, { headers: { Accept: 'application/json' } })
@@ -108,7 +101,7 @@
         /* If the timeout already fired, the page booted with the bundled
            dataset — never swap the global out from under a rendered page. */
         if (settled) return;
-        var docs = payload && Array.isArray(payload.docs) ? payload.docs : [];
+        var docs = payload && Array.isArray(payload.news) ? payload.news : [];
         if (!docs.length) {
           settle();
           return;
@@ -116,7 +109,7 @@
         /* Defensive newest-first sort: the featured-then-cards layout
            assumes the first article is the most recent. */
         docs.sort(function (a, b) {
-          return new Date(b.date || 0) - new Date(a.date || 0);
+          return new Date(b.publicationDate || b.date || 0) - new Date(a.publicationDate || a.date || 0);
         });
         var articles = docs.map(normalizeDoc).filter(Boolean);
         if (articles.length) {

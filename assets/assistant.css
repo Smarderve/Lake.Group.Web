@@ -291,6 +291,15 @@
   outline-offset: 1px;
 }
 
+/* Phase 9 — approved-fact citation line */
+#chat-widget.la-widget .la-cite {
+  display: block;
+  font-size: 0.7rem;
+  font-style: italic;
+  color: var(--la-mute);
+  margin-top: 6px;
+}
+
 /* Typing indicator */
 #chat-widget.la-widget .la-typing {
   display: flex;

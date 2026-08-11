@@ -19,6 +19,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const { resolveStatic } = require('./_safe_static.js');
 const { chromium } = require('playwright');
 
 const CMS_PORT = process.argv[2] || '51985';
@@ -40,9 +41,9 @@ const MIME = {
 };
 
 const server = http.createServer((req, res) => {
-  const urlPath = decodeURIComponent((req.url || '/').split('?')[0]);
-  let file = path.join(ROOT, urlPath === '/' ? 'news.html' : urlPath);
-  if (!file.startsWith(ROOT)) { res.writeHead(403); res.end(); return; }
+  const urlPath = (req.url || '/').split('?')[0];
+  const file = resolveStatic(ROOT, urlPath === '/' ? '/news.html' : urlPath);
+  if (!file) { res.writeHead(403); res.end(); return; }
   fs.readFile(file, (err, data) => {
     if (err) { res.writeHead(404); res.end('not found'); return; }
     res.writeHead(200, { 'Content-Type': MIME[path.extname(file)] || 'application/octet-stream' });

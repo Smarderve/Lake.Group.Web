@@ -1,5 +1,5 @@
 (function () {
-  /* Full-bleed ops photo — never the logo-on-white assets used as fake banners. */
+  /* Full-bleed ops photo . never the logo-on-white assets used as fake banners. */
   var NEWS_FALLBACK_IMAGE = 'assets/images/news/6/photo_1.jpg';
   var WEAK_BANNER_RE = /LAKE_GROUP_LOGO|\/logos\//i;
 
@@ -187,7 +187,7 @@
       html += '</span>';
     }
 
-    /* City labels — show detected cities below the flags */
+    /* City labels . show detected cities below the flags */
     var cities = articleCities(article);
     if (cities.length) {
       var MAX_CITIES = 2;
@@ -757,7 +757,7 @@
   function applyFiltersFromURL() {
     var f = readFiltersFromURL();
     if (!f.cat && !f.country && !f.year && !f.q) {
-      /* Popstate to clean URL — reset UI to defaults */
+      /* Popstate to clean URL . reset UI to defaults */
       resetFilterUI();
       return false;
     }
@@ -837,7 +837,7 @@
     } else if (window.LakeSite && window.LakeSite.initReveal) {
       window.LakeSite.initReveal();
     }
-    /* Restore scroll — try sessionStorage first (same session), then localStorage (return visitor) */
+    /* Restore scroll . try sessionStorage first (same session), then localStorage (return visitor) */
     var scrollY = sessionStorage.getItem(LM_SCROLL_KEY) || localStorage.getItem(LM_SCROLL_POS_KEY);
     if (scrollY) {
       setTimeout(function () { window.scrollTo(0, parseInt(scrollY, 10)); }, 50);
@@ -917,7 +917,7 @@
     var countryEl = document.getElementById('news-country');
     if (searchEl) searchEl.addEventListener('input', function () {
       filterNews();
-      /* Search keystrokes shouldn't flood history — replace instead of push */
+      /* Search keystrokes shouldn't flood history . replace instead of push */
       var sf = currentFilters();
       var sp = [];
       if (sf.cat) sp.push('cat=' + encodeURIComponent(sf.cat));
@@ -1022,7 +1022,7 @@
       backLink.insertAdjacentHTML('afterend', tocHtml);
     }
 
-    /* Reading progress bar — clean up previous handler */
+    /* Reading progress bar . clean up previous handler */
     if (_tocScrollHandler) { window.removeEventListener('scroll', _tocScrollHandler); _tocScrollHandler = null; }
     var progressBar = document.getElementById('news-toc-progress');
     if (progressBar) {
@@ -1134,7 +1134,7 @@
       });
     });
 
-    /* Keyboard nav — single handler, replaced on each init */
+    /* Keyboard nav . single handler, replaced on each init */
     if (_lbKeydownHandler) document.removeEventListener('keydown', _lbKeydownHandler);
     _lbKeydownHandler = function(e) {
       if (!_lbInstance || !_lbInstance.classList.contains('is-open')) return;
@@ -1360,13 +1360,13 @@
       });
       initBackToTop();
 
-      /* Expandable +N badges — hover popup viewport flip detection */
+      /* Expandable +N badges . hover popup viewport flip detection */
       document.addEventListener('mouseover', function (e) {
         var badge = e.target.closest('[data-expandable]');
         if (!badge) return;
         var popup = badge.querySelector('.news-more-popup');
         if (!popup) return;
-        /* Check if popup would overflow above viewport — flip below if so */
+        /* Check if popup would overflow above viewport . flip below if so */
         var rect = popup.getBoundingClientRect();
         if (rect.top < 8) {
           popup.classList.add('is-flipped');
@@ -1375,7 +1375,7 @@
         }
       });
 
-      /* Expandable +N badges — click to reveal all hidden flags/cities inline */
+      /* Expandable +N badges . click to reveal all hidden flags/cities inline */
       document.addEventListener('click', function (e) {
         var badge = e.target.closest('[data-expandable]');
         if (!badge || badge.classList.contains('is-expanded')) return;
@@ -1444,7 +1444,7 @@
         }
       });
 
-      /* Active filter tag dismiss — click × to remove individual filter */
+      /* Active filter tag dismiss . click × to remove individual filter */
       var tagHost = document.getElementById('news-active-tags');
       if (tagHost) {
         tagHost.addEventListener('click', function (e) {
@@ -1490,7 +1490,7 @@
         });
       }
 
-      /* Results count badge click — reset all filters */
+      /* Results count badge click . reset all filters */
       var resultCountEl = document.getElementById('news-result-count');
       if (resultCountEl) {
         resultCountEl.addEventListener('click', function () {

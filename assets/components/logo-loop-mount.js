@@ -21,15 +21,15 @@
     { src: 'assets/images/logos/companies/lake-plastics.png', alt: 'Lake Plastics', title: 'Lake Plastics', href: 'lake-plastics.html' },
     { src: 'assets/images/logos/companies/lake-premix-cement.png', alt: 'Lake Premix & Cement', title: 'Lake Premix & Cement', href: 'lake-premix-cement.html' },
     { src: 'assets/images/logos/companies/lake-cylinders.png?v=58', alt: 'Lake Cylinders', title: 'Lake Cylinders', href: 'lake-cylinders.html' },
-    { src: 'assets/images/logos/companies/gulf-aggregates.png', alt: 'Gulf Aggregates', title: 'Gulf Aggregates', href: 'gulf-aggregates.html' },
-    { src: 'assets/images/logos/companies/aficd.png?v=58', alt: 'AFICD', title: 'AFICD', href: 'aficd.html' },
+    { src: 'assets/images/logos/companies/gulf-aggregates.png?v=69', alt: 'Gulf Aggregates', title: 'Gulf Aggregates', href: 'gulf-aggregates.html' },
+    { src: 'assets/images/logos/companies/aficd.png?v=69', alt: 'AFICD', title: 'AFICD', href: 'aficd.html' },
     { src: 'assets/images/logos/companies/aill.png?v=58', alt: 'AILL', title: 'AILL', href: 'aill.html' },
     /* Tight-crop marks read larger than padded Lake logos at the same CSS height */
     /* Circles-only ATL mark (no tagline) — matches brand sheet */
     { src: 'assets/images/logos/companies/atl.png?v=61', alt: 'ATL', title: 'ATL', href: 'atl.html', scale: 0.9 },
     { src: 'assets/images/logos/companies/lake-agro.png?v=61', alt: 'Lake Agro', title: 'Lake Agro', href: 'lake-agro.html', scale: 0.8 },
-    { src: 'assets/images/logos/companies/cross-country.png?v=62', alt: 'Cross Country', title: 'Cross Country', href: 'cross-country.html', scale: 0.85 },
-    { src: 'assets/images/logos/companies/ocean-galleria.png?v=61', alt: 'Ocean Galleria', title: 'Ocean Galleria', href: 'ocean-galleria.html', scale: 0.85 }
+    { src: 'assets/images/logos/companies/cross-country.png?v=69', alt: 'Cross Country', title: 'Cross Country', href: 'cross-country.html', scale: 1.15 },
+    { src: 'assets/images/logos/companies/ocean-galleria.png?v=69', alt: 'Ocean Galleria', title: 'Ocean Galleria', href: 'ocean-galleria.html', scale: 1.15 }
   ];
 
   var DEFAULTS = {

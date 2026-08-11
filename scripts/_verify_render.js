@@ -5,6 +5,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const { resolveStatic } = require('./_safe_static.js');
 const http = require('http');
 const ROOT = path.join(__dirname, '..');
 const PORT = 3456;
@@ -29,10 +30,9 @@ function startStaticServer() {
   return new Promise((resolve) => {
     const server = http.createServer((req, res) => {
       try {
-        let urlPath = decodeURIComponent((req.url || '/').split('?')[0]);
-        if (urlPath === '/') urlPath = '/index.html';
-        const filePath = path.normalize(path.join(ROOT, urlPath));
-        if (!filePath.startsWith(ROOT)) {
+        const urlPath = (req.url || '/').split('?')[0];
+        const filePath = resolveStatic(ROOT, urlPath === '/' ? '/index.html' : urlPath);
+        if (!filePath) {
           res.writeHead(403);
           res.end('Forbidden');
           return;

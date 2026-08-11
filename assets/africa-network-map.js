@@ -5,6 +5,13 @@
 (function () {
   'use strict';
 
+  /* Phase 8 · Task 8.10 — markers are database-driven via GET /api/public/map
+     when a backend is CONFIGURED (window.LAKE_API_BASE); otherwise
+     FALLBACK_ASSETS below preserves the exact pre-migration behaviour with
+     zero probe delay on the live site. */
+  const API_BASE = (window.LAKE_API_BASE || '').replace(/\/+$/, '');
+  const API_TIMEOUT = 5000; /* ms — fall back to static markers if the backend is slow */
+
   const OPS_ISO = new Set(['TZ', 'KE', 'ZM', 'RW', 'BI', 'CD', 'ET', 'MZ', 'UG']);
   const COUNTRY_META = {
     tz: { iso: 'TZ', name: 'Tanzania', center: [-6.37, 34.9], zoom: 6 },
@@ -19,7 +26,7 @@
     ae: { iso: 'AE', name: 'Dubai, UAE', center: [25.2, 55.27], zoom: 9 },
   };
 
-  const ASSETS = [
+  const FALLBACK_ASSETS = [
     { id: 'hq-dar', country: 'tz', type: 'hq', name: 'Lake Group HQ', city: 'Dar es Salaam', lat: -6.7924, lng: 39.2083,
       desc: 'Corporate headquarters and flagship Lake Oil operations.' },
     { id: 'port-dar', country: 'tz', type: 'port', name: 'Dar es Salaam Port', city: 'Dar es Salaam', lat: -6.853, lng: 39.293,
@@ -27,7 +34,7 @@
     { id: 'aficd-dar', country: 'tz', type: 'container', name: 'AFICD Depot', city: 'Dar es Salaam', lat: -6.868, lng: 39.245,
       desc: 'African Inland Container Depot, port extension & container yard.' },
     { id: 'steel-kibaha', country: 'tz', type: 'industrial', name: 'Lake Steel Mill', city: 'Kibaha', lat: -6.77, lng: 38.92,
-      desc: 'HS-CR rebar rolling mill, 100,000 MT annual capacity — Visiga, Kibaha, Pwani Region.' },
+      desc: 'HS-CR rebar rolling mill, 100,000 MT annual capacity . Visiga, Kibaha, Pwani Region.' },
     { id: 'gccp-dar', country: 'tz', type: 'industrial', name: 'GCCP Ready-Mix', city: 'Dar es Salaam', lat: -6.75, lng: 39.18,
       desc: 'Gulf Concrete & Cement Products, ready-mix concrete plants.' },
     { id: 'fuel-dar', country: 'tz', type: 'fuel', name: 'Lake Oil Depots', city: 'Dar es Salaam', lat: -6.82, lng: 39.25,
@@ -100,6 +107,7 @@
     container:  { label: 'Container Depot', color: '#E8820C', radius: 8 },
     industrial: { label: 'Industrial Zone', color: '#64748b', radius: 8 },
     logistics:  { label: 'Logistics Hub', color: '#0181BB', radius: 8 },
+    depots:     { label: 'Depot / Terminal', color: '#F4A261', radius: 8 },
   };
 
   let map, countryLayer, borderOutlineLayer, assetLayer, pipelineLayer, activeCountry = 'tz';
@@ -296,7 +304,7 @@
     pipelineLayer.addTo(map);
 
     assetLayer = L.layerGroup();
-    ASSETS.forEach((a) => {
+    (window.__LAKE_MAP_ASSETS__ || FALLBACK_ASSETS).forEach((a) => {
       const marker = L.circleMarker([a.lat, a.lng], dotStyle(a.type, false))
         .bindPopup(popupHtml(a))
         .on('click', () => {
@@ -424,12 +432,65 @@
 
   window.LakeAfricaMap = { flyToCountry, filterAssets, resetView: () => map?.flyTo([-6.37, 34.9], 6, { duration: 1.2 }) };
 
-  document.addEventListener('DOMContentLoaded', () => {
-    buildMap();
-    document.querySelectorAll('.map-legend-btn').forEach((btn) => {
-      btn.addEventListener('click', () => filterAssets(btn.dataset.filter));
+  /* Fetch GET /api/public/map and flatten countries → regions → locations →
+     facilities into the marker shape. Resolves to null (→ fallback) on any
+     failure, timeout, or empty result. */
+  function fetchMapAssets() {
+    return new Promise((resolve) => {
+      const ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+      const timer = setTimeout(() => {
+        if (ctrl) ctrl.abort();
+        resolve(null);
+      }, API_TIMEOUT);
+      fetch(API_BASE + '/api/public/map', { signal: ctrl ? ctrl.signal : undefined })
+        .then((res) => {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then((data) => {
+          clearTimeout(timer);
+          if (!data || !Array.isArray(data.countries)) return resolve(null);
+          const slugById = {};
+          (data.categories || []).forEach((c) => { if (c && c.id) slugById[c.id] = c.slug || c.name; });
+          const assets = [];
+          data.countries.forEach((country) => {
+            (country.regions || []).forEach((region) => {
+              (region.locations || []).forEach((location) => {
+                (location.facilities || []).forEach((f) => {
+                  assets.push({
+                    id: f.id,
+                    country: (country.isoCode || '').toLowerCase(),
+                    type: f.mapCategoryId && slugById[f.mapCategoryId] ? slugById[f.mapCategoryId] : 'logistics',
+                    name: f.name,
+                    city: location.name || country.name || '',
+                    lat: f.latitude,
+                    lng: f.longitude,
+                    desc: f.markerLabel || f.name,
+                  });
+                });
+              });
+            });
+          });
+          resolve(assets.length ? assets : null);
+        })
+        .catch(() => {
+          clearTimeout(timer);
+          resolve(null);
+        });
     });
-    document.getElementById('map-reset-btn')?.addEventListener('click', () => window.LakeAfricaMap.resetView());
-    setTimeout(() => map?.invalidateSize(), 300);
+  }  document.addEventListener('DOMContentLoaded', () => {
+    const boot = () => {
+      buildMap();
+      document.querySelectorAll('.map-legend-btn').forEach((btn) => {
+        btn.addEventListener('click', () => filterAssets(btn.dataset.filter));
+      });
+      document.getElementById('map-reset-btn')?.addEventListener('click', () => window.LakeAfricaMap.resetView());
+      setTimeout(() => map?.invalidateSize(), 300);
+    };
+    if (!API_BASE) return boot(); /* no backend configured — static markers */
+    fetchMapAssets().then((assets) => {
+      if (assets) window.__LAKE_MAP_ASSETS__ = assets;
+      boot();
+    });
   });
 })();

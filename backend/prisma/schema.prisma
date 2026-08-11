@@ -1,0 +1,1003 @@
+// Lake Group backend — Prisma schema.
+//
+// Phase 1: foundation (placeholder table, now dropped).
+// Phase 2: identity & security — User, AuditLog, sessions.
+// Phase 3: corporate metrics governance — Metric + MetricVersion.
+// Phase 4: corporate registry — Country, Region, Location, Facility,
+//          Category, Company (with subsidiary self-relation),
+//          ProductService, CompanyRelationship, each with an immutable
+//          version table on the SAME governed pattern (GovernedStatus +
+//          version snapshot + audit). No other content domains yet.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+/// Roles used for role-based access control (RBAC).
+enum Role {
+  SUPER_ADMIN
+  EDITOR
+  REVIEWER
+  CONTACT_MANAGER
+  VIEWER
+}
+
+/// A backend user. Created manually (seed/script) — no public signup.
+model User {
+  id           String    @id @default(uuid())
+  email        String    @unique
+  passwordHash String
+  role         Role      @default(VIEWER)
+  mfaSecret    String? // TOTP secret — never returned after setup completes
+  mfaEnabled   Boolean   @default(false)
+  active       Boolean   @default(true)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  auditLogs    AuditLog[]
+  metrics      Metric[]  @relation("MetricOwner")
+  media        Media[]
+  newsItems    News[]    @relation("NewsAuthor")
+  notifications Notification[]
+}
+
+/// Server-side audit trail. `actorId` is always set from the authenticated
+/// session server-side — never from client input.
+model AuditLog {
+  id        String   @id @default(uuid())
+  actorId   String?
+  action    String // e.g. LOGIN_SUCCESS, COMPANY_PUBLISHED, METRIC_ROLLED_BACK
+  resource  String // e.g. "auth/login", "admin/companies/:id/role"
+  ip        String?
+  metadata  Json?
+  createdAt DateTime @default(now())
+  actor     User?    @relation(fields: [actorId], references: [id], onDelete: SetNull)
+}
+
+/// Lifecycle of a governed content entity (Phase 3 Metric + Phase 4
+/// registry). Only PUBLISHED is ever served publicly.
+enum MetricStatus {
+  DRAFT
+  IN_REVIEW
+  APPROVED
+  PUBLISHED
+  ARCHIVED
+}
+
+/// Whether the fact behind the value has been re-verified within the
+/// configured window (stale-data detection, Task 3.8).
+enum VerificationStatus {
+  UNVERIFIED
+  VERIFIED
+}
+
+/// A single governable corporate fact (Phase 3 — Corporate Truth).
+/// Every mutation goes through the workflow and appends a MetricVersion —
+/// history is never overwritten.
+model Metric {
+  id                 String             @id @default(uuid())
+  key                String             @unique // e.g. "employees"
+  label              String // e.g. "Employees"
+  value              String // exact displayed figure, e.g. "4,600+"
+  unit               String? // e.g. "employees", "trucks", "fuel stations"
+  ownerId            String? // who maintains this metric
+  owner              User?              @relation("MetricOwner", fields: [ownerId], references: [id], onDelete: SetNull)
+  source             String // where the figure comes from (text/URL) — required on every edit
+  verificationStatus VerificationStatus @default(UNVERIFIED)
+  verificationDate   DateTime?
+  verificationNote   String?
+  effectiveDate      DateTime?
+  status             MetricStatus       @default(DRAFT)
+  consumers          Json? // JSON array of pages/components that display this metric (from Phase 0 audit)
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+  versions           MetricVersion[]
+}
+
+/// Immutable history of every change to a metric. One row per mutation —
+/// value, status transition, who did it, why, and when.
+model MetricVersion {
+  id        String       @id @default(uuid())
+  metricId  String
+  metric    Metric       @relation(fields: [metricId], references: [id], onDelete: Cascade)
+  value     String
+  status    MetricStatus
+  changedBy String? // User id — set server-side from the session
+  reason    String? // required on value edits (Task 3.3)
+  createdAt DateTime     @default(now())
+
+  @@index([metricId, createdAt])
+}
+
+// ---------------------------------------------------------------------------
+// Phase 4 — Corporate Registry (shared governed-entity pattern)
+// ---------------------------------------------------------------------------
+
+/// Lifecycle shared by every Phase 4 registry entity. Mirrors MetricStatus
+/// so the whole registry runs on ONE workflow implementation.
+enum GovernedStatus {
+  DRAFT
+  IN_REVIEW
+  APPROVED
+  PUBLISHED
+  ARCHIVED
+}
+
+/// Kinds of relationship between companies (Task 4.7).
+enum RelationshipType {
+  SUBSIDIARY_OF
+  PARTNER_OF
+  JOINT_VENTURE_WITH
+  OTHER
+}
+
+model Country {
+  id             String         @id @default(uuid())
+  name           String
+  isoCode        String         @unique // e.g. "TZ"
+  regionGrouping String? // e.g. "East Africa"
+  status         GovernedStatus @default(DRAFT)
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  regions        Region[]
+  locations      Location[]
+  companies      Company[]
+  versions       CountryVersion[]
+}
+
+model CountryVersion {
+  id        String         @id @default(uuid())
+  countryId String
+  country   Country        @relation(fields: [countryId], references: [id], onDelete: Cascade)
+  data      Json // snapshot of the country's fields at this version
+  status    GovernedStatus
+  changedBy String?
+  reason    String?
+  createdAt DateTime       @default(now())
+
+  @@index([countryId, createdAt])
+}
+
+model Region {
+  id        String         @id @default(uuid())
+  name      String
+  countryId String
+  country   Country        @relation(fields: [countryId], references: [id], onDelete: Restrict)
+  status    GovernedStatus @default(DRAFT)
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+  locations Location[]
+  versions  RegionVersion[]
+}
+
+model RegionVersion {
+  id        String         @id @default(uuid())
+  regionId  String
+  region    Region         @relation(fields: [regionId], references: [id], onDelete: Cascade)
+  data      Json
+  status    GovernedStatus
+  changedBy String?
+  reason    String?
+  createdAt DateTime       @default(now())
+
+  @@index([regionId, createdAt])
+}
+
+model Location {
+  id        String         @id @default(uuid())
+  name      String
+  regionId  String? // either region or country scope is required
+  region    Region?        @relation(fields: [regionId], references: [id], onDelete: SetNull)
+  countryId String?
+  country   Country?       @relation(fields: [countryId], references: [id], onDelete: SetNull)
+  latitude  Float?
+  longitude Float?
+  type      String? // "city" | "area" | "port" | ...
+  status    GovernedStatus @default(DRAFT)
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+  facilities Facility[]
+  projects       Project[]
+  contacts       Contact[]
+  careerListings CareerListing[]
+  versions       LocationVersion[]
+}
+
+model LocationVersion {
+  id         String         @id @default(uuid())
+  locationId String
+  location   Location       @relation(fields: [locationId], references: [id], onDelete: Cascade)
+  data       Json
+  status     GovernedStatus
+  changedBy  String?
+  reason     String?
+  createdAt  DateTime       @default(now())
+
+  @@index([locationId, createdAt])
+}
+
+model Facility {
+  id                String         @id @default(uuid())
+  name              String
+  locationId        String
+  location          Location       @relation(fields: [locationId], references: [id], onDelete: Restrict)
+  companyId         String
+  company           Company        @relation(fields: [companyId], references: [id], onDelete: Restrict)
+  category          String? // e.g. "depot" | "plant" | "station" (not an FK — facilities classify themselves)
+  coordinates       String? // free-form "lat,lng" or GeoJSON
+  operationalStatus String? // e.g. "OPERATIONAL" | "UNDER_CONSTRUCTION" | "CLOSED"
+  mapCategoryId     String? // map layer (Phase 6)
+  mapCategory       MapCategory? @relation(fields: [mapCategoryId], references: [id], onDelete: SetNull)
+  mapVisible        Boolean      @default(true) // Phase 6: show on the operations map
+  markerLabel       String? // Phase 6: short label for the map marker
+  status            GovernedStatus @default(DRAFT)
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+  versions          FacilityVersion[]
+}
+
+model FacilityVersion {
+  id         String         @id @default(uuid())
+  facilityId String
+  facility   Facility       @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  data       Json
+  status     GovernedStatus
+  changedBy  String?
+  reason     String?
+  createdAt  DateTime       @default(now())
+
+  @@index([facilityId, createdAt])
+}
+
+model Category {
+  id             String         @id @default(uuid())
+  name           String         @unique
+  description    String?
+  status         GovernedStatus @default(DRAFT)
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  companies      Company[]
+  productServices ProductService[]
+  newsItems      News[]
+  versions       CategoryVersion[]
+}
+
+model CategoryVersion {
+  id         String         @id @default(uuid())
+  categoryId String
+  category   Category       @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  data       Json
+  status     GovernedStatus
+  changedBy  String?
+  reason     String?
+  createdAt  DateTime       @default(now())
+
+  @@index([categoryId, createdAt])
+}
+
+/// A company or subsidiary. Subsidiaries are simply companies with a
+/// parentCompanyId (self-relation) — there is no separate subsidiary table.
+model Company {
+  id                     String         @id @default(uuid())
+  name                   String
+  slug                   String         @unique
+  description            String?
+  logo                   String? // URL
+  logoMediaId            String? // Phase 6: link to the media library (usage tracked)
+  logoMedia              Media?   @relation(fields: [logoMediaId], references: [id], onDelete: SetNull)
+  parentCompanyId        String? // subsidiary → parent
+  parentCompany          Company?       @relation("CompanyParent", fields: [parentCompanyId], references: [id], onDelete: SetNull)
+  children               Company[]      @relation("CompanyParent")
+  categoryId             String?
+  category               Category?      @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  headquartersCountryId  String?
+  headquartersCountry    Country?       @relation(fields: [headquartersCountryId], references: [id], onDelete: SetNull)
+  foundedDate            DateTime?
+  website                String?
+  status                 GovernedStatus @default(DRAFT)
+  createdAt              DateTime       @default(now())
+  updatedAt              DateTime       @updatedAt
+  facilities             Facility[]
+  productServices        ProductService[]
+  relationshipsAsCompany CompanyRelationship[] @relation("RelCompany")
+  relationshipsAsRelated CompanyRelationship[] @relation("RelRelated")
+  newsItems               News[]
+  projects                Project[]
+  leadership              Leadership[]
+  contacts                Contact[]
+  historyEventCompanies   HistoryEventCompany[]
+  careerListings          CareerListing[]
+  csrEntries              CSREntry[]
+  versions                CompanyVersion[]
+}
+
+model CompanyVersion {
+  id        String         @id @default(uuid())
+  companyId String
+  company   Company        @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  data      Json
+  status    GovernedStatus
+  changedBy String?
+  reason    String?
+  createdAt DateTime       @default(now())
+
+  @@index([companyId, createdAt])
+}
+
+model ProductService {
+  id          String         @id @default(uuid())
+  name        String
+  description String?
+  companyId   String
+  company     Company        @relation(fields: [companyId], references: [id], onDelete: Restrict)
+  categoryId  String?
+  category    Category?      @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  status      GovernedStatus @default(DRAFT)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  versions    ProductServiceVersion[]
+}
+
+model ProductServiceVersion {
+  id              String         @id @default(uuid())
+  productServiceId String
+  productService  ProductService @relation(fields: [productServiceId], references: [id], onDelete: Cascade)
+  data            Json
+  status          GovernedStatus
+  changedBy       String?
+  reason          String?
+  createdAt       DateTime       @default(now())
+
+  @@index([productServiceId, createdAt])
+}
+
+/// A relationship between two companies. Kept separate from
+/// parentCompanyId because not every relationship is ownership —
+/// partnerships and joint ventures need to be expressible too.
+model CompanyRelationship {
+  id               String           @id @default(uuid())
+  companyId        String
+  company          Company          @relation("RelCompany", fields: [companyId], references: [id], onDelete: Restrict)
+  relatedCompanyId String
+  relatedCompany   Company          @relation("RelRelated", fields: [relatedCompanyId], references: [id], onDelete: Restrict)
+  relationshipType RelationshipType
+  status           GovernedStatus   @default(DRAFT)
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+  versions         CompanyRelationshipVersion[]
+}
+
+model CompanyRelationshipVersion {
+  id                    String               @id @default(uuid())
+  companyRelationshipId String
+  companyRelationship   CompanyRelationship  @relation(fields: [companyRelationshipId], references: [id], onDelete: Cascade)
+  data                  Json
+  status                GovernedStatus
+  changedBy             String?
+  reason                String?
+  createdAt             DateTime             @default(now())
+
+  @@index([companyRelationshipId, createdAt])
+}
+
+// ---------------------------------------------------------------------------
+// Phase 5 — CMS Core (shared governed-entity pattern, 9 entities)
+// ---------------------------------------------------------------------------
+
+/// Kind of reusable content block (Task 5.2).
+enum ContentBlockType {
+  RICHTEXT
+  STAT_HIGHLIGHT
+  QUOTE
+  CALLOUT
+}
+
+/// Department/audience a contact belongs to (Task 5.6).
+enum ContactType {
+  HR
+  MARKETING
+  SUPPORT
+  CORPORATE
+  COMPANY_SPECIFIC
+}
+
+/// Timeline events on a Leadership record (Task 5.5). The latest event
+/// drives the leader's derived `currentStatus`.
+enum LeadershipEventType {
+  APPOINTED
+  PROMOTED
+  REPLACED
+  DEPARTED
+}
+
+/// Operational open/closed state of a job listing — independent of the
+/// draft/review/publish lifecycle (Task 5.8).
+enum CareerListingStatus {
+  OPEN
+  CLOSED
+}
+
+/// Media library (Phase 6) — the Phase 5 stub grew into a full governed
+/// entity: folders, tags, captions, copyright/licensing, usage tracking,
+/// replacement (PATCH url → new cycle, same id) and archive (blocked while
+/// in use). `variants` records optimized variant URLs (thumb/medium/…)
+/// supplied by the upload pipeline — no server-side transcoding (no
+/// external services). Full DRAFT → IN_REVIEW → APPROVED → PUBLISHED
+/// lifecycle, same as every other governed entity.
+model Media {
+  id               String           @id @default(uuid())
+  url              String
+  altText          String?
+  caption          String?
+  mimeType         String? // e.g. "image/png", "application/pdf"
+  sizeBytes        Int?
+  width            Int?
+  height           Int?
+  copyright        String?
+  license          String? // e.g. "© Lake Group", "CC BY 4.0"
+  tags             Json? // array of strings
+  variants         Json? // { thumb: url, medium: url, original: url, ... }
+  folderId         String?
+  folder           MediaFolder?  @relation(fields: [folderId], references: [id], onDelete: SetNull)
+  uploadedBy       String?
+  uploader         User?         @relation(fields: [uploadedBy], references: [id], onDelete: SetNull)
+  status           GovernedStatus @default(DRAFT)
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+  usages           MediaUsage[]
+  companyLogos     Company[]
+  leadershipPhotos Leadership[]
+  newsHeroes       News[]
+  projectCovers    Project[]
+  historyImages    HistoryEvent[]
+  csrImages        CSREntry[]
+  versions         MediaVersion[]
+}
+
+model MediaVersion {
+  id        String         @id @default(uuid())
+  mediaId   String
+  media     Media          @relation(fields: [mediaId], references: [id], onDelete: Cascade)
+  data      Json
+  status    GovernedStatus
+  changedBy String?
+  reason    String?
+  createdAt DateTime       @default(now())
+
+  @@index([mediaId, createdAt])
+}
+
+/// Media folders — organizational structure only, NOT governed (like child
+/// resources): folders organize the library, they are never published.
+model MediaFolder {
+  id          String        @id @default(uuid())
+  name        String
+  slug        String        @unique
+  parentId    String? // nested folders
+  parent      MediaFolder?  @relation("FolderParent", fields: [parentId], references: [id], onDelete: SetNull)
+  children    MediaFolder[] @relation("FolderParent")
+  description String?
+  sortOrder   Int           @default(0)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  media       Media[]
+}
+
+/// Where a Media item is used (Phase 6 usage tracking). Rows are written
+/// by the media-bearing governed entities (Company.logoMediaId,
+/// Leadership.photoMediaId, News.heroMediaId, Project.coverMediaId,
+/// HistoryEvent.imageMediaId, CSREntry.imageMediaId) — server-side, never
+/// client-supplied. Archiving a media item that is in use is blocked.
+model MediaUsage {
+  id         String   @id @default(uuid())
+  mediaId    String
+  media      Media    @relation(fields: [mediaId], references: [id], onDelete: Cascade)
+  entityType String // e.g. "news", "leadership"
+  entityId   String
+  field      String // e.g. "heroMediaId"
+  createdAt  DateTime @default(now())
+
+  @@index([mediaId])
+  @@index([entityType, entityId])
+}
+
+/// A reusable piece of content (Task 5.2). Referenced by many Pages via
+/// the PageContentBlock join — the same fact/paragraph is never pasted
+/// into five page records.
+model ContentBlock {
+  id        String           @id @default(uuid())
+  key       String           @unique // e.g. "about-mission"
+  type      ContentBlockType
+  content   Json // structured block payload (richtext json, quote text, ...)
+  status    GovernedStatus   @default(DRAFT)
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+  pages     PageContentBlock[]
+  versions  ContentBlockVersion[]
+}
+
+model ContentBlockVersion {
+  id            String         @id @default(uuid())
+  contentBlockId String
+  contentBlock  ContentBlock   @relation(fields: [contentBlockId], references: [id], onDelete: Cascade)
+  data          Json
+  status        GovernedStatus
+  changedBy     String?
+  reason        String?
+  createdAt     DateTime       @default(now())
+
+  @@index([contentBlockId, createdAt])
+}
+
+/// A page of the corporate site (Task 5.2). Content is assembled from
+/// ContentBlocks via the join table — not one big pasted field.
+model Page {
+  id              String             @id @default(uuid())
+  slug            String             @unique
+  title           String
+  layoutType      String? // e.g. "home" | "standard" | "landing"
+  metaTitle       String?
+  metaDescription String?
+  status          GovernedStatus     @default(DRAFT)
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+  blocks          PageContentBlock[]
+  versions        PageVersion[]
+}
+
+model PageVersion {
+  id        String       @id @default(uuid())
+  pageId    String
+  page      Page         @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  data      Json
+  status    GovernedStatus
+  changedBy String?
+  reason    String?
+  createdAt DateTime     @default(now())
+
+  @@index([pageId, createdAt])
+}
+
+/// Join table: a block can appear on many pages, a page references many
+/// blocks, in order.
+model PageContentBlock {
+  pageId         String
+  contentBlockId String
+  position       Int           @default(0)
+  page           Page          @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  contentBlock   ContentBlock  @relation(fields: [contentBlockId], references: [id], onDelete: Cascade)
+
+  @@id([pageId, contentBlockId])
+}
+
+/// News article (Task 5.3). `publicationDate` in the future = scheduled:
+/// the item is PUBLISHED in workflow but not served publicly until the
+/// date arrives (on-demand visibility check — no cron needed).
+model News {
+  id                  String         @id @default(uuid())
+  title               String
+  slug                String         @unique
+  body                String
+  authorId            String? // defaults to the session user on create
+  author              User?          @relation("NewsAuthor", fields: [authorId], references: [id], onDelete: SetNull)
+  categoryId          String?
+  category            Category?      @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  relatedCompanyId    String?
+  relatedCompany      Company?       @relation(fields: [relatedCompanyId], references: [id], onDelete: SetNull)
+  relatedProjectId    String?
+  relatedProject      Project?       @relation("NewsProject", fields: [relatedProjectId], references: [id], onDelete: SetNull)
+  publicationDate     DateTime?
+  heroMediaId         String? // Phase 6: hero image from the media library
+  heroMedia           Media?         @relation(fields: [heroMediaId], references: [id], onDelete: SetNull)
+  metaTitle           String?
+  metaDescription     String?
+  status              GovernedStatus @default(DRAFT)
+  createdAt           DateTime       @default(now())
+  updatedAt           DateTime       @updatedAt
+  versions            NewsVersion[]
+}
+
+model NewsVersion {
+  id        String       @id @default(uuid())
+  newsId    String
+  news      News         @relation(fields: [newsId], references: [id], onDelete: Cascade)
+  data      Json
+  status    GovernedStatus
+  changedBy String?
+  reason    String?
+  createdAt DateTime     @default(now())
+
+  @@index([newsId, createdAt])
+}
+
+/// A project with its own timeline (Task 5.4).
+model Project {
+  id          String         @id @default(uuid())
+  title       String
+  companyId   String?
+  company     Company?       @relation(fields: [companyId], references: [id], onDelete: SetNull)
+  locationId  String?
+  location    Location?      @relation(fields: [locationId], references: [id], onDelete: SetNull)
+  sector      String?
+  startDate   DateTime?
+  endDate     DateTime?
+  description String?
+  impact      String? // impact description
+  coverMediaId String? // Phase 6: cover image from the media library
+  coverMedia   Media?         @relation(fields: [coverMediaId], references: [id], onDelete: SetNull)
+  status      GovernedStatus @default(DRAFT)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  milestones  Milestone[]
+  newsItems   News[]    @relation("NewsProject")
+  versions    ProjectVersion[]
+}
+
+model ProjectVersion {
+  id        String       @id @default(uuid())
+  projectId String
+  project   Project      @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  data      Json
+  status    GovernedStatus
+  changedBy String?
+  reason    String?
+  createdAt DateTime     @default(now())
+
+  @@index([projectId, createdAt])
+}
+
+/// A timestamped event on a Project — a simple child resource, NOT a
+/// governed entity (it is not independently publishable).
+model Milestone {
+  id          String   @id @default(uuid())
+  projectId   String
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  title       String
+  date        DateTime
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([projectId, createdAt])
+}
+
+/// A leader (Task 5.5). `currentStatus` is DERIVED from the latest
+/// LeadershipEvent (APPOINTED/PROMOTED/REPLACED → ACTIVE, DEPARTED →
+/// DEPARTED) — it is not part of the versioned snapshot.
+model Leadership {
+  id            String             @id @default(uuid())
+  name          String
+  position      String
+  bio           String?
+  photo         String? // media url or external url
+  photoMediaId  String? // Phase 6: link to the media library (usage tracked)
+  photoMedia    Media?             @relation(fields: [photoMediaId], references: [id], onDelete: SetNull)
+  order         Int                @default(0)
+  companyId     String?
+  company       Company?           @relation(fields: [companyId], references: [id], onDelete: SetNull)
+  currentStatus String             @default("ACTIVE") // derived from events
+  status        GovernedStatus     @default(DRAFT)
+  createdAt     DateTime           @default(now())
+  updatedAt     DateTime           @updatedAt
+  events        LeadershipEvent[]
+  versions      LeadershipVersion[]
+}
+
+model LeadershipVersion {
+  id           String       @id @default(uuid())
+  leadershipId String
+  leadership   Leadership   @relation(fields: [leadershipId], references: [id], onDelete: Cascade)
+  data         Json
+  status       GovernedStatus
+  changedBy    String?
+  reason       String?
+  createdAt    DateTime     @default(now())
+
+  @@index([leadershipId, createdAt])
+}
+
+/// Timeline of appointment/promotion/replacement/departure — history is
+/// accumulated, never erased (Task 5.5). Simple child resource.
+model LeadershipEvent {
+  id           String             @id @default(uuid())
+  leadershipId String
+  leadership   Leadership         @relation(fields: [leadershipId], references: [id], onDelete: Cascade)
+  eventType    LeadershipEventType
+  date         DateTime
+  notes        String?
+  createdAt    DateTime           @default(now())
+  updatedAt    DateTime           @updatedAt
+
+  @@index([leadershipId, date])
+}
+
+/// A public contact point (Task 5.6). `publicDisplay` controls whether the
+/// contact is served publicly once PUBLISHED (enforced server-side in the
+/// public router).
+model Contact {
+  id                 String             @id @default(uuid())
+  name               String
+  type               ContactType
+  companyId          String?
+  company            Company?           @relation(fields: [companyId], references: [id], onDelete: SetNull)
+  locationId         String?
+  location           Location?          @relation(fields: [locationId], references: [id], onDelete: SetNull)
+  phone              String?
+  email              String?
+  publicDisplay      Boolean            @default(true)
+  order              Int                @default(0)
+  verificationStatus VerificationStatus @default(UNVERIFIED)
+  verificationDate   DateTime?
+  status             GovernedStatus     @default(DRAFT)
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+  versions           ContactVersion[]
+}
+
+model ContactVersion {
+  id        String       @id @default(uuid())
+  contactId String
+  contact   Contact      @relation(fields: [contactId], references: [id], onDelete: Cascade)
+  data      Json
+  status    GovernedStatus
+  changedBy String?
+  reason    String?
+  createdAt DateTime     @default(now())
+
+  @@index([contactId, createdAt])
+}
+
+/// One entry of the corporate history timeline (Task 5.7), linkable to
+/// multiple companies via the HistoryEventCompany join.
+model HistoryEvent {
+  id          String                @id @default(uuid())
+  title       String
+  date        DateTime
+  endDate     DateTime?
+  description String?
+  imageMediaId String? // Phase 6: image from the media library
+  imageMedia   Media?                @relation(fields: [imageMediaId], references: [id], onDelete: SetNull)
+  order       Int                   @default(0)
+  status      GovernedStatus        @default(DRAFT)
+  createdAt   DateTime              @default(now())
+  updatedAt   DateTime              @updatedAt
+  companies   HistoryEventCompany[]
+  versions    HistoryEventVersion[]
+}
+
+model HistoryEventVersion {
+  id             String       @id @default(uuid())
+  historyEventId String
+  historyEvent   HistoryEvent @relation(fields: [historyEventId], references: [id], onDelete: Cascade)
+  data           Json
+  status         GovernedStatus
+  changedBy      String?
+  reason         String?
+  createdAt      DateTime     @default(now())
+
+  @@index([historyEventId, createdAt])
+}
+
+/// Join: an event can involve many companies, a company appears in many
+/// events.
+model HistoryEventCompany {
+  historyEventId String
+  companyId      String
+  historyEvent   HistoryEvent @relation(fields: [historyEventId], references: [id], onDelete: Cascade)
+  company        Company      @relation(fields: [companyId], references: [id], onDelete: Restrict)
+
+  @@id([historyEventId, companyId])
+}
+
+/// A job listing (Task 5.8). `listingStatus` (OPEN/CLOSED) is the
+/// operational state, orthogonal to the governed lifecycle; only OPEN
+/// listings are served publicly.
+model CareerListing {
+  id             String               @id @default(uuid())
+  jobTitle       String
+  department     String?
+  companyId      String?
+  company        Company?             @relation(fields: [companyId], references: [id], onDelete: SetNull)
+  locationId     String?
+  location       Location?            @relation(fields: [locationId], references: [id], onDelete: SetNull)
+  description    String?
+  requirements   String?
+  employmentType String? // "full-time" | "contract" | ...
+  postedDate     DateTime?
+  closingDate    DateTime?
+  listingStatus  CareerListingStatus  @default(OPEN)
+  status         GovernedStatus       @default(DRAFT)
+  createdAt      DateTime             @default(now())
+  updatedAt      DateTime             @updatedAt
+  versions       CareerListingVersion[]
+}
+
+model CareerListingVersion {
+  id              String       @id @default(uuid())
+  careerListingId String
+  careerListing   CareerListing @relation(fields: [careerListingId], references: [id], onDelete: Cascade)
+  data            Json
+  status          GovernedStatus
+  changedBy       String?
+  reason          String?
+  createdAt       DateTime     @default(now())
+
+  @@index([careerListingId, createdAt])
+}
+
+/// A CSR / sustainability entry (Task 5.9).
+model CSREntry {
+  id          String         @id @default(uuid())
+  title       String
+  description String?
+  category    String? // e.g. "environment" | "community" | "education"
+  imageMediaId String? // Phase 6: image from the media library
+  imageMedia   Media?        @relation(fields: [imageMediaId], references: [id], onDelete: SetNull)
+  companyId   String?
+  company     Company?       @relation(fields: [companyId], references: [id], onDelete: SetNull)
+  date        DateTime?
+  period      String? // e.g. "2024" | "Q1 2025"
+  status      GovernedStatus @default(DRAFT)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  versions    CSREntryVersion[]
+}
+
+model CSREntryVersion {
+  id         String       @id @default(uuid())
+  csrEntryId String
+  csrEntry   CSREntry     @relation(fields: [csrEntryId], references: [id], onDelete: Cascade)
+  data       Json
+  status     GovernedStatus
+  changedBy  String?
+  reason     String?
+  createdAt  DateTime     @default(now())
+
+  @@index([csrEntryId, createdAt])
+}
+
+// ---------------------------------------------------------------------------
+// Phase 6 — Map & Media
+// ---------------------------------------------------------------------------
+
+/// A map layer/category (Phase 6) — e.g. "Depots", "Fuel stations",
+/// "Offices". Facilities opt into a layer via Facility.mapCategoryId, so
+/// the operations map can filter/color markers by layer. Governed like
+/// every content entity (archiving a category in use is blocked).
+model MapCategory {
+  id          String         @id @default(uuid())
+  name        String
+  slug        String         @unique
+  description String?
+  color       String? // hex, e.g. "#E63946"
+  icon        String? // marker icon name
+  sortOrder   Int            @default(0)
+  status      GovernedStatus @default(DRAFT)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  facilities  Facility[]
+  versions    MapCategoryVersion[]
+}
+
+model MapCategoryVersion {
+  id            String       @id @default(uuid())
+  mapCategoryId String
+  mapCategory   MapCategory  @relation(fields: [mapCategoryId], references: [id], onDelete: Cascade)
+  data          Json
+  status        GovernedStatus
+  changedBy     String?
+  reason        String?
+  createdAt     DateTime     @default(now())
+
+  @@index([mapCategoryId, createdAt])
+}
+
+// ---------------------------------------------------------------------------
+// Phase 7 — Governance & Publishing
+// ---------------------------------------------------------------------------
+
+/// State of a scheduled publication (Phase 7).
+enum ScheduleStatus {
+  PENDING
+  PUBLISHED
+  CANCELLED
+}
+
+/// A pending scheduled publication (Phase 7). Polymorphic — entityType is
+/// the Prisma model name ("news", "company", ...), entityId the row. One
+/// pending schedule per entity (rescheduling replaces it). Promotion is
+/// lazy: when `publishAt` arrives, the next public read (or review-queue
+/// fetch) publishes the entity — no cron, no extra infrastructure.
+model PublishSchedule {
+  id          String         @id @default(uuid())
+  entityType  String
+  entityId    String
+  publishAt   DateTime
+  status      ScheduleStatus @default(PENDING)
+  createdBy   String?
+  publishedAt DateTime?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  @@unique([entityType, entityId])
+  @@index([status, publishAt])
+}
+
+/// Publication ledger (Phase 7) — every PUBLISHED / SCHEDULED / UNPUBLISHED /
+/// ROLLED_BACK event across all governed entities, queryable separately
+/// from the AuditLog (which records every action, including drafts and
+/// edits). Written server-side only, from the shared workflow.
+model PublicationEvent {
+  id         String   @id @default(uuid())
+  entityType String
+  entityId   String
+  action     String // PUBLISHED | SCHEDULED | UNPUBLISHED | ROLLED_BACK
+  publishAt  DateTime? // the scheduled time, when action = SCHEDULED
+  actorId    String?
+  metadata   Json?
+  createdAt  DateTime @default(now())
+
+  @@index([entityType, entityId])
+  @@index([action])
+}
+
+/// In-app notification (Phase 7) — self-hosted, no email/SMS service.
+/// Written server-side by the workflow: submit → reviewers; approve/reject/
+/// publish → the submitter. Read via /admin/notifications.
+model Notification {
+  id         String   @id @default(uuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type       String // SUBMITTED | APPROVED | REJECTED | PUBLISHED | PUBLISHED_SCHEDULED
+  message    String
+  entityType String?
+  entityId   String?
+  read       Boolean  @default(false)
+  createdAt  DateTime @default(now())
+
+  @@index([userId, read])
+}
+
+// ---------------------------------------------------------------------------
+// Phase 9 — AI / Corporate Knowledge
+// ---------------------------------------------------------------------------
+
+/// A question the assistant could not answer from approved content (Phase 9).
+/// Every no-match is recorded so content gaps surface in the admin —
+/// blueprint §7 "Track unanswered questions" / "Help identify content gaps".
+model UnansweredQuestion {
+  id         String   @id @default(uuid())
+  question   String
+  language   String   @default("en")
+  page       String? // where it was asked (path, e.g. "/services.html")
+  answered   Boolean  @default(false) // admin marks resolved
+  answerNote String? // admin note on how it was resolved
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([answered, createdAt])
+}
+
+// Phase 10 — Analytics & Intelligence.
+// Lightweight, first-party event capture: page views, chatbot questions,
+// no-match queries and searches. The content-health dashboard derives usage
+// signals (top queries, unanswered rate) from these rows. Types are plain
+// strings so new event kinds don't need a migration.
+model AnalyticsEvent {
+  id        String   @id @default(uuid())
+  type      String // PAGE_VIEW | CHAT_QUESTION | CHAT_NO_MATCH | SEARCH
+  page      String? // path, e.g. "/services.html"
+  query     String?
+  language  String?
+  sessionId String?
+  detail    Json?
+  createdAt DateTime @default(now())
+
+  @@index([type, createdAt])
+  @@index([page, createdAt])
+  @@index([query, createdAt])
+}

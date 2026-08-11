@@ -4,11 +4,12 @@
   "scripts": {
     "serve": "npx firebase emulators:start --only hosting",
     "deploy": "npx firebase deploy --only hosting",
-    "build:hero-globe": "node scripts/build_hero_globe.js"
+    "build:hero-globe": "node scripts/build_hero_globe.js",
+    "test:skeleton": "node tests/skeleton-loader.test.js"
   },
   "devDependencies": {
     "esbuild": "^0.28.1",
-    "firebase-tools": "^13.35.1",
+    "firebase-tools": "^15.26.0",
     "playwright": "^1.62.0",
     "sharp": "^0.35.3"
   },

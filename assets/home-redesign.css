@@ -1,0 +1,892 @@
+/* ==========================================================================
+   HOME (index.html only) — Aramco-style redesign
+   Scope: body.home. All other pages keep theme.css chrome untouched.
+   No glassmorphism: every surface is solid or a solid gradient.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. NAVBAR  — Aramco: transparent at top, solid brand on scroll, uppercase
+   links with animated underline. All existing links preserved.
+   -------------------------------------------------------------------------- */
+body.home .site-nav {
+  background: transparent;
+  background-color: transparent;
+  border-bottom: none;
+  height: 84px;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transition: background-color 0.3s ease, height 0.3s var(--ease-smooth), transform 0.38s var(--ease-smooth), box-shadow 0.3s ease;
+}
+body.home .site-nav.nav-scrolled {
+  background: var(--color-brand-blue-deep, #016694);
+  background-color: var(--color-brand-blue-deep, #016694);
+  border-bottom: 2px solid var(--color-yellow-accent, var(--yellow));
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: 0 8px 30px rgba(4, 10, 34, 0.35);
+  height: 66px;
+}
+body.home .site-nav .nav-logo img {
+  max-width: 130px !important;
+  height: 38px !important;
+  max-height: 38px;
+}
+body.home .site-nav.nav-scrolled .nav-logo img {
+  height: 30px !important;
+  max-height: 30px;
+}
+
+/* Aramco mainnav: uppercase, wide tracking, medium weight, tall hit area */
+body.home .nav-links {
+  gap: 6px;
+}
+body.home .nav-links > li > a {
+  color: #ffffff;
+  padding: 27px 11px 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 0;
+  position: relative;
+  background: transparent !important;
+  transition: color 0.22s ease;
+}
+body.home .nav-links > li > a::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-yellow-accent, var(--yellow)), #7ecb3a);
+  transform: translateX(-50%);
+  transition: width 0.32s var(--ease-out);
+}
+body.home .nav-links > li > a:hover,
+body.home .nav-links > li > a.active {
+  color: var(--color-yellow-accent, var(--yellow));
+  background: transparent !important;
+}
+body.home .nav-links > li > a:hover::after,
+body.home .nav-links > li > a.active::after {
+  width: 100%;
+}
+
+/* Dropdown + mega menu: solid brand gradient — no backdrop blur */
+body.home .site-nav .nav-dropdown {
+  background: linear-gradient(180deg, #016694 0%, #013f5c 100%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-radius: 0 0 var(--radius-lg, 12px) var(--radius-lg, 12px);
+  border-top: 2px solid var(--color-yellow-accent, var(--yellow));
+  box-shadow: 0 28px 56px -20px rgba(0, 0, 0, 0.55), 0 10px 22px -12px rgba(0, 0, 0, 0.4);
+}
+body.home .lang-menu {
+  background: linear-gradient(180deg, #016694 0%, #013f5c 100%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* --------------------------------------------------------------------------
+   2. HERO  — Aramco: full-screen background slideshow, vertically centered
+   content, large light-weight heading, tab indicators at bottom.
+   -------------------------------------------------------------------------- */
+body.home .hero-zone {
+  position: relative;
+  overflow: hidden;
+}
+body.home .hero {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--color-brand-blue-darkest, #013f5c);
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: visible;
+  box-sizing: border-box;
+}
+body.home {
+  overflow-x: hidden;
+}
+
+body.home .hero-zone .hero-carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -60px;
+  z-index: 0;
+  overflow: hidden;
+}
+body.home .hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  will-change: opacity;
+}
+body.home .hero-slide.is-active {
+  opacity: 1;
+  z-index: 1;
+}
+body.home .hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.92) contrast(1.05);
+  will-change: transform;
+}
+body.home .hero-slide.is-active img {
+  animation: lake-zoom 8s linear forwards;
+}
+@keyframes lake-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.12); }
+}
+
+/* Left-side scrim only — right side shows the photo */
+body.home .hero-scrim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -60px;
+  z-index: 2;
+  background:
+    linear-gradient(90deg, rgba(1, 63, 92, 0.6) 0%, rgba(1, 63, 92, 0.4) 30%, rgba(1, 63, 92, 0.1) 65%, rgba(1, 63, 92, 0) 100%),
+    linear-gradient(180deg, rgba(1, 63, 92, 0.25) 0%, rgba(1, 63, 92, 0) 25%);
+}
+
+/* Content: vertically centered, pushed down below navbar */
+body.home .hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 130px 60px 80px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+body.home .hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+body.home .hero-eyebrow::before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--color-yellow-accent, var(--yellow));
+}
+body.home .hero-eyebrow span {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-yellow-accent, var(--yellow));
+}
+
+/* Large light-weight heading like Aramco */
+body.home .hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  font-weight: 300;
+  color: #ffffff;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin-bottom: 12px;
+  max-width: 22ch;
+}
+body.home .hero h1 em {
+  color: var(--color-yellow-accent, var(--yellow));
+  font-style: normal;
+  display: block;
+}
+body.home .hero-sub {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem) !important;
+  font-weight: 300 !important;
+  color: #ffffff !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.01em !important;
+  margin: 0 0 28px !important;
+  max-width: 650px !important;
+}
+body.home .hero-keyfacts {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 12px;
+}
+body.home .hero-kf {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+body.home .hero-kf-num {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: var(--color-yellow-accent, var(--yellow));
+  line-height: 1.1;
+}
+body.home .hero-kf-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+body.home .hero-cta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+body.home .hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.25s ease;
+}
+body.home .hero-link-ico {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s var(--ease-out);
+}
+body.home .hero-link-ico svg {
+  width: 22px;
+  height: 22px;
+}
+body.home .hero-link:hover {
+  color: var(--color-yellow-accent, var(--yellow));
+}
+body.home .hero-link:hover .hero-link-ico {
+  background: var(--color-yellow-accent, var(--yellow));
+  border-color: var(--color-yellow-accent, var(--yellow));
+  color: var(--color-brand-blue-darkest, #013f5c);
+  transform: translateX(4px);
+}
+
+/* Subtitle crossfade animations on slide change */
+body.home .hero-sub {
+  opacity: 1;
+  will-change: transform, opacity;
+}
+body.home .hero-sub.hero-sub-exit {
+  animation: lake-sub-exit 0.25s ease-in both;
+}
+body.home .hero-sub.hero-sub-slide {
+  animation: lake-sub-slide 0.35s ease-out both;
+}
+@keyframes lake-sub-exit {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(6px); }
+}
+@keyframes lake-sub-slide {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Tab indicators at bottom (Aramco-style slide navigation) */
+body.home .hero-tabs {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-evenly;
+  padding: 0 80px;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+body.home .hero-tab {
+  flex: 0 1 auto;
+  padding: 18px 24px 14px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: visible;
+  text-align: center;
+  font-family: var(--font-body);
+}
+body.home .hero-tab.is-active {
+  color: #ffffff;
+  border-bottom-color: transparent;
+}
+body.home .hero-tab:not(.is-active):hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+/* Progress fill inside each tab — track always visible, gradient only on active */
+body.home .hero-tab-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+}
+body.home .hero-tab-fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--color-yellow-accent, var(--yellow)), #7ecb3a);
+  border-radius: 2px;
+}
+body.home .hero-tab.is-active .hero-tab-fill::after {
+}
+body.home .hero-tab-fill.is-running::after {
+  animation: lake-tab-progress 8s linear forwards;
+}
+@keyframes lake-tab-progress {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Tab thumbnail preview on hover — drawer pull effect */
+body.home .hero-tab-thumb {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 240px;
+  height: 140px;
+  border-radius: 6px;
+  overflow: hidden;
+  opacity: 0;
+  clip-path: inset(100% 0 0 0);
+  transition: opacity 0.25s ease, clip-path 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  z-index: 5;
+  margin-bottom: 8px;
+}
+body.home .hero-tab-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+body.home .hero-tab-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 40%, rgba(0, 0, 0, 0.5));
+}
+body.home .hero-tab:hover .hero-tab-thumb {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+}
+body.home .hero-tab:hover {
+  z-index: 15;
+}
+
+/* Mobile: simpler tabs */
+@media (max-width: 720px) {
+  body.home .hero-tab-thumb {
+    display: none;
+  }
+  body.home .hero-content {
+    padding: 80px 20px 100px;
+  }
+  body.home .hero-tabs {
+    bottom: 60px;
+    padding: 0 8px;
+  }
+  body.home .hero-eyebrow {
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  body.home .hero-eyebrow::before {
+    width: 20px;
+    flex-shrink: 0;
+  }
+  body.home .hero-eyebrow span {
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+  }
+  body.home .hero-sub {
+    max-width: 100% !important;
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 14px !important;
+    letter-spacing: -0.01em !important;
+  }
+  body.home .hero-keyfacts {
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    margin-bottom: 16px;
+  }
+  body.home .hero-kf {
+    min-width: 70px;
+  }
+  body.home .hero-kf-num {
+    font-size: 1.1rem;
+  }
+  body.home .hero-kf-label {
+    font-size: 0.5rem;
+    letter-spacing: 0.08em;
+  }
+  body.home .hero-cta {
+    margin-top: 4px;
+  }
+  body.home .hero-link {
+    font-size: 0.72rem;
+    gap: 12px;
+  }
+  body.home .hero-link-ico {
+    width: 40px;
+    height: 40px;
+  }
+  body.home .hero-link-ico svg {
+    width: 18px;
+    height: 18px;
+  }
+  body.home .hero-tabs {
+    padding: 0 8px;
+    gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  body.home .hero-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  body.home .hero-tab {
+    padding: 10px 10px 8px;
+    font-size: 0.52rem;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    flex: 0 0 auto;
+    min-width: 0;
+  }
+  body.home .hero-tab span:nth-child(2) {
+    font-size: 0.52rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. KEY FACTS band  — solid navy, yellow numerals, hairline dividers
+   -------------------------------------------------------------------------- */
+body.home .keyfacts {
+  background: var(--color-brand-blue-darkest, #013f5c);
+  border-top: 3px solid var(--color-yellow-accent, var(--yellow));
+  border-bottom: 3px solid var(--color-yellow-accent, var(--yellow));
+  position: relative;
+  z-index: 2;
+}
+body.home .keyfacts-inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+body.home .keyfact {
+  padding: 36px 30px;
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+}
+body.home .keyfact:first-child {
+  border-left: none;
+}
+body.home .keyfact-num {
+  font-family: var(--font-display);
+  font-size: 2.7rem;
+  font-weight: 500;
+  color: var(--color-yellow-accent, var(--yellow));
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+body.home .keyfact-label {
+  margin-top: 10px;
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   4. DIVISIONS — Aramco Media_Teaser cards: image + bottom scrim, overline,
+   heading, circular arrow icon. All links + i18n keys preserved.
+   -------------------------------------------------------------------------- */
+body.home .divisions-grid {
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 20px;
+}
+body.home .aramco-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--color-brand-blue-darkest, #013f5c);
+  color: #ffffff;
+  min-height: 330px;
+  max-height: 380px;
+  transition: box-shadow 0.35s ease, transform 0.35s var(--ease-out);
+}
+body.home .aramco-card:hover {
+  box-shadow: 0 24px 48px -18px rgba(1, 63, 92, 0.55);
+  transform: translateY(-4px);
+}
+body.home .aramco-card-media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+body.home .aramco-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 35%;
+  display: block;
+  transition: transform 0.7s var(--ease-out);
+}
+body.home .aramco-card:hover .aramco-card-media img {
+  transform: scale(1.07);
+}
+body.home .aramco-card-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(1, 63, 92, 0.08) 22%, rgba(1, 63, 92, 0.42) 55%, rgba(1, 63, 92, 0.95) 100%);
+}
+body.home .aramco-card-ico {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  background: transparent;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+body.home .aramco-card-ico svg {
+  width: 18px;
+  height: 18px;
+}
+body.home .aramco-card:hover .aramco-card-ico {
+  background: var(--color-yellow-accent, var(--yellow));
+  border-color: var(--color-yellow-accent, var(--yellow));
+  color: var(--color-brand-blue-darkest, #013f5c);
+}
+body.home .aramco-card-body {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  padding: 24px 22px 20px;
+  display: flex;
+  flex-direction: column;
+}
+body.home .aramco-card-over {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-yellow-accent, var(--yellow));
+  margin-bottom: 6px;
+}
+body.home .aramco-card h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.15;
+  margin-bottom: 6px;
+}
+body.home .aramco-card p {
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.55;
+}
+body.home .aramco-card .div-countries {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px 10px;
+}
+body.home .aramco-card .div-country {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+  white-space: nowrap;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+body.home .aramco-card .div-country .flag-icon {
+  width: 18px;
+  height: 13px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+body.home .aramco-card .map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-yellow-accent, var(--yellow));
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 12px;
+}
+body.home .aramco-card .map-link::after {
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpolyline points='1,2 4,5 7,2' fill='none' stroke='currentColor' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  display: inline-flex;
+  width: 0.75em;
+  height: 0.55em;
+}
+body.home .aramco-card--solid {
+  background: linear-gradient(160deg, rgba(5, 153, 211, 0.88) 0%, rgba(1, 129, 187, 0.82) 48%, rgba(1, 63, 92, 0.92) 100%), url('images/pages-map.png') center/cover no-repeat !important;
+  background-color: #013f5c !important;
+  isolation: isolate;
+}
+body.home .aramco-card--solid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(5, 153, 211, 0.88) 0%, rgba(1, 129, 187, 0.82) 48%, rgba(1, 63, 92, 0.92) 100%);
+  z-index: 0;
+}
+body.home .aramco-card--solid > * {
+  position: relative;
+  z-index: 1;
+}
+body.home .aramco-card--solid .aramco-card-ico {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 3;
+}
+body.home .aramco-card--solid h3,
+body.home .aramco-card--solid p,
+body.home .aramco-card--solid .aramco-card-over,
+body.home .aramco-card--solid .map-link {
+  color: #ffffff !important;
+}
+body.home .aramco-card--solid .aramco-card-logo {
+  height: 46px;
+  width: auto;
+  margin-bottom: 16px;
+  filter: brightness(0) invert(1);
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   5. CTA BAND — solid brand yellow kept (brand standard)
+   -------------------------------------------------------------------------- */
+
+/* --------------------------------------------------------------------------
+   6. FOOTER — Puma-style multi-column: brand, link columns, "Got a
+   Question?", "Connect With Us" round social icons. Brand colors.
+   All existing links preserved.
+   -------------------------------------------------------------------------- */
+body.home .site-footer {
+  background: var(--color-brand-blue-darkest, #013f5c);
+  border-top: 3px solid var(--color-yellow-accent, var(--yellow));
+}
+body.home .footer-grid {
+  grid-template-columns: 1.5fr 1.1fr 1.1fr 1.35fr 1.1fr;
+  gap: 44px;
+  align-items: start;
+}
+body.home .footer-col h5 {
+  color: var(--color-yellow-accent, var(--yellow));
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+body.home .footer-col ul li {
+  margin-bottom: 10px;
+}
+body.home .footer-col ul a {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.9rem;
+  background-image: linear-gradient(var(--color-yellow-accent, var(--yellow)), var(--color-yellow-accent, var(--yellow)));
+}
+body.home .footer-col ul a:hover {
+  color: var(--color-yellow-accent, var(--yellow));
+}
+body.home .footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+body.home .social-link {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+body.home .social-link:hover {
+  background: var(--color-yellow-accent, var(--yellow));
+  border-color: var(--color-yellow-accent, var(--yellow));
+  color: var(--color-brand-blue-darkest, #013f5c);
+}
+body.home .country-tag {
+  background: transparent !important;
+}
+body.home .footer-contact-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+body.home .site-footer .footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  margin-top: 42px;
+  padding-top: 18px;
+  padding-bottom: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE
+   -------------------------------------------------------------------------- */
+@media (max-width: 1060px) {
+  body.home .footer-grid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 36px 30px;
+  }
+  body.home .divisions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  body.home .keyfacts-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  body.home .keyfact:nth-child(3) {
+    border-left: none;
+  }
+  body.home .keyfact:nth-child(n + 3) {
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    padding-top: 28px;
+  }
+}
+
+@media (max-width: 860px) {
+  body.home .hero-content {
+    padding: 100px 24px 70px;
+  }
+  body.home .hero h1 {
+    max-width: 100%;
+  }
+  body.home .hero-sub {
+    max-width: 100%;
+    font-size: clamp(1.3rem, 3vw, 1.8rem) !important;
+  }
+  body.home .hero-tabs {
+    padding: 0 20px;
+  }
+  body.home .hero-tab {
+    padding: 14px 14px 10px;
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 720px) {
+  body.home .divisions-grid {
+    grid-template-columns: 1fr;
+  }
+  body.home .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  body.home .keyfacts-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+  body.home .keyfact {
+    padding: 26px 20px;
+  }
+  body.home .keyfact-num {
+    font-size: 2.1rem;
+  }
+  .marquee-wrap {
+    padding: 8px 0 !important;
+  }
+  .marquee-wrap .logoloop {
+    --logoloop-gap: 24px !important;
+    --logoloop-logoHeight: 22px !important;
+  }
+}
+
+/* Reduced motion: static first slide, no zoom/turnout/progress */
+@media (prefers-reduced-motion: reduce) {
+  body.home .hero-slide {
+    transition: none;
+  }
+  body.home .hero-slide:not(.is-active) {
+    display: none;
+  }
+  body.home .hero-slide.is-active img {
+    animation: none;
+  }
+  body.home .hero-content > * {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+  body.home .hero-tab-fill {
+    animation: none !important;
+  }
+  body.home .aramco-card-media img {
+    transition: none;
+  }
+  body.home .aramco-card:hover {
+    transform: none;
+  }
+}
+
+/* Global: fix social icon turning gold-on-gold (invisible) on hover — applies all pages */
+.site-footer .social-link:hover .footer-social-ico,
+.site-footer .social-link:hover .lg-ico {
+  color: var(--color-brand-blue-darkest, #013f5c) !important;
+}

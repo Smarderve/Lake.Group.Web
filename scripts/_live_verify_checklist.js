@@ -4,6 +4,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const { execFileSync, spawn } = require('child_process');
+const { resolveStatic } = require('./_safe_static.js');
 
 const ROOT = path.join(__dirname, '..');
 const PORT = 8777;
@@ -23,10 +24,9 @@ const mime = {
 };
 
 const server = http.createServer((req, res) => {
-  let urlPath = decodeURIComponent((req.url || '/').split('?')[0]);
-  if (urlPath === '/') urlPath = '/index.html';
-  const file = path.join(ROOT, urlPath.replace(/^\//, ''));
-  if (!file.startsWith(ROOT) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
+  const urlPath = (req.url || '/').split('?')[0];
+  const file = resolveStatic(ROOT, urlPath === '/' ? '/index.html' : urlPath);
+  if (!file || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
     res.writeHead(404);
     res.end('404');
     return;

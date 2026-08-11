@@ -9,6 +9,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const { resolveStatic } = require('./_safe_static.js');
 const { chromium } = require('playwright');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -68,8 +69,9 @@ const server = http.createServer((req, res) => {
     res.end(JSON.stringify(MOCK_API));
     return;
   }
-  let file = path.join(ROOT, urlPath === '/' ? 'news.html' : urlPath);
-  if (!file.startsWith(ROOT)) {
+  const rawPath = (req.url || '/').split('?')[0];
+  const file = resolveStatic(ROOT, rawPath === '/' ? '/news.html' : rawPath);
+  if (!file) {
     res.writeHead(403);
     res.end();
     return;

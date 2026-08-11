@@ -13,6 +13,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const { chromium } = require('playwright');
+const { resolveStatic } = require('./_safe_static.js');
 
 const ROOT = path.resolve(__dirname, '..');
 const PORT = 8979;
@@ -103,8 +104,9 @@ const server = http.createServer(async (req, res) => {
     return json(res, 404, { errors: [{ message: 'Not found: ' + urlPath }] });
   }
 
-  let file = path.join(ROOT, urlPath === '/' ? 'dashboard.html' : urlPath);
-  if (!file.startsWith(ROOT)) {
+  const rawPath = (req.url || '/').split('?')[0];
+  const file = resolveStatic(ROOT, rawPath === '/' ? '/dashboard.html' : rawPath);
+  if (!file) {
     res.writeHead(403);
     return res.end();
   }

@@ -2,12 +2,14 @@
 (function () {
   'use strict';
 
-  /* Iconify web component for footer / chrome icons */
+  /* Iconify web component for footer / chrome icons — vendored locally
+     (assets/vendor/iconify) so the site loads no third-party scripts;
+     keeps the CSP script-src to 'self' (SECURITY_ROADMAP Phase 7). */
   (function ensureIconify() {
     if (typeof customElements !== 'undefined' && customElements.get('iconify-icon')) return;
     if (document.querySelector('script[data-lake-iconify]')) return;
     var s = document.createElement('script');
-    s.src = 'https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js';
+    s.src = 'assets/vendor/iconify/iconify-icon.min.js';
     s.async = true;
     s.setAttribute('data-lake-iconify', '1');
     document.head.appendChild(s);
@@ -133,7 +135,7 @@
     function startCounter(el) {
       if (el.dataset.animated === '1' || el.dataset.counting === '1') return;
       // Hero stats use CSS lg-fade-up (delay ~0.22s + 0.45s). Counting while
-      // opacity is 0 made the animation finish before the row was readable —
+      // opacity is 0 made the animation finish before the row was readable .
       // worse after taller Jost hero type. Wait for the entrance, then count.
       const heroDelay = el.closest('.hero-stats') ? 420 : 0;
       if (heroDelay) {
@@ -159,7 +161,7 @@
     counters.forEach((el) => co.observe(el));
 
     // Safety: if IO never fires, still run the count (do not paint the final
-    // value early — that was hiding the animation on slow scrolls).
+    // value early . that was hiding the animation on slow scrolls).
     window.setTimeout(() => {
       counters.forEach((el) => {
         if (el.dataset.animated !== '1' && el.dataset.counting !== '1') {
@@ -187,11 +189,7 @@
     const CLOSE_DELAY_MS = 350;
 
     function canHoverOpen() {
-      try {
-        return window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-      } catch (_) {
-        return true;
-      }
+      return false;
     }
 
     function closeItem(item, focusTrigger, opts) {
@@ -341,12 +339,6 @@
       if (isMega) initCategoryTabs(menu);
 
       trigger.addEventListener('click', (e) => {
-        const hoverCapable = canHoverOpen();
-        // Desktop fine-pointer: simple dropdown triggers keep their href
-        // (hover-intent reveals the panel). Mega trigger and touch/coarse
-        // pointers toggle `.is-open` instead.
-        if (!isMega && hoverCapable) return;
-
         e.preventDefault();
         if (item._navOpenTimer) {
           clearTimeout(item._navOpenTimer);
@@ -380,7 +372,6 @@
         }, OPEN_DELAY_MS);
       });
       trigger.addEventListener('mouseleave', (e) => {
-        if (!canHoverOpen()) return;
         // Keep pending/open only when moving into the panel (or its bridge).
         if (e.relatedTarget && menu.contains(e.relatedTarget)) return;
         if (item._navOpenTimer) {
@@ -402,7 +393,6 @@
       });
       // Panel re-entry cancels a pending close (gap / bridge travel).
       menu.addEventListener('mouseenter', () => {
-        if (!canHoverOpen()) return;
         if (item._navCloseTimer) {
           clearTimeout(item._navCloseTimer);
           item._navCloseTimer = null;
@@ -410,7 +400,6 @@
       });
       // Close when leaving the whole item subtree (trigger + open panel).
       item.addEventListener('mouseleave', () => {
-        if (!canHoverOpen()) return;
         if (item._navOpenTimer) {
           clearTimeout(item._navOpenTimer);
           item._navOpenTimer = null;
@@ -759,7 +748,7 @@
   /**
    * Early warm for native lazy images: start fetch ~800px before viewport
    * so users rarely see empty/pop-in, without blocking initial load.
-   * Coverflow manages its own ±2 preload — skip those tiles.
+   * Coverflow manages its own ±2 preload . skip those tiles.
    */
   function initSmartLazyImages() {
     const imgs = document.querySelectorAll('img[loading="lazy"]');

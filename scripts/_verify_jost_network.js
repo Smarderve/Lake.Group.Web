@@ -2,6 +2,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const { resolveStatic } = require('./_safe_static.js');
 
 const root = path.resolve(__dirname, '..');
 
@@ -51,9 +52,8 @@ const server = http.createServer((req, res) => {
     res.end(html);
     return;
   }
-  const rel = decodeURIComponent(req.url.split('?')[0]).replace(/^\//, '');
-  const fp = path.join(root, rel);
-  if (!fp.startsWith(root) || !fs.existsSync(fp)) {
+  const fp = resolveStatic(root, (req.url || '/').split('?')[0]);
+  if (!fp || !fs.existsSync(fp)) {
     res.writeHead(404);
     res.end('404');
     return;

@@ -207,10 +207,10 @@ html, body {
 .nav-logo img,
 .site-nav .nav-logo img {
   /* Hard px fallbacks: if tokens.css is missing (stale/broken SW), logo must not go intrinsic. */
-  height: var(--nav-logo-height, 48px) !important;
+  height: var(--nav-logo-height, 38px) !important;
   width: auto !important;
-  max-width: min(220px, 55vw) !important;
-  max-height: var(--nav-logo-height, 48px);
+  max-width: 130px !important;
+  max-height: var(--nav-logo-height, 38px);
   object-fit: contain;
   transition: transform var(--dur-fast) var(--ease-out), height 0.3s var(--ease-smooth);
 }
@@ -634,10 +634,13 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
   box-shadow: none;
   overflow: visible;
 }
-/* Light chip behind navy-low-contrast logos (do not filter/recolor PNGs).
-   Cross Country + Ocean Galleria: no chip — transparent PNG on dark megamenu. */
+/* Light chip behind navy/low-contrast logos (do not filter/recolor PNGs).
+   AFICD (blue), ACFS (gray) and Cross Country (navy) read too dark against the
+   dark megamenu — the white chip keeps them visible, same as ATL / Lake Agro. */
 .mm-company img[src*="lake-agro.png"],
-.mm-company img[src*="atl.png"] {
+.mm-company img[src*="atl.png"],
+.mm-company img[src*="aficd.png"],
+.mm-company img[src*="acfs.png"] {
   background: #fff;
   border-radius: 8px;
   padding: 8px 10px;
@@ -657,13 +660,13 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
 }
 /* Tall stacked mark — taller than peers so visual weight matches Ocean Galleria. */
 .mm-company img[src*="cross-country.png"] {
-  height: 86px;
-  max-width: 162px;
-  max-height: 86px;
-  background: transparent;
-  border-radius: 0;
-  padding: 0;
-  box-shadow: none;
+  height: 84px;
+  max-width: 160px;
+  max-height: 84px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px 10px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.14);
 }
 .mm-company img[src*="ocean-galleria.png"] {
   height: 78px;
@@ -716,7 +719,13 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
 .mm-company:hover, .mm-company:focus-visible {
   border-left: 0 !important;
   border-left-color: transparent;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.34);
+}
+/* Hover: darken the tile so light logos pop, and lift the logo with a soft
+   drop-shadow so it no longer blends into the darkened background. */
+.mm-company:hover img,
+.mm-company:focus-visible img {
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.55));
 }
 .mm-ext-icon {
   position: absolute; top: 8px; right: 8px;
@@ -1486,3 +1495,129 @@ canvas {
   }
 }
 
+
+/* --------------------------------------------------------------------------
+   SMOOTHNESS LAYER - touch & motion polish (home page / theme.css)
+   Mirrors the layer in flagship.css so index.html (which loads theme.css
+   instead of flagship.css) gets identical touch & motion smoothing.
+   -------------------------------------------------------------------------- */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a,
+button,
+[role="button"],
+input,
+select,
+textarea,
+summary {
+  touch-action: manipulation;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .nav-logo:hover,
+  .btn:hover,
+  .btn:hover .fs-arrow,
+  .photo-card:hover img,
+  .img-hover-zoom:hover,
+  .badge:hover,
+  .country-tag:hover,
+  .division-item:hover,
+  .timeline-item:hover,
+  .division-item:hover .division-dot,
+  .fs-stat:hover,
+  .kpi:hover,
+  .fs-stat:hover .fs-stat-no,
+  .kpi:hover .kpi-no,
+  .leader-card:hover .leader-photo img,
+  .sus-item:hover,
+  .sus-item:hover .sus-emoji,
+  .section:hover .divider-yellow,
+  .fs-section:hover .fs-rule,
+  .marquee-item:hover,
+  .card:hover .card-icon,
+  .country-cell:hover .flag-icon-lg,
+  .country-tag:hover .flag-icon,
+  .footer-logo:hover img,
+  .mm-company:hover,
+  .mm-company:hover img,
+  .mm-company:hover span,
+  .div-row:hover,
+  .ev-row:hover,
+  .fs-marker:hover,
+  .nav-link:hover,
+  .nav-links a:hover,
+  .footer a:hover,
+  .breadcrumb a:hover {
+    transform: none !important;
+  }
+  .leader-card:hover,
+  .badge:hover,
+  .country-tag:hover {
+    box-shadow: none !important;
+  }
+  .nav-megamenu .mm-company:hover,
+  .mm-company:hover {
+    background: transparent !important;
+  }
+
+  .btn:active,
+  button:active,
+  .mm-company:active,
+  .photo-card:active,
+  .nav-logo:active,
+  .footer-logo:active,
+  .div-row:active,
+  .ev-row:active {
+    opacity: 0.78;
+  }
+
+  html,
+  body {
+    overscroll-behavior-y: contain;
+  }
+}
+
+/* Fine-pointer: merge transition properties instead of replacing lists so
+   border-color/background transitions set elsewhere are preserved. */
+@media (hover: hover) and (pointer: fine) {
+  .photo-card,
+  .img-hover-zoom,
+  .badge,
+  .country-tag,
+  .division-item,
+  .timeline-item,
+  .fs-stat,
+  .kpi,
+  .sus-item,
+  .marquee-item,
+  .card,
+  .country-cell,
+  .footer-logo,
+  .mm-company,
+  .div-row,
+  .ev-row,
+  .leader-card {
+    transition-property: transform, box-shadow, opacity, background-color,
+      border-color, color;
+    transition-duration: var(--dur-med), var(--dur-med), var(--dur-fast),
+      var(--dur-fast), var(--dur-fast), var(--dur-fast);
+    transition-timing-function: var(--ease-out), ease, ease, ease, ease, ease;
+  }
+}
+
+/* Promote the compositing layer only during hover/zoom, not permanently,
+   so photo grids don't pin dozens of GPU layers. */
+.photo-card:hover img,
+.img-hover-zoom:hover,
+.gallery-tile:hover .gallery-tile__img {
+  will-change: transform;
+}
+
+.site-nav a,
+.nav-mobile a,
+.nav-dropdown a,
+.mm-company a {
+  -webkit-tap-highlight-color: transparent;
+}

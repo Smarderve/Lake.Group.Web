@@ -1,5 +1,5 @@
 /* =========================================================
- * Lake Group — CMS console for dashboard.html
+ * Lake Group . CMS console for dashboard.html
  *
  * Replaces the old demo "client portal" with a real admin
  * console backed by the self-hosted Payload CMS REST API:
@@ -33,7 +33,7 @@
   };
 
   /* -----------------------------------------------------------
-   * Collection registry — drives the KPI rail, the nav, the
+   * Collection registry . drives the KPI rail, the nav, the
    * list tables and the generated editor form. JSON/complex
    * fields are exposed as JSON textareas under "Advanced".
    * ----------------------------------------------------------- */
@@ -81,7 +81,7 @@
         { name: 'lede', label: 'Lede', type: 'textarea' },
         { name: 'quote', label: 'Quote', type: 'textarea' },
         { name: 'photo', label: 'Photo', type: 'media' },
-        { name: 'bio', label: 'Bio (Lexical JSON)', type: 'json', advanced: true, hint: 'Lexical rich-text state — use the /admin editor for full formatting.' },
+        { name: 'bio', label: 'Bio (Lexical JSON)', type: 'json', advanced: true, hint: 'Lexical rich-text state . use the /admin editor for full formatting.' },
         { name: 'mandate', label: 'Responsibilities (JSON)', type: 'json', advanced: true, hint: '[{ "item": "text" }]' },
         { name: 'facts', label: 'Facts (JSON)', type: 'json', advanced: true, hint: '[{ "label": "…", "value": "…" }]' }
       ]
@@ -106,7 +106,7 @@
         { name: 'logo', label: 'Logo', type: 'media' },
         { name: 'heroImage', label: 'Hero image', type: 'media' },
         { name: 'headquarters', label: 'Headquarters', type: 'country' },
-        { name: 'description', label: 'Description (Lexical JSON)', type: 'json', advanced: true, hint: 'Lexical rich-text state — use the /admin editor for full formatting.' },
+        { name: 'description', label: 'Description (Lexical JSON)', type: 'json', advanced: true, hint: 'Lexical rich-text state . use the /admin editor for full formatting.' },
         { name: 'keyStats', label: 'Key stats (JSON)', type: 'json', advanced: true, hint: '[{ "label": "…", "value": "…" }]' }
       ]
     },
@@ -120,7 +120,7 @@
       ],
       fields: [
         { name: 'name', label: 'Name', type: 'text', required: true },
-        { name: 'code', label: 'Code', type: 'text', required: true, hint: 'ISO 3166-1 alpha-2 — e.g. TZ' },
+        { name: 'code', label: 'Code', type: 'text', required: true, hint: 'ISO 3166-1 alpha-2 . e.g. TZ' },
         { name: 'isOperational', label: 'Operational', type: 'checkbox' },
         { name: 'isHeadquarters', label: 'Headquarters', type: 'checkbox' },
         { name: 'summary', label: 'Summary', type: 'textarea' },
@@ -178,7 +178,7 @@
   }
 
   function formatDate(v) {
-    if (!v) return '—';
+    if (!v) return '.';
     var m = String(v).match(/^(\d{4})-(\d{2})-(\d{2})/);
     if (m) {
       return m[3] + ' ' + ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][parseInt(m[2], 10) - 1] + ', ' + m[1];
@@ -220,7 +220,7 @@
   }
 
   /* -----------------------------------------------------------
-   * API — authenticated fetch with timeout + error mapping
+   * API . authenticated fetch with timeout + error mapping
    * ----------------------------------------------------------- */
   function api(path, opts) {
     opts = opts || {};
@@ -239,7 +239,7 @@
         if (!res.ok) {
           var msg = (data && data.errors && data.errors[0] && data.errors[0].message) ||
             data.message || ('HTTP ' + res.status);
-          /* Expired/revoked session — drop back to the login screen.
+          /* Expired/revoked session . drop back to the login screen.
              (During login itself state.token is null, so a bad-credential
              401 just surfaces the Payload error message instead.) */
           if (res.status === 401 && state.token) {
@@ -257,7 +257,7 @@
     }).catch(function (err) {
       if (timer) clearTimeout(timer);
       if (err && err.name === 'AbortError') {
-        var e2 = new Error('Request timed out — is the CMS reachable?');
+        var e2 = new Error('Request timed out . is the CMS reachable?');
         e2.status = 0;
         throw e2;
       }
@@ -279,7 +279,7 @@
     var pw = pwEl ? pwEl.value : '';
     if (!email || !pw) { showLoginError('Please enter your email and password.'); return; }
     if (!API_BASE) {
-      showLoginError('CMS endpoint not configured — set window.LAKE_CMS_API_URL on this page.');
+      showLoginError('CMS endpoint not configured . set window.LAKE_CMS_API_URL on this page.');
       return;
     }
 
@@ -298,13 +298,13 @@
       try {
         sessionStorage.setItem(TOKEN_KEY, state.token);
         sessionStorage.setItem(USER_KEY, JSON.stringify(state.user));
-      } catch (e) { /* private mode — keep session in memory */ }
+      } catch (e) { /* private mode . keep session in memory */ }
       enterConsole();
     }).catch(function (err) {
       showLoginError(err.message || 'Unable to sign in.');
     }).then(function () {
       /* Restore the localized label (data-i18n="dashboard.9") rather than
-         hardcoding English — the dictionary may have re-applied already. */
+         hardcoding English . the dictionary may have re-applied already. */
       if (btn) { btn.disabled = false; btn.textContent = btnLabel || 'Sign In'; }
     });
   }
@@ -326,7 +326,7 @@
       if (t) { state.token = t; state.user = u ? JSON.parse(u) : null; }
     } catch (e) { /* ignore */ }
     /* A stale token without a configured API would fetch relative /api/*
-       against the static host — only restore when the API is set. */
+       against the static host . only restore when the API is set. */
     if (state.token && API_BASE) {
       enterConsole();
     } else {
@@ -346,7 +346,7 @@
     if (!API_BASE) {
       var n = $('#login-note');
       if (n) {
-        n.textContent = 'CMS not configured — set window.LAKE_CMS_API_URL to this page to enable the console.';
+        n.textContent = 'CMS not configured . set window.LAKE_CMS_API_URL to this page to enable the console.';
         n.hidden = false;
       }
     }
@@ -377,7 +377,7 @@
       return      '<button type="button" class="cms-nav-btn' + (c.slug === state.activeSlug ? ' is-active' : '') +
         '" data-slug="' + c.slug + '" role="tab">' + esc(c.label) + count + '</button>';
     }).join('');
-    /* Click handling is delegated once in init() — avoid double-firing. */
+    /* Click handling is delegated once in init() . avoid double-firing. */
   }
 
   function renderKpis() {
@@ -435,7 +435,7 @@
     var wrap = $('#cms-table-wrap');
     if (!wrap) return;
     if (!state.docs.length) {
-      wrap.innerHTML = '<p class="cms-empty">No records yet — create the first one.</p>';
+      wrap.innerHTML = '<p class="cms-empty">No records yet . create the first one.</p>';
       return;
     }
     var thead = '<tr>' + c.columns.map(function (col) {
@@ -447,13 +447,13 @@
         var v = doc[col.key];
         if (col.thumb) {
           var url = resolveUrl(doc.url);
-          return '<td>' + (url ? '<img class="cms-thumb" src="' + esc(url) + '" alt="" loading="lazy">' : '—') + '</td>';
+          return '<td>' + (url ? '<img class="cms-thumb" src="' + esc(url) + '" alt="" loading="lazy">' : '.') + '</td>';
         }
         if (col.bool) {
           return '<td>' + (v ? '<span class="badge badge-green">Yes</span>' : '<span class="badge">No</span>') + '</td>';
         }
         if (col.badge) {
-          return '<td><span class="badge ' + badgeClass(col, v) + '">' + esc(v || '—') + '</span></td>';
+          return '<td><span class="badge ' + badgeClass(col, v) + '">' + esc(v || '.') + '</span></td>';
         }
         if (col.date) {
           return '<td>' + esc(formatDate(v)) + '</td>';
@@ -464,7 +464,7 @@
         if (v && typeof v === 'object') {
           return '<td>' + esc(v.name || v.title || v.filename || String(v.id)) + '</td>';
         }
-        return '<td>' + esc(v == null ? '—' : v) + '</td>';
+        return '<td>' + esc(v == null ? '.' : v) + '</td>';
       }).join('');
 
       tds += '<td class="cms-actions">' +
@@ -609,7 +609,7 @@
   function bindEditorForm() {
     var form = $('#cms-editor-form');
     if (!form) return;
-    /* The form element persists across opens — assign via onsubmit so the
+    /* The form element persists across opens . assign via onsubmit so the
        handler replaces itself instead of stacking duplicates. */
     form.onsubmit = function (e) {
       e.preventDefault();
@@ -653,7 +653,7 @@
         ok = false;
         toast(f.label + ' must be a number.', true);
       } else {
-        /* media/country selects render as <select> — empty picks must
+        /* media/country selects render as <select> . empty picks must
            become null (Payload rejects '' for upload/relationship fields). */
         var isSelectLike = f.type === 'select' || f.type === 'media' || f.type === 'country';
         data[f.name] = (isSelectLike && v === '') ? null : v;

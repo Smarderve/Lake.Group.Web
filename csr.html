@@ -22,7 +22,7 @@
   <meta name="theme-color" content="#0181BB">
   <link rel="manifest" href="manifest.webmanifest">
 <style>
-/* CSR  Meridian page composition (leans on assets/flagship.css?v=90) */
+/* CSR  Meridian page composition (leans on assets/flagship.css?v=99) */
 .csr-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); }
 @media (max-width: 520px) { .csr-tiles { grid-template-columns: 1fr; } }
 .csr-tile { position: relative; padding: var(--sp-6); text-align: center; border: 1px solid var(--line-2); background: var(--surface); }
@@ -72,16 +72,17 @@
   <link rel="preload" href="assets/fonts/files/jost-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="assets/flagship.css?v=90">
+<link rel="stylesheet" href="assets/flagship.css?v=99">
 <link rel="stylesheet" href="assets/split-text.css?v=48">
   <link rel="stylesheet" href="assets/assistant.css?v=71">
-  <link rel="stylesheet" href="assets/skeleton.css?v=4">
+  <link rel="stylesheet" href="assets/skeleton.css?v=6">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https: http://127.0.0.1:*; frame-src https://www.youtube.com https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; form-action 'self' https:">
 </head><body>
-  <script src="assets/skeleton.js?v=4"></script>
+  <script src="assets/skeleton.js?v=6"></script>
 <nav class="site-nav" dir="ltr">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group" width="180" height="48" decoding="async">
+      <img src="assets/images/logos/LAKE_LOGO_LAKE_ONLY.png" alt="Lake Group" width="180" height="48" decoding="async">
     </a>
     <ul class="nav-links">
       <li><a href="index.html" data-i18n="nav.home">Home</a></li>
@@ -112,22 +113,24 @@
                   <a href="lake-plastics.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-plastics.png" alt="Lake Plastics" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakePlastics">Lake Plastics</span></a>
                   <a href="lake-steel.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-steel.png" alt="Lake Steel" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeSteel">Lake Steel</span></a>
                   <a href="lake-cylinders.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-cylinders.png?v=65" alt="Lake Cylinders" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeCylinders">Lake Cylinders</span></a>
-                  <a href="gulf-aggregates.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/gulf-aggregates.png" alt="Gulf Aggregates" loading="lazy" width="56" height="32"><span data-i18n="nav.co.gulfAggregates">Gulf Aggregates</span></a>
+                  <a href="gulf-aggregates.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/gulf-aggregates.png?v=69" alt="Gulf Aggregates" loading="lazy" width="56" height="32"><span data-i18n="nav.co.gulfAggregates">Gulf Aggregates</span></a>
                   <a href="atl.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/atl.png?v=61" alt="ATL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.atl">ATL</span></a>
                   <a href="lake-premix-cement.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-premix-cement.png" alt="Lake Premix and Cement" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</span></a>
                 </div>
               </div>
               <div class="mm-pane" role="tabpanel" id="mm-pane-logistics" data-mm-pane="logistics" aria-labelledby="mm-tab-logistics" hidden>
                 <div class="mm-companies">
-                  <a href="aficd.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/aficd.png?v=65" alt="AFICD" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aficd">AFICD</span></a>
+                  <a href="acfs.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/acfs.png?v=69" alt="ACFS" loading="lazy" width="56" height="32"><span data-i18n="nav.co.acfs">ACFS</span></a>
+
+<a href="aficd.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/aficd.png?v=69" alt="AFICD" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aficd">AFICD</span></a>
                   <a href="aill.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/aill.png?v=65" alt="AILL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aill">AILL</span></a>
                   <a href="lake-trans.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-trans.png" alt="Lake Trans" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeTrans">Lake Trans</span></a>
                 </div>
               </div>
               <div class="mm-pane" role="tabpanel" id="mm-pane-realestate" data-mm-pane="realestate" aria-labelledby="mm-tab-realestate" hidden>
                 <div class="mm-companies">
-                  <a href="cross-country.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/cross-country.png?v=62" alt="Cross Country" loading="lazy" width="56" height="32"><span data-i18n="nav.co.crossCountry">Cross Country</span></a>
-                  <a href="ocean-galleria.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/ocean-galleria.png?v=61" alt="Ocean Galleria" loading="lazy" width="56" height="32"><span data-i18n="nav.co.oceanGalleria">Ocean Galleria</span></a>
+                  <a href="cross-country.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/cross-country.png?v=69" alt="Cross Country" loading="lazy" width="56" height="32"><span data-i18n="nav.co.crossCountry">Cross Country</span></a>
+                  <a href="ocean-galleria.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/ocean-galleria.png?v=69" alt="Ocean Galleria" loading="lazy" width="56" height="32"><span data-i18n="nav.co.oceanGalleria">Ocean Galleria</span></a>
                 </div>
           </div>
               <div class="mm-pane" role="tabpanel" id="mm-pane-agro" data-mm-pane="agro" aria-labelledby="mm-tab-agro" hidden>
@@ -152,7 +155,7 @@
       <li><a href="contact.html" data-i18n="nav.contact">Contact Us</a></li>
     </ul>
     <div class="lang-switcher" data-i18n-aria="lang.label" aria-label="Language">
-      <button type="button" class="lang-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" data-i18n-title="lang.label" title="Language">
+      <button type="button" class="lang-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu">
         <span class="lang-pair" aria-hidden="false">
           <span class="lang-pair-selected" data-lang-label>English</span>
           <span class="lang-pair-sep" aria-hidden="true">|</span>
@@ -230,7 +233,8 @@
     </div>
     <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-logistics" data-i18n="nav.dd.logisticsCos">Logistics</button>
     <div class="mob-acc-panel" id="mob-acc-logistics" hidden>
-      <a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a>
+            <a href="acfs.html" data-i18n="nav.co.acfs">ACFS</a>
+<a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a>
       <a href="aill.html" data-i18n="nav.co.aill">AILL</a>
       <a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a>
     </div>
@@ -281,7 +285,7 @@
         <div class="csr-tiles">
           <div class="reveal csr-tile csr-tile-ink">
             <div class="csr-icon csr-icon--on-dark" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M324-111.5Q251-143 197-197t-85.5-127Q80-397 80-480t31.5-156Q143-709 197-763t127-85.5Q397-880 480-880t156 31.5Q709-817 763-763t85.5 127Q880-563 880-480t-31.5 156Q817-251 763-197t-127 85.5Q563-80 480-80t-156-31.5ZM437-141v-82q-35 0-59-26t-24-61v-44L149-559q-5 20-7 39.5t-2 39.5q0 130 84.5 227T437-141Zm294-108q44-48 66.5-107.5T820-480q0-106-58-192.5T607-799v18q0 35-24 61t-59 26h-87v87q0 17-13.5 28T393-568h-83v88h258q17 0 28 13t11 30v127h43q29 0 51 17t30 44Z"/></svg></div>
-            <h4 data-i18n="csr.9">9 Countries</h4>
+            <h4 data-i18n="csr.9">10 Countries</h4>
             <p data-i18n="csr.10">Local CSR programmes active</p>
           </div>
           <div class="reveal csr-tile csr-tile-gold">
@@ -310,38 +314,38 @@
       <div data-i18n="csr.16" class="section-label" style="justify-content:center">Our Pillars</div>
       <h2 data-i18n="csr.17" class="section-title">How We Give Back</h2>
     </div>
-    <div class="grid-3">
-      <div class="card reveal csr-card">
+    <div class="grid-3" data-hydrate="csr-entries" data-hydrate-match="title">
+      <div class="card reveal csr-card" data-entity-key="Healthcare Support">
         <div class="csr-icon csr-icon--card csr-icon--on-light" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M560-574v-48q33-14 67.5-21t72.5-7q26 0 51 4t49 10v44q-24-9-48.5-13.5T700-610q-38 0-73 9.5T560-574Zm0 220v-49q33-13.5 67.5-20.25T700-430q26 0 51 4t49 10v44q-24-9-48.5-13.5T700-390q-38 0-73 9t-67 27Zm0-110v-48q33-14 67.5-21t72.5-7q26 0 51 4t49 10v44q-24-9-48.5-13.5T700-500q-38 0-73 9.5T560-464ZM248-300q53.57 0 104.28 12.5Q403-275 452-250v-427q-45-30-97.62-46.5Q301.76-740 248-740q-38 0-74.5 9.5T100-707v434q31-14 70.5-20.5T248-300Zm264 50q50-25 98-37.5T712-300q38 0 78.5 6t69.5 16v-429q-34-17-71.82-25-37.82-8-76.18-8-54 0-104.5 16.5T512-677v427Zm-30 90q-51-38-111-58.5T248-239q-36.54 0-71.77 9T106-208q-23.1 11-44.55-3Q40-225 40-251v-463q0-15 7-27.5T68-761q42-20 87.39-29.5 45.4-9.5 92.61-9.5 63 0 122.5 17T482-731q51-35 109.5-52T712-800q46.87 0 91.93 9.5Q849-781 891-761q14 7 21.5 19.5T920-714v463q0 27.89-22.5 42.45Q875-194 853-208q-34-14-69.23-22.5Q748.54-239 712-239q-63 0-121 21t-109 58ZM276-489Z"/></svg></div>
-        <h3 data-i18n="csr.18">Healthcare Support</h3>
-        <p data-i18n="csr.19">Donating medical equipment to maternal wards in Dar es Salaam's municipal hospitals  delivery beds, delivery kits, wheelchairs, stretchers and BP machines  and supporting referral hospitals such as Temeke.</p>
+        <h3 data-i18n="csr.18" data-entity-field="title">Healthcare Support</h3>
+        <p data-i18n="csr.19" data-entity-field="description">Donating medical equipment to maternal wards in Dar es Salaam's municipal hospitals  delivery beds, delivery kits, wheelchairs, stretchers and BP machines  and supporting referral hospitals such as Temeke.</p>
       </div>
-      <div class="card reveal csr-card">
+      <div class="card reveal csr-card" data-entity-key="Children &amp; Community Welfare">
         <div class="csr-icon csr-icon--card csr-icon--on-light" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M80-120v-720h390v165h410v555H80Zm60-60h105v-105H140v105Zm0-165h105v-105H140v105Zm0-165h105v-105H140v105Zm0-165h105v-105H140v105Zm165 495h105v-105H305v105Zm0-165h105v-105H305v105Zm0-165h105v-105H305v105Zm0-165h105v-105H305v105Zm165 495h350v-435H470v105h80v60h-80v105h80v60h-80v105Zm185-270v-60h60v60h-60Zm0 165v-60h60v60h-60Z"/></svg></div>
-        <h3 data-i18n="csr.20">Children & Community Welfare</h3>
-        <p data-i18n="csr.21">Assisting needy children and orphanage centres, supporting places of worship, and providing emergency relief  including food and LPG cooking sets for flood-affected families in Rufiji.</p>
+        <h3 data-i18n="csr.20" data-entity-field="title">Children & Community Welfare</h3>
+        <p data-i18n="csr.21" data-entity-field="description">Assisting needy children and orphanage centres, supporting places of worship, and providing emergency relief  including food and LPG cooking sets for flood-affected families in Rufiji.</p>
       </div>
-      <div class="card reveal csr-card">
+      <div class="card reveal csr-card" data-entity-key="Environmental Stewardship">
         <div class="csr-icon csr-icon--card csr-icon--on-light" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M303-80v-149H0l189-274H94l266-377 120 170 120-170 266 377h-94l188 274H658v149H543v-149H418v149H303Zm377-209h165L656-563h89L600-769l-80 115 106 151h-94l148 214Zm-564 0h489L416-563h89L360-769 215-563h90L116-289Zm0 0h189-90 290-89 189-489Zm564 0H532h94-106 225-89 189-165Zm-137 60h115-115Zm178 0Z"/></svg></div>
-        <h3 data-i18n="csr.22">Environmental Stewardship</h3>
-        <p data-i18n="csr.23">Responsible handling, storage and transport of petroleum products across the supply chain, with continuous investment in modern equipment and cleaner operations.</p>
+        <h3 data-i18n="csr.22" data-entity-field="title">Environmental Stewardship</h3>
+        <p data-i18n="csr.23" data-entity-field="description">Responsible handling, storage and transport of petroleum products across the supply chain, with continuous investment in modern equipment and cleaner operations.</p>
       </div>
-      <div class="card reveal csr-card">
+      <div class="card reveal csr-card" data-entity-key="Local Employment">
         <div class="csr-icon csr-icon--card csr-icon--on-light" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M140-80q-24 0-42-18t-18-42v-480q0-24 18-42t42-18h250v-140q0-24 18-42t42-18h60q24 0 42 18t18 42v140h250q24 0 42 18t18 42v480q0 24-18 42t-42 18H140Zm0-60h680v-480H570v30q0 28-18 44t-42 16h-60q-24 0-42-16t-18-44v-30H140v480Zm92-107h239v-14q0-18-9-32t-23-19q-32-11-50-14.5t-35-3.5q-19 0-40.5 4.5T265-312q-15 5-24 19t-9 32v14Zm336-67h170v-50H568v50Zm-175.5-65.5Q408-395 408-418t-15.5-38.5Q377-472 354-472t-38.5 15.5Q300-441 300-418t15.5 38.5Q331-364 354-364t38.5-15.5ZM568-427h170v-50H568v50ZM450-590h60v-230h-60v230Zm30 210Z"/></svg></div>
-        <h3 data-i18n="csr.24">Local Employment</h3>
-        <p data-i18n="csr.25">30,000+ jobs across 9 countries, with a strong preference for hiring and developing local talent at every level of the organisation.</p>
+        <h3 data-i18n="csr.24" data-entity-field="title">Local Employment</h3>
+        <p data-i18n="csr.25" data-entity-field="description">30,000+ jobs across 10 countries, with a strong preference for hiring and developing local talent at every level of the organisation.</p>
       </div>
-      <div class="card reveal csr-card">
+      <div class="card reveal csr-card" data-entity-key="Clean Cooking Access">
         <div class="csr-icon csr-icon--card csr-icon--on-light" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M320-80q-66 0-113-47t-47-113v-320q0-57 34-99t86-56v-105q0-24.75 17.63-42.38Q315.25-880 340-880h280q24.75 0 42.38 17.62Q680-844.75 680-820v105q52 14 86 56t34 99v320q0 66-47 113T640-80H320ZM220-420h520v-140q0-42-29-71t-71-29H320q-42 0-71 29t-29 71v140Zm100 280h320q42 0 71-29t29-71v-120H220v120q0 42 29 71t71 29Zm160-280Zm0 60Zm0-30Zm40-330h100v-100H340v100h100q0-17 11.5-28.5T480-760q17 0 28.5 11.5T520-720Z"/></svg></div>
-        <h3 data-i18n="csr.26">Clean Cooking Access</h3>
-        <p data-i18n="csr.27">Expanding reliable LPG access for households across East Africa  reducing dependence on charcoal, improving indoor air quality and easing deforestation pressure.</p>
+        <h3 data-i18n="csr.26" data-entity-field="title">Clean Cooking Access</h3>
+        <p data-i18n="csr.27" data-entity-field="description">Expanding reliable LPG access for households across East Africa  reducing dependence on charcoal, improving indoor air quality and easing deforestation pressure.</p>
       </div>
-      <div class="card reveal csr-card">
+      <div class="card reveal csr-card" data-entity-key="Health &amp;amp; Safety">
         <div class="csr-icon csr-icon--card csr-icon--on-light" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M440-360h80v-100h100v-80H520v-100h-80v100H340v80h100v100Zm40 279q-140-35-230-162.5T160-523v-238l320-120 320 120v238q0 152-90 279.5T480-81Zm0-62q115-38 187.5-143.5T740-523v-196l-260-98-260 98v196q0 131 72.5 236.5T480-143Zm0-337Z"/></svg></div>
-        <h3 data-i18n="csr.28">Health &amp; Safety</h3>
-        <p data-i18n="csr.29">Industry-leading safety standards across all divisions. Zero-harm ambition for employees, contractors and the communities we operate in.</p>
+        <h3 data-i18n="csr.28" data-entity-field="title">Health &amp; Safety</h3>
+        <p data-i18n="csr.29" data-entity-field="description">Industry-leading safety standards across all divisions. Zero-harm ambition for employees, contractors and the communities we operate in.</p>
       </div>
-    </div>
+      </div>
   </div>
 </section>
 
@@ -351,21 +355,21 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">
-          <img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group">
+          <img src="assets/images/logos/LAKE_LOGO_LAKE_ONLY.png" alt="Lake Group">
         </div>
         <p class="footer-motto" style="color:var(--yellow);font-weight:600;font-size:0.95rem;letter-spacing:0.04em" data-i18n="footer.motto">Quality, Service, Safety, Professionalism</p>
-        <div class="footer-social">
-          <a href="https://www.linkedin.com/company/lake-oil" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.linkedin" data-i18n-title="footer.linkedin" aria-label="LinkedIn" title="LinkedIn"><svg class="footer-social-ico" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037c-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85c3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.06 2.06 0 0 1-2.063-2.065a2.064 2.064 0 1 1 2.063 2.065m1.782 13.019H3.555V9h3.564zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></svg></a>
-          <a href="https://www.facebook.com/lakeoilgroup" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.facebook" data-i18n-title="footer.facebook" aria-label="Facebook" title="Facebook"><svg class="footer-social-ico" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978c.401 0 .955.042 1.468.103a9 9 0 0 1 1.141.195v3.325a9 9 0 0 0-.653-.036a27 27 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.7 1.7 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103l-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647"/></svg></a>
-          <a href="https://twitter.com/lakeoilgroup" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.twitter" data-i18n-title="footer.twitter" aria-label="X / Twitter" title="X / Twitter"><svg class="footer-social-ico" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14.234 10.162L22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299l-.929-1.329L3.076 1.56h3.182l5.965 8.532l.929 1.329l7.754 11.09h-3.182z"/></svg></a>
-          <a href="https://www.youtube.com/@lakeoilgroup" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.youtube" data-i18n-title="footer.youtube" aria-label="YouTube" title="YouTube"><svg class="footer-social-ico" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z"/></svg></a>
-          <a href="https://www.instagram.com/lakeoilltd/" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.instagram" data-i18n-title="footer.instagram" aria-label="Instagram" title="Instagram"><svg class="footer-social-ico" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.03.084c-1.277.06-2.149.264-2.91.563a5.9 5.9 0 0 0-2.124 1.388a5.9 5.9 0 0 0-1.38 2.127C.321 4.926.12 5.8.064 7.076s-.069 1.688-.063 4.947s.021 3.667.083 4.947c.061 1.277.264 2.149.563 2.911c.308.789.72 1.457 1.388 2.123a5.9 5.9 0 0 0 2.129 1.38c.763.295 1.636.496 2.913.552c1.278.056 1.689.069 4.947.063s3.668-.021 4.947-.082c1.28-.06 2.147-.265 2.91-.563a5.9 5.9 0 0 0 2.123-1.388a5.9 5.9 0 0 0 1.38-2.129c.295-.763.496-1.636.551-2.912c.056-1.28.07-1.69.063-4.948c-.006-3.258-.02-3.667-.081-4.947c-.06-1.28-.264-2.148-.564-2.911a5.9 5.9 0 0 0-1.387-2.123a5.9 5.9 0 0 0-2.128-1.38c-.764-.294-1.636-.496-2.914-.55C15.647.009 15.236-.006 11.977 0S8.31.021 7.03.084m.14 21.693c-1.17-.05-1.805-.245-2.228-.408a3.7 3.7 0 0 1-1.382-.895a3.7 3.7 0 0 1-.9-1.378c-.165-.423-.363-1.058-.417-2.228c-.06-1.264-.072-1.644-.08-4.848c-.006-3.204.006-3.583.061-4.848c.05-1.169.246-1.805.408-2.228c.216-.561.477-.96.895-1.382a3.7 3.7 0 0 1 1.379-.9c.423-.165 1.057-.361 2.227-.417c1.265-.06 1.644-.072 4.848-.08c3.203-.006 3.583.006 4.85.062c1.168.05 1.804.244 2.227.408c.56.216.96.475 1.382.895s.681.817.9 1.378c.165.422.362 1.056.417 2.227c.06 1.265.074 1.645.08 4.848c.005 3.203-.006 3.583-.061 4.848c-.051 1.17-.245 1.805-.408 2.23c-.216.56-.477.96-.896 1.38a3.7 3.7 0 0 1-1.378.9c-.422.165-1.058.362-2.226.418c-1.266.06-1.645.072-4.85.079s-3.582-.006-4.848-.06m9.783-16.192a1.44 1.44 0 1 0 1.437-1.442a1.44 1.44 0 0 0-1.437 1.442M5.839 12.012a6.161 6.161 0 1 0 12.323-.024a6.162 6.162 0 0 0-12.323.024M8 12.008A4 4 0 1 1 12.008 16A4 4 0 0 1 8 12.008"/></svg></a>
-          <a href="https://www.tiktok.com/@lakeoilgroup" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.tiktok" data-i18n-title="footer.tiktok" aria-label="TikTok" title="TikTok"><svg class="footer-social-ico" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02c.08 1.53.63 3.09 1.75 4.17c1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97c-.57-.26-1.1-.59-1.62-.93c-.01 2.92.01 5.84-.02 8.75c-.08 1.4-.54 2.79-1.35 3.94c-1.31 1.92-3.58 3.17-5.91 3.21c-1.43.08-2.86-.31-4.08-1.03c-2.02-1.19-3.44-3.37-3.65-5.71c-.02-.5-.03-1-.01-1.49c.18-1.9 1.12-3.72 2.58-4.96c1.66-1.44 3.98-2.13 6.15-1.72c.02 1.48-.04 2.96-.04 4.44c-.99-.32-2.15-.23-3.02.37c-.63.41-1.11 1.04-1.36 1.75c-.21.51-.15 1.07-.14 1.61c.24 1.64 1.82 3.02 3.5 2.87c1.12-.01 2.19-.66 2.77-1.61c.19-.33.4-.67.41-1.06c.1-1.79.06-3.57.07-5.36c.01-4.03-.01-8.05.02-12.07"/></svg></a>
-          <a href="https://wa.me/255222780510" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.whatsapp" data-i18n-title="footer.whatsapp" aria-label="WhatsApp" title="WhatsApp"><svg class="footer-social-ico" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967c-.273-.099-.471-.148-.67.15c-.197.297-.767.966-.94 1.164c-.173.199-.347.223-.644.075c-.297-.15-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.018-.458.13-.606c.134-.133.298-.347.446-.52s.198-.298.298-.497c.099-.198.05-.371-.025-.52s-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51a13 13 0 0 0-.57-.01c-.198 0-.52.074-.792.372c-.272.297-1.04 1.016-1.04 2.479c0 1.462 1.065 2.875 1.213 3.074s2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.625c.712.227 1.36.195 1.871.118c.571-.085 1.758-.719 2.006-1.413s.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214l-3.741.982l.998-3.648l-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884c2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.82 11.82 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.9 11.9 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 0 0-3.48-8.413"/></svg></a>
+        <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:5px">
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/tz.svg" alt="Tanzania flag" class="flag-icon" width="20" height="15"> Tanzania</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/ke.svg" alt="Kenya flag" class="flag-icon" width="20" height="15"> Kenya</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/zm.svg" alt="Zambia flag" class="flag-icon" width="20" height="15"> Zambia</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/rw.svg" alt="Rwanda flag" class="flag-icon" width="20" height="15"> Rwanda</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/bi.svg" alt="Burundi flag" class="flag-icon" width="20" height="15"> Burundi</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/cd.svg" alt="DR Congo flag" class="flag-icon" width="20" height="15"> DR Congo</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/et.svg" alt="Ethiopia flag" class="flag-icon" width="20" height="15"> Ethiopia</span>
+        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/mz.svg" alt="Mozambique flag" class="flag-icon" width="20" height="15"> Mozambique</span>
         </div>
-        <div style="margin-top:20px;display:flex;gap:10px">
-          <a href="contact.html" class="btn btn-outline btn-sm" data-i18n="footer.contact">Contact Us</a>
-        </div>
+
+        <div style="margin-top:22px"><a href="contact.html" class="btn btn-outline btn-sm" data-i18n="footer.contact">Contact Us</a></div>
       </div>
       <div class="footer-col"><h5 data-i18n="footer.services">Subsidiaries</h5><ul>
         <li><a href="lake-oil.html" data-i18n="nav.co.lakeOil">Lake Oil</a></li><li><a href="lake-gas.html" data-i18n="nav.co.lakeGas">Lake Gas</a></li>
@@ -379,23 +383,24 @@
         <li><a href="investors.html" data-i18n="nav.investorsShort">Investors</a></li><li><a href="projects.html" data-i18n="nav.projectsShort">Projects</a></li>
         <li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
       </ul></div>
-      <div class="footer-col"><h5 data-i18n="footer.contactHeading">Contact</h5><ul>
+      <div class="footer-col"><h5 data-i18n="footer.question">Got a Question?</h5><ul>
         <li><a href="contact.html" class="footer-contact-link"><iconify-icon icon="mdi:map-marker" class="footer-contact-ico" width="16" height="16" aria-hidden="true"></iconify-icon><span data-i18n="footer.address">Plot 49, Mikocheni Light Industrial, Dar es Salaam</span></a></li>
         <li><a href="tel:+255222780510" class="footer-contact-link"><iconify-icon icon="mdi:phone" class="footer-contact-ico" width="16" height="16" aria-hidden="true"></iconify-icon><span>+255 222 780 510</span></a></li>
         <li><a href="tel:+255222780479" class="footer-contact-link"><iconify-icon icon="mdi:phone" class="footer-contact-ico" width="16" height="16" aria-hidden="true"></iconify-icon><span>+255 222 780 479</span></a></li>
         <li><a href="mailto:admin@lakeoilgroup.com" class="footer-contact-link"><iconify-icon icon="mdi:email" class="footer-contact-ico" width="16" height="16" aria-hidden="true"></iconify-icon><span>admin@lakeoilgroup.com</span></a></li>
         <li><a href="contact.html" data-i18n="footer.contact">Contact Us</a></li>
-      </ul>
-      <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:5px">
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/tz.svg" alt="Tanzania flag" class="flag-icon" width="20" height="15"> Tanzania</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/ke.svg" alt="Kenya flag" class="flag-icon" width="20" height="15"> Kenya</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/zm.svg" alt="Zambia flag" class="flag-icon" width="20" height="15"> Zambia</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/rw.svg" alt="Rwanda flag" class="flag-icon" width="20" height="15"> Rwanda</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/bi.svg" alt="Burundi flag" class="flag-icon" width="20" height="15"> Burundi</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/cd.svg" alt="DR Congo flag" class="flag-icon" width="20" height="15"> DR Congo</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/et.svg" alt="Ethiopia flag" class="flag-icon" width="20" height="15"> Ethiopia</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/mz.svg" alt="Mozambique flag" class="flag-icon" width="20" height="15"> Mozambique</span>
-      </div></div>
+      </ul></div>
+      <div class="footer-col"><h5 data-i18n="footer.connect">Connect With Us</h5>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/lake-oil" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.linkedin" data-i18n-title="footer.linkedin" aria-label="LinkedIn" title="LinkedIn"><svg class="footer-social-ico" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037c-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85c3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.06 2.06 0 0 1-2.063-2.065a2.064 2.064 0 1 1 2.063 2.065m1.782 13.019H3.555V9h3.564zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></svg></a>
+          <a href="https://www.facebook.com/lakeoilgroup" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.facebook" data-i18n-title="footer.facebook" aria-label="Facebook" title="Facebook"><svg class="footer-social-ico" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978c.401 0 .955.042 1.468.103a9 9 0 0 1 1.141.195v3.325a9 9 0 0 0-.653-.036a27 27 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.7 1.7 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103l-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647"/></svg></a>
+          <a href="https://twitter.com/lakeoilgroup" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.twitter" data-i18n-title="footer.twitter" aria-label="X / Twitter" title="X / Twitter"><svg class="footer-social-ico" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14.234 10.162L22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299l-.929-1.329L3.076 1.56h3.182l5.965 8.532l.929 1.329l7.754 11.09h-3.182z"/></svg></a>
+          <a href="https://www.youtube.com/@lakeoilgroup" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.youtube" data-i18n-title="footer.youtube" aria-label="YouTube" title="YouTube"><svg class="footer-social-ico" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z"/></svg></a>
+          <a href="https://www.instagram.com/lakeoilltd/" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.instagram" data-i18n-title="footer.instagram" aria-label="Instagram" title="Instagram"><svg class="footer-social-ico" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.03.084c-1.277.06-2.149.264-2.91.563a5.9 5.9 0 0 0-2.124 1.388a5.9 5.9 0 0 0-1.38 2.127C.321 4.926.12 5.8.064 7.076s-.069 1.688-.063 4.947s.021 3.667.083 4.947c.061 1.277.264 2.149.563 2.911c.308.789.72 1.457 1.388 2.123a5.9 5.9 0 0 0 2.129 1.38c.763.295 1.636.496 2.913.552c1.278.056 1.689.069 4.947.063s3.668-.021 4.947-.082c1.28-.06 2.147-.265 2.91-.563a5.9 5.9 0 0 0 2.123-1.388a5.9 5.9 0 0 0 1.38-2.129c.295-.763.496-1.636.551-2.912c.056-1.28.07-1.69.063-4.948c-.006-3.258-.02-3.667-.081-4.947c-.06-1.28-.264-2.148-.564-2.911a5.9 5.9 0 0 0-1.387-2.123a5.9 5.9 0 0 0-2.128-1.38c-.764-.294-1.636-.496-2.914-.55C15.647.009 15.236-.006 11.977 0S8.31.021 7.03.084m.14 21.693c-1.17-.05-1.805-.245-2.228-.408a3.7 3.7 0 0 1-1.382-.895a3.7 3.7 0 0 1-.9-1.378c-.165-.423-.363-1.058-.417-2.228c-.06-1.264-.072-1.644-.08-4.848c-.006-3.204.006-3.583.061-4.848c.05-1.169.246-1.805.408-2.228c.216-.561.477-.96.895-1.382a3.7 3.7 0 0 1 1.379-.9c.423-.165 1.057-.361 2.227-.417c1.265-.06 1.644-.072 4.848-.08c3.203-.006 3.583.006 4.85.062c1.168.05 1.804.244 2.227.408c.56.216.96.475 1.382.895s.681.817.9 1.378c.165.422.362 1.056.417 2.227c.06 1.265.074 1.645.08 4.848c.005 3.203-.006 3.583-.061 4.848c-.051 1.17-.245 1.805-.408 2.23c-.216.56-.477.96-.896 1.38a3.7 3.7 0 0 1-1.378.9c-.422.165-1.058.362-2.226.418c-1.266.06-1.645.072-4.85.079s-3.582-.006-4.848-.06m9.783-16.192a1.44 1.44 0 1 0 1.437-1.442a1.44 1.44 0 0 0-1.437 1.442M5.839 12.012a6.161 6.161 0 1 0 12.323-.024a6.162 6.162 0 0 0-12.323.024M8 12.008A4 4 0 1 1 12.008 16A4 4 0 0 1 8 12.008"/></svg></a>
+          <a href="https://www.tiktok.com/@lakeoilgroup" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.tiktok" data-i18n-title="footer.tiktok" aria-label="TikTok" title="TikTok"><svg class="footer-social-ico" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02c.08 1.53.63 3.09 1.75 4.17c1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97c-.57-.26-1.1-.59-1.62-.93c-.01 2.92.01 5.84-.02 8.75c-.08 1.4-.54 2.79-1.35 3.94c-1.31 1.92-3.58 3.17-5.91 3.21c-1.43.08-2.86-.31-4.08-1.03c-2.02-1.19-3.44-3.37-3.65-5.71c-.02-.5-.03-1-.01-1.49c.18-1.9 1.12-3.72 2.58-4.96c1.66-1.44 3.98-2.13 6.15-1.72c.02 1.48-.04 2.96-.04 4.44c-.99-.32-2.15-.23-3.02.37c-.63.41-1.11 1.04-1.36 1.75c-.21.51-.15 1.07-.14 1.61c.24 1.64 1.82 3.02 3.5 2.87c1.12-.01 2.19-.66 2.77-1.61c.19-.33.4-.67.41-1.06c.1-1.79.06-3.57.07-5.36c.01-4.03-.01-8.05.02-12.07"/></svg></a>
+          <a href="https://wa.me/255222780510" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.whatsapp" data-i18n-title="footer.whatsapp" aria-label="WhatsApp" title="WhatsApp"><svg class="footer-social-ico" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967c-.273-.099-.471-.148-.67.15c-.197.297-.767.966-.94 1.164c-.173.199-.347.223-.644.075c-.297-.15-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.018-.458.13-.606c.134-.133.298-.347.446-.52s.198-.298.298-.497c.099-.198.05-.371-.025-.52s-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51a13 13 0 0 0-.57-.01c-.198 0-.52.074-.792.372c-.272.297-1.04 1.016-1.04 2.479c0 1.462 1.065 2.875 1.213 3.074s2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.625c.712.227 1.36.195 1.871.118c.571-.085 1.758-.719 2.006-1.413s.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214l-3.741.982l.998-3.648l-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884c2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.82 11.82 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.9 11.9 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 0 0-3.48-8.413"/></svg></a>
+        </div>
+      </div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 Lake Group. <span data-i18n="footer.rights">All rights reserved.</span></p>
@@ -428,12 +433,14 @@
 
 
 
-<script src="assets/i18n-content.js?v=60" defer></script>
-<script src="assets/i18n.js?v=57" defer></script>
+<script src="assets/i18n-content.js?v=63" defer></script>
+<script src="assets/i18n.js?v=58" defer></script>
 <script src="assets/site.js?v=60" defer></script>
+<script src="assets/registry-api.js?v=1" defer></script>
   <script src="assets/vendor/flexsearch/flexsearch.bundle.min.js" defer></script>
   <script src="assets/assistant-kb.js" defer></script>
   <script src="assets/assistant.js?v=60" defer></script>
+<script src="assets/analytics.js?v=1" defer></script>
 <script src="assets/pwa.js?v=60" defer></script>
 <script src="assets/flagship-motion.js?v=58" defer></script>
 <script src="assets/split-text.js?v=48" defer></script>

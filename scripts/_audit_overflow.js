@@ -21,6 +21,7 @@ const { chromium } = require('playwright');
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const { resolveStatic } = require('./_safe_static.js');
 
 /* ── CLI args ─────────────────────────────────────────────────────────── */
 const args = process.argv.slice(2);
@@ -56,7 +57,8 @@ function startServer() {
   return new Promise((resolve, reject) => {
     const server = http.createServer((req, res) => {
       const urlPath = req.url.split('?')[0];
-      const filePath = path.join(ROOT, urlPath === '/' ? 'index.html' : urlPath);
+      const filePath = resolveStatic(ROOT, urlPath === '/' ? '/index.html' : urlPath);
+      if (!filePath) { res.writeHead(403); res.end('Forbidden'); return; }
       try {
         const data = fs.readFileSync(filePath);
         const ext = path.extname(filePath).toLowerCase();

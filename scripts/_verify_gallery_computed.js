@@ -4,6 +4,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const { resolveStatic } = require('./_safe_static.js');
 const http = require('http');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -23,10 +24,9 @@ function contentType(p) {
 }
 
 const server = http.createServer((req, res) => {
-  let urlPath = decodeURIComponent((req.url || '/').split('?')[0]);
-  if (urlPath === '/') urlPath = '/gallery.html';
-  const filePath = path.join(ROOT, urlPath.replace(/^\//, ''));
-  if (!filePath.startsWith(ROOT) || !fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
+  const urlPath = (req.url || '/').split('?')[0];
+  const filePath = resolveStatic(ROOT, urlPath === '/' ? '/gallery.html' : urlPath);
+  if (!filePath || !fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
     res.writeHead(404);
     res.end('not found');
     return;

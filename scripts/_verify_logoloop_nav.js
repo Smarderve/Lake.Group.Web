@@ -6,6 +6,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const { resolveStatic } = require('./_safe_static.js');
 const { pathToFileURL } = require('url');
 
 const ROOT = path.join(__dirname, '..');
@@ -81,9 +82,9 @@ async function tryBrowser() {
 function startServer() {
   return new Promise((resolve) => {
     const server = http.createServer((req, res) => {
-      const urlPath = decodeURIComponent((req.url || '/').split('?')[0]);
-      let filePath = path.join(ROOT, urlPath === '/' ? 'index.html' : urlPath.replace(/^\//, ''));
-      if (!filePath.startsWith(ROOT)) {
+      const urlPath = (req.url || '/').split('?')[0];
+      const filePath = resolveStatic(ROOT, urlPath === '/' ? '/index.html' : urlPath);
+      if (!filePath) {
         res.writeHead(403);
         res.end('Forbidden');
         return;

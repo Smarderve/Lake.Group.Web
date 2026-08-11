@@ -1,0 +1,671 @@
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  height: var(--navbar-height, 72px);
+  /* Literal fallbacks: interiors must match home even if tokens.css is stale/missing */
+  background: var(--color-navbar-bg, #FFFFFF);
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--color-navbar-border, rgba(1,63,92,0.10));
+  backdrop-filter: none;
+  transition: transform 0.38s var(--ease-smooth), box-shadow 0.3s ease, background-color 0.3s ease, height 0.3s var(--ease-smooth);
+}
+/* Meridian accent: 2px brand-blue rule on the top edge (Shell/Aramco-style
+   light header; blue tick keeps the brand colour without the old 3px band). */
+.site-nav::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--nav-link-active-line, var(--color-brand-blue, #0181BB));
+  z-index: 2;
+}
+.site-nav.nav-scrolled {
+  height: var(--navbar-height-scrolled, 60px);
+  background: var(--color-navbar-bg-scrolled, rgba(255, 255, 255, 0.94));
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  box-shadow: 0 10px 30px rgba(1, 40, 63, 0.10);
+}
+.site-nav.nav-scrolled .nav-logo img {
+  height: var(--nav-logo-height-scrolled, 36px) !important;
+  max-height: var(--nav-logo-height-scrolled, 36px);
+  max-width: min(200px, 50vw) !important;
+}
+.site-nav.nav-hidden { transform: translateY(-100%); }
+
+/* Desktop nav rhythm - home sentence-case, no pills, blue underline tick */
+.nav-links { gap: clamp(14px, 1.6vw, 26px); }
+.nav-links > li > a {
+  position: relative;
+  color: var(--nav-link-color);
+  padding: var(--nav-link-padding);
+  font-size: var(--nav-link-size);
+  font-weight: var(--nav-link-weight);
+  letter-spacing: var(--nav-link-letter-spacing);
+  text-transform: var(--nav-link-transform);
+  font-family: var(--font-body);
+  gap: 5px;
+  white-space: nowrap;
+  border-radius: var(--nav-link-radius);
+  transition: color 0.2s ease, background 0.2s ease;
+}
+/* Brand-blue underline indicator: slides in on hover, stays on the active page. */
+.nav-links > li > a::after {
+  content: '';
+  position: absolute;
+  left: 2px; right: 2px; bottom: 6px;
+  height: 2px;
+  background: var(--nav-link-active-line, var(--nav-link-active-color, var(--color-brand-blue, #0181BB)));
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: opacity 0.2s ease, transform 0.28s var(--ease-smooth);
+}
+.nav-links > li > a:hover,
+.nav-links > li > a.active {
+  color: var(--nav-link-active-color);
+  background: var(--nav-link-active-bg);
+}
+.nav-links > li > a:hover::after,
+.nav-links > li > a.active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.nav-logo { transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) ease; }
+.nav-logo:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 2px 10px rgba(1, 63, 92, 0.14); }
+/* Brand plate: the Lake wordmark is yellow/white and made for dark
+   backgrounds, so on the light header it sits on a rounded brand-blue tile
+   (Shell-style logo container). */
+.site-nav .nav-logo {
+  background: linear-gradient(135deg, var(--color-brand-blue-light, #0599D3) 0%, var(--color-brand-blue-deep, #016694) 100%);
+  border-radius: 10px;
+  padding: 5px 10px;
+  box-shadow: 0 2px 10px rgba(1, 63, 92, 0.14);
+}
+.nav-logo img,
+.site-nav .nav-logo img {
+  /* Hard px fallbacks: if tokens.css is missing (stale/broken SW), logo must not go intrinsic. */
+  height: var(--nav-logo-height, 48px) !important;
+  width: auto !important;
+  max-width: min(220px, 55vw) !important;
+  max-height: var(--nav-logo-height, 48px);
+  object-fit: contain;
+  transition: transform var(--dur-fast) var(--ease-out), height 0.3s var(--ease-smooth);
+}
+.site-nav.nav-scrolled .nav-logo { padding: 4px 10px; }
+/* Company pages: same token height; letterboxed squares get optical scale via site.js class */
+body[data-company-logo] {
+  --nav-h: var(--navbar-height, 72px);
+}
+body[data-company-logo] .site-nav {
+  height: var(--nav-h);
+  overflow: visible;
+}
+body[data-company-logo] .site-nav .nav-logo {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
+.nav-logo.nav-logo--company,
+body[data-company-logo] .site-nav .nav-logo {
+  max-width: min(280px, 70vw);
+  overflow: visible;
+}
+/* Light header: white/light company marks would vanish, so render them in a
+   dark monochrome; the five dark marks stay in their own colors. */
+body[data-company-logo] .site-nav .nav-logo img {
+  filter: brightness(0) opacity(0.85);
+}
+body[data-company-logo] .site-nav .nav-logo img[src*="atl.png"],
+body[data-company-logo] .site-nav .nav-logo img[src*="cross-country.png"],
+body[data-company-logo] .site-nav .nav-logo img[src*="lake-agro.png"],
+body[data-company-logo] .site-nav .nav-logo img[src*="gulf-aggregates.png"],
+body[data-company-logo] .site-nav .nav-logo img[src*="ocean-galleria.png"] {
+  filter: none;
+}
+.nav-logo.nav-logo--company img,
+body[data-company-logo] .site-nav .nav-logo img {
+  height: var(--nav-logo-height, 48px) !important;
+  width: auto !important;
+  max-width: min(260px, 65vw) !important;
+  max-height: var(--nav-logo-height, 48px);
+  object-fit: contain;
+}
+body[data-company-logo] .site-nav .nav-logo img.nav-logo-img--letterboxed,
+.nav-logo.nav-logo--company img.nav-logo-img--letterboxed {
+  height: calc(var(--nav-logo-height, 48px) * var(--nav-logo-letterbox-scale, 1.15)) !important;
+  max-height: calc(var(--nav-logo-height, 48px) * var(--nav-logo-letterbox-scale, 1.15)) !important;
+}
+body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--letterboxed,
+.site-nav.nav-scrolled .nav-logo.nav-logo--company img.nav-logo-img--letterboxed {
+  height: calc(var(--nav-logo-height-scrolled, 36px) * var(--nav-logo-letterbox-scale, 1.15)) !important;
+  max-height: calc(var(--nav-logo-height-scrolled, 36px) * var(--nav-logo-letterbox-scale, 1.15)) !important;
+}
+
+/* Language switcher - globe + English|Swahili + dropdown (dark text on light bar) */
+.lang-switcher {
+  position: relative;
+  display: flex; align-items: center;
+  margin-left: 10px; margin-right: 6px;
+  border: none; border-radius: 0; overflow: visible;
+  background: transparent;
+}
+.lang-trigger {
+  -webkit-appearance: none; appearance: none;
+  display: inline-flex; align-items: center; gap: 7px;
+  background: transparent; border: 0;
+  padding: 6px 4px;
+  color: rgba(6, 34, 55, 0.85); cursor: pointer; line-height: 1;
+  font-family: inherit;
+  border-radius: 8px;
+  transition: color 0.16s ease, background 0.16s ease;
+}
+.lang-trigger:hover { color: var(--color-brand-blue, #0181BB); background: rgba(1,129,187,0.06); }
+.lang-trigger:focus-visible {
+  outline: 2px solid var(--color-brand-blue, #0181BB);
+  outline-offset: 3px;
+}
+.lang-current,
+.lang-pair {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.lang-pair-selected {
+  color: var(--color-brand-blue, #0181BB);
+  font-weight: 700;
+}
+.lang-pair-sep {
+  color: rgba(6, 34, 55, 0.30);
+  font-weight: 500;
+}
+.lang-pair-suggest {
+  color: rgba(6, 34, 55, 0.65);
+  font-weight: 500;
+  cursor: pointer;
+}
+.lang-pair-suggest:hover { color: var(--color-brand-blue, #0181BB); }
+.lang-icons {
+  display: inline-flex; align-items: center; gap: 2px;
+  color: rgba(6, 34, 55, 0.75);
+}
+.lang-globe, .lang-chevron { display: block; flex: none; }
+.lang-chevron { opacity: 0.85; transition: transform 0.2s ease; }
+.lang-switcher.is-open .lang-chevron { transform: rotate(180deg); }
+.lang-menu-item,
+.lang-btn {
+  -webkit-appearance: none; appearance: none;
+  background: transparent; border: 0;
+  color: rgba(6, 34, 55, 0.85);
+  padding: 0; font-size: 0.84rem; font-weight: 500;
+  cursor: pointer; line-height: 1.2; text-decoration: none;
+  border-radius: 0; font-family: inherit;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 8px); right: 0; left: auto;
+  min-width: 176px;
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 8px;
+  background: #FFFFFF;
+  border: 1px solid rgba(1, 63, 92, 0.10);
+  border-radius: 12px;
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.18),
+    0 4px 12px rgba(0,0,0,0.10);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  z-index: 1200;
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.lang-switcher.is-open .lang-menu:not([hidden]) {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.lang-menu[hidden] { display: none !important; }
+.lang-menu-item {
+  display: flex; align-items: center; gap: 10px;
+  width: 100%;
+  text-align: start;
+  padding: 10px 12px;
+  font-size: 0.84rem;
+  color: rgba(6, 34, 55, 0.85);
+  border-radius: 8px;
+  border: 0;
+  position: relative;
+}
+.lang-menu-check {
+  width: 14px; height: 14px; flex: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  opacity: 0;
+  color: var(--color-brand-blue, #0181BB);
+}
+.lang-menu-check::before {
+  content: "";
+  width: 8px; height: 4px;
+  border-inline-start: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg) translateY(-1px);
+}
+.lang-menu-label { flex: 1; min-width: 0; }
+.lang-menu-item:hover {
+  background: rgba(1,129,187,0.06);
+  color: var(--color-brand-blue, #0181BB);
+}
+.lang-menu-item:focus-visible {
+  outline: 2px solid var(--color-brand-blue, #0181BB);
+  outline-offset: 1px;
+}
+.lang-menu-item.active,
+.lang-btn.active {
+  color: var(--color-brand-blue, #0181BB);
+  background: rgba(1,129,187,0.08);
+  border: 0;
+  font-weight: 650;
+}
+.lang-menu-item.active .lang-menu-check { opacity: 1; }
+
+/* Header chrome stays LTR in all languages: logo LEFT, tabs RIGHT. */
+.site-nav,
+.site-nav .nav-inner,
+.site-nav .nav-links,
+.site-nav .lang-switcher,
+.site-nav .lang-trigger,
+.site-nav .lang-pair,
+.site-nav .nav-megamenu,
+.site-nav .nav-dropdown {
+  direction: ltr !important;
+}
+.site-nav .nav-inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.site-nav .nav-links {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+/* Lang lives in sticky header chrome (sibling of .nav-links), not only drawer */
+.site-nav .lang-switcher {
+  flex: none;
+  margin-left: 10px;
+  margin-right: 6px;
+  align-self: center;
+}
+.site-nav .lang-menu { right: 0; left: auto; }
+html[dir="rtl"] .nav-mobile { direction: rtl; }
+html[dir="rtl"] .nav-mobile a { border-left: 0; border-right: 2px solid transparent; }
+html[dir="rtl"] .nav-mobile a:hover { border-right-color: var(--color-brand-blue, var(--blue)); }
+html[dir="rtl"] .mm-ext-icon,
+html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
+.site-nav .nav-megamenu {
+  direction: ltr !important;
+  scrollbar-gutter: stable;
+}
+.site-nav .nav-megamenu .mm-cat,
+.site-nav .nav-megamenu .mm-company span {
+  unicode-bidi: plaintext;
+}
+
+.breadcrumb a { transition: color var(--dur-fast) ease, transform var(--dur-fast) var(--ease-out); }
+.breadcrumb a:hover { color: var(--color-brand-blue, var(--blue)); transform: translateX(2px); }
+
+/* Dropdown: white elevated panel + brand-blue top accent, micro slide on links */
+.nav-dropdown {
+  background: #FFFFFF;
+  backdrop-filter: blur(18px) saturate(1.25);
+  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+  border: 1px solid rgba(1, 63, 92, 0.10);
+  border-top: 2px solid var(--nav-link-active-line, var(--color-brand-blue, #0181BB));
+  border-radius: 10px;
+  box-shadow:
+    0 24px 50px -12px rgba(1, 40, 63, 0.18),
+    0 6px 16px -6px rgba(1, 40, 63, 0.08);
+  transition: opacity 0.22s var(--ease-smooth), transform 0.22s var(--ease-smooth);
+}
+.nav-dropdown a {
+  color: rgba(6, 34, 55, 0.85);
+  transition: background 0.18s ease, color 0.18s ease;
+}
+.nav-dropdown a:hover {
+  background: rgba(1,129,187,0.06);
+  color: var(--color-brand-blue, #0181BB);
+}
+
+/* Open via JS `.is-open` (hover-intent on the trigger) or keyboard
+   `:focus-within`. No `li:hover` — full-height nav columns were opening
+   panels before the cursor reached the label. */
+.has-dropdown:focus-within .nav-dropdown,
+.has-dropdown.is-open .nav-dropdown {
+  opacity: 1; pointer-events: auto; transform: translateY(0);
+}
+
+/* MEGA MENU  "Subsidiaries" (two-pane: category rail + company grid)
+   Position relative to .site-nav (not the trigger li) so a ~1180px panel
+   stays viewport-centered. Clamp height to the visible area and scroll
+   inside the panel on short laptop viewports. */
+.nav-links > li.has-megamenu { position: static; }
+.nav-megamenu {
+  display: block;
+  width: min(96vw, 1180px);
+  min-width: 0;
+  max-width: min(96vw, 1180px);
+  max-height: calc(100vh - var(--nav-h) - 24px);
+  max-height: calc(100dvh - var(--nav-h) - 24px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 24px 28px;
+  left: 50%;
+  right: auto;
+  transform: translate(-50%, -8px) scale(0.985);
+  transform-origin: top center;
+  scrollbar-width: auto;
+  scrollbar-color: var(--color-brand-blue-light) #E3ECF3;
+}
+.nav-megamenu::-webkit-scrollbar { width: 10px; }
+.nav-megamenu::-webkit-scrollbar-track {
+  background: #EDF2F6;
+  border-radius: 999px;
+  margin: 6px 0;
+}
+.nav-megamenu::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-brand-blue-light) 0%, var(--color-brand-blue) 100%);
+  border-radius: 999px;
+  border: 2px solid #EDF2F6;
+  background-clip: padding-box;
+}
+.nav-megamenu::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-brand-blue) 0%, var(--color-brand-blue-deep) 100%);
+  border-color: #EDF2F6;
+}
+.has-dropdown.is-open .nav-megamenu,
+.has-dropdown:focus-within .nav-megamenu {
+  transform: translate(-50%, 0) scale(1);
+}
+
+.mm-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 268px) minmax(0, 1fr);
+  gap: 20px 28px;
+  align-items: stretch;
+  min-height: 300px;
+}
+.mm-cats {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  align-self: start;
+}
+.mm-cat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  margin: 0;
+  padding: 14px 16px;
+  border: 0 !important;
+  border-left: 0 !important;
+  border-radius: 8px;
+  background: rgba(1, 129, 187, 0.05); /* near-transparent idle */
+  color: rgba(6, 34, 55, 0.85);
+  font-family: inherit;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.mm-cat::after {
+  content: '';
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-right: 2.25px solid rgba(6, 34, 55, 0.55);
+  border-top: 2.25px solid rgba(6, 34, 55, 0.55);
+  transform: rotate(45deg);
+  opacity: 1;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+.mm-cat:hover,
+.mm-cat:focus-visible {
+  background: rgba(5, 153, 211, 0.10);
+  color: var(--color-brand-blue, #0181BB);
+  outline: none;
+}
+.mm-cat:hover::after,
+.mm-cat:focus-visible::after {
+  border-color: var(--color-brand-blue, #0181BB);
+  opacity: 1;
+}
+.mm-cat.is-active {
+  background: rgba(1, 129, 187, 0.10);
+  color: var(--color-brand-blue, #0181BB);
+  border-left: 0 !important;
+  box-shadow: inset 0 0 0 1px rgba(1, 129, 187, 0.28);
+}
+.mm-cat.is-active::after {
+  border-color: var(--color-brand-blue, #0181BB);
+  opacity: 1;
+}
+.mm-cat.is-active:hover,
+.mm-cat.is-active:focus-visible {
+  background: rgba(5, 153, 211, 0.16);
+  color: var(--color-brand-blue-deep, #016694);
+}
+
+.mm-panes {
+  position: relative;
+  min-width: 0;
+  min-height: 240px;
+}
+.mm-pane { display: none; }
+.mm-pane.is-active { display: block; }
+.mm-companies {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 18px 16px;
+  min-width: 0;
+}
+.mm-pane.is-active .mm-companies.is-entering {
+  animation: mmPaneEnter 0.52s var(--ease-out) both;
+}
+@keyframes mmPaneEnter {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.nav-megamenu .mm-company,
+.mm-company {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  flex: 0 0 auto;
+  width: 148px;
+  padding: 14px 12px !important;
+  border-radius: 10px;
+  border-left: 0 !important;
+  color: rgba(6, 34, 55, 0.85);
+  font-size: 0.78rem; font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  white-space: normal;
+  position: relative;
+  background: transparent;
+  transition: background-color 160ms ease-out;
+}
+.mm-company span {
+  display: block;
+  max-width: 100%;
+}
+.mm-company img {
+  height: 68px; width: auto; max-width: 132px; flex: none;
+  object-fit: contain;
+  object-position: center;
+  aspect-ratio: auto;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+/* Light chip behind navy-low-contrast logos (do not filter/recolor PNGs).
+   Cross Country + Ocean Galleria: no chip - transparent PNG on white megamenu. */
+.mm-company img[src*="lake-agro.png"],
+.mm-company img[src*="atl.png"],
+.mm-company img[src*="aficd.png"],
+.mm-company img[src*="gulf-aggregates.png"] {
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px 10px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.14);
+}
+.mm-company img[src*="atl.png"] {
+  height: 64px;
+  width: auto;
+  max-width: 132px;
+  max-height: 64px;
+  object-fit: contain;
+  overflow: visible;
+}
+.mm-company img[src*="lake-agro.png"] {
+  height: 64px;
+  max-width: 132px;
+}
+/* Wide official marks (AFICD / Gulf) are 3.5:1 banners: widen the cap so they
+   read at comparable weight to peers instead of capping at 132px -> ~37px. */
+.mm-company img[src*="aficd.png"],
+.mm-company img[src*="gulf-aggregates.png"] {
+  height: 64px;
+  max-width: 168px;
+  max-height: 64px;
+}
+/* Tall stacked mark - taller than peers so visual weight matches Ocean Galleria. */
+.mm-company img[src*="cross-country.png"] {
+  height: 86px;
+  max-width: 162px;
+  max-height: 86px;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
+.mm-company img[src*="ocean-galleria.png"] {
+  height: 78px;
+  max-width: 150px;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
+/* Logos already include the wordmark - hide duplicate megamenu labels.
+   Accessible name comes from the img alt on the .mm-company link.
+   Scoped to .nav-megamenu so mobile accordion labels stay visible. */
+.nav-megamenu .mm-company > span {
+  display: none;
+}
+@media (max-height: 900px) {
+  .nav-megamenu { padding: 18px 22px; }
+  .mm-layout { gap: 16px 22px; min-height: 260px; }
+  .mm-company { width: 136px; padding: 12px 10px !important; gap: 6px; }
+  .mm-company img { height: 56px; max-width: 116px; }
+  .mm-company img[src*="atl.png"] {
+    height: 52px;
+    max-width: 116px;
+    max-height: 52px;
+    padding: 6px 8px;
+  }
+  .mm-company img[src*="lake-agro.png"] {
+    height: 52px;
+    max-width: 116px;
+  }
+}
+@media (max-width: 1060px) {
+  .nav-megamenu { display: none; }
+}
+
+/* Unified responsive breakpoint (canonical 1060px) */
+@media (max-width: 1060px) {
+  .nav-links { display: none; }
+  .site-nav .nav-toggle { display: flex; margin-left: 0; }
+  /* Keep compact lang control in sticky header (not only in drawer) */
+  .site-nav .lang-switcher { margin-left: auto; margin-right: 2px; }
+  .site-nav .lang-pair-sep,
+  .site-nav .lang-pair-suggest { display: none !important; }
+  .site-nav .lang-pair { gap: 0; }
+  .site-nav .lang-trigger { gap: 6px; padding: 6px 2px; }
+}
+
+/* Mobile menu: class-driven open state. !important intentionally beats the
+   legacy @media(max-width:1024px){ .nav-mobile{display:flex !important} }
+   rule that kept the menu permanently expanded on 22 pages. */
+.nav-mobile { display: none !important; background: #FFFFFF; border-bottom: 1px solid rgba(1, 63, 92, 0.10); box-shadow: 0 24px 50px -12px rgba(1, 40, 63, 0.18); }
+.nav-mobile.open { display: flex !important; }
+.nav-mobile a { transition: background 0.15s ease, color 0.15s ease; color: rgba(6, 34, 55, 0.85); border-left: 2px solid transparent; }
+.nav-mobile a:hover { background: rgba(1,129,187,0.05); color: var(--color-brand-blue, #0181BB); border-left-color: var(--color-brand-blue, #0181BB); }
+.mob-section { color: var(--color-brand-blue, #0181BB); }
+
+/* "Subsidiaries" mobile accordion: one collapsible category per button */
+.mob-accordion { display: flex; flex-direction: column; }
+.mob-acc-btn {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  width: 100%;
+  padding: 12px 16px;
+  background: none; border: none; border-left: 2px solid transparent;
+  color: rgba(6, 34, 55, 0.9);
+  font-family: inherit; font-size: 0.85rem; font-weight: 600;
+  text-align: left; cursor: pointer;
+}
+.mob-acc-btn::after {
+  content: '';
+  width: 0.6em; height: 0.6em;
+  border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.3s var(--ease-smooth);
+  flex: none;
+}
+.mob-acc-btn[aria-expanded="true"]::after { transform: rotate(-135deg); }
+.mob-acc-btn:hover, .mob-acc-btn[aria-expanded="true"] {
+  color: var(--color-brand-blue, #0181BB); border-left-color: var(--color-brand-blue, #0181BB); background: rgba(1,129,187,0.05);
+}
+.mob-acc-panel {
+  display: flex; flex-direction: column;
+  background: rgba(1, 63, 92, 0.03);
+  overflow: hidden;
+  max-height: 0; opacity: 0;
+  transition: max-height 0.34s var(--ease-smooth), opacity 0.2s ease;
+}
+.mob-acc-panel.is-open { max-height: 540px; opacity: 1; }
+.mob-acc-panel[hidden] { display: none; }
+.mob-acc-panel a { padding: 10px 16px 10px 30px; color: rgba(6, 34, 55, 0.75); font-size: 0.82rem; }
+.mob-acc-panel a:hover { color: var(--color-brand-blue, #0181BB); background: rgba(1,129,187,0.05); }
+.mob-external { justify-content: flex-start; }
+.mob-ext-icon { flex: none; margin-left: 6px; opacity: 0.55; }

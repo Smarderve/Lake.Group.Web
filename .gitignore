@@ -7,3 +7,6 @@ backend/.env
 backend/.next/
 backend/.pgdata/
 scripts/_chrome_profile*
+backend/backups/
+.env.local
+.vercel/

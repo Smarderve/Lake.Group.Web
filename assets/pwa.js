@@ -1,7 +1,7 @@
 /*
  * Lake Group PWA bootstrap: registers the service worker and shows a
  * small branded toast when a new version is ready. Loaded with `defer`
- * on every page. Safe to include anywhere — bails out silently when
+ * on every page. Safe to include anywhere . bails out silently when
  * service workers aren't supported (file://, old browsers).
  *
  * v59: bump SW registration query, check for updates often, auto-apply
@@ -68,7 +68,7 @@
     ].join(';');
 
     var text = document.createElement('span');
-    text.textContent = 'Site updated — refreshing offline copy\u2026';
+    text.textContent = 'Site updated . refreshing offline copy\u2026';
 
     var button = document.createElement('button');
     button.type = 'button';
@@ -202,7 +202,7 @@
         if (registration.installing) watchWorker(registration.installing, registration);
       });
 
-      // Check often while the tab stays open — offline should track deploys.
+      // Check often while the tab stays open . offline should track deploys.
       try {
         window.setInterval(function () {
           pokeUpdate(registration);
@@ -234,7 +234,7 @@
     navigator.serviceWorker.addEventListener('message', function (event) {
       if (!event.data || event.data.type !== 'SW_ACTIVATED') return;
       if (reloadingAfterUpdate) return;
-      // Only reload when we asked for an update — not on first-ever install.
+      // Only reload when we asked for an update . not on first-ever install.
       if (!expectingControllerChange) return;
       reloadingAfterUpdate = true;
       location.reload();
