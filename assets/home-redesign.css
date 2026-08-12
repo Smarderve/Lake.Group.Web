@@ -871,6 +871,16 @@ body.home .site-footer .footer-bottom {
   }
 }
 
+/* Narrow phones: key facts 1-col, about badge repositioned */
+@media (max-width: 480px) {
+  body.home .keyfacts-inner {
+    grid-template-columns: 1fr;
+  }
+  body.home .keyfact-num {
+    font-size: 1.8rem;
+  }
+}
+
 /* Reduced motion: static first slide, no zoom/turnout/progress */
 @media (prefers-reduced-motion: reduce) {
   body.home .hero-slide {
