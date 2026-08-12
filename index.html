@@ -2059,11 +2059,11 @@
 
       .action-stage {
         height: 380px;
-        touch-action: none;
+        touch-action: pan-y;
       }
 
       .action-track {
-        touch-action: none;
+        touch-action: pan-y;
       }
 
       .action-tile {
@@ -3439,6 +3439,7 @@
         drag.active = true;
         drag.moved = false;
         drag.startX = e.clientX;
+        drag.startY = e.clientY;
         drag.lastX = e.clientX;
         drag.lastT = performance.now();
         drag.velocity = 0;
@@ -3455,6 +3456,19 @@
         if (!drag.active) return;
         var now = performance.now();
         var dx = e.clientX - drag.startX;
+        var dy = e.clientY - drag.startY;
+        /* If the user is scrolling vertically, release the drag so native scroll works */
+        if (!drag.moved && Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 8) {
+          drag.active = false;
+          if (stage) stage.classList.remove("is-dragging");
+          if (drag.pointerId != null && stage) {
+            try { stage.releasePointerCapture(drag.pointerId); } catch (err) {}
+          }
+          drag.pointerId = null;
+          drag.offset = 0;
+          layout(0);
+          return;
+        }
         var dt = Math.max(1, now - drag.lastT);
         /* px / ms, smoothed slightly */
         var instant = (e.clientX - drag.lastX) / dt;
