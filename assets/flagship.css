@@ -2195,17 +2195,32 @@ body.co-theme-agro *::-webkit-scrollbar-thumb:hover {
    cannot win. Force Agro greens here with equal/higher specificity.
 */
 body.co-theme-agro .site-nav {
-  background: var(--color-agro-green, #008435);
-  background-color: var(--color-agro-green, #008435);
-  border-bottom: 3px solid var(--color-agro-orange, #e67e22);
+  background: transparent;
+  background-color: transparent;
+  border-bottom: none;
   border-top: 0;
   box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 body.co-theme-agro .site-nav.nav-scrolled {
   background: rgba(0, 75, 30, 0.96);
   background-color: rgba(0, 75, 30, 0.96);
-  border-bottom-color: var(--color-agro-orange, #e67e22);
+  border-bottom: 2px solid var(--color-agro-orange, #e67e22);
+  border-top: 0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 8px 30px rgba(0, 40, 16, 0.35);
+}
+/* Extend page-hero behind the nav so the hero image shows through */
+body.co-theme-agro .page-hero {
+  margin-top: -84px;
+  padding-top: 132px;
+}
+@media (min-width: 768px) {
+  body.co-theme-agro .page-hero {
+    padding-top: 148px;
+  }
 }
 /* Value tiles ship with on-dark colors; keep them readable on light sections */
 body.co-theme-agro .val-mini-tile {
