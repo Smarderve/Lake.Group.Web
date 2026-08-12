@@ -15,7 +15,7 @@ import {
   buildHealthReport,
   metricStaleness,
 } from '../src/lib/content-health.js';
-import { normalizeEvent, analyticsSummary, trackEvent } from '../src/lib/analytics.js';
+import { analyticsSummary, trackEvent } from '../src/lib/analytics.js';
 
 async function login(app, email, password) {
   const agent = request.agent(app);

@@ -49,6 +49,44 @@ export function safeReqSerializer(req) {
   };
 }
 
+// SECURITY_ROADMAP Phase 18/19 follow-up — pino-http's default RES serializer
+// copies every response header, which puts the session ID back into the logs
+// via `set-cookie` on every authenticated response (found in the Phase 19
+// live log sweep). Response headers are logged on an ALLOWLIST too: only
+// non-sensitive headers survive; `set-cookie`, `authorization` and anything
+// else are dropped.
+const SAFE_RES_HEADERS = new Set([
+  'content-type',
+  'content-length',
+  'etag',
+  'x-content-type-options',
+  'x-frame-options',
+  'content-security-policy',
+  'referrer-policy',
+  'permissions-policy',
+  'strict-transport-security',
+  'ratelimit-policy',
+  'ratelimit-limit',
+  'ratelimit-remaining',
+  'ratelimit-reset',
+  'location',
+  'access-control-allow-origin',
+  'access-control-allow-methods',
+  'access-control-allow-headers',
+  'access-control-max-age',
+]);
+
+export function safeResSerializer(res) {
+  const headers = {};
+  for (const [key, value] of Object.entries(res.headers || {})) {
+    if (SAFE_RES_HEADERS.has(key)) headers[key] = value;
+  }
+  return {
+    statusCode: res.statusCode,
+    headers,
+  };
+}
+
 export function pinoHttpOptions(logger, level = 'info') {
-  return { logger, level, serializers: { req: safeReqSerializer } };
+  return { logger, level, serializers: { req: safeReqSerializer, res: safeResSerializer } };
 }

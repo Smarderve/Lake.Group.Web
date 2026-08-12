@@ -5,8 +5,6 @@ import 'dotenv/config';
 
 const DEFAULT_PORT = 4000;
 
-const env = process.env;
-
 // SECURITY_ROADMAP Phase 1 — environment separation. NODE_ENV is normalized
 // to one of: development | testing | staging | production. Production turns
 // off development endpoints and requires hardened defaults (secure cookies,

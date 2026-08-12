@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "note": "Monitored npm audit baseline for the Phase 21 security gate. The gate (backend/scripts/audit-gate.js) fails on ANY advisory id not listed here, so this file is the control surface: new vulnerabilities break CI until they are reviewed and either fixed or explicitly baselined (with a documented reason) via the process in docs/security/automated-testing.md.",
+  "audits": {
+    "backend": {
+      "dir": "backend",
+      "advisories": [],
+      "note": "Runtime dependency tree. Must stay at zero — the backend is the deployed surface; any advisory here is a release blocker, not a baseline candidate."
+    },
+    "root": {
+      "dir": ".",
+      "advisories": [
+        "GHSA-8988-4f7v-96qf",
+        "GHSA-w5hq-g745-h8pq"
+      ],
+      "note": "Dev toolchain only (firebase-tools emulator cloud-SDK subtree: @opentelemetry/core, uuid — surfaced via @google-cloud/pubsub/gaxios). Two moderates, no published fix without chasing unpublished google majors; no firebase.json exists so the deploy tooling is inert. Re-audit gate before the first real deploy (see supply-chain.md)."
+    }
+  }
+}

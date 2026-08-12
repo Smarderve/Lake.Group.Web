@@ -1,16 +1,6 @@
 import { config } from '../config.js';
 import { securityLog } from '../lib/security-log.js';
 
-function unauthorized(res) {
-  return res.status(401).json({
-    error: { code: 'UNAUTHENTICATED', message: 'Authentication required' },
-  });
-}
-
-function forbidden(res, code = 'FORBIDDEN', message = 'Insufficient permissions') {
-  return res.status(403).json({ error: { code, message } });
-}
-
 // SECURITY_ROADMAP Phase 18 — every denied request emits an
 // AUTHORIZATION_DENIED security event (actor when known, role, route),
 // preserving the original HTTP semantics: 401 unauthenticated, 403

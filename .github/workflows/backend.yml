@@ -93,10 +93,9 @@ jobs:
     defaults:
       run:
         working-directory: backend
-    env:
-      # Payload reads these at config-load time; the build does not connect.
-      DATABASE_URI: postgres://unused:unused@localhost:5432/unused
-      PAYLOAD_SECRET: build_only_secret_do_not_use_in_prod
+    # SECURITY_ROADMAP Phase 22 — the build is a full-tree syntax sweep
+    # (node scripts/syntax-check.js, vm-parse only, no execution, no DB);
+    # no database or secret is needed at build time.
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4

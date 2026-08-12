@@ -6,15 +6,17 @@ import { fileURLToPath } from 'node:url';
 
 // SECURITY_ROADMAP Phase 13 — Command Injection.
 //
-// Audit: the ONLY process-execution surface is the backup/restore CLIs
-// (scripts/backup-db.js, scripts/restore-db.js). Both use child_process
-// `spawn` WITHOUT a shell, every value is a separate literal argv element
-// (never interpolated into a command string), and the password travels via
-// the PGPASSWORD environment variable — never on the command line.
-// These tests regression-lock that: a static tripwire keeps `exec` /
-// shell-enabled spawns / eval out of the codebase, and behavioral tests
-// prove hostile URL/database/filename input stays inside single argv
-// elements at their fixed positions.
+// Audit: the process-execution surface is limited to reviewed scripts — the
+// backup/restore CLIs (scripts/backup-db.js, scripts/restore-db.js) and,
+// since Phase 21, the audit gate (scripts/audit-gate.js, which runs
+// `npm audit --json` via the current node binary on npm-cli.js). All use
+// child_process `spawn` WITHOUT a shell, every value is a separate literal
+// argv element (never interpolated into a command string), and secrets
+// travel via environment variables — never on the command line. These
+// tests regression-lock that: a static tripwire keeps `exec` / shell-enabled
+// spawns / eval out of the codebase, and behavioral tests prove hostile
+// URL/database/filename input stays inside single argv elements at their
+// fixed positions.
 
 vi.mock('node:child_process', () => ({ spawn: vi.fn() }));
 
@@ -51,10 +53,16 @@ describe('SECURITY_ROADMAP Phase 13 — command injection', () => {
     }
   });
 
-  it('static tripwire: spawn() call sites live ONLY in the two backup/restore scripts', () => {
+  it('static tripwire: spawn() call sites live ONLY in the reviewed scripts (backup/restore + the Phase 21 audit gate)', () => {
     const files = [...allJsFiles(SRC_DIR), ...allJsFiles(SCRIPTS_DIR)];
     const withSpawn = files.filter((f) => /\bspawn\s*\(/.test(readFileSync(f, 'utf8')));
+    // REVIEWED ALLOWLIST (Phase 21): audit-gate.js runs `npm audit --json`
+    // via the CURRENT node binary on npm-cli.js — spawn WITHOUT a shell,
+    // literal argv ['audit','--json'] (no user input reaches the command
+    // line), exactly the backup/restore guarantee. Adding a NEW spawn site
+    // here requires the same properties + a review note.
     expect(withSpawn.sort()).toEqual([
+      `${SCRIPTS_DIR}/audit-gate.js`,
       `${SCRIPTS_DIR}/backup-db.js`,
       `${SCRIPTS_DIR}/restore-db.js`,
     ]);

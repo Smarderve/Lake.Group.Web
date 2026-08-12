@@ -47,6 +47,9 @@ model User {
 
 /// Server-side audit trail. `actorId` is always set from the authenticated
 /// session server-side — never from client input.
+/// SECURITY_ROADMAP Phase 19 — indexes make the trail queryable for the
+/// review surface (GET /admin/audit-log: by actor, by action, time-window
+/// scans); without them every forensic query is a full table scan.
 model AuditLog {
   id        String   @id @default(uuid())
   actorId   String?
@@ -56,6 +59,10 @@ model AuditLog {
   metadata  Json?
   createdAt DateTime @default(now())
   actor     User?    @relation(fields: [actorId], references: [id], onDelete: SetNull)
+
+  @@index([action, createdAt])
+  @@index([actorId, createdAt])
+  @@index([createdAt])
 }
 
 /// Lifecycle of a governed content entity (Phase 3 Metric + Phase 4

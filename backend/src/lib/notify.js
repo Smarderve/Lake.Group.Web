@@ -16,7 +16,7 @@ async function createNotification(db, { userId, type, message, entityType, entit
     return await db.notification.create({
       data: { userId, type, message, entityType: entityType ?? null, entityId: entityId ?? null, read: false },
     });
-  } catch (err) {
+  } catch {
     return null;
   }
 }

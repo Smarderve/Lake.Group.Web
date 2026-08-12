@@ -210,7 +210,7 @@ async function cleanupForReseed(db) {
   for (const model of versionModels) {
     try {
       await db[model].deleteMany({});
-    } catch (e) { /* already empty */ }
+    } catch { /* already empty */ }
   }
   console.log('[force] cleared governed content');
 }

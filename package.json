@@ -5,7 +5,8 @@
     "serve": "npx firebase emulators:start --only hosting",
     "deploy": "npx firebase deploy --only hosting",
     "build:hero-globe": "node scripts/build_hero_globe.js",
-    "test:skeleton": "node tests/skeleton-loader.test.js"
+    "test:skeleton": "node tests/skeleton-loader.test.js",
+    "secret:scan": "node scripts/check-secrets.mjs"
   },
   "devDependencies": {
     "esbuild": "^0.28.1",

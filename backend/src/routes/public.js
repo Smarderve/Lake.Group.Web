@@ -40,7 +40,7 @@ const PUBLIC_ENTITIES = {
     include: { location: true, company: true },
     format: (row) => {
       const { status, createdAt, ...rest } = row;
-      void createdAt;
+      void status; void createdAt;
       return {
         ...rest,
         address: row.location?.name ?? null,
@@ -68,7 +68,7 @@ const PUBLIC_ENTITIES = {
     include: { category: true, heroMedia: true },
     format: (row) => {
       const { status, createdAt, ...rest } = row;
-      void createdAt;
+      void status; void createdAt;
       return {
         ...rest,
         category: row.category?.name ?? null,
@@ -90,7 +90,7 @@ const PUBLIC_ENTITIES = {
     visible: CMS_ENTITIES.contacts.publicVisible,
     format: (row) => {
       const { status, createdAt, verificationStatus, verificationDate, order, ...rest } = row;
-      void status; void createdAt;
+      void status; void createdAt; void verificationStatus; void verificationDate; void order;
       return rest;
     },
   },
@@ -108,7 +108,7 @@ const PUBLIC_ENTITIES = {
     lookupField: null, // gallery: by id only
     format: (row) => {
       const { status, createdAt, uploadedBy, folderId, ...rest } = row;
-      void status; void createdAt;
+      void status; void createdAt; void uploadedBy; void folderId;
       return rest;
     },
   },
@@ -201,7 +201,7 @@ async function publicMap(db) {
 /** Strip governance-internal fields from a public record. */
 function publicRow(row) {
   const { status, createdAt, ...rest } = row;
-  void createdAt; // keep the response lean; updatedAt stays for freshness
+  void status; void createdAt; // keep the response lean; updatedAt stays for freshness
   return rest;
 }
 

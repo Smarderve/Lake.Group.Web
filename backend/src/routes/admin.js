@@ -46,6 +46,48 @@ export function adminRouter({ db, recentAuthWindowMs } = {}) {
         return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'User not found' } });
       }
 
+      // SECURITY_ROADMAP Phase 23 — business-logic guards (manual review).
+      // 1. No self-role-change: requireAuth reloads the role from the DB on
+      //    every request, so a self-demotion takes effect IMMEDIATELY — a
+      //    single mistaken (or coerced) call permanently locks the admin
+      //    surface, since only a SUPER_ADMIN can promote again.
+      // 2. Last-admin defense-in-depth: demoting a SUPER_ADMIN when they are
+      //    the only one left is refused even if the actor is a different
+      //    session that somehow holds a stale role.
+      if (target.id === req.user.id) {
+        await writeAudit(db, {
+          actorId: req.user.id,
+          action: 'ROLE_CHANGE_DENIED',
+          resource: `admin/users/${target.id}/role`,
+          ip: req.ip,
+          metadata: { email: target.email, reason: 'self_role_change', from: target.role, to: parsed.data.role },
+        }, req.log);
+        return res.status(400).json({
+          error: { code: 'ROLE_SELF_CHANGE', message: 'You cannot change your own role' },
+        });
+      }
+      if (target.role === 'SUPER_ADMIN' && parsed.data.role !== 'SUPER_ADMIN') {
+        // Defense-in-depth for a stale-role race (the actor's stored role
+        // changed between auth load and here): refuse if the demotion would
+        // leave ZERO active SUPER_ADMINs. Excludes the target so demoting an
+        // inactive admin (role kept, account deactivated) stays allowed.
+        const remainingAdmins = await db.user.count({
+          where: { role: 'SUPER_ADMIN', active: true, id: { not: target.id } },
+        });
+        if (remainingAdmins === 0) {
+          await writeAudit(db, {
+            actorId: req.user.id,
+            action: 'ROLE_CHANGE_DENIED',
+            resource: `admin/users/${target.id}/role`,
+            ip: req.ip,
+            metadata: { email: target.email, reason: 'last_super_admin', from: target.role, to: parsed.data.role },
+          }, req.log);
+          return res.status(409).json({
+            error: { code: 'LAST_SUPER_ADMIN', message: 'Refusing to demote the last active SUPER_ADMIN (admin lockout)' },
+          });
+        }
+      }
+
       const updated = await db.user.update({
         where: { id: target.id },
         data: { role: parsed.data.role },
@@ -137,10 +179,27 @@ export function adminRouter({ db, recentAuthWindowMs } = {}) {
   // Questions the assistant could not answer from approved content land
   // here (via the public POST endpoint) so content gaps surface.
   // ---------------------------------------------------------------------
+  // SECURITY_ROADMAP Phase 23 — this admin list is fed by an UNAUTHENTICATED
+  // public POST (/api/public/assistant/unanswered), so it must be paginated
+  // like every other admin list (Phase 10 caps): an attacker flooding the
+  // public channel must not be able to grow an unbounded admin read.
   router.get('/unanswered-questions', auth, superAdmin, async (req, res, next) => {
     try {
-      const rows = await db.unansweredQuestion.findMany({ orderBy: { createdAt: 'desc' } });
-      res.json({ unansweredQuestions: rows });
+      const limitRaw = req.query.limit === undefined ? 50 : Number(req.query.limit);
+      const offsetRaw = req.query.offset === undefined ? 0 : Number(req.query.offset);
+      if (
+        !Number.isInteger(limitRaw) || limitRaw < 1 || limitRaw > 100 ||
+        !Number.isInteger(offsetRaw) || offsetRaw < 0
+      ) {
+        return res.status(400).json({
+          error: { code: 'VALIDATION_ERROR', message: 'limit must be 1-100, offset must be >= 0' },
+        });
+      }
+      const [rows, total] = await Promise.all([
+        db.unansweredQuestion.findMany({ orderBy: { createdAt: 'desc' }, take: limitRaw, skip: offsetRaw }),
+        db.unansweredQuestion.count(),
+      ]);
+      res.json({ unansweredQuestions: rows, total, limit: limitRaw, offset: offsetRaw });
     } catch (err) {
       next(err);
     }
@@ -167,6 +226,40 @@ export function adminRouter({ db, recentAuthWindowMs } = {}) {
     try {
       const days = Math.min(Math.max(Number(req.query.days) || 30, 1), 365);
       res.json(await analyticsSummary(db, { days }));
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  // ---------------------------------------------------------------------
+  // SECURITY_ROADMAP Phase 19 — audit-trail review surface.
+  // The durable record of sensitive actions (ActorLog rows written by
+  // lib/audit.js from server-side context) becomes queryable here:
+  // newest first, paginated (Phase 10 caps), filterable by action and
+  // actor. Rows are returned as stored — the server already guarantees
+  // they never carry secrets (headers/cookies/tokens/bodies are never
+  // written into action/resource/ip/metadata).
+  // ---------------------------------------------------------------------
+  router.get('/audit-log', auth, superAdmin, recent, async (req, res, next) => {
+    try {
+      const limitRaw = req.query.limit === undefined ? 50 : Number(req.query.limit);
+      const offsetRaw = req.query.offset === undefined ? 0 : Number(req.query.offset);
+      if (
+        !Number.isInteger(limitRaw) || limitRaw < 1 || limitRaw > 100 ||
+        !Number.isInteger(offsetRaw) || offsetRaw < 0
+      ) {
+        return res.status(400).json({
+          error: { code: 'VALIDATION_ERROR', message: 'limit must be 1-100, offset must be >= 0' },
+        });
+      }
+      const where = {};
+      if (req.query.action !== undefined) where.action = String(req.query.action);
+      if (req.query.actorId !== undefined) where.actorId = String(req.query.actorId);
+      const [entries, total] = await Promise.all([
+        db.auditLog.findMany({ where, orderBy: { createdAt: 'desc' }, take: limitRaw, skip: offsetRaw }),
+        db.auditLog.count({ where }),
+      ]);
+      res.json({ entries, total, limit: limitRaw, offset: offsetRaw });
     } catch (err) {
       next(err);
     }
