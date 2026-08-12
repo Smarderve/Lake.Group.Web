@@ -862,6 +862,13 @@ body.home .site-footer .footer-bottom {
     --logoloop-gap: 24px !important;
     --logoloop-logoHeight: 22px !important;
   }
+  body.home .hero-slide.is-active img {
+    animation: none !important;
+    will-change: auto !important;
+  }
+  body.home .hero-slide img {
+    will-change: auto !important;
+  }
 }
 
 /* Reduced motion: static first slide, no zoom/turnout/progress */

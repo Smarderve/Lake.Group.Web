@@ -31,6 +31,12 @@
   z-index: 0;
 }
 
+@media (max-width: 720px) {
+  .logoloop__track {
+    will-change: auto;
+  }
+}
+
 .logoloop--vertical .logoloop__track {
   flex-direction: column;
   height: max-content;

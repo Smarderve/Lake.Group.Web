@@ -255,7 +255,8 @@
           : 'translate3d(' + -offset + 'px, 0, 0)';
       }
 
-      rafId = requestAnimationFrame(animate);
+      if (containerVisible !== false) rafId = requestAnimationFrame(animate);
+      else rafId = null;
     }
 
     rebuildCopies();
@@ -291,7 +292,22 @@
     onImagesReady(function () {
       updateDimensions();
       observe();
-      if (!reduceMotion) rafId = requestAnimationFrame(animate);
+      if (reduceMotion) return;
+      /* Pause rAF loop when container is off-screen to save CPU on mobile */
+      var visObserver = null;
+      var containerVisible = true;
+      if ('IntersectionObserver' in window) {
+        containerVisible = false;
+        visObserver = new IntersectionObserver(function (entries) {
+          containerVisible = entries[0].isIntersecting;
+          if (containerVisible && rafId === null) {
+            lastTimestamp = null;
+            rafId = requestAnimationFrame(animate);
+          }
+        }, { rootMargin: '200px 0px' });
+        visObserver.observe(root);
+      }
+      rafId = requestAnimationFrame(animate);
     });
 
     return function destroy() {
