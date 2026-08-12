@@ -18,6 +18,11 @@
   var paused = false;
   var inView = true;
 
+  // Per-slide subtitles. The canonical texts live in the i18n dictionary
+  // (hero.slide1 .. hero.slide5, one entry per language) so a translation
+  // survives every carousel rotation and never reverts to the previous
+  // language's text. This array is only the English fallback for pages
+  // where assets/i18n.js has not run.
   var slideTexts = [
     "Fueling East Africa's growth from refinery to roadside.",
     "Clean LPG energy for homes and industries across the region.",
@@ -25,6 +30,11 @@
     "Connecting East Africa to global trade through Dar es Salaam.",
     "1,200+ trucks keeping supply chains moving daily."
   ];
+
+  function slideTextFor(i) {
+    var t = window.LakeI18n && window.LakeI18n.t ? window.LakeI18n.t('hero.slide' + (i + 1)) : null;
+    return t != null && t !== '' ? t : (slideTexts[i] || slideTexts[0]);
+  }
 
   function setActive(i) {
     slides.forEach(function (s, n) {
@@ -46,7 +56,7 @@
       subtitle.classList.remove("hero-sub-slide");
       subtitle.classList.add("hero-sub-exit");
       setTimeout(function () {
-        subtitle.textContent = slideTexts[i] || slideTexts[0];
+        subtitle.textContent = slideTextFor(i);
         subtitle.classList.remove("hero-sub-exit");
         void subtitle.offsetWidth;
         subtitle.classList.add("hero-sub-slide");
@@ -94,5 +104,14 @@
 
   document.addEventListener("visibilitychange", function () {
     if (document.hidden) stop(); else start();
+  });
+
+  /* When the visitor switches language (or i18n first applies), re-render the
+     subtitle for the current slide so it never keeps stale text from a
+     previous language. */
+  document.addEventListener("lake-i18n-applied", function () {
+    if (subtitle) {
+      subtitle.textContent = slideTextFor(index);
+    }
   });
 })();

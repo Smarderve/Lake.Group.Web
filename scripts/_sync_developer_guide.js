@@ -493,7 +493,7 @@ const pyOnly = [
   // §5 company pages — leadership profiles
   [
     '        "services.html": "Hub page linking all eight business sectors.",\n    }',
-    '        "services.html": "Hub page linking all eight business sectors.",\n        "leadership-ally-edha-awadh.html": "Profile — Executive Chairman & Owner.",\n        "leadership-biji-lapat.html": "Profile — CEO Lake Energies.",\n        "leadership-juma-nuru.html": "Profile — Director of Operations.",\n        "leadership-sridhar-mani.html": "Profile — Director of Digital Transformation.",\n        "leadership-dileep-kumar.html": "Profile — CEO Manufacturing Division.",\n        "leadership-bibhuti-singh.html": "Profile — CFO AFICD.",\n        "leadership-mohammed-khalid.html": "Profile — Managing Director ATL.",\n    }',
+    '        "services.html": "Hub page linking all eight business sectors.",\n        "leadership-ally-edha-awadh.html": "Profile — Founder and CEO.",\n        "leadership-biji-lapat.html": "Profile — CEO Lake Energies.",\n        "leadership-juma-nuru.html": "Profile — Director of Operations.",\n        "leadership-sridhar-mani.html": "Profile — Director of Digital Transformation.",\n        "leadership-dileep-kumar.html": "Profile — CEO Manufacturing Division.",\n        "leadership-bibhuti-singh.html": "Profile — CFO AFICD.",\n        "leadership-mohammed-khalid.html": "Profile — Managing Director ATL.",\n    }',
   ],
   // JS_FILES — hero entries
   [

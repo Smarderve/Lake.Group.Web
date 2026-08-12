@@ -670,7 +670,7 @@ function wireListing() {
       nameKey: 'leadership.9',
       name: 'Ally Edha Awadh',
       roleKey: 'leadership.8',
-      role: 'Executive Chairman &amp; Owner',
+      role: 'Founder and CEO',
       sumKey: 'leadership.104',
       sum: NEW.en['leadership.104']
     },

@@ -244,7 +244,7 @@ export const CONTENT_SEED = {
 
   // 7 leaders — names, roles, photos and bios mirror leadership.html.
   leadership: [
-    { name: 'Ally Edha Awadh', position: 'Executive Chairman & Owner', order: 0,
+    { name: 'Ally Edha Awadh', position: 'Founder and CEO', order: 0,
       photo: 'assets/images/leadership/ally-edha-awadh.png', companySlug: 'lake-oil',
       bio: 'Forbes-featured entrepreneur who founded Lake Oil in 2006 and built Lake Group into one of East and Central Africa\u2019s leading energy, logistics and industrial conglomerates.' },
     { name: 'Dilip Kumar', position: 'CEO · Manufacturing Division', order: 1,
@@ -253,7 +253,7 @@ export const CONTENT_SEED = {
     { name: 'Bibhuti Singh', position: 'CFO · AFICD', order: 2,
       photo: 'assets/images/leadership/pankaj-kumar.png', companySlug: 'aficd',
       bio: 'Oversees financial planning, risk analysis and corporate governance for African Inland Container Depot (AFICD) — Lake Group\u2019s dry-port platform in Dar es Salaam.' },
-    { name: 'Biji Lapat', position: 'CEO · Lake Energies', order: 3,
+    { name: 'Biji Alapat', position: 'CEO · Lake Energies', order: 3,
       photo: 'assets/images/leadership/biji-lapat.png', companySlug: 'lake-oil',
       bio: 'CEO of Lake Energies, Lake Group\u2019s energy division spanning petroleum, LPG, lubricants and aviation services across the Group\u2019s regional footprint.' },
     { name: 'Sridhar Mani', position: 'Director of Digital Transformation', order: 4,
