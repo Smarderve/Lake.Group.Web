@@ -2,92 +2,118 @@
 <html class="lg-loading" lang="en">
 <head>
   <style id="lg-skel-critical">html.lg-loading{overflow:hidden}html.lg-loading::before{content:"";position:fixed;inset:0;z-index:99989;background:#013f5c;pointer-events:none}html.lg-skel-done::before{display:none}.nav-logo img,.site-nav .nav-logo img{height:var(--nav-logo-height,48px)!important;width:auto!important;max-width:min(220px,55vw)!important;max-height:var(--nav-logo-height,48px)!important;object-fit:contain}</style>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lake Group is home to 17 independent companies across five divisions: Lake Energies, Manufacturing, Logistics, Real Estate and Agro Processing.">
-  <meta name="twitter:description" content="Lake Group is home to 17 independent companies across five divisions: Lake Energies, Manufacturing, Logistics, Real Estate and Agro Processing.">
-  <meta name="twitter:title" content="Subsidiaries | Lake Group">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tiger Tech Ltd. designs and manufactures fuel pumps, dispensers and fuel station equipment for retail fuel networks across East Africa.">
+  <meta name="twitter:description" content="Tiger Tech Ltd. designs and manufactures fuel pumps, dispensers and fuel station equipment for retail fuel networks across East Africa.">
+  <meta name="twitter:title" content="Tiger Tech | Logistics | Lake Group">
   <meta name="twitter:image" content="https://www.lakeoilgroup.com/assets/images/logos/LAKE_GROUP_LOGO.png">
   <meta property="og:site_name" content="Lake Group">
-  <meta property="og:url" content="https://www.lakeoilgroup.com/services.html">
-  <meta property="og:title" content="Subsidiaries | Lake Group">
-  <meta property="og:description" content="Lake Group is home to 17 independent companies across five divisions: Lake Energies, Manufacturing, Logistics, Real Estate and Agro Processing.">
+  <meta property="og:url" content="https://www.lakeoilgroup.com/tiger-tech.html">
+  <meta property="og:title" content="Tiger Tech | Logistics | Lake Group">
+  <meta property="og:description" content="Tiger Tech Ltd. designs and manufactures fuel pumps, dispensers and fuel station equipment for retail fuel networks across East Africa.">
   <meta property="og:image" content="https://www.lakeoilgroup.com/assets/images/logos/LAKE_GROUP_LOGO.png">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="https://www.lakeoilgroup.com/services.html">
+  <link rel="canonical" href="https://www.lakeoilgroup.com/tiger-tech.html">
   <link rel="icon" href="favicon.ico?v=43" sizes="32x32">
   <link rel="icon" href="assets/icons/pwa/icon-192.png?v=43" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="assets/icons/pwa/apple-touch-icon.png?v=43">
-  <title>Subsidiaries | Lake Group</title>
+  <title>Tiger Tech | Logistics | Lake Group</title>
   <meta name="theme-color" content="#0181BB">
   <link rel="manifest" href="manifest.webmanifest">
   <style>
 /* ==========================================================================
-   MERIDIAN PAGE LAYER  services.html
-   All chrome + shared components come from assets/flagship.css.
-   This block only composes what is unique to this page.
+   MERIDIAN PAGE LAYER - company profile page
+   Chrome + shared components come from assets/flagship.css?v=100. This block only
+   composes generic company-profile widgets reused across all /company pages.
    ========================================================================== */
-/* Hero photographic plate behind the masthead grid */
+.fs-check{list-style:none;display:flex;flex-direction:column;margin-top:var(--sp-6)}
+.fs-check li{display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line-2);font-size:.95rem;color:var(--mute);line-height:1.65}
+.fs-check li:first-child{border-top:1px solid var(--line-2)}
+.fs-check li span:first-child{color:var(--gold-deep);font-weight:700;flex:none}
 
-/* Division index  drafting-register rows instead of card grid */
-.div-index{border-top:1px solid var(--line)}
-.div-row{position:relative;display:grid;grid-template-columns:64px 1fr 1.5fr;gap:var(--sp-6);align-items:start;padding:var(--sp-8) var(--sp-2);border-bottom:1px solid var(--line);transition:background var(--dur-1) ease}
-.div-row::before{content:'';position:absolute;left:0;top:-1px;width:8px;height:8px;background:var(--gold);opacity:0;transition:opacity var(--dur-1) ease}
-.div-row:hover{background:rgba(255,242,0,.05)}
-.div-row:hover::before{opacity:1}
-.div-no{font-family:var(--font-display);font-size:1.5rem;line-height:1.1;letter-spacing:.08em;color:var(--gold-deep)}
-.div-main h3{font-family:var(--font-display);font-weight:700;font-size:clamp(1.25rem,2vw,1.8rem);line-height:1.1;letter-spacing:.02em;text-transform:uppercase;color:var(--text);display:flex;align-items:center;gap:10px}
-.div-main .div-glyph{width:28px;height:28px;flex:none;display:inline-flex;align-items:center;justify-content:center;color:var(--gold);}
-.div-main .div-glyph svg{width:100%;height:100%;display:block}
-.div-main .div-glyph img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;background:var(--ink);border-radius:4px;padding:2px;overflow:visible}
-.div-main .div-glyph img[src*="atl.png"],
-.div-main .div-glyph img[src*="lake-agro.png"],
-.div-main .div-glyph img[src*="cross-country.png?v=69"],
-.div-main .div-glyph img[src*="ocean-galleria.png?v=69"]{background:transparent;padding:0}
-.div-main .div-glyph img[src*="atl.png"]{padding:1px}
-.div-cat{margin:var(--sp-10) 0 0;padding-top:var(--sp-6);font-family:var(--font-display);font-size:1.05rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);border-top:1px solid var(--line)}
-.div-cat:first-child{margin-top:0;border-top:none}
-.div-side p{font-size:.95rem;line-height:1.75;margin-bottom:var(--sp-4);color:var(--text)}
-.svc-countries{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:var(--sp-4)}
-.svc-link{position:relative;display:inline-flex;align-items:center;gap:0.35rem;font-size:.82rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);transition:color var(--dur-1) ease}
-.svc-link::after{content:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpolyline points='1,2 4,5 7,2' fill='none' stroke='currentColor' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");display:inline-flex;width:0.75em;height:0.55em;}
-.div-row:hover .svc-link{color:var(--text)}
-/* highlighted network row rendered on ink */
-.div-row--map{background:var(--ink);border-bottom:1px solid var(--ink-line-2);padding-left:var(--sp-5);padding-right:var(--sp-5)}
-.div-row--map.fs-corners::before{top:0;left:0}
-.div-row--map.fs-corners::after{bottom:0;right:0}
-.div-row--map .div-no{color:var(--gold)}
-.div-row--map h3{color:#fff}
-.div-row--map p{color:var(--ink-text)}
-.div-row--map:hover{background:var(--ink-2)}
-.div-row--map .svc-link{color:var(--gold)}
-@media(max-width:880px){.div-row{grid-template-columns:48px 1fr}.div-side{grid-column:2}}
+.co-logo-row{display:flex;align-items:center;gap:var(--sp-5);margin-bottom:var(--sp-6);flex-wrap:wrap}
+.co-logo-row img{height:48px;width:auto;max-width:160px;object-fit:contain;background:transparent;border:none;padding:0;border-radius:0}
 
-/* Stats band on ink */
-/* CTA band  gold plate with notched corner */
-.cta-band{background:var(--gold);padding:var(--sp-20) 0;position:relative;overflow:hidden}
-.cta-band::after{content:'';position:absolute;top:0;right:0;width:120px;height:120px;background:var(--ink);clip-path:polygon(100% 0,0 0,100% 100%)}
-.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-8);flex-wrap:wrap;position:relative;z-index:1}
-.cta-inner h2{font-family:var(--font-display);font-weight:700;font-size:var(--fs-display);line-height:.95;letter-spacing:.012em;text-transform:uppercase;color:var(--ink)}
-.cta-inner p{color:rgba(1,63,92,.72);margin-top:var(--sp-2);font-size:var(--fs-lede);font-weight:300}
-  </style>
+.info-panel{background:var(--ink);padding:var(--sp-8);position:relative}
+.info-panel h3{font-family:var(--font-display);font-weight:700;font-size:var(--fs-title);letter-spacing:.02em;text-transform:uppercase;color:var(--white);margin-bottom:var(--sp-5)}
+.info-row{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-4);padding:13px 0;border-bottom:1px solid var(--ink-line-2)}
+.info-row:first-of-type{border-top:1px solid var(--ink-line)}
+.info-row>span:first-child{color:rgba(233,237,248,0.92);font-size:.92rem}
+.info-panel .badge-yellow,.info-panel .badge-amber,.info-row .badge{color:#fff!important;border-color:rgba(255,242,0,0.65)!important;background:rgba(255,242,0,0.16)!important}
+
+.stat-panel2{background:var(--ink);padding:var(--sp-8);position:relative}
+.stat-panel2 h3{font-family:var(--font-display);font-weight:700;font-size:var(--fs-title);letter-spacing:.02em;text-transform:uppercase;color:var(--white);margin-bottom:var(--sp-6)}
+.stat-grid2{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-6)}
+.stat-tile2{position:relative;padding:var(--sp-4) 0 var(--sp-3)}
+.stat-tile2::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ink-line)}
+.stat-tile2::before{content:'';position:absolute;left:0;bottom:-3.5px;width:8px;height:8px;background:var(--gold);z-index:1}
+.stat-tile2 .stat-no2{font-family:var(--font-display);font-weight:700;font-size:clamp(2.2rem,4vw,3.2rem);line-height:.95;color:var(--white);display:block}
+.stat-tile2 .stat-no2.gold{color:var(--gold)}
+.stat-tile2 p{font-size:var(--fs-micro);font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute);margin-top:var(--sp-2)}
+
+.val-mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-4);margin-top:var(--sp-8)}
+@media(max-width:960px){.val-mini-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.val-mini-grid{grid-template-columns:1fr}}
+.val-mini-tile{position:relative;text-align:center;padding:var(--sp-6) var(--sp-4);border:1px solid var(--ink-line-2)}
+.val-mini-tile::before{content:'';position:absolute;top:-1px;left:-1px;width:8px;height:8px;background:var(--gold)}
+.val-mini-tile h4{font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;color:var(--white);margin-bottom:6px}
+.val-mini-tile p{font-size:.82rem;color:var(--ink-mute)}
+
+.prod-catalog{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5)}
+@media(max-width:860px){.prod-catalog{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.prod-catalog{grid-template-columns:1fr}}
+.prod-catalog-card{background:var(--surface);border:1px solid var(--line-2);padding:var(--sp-5)}
+.prod-catalog-card .fs-media{aspect-ratio:4/3;margin-bottom:var(--sp-3)}
+.prod-catalog-card .prod-glyph{aspect-ratio:4/3;margin-bottom:var(--sp-3);display:flex;align-items:center;justify-content:center;background:var(--paper-2);font-size:2.2rem}
+.prod-catalog-card h4{font-family:var(--font-display);font-weight:700;font-size:1.1rem;letter-spacing:.03em;text-transform:uppercase;color:var(--text)}
+.prod-catalog-card p{font-size:.85rem;margin-top:4px;line-height:1.6}
+
+.img-mosaic{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+@media(max-width:720px){.img-mosaic{grid-template-columns:1fr 1fr}}
+.img-mosaic .fs-media{aspect-ratio:4/3}
+.img-mosaic img{width:100%;height:100%;object-fit:cover;display:block}
+
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5)}
+@media(max-width:860px){.video-grid{grid-template-columns:1fr}}
+.video-card{background:var(--ink-2);border:1px solid var(--ink-line-2);padding:var(--sp-5)}
+.video-card .video-frame{aspect-ratio:16/9;background:var(--ink-3);display:flex;align-items:center;justify-content:center;color:var(--ink-mute);margin-bottom:var(--sp-3);font-size:1.6rem}
+.video-card h4{color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1rem;letter-spacing:.03em;text-transform:uppercase}
+.video-card p{color:var(--ink-mute);font-size:.82rem;margin-top:4px}
+
+.ct-info{background:var(--ink);padding:var(--sp-8)}
+.ct-info h3{color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.4rem;text-transform:uppercase;letter-spacing:0.03em;margin-bottom:var(--sp-6)}
+.ct-rows{display:flex;flex-direction:column;gap:var(--sp-5)}
+.ct-row{display:flex;gap:var(--sp-4);align-items:flex-start}
+.ct-ico{width:40px;height:40px;border:1px solid var(--ink-line);display:flex;align-items:center;justify-content:center;font-size:1.05rem;flex-shrink:0}
+.ct-label{color:var(--gold);font-size:var(--fs-micro);font-weight:700;text-transform:uppercase;letter-spacing:0.22em;margin-bottom:4px}
+.ct-strong{color:var(--white);font-size:0.92rem;display:block}
+.ct-dim{color:var(--ink-mute);font-size:0.85rem;display:block}
+  .co-gal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:100%;max-width:820px;margin:0 auto}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://www.lakeoilgroup.com/"
+      "@type": "Organization",
+      "name": "Tiger Tech Ltd",
+      "description": "Tiger Tech Ltd. designs and manufactures fuel pumps, dispensers and fuel station equipment for retail fuel networks across East Africa.",
+      "url": "https://www.lakeoilgroup.com/tiger-tech.html",
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Lake Group",
+        "url": "https://www.lakeoilgroup.com/"
+      },
+      "areaServed": "East and Central Africa"
     },
     {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Services",
-      "item": "https://www.lakeoilgroup.com/services.html"
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lakeoilgroup.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Logistics" },
+        { "@type": "ListItem", "position": 3, "name": "Tiger Tech", "item": "https://www.lakeoilgroup.com/tiger-tech.html" }
+      ]
     }
   ]
 }
@@ -102,8 +128,7 @@
   <link rel="stylesheet" href="assets/assistant.css?v=71">
   <link rel="stylesheet" href="assets/skeleton.css?v=6">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https: http://127.0.0.1:*; frame-src https://www.youtube.com https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; form-action 'self' https:">
-</head>
-<body>
+</head><body data-company-logo="assets/images/logos/companies/tiger-tech.png" data-company-alt="Tiger Tech">
   <script src="assets/skeleton.js?v=6"></script>
 <nav class="site-nav" dir="ltr">
   <div class="nav-inner">
@@ -292,76 +317,133 @@
 
 <div class="page-wrapper">
 <section class="page-hero">
-  <div class="hero-media" style="background-image:url('assets/images/n-slider/5.jpg')" aria-hidden="true"></div>
+  <div class="hero-media" style="background-image:url('assets/images/banner/LakeGas.jpg')" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container">
-    <nav class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span>/</span><span data-i18n="services.breadcrumb">Subsidiaries</span></nav>
-    <div class="eyebrow">What We Do</div>
-    <h1 data-i18n="mob.companies">Subsidiaries</h1>
-    <p data-i18n="services.hero.lede">19 independent companies across five divisions - Lake Energies, Manufacturing, Logistics, Real Estate and Agro Processing.</p>
+    <nav class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span>/</span><span>Logistics</span><span>/</span><span>Tiger Tech . Fuel Dispensing Systems</span></nav>
+    <div class="eyebrow">Logistics</div><h1>Tiger Tech . Fuel Dispensing Systems</h1><p>Tiger Tech Ltd. designs and manufactures fuel pumps, dispensers and fuel station equipment that keep retail fuel networks running across East Africa.</p>
+</div></section>
+
+<!-- 1. COMPANY INTRODUCTION -->
+<section class="fs-section">
+  <div class="container">
+    <div class="fs-split-even">
+      <div>
+        <div class="fs-marker"><span class="fs-marker-no">01</span><span class="fs-eyebrow">Company Introduction</span></div>
+        <h2 class="fs-display">Engineering Fuel Infrastructure</h2>
+        <hr class="fs-rule" style="margin:var(--sp-5) 0">
+        <p class="fs-lede">Tiger Tech Ltd. is Lake Group's fuel dispensing equipment company, designing and manufacturing fuel pumps, dispensers and station systems that power retail fuel networks across East Africa.</p>
+        <p style="margin-top:14px">Working alongside Lake Group's energy and logistics companies, Tiger Tech equips fuel stations with reliable dispensing technology, installation and after-sales service across Tanzania and the wider region.</p>
+        <ul class="fs-check">
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Fuel pump and dispenser manufacturing</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Fuel station equipment and installation</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Dispenser service, calibration and spare parts</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>After-sales support for retail fuel networks</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Equipment built for East African conditions</li>
+        </ul>
+      </div>
+      <div>
+        <div class="info-panel fs-on-dark fs-corners">
+          <h3>Operations by Country</h3>
+          <div>
+            <div class="info-row"><span><img src="assets/images/flags/tz.svg" alt="Tanzania flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Tanzania</span><span class="badge badge-yellow">Tiger Tech</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</section>
+
+<section class="fs-section fs-on-dark">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">02</span><span class="fs-eyebrow">About the Company</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Mission, Vision &amp; History</h2>
+    <div class="fs-split-even">
+      <div>
+        <h3 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Mission</h3>
+        <p>To design and manufacture fuel dispensing equipment that is reliable, accurate and built for the demands of African fuel stations.</p>
+      </div>
+      <div>
+        <h3 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Vision</h3>
+        <p>To be East Africa's leading manufacturer of fuel dispensing systems, trusted for quality and durability at every pump.</p>
+      </div>
+    </div>
+    <div style="margin-top:var(--sp-10)">
+      <h3 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">History</h3>
+      <p style="max-width:80ch;line-height:1.75">Tiger Tech was established as part of Lake Group to bring fuel dispensing equipment manufacturing to East Africa, supplying petrol stations with pumps, dispensers and station infrastructure built for local conditions and supported by a dedicated service network.</p>
+    </div>
+    <div class="val-mini-grid" aria-label="Core values">
+      <div class="val-mini-tile"><h4>Precision</h4><p>Accurate metering</p></div>
+      <div class="val-mini-tile"><h4>Reliability</h4><p>Dependable pumps</p></div>
+      <div class="val-mini-tile"><h4>Durability</h4><p>Built to last</p></div>
+      <div class="val-mini-tile"><h4>Service</h4><p>After-sales support</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="fs-section section-light">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">03</span><span class="fs-eyebrow">Services Offered</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Our Services</h2>
+    <div class="grid-4">
+      <div class="fs-card" style="text-align:center;padding:var(--sp-8) var(--sp-6)"><div class="edge-ico" aria-hidden="true"><iconify-icon icon="mdi:gas-station" width="28" height="28"></iconify-icon></div><h4 style="font-family:var(--font-display);font-weight:700;font-size:1.1rem;letter-spacing:.03em;text-transform:uppercase">Fuel Dispensers</h4><p style="font-size:.88rem;margin-top:6px">Manufacture of fuel dispensers with accurate metering for petrol and diesel at retail stations.</p></div>
+      <div class="fs-card" style="text-align:center;padding:var(--sp-8) var(--sp-6)"><div class="edge-ico" aria-hidden="true"><iconify-icon icon="mdi:engine" width="28" height="28"></iconify-icon></div><h4 style="font-family:var(--font-display);font-weight:700;font-size:1.1rem;letter-spacing:.03em;text-transform:uppercase">Fuel Pumps</h4><p style="font-size:.88rem;margin-top:6px">Submersible and suction pumps engineered for reliable fuel delivery across station configurations.</p></div>
+      <div class="fs-card" style="text-align:center;padding:var(--sp-8) var(--sp-6)"><div class="edge-ico" aria-hidden="true"><iconify-icon icon="mdi:wrench" width="28" height="28"></iconify-icon></div><h4 style="font-family:var(--font-display);font-weight:700;font-size:1.1rem;letter-spacing:.03em;text-transform:uppercase">Station Installation</h4><p style="font-size:.88rem;margin-top:6px">Supply and installation of dispensers, pumps and station equipment for new and existing fuel stations.</p></div>
+      <div class="fs-card" style="text-align:center;padding:var(--sp-8) var(--sp-6)"><div class="edge-ico" aria-hidden="true"><iconify-icon icon="mdi:cog-outline" width="28" height="28"></iconify-icon></div><h4 style="font-family:var(--font-display);font-weight:700;font-size:1.1rem;letter-spacing:.03em;text-transform:uppercase">Service &amp; Calibration</h4><p style="font-size:.88rem;margin-top:6px">Maintenance, calibration and spare parts to keep dispensers accurate and stations running.</p></div>
+    </div>
+</div>
 </section>
 
 <section class="fs-section">
   <div class="container">
-    <div class="fs-head fs-head-center">
-      <div class="fs-eyebrow" style="justify-content:center">19 Companies, Five Divisions</div>
-      <h2 class="fs-display">One Group, Independent Companies</h2>
-      <p class="fs-lede" style="margin:0 auto;max-width:58ch" data-i18n="services.intro">Every Lake Group company now has its own dedicated page. Browse by division below, or use the "Subsidiaries" menu at the top of any page.</p>
+    <div class="fs-marker"><span class="fs-marker-no">04</span><span class="fs-eyebrow">Products Offered</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Our Products</h2>
+    <div class="prod-catalog">
+      <div class="prod-catalog-card">
+        <div class="prod-glyph" aria-hidden="true"><iconify-icon icon="mdi:gas-station" width="36" height="36"></iconify-icon></div>
+        <h4>Fuel Dispensers</h4>
+        <p>Electronic fuel dispensers for petrol and diesel with accurate metering and durable construction for African stations.</p>
+      </div>
+      <div class="prod-catalog-card">
+        <div class="prod-glyph" aria-hidden="true"><iconify-icon icon="mdi:engine" width="36" height="36"></iconify-icon></div>
+        <h4>Fuel Pumps</h4>
+        <p>Submersible and suction fuel pumps engineered for reliable delivery in demanding station environments.</p>
+      </div>
+      <div class="prod-catalog-card">
+        <div class="prod-glyph" aria-hidden="true"><iconify-icon icon="mdi:shield-check" width="36" height="36"></iconify-icon></div>
+        <h4>Station Systems</h4>
+        <p>Tank gauges, nozzles, hoses and station accessories that complete a dependable retail fuel system.</p>
+      </div>
     </div>
-    <div class="div-index" data-hydrate="companies" data-hydrate-match="slug">
-      <div class="div-cat" data-i18n="nav.dd.energies">Lake Energies</div>
-      <a href="lake-oil.html" class="div-row" data-entity-key="lake-oil"><div class="div-no">01</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-oil.png" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Lake Oil</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeOil" data-entity-field="description">Top 5 petroleum distributor in Tanzania. Retail stations, bulk supply and storage across 10 countries.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
-      <a href="lake-aviation.html" class="div-row" data-entity-key="lake-aviation"><div class="div-no">02</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-aviation.png" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Lake Aviation</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeAviation" data-entity-field="description">Lake Group's aviation services division.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
-      <a href="lake-gas.html" class="div-row" data-entity-key="lake-gas"><div class="div-no">03</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-gas.png" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Lake Gas</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeGas" data-entity-field="description">LPG bottling and distribution with cylinders for domestic and commercial use across 6 countries.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
-      <a href="lake-lubes.html" class="div-row" data-entity-key="lake-lubes"><div class="div-no">04</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-lubes.png" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Lake Lubes</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeLubes" data-entity-field="description">Manufactures and distributes automotive, industrial and specialty lubricants in 5 countries.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
+</div>
 
-      <div class="div-cat" data-i18n="nav.dd.manufacturing">Manufacturing</div>
-      <a href="lake-buildings.html" class="div-row" data-entity-key="lake-buildings"><div class="div-no">05</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-buildings.png" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Lake Buildings</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeBuildings" data-entity-field="description">Lake Group's building materials and construction solutions arm.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
-      <a href="lake-plastics.html" class="div-row" data-entity-key="lake-plastics"><div class="div-no">06</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-plastics.png" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Lake Plastics</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakePlastics" data-entity-field="description">Lake Group's plastics manufacturing division.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
-      <a href="lake-steel.html" class="div-row" data-entity-key="lake-steel"><div class="div-no">07</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-steel.png" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Lake Steel</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeSteel" data-entity-field="description">Tanzania's first HS-CR rebar producer. Fully automated rolling mill, 100,000 MT/year capacity.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
-      <a href="lake-cylinders.html" class="div-row" data-entity-key="lake-cylinders"><div class="div-no">08</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-cylinders.png?v=65" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Lake Cylinders</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeCylinders" data-entity-field="description">Lake Group's gas cylinder manufacturing division.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
-      <a href="gulf-aggregates.html" class="div-row" data-entity-key="gulf-aggregates"><div class="div-no">09</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/gulf-aggregates.png?v=69" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Gulf Aggregates</span></h3></div><div class="div-side"><p data-i18n="services.desc.gulfAggregates" data-entity-field="description">Aggregate quarrying at Lugoba, supplying the construction industry and Lake Group's own concrete production.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
-      <a href="atl.html" class="div-row" data-entity-key="atl"><div class="div-no">10</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/atl.png?v=61" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">ATL (Aluminium Trailers)</span></h3></div><div class="div-side"><p data-i18n="services.desc.atl" data-entity-field="description">Tanzania's aluminium fuel tanker and custom trailer manufacturer - engineered for African routes.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
-      <a href="lake-premix-cement.html" class="div-row" data-entity-key="lake-premix-cement"><div class="div-no">11</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-premix-cement.png" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Lake Premix &amp; Cement</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakePremix" data-entity-field="description">Dar es Salaam's leading ready-mix concrete supplier, established 2010.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
+<section class="fs-section section-light">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">07</span><span class="fs-eyebrow">Images</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Gallery</h2>
+    <div class="co-gal" aria-label="Tiger Tech . Fuel Dispensing Systems gallery">
+      <figure class="co-gal__item co-gal__item--feat">
+        <img src="assets/images/banner/LakeGas.jpg" alt="Tiger Tech Fuel station network" loading="lazy" decoding="async">
+        <figcaption class="co-gal__cap">Fuel station network</figcaption>
+      </figure>
 
-      <div class="div-cat" data-i18n="nav.dd.logisticsCos">Logistics</div>
-      <a href="aficd.html" class="div-row" data-entity-key="aficd"><div class="div-no">12</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/aficd.png?v=69" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">AFICD</span></h3></div><div class="div-side"><p data-i18n="services.desc.aficd" data-entity-field="description">African Inland Container Depot - inland container depot services across Tanzania, Zambia and Mozambique.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
-      <a href="acfs.html" class="div-row" data-entity-key="acfs"><div class="div-no">13</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/acfs.png?v=69" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">ACFS</span></h3></div><div class="div-side"><p data-i18n="services.desc.acfs" data-entity-field="description">African Cargo Freight Station - container freight station and empty container depot services at Tazara, Pugu Road, Dar es Salaam.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
-      <a href="aill.html" class="div-row" data-entity-key="aill"><div class="div-no">14</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/aill.png?v=65" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">AILL</span></h3></div><div class="div-side"><p data-i18n="services.desc.aill" data-entity-field="description">African Inland Logistic Limited - part of Lake Group's logistics network.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
-      <a href="lake-trans.html" class="div-row" data-entity-key="lake-trans"><div class="div-no">15</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-trans.png" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Lake Trans</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeTrans" data-entity-field="description">1,200+ trucks for bulk liquid haulage and regional cross-border transport across East & Central Africa.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
-      <a href="tiger-tech.html" class="div-row" data-entity-key="tiger-tech"><div class="div-no">16</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/tiger-tech.png" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Tiger Tech</span></h3></div><div class="div-side"><p data-i18n="services.desc.tigerTech" data-entity-field="description">Tanzanian manufacturer of fuel pumps and dispensers for petrol stations across East Africa.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
+      <figure class="co-gal__item">
+        <img src="assets/images/lakeoil/current/station-lake-energies.jpg" alt="Tiger Tech Retail fuel stations" loading="lazy" decoding="async">
+        <figcaption class="co-gal__cap">Retail fuel stations</figcaption>
+      </figure>
 
-      <div class="div-cat" data-i18n="nav.dd.realEstate">Real Estate</div>
-      <a href="cross-country.html" class="div-row" data-entity-key="cross-country"><div class="div-no">17</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/cross-country.png?v=69" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Cross Country</span></h3></div><div class="div-side"><p data-i18n="services.desc.crossCountry" data-entity-field="description">Lake Group's real estate and property development arm.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
-      <a href="ocean-galleria.html" class="div-row" data-entity-key="ocean-galleria"><div class="div-no">18</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/ocean-galleria.png?v=69" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Ocean Galleria</span></h3></div><div class="div-side"><p data-i18n="services.desc.oceanGalleria" data-entity-field="description">Lake Group's real estate and retail gallery development.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
+      <figure class="co-gal__item">
+        <img src="assets/images/group/ops/tanker-loading.jpg" alt="Tiger Tech Fuel supply logistics" loading="lazy" decoding="async">
+        <figcaption class="co-gal__cap">Fuel supply logistics</figcaption>
+      </figure>
 
-      <div class="div-cat" data-i18n="nav.dd.agro">Agro Processing</div>
-      <a href="lake-agro.html" class="div-row" data-entity-key="lake-agro"><div class="div-no">19</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-agro.png?v=61" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Lake Agro</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeAgro" data-entity-field="description">Agribusiness plantations and integrated Ag Parks - creating customers and food for life across Africa.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
-
-      <a href="africa-network.html" class="div-row div-row--map fs-corners">
-        <div class="div-no"><iconify-icon icon="mdi:infinity" width="28" height="28" aria-hidden="true"></iconify-icon></div>
-        <div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12c0 4.88 3.53 8.93 8.13 9.8v-2.07C8.02 18.5 6.5 15.45 6.5 12c0-3.57 1.6-6.77 4.12-8.8.3-.25.3-.7 0-.95-.32-.25-.82-.16-1.03.19C6.23 5.55 4 8.56 4 12c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8zm0 3c-.83 0-1.5.67-1.5 1.5S11.17 8 12 8s1.5-.67 1.5-1.5S12.83 5 12 5zm0 14c-2.76 0-5-2.24-5-5 0-1.1.89-2 2-2 .47 0 .92.16 1.29.45l1.21 1.01c.37.31.87.31 1.24 0l1.21-1.01c.37-.29.82-.45 1.29-.45 1.11 0 2 .9 2 2 0 2.76-2.24 5-5 5z"/></svg></span> <span data-i18n="services.network.title">Operations Map</span></h3></div>
-        <div class="div-side">
-          <p>Operations across 10 countries plus Dubai. Interactive map of all Lake Group facilities.</p>
-          <span class="svc-link" data-i18n="services.network.cta">Explore the map</span>
-        </div>
-      </a>
+      <figure class="co-gal__item">
+        <img src="assets/images/lakegas/ops/cylinders-yard.jpg" alt="Tiger Tech Lake Group energy operations" loading="lazy" decoding="async">
+        <figcaption class="co-gal__cap">Lake Group energy operations</figcaption>
+      </figure>
     </div>
   </div>
 </section>
-
-<div class="cta-band">
-  <div class="container">
-    <div class="cta-inner">
-      <div><h2 data-i18n="services.38">Ready to Work Together?</h2><p data-i18n="services.39">Talk to our team about fuel supply, logistics, or any of our services across East Africa.</p></div>
-      <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <a data-i18n="services.40" href="contact.html" class="btn btn-blue btn-lg">Contact Us</a>
-      </div>
-    </div>
-  </div>
-</div>
-
 </div>
 <footer class="site-footer">
   <div class="container">
@@ -446,10 +528,9 @@
 
 
 
-<script src="assets/i18n-content.js?v=64" defer></script>
+<script src="assets/i18n-content.js?v=63" defer></script>
 <script src="assets/i18n.js?v=58" defer></script>
 <script src="assets/site.js?v=60" defer></script>
-<script src="assets/registry-api.js?v=1" defer></script>
   <script src="assets/vendor/flexsearch/flexsearch.bundle.min.js" defer></script>
   <script src="assets/assistant-kb.js" defer></script>
   <script src="assets/assistant.js?v=68" defer></script>
