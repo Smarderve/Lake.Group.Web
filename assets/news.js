@@ -1293,31 +1293,8 @@
     initArticleLightbox();
   }
 
-  /* --- Back-to-top: show after Load More, scroll-driven fade --- */
-  function initBackToTop() {
-    var btn = document.getElementById('news-backtotop');
-    if (!btn) return;
-
-    function toggleBtt() {
-      var loadMore = document.getElementById('news-loadmore');
-      var loadMoreActive = loadMore && !loadMore.hidden;
-      var loadMoreDone = loadMore && loadMore.hidden && sessionStorage.getItem(LM_LOADED_KEY);
-      var shouldShow = loadMoreActive || loadMoreDone;
-      btn.classList.toggle('is-visible', !!shouldShow);
-    }
-
-    btn.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    /* Listen on scroll and a custom event so Load More completion triggers it */
-    window.addEventListener('scroll', toggleBtt, { passive: true });
-    document.addEventListener('news:loadmore', toggleBtt);
-
-    /* Initial check */
-    toggleBtt();
-  }
-
+  /* --- Back-to-top removed: the fixed navy button overlapped the chat launcher
+       in the bottom-right corner, showing a blue box behind the chatbot icon. --- */
   function initNewsPage() {
     var list = document.getElementById('news-list');
     if (list) {
@@ -1358,7 +1335,6 @@
           _suppressSync = false;
         }
       });
-      initBackToTop();
 
       /* Expandable +N badges . hover popup viewport flip detection */
       document.addEventListener('mouseover', function (e) {

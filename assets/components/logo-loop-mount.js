@@ -175,6 +175,7 @@
     var offset = 0;
     var velocity = 0;
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var containerVisible = true;
 
     function rebuildCopies() {
       var prevTransform = track.style.transform;
@@ -295,7 +296,6 @@
       if (reduceMotion) return;
       /* Pause rAF loop when container is off-screen to save CPU on mobile */
       var visObserver = null;
-      var containerVisible = true;
       if ('IntersectionObserver' in window) {
         containerVisible = false;
         visObserver = new IntersectionObserver(function (entries) {

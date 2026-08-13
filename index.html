@@ -1728,13 +1728,13 @@
   gap: 4px;
 }
 
-    /* SEE LAKE GROUP IN ACTION â€” Visual Diary coverflow */
-    .action-in-view {
+    /* SEE LAKE GROUP IN ACTION — Visual Diary coverflow */
+    section#in-action.action-in-view {
       background:
         radial-gradient(ellipse 80% 60% at 10% 0%, rgba(5, 153, 211, 0.45), transparent 55%),
         radial-gradient(ellipse 70% 50% at 90% 100%, rgba(1, 63, 92, 0.55), transparent 50%),
         var(--blue);
-      padding: 64px 0 72px;
+      padding: 28px 0 40px;
       overflow: hidden;
     }
 
@@ -1742,21 +1742,26 @@
       color: var(--yellow);
     }
 
+    .action-in-view .section-title {
+      font-size: clamp(1.65rem, 2.9vw, 2.3rem);
+      margin-bottom: 6px;
+    }
+
     .action-diary {
-      margin-top: 8px;
+      margin-top: 4px;
       background: transparent;
       border-radius: 0;
-      padding: 8px 0 0;
+      padding: 4px 0 0;
       box-shadow: none;
     }
 
     .action-diary-lead {
       text-align: center;
       max-width: 520px;
-      margin: 0 auto 22px;
+      margin: 0 auto 8px;
       color: rgba(255, 255, 255, 0.78);
-      font-size: 0.98rem;
-      line-height: 1.55;
+      font-size: 0.9rem;
+      line-height: 1.5;
     }
 
     .action-filters {
@@ -1764,8 +1769,8 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      margin-bottom: 18px;
+      gap: 8px;
+      margin-bottom: 8px;
     }
 
     .action-filter {
@@ -1774,10 +1779,10 @@
       background: transparent;
       color: var(--white);
       font: inherit;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 600;
       letter-spacing: 0.02em;
-      padding: 9px 18px;
+      padding: 7px 14px;
       border-radius: 999px;
       cursor: pointer;
       transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
@@ -1822,7 +1827,7 @@
       perspective: 1400px;
       perspective-origin: 50% 50%;
       overflow: hidden;
-      margin: 8px auto 0;
+      margin: 0 auto 0;
       max-width: 980px;
       touch-action: pan-y;
       cursor: grab;
@@ -2004,7 +2009,7 @@
       align-items: center;
       justify-content: center;
       gap: 14px;
-      margin-top: 22px;
+      margin-top: 14px;
     }
 
     .action-nav-btn {
@@ -2049,7 +2054,7 @@
 
     .action-foot {
       text-align: center;
-      margin-top: 22px;
+      margin-top: 14px;
     }
 
     @media (max-width: 720px) {
@@ -2350,7 +2355,7 @@
 
 <a href="aficd.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/aficd.png?v=69" alt="AFICD" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aficd">AFICD</span></a>
                   <a href="aill.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/aill.png?v=65" alt="AILL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aill">AILL</span></a>
-                  <a href="lake-trans.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-trans.png" alt="Lake Trans" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeTrans">Lake Trans</span></a>
+                  <a href="lake-trans.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-trans.png" alt="Lake Trans" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeTrans">Lake Trans</span></a><a href="tiger-tech.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/tiger-tech.png" alt="Tiger Tech" loading="lazy" width="56" height="32"><span data-i18n="nav.co.tigerTech">Tiger Tech</span></a>
                 </div>
               </div>
               <div class="mm-pane" role="tabpanel" id="mm-pane-realestate" data-mm-pane="realestate" aria-labelledby="mm-tab-realestate" hidden>
@@ -2457,6 +2462,7 @@
 <a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a>
       <a href="aill.html" data-i18n="nav.co.aill">AILL</a>
       <a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a>
+      <a href="tiger-tech.html" data-i18n="nav.co.tigerTech">Tiger Tech</a>
     </div>
     <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-realestate" data-i18n="nav.dd.realEstate">Real Estate</button>
     <div class="mob-acc-panel" id="mob-acc-realestate" hidden>
@@ -2821,7 +2827,7 @@
   <!-- SEE LAKE GROUP IN ACTION â€” Visual Diary coverflow -->
   <section class="section-sm action-in-view" id="in-action" aria-labelledby="in-action-title">
     <div class="container">
-      <div style="text-align: center; margin-bottom: 22px">
+      <div style="text-align: center; margin-bottom: 10px">
         <div data-i18n="index.66" class="section-label" style="justify-content: center">
           Our Operations
         </div>
@@ -2905,7 +2911,7 @@
       <div class="footer-col"><h5 data-i18n="footer.services">Subsidiaries</h5><ul>
         <li><a href="lake-oil.html" data-i18n="nav.co.lakeOil">Lake Oil</a></li><li><a href="lake-gas.html" data-i18n="nav.co.lakeGas">Lake Gas</a></li>
         <li><a href="lake-lubes.html" data-i18n="nav.co.lakeLubes">Lake Lubes</a></li><li><a href="lake-steel.html" data-i18n="nav.co.lakeSteel">Lake Steel</a></li>
-        <li><a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a></li><li><a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a></li>
+        <li><a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a></li><li><a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a></li><li><a href="tiger-tech.html" data-i18n="nav.co.tigerTech">Tiger Tech</a></li>
         <li><a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a></li><li><a href="services.html" data-i18n="footer.viewAllCompanies">View All Subsidiaries</a></li>
       </ul></div>
       <div class="footer-col"><h5 data-i18n="footer.company">Corporate</h5><ul>
@@ -3209,16 +3215,16 @@
           var abs = Math.abs(slot);
           var visible = abs <= 3.35;
           var scale = abs < 0.15
-            ? 1.28
+            ? 1.2
             : abs < 1
-              ? 1.28 - (abs * 0.5)
+              ? 1.2 - (abs * 0.42)
               : abs < 2
                 ? 0.78 - ((abs - 1) * 0.12)
                 : Math.max(0.5, 0.66 - ((abs - 2) * 0.08));
           var y = abs < 0.15
-            ? -8
+            ? -6
             : abs < 1
-              ? -8 + abs * 34
+              ? -6 + abs * 32
               : abs < 2
                 ? 26 + (abs - 1) * 18
                 : Math.min(60, 44 + (abs - 2) * 12);
