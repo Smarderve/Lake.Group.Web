@@ -1,6 +1,23 @@
 window.LAKE_NEWS = [
   // ====== RECENT NEWS: 2024–2026 (researched from trusted sources) ======
   {
+    id: 42,
+    title: "Lake Energies Honoured by President Samia Suluhu Hassan for Contribution to Gas Distribution",
+    date: "12 Aug, 2026",
+    category: "Awards",
+    bannerImage: "assets/images/news/42/photo_1.jpg",
+    description: [
+      "A huge honour to Lake Energies! On 12th August 2026, Lake Energies received an award from Her Excellency President Samia Suluhu Hassan in recognition of the company's contribution to the distribution of gas across Tanzania.",
+      "The recognition celebrates Lake Group's role in expanding access to clean cooking energy in Tanzania and across East Africa, supporting the national drive toward sustainable and safe cooking solutions.",
+      "We are proud to be part of the efforts to promote and develop the use of clean cooking energy in Tanzania.",
+      "\"Heshima kubwa kwa Lake Energies! Jana tumepokea tuzo kutoka kwa Mhe. Samia Suluhu Hassan kwa kutambuliwa kwa mchango wetu katika usambazaji wa gesi nchini Tanzania. Tunajivunia kuwa sehemu ya juhudi za kuhamasisha na kuendeleza matumizi ya nishati safi ya kupikia Tanzania.\""
+    ],
+    images: [
+      "assets/images/news/42/photo_2.jpg"
+    ],
+    video: null
+  },
+  {
     id: 24,
     title: "Lake Gas Captures Slice of Kenya's Cooking Gas Import Market",
     date: "15 Feb, 2026",

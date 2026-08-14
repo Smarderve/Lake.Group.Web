@@ -288,6 +288,29 @@
     );
   }
 
+  function yearHeaderHtml(year) {
+    if (!year) return '';
+    return '<div class="news-year-header" role="heading" aria-level="2"><span class="news-year-header__label">' + escapeHtml(year) + '</span></div>';
+  }
+
+  /* Group an already-sorted (newest first) article slice into year sections.
+     `prevYear` lets a later batch know the year of the last already-rendered
+     article so it only emits a header when the year actually changes. */
+  function renderCardsByYear(articles, prevYear) {
+    if (!articles || !articles.length) return '';
+    var html = '';
+    var year = prevYear || '';
+    for (var i = 0; i < articles.length; i++) {
+      var y = extractYear(articles[i].date);
+      if (y && y !== year) {
+        html += yearHeaderHtml(y);
+        year = y;
+      }
+      html += renderCard(articles[i]);
+    }
+    return html;
+  }
+
   function renderCard(article) {
     var title = escapeHtml(article.title);
     var cat = escapeHtml(article.category);
@@ -372,7 +395,7 @@
         ? '<p class="news-empty news-empty--soft">More stories will appear here as they are published.</p>'
         : '<p class="news-empty">No articles match your filters.</p>';
     } else {
-      container.innerHTML = rest.map(renderCard).join('');
+      container.innerHTML = renderCardsByYear(rest);
     }
 
     /* Related: only on page 1 */
@@ -499,11 +522,18 @@
         }
         /* Append real cards with staggered appear animation */
         if (container) {
-          var batchHtml = batch.map(function (a, i) {
-            var cardHtml = renderCard(a);
-            return cardHtml.replace('<article class="news-card"', '<article class="news-card news-card--appear" style="animation-delay:' + (i * 70) + 'ms"');
-          }).join('');
-          container.insertAdjacentHTML('beforeend', batchHtml);
+          var prevYear = '';
+          var prevIdx = totalShownNow - 1;
+          if (prevIdx >= 0 && list[prevIdx]) prevYear = extractYear(list[prevIdx].date);
+          var groupedHtml = renderCardsByYear(batch, prevYear);
+          /* Only animate the cards themselves, not the year headers */
+          var cardIdx = 0;
+          groupedHtml = groupedHtml.replace(/<article class="news-card"/g, function () {
+            var delay = (cardIdx * 70) + 'ms';
+            cardIdx++;
+            return '<article class="news-card news-card--appear" style="animation-delay:' + delay + '"';
+          });
+          container.insertAdjacentHTML('beforeend', groupedHtml);
         }
         if (window.LakeSite && window.LakeSite.refreshMotion) {
           window.LakeSite.refreshMotion();
@@ -814,7 +844,9 @@
     if (!container) return;
     var extra = list.slice(PAGE_SIZE, loaded);
     if (!extra.length) return;
-    container.insertAdjacentHTML('beforeend', extra.map(renderCard).join(''));
+    var prevYear = '';
+    if (list[PAGE_SIZE - 1]) prevYear = extractYear(list[PAGE_SIZE - 1].date);
+    container.insertAdjacentHTML('beforeend', renderCardsByYear(extra, prevYear));
     var host = document.getElementById('news-loadmore');
     if (host) {
       if (loaded >= list.length) {
