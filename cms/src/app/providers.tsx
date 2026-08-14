@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useState } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import { ToastProvider } from '../components/ui/toast';
+import { OfflineBanner } from '../components/ui/OfflineBanner';
 import { AuthProvider } from '../features/auth/AuthProvider';
 import { SettingsProvider } from '../features/settings/SettingsProvider';
 import { ErrorBoundary } from './error-boundary';
@@ -35,6 +36,7 @@ export function AppProviders() {
             </SettingsProvider>
           </AuthProvider>
         </ErrorBoundary>
+        <OfflineBanner />
       </ToastProvider>
     </QueryClientProvider>
   );

@@ -7,6 +7,8 @@
  * (services/*.api.ts) which use this client.
  */
 
+import { friendlyMessage } from './errors';
+
 const BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/+$/, '');
 
 /** Resolve an API-relative path for links that open outside the SPA. */
@@ -19,18 +21,22 @@ export class ApiError extends Error {
   readonly status: number;
   readonly code: string;
   readonly details?: { path: string; message: string }[];
+  /** Client-side request id (sent as X-Request-Id) – correlates logs. */
+  readonly requestId?: string;
 
   constructor(
     status: number,
     code: string,
     message: string,
     details?: { path: string; message: string }[],
+    requestId?: string,
   ) {
     super(message);
     this.name = 'ApiError';
     this.status = status;
     this.code = code;
     this.details = details;
+    this.requestId = requestId;
   }
 }
 
@@ -38,11 +44,16 @@ export function isApiError(err: unknown): err is ApiError {
   return err instanceof ApiError;
 }
 
-/** Human-readable message from any thrown value; safe to show in UI. */
+/**
+ * Human-readable message from any thrown value; safe to show in UI.
+ * Goes through the centralized taxonomy so status codes map to calm,
+ * consistent copy instead of each caller inventing its own wording.
+ */
 export function apiErrorMessage(err: unknown, fallback = 'Something went wrong'): string {
-  if (isApiError(err)) return err.message || fallback;
-  if (err instanceof Error && err.message) return err.message;
-  return fallback;
+  // Every failure goes through the taxonomy: ApiError keeps useful backend
+  // business messages, anything else (raw Error, unknown) gets calm generic
+  // copy — a raw exception message must never reach the UI (security spec).
+  return friendlyMessage(err) || fallback;
 }
 
 /** True when the error means "sign back in" (session missing/expired). */
@@ -79,21 +90,41 @@ function buildQuery(params?: QueryParams): string {
   return qs ? `?${qs}` : '';
 }
 
+/** Short random id for X-Request-Id – safe, unguessable-enough for correlation. */
+function makeRequestId(): string {
+  const bytes = new Uint8Array(8);
+  crypto.getRandomValues(bytes);
+  let hex = '';
+  for (const b of bytes) hex += b.toString(16).padStart(2, '0');
+  return `req-${hex}`;
+}
+
 export interface RequestOptions extends Omit<RequestInit, 'body'> {
   /** JSON body – serialized automatically. */
   body?: unknown;
   /** Query params – serialized, null/undefined skipped. */
   params?: QueryParams;
+  /** Abort after this many ms (default 30_000). 0 disables the timeout. */
+  timeoutMs?: number;
 }
 
 async function request<T>(path: string, options: RequestOptions = {}): Promise<T> {
-  const { body, params, headers, ...rest } = options;
+  const { body, params, headers, timeoutMs = 30_000, ...rest } = options;
   const url = `${BASE_URL}${path}${buildQuery(params)}`;
+
+  // Request id correlates client logs with backend access logs; never sent
+  // back to the UI, only used for diagnostics.
+  const requestId = makeRequestId();
+  const controller = new AbortController();
+  const timeout = timeoutMs > 0 ? window.setTimeout(() => controller.abort(), timeoutMs) : undefined;
+
   const init: RequestInit = {
     ...rest,
+    signal: controller.signal,
     credentials: 'include',
     headers: {
       ...(body !== undefined ? { 'Content-Type': 'application/json' } : {}),
+      'X-Request-Id': requestId,
       ...headers,
     },
     body: body !== undefined ? JSON.stringify(body) : undefined,
@@ -102,8 +133,20 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
   let res: Response;
   try {
     res = await fetch(url, init);
-  } catch {
-    throw new ApiError(0, 'NETWORK_ERROR', 'Unable to reach the server. Check your connection and try again.');
+  } catch (err) {
+    // Aborted by our own timeout vs a genuine network failure.
+    const timedOut = err instanceof DOMException && err.name === 'AbortError';
+    throw new ApiError(
+      0,
+      timedOut ? 'TIMEOUT' : 'NETWORK_ERROR',
+      timedOut
+        ? 'The request timed out. Please try again.'
+        : 'Unable to reach the server. Check your connection and try again.',
+      undefined,
+      requestId,
+    );
+  } finally {
+    if (timeout !== undefined) window.clearTimeout(timeout);
   }
 
   if (res.status === 204) return undefined as T;
@@ -123,6 +166,7 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
       err?.code ?? 'REQUEST_FAILED',
       err?.message ?? `Request failed (${res.status})`,
       err?.details,
+      requestId,
     );
     // Session loss (expired / revoked / signed out elsewhere) – let the auth
     // layer react, but never for the login endpoints themselves.

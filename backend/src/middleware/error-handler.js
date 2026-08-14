@@ -7,6 +7,10 @@
  */
 
 export function notFoundHandler(req, res) {
+  // Echo the client's X-Request-Id so frontend logs and backend access logs
+  // can be correlated for a given user-facing error reference.
+  const requestId = req.get('x-request-id');
+  if (requestId) res.set('x-request-id', requestId);
   res.status(404).json({
     error: {
       code: 'NOT_FOUND',
@@ -31,7 +35,11 @@ function isDbUnavailable(err) {
 export function errorHandler({ logger } = {}) {
   // eslint-disable-next-line no-unused-vars -- `next` is required by Express
   return function handleError(err, req, res, next) {
-    logger?.error?.({ err, method: req.method, url: req.originalUrl }, 'unhandled error');
+    // Echo the client's X-Request-Id so frontend logs and backend access logs
+    // can be correlated for a given user-facing error reference.
+    const requestId = req.get('x-request-id');
+    if (requestId) res.set('x-request-id', requestId);
+    logger?.error?.({ err, method: req.method, url: req.originalUrl, requestId }, 'unhandled error');
 
     if (isDbUnavailable(err)) {
       return res.status(503).json({

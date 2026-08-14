@@ -15,6 +15,7 @@ import { Select } from '../../components/ui/Select';
 import { PageHeader } from '../../components/ui/PageHeader';
 import { Spinner } from '../../components/ui/Spinner';
 import { useToast } from '../../components/ui/toast';
+import { useUnsavedChanges } from '../../hooks/useUnsavedChanges';
 import { apiErrorMessage } from '../../services/api';
 import { isSuperAdmin } from '../../utils/permissions';
 import { newsApi } from './api';
@@ -105,6 +106,8 @@ export function NewsEditorPage() {
   });
 
   const form = useForm<NewsForm>({ resolver: zodResolver(newsSchema), defaultValues: empty });
+  // Warn before leaving with unsaved edits; failed saves never clear the form.
+  useUnsavedChanges(form.formState.isDirty);
 
   // Load the record into the form when editing.
   useEffect(() => {

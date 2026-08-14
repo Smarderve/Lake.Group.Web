@@ -6,6 +6,7 @@ import { ProtectedRoute } from '../components/auth/ProtectedRoute';
 import { RequireRole } from '../components/auth/RequireRole';
 import { PlaceholderPage } from '../pages/PlaceholderPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
+import { RouteErrorPage } from '../pages/RouteErrorPage';
 import { UnauthorizedPage } from '../pages/UnauthorizedPage';
 
 function lazyRoute<K extends string>(
@@ -24,6 +25,12 @@ function lazyRoute<K extends string>(
  * role. The backend remains the authority – these guards are UX.
  */
 export const router = createBrowserRouter([
+  {
+    // Route-level error handling: any loader/component/lazy-chunk failure
+    // that escapes a page renders the shared RouteErrorPage instead of the
+    // raw "Unexpected Application Error" screen.
+    errorElement: <RouteErrorPage />,
+    children: [
   {
     path: '/login',
     element: <AuthLayout />,
@@ -147,4 +154,6 @@ export const router = createBrowserRouter([
   { path: '/', element: <Navigate to="/app" replace /> },
   { path: '/403', element: <UnauthorizedPage /> },
   { path: '*', element: <NotFoundPage /> },
+    ],
+  },
 ]);

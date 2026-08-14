@@ -84,8 +84,11 @@ describe('DataTable', () => {
         onRetry={retry}
       />,
     );
-    expect(screen.getByRole('alert')).toHaveTextContent('Backend unavailable');
-    await userEvent.click(screen.getByRole('button', { name: 'Retry' }));
+    // The alert is sanitized: calm copy, never the raw error or internals.
+    const alert = screen.getByRole('alert');
+    expect(alert).toHaveTextContent('Something went wrong');
+    expect(alert).not.toHaveTextContent('Backend unavailable');
+    await userEvent.click(screen.getByRole('button', { name: 'Try again' }));
     expect(retry).toHaveBeenCalledOnce();
   });
 
