@@ -879,6 +879,23 @@ body.home .site-footer .footer-bottom {
     --logoloop-gap: 34px !important;
     --logoloop-logoHeight: 34px !important;
   }
+  body.home .hero-slide.is-active img {
+    animation: none !important;
+    will-change: auto !important;
+  }
+  body.home .hero-slide img {
+    will-change: auto !important;
+  }
+}
+
+/* Narrow phones: key facts 1-col, about badge repositioned */
+@media (max-width: 480px) {
+  body.home .keyfacts-inner {
+    grid-template-columns: 1fr;
+  }
+  body.home .keyfact-num {
+    font-size: 1.8rem;
+  }
 }
 
 /* Reduced motion: static first slide, no zoom/turnout/progress */

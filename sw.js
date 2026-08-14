@@ -64,7 +64,6 @@ const PRECACHE_URLS = [
   './assets/assistant-kb.js',
   './assets/vendor/flexsearch/flexsearch.bundle.min.js',
   './assets/images/logos/LAKE_GROUP_LOGO.png',
-  './assets/images/banner/LakeOil.jpg?v=81',
   './assets/images/banner/LakeOil1.jpg?v=81',
   './assets/images/lakeoil/current/station-lake-energies.jpg',
   './assets/images/lakeoil/current/depot-terminal.jpg',

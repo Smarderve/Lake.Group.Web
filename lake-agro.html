@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html class="lg-loading" lang="en">
 <head>
-  <style id="lg-skel-critical">html.lg-loading{overflow:hidden}html.lg-loading::before{content:"";position:fixed;inset:0;z-index:99989;background:#004b1e;pointer-events:none}html.lg-skel-done::before{display:none}.nav-logo img,.site-nav .nav-logo img{height:var(--nav-logo-height,48px)!important;width:auto!important;max-width:min(220px,55vw)!important;max-height:var(--nav-logo-height,48px)!important;object-fit:contain}/* Beat flagship hardcoded #0181BB before CSS vars apply */body.co-theme-agro .site-nav{background:#008435!important;background-color:#008435!important;border-bottom-color:#e67e22!important}body.co-theme-agro .site-nav.nav-scrolled{background:rgba(0,75,30,.96)!important;background-color:rgba(0,75,30,.96)!important}body.co-theme-agro .nav-mobile{background:#004b1e!important;background-color:#004b1e!important;border-bottom-color:#e67e22!important}</style>
+  <style id="lg-skel-critical">html.lg-loading{overflow:hidden}html.lg-loading::before{content:"";position:fixed;inset:0;z-index:99989;background:#004b1e;pointer-events:none}html.lg-skel-done::before{display:none}.nav-logo img,.site-nav .nav-logo img{height:var(--nav-logo-height,48px)!important;width:auto!important;max-width:min(220px,55vw)!important;max-height:var(--nav-logo-height,48px)!important;object-fit:contain}/* Match home: transparent over the hero until the nav enters its scrolled state. */body.co-theme-agro .site-nav{background:transparent!important;background-color:transparent!important;border-bottom:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}body.co-theme-agro .site-nav.nav-scrolled{background:rgba(0,75,30,.96)!important;background-color:rgba(0,75,30,.96)!important;border-bottom:2px solid #e67e22!important;backdrop-filter:blur(10px)!important;-webkit-backdrop-filter:blur(10px)!important;box-shadow:0 8px 30px rgba(0,40,16,.35)!important}body.co-theme-agro .nav-mobile{background:#004b1e!important;background-color:#004b1e!important;border-bottom-color:#e67e22!important}</style>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Lake Agro - creating customers and food for life through plantations, integrated Ag Parks and agribusiness processing across Africa.">
   <meta name="twitter:description" content="Lake Agro - creating customers and food for life through plantations, integrated Ag Parks and agribusiness processing across Africa.">
@@ -76,23 +76,21 @@
 .prod-catalog-card h4{font-family:var(--font-display);font-weight:700;font-size:1.1rem;letter-spacing:.03em;text-transform:uppercase;color:var(--text)}
 .prod-catalog-card p{font-size:.85rem;margin-top:4px;line-height:1.6}
 
-/* Gallery . Lake Oil pattern, compact photo size */
-.co-gal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:100%;max-width:820px;margin:0 auto}
-.co-gal__item{position:relative;overflow:hidden;margin:0;background:var(--ink-3);aspect-ratio:3/2;border-radius:2px}
-.co-gal__item--feat{grid-column:1 / -1;aspect-ratio:2/1}
-.co-gal__item img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .45s ease}
-.co-gal__item:hover img{transform:scale(1.03)}
-.co-gal__cap{position:absolute;left:0;right:0;bottom:0;padding:12px 14px 10px;background:linear-gradient(transparent,rgba(8,16,28,.75));color:#fff;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;pointer-events:none}
-.co-gal-label{margin:var(--sp-6) 0 var(--sp-3);font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
-.co-gal-products{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;max-width:820px}
-.co-gal-products .co-gal__item{aspect-ratio:1;background:#fff}
-.co-gal-products .co-gal__item img{object-fit:contain;padding:12px;background:#fff}
-@media(max-width:860px){.co-gal-products{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:720px){
-  .co-gal{gap:8px;max-width:100%}
-  .co-gal__item--feat{aspect-ratio:16/10}
-  .co-gal-products{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
+/* Gallery . Lake Agro projects - photo cards (reference GIF style) */
+.co-gal-label{margin:var(--sp-6) 0 var(--sp-3);font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#013f5c}
+/* Our Projects — photo-dominant tiles (photo fills the tile, green overlay caption) */
+.agro-prj-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;width:100%}
+.agro-prj{position:relative;border-radius:10px;overflow:hidden;background:#004b1e;display:block;aspect-ratio:4/3.1;transition:transform .35s ease,box-shadow .35s ease}
+.agro-prj:hover{transform:translateY(-5px);box-shadow:0 24px 48px -22px rgba(0,75,30,.45)}
+.agro-prj__media{position:absolute;inset:0;overflow:hidden}
+.agro-prj__media img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .6s ease}
+.agro-prj:hover .agro-prj__media img{transform:scale(1.06)}
+.agro-prj__body{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;gap:5px;padding:18px 18px 20px;background:linear-gradient(180deg,rgba(0,75,30,0) 0%,rgba(0,75,30,.28) 42%,rgba(0,75,30,.88) 100%)}
+.agro-prj__tag{font-size:.64rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#f2b64c}
+.agro-prj__title{font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.02em;text-transform:uppercase;color:#fff;margin:0}
+.agro-prj__text{font-size:.82rem;line-height:1.55;color:rgba(255,255,255,.88);margin:0}
+@media(max-width:1024px){.agro-prj-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.agro-prj{aspect-ratio:4/2.9}}
+@media(max-width:640px){.agro-prj-grid{grid-template-columns:1fr}.agro-prj{aspect-ratio:4/3}}
 
 .img-mosaic{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:820px}
 @media(max-width:720px){.img-mosaic{grid-template-columns:1fr 1fr;gap:8px;max-width:100%}}
@@ -177,6 +175,103 @@ body.co-theme-agro .page-hero .hero-media {
     padding: 60px 0 60px;
   }
 }
+/* Hero overlay matches the home page scrim: dark navy fade, not green */
+body.co-theme-agro .hero-overlay {
+  background:
+    linear-gradient(90deg, rgba(1, 63, 92, 0.6) 0%, rgba(1, 63, 92, 0.4) 30%, rgba(1, 63, 92, 0.1) 65%, rgba(1, 63, 92, 0) 100%),
+    linear-gradient(180deg, rgba(1, 63, 92, 0.25) 0%, rgba(1, 63, 92, 0) 25%);
+}
+/* "Production Focus" tiles use the same design language as the home page
+   "Eight Sectors. One Vision." cards (aramco-card pattern, navy + accent). */
+body.co-theme-agro .aramco-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #013f5c;
+  color: #ffffff;
+  min-height: 330px;
+  max-height: 380px;
+  transition: box-shadow 0.35s ease, transform 0.35s var(--ease-out);
+}
+body.co-theme-agro .aramco-card:hover {
+  box-shadow: 0 24px 48px -18px rgba(1, 63, 92, 0.55);
+  transform: translateY(-4px);
+}
+body.co-theme-agro .aramco-card-media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+body.co-theme-agro .aramco-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 35%;
+  display: block;
+  transition: transform 0.7s var(--ease-out);
+}
+body.co-theme-agro .aramco-card:hover .aramco-card-media img {
+  transform: scale(1.07);
+}
+body.co-theme-agro .aramco-card-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(1, 63, 92, 0.08) 22%, rgba(1, 63, 92, 0.42) 55%, rgba(1, 63, 92, 0.95) 100%);
+}
+body.co-theme-agro .aramco-card-ico {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  background: transparent;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+body.co-theme-agro .aramco-card-ico svg {
+  width: 18px;
+  height: 18px;
+}
+body.co-theme-agro .aramco-card:hover .aramco-card-ico {
+  background: var(--color-yellow-accent, var(--yellow));
+  border-color: var(--color-yellow-accent, var(--yellow));
+  color: #013f5c;
+}
+body.co-theme-agro .aramco-card-body {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  padding: 24px 22px 20px;
+  display: flex;
+  flex-direction: column;
+}
+body.co-theme-agro .aramco-card-over {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-yellow-accent, var(--yellow));
+  margin-bottom: 6px;
+}
+body.co-theme-agro .aramco-card h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.15;
+  margin-bottom: 6px;
+}
+body.co-theme-agro .aramco-card p {
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.55;
+}
   </style>
 <script type="application/ld+json">
 {
@@ -224,7 +319,7 @@ body.co-theme-agro .page-hero .hero-media {
   <link rel="preload" href="assets/fonts/files/jost-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="assets/flagship.css?v=100">
+<link rel="stylesheet" href="assets/flagship.css?v=101">
 <link rel="stylesheet" href="assets/split-text.css?v=48">
   <link rel="stylesheet" href="assets/assistant.css?v=71">
   <link rel="stylesheet" href="assets/skeleton.css?v=7">
@@ -278,7 +373,7 @@ body.co-theme-agro .page-hero .hero-media {
 
 <a href="aficd.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/aficd.png?v=69" alt="AFICD" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aficd">AFICD</span></a>
                   <a href="aill.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/aill.png?v=65" alt="AILL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aill">AILL</span></a>
-                  <a href="lake-trans.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-trans.png" alt="Lake Trans" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeTrans">Lake Trans</span></a>
+                  <a href="lake-trans.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-trans.png" alt="Lake Trans" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeTrans">Lake Trans</span></a><a href="tiger-tech.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/tiger-tech.png" alt="Tiger Tech" loading="lazy" width="56" height="32"><span data-i18n="nav.co.tigerTech">Tiger Tech</span></a>
                 </div>
               </div>
               <div class="mm-pane" role="tabpanel" id="mm-pane-realestate" data-mm-pane="realestate" aria-labelledby="mm-tab-realestate" hidden>
@@ -399,6 +494,7 @@ body.co-theme-agro .page-hero .hero-media {
 <a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a>
       <a href="aill.html" data-i18n="nav.co.aill">AILL</a>
       <a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a>
+      <a href="tiger-tech.html" data-i18n="nav.co.tigerTech">Tiger Tech</a>
     </div>
     <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-realestate" data-i18n="nav.dd.realEstate">Real Estate Sector</button>
     <div class="mob-acc-panel" id="mob-acc-realestate" hidden>
@@ -505,9 +601,48 @@ body.co-theme-agro .page-hero .hero-media {
     <div class="fs-marker"><span class="fs-marker-no">04</span><span class="fs-eyebrow" data-i18n="agro.s4.eyebrow">Crops &amp; Outputs</span></div>
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)" data-i18n="agro.s4.title">Production Focus</h2>
     <div class="prod-catalog">
-      <div class="prod-catalog-card"><div class="fs-media" style="aspect-ratio:4/3;margin-bottom:var(--sp-3)"><img src="assets/images/lake-agro/slid2.jpg" alt="Grain and oilseed production" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div><h4 data-i18n="agro.s4.grains.title">Grains &amp; Oilseeds</h4><p data-i18n="agro.s4.grains.body">Wheat, maize, rice, soybean and sunflower platforms for regional food security and processing feedstocks.</p></div>
-      <div class="prod-catalog-card"><div class="fs-media" style="aspect-ratio:4/3;margin-bottom:var(--sp-3)"><img src="assets/images/lake-agro/slid1.jpg" alt="Plantation and sugar crops" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div><h4 data-i18n="agro.s4.sugar.title">Sugar &amp; Cash Crops</h4><p data-i18n="agro.s4.sugar.body">Sugar and related cash crops as core processing feedstocks within the Ag Park model.</p></div>
-      <div class="prod-catalog-card"><div class="fs-media" style="aspect-ratio:4/3;margin-bottom:var(--sp-3)"><img src="assets/images/lake-agro/tanzania.jpg" alt="Protein and diversification crops" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div><h4 data-i18n="agro.s4.protein.title">Protein &amp; Diversification</h4><p data-i18n="agro.s4.protein.body">Beef protein plus teak, beans and fruit horticulture in buffer spaces where land permits.</p></div>
+      <div class="aramco-card reveal">
+        <div class="aramco-card-media" aria-hidden="true">
+          <img src="assets/images/lake-agro/slid2.jpg" alt="Grain and oilseed production" loading="lazy" decoding="async">
+          <div class="aramco-card-shade"></div>
+        </div>
+        <span class="aramco-card-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" focusable="false"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <div class="aramco-card-body">
+          <span class="aramco-card-over" data-i18n="nav.co.lakeAgro">Lake Agro</span>
+          <h3 data-i18n="agro.s4.grains.title">Grains &amp; Oilseeds</h3>
+          <p data-i18n="agro.s4.grains.body">Wheat, maize, rice, soybean and sunflower platforms for regional food security and processing feedstocks.</p>
+        </div>
+      </div>
+      <div class="aramco-card reveal">
+        <div class="aramco-card-media" aria-hidden="true">
+          <img src="assets/images/lake-agro/slid1.jpg" alt="Plantation and sugar crops" loading="lazy" decoding="async">
+          <div class="aramco-card-shade"></div>
+        </div>
+        <span class="aramco-card-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" focusable="false"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <div class="aramco-card-body">
+          <span class="aramco-card-over" data-i18n="nav.co.lakeAgro">Lake Agro</span>
+          <h3 data-i18n="agro.s4.sugar.title">Sugar &amp; Cash Crops</h3>
+          <p data-i18n="agro.s4.sugar.body">Sugar and related cash crops as core processing feedstocks within the Ag Park model.</p>
+        </div>
+      </div>
+      <div class="aramco-card reveal">
+        <div class="aramco-card-media" aria-hidden="true">
+          <img src="assets/images/lake-agro/tanzania.jpg" alt="Protein and diversification crops" loading="lazy" decoding="async">
+          <div class="aramco-card-shade"></div>
+        </div>
+        <span class="aramco-card-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" focusable="false"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <div class="aramco-card-body">
+          <span class="aramco-card-over" data-i18n="nav.co.lakeAgro">Lake Agro</span>
+          <h3 data-i18n="agro.s4.protein.title">Protein &amp; Diversification</h3>
+          <p data-i18n="agro.s4.protein.body">Beef protein plus teak, beans and fruit horticulture in buffer spaces where land permits.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -579,18 +714,330 @@ body.co-theme-agro .page-hero .hero-media {
   </div>
 </section>
 
-<section class="fs-section fs-on-dark" id="reach">
+<section class="fs-section section-light" id="project-gallery">
   <div class="container">
-    <div class="fs-marker"><span class="fs-marker-no">09</span><span class="fs-eyebrow" data-i18n="agro.s9.eyebrow">Locations</span></div>
-    <h2 class="fs-display" style="margin-bottom:var(--sp-6)" data-i18n="agro.s9.title">Reach Lake Agro</h2>
-    <div class="ct-info fs-corners">
-      <h3 data-i18n="agro.s9.name">Lake Agro</h3>
-      <div class="ct-rows">
-        <div class="ct-row"><div class="ct-ico" aria-hidden="true">??</div><div><div class="ct-label" data-i18n="agro.s9.address">Address</div><span class="ct-strong" data-i18n="agro.s9.address.line">Plot 72 &amp; 73, Vijibweni Area, Kigamboni</span><span class="ct-dim" data-i18n="agro.s9.address.dim">P.O. Box 5055, Dar es Salaam, Tanzania � Serenje plantation operations</span></div></div>
-        <div class="ct-row"><div class="ct-ico" aria-hidden="true">??</div><div><div class="ct-label" data-i18n="agro.s9.email">Email</div><span class="ct-strong"><a href="mailto:info@lakeagro.com" style="color:var(--gold)">info@lakeagro.com</a></span></div></div>
-        <div class="ct-row"><div class="ct-ico" aria-hidden="true">??</div><div><div class="ct-label" data-i18n="agro.s9.phone">Phone</div><span class="ct-strong"><a href="tel:+255222780479" style="color:var(--gold)">+255 222 780 479</a></span></div></div>
-        <div class="ct-row"><div class="ct-ico" aria-hidden="true">??</div><div><div class="ct-label" data-i18n="agro.s9.web">Website</div><span class="ct-strong">lakeagro.com</span><span class="ct-dim" data-i18n="agro.s9.web.dim">Content mirrored on this Lake Group page</span></div></div>
-      </div>
+    <div class="fs-marker"><span class="fs-marker-no">09</span><span class="fs-eyebrow">Projects</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-3)">Our Projects</h2>
+    <p style="max-width:75ch;line-height:1.7;margin-bottom:var(--sp-6)">Recent work across Zambia and Tanzania plantation and Ag Park operations.</p>
+
+    <p class="co-gal-label">Zambia</p>
+<div class="agro-prj-grid" aria-label="Lake Agro Zambia projects">
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/zombia/img1.jpg" alt="Lake Agro Zambia project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Zambia</span>
+          <h3 class="agro-prj__title">Maize Production</h3>
+          <p class="agro-prj__text">Primary row crop across the Central Zambia plantation.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/zombia/img2.jpg" alt="Lake Agro Zambia project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Zambia</span>
+          <h3 class="agro-prj__title">Soybean Cultivation</h3>
+          <p class="agro-prj__text">Protein crop for regional processing and feed.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/zombia/img3.jpg" alt="Lake Agro Zambia project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Zambia</span>
+          <h3 class="agro-prj__title">Wheat Farming</h3>
+          <p class="agro-prj__text">Winter wheat on rotation across the Ag Park.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/zombia/img4.jpg" alt="Lake Agro Zambia project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Zambia</span>
+          <h3 class="agro-prj__title">Sunflower Fields</h3>
+          <p class="agro-prj__text">Oilseed production for crushing and export.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/zombia/img5.jpg" alt="Lake Agro Zambia project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Zambia</span>
+          <h3 class="agro-prj__title">Rice Paddies</h3>
+          <p class="agro-prj__text">Irrigated rice in suitable lowland blocks.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/zombia/img6.jpg" alt="Lake Agro Zambia project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Zambia</span>
+          <h3 class="agro-prj__title">Row-Crop Rotation</h3>
+          <p class="agro-prj__text">Rotational farming for soil health and yields.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/zombia/img7.jpg" alt="Lake Agro Zambia project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Zambia</span>
+          <h3 class="agro-prj__title">Harvest Operations</h3>
+          <p class="agro-prj__text">Mechanised harvesting across the season.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/zombia/img8.jpg" alt="Lake Agro Zambia project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Zambia</span>
+          <h3 class="agro-prj__title">Irrigation Network</h3>
+          <p class="agro-prj__text">Centre-pivot and drip systems for water security.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/zombia/img9.jpg" alt="Lake Agro Zambia project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Zambia</span>
+          <h3 class="agro-prj__title">Seed & Agronomy</h3>
+          <p class="agro-prj__text">Certified seed programmes and trial plots.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/zombia/img10.jpg" alt="Lake Agro Zambia project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Zambia</span>
+          <h3 class="agro-prj__title">Machinery Fleet</h3>
+          <p class="agro-prj__text">Tractors, planters and combines for scale.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/zombia/img11.jpg" alt="Lake Agro Zambia project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Zambia</span>
+          <h3 class="agro-prj__title">Ag Park Development</h3>
+          <p class="agro-prj__text">New park infrastructure and land preparation.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/zombia/img16.jpg" alt="Lake Agro Zambia project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Zambia</span>
+          <h3 class="agro-prj__title">Storage & Silage</h3>
+          <p class="agro-prj__text">Grain handling, drying and protected storage.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/zombia/img18.jpg" alt="Lake Agro Zambia project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Zambia</span>
+          <h3 class="agro-prj__title">Field Trials</h3>
+          <p class="agro-prj__text">On-farm agronomic trials for improved varieties.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/zombia/img19.jpg" alt="Lake Agro Zambia project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Zambia</span>
+          <h3 class="agro-prj__title">Protein (Beef) Program</h3>
+          <p class="agro-prj__text">Integrated livestock for rotational protein.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/zombia/img20.jpg" alt="Lake Agro Zambia project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Zambia</span>
+          <h3 class="agro-prj__title">Horticulture Expansion</h3>
+          <p class="agro-prj__text">Fruit and vegetable blocks where land permits.</p>
+        </div>
+      </article>
+    </div>
+
+    <p class="co-gal-label" style="margin-top:var(--sp-8)">Tanzania</p>
+<div class="agro-prj-grid" aria-label="Lake Agro Tanzania projects">
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img1.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Rice Production</h3>
+          <p class="agro-prj__text">The flagship crop of the Kigamboni Ag Park.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img2.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Maize Cultivation</h3>
+          <p class="agro-prj__text">Staple grain on rotation across the park.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img3.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Soybean Fields</h3>
+          <p class="agro-prj__text">Oilseed legume for processing feedstocks.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img4.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Sunflower Farming</h3>
+          <p class="agro-prj__text">Oilseed production for crushing.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img5.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Wheat Harvest</h3>
+          <p class="agro-prj__text">Winter wheat on the wider estate.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img6.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Horticulture Crops</h3>
+          <p class="agro-prj__text">Vegetable and fruit blocks for regional supply.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img7.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Ag Park Infrastructure</h3>
+          <p class="agro-prj__text">Roads, power, water and storage build-out.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img8.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Irrigation Systems</h3>
+          <p class="agro-prj__text">Efficient water delivery across the paddies.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img9.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Harvest Season</h3>
+          <p class="agro-prj__text">Mechanised harvest in full swing.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img10.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Seed Operations</h3>
+          <p class="agro-prj__text">Nursery and certified seed multiplication.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img11.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Farm Machinery</h3>
+          <p class="agro-prj__text">The fleet that keeps the park running.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img12.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Grain Storage</h3>
+          <p class="agro-prj__text">Dry, protected post-harvest handling.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img13.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Field Agronomy</h3>
+          <p class="agro-prj__text">Soil, variety and pest management at scale.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img14.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Sugar Program</h3>
+          <p class="agro-prj__text">Sugarcane blocks for sugar and energy.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img15.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Teak Plantation</h3>
+          <p class="agro-prj__text">Long-cycle timber diversification.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img17.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Bean Cultivation</h3>
+          <p class="agro-prj__text">Legume rotations for nitrogen and protein.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img18.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Beef & Protein</h3>
+          <p class="agro-prj__text">Integrated cattle on rotational pasture.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img19.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Crop Diversification</h3>
+          <p class="agro-prj__text">Multiple crops across the season.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img20.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Post-Harvest Handling</h3>
+          <p class="agro-prj__text">Drying, grading and safe storage.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img21.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Agronomy Trials</h3>
+          <p class="agro-prj__text">Testing varieties for local conditions.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img22.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Water Management</h3>
+          <p class="agro-prj__text">Boreholes, canals and reservoir storage.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img23.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Land Preparation</h3>
+          <p class="agro-prj__text">Clearing and levelling new blocks.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img24.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Fertilizer Program</h3>
+          <p class="agro-prj__text">Precision application for balanced soils.</p>
+        </div>
+      </article>
+      <article class="agro-prj">
+        <div class="agro-prj__media"><img src="https://lakeagro.com/assets/images/gallery/tanzania/img25.jpg" alt="Lake Agro Tanzania project" loading="lazy" decoding="async"></div>
+        <div class="agro-prj__body">
+          <span class="agro-prj__tag">Lake Agro · Tanzania</span>
+          <h3 class="agro-prj__title">Team Training</h3>
+          <p class="agro-prj__text">Extension and operator training in the field.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -621,7 +1068,7 @@ body.co-theme-agro .page-hero .hero-media {
       <div class="footer-col"><h5 data-i18n="footer.services">Subsidiaries</h5><ul>
         <li><a href="lake-oil.html" data-i18n="nav.co.lakeOil">Lake Oil</a></li><li><a href="lake-gas.html" data-i18n="nav.co.lakeGas">Lake Gas</a></li>
         <li><a href="lake-lubes.html" data-i18n="nav.co.lakeLubes">Lake Lubes</a></li><li><a href="lake-steel.html" data-i18n="nav.co.lakeSteel">Lake Steel</a></li>
-        <li><a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a></li><li><a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a></li>
+        <li><a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a></li><li><a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a></li><li><a href="tiger-tech.html" data-i18n="nav.co.tigerTech">Tiger Tech</a></li>
         <li><a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a></li><li><a href="services.html" data-i18n="footer.viewAllCompanies">View All Subsidiaries</a></li>
       </ul></div>
       <div class="footer-col"><h5 data-i18n="footer.company">Corporate</h5><ul>
@@ -631,10 +1078,9 @@ body.co-theme-agro .page-hero .hero-media {
         <li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
       </ul></div>
       <div class="footer-col"><h5 data-i18n="footer.question">Got a Question?</h5><ul>
-        <li><a href="contact.html" class="footer-contact-link"><iconify-icon icon="mdi:map-marker" class="footer-contact-ico" width="16" height="16" aria-hidden="true"></iconify-icon><span data-i18n="footer.address">Plot 49, Mikocheni Light Industrial, Dar es Salaam</span></a></li>
-        <li><a href="tel:+255222780510" class="footer-contact-link"><iconify-icon icon="mdi:phone" class="footer-contact-ico" width="16" height="16" aria-hidden="true"></iconify-icon><span>+255 222 780 510</span></a></li>
+        <li><a href="contact.html" class="footer-contact-link"><iconify-icon icon="mdi:map-marker" class="footer-contact-ico" width="16" height="16" aria-hidden="true"></iconify-icon><span data-i18n="agro.footer.address">Plot 72 &amp; 73, Vijibweni Area, Kigamboni, Dar es Salaam</span></a></li>
         <li><a href="tel:+255222780479" class="footer-contact-link"><iconify-icon icon="mdi:phone" class="footer-contact-ico" width="16" height="16" aria-hidden="true"></iconify-icon><span>+255 222 780 479</span></a></li>
-        <li><a href="mailto:admin@lakeoilgroup.com" class="footer-contact-link"><iconify-icon icon="mdi:email" class="footer-contact-ico" width="16" height="16" aria-hidden="true"></iconify-icon><span>admin@lakeoilgroup.com</span></a></li>
+        <li><a href="mailto:info@lakeagro.com" class="footer-contact-link"><iconify-icon icon="mdi:email" class="footer-contact-ico" width="16" height="16" aria-hidden="true"></iconify-icon><span>info@lakeagro.com</span></a></li>
         <li><a href="contact.html" data-i18n="footer.contact">Contact Us</a></li>
       </ul></div>
       <div class="footer-col"><h5 data-i18n="footer.connect">Connect With Us</h5>

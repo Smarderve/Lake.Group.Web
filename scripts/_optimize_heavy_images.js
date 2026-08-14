@@ -89,7 +89,7 @@ async function main() {
     if (!html.includes('LakeOil.webp')) {
       html = html.replace(
         /background-image:\s*url\(["']assets\/images\/banner\/LakeOil\.jpg["']\)/g,
-        'background-image: image-set(url("assets/images/banner/LakeOil.webp") type("image/webp"), url("assets/images/banner/LakeOil.jpg") type("image/jpeg"))'
+        'background-image: image-set(url("assets/images/banner/LakeOil1.webp") type("image/webp"), url("assets/images/banner/LakeOil1.jpg") type("image/jpeg"))'
       );
       fs.writeFileSync(indexPath, html);
       console.log('patched index.html hero image-set');

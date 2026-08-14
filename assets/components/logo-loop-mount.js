@@ -178,6 +178,7 @@
     var offset = 0;
     var velocity = 0;
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var containerVisible = true;
 
     function rebuildCopies() {
       var prevTransform = track.style.transform;
@@ -258,7 +259,8 @@
           : 'translate3d(' + -offset + 'px, 0, 0)';
       }
 
-      rafId = requestAnimationFrame(animate);
+      if (containerVisible !== false) rafId = requestAnimationFrame(animate);
+      else rafId = null;
     }
 
     rebuildCopies();
@@ -273,6 +275,7 @@
     });
 
     var resizeObserver = null;
+    var visObserver = null;
     var mobileMq = window.matchMedia('(max-width: 720px)');
     function onViewportChange() {
       applyMetrics();
@@ -297,12 +300,24 @@
     updateDimensions();
     observe();
     onImagesReady(updateDimensions);
+    /* Pause the rAF loop when the container is off-screen to save CPU on mobile */
+    if ('IntersectionObserver' in window) {
+      visObserver = new IntersectionObserver(function (entries) {
+        containerVisible = entries[0].isIntersecting;
+        if (containerVisible && rafId === null) {
+          lastTimestamp = null;
+          rafId = requestAnimationFrame(animate);
+        }
+      }, { rootMargin: '200px 0px' });
+      visObserver.observe(root);
+    }
     if (!reduceMotion) rafId = requestAnimationFrame(animate);
 
     return function destroy() {
       if (rafId !== null) cancelAnimationFrame(rafId);
       if (resizeObserver) resizeObserver.disconnect();
       else window.removeEventListener('resize', updateDimensions);
+      if (visObserver) visObserver.disconnect();
       if (mobileMq.removeEventListener) mobileMq.removeEventListener('change', onViewportChange);
       else if (mobileMq.removeListener) mobileMq.removeListener(onViewportChange);
       root.innerHTML = '';

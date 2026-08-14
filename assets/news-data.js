@@ -29,7 +29,7 @@ window.LAKE_NEWS = [
       "Lake Gas Ltd. has commissioned a landmark $60 million LPG import terminal in Vipingo, Kilifi County, Kenya . marking Lake Group's largest single investment outside Tanzania. The terminal received its maiden shipment of approximately 12,000 metric tonnes of cooking gas from Nigeria in June 2025.",
       "The Vipingo terminal is equipped with an offshore Conventional Buoy Mooring (CBM) system . the first of its kind in the region . enabling direct ship-to-shore LPG offloading. Initial storage capacity stands at 10,000 MT, with infrastructure designed to support expansion to 30,000 MT.",
       "The project represents a major strategic milestone for Lake Group's regional expansion, positioning the company to serve the growing East African LPG market. The terminal serves Kenya, Uganda, Rwanda, Burundi, and eastern DR Congo.",
-      "\"This investment reflects our commitment to making clean cooking energy accessible across East Africa,\" said Ally Edha Awadh, Founder and Executive Chairman of Lake Group. \"Kenya is a key market, and we are here for the long term.\""
+      "\"This investment reflects our commitment to making clean cooking energy accessible across East Africa,\" said Ally Edha Awadh, Founder and CEO of Lake Group. \"Kenya is a key market, and we are here for the long term.\""
     ],
     images: [
       "assets/images/lakegas/ops/filling-plant.jpg",
@@ -45,7 +45,7 @@ window.LAKE_NEWS = [
     category: "Awards",
     bannerImage: "assets/images/leadership/ally-edha-awadh.png?v=80",
     description: [
-      "Ally Edha Awadh, Founder and Executive Chairman of Lake Group, has been featured by Billionaires.Africa and other business publications as one of East Africa's leading energy entrepreneurs, alongside fellow Tanzanian tycoon Rostam Aziz of Taifa Gas.",
+      "Ally Edha Awadh, Founder and CEO of Lake Group, has been featured by Billionaires.Africa and other business publications as one of East Africa's leading energy entrepreneurs, alongside fellow Tanzanian tycoon Rostam Aziz of Taifa Gas.",
       "Under Awadh's leadership, Lake Group has grown from a single fuel outlet in Dar es Salaam in 2006 into a diversified conglomerate spanning petroleum distribution, LPG, steel manufacturing, logistics, real estate, and agro-processing across 10 countries in East and Central Africa.",
       "The group operates a fleet of over 1,200 vehicles, 152+ retail fuel stations, and employs more than 30,000 people. Forbes Africa previously profiled the company as a $1 billion integrated energy platform in 2017.",
       "\"Our vision is to become the leading regional energy and industrial conglomerate,\" Awadh stated. \"We are building infrastructure that will serve East Africa for generations.\""

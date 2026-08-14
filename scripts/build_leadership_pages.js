@@ -26,7 +26,7 @@ const LEADERS = [
 {
     id: 'ally-edha-awadh',
     name: 'Ally Edha Awadh',
-    role: 'Executive Chairman & Owner',
+    role: 'Founder and CEO',
     unit: 'Group Leadership',
     photo: 'assets/images/leadership/ally-edha-awadh.png',
     photoLogo: false,
@@ -122,7 +122,7 @@ const LEADERS = [
   },
 {
     id: 'biji-lapat',
-    name: 'Biji Lapat',
+    name: 'Biji Alapat',
     role: 'CEO · Lake Energies',
     unit: 'Lake Energies',
     photo: 'assets/images/leadership/biji-lapat.png',
@@ -130,7 +130,7 @@ const LEADERS = [
     summary:
       'CEO of Lake Energies, Lake Group’s energy division spanning petroleum, LPG, lubricants and aviation services across the Group’s regional footprint.',
     paragraphs: [
-      'As CEO of Lake Energies, Biji Lapat leads the Group’s energy division - the family of operating companies that includes Lake Oil, Lake Gas, Lake Lubes and Lake Aviation.',
+      'As CEO of Lake Energies, Biji Alapat leads the Group’s energy division - the family of operating companies that includes Lake Oil, Lake Gas, Lake Lubes and Lake Aviation.',
       'Lake Energies sits at the core of Lake Group’s downstream energy platform: retail and bulk petroleum distribution, LPG bottling and storage, lubricant blending, and aviation fuel services supporting customers across East and Central Africa.',
       'Working from the Group’s Dar es Salaam headquarters, the Lake Energies mandate aligns commercial and operational priorities across these energy units with Lake Group’s wider logistics and industrial network.',
     ],
