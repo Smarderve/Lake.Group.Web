@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html class="lg-loading" lang="en">
 <head>
   <style id="lg-skel-critical">html.lg-loading{overflow:hidden}html.lg-loading::before{content:"";position:fixed;inset:0;z-index:99989;background:#013f5c;pointer-events:none}html.lg-skel-done::before{display:none}.nav-logo img,.site-nav .nav-logo img{height:var(--nav-logo-height,48px)!important;width:auto!important;max-width:min(220px,55vw)!important;max-height:var(--nav-logo-height,48px)!important;object-fit:contain}</style>
@@ -360,11 +360,11 @@
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-700-normal.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="assets/flagship.css?v=100">
   <link rel="stylesheet" href="assets/assistant.css?v=71">
-  <link rel="stylesheet" href="assets/skeleton.css?v=6">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https: http://127.0.0.1:*; frame-src https://www.youtube.com https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; form-action 'self' https:">
+  <link rel="stylesheet" href="assets/skeleton.css?v=7">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https://www.youtube.com https://www.youtube-nocookie.com; worker-src 'self'; manifest-src 'self'; media-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 </head>
 <body>
-  <script src="assets/skeleton.js?v=6"></script>
+  <script src="assets/skeleton.js?v=7"></script>
 
 <div id="grain"></div>
 <div id="vignette"></div>
@@ -403,7 +403,7 @@
 </div>
 
 <!-- START SCREEN -->
-<div id="start" onclick="begin()">
+<div id="start">
   <img class="start-logo" src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group" width="180" height="48" decoding="async">
   <p class="start-for" data-i18n="ose.tagline">a story since 2006</p>
   <h1 class="start-name">Lake <span>Group</span></h1>
@@ -421,7 +421,7 @@
   <!-- SCENE 1: ONE FUEL STATION -->
   <div class="scene" id="s1">
     <div class="photo-bg">
-      <img class="photo-slot" src="assets/images/our-story/scene1.jpg" alt="Lake Oil storage terminal" data-i18n-alt="ose.alt.s1">
+      <img class="photo-slot" src="assets/images/lakeoil/current/station-lake-energies.jpg" alt="Lake Energies service station">
     </div>
     <div class="tint tint-dark"></div>
     <div class="text-block">
@@ -434,7 +434,7 @@
   <!-- SCENE 2: THE FOUNDER -->
   <div class="scene" id="s2">
     <div class="photo-bg">
-      <img class="photo-slot" src="assets/images/our-story/scene2.jpg" alt="Lake Oil beginnings in Dar es Salaam" data-i18n-alt="ose.alt.s2">
+      <img class="photo-slot" src="assets/images/group/ops/terminal-overview.jpg" alt="Lake Oil terminal in Dar es Salaam">
     </div>
     <div class="tint tint-blue"></div>
     <div class="text-block">
@@ -449,7 +449,7 @@
   <!-- SCENE 3: THE FLEET GROWS -->
   <div class="scene" id="s3">
     <div class="photo-bg">
-      <img class="photo-slot" src="assets/images/our-story/scene3.jpg" alt="Lake Trans fleet of trucks" data-i18n-alt="ose.alt.s3">
+      <img class="photo-slot" src="assets/images/laketrans/TA/photo_1.jpg" alt="Lake Trans fleet of trucks">
     </div>
     <div class="tint tint-navy"></div>
     <div class="text-block">
@@ -462,7 +462,7 @@
   <!-- SCENE 4: LPG / CLEAN ENERGY -->
   <div class="scene" id="s4">
     <div class="photo-bg">
-      <img class="photo-slot" src="assets/images/our-story/scene4.jpg" alt="Lake Gas LPG cylinders" data-i18n-alt="ose.alt.s4">
+      <img class="photo-slot" src="assets/images/lakegas/ops/cylinders-yard.jpg" alt="Lake Gas LPG cylinders at the filling plant">
     </div>
     <div class="tint tint-gold"></div>
     <div class="text-block">
@@ -479,7 +479,7 @@
   <!-- SCENE 5: CONCRETE & STEEL -->
   <div class="scene" id="s5">
     <div class="photo-bg">
-      <img class="photo-slot" src="assets/images/our-story/scene5.jpg" alt="GCCP ready-mix concrete trucks" data-i18n-alt="ose.alt.s5">
+      <img class="photo-slot" src="assets/images/gccp/photo_6.jpg" alt="Gulf Concrete and Cement Products ready-mix truck">
     </div>
     <div class="tint tint-blue"></div>
     <div class="text-block">
@@ -492,7 +492,7 @@
   <!-- SCENE 6: THE PEOPLE -->
   <div class="scene" id="s6">
     <div class="photo-bg">
-      <img class="photo-slot" src="assets/images/our-story/scene6.jpg" alt="Lake Group leadership team" data-i18n-alt="ose.alt.s6">
+      <img class="photo-slot" src="assets/images/laketrans/ops/fleet-inspection.jpg" alt="Lake Group operations team during a fleet inspection">
     </div>
     <div class="tint tint-navy"></div>
     <div class="text-block">
@@ -509,7 +509,7 @@
   <!-- SCENE 7: PAN-AFRICAN -->
   <div class="scene" id="s7">
     <div class="photo-bg">
-      <img class="photo-slot" src="assets/images/our-story/scene7.jpg" alt="AFICD container depot at sunset" data-i18n-alt="ose.alt.s7">
+      <img class="photo-slot" src="assets/images/aficd/TA/photo_1.jpg" alt="Aerial view of the AFICD container depot">
     </div>
     <div class="tint tint-gold"></div>
     <div class="text-block">
@@ -561,7 +561,7 @@
   <p class="ending-name" data-i18n="ose.estLine">Lake Group, est. 2006</p>
   <div class="ending-actions">
     <a class="cta-btn" href="index.html" data-i18n="ose.visitHome">Visit Home</a>
-    <button class="replay-btn" onclick="replay()" data-i18n="ose.ending.replay" data-i18n-html>? &nbsp; watch again</button>
+    <button class="replay-btn" id="replay-story" data-i18n="ose.ending.replay" data-i18n-html>? &nbsp; watch again</button>
   </div>
 </div>
 
@@ -617,6 +617,9 @@
     SCENES.forEach(s => { s.classList.remove('active', 'fade-out'); });
     setTimeout(() => showScene(0), 600);
   }
+
+  document.getElementById('start').addEventListener('click', begin);
+  document.getElementById('replay-story').addEventListener('click', replay);
 
   // KEYBOARD SKIP
   document.addEventListener('keydown', e => {

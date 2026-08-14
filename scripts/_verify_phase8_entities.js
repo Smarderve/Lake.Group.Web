@@ -1,14 +1,10 @@
 /**
  * Phase 8 · Tasks 8.2–8.11 verification — entity hydration + news/map retargets.
  *
- * Serves the repo root over HTTP with a stub /api/public/:entity that mirrors
- * the backend's PUBLISHED-only contract (records built from the REAL seed
- * data in backend/scripts/content-seed-data.js), then loads each wired page
- * in headless Chrome and asserts:
- *   A) with the API up  → data-entity-key rows hydrate to served values
- *   B) news.html swaps window.LAKE_NEWS from /api/public/news
- *   C) africa-network map builds markers from /api/public/map
- *   D) with the API down → static markup is untouched (graceful fallback)
+ * Serves the repository release and a deliberately disposable live API, then
+ * verifies that public business content comes from the immutable same-origin
+ * snapshot. The outage case uses a brand-new browser context with service
+ * workers blocked, proving that no previous browser cache is required.
  *
  * Usage:  node scripts/_verify_phase8_entities.js
  * Exit 0 on success, 1 on failure.
@@ -38,6 +34,7 @@ const MIME = {
 
 let server;
 let apiUp = true;
+let apiRequests = 0;
 function setApiUp(up) { apiUp = up; }
 
 async function buildStub() {
@@ -110,6 +107,7 @@ function startServer(stub) {
         res.end(JSON.stringify(body));
       };
       if (url.pathname.startsWith('/api/public/')) {
+        if (req.method === 'GET') apiRequests += 1;
         if (!apiUp) return apiRes(503, { error: { code: 'SERVICE_UNAVAILABLE' } });
         if (url.pathname === '/api/public/map') return apiRes(200, stub.map);
         const entity = url.pathname.slice('/api/public/'.length);
@@ -149,8 +147,12 @@ const CASES = [
 
 async function main() {
   const stub = await buildStub();
+  const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, 'public-content', 'current.json'), 'utf8'));
+  const snapshot = JSON.parse(fs.readFileSync(path.join(ROOT, 'public-content', manifest.snapshotUrl), 'utf8'));
   await startServer(stub);
-  const browser = await chromium.launch({ headless: true, executablePath: CHROME, args: ['--no-sandbox'] });
+  const launchOptions = { headless: true, args: ['--no-sandbox'] };
+  if (fs.existsSync(CHROME)) launchOptions.executablePath = CHROME;
+  const browser = await chromium.launch(launchOptions);
   const context = await browser.newContext({ serviceWorkers: 'block' });
   await context.addInitScript(() => {
     window.LAKE_API_BASE = 'http://127.0.0.1:8798';
@@ -190,7 +192,7 @@ async function main() {
       if (!ok) fail = 1;
     }
 
-    /* News retarget: LAKE_NEWS must come from /api/public/news. */
+    /* News retarget: LAKE_NEWS must come from the immutable release. */
     await page.goto(`http://127.0.0.1:${PORT}/news.html`, { waitUntil: 'domcontentloaded' });
     await page.waitForTimeout(900);
     const newsState = await page.evaluate(() => ({
@@ -198,34 +200,47 @@ async function main() {
       first: window.LAKE_NEWS && window.LAKE_NEWS[0] ? window.LAKE_NEWS[0].title : null,
       date: window.LAKE_NEWS && window.LAKE_NEWS[0] ? window.LAKE_NEWS[0].date : null,
     }));
-    const newsOk = newsState.count === 2 && newsState.first === stub.news[0].title && newsState.date === '15 Feb, 2026';
-    console.log(`${newsOk ? 'PASS' : 'FAIL'} news.html LAKE_NEWS from API (count=${newsState.count}, first="${newsState.first}", date="${newsState.date}")`);
+    const expectedNews = snapshot.entities.news.slice().sort((a, b) =>
+      new Date(b.publicationDate || b.date || 0) - new Date(a.publicationDate || a.date || 0));
+    const newsOk = newsState.count === expectedNews.length && newsState.first === expectedNews[0].title;
+    console.log(`${newsOk ? 'PASS' : 'FAIL'} news.html LAKE_NEWS from release (count=${newsState.count}, first="${newsState.first}", date="${newsState.date}")`);
     if (!newsOk) fail = 1;
 
-    /* Map retarget: markers built from /api/public/map. */
+    /* Map retarget: markers built from the release map. */
     await page.goto(`http://127.0.0.1:${PORT}/africa-network.html`, { waitUntil: 'domcontentloaded' });
     await page.waitForTimeout(900);
     const mapState = await page.evaluate(() => ({
       assets: (window.__LAKE_MAP_ASSETS__ || []).length,
+      routes: window.LakeAfricaMap ? window.LakeAfricaMap.routeCount() : 0,
       first: window.__LAKE_MAP_ASSETS__ && window.__LAKE_MAP_ASSETS__[0]
         ? { name: window.__LAKE_MAP_ASSETS__[0].name, country: window.__LAKE_MAP_ASSETS__[0].country } : null,
     }));
-    const mapOk = mapState.assets >= 5 && mapState.first && mapState.first.country === 'tz';
-    console.log(`${mapOk ? 'PASS' : 'FAIL'} africa-network map assets from API (count=${mapState.assets}, first=${JSON.stringify(mapState.first)})`);
+    const mapOk = mapState.assets >= 5 && mapState.routes === 3 && mapState.first && mapState.first.country === 'tz';
+    console.log(`${mapOk ? 'PASS' : 'FAIL'} africa-network map assets/routes from release (assets=${mapState.assets}, routes=${mapState.routes}, first=${JSON.stringify(mapState.first)})`);
     if (!mapOk) fail = 1;
 
-    /* Fallback: API down → static markup untouched. */
+    /* Backend down + brand-new browser → current release still loads. */
     setApiUp(false);
-    await page.goto(`http://127.0.0.1:${PORT}/services.html`, { waitUntil: 'domcontentloaded' });
-    await page.waitForTimeout(900);
-    const staticText = await page.evaluate(() => {
+    const outageContext = await browser.newContext({ serviceWorkers: 'block' });
+    const outagePage = await outageContext.newPage();
+    await outagePage.goto(`http://127.0.0.1:${PORT}/services.html`, { waitUntil: 'domcontentloaded' });
+    await outagePage.waitForTimeout(900);
+    const outageState = await outagePage.evaluate(() => {
       const row = document.querySelector('[data-entity-key="lake-oil"]');
       const el = row && row.querySelector('[data-entity-field="description"]');
-      return el ? el.textContent.trim() : null;
+      return {
+        text: el ? el.textContent.trim() : null,
+        releaseId: window.LakePublicContent ? window.LakePublicContent.releaseId() : null,
+      };
     });
-    const fallbackOk = staticText && staticText.includes('Top 5 petroleum distributor');
-    console.log(`${fallbackOk ? 'PASS' : 'FAIL'} fallback: API down → static kept ("${(staticText || '').slice(0, 60)}")`);
+    await outageContext.close();
+    const fallbackOk = outageState.text === snapshot.entities.companies.find((row) => row.slug === 'lake-oil').description &&
+      outageState.releaseId === manifest.releaseId;
+    console.log(`${fallbackOk ? 'PASS' : 'FAIL'} clean-browser outage: release ${outageState.releaseId || 'missing'} served`);
     if (!fallbackOk) fail = 1;
+    const deliveryIndependent = apiRequests === 0;
+    console.log(`${deliveryIndependent ? 'PASS' : 'FAIL'} public content made ${apiRequests} live API requests`);
+    if (!deliveryIndependent) fail = 1;
   } catch (e) {
     console.log('FATAL:', e.message);
     fail = 1;

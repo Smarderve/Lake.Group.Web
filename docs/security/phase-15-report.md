@@ -34,12 +34,14 @@ Three areas audited against the roadmap's acceptance criteria:
 
 ## Implemented
 
-- **`csrf-guard.js`** — `X-Forwarded-*` is honored ONLY when
-  `TRUST_PROXY > 0`; otherwise the check uses `req.headers.host` and the
-  socket protocol (`req.secure`). Multi-value forwarded headers take the
-  **first** value (proxy chains append to the right).
+- **`csrf-guard.js`** — forwarded host/protocol are honored only when
+  Express's compiled trust function accepts the direct peer; a truthy setting
+  alone is insufficient. Multi-value forwarded headers take the **first**
+  value (proxies append to the right).
 - **`app.js`** — `trustProxy` (already a config knob for rate limiting /
   audit IPs) is now threaded into the CSRF guard.
+- **`config.js`** — production accepts only direct mode (`0`), exactly one
+  ingress hop (`1`), or explicit IP/CIDR entries; unsafe values fail boot.
 - **`index.js`** — production boot warning when `TRUST_PROXY` is 0:
   client IPs and `X-Forwarded-*` are untrusted, so rate limiting sees the
   proxy and the CSRF check ignores forwarded headers. Warn, not fail —

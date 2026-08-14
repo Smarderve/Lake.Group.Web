@@ -147,35 +147,23 @@
   })();
 
   /* ------------------------------------------------------------------ */
-  /* Phase 9  approved facts from the backend (when configured)          */
+  /* Approved facts from the versioned public release                    */
   /* ------------------------------------------------------------------ */
-  // The site stays fully functional without a backend: facts are fetched
-  // ONLY when window.LAKE_API_BASE is set (same convention as the Phase 8
-  // loaders). Answers then prefer these approved, sourced facts over the
-  // build-time KB, and unanswered questions are logged to the content-gap
-  // tracker instead of silently disappearing.
+  // Answers prefer the approved, sourced facts materialized in the same
+  // public deployment. The live API is used only for best-effort
+  // content-gap writes and is never required to answer visitors.
   var API_BASE = (window.LAKE_API_BASE || '').replace(/\/+$/, '');
   var apiFacts = null; // [{ id, type, text, source, verification, url, title }]
 
   function loadApiFacts() {
-    if (!API_BASE) return;
-    var done = false;
-    var timer = setTimeout(function () {
-      if (!done) apiFacts = [];
-    }, 4000);
-    fetch(API_BASE + '/api/public/knowledge/facts')
-      .then(function (r) {
-        if (!r.ok) throw new Error('facts ' + r.status);
-        return r.json();
-      })
+    var delivery = window.LakePublicContentReady ||
+      Promise.resolve(window.LakePublicContent || null);
+    delivery
+      .then(function (client) { return client ? client.knowledge() : { facts: [] }; })
       .then(function (data) {
-        done = true;
-        clearTimeout(timer);
         apiFacts = Array.isArray(data.facts) ? data.facts : [];
       })
       .catch(function () {
-        done = true;
-        clearTimeout(timer);
         apiFacts = [];
       });
   }

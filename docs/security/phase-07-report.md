@@ -18,19 +18,21 @@
 
 ### Implemented
 
-1. **Content-Security-Policy meta on all 49 pages** (inserted before `</head>`):
-   - `default-src 'self'`; `object-src 'none'`; `base-uri 'self'`; `form-action 'self' https:`
-   - `script-src 'self' 'unsafe-inline'` — 14 pages carry inline interactive
-     scripts (motion, country selectors, gallery filters); external script
-     injection (`<script src="https://evil">`) remains blocked
+1. **Content-Security-Policy meta on all 49 pages** (inserted before `</head>`)
+   and the matching Vercel HTTP response header:
+   - `default-src 'self'`; `object-src 'none'`; `base-uri 'self'`;
+     `form-action 'self'`; `frame-ancestors 'none'`
+   - `script-src 'self' 'unsafe-inline'`; `script-src-attr 'none'` — inline
+     event handlers were removed, while existing inline script elements remain
+     pending a deterministic hash/nonce build
    - `style-src 'self' 'unsafe-inline'` — ~1400 inline `style=` attributes
    - `img-src 'self' data: https:`; `font-src 'self' data:` (fonts are local)
-   - `connect-src 'self' https: http://127.0.0.1:*` — covers the
-     deployment-configurable `LAKE_API_BASE` + local dev/test API
+   - `connect-src 'self' https:` — covers same-origin snapshots and the
+     explicitly configured production `LAKE_API_BASE`
    - `frame-src https://www.youtube.com https://www.youtube-nocookie.com`
      (the only embeds)
-   - `frame-ancestors` is header-only — the API responses + production
-     reverse proxy already send `frame-ancestors 'none'` (Phase 11)
+   - `frame-ancestors` is enforced by the Vercel response header (meta alone
+     cannot enforce it)
 2. **Iconify vendored locally** — `assets/vendor/iconify/iconify-icon.min.js`
    (2.3.0, the exact CDN build); `site.js` now loads the local copy. The site
    loads **zero third-party scripts** now.
@@ -80,14 +82,12 @@
 
 ### Remaining risks (documented tradeoffs)
 
-- `script-src 'unsafe-inline'` is required by 14 pages' inline interactive
-  scripts — an *injected inline* script would run. The blast radius is
-  contained because the app renders user content via `textContent` (no HTML
-  injection primitive), the DOM-XSS probe guards that path, and external
-  script injection is blocked.
+- `script-src 'unsafe-inline'` is required by inline script elements on more
+  than 40 pages. Inline event handlers are independently blocked. Full removal
+  requires a deterministic static hash/nonce build.
 - `style-src 'unsafe-inline'` for the site's ~1400 inline style attributes.
-- `connect-src` includes `https:` (deployment-configurable API origin) and
-  loopback — documented above.
+- `connect-src` includes `https:` for the deployment-configurable API origin;
+  production loopback access is no longer allowed.
 - `frame-ancestors` for the static site must come from the reverse proxy
   header (meta tags don't support it) — already in the Phase 11 runbook.
 

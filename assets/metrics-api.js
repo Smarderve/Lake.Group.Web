@@ -1,14 +1,8 @@
 /* =========================================================
  * Lake Group · Metrics API loader (Phase 8 · Task 8.1)
  *
- * Hydrates any element tagged with data-metric-key="<key>" from the
- * backend's public metrics API (GET /api/public/metrics/:key — PUBLISHED
- * values only). This is the "Corporate Truth" migration: the website
- * renders the governed value when the backend is reachable, and falls
- * back to the static markup already in the HTML otherwise.
- *
- * Configure the endpoint BEFORE this script loads, e.g.:
- *   window.LAKE_METRICS_API = 'http://127.0.0.1:4000';   (default)
+ * Hydrates any element tagged with data-metric-key="<key>" from the immutable
+ * same-origin public release. Only governed PUBLISHED values enter a release.
  *
  * Element contract:
  *   - data-metric-key="employees"        → plain text span: textContent = value
@@ -19,14 +13,11 @@
  *                                          data-number + textContent updated so a
  *                                          language switch re-formats the served value
  *
- * Failure is silent by design: timeout or non-200 keeps the static markup,
- * exactly as the page shipped. No console spam, no error UI.
+ * Failure is silent by design: the generated static markup shipped in the
+ * same release remains visible.
  * ========================================================= */
 (function () {
   'use strict';
-
-  var API_BASE = (window.LAKE_METRICS_API || 'http://127.0.0.1:4000').replace(/\/+$/, '');
-  var FETCH_TIMEOUT = 4000; /* ms — fall back to static markup if the API is slow */
 
   function extractNumeric(value) {
     var m = String(value).match(/\d[\d,]*/);
@@ -70,26 +61,18 @@
   }
 
   function hydrateKey(key) {
-    var timer = setTimeout(function () {
-      /* API unreachable — static markup stays. */
-    }, FETCH_TIMEOUT);
-
-    fetch(API_BASE + '/api/public/metrics/' + encodeURIComponent(key), { cache: 'no-store' })
-      .then(function (res) {
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        return res.json();
-      })
-      .then(function (payload) {
-        clearTimeout(timer);
-        var metric = payload && payload.metric;
+    var delivery = window.LakePublicContentReady ||
+      Promise.resolve(window.LakePublicContent || null);
+    delivery
+      .then(function (client) { return client ? client.metric(key) : null; })
+      .then(function (metric) {
         if (!metric || typeof metric.value !== 'string') return;
         document.querySelectorAll('[data-metric-key="' + key + '"]').forEach(function (el) {
           applyValue(el, metric.value);
         });
       })
       .catch(function () {
-        clearTimeout(timer);
-        /* offline — keep the static fallback */
+        /* Keep the generated static release rendering. */
       });
   }
 

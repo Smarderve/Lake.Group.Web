@@ -1,5 +1,10 @@
 # Continuous Security
 
+> The standing process remains active. Current commands, upload controls,
+> evidence counts, and the 300-threat acceptance model are maintained in
+> `../SECURITY-TEST-PLAN.md`, `../SECURITY-CONTROLS.md`, and
+> `../SECURITY-ACCEPTANCE-REPORT.md`; historical counts below are preserved.
+
 **SECURITY_ROADMAP Phase 25 — status: ✅ executed (standing process)**
 
 Security work does not end at deployment. This document is the operational

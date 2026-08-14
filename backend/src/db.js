@@ -33,6 +33,17 @@ export async function pingDb(db) {
 }
 
 /**
+ * PostgreSQL pool backing the persistent rate-limit store (same database
+ * as sessions/Prisma). Returns null when DATABASE_URL is not configured so
+ * the server can still boot; the login limiter then falls back to the
+ * in-memory store (see middleware/rate-limit.js).
+ */
+export function createRateLimitPool(databaseUrl = process.env.DATABASE_URL) {
+  if (!databaseUrl) return null;
+  return new Pool({ connectionString: databaseUrl, max: 5 });
+}
+
+/**
  * Creates a PostgreSQL-backed express-session store (connect-pg-simple)
  * using the same local database as Prisma. The store creates its own
  * `session` table at runtime; revocation helpers are attached so any

@@ -1,0 +1,60 @@
+name: Public Website Checks
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "*.html"
+      - "assets/**"
+      - "public-content/**"
+      - "scripts/public-snapshot.js"
+      - "scripts/_verify_phase8_entities.js"
+      - "tests/public-snapshot.test.js"
+      - "vercel.json"
+      - ".github/workflows/public-website.yml"
+  push:
+    branches: [main]
+    paths:
+      - "*.html"
+      - "assets/**"
+      - "public-content/**"
+      - "scripts/public-snapshot.js"
+      - "scripts/_verify_phase8_entities.js"
+      - "tests/public-snapshot.test.js"
+      - "vercel.json"
+      - ".github/workflows/public-website.yml"
+
+jobs:
+  published-release:
+    name: Published release resilience
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Test atomic snapshot publication
+        run: npm run test:public-delivery
+
+      - name: Verify clean-browser backend outage
+        run: node scripts/_verify_phase8_entities.js
+
+      - name: Scan repository secrets
+        run: npm run secret:scan

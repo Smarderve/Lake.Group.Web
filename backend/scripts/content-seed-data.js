@@ -26,9 +26,10 @@ export const CONTENT_SEED = {
     { slug: 'logistics', name: 'Logistics', description: 'Bulk liquid haulage, cross-border transport and container depots.' },
     { slug: 'realestate', name: 'Real Estate', description: 'Property development and retail galleries.' },
     { slug: 'agro', name: 'Agro Processing', description: 'Agribusiness plantations and integrated agro-parks.' },
+    { slug: 'automotive', name: 'Automotive', description: 'Automotive assembly, components and mobility ventures.' },
   ],
 
-  // 18 operating companies — names/slugs/descriptions mirror services.html
+  // 21 operating companies — names/slugs/descriptions mirror services.html
   // (the live directory) and the verified-facts dataset.
   companies: [
     { slug: 'lake-oil', name: 'Lake Oil', categorySlug: 'energies', foundedYear: 2006,
@@ -85,6 +86,17 @@ export const CONTENT_SEED = {
     { slug: 'lake-agro', name: 'Lake Agro', categorySlug: 'agro',
       description: 'Agribusiness plantations and integrated agro-parks — creating customers and food for life across Africa.',
       logo: 'assets/images/logos/companies/lake-agro.png', website: 'https://www.lakeoilgroup.com/lake-agro.html' },
+    // Automotive sector — placeholder records only; no company data exists yet.
+    // Logos use the shared default placeholder until real marks are provided.
+    { slug: 'assembly-tech', name: 'Assembly Tech Limited', categorySlug: 'automotive',
+      description: "Assembly Tech Limited is part of Lake Group's Automotive sector.",
+      logo: 'assets/images/logos/companies/lake-group-placeholder.png', website: 'https://www.lakeoilgroup.com/assembly-tech.html' },
+    { slug: 'agrinova-tech', name: 'AgriNova Tech Limited', categorySlug: 'automotive',
+      description: "AgriNova Tech Limited is part of Lake Group's Automotive sector.",
+      logo: 'assets/images/logos/companies/lake-group-placeholder.png', website: 'https://www.lakeoilgroup.com/agrinova-tech.html' },
+    { slug: 'nextdrive-motors', name: 'NextDrive Motors Limited', categorySlug: 'automotive',
+      description: "NextDrive Motors Limited is part of Lake Group's Automotive sector.",
+      logo: 'assets/images/logos/companies/lake-group-placeholder.png', website: 'https://www.lakeoilgroup.com/nextdrive-motors.html' },
   ],
 
   // 10 countries — from the verified-facts dataset + footer/nav of every page.
@@ -415,6 +427,25 @@ export const CONTENT_SEED = {
     { slug: 'industrial', name: 'Industrial Zone', description: 'Plants, mills and industrial sites.', color: '#64748b', icon: 'industrial', sortOrder: 4 },
     { slug: 'logistics', name: 'Logistics Hub', description: 'Trucking and distribution hubs.', color: '#0181BB', icon: 'logistics', sortOrder: 5 },
     { slug: 'depots', name: 'Depots & Terminals', description: 'LPG terminals and storage depots.', color: '#F4A261', icon: 'depot', sortOrder: 6 },
+  ],
+
+  // Operations-map routes are governed as one reusable structured block.
+  mapRoutes: [
+    {
+      name: 'TAZAMA Fuel Pipeline', color: '#FFF200', weight: 4, dash: '8 6',
+      coords: [[-6.85, 39.28], [-7.5, 38.5], [-9.0, 36.5], [-11.0, 34.0], [-13.0, 32.5], [-15.4, 28.3]],
+      desc: 'Dar es Salaam to Lusaka petroleum pipeline corridor.',
+    },
+    {
+      name: 'Northern Logistics Corridor', color: '#0181BB', weight: 3, dash: null,
+      coords: [[-6.79, 39.21], [-4.04, 39.67], [-1.29, 36.82], [0.31, 32.58], [-1.94, 30.06], [-3.36, 29.36]],
+      desc: 'Dar es Salaam, Mombasa, Nairobi, Kampala, Kigali and Bujumbura supply chain.',
+    },
+    {
+      name: 'Southern Africa Route', color: '#0181BB', weight: 3, dash: null,
+      coords: [[-6.79, 39.21], [-15.39, 28.32], [-25.97, 32.57]],
+      desc: 'East coast to Lusaka and Maputo logistics corridor.',
+    },
   ],
 };
 

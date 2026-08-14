@@ -8,12 +8,12 @@
  * Bump VERSION on any deploy that changes HTML, images, or precached files;
  * activation deletes every cache from older versions so offline matches online.
  *
- * v65: Nav dropdown hover-intent — no premature megamenu open.
+ * v69: Isolate mobile Home/About tap targets and refresh shared chrome.
  */
 
 'use strict';
 
-const VERSION = 'v68';
+const VERSION = 'v69';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -43,21 +43,22 @@ const PRECACHE_URLS = [
   './lake-steel.html',
   './lake-trans.html',
   './manifest.webmanifest',
-  './assets/pwa.js?v=60',
+  './assets/pwa.js?v=61',
   './assets/site.js?v=60',
   './assets/tokens.css?v=62',
-  './assets/theme.css?v=93',
-  './assets/flagship.css?v=100',
-  './assets/skeleton.css?v=6',
-  './assets/skeleton.js?v=6',
+  './assets/theme.css?v=94',
+  './assets/flagship.css?v=101',
+  './assets/home-redesign.css?v=3',
+  './assets/skeleton.css?v=7',
+  './assets/skeleton.js?v=7',
   './assets/motion.js?v=58',
   './assets/flagship-motion.js?v=58',
-  './assets/split-text.js?v=47',
-  './assets/split-text.css?v=47',
+  './assets/split-text.js?v=48',
+  './assets/split-text.css?v=48',
   './assets/vendor/gsap/gsap.min.js',
   './assets/vendor/gsap/ScrollTrigger.min.js',
   './assets/i18n.js?v=58',
-  './assets/i18n-content.js?v=60',
+  './assets/i18n-content.js?v=63',
   './assets/assistant.js?v=60',
   './assets/assistant.css?v=71',
   './assets/assistant-kb.js',

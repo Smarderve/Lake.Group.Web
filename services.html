@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html class="lg-loading" lang="en">
 <head>
   <style id="lg-skel-critical">html.lg-loading{overflow:hidden}html.lg-loading::before{content:"";position:fixed;inset:0;z-index:99989;background:#013f5c;pointer-events:none}html.lg-skel-done::before{display:none}.nav-logo img,.site-nav .nav-logo img{height:var(--nav-logo-height,48px)!important;width:auto!important;max-width:min(220px,55vw)!important;max-height:var(--nav-logo-height,48px)!important;object-fit:contain}</style>
@@ -100,11 +100,11 @@
 <link rel="stylesheet" href="assets/flagship.css?v=100">
 <link rel="stylesheet" href="assets/split-text.css?v=48">
   <link rel="stylesheet" href="assets/assistant.css?v=71">
-  <link rel="stylesheet" href="assets/skeleton.css?v=6">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https: http://127.0.0.1:*; frame-src https://www.youtube.com https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; form-action 'self' https:">
+  <link rel="stylesheet" href="assets/skeleton.css?v=7">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https://www.youtube.com https://www.youtube-nocookie.com; worker-src 'self'; manifest-src 'self'; media-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 </head>
 <body>
-  <script src="assets/skeleton.js?v=6"></script>
+  <script src="assets/skeleton.js?v=7"></script>
 <nav class="site-nav" dir="ltr">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -118,11 +118,13 @@
         <div class="nav-dropdown nav-megamenu" id="nav-companies-menu" role="menu" data-i18n-aria="mob.companies" aria-label="Subsidiaries">
           <div class="mm-layout">
             <div class="mm-cats" role="tablist" aria-orientation="vertical" aria-label="Subsidiary categories">
-              <button type="button" class="mm-cat is-active" role="tab" id="mm-tab-energies" data-mm-cat="energies" aria-controls="mm-pane-energies" aria-selected="true" tabindex="0" data-i18n="nav.dd.energies">Lake Energies</button>
-              <button type="button" class="mm-cat" role="tab" id="mm-tab-manufacturing" data-mm-cat="manufacturing" aria-controls="mm-pane-manufacturing" aria-selected="false" tabindex="-1" data-i18n="nav.dd.manufacturing">Manufacturing</button>
-              <button type="button" class="mm-cat" role="tab" id="mm-tab-logistics" data-mm-cat="logistics" aria-controls="mm-pane-logistics" aria-selected="false" tabindex="-1" data-i18n="nav.dd.logisticsCos">Logistics</button>
-              <button type="button" class="mm-cat" role="tab" id="mm-tab-realestate" data-mm-cat="realestate" aria-controls="mm-pane-realestate" aria-selected="false" tabindex="-1" data-i18n="nav.dd.realEstate">Real Estate</button>
-              <button type="button" class="mm-cat" role="tab" id="mm-tab-agro" data-mm-cat="agro" aria-controls="mm-pane-agro" aria-selected="false" tabindex="-1" data-i18n="nav.dd.agro">Agro Processing</button>
+              <button type="button" class="mm-cat is-active" role="tab" id="mm-tab-energies" data-mm-cat="energies" aria-controls="mm-pane-energies" aria-selected="true" tabindex="0" data-i18n="nav.dd.energies">Energies Sector</button>
+              <button type="button" class="mm-cat" role="tab" id="mm-tab-manufacturing" data-mm-cat="manufacturing" aria-controls="mm-pane-manufacturing" aria-selected="false" tabindex="-1" data-i18n="nav.dd.manufacturing">Manufacturing Sector</button>
+              <button type="button" class="mm-cat" role="tab" id="mm-tab-logistics" data-mm-cat="logistics" aria-controls="mm-pane-logistics" aria-selected="false" tabindex="-1" data-i18n="nav.dd.logisticsCos">Logistics Sector</button>
+              <button type="button" class="mm-cat" role="tab" id="mm-tab-realestate" data-mm-cat="realestate" aria-controls="mm-pane-realestate" aria-selected="false" tabindex="-1" data-i18n="nav.dd.realEstate">Real Estate Sector</button>
+              <button type="button" class="mm-cat" role="tab" id="mm-tab-agro" data-mm-cat="agro" aria-controls="mm-pane-agro" aria-selected="false" tabindex="-1" data-i18n="nav.dd.agro">Agro Processing Sector</button>
+              <button type="button" class="mm-cat" role="tab" id="mm-tab-automotive" data-mm-cat="automotive" aria-controls="mm-pane-automotive" aria-selected="false" tabindex="-1" data-i18n="nav.dd.automotive">Automotive Sector</button>
+            
             </div>
             <div class="mm-panes">
               <div class="mm-pane is-active" role="tabpanel" id="mm-pane-energies" data-mm-pane="energies" aria-labelledby="mm-tab-energies">
@@ -164,6 +166,14 @@
                   <a href="lake-agro.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-agro.png?v=61" alt="Lake Agro" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeAgro">Lake Agro</span></a>
           </div>
           </div>
+              <div class="mm-pane" role="tabpanel" id="mm-pane-automotive" data-mm-pane="automotive" aria-labelledby="mm-tab-automotive" hidden>
+                <div class="mm-companies">
+                  <a href="assembly-tech.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="Assembly Tech Limited" loading="lazy" width="56" height="32"><span data-i18n="nav.co.assemblyTech">Assembly Tech Limited</span></a>
+                  <a href="agrinova-tech.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="AgriNova Tech Limited" loading="lazy" width="56" height="32"><span data-i18n="nav.co.agrinovaTech">AgriNova Tech Limited</span></a>
+                  <a href="nextdrive-motors.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="NextDrive Motors Limited" loading="lazy" width="56" height="32"><span data-i18n="nav.co.nextDriveMotors">NextDrive Motors Limited</span></a>
+          </div>
+          </div>
+
           </div>
           </div>
         </div>
@@ -240,14 +250,14 @@
   <a href="index.html" data-i18n="nav.home">Home</a><a href="about.html" data-i18n="nav.about">About</a>
   <div class="mob-section" data-i18n="mob.companies">Subsidiaries</div>
   <div class="mob-accordion">
-    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-energies" data-i18n="nav.dd.energies">Lake Energies</button>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-energies" data-i18n="nav.dd.energies">Energies Sector</button>
     <div class="mob-acc-panel" id="mob-acc-energies" hidden>
       <a href="lake-oil.html" data-i18n="nav.co.lakeOil">Lake Oil</a>
       <a href="lake-aviation.html" data-i18n="nav.co.lakeAviation">Lake Aviation</a>
       <a href="lake-gas.html" data-i18n="nav.co.lakeGas">Lake Gas</a>
       <a href="lake-lubes.html" data-i18n="nav.co.lakeLubes">Lake Lubes</a>
     </div>
-    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-manufacturing" data-i18n="nav.dd.manufacturing">Manufacturing</button>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-manufacturing" data-i18n="nav.dd.manufacturing">Manufacturing Sector</button>
     <div class="mob-acc-panel" id="mob-acc-manufacturing" hidden>
       <a href="lake-buildings.html" data-i18n="nav.co.lakeBuildings">Lake Buildings</a>
       <a href="lake-plastics.html" data-i18n="nav.co.lakePlastics">Lake Plastics</a>
@@ -257,22 +267,29 @@
       <a href="atl.html" data-i18n="nav.co.atl">ATL</a>
       <a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a>
     </div>
-    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-logistics" data-i18n="nav.dd.logisticsCos">Logistics</button>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-logistics" data-i18n="nav.dd.logisticsCos">Logistics Sector</button>
     <div class="mob-acc-panel" id="mob-acc-logistics" hidden>
             <a href="acfs.html" data-i18n="nav.co.acfs">ACFS</a>
 <a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a>
       <a href="aill.html" data-i18n="nav.co.aill">AILL</a>
       <a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a>
     </div>
-    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-realestate" data-i18n="nav.dd.realEstate">Real Estate</button>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-realestate" data-i18n="nav.dd.realEstate">Real Estate Sector</button>
     <div class="mob-acc-panel" id="mob-acc-realestate" hidden>
       <a href="cross-country.html" data-i18n="nav.co.crossCountry">Cross Country</a>
       <a href="ocean-galleria.html" data-i18n="nav.co.oceanGalleria">Ocean Galleria</a>
     </div>
-    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-agro" data-i18n="nav.dd.agro">Agro Processing</button>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-agro" data-i18n="nav.dd.agro">Agro Processing Sector</button>
     <div class="mob-acc-panel" id="mob-acc-agro" hidden>
       <a href="lake-agro.html" data-i18n="nav.co.lakeAgro">Lake Agro</a>
     </div>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-automotive" data-i18n="nav.dd.automotive">Automotive Sector</button>
+    <div class="mob-acc-panel" id="mob-acc-automotive" hidden>
+      <a href="assembly-tech.html" data-i18n="nav.co.assemblyTech">Assembly Tech Limited</a>
+      <a href="agrinova-tech.html" data-i18n="nav.co.agrinovaTech">AgriNova Tech Limited</a>
+      <a href="nextdrive-motors.html" data-i18n="nav.co.nextDriveMotors">NextDrive Motors Limited</a>
+    </div>
+
   </div>
   <a href="leadership.html" data-i18n="nav.leadership">Leadership</a>
   <div class="mob-section" data-i18n="mob.company">Corporate</div>
@@ -303,18 +320,18 @@
 <section class="fs-section">
   <div class="container">
     <div class="fs-head fs-head-center">
-      <div class="fs-eyebrow" style="justify-content:center">17 Companies, Five Divisions</div>
+      <div class="fs-eyebrow" style="justify-content:center">21 Companies, Six Divisions</div>
       <h2 class="fs-display">One Group, Independent Companies</h2>
       <p class="fs-lede" style="margin:0 auto;max-width:58ch" data-i18n="services.intro">Every Lake Group company now has its own dedicated page. Browse by division below, or use the "Subsidiaries" menu at the top of any page.</p>
     </div>
     <div class="div-index" data-hydrate="companies" data-hydrate-match="slug">
-      <div class="div-cat" data-i18n="nav.dd.energies">Lake Energies</div>
+      <div class="div-cat" data-i18n="nav.dd.energies">Energies Sector</div>
       <a href="lake-oil.html" class="div-row" data-entity-key="lake-oil"><div class="div-no">01</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-oil.png" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Lake Oil</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeOil" data-entity-field="description">Top 5 petroleum distributor in Tanzania. Retail stations, bulk supply and storage across 10 countries.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
       <a href="lake-aviation.html" class="div-row" data-entity-key="lake-aviation"><div class="div-no">02</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-aviation.png" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Lake Aviation</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeAviation" data-entity-field="description">Lake Group's aviation services division.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
       <a href="lake-gas.html" class="div-row" data-entity-key="lake-gas"><div class="div-no">03</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-gas.png" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Lake Gas</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeGas" data-entity-field="description">LPG bottling and distribution with cylinders for domestic and commercial use across 6 countries.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
       <a href="lake-lubes.html" class="div-row" data-entity-key="lake-lubes"><div class="div-no">04</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-lubes.png" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Lake Lubes</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeLubes" data-entity-field="description">Manufactures and distributes automotive, industrial and specialty lubricants in 5 countries.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
 
-      <div class="div-cat" data-i18n="nav.dd.manufacturing">Manufacturing</div>
+      <div class="div-cat" data-i18n="nav.dd.manufacturing">Manufacturing Sector</div>
       <a href="lake-buildings.html" class="div-row" data-entity-key="lake-buildings"><div class="div-no">05</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-buildings.png" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Lake Buildings</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeBuildings" data-entity-field="description">Lake Group's building materials and construction solutions arm.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
       <a href="lake-plastics.html" class="div-row" data-entity-key="lake-plastics"><div class="div-no">06</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-plastics.png" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Lake Plastics</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakePlastics" data-entity-field="description">Lake Group's plastics manufacturing division.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
       <a href="lake-steel.html" class="div-row" data-entity-key="lake-steel"><div class="div-no">07</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-steel.png" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Lake Steel</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeSteel" data-entity-field="description">Tanzania's first HS-CR rebar producer. Fully automated rolling mill, 100,000 MT/year capacity.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
@@ -323,18 +340,23 @@
       <a href="atl.html" class="div-row" data-entity-key="atl"><div class="div-no">10</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/atl.png?v=61" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">ATL (Aluminium Trailers)</span></h3></div><div class="div-side"><p data-i18n="services.desc.atl" data-entity-field="description">Tanzania's aluminium fuel tanker and custom trailer manufacturer - engineered for African routes.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
       <a href="lake-premix-cement.html" class="div-row" data-entity-key="lake-premix-cement"><div class="div-no">11</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-premix-cement.png" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Lake Premix &amp; Cement</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakePremix" data-entity-field="description">Dar es Salaam's leading ready-mix concrete supplier, established 2010.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
 
-      <div class="div-cat" data-i18n="nav.dd.logisticsCos">Logistics</div>
+      <div class="div-cat" data-i18n="nav.dd.logisticsCos">Logistics Sector</div>
       <a href="aficd.html" class="div-row" data-entity-key="aficd"><div class="div-no">12</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/aficd.png?v=69" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">AFICD</span></h3></div><div class="div-side"><p data-i18n="services.desc.aficd" data-entity-field="description">African Inland Container Depot - inland container depot services across Tanzania, Zambia and Mozambique.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
       <a href="acfs.html" class="div-row" data-entity-key="acfs"><div class="div-no">13</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/acfs.png?v=69" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">ACFS</span></h3></div><div class="div-side"><p data-i18n="services.desc.acfs" data-entity-field="description">African Cargo Freight Station - container freight station and empty container depot services at Tazara, Pugu Road, Dar es Salaam.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
       <a href="aill.html" class="div-row" data-entity-key="aill"><div class="div-no">14</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/aill.png?v=65" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">AILL</span></h3></div><div class="div-side"><p data-i18n="services.desc.aill" data-entity-field="description">African Inland Logistic Limited - part of Lake Group's logistics network.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
       <a href="lake-trans.html" class="div-row" data-entity-key="lake-trans"><div class="div-no">15</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-trans.png" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Lake Trans</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeTrans" data-entity-field="description">1,200+ trucks for bulk liquid haulage and regional cross-border transport across East & Central Africa.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
 
-      <div class="div-cat" data-i18n="nav.dd.realEstate">Real Estate</div>
+      <div class="div-cat" data-i18n="nav.dd.realEstate">Real Estate Sector</div>
       <a href="cross-country.html" class="div-row" data-entity-key="cross-country"><div class="div-no">16</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/cross-country.png?v=69" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Cross Country</span></h3></div><div class="div-side"><p data-i18n="services.desc.crossCountry" data-entity-field="description">Lake Group's real estate and property development arm.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
       <a href="ocean-galleria.html" class="div-row" data-entity-key="ocean-galleria"><div class="div-no">17</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/ocean-galleria.png?v=69" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Ocean Galleria</span></h3></div><div class="div-side"><p data-i18n="services.desc.oceanGalleria" data-entity-field="description">Lake Group's real estate and retail gallery development.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
 
-      <div class="div-cat" data-i18n="nav.dd.agro">Agro Processing</div>
+      <div class="div-cat" data-i18n="nav.dd.agro">Agro Processing Sector</div>
       <a href="lake-agro.html" class="div-row" data-entity-key="lake-agro"><div class="div-no">18</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-agro.png?v=61" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Lake Agro</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeAgro" data-entity-field="description">Agribusiness plantations and integrated Ag Parks - creating customers and food for life across Africa.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
+
+      <div class="div-cat" data-i18n="nav.dd.automotive">Automotive Sector</div>
+      <a href="assembly-tech.html" class="div-row" data-entity-key="assembly-tech"><div class="div-no">19</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-group-placeholder.png" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">Assembly Tech Limited</span></h3></div><div class="div-side"><p data-i18n="services.desc.assemblyTech" data-entity-field="description">Part of the Lake Group.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
+      <a href="agrinova-tech.html" class="div-row" data-entity-key="agrinova-tech"><div class="div-no">20</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-group-placeholder.png" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">AgriNova Tech Limited</span></h3></div><div class="div-side"><p data-i18n="services.desc.agrinovaTech" data-entity-field="description">Part of the Lake Group.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
+      <a href="nextdrive-motors.html" class="div-row" data-entity-key="nextdrive-motors"><div class="div-no">21</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img data-entity-field="logo" data-entity-attr="src" src="assets/images/logos/companies/lake-group-placeholder.png" alt="" loading="lazy" decoding="async"></span> <span data-entity-field="name">NextDrive Motors Limited</span></h3></div><div class="div-side"><p data-i18n="services.desc.nextDriveMotors" data-entity-field="description">Part of the Lake Group.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>
 
       <a href="africa-network.html" class="div-row div-row--map fs-corners">
         <div class="div-no"><iconify-icon icon="mdi:infinity" width="28" height="28" aria-hidden="true"></iconify-icon></div>

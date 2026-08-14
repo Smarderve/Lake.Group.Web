@@ -1,28 +1,16 @@
 /* =========================================================
  * Lake Group · News API loader (Phase 8 · Task 8.5)
  *
- * Fetches published articles from the Lake Group backend
- * (GET /api/public/news — PUBLISHED + scheduled-visible only) and
- * falls back to the bundled window.LAKE_NEWS dataset when the
- * API is unreachable or unconfigured.
- *
- * Configure the endpoint BEFORE this script loads, e.g. in news.html:
- *   window.LAKE_API_BASE = 'http://127.0.0.1:4000';
- * (window.LAKE_NEWS_API_URL is honoured as a legacy alias.)
- * Leave it unset and the bundled dataset renders instantly — news is the
- * only loader that BLOCKS rendering, so it only probes when configured.
+ * Reads PUBLISHED, scheduled-visible articles from the immutable same-origin
+ * public release. The bundled window.LAKE_NEWS dataset is a generated
+ * compatibility rendering from the same release.
  * ========================================================= */
 (function () {
   'use strict';
 
-  var API_BASE = (window.LAKE_API_BASE || window.LAKE_NEWS_API_URL || '').replace(/\/+$/, '');
-  var FETCH_TIMEOUT = 4000;   /* ms — fall back to bundled data if the backend is slow */
-  var MAX_ARTICLES = 100;
-
   var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-  /* Unconfigured → the bundled window.LAKE_NEWS is already ready. */
-  var pending = !!API_BASE;
+  var pending = !!(window.LakePublicContentReady || window.LakePublicContent);
   var readyCallbacks = [];
   var settled = false;
 
@@ -84,24 +72,14 @@
     };
   }
 
-  function loadFromApi() {
-    var url = API_BASE + '/api/public/news?limit=' + MAX_ARTICLES;
-
-    var timer = setTimeout(function () {
-      settle(); /* backend unreachable — keep the bundled dataset */
-    }, FETCH_TIMEOUT);
-
-    fetch(url, { headers: { Accept: 'application/json' } })
-      .then(function (res) {
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        return res.json();
-      })
-      .then(function (payload) {
-        clearTimeout(timer);
-        /* If the timeout already fired, the page booted with the bundled
-           dataset — never swap the global out from under a rendered page. */
+  function loadFromSnapshot() {
+    var delivery = window.LakePublicContentReady ||
+      Promise.resolve(window.LakePublicContent || null);
+    delivery
+      .then(function (client) { return client ? client.list('news') : []; })
+      .then(function (docs) {
+        /* Never swap the global out from under an already-rendered page. */
         if (settled) return;
-        var docs = payload && Array.isArray(payload.news) ? payload.news : [];
         if (!docs.length) {
           settle();
           return;
@@ -118,7 +96,6 @@
         settle();
       })
       .catch(function () {
-        clearTimeout(timer);
         settle();
       });
   }
@@ -129,5 +106,5 @@
     onReady: onReady
   };
 
-  if (API_BASE) loadFromApi();
+  if (pending) loadFromSnapshot();
 })();

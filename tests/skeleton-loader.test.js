@@ -181,7 +181,7 @@ async function run() {
         assert.ok(state.midBand, `${pageName} produces blocks for the visible main content`);
         assert.ok(Array.isArray(state.kinds) && state.kinds.length > 0, `${pageName} classifies placeholder kinds`);
         assert.ok(
-          state.kinds.every((kind) => ['media', 'text', 'control', 'surface'].includes(kind)),
+          state.kinds.every((kind) => ['media', 'text', 'control', 'surface', 'navbar', 'navrule', 'rule', 'indicator'].includes(kind)),
           `${pageName} uses known placeholder kinds (got ${state.kinds.join(',')})`
         );
 

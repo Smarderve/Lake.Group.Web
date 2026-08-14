@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { SEEDS } from '../scripts/seed-metrics.js';
 import { CONTENT_SEED, CONTENT_SEED_KEYS } from '../scripts/content-seed-data.js';
-import { loadNewsBundle, loadGalleryTiles, parseBundleDate } from '../scripts/seed-content.js';
+import { loadNewsBundle, loadGalleryTiles, loadPageMetadata, parseBundleDate } from '../scripts/seed-content.js';
 
 /**
  * Phase 8 · Task 8.1 — the seed is the onboarding of the *existing* verified
@@ -59,7 +59,7 @@ describe('Phase 8 · content seeds (registry + CMS entities)', () => {
   const { companies, countries, regions, locations, facilities, projects, leadership, contacts, historyEvents, csrEntries, careerListings, mapCategories } = CONTENT_SEED;
 
   it('every entity array is populated and has unique stable keys', () => {
-    expect(companies).toHaveLength(18); // services.html directory (18 rows)
+    expect(companies).toHaveLength(21); // services.html directory (21 rows)
     expect(countries).toHaveLength(10); // verified "10 countries"
     expect(regions).toHaveLength(10); // one per operating country
     expect(locations.length).toBeGreaterThanOrEqual(16); // all verified address cities
@@ -76,7 +76,7 @@ describe('Phase 8 · content seeds (registry + CMS entities)', () => {
       const keys = list.map((x) => JSON.stringify(x));
       expect(new Set(keys).size, `${list.length} rows`).toBe(list.length);
     }
-    expect(new Set(CONTENT_SEED_KEYS.companySlugs).size).toBe(18);
+    expect(new Set(CONTENT_SEED_KEYS.companySlugs).size).toBe(21);
     expect(new Set(CONTENT_SEED_KEYS.countryIsos).size).toBe(10);
     expect(new Set(CONTENT_SEED_KEYS.facilityKeys).size).toBe(facilities.length);
   });
@@ -143,6 +143,35 @@ describe('Phase 8 · content seeds (registry + CMS entities)', () => {
     const years = historyEvents.map((h) => h.year);
     expect(years[0]).toBe(2006);
     for (let i = 1; i < years.length; i++) expect(years[i]).toBeGreaterThanOrEqual(years[i - 1]);
+  });
+});
+
+describe('public page metadata migration', () => {
+  it('extracts unique page titles and descriptions for governed SEO publication', () => {
+    const pages = loadPageMetadata();
+    expect(pages.length).toBeGreaterThan(40);
+    expect(new Set(pages.map((page) => page.slug)).size).toBe(pages.length);
+    expect(pages.find((page) => page.slug === 'home')).toMatchObject({
+      layoutType: 'home',
+    });
+    for (const page of pages) {
+      expect(page.title, page.slug).toBeTruthy();
+      expect(page.metaTitle, page.slug).toBeTruthy();
+      expect(page.metaDescription, page.slug).toBeTruthy();
+    }
+  });
+});
+
+describe('operations map route migration', () => {
+  it('stores route coordinates as governed import data instead of frontend constants', () => {
+    expect(CONTENT_SEED.mapRoutes).toHaveLength(3);
+    for (const route of CONTENT_SEED.mapRoutes) {
+      expect(route.name).toBeTruthy();
+      expect(route.coords.length).toBeGreaterThan(1);
+      expect(route.coords.every((point) =>
+        Array.isArray(point) && point.length === 2 && point.every(Number.isFinite),
+      )).toBe(true);
+    }
   });
 });
 

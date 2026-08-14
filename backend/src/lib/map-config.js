@@ -28,7 +28,7 @@ export const MAP_ENTITIES = {
     route: 'media',
     prefix: 'MEDIA',
     label: 'Media item',
-    fields: ['url', 'altText', 'caption', 'mimeType', 'sizeBytes', 'width', 'height', 'copyright', 'license', 'tags', 'variants', 'folderId'],
+    fields: ['url', 'altText', 'caption', 'mimeType', 'sizeBytes', 'width', 'height', 'copyright', 'license', 'tags', 'variants', 'folderId', 'uploadedBy', 'storageProvider', 'storageKey'],
     createSchema: mediaCreateSchema,
     updateSchema: mediaUpdateSchema,
     beforeCreate: mediaBeforeCreate,

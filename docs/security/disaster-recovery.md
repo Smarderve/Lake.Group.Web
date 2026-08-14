@@ -17,7 +17,11 @@
 - The dump is **custom format** (`pg_dump -Fc`, includes large objects) —
   restorable selectively or fully, and portable across PostgreSQL versions.
 - Backups land in `backend/backups/` (gitignored — dumps must never be
-  committable).
+  committable) and, when `BACKUP_STORAGE_PREFIX` is set, are copied through
+  the configured object-storage adapter after encryption.
+- Uploaded media binaries live in S3-compatible object storage. Enable bucket
+  versioning and provider replication/backup; PostgreSQL contains their
+  governed metadata and immutable object keys, not the binary bytes.
 - The application **code and static site are version-controlled** (git) —
   the database is the only state that needs a backup pipeline.
 
@@ -37,7 +41,9 @@ BACKUP_ENCRYPTION_KEY='<long random passphrase>' npm run db:backup
 ```
 
 **Automatic backups:** run the command above on a schedule. On Linux:
-`cron`/`systemd-timer` daily (example: `0 2 * * * cd /srv/lakegroup/backend && BACKUP_ENCRYPTION_KEY=... npm run db:backup >> /var/log/lake-backup.log 2>&1`). On Windows: Task Scheduler.
+`cron`/`systemd-timer` daily or the platform scheduler. Provide
+`BACKUP_ENCRYPTION_KEY`, `BACKUP_STORAGE_PREFIX`, and the S3/workload identity
+through the job's secret manager. On Windows, use Task Scheduler.
 
 ### Encryption key handling (deployment decision)
 
@@ -58,15 +64,17 @@ BACKUP_ENCRYPTION_KEY='<long random passphrase>' npm run db:backup
 - Production recommendation: daily backups × 14 days on the server **plus**
   one offsite copy per week kept 3 months (see "Separate location").
 
-### Separate location (deployment decision)
+### Separate location
 
 - On-server backups protect against corruption/deletion/application
   compromise, but **not** server failure or ransomware.
-- Offsite copy: after each backup, copy to a separate host/bucket, e.g.
-  `rclone copy backups/ offsite:lakegroup-backups/` (or `scp`), or attach
-  encrypted storage. At minimum, weekly offsite copies with 3-month
-  retention. The restore procedure is identical — point `db:restore` at the
-  offsite file.
+- `scripts/backup-db.js` automatically writes the completed encrypted dump to
+  `<BACKUP_STORAGE_PREFIX>/<dump-name>` with private/no-store cache semantics.
+  Production startup refuses a missing prefix or weak encryption key.
+- Use a backup bucket or replicated account/failure domain separate from the
+  database host. Configure provider lifecycle retention and alerts outside the
+  repository. Download the selected object into `backend/backups/` before
+  running `db:restore`.
 - The backup file itself is now encrypted by default when a key is set, so
   offsite storage does not need its own encryption layer (belt and
   suspenders: still use an encrypted bucket if available).

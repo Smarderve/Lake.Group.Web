@@ -2,6 +2,20 @@
 (function () {
   'use strict';
 
+  /* Start loading the immutable same-origin content release before feature
+     modules run. All snapshot-aware modules await this shared promise. */
+  if (!window.LakePublicContentReady) {
+    window.LakePublicContentReady = new Promise(function (resolve) {
+      if (window.LakePublicContent) return resolve(window.LakePublicContent);
+      var contentScript = document.createElement('script');
+      contentScript.src = '/assets/public-content.js?v=1';
+      contentScript.async = true;
+      contentScript.onload = function () { resolve(window.LakePublicContent || null); };
+      contentScript.onerror = function () { resolve(null); };
+      document.head.appendChild(contentScript);
+    });
+  }
+
   /* Iconify web component for footer / chrome icons — vendored locally
      (assets/vendor/iconify) so the site loads no third-party scripts;
      keeps the CSP script-src to 'self' (SECURITY_ROADMAP Phase 7). */

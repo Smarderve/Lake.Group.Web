@@ -452,6 +452,8 @@ model Media {
   folder           MediaFolder?  @relation(fields: [folderId], references: [id], onDelete: SetNull)
   uploadedBy       String?
   uploader         User?         @relation(fields: [uploadedBy], references: [id], onDelete: SetNull)
+  storageProvider  String? // internal object-storage adapter id; never public
+  storageKey       String? @unique // generated immutable object key; never client supplied
   status           GovernedStatus @default(DRAFT)
   createdAt        DateTime      @default(now())
   updatedAt        DateTime      @updatedAt

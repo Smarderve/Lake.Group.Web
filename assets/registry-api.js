@@ -9,50 +9,28 @@
  * and field elements tagged
  *   data-entity-field="<column>"     (text content by default)
  *   data-entity-attr="src|href|alt"  (attribute hydration)
- * is filled from the backend's public API (GET /api/public/:entity —
- * PUBLISHED records only). The static markup in the HTML is the fallback:
- * when the backend is unreachable, nothing changes.
- *
- * Configure the endpoint BEFORE this script loads, e.g.:
- *   window.LAKE_API_BASE = 'http://127.0.0.1:4000';   (default)
+ * is filled from the versioned same-origin public snapshot. The static markup
+ * shipped in the same deployment is the generated last-known-good rendering.
  *
  * i18n safety: hydrated text is re-applied after every language switch
  * (the i18n engine dispatches `lake-i18n-applied`), so backend-served
  * values win over the dictionary — the site truth lives in the API.
  *
- * Failure is silent by design: timeout or non-200 keeps the static markup.
+ * Failure is silent by design: an invalid/missing release keeps the generated
+ * static markup from the same atomic deployment.
  * ========================================================= */
 (function () {
   'use strict';
 
-  var API_BASE = (window.LAKE_API_BASE || 'http://127.0.0.1:4000').replace(/\/+$/, '');
-  var FETCH_TIMEOUT = 5000; /* ms — fall back to static markup if the API is slow */
   var cache = {}; /* entity → Promise<records|null> */
 
   function fetchList(entity) {
     if (cache[entity]) return cache[entity];
-    cache[entity] = new Promise(function (resolve) {
-      var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
-      var timer = setTimeout(function () {
-        if (ctrl) ctrl.abort();
-        resolve(null);
-      }, FETCH_TIMEOUT);
-      fetch(API_BASE + '/api/public/' + entity, { signal: ctrl ? ctrl.signal : undefined })
-        .then(function (res) {
-          if (!res.ok) throw new Error('HTTP ' + res.status);
-          return res.json();
-        })
-        .then(function (json) {
-          clearTimeout(timer);
-          var keys = Object.keys(json || {});
-          var arr = keys.length ? json[keys[0]] : null;
-          resolve(Array.isArray(arr) ? arr : null);
-        })
-        .catch(function () {
-          clearTimeout(timer);
-          resolve(null);
-        });
-    });
+    var delivery = window.LakePublicContentReady ||
+      Promise.resolve(window.LakePublicContent || null);
+    cache[entity] = delivery
+      .then(function (client) { return client ? client.list(entity) : null; })
+      .catch(function () { return null; });
     return cache[entity];
   }
 
@@ -81,7 +59,7 @@
     var entity = container.getAttribute('data-hydrate');
     if (!entity) return;
     fetchList(entity).then(function (records) {
-      if (!records || !records.length) return; /* API down → static markup stays */
+      if (!records || !records.length) return;
 
       var matchField = container.getAttribute('data-hydrate-match') || 'slug';
       var byKey = {};
@@ -127,6 +105,6 @@
 
   window.LakeRegistry = {
     hydrate: hydrateAll,
-    apiBase: API_BASE,
+    source: 'published-snapshot',
   };
 })();

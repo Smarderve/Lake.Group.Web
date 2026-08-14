@@ -4,7 +4,7 @@
  * on every page. Safe to include anywhere . bails out silently when
  * service workers aren't supported (file://, old browsers).
  *
- * v59: bump SW registration query, check for updates often, auto-apply
+ * v69: bump SW registration query, check for updates often, auto-apply
  * waiting workers, and reload when a new SW activates so offline matches
  * the latest deploy without a manual hard refresh.
  */
@@ -22,15 +22,15 @@
   // Append a cache-busting query so browsers revalidate sw.js on deploy.
   try {
     var u = new URL(swUrl, location.href);
-    u.searchParams.set('v', '59');
+    u.searchParams.set('v', '69');
     swUrl = u.href;
   } catch (err2) {
-    swUrl = swUrl + (swUrl.indexOf('?') === -1 ? '?v=61' : '&v=61');
+    swUrl = swUrl + (swUrl.indexOf('?') === -1 ? '?v=69' : '&v=69');
   }
 
   var reloadingAfterUpdate = false;
   var expectingControllerChange = false;
-  var RECOVERY_KEY = 'lake-sw-recovery-v59';
+  var RECOVERY_KEY = 'lake-sw-recovery-v69';
 
   function activateWaitingWorker(worker) {
     if (!worker) return;

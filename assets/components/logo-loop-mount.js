@@ -36,12 +36,12 @@
     logos: SUBSIDIARY_LOGOS,
     speed: 40,
     direction: 'left',
-    logoHeight: 28,
-    gap: 36,
-    logoHeightMobile: 22,
-    gapMobile: 24,
+    logoHeight: 44,
+    gap: 52,
+    logoHeightMobile: 34,
+    gapMobile: 34,
     fadeOut: true,
-    fadeOutColor: 'var(--color-brand-blue)',
+    fadeOutColor: '#013f5c',
     scaleOnHover: true,
     ariaLabel: (window.LakeI18n && LakeI18n.t('logoloop.aria')) || 'Lake Group subsidiary companies',
     pauseOnHover: true
@@ -60,7 +60,7 @@
     if (item) item.style.setProperty('display', 'none');
   }
 
-  function createLogoItem(item) {
+  function createLogoItem(item, eager) {
     var li = document.createElement('li');
     li.className = 'logoloop__item';
     li.setAttribute('role', 'listitem');
@@ -73,7 +73,7 @@
     img.src = item.src;
     img.alt = item.alt || '';
     if (item.title) img.title = item.title;
-    img.loading = 'lazy';
+    img.loading = eager ? 'eager' : 'lazy';
     img.decoding = 'async';
     img.draggable = false;
     img.addEventListener('error', function () {
@@ -104,7 +104,10 @@
     ul.setAttribute('role', 'list');
     if (copyIndex > 0) ul.setAttribute('aria-hidden', 'true');
     for (var i = 0; i < logos.length; i++) {
-      ul.appendChild(createLogoItem(logos[i]));
+      /* The first, accessible sequence is above the fold and only ~294 KB.
+         Load it eagerly so CSS-transformed movement never reveals an
+         unloaded transparent slot; duplicate sequences stay lazy. */
+      ul.appendChild(createLogoItem(logos[i], copyIndex === 0));
     }
     return ul;
   }
@@ -288,11 +291,13 @@
       }
     }
 
-    onImagesReady(function () {
-      updateDimensions();
-      observe();
-      if (!reduceMotion) rafId = requestAnimationFrame(animate);
-    });
+    /* Start observing and animating immediately. Waiting for every lazy image
+       deadlocks narrow viewports: off-screen logos do not load until the track
+       moves, while the track previously did not move until they had loaded. */
+    updateDimensions();
+    observe();
+    onImagesReady(updateDimensions);
+    if (!reduceMotion) rafId = requestAnimationFrame(animate);
 
     return function destroy() {
       if (rafId !== null) cancelAnimationFrame(rafId);

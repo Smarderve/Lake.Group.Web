@@ -1,5 +1,10 @@
 # Threat Model — Lake Group Platform
 
+> Historical 2026-08-11 baseline. The current threat model and 300-ID
+> crosswalk are `../SECURITY-THREAT-MODEL.md` and
+> `../SECURITY-REGRESSION-MATRIX.md`; superseded gaps below are retained as
+> audit history and must not be read as current posture.
+
 Grounded in the actual codebase (2026-08-11). Scope: `backend/` (Express +
 Prisma + PostgreSQL 18) and the static site it serves.
 

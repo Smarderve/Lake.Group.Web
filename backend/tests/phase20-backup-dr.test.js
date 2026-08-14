@@ -18,6 +18,7 @@ import {
   decryptDump,
   isEncryptedDump,
   selectExpiredDumps,
+  storeOffsiteBackup,
 } from '../scripts/backup-db.js';
 import { composeRestoreInvocation } from '../scripts/restore-db.js';
 
@@ -85,6 +86,29 @@ describe('Phase 20 — retention policy', () => {
     const entries = [entry('lakegroup-20260101000000.dump', 200)];
     expect(selectExpiredDumps(entries, 0, now)).toEqual([]);
     expect(selectExpiredDumps(entries, undefined, now)).toEqual([]);
+  });
+});
+
+describe('production offsite backup copy', () => {
+  it('stores the encrypted dump under the configured prefix with private caching', async () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'backup-offsite-'));
+    const file = path.join(dir, 'lakegroup-20260812.dump.enc');
+    fs.writeFileSync(file, Buffer.from('encrypted backup'));
+    let captured;
+    const storage = {
+      async put(input) {
+        captured = input;
+        return { key: input.key, url: `s3://${input.key}` };
+      },
+    };
+
+    const result = await storeOffsiteBackup(storage, file, 'production/backups/');
+
+    expect(result.key).toBe('production/backups/lakegroup-20260812.dump.enc');
+    expect(captured.contentType).toBe('application/octet-stream');
+    expect(captured.cacheControl).toBe('private, no-store');
+    expect(captured.body.equals(Buffer.from('encrypted backup'))).toBe(true);
+    fs.rmSync(dir, { recursive: true, force: true });
   });
 });
 

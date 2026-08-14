@@ -3,7 +3,22 @@
 Index for the Lake Group platform's security engineering work, following the
 **SECURITY_ROADMAP.md** specification (`C:\Users\USER\Downloads\SECURITY_ROADMAP.md`).
 
-## Posture summary (2026-08-12)
+## Current 300-threat execution documents (2026-08-13)
+
+- [`../SECURITY-ARCHITECTURE.md`](../SECURITY-ARCHITECTURE.md)
+- [`../SECURITY-THREAT-MODEL.md`](../SECURITY-THREAT-MODEL.md)
+- [`../SECURITY-ASSET-INVENTORY.md`](../SECURITY-ASSET-INVENTORY.md)
+- [`../SECURITY-CONTROLS.md`](../SECURITY-CONTROLS.md)
+- [`../SECURITY-TEST-PLAN.md`](../SECURITY-TEST-PLAN.md)
+- [`../SECURITY-REGRESSION-MATRIX.md`](../SECURITY-REGRESSION-MATRIX.md)
+- [`../INCIDENT-RESPONSE.md`](../INCIDENT-RESPONSE.md)
+- [`../SECURITY-OPERATIONS.md`](../SECURITY-OPERATIONS.md)
+- [`../SECURITY-ACCEPTANCE-REPORT.md`](../SECURITY-ACCEPTANCE-REPORT.md)
+- [`300-threat-plan-execution.md`](300-threat-plan-execution.md) — per-phase
+  execution ledger for the 30-phase / 300-threat plan (phases 0–30 with
+  controls inspected and fresh test evidence, 2026-08-14)
+
+## Historical posture summary (2026-08-12)
 
 The platform's baseline is strong — the master delivery plan's Phases 2
 (identity/security), 7 (governance), 11 (hardening) built most of the core

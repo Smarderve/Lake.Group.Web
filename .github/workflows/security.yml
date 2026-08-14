@@ -1,5 +1,8 @@
 name: Security Gate
 
+permissions:
+  contents: read
+
 # SECURITY_ROADMAP Phase 21 — Automated Security Testing. Runs the security
 # regression suites (tests/phase*.test.js + hardening.test.js, fake-DB, no
 # Postgres needed) and the npm audit gate against the monitored baseline
@@ -19,20 +22,60 @@ on:
     branches: [main]
     paths:
       - 'backend/**'
+      - 'assets/**'
+      - '*.html'
+      - 'tests/**'
+      - 'scripts/_verify_csp.js'
+      - 'scripts/_add_csp_tags.js'
+      - 'vercel.json'
       - 'docs/security/**'
       - 'package.json'
       - 'package-lock.json'
-      - '.github/workflows/security.yml'
+      - '.github/workflows/**'
   push:
     branches: [main]
     paths:
       - 'backend/**'
+      - 'assets/**'
+      - '*.html'
+      - 'tests/**'
+      - 'scripts/_verify_csp.js'
+      - 'scripts/_add_csp_tags.js'
+      - 'vercel.json'
       - 'docs/security/**'
       - 'package.json'
       - 'package-lock.json'
-      - '.github/workflows/security.yml'
+      - '.github/workflows/**'
 
 jobs:
+  static-browser-security:
+    name: Static CSP and XSS regressions
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run static policy and popup XSS tests
+        run: node --test tests/static-csp-hardening.test.js tests/africa-network-map-xss.test.js tests/ci-supply-chain-hardening.test.js
+
+      - name: Exercise every page under CSP
+        run: node scripts/_verify_csp.js
+
   security-tests:
     name: Security regression suites
     runs-on: ubuntu-latest
@@ -42,10 +85,12 @@ jobs:
         working-directory: backend
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: '22'
           cache: 'npm'
@@ -66,10 +111,12 @@ jobs:
         working-directory: backend
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: '22'
           cache: 'npm'
@@ -90,10 +137,12 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: '22'
 
@@ -129,10 +178,12 @@ jobs:
       PORT: '4000'
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: '22'
           cache: 'npm'

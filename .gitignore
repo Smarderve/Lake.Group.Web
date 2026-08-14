@@ -10,3 +10,6 @@ scripts/_chrome_profile*
 backend/backups/
 .env.local
 .vercel/
+
+# Local curl cookie jar (contains live session cookies - never commit)
+ck.txt

@@ -6,6 +6,8 @@
     "deploy": "npx firebase deploy --only hosting",
     "build:hero-globe": "node scripts/build_hero_globe.js",
     "test:skeleton": "node tests/skeleton-loader.test.js",
+    "test:public-delivery": "node --test tests/public-snapshot.test.js",
+    "public:snapshot": "node scripts/public-snapshot.js",
     "secret:scan": "node scripts/check-secrets.mjs"
   },
   "devDependencies": {

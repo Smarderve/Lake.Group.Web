@@ -9,7 +9,7 @@
  * tripwire (process execution lives only in the reviewed scripts) stays
  * intact.
  *
- * Runs: tests/hardening.test.js + every tests/phase*.test.js
+ * Runs: tests/hardening.test.js + binary media uploads + every phase suite.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -25,7 +25,12 @@ const phaseFiles = fs
   .sort()
   .map((f) => path.join(testsDir, f));
 
-const files = [path.join(testsDir, 'hardening.test.js'), ...phaseFiles];
+const files = [
+  path.join(testsDir, 'hardening.test.js'),
+  path.join(testsDir, 'media-upload.test.js'),
+  path.join(testsDir, 'public-release-trigger.test.js'),
+  ...phaseFiles,
+];
 
 if (phaseFiles.length === 0) {
   console.error('[run-security-tests] FAIL — no tests/phase*.test.js files found.');

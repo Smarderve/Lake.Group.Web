@@ -35,7 +35,24 @@ function webglAvailable() {
   }
 }
 
-export function mountHeroGlobe(selector) {
+export function publishedGlobeLocations(map) {
+  return (map?.countries || []).map((country) => {
+    const locations = (country.regions || []).flatMap((region) => region.locations || []);
+    const location = locations.find((item) =>
+      Number.isFinite(Number(item.latitude)) && Number.isFinite(Number(item.longitude)));
+    if (!location) return null;
+    return {
+      id: String(country.isoCode || country.id).toLowerCase(),
+      name: `${country.name} · ${location.name}`,
+      countryName: String(country.name || ''),
+      lat: Number(location.latitude),
+      lng: Number(location.longitude),
+      hub: String(country.isoCode || '').toUpperCase() === 'TZ',
+    };
+  }).filter(Boolean);
+}
+
+export function mountHeroGlobe(selector, locations = []) {
   const mount =
     typeof selector === 'string'
       ? document.querySelector(selector)
@@ -62,7 +79,7 @@ export function mountHeroGlobe(selector) {
 
   try {
     const root = createRoot(rootEl);
-    root.render(<HeroGlobe panelEl={mount} />);
+    root.render(<HeroGlobe panelEl={mount} locations={locations} />);
     mount.__heroGlobeRoot = root;
 
     // Drop loading state once the first frame paints (textures may still stream).
@@ -79,7 +96,23 @@ export function mountHeroGlobe(selector) {
 }
 
 function autoMount() {
-  mountHeroGlobe('#experience-3d-panel');
+  const delivery = window.LakePublicContentReady ||
+    Promise.resolve(window.LakePublicContent || null);
+  delivery
+    .then((client) => client ? client.map() : null)
+    .then((map) => {
+      const locations = publishedGlobeLocations(map);
+      if (!locations.length) {
+        const mount = document.getElementById('experience-3d-panel');
+        if (mount) showError(mount, 'Published operations are temporarily unavailable.');
+        return;
+      }
+      mountHeroGlobe('#experience-3d-panel', locations);
+    })
+    .catch(() => {
+      const mount = document.getElementById('experience-3d-panel');
+      if (mount) showError(mount, 'Published operations are temporarily unavailable.');
+    });
 }
 
 if (typeof window !== 'undefined') {

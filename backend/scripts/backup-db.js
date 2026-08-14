@@ -21,6 +21,8 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { config } from '../src/config.js';
+import { createObjectStorage } from '../src/lib/object-storage.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const BACKUP_DIR = path.join(__dirname, '..', 'backups');
@@ -104,6 +106,17 @@ export function composeBackupInvocation(databaseUrl, { outFile, pgBin = PGBIN } 
   return { command: pgDumpPath(pgBin), args, env: { PGPASSWORD: password } };
 }
 
+export async function storeOffsiteBackup(storage, filePath, prefix) {
+  const normalizedPrefix = prefix.replace(/^\/+|\/+$/g, '');
+  const key = `${normalizedPrefix}/${path.basename(filePath)}`;
+  return storage.put({
+    key,
+    body: fs.readFileSync(filePath),
+    contentType: 'application/octet-stream',
+    cacheControl: 'private, no-store',
+  });
+}
+
 async function run() {
   const databaseUrl = process.env.DATABASE_URL;
   if (!databaseUrl) {
@@ -139,8 +152,24 @@ async function run() {
     console.warn('BACKUP_ENCRYPTION_KEY is not set — backup stored UNENCRYPTED. Set it to enable AES-256-GCM at rest.');
   }
 
+  if (process.env.BACKUP_STORAGE_PREFIX) {
+    const stored = await storeOffsiteBackup(
+      createObjectStorage(config),
+      finalFile,
+      process.env.BACKUP_STORAGE_PREFIX,
+    );
+    console.log(`Offsite backup complete: ${stored.key}`);
+  } else {
+    console.warn('BACKUP_STORAGE_PREFIX is not set — no offsite backup copy was written.');
+  }
+
   // Phase 20 — retention. Prune dumps older than BACKUP_RETENTION_DAYS.
-  const retentionDays = Number(process.env.BACKUP_RETENTION_DAYS) || 14;
+  const retentionDays = process.env.BACKUP_RETENTION_DAYS === undefined
+    ? 14
+    : Number(process.env.BACKUP_RETENTION_DAYS);
+  if (!Number.isFinite(retentionDays) || retentionDays < 0) {
+    throw new Error('BACKUP_RETENTION_DAYS must be a non-negative number');
+  }
   const expired = selectExpiredDumps(
     fs.readdirSync(BACKUP_DIR, { withFileTypes: true }).map((d) => ({
       name: d.name,
