@@ -5,7 +5,11 @@ const PREFIX = 'enc:v1:';
 function encryptionKey(base64Key) {
   const key = Buffer.from(String(base64Key || ''), 'base64');
   if (key.length !== 32 || key.toString('base64').replace(/=+$/, '') !== String(base64Key).replace(/=+$/, '')) {
-    throw new Error('MFA encryption key must be exactly 32 base64-encoded bytes');
+    throw new Error(
+      'MFA encryption configuration is invalid. MFA_ENCRYPTION_KEY must be a Base64-encoded 32-byte value ' +
+        '(generate one with: openssl rand -base64 32). Configure the production environment variable before ' +
+        'starting the service.',
+    );
   }
   return key;
 }
