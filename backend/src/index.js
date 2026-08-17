@@ -6,7 +6,7 @@ import { createApp } from './app.js';
 import { loginRateLimiter } from './middleware/rate-limit.js';
 import { createObjectStorage } from './lib/object-storage.js';
 import { startPublicReleaseWorker } from './lib/public-release.js';
-import { createSecretBox } from './lib/secret-box.js';
+import { createSecretBox, inspectMfaKey } from './lib/secret-box.js';
 
 const logger = createLogger(config.logLevel);
 // Phase 6 — the runtime connects with the least-privilege role when the
@@ -33,6 +33,14 @@ if (!db) {
       'Generate one with: openssl rand -hex 32  (then set it in .env)',
   );
 }
+
+// Safe startup diagnostic — metadata only (present/valid/byte length), never
+// the key itself. Runs before validation so an operator can tell "missing"
+// from "malformed" in the startup log.
+logger.info(
+  { mfaKey: inspectMfaKey(config.mfaEncryptionKey) },
+  'MFA encryption key diagnostic',
+);
 
 const productionProblems = productionConfigProblems(config);
 if (productionProblems.length) {
@@ -77,7 +85,7 @@ const app = createApp({
 });
 
 const server = app.listen(config.port, () => {
-  logger.info({ port: config.port }, 'Lake Group backend listening');
+  logger.info({ env: config.env, port: config.port }, 'Lake Group backend listening');
 });
 const publicReleaseWorker = startPublicReleaseWorker({ db, config, logger });
 

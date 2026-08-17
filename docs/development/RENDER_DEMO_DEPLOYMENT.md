@@ -16,13 +16,51 @@ source: it installs production deps, generates the Prisma client into
 `/app/generated`, copies it into the runtime stage, and runs as the non-root
 `node` user.
 
+## Why the service crashes at startup (read this first)
+
+The Dockerfile's runtime stage sets `ENV NODE_ENV=production` — a secure
+container default. That means **unless the Render service explicitly sets
+`NODE_ENV=staging`, the image boots in the production tier**, and the production
+fail-fast gate (`productionConfigProblems` in `src/config.js`) refuses to start:
+
+```text
+DATABASE_URL is not set ...
+refusing to start: insecure production configuration
+```
+
+followed by the full production checklist (DATABASE_URL_RUNTIME, SESSION_SECRET,
+CMS_ALLOWED_ORIGINS, BACKUP_*, MEDIA_STORAGE_DRIVER=s3, S3_*, PUBLIC_RELEASE_*,
+…). The Docker build is fine — this is purely a tier-configuration issue.
+
+Render injects service environment variables at container runtime, and runtime
+environment variables **override** the image's `ENV` defaults. So the fix is
+exactly one dashboard setting:
+
+```text
+KEY:   NODE_ENV
+VALUE: staging
+```
+
+Do NOT change the Dockerfile to remove the production default — production-by-
+default is correct for any container, and a deployment that forgets `NODE_ENV`
+should fail closed (as it does now) rather than silently boot in development
+mode. The boot log now always prints the active tier, so the Render log shows
+instantly which mode the service is in:
+
+```text
+{"env":"staging","port":10000,...,"msg":"Lake Group backend listening"}
+```
+
 ## Tier choice (read this first)
 
-The application supports `NODE_ENV` of `development | testing | staging | production`.
-The production tier has a fail-fast boot gate that **requires** S3 media storage
-and a real GitHub release token. For a demo without those external accounts,
-use the **staging tier** — it is a supported environment tier, not a validation
-bypass, and it keeps the documented demo login working.
+The application supports `NODE_ENV` of `development | testing | staging | production`
+— this is the repository's own configuration contract (`src/config.js`), not a
+workaround. The production tier has a fail-fast boot gate that **requires** S3
+media storage and a real GitHub release token. For a demo without those external
+accounts, the **staging tier** is the supported pre-production tier; it keeps the
+documented demo login working and still enforces secure cookies, MFA roles, and
+origin allowlists when set explicitly. Only the S3/release requirements are
+relaxed, and the release worker stays off (`PUBLIC_RELEASE_ENABLED=false`).
 
 | | Demo (staging) | Full production posture |
 |---|---|---|
@@ -44,6 +82,15 @@ gate passes. Everything below works for both; differences are marked.
 3. Health check path: `/health` (the Dockerfile HEALTHCHECK also probes it internally).
 4. Add a **PostgreSQL** instance (Render managed) and use its internal connection string.
 5. Set the environment variables below, then **Deploy**.
+
+> **Database gotcha:** `GET /health` returns **503** whenever the database is
+> unreachable or `DATABASE_URL` is unset. The Dockerfile HEALTHCHECK treats a
+> non-200 as failure, so a service deployed without a reachable database is
+> marked unhealthy and restarted by Render in a loop. The demo therefore needs
+> `DATABASE_URL`/`DATABASE_URL_RUNTIME` pointing at a reachable Postgres from
+> the first deploy. A fresh empty Render Postgres is enough for boot and
+> `/health` (`SELECT 1` works on an empty database); tables (migrations) and
+> seed data are a separate step below.
 
 Migrations are NOT run by the container (owner credentials never enter the
 runtime). After the first deploy, run migrations once from a machine that can
@@ -101,6 +148,75 @@ DATABASE_URL="<owner connection string>" npm run seed:content  # seed companies/
 - `*` in `CMS_ALLOWED_ORIGINS` / `CSRF_ALLOWED_ORIGINS` (credentials CORS requires exact origins)
 - Any secret in source, the Dockerfile, or Git — Render env/secrets only
 
+## Setting MFA_ENCRYPTION_KEY in the Render dashboard (exact structure)
+
+Render env vars are **key/value pairs** — the value field takes the raw value,
+never a shell-style assignment:
+
+```text
+KEY:   MFA_ENCRYPTION_KEY
+VALUE: <the actual Base64-encoded 32-byte value, raw — no quotes, no "KEY=", no spaces>
+```
+
+Common mistakes that produce exactly the `secret-box.js` failure:
+
+- pasting `MFA_ENCRYPTION_KEY=...` (with the `KEY=` prefix) into the value field
+- pasting the value with surrounding double quotes (from a `.env` file line)
+- pasting `openssl rand -base64 32` (the command, not its output)
+- pasting a hex string (64 hex chars decode to 48 bytes, not 32)
+- leaving the `.env.example` placeholder `change_me_generate_exactly_32_base64_bytes`
+- pointing Render at the file path `backend/.env.render` (Render never reads local files)
+- trailing whitespace/newline copied from a terminal
+
+If the value was pasted into the wrong variable name (for example under a
+`DATABASE_URL` or a typo'd key), the app reports the key as absent.
+
+### Choosing the right key value (rotation rule)
+
+- **Fresh demo database** (recommended): use the freshly generated value from
+  `backend/.env.render` — no encrypted MFA data exists yet, so a new key is safe.
+- **Migrated/copied local database**: the database already contains MFA secrets
+  sealed with the key that was active when they were enrolled (the local
+  `backend/.env` key). The Render `MFA_ENCRYPTION_KEY` **must match that key**
+  or TOTP login fails for those users. Do NOT casually rotate it.
+- Never rotate a key on a database that already holds `enc:v1:` secrets without
+  re-enrolling the affected users.
+
+## Exact Render dashboard steps (10 minutes)
+
+1. Open **Render** → open the backend **Web Service**.
+2. Click **Environment** (left sidebar).
+3. Add/change **every** variable from the checklist below — each is one
+   `KEY` / `VALUE` pair (the value field takes the raw value only).
+4. Click **Save Changes**, then **Deploy** (or Manual Deploy → Deploy latest commit).
+5. Wait for the build, then open `https://<service>.onrender.com/health`.
+6. Expected: `{"status":"ok",...,"db":"up"}` and a startup log ending in
+   `{"env":"staging",...} "Lake Group backend listening"`.
+7. If it fails, copy the startup log back to the agent — the first lines show
+   whether the tier, the MFA key, or the database is the problem.
+
+### Checklist (KEY / VALUE — generate your own secrets)
+
+| KEY | VALUE | Secret? |
+|---|---|---|
+| `NODE_ENV` | `staging` | no |
+| `PORT` | Render sets this automatically (leave blank) | no |
+| `DATABASE_URL` | Render Postgres internal connection string | **yes** |
+| `DATABASE_URL_RUNTIME` | same database (or a runtime role) — staging allows same as owner | **yes** |
+| `SESSION_SECRET` | `openssl rand -hex 32` output | **yes** |
+| `MFA_ENCRYPTION_KEY` | `openssl rand -base64 32` output — raw, no quotes | **yes** |
+| `SESSION_COOKIE_SECURE` | `true` | no |
+| `TRUST_PROXY` | `1` | no |
+| `MFA_REQUIRED_ROLES` | `SUPER_ADMIN,EDITOR,REVIEWER,CONTACT_MANAGER,VIEWER` | no |
+| `CMS_ALLOWED_ORIGINS` | exact CMS origin, e.g. `https://<cms-origin>` | no |
+| `CSRF_ALLOWED_ORIGINS` | same CMS origin(s) as above | no |
+| `DEV_MFA_SKIP_EMAILS` | `cms-dev@lakegroup.com` (demo login; **never** in production) | no |
+| `MEDIA_STORAGE_DRIVER` | `local` (ephemeral uploads — fine for demo) | no |
+
+After the service is healthy, migrations and seed data are applied once from a
+machine that can reach the database (see below) — the container never runs
+migrations.
+
 ## Verifying the MFA key without revealing it
 
 ```bash
@@ -112,6 +228,17 @@ node scripts/check-mfa-key.js                 # validates the Render env value (
 Output is metadata only: `VALID/INVALID — decoded byte length: N — canonical base64: yes/no`.
 The service refuses to boot on an invalid key by design; the error names the
 variable, the format, and the generation command without exposing anything.
+
+### Startup diagnostic (log, metadata only)
+
+Every boot logs a one-line diagnostic before validation, so the Render log
+immediately distinguishes the three cases — never the key itself:
+
+```text
+"mfaKey":{"present":false,...}                      # variable missing/empty
+"mfaKey":{"present":true,"formatValid":false,"decodedBytes":48}   # malformed (e.g. hex)
+"mfaKey":{"present":true,"formatValid":true,"decodedBytes":32}    # correct
+```
 
 ## CMS → API wiring (after backend is healthy)
 

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { createSecretBox } from '../src/lib/secret-box.js';
+import { createSecretBox, inspectMfaKey } from '../src/lib/secret-box.js';
 
 // MFA_ENCRYPTION_KEY validation — the production boot gate for MFA at rest.
 // The validator requires exactly 32 bytes encoded as canonical Base64.
@@ -61,5 +61,28 @@ describe('createSecretBox key validation', () => {
         expect(String(err.message)).not.toContain(value);
       }
     }
+  });
+});
+
+describe('inspectMfaKey startup diagnostic', () => {
+  it('reports a missing key without exposing anything', () => {
+    for (const value of [undefined, null, '', '   ']) {
+      expect(inspectMfaKey(value)).toEqual({ present: false, formatValid: false, decodedBytes: 0 });
+    }
+  });
+
+  it('reports malformed keys with byte length but never the key material', () => {
+    const attempts = ['!!!not-base64!!!', 'a'.repeat(64), b64(16), `"${b64(32)}"`];
+    for (const value of attempts) {
+      const info = inspectMfaKey(value);
+      expect(info.present).toBe(true);
+      expect(info.formatValid).toBe(false);
+      expect(Number.isInteger(info.decodedBytes)).toBe(true);
+      expect(JSON.stringify(info)).not.toContain(value.slice(0, 10));
+    }
+  });
+
+  it('reports a valid key as valid with length 32', () => {
+    expect(inspectMfaKey(b64(32))).toEqual({ present: true, formatValid: true, decodedBytes: 32 });
   });
 });
