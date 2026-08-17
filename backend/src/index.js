@@ -42,6 +42,10 @@ logger.info(
   'MFA encryption key diagnostic',
 );
 
+// Tier diagnostic — printed BEFORE the production gate so the Render log shows
+// exactly which mode is active (staging vs production) and why the gate ran.
+logger.info({ env: config.env, isProduction: config.isProduction }, 'boot environment');
+
 const productionProblems = productionConfigProblems(config);
 if (productionProblems.length) {
   logger.fatal({ problems: productionProblems }, 'refusing to start: insecure production configuration');

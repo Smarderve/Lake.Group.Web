@@ -36,6 +36,17 @@ Render injects service environment variables at container runtime, and runtime
 environment variables **override** the image's `ENV` defaults. So the fix is
 exactly one dashboard setting:
 
+**Proof the service is in production mode:** the startup log now prints the tier
+*before* the gate, so the Render log shows exactly why the gate ran:
+
+```text
+{"env":"production","isProduction":true,...,"msg":"boot environment"}
+{"level":60,...,"problems":["DATABASE_URL is required in production",...],"msg":"refusing to start: insecure production configuration"}
+```
+
+If the log shows `"env":"production"`, the service env (or the Dockerfile
+default) is forcing production. The fix:
+
 ```text
 KEY:   NODE_ENV
 VALUE: staging
