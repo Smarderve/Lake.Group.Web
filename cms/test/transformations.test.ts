@@ -1,6 +1,6 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { formatBytes, formatDate, formatNumber, relativeTime } from '../src/utils/format';
-import { isImageMedia, mediaPreviewUrl, type MediaRow } from '../src/features/media/api';
+import { isImageMedia, mediaPreviewUrl, resolveMediaUrl, type MediaRow } from '../src/features/media/api';
 
 function media(overrides: Partial<MediaRow> = {}): MediaRow {
   return {
@@ -48,6 +48,31 @@ describe('presentation transformations', () => {
     expect(formatBytes(-1)).toBe('–');
   });
 
+  it('resolves website-relative media URLs against the public site origin', () => {
+    vi.stubEnv('VITE_PUBLIC_SITE_URL', 'https://lake-group.vercel.app');
+    expect(resolveMediaUrl('assets/images/gccp/photo_6.jpg')).toBe(
+      'https://lake-group.vercel.app/assets/images/gccp/photo_6.jpg',
+    );
+    expect(resolveMediaUrl('/assets/images/news/19/photo_2.jpg')).toBe(
+      'https://lake-group.vercel.app/assets/images/news/19/photo_2.jpg',
+    );
+    // Query strings used by the website (e.g. ?v=80) survive resolution.
+    expect(resolveMediaUrl('assets/images/lakesteel/ops/rebar-yard.jpg?v=80')).toBe(
+      'https://lake-group.vercel.app/assets/images/lakesteel/ops/rebar-yard.jpg?v=80',
+    );
+  });
+
+  afterEach(() => {
+    vi.unstubAllEnvs();
+  });
+
+  it('leaves absolute URLs and API upload paths untouched', () => {
+    expect(resolveMediaUrl('https://cdn.example.com/original.jpg')).toBe('https://cdn.example.com/original.jpg');
+    expect(resolveMediaUrl('data:image/png;base64,abc')).toBe('data:image/png;base64,abc');
+    // Backend uploads stay same-origin (Vite proxies /media in dev).
+    expect(resolveMediaUrl('/media/files/2026/08/photo.jpg')).toBe('/media/files/2026/08/photo.jpg');
+  });
+
   it('selects media thumbnails and detects images defensively', () => {
     expect(mediaPreviewUrl(media({ variants: { thumb: 'https://cdn.example.com/thumb.webp' } }))).toBe(
       'https://cdn.example.com/thumb.webp',
@@ -56,5 +81,7 @@ describe('presentation transformations', () => {
     expect(isImageMedia(media({ mimeType: 'image/webp', url: 'https://cdn.example.com/no-extension' }))).toBe(true);
     expect(isImageMedia(media({ mimeType: null, url: 'https://cdn.example.com/photo.AVIF' }))).toBe(true);
     expect(isImageMedia(media({ mimeType: 'application/pdf', url: 'https://cdn.example.com/report.pdf' }))).toBe(false);
+    // Cache-busted website URLs (?v=80) still count as images.
+    expect(isImageMedia(media({ mimeType: null, url: 'assets/images/lakebuildings/ops/lake-tanks.jpg?v=80' }))).toBe(true);
   });
 });

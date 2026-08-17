@@ -3,6 +3,8 @@
 interface ImportMetaEnv {
   /** Base URL of the Lake Group backend when it is NOT same-origin (see .env.example). */
   readonly VITE_API_BASE_URL?: string;
+  /** Origin of the public Lake Group website (media resolution, see .env.example). */
+  readonly VITE_PUBLIC_SITE_URL?: string;
 }
 
 interface ImportMeta {

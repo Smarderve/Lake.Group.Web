@@ -23,6 +23,41 @@
 import { api, apiUrl, ApiError } from '../../services/api';
 import type { VersionRow, WorkflowStatus } from '../../types/api';
 
+/**
+ * Origin of the public Lake Group website. Media rows store website-relative
+ * paths (`assets/images/...`) — the CMS resolves them against this origin so
+ * previews work regardless of where the CMS itself is deployed. Override with
+ * VITE_PUBLIC_SITE_URL when the site lives elsewhere (see cms/.env.example).
+ */
+/** Read at call time so tests can stub VITE_PUBLIC_SITE_URL (Vitest syncs
+ * import.meta.env stubs; in the browser the value is baked at build time). */
+function getPublicSiteUrl(): string {
+  return (import.meta.env.VITE_PUBLIC_SITE_URL ?? 'https://lake-group.vercel.app').replace(/\/+$/, '');
+}
+
+/**
+ * Resolve a media URL stored in the database to a URL the browser can load:
+ *
+ * - absolute URLs (https:, data:, blob:) pass through untouched;
+ * - `/media/files/...` (backend uploads) resolve against the API origin
+ *   (same-origin in dev via the Vite proxy; `VITE_API_BASE_URL` when set);
+ * - website-relative `assets/...` paths (the 67 seeded rows) resolve against
+ *   the public website origin.
+ */
+export function resolveMediaUrl(url: string): string {
+  if (!url) return url;
+  if (/^(https?:|data:|blob:)/i.test(url) || url.startsWith('//')) return url;
+  if (url.startsWith('/media/files/')) {
+    // Same-origin in dev (Vite proxies /media); VITE_API_BASE_URL when set.
+    const base = apiUrl('');
+    return base === '/' ? url : `${base}${url}`;
+  }
+  if (url.startsWith('assets/') || url.startsWith('/assets/')) {
+    return `${getPublicSiteUrl()}/${url.replace(/^\/+/, '')}`;
+  }
+  return url;
+}
+
 /** A media row as returned by GET /admin/media (MAP_ENTITIES.media fields). */
 export interface MediaRow {
   id: string;
@@ -153,14 +188,17 @@ export interface MediaUsageRow {
 
 /** Pick the best URL to render for a media item – variant thumb, then url. */
 export function mediaPreviewUrl(row: MediaRow): string {
-  return row.variants?.thumb ?? row.url;
+  return resolveMediaUrl(row.variants?.thumb ?? row.url);
 }
 
 /** True when the media item looks like an image (by MIME type or extension). */
 export function isImageMedia(row: MediaRow): boolean {
   const mime = row.mimeType ?? '';
   if (mime.startsWith('image/')) return true;
-  return /\.(png|jpe?g|gif|webp|avif|svg|bmp|ico)$/i.test(row.url);
+  // Website URLs carry cache-busting query strings (e.g. .jpg?v=80) — match
+  // the path, not the full URL.
+  const path = row.url.split(/[?#]/, 1)[0];
+  return /\.(png|jpe?g|gif|webp|avif|svg|bmp|ico)$/i.test(path);
 }
 
 export const mediaApi = {

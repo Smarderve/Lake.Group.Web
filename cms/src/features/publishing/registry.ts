@@ -82,6 +82,7 @@ export const PUBLISHING_ENTITIES: PublishingEntity[] = [
     label: 'Pages',
     labelFields: ['title', 'slug'],
     listPath: '/app/pages',
+    editPath: (id) => `/app/pages/${id}/edit`,
   },
   {
     route: 'projects',
@@ -159,6 +160,7 @@ export const PUBLISHING_ENTITIES: PublishingEntity[] = [
     label: 'Categories',
     labelFields: ['name'],
     listPath: '/app/categories',
+    editPath: (id) => `/app/categories/${id}/edit`,
   },
   {
     route: 'product-services',

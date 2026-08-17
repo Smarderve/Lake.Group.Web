@@ -58,6 +58,7 @@ export const NAV_SECTIONS: NavSection[] = [
       { label: 'Locations', to: '/app/locations', icon: mapMarkerOutline },
       { label: 'Facilities', to: '/app/facilities', icon: factory },
       { label: 'Projects', to: '/app/projects', icon: folderMultipleOutline },
+      { label: 'Pages', to: '/app/pages', icon: fileDocumentOutline },
     ],
   },
   {

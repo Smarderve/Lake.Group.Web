@@ -18,6 +18,7 @@ export default defineConfig({
       '/admin': { target: proxyTarget },
       '/api': { target: proxyTarget },
       '/health': { target: proxyTarget },
+      '/media': { target: proxyTarget },
     },
   },
 });
