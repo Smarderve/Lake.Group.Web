@@ -481,6 +481,10 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   color: var(--nav-link-active-color);
   background: var(--nav-link-active-bg);
 }
+.nav-links > li > a.active {
+  outline: var(--nav-link-active-outline, 1px solid rgba(255,255,255,0.9));
+  outline-offset: -1px;
+}
 
 .nav-dropdown {
   position: absolute; top: calc(100% + 6px); left: 0;
@@ -2862,3 +2866,89 @@ summary {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* --------------------------------------------------------------------------
+   10c. SERVICES PHOTO TILES - compact Aramco-style cards
+   Photo on top, title + description + arrow below. No date/category.
+   -------------------------------------------------------------------------- */
+.svc-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-5);
+}
+.svc-card {
+  position: relative;
+  display: flex;
+  flex: 1 1 230px;
+  max-width: calc(25% - 15px);
+  flex-direction: column;
+  background: var(--surface, #fff);
+  border: 1px solid var(--line-2);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(13, 38, 56, 0.08);
+  transition: transform var(--dur-2) var(--ease-out), box-shadow var(--dur-2) ease;
+}
+.svc-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(13, 38, 56, 0.14);
+}
+.svc-card__media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--ink-3);
+  flex: none;
+}
+.svc-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.45s ease;
+}
+.svc-card:hover .svc-card__media img { transform: scale(1.04); }
+.svc-card__body {
+  padding: var(--sp-5) var(--sp-5) var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.svc-card__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin: 0 0 6px;
+  line-height: 1.35;
+}
+.svc-card__desc {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+}
+@media (max-width: 560px) { .svc-card { flex: 1 1 100%; max-width: none; } }
+
+/* Value tiles ship with on-dark colors; keep them readable when placed on
+   light/cream sections (AILL storage, activities, safety grids etc.) */
+body:not(.co-theme-agro) .fs-section:not(.fs-on-dark) .val-mini-tile {
+  background: var(--ink);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Subsidiary pages: center section headings (marker, display, lede) */
+body[data-company-logo] .fs-marker { justify-content: center; text-align: center; }
+body[data-company-logo] .fs-display { text-align: center; }
+body[data-company-logo] .fs-lede { margin-left: auto; margin-right: auto; max-width: 64ch; text-align: center; }
+
+/* Subsidiary heroes: lighter blue overlay so the photo shows through */
+body[data-company-logo] .page-hero .hero-overlay,
+body[data-company-logo] .page-hero .page-hero-overlay {
+  background: linear-gradient(105deg,
+    rgba(1, 63, 92, 0.62) 0%,
+    rgba(1, 129, 187, 0.40) 45%,
+    rgba(1, 129, 187, 0.04) 100%);
+}

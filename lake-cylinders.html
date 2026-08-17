@@ -3,14 +3,14 @@
 <head>
   <style id="lg-skel-critical">html.lg-loading{overflow:hidden}html.lg-loading::before{content:"";position:fixed;inset:0;z-index:99989;background:#013f5c;pointer-events:none}html.lg-skel-done::before{display:none}.nav-logo img,.site-nav .nav-logo img{height:var(--nav-logo-height,48px)!important;width:auto!important;max-width:min(220px,55vw)!important;max-height:var(--nav-logo-height,48px)!important;object-fit:contain}</style>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lake Cylinders Ltd. is Lake Group's dedicated LPG cylinder manufacturing facility, producing high-quality domestic and commercial cylinders for East Africa's cooking gas market.">
-  <meta name="twitter:description" content="Lake Cylinders Ltd. is Lake Group's dedicated LPG cylinder manufacturing facility, producing high-quality domestic and commercial cylinders for East Africa's cooking gas market.">
+  <meta name="description" content="Lake Cylinders Limited is Lake Group's specialized LPG cylinder manufacturing company, producing safe, reliable 6 kg, 15 kg and 38 kg cylinders for Tanzania and East Africa.">
+  <meta name="twitter:description" content="Lake Cylinders Limited is Lake Group's specialized LPG cylinder manufacturing company, producing safe, reliable 6 kg, 15 kg and 38 kg cylinders for Tanzania and East Africa.">
   <meta name="twitter:title" content="Lake Cylinders | Manufacturing | Lake Group">
   <meta name="twitter:image" content="https://www.lakeoilgroup.com/assets/images/logos/LAKE_GROUP_LOGO.png">
   <meta property="og:site_name" content="Lake Group">
   <meta property="og:url" content="https://www.lakeoilgroup.com/lake-cylinders.html">
   <meta property="og:title" content="Lake Cylinders | Manufacturing | Lake Group">
-  <meta property="og:description" content="Lake Cylinders Ltd. is Lake Group's dedicated LPG cylinder manufacturing facility, producing high-quality domestic and commercial cylinders for East Africa's cooking gas market.">
+  <meta property="og:description" content="Lake Cylinders Limited is Lake Group's specialized LPG cylinder manufacturing company, producing safe, reliable 6 kg, 15 kg and 38 kg cylinders for Tanzania and East Africa.">
   <meta property="og:image" content="https://www.lakeoilgroup.com/assets/images/logos/LAKE_GROUP_LOGO.png">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
@@ -132,6 +132,22 @@
 .ct-label{color:var(--gold);font-size:var(--fs-micro);font-weight:700;text-transform:uppercase;letter-spacing:0.22em;margin-bottom:4px}
 .ct-strong{color:var(--white);font-size:0.92rem;display:block}
 .ct-dim{color:var(--ink-mute);font-size:0.85rem;display:block}
+
+/* Leadership cards - same visual language as the Leadership page (ld-person-card) */
+.lc-lead-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 36px;max-width:640px;margin:0 auto}
+@media(max-width:640px){.lc-lead-grid{grid-template-columns:1fr;max-width:300px}}
+.lc-lead-grid a.ld-person-card{position:relative;display:flex;flex-direction:column;text-decoration:none;color:inherit;background:transparent;border:none;overflow:visible;transition:transform .28s var(--ease-out,ease)}
+.lc-lead-grid a.ld-person-card:hover{transform:translateY(-3px)}
+.lc-lead-grid a.ld-person-card:focus-visible{outline:2px solid var(--color-brand-blue,#0181BB);outline-offset:4px;border-radius:4px}
+.lc-lead-grid .ld-person-photo{position:relative;aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:#EEF1F5;display:flex;align-items:center;justify-content:center}
+.lc-lead-grid .ld-person-photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;transition:transform .4s var(--ease-out,ease)}
+.lc-lead-grid a.ld-person-card:hover .ld-person-photo img{transform:scale(1.02)}
+.lc-lead-grid .ld-person-body{padding:16px 2px 0;display:flex;flex-direction:column;flex:1;gap:4px}
+.lc-lead-grid .ld-person-body h3{font-family:var(--font-display,var(--font-heading));font-weight:600;font-size:1.08rem;letter-spacing:.01em;text-transform:none;margin:0;color:#0A1628;line-height:1.25}
+.lc-lead-grid .ld-person-role{color:#6B7280;font-size:.875rem;font-weight:400;text-transform:none;letter-spacing:0;margin:0;line-height:1.4}
+.lc-lead-grid .ld-person-more{margin-top:14px;font-size:.9rem;font-weight:500;letter-spacing:0;text-transform:none;color:var(--color-brand-blue,#0181BB);display:inline-flex;align-items:center;gap:6px}
+.lc-lead-grid .ld-person-more::after{content:"";display:inline-block;width:12px;height:12px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;transition:transform .25s ease}
+.lc-lead-grid a.ld-person-card:hover .ld-person-more::after{transform:translateX(4px)}
   </style>
 <script type="application/ld+json">
 {
@@ -140,7 +156,7 @@
     {
       "@type": "Organization",
       "name": "Lake Cylinders",
-      "description": "Lake Cylinders Ltd. is Lake Group's dedicated LPG cylinder manufacturing facility, producing high-quality domestic and commercial cylinders for East Africa's cooking gas market.",
+      "description": "Lake Cylinders Limited is Lake Group's specialized LPG cylinder manufacturing company, producing safe, reliable 6 kg, 15 kg and 38 kg cylinders for Tanzania and East Africa.",
       "url": "https://www.lakeoilgroup.com/lake-cylinders.html",
       "parentOrganization": {
         "@type": "Organization",
@@ -165,13 +181,13 @@
   <link rel="preload" href="assets/fonts/files/jost-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="assets/flagship.css?v=100">
+<link rel="stylesheet" href="assets/flagship.css?v=106">
 <link rel="stylesheet" href="assets/split-text.css?v=48">
   <link rel="stylesheet" href="assets/assistant.css?v=71">
   <link rel="stylesheet" href="assets/skeleton.css?v=7">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https://www.youtube.com https://www.youtube-nocookie.com; worker-src 'self'; manifest-src 'self'; media-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 </head><body data-company-logo="assets/images/logos/companies/lake-cylinders.png?v=65" data-company-alt="Lake Cylinders">
-  <script src="assets/skeleton.js?v=7"></script>
+  <script src="assets/skeleton.js?v=8"></script>
 <nav class="site-nav" dir="ltr">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -218,8 +234,8 @@
                   <a href="acfs.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/acfs.png?v=69" alt="ACFS" loading="lazy" width="56" height="32"><span data-i18n="nav.co.acfs">ACFS</span></a>
 
 <a href="aficd.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/aficd.png?v=69" alt="AFICD" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aficd">AFICD</span></a>
-                  <a href="aill.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/aill.png?v=65" alt="AILL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aill">AILL</span></a>
-                  <a href="lake-trans.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-trans.png" alt="Lake Trans" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeTrans">Lake Trans</span></a><a href="tiger-tech.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/tiger-tech.png" alt="Tiger Tech" loading="lazy" width="56" height="32"><span data-i18n="nav.co.tigerTech">Tiger Tech</span></a>
+                  <a href="aill.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/aill.png?v=66" alt="AILL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aill">AILL</span></a>
+                  <a href="lake-trans.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-trans.png" alt="Lake Trans" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeTrans">Lake Trans</span></a>
                 </div>
               </div>
               <div class="mm-pane" role="tabpanel" id="mm-pane-realestate" data-mm-pane="realestate" aria-labelledby="mm-tab-realestate" hidden>
@@ -340,7 +356,6 @@
 <a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a>
       <a href="aill.html" data-i18n="nav.co.aill">AILL</a>
       <a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a>
-      <a href="tiger-tech.html" data-i18n="nav.co.tigerTech">Tiger Tech</a>
     </div>
     <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-realestate" data-i18n="nav.dd.realEstate">Real Estate Sector</button>
     <div class="mob-acc-panel" id="mob-acc-realestate" hidden>
@@ -379,7 +394,7 @@
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container">
     <nav class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span>/</span><span>Manufacturing</span><span>/</span><span>Lake Cylinders</span></nav>
-    <div class="eyebrow">Manufacturing</div><h1>Lake Cylinders</h1><p>Lake Group's dedicated LPG cylinder manufacturing facility, producing high-quality domestic and commercial cylinders for East Africa's cooking gas market.</p>
+    <div class="eyebrow">Manufacturing</div><h1>Lake Cylinders</h1><p>A specialized LPG cylinder manufacturing company, part of the Lake Group, established to support the growing demand for safe, reliable and high-quality LPG solutions in Tanzania and the wider East African market.</p>
 </div></section>
 
 <!-- 1. COMPANY INTRODUCTION -->
@@ -390,21 +405,24 @@
         <div class="fs-marker"><span class="fs-marker-no">01</span><span class="fs-eyebrow">Company Introduction</span></div>
         <h2 class="fs-display">Powering Clean Energy Access</h2>
         <hr class="fs-rule" style="margin:var(--sp-5) 0">
-        <p class="fs-lede">Lake Cylinders Ltd. is Lake Group's specialized LPG cylinder manufacturing facility, producing high-quality domestic and commercial cylinders that enable clean cooking energy access across East Africa.</p>
-        <p style="margin-top:14px">As part of Lake Group's Manufacturing sector, Lake Cylinders produces LPG cylinders that supply Lake Gas's distribution network across Tanzania, Kenya, Zambia, Rwanda, Burundi, DR Congo and Uganda. The facility employs modern manufacturing techniques to ensure cylinder safety, durability and compliance with international standards.</p>
+        <p class="fs-lede">Lake Cylinders Limited is a specialized LPG cylinder manufacturing company and part of the Lake Group, established to support the growing demand for safe, reliable and high-quality LPG solutions in Tanzania and the wider East African market.</p>
+        <p style="margin-top:14px">Based in Tanzania, Lake Cylinders operates a dedicated manufacturing facility for the production of LPG cylinders, supported by modern manufacturing processes, quality control systems and experienced technical personnel. The company focuses on producing durable cylinders that meet applicable safety and quality requirements while maintaining consistent manufacturing standards.</p>
         <ul class="fs-check">
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>LPG cylinder manufacturing for domestic and commercial use</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Production meeting international safety and quality standards</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Primary supplier to Lake Gas distribution network</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>LPG cylinder manufacturing for domestic, commercial and industrial use</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Production meeting applicable safety and quality standards</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Strengthening the local LPG value chain with locally manufactured cylinders</li>
           <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Manufacturing excellence with quality testing protocols</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Supporting clean cooking energy access across East Africa</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Supporting the expansion of clean and accessible LPG energy solutions</li>
         </ul>
       </div>
       <div>
         <div class="info-panel fs-on-dark fs-corners">
           <h3>Operations by Country</h3>
           <div>
-            <div class="info-row"><span><img src="assets/images/flags/tz.svg" alt="Tanzania flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Tanzania</span><span class="badge badge-yellow">Lake Cylinders</span></div>
+            <div class="info-row"><span><img src="assets/images/flags/tz.svg" alt="Tanzania flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Tanzania</span><span class="badge badge-yellow">Manufacturing Base</span></div>
+            <div class="info-row"><span><img src="assets/images/flags/cd.svg" alt="DR Congo flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> DR Congo</span><span class="badge">Regional Supply</span></div>
+            <div class="info-row"><span><img src="assets/images/flags/rw.svg" alt="Rwanda flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Rwanda</span><span class="badge">Regional Supply</span></div>
+            <div class="info-row"><span><img src="assets/images/flags/zm.svg" alt="Zambia flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Zambia</span><span class="badge">Regional Supply</span></div>
           </div>
         </div>
       </div>
@@ -415,26 +433,28 @@
 <section class="fs-section fs-on-dark">
   <div class="container">
     <div class="fs-marker"><span class="fs-marker-no">02</span><span class="fs-eyebrow">About the Company</span></div>
-    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Mission, Vision &amp; History</h2>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Mission, Vision &amp; Values</h2>
     <div class="fs-split-even">
       <div>
         <h3 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Mission</h3>
-        <p>To manufacture safe, durable and affordable LPG cylinders that enable clean cooking energy access for millions of households and businesses across East Africa.</p>
+        <p>To accelerate LPG adoption across every sector in Tanzania by manufacturing safe, reliable and high-quality LPG cylinders, delivering excellent customer service, and supporting a cleaner, more sustainable and industrialized Tanzania.</p>
       </div>
       <div>
         <h3 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Vision</h3>
-        <p>To be East Africa's leading LPG cylinder manufacturer, recognized for product safety, manufacturing quality and contribution to clean energy transition.</p>
+        <p>To become East Africa's largest and most trusted LPG cylinder manufacturer, setting high standards in quality, safety and innovation while delivering total customer satisfaction and contributing to the region's economic and energy growth.</p>
       </div>
     </div>
-    <div style="margin-top:var(--sp-10)">
-      <h3 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">History</h3>
-      <p style="max-width:80ch;line-height:1.75">Lake Cylinders Ltd. was established as part of Lake Group's Manufacturing division to supply LPG cylinders for Lake Group's expanding gas business. The facility supports Lake Gas's distribution network across seven countries, producing cylinders that meet rigorous safety standards.</p>
-    </div>
     <div class="val-mini-grid" aria-label="Core values">
-      <div class="val-mini-tile"><h4>Safety</h4><p>Rigorous testing</p></div>
-      <div class="val-mini-tile"><h4>Quality</h4><p>Premium manufacturing</p></div>
-      <div class="val-mini-tile"><h4>Reliability</h4><p>Consistent production</p></div>
-      <div class="val-mini-tile"><h4>Innovation</h4><p>Modern techniques</p></div>
+      <div class="val-mini-tile"><h4>Safety First</h4><p>Safety at the heart of our products, people and operations</p></div>
+      <div class="val-mini-tile"><h4>Quality Excellence</h4><p>Reliable LPG cylinders meeting required standards</p></div>
+      <div class="val-mini-tile"><h4>Customer Satisfaction</h4><p>Quality products and responsive service</p></div>
+      <div class="val-mini-tile"><h4>Integrity</h4><p>Honesty, transparency and accountability</p></div>
+      <div class="val-mini-tile"><h4>Reliability</h4><p>Consistent products and dependable service</p></div>
+      <div class="val-mini-tile"><h4>Innovation</h4><p>Continuous improvement of technology and processes</p></div>
+      <div class="val-mini-tile"><h4>Operational Excellence</h4><p>Efficiency, productivity and continuous improvement</p></div>
+      <div class="val-mini-tile"><h4>Sustainability</h4><p>Cleaner energy adoption and responsible manufacturing</p></div>
+      <div class="val-mini-tile"><h4>People &amp; Teamwork</h4><p>Developing our people and working together</p></div>
+      <div class="val-mini-tile"><h4>National Development</h4><p>Supporting Tanzania's industrial and economic growth</p></div>
     </div>
   </div>
 </section>
@@ -443,11 +463,49 @@
   <div class="container">
     <div class="fs-marker"><span class="fs-marker-no">03</span><span class="fs-eyebrow">Services Offered</span></div>
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Our Services</h2>
-    <div class="grid-4">
-      <div class="fs-card" style="text-align:center;padding:var(--sp-8) var(--sp-6)"><div class="edge-ico" aria-hidden="true"><iconify-icon icon="mdi:gas-cylinder" width="28" height="28"></iconify-icon></div><h4 style="font-family:var(--font-display);font-weight:700;font-size:1.1rem;letter-spacing:.03em;text-transform:uppercase">Cylinder Manufacturing</h4><p style="font-size:.88rem;margin-top:6px">Production of high-quality LPG cylinders for domestic cooking, commercial catering and industrial gas applications.</p></div>
-      <div class="fs-card" style="text-align:center;padding:var(--sp-8) var(--sp-6)"><div class="edge-ico" aria-hidden="true"><iconify-icon icon="mdi:test-tube" width="28" height="28"></iconify-icon></div><h4 style="font-family:var(--font-display);font-weight:700;font-size:1.1rem;letter-spacing:.03em;text-transform:uppercase">Quality Testing</h4><p style="font-size:.88rem;margin-top:6px">Rigorous quality control and pressure testing to ensure every cylinder meets international safety standards.</p></div>
-      <div class="fs-card" style="text-align:center;padding:var(--sp-8) var(--sp-6)"><div class="edge-ico" aria-hidden="true"><iconify-icon icon="mdi:truck" width="28" height="28"></iconify-icon></div><h4 style="font-family:var(--font-display);font-weight:700;font-size:1.1rem;letter-spacing:.03em;text-transform:uppercase">Supply Chain</h4><p style="font-size:.88rem;margin-top:6px">Efficient supply chain management ensuring timely delivery of cylinders to Lake Gas bottling plants and distributors.</p></div>
-      <div class="fs-card" style="text-align:center;padding:var(--sp-8) var(--sp-6)"><div class="edge-ico" aria-hidden="true"><iconify-icon icon="mdi:refresh" width="28" height="28"></iconify-icon></div><h4 style="font-family:var(--font-display);font-weight:700;font-size:1.1rem;letter-spacing:.03em;text-transform:uppercase">Cylinder Refurbishment</h4><p style="font-size:.88rem;margin-top:6px">Cylinder inspection, refurbishment and recertification services to extend product life and maintain safety.</p></div>
+    <div class="svc-grid">
+      <article class="svc-card">
+        <div class="svc-card__media"><img src="assets/images/lakegas/ops/cylinders-yard.jpg" alt="Lake Cylinders LPG cylinder manufacturing" loading="lazy" decoding="async"></div>
+        <div class="svc-card__body">
+          <h4 class="svc-card__title">LPG Cylinder Manufacturing</h4>
+          <p class="svc-card__desc">Production of high-quality 6 kg, 15 kg and 38 kg LPG cylinders for household, commercial and industrial applications.</p>
+        </div>
+      </article>
+      <article class="svc-card">
+        <div class="svc-card__media"><img src="assets/images/lakegas/ops/cylinder-warehouse.jpg" alt="Lake Cylinders revalidation and refurbishment" loading="lazy" decoding="async"></div>
+        <div class="svc-card__body">
+          <h4 class="svc-card__title">Cylinder Revalidation &amp; Refurbishment</h4>
+          <p class="svc-card__desc">Revalidation and refurbishment services that help distributors maintain cylinder fleets and extend useful service life where standards permit.</p>
+        </div>
+      </article>
+      <article class="svc-card">
+        <div class="svc-card__media"><img src="assets/images/lakegas/ops/cylinder-stacks.jpg" alt="Lake Cylinders repair and maintenance" loading="lazy" decoding="async"></div>
+        <div class="svc-card__body">
+          <h4 class="svc-card__title">Cylinder Repair &amp; Maintenance</h4>
+          <p class="svc-card__desc">Repair and maintenance services that keep LPG cylinders safe, compliant and operational throughout their service life.</p>
+        </div>
+      </article>
+      <article class="svc-card">
+        <div class="svc-card__media"><img src="assets/images/lakegas/ops/worker-silas.jpg" alt="Lake Cylinders quality inspection and testing" loading="lazy" decoding="async"></div>
+        <div class="svc-card__body">
+          <h4 class="svc-card__title">Quality Inspection &amp; Testing</h4>
+          <p class="svc-card__desc">Quality inspections and controls integrated throughout the manufacturing process to meet applicable safety requirements.</p>
+        </div>
+      </article>
+      <article class="svc-card">
+        <div class="svc-card__media"><img src="assets/images/lakegas/ops/cylinder-stacks.jpg" alt="Lake Cylinders customized cylinder solutions" loading="lazy" decoding="async"></div>
+        <div class="svc-card__body">
+          <h4 class="svc-card__title">Customized Cylinder Solutions</h4>
+          <p class="svc-card__desc">Customized cylinder solutions adapted to the needs of different LPG applications and market segments.</p>
+        </div>
+      </article>
+      <article class="svc-card">
+        <div class="svc-card__media"><img src="assets/images/lakegas/ops/cylinders-yard.jpg" alt="Lake Cylinders supply and distribution" loading="lazy" decoding="async"></div>
+        <div class="svc-card__body">
+          <h4 class="svc-card__title">LPG Cylinder Supply &amp; Distribution</h4>
+          <p class="svc-card__desc">Supply and distribution of LPG cylinders to customers across Tanzania and regional East African markets.</p>
+        </div>
+      </article>
     </div>
 </div>
 </section>
@@ -458,26 +516,133 @@
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Our Products</h2>
     <div class="prod-catalog">
       <div class="prod-catalog-card">
-        <div class="prod-glyph" aria-hidden="true"><iconify-icon icon="mdi:fire" width="36" height="36"></iconify-icon></div>
-        <h4>Domestic LPG Cylinders</h4>
-        <p>Small-capacity cylinders for household cooking, available in standard sizes for the East African market.</p>
+        <div class="prod-glyph" aria-hidden="true"><iconify-icon icon="mdi:gas-cylinder" width="36" height="36"></iconify-icon></div>
+        <h4>6 kg LPG Cylinders</h4>
+        <p>Household-sized cylinders for everyday cooking, with capacity to produce up to 40,000 units per month.</p>
       </div>
       <div class="prod-catalog-card">
-        <div class="prod-glyph" aria-hidden="true"><iconify-icon icon="mdi:fire" width="36" height="36"></iconify-icon></div>
-        <h4>Commercial LPG Cylinders</h4>
-        <p>Large-capacity cylinders for restaurants, hotels, schools and industrial kitchens requiring high-volume gas supply.</p>
+        <div class="prod-glyph" aria-hidden="true"><iconify-icon icon="mdi:gas-cylinder" width="36" height="36"></iconify-icon></div>
+        <h4>15 kg LPG Cylinders</h4>
+        <p>Mid-capacity cylinders serving both household and commercial LPG markets across the region.</p>
       </div>
       <div class="prod-catalog-card">
-        <div class="prod-glyph" aria-hidden="true"><iconify-icon icon="mdi:factory" width="36" height="36"></iconify-icon></div>
-        <h4>Industrial Cylinders</h4>
-        <p>Specialized cylinders for industrial gas applications including manufacturing, warehousing and commercial operations.</p>
+        <div class="prod-glyph" aria-hidden="true"><iconify-icon icon="mdi:gas-cylinder" width="36" height="36"></iconify-icon></div>
+        <h4>38 kg LPG Cylinders</h4>
+        <p>High-capacity cylinders for customers requiring larger LPG volumes, produced with dedicated manufacturing equipment.</p>
       </div>
     </div>
 </div>
 
+<section class="fs-section">
+  <div class="container">
+    <div class="fs-marker" style="justify-content:center"><span class="fs-marker-no">05</span><span class="fs-eyebrow">Leadership Team</span></div>
+    <h2 class="fs-display" style="text-align:center;margin-bottom:var(--sp-10)">Our Leadership</h2>
+    <div class="lc-lead-grid">
+      <a href="leadership-zaki-othman.html" class="ld-person-card">
+        <div class="ld-person-photo"><img src="assets/images/leadership/zaki-othman.jpg" alt="Zaki Othman" loading="lazy" decoding="async"></div>
+        <div class="ld-person-body">
+          <h3>Zaki Othman</h3>
+          <p class="ld-person-role">General Manager &middot; Lake Cylinders</p>
+          <span class="ld-person-more">Read more</span>
+        </div>
+      </a>
+      <a href="leadership-jishnu-jayachandran.html" class="ld-person-card">
+        <div class="ld-person-photo"><img src="assets/images/leadership/jishnu-jayachandran.jpg" alt="Jishnu Jayachandran" loading="lazy" decoding="async"></div>
+        <div class="ld-person-body">
+          <h3>Jishnu Jayachandran</h3>
+          <p class="ld-person-role">Plant Manager &middot; Lake Cylinders</p>
+          <span class="ld-person-more">Read more</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="fs-section fs-on-dark">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">06</span><span class="fs-eyebrow">Completed &amp; Ongoing Projects</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Projects &amp; Achievements</h2>
+    <div class="fs-split-even" style="align-items:start">
+      <div>
+        <h3 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.15rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:12px">Completed Projects</h3>
+        <div class="val-mini-tile" style="text-align:left;margin-bottom:var(--sp-4)">
+          <h4>Large-Scale LPG Cylinder Supply for the Rural Energy Agency (REA)</h4>
+          <p>Successfully completed the manufacturing and supply of more than 200,000 LPG cylinders to the Rural Energy Agency (REA) within the specified project timeframe, demonstrating the ability to manage large-volume production, maintain consistent product quality and meet demanding delivery schedules.</p>
+        </div>
+        <div class="val-mini-tile" style="text-align:left">
+          <h4>Regional Cylinder Supply</h4>
+          <p>Supplied LPG cylinders to customers in regional African markets, including Rwanda, the Democratic Republic of Congo (DRC), Zambia and other markets, responding quickly to customer requirements and supporting timely deliveries across the region.</p>
+        </div>
+      </div>
+      <div>
+        <h3 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.15rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:12px">Ongoing &amp; Future Projects</h3>
+        <ul class="fs-check" style="margin-top:0">
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Expansion of LPG cylinder production capacity to meet growing demand</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Entry into 38 kg cylinder manufacturing with dedicated equipment</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Expansion of 15 kg cylinder production alongside 6 kg capability</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Growth of cylinder revalidation and refurbishment operations</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Progressively automated, high-efficiency manufacturing facility</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Regional market expansion across East and Central Africa</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="fs-section section-light">
   <div class="container">
-    <div class="fs-marker"><span class="fs-marker-no">07</span><span class="fs-eyebrow">Images</span></div>
+    <div class="fs-marker"><span class="fs-marker-no">07</span><span class="fs-eyebrow">Capabilities</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Production &amp; Operational Capabilities</h2>
+    <div class="stat-panel2">
+      <h3 style="color:var(--white)">At a Glance</h3>
+      <div class="stat-grid2">
+        <div class="stat-tile2"><span class="stat-no2">40,000</span><p>6 kg cylinders per month</p></div>
+        <div class="stat-tile2"><span class="stat-no2 gold">200,000+</span><p>Cylinders delivered to REA</p></div>
+        <div class="stat-tile2"><span class="stat-no2">6 / 15 / 38</span><p>Cylinder sizes manufactured</p></div>
+        <div class="stat-tile2"><span class="stat-no2">4+</span><p>Regional markets served</p></div>
+      </div>
+    </div>
+    <div class="fs-split-even" style="margin-top:var(--sp-8);align-items:start">
+      <div>
+        <h3 style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:10px">Production Capabilities</h3>
+        <ul class="fs-check" style="margin-top:0">
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Up to 40,000 6 kg LPG cylinders per month, subject to schedules and operating conditions</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>15 kg LPG cylinder production serving household and commercial markets</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>38 kg production capability with dedicated cylinder manufacturing equipment</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Cylinder revalidation and refurbishment supporting safe continued use</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:10px">Operational Strengths</h3>
+        <ul class="fs-check" style="margin-top:0">
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Proven execution of major institutional orders involving 200,000+ cylinders</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Regional supply capability across Tanzania and neighbouring African markets</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Flexible production planning adapted to different cylinder sizes and requirements</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Continuous investment in automation and manufacturing efficiency</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fs-section">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">08</span><span class="fs-eyebrow">Contact</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Contact Lake Cylinders</h2>
+    <div class="ct-info fs-corners">
+      <div class="ct-rows">
+        <div class="ct-row"><div class="ct-ico" aria-hidden="true"><iconify-icon icon="mdi:map-marker" width="20" height="20"></iconify-icon></div><div><div class="ct-label">Address</div><span class="ct-strong">Lake Cylinders Limited</span><span class="ct-dim">Manufacturing Facility: Visiga, Kibaha, Pwani, Tanzania</span></div></div>
+        <div class="ct-row"><div class="ct-ico" aria-hidden="true"><iconify-icon icon="mdi:account" width="20" height="20"></iconify-icon></div><div><div class="ct-label">General Manager</div><span class="ct-strong">Zaki Othman</span></div></div>
+        <div class="ct-row"><div class="ct-ico" aria-hidden="true"><iconify-icon icon="mdi:phone" width="20" height="20"></iconify-icon></div><div><div class="ct-label">Telephone</div><a href="tel:+255745552259" class="ct-strong" style="color:var(--white);text-decoration:none">+255 745 552 259</a></div></div>
+        <div class="ct-row"><div class="ct-ico" aria-hidden="true"><iconify-icon icon="mdi:email" width="20" height="20"></iconify-icon></div><div><div class="ct-label">Email</div><a href="mailto:zaki.othman@lakeoilgroup.com" class="ct-strong" style="color:var(--white);text-decoration:none">zaki.othman@lakeoilgroup.com</a><a href="mailto:production.lc@lakeoilgroup.com" class="ct-dim" style="color:var(--ink-mute);text-decoration:none">production.lc@lakeoilgroup.com</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fs-section section-light">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">09</span><span class="fs-eyebrow">Images</span></div>
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Gallery</h2>
     <div class="co-gal" aria-label="Lake Cylinders gallery">
       <figure class="co-gal__item co-gal__item--feat">
@@ -527,7 +692,7 @@
       <div class="footer-col"><h5 data-i18n="footer.services">Subsidiaries</h5><ul>
         <li><a href="lake-oil.html" data-i18n="nav.co.lakeOil">Lake Oil</a></li><li><a href="lake-gas.html" data-i18n="nav.co.lakeGas">Lake Gas</a></li>
         <li><a href="lake-lubes.html" data-i18n="nav.co.lakeLubes">Lake Lubes</a></li><li><a href="lake-steel.html" data-i18n="nav.co.lakeSteel">Lake Steel</a></li>
-        <li><a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a></li><li><a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a></li><li><a href="tiger-tech.html" data-i18n="nav.co.tigerTech">Tiger Tech</a></li>
+        <li><a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a></li><li><a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a></li>
         <li><a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a></li><li><a href="services.html" data-i18n="footer.viewAllCompanies">View All Subsidiaries</a></li>
       </ul></div>
       <div class="footer-col"><h5 data-i18n="footer.company">Corporate</h5><ul>
@@ -537,10 +702,9 @@
         <li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
       </ul></div>
       <div class="footer-col"><h5 data-i18n="footer.question">Got a Question?</h5><ul>
-        <li><a href="contact.html" class="footer-contact-link"><iconify-icon icon="mdi:map-marker" class="footer-contact-ico" width="16" height="16" aria-hidden="true"></iconify-icon><span data-i18n="footer.address">Plot 49, Mikocheni Light Industrial, Dar es Salaam</span></a></li>
-        <li><a href="tel:+255222780510" class="footer-contact-link"><iconify-icon icon="mdi:phone" class="footer-contact-ico" width="16" height="16" aria-hidden="true"></iconify-icon><span>+255 222 780 510</span></a></li>
-        <li><a href="tel:+255222780479" class="footer-contact-link"><iconify-icon icon="mdi:phone" class="footer-contact-ico" width="16" height="16" aria-hidden="true"></iconify-icon><span>+255 222 780 479</span></a></li>
-        <li><a href="mailto:admin@lakeoilgroup.com" class="footer-contact-link"><iconify-icon icon="mdi:email" class="footer-contact-ico" width="16" height="16" aria-hidden="true"></iconify-icon><span>admin@lakeoilgroup.com</span></a></li>
+        <li><a href="contact.html" class="footer-contact-link"><iconify-icon icon="mdi:map-marker" class="footer-contact-ico" width="16" height="16" aria-hidden="true"></iconify-icon><span>Manufacturing Facility: Visiga, Kibaha, Pwani, Tanzania</span></a></li>
+        <li><a href="tel:+255745552259" class="footer-contact-link"><iconify-icon icon="mdi:phone" class="footer-contact-ico" width="16" height="16" aria-hidden="true"></iconify-icon><span>+255 745 552 259</span></a></li>
+        <li><a href="mailto:zaki.othman@lakeoilgroup.com" class="footer-contact-link"><iconify-icon icon="mdi:email" class="footer-contact-ico" width="16" height="16" aria-hidden="true"></iconify-icon><span>zaki.othman@lakeoilgroup.com</span></a></li>
         <li><a href="contact.html" data-i18n="footer.contact">Contact Us</a></li>
       </ul></div>
       <div class="footer-col"><h5 data-i18n="footer.connect">Connect With Us</h5>
@@ -586,14 +750,14 @@
 
 
 
-<script src="assets/i18n-content.js?v=63" defer></script>
+<script src="assets/i18n-content.js?v=65" defer></script>
 <script src="assets/i18n.js?v=58" defer></script>
 <script src="assets/site.js?v=60" defer></script>
   <script src="assets/vendor/flexsearch/flexsearch.bundle.min.js" defer></script>
   <script src="assets/assistant-kb.js" defer></script>
   <script src="assets/assistant.js?v=68" defer></script>
 <script src="assets/analytics.js?v=1" defer></script>
-<script src="assets/pwa.js?v=60" defer></script>
+<script src="assets/pwa.js?v=62" defer></script>
 <script src="assets/flagship-motion.js?v=58" defer></script>
 <script src="assets/split-text.js?v=48" defer></script>
 </body></html>

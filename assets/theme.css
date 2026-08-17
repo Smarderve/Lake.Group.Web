@@ -201,6 +201,10 @@ html, body {
   background: var(--nav-link-active-bg);
   transform: none;
 }
+.nav-links > li > a.active {
+  outline: var(--nav-link-active-outline, 1px solid rgba(255,255,255,0.9));
+  outline-offset: -1px;
+}
 
 .nav-logo { transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) ease; }
 .nav-logo:hover { transform: translateY(-2px) scale(1.02); box-shadow: var(--shadow-md); }

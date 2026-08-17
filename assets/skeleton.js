@@ -178,16 +178,20 @@
     if (kind === 'link' && count > 0) {
       var line = targets[targets.length - 1];
       var dot = Math.max(6, Math.min(10, Math.round(thickness * 1.15)));
-      var dotX = line.left + line.width + 7;
-      if (dotX + dot <= rect.right + 6 && dot * 3 <= rect.width) {
-        pushBlock(targets, {
-          kind: 'indicator',
-          left: dotX,
-          top: line.top + (thickness - dot) / 2,
-          width: dot,
-          height: dot,
-          radius: dot / 2
-        });
+      // All placeholder lines can be clamped away when the link sits off-screen
+      // (pushBlock skips blocks it cannot fit) — guard before reading line.left.
+      if (line && dot * 3 <= rect.width) {
+        var dotX = line.left + line.width + 7;
+        if (dotX + dot <= rect.right + 6) {
+          pushBlock(targets, {
+            kind: 'indicator',
+            left: dotX,
+            top: line.top + (thickness - dot) / 2,
+            width: dot,
+            height: dot,
+            radius: dot / 2
+          });
+        }
       }
     }
   }

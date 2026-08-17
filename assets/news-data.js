@@ -22,7 +22,7 @@ window.LAKE_NEWS = [
     title: "Lake Gas Captures Slice of Kenya's Cooking Gas Import Market",
     date: "15 Feb, 2026",
     category: "Expansion",
-    bannerImage: "assets/images/lakegas/ops/cylinders-yard.jpg?v=80",
+    bannerImage: "assets/images/lakegas/ops/cylinder-stacks.jpg",
     description: [
       "Lake Gas Ltd., the LPG division of Lake Group, has captured approximately 2% of Kenya's cooking gas import market through its $60 million Vipingo terminal in Kilifi County. The terminal, which began operations in mid-2025, has established Lake Gas as a challenger to established operators in Kenya's LPG sector.",
       "The Vipingo terminal features an initial storage capacity of 10,000 metric tonnes with plans to scale up to 30,000 tonnes. It utilizes an offshore Conventional Buoy Mooring (CBM) system to offload LPG shipments directly from vessels.",
@@ -60,7 +60,7 @@ window.LAKE_NEWS = [
     title: "Lake Group Founder Named Among Africa's Leading Energy Entrepreneurs",
     date: "10 Mar, 2025",
     category: "Awards",
-    bannerImage: "assets/images/leadership/ally-edha-awadh.png?v=80",
+    bannerImage: "assets/images/leadership/ally-edha-awadh-16x9.jpg",
     description: [
       "Ally Edha Awadh, Founder and CEO of Lake Group, has been featured by Billionaires.Africa and other business publications as one of East Africa's leading energy entrepreneurs, alongside fellow Tanzanian tycoon Rostam Aziz of Taifa Gas.",
       "Under Awadh's leadership, Lake Group has grown from a single fuel outlet in Dar es Salaam in 2006 into a diversified conglomerate spanning petroleum distribution, LPG, steel manufacturing, logistics, real estate, and agro-processing across 10 countries in East and Central Africa.",
@@ -79,7 +79,7 @@ window.LAKE_NEWS = [
     title: "Lake Steel Mill Continues Operations at Kibaha Facility",
     date: "05 Jan, 2025",
     category: "Business",
-    bannerImage: "assets/images/lakesteel/ops/rebar-yard.jpg?v=80",
+    bannerImage: "assets/images/lakesteel/ops/rebar-yard.jpg",
     description: [
       "Lake Steel & Allied Products Ltd. continues production at its fully computerized automated steel rolling mill in Visiga, Kibaha, Pwani Region, Tanzania. The mill has an annual capacity of ~100,000 metric tons of HS-CR (High Strength . Cold Rolled) reinforcement steel bars.",
       "The steel produced at the Kibaha mill is corrosion-resistant, designed specifically for coastal, saline, and industrial environments. It retains structural integrity up to 600°C . significantly higher than the standard rebar threshold of ~350°C.",
@@ -97,7 +97,7 @@ window.LAKE_NEWS = [
     title: "Lake Trans & ATL Fleet Expansion Reaches 1,200+ Vehicles for Regional Logistics",
     date: "09 Sep, 2023",
     category: "Logistics",
-    bannerImage: "assets/images/group/ops/terminal-overview.jpg?v=80",
+    bannerImage: "assets/images/group/ops/terminal-overview.jpg",
     description: [
       "Lake Group's logistics division, comprising Lake Trans Ltd. and Associated Trans Logistics Ltd. (ATL), expanded its combined fleet to over 1,200 vehicles, strengthening its position as a leading transport and logistics provider in East and Central Africa.",
       "The fleet includes fuel tankers, bulk liquid carriers, flatbed trucks, and container haulage vehicles operating across Tanzania, Kenya, Zambia, DR Congo, Rwanda, Burundi, and Ethiopia.",
@@ -112,7 +112,7 @@ window.LAKE_NEWS = [
     title: "Lake Steel Receives TBS Certification for High-Strength Corrosion-Resistant Rebars",
     date: "14 Mar, 2023",
     category: "Business",
-    bannerImage: "assets/images/lakesteel/ops/rebar-yard.jpg?v=80",
+    bannerImage: "assets/images/lakesteel/ops/hot-rolling.jpg",
     description: [
       "Lake Steel & Allied Products Ltd. received full certification from the Tanzania Bureau of Standards (TBS) for its High Strength . Cold Rolled (HS-CR) reinforcement steel bars produced at its Kibaha rolling mill.",
       "The HS-CR rebars are specifically engineered for corrosion resistance in coastal, saline, and industrial environments. They retain structural integrity up to 600°C . significantly higher than the standard rebar threshold of approximately 350°C.",
@@ -128,7 +128,7 @@ window.LAKE_NEWS = [
     title: "Lake Oil Uganda Ltd. Incorporated . Expanding Operations into Kampala",
     date: "11 Jun, 2024",
     category: "Expansion",
-    bannerImage: "assets/images/group/ops/terminal-overview.jpg?v=80",
+    bannerImage: "assets/images/lakeoil/current/depot-terminal.jpg",
     description: [
       "Lake Group expanded its footprint into Uganda with the incorporation of Lake Oil Uganda Ltd. and Lake Trans Uganda Ltd., establishing operations in Kampala to serve the Ugandan petroleum and logistics market.",
       "The Uganda expansion brings Lake Group's country presence to 10 nations: Tanzania, Kenya, Zambia, Rwanda, Burundi, DR Congo, Ethiopia, Mozambique, and now Uganda, alongside its long-standing hub in Dubai.",
@@ -163,7 +163,7 @@ window.LAKE_NEWS = [
     title: "Lake Trans Fleet Expansion Reaches 700+ Vehicles Milestone",
     date: "12 May, 2022",
     category: "Logistics",
-    bannerImage: "assets/images/group/ops/terminal-overview.jpg?v=80",
+    bannerImage: "assets/images/atl/tanker-1.jpg",
     description: [
       "Lake Trans Ltd. expanded its heavy-duty fleet to over 700 vehicles, strengthening the logistics division's capacity to serve Lake Group's growing regional operations across East and Central Africa.",
       "The fleet includes fuel tankers, bulk liquid carriers, flatbed trucks, and container haulage vehicles operating across Tanzania, Kenya, Zambia, DR Congo, Rwanda, Burundi, and Ethiopia. The milestone was marked by the delivery of new Sinotruk HOWO tankers and flatbed trucks.",
@@ -178,7 +178,7 @@ window.LAKE_NEWS = [
     title: "Lake Group Strengthens Fleet with New Sino-Trucks & Tanker Deliveries",
     date: "15 Feb, 2022",
     category: "Logistics",
-    bannerImage: "assets/images/news/1/photo_1.jpg",
+    bannerImage: "assets/images/group/ops/tanker-loading.jpg",
     description: [
       "Lake Group took delivery of a new batch of Sino-Trucks (HOWO) heavy-duty vehicles and fuel tankers, strengthening its logistics and petroleum distribution capabilities across Tanzania and the East African region.",
       "The new fleet additions included fuel tankers for Lake Oil's distribution network and flatbed trucks for Lake Trans and ATL's general cargo operations. The vehicles were integrated into the group's expanding fleet, which serves routes across Tanzania, Kenya, Zambia, DRC, Rwanda, and Burundi.",
@@ -194,7 +194,7 @@ window.LAKE_NEWS = [
     title: "Lake Group Celebrates 15 Years of Growth and Regional Expansion",
     date: "18 Nov, 2021",
     category: "Events",
-    bannerImage: "assets/images/leadership/annual-event.jpg?v=80",
+    bannerImage: "assets/images/leadership/annual-event.jpg",
     description: [
       "Lake Group commemorated its 15th anniversary, marking the journey from a single fuel outlet in Dar es Salaam in 2006 to a diversified conglomerate operating across 10 countries in East and Central Africa.",
       "Founded by Ally Edha Awadh at age 27, Lake Group grew from a petroleum trading company into a multi-sector enterprise spanning energy (Lake Oil, Lake Gas, Lake Aviation, Lake Lubes), manufacturing (Lake Steel, Lake Buildings, Lake Plastics, ATL), logistics (Lake Trans, AFICD, AILL), real estate (Cross Country, Ocean Galleria), and agro-processing (Lake Agro).",
@@ -209,7 +209,7 @@ window.LAKE_NEWS = [
     title: "Lake Steel Wins Contract Dispute, Strengthens Rebar Supply Operations",
     date: "18 Oct, 2021",
     category: "Business",
-    bannerImage: "assets/images/lakesteel/ops/rebar-yard.jpg?v=80",
+    bannerImage: "assets/images/lakesteel/TA/photo_1.jpg",
     description: [
       "Lake Steel & Allied Products Ltd. secured a favorable judgment from the High Court of Tanzania (Commercial Division) in a contract dispute against Mohammedi Builders Ltd. The court ordered payment for steel bars supplied under local purchase orders between May and June 2020.",
       "The judgment, delivered by Justice Kisanya in Commercial Case No. 89 of 2020, covered outstanding balances for HS-CR reinforcement steel bars supplied from Lake Steel's Kibaha rolling mill, along with general damages of TZS 5 million and interest.",
@@ -240,7 +240,7 @@ window.LAKE_NEWS = [
     title: "Lake Buildings Solutions Delivers Major Commercial & Residential Projects",
     date: "12 Aug, 2021",
     category: "Business",
-    bannerImage: "assets/images/n-slider/4.jpg?v=80",
+    bannerImage: "assets/images/lakebuildings/ops/lake-tanks.jpg",
     description: [
       "Lake Buildings Solutions Ltd., the construction and building materials division of Lake Group, completed several major commercial and residential projects across Dar es Salaam and up-country Tanzania.",
       "Projects delivered included commercial building fit-outs, residential developments, and infrastructure works for both Lake Group subsidiaries and external clients. The division provides integrated building solutions including steel structures, roofing, cladding, and general contracting services.",
@@ -255,7 +255,7 @@ window.LAKE_NEWS = [
     title: "Lake Agro Advances Greenfield Agricultural Projects in Rufiji & Yala Swamp",
     date: "20 Jun, 2021",
     category: "Business",
-    bannerImage: "assets/images/n-slider/4.jpg?v=80",
+    bannerImage: "assets/images/n-slider/1.jpg",
     description: [
       "Lake Agro Industries Ltd. progressed with its greenfield agricultural investments in Tanzania, including the deployment of project management teams for the Rufiji District Greenfield Sugar Project and continued farming operations at the Yala Swamp agricultural scheme.",
       "The sugar project aims to expand local sugar manufacturing capacity and reduce Tanzania's dependence on imported sugar. Lake Agro's operations complement the government's agricultural transformation agenda and support rural employment in the Coast Region.",
@@ -270,7 +270,7 @@ window.LAKE_NEWS = [
     title: "Lake Group Women's Empowerment Initiative . International Women's Day 2021",
     date: "08 Mar, 2021",
     category: "CSR",
-    bannerImage: "assets/images/leadership/annual-event.jpg?v=80",
+    bannerImage: "assets/images/leadership/annual-event-2.jpg",
     description: [
       "Lake Group celebrated International Women's Day 2021 with community outreach and employee engagement initiatives across its operations in Tanzania, continuing the company's tradition of honoring women's contributions to the workplace and society.",
       "The company's women employees organized donation drives and community visits, providing essential supplies to local communities. The initiative also featured internal events recognizing the achievements of women across Lake Group's subsidiaries.",
@@ -285,7 +285,7 @@ window.LAKE_NEWS = [
     title: "Lake Group Launches COVID-19 Community Relief & Support Initiative",
     date: "15 May, 2020",
     category: "CSR",
-    bannerImage: "assets/images/leadership/annual-event.jpg?v=80",
+    bannerImage: "assets/images/leadership/khalid-hospital-donation.jpg",
     description: [
       "Lake Group mobilized its CSR arm to support communities across Tanzania during the COVID-19 pandemic, donating medical supplies, food packages, and sanitation materials to vulnerable communities in Dar es Salaam, Coast Region, and up-country areas.",
       "The initiative included distribution of face masks, hand sanitizers, and soap to markets, bus terminals, and public spaces. Lake Group also provided food relief packages to families affected by lockdown measures.",
@@ -301,7 +301,7 @@ window.LAKE_NEWS = [
     title: "AFICD Container Depot Launches Operations at Dar es Salaam Port",
     date: "14 Oct, 2015",
     category: "Logistics",
-    bannerImage: "assets/images/group/ops/terminal-overview.jpg?v=80",
+    bannerImage: "assets/images/aficd/TA/photo_1.jpg",
     description: [
       "African Inland Container Depot Ltd. (AFICD) commenced operations at the Dar es Salaam port corridor, providing container freight station, warehousing, and cargo consolidation services for importers and exporters across Tanzania and the wider East African region.",
       "The depot serves as a key logistics hub for containerized cargo moving through the Dar es Salaam port . East Africa's second-largest port . connecting to landlocked countries including Zambia, DR Congo, Rwanda, Burundi, and Uganda via the Central Corridor.",
@@ -317,7 +317,7 @@ window.LAKE_NEWS = [
     title: "Lake Oil Expands Retail Network . New Fuel Stations Open Across Tanzania",
     date: "10 Aug, 2015",
     category: "Expansion",
-    bannerImage: "assets/images/group/ops/depot-aerial.jpg?v=80",
+    bannerImage: "assets/images/lakeoil/current/station-africa-map.jpg",
     description: [
       "Lake Oil Ltd. accelerated its retail expansion across Tanzania with the opening of multiple new fuel stations in strategic locations, bringing the total branded station network to over 50 outlets nationwide.",
       "New stations opened in regional commercial hubs including Mwanza, Arusha, Mbeya, and Dodoma, alongside continued expansion in Dar es Salaam. Each station featured Lake Oil's branded forecourt design with blue, white, yellow, and red corporate colors, automated fuel dispensers, and convenience retail offerings.",
@@ -333,7 +333,7 @@ window.LAKE_NEWS = [
     title: "Lake Trans Fleet Expansion . Regional Logistics Capacity Reaches 200+ Vehicles",
     date: "22 Apr, 2015",
     category: "Logistics",
-    bannerImage: "assets/images/news/1/photo_1.jpg?v=80",
+    bannerImage: "assets/images/atl/tanker-2.jpg",
     description: [
       "Lake Trans Ltd. expanded its heavy-duty vehicle fleet to over 200 units, strengthening its capacity to serve Lake Group's growing petroleum distribution and general cargo logistics needs across Tanzania and neighboring countries.",
       "The fleet expansion included fuel tankers for Lake Oil's distribution network, flatbed trucks for construction materials transport, and container haulage vehicles serving the Dar es Salaam port corridor. The expanded fleet enabled Lake Trans to serve routes across Tanzania, Zambia, and DR Congo.",
@@ -349,7 +349,7 @@ window.LAKE_NEWS = [
     title: "Lake Oil Enters Zambian Market . New Supply Operations in Lusaka",
     date: "16 Mar, 2016",
     category: "Expansion",
-    bannerImage: "assets/images/group/ops/depot-aerial.jpg?v=80",
+    bannerImage: "assets/images/lakeoil/current/tanker-lake-energies.jpg",
     description: [
       "Lake Oil Ltd. expanded its regional footprint into Zambia, establishing petroleum supply operations in Lusaka to serve the Zambian market and the southern DR Congo corridor. The expansion marked Lake Group's entry into its fourth country of operation.",
       "The Zambian operation initially focused on bulk petroleum supply to mining, industrial, and commercial customers in the Copperbelt region and Lusaka. Lake Oil leveraged its existing supply chain relationships with international trading partners including Trafigura and Augusta Energy to secure competitive product sourcing.",
@@ -365,7 +365,7 @@ window.LAKE_NEWS = [
     title: "Lake Oil Reaches 80+ Retail Fuel Stations Milestone Across Tanzania",
     date: "18 Aug, 2016",
     category: "Expansion",
-    bannerImage: "assets/images/group/ops/terminal-overview.jpg?v=80",
+    bannerImage: "assets/images/lakeoil/current/station-lake-energies.jpg",
     description: [
       "Lake Oil Ltd. continued its rapid retail network expansion, reaching over 80 branded fuel stations across Tanzania . nearly doubling its station count in just over a year. The growth reflected strong consumer acceptance of the Lake Oil brand in the competitive Tanzanian downstream petroleum market.",
       "New station openings in 2016 included sites in the coastal regions (Tanga, Mtwara), lake zone (Mwanza, Bukoba), and northern corridor (Arusha, Moshi). Each station was built to consistent specifications with modern forecourt design, automated dispensers, and enhanced safety systems.",
@@ -533,7 +533,7 @@ window.LAKE_NEWS = [
     title: "Composite Cylinder Launch . 18th June 2014",
     date: "18 Jun, 2014",
     category: "LPG",
-    bannerImage: "assets/images/news/6/photo_1.jpg",
+    bannerImage: "assets/images/lakegas/ops/filling-plant.jpg",
     description: [
       "It is a Pleasure to announce a New Milestone achieved by the \"LAKE GAS TEAM\" – The Launch of the \"COMPOSITE CYLINDERS\".",
       "The Composite Cylinder was officially Launched on 18th June, 2014 at the Program conducted at the Grand Hyatt Regency - Dar Es Salaam. The Guest of Honor – The Asst. Commissioner of Energy (Natural Gas) in the Ministry of Energy & Minerals- Mr. Nobert Kahyoza officiated the Launch by holding up the Composite Cylinder along with our Chairman and Managing Director – Mr. Ally Edha Awadh.",
@@ -612,7 +612,7 @@ window.LAKE_NEWS = [
     title: "Lake Group Expansion into Mozambique Market",
     date: "2019",
     category: "Expansion",
-    bannerImage: "assets/images/news/3/photo_1.jpg",
+    bannerImage: "assets/images/lakeoil/current/fleet-loading.jpg",
     description: [
       "Africa Energy Intelligence's sources report that the Tanzanian oil trading and distribution firm Lake Group has set up shop in Mozambique.",
       "Its founder and CEO, Ally Edha Awadh, recently incorporated a subsidiary named Lake Oil Limited in Beira In central Mozambique.",

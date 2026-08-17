@@ -24,10 +24,10 @@
   <style>
 /* ==========================================================================
    MERIDIAN PAGE LAYER  news-article.html
-   Chrome + shared components come from assets/flagship.css?v=100. Article body is
+   Chrome + shared components come from assets/flagship.css?v=106. Article body is
    rendered into #news-article by assets/news.js (class names fixed there).
    ========================================================================== */
-/* Article layout: full-width reading column */
+/* Article layout: two-column profile body (writing left, picture right) */
 .news-article-layout{display:block}
 .news-article{margin-bottom:var(--sp-8)}
 
@@ -35,13 +35,17 @@
 .news-article-meta::after{content:'';position:absolute;left:0;bottom:-4px;width:8px;height:8px;background:var(--gold)}
 .news-article-date{font-size:var(--fs-micro);letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
 .news-article-title{font-family:var(--font-display);font-weight:700;font-size:clamp(2.2rem,4.6vw,3.8rem);line-height:.96;letter-spacing:.015em;text-transform:uppercase;color:var(--text);margin-bottom:var(--sp-6)}
-.news-article-banner{position:relative;overflow:hidden;background:var(--ink-3);margin-bottom:var(--sp-8)}
+.news-article-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,400px);gap:clamp(32px,5vw,72px);align-items:start;margin-bottom:var(--sp-8)}
+.news-article-main{min-width:0}
+.news-article-media{position:sticky;top:calc(var(--navbar-height,72px) + 20px)}
+.news-article-banner{position:relative;overflow:hidden;background:var(--ink-3);margin-bottom:var(--sp-5)}
 .news-article-banner::before,.news-article-banner::after{content:'';position:absolute;width:22px;height:22px;border:2px solid var(--gold);z-index:3;pointer-events:none}
 .news-article-banner::before{top:-2px;left:-2px;border-right:0;border-bottom:0}
 .news-article-banner::after{bottom:-2px;right:-2px;border-left:0;border-top:0}
-.news-article-banner img{width:100%;display:block;max-height:480px;object-fit:cover}
-.news-article-text p{font-size:1rem;margin-bottom:var(--sp-4);line-height:1.85;color:var(--mute)}
+.news-article-banner img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover;object-position:center}
+.news-article-text p{font-size:1rem;margin-bottom:var(--sp-4);line-height:1.85;color:var(--mute);max-width:68ch}
 .news-article-text p:first-child{font-size:var(--fs-lede);font-weight:300;color:var(--text)}
+/* Gallery sits at the bottom of the text column: two-up grid, no overlap */
 .news-article-gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-4);margin-top:var(--sp-8)}
 .news-article-gallery figure{margin:0;overflow:hidden;background:var(--ink-3);position:relative}
 .news-article-gallery figure::before{content:'';position:absolute;top:0;left:0;width:26px;height:2px;background:var(--gold);z-index:2}
@@ -63,8 +67,8 @@
 .news-carousel-track::-webkit-scrollbar-track{background:var(--line);border-radius:2px}
 .news-carousel-track::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
 .news-carousel-track:focus{outline:2px solid var(--gold);outline-offset:2px}
-.news-carousel-card{scroll-snap-align:start;flex:0 0 min(300px, 80vw);display:block;text-decoration:none;border:1px solid var(--line);transition:border-color var(--dur-2) var(--ease-out),box-shadow var(--dur-2) var(--ease-out)}
-.news-carousel-card:hover{border-color:var(--gold);box-shadow:0 4px 20px rgba(0,0,0,0.08)}
+.news-carousel-card{scroll-snap-align:start;flex:0 0 min(300px, 80vw);display:block;text-decoration:none;background:#fff;border:1px solid rgba(1,63,92,.06);border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(1,63,92,.04),0 6px 18px rgba(1,63,92,.07);transition:border-color var(--dur-2) var(--ease-out),box-shadow var(--dur-2) var(--ease-out),transform var(--dur-2) var(--ease-out)}
+.news-carousel-card:hover{border-color:rgba(1,129,187,.35);box-shadow:0 2px 4px rgba(1,63,92,.05),0 14px 30px rgba(1,63,92,.14);transform:translateY(-2px)}
 .news-carousel-card-img{position:relative;overflow:hidden;aspect-ratio:16/9;background:var(--ink-3)}
 .news-carousel-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform var(--dur-3) var(--ease-out)}
 .news-carousel-card:hover .news-carousel-card-img img{transform:scale(1.04)}
@@ -73,7 +77,7 @@
 .news-carousel-card-date{font-size:var(--fs-micro);letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;display:block}
 .news-carousel-card-title{font-family:var(--font-display);font-weight:700;font-size:.92rem;line-height:1.35;color:var(--text);margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .news-carousel-nav{display:flex;gap:8px;margin-top:var(--sp-4);justify-content:center}
-.news-carousel-btn{width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);background:transparent;cursor:pointer;color:var(--text);font-size:1rem;transition:background var(--dur-1) ease,border-color var(--dur-1) ease,color var(--dur-1) ease}
+.news-carousel-btn{width:36px;height:36px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(1,63,92,.12);background:#fff;cursor:pointer;color:var(--text);font-size:1rem;box-shadow:0 1px 2px rgba(1,63,92,.04);transition:background var(--dur-1) ease,border-color var(--dur-1) ease,color var(--dur-1) ease,box-shadow var(--dur-1) ease}
 .news-carousel-btn:hover{background:var(--text);border-color:var(--text);color:#fff}
 .news-carousel-btn:disabled{opacity:.3;cursor:not-allowed}
 .news-carousel-btn:disabled:hover{background:transparent;border-color:var(--line);color:var(--text)}
@@ -81,7 +85,13 @@
 .news-article-empty{padding:var(--sp-16) 0;text-align:center}
 .news-article-empty h2{font-family:var(--font-display);font-weight:700;font-size:var(--fs-display);text-transform:uppercase;letter-spacing:.015em;margin-bottom:var(--sp-3)}
 .news-article-empty p{margin-bottom:var(--sp-6)}
-@media(max-width:960px){.news-article-gallery{grid-template-columns:1fr}.news-carousel-card{flex:0 0 min(260px, 85vw)}}
+@media(max-width:960px){
+  .news-article-body{grid-template-columns:1fr;gap:var(--sp-6)}
+  .news-article-media{order:-1;max-width:560px;position:static}
+  .news-article-banner img{aspect-ratio:16/9;max-height:380px}
+  .news-article-gallery{grid-template-columns:1fr}
+  .news-carousel-card{flex:0 0 min(260px, 85vw)}
+}
 
 /* ====== Article body scroll-in animations ====== */
 .fs-motion .news-article-text > *,
@@ -298,13 +308,13 @@
   <link rel="preload" href="assets/fonts/files/jost-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="assets/flagship.css?v=100">
+<link rel="stylesheet" href="assets/flagship.css?v=106">
 <link rel="stylesheet" href="assets/split-text.css?v=48">
   <link rel="stylesheet" href="assets/assistant.css?v=71">
   <link rel="stylesheet" href="assets/skeleton.css?v=7">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https://www.youtube.com https://www.youtube-nocookie.com; worker-src 'self'; manifest-src 'self'; media-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 </head><body>
-  <script src="assets/skeleton.js?v=7"></script>
+  <script src="assets/skeleton.js?v=8"></script>
 <nav class="site-nav" dir="ltr">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -351,8 +361,8 @@
                   <a href="acfs.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/acfs.png?v=69" alt="ACFS" loading="lazy" width="56" height="32"><span data-i18n="nav.co.acfs">ACFS</span></a>
 
 <a href="aficd.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/aficd.png?v=69" alt="AFICD" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aficd">AFICD</span></a>
-                  <a href="aill.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/aill.png?v=65" alt="AILL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aill">AILL</span></a>
-                  <a href="lake-trans.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-trans.png" alt="Lake Trans" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeTrans">Lake Trans</span></a><a href="tiger-tech.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/tiger-tech.png" alt="Tiger Tech" loading="lazy" width="56" height="32"><span data-i18n="nav.co.tigerTech">Tiger Tech</span></a>
+                  <a href="aill.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/aill.png?v=66" alt="AILL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aill">AILL</span></a>
+                  <a href="lake-trans.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-trans.png" alt="Lake Trans" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeTrans">Lake Trans</span></a>
                 </div>
               </div>
               <div class="mm-pane" role="tabpanel" id="mm-pane-realestate" data-mm-pane="realestate" aria-labelledby="mm-tab-realestate" hidden>
@@ -473,7 +483,6 @@
 <a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a>
       <a href="aill.html" data-i18n="nav.co.aill">AILL</a>
       <a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a>
-      <a href="tiger-tech.html" data-i18n="nav.co.tigerTech">Tiger Tech</a>
     </div>
     <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-realestate" data-i18n="nav.dd.realEstate">Real Estate Sector</button>
     <div class="mob-acc-panel" id="mob-acc-realestate" hidden>
@@ -519,7 +528,7 @@
 </div>
 
 </div>
-<script src="assets/i18n-content.js?v=63" defer></script>
+<script src="assets/i18n-content.js?v=65" defer></script>
 <script src="assets/i18n.js?v=58" defer></script>
 <script src="assets/site.js?v=60" defer></script>
   <script src="assets/vendor/flexsearch/flexsearch.bundle.min.js" defer></script>
@@ -557,7 +566,7 @@
       <div class="footer-col"><h5 data-i18n="footer.services">Subsidiaries</h5><ul>
         <li><a href="lake-oil.html" data-i18n="nav.co.lakeOil">Lake Oil</a></li><li><a href="lake-gas.html" data-i18n="nav.co.lakeGas">Lake Gas</a></li>
         <li><a href="lake-lubes.html" data-i18n="nav.co.lakeLubes">Lake Lubes</a></li><li><a href="lake-steel.html" data-i18n="nav.co.lakeSteel">Lake Steel</a></li>
-        <li><a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a></li><li><a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a></li><li><a href="tiger-tech.html" data-i18n="nav.co.tigerTech">Tiger Tech</a></li>
+        <li><a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a></li><li><a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a></li>
         <li><a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a></li><li><a href="services.html" data-i18n="footer.viewAllCompanies">View All Subsidiaries</a></li>
       </ul></div>
       <div class="footer-col"><h5 data-i18n="footer.company">Corporate</h5><ul>
@@ -616,7 +625,7 @@
 
 
 
-<script src="assets/pwa.js?v=60" defer></script>
+<script src="assets/pwa.js?v=62" defer></script>
 <script src="assets/flagship-motion.js?v=58" defer></script>
 <script src="assets/split-text.js?v=48" defer></script>
 </body></html>

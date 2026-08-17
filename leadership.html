@@ -67,6 +67,11 @@
   .ld-featured { max-width: 280px; margin-bottom: var(--sp-10); }
 }
 
+/* Category groups: heading + grid per tier */
+.ld-cat-group { margin: 0 auto; }
+.ld-cat-group .section-label { margin-bottom: 18px; }
+.ld-cat-group + .ld-cat-group { margin-top: var(--sp-12); }
+
 a.ld-person-card {
   position: relative;
   display: flex; flex-direction: column; text-decoration: none; color: inherit;
@@ -257,6 +262,8 @@ body .page-hero .hero-media {
     {"@type": "Person", "name": "Dilip Kumar", "jobTitle": "CEO · Manufacturing Division", "url": "https://www.lakeoilgroup.com/leadership-dileep-kumar.html"},
     {"@type": "Person", "name": "Bibhuti Singh", "jobTitle": "CFO · AFICD", "url": "https://www.lakeoilgroup.com/leadership-bibhuti-singh.html"},
     {"@type": "Person", "name": "Biji Alapat", "jobTitle": "CEO · Lake Energies", "url": "https://www.lakeoilgroup.com/leadership-biji-lapat.html"},
+    {"@type": "Person", "name": "Zaki Othman", "jobTitle": "General Manager · Lake Cylinders", "url": "https://www.lakeoilgroup.com/leadership-zaki-othman.html"},
+    {"@type": "Person", "name": "Jishnu Jayachandran", "jobTitle": "Plant Manager · Lake Cylinders", "url": "https://www.lakeoilgroup.com/leadership-jishnu-jayachandran.html"},
     {"@type": "Person", "name": "Sridhar Mani", "jobTitle": "Director of Digital Transformation", "url": "https://www.lakeoilgroup.com/leadership-sridhar-mani.html"},
     {"@type": "Person", "name": "Mohammed Khalid", "jobTitle": "Managing Director · ATL", "url": "https://www.lakeoilgroup.com/leadership-mohammed-khalid.html"},
     {"@type": "Person", "name": "Juma Nuru", "jobTitle": "Director of Operations · Lake Group", "url": "https://www.lakeoilgroup.com/leadership-juma-nuru.html"}
@@ -268,14 +275,14 @@ body .page-hero .hero-media {
   <link rel="preload" href="assets/fonts/files/jost-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="assets/flagship.css?v=100">
+<link rel="stylesheet" href="assets/flagship.css?v=106">
 <link rel="stylesheet" href="assets/split-text.css?v=48">
   <link rel="stylesheet" href="assets/assistant.css?v=71">
   <link rel="stylesheet" href="assets/skeleton.css?v=7">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https://www.youtube.com https://www.youtube-nocookie.com; worker-src 'self'; manifest-src 'self'; media-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 </head>
 <body>
-  <script src="assets/skeleton.js?v=7"></script>
+  <script src="assets/skeleton.js?v=8"></script>
 <nav class="site-nav" dir="ltr">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -322,8 +329,8 @@ body .page-hero .hero-media {
                   <a href="acfs.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/acfs.png?v=69" alt="ACFS" loading="lazy" width="56" height="32"><span data-i18n="nav.co.acfs">ACFS</span></a>
 
 <a href="aficd.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/aficd.png?v=69" alt="AFICD" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aficd">AFICD</span></a>
-                  <a href="aill.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/aill.png?v=65" alt="AILL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aill">AILL</span></a>
-                  <a href="lake-trans.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-trans.png" alt="Lake Trans" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeTrans">Lake Trans</span></a><a href="tiger-tech.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/tiger-tech.png" alt="Tiger Tech" loading="lazy" width="56" height="32"><span data-i18n="nav.co.tigerTech">Tiger Tech</span></a>
+                  <a href="aill.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/aill.png?v=66" alt="AILL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aill">AILL</span></a>
+                  <a href="lake-trans.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-trans.png" alt="Lake Trans" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeTrans">Lake Trans</span></a>
                 </div>
               </div>
               <div class="mm-pane" role="tabpanel" id="mm-pane-realestate" data-mm-pane="realestate" aria-labelledby="mm-tab-realestate" hidden>
@@ -444,7 +451,6 @@ body .page-hero .hero-media {
 <a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a>
       <a href="aill.html" data-i18n="nav.co.aill">AILL</a>
       <a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a>
-      <a href="tiger-tech.html" data-i18n="nav.co.tigerTech">Tiger Tech</a>
     </div>
     <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-realestate" data-i18n="nav.dd.realEstate">Real Estate Sector</button>
     <div class="mob-acc-panel" id="mob-acc-realestate" hidden>
@@ -515,63 +521,33 @@ body .page-hero .hero-media {
       </a>
     </div>
 
-    <div class="ld-card-grid" data-hydrate="leadership" data-hydrate-match="name">
-      <a class="ld-person-card" data-entity-key="Dilip Kumar" href="leadership-dileep-kumar.html">
-        <div class="ld-person-photo"><img data-entity-field="photo" data-entity-attr="src" src="assets/images/leadership/sibtian-ansari.png" alt="Dilip Kumar" data-i18n-alt="leadership.17" loading="lazy" decoding="async"></div>
-        <div class="ld-person-body">
-          <h3><span data-i18n="leadership.17" data-entity-field="name">Dilip Kumar</span></h3>
-          <p class="ld-person-role"><span data-i18n="leadership.18" data-entity-field="position">CEO � Manufacturing Division</span></p>
-          <p class="ld-person-sum"><span data-i18n="leadership.105" data-entity-field="bio">With over two decades of leadership experience spanning manufacturing, operations, logistics, administration and strategic business development, Dilip Kumar has built a distinguished career delivering operational excellence across diverse industries in India and East Africa.</span></p>
-          <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>
-        </div>
-      </a>
-      <a class="ld-person-card" data-entity-key="Bibhuti Singh" href="leadership-bibhuti-singh.html">
-        <div class="ld-person-photo"><img data-entity-field="photo" data-entity-attr="src" src="assets/images/leadership/pankaj-kumar.png" alt="Bibhuti Singh" data-i18n-alt="leadership.26" loading="lazy" decoding="async"></div>
-        <div class="ld-person-body">
-          <h3><span data-i18n="leadership.26" data-entity-field="name">Bibhuti Singh</span></h3>
-          <p class="ld-person-role"><span data-i18n="leadership.27" data-entity-field="position">CFO � AFICD</span></p>
-          <p class="ld-person-sum"><span data-i18n="leadership.108" data-entity-field="bio">Oversees financial planning, risk analysis and corporate governance for African Inland Container Depot (AFICD) - Lake Group�s dry-port platform in Dar es Salaam.</span></p>
-          <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>
-        </div>
-      </a>
-      <a class="ld-person-card" data-entity-key="Biji Alapat" href="leadership-biji-lapat.html">
-        <div class="ld-person-photo"><img data-entity-field="photo" data-entity-attr="src" src="assets/images/leadership/biji-lapat.png" alt="Biji Alapat" data-i18n-alt="leadership.154" loading="lazy" decoding="async"></div>
-        <div class="ld-person-body">
-          <h3><span data-i18n="leadership.154" data-entity-field="name">Biji Alapat</span></h3>
-          <p class="ld-person-role"><span data-i18n="leadership.155" data-entity-field="position">CEO · Lake Energies</span></p>
-          <p class="ld-person-sum"><span data-i18n="leadership.156" data-entity-field="bio">CEO of Lake Energies, Lake Group�s energy division spanning petroleum, LPG, lubricants and aviation services across the Group�s regional footprint.</span></p>
-          <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>
-        </div>
-      </a>
-      <a class="ld-person-card" data-entity-key="Sridhar Mani" href="leadership-sridhar-mani.html">
-        <div class="ld-person-photo"><img data-entity-field="photo" data-entity-attr="src" src="assets/images/leadership/vivek-choudhary.png" alt="Sridhar Mani" data-i18n-alt="leadership.20" loading="lazy" decoding="async"></div>
-        <div class="ld-person-body">
-          <h3><span data-i18n="leadership.20" data-entity-field="name">Sridhar Mani</span></h3>
-          <p class="ld-person-role"><span data-i18n="leadership.21" data-entity-field="position">Director of Digital Transformation</span></p>
-          <p class="ld-person-sum"><span data-i18n="leadership.106" data-entity-field="bio">Owns enterprise technology architecture and digital strategy - from centralised SAP environments to logistics intelligence and cross-border data security.</span></p>
-          <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>
-        </div>
-      </a>
-      <a class="ld-person-card" data-entity-key="Mohammed Khalid" href="leadership-mohammed-khalid.html">
-        <div class="ld-person-photo"><img data-entity-field="photo" data-entity-attr="src" src="assets/images/leadership/bhaskar-shetty.png" alt="Mohammed Khalid" data-i18n-alt="leadership.23" loading="lazy" decoding="async"></div>
-        <div class="ld-person-body">
-          <h3><span data-i18n="leadership.23" data-entity-field="name">Mohammed Khalid</span></h3>
-          <p class="ld-person-role"><span data-i18n="leadership.24" data-entity-field="position">Managing Director � ATL</span></p>
-          <p class="ld-person-sum"><span data-i18n="leadership.107" data-entity-field="bio">Directs Associated Trans Logistics Ltd (ATL), operating alongside Lake Trans as a logistical backbone for fuel fleets, heavy haulage and multi-national cargo corridors.</span></p>
-          <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>
-        </div>
-      </a>
-      <a class="ld-person-card" data-entity-key="Juma Nuru" href="leadership-juma-nuru.html">
-        <div class="ld-person-photo"><img data-entity-field="photo" data-entity-attr="src" src="assets/images/leadership/juma-nuru.png" alt="Juma Nuru" data-i18n-alt="leadership.51" loading="lazy" decoding="async"></div>        <div class="ld-person-body">
-          <h3><span data-i18n="leadership.51" data-entity-field="name">Juma Nuru</span></h3>
-          <p class="ld-person-role"><span data-i18n="leadership.52" data-entity-field="position">Director of Operations · Lake Group</span></p>
-          <p class="ld-person-sum"><span data-i18n="leadership.53" data-entity-field="bio">Leads Group-wide operations across Lake Group’s energy, logistics and industrial units - coordinating day-to-day execution and operational performance.</span></p>
-          <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>
-        </div>
-      </a>
+        <div class="ld-cat-group">
+      <div data-i18n="leadership.188" class="section-label" style="justify-content:center">CEOs & CFOs</div>
+      <div class="ld-card-grid" data-hydrate="leadership" data-hydrate-match="name">
+      <a class="ld-person-card" data-entity-key="Dilip Kumar" href="leadership-dileep-kumar.html">              <div class="ld-person-photo"><img data-entity-field="photo" data-entity-attr="src" src="assets/images/leadership/sibtian-ansari.png" alt="Dilip Kumar" data-i18n-alt="leadership.17" loading="lazy" decoding="async"></div>              <div class="ld-person-body">                <h3><span data-i18n="leadership.17" data-entity-field="name">Dilip Kumar</span></h3>                <p class="ld-person-role"><span data-i18n="leadership.18" data-entity-field="position">CEO � Manufacturing Division</span></p>                <p class="ld-person-sum"><span data-i18n="leadership.105" data-entity-field="bio">With over two decades of leadership experience spanning manufacturing, operations, logistics, administration and strategic business development, Dilip Kumar has built a distinguished career delivering operational excellence across diverse industries in India and East Africa.</span></p>                <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>              </div>            </a>      <a class="ld-person-card" data-entity-key="Bibhuti Singh" href="leadership-bibhuti-singh.html">              <div class="ld-person-photo"><img data-entity-field="photo" data-entity-attr="src" src="assets/images/leadership/pankaj-kumar.png" alt="Bibhuti Singh" data-i18n-alt="leadership.26" loading="lazy" decoding="async"></div>              <div class="ld-person-body">                <h3><span data-i18n="leadership.26" data-entity-field="name">Bibhuti Singh</span></h3>                <p class="ld-person-role"><span data-i18n="leadership.27" data-entity-field="position">CFO � AFICD</span></p>                <p class="ld-person-sum"><span data-i18n="leadership.108" data-entity-field="bio">Oversees financial planning, risk analysis and corporate governance for African Inland Container Depot (AFICD) - Lake Group�s dry-port platform in Dar es Salaam.</span></p>                <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>              </div>            </a>      <a class="ld-person-card" data-entity-key="Biji Alapat" href="leadership-biji-lapat.html">              <div class="ld-person-photo"><img data-entity-field="photo" data-entity-attr="src" src="assets/images/leadership/biji-lapat.png" alt="Biji Alapat" data-i18n-alt="leadership.154" loading="lazy" decoding="async"></div>              <div class="ld-person-body">                <h3><span data-i18n="leadership.154" data-entity-field="name">Biji Alapat</span></h3>                <p class="ld-person-role"><span data-i18n="leadership.155" data-entity-field="position">CEO · Lake Energies</span></p>                <p class="ld-person-sum"><span data-i18n="leadership.156" data-entity-field="bio">CEO of Lake Energies, Lake Group�s energy division spanning petroleum, LPG, lubricants and aviation services across the Group�s regional footprint.</span></p>                <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>              </div>            </a>
+      </div>
     </div>
 
-    <div class="ld-panel reveal">
+    <div class="ld-cat-group">
+      <div data-i18n="leadership.189" class="section-label" style="justify-content:center">Managing Directors</div>
+      <div class="ld-card-grid" data-hydrate="leadership" data-hydrate-match="name">
+      <a class="ld-person-card" data-entity-key="Mohammed Khalid" href="leadership-mohammed-khalid.html">              <div class="ld-person-photo"><img data-entity-field="photo" data-entity-attr="src" src="assets/images/leadership/bhaskar-shetty.png" alt="Mohammed Khalid" data-i18n-alt="leadership.23" loading="lazy" decoding="async"></div>              <div class="ld-person-body">                <h3><span data-i18n="leadership.23" data-entity-field="name">Mohammed Khalid</span></h3>                <p class="ld-person-role"><span data-i18n="leadership.24" data-entity-field="position">Managing Director � ATL</span></p>                <p class="ld-person-sum"><span data-i18n="leadership.107" data-entity-field="bio">Directs Associated Trans Logistics Ltd (ATL), operating alongside Lake Trans as a logistical backbone for fuel fleets, heavy haulage and multi-national cargo corridors.</span></p>                <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>              </div>            </a>
+      </div>
+    </div>
+
+    <div class="ld-cat-group">
+      <div data-i18n="leadership.190" class="section-label" style="justify-content:center">Directors</div>
+      <div class="ld-card-grid" data-hydrate="leadership" data-hydrate-match="name">
+      <a class="ld-person-card" data-entity-key="Sridhar Mani" href="leadership-sridhar-mani.html">              <div class="ld-person-photo"><img data-entity-field="photo" data-entity-attr="src" src="assets/images/leadership/vivek-choudhary.png" alt="Sridhar Mani" data-i18n-alt="leadership.20" loading="lazy" decoding="async"></div>              <div class="ld-person-body">                <h3><span data-i18n="leadership.20" data-entity-field="name">Sridhar Mani</span></h3>                <p class="ld-person-role"><span data-i18n="leadership.21" data-entity-field="position">Director of Digital Transformation</span></p>                <p class="ld-person-sum"><span data-i18n="leadership.106" data-entity-field="bio">Owns enterprise technology architecture and digital strategy - from centralised SAP environments to logistics intelligence and cross-border data security.</span></p>                <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>              </div>            </a>      <a class="ld-person-card" data-entity-key="Juma Nuru" href="leadership-juma-nuru.html">              <div class="ld-person-photo"><img data-entity-field="photo" data-entity-attr="src" src="assets/images/leadership/juma-nuru.png" alt="Juma Nuru" data-i18n-alt="leadership.51" loading="lazy" decoding="async"></div>        <div class="ld-person-body">                <h3><span data-i18n="leadership.51" data-entity-field="name">Juma Nuru</span></h3>                <p class="ld-person-role"><span data-i18n="leadership.52" data-entity-field="position">Director of Operations · Lake Group</span></p>                <p class="ld-person-sum"><span data-i18n="leadership.53" data-entity-field="bio">Leads Group-wide operations across Lake Group’s energy, logistics and industrial units - coordinating day-to-day execution and operational performance.</span></p>                <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>              </div>            </a>
+      </div>
+    </div>
+
+    <div class="ld-cat-group">
+      <div data-i18n="leadership.191" class="section-label" style="justify-content:center">General & Plant Managers</div>
+      <div class="ld-card-grid" data-hydrate="leadership" data-hydrate-match="name">
+      <a class="ld-person-card" data-entity-key="Zaki Othman" href="leadership-zaki-othman.html">              <div class="ld-person-photo"><img data-entity-field="photo" data-entity-attr="src" src="assets/images/leadership/zaki-othman.jpg" alt="Zaki Othman" data-i18n-alt="leadership.166" loading="lazy" decoding="async"></div>              <div class="ld-person-body">                <h3><span data-i18n="leadership.166" data-entity-field="name">Zaki Othman</span></h3>                <p class="ld-person-role"><span data-i18n="leadership.167" data-entity-field="position">General Manager · Lake Cylinders</span></p>                <p class="ld-person-sum"><span data-i18n="leadership.168" data-entity-field="bio">General Manager of Lake Cylinders, Lake Group�s LPG cylinder manufacturing company, with 12 years of experience across the Group.</span></p>                <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>              </div>            </a>      <a class="ld-person-card" data-entity-key="Jishnu Jayachandran" href="leadership-jishnu-jayachandran.html">              <div class="ld-person-photo"><img data-entity-field="photo" data-entity-attr="src" src="assets/images/leadership/jishnu-jayachandran.jpg" alt="Jishnu Jayachandran" data-i18n-alt="leadership.176" loading="lazy" decoding="async"></div>              <div class="ld-person-body">                <h3><span data-i18n="leadership.176" data-entity-field="name">Jishnu Jayachandran</span></h3>                <p class="ld-person-role"><span data-i18n="leadership.177" data-entity-field="position">Plant Manager · Lake Cylinders</span></p>                <p class="ld-person-sum"><span data-i18n="leadership.178" data-entity-field="bio">Plant Manager of Lake Cylinders, a B.Tech Mechanical Engineer with almost three years at the company.</span></p>                <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>              </div>            </a>
+      </div>
+    </div><div class="ld-panel reveal">
       <h3 data-i18n="leadership.48">21 Nationalities. One Team.</h3>
       <p data-i18n="leadership.49">Lake Group's workforce reflects the rich diversity of the African continent, with <30,000+< professionals from 21 nationalities working together toward shared goals.</p>
       <a data-i18n="leadership.50" href="careers.html" class="btn btn-primary" style="margin-top:24px">Join Our Team</a>
@@ -603,7 +579,7 @@ body .page-hero .hero-media {
       <div class="footer-col"><h5 data-i18n="footer.services">Subsidiaries</h5><ul>
         <li><a href="lake-oil.html" data-i18n="nav.co.lakeOil">Lake Oil</a></li><li><a href="lake-gas.html" data-i18n="nav.co.lakeGas">Lake Gas</a></li>
         <li><a href="lake-lubes.html" data-i18n="nav.co.lakeLubes">Lake Lubes</a></li><li><a href="lake-steel.html" data-i18n="nav.co.lakeSteel">Lake Steel</a></li>
-        <li><a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a></li><li><a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a></li><li><a href="tiger-tech.html" data-i18n="nav.co.tigerTech">Tiger Tech</a></li>
+        <li><a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a></li><li><a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a></li>
         <li><a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a></li><li><a href="services.html" data-i18n="footer.viewAllCompanies">View All Subsidiaries</a></li>
       </ul></div>
       <div class="footer-col"><h5 data-i18n="footer.company">Corporate</h5><ul>
@@ -662,7 +638,7 @@ body .page-hero .hero-media {
 
 
 
-<script src="assets/i18n-content.js?v=63" defer></script>
+<script src="assets/i18n-content.js?v=65" defer></script>
 <script src="assets/i18n.js?v=58" defer></script>
 <script src="assets/site.js?v=60" defer></script>
 <script src="assets/registry-api.js?v=1" defer></script>
@@ -670,7 +646,7 @@ body .page-hero .hero-media {
   <script src="assets/assistant-kb.js" defer></script>
   <script src="assets/assistant.js?v=60" defer></script>
 <script src="assets/analytics.js?v=1" defer></script>
-<script src="assets/pwa.js?v=60" defer></script>
+<script src="assets/pwa.js?v=62" defer></script>
 <script src="assets/flagship-motion.js?v=58" defer></script>
 <script src="assets/split-text.js?v=48" defer></script>
 </body></html>

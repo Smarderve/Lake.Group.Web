@@ -46,7 +46,7 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
 
 .gallery-archive{
   background:#fff;
-  padding:28px 0 48px;
+  padding:52px 0 64px;
 }
 .gallery-archive .gallery-shell{
   max-width:1280px;
@@ -91,27 +91,30 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
   font:inherit;letter-spacing:.08em;text-transform:uppercase;
   padding:8px 10px;cursor:pointer;
 }
+.gallery-sort select option{background:#fff;color:#013F5C}
 .gallery-view{display:inline-flex;border:1px solid #E3E5E0}
 .gallery-view button{
   appearance:none;border:0;background:#fff;color:#5a6570;
   font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
   padding:8px 12px;cursor:pointer;
+  transition:background 150ms ease,color 150ms ease;
 }
 .gallery-view button+button{border-left:1px solid #E3E5E0}
+.gallery-view button:hover{color:#013F5C}
 .gallery-view button.is-active{background:#013F5C;color:#FFF200}
 
 .gallery-filter-bar{
   display:flex;flex-wrap:wrap;gap:8px;
   padding:10px 0 18px;
   border-bottom:1px solid #E3E5E0;
-  margin-bottom:16px;
+  margin-bottom:18px;
 }
 .gf-btn{
   appearance:none;
   padding:8px 12px;
   border:1px solid #013F5C;
   background:transparent;
-  border-radius:0;
+  border-radius:20px;
   font-family:var(--font-body,inherit);
   font-size:clamp(11px,2.4vw,12px);font-weight:700;letter-spacing:.12em;text-transform:uppercase;
   cursor:pointer;color:#013F5C;
@@ -119,9 +122,9 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
 }
 .gf-btn:hover{background:rgba(1,63,92,.06)}
 .gf-btn.active{
-  background:#FFF200;
-  border-color:#FFF200;
-  color:#013F5C;
+  background:#013F5C;
+  border-color:#013F5C;
+  color:#FFF200;
 }
 
 /* Uniform card grid . brief CSS (shell provides side padding) */
@@ -150,61 +153,98 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
   position:relative;
   overflow:hidden;
   border:1px solid #E3E5E0;
-  border-radius:3px;
+  border-radius:14px;
   background:#fff;
-  transition:box-shadow 150ms ease;
+  box-shadow:0 8px 22px rgba(13,38,56,.08);
+  transition:transform var(--dur-2) var(--ease-out),box-shadow var(--dur-2) ease,border-color var(--dur-2) ease;
   cursor:pointer;
   margin:0;
 }
-.gallery-tile:hover{box-shadow:0 4px 16px rgba(10,27,46,0.12)}
+.gallery-tile:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 30px rgba(13,38,56,.16);
+  border-color:var(--line);
+}
 .gallery-tile.is-hidden{display:none}
 .gallery-tile__image{
   height:240px;
   overflow:hidden;
   position:relative;
+  background:#F2F4F6;
 }
 @media (min-width: 768px) { .gallery-tile__image { height:220px; } }
-@media (min-width: 1200px) { .gallery-tile__image { height:260px; } }
+@media (min-width: 1200px) { .gallery-tile__image { height:250px; } }
 .gallery-tile__image img{
   width:100%;
   height:100%;
   object-fit:cover;
   display:block;
-  transition:transform 280ms ease;
+  transition:transform 450ms ease;
 }
-.gallery-tile:hover .gallery-tile__image img{transform:scale(1.02)}
+.gallery-tile:hover .gallery-tile__image img{transform:scale(1.05)}
 .gallery-tile__tag{
   position:absolute;
-  top:8px;
-  right:8px;
-  font-size:clamp(11px,2.4vw,12px);
-  letter-spacing:0.04em;
+  top:10px;
+  right:10px;
+  font-size:10px;
+  letter-spacing:.12em;
   text-transform:uppercase;
-  background:rgba(10,27,46,0.85);
+  background:#013F5C;
   color:#fff;
-  padding:3px 6px;
-  border-radius:2px;
+  border:1px solid rgba(255,255,255,.35);
+  padding:4px 9px;
+  border-radius:20px;
+  -webkit-backdrop-filter:blur(4px);
+  backdrop-filter:blur(4px);
   z-index:2;
+  font-weight:700;
 }
 .gallery-tile__caption{
-  padding:10px 12px;
-  font-size:11px;
-  letter-spacing:0.03em;
+  position:relative;
+  padding:14px 54px 14px 16px;
+  font-size:12px;
+  letter-spacing:.04em;
   text-transform:uppercase;
   color:#0A1B2E;
   border-top:1px solid #E3E5E0;
   background:#fff;
-  display:flex;align-items:flex-start;gap:8px;
-  line-height:1.35;
+  display:flex;align-items:center;gap:10px;
+  line-height:1.4;
+  min-height:62px;
 }
 .gallery-tile__idx{
   flex:none;
   color:#013F5C;
-  opacity:.55;
   font-weight:700;
+  font-size:10px;
+  letter-spacing:.1em;
 }
 .gallery-tile__text{
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  font-weight:600;
+}
+.gallery-tile__caption::after{
+  content:'';
+  position:absolute;
+  right:13px;
+  top:50%;
+  width:30px;
+  height:30px;
+  margin-top:-15px;
+  border-radius:50%;
+  border:1px solid rgba(1,63,92,.45);
+  background-color:rgba(1,63,92,.08);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23013F5C' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h14M13 6l6 6-6 6'/></svg>");
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:13px 13px;
+  transition:background-color 200ms ease,border-color 200ms ease;
+  pointer-events:none;
+}
+.gallery-tile:hover .gallery-tile__caption::after{
+  background-color:#013F5C;
+  border-color:#013F5C;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h14M13 6l6 6-6 6'/></svg>");
 }
 
 .gallery-grid.is-list{
@@ -263,7 +303,7 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
 #lb-prev:hover,#lb-next:hover,#lb-close:hover{border-color:#FFF200;color:#FFF200}
 
 .g-foot{
-  text-align:center;margin-top:36px;padding:28px 20px;
+  text-align:center;margin-top:40px;padding:28px 20px;
   background:#fff;position:relative;
 }
 .g-foot p{color:#013F5C!important;font-size:.92rem}
@@ -271,10 +311,94 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
 .g-foot a{color:#0181BB!important;font-weight:700}
 .g-foot a:hover{color:#016694!important}
 
+/* Featured slideshow (news-page style) for the gallery archive */
+.gal-slider{
+  margin-bottom:30px;
+}
+.gal-slider__viewport{
+  position:relative;
+  overflow:hidden;
+  background:#E9E3D6;
+  border-radius:16px;
+  box-shadow:0 14px 34px rgba(13,38,56,.14);
+}
+.gal-slider__track{
+  position:relative;
+  aspect-ratio:21/9;
+  min-height:300px;
+  max-height:460px;
+  width:100%;
+}
+.gal-slider__slide{
+  position:absolute;inset:0;
+  opacity:0;visibility:hidden;
+  transition:opacity .55s ease,visibility .55s;
+}
+.gal-slider__slide.is-active{opacity:1;visibility:visible}
+.gal-slider__link{
+  position:relative;display:block;
+  width:100%;height:100%;overflow:hidden;
+  text-decoration:none;color:#fff;
+  cursor:pointer;
+}
+.gal-slider__link img{
+  position:absolute;inset:0;width:100%;height:100%;max-width:none;
+  object-fit:cover;object-position:center;display:block;
+  transition:transform .6s ease;
+}
+.gal-slider__slide.is-active:hover .gal-slider__link img{transform:scale(1.03)}
+.gal-slider__scrim{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(11,22,34,.10) 0%,rgba(11,22,34,.20) 45%,rgba(11,22,34,.85) 100%);
+  pointer-events:none;
+}
+.gal-slider__body{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;
+  display:flex;flex-direction:column;gap:9px;
+  padding:clamp(18px,3.2vw,34px);
+}
+.gal-slider__cat{
+  align-self:flex-start;
+  display:inline-flex;align-items:center;padding:5px 11px;
+  font-size:10px;font-weight:800;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:#fff;background:#013F5C;line-height:1;
+  border-radius:20px;
+}
+.gal-slider__title{
+  font-family:var(--font-display);font-weight:800;
+  font-size:clamp(1.25rem,2.6vw,2rem);
+  line-height:1.14;letter-spacing:-.01em;
+  text-wrap:balance;text-shadow:0 1px 14px rgba(0,0,0,.4);
+  max-width:26ch;
+}
+.gal-slider__meta{
+  display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;
+  font-size:10.5px;color:#DDE6EE;
+  font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;line-height:1;
+}
+.gal-slider__bars{
+  display:flex;justify-content:center;gap:6px;
+  margin-top:14px;
+}
+.gal-slider__bar{
+  width:22px;min-width:0;height:4px;min-height:0;
+  padding:0;border:0;border-radius:2px;
+  background:#D9D0BE;cursor:pointer;
+  transition:background 200ms ease,transform 200ms ease;
+}
+.gal-slider__bar.is-active{background:#013F5C}
+.gal-slider__bar:hover{background:#0181BB;transform:scaleY(1.25)}
+@media(max-width:680px){
+  .gal-slider__track{min-height:240px;max-height:none;aspect-ratio:4/3}
+  .gal-slider__body{padding:14px}
+}
+
 @media(prefers-reduced-motion:reduce){
   .gallery-tile,.gallery-tile__image img,.gf-btn,#lightbox{transition:none!important}
   .gallery-tile:hover .gallery-tile__image img{transform:none}
-}`
+}
 </style>
 <script type="application/ld+json">
 {
@@ -301,13 +425,13 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
   <link rel="preload" href="assets/fonts/files/jost-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="assets/flagship.css?v=100">
+<link rel="stylesheet" href="assets/flagship.css?v=106">
 <link rel="stylesheet" href="assets/split-text.css?v=48">
   <link rel="stylesheet" href="assets/assistant.css?v=71">
   <link rel="stylesheet" href="assets/skeleton.css?v=7">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https://www.youtube.com https://www.youtube-nocookie.com; worker-src 'self'; manifest-src 'self'; media-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 </head><body class="gallery-page">
-  <script src="assets/skeleton.js?v=7"></script>
+  <script src="assets/skeleton.js?v=8"></script>
 <nav class="site-nav" dir="ltr">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -354,8 +478,8 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
                   <a href="acfs.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/acfs.png?v=69" alt="ACFS" loading="lazy" width="56" height="32"><span data-i18n="nav.co.acfs">ACFS</span></a>
 
 <a href="aficd.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/aficd.png?v=69" alt="AFICD" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aficd">AFICD</span></a>
-                  <a href="aill.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/aill.png?v=65" alt="AILL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aill">AILL</span></a>
-                  <a href="lake-trans.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-trans.png" alt="Lake Trans" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeTrans">Lake Trans</span></a><a href="tiger-tech.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/tiger-tech.png" alt="Tiger Tech" loading="lazy" width="56" height="32"><span data-i18n="nav.co.tigerTech">Tiger Tech</span></a>
+                  <a href="aill.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/aill.png?v=66" alt="AILL" loading="lazy" width="56" height="32"><span data-i18n="nav.co.aill">AILL</span></a>
+                  <a href="lake-trans.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-trans.png" alt="Lake Trans" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeTrans">Lake Trans</span></a>
                 </div>
               </div>
               <div class="mm-pane" role="tabpanel" id="mm-pane-realestate" data-mm-pane="realestate" aria-labelledby="mm-tab-realestate" hidden>
@@ -476,7 +600,6 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
 <a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a>
       <a href="aill.html" data-i18n="nav.co.aill">AILL</a>
       <a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a>
-      <a href="tiger-tech.html" data-i18n="nav.co.tigerTech">Tiger Tech</a>
     </div>
     <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-realestate" data-i18n="nav.dd.realEstate">Real Estate Sector</button>
     <div class="mob-acc-panel" id="mob-acc-realestate" hidden>
@@ -534,6 +657,68 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
 
 <section class="gallery-archive" id="gallery-archive">
   <div class="gallery-shell">
+    <section class="gal-slider" aria-label="Featured gallery photos" aria-roledescription="carousel">
+      <div class="gal-slider__viewport">
+        <div class="gal-slider__track" id="gal-slider-track">
+          <div class="gal-slider__slide is-active" role="tabpanel" aria-hidden="false">
+            <a class="gal-slider__link" role="button" tabindex="0" data-slide-src="assets/images/group/ops/terminal-overview.jpg?v=80" aria-label="Open photo: Largest Petroleum Distributors in Tanzania">
+              <img src="assets/images/group/ops/terminal-overview.jpg?v=80" alt="Largest Petroleum Distributors in Tanzania" loading="eager" decoding="async">
+              <span class="gal-slider__scrim" aria-hidden="true"></span>
+              <span class="gal-slider__body">
+                <span class="gal-slider__cat">Fuel &amp; Oil</span>
+                <span class="gal-slider__title">Largest Petroleum Distributors in Tanzania</span>
+                <span class="gal-slider__meta">Photo 03 / 44</span>
+              </span>
+            </a>
+          </div>
+          <div class="gal-slider__slide" role="tabpanel" aria-hidden="true">
+            <a class="gal-slider__link" role="button" tabindex="-1" data-slide-src="assets/images/lakegas/ops/cylinders-yard.jpg?v=80" aria-label="Open photo: Lake Gas Ltd., LPG Distribution across East Africa">
+              <img src="assets/images/lakegas/ops/cylinders-yard.jpg?v=80" alt="Lake Gas Ltd., LPG Distribution across East Africa" loading="lazy" decoding="async">
+              <span class="gal-slider__scrim" aria-hidden="true"></span>
+              <span class="gal-slider__body">
+                <span class="gal-slider__cat">LPG Gas</span>
+                <span class="gal-slider__title">Lake Gas Ltd., LPG Distribution across East Africa</span>
+                <span class="gal-slider__meta">Photo 14 / 44</span>
+              </span>
+            </a>
+          </div>
+          <div class="gal-slider__slide" role="tabpanel" aria-hidden="true">
+            <a class="gal-slider__link" role="button" tabindex="-1" data-slide-src="assets/images/gccp/photo_7.jpg" aria-label="Open photo: GCCP, Plant Overview, Vijibweni Area">
+              <img src="assets/images/gccp/photo_7.jpg" alt="GCCP, Plant Overview, Vijibweni Area" loading="lazy" decoding="async">
+              <span class="gal-slider__scrim" aria-hidden="true"></span>
+              <span class="gal-slider__body">
+                <span class="gal-slider__cat">GCCP Concrete</span>
+                <span class="gal-slider__title">GCCP, Plant Overview, Vijibweni Area</span>
+                <span class="gal-slider__meta">Photo 29 / 44</span>
+              </span>
+            </a>
+          </div>
+          <div class="gal-slider__slide" role="tabpanel" aria-hidden="true">
+            <a class="gal-slider__link" role="button" tabindex="-1" data-slide-src="assets/images/merm/photo_6.jpg" aria-label="Open photo: MERM, Mixer Truck Fleet at Dubai Plant">
+              <img src="assets/images/merm/photo_6.jpg" alt="MERM, Mixer Truck Fleet at Dubai Plant" loading="lazy" decoding="async">
+              <span class="gal-slider__scrim" aria-hidden="true"></span>
+              <span class="gal-slider__body">
+                <span class="gal-slider__cat">MERM Dubai</span>
+                <span class="gal-slider__title">MERM, Mixer Truck Fleet at Dubai Plant</span>
+                <span class="gal-slider__meta">Photo 40 / 44</span>
+              </span>
+            </a>
+          </div>
+          <div class="gal-slider__slide" role="tabpanel" aria-hidden="true">
+            <a class="gal-slider__link" role="button" tabindex="-1" data-slide-src="assets/images/n-slider/4.jpg" aria-label="Open photo: Fastest Growing Company in Africa">
+              <img src="assets/images/n-slider/4.jpg" alt="Fastest Growing Company in Africa" loading="lazy" decoding="async">
+              <span class="gal-slider__scrim" aria-hidden="true"></span>
+              <span class="gal-slider__body">
+                <span class="gal-slider__cat">Operations</span>
+                <span class="gal-slider__title">Fastest Growing Company in Africa</span>
+                <span class="gal-slider__meta">Photo 04 / 44</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="gal-slider__bars" id="gal-slider-bars" role="tablist" aria-label="Choose photo"></div>
+    </section>
     <div class="gallery-meta" aria-label="Library summary">
       <div><span>Frames</span> <strong id="gallery-meta-frames">44</strong></div>
       <div><span>Categories</span> <strong>5</strong></div>
@@ -1081,6 +1266,75 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
   } else {
     tiles().forEach((t) => { t.style.opacity = '1'; t.style.transform = ''; });
   }
+
+  /* Featured slideshow (news-page style): fade slides, gold pill bars,
+     autoplay with hover/focus pause; clicking a slide opens the lightbox. */
+  const galTrack = document.getElementById('gal-slider-track');
+  const galBarsHost = document.getElementById('gal-slider-bars');
+  if (galTrack && galBarsHost) {
+    const galSlides = [...galTrack.querySelectorAll('.gal-slider__slide')];
+    if (galSlides.length > 1) {
+      let galIdx = 0;
+      let galTimer = null;
+      function galShow(i) {
+        galIdx = (i + galSlides.length) % galSlides.length;
+        galSlides.forEach((s, n) => {
+          const active = n === galIdx;
+          s.classList.toggle('is-active', active);
+          s.setAttribute('aria-hidden', active ? 'false' : 'true');
+          const link = s.querySelector('.gal-slider__link');
+          if (link) link.setAttribute('tabindex', active ? '0' : '-1');
+        });
+        [...galBarsHost.children].forEach((b, n) => {
+          b.classList.toggle('is-active', n === galIdx);
+          b.setAttribute('aria-selected', n === galIdx ? 'true' : 'false');
+          b.setAttribute('tabindex', n === galIdx ? '0' : '-1');
+        });
+      }
+      function galNext() { galShow(galIdx + 1); }
+      function galStart() {
+        galStop();
+        if (reduceMotion) return;
+        galTimer = setInterval(galNext, 6000);
+      }
+      function galStop() {
+        if (galTimer) { clearInterval(galTimer); galTimer = null; }
+      }
+      galSlides.forEach((s) => {
+        const link = s.querySelector('.gal-slider__link');
+        if (!link) return;
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const src = link.dataset.slideSrc;
+          const match = tiles().find((t) => t.dataset.src === src);
+          if (match) openLightbox(match);
+        });
+        link.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); link.click(); }
+        });
+      });
+      for (let n = 0; n < galSlides.length; n++) {
+        const bar = document.createElement('button');
+        bar.type = 'button';
+        bar.className = 'gal-slider__bar' + (n === 0 ? ' is-active' : '');
+        bar.setAttribute('role', 'tab');
+        bar.setAttribute('aria-selected', n === 0 ? 'true' : 'false');
+        bar.setAttribute('aria-label', 'Go to photo ' + (n + 1));
+        bar.setAttribute('tabindex', n === 0 ? '0' : '-1');
+        bar.addEventListener('click', () => { galShow(n); galStart(); });
+        galBarsHost.appendChild(bar);
+      }
+      const galSec = galTrack.closest('.gal-slider');
+      if (galSec) {
+        galSec.addEventListener('mouseenter', galStop);
+        galSec.addEventListener('mouseleave', galStart);
+        galSec.addEventListener('focusin', galStop);
+        galSec.addEventListener('focusout', galStart);
+      }
+      galShow(0);
+      galStart();
+    }
+  }
 })();
 </script>
 </div>
@@ -1108,7 +1362,7 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
       <div class="footer-col"><h5 data-i18n="footer.services">Subsidiaries</h5><ul>
         <li><a href="lake-oil.html" data-i18n="nav.co.lakeOil">Lake Oil</a></li><li><a href="lake-gas.html" data-i18n="nav.co.lakeGas">Lake Gas</a></li>
         <li><a href="lake-lubes.html" data-i18n="nav.co.lakeLubes">Lake Lubes</a></li><li><a href="lake-steel.html" data-i18n="nav.co.lakeSteel">Lake Steel</a></li>
-        <li><a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a></li><li><a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a></li><li><a href="tiger-tech.html" data-i18n="nav.co.tigerTech">Tiger Tech</a></li>
+        <li><a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a></li><li><a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a></li>
         <li><a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a></li><li><a href="services.html" data-i18n="footer.viewAllCompanies">View All Subsidiaries</a></li>
       </ul></div>
       <div class="footer-col"><h5 data-i18n="footer.company">Corporate</h5><ul>
@@ -1167,7 +1421,7 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
 
 
 
-<script src="assets/i18n-content.js?v=63" defer></script>
+<script src="assets/i18n-content.js?v=65" defer></script>
 <script src="assets/i18n.js?v=58" defer></script>
 <script src="assets/site.js?v=60" defer></script>
 <script src="assets/registry-api.js?v=1" defer></script>
@@ -1175,7 +1429,7 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
   <script src="assets/assistant-kb.js" defer></script>
   <script src="assets/assistant.js?v=60" defer></script>
 <script src="assets/analytics.js?v=1" defer></script>
-<script src="assets/pwa.js?v=60" defer></script>
+<script src="assets/pwa.js?v=62" defer></script>
 <script src="assets/flagship-motion.js?v=58" defer></script>
 <script src="assets/split-text.js?v=48" defer></script>
 </body></html>
