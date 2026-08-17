@@ -78,11 +78,27 @@ export const DEFAULT_METRIC_STALE_DAYS = 180; // Phase 3 — stale-data window
  */
 export function resolveConfig(env) {
   const appEnv = APP_ENVS.includes(env.NODE_ENV) ? env.NODE_ENV : 'development';
-  const trustProxy = parseTrustProxy(env.TRUST_PROXY);
+  // Staging is a deployed tier that runs behind a single TLS ingress (Render/
+  // Vercel-style), so it defaults to the same proxy/HTTPS posture as
+  // production. Development/testing keep direct-connection defaults.
+  const trustProxy = parseTrustProxy(
+    env.TRUST_PROXY === undefined || env.TRUST_PROXY === ''
+      ? (appEnv === 'staging' ? '1' : '')
+      : env.TRUST_PROXY,
+  );
   const configuredMfaRoles = commaSeparated(env.MFA_REQUIRED_ROLES);
   const mfaRequiredRoles = configuredMfaRoles.length
     ? configuredMfaRoles
     : (appEnv === 'production' ? CMS_ROLES : []);
+  const cmsAllowedOrigins = commaSeparated(env.CMS_ALLOWED_ORIGINS);
+  // CSRF allowlist defaults to the CMS allowlist: every browser origin that
+  // may read credentialed responses must also be allowed to send state-
+  // changing requests — exactly what productionConfigProblems enforces. An
+  // explicit CSRF_ALLOWED_ORIGINS still adds extra origins (e.g. a local
+  // admin UI on another port).
+  const csrfAllowedOrigins = commaSeparated(env.CSRF_ALLOWED_ORIGINS).length
+    ? commaSeparated(env.CSRF_ALLOWED_ORIGINS)
+    : cmsAllowedOrigins;
   return {
     env: appEnv,
     isProduction: appEnv === 'production',
@@ -96,6 +112,7 @@ export function resolveConfig(env) {
     // as a DML-only role (lake_app) when DATABASE_URL_RUNTIME is set; the
     // owner (DATABASE_URL) is reserved for Prisma Migrate / seeds / backup.
     // Falls back to DATABASE_URL so local dev without the split still works.
+    // In staging ONE variable (DATABASE_URL) is therefore enough.
     databaseUrlRuntime: env.DATABASE_URL_RUNTIME || env.DATABASE_URL || '',
 
     // Auth & sessions (Phase 2).
@@ -110,11 +127,11 @@ export function resolveConfig(env) {
     // state-changing requests to /admin and /auth (the static admin UI
     // lives on another origin in dev/test/prod). Same-host is always
     // allowed. Comma-separated, e.g. "http://127.0.0.1:8796,https://cms.example.com".
-    csrfAllowedOrigins: commaSeparated(env.CSRF_ALLOWED_ORIGINS),
+    csrfAllowedOrigins,
     // Specification Phase 18 — exact origins that may read credentialed CMS
     // API responses. Kept separate from CSRF so each security boundary is
     // explicit and independently testable.
-    cmsAllowedOrigins: commaSeparated(env.CMS_ALLOWED_ORIGINS),
+    cmsAllowedOrigins,
     recentAuthWindowMs: Number(env.RECENT_AUTH_WINDOW_MS) || DEFAULT_RECENT_AUTH_WINDOW_MS,
     bcryptCost: Number(env.BCRYPT_COST) || DEFAULT_BCRYPT_COST,
     mfaRequiredRoles,
@@ -129,10 +146,13 @@ export function resolveConfig(env) {
     devMfaSkipEmails: commaSeparated(env.DEV_MFA_SKIP_EMAILS),
     // Metrics (Phase 3): flags metrics not re-verified within this window.
     metricStaleDays: Number(env.METRIC_STALE_DAYS) || DEFAULT_METRIC_STALE_DAYS,
-    // Secure cookies in production (HTTPS); override explicitly if needed.
+    // Secure cookies behind TLS. Default ON for both deployed tiers
+    // (production + staging — staging runs behind a platform HTTPS ingress);
+    // OFF in development/testing where the server is http on loopback.
+    // Override explicitly with SESSION_COOKIE_SECURE if ever needed.
     cookieSecure: env.SESSION_COOKIE_SECURE
       ? env.SESSION_COOKIE_SECURE === 'true'
-      : appEnv === 'production',
+      : (appEnv === 'production' || appEnv === 'staging'),
     // 0 for direct TLS, 1 for an ingress-only one-hop topology, or an exact
     // comma-separated IP/CIDR allowlist. Broad booleans and hop counts >1
     // are rejected because they make forwarding headers attacker-controlled.

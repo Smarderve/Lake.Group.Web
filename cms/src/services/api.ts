@@ -9,7 +9,15 @@
 
 import { friendlyMessage } from './errors';
 
-const BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/+$/, '');
+// API base. Production builds default to the deployed backend so a Vercel
+// deployment works with ZERO environment variables; VITE_API_BASE_URL still
+// overrides it when set (tests, custom domains, local preview against a
+// remote API). Local dev keeps '' so the Vite proxy serves /auth /admin /api
+// /health same-origin. This is a public URL, never a secret.
+const BASE_URL = (
+  import.meta.env.VITE_API_BASE_URL ??
+  (import.meta.env.PROD ? 'https://lake-group-web-backend.onrender.com' : '')
+).replace(/\/+$/, '');
 
 /** Resolve an API-relative path for links that open outside the SPA. */
 export function apiUrl(path: string): string {

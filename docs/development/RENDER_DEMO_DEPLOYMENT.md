@@ -118,6 +118,12 @@ Optional demo data:
 DATABASE_URL="<owner connection string>" npm run seed:content  # seed companies/news/etc.
 ```
 
+> **Migration already complete (2026-08-17):** the Render database already
+> contains the full migrated local database — all **14/14 migrations are
+> present** in `_prisma_migrations`, so `npm run db:migrate` will be a **no-op**.
+> **Do NOT reseed** (`seed:content` upserts by slug — harmless but unnecessary)
+> and never run `migrate reset`/`migrate dev` against it.
+
 ## Environment variables (names only — generate your own values)
 
 ### Required, both tiers
@@ -129,7 +135,7 @@ DATABASE_URL="<owner connection string>" npm run seed:content  # seed companies/
 | `DATABASE_URL` | owner/migration URL (release jobs only) | Render Postgres internal URL |
 | `DATABASE_URL_RUNTIME` | runtime DML URL (the running server) | same database, runtime role |
 | `SESSION_SECRET` | session signing secret (≥ 32 chars) | `openssl rand -hex 32` |
-| `MFA_ENCRYPTION_KEY` | AES-256-GCM for TOTP seeds — **exactly 32 bytes, Base64** | `openssl rand -base64 32` |
+| `MFA_ENCRYPTION_KEY` | AES-256-GCM for TOTP seeds — **exactly 32 bytes, Base64** | **Migrated DB: copy the raw value from `backend/.env`** (the key that sealed the existing MFA secrets — do NOT generate a new one). Fresh DB: `openssl rand -base64 32` |
 | `SESSION_COOKIE_SECURE` | `true` (both tiers run behind TLS) | — |
 | `TRUST_PROXY` | `1` (Render ingress is the single trusted hop) | — |
 | `MFA_REQUIRED_ROLES` | `SUPER_ADMIN,EDITOR,REVIEWER,CONTACT_MANAGER,VIEWER` | — |
@@ -178,18 +184,26 @@ Common mistakes that produce exactly the `secret-box.js` failure:
 - leaving the `.env.example` placeholder `change_me_generate_exactly_32_base64_bytes`
 - pointing Render at the file path `backend/.env.render` (Render never reads local files)
 - trailing whitespace/newline copied from a terminal
+- a value that decodes to **31 bytes** (the diagnostic reports
+  `decodedBytes:31`) — the base64 was truncated/edited while pasting; the app
+  requires exactly 32 decoded bytes. Re-paste the full raw value from
+  `backend/.env` without any edits.
 
 If the value was pasted into the wrong variable name (for example under a
 `DATABASE_URL` or a typo'd key), the app reports the key as absent.
 
 ### Choosing the right key value (rotation rule)
 
-- **Fresh demo database** (recommended): use the freshly generated value from
-  `backend/.env.render` — no encrypted MFA data exists yet, so a new key is safe.
-- **Migrated/copied local database**: the database already contains MFA secrets
-  sealed with the key that was active when they were enrolled (the local
-  `backend/.env` key). The Render `MFA_ENCRYPTION_KEY` **must match that key**
-  or TOTP login fails for those users. Do NOT casually rotate it.
+- **Migrated/copied local database** (this project's situation): the local
+  database already contains **1 sealed MFA secret** (`enc:v1:` on
+  `cms-dev@lakegroup.com`, verified with a count query), sealed with the local
+  `backend/.env` key. The Render `MFA_ENCRYPTION_KEY` **must be the raw value
+  from `backend/.env`** — using any other key (including the `.env.render`
+  value, which is a different valid key) makes that secret undecryptable. The
+  two local keys are different; `keysMatch: false` is expected and confirms
+  the choice matters.
+- **Fresh demo database** (no copied users): either valid key works, but there
+  is no reason to risk it — use the `backend/.env` key.
 - Never rotate a key on a database that already holds `enc:v1:` secrets without
   re-enrolling the affected users.
 
@@ -199,10 +213,16 @@ If the value was pasted into the wrong variable name (for example under a
 2. Click **Environment** (left sidebar).
 3. Add/change **every** variable from the checklist below — each is one
    `KEY` / `VALUE` pair (the value field takes the raw value only).
+   - **Database values:** copy from Render → your PostgreSQL ("Lake Group Web
+     Database") → **Connections → Internal Database URL**.
+   - **MFA key:** copy from this PC → `backend/.env` → the raw value after
+     `MFA_ENCRYPTION_KEY=` (validated: 32 bytes). Never `.env.render`'s key.
 4. Click **Save Changes**, then **Deploy** (or Manual Deploy → Deploy latest commit).
 5. Wait for the build, then open `https://<service>.onrender.com/health`.
 6. Expected: `{"status":"ok",...,"db":"up"}` and a startup log ending in
-   `{"env":"staging",...} "Lake Group backend listening"`.
+   `{"env":"staging",...} "Lake Group backend listening"`. The first log
+   lines must show `"mfaKey":{"present":true,"formatValid":true,"decodedBytes":32}`
+   and `"env":"staging","isProduction":false`.
 7. If it fails, copy the startup log back to the agent — the first lines show
    whether the tier, the MFA key, or the database is the problem.
 
@@ -212,10 +232,10 @@ If the value was pasted into the wrong variable name (for example under a
 |---|---|---|
 | `NODE_ENV` | `staging` | no |
 | `PORT` | Render sets this automatically (leave blank) | no |
-| `DATABASE_URL` | Render Postgres internal connection string | **yes** |
-| `DATABASE_URL_RUNTIME` | same database (or a runtime role) — staging allows same as owner | **yes** |
-| `SESSION_SECRET` | `openssl rand -hex 32` output | **yes** |
-| `MFA_ENCRYPTION_KEY` | `openssl rand -base64 32` output — raw, no quotes | **yes** |
+| `DATABASE_URL` | **Copy this from Render → your PostgreSQL → Connections → Internal Database URL** (NOT the External URL — that was only for the one-time migration) | **yes** |
+| `DATABASE_URL_RUNTIME` | same Internal URL (staging allows owner = runtime) | **yes** |
+| `SESSION_SECRET` | `openssl rand -hex 32` output (new value for Render; old local sessions simply become invalid, users re-login) | **yes** |
+| `MFA_ENCRYPTION_KEY` | **Copy this from `backend/.env`** (raw value after `=` — already validated: 32 bytes). Do NOT paste `.env.render`'s key and do NOT generate a new one — the migrated DB's MFA secret is sealed with the `.env` key | **yes** |
 | `SESSION_COOKIE_SECURE` | `true` | no |
 | `TRUST_PROXY` | `1` | no |
 | `MFA_REQUIRED_ROLES` | `SUPER_ADMIN,EDITOR,REVIEWER,CONTACT_MANAGER,VIEWER` | no |
@@ -224,9 +244,10 @@ If the value was pasted into the wrong variable name (for example under a
 | `DEV_MFA_SKIP_EMAILS` | `cms-dev@lakegroup.com` (demo login; **never** in production) | no |
 | `MEDIA_STORAGE_DRIVER` | `local` (ephemeral uploads — fine for demo) | no |
 
-After the service is healthy, migrations and seed data are applied once from a
-machine that can reach the database (see below) — the container never runs
-migrations.
+Migrations and seed data are NOT run by the container. **This database is
+already migrated (2026-08-17) — all 14/14 migrations are present**, so nothing
+needs to be applied; do not reseed and never run `migrate reset`/`migrate dev`
+against it (see the migration-complete note above).
 
 ## Verifying the MFA key without revealing it
 
