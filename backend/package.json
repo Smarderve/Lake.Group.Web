@@ -17,6 +17,13 @@
     "db:studio": "prisma studio",
     "test": "vitest run",
     "test:watch": "vitest",
+    "lint": "eslint .",
+    "typecheck": "node scripts/syntax-check.js src scripts tests",
+    "build": "node scripts/syntax-check.js src scripts",
+    "seed:verify": "node scripts/seed-verify.js",
+    "test:security": "node scripts/run-security-tests.js",
+    "test:audit": "node scripts/audit-gate.js . --baseline ../docs/security/audit-baseline.json --scope backend",
+    "test:gate": "npm run test:security && npm run test:audit",
     "create-user": "node scripts/create-user.js",
     "seed:metrics": "node scripts/seed-metrics.js",
     "seed:content": "node scripts/seed-content.js",
@@ -29,6 +36,7 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1109.0",
     "@prisma/adapter-pg": "^7.9.1",
     "@prisma/client": "^7.9.1",
     "bcrypt": "^6.0.0",
@@ -37,14 +45,20 @@
     "express": "^5.2.1",
     "express-rate-limit": "^8.6.2",
     "express-session": "^1.19.0",
+    "file-type": "^22.0.1",
+    "multer": "^2.2.0",
     "otplib": "^13.4.1",
     "pg": "^8.23.0",
     "pino": "^10.3.1",
     "pino-http": "^11.0.0",
     "qrcode": "^1.5.4",
+    "sharp": "^0.35.3",
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "eslint": "^9.39.5",
+    "eslint-plugin-security": "^3.0.1",
+    "globals": "^16.5.0",
     "prisma": "^7.9.1",
     "supertest": "^7.2.2",
     "vitest": "^4.1.10"

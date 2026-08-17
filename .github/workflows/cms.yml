@@ -1,0 +1,86 @@
+name: CMS Checks
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "cms/**"
+      - "backend/**"
+      - ".github/workflows/cms.yml"
+  push:
+    branches: [main]
+    paths:
+      - "cms/**"
+      - "backend/**"
+      - ".github/workflows/cms.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cms-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Test, build, and browser flow
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "24"
+          cache: "npm"
+          cache-dependency-path: |
+            cms/package-lock.json
+            backend/package-lock.json
+
+      - name: Install backend dependencies
+        working-directory: backend
+        run: npm ci
+
+      - name: Install CMS dependencies
+        working-directory: cms
+        run: npm ci
+
+      - name: Install Chromium
+        working-directory: cms
+        run: npx playwright install --with-deps chromium
+
+      - name: Run unit and component tests
+        working-directory: cms
+        run: npm test
+
+      - name: Typecheck application and tests
+        working-directory: cms
+        run: npm run typecheck:test
+
+      - name: Build production bundle
+        working-directory: cms
+        run: npm run build
+
+      - name: Enforce performance budget
+        working-directory: cms
+        run: npm run test:performance
+
+      - name: Run critical browser flow
+        working-directory: cms
+        run: npm run test:e2e
+
+      - name: Run page-by-page visual quality gate
+        working-directory: cms
+        run: npm run test:visual
+
+      - name: Upload deployable CMS bundle
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: cms-dist
+          path: cms/dist
+          if-no-files-found: error
+          retention-days: 7

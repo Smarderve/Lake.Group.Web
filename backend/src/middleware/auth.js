@@ -1,16 +1,6 @@
 import { config } from '../config.js';
 import { securityLog } from '../lib/security-log.js';
 
-function unauthorized(res) {
-  return res.status(401).json({
-    error: { code: 'UNAUTHENTICATED', message: 'Authentication required' },
-  });
-}
-
-function forbidden(res, code = 'FORBIDDEN', message = 'Insufficient permissions') {
-  return res.status(403).json({ error: { code, message } });
-}
-
 // SECURITY_ROADMAP Phase 18 — every denied request emits an
 // AUTHORIZATION_DENIED security event (actor when known, role, route),
 // preserving the original HTTP semantics: 401 unauthenticated, 403
@@ -52,6 +42,36 @@ export function requireAuth(db) {
       }
 
       req.user = user;
+      next();
+    } catch (err) {
+      next(err);
+    }
+  };
+}
+
+/**
+ * Production MFA enrollment gate for the CMS surface. Anonymous and stale
+ * sessions continue to the route's normal authentication middleware so HTTP
+ * semantics stay consistent; authenticated users in a required role are
+ * denied every /admin operation until enrollment is complete. The enrollment
+ * endpoints remain under /auth and therefore reachable.
+ */
+export function requireMfaEnrollment(db, requiredRoles = []) {
+  const roles = new Set(requiredRoles);
+  return async function requireMfaEnrollmentMiddleware(req, res, next) {
+    try {
+      const userId = req.session?.userId;
+      if (!userId || !db || roles.size === 0) return next();
+      const user = await db.user.findUnique({ where: { id: userId } });
+      if (!user || !user.active) return next();
+      if (roles.has(user.role) && !user.mfaEnabled) {
+        req.user = user;
+        return deny(req, res, {
+          code: 'MFA_ENROLLMENT_REQUIRED',
+          message: 'Multi-factor authentication enrollment is required',
+          detail: { reason: 'MFA_ENROLLMENT_REQUIRED' },
+        });
+      }
       next();
     } catch (err) {
       next(err);

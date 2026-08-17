@@ -104,4 +104,45 @@ describe('SECURITY_ROADMAP Phase 8 — CSRF origin/site validation', () => {
       .send({ role: 'EDITOR' });
     expect(res.status).toBe(403);
   });
+
+  it('accepts the externally visible HTTPS origin through one explicitly trusted proxy', async () => {
+    const trusted = await makeCtx({ trustProxy: 1 });
+    const res = await trusted.agent
+      .patch(`/admin/users/${trusted.victimId}/role`)
+      .set('Host', 'backend.internal:4000')
+      .set('X-Forwarded-Host', 'api.lakegroup.example')
+      .set('X-Forwarded-Proto', 'https')
+      .set('Origin', 'https://api.lakegroup.example')
+      .send({ role: 'EDITOR' });
+    expect(res.status).toBe(200);
+  });
+
+  it('ignores spoofed forwarding headers when the direct peer is outside the trusted proxy range', async () => {
+    const restricted = await makeCtx({ trustProxy: ['10.0.0.0/8'] });
+    const res = await restricted.agent
+      .patch(`/admin/users/${restricted.victimId}/role`)
+      .set('Host', HOST)
+      .set('X-Forwarded-Host', 'attacker.example')
+      .set('X-Forwarded-Proto', 'https')
+      .set('Origin', 'https://attacker.example')
+      .send({ role: 'EDITOR' });
+    expect(res.status).toBe(403);
+    expect(res.body.error.code).toBe('CSRF_REJECTED');
+  });
+
+  it('issues Secure session cookies only when a trusted proxy proves HTTPS', async () => {
+    const users = [
+      await makeUser({ email: 'secure@lakegroup.test', password: 'pw-secure-1', role: 'SUPER_ADMIN' }),
+    ];
+    const ctxSecure = makeApp({ users, options: { cookieSecure: true, trustProxy: 1 } });
+    const response = await request(ctxSecure.app)
+      .post('/auth/login')
+      .set('Host', 'backend.internal:4000')
+      .set('X-Forwarded-Host', 'api.lakegroup.example')
+      .set('X-Forwarded-Proto', 'https')
+      .set('Origin', 'https://api.lakegroup.example')
+      .send({ email: 'secure@lakegroup.test', password: 'pw-secure-1' });
+    expect(response.status).toBe(200);
+    expect(response.headers['set-cookie'][0]).toMatch(/;\s*Secure(?:;|$)/i);
+  });
 });

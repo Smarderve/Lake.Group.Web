@@ -2,13 +2,16 @@
    HOME (index.html only) — Aramco-style redesign
    Scope: body.home. All other pages keep theme.css chrome untouched.
    No glassmorphism: every surface is solid or a solid gradient.
+   The navbar block below is also shared with the About page (body.about),
+   which uses the same transparent-at-top navbar over its full-screen hero.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
    1. NAVBAR  — Aramco: transparent at top, solid brand on scroll, uppercase
    links with animated underline. All existing links preserved.
    -------------------------------------------------------------------------- */
-body.home .site-nav {
+body.home .site-nav,
+body.about .site-nav {
   background: transparent;
   background-color: transparent;
   border-bottom: none;
@@ -20,10 +23,12 @@ body.home .site-nav {
 }
 /* Home's taller 84px bar: keep --nav-h in sync so the mobile drawer and
    page-wrapper clear the fixed navbar instead of tucking under it. */
-body.home {
+body.home,
+body.about {
   --nav-h: 84px;
 }
-body.home .site-nav.nav-scrolled {
+body.home .site-nav.nav-scrolled,
+body.about .site-nav.nav-scrolled {
   background: var(--color-brand-blue-deep, #016694);
   background-color: var(--color-brand-blue-deep, #016694);
   border-bottom: 2px solid var(--color-yellow-accent, var(--yellow));
@@ -32,21 +37,25 @@ body.home .site-nav.nav-scrolled {
   box-shadow: 0 8px 30px rgba(4, 10, 34, 0.35);
   height: 66px;
 }
-body.home .site-nav .nav-logo img {
+body.home .site-nav .nav-logo img,
+body.about .site-nav .nav-logo img {
   max-width: 130px !important;
   height: 38px !important;
   max-height: 38px;
 }
-body.home .site-nav.nav-scrolled .nav-logo img {
+body.home .site-nav.nav-scrolled .nav-logo img,
+body.about .site-nav.nav-scrolled .nav-logo img {
   height: 30px !important;
   max-height: 30px;
 }
 
 /* Aramco mainnav: uppercase, wide tracking, medium weight, tall hit area */
-body.home .nav-links {
+body.home .nav-links,
+body.about .nav-links {
   gap: 6px;
 }
-body.home .nav-links > li > a {
+body.home .nav-links > li > a,
+body.about .nav-links > li > a {
   color: #ffffff;
   padding: 27px 11px 8px;
   font-size: 0.78rem;
@@ -58,7 +67,8 @@ body.home .nav-links > li > a {
   background: transparent !important;
   transition: color 0.22s ease;
 }
-body.home .nav-links > li > a::after {
+body.home .nav-links > li > a::after,
+body.about .nav-links > li > a::after {
   content: "";
   position: absolute;
   bottom: 4px;
@@ -70,17 +80,22 @@ body.home .nav-links > li > a::after {
   transition: width 0.32s var(--ease-out);
 }
 body.home .nav-links > li > a:hover,
-body.home .nav-links > li > a.active {
+body.home .nav-links > li > a.active,
+body.about .nav-links > li > a:hover,
+body.about .nav-links > li > a.active {
   color: var(--color-yellow-accent, var(--yellow));
   background: transparent !important;
 }
 body.home .nav-links > li > a:hover::after,
-body.home .nav-links > li > a.active::after {
+body.home .nav-links > li > a.active::after,
+body.about .nav-links > li > a:hover::after,
+body.about .nav-links > li > a.active::after {
   width: 100%;
 }
 
 /* Dropdown + mega menu: solid brand gradient — no backdrop blur */
-body.home .site-nav .nav-dropdown {
+body.home .site-nav .nav-dropdown,
+body.about .site-nav .nav-dropdown {
   background: linear-gradient(180deg, #016694 0%, #013f5c 100%);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
@@ -88,7 +103,8 @@ body.home .site-nav .nav-dropdown {
   border-top: 2px solid var(--color-yellow-accent, var(--yellow));
   box-shadow: 0 28px 56px -20px rgba(0, 0, 0, 0.55), 0 10px 22px -12px rgba(0, 0, 0, 0.4);
 }
-body.home .lang-menu {
+body.home .lang-menu,
+body.about .lang-menu {
   background: linear-gradient(180deg, #016694 0%, #013f5c 100%);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
@@ -112,8 +128,9 @@ body.home .hero {
   overflow: visible;
   box-sizing: border-box;
 }
-body.home {
-  overflow-x: hidden;
+body.home,
+body.about {
+  overflow-x: clip;
 }
 
 body.home .hero-zone .hero-carousel {
@@ -856,11 +873,11 @@ body.home .site-footer .footer-bottom {
     font-size: 2.1rem;
   }
   .marquee-wrap {
-    padding: 8px 0 !important;
+    padding: 11px 0 !important;
   }
   .marquee-wrap .logoloop {
-    --logoloop-gap: 24px !important;
-    --logoloop-logoHeight: 22px !important;
+    --logoloop-gap: 34px !important;
+    --logoloop-logoHeight: 34px !important;
   }
   body.home .hero-slide.is-active img {
     animation: none !important;

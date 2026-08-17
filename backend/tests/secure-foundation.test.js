@@ -64,9 +64,27 @@ describe('SECURITY_ROADMAP Phase 1 — production configuration', () => {
   it('productionConfigProblems passes a hardened production config', () => {
     const problems = productionConfigProblems({
       isProduction: true,
-      databaseUrl: 'postgresql://u:p@host/db',
+      databaseUrl: 'postgresql://owner:p@host/db',
+      databaseUrlRuntime: 'postgresql://runtime:p@host/db',
       sessionSecret: 'x'.repeat(40),
+      mfaEncryptionKey: Buffer.alloc(32, 9).toString('base64'),
       cookieSecure: true,
+      trustProxy: 0,
+      trustProxyValid: true,
+      cmsAllowedOrigins: ['https://cms.example.com'],
+      csrfAllowedOrigins: ['https://cms.example.com'],
+      backupEncryptionKey: 'b'.repeat(64),
+      backupRetentionDays: 30,
+      backupStoragePrefix: 'production/backups/',
+      mediaStorageDriver: 's3',
+      mediaPublicBaseUrl: 'https://media.example.com',
+      mediaUploadMaxBytes: 10 * 1024 * 1024,
+      s3Region: 'af-south-1',
+      s3Bucket: 'lake-group-production',
+      publicReleaseEnabled: true,
+      publicReleaseGithubRepository: 'lake-group/public-website',
+      publicReleaseGithubToken: 'github_pat_' + 'x'.repeat(64),
+      publicReleaseApiBaseUrl: 'https://api.example.com',
     });
     expect(problems).toEqual([]);
   });

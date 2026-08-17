@@ -27,7 +27,7 @@ import { promoteDueScheduled } from '../lib/publisher.js';
 // public route name → { model, lookupField?, visible? }
 // lookupField drives single-record matching by id OR that field (id only
 // when null). visible() is an extra server-side gate beyond PUBLISHED.
-const PUBLIC_ENTITIES = {
+export const PUBLIC_ENTITIES = {
   // Phase 4 registry.
   countries: { model: 'country', lookupField: 'name' },
   regions: { model: 'region', lookupField: 'name' },
@@ -40,7 +40,7 @@ const PUBLIC_ENTITIES = {
     include: { location: true, company: true },
     format: (row) => {
       const { status, createdAt, ...rest } = row;
-      void createdAt;
+      void status; void createdAt;
       return {
         ...rest,
         address: row.location?.name ?? null,
@@ -68,7 +68,7 @@ const PUBLIC_ENTITIES = {
     include: { category: true, heroMedia: true },
     format: (row) => {
       const { status, createdAt, ...rest } = row;
-      void createdAt;
+      void status; void createdAt;
       return {
         ...rest,
         category: row.category?.name ?? null,
@@ -90,7 +90,7 @@ const PUBLIC_ENTITIES = {
     visible: CMS_ENTITIES.contacts.publicVisible,
     format: (row) => {
       const { status, createdAt, verificationStatus, verificationDate, order, ...rest } = row;
-      void status; void createdAt;
+      void status; void createdAt; void verificationStatus; void verificationDate; void order;
       return rest;
     },
   },
@@ -107,8 +107,8 @@ const PUBLIC_ENTITIES = {
     model: 'media',
     lookupField: null, // gallery: by id only
     format: (row) => {
-      const { status, createdAt, uploadedBy, folderId, ...rest } = row;
-      void status; void createdAt;
+      const { status, createdAt, uploadedBy, folderId, storageProvider, storageKey, ...rest } = row;
+      void status; void createdAt; void uploadedBy; void folderId; void storageProvider; void storageKey;
       return rest;
     },
   },
@@ -199,14 +199,14 @@ async function publicMap(db) {
 }
 
 /** Strip governance-internal fields from a public record. */
-function publicRow(row) {
+export function publicRow(row) {
   const { status, createdAt, ...rest } = row;
-  void createdAt; // keep the response lean; updatedAt stays for freshness
+  void status; void createdAt; // keep the response lean; updatedAt stays for freshness
   return rest;
 }
 
 /** PUBLISHED + entity visibility hook (scheduling, display flags). */
-function isPubliclyVisible(entry, row) {
+export function isPubliclyVisible(entry, row) {
   if (row.status !== 'PUBLISHED') return false;
   if (entry.visible) return entry.visible(null, row);
   return true;
@@ -315,6 +315,20 @@ export function publicRouter({ db } = {}, writeLimiter = publicWriteLimiter()) {
         },
       });
       res.status(201).json({ ok: true });
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  // Complete published metric collection used by the static snapshot
+  // generator. Draft/review values never leave the backend.
+  router.get('/metrics', async (req, res, next) => {
+    try {
+      const metrics = await db.metric.findMany({
+        where: { status: 'PUBLISHED' },
+        orderBy: { key: 'asc' },
+      });
+      res.json({ metrics: metrics.map(publicMetric) });
     } catch (err) {
       next(err);
     }

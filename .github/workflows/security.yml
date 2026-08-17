@@ -1,0 +1,215 @@
+name: Security Gate
+
+permissions:
+  contents: read
+
+# SECURITY_ROADMAP Phase 21 — Automated Security Testing. Runs the security
+# regression suites (tests/phase*.test.js + hardening.test.js, fake-DB, no
+# Postgres needed) and the npm audit gate against the monitored baseline
+# (docs/security/audit-baseline.json) on every PR and push to main.
+# New advisories outside the baseline break this gate = release blocker.
+#
+# SECURITY_ROADMAP Phase 22 — Security Scanning. Adds:
+#   - secret-scan:  the Phase 1 credential scanner (scripts/check-secrets.mjs)
+#                   across the whole working tree (.env must stay gitignored,
+#                   no credential-shaped strings in tracked sources)
+#   - dast:         live dynamic probe against a real Postgres-backed backend
+#                   (headers, auth, CORS scope, traversal, error handling,
+#                   method enforcement, rate limiting)
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'backend/**'
+      - 'assets/**'
+      - '*.html'
+      - 'tests/**'
+      - 'scripts/_verify_csp.js'
+      - 'scripts/_add_csp_tags.js'
+      - 'vercel.json'
+      - 'docs/security/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/**'
+  push:
+    branches: [main]
+    paths:
+      - 'backend/**'
+      - 'assets/**'
+      - '*.html'
+      - 'tests/**'
+      - 'scripts/_verify_csp.js'
+      - 'scripts/_add_csp_tags.js'
+      - 'vercel.json'
+      - 'docs/security/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/**'
+
+jobs:
+  static-browser-security:
+    name: Static CSP and XSS regressions
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run static policy and popup XSS tests
+        run: node --test tests/static-csp-hardening.test.js tests/africa-network-map-xss.test.js tests/ci-supply-chain-hardening.test.js
+
+      - name: Exercise every page under CSP
+        run: node scripts/_verify_csp.js
+
+  security-tests:
+    name: Security regression suites
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run security regression suites
+        run: npm run test:security
+
+  audit-gate:
+    name: npm audit gate (backend + root baseline)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Backend audit gate (must stay at zero vulnerabilities)
+        run: npm run test:audit
+
+      - name: Root toolchain audit gate (monitored baseline)
+        run: node backend/scripts/audit-gate.js . --baseline docs/security/audit-baseline.json --scope root
+
+  secret-scan:
+    name: Secret scan (full tree)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+
+      - name: Scan for credential-shaped secrets
+        run: npm run secret:scan
+
+  dast:
+    name: DAST probe (live backend)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: backend
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: lake_user
+          POSTGRES_PASSWORD: lake_test_pw
+          POSTGRES_DB: lakegroup
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U lake_user -d lakegroup"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://lake_user:lake_test_pw@127.0.0.1:5432/lakegroup
+      DATABASE_URL_RUNTIME: postgresql://lake_user:lake_test_pw@127.0.0.1:5432/lakegroup
+      SESSION_SECRET: ci_dast_session_secret_0123456789abcdef
+      SESSION_COOKIE_SECURE: 'false'
+      PORT: '4000'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Apply migrations
+        run: npx prisma migrate deploy
+
+      - name: Start backend
+        run: node src/index.js > /tmp/backend.log 2>&1 &
+
+      - name: Wait for health
+        run: |
+          for i in $(seq 1 30); do
+            if curl -sf -m 3 http://127.0.0.1:4000/health >/dev/null; then
+              echo 'backend healthy'
+              exit 0
+            fi
+            sleep 1
+          done
+          echo 'backend never became healthy' >&2
+          tail -50 /tmp/backend.log >&2
+          exit 1
+
+      - name: Run DAST probe
+        run: node scripts/dast-probe.js

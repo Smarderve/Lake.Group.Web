@@ -20,10 +20,23 @@ function invalidCredentials(res) {
   });
 }
 
-export function authRouter({ db, loginLimiter, mfaLimiter, sessionName = 'lakegroup.sid' } = {}) {
+export function authRouter({
+  db,
+  loginLimiter,
+  mfaLimiter,
+  sessionName = 'lakegroup.sid',
+  secretBox = null,
+  // DEVELOPMENT-ONLY: emails exempted from the TOTP step at login. The
+  // password is still verified; only the second factor is skipped for the
+  // named demo account(s). Never honored in production — config.js makes
+  // DEV_MFA_SKIP_EMAILS a boot failure there, and isProduction gates it
+  // here as a second layer.
+  devMfaSkipEmails = [],
+  isProduction = false,
+} = {}) {
   const router = Router();
 
-  function finalizeSession(req, user, mfa = false) {
+  function finalizeSession(req, user, mfa = false, extraMetadata = {}) {
     req.session.userId = user.id;
     req.session.role = user.role;
     req.session.authenticatedAt = Date.now();
@@ -40,7 +53,7 @@ export function authRouter({ db, loginLimiter, mfaLimiter, sessionName = 'lakegr
       action: 'LOGIN_SUCCESS',
       resource: 'auth/login',
       ip: req.ip,
-      metadata: { mfa },
+      metadata: { mfa, ...extraMetadata },
     }, req.log);
   }
 
@@ -72,7 +85,13 @@ export function authRouter({ db, loginLimiter, mfaLimiter, sessionName = 'lakegr
         return invalidCredentials(res);
       }
 
-      if (user.mfaEnabled) {
+      // DEVELOPMENT-ONLY: a listed demo account skips the TOTP step while
+      // the environment is not production. The password above was still
+      // verified — this is a second-factor skip for a named local account,
+      // never an authentication bypass. Production cannot reach here (the
+      // config fail-fast refuses to boot with DEV_MFA_SKIP_EMAILS set).
+      const devMfaSkip = !isProduction && devMfaSkipEmails.includes(user.email);
+      if (user.mfaEnabled && !devMfaSkip) {
         // Step 1 of 2 — hold the pending login on the session until the
         // TOTP code is verified (POST /auth/mfa/verify).
         req.session.regenerate((err) => {
@@ -85,7 +104,9 @@ export function authRouter({ db, loginLimiter, mfaLimiter, sessionName = 'lakegr
 
       req.session.regenerate((err) => {
         if (err) return next(err);
-        finalizeSession(req, user);
+        // The skip is audited so every dev login without a second factor is
+        // still visible in the trail.
+        finalizeSession(req, user, false, devMfaSkip ? { devMfaSkip: true } : {});
         res.json({ user: publicUser(user) });
       });
     } catch (err) {
@@ -137,7 +158,10 @@ export function authRouter({ db, loginLimiter, mfaLimiter, sessionName = 'lakegr
       const otpauthUrl = buildOtpauthUrl({ secret, email: req.user.email });
       const qrCodeDataUrl = await qrDataUrl(otpauthUrl);
 
-      await db.user.update({ where: { id: req.user.id }, data: { mfaSecret: secret } });
+      await db.user.update({
+        where: { id: req.user.id },
+        data: { mfaSecret: secretBox ? secretBox.seal(secret) : secret },
+      });
       await writeAudit(db, {
         actorId: req.user.id,
         action: 'MFA_SETUP',
@@ -169,7 +193,8 @@ export function authRouter({ db, loginLimiter, mfaLimiter, sessionName = 'lakegr
         const user = await db.user.findUnique({ where: { id: pendingUserId } });
         if (!user || !user.mfaSecret || !user.mfaEnabled) return invalidCredentials(res);
 
-        const ok = await verifyTotp({ secret: user.mfaSecret, code });
+        const plaintextSecret = secretBox ? secretBox.open(user.mfaSecret) : user.mfaSecret;
+        const ok = await verifyTotp({ secret: plaintextSecret, code });
         if (!ok) {
           await writeAudit(db, {
             actorId: user.id,
@@ -183,6 +208,12 @@ export function authRouter({ db, loginLimiter, mfaLimiter, sessionName = 'lakegr
           });
         }
 
+        if (secretBox && !secretBox.isSealed(user.mfaSecret)) {
+          await db.user.update({
+            where: { id: user.id },
+            data: { mfaSecret: secretBox.seal(plaintextSecret) },
+          });
+        }
         req.session.regenerate((err) => {
           if (err) return next(err);
           finalizeSession(req, user, true);
@@ -204,7 +235,8 @@ export function authRouter({ db, loginLimiter, mfaLimiter, sessionName = 'lakegr
         });
       }
 
-      const ok = await verifyTotp({ secret: user.mfaSecret, code });
+      const plaintextSecret = secretBox ? secretBox.open(user.mfaSecret) : user.mfaSecret;
+      const ok = await verifyTotp({ secret: plaintextSecret, code });
       if (!ok) {
         await writeAudit(db, {
           actorId: user.id,
@@ -218,7 +250,15 @@ export function authRouter({ db, loginLimiter, mfaLimiter, sessionName = 'lakegr
         });
       }
 
-      await db.user.update({ where: { id: user.id }, data: { mfaEnabled: true } });
+      await db.user.update({
+        where: { id: user.id },
+        data: {
+          mfaEnabled: true,
+          ...(secretBox && !secretBox.isSealed(user.mfaSecret)
+            ? { mfaSecret: secretBox.seal(plaintextSecret) }
+            : {}),
+        },
+      });
       await writeAudit(db, {
         actorId: user.id,
         action: 'MFA_ENABLED',

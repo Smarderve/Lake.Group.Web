@@ -13,10 +13,11 @@
 (function () {
   'use strict';
 
-  var API_BASE = (window.LAKE_API_BASE || 'http://127.0.0.1:4000').replace(/\/+$/, '');
+  var API_BASE = (window.LAKE_API_BASE || '').replace(/\/+$/, '');
   var sessionKey = 'lake-analytics';
 
   function send(type, payload) {
+    if (!API_BASE) return;
     var body = Object.assign({ type: type }, payload);
     try {
       fetch(API_BASE + '/api/public/analytics/events', {

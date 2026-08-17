@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html class="lg-loading" lang="en">
 <head>
   <style id="lg-skel-critical">html.lg-loading{overflow:hidden}html.lg-loading::before{content:"";position:fixed;inset:0;z-index:99989;background:#013f5c;pointer-events:none}html.lg-skel-done::before{display:none}.nav-logo img,.site-nav .nav-logo img{height:var(--nav-logo-height,48px)!important;width:auto!important;max-width:min(220px,55vw)!important;max-height:var(--nav-logo-height,48px)!important;object-fit:contain}</style>
@@ -92,10 +92,10 @@
 <link rel="stylesheet" href="assets/flagship.css?v=100">
 <link rel="stylesheet" href="assets/split-text.css?v=48">
   <link rel="stylesheet" href="assets/assistant.css?v=71">
-  <link rel="stylesheet" href="assets/skeleton.css?v=6">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https: http://127.0.0.1:*; frame-src https://www.youtube.com https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; form-action 'self' https:">
+  <link rel="stylesheet" href="assets/skeleton.css?v=7">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https://www.youtube.com https://www.youtube-nocookie.com; worker-src 'self'; manifest-src 'self'; media-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 </head><body>
-  <script src="assets/skeleton.js?v=6"></script>
+  <script src="assets/skeleton.js?v=7"></script>
 <nav class="site-nav" dir="ltr">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -109,11 +109,13 @@
         <div class="nav-dropdown nav-megamenu" id="nav-companies-menu" role="menu" data-i18n-aria="mob.companies" aria-label="Subsidiaries">
           <div class="mm-layout">
             <div class="mm-cats" role="tablist" aria-orientation="vertical" aria-label="Subsidiary categories">
-              <button type="button" class="mm-cat is-active" role="tab" id="mm-tab-energies" data-mm-cat="energies" aria-controls="mm-pane-energies" aria-selected="true" tabindex="0" data-i18n="nav.dd.energies">Lake Energies</button>
-              <button type="button" class="mm-cat" role="tab" id="mm-tab-manufacturing" data-mm-cat="manufacturing" aria-controls="mm-pane-manufacturing" aria-selected="false" tabindex="-1" data-i18n="nav.dd.manufacturing">Manufacturing</button>
-              <button type="button" class="mm-cat" role="tab" id="mm-tab-logistics" data-mm-cat="logistics" aria-controls="mm-pane-logistics" aria-selected="false" tabindex="-1" data-i18n="nav.dd.logisticsCos">Logistics</button>
-              <button type="button" class="mm-cat" role="tab" id="mm-tab-realestate" data-mm-cat="realestate" aria-controls="mm-pane-realestate" aria-selected="false" tabindex="-1" data-i18n="nav.dd.realEstate">Real Estate</button>
-              <button type="button" class="mm-cat" role="tab" id="mm-tab-agro" data-mm-cat="agro" aria-controls="mm-pane-agro" aria-selected="false" tabindex="-1" data-i18n="nav.dd.agro">Agro Processing</button>
+              <button type="button" class="mm-cat is-active" role="tab" id="mm-tab-energies" data-mm-cat="energies" aria-controls="mm-pane-energies" aria-selected="true" tabindex="0" data-i18n="nav.dd.energies">Energies Sector</button>
+              <button type="button" class="mm-cat" role="tab" id="mm-tab-manufacturing" data-mm-cat="manufacturing" aria-controls="mm-pane-manufacturing" aria-selected="false" tabindex="-1" data-i18n="nav.dd.manufacturing">Manufacturing Sector</button>
+              <button type="button" class="mm-cat" role="tab" id="mm-tab-logistics" data-mm-cat="logistics" aria-controls="mm-pane-logistics" aria-selected="false" tabindex="-1" data-i18n="nav.dd.logisticsCos">Logistics Sector</button>
+              <button type="button" class="mm-cat" role="tab" id="mm-tab-realestate" data-mm-cat="realestate" aria-controls="mm-pane-realestate" aria-selected="false" tabindex="-1" data-i18n="nav.dd.realEstate">Real Estate Sector</button>
+              <button type="button" class="mm-cat" role="tab" id="mm-tab-agro" data-mm-cat="agro" aria-controls="mm-pane-agro" aria-selected="false" tabindex="-1" data-i18n="nav.dd.agro">Agro Processing Sector</button>
+              <button type="button" class="mm-cat" role="tab" id="mm-tab-automotive" data-mm-cat="automotive" aria-controls="mm-pane-automotive" aria-selected="false" tabindex="-1" data-i18n="nav.dd.automotive">Automotive Sector</button>
+            
             </div>
             <div class="mm-panes">
               <div class="mm-pane is-active" role="tabpanel" id="mm-pane-energies" data-mm-pane="energies" aria-labelledby="mm-tab-energies">
@@ -155,6 +157,14 @@
                   <a href="lake-agro.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-agro.png?v=61" alt="Lake Agro" loading="lazy" width="56" height="32"><span data-i18n="nav.co.lakeAgro">Lake Agro</span></a>
           </div>
           </div>
+              <div class="mm-pane" role="tabpanel" id="mm-pane-automotive" data-mm-pane="automotive" aria-labelledby="mm-tab-automotive" hidden>
+                <div class="mm-companies">
+                  <a href="assembly-tech.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="Assembly Tech Limited" loading="lazy" width="56" height="32"><span data-i18n="nav.co.assemblyTech">Assembly Tech Limited</span></a>
+                  <a href="agrinova-tech.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="AgriNova Tech Limited" loading="lazy" width="56" height="32"><span data-i18n="nav.co.agrinovaTech">AgriNova Tech Limited</span></a>
+                  <a href="nextdrive-motors.html" class="mm-company" role="menuitem"><img src="assets/images/logos/companies/lake-group-placeholder.png" alt="NextDrive Motors Limited" loading="lazy" width="56" height="32"><span data-i18n="nav.co.nextDriveMotors">NextDrive Motors Limited</span></a>
+          </div>
+          </div>
+
           </div>
           </div>
         </div>
@@ -231,14 +241,14 @@
   <a href="index.html" data-i18n="nav.home">Home</a><a href="about.html" data-i18n="nav.about">About</a>
   <div class="mob-section" data-i18n="mob.companies">Subsidiaries</div>
   <div class="mob-accordion">
-    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-energies" data-i18n="nav.dd.energies">Lake Energies</button>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-energies" data-i18n="nav.dd.energies">Energies Sector</button>
     <div class="mob-acc-panel" id="mob-acc-energies" hidden>
       <a href="lake-oil.html" data-i18n="nav.co.lakeOil">Lake Oil</a>
       <a href="lake-aviation.html" data-i18n="nav.co.lakeAviation">Lake Aviation</a>
       <a href="lake-gas.html" data-i18n="nav.co.lakeGas">Lake Gas</a>
       <a href="lake-lubes.html" data-i18n="nav.co.lakeLubes">Lake Lubes</a>
     </div>
-    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-manufacturing" data-i18n="nav.dd.manufacturing">Manufacturing</button>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-manufacturing" data-i18n="nav.dd.manufacturing">Manufacturing Sector</button>
     <div class="mob-acc-panel" id="mob-acc-manufacturing" hidden>
       <a href="lake-buildings.html" data-i18n="nav.co.lakeBuildings">Lake Buildings</a>
       <a href="lake-plastics.html" data-i18n="nav.co.lakePlastics">Lake Plastics</a>
@@ -248,7 +258,7 @@
       <a href="atl.html" data-i18n="nav.co.atl">ATL</a>
       <a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a>
     </div>
-    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-logistics" data-i18n="nav.dd.logisticsCos">Logistics</button>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-logistics" data-i18n="nav.dd.logisticsCos">Logistics Sector</button>
     <div class="mob-acc-panel" id="mob-acc-logistics" hidden>
             <a href="acfs.html" data-i18n="nav.co.acfs">ACFS</a>
 <a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a>
@@ -256,15 +266,22 @@
       <a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a>
       <a href="tiger-tech.html" data-i18n="nav.co.tigerTech">Tiger Tech</a>
     </div>
-    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-realestate" data-i18n="nav.dd.realEstate">Real Estate</button>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-realestate" data-i18n="nav.dd.realEstate">Real Estate Sector</button>
     <div class="mob-acc-panel" id="mob-acc-realestate" hidden>
       <a href="cross-country.html" data-i18n="nav.co.crossCountry">Cross Country</a>
       <a href="ocean-galleria.html" data-i18n="nav.co.oceanGalleria">Ocean Galleria</a>
     </div>
-    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-agro" data-i18n="nav.dd.agro">Agro Processing</button>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-agro" data-i18n="nav.dd.agro">Agro Processing Sector</button>
     <div class="mob-acc-panel" id="mob-acc-agro" hidden>
       <a href="lake-agro.html" data-i18n="nav.co.lakeAgro">Lake Agro</a>
     </div>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-automotive" data-i18n="nav.dd.automotive">Automotive Sector</button>
+    <div class="mob-acc-panel" id="mob-acc-automotive" hidden>
+      <a href="assembly-tech.html" data-i18n="nav.co.assemblyTech">Assembly Tech Limited</a>
+      <a href="agrinova-tech.html" data-i18n="nav.co.agrinovaTech">AgriNova Tech Limited</a>
+      <a href="nextdrive-motors.html" data-i18n="nav.co.nextDriveMotors">NextDrive Motors Limited</a>
+    </div>
+
   </div>
   <a href="leadership.html" data-i18n="nav.leadership">Leadership</a>
   <div class="mob-section" data-i18n="mob.company">Corporate</div>
@@ -460,35 +477,35 @@
       <div data-i18n="africa_network.26" class="map-sidebar-title">Select a Country</div>
       <div>
         <div class="ctry-list">
-          <div class="ctry-card sel" id="card-tz" onclick="selectCountry('tz',this)">
+          <div class="ctry-card sel" id="card-tz" data-country="tz">
             <span class="flag"><img src="assets/images/flags/tz.svg" alt="Tanzania flag" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span>
             <div><h4 data-i18n="africa_network.27">Tanzania</h4><p data-i18n="africa_network.28" style="color:var(--blue);font-weight:600">Headquarters � 10 subsidiaries</p></div>
           </div>
-          <div class="ctry-card" id="card-ke" onclick="selectCountry('ke',this)">
+          <div class="ctry-card" id="card-ke" data-country="ke">
             <span class="flag"><img src="assets/images/flags/ke.svg" alt="Kenya flag" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h4 data-i18n="africa_network.29">Kenya</h4><p data-i18n="africa_network.30">5 subsidiaries</p></div>
           </div>
-          <div class="ctry-card" id="card-zm" onclick="selectCountry('zm',this)">
+          <div class="ctry-card" id="card-zm" data-country="zm">
             <span class="flag"><img src="assets/images/flags/zm.svg" alt="Zambia flag" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h4 data-i18n="africa_network.31">Zambia</h4><p data-i18n="africa_network.32">4 subsidiaries</p></div>
           </div>
-          <div class="ctry-card" id="card-rw" onclick="selectCountry('rw',this)">
+          <div class="ctry-card" id="card-rw" data-country="rw">
             <span class="flag"><img src="assets/images/flags/rw.svg" alt="Rwanda flag" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h4 data-i18n="africa_network.33">Rwanda</h4><p data-i18n="africa_network.34">3 subsidiaries</p></div>
           </div>
-          <div class="ctry-card" id="card-bi" onclick="selectCountry('bi',this)">
+          <div class="ctry-card" id="card-bi" data-country="bi">
             <span class="flag"><img src="assets/images/flags/bi.svg" alt="Burundi flag" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h4 data-i18n="africa_network.35">Burundi</h4><p data-i18n="africa_network.36">2 subsidiaries</p></div>
           </div>
-          <div class="ctry-card" id="card-cd" onclick="selectCountry('cd',this)">
+          <div class="ctry-card" id="card-cd" data-country="cd">
             <span class="flag"><img src="assets/images/flags/cd.svg" alt="DR Congo flag" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h4>DR Congo</h4><p data-i18n="africa_network.37">4 subsidiaries</p></div>
           </div>
-          <div class="ctry-card" id="card-et" onclick="selectCountry('et',this)">
+          <div class="ctry-card" id="card-et" data-country="et">
             <span class="flag"><img src="assets/images/flags/et.svg" alt="Ethiopia flag" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h4 data-i18n="africa_network.38">Ethiopia</h4><p data-i18n="africa_network.39">1 subsidiary</p></div>
           </div>
-          <div class="ctry-card" id="card-ug" onclick="selectCountry('ug',this)">
+          <div class="ctry-card" id="card-ug" data-country="ug">
             <span class="flag"><img src="assets/images/flags/ug.svg" alt="Uganda flag" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h4 data-i18n="africa_network.40a">Uganda</h4><p data-i18n="africa_network.41a">2 subsidiaries</p></div>
           </div>
-          <div class="ctry-card" id="card-mz" onclick="selectCountry('mz',this)">
+          <div class="ctry-card" id="card-mz" data-country="mz">
             <span class="flag"><img src="assets/images/flags/mz.svg" alt="Mozambique flag" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h4 data-i18n="africa_network.40">Mozambique</h4><p data-i18n="africa_network.41">2 subsidiaries</p></div>
           </div>
-          <div class="ctry-card" id="card-ae" onclick="selectCountry('ae',this)">
+          <div class="ctry-card" id="card-ae" data-country="ae">
             <span class="flag"><img src="assets/images/flags/ae.svg" alt="UAE flag" class="flag-icon-lg" width="28" height="20" loading="lazy" decoding="async"></span><div><h4 data-i18n="africa_network.42">Dubai, UAE</h4><p data-i18n="africa_network.43">1 subsidiary (MERM)</p></div>
           </div>
         </div>

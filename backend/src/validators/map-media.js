@@ -5,12 +5,24 @@ const slugField = z.string().regex(
   /^[a-z0-9][a-z0-9-]*$/,
   'Slug must be lowercase alphanumeric with dashes (e.g. corporate-logos)',
 );
+const safeHttpUrl = z
+  .string()
+  .trim()
+  .min(1, 'URL is required')
+  .max(500)
+  .refine((value) => {
+    try {
+      return ['http:', 'https:'].includes(new URL(value).protocol);
+    } catch {
+      return false;
+    }
+  }, 'URL must use http or https');
 
 // ---------------------------------------------------------------------------
 // Media (Phase 6 — full library, governed)
 // ---------------------------------------------------------------------------
 export const mediaCreateSchema = z.object({
-  url: z.string().min(1, 'URL is required').max(500),
+  url: safeHttpUrl,
   altText: z.string().max(300).optional(),
   caption: z.string().max(500).optional(),
   mimeType: z.string().max(100).optional(),
@@ -20,7 +32,7 @@ export const mediaCreateSchema = z.object({
   copyright: z.string().max(200).optional(),
   license: z.string().max(200).optional(),
   tags: z.array(z.string().min(1).max(60)).max(20).optional(),
-  variants: z.record(z.string().min(1), z.string().min(1)).optional(),
+  variants: z.record(z.string().min(1), safeHttpUrl).optional(),
   folderId: z.string().min(1).optional(),
   reason: reasonField,
 });

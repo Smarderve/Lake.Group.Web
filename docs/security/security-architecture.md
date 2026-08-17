@@ -1,5 +1,9 @@
 # Security Architecture — Lake Group Platform
 
+> Historical architecture snapshot. See `../SECURITY-ARCHITECTURE.md` and
+> `../SECURITY-CONTROLS.md` for the current release state, including binary
+> storage, resilient publication, MFA enforcement, and hardened CI.
+
 Maps the roadmap's intended final architecture (§9) onto the real codebase.
 Layers are enforced server-side; the static site is a renderer of PUBLISHED
 payloads and is never a security boundary.
@@ -44,7 +48,7 @@ payloads and is never a security boundary.
 | Layer | Control | Location | Status |
 | --- | --- | --- | --- |
 | Transport | HSTS (HTTPS only) | `security-headers.js` (`hsts: cookieSecure`) | ✅ (prod flag) |
-| Browser | CSP `frame-ancestors 'none'` (API) | `security-headers.js` | ✅ API; ⚠️ **static site has no CSP** |
+| Browser | CSP with `frame-ancestors 'none'` | API `security-headers.js`; static `vercel.json` + page meta | ✅ API and 49 static pages |
 | Browser | nosniff / X-Frame-Options DENY / Referrer-Policy / Permissions-Policy | `security-headers.js` | ✅ |
 | Sessions | Postgres store, regenerate-on-login, revoke-all | `src/lib/sessions.js`, `auth.js` | ✅ |
 | AuthN | bcrypt(12), TOTP MFA, generic errors, rate limits | `passwords.js`, `auth.js` | ✅ |

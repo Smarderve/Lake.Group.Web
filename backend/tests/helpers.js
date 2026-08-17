@@ -79,6 +79,8 @@ function makeRowsDelegate(rows, { uniqueField = null, withStatus = true, default
       return out;
     },
     findUnique: async ({ where }) => rows.find((r) => r[uniqueField] === where[uniqueField]) ?? null,
+    // Phase 23 — the paginated unanswered-questions admin read uses count().
+    count: async ({ where } = {}) => rows.filter((r) => matches(r, where)).length,
     create: async ({ data }) => {
       // Apply the schema defaults the real Prisma client would set.
       const row = {
@@ -205,8 +207,8 @@ export function createFakeDb(users = []) {
     auditRows,
     $queryRaw: async () => {},
     metric: {
-      findFirst: async ({ where, include } = {}) => withOwner(metrics.find((m) => matches(m, where)) ?? null),
-      findMany: async ({ where, include, orderBy } = {}) =>
+      findFirst: async ({ where } = {}) => withOwner(metrics.find((m) => matches(m, where)) ?? null),
+      findMany: async ({ where, orderBy } = {}) =>
         metrics.filter((m) => matches(m, where)).sort(orderByFn(orderBy)).map(withOwner),
       findUnique: async ({ where }) => metrics.find((m) => m.key === where.key) ?? null,
       create: async ({ data }) => {
@@ -265,6 +267,9 @@ export function createFakeDb(users = []) {
         return null;
       },
       findMany: async () => [...byEmail.values()],
+      // Phase 23 — the admin role-change guard counts remaining SUPER_ADMINs
+      // (last-admin lockout check); support the Prisma count interface.
+      count: async ({ where } = {}) => [...byEmail.values()].filter((u) => matches(u, where)).length,
       update: async ({ where, data }) => {
         const target = [...byEmail.values()].find((u) => u.id === where.id || u.email === where.email);
         if (!target) throw new Error('User not found');
@@ -290,6 +295,15 @@ export function createFakeDb(users = []) {
         auditRows.push(row);
         return row;
       },
+      // SECURITY_ROADMAP Phase 19 — the admin audit-log review surface
+      // (GET /admin/audit-log) reads the trail; support findMany + count.
+      findMany: async ({ where, orderBy, take, skip } = {}) => {
+        let out = auditRows.filter((r) => matches(r, where)).sort(orderByFn(orderBy));
+        if (skip) out = out.slice(skip);
+        if (take) out = out.slice(0, take);
+        return out.map((r) => ({ ...r }));
+      },
+      count: async ({ where } = {}) => auditRows.filter((r) => matches(r, where)).length,
     },
   };
   return db;

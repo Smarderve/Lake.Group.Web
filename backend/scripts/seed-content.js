@@ -78,6 +78,34 @@ export function loadGalleryTiles(file = GALLERY_HTML) {
   return tiles;
 }
 
+/** Extract publishable title/description metadata from root public pages. */
+export function loadPageMetadata(root = FRONTEND_ROOT) {
+  const excluded = new Set(['dashboard.html', 'offline.html']);
+  return fs.readdirSync(root)
+    .filter((file) => file.endsWith('.html') && !excluded.has(file))
+    .sort()
+    .map((file) => {
+      const html = fs.readFileSync(path.join(root, file), 'utf8');
+      const titleMatch = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+      const descriptionMatch = html.match(
+        /<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)["'][^>]*>/i,
+      ) || html.match(
+        /<meta[^>]+content=["']([^"']+)["'][^>]+name=["']description["'][^>]*>/i,
+      );
+      if (!titleMatch || !descriptionMatch) return null;
+      const metaTitle = decodeHtml(titleMatch[1].replace(/\s+/g, ' ').trim());
+      const slug = file === 'index.html' ? 'home' : file.replace(/\.html$/i, '');
+      return {
+        slug,
+        title: metaTitle.replace(/\s*[|–-]\s*Lake Group.*$/i, '').trim() || metaTitle,
+        layoutType: file === 'index.html' ? 'home' : 'standard',
+        metaTitle,
+        metaDescription: decodeHtml(descriptionMatch[1].trim()),
+      };
+    })
+    .filter(Boolean);
+}
+
 function decodeHtml(s) {
   return s.replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"');
 }
@@ -210,7 +238,7 @@ async function cleanupForReseed(db) {
   for (const model of versionModels) {
     try {
       await db[model].deleteMany({});
-    } catch (e) { /* already empty */ }
+    } catch { /* already empty */ }
   }
   console.log('[force] cleared governed content');
 }
@@ -228,6 +256,27 @@ export async function seedContent(db, { force = false } = {}) {
     const row = await seedEntity(db, { model: 'category', versionModel: 'categoryVersion', key: c.name, keyField: 'name', seed: { name: c.name, description: c.description }, refs, force });
     refs[`category:${c.slug}`] = row.id;
   }
+
+  /* --- Public page metadata (SEO ships in the published release) --- */
+  for (const page of loadPageMetadata()) {
+    await seedEntity(db, {
+      model: 'page', versionModel: 'pageVersion', key: page.slug,
+      keyField: 'slug', seed: page, refs, force,
+    });
+  }
+  await seedEntity(db, {
+    model: 'contentBlock',
+    versionModel: 'contentBlockVersion',
+    key: 'operations-map-routes',
+    keyField: 'key',
+    seed: {
+      key: 'operations-map-routes',
+      type: 'CALLOUT',
+      content: { kind: 'operations-map-routes', routes: CONTENT_SEED.mapRoutes },
+    },
+    refs,
+    force,
+  });
 
   /* --- Countries → regions --- */
   for (const c of CONTENT_SEED.countries) {

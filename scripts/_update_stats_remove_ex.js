@@ -235,7 +235,7 @@ if (news.includes('Khalid')) {
 }
 
 // ---- 6) QA_REPORT.md ----
-const qaPath = path.join(ROOT, 'QA_REPORT.md');
+const qaPath = path.join(ROOT, 'docs', 'qa', 'QA_REPORT.md');
 if (fs.existsSync(qaPath)) {
   let qa = fs.readFileSync(qaPath, 'utf8');
   qa = qa.replace(/Abdulrahman Mohamed, Khalid Mohamed, /g, '');

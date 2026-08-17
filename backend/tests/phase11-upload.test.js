@@ -6,15 +6,13 @@ import { makeApp, makeUser } from './helpers.js';
 
 // SECURITY_ROADMAP Phase 11 — File Upload Security.
 //
-// Audit: there is NO upload surface (no multipart parser, no req.file
-// handling, no static file serving; careers/contact forms are data-mock).
-// These tests lock that down as a regression guard: a multipart payload
-// must never be processed, oversized payloads are capped, and the
-// dependency list must not silently gain an upload library.
+// Multipart parsing is deliberately scoped to /admin/media/uploads. These
+// tests ensure unrelated routes remain closed to multipart payloads and that
+// the approved parser is the only upload dependency.
 
 const PKG_PATH = fileURLToPath(new URL('../package.json', import.meta.url));
 
-describe('SECURITY_ROADMAP Phase 11 — no file-upload surface', () => {
+describe('SECURITY_ROADMAP Phase 11 — scoped file-upload surface', () => {
   it('multipart/form-data to a governed create is rejected (no parser, no file handling)', async () => {
     const users = [await makeUser({ email: 'editor@lakegroup.test', password: 'pw-edit-1', role: 'EDITOR' })];
     const ctx = makeApp({ users });
@@ -28,8 +26,7 @@ describe('SECURITY_ROADMAP Phase 11 — no file-upload surface', () => {
       .send('------x\r\nContent-Disposition: form-data; name="title"\r\n\r\nHacked\r\n'
         + '------x\r\nContent-Disposition: form-data; name="file"; filename="shell.php"\r\n'
         + 'Content-Type: application/x-php\r\n\r\n<?php system($_GET[c]); ?>\r\n------x--\r\n');
-    // No multipart parser exists → the body is empty → schema validation
-    // rejects. The file never reaches the server.
+    // The parser is route-scoped, so the governed JSON route sees no body.
     expect(res.status).toBe(400);
     expect(res.body.error.code).toBe('VALIDATION_ERROR');
     const rows = await ctx.db.news.findMany({});
@@ -54,12 +51,12 @@ describe('SECURITY_ROADMAP Phase 11 — no file-upload surface', () => {
     expect(res.body.error.code).toBe('PAYLOAD_TOO_LARGE');
   });
 
-  it('the dependency list contains no upload/multipart library (supply-chain guard)', async () => {
+  it('the dependency list contains only the approved multipart library', async () => {
     const pkg = JSON.parse(readFileSync(PKG_PATH, 'utf8'));
     const deps = { ...(pkg.dependencies || {}), ...(pkg.devDependencies || {}) };
     const uploadLibs = Object.keys(deps).filter((d) =>
       /multer|busboy|formidable|multiparty|gridfs|express-fileupload/i.test(d));
-    expect(uploadLibs).toEqual([]);
+    expect(uploadLibs).toEqual(['multer']);
   });
 
   it('the backend serves no static files (no user-accessible file paths)', async () => {

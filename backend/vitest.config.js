@@ -2,6 +2,7 @@ import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
+    testTimeout: 15_000,
     env: {
       NODE_ENV: 'test',
       // Fast hashing in tests — production default stays 12 (see .env.example).

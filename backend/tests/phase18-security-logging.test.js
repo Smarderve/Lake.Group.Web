@@ -3,7 +3,7 @@ import request from 'supertest';
 import { pino } from 'pino';
 import { makeApp, makeUser } from './helpers.js';
 import { loginRateLimiter } from '../src/middleware/rate-limit.js';
-import { safeReqSerializer } from '../src/logger.js';
+import { safeReqSerializer, safeResSerializer } from '../src/logger.js';
 
 // SECURITY_ROADMAP Phase 18 — Security Logging.
 //
@@ -43,6 +43,46 @@ describe('SECURITY_ROADMAP Phase 18 — security logging', () => {
     const blob = JSON.stringify(lines);
     expect(blob).not.toContain('SECRET-SESSION-ABC');
     expect(blob).not.toContain('SECRET-TOKEN-123');
+  });
+
+  it('response logs never contain set-cookie — session IDs stay out of the logs', async () => {
+    const { logger, lines } = capturingLogger();
+    const users = [await makeUser({ email: 'a@lakegroup.test', password: 'pw-ok-12345', role: 'SUPER_ADMIN' })];
+    const ctx = makeApp({ users, options: { logger } });
+    const res = await request(ctx.app)
+      .post('/auth/login')
+      .send({ email: 'a@lakegroup.test', password: 'pw-ok-12345' });
+    expect(res.status).toBe(200);
+    // The response really sets a session cookie…
+    const setCookie = res.headers['set-cookie'];
+    expect(setCookie).toBeTruthy();
+    expect(setCookie[0]).toMatch(/lakegroup\.sid=/);
+    const sessionValue = setCookie[0];
+
+    // …but no log line carries it (request OR response side).
+    const blob = JSON.stringify(lines);
+    expect(blob).not.toContain('set-cookie');
+    expect(blob).not.toContain('lakegroup.sid');
+    expect(blob).not.toContain(sessionValue);
+  });
+
+  it('safeResSerializer allowlists only non-sensitive response headers', () => {
+    const out = safeResSerializer({
+      statusCode: 200,
+      headers: {
+        'content-type': 'application/json',
+        'set-cookie': ['lakegroup.sid=s%3ASECRET; Path=/; HttpOnly'],
+        authorization: 'Bearer X',
+        'x-content-type-options': 'nosniff',
+        'x-frame-options': 'DENY',
+      },
+    });
+    expect(out.headers['set-cookie']).toBeUndefined();
+    expect(out.headers.authorization).toBeUndefined();
+    expect(out.headers['content-type']).toBe('application/json');
+    expect(out.headers['x-content-type-options']).toBe('nosniff');
+    // The secret value never survives in any form.
+    expect(JSON.stringify(out)).not.toContain('SECRET');
   });
 
   it('safeReqSerializer allowlists only debugging-safe headers', () => {

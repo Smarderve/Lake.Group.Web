@@ -11,17 +11,23 @@ import { governedRouter } from './routes/governed.js';
 import { publicRouter } from './routes/public.js';
 import { mediaUsageRouter } from './routes/media-usage.js';
 import { mediaFolderRouter } from './routes/media-folders.js';
+import { mediaUploadRouter } from './routes/media-upload.js';
+import { publicReleasesRouter } from './routes/public-releases.js';
 import { milestoneRouter, leadershipEventRouter } from './routes/children.js';
 import { reviewQueueRouter } from './routes/review-queue.js';
 import { publishSchedulesRouter } from './routes/publish-schedules.js';
 import { notificationsRouter } from './routes/notifications.js';
+import { settingsRouter } from './routes/settings.js';
+import { previewRouter } from './routes/preview.js';
 import { REGISTRY_ENTITIES } from './lib/registry-config.js';
 import { CMS_ENTITIES } from './lib/cms-config.js';
 import { MAP_ENTITIES } from './lib/map-config.js';
 import { notFoundHandler, errorHandler } from './middleware/error-handler.js';
 import { loginRateLimiter, mfaRateLimiter, publicWriteLimiter as publicWriteLimiterFactory, adminRateLimiter as adminRateLimiterFactory } from './middleware/rate-limit.js';
-import { securityHeaders } from './middleware/security-headers.js';
+import { privateNoStore, securityHeaders } from './middleware/security-headers.js';
 import { csrfGuard } from './middleware/csrf-guard.js';
+import { cmsCors } from './middleware/cms-cors.js';
+import { requireMfaEnrollment } from './middleware/auth.js';
 import { DEFAULT_SESSION_TTL_MS, DEFAULT_RECENT_AUTH_WINDOW_MS } from './config.js';
 
 /**
@@ -55,6 +61,21 @@ export function createApp({
   // SECURITY_ROADMAP Phase 8 — CSRF origin/site validation on the
   // cookie-authenticated surfaces (belt-and-suspenders over SameSite=Lax).
   csrfAllowedOrigins = [],
+  // Exact browser origins allowed to read credentialed CMS responses.
+  cmsAllowedOrigins = [],
+  mfaRequiredRoles = [],
+  secretBox = null,
+  // DEVELOPMENT-ONLY MFA convenience: emails that skip the TOTP step at
+  // login. Never honored in production (see config.js fail-fast); index.js
+  // passes config.isProduction so even a mistakenly-set list is ignored.
+  devMfaSkipEmails = [],
+  isProduction = false,
+  // Per-user preferences store (Settings Center). Defaults to an in-memory
+  // store so tests and a database-less boot still work; index.js wires the
+  // PostgreSQL-backed store.
+  prefsStore = null,
+  mediaStorage = null,
+  mediaUploadMaxBytes = 10 * 1024 * 1024,
   // SECURITY_ROADMAP Phase 1 — dev endpoints never mount in production.
   devEndpointsEnabled = true,
 } = {}) {
@@ -75,6 +96,26 @@ export function createApp({
     // NEVER logged (pino-http's default copied every header).
     app.use(pinoHttp(pinoHttpOptions(logger)));
   }
+
+  if (mediaStorage?.provider === 'local' && mediaStorage.publicDirectory) {
+    app.use('/media/files', express.static(mediaStorage.publicDirectory, {
+      dotfiles: 'deny',
+      immutable: true,
+      maxAge: '1y',
+      fallthrough: false,
+      setHeaders(res, filePath) {
+        if (filePath.toLowerCase().endsWith('.pdf')) {
+          res.setHeader('Content-Disposition', 'attachment');
+        }
+      },
+    }));
+  }
+
+  // Specification Phase 18 — the CMS is deployed separately from the API.
+  // Handle its preflights before sessions, rate limits, authentication, and
+  // CSRF; regular requests continue through every normal security control.
+  app.use(['/auth', '/admin'], privateNoStore);
+  app.use(['/health', '/auth', '/admin'], cmsCors({ allowedOrigins: cmsAllowedOrigins }));
 
   if (sessionSecret && sessionStore) {
     app.use(
@@ -107,10 +148,27 @@ export function createApp({
   app.use('/admin', csrf);
   app.use('/auth', adminLimiter);
   app.use('/admin', adminLimiter);
-  app.use('/auth', authRouter({ db, loginLimiter, mfaLimiter, sessionName }));
+  app.use('/auth', authRouter({
+    db,
+    loginLimiter,
+    mfaLimiter,
+    sessionName,
+    secretBox,
+    devMfaSkipEmails,
+    isProduction,
+  }));
+  app.use('/admin', requireMfaEnrollment(db, mfaRequiredRoles));
   // /admin/* workflow routers mount before /admin so their routes win over
   // the generic admin router (Phases 3-4).
+  app.use('/admin/preview', previewRouter({ db }));
+  app.use('/admin/public-releases', publicReleasesRouter({ db }));
   app.use('/admin/metrics', metricsRouter({ db, recentAuthWindowMs }));
+  app.use('/admin/media', mediaUploadRouter({
+    db,
+    storage: mediaStorage,
+    maxBytes: mediaUploadMaxBytes,
+    recentAuthWindowMs,
+  }));
   for (const [route, config] of Object.entries(REGISTRY_ENTITIES)) {
     app.use(`/admin/${route}`, governedRouter({ db, config, recentAuthWindowMs }));
   }
@@ -135,6 +193,10 @@ export function createApp({
   app.use('/admin/review-queue', reviewQueueRouter({ db }));
   app.use('/admin/publish-schedules', publishSchedulesRouter({ db, recentAuthWindowMs }));
   app.use('/admin/notifications', notificationsRouter({ db }));
+  // Settings Center — mounts before the generic admin router so its deeper
+  // paths (/admin/settings/system, /admin/settings/password) win over any
+  // generic /admin route.
+  app.use('/admin/settings', settingsRouter({ db, prefsStore }));
   app.use('/admin', adminRouter({ db, recentAuthWindowMs }));
   app.use('/api/public', publicRouter({ db }, publicWriteLimiter));
 

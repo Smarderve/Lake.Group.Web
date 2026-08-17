@@ -1,12 +1,4 @@
-/**
- * Lake Group operational footprint for the homepage globe.
- *
- * Coordinate sources:
- * - TZ HQ: Plot 49 Mikocheni Light Industrial Area (contact.html / prior
- *   hero-3d.js verified HQ), more precise than Dar city centroid.
- * - Other eight: city centres from the approved location table
- *   (contact pages list offices via HQ; no published lat/lng per country).
- */
+/** Homepage globe presentation helpers for published operations data. */
 
 export const TEX_BASE = 'assets/images/globe/';
 
@@ -20,103 +12,20 @@ export const BRAND_YELLOW = '#FFF200';
 export const BRAND_YELLOW_SOFT = 'rgba(255, 242, 0, 0.55)';
 export const BRAND_YELLOW_RING = (t) => `rgba(255, 242, 0, ${Math.max(0, 1 - t)})`;
 
-export const LOCATIONS = [
-  {
-    id: 'tz',
-    name: 'Tanzania HQ · Dar es Salaam',
-    lat: -6.82,
-    lng: 39.28,
-    hub: true,
-    source: 'Plot 49 Mikocheni (contact.html / prior hero-3d.js)',
-  },
-  {
-    id: 'ke',
-    name: 'Kenya · Nairobi',
-    lat: -1.2921,
-    lng: 36.8219,
-    hub: false,
-    source: 'approved city centre',
-  },
-  {
-    id: 'zm',
-    name: 'Zambia · Lusaka',
-    lat: -15.3875,
-    lng: 28.3228,
-    hub: false,
-    source: 'approved city centre',
-  },
-  {
-    id: 'rw',
-    name: 'Rwanda · Kigali',
-    lat: -1.9403,
-    lng: 29.8739,
-    hub: false,
-    source: 'approved city centre',
-  },
-  {
-    id: 'bi',
-    name: 'Burundi · Bujumbura',
-    lat: -3.3822,
-    lng: 29.3644,
-    hub: false,
-    source: 'approved city centre',
-  },
-  {
-    id: 'cd',
-    name: 'DRC · Lubumbashi',
-    lat: -11.6647,
-    lng: 27.4794,
-    hub: false,
-    source: 'verified operations hub (Lubumbashi & Goma)',
-  },
-  {
-    id: 'et',
-    name: 'Ethiopia · Addis Ababa',
-    lat: 9.0192,
-    lng: 38.7525,
-    hub: false,
-    source: 'approved city centre',
-  },
-  {
-    id: 'ug',
-    name: 'Uganda · Kampala',
-    lat: 0.3136,
-    lng: 32.5811,
-    hub: false,
-    source: 'verified operations (Lake Oil Uganda)',
-  },
-  {
-    id: 'mz',
-    name: 'Mozambique · Beira',
-    lat: -19.8436,
-    lng: 34.8389,
-    hub: false,
-    source: 'verified operations (Lake Oil LDA)',
-  },
-  {
-    id: 'ae',
-    name: 'Dubai · UAE',
-    lat: 25.277,
-    lng: 55.2962,
-    hub: false,
-    source: 'approved city centre',
-  },
-];
-
-export const HQ = LOCATIONS.find((l) => l.hub);
-
-export function buildPoints() {
-  return LOCATIONS.map((loc) => ({
+export function buildPoints(locations) {
+  return locations.map((loc) => ({
     ...loc,
     size: loc.hub ? 0.55 : 0.28,
     color: BRAND_YELLOW,
   }));
 }
 
-export function buildArcs() {
-  return LOCATIONS.filter((l) => !l.hub).map((loc) => ({
-    startLat: HQ.lat,
-    startLng: HQ.lng,
+export function buildArcs(locations) {
+  const hq = locations.find((location) => location.hub);
+  if (!hq) return [];
+  return locations.filter((location) => !location.hub).map((loc) => ({
+    startLat: hq.lat,
+    startLng: hq.lng,
     endLat: loc.lat,
     endLng: loc.lng,
     color: BRAND_YELLOW,
@@ -124,11 +33,13 @@ export function buildArcs() {
   }));
 }
 
-export function buildRings() {
+export function buildRings(locations) {
+  const hq = locations.find((location) => location.hub);
+  if (!hq) return [];
   return [
     {
-      lat: HQ.lat,
-      lng: HQ.lng,
+      lat: hq.lat,
+      lng: hq.lng,
       maxR: 3.2,
       propagationSpeed: 2.2,
       repeatPeriod: 1400,

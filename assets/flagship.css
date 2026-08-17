@@ -859,7 +859,22 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   max-height: calc(100vh - var(--nav-h)); overflow-y: auto;
 }
 .nav-mobile.open { display: flex !important; }
-.nav-mobile a { display: block; padding: 12px 16px; color: rgba(233,237,248,0.8); font-size: 0.9rem; border-left: 2px solid transparent; }
+.nav-mobile a {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  flex: none;
+  padding: 12px 16px;
+  color: rgba(233,237,248,0.8);
+  font-size: 0.9rem;
+  border-left: 2px solid transparent;
+  touch-action: manipulation;
+}
+/* Keep Home above About if mobile layout rounding briefly overlaps their
+   adjacent tap areas during drawer paint. */
+.nav-mobile > a:first-child { z-index: 3; }
+.nav-mobile > a:nth-child(2) { z-index: 2; }
 .nav-mobile a:hover { color: var(--gold); border-left-color: var(--gold); background: rgba(255,255,255,0.03); }
 .mob-section { padding: 14px 16px 4px; font-size: 0.72rem; letter-spacing: var(--eyebrow-letter-spacing, 0.16em); text-transform: uppercase; color: var(--gold); font-weight: 700; }
 

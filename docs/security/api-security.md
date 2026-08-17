@@ -8,6 +8,12 @@ server-side map; **param** = parameterized query (Prisma / pg, no string
 interpolation). All errors are the uniform `{ error: { code, message } }`
 shape; server errors never leak stack traces (Phase 5).
 
+Current cross-cutting addendum (2026-08-13): all `/auth` and `/admin`
+responses are `private, no-store`; both surfaces are limited to 300 requests
+per 15 minutes per trusted client IP; production requires MFA enrollment for
+every CMS role before `/admin` access. Binary media upload/delete and the
+read-only public-release status API are documented in `../CMS-API-MAP.md`.
+
 ## Public API (`/api/public`)
 
 | Endpoint | Auth | Authorization | Input schema | Output | Rate limit | Sensitive data | Ownership |
@@ -77,5 +83,5 @@ shape; server errors never leak stack traces (Phase 5).
   ownership-enforced server-side (Phase 4).
 - **CSRF**: /admin and /auth state changes require a same-origin or
   allowlisted Origin (Phase 8).
-- **Rate limiting**: login/MFA 5/15m, public writes 120/15m. **Gap tracked**:
-  no limiter on the authenticated admin API (Phase 10 target).
+- **Rate limiting**: login/MFA 5/15m, public writes 120/15m, authenticated
+  admin/auth surface 300/15m.

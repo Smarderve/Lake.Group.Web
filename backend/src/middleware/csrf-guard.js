@@ -20,7 +20,19 @@ import { securityLog } from '../lib/security-log.js';
 const SAFE_METHODS = new Set(['GET', 'HEAD', 'OPTIONS']);
 
 function normalize(origin) {
-  return String(origin || '').replace(/\/+$/, '');
+  const raw = String(origin || '').trim().replace(/\/+$/, '');
+  try {
+    const parsed = new URL(raw);
+    if (
+      !['http:', 'https:'].includes(parsed.protocol) ||
+      parsed.origin !== raw ||
+      parsed.username ||
+      parsed.password
+    ) return null;
+    return parsed.origin;
+  } catch {
+    return null;
+  }
 }
 
 function forbidden(res) {
@@ -31,13 +43,13 @@ function forbidden(res) {
 
 // SECURITY_ROADMAP Phase 18 — CSRF rejections are the app's suspicious-
 // request signal; emit a structured CSRF_REJECTED security event.
-function reject(req, res) {
+function reject(req, res, expected) {
   securityLog(req.log, {
     action: 'CSRF_REJECTED',
     req,
     detail: {
       origin: req.headers.origin ?? null,
-      expected: `${req.secure ? 'https' : 'http'}://${req.headers.host ?? ''}`,
+      expected: expected ?? null,
     },
   });
   return forbidden(res);
@@ -49,31 +61,36 @@ export function csrfGuard({ allowedOrigins = [], trustProxy = 0 } = {}) {
   return function csrfGuardMiddleware(req, res, next) {
     if (SAFE_METHODS.has(req.method)) return next();
 
-    // SECURITY (Phase 15): X-Forwarded-* is trusted ONLY when a reverse
-    // proxy is configured (TRUST_PROXY > 0). Otherwise a direct client
-    // could spoof X-Forwarded-Host/Proto plus a matching Origin and defeat
-    // this check. First value wins (proxies append to the chain).
+    // Forwarded host/protocol are used only when Express's compiled trust
+    // function trusts the direct network peer. A merely non-zero setting is
+    // insufficient: IP/CIDR policies must still reject untrusted clients.
     const first = (value) => {
       const v = Array.isArray(value) ? value[0] : value;
       return String(v || '').split(',')[0].trim();
     };
-    const host = trustProxy ? (first(req.headers['x-forwarded-host']) || req.headers.host) : req.headers.host;
-    const proto = trustProxy
-      ? (first(req.headers['x-forwarded-proto']) || (req.secure ? 'https' : 'http'))
-      : (req.secure ? 'https' : 'http');
+    const trust = req.app.get('trust proxy fn');
+    const directPeerTrusted = Boolean(
+      trustProxy &&
+      typeof trust === 'function' &&
+      trust(req.socket.remoteAddress, 0),
+    );
+    const host = directPeerTrusted
+      ? (first(req.headers['x-forwarded-host']) || req.headers.host)
+      : req.headers.host;
+    const proto = req.protocol;
     const expected = normalize(`${proto}://${host}`);
 
     const origin = req.headers.origin;
     if (origin) {
       const o = normalize(origin);
-      if (o === expected || allowed.has(o)) return next();
-      return reject(req, res);
+      if (o && (o === expected || allowed.has(o))) return next();
+      return reject(req, res, expected);
     }
 
     // No Origin (form submission from an old browser, curl, ...): trust the
     // Sec-Fetch-Site signal when the browser provides it.
     if (req.headers['sec-fetch-site'] === 'cross-site') {
-      return reject(req, res);
+      return reject(req, res, expected);
     }
     return next();
   };

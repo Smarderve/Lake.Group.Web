@@ -100,16 +100,36 @@ describe('auth: login / logout / me', () => {
 });
 
 describe('auth: rate limiting', () => {
-  it('blocks after 5 failed login attempts per 15 minutes', async () => {
+  it('blocks after 10 failed login attempts per 24 hours', async () => {
     const user = await makeUser({ email: 'lim@lakegroup.test', password: 'pw123456' });
     const ctx = makeApp({ users: [user] });
 
-    for (let i = 0; i < 5; i += 1) {
+    for (let i = 0; i < 10; i += 1) {
       const res = await request(ctx.app).post('/auth/login').send({ email: 'lim@lakegroup.test', password: 'bad' });
       expect(res.status).toBe(401);
     }
-    const sixth = await request(ctx.app).post('/auth/login').send({ email: 'lim@lakegroup.test', password: 'bad' });
-    expect(sixth.status).toBe(429);
-    expect(sixth.body.error.code).toBe('RATE_LIMITED');
+    const eleventh = await request(ctx.app).post('/auth/login').send({ email: 'lim@lakegroup.test', password: 'bad' });
+    expect(eleventh.status).toBe(429);
+    expect(eleventh.body.error.code).toBe('RATE_LIMITED');
+  });
+
+  it('does not count successful logins against the daily budget', async () => {
+    const user = await makeUser({ email: 'ok@lakegroup.test', password: 'pw123456' });
+    const ctx = makeApp({ users: [user] });
+
+    // 9 failures: budget consumed 9 of 10.
+    for (let i = 0; i < 9; i += 1) {
+      const res = await request(ctx.app).post('/auth/login').send({ email: 'ok@lakegroup.test', password: 'bad' });
+      expect(res.status).toBe(401);
+    }
+    // A successful login (200) must NOT consume a slot.
+    const ok = await request(ctx.app).post('/auth/login').send({ email: 'ok@lakegroup.test', password: 'pw123456' });
+    expect(ok.status).toBe(200);
+    // 10th failure is therefore still allowed (would be 429 if the success counted).
+    const tenth = await request(ctx.app).post('/auth/login').send({ email: 'ok@lakegroup.test', password: 'bad' });
+    expect(tenth.status).toBe(401);
+    // 11th failure trips the limiter.
+    const eleventh = await request(ctx.app).post('/auth/login').send({ email: 'ok@lakegroup.test', password: 'bad' });
+    expect(eleventh.status).toBe(429);
   });
 });

@@ -19,3 +19,11 @@ export function securityHeaders({ hsts = false } = {}) {
     next();
   };
 }
+
+/** Prevent browsers and shared intermediaries from retaining CMS/auth data. */
+export function privateNoStore(_req, res, next) {
+  res.set('Cache-Control', 'private, no-store');
+  res.set('Pragma', 'no-cache');
+  res.set('Expires', '0');
+  next();
+}

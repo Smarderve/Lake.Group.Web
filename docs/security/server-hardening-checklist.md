@@ -161,9 +161,10 @@ curl -s http://127.0.0.1:4000/health                   # → {"status":"ok",...}
       fail-fast) without `DATABASE_URL`, a ≥32-char `SESSION_SECRET`, and
       `SESSION_COOKIE_SECURE=true`.
 - [ ] `SESSION_COOKIE_SECURE=true` — HTTPS-only cookies + HSTS header on.
-- [ ] `TRUST_PROXY=1` (or the proxy IP) — real client IPs for rate limiting /
-      audit, and the CSRF origin check trusts `X-Forwarded-*` (Phase 15). The
-      backend warns at boot if this is unset in production.
+- [ ] `TRUST_PROXY=1` only for an ingress-only one-hop topology, or an exact
+      proxy IP/CIDR allowlist — real client IPs for rate limiting/audit and
+      trusted external origin reconstruction. Unsafe broad values fail
+      production boot.
 - [ ] `CSRF_ALLOWED_ORIGINS` — the real admin-UI origin(s) if the CMS is
       served from a different host than the API.
 - [ ] `PORT=4000` bound on 127.0.0.1 (the proxy talks to it locally; it is

@@ -87,10 +87,19 @@ restored, and document a controlled production migration with rollback.
 - **`backend/scripts/restore-db.js`** — `npm run db:restore -- <file> [db]`:
   pg_restore `--clean --if-exists --no-owner`; **drill mode** = target a
   scratch database so production is untouched.
-- **Live restore drill (real data)**: backed up the live `lakegroup` DB →
-  restored into `lakegroup_restore_test` → row counts matched exactly
-  (companies 18, countries 10, news 41, metrics 6, facilities 31,
-  migrations 9) → scratch DB dropped. Backup/restore is proven, not assumed.
+- **SECURITY_ROADMAP Phase 20 (2026-08-12)**: optional **AES-256-GCM
+  encryption-at-rest** (`BACKUP_ENCRYPTION_KEY` — dumps become
+  `<stamp>.dump.enc`, plaintext removed; decrypts in memory and streams to
+  pg_restore via stdin, no plaintext on disk; wrong key/tamper aborts
+  before SQL) and **retention** (`BACKUP_RETENTION_DAYS`, default 14 —
+  expired dumps pruned after each successful backup). Full process,
+  recovery order and verification: **`docs/security/disaster-recovery.md`**.
+- **Live restore drill (real data, 2026-08-12)**: encrypted backup of the
+  live `lakegroup` DB → restored into `lakegroup_restore_test` → row counts
+  matched exactly (companies 18, countries 10, news 41, metrics 6,
+  facilities 31, AuditLog 584, migrations 11) → scratch DB dropped;
+  retention exercised live (3 expired pruned, newest kept). Backup/restore
+  is proven, not assumed.
 
 ### 11.7 — Controlled production migration (runbook) ✅
 

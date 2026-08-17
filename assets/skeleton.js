@@ -19,12 +19,14 @@
   var progressObserver = null;
 
   var TARGET_SELECTOR = [
-    'img', 'picture', 'video', 'canvas', 'iframe',
+    'img', 'picture', 'video', 'canvas', 'iframe', 'figure', 'hr',
     'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'li',
     'a', 'button', 'input', 'textarea', 'select',
     '[role="button"]', '[role="img"]', '[role="listitem"]',
     '[class*="card" i]', '[class*="tile" i]', '[class*="panel" i]',
-    '[class*="map" i]', '[class*="gallery" i]', '[class*="hero" i]'
+    '[class*="map" i]', '[class*="gallery" i]', '[class*="hero" i]',
+    '[class*="media" i]', '[class*="figure" i]',
+    '[class*="eyebrow" i]', '[class*="stamp" i]', '[class*="label" i]'
   ].join(',');
 
   /* Nav chrome (dropdowns, mega menu, mobile drawer) must never be skeletoned:
@@ -32,33 +34,77 @@
      shapes over the real page layout. */
   var CHROME_SELECTOR = '.nav-dropdown, .nav-megamenu, .nav-mobile, .mm-layout, [class*="megamenu" i], [class*="mobile-menu" i]';
 
-  function isVisibleTarget(element) {
-    if (element.closest('[data-lg-skeleton-overlay], .lg-skel-status, script, style, template')) return false;
-    if (element.closest(CHROME_SELECTOR)) return false;
+  /* True-visibility walker: an element only counts when neither it nor any
+     ancestor is display:none / visibility:hidden. Static opacity:0 containers
+     (carousel slides stacked full-viewport — home hero, the About story stage)
+     collapse every slide at the same origin; muting the inactive ones is what
+     lets the skeleton mirror only the live slide instead of a jumble of
+     ghosts. Elements under a running entrance ANIMATION (fs-page-in,
+     fs-nav-settle…) are exempt: they start at opacity 0 but are part of the
+     true first paint. optOut = an ancestor whose opacity is ignored (the
+     About page's first slide is forced visible while the curator JS has not
+     activated it yet). */
+  function isAnimated(style) {
+    var name = style.animationName;
+    return !!name && name !== 'none';
+  }
+
+  function isShown(element, optOut) {
     var style = window.getComputedStyle(element);
-    if (style.display === 'none' || style.visibility === 'hidden' || Number(style.opacity) === 0) return false;
+    if (style.display === 'none' || style.visibility === 'hidden' || style.visibility === 'collapse') return false;
+    if (!optOut && Number(style.opacity) === 0 && !isAnimated(style)) return false;
     var rect = element.getBoundingClientRect();
-    if (rect.width <= 2 || rect.height <= 2 || rect.bottom <= 0 || rect.top >= window.innerHeight || rect.right <= 0 || rect.left >= window.innerWidth) return false;
-    // Skip descendants of containers that are genuinely not rendered
-    // (display:none / visibility:hidden ancestors). Load-time entrance fades
-    // use opacity animations, so opacity is intentionally NOT walked here.
+    if (rect.width <= 2 || rect.height <= 2) return false;
     var node = element.parentElement;
     while (node && node.nodeType === 1) {
       var parentStyle = window.getComputedStyle(node);
       if (parentStyle.display === 'none' || parentStyle.visibility === 'hidden' || parentStyle.visibility === 'collapse') return false;
+      if (!optOut && Number(parentStyle.opacity) === 0 && !isAnimated(parentStyle)) return false;
       node = node.parentElement;
     }
     return true;
   }
 
-  function classifyTarget(element, style) {
+  /* The About hero stage stacks eight full-viewport .ose-scene slides; the
+     curator marks one .ose-active only after load. While the curtain is up,
+     render the first scene's structure so the skeleton matches the true
+     first paint instead of drawing nothing. */
+  function forcedSceneFor(element) {
+    var scene = element.closest('.ose-scene');
+    if (!scene || scene.classList.contains('ose-active')) return null;
+    var stage = scene.parentElement;
+    if (!stage || stage.querySelector('.ose-scene') !== scene) return null;
+    return scene;
+  }
+
+  function isVisibleTarget(element) {
+    if (element.closest('[data-lg-skeleton-overlay], .lg-skel-status, script, style, template')) return false;
+    if (element.closest(CHROME_SELECTOR)) return false;
+    if (!isShown(element, forcedSceneFor(element))) return false;
+    var rect = element.getBoundingClientRect();
+    if (rect.bottom <= 0 || rect.top >= window.innerHeight || rect.right <= 0 || rect.left >= window.innerWidth) return false;
+    return true;
+  }
+
+  function classifyTarget(element, style, rect) {
     var tag = element.tagName;
     var className = typeof element.className === 'string' ? element.className.toLowerCase() : '';
-    if (/^(IMG|PICTURE|VIDEO|CANVAS|IFRAME)$/.test(tag) || /(?:map|gallery|media|image|photo|video)/.test(className)) return 'media';
+    if (tag === 'HR') return 'rule';
+    if (/^(IMG|PICTURE|VIDEO|CANVAS|IFRAME|FIGURE)$/.test(tag) || /(?:map|gallery|media|figure|image|photo|video)/.test(className)) return 'media';
     if (element.getAttribute('role') === 'button' || /(?:^|\s|-|\b)(?:btn|button|cta|pill|chip)(?:\b|-|$)/.test(className)) return 'button';
     if (/^(INPUT|TEXTAREA|SELECT)$/.test(tag)) return 'field';
     if (/^(H1|H2|H3|H4|H5|H6|P|LI)$/.test(tag)) return 'text';
-    if (tag === 'A') return 'link';
+    if (/^(SPAN|SMALL|LABEL)$/.test(tag)) {
+      // Icon glyphs (inline svg, iconify, checkmarks) must never read as lines.
+      if (element.querySelector('svg, img, iconify-icon, picture, [class*="icon" i], [data-icon]')) return null;
+      return 'text';
+    }
+    if (tag === 'A') {
+      // Icon-only links (social buttons etc.) are round media chips; links
+      // carrying text are lines with a button-style indicator appended.
+      if (rect && rect.width <= 96 && element.querySelector('svg, img, iconify-icon, picture')) return 'media';
+      return 'link';
+    }
     return 'surface';
   }
 
@@ -127,6 +173,23 @@
         radius: Math.round(thickness / 2)
       });
     }
+
+    /* Links end in a small dot, mirroring the brand's button indicators. */
+    if (kind === 'link' && count > 0) {
+      var line = targets[targets.length - 1];
+      var dot = Math.max(6, Math.min(10, Math.round(thickness * 1.15)));
+      var dotX = line.left + line.width + 7;
+      if (dotX + dot <= rect.right + 6 && dot * 3 <= rect.width) {
+        pushBlock(targets, {
+          kind: 'indicator',
+          left: dotX,
+          top: line.top + (thickness - dot) / 2,
+          width: dot,
+          height: dot,
+          radius: dot / 2
+        });
+      }
+    }
   }
 
   /* Compact pill placeholder for buttons and CTA links (YouTube-style). */
@@ -156,26 +219,174 @@
     });
   }
 
+  /* --------------------------------------------------------------------------
+     Navbar chrome. The fixed .site-nav bar is drawn as the real design reads:
+     a full-width band at the top of the screen, its brand border-bottom edge,
+     the logo chip on the left, each nav label as a line with a button-style
+     indicator dot, the language trigger as globe + line, and the mobile
+     hamburger as three tiny bars. Geometry comes from the live bar, so it
+     matches the true layout at any breakpoint.
+     -------------------------------------------------------------------------- */
+  function collectNavBlocks(nav) {
+    var blocks = [];
+    var rect = nav.getBoundingClientRect();
+    if (rect.width < 4) return blocks;
+    var top = Math.max(0, rect.top);
+    var height = Math.min(window.innerHeight, rect.bottom) - top;
+    if (height < 8) return blocks;
+
+    var navStyle = window.getComputedStyle(nav);
+    var bg = navStyle.backgroundColor;
+    if (!bg || bg === 'transparent' || bg === 'rgba(0, 0, 0, 0)') bg = 'rgba(1, 102, 148, 0.6)';
+    blocks.push({
+      kind: 'navbar',
+      left: 0, top: top,
+      width: window.innerWidth, height: height,
+      radius: 0, background: bg
+    });
+
+    var edgeH = Math.max(2, Math.min(4, Math.round(height * 0.045)));
+    var edgeY = Math.min(window.innerHeight, rect.bottom) - edgeH;
+    var edgeC = navStyle.borderBottomColor;
+    if (!edgeC || edgeC === 'transparent' || edgeC === 'rgba(0, 0, 0, 0)') edgeC = 'rgba(255, 242, 0, 0.85)';
+    if (edgeY >= top + 4) {
+      blocks.push({
+        kind: 'navrule',
+        left: 0, top: edgeY,
+        width: window.innerWidth, height: edgeH,
+        radius: 0, background: edgeC
+      });
+    }
+
+    var logo = nav.querySelector('.nav-logo img') || nav.querySelector('.nav-logo');
+    if (logo && isShown(logo)) {
+      var lr = logo.getBoundingClientRect();
+      if (lr.width > 2 && lr.height > 2) {
+        blocks.push({ kind: 'media', left: lr.left, top: lr.top, width: lr.width, height: lr.height, radius: 4 });
+      }
+    }
+
+    var links = Array.prototype.slice.call(nav.querySelectorAll('.nav-links > li > a'));
+    for (var i = 0; i < links.length; i++) {
+      var link = links[i];
+      if (!isShown(link)) continue;
+      var lr = link.getBoundingClientRect();
+      var ls = window.getComputedStyle(link);
+      var padL = parseFloat(ls.paddingLeft) || 0;
+      var padR = parseFloat(ls.paddingRight) || 0;
+      var padT = parseFloat(ls.paddingTop) || 0;
+      var padB = parseFloat(ls.paddingBottom) || 0;
+      var textW = lr.width - padL - padR;
+      if (textW < 14 || lr.bottom <= 0 || lr.top >= window.innerHeight) continue;
+      var fs = parseFloat(ls.fontSize) || 13;
+      var lh = ls.lineHeight === 'normal' ? Math.round(fs * 1.4) : parseFloat(ls.lineHeight);
+      if (!lh || lh < fs * 0.6 || lh > fs * 3) lh = Math.round(fs * 1.4);
+      var thick = Math.max(5, Math.round(fs * 0.24));
+      var zoneTop = lr.top + padT;
+      var zoneH = lr.height - padT - padB;
+      if (zoneH < thick) { zoneTop = lr.top + (lr.height - thick) / 2; zoneH = thick; }
+      var lineTop = zoneTop + (zoneH - thick) / 2;
+      var lineLeft = lr.left + padL;
+      blocks.push({
+        kind: 'text',
+        left: lineLeft, top: lineTop,
+        width: Math.max(12, textW), height: thick,
+        radius: Math.round(thick / 2)
+      });
+      var dot = Math.max(6, Math.min(9, Math.round(thick * 1.15)));
+      var dotX = lineLeft + textW + 6;
+      if (dotX + dot <= lr.right + 4) {
+        blocks.push({
+          kind: 'indicator',
+          left: dotX, top: lineTop + (thick - dot) / 2,
+          width: dot, height: dot,
+          radius: dot / 2
+        });
+      }
+    }
+
+    var lang = nav.querySelector('.lang-trigger');
+    if (lang && isShown(lang)) {
+      var langRect = lang.getBoundingClientRect();
+      if (langRect.width > 10 && langRect.bottom > 0 && langRect.top < window.innerHeight) {
+        var globeD = Math.min(18, langRect.height * 0.32);
+        blocks.push({
+          kind: 'media',
+          left: langRect.left + 2, top: langRect.top + (langRect.height - globeD) / 2,
+          width: globeD, height: globeD,
+          radius: globeD / 2
+        });
+        var tLeft = langRect.left + globeD + 12;
+        var tWidth = Math.max(12, langRect.right - tLeft - 6);
+        var tHeight = Math.max(5, Math.round(langRect.height * 0.18));
+        blocks.push({
+          kind: 'text',
+          left: tLeft, top: langRect.top + (langRect.height - tHeight) / 2,
+          width: tWidth, height: tHeight,
+          radius: Math.round(tHeight / 2)
+        });
+      }
+    }
+
+    var toggle = nav.querySelector('.nav-toggle');
+    if (toggle && isShown(toggle)) {
+      var tr = toggle.getBoundingClientRect();
+      if (tr.width > 4 && tr.height > 4) {
+        var barW = Math.min(22, Math.round(tr.width * 0.55));
+        var barH = Math.max(2, Math.round(tr.height * 0.07));
+        var gap = Math.max(3, barH * 1.8);
+        var barLeft = tr.left + (tr.width - barW) / 2;
+        var barTop = tr.top + (tr.height - (barH * 3 + gap * 2)) / 2;
+        for (var b = 0; b < 3; b++) {
+          blocks.push({
+            kind: 'control',
+            left: barLeft, top: barTop + b * (barH + gap),
+            width: barW, height: barH,
+            radius: 1
+          });
+        }
+      }
+    }
+    return blocks;
+  }
+
   function collectSkeletonTargets(root) {
+    var nav = root.querySelector('.site-nav');
     var elements = Array.prototype.slice.call(root.querySelectorAll(TARGET_SELECTOR));
     var entries = [];
     var i, j, element, rect, style, kind, radius, blocks;
 
     for (i = 0; i < elements.length; i++) {
       element = elements[i];
+      if (element.closest('.site-nav')) continue; // nav chrome is drawn by collectNavBlocks
       if (!isVisibleTarget(element)) continue;
       rect = element.getBoundingClientRect();
       style = window.getComputedStyle(element);
-      kind = classifyTarget(element, style);
+      kind = classifyTarget(element, style, rect);
+      if (!kind) continue;
       radius = style.borderRadius && style.borderRadius !== '0px' ? style.borderRadius : null;
 
       blocks = [];
       if (kind === 'text' || kind === 'link') {
+        // List rows and eyebrow-style spans that wrap interactive elements
+        // (li > a lists, span > button) hand over to their inner content.
+        if (/^(LI|SPAN|SMALL|LABEL)$/.test(element.tagName) &&
+            element.querySelector('a, button, [role="button"], input, select, textarea')) continue;
         pushTextLines(blocks, kind, rect, style);
       } else if (kind === 'button') {
         pushPill(blocks, rect);
       } else if (kind === 'field') {
         pushField(blocks, rect);
+      } else if (kind === 'rule') {
+        var ruleH = Math.max(2, rect.height);
+        pushBlock(blocks, {
+          kind: 'rule',
+          left: rect.left,
+          top: rect.top + (rect.height - ruleH) / 2,
+          width: rect.width,
+          height: ruleH,
+          radius: 1
+        });
       } else {
         pushBlock(blocks, {
           kind: kind,
@@ -197,15 +408,16 @@
       // wrapped link, icon button...) must not draw its own fill on top of the
       // placeholders of the elements it contains, or shapes stack into mush.
       // Leaf text keeps its lines; every other kind is dropped when any inner
-      // element already produces the skeleton for that region.
-      if (entry.kind !== 'text') {
-        var covered = false;
-        for (j = 0; j < entries.length; j++) {
-          if (j === i || !entries[j].blocks.length) continue;
-          if (entry.element.contains(entries[j].element)) { covered = true; break; }
-        }
-        if (covered) continue;
+      // element already produces the skeleton for that region. Text inside a
+      // button / field / media placeholder is internal chrome of that control
+      // and is dropped too.
+      var covered = false;
+      for (j = 0; j < entries.length; j++) {
+        if (j === i || !entries[j].blocks.length) continue;
+        if (entry.kind === 'text' && !/^(button|field|media|navbar|navrule|rule|indicator)$/i.test(entries[j].kind)) continue;
+        if (entry.element.contains(entries[j].element)) { covered = true; break; }
       }
+      if (covered) continue;
       targets = targets.concat(entry.blocks);
     }
 
@@ -227,7 +439,9 @@
       }
       if (!redundant) kept.push(block);
     }
-    return kept;
+    // The navbar always paints last so it sits above full-bleed hero media.
+    var navBlocks = nav && isShown(nav) ? collectNavBlocks(nav) : [];
+    return kept.concat(navBlocks);
   }
 
   function createBlock(target) {
@@ -240,6 +454,7 @@
     if (target.radius && target.radius !== '0px') {
       block.style.borderRadius = typeof target.radius === 'number' ? target.radius + 'px' : target.radius;
     }
+    if (target.background) block.style.background = target.background;
     return block;
   }
 

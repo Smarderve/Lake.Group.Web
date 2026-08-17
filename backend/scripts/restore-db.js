@@ -19,9 +19,9 @@ import 'dotenv/config';
 import fs from 'node:fs';
 import { spawn } from 'node:child_process';
 import path from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { pathToFileURL } from 'node:url';
+import { decryptDump, isEncryptedDump } from './backup-db.js';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PGBIN = process.env.PGBIN || 'C:/Program Files/PostgreSQL/18/bin';
 const pgRestorePath = (pgBin) => path.join(pgBin, process.platform === 'win32' ? 'pg_restore.exe' : 'pg_restore');
 
@@ -86,13 +86,41 @@ async function run() {
   const { db } = parseUrl(databaseUrl);
   const { command, args, env, target } = composeRestoreInvocation(databaseUrl, cli);
 
-  console.log(`pg_restore ${path.basename(cli.dumpFile)} → ${target} (${target === db ? 'MAIN DATABASE — will drop contents!' : 'scratch drill'})`);
+  // SECURITY_ROADMAP Phase 20 — encrypted backups (BACKUP_ENCRYPTION_KEY
+  // set at backup time) restore by streaming the decrypted dump to
+  // pg_restore's stdin (`-` as the dump file) — no plaintext ever touches
+  // disk. Auth-tag verification means a wrong key or corrupted dump aborts
+  // before any SQL runs.
+  const encrypted = isEncryptedDump(cli.dumpFile);
+  let decrypt;
+  if (encrypted) {
+    const key = process.env.BACKUP_ENCRYPTION_KEY;
+    if (!key) {
+      console.error('This backup is encrypted — set BACKUP_ENCRYPTION_KEY to restore it.');
+      process.exit(1);
+    }
+    decrypt = () => decryptDump(fs.readFileSync(cli.dumpFile), key);
+    // pg_restore reads the dump from stdin only when the filename argument
+    // is OMITTED (a literal '-' is treated as a file path). Drop the final
+    // argument and pipe the decrypted bytes to stdin — no plaintext on disk.
+    args.pop();
+  }
+
+  console.log(`pg_restore ${path.basename(cli.dumpFile)} → ${target} (${target === db ? 'MAIN DATABASE — will drop contents!' : 'scratch drill'})${encrypted ? ' [decrypting in-memory, streamed via stdin]' : ''}`);
 
   await new Promise((resolve, reject) => {
     const child = spawn(command, args, {
       env: { ...process.env, ...env },
-      stdio: ['ignore', 'inherit', 'inherit'],
+      // stdin is piped so an encrypted dump can be streamed in (no
+      // plaintext on disk); stdout/stderr stay inherited.
+      stdio: ['pipe', 'inherit', 'inherit'],
     });
+    if (decrypt) {
+      child.stdin.on('error', () => {});
+      child.stdin.write(decrypt());
+    }
+    child.stdin.end();
+    child.on('error', reject);
     child.on('close', (code) => (code === 0 ? resolve() : reject(new Error(`pg_restore exited ${code}`))));
   });
   console.log('Restore complete.');

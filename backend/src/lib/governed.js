@@ -114,7 +114,7 @@ async function recordPublicationEvent(db, config, entity, action, { publishAt = 
         metadata: { reason: reason ?? null, entityKey: labelOf(config, entity) },
       },
     });
-  } catch (err) {
+  } catch {
     // ledger write must never break the workflow action
   }
 }
@@ -314,7 +314,7 @@ export async function rejectGoverned(db, ctx, config, idOrSlug, reason) {
  * version row, audit entry, publication-event ledger row, and notifies the
  * submitter.
  */
-export async function publishEntityNow(db, config, entity, { actorId = null, logger = null, reason = null, publishAt = null } = {}) {
+export async function publishEntityNow(db, config, entity, { actorId = null, logger = null, reason = null, publishAt = null, ip = null } = {}) {
   const updated = await db[config.entity].update({ where: { id: entity.id }, data: { status: 'PUBLISHED' } });
   await appendVersion(db, config, updated.id, {
     data: await snapshotData(db, config, updated),
@@ -322,7 +322,10 @@ export async function publishEntityNow(db, config, entity, { actorId = null, log
     changedBy: actorId,
     reason: reason ?? (publishAt ? `Scheduled publication (${publishAt.toISOString()})` : null),
   });
-  const ctx = { user: actorId ? { id: actorId } : null, ip: null, logger };
+  // SECURITY_ROADMAP Phase 19 — the audit row must carry the request
+  // context (ip) for MANUAL publishes; the lazy scheduled publisher passes
+  // no ip (system action, no request context exists).
+  const ctx = { user: actorId ? { id: actorId } : null, ip, logger };
   await recordAudit(db, ctx, config, publishAt ? 'PUBLISHED_SCHEDULED' : 'PUBLISHED', {
     entity: updated,
     resource: `admin/${config.route}/${entity.id}/${publishAt ? 'scheduled-publish' : 'publish'}`,
@@ -348,7 +351,12 @@ export async function publishGoverned(db, ctx, config, idOrSlug, reason) {
   if (entity.status !== 'APPROVED') {
     throw httpError(409, 'INVALID_STATE', `Record must be APPROVED to publish; it is ${entity.status}`);
   }
-  return publishEntityNow(db, config, entity, { actorId: ctx.user?.id ?? null, logger: ctx.logger, reason });
+  return publishEntityNow(db, config, entity, {
+    actorId: ctx.user?.id ?? null,
+    logger: ctx.logger,
+    reason,
+    ip: ctx.ip ?? null,
+  });
 }
 
 /**

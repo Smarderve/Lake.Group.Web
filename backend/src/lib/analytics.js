@@ -37,7 +37,7 @@ export async function trackEvent(db, input) {
   if (!ev) return null;
   try {
     return await db.analyticsEvent.create({ data: ev });
-  } catch (err) {
+  } catch {
     return null;
   }
 }
@@ -50,7 +50,6 @@ export async function analyticsSummary(db, { days = 30 } = {}) {
   const pageViews = {};
   const chat = { questions: 0, noMatch: 0 };
   const queries = {};
-  let totalQueries = 0;
 
   for (const r of rows) {
     if (r.type === 'PAGE_VIEW' && r.page) {
@@ -59,13 +58,11 @@ export async function analyticsSummary(db, { days = 30 } = {}) {
       chat.questions += 1;
       if (r.query) {
         queries[r.query] = (queries[r.query] || 0) + 1;
-        totalQueries += 1;
       }
     } else if (r.type === 'CHAT_NO_MATCH') {
       chat.noMatch += 1;
       if (r.query) {
         queries[r.query] = (queries[r.query] || 0) + 1;
-        totalQueries += 1;
       }
     }
   }

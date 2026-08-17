@@ -1,0 +1,88 @@
+name: CMS Public Website Release
+
+on:
+  repository_dispatch:
+    types: [cms-publication]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: public-release-${{ github.event.client_payload.idempotency_key }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Validate snapshot and deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    environment: production
+    env:
+      PUBLIC_API_BASE_URL: ${{ secrets.PUBLIC_API_BASE_URL }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      VERCEL_CLI_VERSION: "54.17.3"
+    steps:
+      - name: Validate protected release inputs
+        env:
+          EVENT_PAYLOAD: ${{ toJSON(github.event.client_payload) }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          node -e '
+            const payload = JSON.parse(process.env.EVENT_PAYLOAD);
+            const allowedKeys = new Set(["action", "entity_id", "entity_type", "idempotency_key", "public_api_base_url", "publication_event_id"]);
+            if (Object.keys(payload).some((key) => !allowedKeys.has(key))) throw new Error("Unexpected publication payload field");
+            if (!/^publication-[A-Za-z0-9_-]+$/.test(payload.idempotency_key || "")) throw new Error("Invalid idempotency key");
+            if (!["PUBLISHED", "UNPUBLISHED", "ROLLED_BACK"].includes(payload.action)) throw new Error("Invalid publication action");
+            for (const name of ["publication_event_id", "entity_type", "entity_id"]) {
+              if (typeof payload[name] !== "string" || !/^[A-Za-z0-9_.:-]{1,128}$/.test(payload[name])) throw new Error(`Invalid ${name}`);
+            }
+            for (const name of ["PUBLIC_API_BASE_URL", "VERCEL_ORG_ID", "VERCEL_PROJECT_ID", "VERCEL_TOKEN"]) {
+              if (!process.env[name]) throw new Error(`${name} is required`);
+            }
+            const api = new URL(process.env.PUBLIC_API_BASE_URL);
+            if (api.protocol !== "https:" || api.origin !== process.env.PUBLIC_API_BASE_URL) throw new Error("PUBLIC_API_BASE_URL must be an HTTPS origin");
+          '
+
+      - name: Checkout exact release source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: main
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Install pinned Vercel CLI
+        run: npm install --global "vercel@$VERCEL_CLI_VERSION"
+
+      - name: Generate atomic public snapshot
+        run: npm run public:snapshot -- --api-base "$PUBLIC_API_BASE_URL"
+
+      - name: Verify snapshot resilience
+        run: npm run test:public-delivery
+
+      - name: Scan generated release for secrets
+        run: npm run secret:scan
+
+      - name: Pull protected Vercel configuration
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: vercel pull --yes --environment=production
+
+      - name: Build production deployment
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: vercel build --prod
+
+      - name: Deploy validated immutable release
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: vercel deploy --prebuilt --prod

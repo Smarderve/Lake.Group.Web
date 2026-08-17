@@ -3,7 +3,22 @@
 Index for the Lake Group platform's security engineering work, following the
 **SECURITY_ROADMAP.md** specification (`C:\Users\USER\Downloads\SECURITY_ROADMAP.md`).
 
-## Posture summary (2026-08-11)
+## Current 300-threat execution documents (2026-08-13)
+
+- [`../SECURITY-ARCHITECTURE.md`](../SECURITY-ARCHITECTURE.md)
+- [`../SECURITY-THREAT-MODEL.md`](../SECURITY-THREAT-MODEL.md)
+- [`../SECURITY-ASSET-INVENTORY.md`](../SECURITY-ASSET-INVENTORY.md)
+- [`../SECURITY-CONTROLS.md`](../SECURITY-CONTROLS.md)
+- [`../SECURITY-TEST-PLAN.md`](../SECURITY-TEST-PLAN.md)
+- [`../SECURITY-REGRESSION-MATRIX.md`](../SECURITY-REGRESSION-MATRIX.md)
+- [`../INCIDENT-RESPONSE.md`](../INCIDENT-RESPONSE.md)
+- [`../SECURITY-OPERATIONS.md`](../SECURITY-OPERATIONS.md)
+- [`../SECURITY-ACCEPTANCE-REPORT.md`](../SECURITY-ACCEPTANCE-REPORT.md)
+- [`300-threat-plan-execution.md`](300-threat-plan-execution.md) — per-phase
+  execution ledger for the 30-phase / 300-threat plan (phases 0–30 with
+  controls inspected and fresh test evidence, 2026-08-14)
+
+## Historical posture summary (2026-08-12)
 
 The platform's baseline is strong — the master delivery plan's Phases 2
 (identity/security), 7 (governance), 11 (hardening) built most of the core
@@ -24,7 +39,8 @@ High vulnerabilities**:
 | Secrets (`.env` gitignored, no committed secrets) | ✅ |
 | Error sanitization (no stack traces to clients) | ✅ |
 | Audit logging (login events, admin actions, seed actions) | ✅ |
-| Dependencies (`npm audit`) | ✅ 0 vulnerabilities |
+| Dependencies (`npm audit`) | ✅ backend 0 vulnerabilities; root dev toolchain: 2 documented moderates under a monitored baseline gate |
+| Security scanning (static + DAST + secrets) | ✅ Phase 22 — ESLint 0 errors (119 reviewed warnings), DAST probe 10/10 live, `secret:scan` clean + CI-wired |
 | Database account (non-superuser `lake_user`) | ✅; runtime role `lake_app` is DML-only (no DDL), `listen_addresses` bound to 127.0.0.1 |
 | Backup + restore | ✅ Phase 11, live restore drill passed |
 | File uploads | ✅ verified N/A + regression-locked (Phase 11) — readiness spec ready |
@@ -33,8 +49,18 @@ High vulnerabilities**:
 | Frontend CSP | ✅ Phase 7 — meta CSP on all 49 pages, 0 violations, enforcement + DOM-XSS probes |
 
 **Known gaps to close before/at production** (see `roadmap-review.md` §10):
-none — the roadmap's actionable gap list is fully addressed as of Phase 10
-(remaining items are the minor/informational ones in the review).
+none — the roadmap's actionable gap list is fully addressed as of Phase 23,
+the Phase 24 production gate was re-verified with live evidence on
+2026-08-12, and Phase 25 formalized the standing continuous-security
+process (remaining items are two minor/informational notes: offsite
+backup retention as a deployment-site decision, and a pre-existing `<h1>`
+accessibility nit on `index.html`).
+
+**Closed in Phase 23**: self-role-change lockout (`400 ROLE_SELF_CHANGE` +
+`ROLE_CHANGE_DENIED` audit — a SUPER_ADMIN can no longer demote themselves
+into an immediate permanent lockout; defense-in-depth last-admin guard) and
+the unbounded admin read of the public-write-fed unanswered-questions table
+(now paginated + capped).
 
 **Closed in Phase 6**: PostgreSQL binding (`listen_addresses = 127.0.0.1`,
 verified) and the DB role split (`lake_app` DML-only runtime role,
@@ -111,6 +137,35 @@ enforcement + DOM-XSS probes) and the iconify CDN script vendored locally.
   (security logging: session-ID/token header leak fixed via allowlist
   serializer, RATE_LIMIT_TRIGGERED / AUTHORIZATION_DENIED / CSRF_REJECTED
   events, secrets-sweep tests, live proof).
+- [`phase-19-report.md`](phase-19-report.md) — Phase 19 completion report
+  (audit trail: full sensitive-action coverage + tripwire, AuditLog query
+  indexes, SUPER_ADMIN audit-log viewer, request-IP fix on manual publish,
+  response-side set-cookie log leak closed).
+- [`disaster-recovery.md`](disaster-recovery.md) — Phase 20 recovery
+  documentation (backup/restore process, recovery order, verification
+  procedure + live drill results; AES-256-GCM encryption-at-rest,
+  retention, offsite steps).
+- [`automated-testing.md`](automated-testing.md) — Phase 21 automated
+  security testing (phase → suite map, the `test:security` / `test:audit` /
+  `test:gate` scripts, the monitored audit baseline + change process, and
+  the `.github/workflows/security.yml` CI gate).
+- [`phase-22-report.md`](phase-22-report.md) — Phase 22 security scanning
+  (ESLint + eslint-plugin-security static analysis — 21 dead-code findings
+  fixed, 119 warnings triaged as provably-safe; honest typecheck/build/
+  seed-verify replacing the phantom CI jobs; ESM secret scanner wired as
+  `npm run secret:scan` + regression tests; DAST probe — 10 live checks,
+  10/10 passed; secret-scan + dast CI jobs in security.yml).
+- [`phase-23-report.md`](phase-23-report.md) — Phase 23 manual security
+  review (business-logic pass over Phases 0–22: self-role-change lockout
+  closed with `ROLE_SELF_CHANGE` + audit, last-admin defense-in-depth,
+  unanswered-questions admin read paginated; 8 regression tests, live
+  drill on :4000 — self-demotion blocked, demote-other works, both on the
+  audit trail; probes cleaned).
+- [`continuous-security.md`](continuous-security.md) — Phase 25 standing
+  process (7-step per-feature flow, the 10 threat-analysis questions with
+  a worked example, the 15 coding rules mapped to concrete controls, the
+  test/CI cadence, completion protocol, severity triage, incident
+  response, and the 30-item Definition-of-Done standing).
 
 ## Phase status
 
@@ -135,7 +190,13 @@ enforcement + DOM-XSS probes) and the iconify CDN script vendored locally.
 | 16 — Server hardening | ✅ `server-hardening-checklist.md` (deployment checklist + verification steps; execution is deployment-site) |
 | 17 — Dependency & supply chain | ✅ `supply-chain.md` (inventory, audits, reviewed firebase-tools major, lockfile + update process) |
 | 18 — Security logging | ✅ `phase-18-report.md` (header-allowlist serializer — no session IDs/tokens logged; rate-limit/authorization/CSRF events) |
-| 19–25 | ⬜ pending — execute sequentially per the roadmap's completion protocol |
+| 19 — Audit trail | ✅ `phase-19-report.md` (full coverage + tripwire, AuditLog indexes, SUPER_ADMIN viewer, request-IP fix, response set-cookie leak closed) |
+| 20 — Backup & DR | ✅ `disaster-recovery.md` (encrypted backups, retention, tested restore drill — row counts matched, scratch DB dropped) |
+| 21 — Automated security testing | ✅ `automated-testing.md` (security suites wired into `test:security` (18 files / 155 tests) + `test:audit` baseline gate + `test:gate`; CI `.github/workflows/security.yml`; fail-on-new-advisory proven live) |
+| 22 — Security scanning | ✅ `phase-22-report.md` (ESLint static analysis — 0 errors, 119 reviewed warnings; phantom CI jobs fixed with real typecheck/build/seed-verify; ESM secret scanner `secret:scan` + 6 tests; DAST probe 10/10 live; secret-scan + dast CI jobs) |
+| 23 — Manual security review | ✅ `phase-23-report.md` (business-logic pass: self-role-change lockout + last-admin guard, unanswered-questions pagination; 8 tests; 268/268; live drill) |
+| 24 — Production gate | ✅ re-verified 2026-08-12 — all 38 items verified with live evidence (268/268 suite, gate 18 files/155 tests, audit PASS, secret scan clean, DAST 10/10, Postgres binding + role split confirmed, CI + tracked tree) — see `roadmap-review.md` §24 |
+| 25 — Continuous security | ✅ `continuous-security.md` (standing process: 7-step flow, 10 per-feature questions, 15 coding rules, completion protocol, test/CI cadence, triage scale, incident response — DoD #30) |
 
 ## Review protocol
 

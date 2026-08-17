@@ -753,7 +753,18 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
    rule that kept the menu permanently expanded on 22 pages. */
 .nav-mobile { display: none !important; background: var(--blue2); border-bottom: 2px solid var(--yellow); }
 .nav-mobile.open { display: flex !important; }
-.nav-mobile a { transition: background 0.15s ease, color 0.15s ease; }
+.nav-mobile a {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  flex: none;
+  touch-action: manipulation;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+/* Keep Home above About if mobile layout rounding briefly overlaps their
+   adjacent tap areas during drawer paint. */
+.nav-mobile > a:first-child { z-index: 3; }
+.nav-mobile > a:nth-child(2) { z-index: 2; }
 .nav-mobile a:hover { background: rgba(255,255,255,0.06); color: var(--yellow); }
 .mob-section { color: var(--yellow); }
 

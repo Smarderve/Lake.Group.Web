@@ -19,15 +19,12 @@ const fs = require('fs');
 const path = require('path');
 const { resolveStatic } = require('./_safe_static.js');
 
-const CHROME = process.env.CHROME_PATH || 'C:/Program Files/Google/Chrome/Application/chrome.exe';
+const CHROME = process.env.CHROME_PATH || '';
 const ROOT = path.join(__dirname, '..');
 const PORT = 8797;
-// A loopback API base that CONNECT-SRC permits (http://127.0.0.1:*) but
-// nothing listens on: every page still exercises the connect-src directive
-// (a blocked origin would raise a CSP violation) WITHOUT firing real
-// analytics beacons that would pollute the database or burn the public
-// write rate limit. Override with LAKE_API_BASE to test against a live API.
-const API = process.env.LAKE_API_BASE || 'http://127.0.0.1:59999';
+// Production deliberately has no implicit API origin. Set LAKE_API_BASE to
+// an HTTPS endpoint only when explicitly exercising the write-only beacons.
+const API = process.env.LAKE_API_BASE || '';
 
 const MIME = {
   '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
@@ -56,19 +53,26 @@ function startServer() {
 
 async function main() {
   await startServer();
-  const browser = await chromium.launch({ headless: true, executablePath: CHROME, args: ['--no-sandbox'] });
+  const browser = await chromium.launch({
+    headless: true,
+    ...(CHROME ? { executablePath: CHROME } : {}),
+    args: ['--no-sandbox'],
+  });
   const context = await browser.newContext({ serviceWorkers: 'block' });
   const page = await context.newPage();
-  await page.addInitScript((api) => { window.LAKE_API_BASE = api; }, API);
+  if (API) await page.addInitScript((api) => { window.LAKE_API_BASE = api; }, API);
 
-  const files = fs.readdirSync(ROOT).filter((f) => f.endsWith('.html')).sort();
+  const files = fs.readdirSync(ROOT)
+    .filter((f) => f.endsWith('.html'))
+    .filter((f) => !process.env.CSP_PAGE || f === process.env.CSP_PAGE)
+    .sort();
   let fail = 0;
 
   for (const file of files) {
     const violations = [];
     const onViolation = (msg) => {
       const text = String(msg.text() || '');
-      if (/Content Security Policy|Refused to|violat/i.test(text)) violations.push(text.slice(0, 160));
+      if (/Content Security Policy|Refused to|violat/i.test(text)) violations.push(text.slice(0, 500));
     };
     page.on('console', onViolation);
     page.on('pageerror', onViolation);
@@ -83,6 +87,14 @@ async function main() {
       const problems = violations.filter((v) => !/favicon|404/i.test(v));
       const ok = hasCspMeta && problems.length === 0;
       console.log(`${ok ? 'PASS' : 'FAIL'} ${file}  csp=${hasCspMeta ? 'yes' : 'NO'} violations=${problems.length}${problems.length ? '  [' + problems[0] + ']' : ''}`);
+      if (problems.some((problem) => /inline event handler/i.test(problem))) {
+        const inlineHandlers = await page.evaluate(() => Array.from(document.querySelectorAll('*')).flatMap(
+          (element) => Array.from(element.attributes)
+            .filter((attribute) => /^on/i.test(attribute.name))
+            .map((attribute) => `${element.tagName.toLowerCase()}[${attribute.name}=${attribute.value}]`),
+        ));
+        console.log(`  inline handlers: ${inlineHandlers.join(', ') || 'none found'}`);
+      }
       if (!ok) fail = 1;
     } catch (e) {
       console.log(`${ok ? 'PASS' : 'FAIL'} ${file}  (page self-navigated: ${e.message.slice(0, 50)})`);

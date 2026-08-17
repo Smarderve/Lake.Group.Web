@@ -278,7 +278,6 @@ describe('Phase 4 — corporate registry', () => {
 
   it('archiving a Country with Regions attached is blocked; allowed once regions are archived', async () => {
     const ctx = await makeCtx();
-    const deps = await publishDeps(ctx);
 
     // create a fresh country + region (both DRAFT is enough to trigger the guard)
     const country = await ctx.editor.post('/admin/countries').send({ name: 'Kenya', isoCode: 'KE', regionGrouping: 'East Africa', reason: 'Create' });

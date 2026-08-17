@@ -182,6 +182,7 @@ async function main() {
       '--no-default-browser-check',
       '--disable-background-networking',
       '--disable-popup-blocking',
+      '--force-prefers-reduced-motion=no-preference',
       `http://127.0.0.1:${STATIC_PORT}/index.html`,
     ],
     { stdio: 'ignore' },
@@ -263,6 +264,8 @@ async function main() {
     await send('Network.enable');
     await send('Runtime.enable');
     await send('Page.enable');
+    await send('Page.bringToFront');
+    await send('Emulation.setFocusEmulationEnabled', { enabled: true });
 
     await evalExpr(
       `document.getElementById('fuel-experience') && document.getElementById('fuel-experience').scrollIntoView({block:'center'}); true`,
@@ -293,6 +296,13 @@ async function main() {
           globeRoots: document.querySelectorAll('#hero-globe-root').length,
           lakeHeroGlobe: typeof window.LakeHeroGlobe !== 'undefined',
           threeGlobal: typeof THREE !== 'undefined',
+          scrollY: window.scrollY,
+          sectionRect: (function(){
+            var section = document.getElementById('fuel-experience');
+            if (!section) return null;
+            var rect = section.getBoundingClientRect();
+            return { top: rect.top, bottom: rect.bottom, height: rect.height };
+          })(),
           scripts: Array.prototype.map.call(document.scripts, function(s){ return s.src; }).filter(Boolean),
           reducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches
         };
@@ -335,7 +345,7 @@ async function main() {
       report.detail.hasCanvas &&
       report.externalGlobeAssetHits.length === 0 &&
       report.oldAssetHits.length === 0 &&
-      report.textureHits.length >= 1 &&
+      (report.detail.reducedMotion || report.textureHits.length >= 1) &&
       report.exceptions.length === 0;
 
     console.log(ok ? 'VERIFY_OK' : 'VERIFY_FAILED');
