@@ -3,6 +3,7 @@ FROM node:24.19.0-bookworm-slim AS dependencies
 WORKDIR /app
 
 COPY package.json package-lock.json ./
+COPY prisma.config.ts ./
 COPY prisma ./prisma
 RUN npm ci --ignore-scripts \
     && npm run db:generate \
@@ -15,7 +16,9 @@ ENV NODE_ENV=production
 WORKDIR /app
 
 COPY --from=dependencies --chown=node:node /app/node_modules ./node_modules
+COPY --from=dependencies --chown=node:node /app/generated ./generated
 COPY --chown=node:node package.json package-lock.json ./
+COPY --chown=node:node prisma.config.ts ./
 COPY --chown=node:node prisma ./prisma
 COPY --chown=node:node src ./src
 
