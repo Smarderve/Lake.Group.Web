@@ -88,10 +88,11 @@
   --nav-link-transform:      none;
   --nav-link-padding:        9px 14px;
   --nav-link-radius:         999px;
-  --nav-link-color:          var(--color-text-on-brand-muted);
+  --nav-link-color:          #FFFFFF;
   --nav-link-hover-bg:       rgba(255, 255, 255, 0.16);
-  --nav-link-active-color:   var(--color-yellow-accent);
-  --nav-link-active-bg:      rgba(255, 255, 255, 0.16);
+  --nav-link-active-color:   #FFFFFF;
+  --nav-link-active-bg:      #2A95C6; /* reference: lighter-blue pill with white text + white outline */
+  --nav-link-active-outline: 1px solid rgba(255, 255, 255, 0.9);
 
   /* - Eyebrow / breadcrumb (interior heroes) - */
   --eyebrow-size:            0.75rem;

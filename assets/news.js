@@ -16,6 +16,24 @@
   var currentMonth = '';
   var MONTH_NAMES = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
+  /* --- Duplicate suppression ---
+     Track article ids already shown by the curated sections (trending, lead,
+     top news, tabs, tech) so no story - and therefore no image - renders twice
+     on the page. Curated sections consume from this set; the archive feed is
+     left complete on purpose. */
+  var featuredUsedIds = {};
+  function markFeaturedIds(list) {
+    (list || []).forEach(function (a) {
+      if (a && a.id != null) featuredUsedIds[String(a.id)] = true;
+    });
+  }
+  function isFeatured(article) {
+    return !!(article && article.id != null && featuredUsedIds[String(article.id)]);
+  }
+  function notFeatured(article) {
+    return !isFeatured(article);
+  }
+
   document.addEventListener('load', function (event) {
     var image = event.target;
     if (image && image.matches && image.matches('img[data-news-fallback]')) {
@@ -300,6 +318,458 @@
     );
   }
 
+  /* ==========================================================================
+     News feature board: Top News sidebar, Most Viewed/Popular/Commented tabs,
+     and Technology section. Renders directly into the new containers added
+     in news.html (Top News / Tabs / Technology).
+     ========================================================================== */
+
+  /* Map a Lake news category to a CSS modifier class. Drives the small colored
+     pill shown on each thumbnail/card. Falls back to a neutral slate. */
+  function categoryClass(category) {
+    if (!category) return 'news-cat-default';
+    var c = String(category).toLowerCase();
+    if (c.indexOf('award') !== -1) return 'news-cat-awards';
+    if (c.indexOf('expan') !== -1) return 'news-cat-expansion';
+    if (c.indexOf('lpg') !== -1 || c.indexOf('gas') !== -1) return 'news-cat-lpg';
+    if (c.indexOf('busi') !== -1) return 'news-cat-business';
+    if (c.indexOf('logi') !== -1) return 'news-cat-logistics';
+    if (c.indexOf('event') !== -1) return 'news-cat-events';
+    if (c.indexOf('csr') !== -1 || c.indexOf('sustain') !== -1) return 'news-cat-csr';
+    return 'news-cat-default';
+  }
+
+  /* Deterministic pseudo-metrics per article. We don't track real views /
+     comments for the static dataset, so we derive stable numbers from the
+     article id so each tab's ranking stays consistent across renders. */
+  function articleMetrics(article) {
+    var id = parseInt(article && article.id, 10) || 0;
+    var seed = Math.abs(id) || 1;
+    var views = 8 + ((seed * 137) % 280);          /* 8..287 */
+    var comments = 2 + ((seed * 41) % 30);          /* 2..31  */
+    var popularity = views + comments * 5;
+    return { views: views, comments: comments, popularity: popularity };
+  }
+
+  function compareBy(prop, desc) {
+    return function (a, b) {
+      var av = a && a[prop] != null ? a[prop] : 0;
+      var bv = b && b[prop] != null ? b[prop] : 0;
+      return desc ? (bv - av) : (av - bv);
+    };
+  }
+
+  /* Sort the most-recent first base list (assumed already date-sorted) and
+     return a new array with deterministic metrics attached. */
+  function withMetrics(list) {
+    if (!list) return [];
+    return list.map(function (a) {
+      var m = articleMetrics(a);
+      return Object.assign({}, a, m);
+    });
+  }
+
+  function formatCount(n) {
+    if (n == null) return '';
+    if (n >= 1000) return (n / 1000).toFixed(n >= 10000 ? 0 : 1).replace(/\.0$/, '') + 'K';
+    return String(n);
+  }
+
+  /* --- Featured slider (template reference: the recording's main-column
+         slideshow). A big photo with a red category badge, overlaid title and
+         date/views meta, plus pagination bars below. Auto-advances, pauses on
+         hover/focus, respects prefers-reduced-motion. --- */
+  var sliderTimer = null;
+  var sliderIndex = 0;
+  var sliderCount = 0;
+
+  function sliderAdvance(step) {
+    if (!sliderCount) return;
+    sliderIndex = (sliderIndex + step + sliderCount) % sliderCount;
+    sliderShow(sliderIndex);
+  }
+
+  function sliderShow(index) {
+    sliderIndex = index;
+    var slides = document.querySelectorAll('.news-slider__slide');
+    var bars = document.querySelectorAll('.news-slider__bar');
+    slides.forEach(function (s, i) {
+      var active = i === sliderIndex;
+      s.classList.toggle('is-active', active);
+      s.setAttribute('aria-hidden', active ? 'false' : 'true');
+      if (active) {
+        var activeImg = s.querySelector('img');
+        if (activeImg) activeImg.setAttribute('loading', 'eager');
+      }
+    });
+    bars.forEach(function (b, i) {
+      b.classList.toggle('is-active', i === sliderIndex);
+      b.setAttribute('aria-selected', i === sliderIndex ? 'true' : 'false');
+      b.setAttribute('tabindex', i === sliderIndex ? '0' : '-1');
+    });
+  }
+
+  function sliderStartAutoplay() {
+    sliderStopAutoplay();
+    if (sliderCount < 2) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    sliderTimer = setInterval(function () { sliderAdvance(1); }, 6000);
+  }
+
+  function sliderStopAutoplay() {
+    if (sliderTimer) {
+      clearInterval(sliderTimer);
+      sliderTimer = null;
+    }
+  }
+
+  function renderSliderItem(article) {
+    var title = escapeHtml(article.title);
+    var cat = escapeHtml(article.category || 'News');
+    var date = escapeHtml(article.date || '');
+    var url = articleUrl(article.id);
+    var image = resolveArticleImage(article);
+    var thumbUri = getThumbnail(image);
+    var m = articleMetrics(article);
+    var dateIco = '<svg class="ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3.5" width="12" height="11" rx="1"/><line x1="2" y1="6.5" x2="14" y2="6.5"/><line x1="5" y1="2" x2="5" y2="5"/><line x1="11" y1="2" x2="11" y2="5"/></svg>';
+    var heartIco = '<svg class="ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 13.8 2.9 9.2C1.4 7.9 1.3 5.7 2.7 4.3c1.3-1.3 3.4-1.3 4.7 0l.6.6.6-.6c1.3-1.3 3.4-1.3 4.7 0 1.4 1.4 1.3 3.6-.2 4.9L8 13.8z"/></svg>';
+    var imgTag = mediaImgTag(image, title, 'lazy', thumbUri);
+    return (
+      '<div class="news-slider__slide" role="tabpanel" aria-hidden="true">' +
+        '<a class="news-slider__link" href="' + url + '">' +
+          imgTag +
+          '<span class="news-slider__scrim" aria-hidden="true"></span>' +
+          '<span class="news-slider__body">' +
+            '<span class="news-slider__cat">' + cat + '</span>' +
+            '<span class="news-slider__title">' + title + '</span>' +
+            '<span class="news-slider__meta">' +
+              '<span class="news-slider__date">' + dateIco + ' ' + date + '</span>' +
+              '<span class="news-slider__likes" title="Likes">' + heartIco + ' ' + formatCount(m.views) + '</span>' +
+            '</span>' +
+          '</span>' +
+        '</a>' +
+      '</div>'
+    );
+  }
+
+  function renderSliderBars(count) {
+    var host = document.getElementById('news-slider-bars');
+    if (!host) return;
+    host.innerHTML = '';
+    for (var i = 0; i < count; i++) {
+      var bar = document.createElement('button');
+      bar.type = 'button';
+      bar.className = 'news-slider__bar' + (i === 0 ? ' is-active' : '');
+      bar.setAttribute('role', 'tab');
+      bar.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+      bar.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      bar.setAttribute('tabindex', i === 0 ? '0' : '-1');
+      bar.addEventListener('click', function (idx) {
+        return function () { sliderShow(idx); sliderStartAutoplay(); };
+      }(i));
+      host.appendChild(bar);
+    }
+  }
+
+  function renderSliderSection(list) {
+    var track = document.getElementById('news-slider-track');
+    if (!track) return;
+    var section = track.closest('.news-slider');
+    if (!list || !list.length) {
+      if (section) section.style.display = 'none';
+      return;
+    }
+    /* Newest first; skip anything already featured elsewhere and mark the
+       picks so the sections below never repeat them. */
+    var slice = list.filter(notFeatured).slice(0, 4);
+    if (!slice.length) {
+      if (section) section.style.display = 'none';
+      return;
+    }
+    markFeaturedIds(slice);
+    track.innerHTML = slice.map(renderSliderItem).join('');
+    sliderCount = slice.length;
+    sliderIndex = 0;
+    renderSliderBars(sliderCount);
+    sliderShow(0);
+    /* Pause on hover / focus, resume on leave. */
+    if (section) {
+      section.addEventListener('mouseenter', sliderStopAutoplay);
+      section.addEventListener('mouseleave', sliderStartAutoplay);
+      section.addEventListener('focusin', sliderStopAutoplay);
+      section.addEventListener('focusout', sliderStartAutoplay);
+    }
+    sliderStartAutoplay();
+  }
+
+  /* --- Top News sidebar item --- */
+  function renderTopNewsItem(article) {
+    var title = escapeHtml(article.title);
+    var cat = escapeHtml(article.category || 'News');
+    var date = escapeHtml(article.date || '');
+    var url = articleUrl(article.id);
+    var image = resolveArticleImage(article);
+    var thumbUri = getThumbnail(image);
+    var bgStyle = thumbUri ? ' style="background-image:url(' + thumbUri + ')"' : '';
+    var catClass = categoryClass(article.category);
+    var m = articleMetrics(article);
+    var dateIco = '<svg class="ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3.5" width="12" height="11" rx="1"/><line x1="2" y1="6.5" x2="14" y2="6.5"/><line x1="5" y1="2" x2="5" y2="5"/><line x1="11" y1="2" x2="11" y2="5"/></svg>';
+    var eyeIco = '<svg class="ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1.5 8s2.5-4.5 6.5-4.5S14.5 8 14.5 8 12 12.5 8 12.5 1.5 8 1.5 8z"/><circle cx="8" cy="8" r="2"/></svg>';
+    return (
+      '<li class="news-top-news__item">' +
+        '<a class="news-top-news__media' + bgStyle + '" href="' + url + '" aria-hidden="true" tabindex="-1">' +
+          '<span class="news-top-news__cat ' + catClass + '">' + cat + '</span>' +
+          mediaImgTag(image, title, 'lazy', thumbUri) +
+        '</a>' +
+        '<div class="news-top-news__body">' +
+          '<h3 class="news-top-news__heading"><a href="' + url + '">' + title + '</a></h3>' +
+          '<div class="news-top-news__meta">' +
+            '<span class="news-top-news__date">' + dateIco + ' ' + date + '</span>' +
+            '<span class="sep" aria-hidden="true">|</span>' +
+            '<span class="views" title="Views">' + eyeIco + ' ' + formatCount(m.views) + '</span>' +
+          '</div>' +
+        '</div>' +
+      '</li>'
+    );
+  }
+
+  function renderTopNews(list) {
+    var host = document.getElementById('news-top-news-list');
+    if (!host) return;
+    if (!list || !list.length) {
+      host.innerHTML = '';
+      return;
+    }
+    /* Skip the featured lead and anything already used above (trending) so
+       the same story + image never appears twice. */
+    var slice = list.filter(notFeatured).slice(0, 4);
+    markFeaturedIds(slice);
+    host.innerHTML = slice.map(renderTopNewsItem).join('');
+  }
+
+  /* --- Featured card used in the Most Viewed/Popular/Commented tabs --- */
+  function renderFeatureCard(article) {
+    var title = escapeHtml(article.title);
+    var cat = escapeHtml(article.category || 'News');
+    var date = escapeHtml(article.date || '');
+    var url = articleUrl(article.id);
+    var image = resolveArticleImage(article);
+    var thumbUri = getThumbnail(image);
+    var bgStyle = thumbUri ? ' style="background-image:url(' + thumbUri + ')"' : '';
+    var catClass = categoryClass(article.category);
+    var m = articleMetrics(article);
+    var dateIco = '<svg class="ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3.5" width="12" height="11" rx="1"/><line x1="2" y1="6.5" x2="14" y2="6.5"/><line x1="5" y1="2" x2="5" y2="5"/><line x1="11" y1="2" x2="11" y2="5"/></svg>';
+    var eyeIco = '<svg class="ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1.5 8s2.5-4.5 6.5-4.5S14.5 8 14.5 8 12 12.5 8 12.5 1.5 8 1.5 8z"/><circle cx="8" cy="8" r="2"/></svg>';
+    var excerptText = escapeHtml(shortExcerpt(article, 130));
+    return (
+      '<article class="news-feature-card">' +
+        '<a class="news-feature-card__media' + bgStyle + '" href="' + url + '" aria-hidden="true" tabindex="-1">' +
+          '<span class="news-feature-card__cat ' + catClass + '">' + cat + '</span>' +
+          mediaImgTag(image, title, 'lazy', thumbUri) +
+        '</a>' +
+        '<div class="news-feature-card__body">' +
+          '<h3 class="news-feature-card__heading"><a href="' + url + '">' + title + '</a></h3>' +
+          '<div class="news-feature-card__meta">' +
+            '<span class="news-feature-card__date">' + dateIco + ' ' + date + '</span>' +
+            '<span class="sep" aria-hidden="true">|</span>' +
+            '<span class="views" title="Views">' + eyeIco + ' ' + formatCount(m.views) + '</span>' +
+          '</div>' +
+          '<p class="news-feature-card__excerpt"><a href="' + url + '">' + excerptText + '</a></p>' +
+        '</div>' +
+      '</article>'
+    );
+  }
+
+  function renderFeaturedTabs(baseList) {
+    var panels = {
+      viewed: document.getElementById('news-featured-panel-viewed'),
+      popular: document.getElementById('news-featured-panel-popular'),
+      commented: document.getElementById('news-featured-panel-commented')
+    };
+    if (!panels.viewed) return;
+    var withM = withMetrics(baseList || []);
+    if (!withM.length) {
+      Object.keys(panels).forEach(function (k) { if (panels[k]) panels[k].innerHTML = ''; });
+      return;
+    }
+    /* Each panel picks its top 3 from stories not already shown, and panels
+       are marked sequentially so no story repeats across the three tabs. */
+    var topViewed = withM.filter(notFeatured).sort(compareBy('views', true)).slice(0, 3);
+    markFeaturedIds(topViewed);
+    var topPopular = withM.filter(notFeatured).sort(compareBy('popularity', true)).slice(0, 3);
+    markFeaturedIds(topPopular);
+    var topCommented = withM.filter(notFeatured).sort(compareBy('comments', true)).slice(0, 3);
+    markFeaturedIds(topCommented);
+    if (panels.viewed) panels.viewed.innerHTML = '<div class="news-featured-tabs__grid">' + topViewed.map(renderFeatureCard).join('') + '</div>';
+    if (panels.popular) panels.popular.innerHTML = '<div class="news-featured-tabs__grid">' + topPopular.map(renderFeatureCard).join('') + '</div>';
+    if (panels.commented) panels.commented.innerHTML = '<div class="news-featured-tabs__grid">' + topCommented.map(renderFeatureCard).join('') + '</div>';
+  }
+
+  /* --- Technology section: curated 3-up row. Prefer Business/Expansion/LPG
+       categories; fall back to the next-most-recent items if not enough.
+       Excludes stories already featured so the section stays fresh. --- */
+  function pickTechArticles(list) {
+    if (!list || !list.length) return [];
+    var techy = list.filter(function (a) {
+      if (isFeatured(a)) return false;
+      var c = String(a.category || '').toLowerCase();
+      return c === 'business' || c === 'expansion' || c === 'lpg' || c === 'logistics';
+    });
+    var source = techy.length >= 3 ? techy : list.filter(notFeatured);
+    return source.slice(0, 3);
+  }
+
+  function renderTechSection(list) {
+    var host = document.getElementById('news-tech-grid');
+    if (!host) return;
+    var picked = pickTechArticles(list);
+    if (!picked.length) {
+      host.innerHTML = '<p class="news-tech-section__empty">No technology stories available.</p>';
+      return;
+    }
+    markFeaturedIds(picked);
+    host.innerHTML = picked.map(renderFeatureCard).join('');
+  }
+
+  /* Master renderer. Called from initNewsPage with the base (newest-first)
+     news list. Trending is marked first (it renders above the edition grid),
+     then the lead story, then the remaining curated sections. */
+  function renderFeatureBoard(baseList) {
+    if (!baseList || !baseList.length) return;
+    markFeaturedIds([baseList[0]]); /* featured lead */
+    renderTopNews(baseList);
+    renderFeaturedTabs(baseList);
+    renderTechSection(baseList);
+  }
+
+  /* ==========================================================================
+     TRENDING tile grid
+     ========================================================================== */
+
+  /* TRENDING picks the 8 articles with the highest view counts (deterministic
+     from id when real metrics aren't tracked). The tiles render in a
+     4-col grid; duplicate cards across rows are fine since this is a
+     curated strip, not the full feed. */
+  function pickTrendingArticles(list) {
+    if (!list || !list.length) return [];
+    return withMetrics(list).sort(compareBy('views', true)).slice(0, 8);
+  }
+
+  function renderTrendingTile(article) {
+    var title = escapeHtml(article.title);
+    var cat = escapeHtml(article.category || 'News');
+    var date = escapeHtml(article.date || '');
+    var url = articleUrl(article.id);
+    var image = resolveArticleImage(article);
+    var thumbUri = getThumbnail(image);
+    var bgStyle = thumbUri ? ' style="background-image:url(' + thumbUri + ')"' : '';
+    var catClass = categoryClass(article.category);
+    var m = articleMetrics(article);
+    var dateIco = '<svg class="ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3.5" width="12" height="11" rx="1"/><line x1="2" y1="6.5" x2="14" y2="6.5"/><line x1="5" y1="2" x2="5" y2="5"/><line x1="11" y1="2" x2="11" y2="5"/></svg>';
+    var eyeIco = '<svg class="ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1.5 8s2.5-4.5 6.5-4.5S14.5 8 14.5 8 12 12.5 8 12.5 1.5 8 1.5 8z"/><circle cx="8" cy="8" r="2"/></svg>';
+    return (
+      '<article class="news-trending-tile">' +
+        '<a class="news-trending-tile__media' + bgStyle + '" href="' + url + '" aria-hidden="true" tabindex="-1">' +
+          '<span class="news-trending-tile__cat ' + catClass + '">' + cat + '</span>' +
+          mediaImgTag(image, title, 'lazy', thumbUri) +
+        '</a>' +
+        '<div class="news-trending-tile__body">' +
+          '<h3 class="news-trending-tile__heading"><a href="' + url + '">' + title + '</a></h3>' +
+          '<div class="news-trending-tile__meta">' +
+            '<span>' + dateIco + ' ' + date + '</span>' +
+            '<span class="sep" aria-hidden="true">|</span>' +
+            '<span title="Views">' + eyeIco + ' ' + formatCount(m.views) + '</span>' +
+          '</div>' +
+        '</div>' +
+      '</article>'
+    );
+  }
+
+  function renderTrendingSection(list) {
+    var host = document.getElementById('news-trending-grid');
+    if (!host) return;
+    var picked = pickTrendingArticles(list);
+    if (!picked.length) {
+      host.innerHTML = '<p class="news-trending__empty">No trending stories available.</p>';
+      return;
+    }
+    markFeaturedIds(picked);
+    host.innerHTML = picked.map(renderTrendingTile).join('');
+  }
+
+  /* Wire up the tab buttons (Most Viewed / Most Popular / Most Commented) */
+  function initFeatureTabs() {
+    var tablist = document.querySelector('.news-featured-tabs__tabs');
+    if (!tablist) return;
+    var tabs = tablist.querySelectorAll('.news-featured-tab');
+    if (!tabs.length) return;
+
+    function activate(tab) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.classList.toggle('is-active', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        var panelId = t.getAttribute('aria-controls');
+        if (panelId) {
+          var panel = document.getElementById(panelId);
+          if (panel) {
+            panel.classList.toggle('is-active', on);
+            if (on) panel.removeAttribute('hidden'); else panel.setAttribute('hidden', '');
+          }
+        }
+      });
+    }
+
+    tablist.addEventListener('click', function (e) {
+      var tab = e.target.closest('.news-featured-tab');
+      if (!tab) return;
+      activate(tab);
+    });
+    tablist.addEventListener('keydown', function (e) {
+      var current = document.activeElement && document.activeElement.closest('.news-featured-tab');
+      if (!current) return;
+      var all = Array.prototype.slice.call(tabs);
+      var idx = all.indexOf(current);
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        var next = all[(idx + 1) % all.length];
+        next.focus(); activate(next);
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        var prev = all[(idx - 1 + all.length) % all.length];
+        prev.focus(); activate(prev);
+      } else if (e.key === 'Home') {
+        e.preventDefault(); all[0].focus(); activate(all[0]);
+      } else if (e.key === 'End') {
+        e.preventDefault(); all[all.length - 1].focus(); activate(all[all.length - 1]);
+      }
+    });
+  }
+
+  function yearHeaderHtml(year) {
+    if (!year) return '';
+    return '<div class="news-year-header" role="heading" aria-level="2"><span class="news-year-header__label">' + escapeHtml(year) + '</span></div>';
+  }
+
+  /* Group an already-sorted (newest first) article slice into year sections.
+     `prevYear` lets a later batch know the year of the last already-rendered
+     article so it only emits a header when the year actually changes. */
+  function renderCardsByYear(articles, prevYear) {
+    if (!articles || !articles.length) return '';
+    var html = '';
+    var year = prevYear || '';
+    for (var i = 0; i < articles.length; i++) {
+      var y = extractYear(articles[i].date);
+      if (y && y !== year) {
+        html += yearHeaderHtml(y);
+        year = y;
+      }
+      html += renderCard(articles[i]);
+    }
+    return html;
+  }
+
   function renderCard(article) {
     var title = escapeHtml(article.title);
     var cat = escapeHtml(article.category);
@@ -384,13 +854,18 @@
         ? '<p class="news-empty news-empty--soft">More stories will appear here as they are published.</p>'
         : '<p class="news-empty">No articles match your filters.</p>';
     } else {
-      container.innerHTML = rest.map(renderCard).join('');
+      container.innerHTML = renderCardsByYear(rest);
     }
 
-    /* Related: only on page 1 */
+    /* Related: only on page 1. Pick from the full list, excluding every
+       story already on screen (curated sections + current page) so the
+       section never repeats a card from the feed above it. */
     if (currentPage === 1) {
-      var relatedPool = rest.length > 3 ? rest.slice(3) : [];
-      if (relatedPool.length < 2 && list.length > 4) relatedPool = list.slice(Math.min(6, list.length));
+      var onPage = {};
+      pageItems.forEach(function (a) { if (a && a.id != null) onPage[String(a.id)] = true; });
+      var relatedPool = (lastFilteredList || window.LAKE_NEWS || []).filter(function (a) {
+        return a && a.id != null && !onPage[String(a.id)] && notFeatured(a);
+      }).slice(0, 3);
       renderRelated(relatedPool);
     } else {
       renderRelated([]);
@@ -511,11 +986,18 @@
         }
         /* Append real cards with staggered appear animation */
         if (container) {
-          var batchHtml = batch.map(function (a, i) {
-            var cardHtml = renderCard(a);
-            return cardHtml.replace('<article class="news-card"', '<article class="news-card news-card--appear" style="animation-delay:' + (i * 70) + 'ms"');
-          }).join('');
-          container.insertAdjacentHTML('beforeend', batchHtml);
+          var prevYear = '';
+          var prevIdx = totalShownNow - 1;
+          if (prevIdx >= 0 && list[prevIdx]) prevYear = extractYear(list[prevIdx].date);
+          var groupedHtml = renderCardsByYear(batch, prevYear);
+          /* Only animate the cards themselves, not the year headers */
+          var cardIdx = 0;
+          groupedHtml = groupedHtml.replace(/<article class="news-card"/g, function () {
+            var delay = (cardIdx * 70) + 'ms';
+            cardIdx++;
+            return '<article class="news-card news-card--appear" style="animation-delay:' + delay + '"';
+          });
+          container.insertAdjacentHTML('beforeend', groupedHtml);
         }
         if (window.LakeSite && window.LakeSite.refreshMotion) {
           window.LakeSite.refreshMotion();
@@ -826,7 +1308,9 @@
     if (!container) return;
     var extra = list.slice(PAGE_SIZE, loaded);
     if (!extra.length) return;
-    container.insertAdjacentHTML('beforeend', extra.map(renderCard).join(''));
+    var prevYear = '';
+    if (list[PAGE_SIZE - 1]) prevYear = extractYear(list[PAGE_SIZE - 1].date);
+    container.insertAdjacentHTML('beforeend', renderCardsByYear(extra, prevYear));
     var host = document.getElementById('news-loadmore');
     if (host) {
       if (loaded >= list.length) {
@@ -1229,34 +1713,49 @@
     var breadcrumbTitle = document.getElementById('article-breadcrumb-title');
     if (breadcrumbTitle) breadcrumbTitle.textContent = article.title;
 
-    var bodyHtml = '';
+    /* Left column: article text + embedded video */
+    var mainHtml = '';
     if (article.description.length) {
-      bodyHtml += '<div class="news-article-text">';
+      mainHtml += '<div class="news-article-text">';
       article.description.forEach(function (p, pi) {
-        bodyHtml += '<p id="article-para-' + pi + '">' + p + '</p>';
+        mainHtml += '<p id="article-para-' + pi + '">' + p + '</p>';
       });
-      bodyHtml += '</div>';
+      mainHtml += '</div>';
     }
 
     if (article.video) {
       var embed = youtubeEmbed(article.video);
       if (embed) {
-        bodyHtml += '<div class="news-article-video"><iframe src="' + embed + '" title="' + escapeHtml(article.title) + '" allowfullscreen loading="lazy"></iframe></div>';
+        mainHtml += '<div class="news-article-video"><iframe src="' + embed + '" title="' + escapeHtml(article.title) + '" allowfullscreen loading="lazy"></iframe></div>';
       }
     }
 
+    /* Gallery: extra photos go bottom-left, after the words */
+    var galleryHtml = '';
     if (article.images.length) {
-      bodyHtml += '<div class="news-article-gallery" id="article-gallery">';
+      var figures = '';
       article.images.forEach(function (src) {
         if (isWeakBanner(src)) return;
-        bodyHtml += '<figure>' + mediaImgTag(src, article.title + ' photo', 'lazy') + '</figure>';
+        figures += '<figure>' + mediaImgTag(src, article.title + ' photo', 'lazy') + '</figure>';
       });
-      bodyHtml += '</div>';
+      if (figures) {
+        galleryHtml = '<div class="news-article-gallery" id="article-gallery">' + figures + '</div>';
+      }
     }
 
-    if (!bodyHtml) {
-      bodyHtml = '<p class="news-article-text">Photos and coverage from this Lake Group announcement.</p>';
+    if (!mainHtml && !galleryHtml) {
+      mainHtml = '<p class="news-article-text">Photos and coverage from this Lake Group announcement.</p>';
     }
+
+    /* Profile-style two-column body: writing left, main picture right. The
+       gallery sits at the bottom of the text column so images never overlap. */
+    var bodyLayout =
+      '<div class="news-article-body">' +
+        '<div class="news-article-main">' + mainHtml + galleryHtml + '</div>' +
+        '<aside class="news-article-media">' +
+          '<div class="news-article-banner">' + mediaImgTag(banner, article.title, 'eager') + '</div>' +
+        '</aside>' +
+      '</div>';
 
     var others = window.LAKE_NEWS.filter(function (a) { return a.id !== article.id; }).slice(0, 5);
     var carouselCardsHtml = others.map(function (a) {
@@ -1291,8 +1790,7 @@
         '</div>' +
         shareBarArticle(article) +
         '<h1 class="news-article-title">' + escapeHtml(article.title) + '</h1>' +
-        '<div class="news-article-banner">' + mediaImgTag(banner, article.title, 'eager') + '</div>' +
-        bodyHtml +
+        bodyLayout +
         '<div class="news-article-back"><a href="news.html" class="btn btn-outline-dark btn-sm">&larr; All News</a></div>' +
       '</article>' +
       carouselHtml;
@@ -1309,6 +1807,18 @@
        in the bottom-right corner, showing a blue box behind the chatbot icon. --- */
   function initNewsPage() {
     var list = document.getElementById('news-list');
+
+    /* Feature board: Trending + Top News + Most Viewed tabs + Technology.
+       These always reflect the full dataset (not the user's filters),
+       so we render them once at boot and leave them alone. Trending is
+       rendered first so its picks are excluded from the sections below. */
+    if (window.LAKE_NEWS && window.LAKE_NEWS.length) {
+      renderSliderSection(window.LAKE_NEWS);
+      renderTrendingSection(window.LAKE_NEWS);
+      renderFeatureBoard(window.LAKE_NEWS);
+    }
+    initFeatureTabs();
+
     if (list) {
       initCategoryPills();
       initYearFilter();

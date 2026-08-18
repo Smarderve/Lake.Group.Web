@@ -8,12 +8,25 @@
  * Bump VERSION on any deploy that changes HTML, images, or precached files;
  * activation deletes every cache from older versions so offline matches online.
  *
+ * v65: Nav dropdown hover-intent — no premature megamenu open.
+ *
  * v69: Isolate mobile Home/About tap targets and refresh shared chrome.
+ *
+ * v70: Reverts the v72 experiment (all project CSS network-first). Network-first
+ *      stylesheets made the news page flash plain-HTML / render unstyled on
+ *      flaky connections, so project CSS is back on stale-while-revalidate
+ *      (instant from cache, fresh via ?v= bumps). The only thing kept from v72:
+ *      a stylesheet request that fails with nothing cached returns emergency
+ *      chrome instead of throwing and leaving the page naked.
+ *
+ * v71: News tiles get the rounded dashboard-card look (radius + soft shadows).
+ *      Version bump forces a full cache purge on the next visit so the new
+ *      newsroom.css?v=4 reaches every client even with stale ?v= entries.
  */
 
 'use strict';
 
-const VERSION = 'v69';
+const VERSION = 'v72';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -43,23 +56,23 @@ const PRECACHE_URLS = [
   './lake-steel.html',
   './lake-trans.html',
   './manifest.webmanifest',
-  './assets/pwa.js?v=61',
-  './assets/site.js?v=60',
+  './assets/pwa.js?v=62',
+  './assets/site.js?v=61',
   './assets/tokens.css?v=62',
   './assets/theme.css?v=94',
-  './assets/flagship.css?v=101',
-  './assets/home-redesign.css?v=3',
+  './assets/flagship.css?v=106',
+  './assets/home-redesign.css?v=4',
   './assets/skeleton.css?v=7',
-  './assets/skeleton.js?v=7',
+  './assets/skeleton.js?v=8',
   './assets/motion.js?v=58',
-  './assets/flagship-motion.js?v=58',
+  './assets/flagship-motion.js?v=59',
   './assets/split-text.js?v=48',
   './assets/split-text.css?v=48',
   './assets/vendor/gsap/gsap.min.js',
   './assets/vendor/gsap/ScrollTrigger.min.js',
   './assets/i18n.js?v=58',
-  './assets/i18n-content.js?v=63',
-  './assets/assistant.js?v=60',
+  './assets/i18n-content.js?v=65',
+  './assets/assistant.js?v=68',
   './assets/assistant.css?v=71',
   './assets/assistant-kb.js',
   './assets/vendor/flexsearch/flexsearch.bundle.min.js',
@@ -312,6 +325,7 @@ async function networkFirstAsset(request) {
  * Stale-while-revalidate — but never treat a different ?v= as a hit while online.
  */
 async function staleWhileRevalidate(request, cacheName, maxEntries) {
+  const isCss = new URL(request.url).pathname.endsWith('.css');
   const allowLoose = !hasVersionQuery(request);
   const cached = await matchAsset(request, { allowIgnoreSearch: allowLoose });
   const networkPromise = networkFetch(request)
@@ -329,6 +343,9 @@ async function staleWhileRevalidate(request, cacheName, maxEntries) {
   if (response) return response;
   const offline = await matchAsset(request, { allowIgnoreSearch: true });
   if (offline) return offline;
+  // Never hard-fail a stylesheet request — emergency chrome beats a naked
+  // (plain-HTML) render when offline with nothing cached.
+  if (isCss) return emergencyDesignResponse(true);
   throw new Error('stale-while-revalidate: network failed and nothing cached');
 }
 
