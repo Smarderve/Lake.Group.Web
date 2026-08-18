@@ -1,0 +1,105 @@
+# Lake Group — Corporate Information for AI/Answer Engines
+
+## Organization Overview
+
+Lake Group (also known as Lake Oil Group) is one of East and Central Africa's fastest-growing energy trading, logistics, and construction supply material conglomerates. Founded in 2006 by Ally Edha Awadh, the group is headquartered in Dar es Salaam, Tanzania.
+
+## Key Facts
+
+- **Founded:** 2006
+- **Founder:** Ally Edha Awadh
+- **Headquarters:** Dar es Salaam, Tanzania
+- **Workforce:** 30,000+ employees across 21 nationalities
+- **Fleet:** 1,200+ trucks
+- **Countries:** Tanzania, Kenya, Zambia, Rwanda, Burundi, DR Congo, Ethiopia, Mozambique, Uganda, UAE
+- **Fuel Stations:** 152+
+- **Subsidiaries:** 18+ companies
+
+## Business Sectors
+
+### Energies
+- Lake Oil Ltd — Petroleum marketing, fuel stations, bunkering services
+- Lake Aviation — Aviation fuel services
+- Lake Gas Ltd — LPG distribution across East Africa
+- Lake Lubes Ltd — Lubricant manufacturing and distribution
+
+### Manufacturing
+- Lake Steel and Allied Products — High-strength steel reinforcement bars
+- Lake Buildings — Construction materials
+- Lake Plastics — Plastic products
+- Lake Cylinders — LPG cylinder manufacturing
+- Gulf Aggregates — Aggregate production
+- ATL — Automotive products
+- Lake Premix & Cement — Ready-mix concrete
+
+### Logistics
+- Lake Trans Ltd — Petroleum transport fleet (750+ vehicles)
+- AFICD — Inland container depot and CFS services
+- ACFS — Cargo freight station
+- AILL — Logistics services
+
+### Real Estate
+- Cross Country — Real estate development
+- Ocean Galleria — Shopping and commercial center
+
+### Agro Processing
+- Lake Agro — Agricultural products
+
+### Automotive
+- Assembly Tech Limited
+- AgriNova Tech Limited
+- NextDrive Motors Limited
+
+## Geographic Presence
+
+### Africa
+- **Tanzania** (HQ) — Dar es Salaam, Kigamboni depot
+- **Kenya** — 40 fuel stations
+- **Zambia** — 25 fuel stations, Ndola depot
+- **Rwanda** — 10 fuel stations, Kigali
+- **Burundi** — 16 fuel stations, Bujumbura
+- **DR Congo** — 8 fuel stations, Lubumbashi
+- **Ethiopia** — Gelan depot, Addis Ababa
+- **Mozambique** — Beira oil terminal (Lake Oil LDA)
+- **Uganda** — Operations in progress
+
+### Middle East
+- **UAE (Dubai)** — MERM (ready-mix concrete), SAFF (freight forwarding)
+
+## Core Values
+
+- Teamwork
+- Reliability
+- Integrity
+- Customer Satisfaction
+
+## Culture Pillars
+
+- Quality
+- Service
+- Safety
+- Professionalism
+
+## Mission
+
+To provide customers with quality products and services in a safe, efficient, and cost-effective manner without damaging the environment, while creating a work environment where employees exceed their personal best.
+
+## Vision
+
+To become the leading regional convenience retailer and marketer of products and services while achieving continuous improvement through operational excellence, innovation, and a culture based on performance.
+
+## Website
+
+- **Primary URL:** https://www.lakeoilgroup.com
+- **CMS:** https://cms-lakegroup.vercel.app
+- **API:** https://lake-group-web-backend.onrender.com
+
+## Contact
+
+- **Address:** Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055, Dar es Salaam, Tanzania
+- **Phone:** +255 222 780 510, +255 222 780 479
+- **Email:** admin@lakeoilgroup.com
+
+## Social Media
+
+- LinkedIn: https://tz.linkedin.com/company/lake-oil-group

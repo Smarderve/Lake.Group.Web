@@ -27,7 +27,7 @@ describe('production CMS origin controls', () => {
     expect(response.status).toBe(204);
     expect(response.headers['access-control-allow-origin']).toBe(cmsOrigin);
     expect(response.headers['access-control-allow-methods']).toContain('PATCH');
-    expect(response.headers['access-control-allow-headers']).toBe('Content-Type');
+    expect(response.headers['access-control-allow-headers']).toBe('Content-Type, X-Request-Id');
   });
 
   it('rejects an untrusted cross-origin preflight', async () => {

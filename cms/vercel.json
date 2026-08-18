@@ -6,8 +6,8 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/index"
+      "source": "/((?!assets/|icons/|favicon\.ico).*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [

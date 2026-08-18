@@ -1,5 +1,5 @@
 const ALLOWED_METHODS = 'GET, HEAD, POST, PATCH, PUT, DELETE, OPTIONS';
-const ALLOWED_HEADERS = 'Content-Type';
+const ALLOWED_HEADERS = 'Content-Type, X-Request-Id';
 
 /**
  * Exact-origin, credential-aware CORS for the cross-origin CMS. This is
