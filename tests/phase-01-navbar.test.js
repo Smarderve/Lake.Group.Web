@@ -98,3 +98,9 @@ test('Agro overrides and active-page state cannot override Phase 01 navbar chrom
   assert.match(script, /link\.classList\.add\('active'\)/);
   assert.match(script, /setAttribute\('aria-current', 'page'\)/);
 });
+
+test('legacy active-link pseudo elements cannot render underline bars', () => {
+  const phaseCss = fs.readFileSync(path.join(ROOT, 'assets/phase-01-navbar.css'), 'utf8');
+  assert.match(phaseCss, />a::before[^}]*content:none!important/);
+  assert.match(phaseCss, />a::after[^}]*content:none!important/);
+});
