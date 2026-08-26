@@ -79,7 +79,7 @@ window.LAKE_NEWS = [
     title: "Lake Steel Mill Continues Operations at Kibaha Facility",
     date: "05 Jan, 2025",
     category: "Business",
-    bannerImage: "assets/images/lakesteel/ops/rebar-yard.jpg",
+    bannerImage: "assets/images/home/verticals/manufacturing.webp",
     description: [
       "Lake Steel & Allied Products Ltd. continues production at its fully computerized automated steel rolling mill in Visiga, Kibaha, Pwani Region, Tanzania. The mill has an annual capacity of ~100,000 metric tons of HS-CR (High Strength . Cold Rolled) reinforcement steel bars.",
       "The steel produced at the Kibaha mill is corrosion-resistant, designed specifically for coastal, saline, and industrial environments. It retains structural integrity up to 600°C . significantly higher than the standard rebar threshold of ~350°C.",
@@ -255,7 +255,7 @@ window.LAKE_NEWS = [
     title: "Lake Agro Advances Greenfield Agricultural Projects in Rufiji & Yala Swamp",
     date: "20 Jun, 2021",
     category: "Business",
-    bannerImage: "assets/images/n-slider/1.jpg",
+    bannerImage: "assets/images/lake-agro/tanzania.jpg",
     description: [
       "Lake Agro Industries Ltd. progressed with its greenfield agricultural investments in Tanzania, including the deployment of project management teams for the Rufiji District Greenfield Sugar Project and continued farming operations at the Yala Swamp agricultural scheme.",
       "The sugar project aims to expand local sugar manufacturing capacity and reduce Tanzania's dependence on imported sugar. Lake Agro's operations complement the government's agricultural transformation agenda and support rural employment in the Coast Region.",

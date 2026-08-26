@@ -25,10 +25,11 @@
   // where assets/i18n.js has not run.
   var slideTexts = [
     "Fueling East Africa for two decades",
-    "Powering the Region with Clean LPG.",
-    "World-class terminal on the Indian Ocean coast",
-    "Dar es Salaam: East Africa's Gateway to Global Trade.",
-    "1200+ trucks moving the supply chains every day"
+    "Industrial production across steel, plastics, cylinders, and construction materials.",
+    "Advancing mobility through vehicle assembly and automotive technology.",
+    "Developing commercial destinations and strategic properties across the region.",
+    "Growing agriculture and agro-processing capacity across East Africa.",
+    "Dar es Salaam: East Africa's Gateway to Global Trade."
   ];
 
   function slideTextFor(i) {
