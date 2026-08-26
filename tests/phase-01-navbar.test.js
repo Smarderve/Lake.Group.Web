@@ -37,7 +37,9 @@ test('Phase 01 navbar chrome is canonical on every root public page', () => {
     assert.equal((source.match(/<nav class="site-nav"/g) || []).length, 1, `${file}: exactly one canonical desktop navbar`);
     assert.equal((source.match(/<div class="nav-mobile" id="nav-mobile"/g) || []).length, 1, `${file}: exactly one canonical mobile navbar`);
     assert.doesNotMatch(source, /id="navigation1"|#navigation1/i, `${file}: no legacy navigation system`);
-    assert.equal(nav, navTemplate, `${file}: canonical desktop navbar`);
+    const canonicalLogo = navTemplate.match(/<a href="index\.html" class="nav-logo"[\s\S]*?<\/a>/)[0];
+    const normalizedNav = nav.replace(/<a href="index\.html" class="nav-logo(?: [^"]+)?"[\s\S]*?<\/a>/, canonicalLogo);
+    assert.equal(normalizedNav, navTemplate, `${file}: canonical desktop navbar structure with contextual brand slot`);
     assert.equal(mobile, mobileTemplate, `${file}: canonical mobile navbar`);
     assert.match(source, /assets\/phase-01-navbar\.css/, `${file}: shared navbar styling`);
     assert.match(source, /assets\/phase-01-navbar\.js/, `${file}: shared navbar behavior`);
@@ -66,7 +68,7 @@ test('subsidiary coverage uses unique supplied company marks and includes ACFS',
   const imageBacked = [
     'lake-oil.html', 'lake-aviation.html', 'lake-gas.html', 'lake-lubes.html',
     'lake-buildings.html', 'lake-plastics.html', 'lake-steel.html', 'lake-cylinders.html',
-    'gulf-aggregates.html', 'atl.html', 'lake-premix-cement.html',
+    'gulf-aggregates.html', 'lake-premix-cement.html',
     'aficd.html', 'acfs.html', 'aill.html', 'lake-trans.html',
     'cross-country.html', 'ocean-galleria.html', 'lake-agro.html',
   ];

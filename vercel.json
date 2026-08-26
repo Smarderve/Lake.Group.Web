@@ -8,6 +8,11 @@
       "permanent": true
     },
     {
+      "source": "/atl.html",
+      "destination": "/index.html",
+      "permanent": true
+    },
+    {
       "source": "/leadership-ally-edha-awadh.html",
       "destination": "/leadership.html",
       "permanent": true

@@ -86,6 +86,22 @@ function fixMiscBugs(raw) {
   return [raw, changed];
 }
 
+function contextualizeNav(canonicalNav, raw) {
+  const body = /<body\b([^>]*)>/i.exec(raw);
+  if (!body) return canonicalNav;
+  const attrs = body[1];
+  const wordmark = /\bdata-nav-wordmark="([^"]+)"/i.exec(attrs);
+  const logo = /\bdata-company-logo="([^"]+)"/i.exec(attrs);
+  const alt = /\bdata-company-alt="([^"]+)"/i.exec(attrs);
+  const navLogo = /<a href="index\.html" class="nav-logo"[^>]*>[\s\S]*?<\/a>/;
+  if (wordmark) {
+    return canonicalNav.replace(navLogo, `<a href="index.html" class="nav-logo nav-logo--wordmark" aria-label="${wordmark[1]} home"><span class="nav-logo-wordmark">${wordmark[1]}</span></a>`);
+  }
+  if (!logo || /lake-group-placeholder/i.test(logo[1])) return canonicalNav;
+  const label = alt ? alt[1] : 'Company';
+  return canonicalNav.replace(navLogo, `<a href="index.html" class="nav-logo nav-logo--company" aria-label="${label} home"><img src="${logo[1]}" alt="${label}" decoding="async"></a>`);
+}
+
 function main() {
   const canonicalNav = readTpl('nav.html');
   const canonicalMobile = readTpl('mobile_nav.html');
@@ -103,7 +119,7 @@ function main() {
     // Two legacy Lake Agro exports use CRCRLF. Preserve their native line
     // ending so synchronized chrome does not become trailing whitespace.
     const eol = raw.includes('\r\r\n') ? '\r\r\n' : '\r\n';
-    const navForPage = canonicalNav.replace(/\r\n/g, eol);
+    const navForPage = contextualizeNav(canonicalNav, raw).replace(/\r\n/g, eol);
     const mobileForPage = canonicalMobile.replace(/\r\n/g, eol);
     let anyChange = false;
     let c;

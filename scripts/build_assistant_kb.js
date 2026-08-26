@@ -434,6 +434,7 @@ function buildLang(lang) {
     const raw = dict[key] !== undefined ? dict[key] : CONTENT.en[key];
     const text = stripHtml(raw);
     if (text.length < MIN_LEN) continue;
+    if (/\bATL\b|Aluminium Trailers/i.test(text)) continue;
     // Alt-text keys describe images, not answerable content.
     if (/\.alt(\.|$)|\balt\d*$/.test(key)) continue;
     const list = (byPage[prefix] = byPage[prefix] || []);

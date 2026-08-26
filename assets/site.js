@@ -714,9 +714,8 @@
   }
 
   // Company pages set data-company-logo / data-company-alt on <body>.
-  // Optional data-nav-logo / data-nav-alt override the top navbar mark only
-  // (e.g. Lake Energies family pages share the Energies lockup in nav while
-  // keeping the subsidiary mark in the footer).
+  // Optional data-nav-wordmark provides a text-only fallback when no approved
+  // company logo exists. Company pages otherwise use their own official mark.
   // Nav/footer chrome is overwritten by normalize_nav.js from a shared
   // template that always uses the Lake Group mark - swap after paint so
   // company pages show their branding in nav and footer.
@@ -732,12 +731,22 @@
     const companySrc = document.body && document.body.getAttribute('data-company-logo');
     if (!companySrc) return;
     const companyAlt = document.body.getAttribute('data-company-alt') || '';
-    const navSrc = document.body.getAttribute('data-nav-logo') || companySrc;
-    const navAlt = document.body.getAttribute('data-nav-alt') || companyAlt;
+    const navSrc = companySrc;
+    const navAlt = companyAlt;
+    const navWordmark = document.body.getAttribute('data-nav-wordmark');
 
     const navLink = document.querySelector('.site-nav .nav-logo');
-    const navImg = navLink && navLink.querySelector('img');
-    if (navImg && !navLink.closest('[data-phase01-navbar]')) {
+    let navImg = navLink && navLink.querySelector('img');
+    if (navLink && navWordmark) {
+      navLink.classList.add('nav-logo--wordmark');
+      navLink.innerHTML = '';
+      const wordmark = document.createElement('span');
+      wordmark.className = 'nav-logo-wordmark';
+      wordmark.textContent = navWordmark;
+      navLink.appendChild(wordmark);
+      navImg = null;
+    }
+    if (navImg) {
       navLink.classList.add('nav-logo--company');
       navImg.src = navSrc;
       if (navAlt) navImg.alt = navAlt;

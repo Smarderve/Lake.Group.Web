@@ -81,3 +81,40 @@ test('Ocean Galleria uses one canonical approved production logo',()=>{
     assert.doesNotMatch(source,/assets\/images\/logos\/companies\/ocean-galleria\.png/);
   }
 });
+
+test('company pages use contextual navbar branding without shifting centered navigation',async()=>{
+  const page=await browser.newPage({viewport:{width:1440,height:900}});
+  const cases=[
+    ['lake-gas.html','lake-gas.png','Lake Gas'],
+    ['lake-steel.html','lake-steel.png','Lake Steel'],
+    ['aficd.html','aficd.png','AFICD'],
+    ['cross-country.html','cross-country.png','Cross Country'],
+  ];
+  for(const [file,asset,alt] of cases){
+    await page.goto(`http://127.0.0.1:${server.address().port}/${file}`,{waitUntil:'networkidle'});
+    await page.waitForFunction(()=>!document.documentElement.classList.contains('lg-loading'));
+    const state=await page.locator('.site-nav').evaluate(el=>{const logo=el.querySelector('.nav-logo img');const links=el.querySelector('.nav-links').getBoundingClientRect();return{src:logo&&logo.getAttribute('src'),alt:logo&&logo.alt,complete:logo&&logo.complete,width:logo&&logo.naturalWidth,center:links.left+(links.width/2),viewport:innerWidth/2}});
+    assert.match(state.src,new RegExp(asset.replace('.','\\.'))); assert.equal(state.alt,alt); assert.equal(state.complete,true); assert.ok(state.width>0); assert.ok(Math.abs(state.center-state.viewport)<2);
+  }
+  await page.goto(`http://127.0.0.1:${server.address().port}/assembly-tech.html`,{waitUntil:'networkidle'});
+  assert.equal(await page.locator('.nav-logo-wordmark').textContent(),'Assembly Tech');
+  assert.equal(await page.locator('.site-nav .nav-logo img').count(),0);
+  await page.setViewportSize({width:390,height:844});
+  await page.goto(`http://127.0.0.1:${server.address().port}/lake-gas.html`,{waitUntil:'networkidle'});
+  assert.match(await page.locator('.site-nav .nav-logo img').getAttribute('src'),/lake-gas\.png/);
+  assert.equal(await page.locator('.site-nav').evaluate(el=>el.scrollWidth<=innerWidth),true);
+  await page.close();
+});
+
+test('Lake Gas videos are removed and ATL remains marquee-only',()=>{
+  const gas=fs.readFileSync(path.join(root,'lake-gas.html'),'utf8');
+  assert.doesNotMatch(gas,/Watch Lake Gas in Action|KS_IdCfeDHk|9e9Nd7UtbFc/);
+  const contact=fs.readFileSync(path.join(root,'contact.html'),'utf8');
+  assert.doesNotMatch(contact,/id="atl"|href="atl\.html"|Aluminium Trailers/);
+  const nav=fs.readFileSync(path.join(root,'scripts/templates/nav.html'),'utf8');
+  const mobile=fs.readFileSync(path.join(root,'scripts/templates/mobile_nav.html'),'utf8');
+  assert.doesNotMatch(nav,/atl\.html|alt="ATL"/); assert.doesNotMatch(mobile,/atl\.html|>ATL</);
+  const loop=fs.readFileSync(path.join(root,'assets/components/logo-loop-mount.js'),'utf8');
+  assert.match(loop,/atl\.png[^\n]+alt: 'ATL'/); assert.doesNotMatch(loop,/alt: 'ATL'[^\n]+href:/);
+  assert.match(fs.readFileSync(path.join(root,'vercel.json'),'utf8'),/"source": "\/atl\.html"[\s\S]*?"destination": "\/index\.html"/);
+});
