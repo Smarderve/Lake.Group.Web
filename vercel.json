@@ -2,19 +2,116 @@
   "cleanUrls": false,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/fuel.html", "destination": "/lake-oil.html", "permanent": true },
-    { "source": "/lpg.html", "destination": "/lake-gas.html", "permanent": true },
-    { "source": "/lubricants.html", "destination": "/lake-lubes.html", "permanent": true },
-    { "source": "/steel.html", "destination": "/lake-steel.html", "permanent": true },
-    { "source": "/concrete.html", "destination": "/lake-premix-cement.html", "permanent": true },
-    { "source": "/logistics.html", "destination": "/lake-trans.html", "permanent": true },
-    { "source": "/container-services.html", "destination": "/aficd.html", "permanent": true },
-    { "source": "/leadership-dileep.html", "destination": "/leadership-dileep-kumar.html", "permanent": true },
-    { "source": "/leadership-sibtian-ansari.html", "destination": "/leadership-dileep-kumar.html", "permanent": true },
-    { "source": "/leadership-vivek-choudhary.html", "destination": "/leadership-sridhar-mani.html", "permanent": true },
-    { "source": "/leadership-bhaskar-shetty.html", "destination": "/leadership-mohammed-khalid.html", "permanent": true },
-    { "source": "/leadership-pankaj-kumar.html", "destination": "/leadership-bibhuti-singh.html", "permanent": true },
-    { "source": "/lake-story-assets/:path*", "destination": "/assets/images/our-story/:path*", "permanent": true }
+    {
+      "source": "/services.html",
+      "destination": "/index.html",
+      "permanent": true
+    },
+    {
+      "source": "/leadership-bibhuti-singh.html",
+      "destination": "/leadership.html",
+      "permanent": true
+    },
+    {
+      "source": "/leadership-biji-lapat.html",
+      "destination": "/leadership.html",
+      "permanent": true
+    },
+    {
+      "source": "/leadership-dileep-kumar.html",
+      "destination": "/leadership.html",
+      "permanent": true
+    },
+    {
+      "source": "/leadership-jishnu-jayachandran.html",
+      "destination": "/leadership.html",
+      "permanent": true
+    },
+    {
+      "source": "/leadership-juma-nuru.html",
+      "destination": "/leadership.html",
+      "permanent": true
+    },
+    {
+      "source": "/leadership-mohammed-khalid.html",
+      "destination": "/leadership.html",
+      "permanent": true
+    },
+    {
+      "source": "/leadership-sridhar-mani.html",
+      "destination": "/leadership.html",
+      "permanent": true
+    },
+    {
+      "source": "/leadership-zaki-othman.html",
+      "destination": "/leadership.html",
+      "permanent": true
+    },
+    {
+      "source": "/fuel.html",
+      "destination": "/lake-oil.html",
+      "permanent": true
+    },
+    {
+      "source": "/lpg.html",
+      "destination": "/lake-gas.html",
+      "permanent": true
+    },
+    {
+      "source": "/lubricants.html",
+      "destination": "/lake-lubes.html",
+      "permanent": true
+    },
+    {
+      "source": "/steel.html",
+      "destination": "/lake-steel.html",
+      "permanent": true
+    },
+    {
+      "source": "/concrete.html",
+      "destination": "/lake-premix-cement.html",
+      "permanent": true
+    },
+    {
+      "source": "/logistics.html",
+      "destination": "/lake-trans.html",
+      "permanent": true
+    },
+    {
+      "source": "/container-services.html",
+      "destination": "/aficd.html",
+      "permanent": true
+    },
+    {
+      "source": "/leadership-dileep.html",
+      "destination": "/leadership-dileep-kumar.html",
+      "permanent": true
+    },
+    {
+      "source": "/leadership-sibtian-ansari.html",
+      "destination": "/leadership-dileep-kumar.html",
+      "permanent": true
+    },
+    {
+      "source": "/leadership-vivek-choudhary.html",
+      "destination": "/leadership-sridhar-mani.html",
+      "permanent": true
+    },
+    {
+      "source": "/leadership-bhaskar-shetty.html",
+      "destination": "/leadership-mohammed-khalid.html",
+      "permanent": true
+    },
+    {
+      "source": "/leadership-pankaj-kumar.html",
+      "destination": "/leadership-bibhuti-singh.html",
+      "permanent": true
+    },
+    {
+      "source": "/lake-story-assets/:path*",
+      "destination": "/assets/images/our-story/:path*",
+      "permanent": true
+    }
   ],
   "headers": [
     {
@@ -24,8 +121,14 @@
           "key": "Content-Security-Policy",
           "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https://www.youtube.com https://www.youtube-nocookie.com; worker-src 'self'; manifest-src 'self'; media-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
         },
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
         {
           "key": "Permissions-Policy",
           "value": "camera=(), microphone=(), geolocation=(), payment=()"
@@ -35,77 +138,125 @@
     {
       "source": "/sw.js",
       "headers": [
-        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" },
-        { "key": "Service-Worker-Allowed", "value": "/" }
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        },
+        {
+          "key": "Service-Worker-Allowed",
+          "value": "/"
+        }
       ]
     },
     {
       "source": "/manifest.webmanifest",
       "headers": [
-        { "key": "Cache-Control", "value": "no-cache, must-revalidate" },
-        { "key": "Content-Type", "value": "application/manifest+json" }
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, must-revalidate"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/manifest+json"
+        }
       ]
     },
     {
       "source": "/public-content/current.json",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" },
-        { "key": "Content-Type", "value": "application/json; charset=utf-8" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        }
       ]
     },
     {
       "source": "/public-content/releases/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
-        { "key": "Content-Type", "value": "application/json; charset=utf-8" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        }
       ]
     },
     {
       "source": "/(.*).html",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     },
     {
       "source": "/",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     },
     {
       "source": "/assets/fonts/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/assets/vendor/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/assets/(tokens|theme|flagship|skeleton|pwa|site|motion|flagship-motion)\\.(css|js)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     },
     {
       "source": "/assets/(.*)\\.(css|js)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
       ]
     },
     {
       "source": "/assets/images/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=2592000" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=2592000"
+        }
       ]
     },
     {
       "source": "/assets/icons/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=2592000" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=2592000"
+        }
       ]
     }
   ]

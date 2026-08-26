@@ -8,6 +8,8 @@
     "test:skeleton": "node tests/skeleton-loader.test.js",
     "test:phase01-navbar": "node --test tests/phase-01-navbar.test.js",
     "test:phase01-footer": "node --test tests/phase-01-footer.test.js",
+    "test:phase01-launch": "node --test tests/phase-01-launch-scope.test.js",
+    "test:phase01-responsive": "node --test tests/phase-01-responsive.test.js",
     "test:public-delivery": "node --test tests/public-snapshot.test.js",
     "public:snapshot": "node scripts/public-snapshot.js",
     "secret:scan": "node scripts/check-secrets.mjs"

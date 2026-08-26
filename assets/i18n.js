@@ -1,5 +1,5 @@
 /**
- * Lake Group i18n engine  EN / FR / SW / PT / ES / AR.
+ * Lake Group English-only content applicator.
  *
  * Reads the full per-language content dictionary from
  * window.__LAKE_I18N_CONTENT__, which is set by assets/i18n-content.js
@@ -25,22 +25,16 @@
  * no such restriction and works identically under file://, http://, and
  * https://, which is why the content is shipped in that form.
  *
- * Language choice persists across page navigation via localStorage, since
- * this is a multi-page static site (each page load re-runs this script).
- * Arabic sets document direction to RTL; all other languages use LTR.
+ * Translation dictionaries remain shipped for future editorial use, but the
+ * public site always renders English and exposes no switching controls.
  */
 window.LakeI18n = (function () {
   const STORAGE_KEY = 'lake-lang';
-  const SUPPORTED = ['en', 'fr', 'sw', 'pt', 'es', 'ar'];
-  const RTL_LANGS = ['ar'];
+  const SUPPORTED = ['en'];
+  const RTL_LANGS = [];
   // ASCII-safe escapes so labels survive encoding mishaps in editors/tooling.
   const LANG_LABELS = {
-    en: 'English',
-    fr: 'Fran\u00e7ais',
-    sw: 'Swahili',
-    pt: 'Portugu\u00eas',
-    es: 'Espa\u00f1ol',
-    ar: '\u0627\u0644\u0639\u0631\u0628\u064a\u0629'
+    en: 'English'
   };
 
   let dictionaries = null;
@@ -52,12 +46,7 @@ window.LakeI18n = (function () {
   const LANG_OPEN_DELAY_MS = 200;
   const LANG_CLOSE_DELAY_MS = 180;
 
-  try {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored && SUPPORTED.indexOf(stored) !== -1) current = stored;
-  } catch (e) {
-    /* localStorage unavailable - fall back to 'en' */
-  }
+  try { localStorage.removeItem(STORAGE_KEY); } catch (e) { /* unavailable */ }
 
   function loadDictionaries() {
     if (dictionaries) return Promise.resolve(dictionaries);
@@ -270,13 +259,8 @@ window.LakeI18n = (function () {
     document.dispatchEvent(new CustomEvent('lake-i18n-applied', { detail: { lang } }));
   }
 
-  function apply(lang) {
-    if (lang && SUPPORTED.indexOf(lang) !== -1) current = lang;
-    try {
-      localStorage.setItem(STORAGE_KEY, current);
-    } catch (e) {
-      /* ignore */
-    }
+  function apply() {
+    current = 'en';
     return loadDictionaries().then(() => applyAll(current));
   }
 
@@ -364,7 +348,7 @@ window.LakeI18n = (function () {
   }
 
   function init() {
-    loadDictionaries().then(() => applyAll(current));
+    loadDictionaries().then(() => applyAll('en'));
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Tab' || e.key === 'ArrowDown' || e.key === 'ArrowUp' ||
@@ -374,22 +358,7 @@ window.LakeI18n = (function () {
     }, true);
     document.addEventListener('pointerdown', () => { keyboardIntent = false; }, true);
 
-    document.querySelectorAll('.lang-switcher').forEach(bindSwitcher);
-
-    document.querySelectorAll('.lang-btn[data-lang]').forEach((btn) => {
-      if (btn.closest('.lang-switcher')) return;
-      if (btn.dataset.i18nBound === '1') return;
-      btn.dataset.i18nBound = '1';
-      btn.addEventListener('click', () => apply(btn.dataset.lang));
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest || !e.target.closest('.lang-switcher')) closeAllMenus();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeAllMenus();
-    });
+    closeAllMenus();
   }
 
   return {

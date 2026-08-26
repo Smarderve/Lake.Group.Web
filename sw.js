@@ -44,7 +44,6 @@ const PRECACHE_URLS = [
   './offline.html',
   './404.html',
   './about.html',
-  './services.html',
   './africa-network.html',
   './contact.html',
   './gallery.html',

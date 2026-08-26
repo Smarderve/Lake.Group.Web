@@ -65,14 +65,15 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https: http://127.0.0.1:*; frame-src https://www.youtube.com https://www.youtube-nocookie.com; worker-src 'self'; manifest-src 'self'; media-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self' https:; upgrade-insecure-requests">
   <link rel="stylesheet" href="assets/phase-01-navbar.css">
   <link rel="stylesheet" href="assets/phase-01-footer.css">
-</head><body class="news-page" data-shared-footer="true">
+  <link rel="stylesheet" href="assets/phase-01-under-construction.css">
+</head><body class="news-page" data-shared-footer="true" data-phase-01-under-construction="true">
   <script src="assets/skeleton.js?v=8"></script>
 <nav class="site-nav" data-phase01-navbar dir="ltr">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo" aria-label="Lake home"><img src="assets/images/logos/LAKE_LOGO_LAKE_ONLY.png" alt="Lake" width="108" height="48" decoding="async"></a>
     <ul class="nav-links">
       <li><a href="index.html" data-i18n="nav.home">Home</a></li><li><a href="about.html" data-i18n="nav.about">About</a></li>
-      <li class="has-dropdown has-megamenu"><a href="services.html" id="nav-companies-trigger" data-i18n="nav.companies" aria-haspopup="true" aria-expanded="false" aria-controls="nav-companies-menu">Subsidiaries &#9662;</a>
+      <li class="has-dropdown has-megamenu"><a href="index.html" id="nav-companies-trigger" data-i18n="nav.companies" aria-haspopup="true" aria-expanded="false" aria-controls="nav-companies-menu">Subsidiaries &#9662;</a>
         <div class="nav-dropdown nav-megamenu" id="nav-companies-menu" role="menu" aria-label="Subsidiaries"><div class="mm-layout"><div class="mm-cats" role="tablist" aria-orientation="vertical" aria-label="Subsidiary categories">
           <button type="button" class="mm-cat is-active" role="tab" id="mm-tab-energies" data-mm-cat="energies" aria-controls="mm-pane-energies" aria-selected="true" tabindex="0">Energies Sector</button><button type="button" class="mm-cat" role="tab" id="mm-tab-manufacturing" data-mm-cat="manufacturing" aria-controls="mm-pane-manufacturing" aria-selected="false" tabindex="-1">Manufacturing Sector</button><button type="button" class="mm-cat" role="tab" id="mm-tab-logistics" data-mm-cat="logistics" aria-controls="mm-pane-logistics" aria-selected="false" tabindex="-1">Logistics Sector</button><button type="button" class="mm-cat" role="tab" id="mm-tab-realestate" data-mm-cat="realestate" aria-controls="mm-pane-realestate" aria-selected="false" tabindex="-1">Real Estate Sector</button><button type="button" class="mm-cat" role="tab" id="mm-tab-agro" data-mm-cat="agro" aria-controls="mm-pane-agro" aria-selected="false" tabindex="-1">Agro Processing Sector</button><button type="button" class="mm-cat" role="tab" id="mm-tab-automotive" data-mm-cat="automotive" aria-controls="mm-pane-automotive" aria-selected="false" tabindex="-1">Automotive Sector</button>
         </div><div class="mm-panes">
@@ -96,6 +97,7 @@
 
 
 
+
 <div class="nav-mobile" id="nav-mobile" data-phase01-navbar-mobile hidden>
   <a href="index.html">Home</a><a href="about.html">About</a><div class="mob-section">Subsidiaries</div><div class="mob-accordion">
     <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-energies">Energies Sector</button><div class="mob-acc-panel" id="mob-acc-energies" hidden><a href="lake-oil.html">Lake Oil</a><a href="lake-aviation.html">Lake Aviation</a><a href="lake-gas.html">Lake Gas</a><a href="lake-lubes.html">Lake Lubes</a></div>
@@ -103,6 +105,7 @@
     <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-logistics">Logistics Sector</button><div class="mob-acc-panel" id="mob-acc-logistics" hidden><a href="aficd.html">AFICD</a><a href="acfs.html">ACFS</a><a href="aill.html">AILL</a><a href="lake-trans.html">Lake Trans</a></div><button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-realestate">Real Estate Sector</button><div class="mob-acc-panel" id="mob-acc-realestate" hidden><a href="cross-country.html">Cross Country</a><a href="ocean-galleria.html">Ocean Galleria</a></div><button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-agro">Agro Processing Sector</button><div class="mob-acc-panel" id="mob-acc-agro" hidden><a href="lake-agro.html">Lake Agro</a></div><button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-automotive">Automotive Sector</button><div class="mob-acc-panel" id="mob-acc-automotive" hidden><a href="assembly-tech.html">Assembly Tech Limited</a><a href="agrinova-tech.html">AgriNova Tech Limited</a><a href="nextdrive-motors.html">NextDrive Motors Limited</a></div>
   </div><a href="leadership.html">Leadership</a><div class="mob-section">Corporate</div><a href="history.html">History</a><a href="africa-network.html">Operations Map</a><a href="csr.html">CSR</a><a href="investors.html">Investors</a><a href="projects.html">Projects</a><a href="gallery.html">Gallery</a><div class="mob-section">More</div><a href="news.html">News</a><a href="careers.html">Careers</a>
 </div>
+
 
 
 
@@ -517,6 +520,14 @@
 </script>
   <script defer src="assets/phase-01-navbar.js"></script>
 
+<main class="phase-01-under-construction" aria-labelledby="under-construction-title">
+  <div class="phase-01-under-construction__panel">
+    <p class="phase-01-under-construction__eyebrow">Lake Group</p>
+    <h1 id="under-construction-title">We’re preparing this page</h1>
+    <p>This section is being updated. Please check back soon or contact our team for assistance.</p>
+    <a href="contact.html">Contact Lake Group</a>
+  </div>
+</main>
 <footer class="site-footer" role="contentinfo">
   <div class="container">
     <div class="footer-grid">
@@ -544,7 +555,7 @@
         <li><a href="lake-oil.html" data-i18n="nav.co.lakeOil">Lake Oil</a></li><li><a href="lake-gas.html" data-i18n="nav.co.lakeGas">Lake Gas</a></li>
         <li><a href="lake-lubes.html" data-i18n="nav.co.lakeLubes">Lake Lubes</a></li><li><a href="lake-steel.html" data-i18n="nav.co.lakeSteel">Lake Steel</a></li>
         <li><a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a></li><li><a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a></li>
-        <li><a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a></li><li><a href="services.html" data-i18n="footer.viewAllCompanies">View All Subsidiaries</a></li>
+        <li><a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a></li><li><a href="index.html" data-i18n="footer.viewAllCompanies">View All Subsidiaries</a></li>
       </ul></div>
       <div class="footer-col"><h5 data-i18n="footer.company">Corporate</h5><ul>
         <li><a href="about.html" data-i18n="nav.aboutUs">About Us</a></li><li><a href="history.html" data-i18n="nav.historyShort">History</a></li>
@@ -553,10 +564,10 @@
         <li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
       </ul></div>
       <div class="footer-col"><h5 data-i18n="footer.question">Got a Question?</h5><ul>
-        <li><a href="contact.html" class="footer-contact-link"><iconify-icon icon="mdi:map-marker" class="footer-contact-ico" width="16" height="16" aria-hidden="true"></iconify-icon><span data-i18n="footer.address">Plot 49, Mikocheni Light Industrial, Dar es Salaam</span></a></li>
-        <li><a href="tel:+255222780510" class="footer-contact-link"><iconify-icon icon="mdi:phone" class="footer-contact-ico" width="16" height="16" aria-hidden="true"></iconify-icon><span>+255 222 780 510</span></a></li>
-        <li><a href="tel:+255222780479" class="footer-contact-link"><iconify-icon icon="mdi:phone" class="footer-contact-ico" width="16" height="16" aria-hidden="true"></iconify-icon><span>+255 222 780 479</span></a></li>
-        <li><a href="mailto:admin@lakeoilgroup.com" class="footer-contact-link"><iconify-icon icon="mdi:email" class="footer-contact-ico" width="16" height="16" aria-hidden="true"></iconify-icon><span>admin@lakeoilgroup.com</span></a></li>
+        <li><a href="contact.html" class="footer-contact-link"><svg class="footer-contact-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg><span data-i18n="footer.address">Plot 49, Mikocheni Light Industrial, Dar es Salaam</span></a></li>
+        <li><a href="tel:+255222780510" class="footer-contact-link"><svg class="footer-contact-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4.5 8.4 4l1.5 4.2-2 1.6a16 16 0 0 0 6.4 6.4l1.6-2L20 15.6l-.5 3.4a2 2 0 0 1-2.2 1.7C9.8 19.8 4.2 14.2 3.3 6.7A2 2 0 0 1 5 4.5Z"/></svg><span>+255 222 780 510</span></a></li>
+        <li><a href="tel:+255222780479" class="footer-contact-link"><svg class="footer-contact-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4.5 8.4 4l1.5 4.2-2 1.6a16 16 0 0 0 6.4 6.4l1.6-2L20 15.6l-.5 3.4a2 2 0 0 1-2.2 1.7C9.8 19.8 4.2 14.2 3.3 6.7A2 2 0 0 1 5 4.5Z"/></svg><span>+255 222 780 479</span></a></li>
+        <li><a href="mailto:admin@lakeoilgroup.com" class="footer-contact-link"><svg class="footer-contact-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg><span>admin@lakeoilgroup.com</span></a></li>
         <li><a href="contact.html" data-i18n="footer.contact">Contact Us</a></li>
       </ul></div>
       <div class="footer-col"><h5 data-i18n="footer.connect">Connect With Us</h5>

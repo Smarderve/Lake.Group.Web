@@ -29,7 +29,7 @@ function block(source, pattern, tag) {
 }
 
 test('Phase 01 navbar chrome is canonical on every root public page', () => {
-  assert.equal(pages.length, 56, 'audit every root public HTML page');
+  assert.equal(pages.length, 47, 'audit every remaining root public HTML page after approved removals');
   for (const file of pages) {
     const source = fs.readFileSync(path.join(ROOT, file), 'utf8').replace(/\r*\n/g, '\n');
     const nav = block(source, /<nav class="site-nav"[^>]*>/, 'nav');

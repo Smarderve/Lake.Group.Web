@@ -1,6 +1,7 @@
 'use strict';
 
 const assert = require('node:assert/strict');
+const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 const test = require('node:test');
@@ -8,13 +9,10 @@ const test = require('node:test');
 const ROOT = path.join(__dirname, '..');
 const TEMPLATE = fs.readFileSync(path.join(ROOT, 'scripts', 'templates', 'footer.html'), 'utf8');
 const CANONICAL_FOOTER = normalize(TEMPLATE);
+const APPROVED_TEMPLATE_SHA256 = '60180df90428ee2dd4ad309e0afa851c1f29b9ce6e62e39e70b81059adff67c3';
 const CANONICAL_SOCIAL_HREFS = socialHrefs(CANONICAL_FOOTER);
 const REQUIRED_STYLESHEET = '<link rel="stylesheet" href="assets/phase-01-footer.css">';
-const UTILITY_LAYOUTS = new Map([
-  ['404.html', 'utility'],
-  ['offline.html', 'utility'],
-  ['our-story.html', 'immersive'],
-]);
+const FOOTER_CSS = fs.readFileSync(path.join(ROOT, 'assets', 'phase-01-footer.css'), 'utf8');
 
 function normalize(value) {
   return value.replace(/\r\n/g, '\n').replace(/\r/g, '\n').trim();
@@ -54,7 +52,16 @@ function rootHtmlFiles() {
   return fs.readdirSync(ROOT).filter((file) => file.endsWith('.html')).sort();
 }
 
+function sha256(value) {
+  return crypto.createHash('sha256').update(value).digest('hex');
+}
+
+function head(source) {
+  return /<head\b[^>]*>[\s\S]*?<\/head>/i.exec(source)?.[0] || '';
+}
+
 test('canonical footer template preserves the approved Lake composition', () => {
+  assert.equal(sha256(CANONICAL_FOOTER), APPROVED_TEMPLATE_SHA256, 'approved footer template changed; update through review');
   assert.match(CANONICAL_FOOTER, /^<footer class="site-footer" role="contentinfo">/);
   assert.match(CANONICAL_FOOTER, /assets\/images\/logos\/LAKE_LOGO_LAKE_ONLY\.png/);
   assert.doesNotMatch(CANONICAL_FOOTER, /LAKE_GROUP_LOGO\.(?:png|jpg)/);
@@ -69,19 +76,22 @@ test('canonical footer template preserves the approved Lake composition', () => 
     'https://wa.me/255222780510',
   ]);
   assert.equal((CANONICAL_FOOTER.match(/class="footer-social-ico"/g) || []).length, 7);
+  assert.equal((CANONICAL_FOOTER.match(/class="footer-contact-ico"/g) || []).length, 4);
+  assert.doesNotMatch(CANONICAL_FOOTER, /<iconify-icon/i);
 });
 
-test('every root public HTML page uses exactly the canonical footer', () => {
+test('every root public HTML page uses the approved footer template and one structural stylesheet link', () => {
   const files = rootHtmlFiles();
-  assert.equal(files.length, 56, 'the public root URL inventory changed; review the footer normalizer');
+  assert.equal(files.length, 47, 'the remaining public root URL inventory changed; review the footer normalizer');
 
   for (const filename of files) {
     const source = fs.readFileSync(path.join(ROOT, filename), 'utf8');
     const footers = footersIn(source);
     assert.equal(footers.length, 1, filename + ' must contain exactly one footer');
-    assert.equal(normalize(footers[0]), CANONICAL_FOOTER, filename + ' footer differs from the canonical template');
-    assert.ok(source.includes(REQUIRED_STYLESHEET), filename + ' must load the shared footer stylesheet');
+    assert.equal(sha256(normalize(footers[0])), APPROVED_TEMPLATE_SHA256, filename + ' footer differs from the approved template');
+    assert.equal((head(source).match(/assets\/phase-01-footer\.css/g) || []).length, 1, filename + ' must load the shared footer stylesheet once in head');
     assert.match(source, /<body\b[^>]*\bdata-shared-footer="true"[^>]*>/i, filename + ' must opt into shared footer layout');
+    assert.doesNotMatch(source, /\bdata-footer-layout=/i, filename + ' retains a page-layout footer override');
   }
 });
 
@@ -96,9 +106,24 @@ test('footer brand, social set, and legacy footers cannot diverge by page', () =
   }
 });
 
-test('utility and immersive pages retain their explicit document-flow footer layout', () => {
-  for (const [filename, layout] of UTILITY_LAYOUTS) {
-    const source = fs.readFileSync(path.join(ROOT, filename), 'utf8');
-    assert.match(source, new RegExp('<body\\b[^>]*\\bdata-footer-layout="' + layout + '"[^>]*>', 'i'));
+test('footer CSS pins approved visual tokens and isolates legacy themes', () => {
+  for (const token of ['#013f5c', '#fff200', '#f5f7fb']) {
+    assert.match(FOOTER_CSS, new RegExp(token, 'i'));
   }
+  assert.doesNotMatch(FOOTER_CSS, /var\(/i);
+  assert.doesNotMatch(FOOTER_CSS, /data-footer-layout/i);
+  assert.match(FOOTER_CSS, /body\[data-shared-footer="true"\] footer\.site-footer \*/);
+  assert.match(FOOTER_CSS, /\.footer-social \.social-link/);
+  assert.match(FOOTER_CSS, /\.footer-contact-ico/);
+});
+
+test('footer normalization does not remove page identities outside footer chrome', () => {
+  for (const filename of rootHtmlFiles()) {
+    const source = fs.readFileSync(path.join(ROOT, filename), 'utf8');
+    assert.match(source, /<title>[^<]+<\/title>/i, filename + ' lost its title');
+    assert.match(source, /<script\b/i, filename + ' lost its page scripts');
+  }
+  assert.match(fs.readFileSync(path.join(ROOT, '404.html'), 'utf8'), /<main class="card">/);
+  assert.match(fs.readFileSync(path.join(ROOT, 'offline.html'), 'utf8'), /<main class="card">/);
+  assert.match(fs.readFileSync(path.join(ROOT, 'our-story.html'), 'utf8'), /<div id="stage">/);
 });

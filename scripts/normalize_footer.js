@@ -12,11 +12,6 @@ const ROOT = path.join(__dirname, '..');
 const TEMPLATE_PATH = path.join(ROOT, 'scripts', 'templates', 'footer.html');
 const FOOTER_STYLESHEET = '<link rel="stylesheet" href="assets/phase-01-footer.css">';
 const FOOTER_OPEN_RE = /<footer\b[^>]*>/i;
-const FOOTER_LAYOUTS = new Map([
-  ['404.html', 'utility'],
-  ['offline.html', 'utility'],
-  ['our-story.html', 'immersive'],
-]);
 
 function extractBalanced(text, bodyStart, tag) {
   let depth = 1;
@@ -59,18 +54,28 @@ function replaceOrInsertFooter(raw, canonical, eol) {
   return result;
 }
 
-function ensureBodyMarker(raw, filename) {
+function ensureBodyMarker(raw) {
   return raw.replace(/<body\b[^>]*>/i, (body) => {
-    let marked = body;
-    if (!/\bdata-shared-footer=/i.test(marked)) {
-      marked = marked.slice(0, -1) + ' data-shared-footer="true">';
-    }
-    const layout = FOOTER_LAYOUTS.get(filename);
-    if (layout && !/\bdata-footer-layout=/i.test(marked)) {
-      marked = marked.slice(0, -1) + ' data-footer-layout="' + layout + '">';
-    }
-    return marked;
+    const withoutMarkers = body
+      .replace(/\sdata-shared-footer=(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, '')
+      .replace(/\sdata-footer-layout=(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, '');
+    return withoutMarkers.slice(0, -1) + ' data-shared-footer="true">';
   });
+}
+
+function ensureStylesheet(raw, eol) {
+  const headMatch = /<head\b[^>]*>[\s\S]*?<\/head>/i.exec(raw);
+  if (!headMatch) throw new Error('missing <head>');
+  const canonicalHead = headMatch[0]
+    .replace(/[ \t]*<link\b(?=[^>]*\bhref=(?:"assets\/phase-01-footer\.css"|'assets\/phase-01-footer\.css'))[^>]*>\r?\n?/gi, '')
+    .replace(/<\/head>/i, '  ' + FOOTER_STYLESHEET + eol + '</head>');
+  return raw.slice(0, headMatch.index) + canonicalHead + raw.slice(headMatch.index + headMatch[0].length);
+}
+
+function detectEol(raw) {
+  const crlf = (raw.match(/\r\n/g) || []).length;
+  const lf = (raw.match(/(?<!\r)\n/g) || []).length;
+  return crlf >= lf && crlf > 0 ? '\r\n' : '\n';
 }
 
 function main() {
@@ -81,13 +86,11 @@ function main() {
   for (const filename of files) {
     const filePath = path.join(ROOT, filename);
     const original = fs.readFileSync(filePath, 'utf8');
-    const eol = original.includes('\r\r\n') ? '\r\r\n' : '\r\n';
+    const eol = detectEol(original);
     const canonical = template.replace(/\n/g, eol);
     let raw = replaceOrInsertFooter(original, canonical, eol);
-    raw = ensureBodyMarker(raw, filename);
-    if (!raw.includes(FOOTER_STYLESHEET)) {
-      raw = raw.replace(/<\/head>/i, '  ' + FOOTER_STYLESHEET + eol + '</head>');
-    }
+    raw = ensureBodyMarker(raw);
+    raw = ensureStylesheet(raw, eol);
     if (raw === original) {
       console.log('already canonical: ' + filename);
       continue;
