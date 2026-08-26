@@ -17,14 +17,11 @@ body.home .hero-zone {
 body.home [data-home-operations-map] {
   display: none !important;
 }
-/* Logo marquee overlays the hero's bottom edge so it's always fully on
-   screen (the hero carousel/scrim already bleed 60px past the bottom). */
+/* Logo marquee sits in normal document flow after the hero-zone,
+   below the hero and its vertical navigation. */
 body.home .marquee-wrap {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 6;
+  position: relative;
+  z-index: 3;
   overflow: hidden;
   background: #fff;
 }
