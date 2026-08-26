@@ -45,6 +45,7 @@ test('Phase 01 navbar chrome is canonical on every root public page', () => {
   for (const file of ['la-home.html', 'la-projects.html']) {
     const source = fs.readFileSync(path.join(ROOT, file), 'utf8');
     assert.doesNotMatch(source, /[ \t]+\r*\n/, `${file}: no trailing spaces or tabs`);
+    assert.doesNotMatch(source, /\r\r\n/, `${file}: no CRCRLF line endings`);
   }
 });
 

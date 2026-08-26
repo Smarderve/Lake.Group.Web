@@ -1,0 +1,4 @@
+# Legacy Lake Agro exports are maintained as normal CRLF text. This prevents
+# accidental CRCRLF lines from being reported as trailing whitespace.
+/la-home.html text eol=crlf
+/la-projects.html text eol=crlf
