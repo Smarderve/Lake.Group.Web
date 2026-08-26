@@ -63,6 +63,18 @@ function replaceBalancedBlock(raw, openRe, canonical, tag) {
   return [raw.slice(0, start) + canonical + raw.slice(end), true];
 }
 
+function removeLegacyNavigation(raw) {
+  const match = /<nav\b[^>]*\bid="navigation1"[^>]*>/i.exec(raw);
+  if (!match) return [raw, false];
+  const end = extractBalanced(raw, match.index + match[0].length, 'nav');
+  if (end === null) return [raw, false];
+  const withoutNavigation = raw.slice(0, match.index) + raw.slice(end);
+  // The legacy Lake Agro source carries trailing whitespace throughout its
+  // previous header block. Trimming it is mechanical and leaves application
+  // markup/behavior intact.
+  return [withoutNavigation.replace(/[ \t]+(?=\r?\n)/g, ''), true];
+}
+
 function fixMiscBugs(raw) {
   let changed = false;
   const brokenScriptRe = /[ \t]*<script src="assets\/i18n-content\.js"><\/script>[ \t]*\r?\n?/g;
@@ -88,37 +100,49 @@ function main() {
   for (const fn of files) {
     const filePath = path.join(ROOT, fn);
     let raw = fs.readFileSync(filePath, 'utf8');
+    // Two legacy Lake Agro exports use CRCRLF. Preserve their native line
+    // ending so synchronized chrome does not become trailing whitespace.
+    const eol = raw.includes('\r\r\n') ? '\r\r\n' : '\r\n';
+    const navForPage = canonicalNav.replace(/\r\n/g, eol);
+    const mobileForPage = canonicalMobile.replace(/\r\n/g, eol);
     let anyChange = false;
     let c;
 
+    [raw, c] = removeLegacyNavigation(raw);
+    anyChange = anyChange || c;
+
     if (NAV_OPEN_RE.test(raw)) {
-      [raw, c] = replaceBalancedBlock(raw, NAV_OPEN_RE, canonicalNav, 'nav');
+      [raw, c] = replaceBalancedBlock(raw, NAV_OPEN_RE, navForPage, 'nav');
       anyChange = anyChange || c;
     } else {
-      raw = raw.replace(/<body\b[^>]*>/i, (body) => `${body}\r\n${canonicalNav}`);
+      raw = raw.replace(/<body\b[^>]*>/i, (body) => `${body}${eol}${navForPage}`);
       anyChange = true;
     }
 
     if (MOBILE_OPEN_RE.test(raw)) {
-      [raw, c] = replaceBalancedBlock(raw, MOBILE_OPEN_RE, canonicalMobile, 'div');
+      [raw, c] = replaceBalancedBlock(raw, MOBILE_OPEN_RE, mobileForPage, 'div');
       anyChange = anyChange || c;
     } else {
       const navEnd = raw.indexOf('</nav>');
-      raw = raw.slice(0, navEnd + 6) + `\r\n${canonicalMobile}` + raw.slice(navEnd + 6);
+      raw = raw.slice(0, navEnd + 6) + `${eol}${mobileForPage}` + raw.slice(navEnd + 6);
       anyChange = true;
     }
 
     if (!raw.includes(phaseCss)) {
-      raw = raw.replace(/<\/head>/i, `  ${phaseCss}\r\n</head>`);
+      raw = raw.replace(/<\/head>/i, `  ${phaseCss}${eol}</head>`);
       anyChange = true;
     }
     if (!raw.includes(phaseJs)) {
-      raw = raw.replace(/<\/body>/i, `  ${phaseJs}\r\n</body>`);
+      raw = raw.replace(/<\/body>/i, `  ${phaseJs}${eol}</body>`);
       anyChange = true;
     }
 
     // Phase 01 intentionally changes only navbar chrome. No footer, chat,
     // i18n, hero, or page-specific markup is normalized here.
+    if (fn === 'la-home.html' || fn === 'la-projects.html') {
+      const trimmed = raw.replace(/[ \t]+(?=\r*\n)/g, '');
+      if (trimmed !== raw) { raw = trimmed; anyChange = true; }
+    }
 
     if (anyChange) {
       fs.writeFileSync(filePath, raw, 'utf8');

@@ -34,10 +34,17 @@ test('Phase 01 navbar chrome is canonical on every root public page', () => {
     const source = fs.readFileSync(path.join(ROOT, file), 'utf8').replace(/\r*\n/g, '\n');
     const nav = block(source, /<nav class="site-nav"[^>]*>/, 'nav');
     const mobile = block(source, /<div class="nav-mobile" id="nav-mobile"[^>]*>/, 'div');
+    assert.equal((source.match(/<nav class="site-nav"/g) || []).length, 1, `${file}: exactly one canonical desktop navbar`);
+    assert.equal((source.match(/<div class="nav-mobile" id="nav-mobile"/g) || []).length, 1, `${file}: exactly one canonical mobile navbar`);
+    assert.doesNotMatch(source, /id="navigation1"|#navigation1/i, `${file}: no legacy navigation system`);
     assert.equal(nav, navTemplate, `${file}: canonical desktop navbar`);
     assert.equal(mobile, mobileTemplate, `${file}: canonical mobile navbar`);
     assert.match(source, /assets\/phase-01-navbar\.css/, `${file}: shared navbar styling`);
     assert.match(source, /assets\/phase-01-navbar\.js/, `${file}: shared navbar behavior`);
+  }
+  for (const file of ['la-home.html', 'la-projects.html']) {
+    const source = fs.readFileSync(path.join(ROOT, file), 'utf8');
+    assert.doesNotMatch(source, /[ \t]+\r*\n/, `${file}: no trailing spaces or tabs`);
   }
 });
 
@@ -55,7 +62,7 @@ test('Phase 01 navbar follows launch constraints and all logo destinations resol
 });
 
 test('subsidiary coverage uses unique supplied company marks and includes ACFS', () => {
-  const expected = [
+  const imageBacked = [
     'lake-oil.html', 'lake-aviation.html', 'lake-gas.html', 'lake-lubes.html',
     'lake-buildings.html', 'lake-plastics.html', 'lake-steel.html', 'lake-cylinders.html',
     'gulf-aggregates.html', 'atl.html', 'lake-premix-cement.html',
@@ -63,12 +70,19 @@ test('subsidiary coverage uses unique supplied company marks and includes ACFS',
     'cross-country.html', 'ocean-galleria.html', 'lake-agro.html',
   ];
   const desktopLinks = [...navTemplate.matchAll(/<a href="([\w-]+\.html)" class="mm-company"><img src="([^"]+)"/g)];
-  assert.deepEqual(desktopLinks.map((match) => match[1]), expected);
+  assert.deepEqual(desktopLinks.map((match) => match[1]), imageBacked);
   assert.equal(new Set(desktopLinks.map((match) => match[2])).size, desktopLinks.length, 'no repeated fallback logo');
   assert.equal(desktopLinks.some((match) => /LAKE_LOGO_LAKE_ONLY|placeholder/i.test(match[2])), false, 'company cards use only company-specific marks');
   assert.match(navTemplate, /href="acfs\.html" class="mm-company"><img src="assets\/images\/logos\/companies\/acfs\.png"/);
   assert.match(mobileTemplate, /href="acfs\.html">ACFS<\/a>/);
-  assert.doesNotMatch(navTemplate, /assembly-tech|agrinova-tech|nextdrive-motors/i);
+  const automotive = ['assembly-tech.html', 'agrinova-tech.html', 'nextdrive-motors.html'];
+  for (const file of automotive) {
+    assert.match(navTemplate, new RegExp(`<a href="${file}" class="mm-company mm-company--wordmark">`), `${file}: desktop target`);
+    assert.match(mobileTemplate, new RegExp(`href="${file}"`), `${file}: mobile target`);
+  }
+  assert.match(navTemplate, /id="mm-tab-automotive"/);
+  assert.match(mobileTemplate, /mob-acc-automotive/);
+  assert.doesNotMatch(navTemplate, /lake-group-placeholder|LAKE_LOGO_LAKE_ONLY\.png" alt="(?:Assembly|AgriNova|NextDrive)/i);
 });
 
 test('Agro overrides and active-page state cannot override Phase 01 navbar chrome', () => {
