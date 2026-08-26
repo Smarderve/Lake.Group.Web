@@ -24,11 +24,11 @@
   // language's text. This array is only the English fallback for pages
   // where assets/i18n.js has not run.
   var slideTexts = [
-    "Fueling East Africa's growth from refinery to roadside.",
-    "Clean LPG energy for homes and industries across the region.",
-    "World-class terminal infrastructure on the Indian Ocean coast.",
-    "Connecting East Africa to global trade through Dar es Salaam.",
-    "1,200+ trucks keeping supply chains moving daily."
+    "Fueling East Africa for two decades",
+    "Powering the Region with Clean LPG.",
+    "World-class terminal on the Indian Ocean coast",
+    "Dar es Salaam: East Africa's Gateway to Global Trade.",
+    "1200+ trucks moving the supply chains every day"
   ];
 
   function slideTextFor(i) {
