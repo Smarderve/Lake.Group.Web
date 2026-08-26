@@ -52,6 +52,8 @@ test('mobile drawer and subsidiary accordion remain touch operable', async()=>{
   await page.locator('#nav-toggle').click();
   assert.equal(await page.locator('#nav-mobile').getAttribute('hidden'),null);
   await page.locator('.mob-acc-btn').first().click();
+  assert.equal(await page.locator('#mob-subsidiaries').getAttribute('hidden'),null);
+  await page.locator('#mob-subsidiaries .mob-acc-btn').first().click();
   assert.equal(await page.locator('#mob-acc-energies').getAttribute('hidden'),null);
   assert.equal(await page.locator('.ld-featured .ld-person-card').count(),1);
   assert.equal(await page.locator('a[href="leadership-ally-edha-awadh.html"]').count(),0);
@@ -133,7 +135,7 @@ test('verified company themes preserve shared structure and natural imagery',asy
     const logo=getComputedStyle(document.querySelector('.site-nav .nav-logo'));
     return{blue:body.getPropertyValue('--blue').trim(),nav:nav.backgroundImage,overlay:overlay.backgroundImage,card:card.backgroundColor,filter:image.filter,logoSurface:logo.backgroundColor,navCenter:(()=>{const r=document.querySelector('.nav-links').getBoundingClientRect();return r.left+r.width/2})()};
   });
-  assert.equal(agro.blue,'#008435'); assert.match(agro.nav,/0, 75, 30/); assert.doesNotMatch(agro.overlay,/1, 63, 92/); assert.equal(agro.card,'rgb(0, 75, 30)'); assert.doesNotMatch(agro.filter,/hue-rotate|sepia/); assert.notEqual(agro.logoSurface,'rgba(0, 0, 0, 0)'); assert.ok(Math.abs(agro.navCenter-720)<2);
+  assert.equal(agro.blue,'#008435'); assert.match(agro.nav,/1, 63, 92/); assert.doesNotMatch(agro.overlay,/1, 63, 92/); assert.equal(agro.card,'rgb(0, 75, 30)'); assert.doesNotMatch(agro.filter,/hue-rotate|sepia/); assert.equal(agro.logoSurface,'rgba(0, 0, 0, 0)'); assert.ok(Math.abs(agro.navCenter-720)<2);
   await page.screenshot({path:path.join(evidence,'desktop-lake-agro-theme.png'),fullPage:false});
   await page.setViewportSize({width:390,height:844});
   await page.reload({waitUntil:'networkidle'});

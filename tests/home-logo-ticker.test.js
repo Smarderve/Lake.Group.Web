@@ -74,6 +74,7 @@ async function inspectTicker(page) {
       .map((image) => image.alt);
     return {
       backgroundImage: wrapStyle.backgroundImage,
+      backgroundColor: wrapStyle.backgroundColor,
       brokenImages: images.filter((image) => image.complete && image.naturalWidth === 0).length,
       fadeColor: loopStyle.getPropertyValue('--logoloop-fadeColor').trim(),
       gap: loopStyle.getPropertyValue('--logoloop-gap').trim(),
@@ -108,10 +109,11 @@ async function inspectTicker(page) {
       await page.waitForTimeout(450);
       const afterTransform = await page.locator('.logoloop__track').evaluate((track) => track.style.transform);
 
-      assert.match(before.backgroundImage, /linear-gradient/, `${testCase.name}: ticker needs an opaque brand surface`);
+      assert.strictEqual(before.backgroundImage, 'none', `${testCase.name}: ticker must not use a colored gradient`);
+      assert.strictEqual(before.backgroundColor, 'rgb(255, 255, 255)', `${testCase.name}: ticker needs one continuous white surface`);
       assert.strictEqual(before.brokenImages, 0, `${testCase.name}: all ticker logos must load`);
       assert(before.visibleLabels.length >= 2, `${testCase.name}: the viewport must contain rendered logos`);
-      assert.strictEqual(before.fadeColor, '#013f5c', `${testCase.name}: edge fade must match the ticker surface`);
+      assert.strictEqual(before.fadeColor, '#ffffff', `${testCase.name}: edge fade must match the ticker surface`);
       assert.strictEqual(before.gap, testCase.gap, `${testCase.name}: spacing must match the responsive design`);
       assert(
         Math.abs(before.imageHeight - testCase.height) <= 1,

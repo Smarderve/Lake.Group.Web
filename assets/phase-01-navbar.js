@@ -6,9 +6,37 @@
     const toggle = nav && nav.querySelector('#nav-toggle');
     if (!nav || !drawer || !toggle) return;
     const page = (window.location.pathname.split('/').pop() || 'index.html').split('?')[0].split('#')[0];
-    nav.querySelectorAll('.nav-links > li > a, [data-phase01-navbar-mobile] a').forEach((link) => {
+    const companyPages = new Set([
+      'lake-oil.html', 'lake-aviation.html', 'lake-gas.html', 'lake-lubes.html',
+      'lake-buildings.html', 'lake-plastics.html', 'lake-steel.html', 'lake-cylinders.html',
+      'gulf-aggregates.html', 'lake-premix-cement.html', 'aficd.html', 'acfs.html',
+      'aill.html', 'lake-trans.html', 'cross-country.html', 'ocean-galleria.html',
+      'lake-agro.html', 'assembly-tech.html', 'agrinova-tech.html', 'nextdrive-motors.html'
+    ]);
+    const corporatePages = new Set(['history.html', 'africa-network.html', 'csr.html', 'sustainability.html', 'investors.html', 'projects.html', 'gallery.html']);
+    const desktopLinks = nav.querySelectorAll('.nav-links > li > a');
+    const mobileLinks = drawer.querySelectorAll('a');
+    [...desktopLinks, ...mobileLinks].forEach((link) => {
+      link.classList.remove('active');
+      link.removeAttribute('aria-current');
+    });
+    let desktopActive = null;
+    if (companyPages.has(page)) desktopActive = nav.querySelector('[data-nav-section="subsidiaries"]');
+    else if (corporatePages.has(page)) desktopActive = nav.querySelector('[data-nav-section="corporate"]');
+    else desktopActive = [...desktopLinks].find((link) => {
       const target = (link.getAttribute('href') || '').split('/').pop().split('?')[0].split('#')[0];
-      if (target && target === page) { link.classList.add('active'); link.setAttribute('aria-current', 'page'); }
+      return target === page && !link.hasAttribute('data-nav-section');
+    });
+    if (desktopActive) {
+      desktopActive.classList.add('active');
+      desktopActive.setAttribute('aria-current', 'page');
+    }
+    [...mobileLinks].forEach((link) => {
+      const target = (link.getAttribute('href') || '').split('/').pop().split('?')[0].split('#')[0];
+      if (target === page) {
+        link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
+      }
     });
     const closeAll = (except) => nav.querySelectorAll('.has-dropdown.is-open').forEach((item) => { if (item !== except) { item.classList.remove('is-open'); item.querySelector(':scope > a')?.setAttribute('aria-expanded', 'false'); } });
     toggle.addEventListener('click', () => { const open = drawer.classList.toggle('open'); drawer.hidden = !open; toggle.setAttribute('aria-expanded', String(open)); });

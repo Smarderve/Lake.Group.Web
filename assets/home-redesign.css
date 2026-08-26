@@ -7,114 +7,6 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. NAVBAR  — Aramco: transparent at top, solid brand on scroll, uppercase
-   links with animated underline. All existing links preserved.
-   -------------------------------------------------------------------------- */
-body.home .site-nav,
-body.about .site-nav {
-  background: transparent;
-  background-color: transparent;
-  border-bottom: none;
-  height: 84px;
-  box-shadow: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  transition: background-color 0.3s ease, height 0.3s var(--ease-smooth), transform 0.38s var(--ease-smooth), box-shadow 0.3s ease;
-}
-/* Home's taller 84px bar: keep --nav-h in sync so the mobile drawer and
-   page-wrapper clear the fixed navbar instead of tucking under it. */
-body.home,
-body.about {
-  --nav-h: 84px;
-}
-body.home .site-nav.nav-scrolled,
-body.about .site-nav.nav-scrolled {
-  background: var(--color-brand-blue-deep, #016694);
-  background-color: var(--color-brand-blue-deep, #016694);
-  border-bottom: 2px solid var(--color-yellow-accent, var(--yellow));
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  box-shadow: 0 8px 30px rgba(4, 10, 34, 0.35);
-  height: 66px;
-}
-body.home .site-nav .nav-logo img,
-body.about .site-nav .nav-logo img {
-  max-width: 130px !important;
-  height: 38px !important;
-  max-height: 38px;
-}
-body.home .site-nav.nav-scrolled .nav-logo img,
-body.about .site-nav.nav-scrolled .nav-logo img {
-  height: 30px !important;
-  max-height: 30px;
-}
-
-/* Aramco mainnav: uppercase, wide tracking, medium weight, tall hit area */
-body.home .nav-links,
-body.about .nav-links {
-  gap: 6px;
-}
-body.home .nav-links > li > a,
-body.about .nav-links > li > a {
-  color: #ffffff;
-  padding: 27px 11px 8px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border-radius: 0;
-  position: relative;
-  background: transparent !important;
-  transition: color 0.22s ease;
-}
-body.home .nav-links > li > a::after,
-body.about .nav-links > li > a::after {
-  content: "";
-  position: absolute;
-  bottom: 4px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--color-yellow-accent, var(--yellow)), #7ecb3a);
-  transform: translateX(-50%);
-  transition: width 0.32s var(--ease-out);
-}
-body.home .nav-links > li > a:hover,
-body.home .nav-links > li > a.active,
-body.about .nav-links > li > a:hover,
-body.about .nav-links > li > a.active {
-  color: var(--color-yellow-accent, var(--yellow));
-  background: transparent !important;
-}
-/* Home keeps its own transparent-over-hero nav: no white pill outline here */
-body.home .nav-links > li > a.active {
-  outline: none;
-}
-body.home .nav-links > li > a:hover::after,
-body.home .nav-links > li > a.active::after,
-body.about .nav-links > li > a:hover::after,
-body.about .nav-links > li > a.active::after {
-  width: 100%;
-}
-
-/* Dropdown + mega menu: solid brand gradient — no backdrop blur */
-body.home .site-nav .nav-dropdown,
-body.about .site-nav .nav-dropdown {
-  background: linear-gradient(180deg, #016694 0%, #013f5c 100%);
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border-radius: 0 0 var(--radius-lg, 12px) var(--radius-lg, 12px);
-  border-top: 2px solid var(--color-yellow-accent, var(--yellow));
-  box-shadow: 0 28px 56px -20px rgba(0, 0, 0, 0.55), 0 10px 22px -12px rgba(0, 0, 0, 0.4);
-}
-body.home .lang-menu,
-body.about .lang-menu {
-  background: linear-gradient(180deg, #016694 0%, #013f5c 100%);
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-}
-
-/* --------------------------------------------------------------------------
    2. HERO  — Aramco: full-screen background slideshow, vertically centered
    content, large light-weight heading, tab indicators at bottom.
    -------------------------------------------------------------------------- */
@@ -133,6 +25,8 @@ body.home .marquee-wrap {
   right: 0;
   bottom: 0;
   z-index: 6;
+  overflow: hidden;
+  background: #fff;
 }
 body.home .hero {
   min-height: 100vh;

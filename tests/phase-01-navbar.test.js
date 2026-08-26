@@ -53,9 +53,13 @@ test('Phase 01 navbar chrome is canonical on every root public page', () => {
 
 test('Phase 01 navbar follows launch constraints and all logo destinations resolve', () => {
   assert.match(navTemplate, /LAKE_LOGO_LAKE_ONLY\.png/);
-  assert.doesNotMatch(navTemplate, /LAKE_GROUP_LOGO|lang-switcher|lang-trigger|contact\.html|placeholder|loading="lazy"/i);
+  assert.doesNotMatch(navTemplate, /LAKE_GROUP_LOGO|placeholder|loading="lazy"/i);
+  assert.match(navTemplate, /href="contact\.html"[^>]*>Contact Us<\/a>/);
+  assert.match(navTemplate, /class="lang-switcher"/);
+  assert.match(navTemplate, /aria-label="Language: English" disabled/);
   assert.doesNotMatch(navTemplate, /nav-stripes/);
-  assert.doesNotMatch(mobileTemplate, /contact\.html|lang-/i);
+  assert.match(mobileTemplate, /href="contact\.html">Contact Us<\/a>/);
+  assert.match(mobileTemplate, /class="mob-language"[^>]*>English<\/div>/);
   for (const match of navTemplate.matchAll(/<img src="([^"]+)"/g)) {
     assert.equal(fs.existsSync(path.join(ROOT, match[1])), true, `${match[1]} exists`);
   }
@@ -97,6 +101,8 @@ test('shared glass navbar and active-page state remain consistent', () => {
   assert.doesNotMatch(css, /\.nav-links>li>a\.active\{[^}]*border-(?:bottom|top|left|right)/);
   assert.match(script, /link\.classList\.add\('active'\)/);
   assert.match(script, /setAttribute\('aria-current', 'page'\)/);
+  assert.match(script, /link\.classList\.remove\('active'\)/);
+  assert.match(script, /companyPages\.has\(page\)/);
   assert.match(script, /mouseenter/);
 });
 

@@ -14,4 +14,22 @@
 .site-nav[data-phase01-navbar]{background:linear-gradient(180deg,rgba(1,63,92,.72),rgba(1,63,92,.5))!important}
 .site-nav[data-phase01-navbar] .nav-dropdown{background:linear-gradient(150deg,rgba(1,63,92,.78),rgba(1,102,148,.58))!important}
 .site-nav[data-phase01-navbar] .nav-megamenu .mm-company--light-logo{background:rgba(255,255,255,.92)!important;border-radius:6px!important}
-body.co-theme-agro .site-nav[data-phase01-navbar]{background:linear-gradient(180deg,rgba(0,75,30,.78),rgba(0,75,30,.54))!important;border-bottom-color:rgba(230,126,34,.52)!important}body.co-theme-agro .site-nav[data-phase01-navbar] .nav-logo--company{padding:3px 7px!important;background:rgba(255,255,255,.94)!important;border-radius:4px!important}body.co-theme-agro .site-nav[data-phase01-navbar] .nav-logo--company img{height:36px!important}body.co-theme-agro .site-nav[data-phase01-navbar] .nav-dropdown{background:linear-gradient(150deg,rgba(0,75,30,.84),rgba(0,132,53,.62))!important}body.co-theme-agro .nav-mobile[data-phase01-navbar-mobile]{background:rgba(0,75,30,.98)!important}
+/* Authoritative global navbar: one dark Lake glass treatment on every page. */
+.site-nav[data-phase01-navbar],
+body.co-theme-agro .site-nav[data-phase01-navbar]{height:68px!important;background:linear-gradient(180deg,rgba(1,63,92,.78),rgba(1,63,92,.6))!important;border-bottom:1px solid rgba(255,255,255,.16)!important;box-shadow:0 8px 28px rgba(1,32,48,.18)!important;backdrop-filter:blur(16px) saturate(125%)!important;-webkit-backdrop-filter:blur(16px) saturate(125%)!important}
+.site-nav[data-phase01-navbar] .nav-inner{grid-template-columns:minmax(108px,1fr) auto minmax(108px,1fr)!important}
+.site-nav[data-phase01-navbar] .nav-actions{display:flex!important;justify-self:end!important;align-items:center!important;gap:10px!important}
+.site-nav[data-phase01-navbar] .lang-switcher{display:block!important;position:relative!important}
+.site-nav[data-phase01-navbar] .lang-trigger{display:inline-flex!important;align-items:center!important;gap:7px!important;padding:8px 0!important;border:0!important;background:transparent!important;color:rgba(255,255,255,.94)!important;font:600 .78rem/1 Jost,Arial,sans-serif!important;letter-spacing:.025em!important;white-space:nowrap!important;opacity:1!important;cursor:default!important}
+.site-nav[data-phase01-navbar] .lang-globe{display:block!important;width:17px!important;height:17px!important;flex:0 0 17px!important}
+.site-nav[data-phase01-navbar] .nav-dropdown,
+body.co-theme-agro .site-nav[data-phase01-navbar] .nav-dropdown{top:100%!important;background:linear-gradient(150deg,rgba(1,45,67,.92),rgba(1,78,112,.84))!important;border:1px solid rgba(255,255,255,.16)!important;border-radius:0 0 10px 10px!important;box-shadow:0 24px 55px rgba(0,24,38,.36)!important;backdrop-filter:blur(18px) saturate(120%)!important;-webkit-backdrop-filter:blur(18px) saturate(120%)!important;transition:opacity .14s ease,transform .14s ease!important}
+body.co-theme-agro .site-nav[data-phase01-navbar] .nav-logo--company{padding:0!important;background:none!important;border-radius:0!important}
+body.co-theme-agro .site-nav[data-phase01-navbar] .nav-logo--company img{height:42px!important}
+.nav-mobile[data-phase01-navbar-mobile],
+body.co-theme-agro .nav-mobile[data-phase01-navbar-mobile]{background:rgba(1,45,67,.98)!important;backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important}
+.nav-mobile[data-phase01-navbar-mobile] .mob-primary{color:#fff200!important;font-weight:650!important}
+.nav-mobile[data-phase01-navbar-mobile] .mob-subsidiaries-panel{padding-left:8px!important}
+.nav-mobile[data-phase01-navbar-mobile] .mob-language{margin-top:8px!important;padding:13px 14px!important;border-top:1px solid rgba(255,255,255,.16)!important;color:rgba(255,255,255,.86)!important;font:600 .84rem Jost,Arial,sans-serif!important}
+@media(max-width:1180px){.site-nav[data-phase01-navbar] .nav-links{gap:2px!important}.site-nav[data-phase01-navbar] .nav-links>li>a{padding-inline:8px!important;font-size:.75rem!important}}
+@media(max-width:1060px){.site-nav[data-phase01-navbar] .nav-inner{grid-template-columns:1fr auto!important}.site-nav[data-phase01-navbar] .lang-switcher{display:none!important}}
