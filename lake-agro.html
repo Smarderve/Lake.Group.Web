@@ -40,7 +40,7 @@
 .info-row{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-4);padding:13px 0;border-bottom:1px solid var(--ink-line-2)}
 .info-row:first-of-type{border-top:1px solid var(--ink-line)}
 .info-row>span:first-child{display:inline-flex;align-items:center;gap:8px;color:rgba(233,237,248,0.92);font-size:.92rem}
-.info-panel .badge-yellow,.info-panel .badge-amber,.info-row .badge{color:#fff!important;border-color:rgba(255,242,0,0.65)!important;background:rgba(255,242,0,0.16)!important}
+.info-panel .badge-yellow,.info-panel .badge-amber,.info-row .badge{color:#fff!important;border-color:rgba(230,126,34,.68)!important;background:rgba(230,126,34,.18)!important}
 
 .stat-panel2{background:var(--ink);padding:var(--sp-8);position:relative}
 .stat-panel2 h3{font-family:var(--font-display);font-weight:700;font-size:var(--fs-title);letter-spacing:.02em;text-transform:uppercase;color:var(--white);margin-bottom:var(--sp-6)}
@@ -77,7 +77,7 @@
 .prod-catalog-card p{font-size:.85rem;margin-top:4px;line-height:1.6}
 
 /* Gallery . Lake Agro projects - photo cards (reference GIF style) */
-.co-gal-label{margin:var(--sp-6) 0 var(--sp-3);font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#013f5c}
+.co-gal-label{margin:var(--sp-6) 0 var(--sp-3);font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--color-agro-green-deep,#004b1e)}
 /* Our Projects — photo-dominant tiles (photo fills the tile, green overlay caption) */
 .agro-prj-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;width:100%}
 .agro-prj{position:relative;border-radius:10px;overflow:hidden;background:#004b1e;display:block;aspect-ratio:4/3.1;transition:transform .35s ease,box-shadow .35s ease}
@@ -175,28 +175,27 @@ body.co-theme-agro .page-hero .hero-media {
     padding: 60px 0 60px;
   }
 }
-/* Hero overlay matches the home page scrim: dark navy fade, not green */
+/* Preserve natural farm photography with a restrained brand-green scrim. */
 body.co-theme-agro .hero-overlay {
   background:
-    linear-gradient(90deg, rgba(1, 63, 92, 0.6) 0%, rgba(1, 63, 92, 0.4) 30%, rgba(1, 63, 92, 0.1) 65%, rgba(1, 63, 92, 0) 100%),
-    linear-gradient(180deg, rgba(1, 63, 92, 0.25) 0%, rgba(1, 63, 92, 0) 25%);
+    linear-gradient(90deg, rgba(0,75,30,.58) 0%, rgba(0,107,43,.32) 34%, rgba(0,132,53,.08) 68%, rgba(0,75,30,0) 100%),
+    linear-gradient(180deg, rgba(0,75,30,.18) 0%, rgba(0,75,30,0) 28%);
 }
-/* "Production Focus" tiles use the same design language as the home page
-   "Eight Sectors. One Vision." cards (aramco-card pattern, navy + accent). */
+/* Production tiles retain the shared structure with Lake Agro colors. */
 body.co-theme-agro .aramco-card {
   position: relative;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   border-radius: 14px;
-  background: #013f5c;
+  background: #004b1e;
   color: #ffffff;
   min-height: 330px;
   max-height: 380px;
   transition: box-shadow 0.35s ease, transform 0.35s var(--ease-out);
 }
 body.co-theme-agro .aramco-card:hover {
-  box-shadow: 0 24px 48px -18px rgba(1, 63, 92, 0.55);
+  box-shadow: 0 24px 48px -18px rgba(0,75,30,.48);
   transform: translateY(-4px);
 }
 body.co-theme-agro .aramco-card-media {
@@ -218,7 +217,7 @@ body.co-theme-agro .aramco-card:hover .aramco-card-media img {
 body.co-theme-agro .aramco-card-shade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(1, 63, 92, 0.08) 22%, rgba(1, 63, 92, 0.42) 55%, rgba(1, 63, 92, 0.95) 100%);
+  background: linear-gradient(180deg, rgba(0,75,30,.04) 22%, rgba(0,75,30,.30) 58%, rgba(0,75,30,.92) 100%);
 }
 body.co-theme-agro .aramco-card-ico {
   position: absolute;
@@ -242,7 +241,7 @@ body.co-theme-agro .aramco-card-ico svg {
 body.co-theme-agro .aramco-card:hover .aramco-card-ico {
   background: var(--color-yellow-accent, var(--yellow));
   border-color: var(--color-yellow-accent, var(--yellow));
-  color: #013f5c;
+  color: #004b1e;
 }
 body.co-theme-agro .aramco-card-body {
   position: relative;

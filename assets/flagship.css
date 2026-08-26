@@ -2115,9 +2115,9 @@ body.co-theme-agro {
   --color-hero-bg:            var(--color-agro-green-deep, #004b1e);
   --hero-overlay-gradient: linear-gradient(
     105deg,
-    rgba(0, 75, 30, 0.92) 0%,
-    rgba(0, 132, 53, 0.78) 45%,
-    rgba(0, 132, 53, 0.24) 100%
+    rgba(0, 75, 30, 0.46) 0%,
+    rgba(0, 132, 53, 0.22) 45%,
+    rgba(0, 132, 53, 0.02) 100%
   );
 
   /* Ink bands (fs-on-dark / footer / info panels) */
@@ -2182,6 +2182,58 @@ body.co-theme-agro .badge-navy {
 body.co-theme-agro .btn-outline-dark:hover,
 body.co-theme-agro .btn-blue:hover {
   box-shadow: 0 8px 24px rgba(0, 132, 53, 0.32);
+}
+body.co-theme-agro .prod-catalog-card,
+body.co-theme-agro .aramco-card,
+body.co-theme-agro .val-mini-tile {
+  --card-accent: var(--color-agro-green, #008435);
+}
+body.co-theme-agro .prod-catalog-card:hover {
+  border-color: var(--color-agro-green, #008435);
+  box-shadow: 0 16px 36px rgba(0,75,30,.14);
+}
+body.co-theme-agro .fs-marker-no,
+body.co-theme-agro .fs-eyebrow,
+body.co-theme-agro .co-gal-label,
+body.co-theme-agro .ct-label {
+  color: var(--color-agro-orange, #e67e22);
+}
+body.co-theme-agro .la-fab-dot { fill: var(--color-agro-green-deep, #004b1e) !important; }
+
+/* Verified non-Lake subsidiary accents sampled from approved repository marks.
+   Structure remains shared; only existing token-driven accents are remapped. */
+body[data-company-alt="AFICD"],
+body[data-company-alt="ACFS"],
+body[data-company-alt="AILL"] {
+  --blue: #0878bb;
+  --blue-light: #2394d0;
+  --blue-deep: #07588a;
+  --gold: #0878bb;
+  --yellow: #0878bb;
+  --yellow2: #07588a;
+}
+body[data-company-alt="Gulf Aggregates"] {
+  --gold: #ed1c24;
+  --gold-deep: #b8141a;
+  --yellow: #ed1c24;
+  --yellow2: #b8141a;
+  --hero-overlay-gradient: linear-gradient(105deg,rgba(35,24,26,.88),rgba(120,18,24,.48) 54%,rgba(120,18,24,.08));
+}
+body[data-company-alt="Cross Country"] {
+  --blue: #082b5f;
+  --blue-light: #244b78;
+  --blue-deep: #061d40;
+  --navy: #061d40;
+  --gold: #b9852d;
+  --yellow: #b9852d;
+  --yellow2: #8f651e;
+}
+body[data-company-alt="Ocean Galleria"] {
+  --gold: #d5a51f;
+  --gold-deep: #a97c10;
+  --yellow: #d5a51f;
+  --yellow2: #a97c10;
+  --hero-overlay-gradient: linear-gradient(105deg,rgba(18,18,18,.88),rgba(18,18,18,.45) 55%,rgba(18,18,18,.06));
 }
 
 /* Page + panel scrollbars inherit Agro greens */
@@ -2944,11 +2996,9 @@ body[data-company-logo] .fs-marker { justify-content: center; text-align: center
 body[data-company-logo] .fs-display { text-align: center; }
 body[data-company-logo] .fs-lede { margin-left: auto; margin-right: auto; max-width: 64ch; text-align: center; }
 
-/* Subsidiary heroes: lighter blue overlay so the photo shows through */
+/* Subsidiary heroes: use the verified company overlay token while keeping
+   photography visible. Theme-specific pages remap this token above. */
 body[data-company-logo] .page-hero .hero-overlay,
 body[data-company-logo] .page-hero .page-hero-overlay {
-  background: linear-gradient(105deg,
-    rgba(1, 63, 92, 0.62) 0%,
-    rgba(1, 129, 187, 0.40) 45%,
-    rgba(1, 129, 187, 0.04) 100%);
+  background: var(--hero-overlay-gradient);
 }

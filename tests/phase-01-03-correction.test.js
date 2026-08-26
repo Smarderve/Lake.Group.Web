@@ -118,3 +118,33 @@ test('Lake Gas videos are removed and ATL remains marquee-only',()=>{
   assert.match(loop,/atl\.png[^\n]+alt: 'ATL'/); assert.doesNotMatch(loop,/alt: 'ATL'[^\n]+href:/);
   assert.match(fs.readFileSync(path.join(root,'vercel.json'),'utf8'),/"source": "\/atl\.html"[\s\S]*?"destination": "\/index\.html"/);
 });
+
+test('verified company themes preserve shared structure and natural imagery',async()=>{
+  const page=await browser.newPage({viewport:{width:1440,height:900}});
+  await page.goto(`http://127.0.0.1:${server.address().port}/lake-agro.html`,{waitUntil:'networkidle'});
+  await page.waitForFunction(()=>!document.documentElement.classList.contains('lg-loading'));
+  await page.waitForFunction(()=>!document.querySelector('[data-lg-skeleton-overlay]'));
+  const agro=await page.evaluate(()=>{
+    const body=getComputedStyle(document.body);
+    const nav=getComputedStyle(document.querySelector('.site-nav'));
+    const overlay=getComputedStyle(document.querySelector('.hero-overlay'));
+    const card=getComputedStyle(document.querySelector('.aramco-card'));
+    const image=getComputedStyle(document.querySelector('.aramco-card img'));
+    const logo=getComputedStyle(document.querySelector('.site-nav .nav-logo'));
+    return{blue:body.getPropertyValue('--blue').trim(),nav:nav.backgroundImage,overlay:overlay.backgroundImage,card:card.backgroundColor,filter:image.filter,logoSurface:logo.backgroundColor,navCenter:(()=>{const r=document.querySelector('.nav-links').getBoundingClientRect();return r.left+r.width/2})()};
+  });
+  assert.equal(agro.blue,'#008435'); assert.match(agro.nav,/0, 75, 30/); assert.doesNotMatch(agro.overlay,/1, 63, 92/); assert.equal(agro.card,'rgb(0, 75, 30)'); assert.doesNotMatch(agro.filter,/hue-rotate|sepia/); assert.notEqual(agro.logoSurface,'rgba(0, 0, 0, 0)'); assert.ok(Math.abs(agro.navCenter-720)<2);
+  await page.screenshot({path:path.join(evidence,'desktop-lake-agro-theme.png'),fullPage:false});
+  await page.setViewportSize({width:390,height:844});
+  await page.reload({waitUntil:'networkidle'});
+  await page.waitForFunction(()=>!document.documentElement.classList.contains('lg-loading'));
+  await page.waitForFunction(()=>!document.querySelector('[data-lg-skeleton-overlay]'));
+  assert.equal(await page.locator('html').evaluate(el=>el.scrollWidth<=innerWidth),true);
+  await page.screenshot({path:path.join(evidence,'mobile-lake-agro-theme.png'),fullPage:false});
+  for(const [file,accent] of [['gulf-aggregates.html','#ed1c24'],['cross-country.html','#b9852d'],['aficd.html','#0878bb']]){
+    await page.setViewportSize({width:1440,height:900});
+    await page.goto(`http://127.0.0.1:${server.address().port}/${file}`,{waitUntil:'networkidle'});
+    assert.equal(await page.locator('body').evaluate(el=>getComputedStyle(el).getPropertyValue('--yellow').trim()),accent);
+  }
+  await page.close();
+});
