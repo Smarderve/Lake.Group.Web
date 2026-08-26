@@ -490,6 +490,7 @@
   }
 
   function initNav() {
+    if (document.querySelector('[data-phase01-navbar]')) return;
     const toggle = document.getElementById('nav-toggle');
     const mobileNav = document.getElementById('nav-mobile');
     if (toggle && mobileNav) {
@@ -736,7 +737,7 @@
 
     const navLink = document.querySelector('.site-nav .nav-logo');
     const navImg = navLink && navLink.querySelector('img');
-    if (navImg) {
+    if (navImg && !navLink.closest('[data-phase01-navbar]')) {
       navLink.classList.add('nav-logo--company');
       navImg.src = navSrc;
       if (navAlt) navImg.alt = navAlt;
