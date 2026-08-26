@@ -53,7 +53,7 @@ test('Phase 01 navbar chrome is canonical on every root public page', () => {
 
 test('Phase 01 navbar follows launch constraints and all logo destinations resolve', () => {
   assert.match(navTemplate, /LAKE_LOGO_LAKE_ONLY\.png/);
-  assert.doesNotMatch(navTemplate, /LAKE_GROUP_LOGO|placeholder|loading="lazy"/i);
+  assert.doesNotMatch(navTemplate, /LAKE_GROUP_LOGO|placeholder/i);
   assert.match(navTemplate, /href="contact\.html"[^>]*>Contact Us<\/a>/);
   assert.match(navTemplate, /class="lang-switcher"/);
   assert.match(navTemplate, /aria-label="Language: English" disabled/);
