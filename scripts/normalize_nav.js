@@ -15,16 +15,6 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const TPL_DIR = path.join(ROOT, 'scripts', 'templates');
-// Standalone error/offline, legacy Lake Agro, and dashboard/demo documents are
-// separate surfaces rather than production corporate pages.
-const NON_CORPORATE_SURFACES = new Set([
-  '404.html',
-  'offline.html',
-  'la-home.html',
-  'la-projects.html',
-  'lake-group-financial-dashboard.html',
-  'lake-group-org-chart.html',
-]);
 
 function readTpl(name) {
   let content = fs.readFileSync(path.join(TPL_DIR, name), 'utf8');
@@ -94,9 +84,7 @@ function main() {
   const phaseJs = '<script defer src="assets/phase-01-navbar.js"></script>';
 
   let changedFiles = 0;
-  const files = fs.readdirSync(ROOT)
-    .filter((f) => f.endsWith('.html') && !NON_CORPORATE_SURFACES.has(f))
-    .sort();
+  const files = fs.readdirSync(ROOT).filter((f) => f.endsWith('.html')).sort();
   for (const fn of files) {
     const filePath = path.join(ROOT, fn);
     let raw = fs.readFileSync(filePath, 'utf8');
