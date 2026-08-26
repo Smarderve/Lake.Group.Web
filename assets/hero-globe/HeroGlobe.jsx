@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Globe from 'react-globe.gl';
-import { TEX, buildPoints, buildRings, prefersReducedMotion } from './locations.js';
+import { TEX, BRAND_YELLOW, BRAND_YELLOW_SOFT, buildArcs, buildPoints, buildRings, prefersReducedMotion } from './locations.js';
 
 /** Slow, deliberate sweep — one full revolution, then stop facing Africa. */
 const ROTATE_SPEED = 1.6; // ~18–24 s per orbit (measured azimuth, not wall time)
@@ -87,9 +87,10 @@ export default function HeroGlobe({ panelEl, locations }) {
   }, [locations]);
 
   const allRings = useMemo(() => (reduced ? [] : buildRings(locations)), [locations, reduced]);
+  const allArcs = useMemo(() => buildArcs(locations), [locations]);
 
-  // Destination labels: pointer dot + country name, shown once the globe
-  // settles facing Africa. No arcs/lines — locations only.
+  // Destination labels appear once the globe settles facing Africa; the
+  // connection arcs remain visible throughout the arrival.
   const allLabels = useMemo(() => {
     return locations
       .filter((loc) => !loc.hub)
@@ -104,6 +105,7 @@ export default function HeroGlobe({ panelEl, locations }) {
 
   const [pointsData, setPointsData] = useState([]);
   const [ringsData, setRingsData] = useState([]);
+  const [arcsData, setArcsData] = useState([]);
   const [labelsData, setLabelsData] = useState([]);
   const [globeReady, setGlobeReady] = useState(false);
   const [sectionVisible, setSectionVisible] = useState(false);
@@ -119,8 +121,9 @@ export default function HeroGlobe({ panelEl, locations }) {
   const showFinalState = useCallback(() => {
     setPointsData(allPoints);
     setRingsData(allRings);
+    setArcsData(allArcs);
     setLabelsData(allLabels);
-  }, [allPoints, allRings, allLabels]);
+  }, [allPoints, allRings, allArcs, allLabels]);
 
   const applySpin = useCallback(
     (visible) => {
@@ -146,6 +149,7 @@ export default function HeroGlobe({ panelEl, locations }) {
     clearScheduled();
     setPointsData([]);
     setRingsData([]);
+    setArcsData([]);
     setLabelsData([]);
 
     const g = globeRef.current;
@@ -163,6 +167,7 @@ export default function HeroGlobe({ panelEl, locations }) {
     const hub = allPoints.find((p) => p.hub);
     setPointsData(hub ? [hub] : []);
     setRingsData(allRings);
+    setArcsData(allArcs);
 
     const useAzimuth = typeof controls.getAzimuthalAngle === 'function';
     let prev = useAzimuth ? controls.getAzimuthalAngle() : 0;
@@ -201,7 +206,7 @@ export default function HeroGlobe({ panelEl, locations }) {
     };
     const id = requestAnimationFrame(tick);
     rafRef.current.push(id);
-  }, [allPoints, allRings, showFinalState, clearScheduled]);
+  }, [allPoints, allRings, allArcs, showFinalState, clearScheduled]);
 
   // Reduced motion: final state immediately. Else: one arrival once ready +
   // on screen. The globe then stays stopped facing Africa — no replay loop.
@@ -281,6 +286,13 @@ export default function HeroGlobe({ panelEl, locations }) {
       ringMaxRadius="maxR"
       ringPropagationSpeed="propagationSpeed"
       ringRepeatPeriod="repeatPeriod"
+      arcsData={arcsData}
+      arcColor={() => [BRAND_YELLOW_SOFT, BRAND_YELLOW]}
+      arcAltitudeAutoScale={0.22}
+      arcStroke={0.35}
+      arcDashLength={0.6}
+      arcDashGap={0.22}
+      arcDashAnimateTime={reduced ? 0 : 2800}
       labelsData={labelsData}
       labelLat="lat"
       labelLng="lng"

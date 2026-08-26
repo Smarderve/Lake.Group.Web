@@ -41,7 +41,7 @@
     logoHeightMobile: 34,
     gapMobile: 34,
     fadeOut: true,
-    fadeOutColor: '#013f5c',
+    fadeOutColor: '#0181bb',
     scaleOnHover: true,
     ariaLabel: (window.LakeI18n && LakeI18n.t('logoloop.aria')) || 'Lake Group subsidiary companies',
     pauseOnHover: true
