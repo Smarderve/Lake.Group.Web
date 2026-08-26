@@ -52,7 +52,7 @@ test('Phase 01 navbar chrome is canonical on every root public page', () => {
 test('Phase 01 navbar follows launch constraints and all logo destinations resolve', () => {
   assert.match(navTemplate, /LAKE_LOGO_LAKE_ONLY\.png/);
   assert.doesNotMatch(navTemplate, /LAKE_GROUP_LOGO|lang-switcher|lang-trigger|contact\.html|placeholder|loading="lazy"/i);
-  assert.match(navTemplate, /<span class="nav-stripes"[^>]*><i><\/i><i><\/i><i><\/i><\/span>/);
+  assert.doesNotMatch(navTemplate, /nav-stripes/);
   assert.doesNotMatch(mobileTemplate, /contact\.html|lang-/i);
   for (const match of navTemplate.matchAll(/<img src="([^"]+)"/g)) {
     assert.equal(fs.existsSync(path.join(ROOT, match[1])), true, `${match[1]} exists`);
@@ -70,7 +70,7 @@ test('subsidiary coverage uses unique supplied company marks and includes ACFS',
     'aficd.html', 'acfs.html', 'aill.html', 'lake-trans.html',
     'cross-country.html', 'ocean-galleria.html', 'lake-agro.html',
   ];
-  const desktopLinks = [...navTemplate.matchAll(/<a href="([\w-]+\.html)" class="mm-company"><img src="([^"]+)"/g)];
+  const desktopLinks = [...navTemplate.matchAll(/<a href="([\w-]+\.html)" class="mm-company(?: [^"]+)?"><img src="([^"]+)"/g)];
   assert.deepEqual(desktopLinks.map((match) => match[1]), imageBacked);
   assert.equal(new Set(desktopLinks.map((match) => match[2])).size, desktopLinks.length, 'no repeated fallback logo');
   assert.equal(desktopLinks.some((match) => /LAKE_LOGO_LAKE_ONLY|placeholder/i.test(match[2])), false, 'company cards use only company-specific marks');
@@ -86,17 +86,16 @@ test('subsidiary coverage uses unique supplied company marks and includes ACFS',
   assert.doesNotMatch(navTemplate, /lake-group-placeholder|LAKE_LOGO_LAKE_ONLY\.png" alt="(?:Assembly|AgriNova|NextDrive)/i);
 });
 
-test('Agro overrides and active-page state cannot override Phase 01 navbar chrome', () => {
+test('shared glass navbar and active-page state remain consistent', () => {
   const css = fs.readFileSync(path.join(ROOT, 'assets/phase-01-navbar.css'), 'utf8');
   const script = fs.readFileSync(path.join(ROOT, 'assets/phase-01-navbar.js'), 'utf8');
-  const agroPage = fs.readFileSync(path.join(ROOT, 'lake-agro.html'), 'utf8');
-  assert.match(agroPage, /body\.co-theme-agro \.site-nav/);
-  assert.match(css, /body\.co-theme-agro \.site-nav\[data-phase01-navbar\].*background:#0181bb!important/);
-  assert.match(css, /body\.co-theme-agro \.nav-mobile\[data-phase01-navbar-mobile\].*background:#013f5c!important/);
-  assert.match(css, /\.nav-links>li>a\.active\{font-weight:700!important\}/);
+  assert.match(css, /backdrop-filter:blur\(15px\)/);
+  assert.match(css, /rgba\(1,63,92,\.72\)/);
+  assert.doesNotMatch(css, /background:#0181bb!important/);
   assert.doesNotMatch(css, /\.nav-links>li>a\.active\{[^}]*border-(?:bottom|top|left|right)/);
   assert.match(script, /link\.classList\.add\('active'\)/);
   assert.match(script, /setAttribute\('aria-current', 'page'\)/);
+  assert.match(script, /mouseenter/);
 });
 
 test('legacy active-link pseudo elements cannot render underline bars', () => {

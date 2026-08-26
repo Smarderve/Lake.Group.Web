@@ -82,7 +82,7 @@ export const CONTENT_SEED = {
       logo: 'assets/images/logos/companies/cross-country.png', website: 'https://www.lakeoilgroup.com/cross-country.html' },
     { slug: 'ocean-galleria', name: 'Ocean Galleria', categorySlug: 'realestate',
       description: "Lake Group's real estate and retail gallery development.",
-      logo: 'assets/images/logos/companies/ocean-galleria.png', website: 'https://www.lakeoilgroup.com/ocean-galleria.html' },
+      logo: 'assets/images/logos/companies/Ocean-Galleria-logo.webp', website: 'https://www.lakeoilgroup.com/ocean-galleria.html' },
     { slug: 'lake-agro', name: 'Lake Agro', categorySlug: 'agro',
       description: 'Agribusiness plantations and integrated agro-parks — creating customers and food for life across Africa.',
       logo: 'assets/images/logos/companies/lake-agro.png', website: 'https://www.lakeoilgroup.com/lake-agro.html' },

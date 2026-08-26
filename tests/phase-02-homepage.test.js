@@ -49,7 +49,7 @@ for (const viewport of [{ name: 'desktop', width: 1440, height: 900 }, { name: '
       mapCta: [...document.querySelectorAll('#fuel-experience a')].some((a) => /operations map/i.test(a.textContent)),
     }));
     assert.ok(state.overflow <= 1, `horizontal overflow: ${state.overflow}px`);
-    assert.equal(state.logoBackground, 'rgb(1, 129, 187)');
+    assert.equal(state.logoBackground, 'rgb(255, 255, 255)');
     assert.equal(state.mapDisplayed, 'none');
     assert.equal(state.mapCta, false);
     await page.screenshot({ path: path.join(evidence, `${viewport.name}-hero.png`), fullPage: false });

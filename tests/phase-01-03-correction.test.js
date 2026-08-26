@@ -1,0 +1,83 @@
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const http = require('node:http');
+const fs = require('node:fs');
+const crypto = require('node:crypto');
+const path = require('node:path');
+const { chromium } = require('playwright');
+const root = path.join(__dirname, '..');
+const evidence = path.join(root, 'docs', 'qa', 'phase-01-03-correction');
+let server, browser;
+
+test.before(async () => {
+  fs.mkdirSync(evidence,{recursive:true});
+  server = http.createServer((req,res) => { const rel=decodeURIComponent(req.url.split('?')[0]).replace(/^\/+/, '')||'index.html'; const file=path.resolve(root,rel); if(!file.startsWith(root)||!fs.existsSync(file)||fs.statSync(file).isDirectory()){res.writeHead(404);res.end();return;} const types={'.html':'text/html','.css':'text/css','.js':'text/javascript','.json':'application/json','.jpg':'image/jpeg','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2'};res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream'});fs.createReadStream(file).pipe(res); });
+  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+  browser=await chromium.launch({headless:true});
+});
+test.after(async()=>{if(browser)await browser.close();if(server)await new Promise(r=>server.close(r));});
+
+test('desktop glass navbar, hover mega-menu and About navigation', async () => {
+  const page=await browser.newPage({viewport:{width:1440,height:900}});
+  await page.goto(`http://127.0.0.1:${server.address().port}/index.html`,{waitUntil:'networkidle'});
+  await page.waitForFunction(()=>!document.documentElement.classList.contains('lg-loading'));
+  const nav=await page.locator('[data-phase01-navbar]').evaluate(el=>{const s=getComputedStyle(el);return{bg:s.backgroundImage,blur:s.backdropFilter,height:s.height,logo:el.querySelector('.nav-logo img').getAttribute('src'),stripes:!!el.querySelector('.nav-stripes')}});
+  assert.match(nav.bg,/gradient/i); assert.notEqual(nav.blur,'none'); assert.equal(nav.height,'68px'); assert.match(nav.logo,/LAKE_LOGO_LAKE_ONLY/); assert.equal(nav.stripes,false);
+  await page.locator('#nav-companies-trigger').hover();
+  await page.locator('[data-mm-cat="logistics"]').hover();
+  assert.equal(await page.locator('[data-mm-pane="logistics"]').evaluate(el=>getComputedStyle(el).display),'block');
+  await page.locator('[data-mm-pane="logistics"] .mm-company').first().hover();
+  assert.ok(await page.locator('#nav-companies-menu').evaluate(el=>Number(getComputedStyle(el).opacity))>.9);
+  await page.locator('[data-mm-cat="realestate"]').hover();
+  const oceanLogo=page.locator('[data-mm-pane="realestate"] img[alt="Ocean Galleria"]');
+  const oceanState=await oceanLogo.evaluate(el=>{const s=getComputedStyle(el);return{src:el.getAttribute('src'),complete:el.complete,naturalWidth:el.naturalWidth,naturalHeight:el.naturalHeight,fit:s.objectFit,tile:getComputedStyle(el.closest('.mm-company')).backgroundColor}});
+  assert.match(oceanState.src,/Ocean-Galleria-logo\.webp$/);
+  assert.equal(oceanState.complete,true); assert.equal(oceanState.naturalWidth,1881); assert.equal(oceanState.naturalHeight,836); assert.equal(oceanState.fit,'contain'); assert.notEqual(oceanState.tile,'rgba(0, 0, 0, 0)');
+  await page.screenshot({path:path.join(evidence,'desktop-navbar-dropdown.png'),fullPage:false});
+  await page.locator('a[href="about.html"]').first().click();
+  await page.waitForURL(/about\.html/);
+  await page.waitForFunction(()=>!document.documentElement.classList.contains('lg-loading'));
+  await page.waitForFunction(()=>!document.querySelector('[data-lg-skeleton-overlay]'));
+  assert.equal(await page.locator('#ose-s1').evaluate(el=>getComputedStyle(el).display),'block');
+  assert.ok(await page.locator('main').evaluate(el=>el.getBoundingClientRect().height)>700);
+  await page.screenshot({path:path.join(evidence,'desktop-about.png'),fullPage:false});
+  await page.close();
+});
+
+test('mobile drawer and subsidiary accordion remain touch operable', async()=>{
+  const page=await browser.newPage({viewport:{width:390,height:844},hasTouch:true});
+  await page.goto(`http://127.0.0.1:${server.address().port}/leadership.html`,{waitUntil:'networkidle'});
+  await page.waitForFunction(()=>!document.documentElement.classList.contains('lg-loading'));
+  await page.waitForFunction(()=>!document.querySelector('[data-lg-skeleton-overlay]'));
+  await page.locator('#nav-toggle').click();
+  assert.equal(await page.locator('#nav-mobile').getAttribute('hidden'),null);
+  await page.locator('.mob-acc-btn').first().click();
+  assert.equal(await page.locator('#mob-acc-energies').getAttribute('hidden'),null);
+  assert.equal(await page.locator('.ld-featured .ld-person-card').count(),1);
+  assert.equal(await page.locator('a[href="leadership-ally-edha-awadh.html"]').count(),0);
+  await page.screenshot({path:path.join(evidence,'mobile-leadership.png'),fullPage:false});
+  await page.locator('#nav-toggle').click();
+  await page.locator('.ld-featured').scrollIntoViewIfNeeded();
+  await page.screenshot({path:path.join(evidence,'mobile-chairman-profile.png'),fullPage:false});
+  await page.close();
+});
+
+test('shared footer and retired Ally route contract',()=>{
+  const css=fs.readFileSync(path.join(root,'assets/phase-01-footer.css'),'utf8');
+  assert.match(css,/\.country-tag[\s\S]*border: 0 !important/);
+  assert.match(css,/\.footer-social \.social-link[\s\S]*height: 32px/);
+  assert.match(fs.readFileSync(path.join(root,'vercel.json'),'utf8'),/leadership-ally-edha-awadh\.html[\s\S]*leadership\.html/);
+});
+
+test('Ocean Galleria uses one canonical approved production logo',()=>{
+  const canonical=path.join(root,'assets','images','logos','companies','Ocean-Galleria-logo.webp');
+  const supplied='C:\\Users\\USER\\Downloads\\Ocean-Galleria-logo.webp';
+  const digest=file=>crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+  assert.equal(digest(canonical),digest(supplied));
+  assert.equal(fs.existsSync(path.join(root,'assets','images','logos','companies','ocean-galleria.png')),false);
+  for(const file of ['scripts/templates/nav.html','assets/components/logo-loop-mount.js','contact.html','ocean-galleria.html','backend/scripts/content-seed-data.js']){
+    const source=fs.readFileSync(path.join(root,file),'utf8');
+    assert.match(source,/Ocean-Galleria-logo\.webp/);
+    assert.doesNotMatch(source,/assets\/images\/logos\/companies\/ocean-galleria\.png/);
+  }
+});

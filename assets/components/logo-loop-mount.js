@@ -29,7 +29,7 @@
     { src: 'assets/images/logos/companies/atl.png?v=61', alt: 'ATL', title: 'ATL', href: 'atl.html', scale: 0.9 },
     { src: 'assets/images/logos/companies/lake-agro.png?v=61', alt: 'Lake Agro', title: 'Lake Agro', href: 'lake-agro.html', scale: 0.8 },
     { src: 'assets/images/logos/companies/cross-country.png?v=69', alt: 'Cross Country', title: 'Cross Country', href: 'cross-country.html', scale: 1.15 },
-    { src: 'assets/images/logos/companies/ocean-galleria.png?v=69', alt: 'Ocean Galleria', title: 'Ocean Galleria', href: 'ocean-galleria.html', scale: 1.15 }
+    { src: 'assets/images/logos/companies/Ocean-Galleria-logo.webp', alt: 'Ocean Galleria', title: 'Ocean Galleria', href: 'ocean-galleria.html', scale: 1.15 }
   ];
 
   var DEFAULTS = {
@@ -41,7 +41,7 @@
     logoHeightMobile: 34,
     gapMobile: 34,
     fadeOut: true,
-    fadeOutColor: '#0181bb',
+    fadeOutColor: '#ffffff',
     scaleOnHover: true,
     ariaLabel: (window.LakeI18n && LakeI18n.t('logoloop.aria')) || 'Lake Group subsidiary companies',
     pauseOnHover: true

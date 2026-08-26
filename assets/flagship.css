@@ -764,7 +764,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   padding: 6px 10px;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.14);
 }
-.mm-company img[src*="ocean-galleria.png"] {
+.mm-company img[src*="Ocean-Galleria-logo.webp"] {
   height: 78px;
   max-width: 150px;
   background: transparent;
@@ -803,7 +803,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
     max-height: 74px;
     padding: 4px 8px;
   }
-  .mm-company img[src*="ocean-galleria.png"] {
+  .mm-company img[src*="Ocean-Galleria-logo.webp"] {
     height: 66px;
     max-width: 138px;
     padding: 0;

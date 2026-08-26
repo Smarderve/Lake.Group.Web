@@ -47,9 +47,10 @@
 .ld-featured {
   display: flex; justify-content: center;
   margin: 0 auto var(--sp-12);
-  max-width: 320px;
+  max-width: 1040px;
 }
-.ld-featured .ld-person-card { width: 100%; }
+.ld-featured .ld-person-card { width:100%; display:grid; grid-template-columns:minmax(300px,.82fr) 1.18fr; background:#fff; box-shadow:0 24px 70px rgba(1,63,92,.12); overflow:hidden; }
+.ld-featured .ld-person-photo{aspect-ratio:auto;min-height:600px}.ld-featured .ld-person-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}.ld-featured .ld-person-body{padding:clamp(32px,5vw,68px);display:flex;flex-direction:column;justify-content:center}.ld-featured .ld-person-body h3{font-size:clamp(2.2rem,4vw,4.2rem);line-height:1}.ld-featured .ld-person-role{color:#0181bb;font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}.ld-featured .ld-person-sum{font-size:1.16rem;line-height:1.65}.ld-featured .ld-person-body>p{margin-top:14px;line-height:1.7}.ld-chairman-mandate{margin:24px 0 0;padding:20px 0 0;list-style:none;border-top:1px solid rgba(1,63,92,.18);display:grid;gap:9px}.ld-chairman-mandate li::before{content:'—';color:#fff200;background:#013f5c;margin-right:10px;padding:0 4px}
 
 /* Row 2+: compact 3-col grid with generous gutters */
 .ld-card-grid {
@@ -64,7 +65,8 @@
 }
 @media (max-width: 560px) {
   .ld-card-grid { grid-template-columns: 1fr; max-width: 300px; gap: 40px; }
-  .ld-featured { max-width: 280px; margin-bottom: var(--sp-10); }
+  .ld-featured { max-width: none; margin-bottom: var(--sp-10); }
+  .ld-featured .ld-person-card{grid-template-columns:1fr}.ld-featured .ld-person-photo{min-height:430px}.ld-featured .ld-person-body{padding:30px 24px}
 }
 
 /* Category groups: heading + grid per tier */
@@ -258,7 +260,7 @@ body .page-hero .hero-media {
   "name": "Lake Group",
   "url": "https://www.lakeoilgroup.com/",
   "employee": [
-    {"@type": "Person", "name": "Ally Edha Awadh", "jobTitle": "Founder and Chairman", "url": "https://www.lakeoilgroup.com/leadership-ally-edha-awadh.html"}
+    {"@type": "Person", "name": "Ally Edha Awadh", "jobTitle": "Founder and Chairman", "url": "https://www.lakeoilgroup.com/leadership.html"}
   ]
 }
 </script>
@@ -289,14 +291,16 @@ body .page-hero .hero-media {
           <div class="mm-pane is-active" role="tabpanel" id="mm-pane-energies" data-mm-pane="energies"><div class="mm-companies"><a href="lake-oil.html" class="mm-company"><img src="assets/images/logos/companies/lake-oil.png" alt="Lake Oil" loading="eager"></a><a href="lake-aviation.html" class="mm-company"><img src="assets/images/logos/companies/lake-aviation.png" alt="Lake Aviation" loading="eager"></a><a href="lake-gas.html" class="mm-company"><img src="assets/images/logos/companies/lake-gas.png" alt="Lake Gas" loading="eager"></a><a href="lake-lubes.html" class="mm-company"><img src="assets/images/logos/companies/lake-lubes.png" alt="Lake Lubes" loading="eager"></a></div></div>
           <div class="mm-pane" role="tabpanel" id="mm-pane-manufacturing" data-mm-pane="manufacturing" hidden><div class="mm-companies"><a href="lake-buildings.html" class="mm-company"><img src="assets/images/logos/companies/lake-buildings.png" alt="Lake Buildings" loading="eager"></a><a href="lake-plastics.html" class="mm-company"><img src="assets/images/logos/companies/lake-plastics.png" alt="Lake Plastics" loading="eager"></a><a href="lake-steel.html" class="mm-company"><img src="assets/images/logos/companies/lake-steel.png" alt="Lake Steel" loading="eager"></a><a href="lake-cylinders.html" class="mm-company"><img src="assets/images/logos/companies/lake-cylinders.png" alt="Lake Cylinders" loading="eager"></a><a href="gulf-aggregates.html" class="mm-company"><img src="assets/images/logos/companies/gulf-aggregates.png" alt="Gulf Aggregates" loading="eager"></a><a href="atl.html" class="mm-company"><img src="assets/images/logos/companies/atl.png" alt="ATL" loading="eager"></a><a href="lake-premix-cement.html" class="mm-company"><img src="assets/images/logos/companies/lake-premix-cement.png" alt="Lake Premix and Cement" loading="eager"></a></div></div>
           <div class="mm-pane" role="tabpanel" id="mm-pane-logistics" data-mm-pane="logistics" hidden><div class="mm-companies"><a href="aficd.html" class="mm-company"><img src="assets/images/logos/companies/aficd.png" alt="AFICD" loading="eager"></a><a href="acfs.html" class="mm-company"><img src="assets/images/logos/companies/acfs.png" alt="ACFS" loading="eager"></a><a href="aill.html" class="mm-company"><img src="assets/images/logos/companies/aill.png" alt="AILL" loading="eager"></a><a href="lake-trans.html" class="mm-company"><img src="assets/images/logos/companies/lake-trans.png" alt="Lake Trans" loading="eager"></a></div></div>
-          <div class="mm-pane" role="tabpanel" id="mm-pane-realestate" data-mm-pane="realestate" hidden><div class="mm-companies"><a href="cross-country.html" class="mm-company"><img src="assets/images/logos/companies/cross-country.png" alt="Cross Country" loading="eager"></a><a href="ocean-galleria.html" class="mm-company"><img src="assets/images/logos/companies/ocean-galleria.png" alt="Ocean Galleria" loading="eager"></a></div></div>
+          <div class="mm-pane" role="tabpanel" id="mm-pane-realestate" data-mm-pane="realestate" hidden><div class="mm-companies"><a href="cross-country.html" class="mm-company"><img src="assets/images/logos/companies/cross-country.png" alt="Cross Country" loading="eager"></a><a href="ocean-galleria.html" class="mm-company mm-company--light-logo"><img src="assets/images/logos/companies/Ocean-Galleria-logo.webp" alt="Ocean Galleria" loading="eager"></a></div></div>
           <div class="mm-pane" role="tabpanel" id="mm-pane-agro" data-mm-pane="agro" hidden><div class="mm-companies"><a href="lake-agro.html" class="mm-company"><img src="assets/images/logos/companies/lake-agro.png" alt="Lake Agro" loading="eager"></a></div></div>
           <div class="mm-pane" role="tabpanel" id="mm-pane-automotive" data-mm-pane="automotive" hidden><div class="mm-companies"><a href="assembly-tech.html" class="mm-company mm-company--wordmark"><span data-i18n="nav.co.assemblyTech">Assembly Tech Limited</span></a><a href="agrinova-tech.html" class="mm-company mm-company--wordmark"><span data-i18n="nav.co.agrinovaTech">AgriNova Tech Limited</span></a><a href="nextdrive-motors.html" class="mm-company mm-company--wordmark"><span data-i18n="nav.co.nextDriveMotors">NextDrive Motors Limited</span></a></div></div>
         </div></div></div>
       </li><li><a href="leadership.html" data-i18n="nav.leadership">Leadership</a></li><li class="has-dropdown"><a href="history.html" data-i18n="nav.company" aria-haspopup="true" aria-expanded="false" aria-controls="nav-corporate-menu">Corporate &#9662;</a><div class="nav-dropdown" id="nav-corporate-menu"><a href="history.html">Our History</a><a href="africa-network.html">Operations Map</a><a href="csr.html">CSR &amp; Sustainability</a><a href="investors.html">Investor Relations</a><a href="projects.html">Major Projects</a><a href="gallery.html">Gallery</a></div></li><li><a href="news.html" data-i18n="nav.news">News</a></li><li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
-    </ul><span class="nav-stripes" aria-hidden="true"><i></i><i></i><i></i></span><button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-controls="nav-mobile" aria-expanded="false"><span></span><span></span><span></span></button>
+    </ul><button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-controls="nav-mobile" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
+
+
 
 
 
@@ -314,6 +318,8 @@ body .page-hero .hero-media {
     <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-logistics">Logistics Sector</button><div class="mob-acc-panel" id="mob-acc-logistics" hidden><a href="aficd.html">AFICD</a><a href="acfs.html">ACFS</a><a href="aill.html">AILL</a><a href="lake-trans.html">Lake Trans</a></div><button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-realestate">Real Estate Sector</button><div class="mob-acc-panel" id="mob-acc-realestate" hidden><a href="cross-country.html">Cross Country</a><a href="ocean-galleria.html">Ocean Galleria</a></div><button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-agro">Agro Processing Sector</button><div class="mob-acc-panel" id="mob-acc-agro" hidden><a href="lake-agro.html">Lake Agro</a></div><button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-automotive">Automotive Sector</button><div class="mob-acc-panel" id="mob-acc-automotive" hidden><a href="assembly-tech.html">Assembly Tech Limited</a><a href="agrinova-tech.html">AgriNova Tech Limited</a><a href="nextdrive-motors.html">NextDrive Motors Limited</a></div>
   </div><a href="leadership.html">Leadership</a><div class="mob-section">Corporate</div><a href="history.html">History</a><a href="africa-network.html">Operations Map</a><a href="csr.html">CSR</a><a href="investors.html">Investors</a><a href="projects.html">Projects</a><a href="gallery.html">Gallery</a><div class="mob-section">More</div><a href="news.html">News</a><a href="careers.html">Careers</a>
 </div>
+
+
 
 
 
@@ -353,15 +359,17 @@ body .page-hero .hero-media {
     </div>
 
     <div class="ld-featured" data-hydrate="leadership" data-hydrate-match="name">
-      <a class="ld-person-card" data-entity-key="Ally Edha Awadh" href="leadership-ally-edha-awadh.html">
+      <article class="ld-person-card" data-entity-key="Ally Edha Awadh">
         <div class="ld-person-photo"><img data-entity-field="photo" data-entity-attr="src" src="assets/images/leadership/ally-edha-awadh.png" alt="Ally Edha Awadh" data-i18n-alt="leadership.9" loading="lazy" decoding="async"></div>
         <div class="ld-person-body">
           <h3><span data-i18n="leadership.9" data-entity-field="name">Ally Edha Awadh</span></h3>
           <p class="ld-person-role"><span data-entity-field="position">Founder and Chairman</span></p>
-          <p class="ld-person-sum"><span data-i18n="leadership.104" data-entity-field="bio">Forbes-featured entrepreneur who founded Lake Oil in 2006 and built Lake Group into one of East and Central Africa�s leading energy, logistics and industrial conglomerates.</span></p>
-          <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>
+          <p class="ld-person-sum"><span data-i18n="leadership.104" data-entity-field="bio">Forbes-featured entrepreneur who founded Lake Oil in 2006 and built Lake Group into one of East and Central Africa's leading energy, logistics and industrial conglomerates.</span></p>
+          <p>He launched Lake Oil in 2006 and continues to guide the Group's strategy across energy, downstream logistics and industrial manufacturing.</p>
+          <p>His leadership portfolio spans petroleum distribution, LPG, transport, lubricants, steel, ready-mix concrete and inland container services.</p>
+          <ul class="ld-chairman-mandate"><li>Group strategy across energy, logistics and industry</li><li>Regional expansion and capital partnerships</li><li>Governance and long-term value creation</li></ul>
         </div>
-      </a>
+      </article>
     </div>
 
   </div>

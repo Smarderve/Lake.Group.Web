@@ -175,7 +175,7 @@ body[data-shared-footer="true"] footer.site-footer .footer-contact-ico * {
 body[data-shared-footer="true"] footer.site-footer .footer-social {
   display: flex !important;
   flex-wrap: wrap !important;
-  gap: 12px !important;
+  gap: 14px !important;
   margin: 20px 0 0 !important;
   padding: 0 !important;
 }
@@ -183,23 +183,22 @@ body[data-shared-footer="true"] footer.site-footer .footer-social {
 body[data-shared-footer="true"] footer.site-footer .footer-social .social-link {
   align-items: center !important;
   background: transparent !important;
-  border: 1px solid rgba(245, 247, 251, 0.32) !important;
-  border-radius: 0 !important;
+  border: 0 !important;
+  border-radius: 50% !important;
   color: #f5f7fb !important;
   display: inline-flex !important;
-  height: 42px !important;
+  height: 32px !important;
   justify-content: center !important;
   line-height: 1 !important;
-  width: 42px !important;
+  width: 32px !important;
 }
 
 body[data-shared-footer="true"] footer.site-footer .footer-social .social-link:hover,
 body[data-shared-footer="true"] footer.site-footer .footer-social .social-link:focus-visible {
-  background: #fff200 !important;
-  border-color: #fff200 !important;
-  color: #013f5c !important;
-  outline: 2px solid #fff200 !important;
-  outline-offset: 3px !important;
+  background: rgba(255,255,255,.1) !important;
+  color: #fff200 !important;
+  outline: 1px solid rgba(255,242,0,.55) !important;
+  outline-offset: 2px !important;
 }
 
 body[data-shared-footer="true"] footer.site-footer .footer-social-ico {
@@ -213,14 +212,14 @@ body[data-shared-footer="true"] footer.site-footer .footer-social-ico {
 
 body[data-shared-footer="true"] footer.site-footer .country-tag {
   background: transparent !important;
-  border: 1px solid rgba(245, 247, 251, 0.32) !important;
+  border: 0 !important;
   border-radius: 0 !important;
   color: #f5f7fb !important;
   display: inline-flex !important;
   font-size: 12px !important;
   gap: 6px !important;
   margin: 0 !important;
-  padding: 4px 10px !important;
+  padding: 2px 8px 2px 0 !important;
 }
 
 body[data-shared-footer="true"] footer.site-footer .country-tag .flag-icon {
