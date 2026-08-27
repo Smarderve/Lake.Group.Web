@@ -1,118 +1,83 @@
-/* Hero: full-viewport background slideshow with slow zoom,
-   "turn out" content, tab indicators, and per-slide subtitles.
-   Reduced-motion users get the static first slide. */
+
+
+/* ── Stat count-up animation ─────────────────────────────────── */
 (function () {
   "use strict";
-  var root = document.querySelector(".hero[data-hero-carousel]");
-  if (!root) return;
-  var slides = root.querySelectorAll(".hero-slide");
-  if (slides.length < 2) return;
+
+  var keyfacts = document.querySelector(".hero-keyfacts");
+  if (!keyfacts) return;
+
+  var nums = keyfacts.querySelectorAll(".hero-kf-num");
+  if (!nums.length) return;
+
+  /* Skip animation for users who prefer reduced motion. */
   if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  var content = document.querySelector(".hero-content");
-  var subtitle = content ? content.querySelector(".hero-sub") : null;
-  var tabs = root.querySelectorAll(".hero-tab");
-  var DURATION = 8000;
-  var index = 0;
-  var timer = null;
-  var paused = false;
-  var inView = true;
-
-  // Per-slide subtitles. The canonical texts live in the i18n dictionary
-  // (hero.slide1 .. hero.slide5, one entry per language) so a translation
-  // survives every carousel rotation and never reverts to the previous
-  // language's text. This array is only the English fallback for pages
-  // where assets/i18n.js has not run.
-  var slideTexts = [
-    "Fueling East Africa for two decades",
-    "Industrial production across steel, plastics, cylinders, and construction materials.",
-    "Advancing mobility through vehicle assembly and automotive technology.",
-    "Developing commercial destinations and strategic properties across the region.",
-    "Growing agriculture and agro-processing capacity across East Africa.",
-    "Dar es Salaam: East Africa's Gateway to Global Trade."
-  ];
-
-  function slideTextFor(i) {
-    var t = window.LakeI18n && window.LakeI18n.t ? window.LakeI18n.t('hero.slide' + (i + 1)) : null;
-    return t != null && t !== '' ? t : (slideTexts[i] || slideTexts[0]);
-  }
-
-  function setActive(i) {
-    slides.forEach(function (s, n) {
-      s.classList.toggle("is-active", n === i);
-    });
-    tabs.forEach(function (t, n) {
-      t.classList.toggle("is-active", n === i);
-      t.setAttribute("aria-selected", n === i ? "true" : "false");
-      var fill = t.querySelector(".hero-tab-fill");
-      if (fill) {
-        fill.classList.remove("is-running");
-        void fill.offsetWidth;
-        if (n === i) {
-          fill.classList.add("is-running");
-        }
-      }
-    });
-    if (subtitle) {
-      subtitle.classList.remove("hero-sub-slide");
-      subtitle.classList.add("hero-sub-exit");
-      setTimeout(function () {
-        subtitle.textContent = slideTextFor(i);
-        subtitle.classList.remove("hero-sub-exit");
-        void subtitle.offsetWidth;
-        subtitle.classList.add("hero-sub-slide");
-      }, 250);
+  /* Parse "30,000+" -> { end: 30000, suffix: "+" }  or "152" -> { end: 152, suffix: "" } */
+  function parseValue(raw) {
+    var trimmed = raw.trim();
+    var suffix = "";
+    if (trimmed.charAt(trimmed.length - 1) === "+") {
+      suffix = "+";
+      trimmed = trimmed.slice(0, -1);
     }
+    return { end: parseInt(trimmed.replace(/,/g, ""), 10) || 0, suffix: suffix };
   }
 
-  function stop() {
-    if (timer) { clearInterval(timer); timer = null; }
+  function formatWithCommas(n) {
+    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
-  function start() {
-    stop();
-    if (!paused && inView && !document.hidden) {
-      timer = setInterval(function () {
-        index = (index + 1) % slides.length;
-        setActive(index);
-      }, DURATION);
-    }
+  /* easeOutCubic for a crisp deceleration at the end */
+  function easeOutCubic(t) {
+    return 1 - Math.pow(1 - t, 3);
   }
 
-  setActive(0);
-  start();
+  var DURATION_MS = 2200;
+  var started = false;
 
-  /* Tab click: jump to slide */
-  tabs.forEach(function (tab, n) {
-    tab.addEventListener("click", function () {
-      index = n;
-      setActive(index);
-      start();
+  function animate() {
+    if (started) return;
+    started = true;
+
+    var infos = [];
+    nums.forEach(function (el) {
+      var raw = el.getAttribute("data-count-end") || el.textContent;
+      var info = parseValue(raw);
+      info.el = el;
+      info.start = performance.now();
+      infos.push(info);
     });
+
+    function tick(now) {
+      var allDone = true;
+      infos.forEach(function (info) {
+        var elapsed = now - info.start;
+        var t = Math.min(1, elapsed / DURATION_MS);
+        var current = Math.round(easeOutCubic(t) * info.end);
+        info.el.textContent = formatWithCommas(current) + info.suffix;
+        if (t < 1) allDone = false;
+      });
+      if (!allDone) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  /* Stash final values so a mid-animation i18n refresh doesn't break things */
+  nums.forEach(function (el) {
+    el.setAttribute("data-count-end", el.textContent.trim());
   });
 
-  /* Pause on touch (mobile) */
-  root.addEventListener("touchstart", function () { paused = true; }, { passive: true });
-  root.addEventListener("touchend", function () { paused = false; start(); }, { passive: true });
-
+  /* Trigger when the statistics scroll into view */
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
-      inView = entries[0].isIntersecting;
-      start();
-    }, { threshold: 0.05 });
-    io.observe(root);
+      if (entries[0].isIntersecting) {
+        io.disconnect();
+        animate();
+      }
+    }, { threshold: 0.3 });
+    io.observe(keyfacts);
+  } else {
+    animate();
   }
-
-  document.addEventListener("visibilitychange", function () {
-    if (document.hidden) stop(); else start();
-  });
-
-  /* When the visitor switches language (or i18n first applies), re-render the
-     subtitle for the current slide so it never keeps stale text from a
-     previous language. */
-  document.addEventListener("lake-i18n-applied", function () {
-    if (subtitle) {
-      subtitle.textContent = slideTextFor(index);
-    }
-  });
 })();
