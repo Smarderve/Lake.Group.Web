@@ -22,15 +22,15 @@ const logos = [
   'assets/images/logos/companies/lake-buildings.png',
   'assets/images/logos/companies/lake-plastics.png',
   'assets/images/logos/companies/lake-premix-cement.png',
-  'assets/images/logos/companies/gulf-aggregates.png',
+  'assets/images/logos/companies/gulf-aggregates-blue.png',
   'assets/images/logos/companies/cross-country.png?v=62',
-  'assets/images/logos/companies/ocean-galleria.png?v=61',
+  'assets/images/logos/companies/Ocean-Galleria-logo.webp',
 ];
 
 console.log('=== Path verification ===');
 let missing = 0;
 for (const rel of logos) {
-  const full = path.join(ROOT, rel);
+  const full = path.join(ROOT, rel.split('?')[0]);
   const ok = fs.existsSync(full);
   if (!ok) missing += 1;
   console.log(ok ? 'OK ' : 'MISS', rel);
@@ -42,6 +42,10 @@ if (missing) {
 
 const css = fs.readFileSync(path.join(ROOT, 'assets/components/LogoLoop.css'), 'utf8');
 const mount = fs.readFileSync(path.join(ROOT, 'assets/components/logo-loop-mount.js'), 'utf8');
+if (!/gulf-aggregates-blue\.png\?v=71/.test(mount) || /gulf-aggregates\.png/.test(mount)) {
+  console.error('FAIL: marquee must use only the approved white Gulf Aggregate lockup');
+  process.exit(1);
+}
 const jsx = fs.readFileSync(path.join(ROOT, 'assets/components/LogoLoop.jsx'), 'utf8');
 
 const checks = [

@@ -21,7 +21,8 @@
     { src: 'assets/images/logos/companies/lake-plastics-blue.png?v=70', alt: 'Lake Plastics', title: 'Lake Plastics', href: 'lake-plastics.html' },
     { src: 'assets/images/logos/companies/lake-premix-cement-blue.png?v=70', alt: 'Lake Premix & Cement', title: 'Lake Premix & Cement', href: 'lake-premix-cement.html' },
     { src: 'assets/images/logos/companies/lake-cylinders-blue.png?v=70', alt: 'Lake Cylinders', title: 'Lake Cylinders', href: 'lake-cylinders.html' },
-    { src: 'assets/images/logos/companies/gulf-aggregates-blue.png?v=70', alt: 'Gulf Aggregates', title: 'Gulf Aggregates', href: 'gulf-aggregates.html' },
+    /* Marquee-only approved lockup: white wordmark with the authentic swoosh. */
+    { src: 'assets/images/logos/companies/gulf-aggregates-blue.png?v=71', alt: 'Gulf Aggregates', title: 'Gulf Aggregates', href: 'gulf-aggregates.html' },
     { src: 'assets/images/logos/companies/aficd.png?v=69', alt: 'AFICD', title: 'AFICD', href: 'aficd.html' },
     { src: 'assets/images/logos/companies/aill.png?v=58', alt: 'AILL', title: 'AILL', href: 'aill.html' },
     /* Tight-crop marks read larger than padded Lake logos at the same CSS height */
