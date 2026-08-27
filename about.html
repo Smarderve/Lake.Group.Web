@@ -139,8 +139,9 @@ body.about .page-wrapper { padding-top: 0; }
   position: absolute; bottom: 1.4rem; left: 50%; transform: translateX(-50%); z-index: 20;
   display: flex; gap: 10px; align-items: center;
 }
-.ose-dot { width: 9px; height: 9px; padding: 0; border: 1px solid rgba(255,255,255,.75); border-radius: 50%; background: rgba(0,0,0,.12); cursor: pointer; transition: background .25s, transform .25s; }
-.ose-dot.ose-dot-active { background: var(--yellow); border-color: var(--yellow); transform: scale(1.15); }
+.ose-dot { position: relative; width: 24px; height: 24px; padding: 0; border: 0; border-radius: 50%; background: transparent; cursor: pointer; transition: opacity .25s ease; }
+.ose-dot::before { content: ''; position: absolute; inset: 50% auto auto 50%; width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.52); transform: translate(-50%, -50%); transition: background-color .25s ease, transform .25s ease; }
+.ose-dot.ose-dot-active::before { width: 8px; height: 8px; background: var(--yellow); opacity: 1; }
 .ose-arrow {
   position: absolute; top: 50%; z-index: 21; transform: translateY(-50%);
   width: 48px; height: 48px; display: grid; place-items: center;
@@ -379,37 +380,13 @@ body.about .page-wrapper { padding-top: 0; }
   <div class="ose-stage" id="ose-stage">
 
     <div class="ose-scene ose-active" id="ose-s1" aria-hidden="false">
-      <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/about/about-hero-lake-energies-enhanced.webp" alt="Lake Energies petrol station" fetchpriority="high" decoding="async"></div>
+      <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/about/about-hero-01.webp" alt="Lake Energies petrol station" fetchpriority="high" decoding="async"></div>
       <div class="ose-tint ose-tint-dark"></div>
       <div class="ose-text">
         <span class="ose-eyebrow">About Lake Group</span>
         <h2 class="ose-display ose-xl">Built in Africa.<br>Growing with purpose.</h2>
       </div>
       <span class="ose-stamp" data-i18n="ose.s1.stamp">Est. 2006</span>
-    </div>
-
-    <div class="ose-scene" id="ose-s2" aria-hidden="true">
-      <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/lakeoil/current/fleet-loading.jpg" alt="Lake Group fuel distribution operations"></div>
-      <div class="ose-tint ose-tint-blue"></div>
-      <div class="ose-text">
-        <span class="ose-eyebrow">Our beginning</span>
-        <h2 class="ose-display ose-lg">From one outlet<br>to a regional group.</h2>
-        <div class="ose-line"></div>
-        <p class="ose-body" data-i18n="ose.s2.body">It began with a single fuel outlet in Dar es Salaam. No fleet, no network, no certainty - just a belief that East Africa deserved a more reliable energy supply chain.</p>
-      </div>
-      <p class="ose-label">Lake Oil &middot; Est. 2006</p>
-    </div>
-
-    <div class="ose-scene" id="ose-s3" aria-hidden="true">
-      <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/leadership/annual-event.jpg" alt="Lake Group team at the annual company event" loading="lazy" decoding="async"></div>
-      <div class="ose-tint ose-tint-navy"></div>
-      <div class="ose-text">
-        <span class="ose-eyebrow">Our people</span>
-        <h2 class="ose-display ose-lg">One group.<br>A shared standard.</h2>
-        <div class="ose-line"></div>
-        <p class="ose-body">Quality, service, safety and professionalism guide every company in the Lake Group family.</p>
-      </div>
-      <p class="ose-label">The people behind our progress</p>
     </div>
 
     <button class="ose-arrow ose-arrow-prev" type="button" aria-label="Previous About slide">
@@ -538,18 +515,69 @@ body.about .page-wrapper { padding-top: 0; }
 (function () {
   const stage = document.getElementById('ose-stage');
   if (!stage) return;
-  const scenes = [...stage.querySelectorAll('.ose-scene')];
   const progress = document.getElementById('ose-progress');
   const previousButton = stage.querySelector('.ose-arrow-prev');
   const nextButton = stage.querySelector('.ose-arrow-next');
+  const slideImages = [
+    'assets/images/about/about-hero-01.webp', 'assets/images/about/about-hero-02.webp',
+    'assets/images/about/about-hero-03.webp', 'assets/images/about/about-hero-04.webp',
+    'assets/images/about/about-hero-05.webp', 'assets/images/about/about-hero-06.webp',
+    'assets/images/about/about-hero-07.webp', 'assets/images/about/about-hero-08.webp',
+    'assets/images/about/about-hero-09.webp', 'assets/images/about/about-hero-10.webp',
+    'assets/images/about/about-hero-11.webp', 'assets/images/about/about-hero-12.webp'
+  ];
+  const slideCopy = [
+    { eyebrow: 'About Lake Group', title: 'Built in Africa.<br>Growing with purpose.', alt: 'Lake Energies petrol station', stamp: 'Est. 2006' },
+    { eyebrow: 'Our beginning', title: 'From one outlet<br>to a regional group.', body: 'It began with a single fuel outlet in Dar es Salaam. No fleet, no network, no certainty - just a belief that East Africa deserved a more reliable energy supply chain.', label: 'Lake Oil &middot; Est. 2006' },
+    { eyebrow: 'Our people', title: 'One group.<br>A shared standard.', body: 'Quality, service, safety and professionalism guide every company in the Lake Group family.', label: 'The people behind our progress' }
+  ];
+  const firstScene = stage.querySelector('.ose-scene');
+  slideImages.slice(1).forEach((image, index) => {
+    const copy = slideCopy[(index + 1) % slideCopy.length];
+    const scene = firstScene.cloneNode(true);
+    const slideNumber = index + 2;
+    scene.id = `ose-s${slideNumber}`;
+    scene.classList.remove('ose-active');
+    scene.setAttribute('aria-hidden', 'true');
+    const photo = scene.querySelector('.ose-photo');
+    photo.src = image;
+    photo.removeAttribute('fetchpriority');
+    photo.setAttribute('loading', 'eager');
+    photo.alt = copy.alt || 'Lake Group operations';
+    scene.querySelector('.ose-eyebrow').textContent = copy.eyebrow;
+    scene.querySelector('.ose-display').innerHTML = copy.title;
+    const body = scene.querySelector('.ose-body');
+    const text = scene.querySelector('.ose-text');
+    if (copy.body) {
+      const line = document.createElement('div');
+      line.className = 'ose-line';
+      text.appendChild(line);
+      const paragraph = document.createElement('p');
+      paragraph.className = 'ose-body';
+      paragraph.textContent = copy.body;
+      text.appendChild(paragraph);
+    } else if (body) {
+      body.remove();
+    }
+    const label = scene.querySelector('.ose-label');
+    if (label) { label.innerHTML = copy.label || ''; label.hidden = !copy.label; }
+    const stamp = scene.querySelector('.ose-stamp');
+    if (stamp) { stamp.textContent = copy.stamp || ''; stamp.hidden = !copy.stamp; }
+    stage.insertBefore(scene, previousButton);
+  });
+  const scenes = [...stage.querySelectorAll('.ose-scene')];
   const N = scenes.length;
   const DURATION = 6000;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let current = 0;
   let timer = null;
-  let visible = false;
   let paused = false;
   let touchStartX = null;
+  const preload = slideImages.map((src) => new Promise((resolve) => {
+    const image = new Image();
+    image.onload = image.onerror = () => resolve(image.naturalWidth > 0);
+    image.src = src;
+  }));
 
   for (let i = 0; i < N; i++) {
     const d = document.createElement('button');
@@ -572,7 +600,7 @@ body.about .page-wrapper { padding-top: 0; }
 
   function schedule() {
     clearTimeout(timer);
-    if (!visible || paused || reduceMotion) return;
+    if (paused || document.hidden || reduceMotion) return;
     timer = setTimeout(() => showScene(current + 1), DURATION);
   }
 
@@ -593,10 +621,8 @@ body.about .page-wrapper { padding-top: 0; }
     if (event.key === 'ArrowLeft') { event.preventDefault(); showScene(current - 1); }
     if (event.key === 'ArrowRight') { event.preventDefault(); showScene(current + 1); }
   });
-  stage.addEventListener('mouseenter', () => { paused = true; clearTimeout(timer); });
-  stage.addEventListener('mouseleave', () => { paused = false; schedule(); });
-  stage.addEventListener('focusin', () => { paused = true; clearTimeout(timer); });
-  stage.addEventListener('focusout', () => { paused = false; schedule(); });
+  stage.addEventListener('focusin', () => schedule());
+  stage.addEventListener('focusout', () => schedule());
   stage.addEventListener('touchstart', (event) => { touchStartX = event.changedTouches[0].clientX; }, { passive: true });
   stage.addEventListener('touchend', (event) => {
     if (touchStartX === null) return;
@@ -605,15 +631,14 @@ body.about .page-wrapper { padding-top: 0; }
     if (Math.abs(delta) > 45) showScene(current + (delta < 0 ? 1 : -1));
   }, { passive: true });
 
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      visible = entry.isIntersecting;
-      if (visible) schedule();
-      else clearTimeout(timer);
-    });
-  }, { threshold: 0.3 });
-  io.observe(stage);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) clearTimeout(timer);
+    else schedule();
+  });
   showScene(0);
+  preload.forEach((ready, index) => ready.then((loaded) => {
+    if (!loaded) console.warn(`About hero image failed to load: ${slideImages[index]}`);
+  }));
 })();
 </script>
 <script src="assets/pwa.js?v=62" defer></script>
