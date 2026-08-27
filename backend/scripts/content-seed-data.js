@@ -36,7 +36,7 @@ export const CONTENT_SEED = {
       description: "Lake Group's flagship company — one of Tanzania's top 5 petroleum distributors, with retail stations, bulk supply and storage across 10 countries.",
       logo: 'assets/images/logos/companies/lake-oil.png', website: 'https://www.lakeoilgroup.com/lake-oil.html' },
     { slug: 'lake-aviation', name: 'Lake Aviation', categorySlug: 'energies',
-      description: "Lake Group's aviation services division — Jet A-1 fuel supply and aviation fuel handling.",
+      description: 'Established in 2020 as part of Lake Energies, Lake Aviation specializes in aviation fuel supply and into-plane fueling services across Tanzania and Uganda.',
       logo: 'assets/images/logos/companies/lake-aviation.png', website: 'https://www.lakeoilgroup.com/lake-aviation.html' },
     { slug: 'lake-gas', name: 'Lake Gas', categorySlug: 'energies',
       description: 'LPG bottling and distribution with cylinders for domestic and commercial use across 6 countries. Operates the Tanga import terminal and the $60M Vipingo terminal in Kenya.',

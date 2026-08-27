@@ -54,6 +54,7 @@ const PAGES = {
   services: { url: 'services.html', titleKey: 'nav.companies', title: 'Subsidiaries' },
   fuel: { url: 'lake-oil.html', titleKey: 'nav.co.lakeOil', title: 'Lake Oil' },
   lpg: { url: 'lake-gas.html', titleKey: 'nav.co.lakeGas', title: 'Lake Gas' },
+  aviation: { url: 'lake-aviation.html', titleKey: 'nav.co.lakeAviation', title: 'Lake Aviation' },
   lubricants: { url: 'lake-lubes.html', titleKey: 'nav.co.lakeLubes', title: 'Lake Lubes' },
   steel: { url: 'lake-steel.html', titleKey: 'nav.co.lakeSteel', title: 'Lake Steel' },
   concrete: { url: 'lake-premix-cement.html', titleKey: 'nav.co.lakePremixCement', title: 'Lake Premix & Cement' },
@@ -96,6 +97,15 @@ function stripHtml(s) {
 // Answers are complete standalone sentences - the assistant serves them
 // verbatim. Only officially-verified figures are used.
 const CURATED_FACTS = [
+  {
+    id: 'lakeaviation',
+    url: 'lake-aviation.html',
+    en: {
+      t: 'Lake Aviation - aviation fuel',
+      s: 'Lake Aviation was established in 2020 as part of Lake Energies. It specializes in aviation fuel supply and into-plane fueling services, beginning at Kilimanjaro International Airport (JRO), expanding to Julius Nyerere International Airport (DAR) and Abeid Amani Karume International Airport (ZNZ), and serving Entebbe International Airport (EBB) in Uganda through sister company Lake Oil Uganda.',
+      k: 'lake aviation aviation fuel into-plane fueling JRO DAR ZNZ EBB Entebbe Kilimanjaro Julius Nyerere Abeid Amani Karume Uganda Lake Oil Uganda established 2020',
+    },
+  },
   {
     id: 'countries',
     url: 'africa-network.html',
