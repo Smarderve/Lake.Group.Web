@@ -1,5 +1,5 @@
 /**
- * Lake Group English-only content applicator.
+ * Lake Group language/content applicator.
  *
  * Reads the full per-language content dictionary from
  * window.__LAKE_I18N_CONTENT__, which is set by assets/i18n-content.js
@@ -25,16 +25,22 @@
  * no such restriction and works identically under file://, http://, and
  * https://, which is why the content is shipped in that form.
  *
- * Translation dictionaries remain shipped for future editorial use, but the
- * public site always renders English and exposes no switching controls.
+ * Planned languages remain visible in the shared selector. Languages without
+ * an active translation gracefully remain in English with an inline message.
  */
 window.LakeI18n = (function () {
   const STORAGE_KEY = 'lake-lang';
-  const SUPPORTED = ['en'];
-  const RTL_LANGS = [];
+  const SUPPORTED = ['en', 'fr', 'sw', 'pt', 'es', 'ar'];
+  const AVAILABLE_TRANSLATIONS = ['en'];
+  const RTL_LANGS = ['ar'];
   // ASCII-safe escapes so labels survive encoding mishaps in editors/tooling.
   const LANG_LABELS = {
-    en: 'English'
+    en: 'English',
+    fr: 'French',
+    sw: 'Swahili',
+    pt: 'Portuguese',
+    es: 'Spanish',
+    ar: 'Arabic'
   };
 
   let dictionaries = null;
@@ -204,6 +210,8 @@ window.LakeI18n = (function () {
       const menu = root.querySelector('.lang-menu');
       if (trigger) trigger.setAttribute('aria-expanded', 'false');
       if (menu) menu.hidden = true;
+      const status = root.querySelector('.lang-status');
+      if (status) status.hidden = true;
     });
   }
 
@@ -260,9 +268,32 @@ window.LakeI18n = (function () {
     document.dispatchEvent(new CustomEvent('lake-i18n-applied', { detail: { lang } }));
   }
 
+  function showUnavailableMessage(lang) {
+    const label = LANG_LABELS[lang] || lang;
+    document.querySelectorAll('.lang-switcher').forEach((root) => {
+      const menu = root.querySelector('.lang-menu');
+      const status = root.querySelector('.lang-status');
+      if (!menu || !status) return;
+      status.textContent = `Translation for ${label} is not available yet. Showing English.`;
+      status.hidden = false;
+      menu.hidden = false;
+      root.classList.add('is-open');
+      const trigger = root.querySelector('.lang-trigger');
+      if (trigger) trigger.setAttribute('aria-expanded', 'true');
+    });
+  }
+
   function apply() {
     current = 'en';
     return loadDictionaries().then(() => applyAll(current));
+  }
+
+  function selectLanguage(lang) {
+    if (AVAILABLE_TRANSLATIONS.indexOf(lang) === -1) {
+      showUnavailableMessage(lang);
+      return Promise.resolve(current);
+    }
+    return loadDictionaries().then(() => applyAll(lang));
   }
 
   function bindSwitcher(root) {
@@ -287,7 +318,7 @@ window.LakeI18n = (function () {
           e.preventDefault();
           e.stopPropagation();
           const next = suggestEl.getAttribute('data-lang');
-          if (next && SUPPORTED.indexOf(next) !== -1) apply(next);
+          if (next && SUPPORTED.indexOf(next) !== -1) selectLanguage(next);
           return;
         }
         e.preventDefault();
@@ -307,7 +338,7 @@ window.LakeI18n = (function () {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        apply(btn.dataset.lang);
+        selectLanguage(btn.dataset.lang);
       });
     });
 
@@ -368,6 +399,11 @@ window.LakeI18n = (function () {
           menu.setAttribute('role', 'menu');
           menu.setAttribute('aria-label', 'Language');
           menu.hidden = true;
+          const status = document.createElement('div');
+          status.className = 'lang-status';
+          status.setAttribute('role', 'status');
+          status.hidden = true;
+          menu.appendChild(status);
           SUPPORTED.forEach((code) => {
             const btn = document.createElement('button');
             btn.type = 'button';
@@ -376,6 +412,8 @@ window.LakeI18n = (function () {
             btn.setAttribute('aria-checked', String(code === current));
             btn.dataset.lang = code;
             btn.textContent = LANG_LABELS[code] || code;
+            btn.dataset.available = String(AVAILABLE_TRANSLATIONS.indexOf(code) !== -1);
+            btn.setAttribute('aria-label', `${LANG_LABELS[code] || code}${AVAILABLE_TRANSLATIONS.indexOf(code) === -1 ? ' (translation unavailable)' : ''}`);
             if (code === current) btn.classList.add('active');
             menu.appendChild(btn);
           });

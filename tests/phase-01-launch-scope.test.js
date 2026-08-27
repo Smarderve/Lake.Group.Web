@@ -16,11 +16,10 @@ test('launch-reduced pages use the common under-construction surface', () => {
   }
 });
 
-test('public UI is English-only and has no switching controls', () => {
-  assert.match(read('assets/i18n.js'), /const SUPPORTED = \['en'\]/);
-  for (const file of fs.readdirSync(root).filter((name) => name.endsWith('.html'))) {
-    assert.doesNotMatch(read(file), /class="[^"]*(?:lang-switcher|lang-btn)/, file);
-  }
+test('public UI exposes the planned language selector', () => {
+  assert.match(read('assets/i18n.js'), /const SUPPORTED = \['en', 'fr', 'sw', 'pt', 'es', 'ar'\]/);
+  assert.match(read('assets/i18n.js'), /Translation for/);
+  assert.match(read('index.html'), /class="lang-switcher"/);
 });
 
 test('leadership exposes Chairman Ally Edha Awadh only', () => {
