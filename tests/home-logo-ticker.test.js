@@ -62,6 +62,8 @@ async function inspectTicker(page) {
     const wrap = document.querySelector('.marquee-wrap');
     const loop = document.querySelector('#hero-logo-loop .logoloop');
     const images = [...loop.querySelectorAll('img')];
+    const firstList = loop.querySelector('.logoloop__list');
+    const firstItems = [...firstList.children];
     const track = loop.querySelector('.logoloop__track');
     const wrapRect = wrap.getBoundingClientRect();
     const wrapStyle = getComputedStyle(wrap);
@@ -80,7 +82,27 @@ async function inspectTicker(page) {
       gap: loopStyle.getPropertyValue('--logoloop-gap').trim(),
       imageHeight: Math.round(images[0].getBoundingClientRect().height),
       labels: images.slice(0, 17).map((image) => image.alt),
+      logos: images.slice(0, 17).map((image) => ({
+        alt: image.alt,
+        filter: getComputedStyle(image).filter,
+        src: image.getAttribute('src'),
+      })),
       loadedImages: images.filter((image) => image.naturalWidth > 0).length,
+      listFlexWrap: getComputedStyle(firstList).flexWrap,
+      noItemOverlap: firstItems.every((item, index) => {
+        if (index === 0) return true;
+        const previous = firstItems[index - 1].getBoundingClientRect();
+        const current = item.getBoundingClientRect();
+        return current.left >= previous.right;
+      }),
+      oneRow: (() => {
+        const centers = firstItems.map((item) => {
+          const rect = item.getBoundingClientRect();
+          return rect.top + rect.height / 2;
+        });
+        return Math.max(...centers) - Math.min(...centers) <= 1;
+      })(),
+      pageHasHorizontalOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
       trackTransform: track.style.transform,
       visibleLabels,
       wrapHeight: Math.round(wrap.getBoundingClientRect().height),
@@ -94,6 +116,7 @@ async function inspectTicker(page) {
   try {
     const cases = [
       { name: 'desktop', viewport: { width: 1440, height: 900 }, height: 44, gap: '52px' },
+      { name: 'tablet', viewport: { width: 820, height: 1180 }, height: 44, gap: '52px' },
       { name: 'mobile', viewport: { width: 390, height: 844 }, height: 34, gap: '34px' },
     ];
 
@@ -122,6 +145,29 @@ async function inspectTicker(page) {
       assert(before.wrapHeight >= testCase.height + 20, `${testCase.name}: ticker must retain vertical breathing room`);
       for (const label of ['Lake Oil', 'Lake Gas', 'Lake Aviation', 'Lake Buildings']) {
         assert(before.labels.includes(label), `${testCase.name}: missing ${label}`);
+      }
+      assert.strictEqual(before.listFlexWrap, 'nowrap', `${testCase.name}: marquee sequence must not wrap`);
+      assert(before.oneRow, `${testCase.name}: logos must remain in one horizontal row`);
+      assert(before.noItemOverlap, `${testCase.name}: adjacent logos must not overlap`);
+      assert(!before.pageHasHorizontalOverflow, `${testCase.name}: marquee must not create page overflow`);
+      assert(
+        before.logos.every(({ filter }) => filter === 'none'),
+        `${testCase.name}: logo colors must come from official assets, not CSS filters`
+      );
+
+      const independentBrands = {
+        'Gulf Aggregates': 'assets/images/logos/companies/gulf-aggregates.png?v=69',
+        AFICD: 'assets/images/logos/companies/aficd.png?v=69',
+        AILL: 'assets/images/logos/companies/aill.png?v=58',
+        ATL: 'assets/images/logos/companies/atl.png?v=61',
+        'Lake Agro': 'assets/images/logos/companies/lake-agro.png?v=61',
+        'Cross Country': 'assets/images/logos/companies/cross-country.png?v=69',
+        'Ocean Galleria': 'assets/images/logos/companies/Ocean-Galleria-logo.webp',
+      };
+      for (const [alt, src] of Object.entries(independentBrands)) {
+        const logo = before.logos.find((candidate) => candidate.alt === alt);
+        assert(logo, `${testCase.name}: missing independent brand ${alt}`);
+        assert.strictEqual(logo.src, src, `${testCase.name}: ${alt} branding must remain unchanged`);
       }
       assert.notStrictEqual(afterTransform, before.trackTransform, `${testCase.name}: ticker animation must remain active`);
       await page.close();
