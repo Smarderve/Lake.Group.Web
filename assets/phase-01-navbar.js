@@ -23,60 +23,86 @@
     const corporatePages = new Set(['history.html', 'africa-network.html', 'csr.html', 'sustainability.html', 'investors.html', 'projects.html', 'gallery.html']);
     const desktopLinks = nav.querySelectorAll('.nav-links > li > a');
     const languageTrigger = nav.querySelector('.lang-trigger');
-    const sectorIcons = {
-      energies: 'assets/icons/sectors/energy.li',
-      manufacturing: 'assets/icons/sectors/manufacturing.li',
-      logistics: 'assets/icons/sectors/logistics.li',
-      realestate: 'assets/icons/sectors/real-estate.li',
-      agro: 'assets/icons/sectors/agro-processing.li',
-      automotive: 'assets/icons/sectors/automotive.li'
+    const sectorAnimations = {
+      energies: { reveal: 'assets/icons/sectors/lottie/energies-in-reveal.json', hover: 'assets/icons/sectors/lottie/energies-hover-pinch.json' },
+      manufacturing: { reveal: 'assets/icons/sectors/lottie/manufacturing-in-reveal.json', hover: 'assets/icons/sectors/lottie/manufacturing-hover-pinch.json' },
+      logistics: { reveal: 'assets/icons/sectors/lottie/logistics-in-reveal.json', hover: 'assets/icons/sectors/lottie/logistics-hover-pinch.json' },
+      realestate: { reveal: 'assets/icons/sectors/lottie/real-estate-in-reveal.json', hover: 'assets/icons/sectors/lottie/real-estate-hover-pinch.json' },
+      agro: { reveal: 'assets/icons/sectors/lottie/agro-processing-in-reveal.json', hover: 'assets/icons/sectors/lottie/agro-processing-hover-pinch.json' },
+      automotive: { reveal: 'assets/icons/sectors/lottie/automotive-in-reveal.json' }
     };
-    const ensureSectorIconPlayer = () => {
-      if (!window.customElements || customElements.get('lord-icon')) return Promise.resolve();
-      if (!window.__lakeLordiconLoader) {
-        window.__lakeLordiconLoader = new Promise((resolve, reject) => {
-          const script = document.createElement('script');
-          script.src = 'assets/vendor/lordicon-element.js';
-          script.onload = resolve;
-          script.onerror = reject;
-          document.head.appendChild(script);
-        });
+    const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const recordIconEvent = (button, state) => {
+      window.__LAKE_SECTOR_ICON_EVENTS__ = window.__LAKE_SECTOR_ICON_EVENTS__ || [];
+      window.__LAKE_SECTOR_ICON_EVENTS__.push({ id: button.dataset.mmCat, state, at: Date.now() });
+    };
+    const playSectorIcon = (button, state) => {
+      const icon = button.querySelector('.mm-sector-icon');
+      if (!icon) return;
+      const animation = sectorAnimations[button.dataset.mmCat];
+      const source = animation && (state === 'hover' && animation.hover ? animation.hover : animation.reveal);
+      if (!source) return;
+      const showStaticFrame = () => icon.playerInstance?.seekToEnd();
+      const start = () => {
+        if (!icon.playerInstance) return;
+        icon.playerInstance.loop = false;
+        if (reducedMotion()) { showStaticFrame(); return; }
+        icon.playerInstance.playFromStart();
+        recordIconEvent(button, state === 'hover' ? 'hover-pinch' : 'in-reveal');
+      };
+      if (icon.dataset.iconSource !== source) {
+        icon.dataset.iconSource = source;
+        icon.setAttribute('src', source);
+        icon.readyPromise?.then(start).catch(() => {});
+      } else if (icon.ready) {
+        start();
+      } else {
+        icon.readyPromise?.then(start).catch(() => {});
       }
-      return window.__lakeLordiconLoader;
     };
     const initSectorIcons = () => {
       nav.querySelectorAll('.mm-cat[data-mm-cat]').forEach((button) => {
         if (button.querySelector('.mm-sector-icon')) return;
-        const src = sectorIcons[button.dataset.mmCat];
-        if (!src) return;
+        const animation = sectorAnimations[button.dataset.mmCat];
+        if (!animation) return;
         const icon = document.createElement('lord-icon');
         icon.className = 'mm-sector-icon';
-        icon.setAttribute('src', src);
-        icon.setAttribute('trigger', 'manual');
-        icon.setAttribute('state', 'in-reveal');
-        icon.setAttribute('colors', 'primary:#b8c8d3,secondary:#b8c8d3');
+        icon.setAttribute('src', animation.reveal);
+        icon.setAttribute('colors', 'primary:#ffffff,secondary:#ffffff');
         icon.setAttribute('stroke', 'regular');
         icon.setAttribute('aria-hidden', 'true');
+        icon.dataset.iconSource = animation.reveal;
         button.prepend(icon);
-        playSectorIcon(button, 'in-reveal');
+        icon.readyPromise?.then(() => {
+          if (reducedMotion()) icon.playerInstance?.seekToEnd();
+        }).catch(() => {});
       });
     };
-    const playSectorIcon = (button, state) => {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      const icon = button.querySelector('.mm-sector-icon');
-      if (!icon) return;
-      const play = () => {
-        icon.state = state;
-        window.__LAKE_SECTOR_ICON_EVENTS__ = window.__LAKE_SECTOR_ICON_EVENTS__ || [];
-        window.__LAKE_SECTOR_ICON_EVENTS__.push({ id: button.dataset.mmCat, state, at: Date.now() });
-        icon.playerInstance?.playFromBeginning?.();
-      };
-      icon.ready ? play() : icon.addEventListener('ready', play, { once: true });
+    const initMobileSectorIcons = () => {
+      drawer.querySelectorAll('.mob-accordion > .mob-acc-btn[aria-controls^="mob-acc-"]').forEach((button) => {
+        const id = button.getAttribute('aria-controls').replace('mob-acc-', '');
+        const animation = sectorAnimations[id];
+        if (!animation || button.querySelector('.mm-sector-icon')) return;
+        button.dataset.mmCat = id;
+        const icon = document.createElement('lord-icon');
+        icon.className = 'mm-sector-icon mob-sector-icon';
+        icon.setAttribute('src', animation.reveal);
+        icon.setAttribute('colors', 'primary:#ffffff,secondary:#ffffff');
+        icon.setAttribute('stroke', 'regular');
+        icon.setAttribute('aria-hidden', 'true');
+        icon.dataset.iconSource = animation.reveal;
+        button.prepend(icon);
+        icon.readyPromise?.then(() => {
+          if (reducedMotion()) icon.playerInstance?.seekToEnd();
+        }).catch(() => {});
+        button.addEventListener('focus', () => playSectorIcon(button, 'in-reveal'));
+      });
     };
     const revealSectorIcons = () => {
       nav.querySelectorAll('.mm-cat[data-mm-cat]').forEach((button) => playSectorIcon(button, 'in-reveal'));
     };
-    ensureSectorIconPlayer().then(() => { initSectorIcons(); }).catch(() => {});
+    initSectorIcons();
+    initMobileSectorIcons();
     if (languageTrigger) {
       languageTrigger.removeAttribute('disabled');
       languageTrigger.setAttribute('aria-haspopup', 'menu');
@@ -182,5 +208,24 @@
     }));
     resetMobileAccordions();
   }
-  document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', init) : init();
+  const ensureLordicon = () => {
+    if (window.customElements?.get('lord-icon')) return Promise.resolve();
+    return new Promise((resolve) => {
+      const existing = document.querySelector('script[data-lake-lordicon]');
+      if (existing) {
+        existing.addEventListener('load', resolve, { once: true });
+        existing.addEventListener('error', resolve, { once: true });
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = 'assets/vendor/lordicon-element.js';
+      script.async = true;
+      script.dataset.lakeLordicon = 'true';
+      script.addEventListener('load', resolve, { once: true });
+      script.addEventListener('error', resolve, { once: true });
+      document.head.appendChild(script);
+    });
+  };
+  const start = () => ensureLordicon().then(init);
+  document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', start) : start();
 })();

@@ -381,13 +381,13 @@ body.about .page-wrapper { padding-top: 0; }
   <div class="ose-stage" id="ose-stage">
 
     <div class="ose-scene ose-active" id="ose-s1" aria-hidden="false">
-      <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/lakeoil/current/lake-energies-station-approved.png" alt="Lake Energies petrol station" fetchpriority="high" decoding="async"></div>
+      <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/about/about-hero-03.webp" alt="Lake Group operations" fetchpriority="high" decoding="async"></div>
       <div class="ose-tint ose-tint-dark"></div>
       <div class="ose-text">
-        <span class="ose-eyebrow">About Lake Group</span>
-        <h2 class="ose-display ose-xl">Built in Africa.<br>Growing with purpose.</h2>
+        <span class="ose-eyebrow">Our people</span>
+        <h2 class="ose-display ose-xl">One group.<br>A shared purpose.</h2>
       </div>
-      <span class="ose-stamp" data-i18n="ose.s1.stamp">Est. 2006</span>
+      <span class="ose-stamp" data-i18n="ose.s1.stamp" hidden></span>
     </div>
 
     <button class="ose-arrow ose-arrow-prev" type="button" aria-label="Previous About slide">
@@ -518,37 +518,27 @@ body.about .page-wrapper { padding-top: 0; }
   const progress = document.getElementById('ose-progress');
   const previousButton = stage.querySelector('.ose-arrow-prev');
   const nextButton = stage.querySelector('.ose-arrow-next');
-  const slideImages = [
-    'assets/images/lakeoil/current/lake-energies-station-approved.png', 'assets/images/about/about-hero-02.webp',
-    'assets/images/about/about-hero-03.webp', 'assets/images/about/about-hero-04.webp',
-    'assets/images/about/about-hero-05.webp', 'assets/images/about/about-hero-06.webp',
-    'assets/images/about/about-hero-07.webp', 'assets/images/about/about-hero-08.webp',
-    'assets/images/about/about-hero-09.webp', 'assets/images/about/about-hero-10.webp',
-    'assets/images/about/about-hero-11.webp', 'assets/images/about/about-hero-12.webp'
+  const slides = [
+    { image: 'assets/images/about/about-hero-03.webp', copy: { eyebrow: 'Our people', title: 'One group.<br>A shared purpose.', body: 'More than 30,000 people from 21 nationalities continue to grow Lake Group across 10 countries.', label: 'The people behind our progress' } },
+    { image: 'assets/images/about/about-hero-04.webp', copy: { eyebrow: 'About Lake Group', title: 'Built in Africa.<br>Growing with purpose.', alt: 'Lake Group operations' } },
+    { image: 'assets/images/about/about-hero-05.webp', copy: { eyebrow: 'Our beginning', title: 'From one outlet<br>to a regional group.', body: 'Lake Group began with a single fuel outlet in Dar es Salaam in 2006 and has grown into a diversified regional business group.', label: 'Lake Oil &middot; Est. 2006' } },
+    { image: 'assets/images/about/about-hero-06.webp', copy: { eyebrow: 'Our people', title: 'One group.<br>A shared purpose.', body: 'More than 30,000 people from 21 nationalities continue to grow Lake Group across 10 countries.', label: 'The people behind our progress' } },
+    { image: 'assets/images/about/about-hero-08.webp', copy: { eyebrow: 'Our beginning', title: 'From one outlet<br>to a regional group.', body: 'Lake Group began with a single fuel outlet in Dar es Salaam in 2006 and has grown into a diversified regional business group.', label: 'Lake Oil &middot; Est. 2006' } },
+    { image: 'assets/images/about/about-hero-11.webp', copy: { eyebrow: 'Our beginning', title: 'From one outlet<br>to a regional group.', body: 'Lake Group began with a single fuel outlet in Dar es Salaam in 2006 and has grown into a diversified regional business group.', label: 'Lake Oil &middot; Est. 2006' } },
+    { image: 'assets/images/about/about-hero-12.webp', copy: { eyebrow: 'Our people', title: 'One group.<br>A shared purpose.', body: 'More than 30,000 people from 21 nationalities continue to grow Lake Group across 10 countries.', label: 'The people behind our progress' } }
   ];
-  const slideCopy = [
-    { eyebrow: 'About Lake Group', title: 'Built in Africa.<br>Growing with purpose.', alt: 'Lake Energies petrol station', stamp: 'Est. 2006' },
-    { eyebrow: 'Our beginning', title: 'From one outlet<br>to a regional group.', body: 'Lake Group began with a single fuel outlet in Dar es Salaam in 2006 and has grown into a diversified regional business group.', label: 'Lake Oil &middot; Est. 2006' },
-    { eyebrow: 'Our people', title: 'One group.<br>A shared purpose.', body: 'More than 30,000 people from 21 nationalities continue to grow Lake Group across 10 countries.', label: 'The people behind our progress' }
-  ];
+  const slideImages = slides.map((slide) => slide.image);
   const firstScene = stage.querySelector('.ose-scene');
-  slideImages.slice(1).forEach((image, index) => {
-    const copy = slideCopy[(index + 1) % slideCopy.length];
-    const scene = firstScene.cloneNode(true);
-    const slideNumber = index + 2;
-    scene.id = `ose-s${slideNumber}`;
-    scene.classList.remove('ose-active');
-    scene.setAttribute('aria-hidden', 'true');
+  const applySlide = (scene, slide) => {
+    const copy = slide.copy;
     const photo = scene.querySelector('.ose-photo');
-    photo.src = image;
-    photo.removeAttribute('fetchpriority');
-    photo.setAttribute('loading', 'eager');
+    photo.src = slide.image;
     photo.alt = copy.alt || 'Lake Group operations';
     scene.querySelector('.ose-eyebrow').textContent = copy.eyebrow;
     scene.querySelector('.ose-display').innerHTML = copy.title;
     const body = scene.querySelector('.ose-body');
     const text = scene.querySelector('.ose-text');
-    if (copy.body) {
+    if (copy.body && !body) {
       const line = document.createElement('div');
       line.className = 'ose-line';
       text.appendChild(line);
@@ -556,13 +546,26 @@ body.about .page-wrapper { padding-top: 0; }
       paragraph.className = 'ose-body';
       paragraph.textContent = copy.body;
       text.appendChild(paragraph);
-    } else if (body) {
+    } else if (!copy.body && body) {
+      body.previousElementSibling?.remove();
       body.remove();
     }
     const label = scene.querySelector('.ose-label');
     if (label) { label.innerHTML = copy.label || ''; label.hidden = !copy.label; }
     const stamp = scene.querySelector('.ose-stamp');
     if (stamp) { stamp.textContent = copy.stamp || ''; stamp.hidden = !copy.stamp; }
+  };
+  applySlide(firstScene, slides[0]);
+  slides.slice(1).forEach((slide, index) => {
+    const scene = firstScene.cloneNode(true);
+    const slideNumber = index + 2;
+    scene.id = `ose-s${slideNumber}`;
+    scene.classList.remove('ose-active');
+    scene.setAttribute('aria-hidden', 'true');
+    const photo = scene.querySelector('.ose-photo');
+    photo.removeAttribute('fetchpriority');
+    photo.setAttribute('loading', 'eager');
+    applySlide(scene, slide);
     stage.insertBefore(scene, previousButton);
   });
   const scenes = [...stage.querySelectorAll('.ose-scene')];

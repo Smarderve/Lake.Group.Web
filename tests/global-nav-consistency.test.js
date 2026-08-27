@@ -13,7 +13,10 @@ assert.match(css, /\.site-nav\[data-phase01-navbar\] \.nav-megamenu[\s\S]*?backd
 assert.match(css, /\.site-nav\[data-phase01-navbar\] \.nav-megamenu[\s\S]*?border:\s*1px solid var\(--nav-menu-border\)\s*!important/);
 assert.match(css, /\.mm-sector-icon/);
 assert.match(css, /\.mm-cat::before\s*\{[\s\S]*?display:\s*none\s*!important/);
-assert.match(js, /energy\.li/);
+assert.match(js, /sectorAnimations/);
+assert.match(js, /lottie\/energies-in-reveal\.json/);
+assert.match(js, /lottie\/manufacturing-in-reveal\.json/);
+assert.match(js, /createElement\(['"]lord-icon['"]\)/);
 assert.match(js, /playSectorIcon/);
 assert.match(js, /prefers-reduced-motion/);
 assert.match(css, /\.nav-megamenu\s*\{[\s\S]*?overflow:\s*hidden auto\s*!important/);
