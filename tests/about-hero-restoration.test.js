@@ -11,9 +11,9 @@ const { chromium } = require('playwright');
 const { resolveStatic } = require('../scripts/_safe_static.js');
 
 const ROOT = path.join(__dirname, '..');
-const HERO_ASSET = 'assets/images/about/about-hero-01.webp';
+const HERO_ASSET = 'assets/images/lakeoil/current/lake-energies-station-approved.png';
 const STORY_ASSET = 'assets/images/about/about-story-terminal-enhanced.webp';
-const HERO_ASSETS = Array.from({ length: 12 }, (_, index) => `assets/images/about/about-hero-${String(index + 1).padStart(2, '0')}.webp`);
+const HERO_ASSETS = [HERO_ASSET, ...Array.from({ length: 11 }, (_, index) => `assets/images/about/about-hero-${String(index + 2).padStart(2, '0')}.webp`)];
 
 function sha256(file) {
   return crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT, file))).digest('hex');
@@ -41,7 +41,7 @@ function startServer() {
 }
 
 test('About uses the 12 supplied hero images and keeps the lower story asset separate', () => {
-  assert.equal(sha256(HERO_ASSET), '62fbe3cc2306e6538f71e49759c70a46bcaa07e0ce87aabb8b04b6d12d6800dd');
+  assert.equal(sha256(HERO_ASSET), '88017f7c9c287c5e692afce326a9ffe141877e3e625a7aba3f40219a3ad0b8c9');
   assert.equal(sha256(STORY_ASSET), '5eeb767efe861cb28988e98b95aa2926a3b75cae9071d1ee8567558af4fbf556');
   const html = fs.readFileSync(path.join(ROOT, 'about.html'), 'utf8');
   HERO_ASSETS.forEach((asset) => assert.match(html, new RegExp(asset.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\$&'))));

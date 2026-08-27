@@ -396,7 +396,7 @@ const CURATED_FACTS = [
     url: 'about.html',
     en: {
       t: 'Values & culture',
-      s: 'Lake Group\u2019s core values are Teamwork, Reliability, Integrity and Customer Satisfaction, backed by a culture of Quality, Service, Safety and Professionalism.',
+      s: 'Lake Group\u2019s About-page core values are Innovation, Sustainability, Safety and Collaboration. Its mission is to deliver trusted solutions that fuel progress, create opportunity, and generate lasting value for customers, employees, and communities; its vision is to be a world-class enterprise that advances industries, empowers communities, and inspires progress through innovation and excellence.',
       k: 'values culture mission vision principles quality safety',
     },
     fr: {
