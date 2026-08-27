@@ -1,30 +1,36 @@
-/* Shared launch navbar — approved translucent Lake overlay. */
+/* Shared launch navbar — transparent hero overlay that scrolls with the page. */
 .site-nav[data-phase01-navbar],
 body.co-theme-agro .site-nav[data-phase01-navbar] {
-  position: fixed !important;
+  position: absolute !important;
   inset: 0 0 auto !important;
   z-index: 10000 !important;
   width: 100% !important;
   height: 68px !important;
   overflow: visible !important;
   transform: none !important;
-  background: linear-gradient(180deg, rgba(0, 43, 65, .52), rgba(0, 43, 65, .34)) !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
   border: 0 !important;
   border-radius: 0 !important;
-  box-shadow: 0 10px 30px rgba(0, 30, 46, .12) !important;
-  backdrop-filter: blur(8px) saturate(110%) !important;
-  -webkit-backdrop-filter: blur(8px) saturate(110%) !important;
-  transition: background .24s ease, box-shadow .24s ease !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: none !important;
 }
 
 .site-nav[data-phase01-navbar].nav-scrolled,
 body.co-theme-agro .site-nav[data-phase01-navbar].nav-scrolled {
-  background: linear-gradient(180deg, rgba(0, 43, 65, .64), rgba(0, 43, 65, .5)) !important;
-  box-shadow: 0 10px 30px rgba(0, 30, 46, .18) !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
-/* The homepage hero owns the visual backdrop. Keep its fixed navigation
-   completely clear in both its initial and scrolled states. */
+/* Every page owns its own visual backdrop. Keep navigation clear in both
+   initial and scrolled states. */
 body.home .site-nav[data-phase01-navbar],
 body.home .site-nav[data-phase01-navbar].nav-scrolled,
 body.about .site-nav[data-phase01-navbar],

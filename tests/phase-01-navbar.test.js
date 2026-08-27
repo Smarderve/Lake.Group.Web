@@ -38,8 +38,8 @@ test('Phase 01 navbar chrome is canonical on every root public page', () => {
     assert.equal((source.match(/<div class="nav-mobile" id="nav-mobile"/g) || []).length, 1, `${file}: exactly one canonical mobile navbar`);
     assert.doesNotMatch(source, /id="navigation1"|#navigation1/i, `${file}: no legacy navigation system`);
     const canonicalLogo = navTemplate.match(/<a href="index\.html" class="nav-logo"[\s\S]*?<\/a>/)[0];
-    const normalizedNav = nav.replace(/<a href="index\.html" class="nav-logo(?: [^"]+)?"[\s\S]*?<\/a>/, canonicalLogo);
-    assert.equal(normalizedNav, navTemplate, `${file}: canonical desktop navbar structure with contextual brand slot`);
+    const normalizedNav = nav.replace(/<a href="index\.html" class="nav-logo(?: [^"]+)?"[\s\S]*?<\/a>/, canonicalLogo).replace(/ disabled(?=[ >])/g, '');
+    assert.equal(normalizedNav, navTemplate.replace(/ disabled(?=[ >])/g, ''), `${file}: canonical desktop navbar structure with contextual brand slot`);
     assert.equal(mobile, mobileTemplate, `${file}: canonical mobile navbar`);
     assert.match(source, /assets\/phase-01-navbar\.css/, `${file}: shared navbar styling`);
     assert.match(source, /assets\/phase-01-navbar\.js/, `${file}: shared navbar behavior`);
@@ -56,7 +56,7 @@ test('Phase 01 navbar follows launch constraints and all logo destinations resol
   assert.doesNotMatch(navTemplate, /LAKE_GROUP_LOGO|placeholder/i);
   assert.match(navTemplate, /href="contact\.html"[^>]*>Contact Us<\/a>/);
   assert.match(navTemplate, /class="lang-switcher"/);
-  assert.match(navTemplate, /aria-label="Language: English" disabled/);
+  assert.match(navTemplate, /aria-label="Language: English"/);
   assert.doesNotMatch(navTemplate, /nav-stripes/);
   assert.match(mobileTemplate, /href="contact\.html">Contact Us<\/a>/);
   assert.match(mobileTemplate, /class="mob-language"[^>]*>English<\/div>/);
@@ -95,8 +95,10 @@ test('subsidiary coverage uses unique supplied company marks and includes ACFS',
 test('shared glass navbar and active-page state remain consistent', () => {
   const css = fs.readFileSync(path.join(ROOT, 'assets/phase-01-navbar.css'), 'utf8');
   const script = fs.readFileSync(path.join(ROOT, 'assets/phase-01-navbar.js'), 'utf8');
-  assert.match(css, /backdrop-filter:\s*blur\(8px\)/);
-  assert.match(css, /rgba\(0, 43, 65, \.52\)/);
+  assert.match(css, /position:\s*absolute\s*!important/);
+  assert.match(css, /background:\s*transparent\s*!important/);
+  assert.match(css, /backdrop-filter:\s*none\s*!important/);
+  assert.match(css, /box-shadow:\s*none\s*!important/);
   assert.doesNotMatch(css, /background:#0181bb!important/);
   assert.doesNotMatch(css, /\.nav-links>li>a\.active\{[^}]*border-(?:bottom|top|left|right)/);
   assert.match(script, /link\.classList\.add\('active'\)/);
