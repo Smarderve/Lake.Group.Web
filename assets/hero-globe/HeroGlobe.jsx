@@ -14,18 +14,18 @@ import {
 
 /* Camera / timing constants */
 
-const AFRICA_POV = { lat: -6, lng: 35, altitude: 2.05 };
-const SETTLE_DURATION_MS = 2200;
-const POST_SETTLE_PAUSE_MS = 400;
-const ARC_DRAW_DURATION_MS = 1800;
-const ARC_STAGGER_MS = 300;
+const AFRICA_POV = { lat: -4, lng: 33, altitude: 1.85 };
+const SETTLE_DURATION_MS = 2000;
+const POST_SETTLE_PAUSE_MS = 500;
+const ARC_DRAW_DURATION_MS = 2000;
+const ARC_STAGGER_MS = 450;
 
 /* Label / marker styling */
 
-const LABEL_SIZE = 0.38;
-const LABEL_ALTITUDE = 0.015;
-const LABEL_DOT_RADIUS = 0.12;
-const LABEL_RESOLUTION = 8;
+const LABEL_SIZE = 0.55;
+const LABEL_ALTITUDE = 0.02;
+const LABEL_DOT_RADIUS = 0.15;
+const LABEL_RESOLUTION = 10;
 
 const MARKER_WHITE = '#ffffff';
 const MARKER_WHITE_RING = (t) => `rgba(255, 255, 255, ${Math.max(0, 1 - t)})`;
@@ -278,8 +278,8 @@ export default function HeroGlobe({ panelEl, locations }) {
       ringRepeatPeriod="repeatPeriod"
       arcsData={arcsData}
       arcColor={() => [BRAND_YELLOW_SOFT, BRAND_YELLOW]}
-      arcAltitudeAutoScale={0.2}
-      arcStroke={0.3}
+      arcAltitudeAutoScale={0.15}
+      arcStroke={0.4}
       arcDashLength={1}
       arcDashGap={0}
       arcDashInitialGap={0}

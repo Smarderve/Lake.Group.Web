@@ -11,23 +11,23 @@
 
   /* Path-verified PNGs under assets/images/logos/companies/ + real nav routes only */
     var SUBSIDIARY_LOGOS = [
-    { src: 'assets/images/logos/companies/lake-oil.png', alt: 'Lake Oil', title: 'Lake Oil', href: 'lake-oil.html' },
-    { src: 'assets/images/logos/companies/lake-gas.png', alt: 'Lake Gas', title: 'Lake Gas', href: 'lake-gas.html' },
-    { src: 'assets/images/logos/companies/lake-lubes.png', alt: 'Lake Lubes', title: 'Lake Lubes', href: 'lake-lubes.html' },
-    { src: 'assets/images/logos/companies/lake-steel.png', alt: 'Lake Steel', title: 'Lake Steel', href: 'lake-steel.html' },
-    { src: 'assets/images/logos/companies/lake-trans.png', alt: 'Lake Trans', title: 'Lake Trans', href: 'lake-trans.html' },
-    { src: 'assets/images/logos/companies/lake-aviation.png', alt: 'Lake Aviation', title: 'Lake Aviation', href: 'lake-aviation.html' },
-    { src: 'assets/images/logos/companies/lake-buildings.png', alt: 'Lake Buildings', title: 'Lake Buildings', href: 'lake-buildings.html' },
-    { src: 'assets/images/logos/companies/lake-plastics.png', alt: 'Lake Plastics', title: 'Lake Plastics', href: 'lake-plastics.html' },
-    { src: 'assets/images/logos/companies/lake-premix-cement.png', alt: 'Lake Premix & Cement', title: 'Lake Premix & Cement', href: 'lake-premix-cement.html' },
-    { src: 'assets/images/logos/companies/lake-cylinders.png?v=58', alt: 'Lake Cylinders', title: 'Lake Cylinders', href: 'lake-cylinders.html' },
-    { src: 'assets/images/logos/companies/gulf-aggregates.png?v=69', alt: 'Gulf Aggregates', title: 'Gulf Aggregates', href: 'gulf-aggregates.html' },
+    { src: 'assets/images/logos/companies/lake-oil-blue.png', alt: 'Lake Oil', title: 'Lake Oil', href: 'lake-oil.html' },
+    { src: 'assets/images/logos/companies/lake-gas-blue.png', alt: 'Lake Gas', title: 'Lake Gas', href: 'lake-gas.html' },
+    { src: 'assets/images/logos/companies/lake-lubes-blue.png', alt: 'Lake Lubes', title: 'Lake Lubes', href: 'lake-lubes.html' },
+    { src: 'assets/images/logos/companies/lake-steel-blue.png', alt: 'Lake Steel', title: 'Lake Steel', href: 'lake-steel.html' },
+    { src: 'assets/images/logos/companies/lake-trans-blue.png', alt: 'Lake Trans', title: 'Lake Trans', href: 'lake-trans.html' },
+    { src: 'assets/images/logos/companies/lake-aviation-blue.png', alt: 'Lake Aviation', title: 'Lake Aviation', href: 'lake-aviation.html' },
+    { src: 'assets/images/logos/companies/lake-buildings-blue.png', alt: 'Lake Buildings', title: 'Lake Buildings', href: 'lake-buildings.html' },
+    { src: 'assets/images/logos/companies/lake-plastics-blue.png', alt: 'Lake Plastics', title: 'Lake Plastics', href: 'lake-plastics.html' },
+    { src: 'assets/images/logos/companies/lake-premix-cement-blue.png', alt: 'Lake Premix & Cement', title: 'Lake Premix & Cement', href: 'lake-premix-cement.html' },
+    { src: 'assets/images/logos/companies/lake-cylinders-blue.png?v=58', alt: 'Lake Cylinders', title: 'Lake Cylinders', href: 'lake-cylinders.html' },
+    { src: 'assets/images/logos/companies/gulf-aggregates-blue.png?v=69', alt: 'Gulf Aggregates', title: 'Gulf Aggregates', href: 'gulf-aggregates.html' },
     { src: 'assets/images/logos/companies/aficd.png?v=69', alt: 'AFICD', title: 'AFICD', href: 'aficd.html' },
     { src: 'assets/images/logos/companies/aill.png?v=58', alt: 'AILL', title: 'AILL', href: 'aill.html' },
     /* Tight-crop marks read larger than padded Lake logos at the same CSS height */
     /* Circles-only ATL mark (no tagline) — matches brand sheet */
     { src: 'assets/images/logos/companies/atl.png?v=61', alt: 'ATL', title: 'ATL', scale: 0.9 },
-    { src: 'assets/images/logos/companies/lake-agro.png?v=61', alt: 'Lake Agro', title: 'Lake Agro', href: 'lake-agro.html', scale: 0.8 },
+    { src: 'assets/images/logos/companies/lake-agro-blue.png?v=61', alt: 'Lake Agro', title: 'Lake Agro', href: 'lake-agro.html', scale: 0.8 },
     { src: 'assets/images/logos/companies/cross-country.png?v=69', alt: 'Cross Country', title: 'Cross Country', href: 'cross-country.html', scale: 1.15 },
     { src: 'assets/images/logos/companies/Ocean-Galleria-logo.webp', alt: 'Ocean Galleria', title: 'Ocean Galleria', href: 'ocean-galleria.html', scale: 1.15 }
   ];

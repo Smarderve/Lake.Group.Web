@@ -22,16 +22,16 @@ export const LABEL_COLOR = 'rgba(255, 255, 255, 0.82)';
  * [lngOffset, latOffset] in degrees.
  */
 export const LABEL_OFFSETS = {
-  tz: [0, -1.2],
-  ke: [2.0, 1.0],
-  ug: [-2.0, 0.8],
-  rw: [-3.0, 0.2],
-  bi: [-2.5, -1.0],
-  cd: [-6.0, 2.5],
-  zm: [-1.5, -2.5],
-  mz: [2.5, -2.0],
-  et: [2.5, 2.5],
-  ae: [0, 0.5],
+  tz: [0, -1.8],
+  ke: [3.0, 1.5],
+  ug: [-3.5, 1.5],
+  rw: [-4.5, 0.5],
+  bi: [-4.0, -1.5],
+  cd: [-8.0, 3.0],
+  zm: [-2.0, -3.0],
+  mz: [3.0, -2.5],
+  et: [3.5, 3.0],
+  ae: [0, 0.8],
 };
 
 /**
@@ -85,7 +85,7 @@ export function buildLabels(locations) {
         lng: loc.lng + offset[0],
         text: (loc.countryName || loc.name || '').toUpperCase(),
         color: LABEL_COLOR,
-        size: 0.35,
+        size: 0.5,
       };
     });
 }

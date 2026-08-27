@@ -138,7 +138,8 @@
       }
     }
 
-    /* NAV */
+    /* NAV — transparent over the hero; scrolls to solid via .nav-scrolled in theme.css */
+    :root { --color-navbar-bg: transparent; }
     .site-nav {
       position: fixed;
       top: 0;
@@ -146,8 +147,9 @@
       right: 0;
       z-index: 1000;
       height: var(--navbar-height);
-      background: var(--color-navbar-bg);
-      border-bottom: 3px solid var(--color-navbar-border);
+      background: transparent !important;
+      background-color: transparent !important;
+      border-bottom: 3px solid transparent;
     }
 
     .nav-inner {
@@ -2333,7 +2335,7 @@
           <div class="mm-pane" role="tabpanel" id="mm-pane-automotive" data-mm-pane="automotive" hidden><div class="mm-companies"><a href="assembly-tech.html" class="mm-company mm-company--wordmark"><span data-i18n="nav.co.assemblyTech">Assembly Tech Limited</span></a><a href="agrinova-tech.html" class="mm-company mm-company--wordmark"><span data-i18n="nav.co.agrinovaTech">AgriNova Tech Limited</span></a><a href="nextdrive-motors.html" class="mm-company mm-company--wordmark"><span data-i18n="nav.co.nextDriveMotors">NextDrive Motors Limited</span></a></div></div>
         </div></div></div>
       </li><li><a href="leadership.html" data-i18n="nav.leadership">Leadership</a></li><li class="has-dropdown"><a href="history.html" data-nav-section="corporate" data-i18n="nav.company" aria-haspopup="true" aria-expanded="false" aria-controls="nav-corporate-menu">Corporate &#9662;</a><div class="nav-dropdown" id="nav-corporate-menu"><a href="history.html">Our History</a><a href="africa-network.html">Operations Map</a><a href="csr.html">CSR &amp; Sustainability</a><a href="investors.html">Investor Relations</a><a href="projects.html">Major Projects</a><a href="gallery.html">Gallery</a></div></li><li><a href="news.html" data-i18n="nav.news">News</a></li><li><a href="careers.html" data-i18n="nav.careers">Careers</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact Us</a></li>
-    </ul><div class="nav-actions"><div class="lang-switcher" aria-label="Language"><button type="button" class="lang-trigger" aria-label="Language: English" disabled><svg class="lang-globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3 12h18M12 3c2.5 2.5 3.7 5.5 3.7 9S14.5 18.5 12 21M12 3C9.5 5.5 8.3 8.5 8.3 12s1.2 6.5 3.7 9" fill="none" stroke="currentColor" stroke-width="1.7"/></svg><span>English</span></button></div><button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-controls="nav-mobile" aria-expanded="false"><span></span><span></span><span></span></button></div>
+    </ul><div class="nav-actions"><div class="lang-switcher" aria-label="Language"><button type="button" class="lang-trigger" aria-label="Language: English"><svg class="lang-globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3 12h18M12 3c2.5 2.5 3.7 5.5 3.7 9S14.5 18.5 12 21M12 3C9.5 5.5 8.3 8.5 8.3 12s1.2 6.5 3.7 9" fill="none" stroke="currentColor" stroke-width="1.7"/></svg><span>English</span></button></div><button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-controls="nav-mobile" aria-expanded="false"><span></span><span></span><span></span></button></div>
   </div>
 </nav>
 
@@ -2401,11 +2403,7 @@
       <div class="hero-eyebrow">
         <span data-i18n="hero.eyebrow">Est. 2006 &middot; Dar es Salaam, Tanzania</span>
       </div>
-      <p class="hero-sub" data-i18n="hero.sub">
-        One of Africa's fastest-growing energy, logistics &amp; construction
-        conglomerates, operating across 10 countries with 30,000+ people
-        and 1,200+ trucks on the road.
-      </p>
+      <p class="hero-sub" data-i18n="hero.sub">Fueling East Africa for two decades</p>
       <div class="hero-keyfacts" aria-hidden="true">
         <div class="hero-kf">
           <!-- Phase 8 (Task 8.1): values served live from the backend metrics API (published values only); static markup is the offline fallback. -->
@@ -2818,7 +2816,7 @@
       var section = document.getElementById("fuel-experience");
       function load() {
         var s = document.createElement("script");
-        s.src = "assets/hero-globe.bundle.js?v=9";
+        s.src = "assets/hero-globe.bundle.js?v=10";
         document.body.appendChild(s);
       }
       if (!section || !("IntersectionObserver" in window)) {

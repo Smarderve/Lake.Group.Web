@@ -348,7 +348,29 @@ window.LakeI18n = (function () {
   }
 
   function init() {
-    loadDictionaries().then(() => applyAll('en'));
+    loadDictionaries().then(() => {
+      applyAll('en');
+      // Auto-bind all language switchers on the page.
+      document.querySelectorAll('.lang-switcher').forEach((root) => {
+        // Create the dropdown menu if it doesn't exist yet.
+        if (!root.querySelector('.lang-menu')) {
+          const menu = document.createElement('div');
+          menu.className = 'lang-menu';
+          menu.hidden = true;
+          SUPPORTED.forEach((code) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'lang-btn';
+            btn.dataset.lang = code;
+            btn.textContent = LANG_LABELS[code] || code;
+            if (code === current) btn.classList.add('active');
+            menu.appendChild(btn);
+          });
+          root.appendChild(menu);
+        }
+        bindSwitcher(root);
+      });
+    });
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Tab' || e.key === 'ArrowDown' || e.key === 'ArrowUp' ||

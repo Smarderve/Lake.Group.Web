@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="lg-loading" lang="en">
 <head>
-  <style id="lg-skel-critical">html.lg-loading{overflow:hidden}html.lg-loading::before{content:"";position:fixed;inset:0;z-index:99989;background:#013f5c;pointer-events:none}html.lg-skel-done::before{display:none}.nav-logo img,.site-nav .nav-logo img{height:var(--nav-logo-height,38px)!important;width:auto!important;max-width:130px!important;max-height:var(--nav-logo-height,38px)!important;object-fit:contain}</style>
+  <style id="lg-skel-critical">html.lg-loading{overflow:hidden}html.lg-loading::before{content:"";position:fixed;inset:0;z-index:99989;background:#013f5c;pointer-events:none}html.lg-skel-done::before{display:none}.nav-logo img,.site-nav .nav-logo img{height:var(--nav-logo-height,38px)!important;width:auto!important;max-width:130px!important;max-height:var(--nav-logo-height,38px)!important;object-fit:contain}:root{--color-navbar-bg:transparent}.site-nav{background:transparent!important;background-color:transparent!important;border-bottom-color:transparent!important}</style>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
   <meta name="description" content="Founded in 2006, Lake Group has grown from a single fuel outlet into one of East Africa's largest industrial conglomerates.">
   <meta name="twitter:description" content="Founded in 2006, Lake Group has grown from a single fuel outlet into one of East Africa's largest industrial conglomerates.">
@@ -80,13 +80,15 @@ body.about .page-wrapper { padding-top: 0; }
 .ose-scene.ose-fade-out { opacity: 0; transition: opacity 0.4s ease; }
 
 .ose-photo-bg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
-.ose-photo { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.95) brightness(0.7) contrast(1.05); display: block; }
+.ose-photo { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: saturate(0.98) contrast(1.02); display: block; }
 
 .ose-tint { position: absolute; inset: 0; pointer-events: none; }
-.ose-tint-navy { background: rgba(1,63,92,0.35); }
-.ose-tint-blue { background: rgba(1,63,92,0.32); }
-.ose-tint-gold { background: rgba(40,30,2,0.25); }
-.ose-tint-dark { background: rgba(2,5,15,0.42); }
+.ose-tint-navy,
+.ose-tint-blue,
+.ose-tint-gold,
+.ose-tint-dark {
+  background: linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.16));
+}
 
 .ose-text { position: relative; z-index: 5; text-align: center; max-width: 680px; padding: 1.5rem; }
 .ose-eyebrow {
@@ -135,10 +137,30 @@ body.about .page-wrapper { padding-top: 0; }
 
 .ose-progress {
   position: absolute; bottom: 1.4rem; left: 50%; transform: translateX(-50%); z-index: 20;
-  display: flex; gap: 7px; align-items: center;
+  display: flex; gap: 10px; align-items: center;
 }
-.ose-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,242,0,0.3); transition: background 0.5s, transform 0.5s; }
-.ose-dot.ose-dot-active { background: var(--yellow); transform: scale(1.5); }
+.ose-dot { width: 9px; height: 9px; padding: 0; border: 1px solid rgba(255,255,255,.75); border-radius: 50%; background: rgba(0,0,0,.12); cursor: pointer; transition: background .25s, transform .25s; }
+.ose-dot.ose-dot-active { background: var(--yellow); border-color: var(--yellow); transform: scale(1.15); }
+.ose-arrow {
+  position: absolute; top: 50%; z-index: 21; transform: translateY(-50%);
+  width: 48px; height: 48px; display: grid; place-items: center;
+  border: 1px solid rgba(255,255,255,.55); border-radius: 50%;
+  color: #fff; background: rgba(0,0,0,.12); cursor: pointer;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.ose-arrow:hover { background: rgba(0,0,0,.18); border-color: #fff; transform: translateY(-50%) scale(1.04); }
+.ose-arrow:focus-visible, .ose-dot:focus-visible { outline: 2px solid var(--yellow); outline-offset: 4px; }
+.ose-arrow svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+.ose-arrow-prev { left: clamp(16px, 3vw, 48px); }
+.ose-arrow-next { right: clamp(16px, 3vw, 48px); }
+@media (max-width: 600px) {
+  .ose-arrow { width: 42px; height: 42px; top: auto; bottom: 96px; transform: none; }
+  .ose-arrow:hover { transform: scale(1.04); }
+  .ose-arrow-prev { left: 18px; }
+  .ose-arrow-next { right: 18px; }
+  .ose-progress { bottom: 34px; }
+  .ose-stamp, .ose-label { display: none; }
+}
 
 /* Language switcher — match nav links: full navbar height, pushed to the
    very end of the bar (identical treatment to the homepage). */
@@ -356,89 +378,46 @@ body.about .page-wrapper { padding-top: 0; }
   <h1 class="visually-hidden" data-i18n="about.3">About Lake Group</h1>
   <div class="ose-stage" id="ose-stage">
 
-    <div class="ose-scene" id="ose-s1">
-      <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/lakeoil/current/tanker-lake-energies.jpg" alt="Lake Energies fuel terminal and tanker"></div>
+    <div class="ose-scene ose-active" id="ose-s1" aria-hidden="false">
+      <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/about/about-hero-lake-energies-enhanced.webp" alt="Lake Energies petrol station" fetchpriority="high" decoding="async"></div>
       <div class="ose-tint ose-tint-dark"></div>
       <div class="ose-text">
-        <span class="ose-eyebrow" data-i18n="ose.s1.eyebrow">Dar es Salaam, Tanzania</span>
-        <h2 class="ose-display ose-xl" data-i18n="ose.s1.title" data-i18n-html="">It started<br>with one tank.</h2>
+        <span class="ose-eyebrow">About Lake Group</span>
+        <h2 class="ose-display ose-xl">Built in Africa.<br>Growing with purpose.</h2>
       </div>
       <span class="ose-stamp" data-i18n="ose.s1.stamp">Est. 2006</span>
     </div>
 
-    <div class="ose-scene" id="ose-s2">
+    <div class="ose-scene" id="ose-s2" aria-hidden="true">
       <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/lakeoil/current/fleet-loading.jpg" alt="Lake Group fuel distribution operations"></div>
       <div class="ose-tint ose-tint-blue"></div>
       <div class="ose-text">
+        <span class="ose-eyebrow">Our beginning</span>
+        <h2 class="ose-display ose-lg">From one outlet<br>to a regional group.</h2>
         <div class="ose-line"></div>
         <p class="ose-body" data-i18n="ose.s2.body">It began with a single fuel outlet in Dar es Salaam. No fleet, no network, no certainty - just a belief that East Africa deserved a more reliable energy supply chain.</p>
       </div>
-      <p class="ose-label" data-i18n="ose.s2.label" data-i18n-html="">Lake Oil � Est. 2006</p>
+      <p class="ose-label">Lake Oil &middot; Est. 2006</p>
     </div>
 
-    <div class="ose-scene" id="ose-s3">
-      <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/laketrans/ops/fleet-inspection.jpg" alt="Lake Trans fleet operations"></div>
+    <div class="ose-scene" id="ose-s3" aria-hidden="true">
+      <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/leadership/annual-event.jpg" alt="Lake Group team at the annual company event" loading="lazy" decoding="async"></div>
       <div class="ose-tint ose-tint-navy"></div>
       <div class="ose-text">
-        <span class="ose-eyebrow" data-i18n="ose.s3.eyebrow">from one truck</span>
-        <h2 class="ose-display ose-lg" data-i18n="ose.s3.title" data-i18n-html="">to a fleet of<br><em>1,200+</em></h2>
-      </div>
-      <p class="ose-label" data-i18n="ose.s3.label">Lake Trans: bulk haulage across East Africa</p>
-    </div>
-
-    <div class="ose-scene" id="ose-s4">
-      <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/lakegas/ops/cylinder-stacks.jpg" alt="Lake Gas LPG cylinder storage"></div>
-      <div class="ose-tint ose-tint-gold"></div>
-      <div class="ose-text">
-        <span class="ose-eyebrow" data-i18n="ose.s4.eyebrow">and along the way</span>
-        <h2 class="ose-display ose-lg" data-i18n="ose.s4.title" data-i18n-html="">we brought clean<br>energy <em>home.</em></h2>
+        <span class="ose-eyebrow">Our people</span>
+        <h2 class="ose-display ose-lg">One group.<br>A shared standard.</h2>
         <div class="ose-line"></div>
-        <p class="ose-body" data-i18n="ose.s4.body">Lake Gas now supplies LPG cylinders to six countries, displacing charcoal stoves and giving families a safer way to cook.</p>
+        <p class="ose-body">Quality, service, safety and professionalism guide every company in the Lake Group family.</p>
       </div>
+      <p class="ose-label">The people behind our progress</p>
     </div>
 
-    <div class="ose-scene" id="ose-s5">
-      <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/gccp/photo_3.jpg" alt="GCCP ready-mix concrete operations"></div>
-      <div class="ose-tint ose-tint-blue"></div>
-      <div class="ose-text">
-        <span class="ose-eyebrow" data-i18n="ose.s5.eyebrow">eight sectors, one vision</span>
-        <h2 class="ose-display ose-md" data-i18n="ose.s5.title" data-i18n-html="">We built more than<br>a fuel company.</h2>
-      </div>
-      <p class="ose-label" data-i18n="ose.s5.label">GCCP: Dar es Salaam's leading ready-mix concrete supplier</p>
-    </div>
-
-    <div class="ose-scene" id="ose-s6">
-      <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/leadership/annual-event.jpg" alt="Lake Group annual team event"></div>
-      <div class="ose-tint ose-tint-navy"></div>
-      <div class="ose-text">
-        <div class="ose-line"></div>
-        <p class="ose-body" data-i18n="ose.s6.body">Every depot, every truck, every cylinder is run by people. 30,000+ of them, from 21 nationalities, across 10 countries. That's the part no spreadsheet can capture.</p>
-      </div>
-      <p class="ose-label" data-i18n="ose.s6.label">our team, our story</p>
-    </div>
-
-    <div class="ose-scene" id="ose-s7">
-      <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/home/verticals/logistics.webp" alt="AFICD container depot at sunset"></div>
-      <div class="ose-tint ose-tint-gold"></div>
-      <div class="ose-text">
-        <span class="ose-eyebrow" data-i18n="ose.s7.eyebrow">today</span>
-        <h2 class="ose-display ose-lg" data-i18n="ose.s7.title" data-i18n-html="">across <em>10 countries</em><br>and counting.</h2>
-        <div class="ose-line"></div>
-        <p class="ose-body ose-small" data-i18n="ose.s7.body">Tanzania &middot; Kenya &middot; Zambia &middot; Rwanda &middot; Burundi &middot; DR Congo &middot; Ethiopia &middot; Mozambique &middot; Uganda &middot; UAE</p>
-      </div>
-    </div>
-
-    <div class="ose-scene" id="ose-s8">
-      <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/group/ops/depot-aerial.jpg" alt="Lake Group depot aerial view" loading="lazy" decoding="async"></div>
-      <div class="ose-tint ose-tint-dark"></div>
-      <div class="ose-text">
-        <h2 class="ose-display ose-xl" data-i18n="ose.s8.title">Lake Group.</h2>
-        <div class="ose-line"></div>
-        <p class="ose-body" data-i18n="ose.s8.body" data-i18n-html="">Quality. Service. Safety. Professionalism.<br>Powering East &amp; Central Africa since 2006.</p>
-      </div>
-      <p class="ose-label" data-i18n="ose.s8.label">still growing</p>
-    </div>
-
+    <button class="ose-arrow ose-arrow-prev" type="button" aria-label="Previous About slide">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+    </button>
+    <button class="ose-arrow ose-arrow-next" type="button" aria-label="Next About slide">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+    </button>
     <div class="ose-progress" id="ose-progress"></div>
   </div>
 </section>
@@ -477,7 +456,7 @@ body.about .page-wrapper { padding-top: 0; }
           </div>
         </div>
         <figure class="fs-media fs-corners" style="aspect-ratio:16/9">
-          <img src="assets/images/lakeoil/current/depot-terminal.jpg" alt="Lake Group petroleum terminal operations" loading="lazy" decoding="async">
+          <img src="assets/images/about/about-story-terminal-enhanced.webp" alt="Lake Energies petroleum terminal operations" loading="lazy" decoding="async">
         </figure>
       </div>
     </div>
@@ -559,57 +538,82 @@ body.about .page-wrapper { padding-top: 0; }
 (function () {
   const stage = document.getElementById('ose-stage');
   if (!stage) return;
-  const scenes = stage.querySelectorAll('.ose-scene');
+  const scenes = [...stage.querySelectorAll('.ose-scene')];
   const progress = document.getElementById('ose-progress');
+  const previousButton = stage.querySelector('.ose-arrow-prev');
+  const nextButton = stage.querySelector('.ose-arrow-next');
   const N = scenes.length;
-  const DURATIONS = [4000, 5800, 4800, 6000, 5000, 5800, 5400, 5600];
-  let current = -1;
+  const DURATION = 6000;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let current = 0;
   let timer = null;
-  let started = false;
+  let visible = false;
+  let paused = false;
+  let touchStartX = null;
 
   for (let i = 0; i < N; i++) {
-    const d = document.createElement('div');
+    const d = document.createElement('button');
+    d.type = 'button';
     d.className = 'ose-dot';
+    d.setAttribute('aria-label', `Show About slide ${i + 1}`);
+    d.setAttribute('aria-current', i === 0 ? 'true' : 'false');
+    d.addEventListener('click', () => showScene(i));
     progress.appendChild(d);
   }
-  const dots = progress.querySelectorAll('.ose-dot');
+  const dots = [...progress.querySelectorAll('.ose-dot')];
 
   function updateDots(i) {
-    dots.forEach((d, idx) => d.classList.toggle('ose-dot-active', idx === i));
+    dots.forEach((dot, index) => {
+      const active = index === i;
+      dot.classList.toggle('ose-dot-active', active);
+      dot.setAttribute('aria-current', active ? 'true' : 'false');
+    });
+  }
+
+  function schedule() {
+    clearTimeout(timer);
+    if (!visible || paused || reduceMotion) return;
+    timer = setTimeout(() => showScene(current + 1), DURATION);
   }
 
   function showScene(i) {
-    if (current >= 0 && current < N) {
-      const prev = scenes[current];
-      prev.classList.remove('ose-active');
-      prev.classList.add('ose-fade-out');
-      setTimeout(() => prev.classList.remove('ose-fade-out'), 600);
-    }
-    /* Continuous loop: wrap around forever instead of stopping. */
-    current = i % N;
-    scenes[current].classList.add('ose-active');
+    current = (i + N) % N;
+    scenes.forEach((scene, index) => {
+      const active = index === current;
+      scene.classList.toggle('ose-active', active);
+      scene.setAttribute('aria-hidden', active ? 'false' : 'true');
+    });
     updateDots(current);
-    clearTimeout(timer);
-    timer = setTimeout(() => showScene(current + 1), DURATIONS[current] || 5200);
+    schedule();
   }
 
-  function start() {
-    if (started) return;
-    started = true;
-    showScene(0);
-  }
-
-  /* Tap anywhere to advance to the next scene (loops). */
-  stage.addEventListener('click', () => {
-    if (current >= 0 && current < N) { clearTimeout(timer); showScene(current + 1); }
+  previousButton.addEventListener('click', () => showScene(current - 1));
+  nextButton.addEventListener('click', () => showScene(current + 1));
+  stage.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') { event.preventDefault(); showScene(current - 1); }
+    if (event.key === 'ArrowRight') { event.preventDefault(); showScene(current + 1); }
   });
+  stage.addEventListener('mouseenter', () => { paused = true; clearTimeout(timer); });
+  stage.addEventListener('mouseleave', () => { paused = false; schedule(); });
+  stage.addEventListener('focusin', () => { paused = true; clearTimeout(timer); });
+  stage.addEventListener('focusout', () => { paused = false; schedule(); });
+  stage.addEventListener('touchstart', (event) => { touchStartX = event.changedTouches[0].clientX; }, { passive: true });
+  stage.addEventListener('touchend', (event) => {
+    if (touchStartX === null) return;
+    const delta = event.changedTouches[0].clientX - touchStartX;
+    touchStartX = null;
+    if (Math.abs(delta) > 45) showScene(current + (delta < 0 ? 1 : -1));
+  }, { passive: true });
 
   const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) start();
+      visible = entry.isIntersecting;
+      if (visible) schedule();
+      else clearTimeout(timer);
     });
   }, { threshold: 0.3 });
   io.observe(stage);
+  showScene(0);
 })();
 </script>
 <script src="assets/pwa.js?v=62" defer></script>

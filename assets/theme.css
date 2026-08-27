@@ -162,14 +162,12 @@ html, body {
   z-index: 1000;
   height: var(--navbar-height, 72px);
   background: var(--color-navbar-bg, #0181BB);
-  background-color: #0181BB;
   border-bottom: 3px solid var(--color-navbar-border, #FFF200);
   backdrop-filter: none;
   transition: transform 0.38s var(--ease-smooth), box-shadow 0.3s ease, background-color 0.3s ease, height 0.3s var(--ease-smooth);
 }
 .site-nav.nav-scrolled {
   background: var(--color-navbar-bg-scrolled, rgba(1, 102, 148, 0.96));
-  background-color: rgba(1, 102, 148, 0.96);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 8px 30px rgba(4,10,34,0.35);

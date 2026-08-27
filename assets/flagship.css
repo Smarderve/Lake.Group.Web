@@ -391,9 +391,7 @@ button, [role="button"], input, select, textarea, a {
   width: 100%;
   z-index: 1000;
   height: var(--navbar-height, 72px);
-  /* Literal fallbacks: interiors must match home even if tokens.css is stale/missing */
   background: var(--color-navbar-bg, #0181BB);
-  background-color: #0181BB;
   border-bottom: 3px solid var(--color-navbar-border, #FFF200);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
@@ -403,7 +401,6 @@ button, [role="button"], input, select, textarea, a {
 .site-nav.nav-scrolled {
   height: var(--navbar-height-scrolled, 60px);
   background: var(--color-navbar-bg-scrolled, rgba(1, 102, 148, 0.96));
-  background-color: rgba(1, 102, 148, 0.96);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 8px 30px rgba(4,10,34,0.35);
@@ -2115,9 +2112,9 @@ body.co-theme-agro {
   --color-hero-bg:            var(--color-agro-green-deep, #004b1e);
   --hero-overlay-gradient: linear-gradient(
     105deg,
-    rgba(0, 75, 30, 0.46) 0%,
-    rgba(0, 132, 53, 0.22) 45%,
-    rgba(0, 132, 53, 0.02) 100%
+    rgba(0, 0, 0, 0.16) 0%,
+    rgba(0, 0, 0, 0.13) 48%,
+    rgba(0, 0, 0, 0.10) 100%
   );
 
   /* Ink bands (fs-on-dark / footer / info panels) */
@@ -2217,7 +2214,7 @@ body[data-company-alt="Gulf Aggregates"] {
   --gold-deep: #b8141a;
   --yellow: #ed1c24;
   --yellow2: #b8141a;
-  --hero-overlay-gradient: linear-gradient(105deg,rgba(35,24,26,.88),rgba(120,18,24,.48) 54%,rgba(120,18,24,.08));
+  --hero-overlay-gradient: linear-gradient(105deg,rgba(0,0,0,.16),rgba(0,0,0,.13) 54%,rgba(0,0,0,.10));
 }
 body[data-company-alt="Cross Country"] {
   --blue: #082b5f;
@@ -2233,7 +2230,7 @@ body[data-company-alt="Ocean Galleria"] {
   --gold-deep: #a97c10;
   --yellow: #d5a51f;
   --yellow2: #a97c10;
-  --hero-overlay-gradient: linear-gradient(105deg,rgba(18,18,18,.88),rgba(18,18,18,.45) 55%,rgba(18,18,18,.06));
+  --hero-overlay-gradient: linear-gradient(105deg,rgba(0,0,0,.16),rgba(0,0,0,.13) 55%,rgba(0,0,0,.10));
 }
 
 /* Page + panel scrollbars inherit Agro greens */
@@ -2996,9 +2993,12 @@ body[data-company-logo] .fs-marker { justify-content: center; text-align: center
 body[data-company-logo] .fs-display { text-align: center; }
 body[data-company-logo] .fs-lede { margin-left: auto; margin-right: auto; max-width: 64ch; text-align: center; }
 
-/* Subsidiary heroes: use the verified company overlay token while keeping
-   photography visible. Theme-specific pages remap this token above. */
+/* Subsidiary heroes: a slightly stronger neutral veil behind copy while
+   keeping company photography and brand colors intact. */
 body[data-company-logo] .page-hero .hero-overlay,
 body[data-company-logo] .page-hero .page-hero-overlay {
-  background: var(--hero-overlay-gradient);
+  background: linear-gradient(105deg,
+    rgba(0, 0, 0, 0.18) 0%,
+    rgba(0, 0, 0, 0.14) 48%,
+    rgba(0, 0, 0, 0.10) 100%);
 }

@@ -6,9 +6,7 @@
   width: 100%;
   z-index: 1000;
   height: var(--navbar-height, 72px);
-  /* Literal fallbacks: interiors must match home even if tokens.css is stale/missing */
   background: var(--color-navbar-bg, #FFFFFF);
-  background-color: #FFFFFF;
   border-bottom: 1px solid var(--color-navbar-border, rgba(1,63,92,0.10));
   backdrop-filter: none;
   transition: transform 0.38s var(--ease-smooth), box-shadow 0.3s ease, background-color 0.3s ease, height 0.3s var(--ease-smooth);
@@ -26,7 +24,6 @@
 .site-nav.nav-scrolled {
   height: var(--navbar-height-scrolled, 60px);
   background: var(--color-navbar-bg-scrolled, rgba(255, 255, 255, 0.94));
-  background-color: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(14px) saturate(1.2);
   -webkit-backdrop-filter: blur(14px) saturate(1.2);
   box-shadow: 0 10px 30px rgba(1, 40, 63, 0.10);
