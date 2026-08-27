@@ -137,9 +137,9 @@ body.about .page-wrapper { padding-top: 0; }
 
 .ose-progress {
   position: absolute; bottom: 1.4rem; left: 50%; transform: translateX(-50%); z-index: 20;
-  display: flex; gap: 10px; align-items: center;
+  display: flex; width: max-content; gap: 0; align-items: center; justify-content: center;
 }
-.ose-dot { position: relative; width: 24px; height: 24px; padding: 0; border: 0; border-radius: 50%; background: transparent; cursor: pointer; transition: opacity .25s ease; }
+.ose-dot { position: relative; width: 16px; height: 24px; padding: 0; border: 0; border-radius: 50%; background: transparent; cursor: pointer; transition: opacity .25s ease; }
 .ose-dot::before { content: ''; position: absolute; inset: 50% auto auto 50%; width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.52); transform: translate(-50%, -50%); transition: background-color .25s ease, transform .25s ease; }
 .ose-dot.ose-dot-active::before { width: 8px; height: 8px; background: var(--yellow); opacity: 1; }
 .ose-arrow {

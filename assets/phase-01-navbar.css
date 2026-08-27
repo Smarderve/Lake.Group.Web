@@ -566,7 +566,7 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .lang-menu {
 }
 
 .site-nav[data-phase01-navbar] .mm-layout {
-  grid-template-columns: minmax(220px, 256px) minmax(0, 1fr) !important;
+  grid-template-columns: minmax(0, 220px) minmax(0, 1fr) !important;
   gap: 18px 22px !important;
   min-height: 286px !important;
 }
@@ -590,13 +590,12 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .lang-menu {
   grid-template-columns: 24px minmax(0, 1fr) 8px !important;
   align-items: center !important;
   gap: 9px !important;
-  padding: 11px 14px 11px 10px !important;
+  padding: 11px 12px 11px 8px !important;
   color: var(--nav-menu-text) !important;
   background: transparent !important;
-  border: 0 !important;
-  border-left: 2px solid transparent !important;
-  border-radius: 0 !important;
-  transition: color .18s ease, background-color .18s ease, border-left-color .18s ease, transform .18s ease !important;
+  border: 1px solid rgba(255, 255, 255, .10) !important;
+  border-radius: 7px !important;
+  transition: color .18s ease, background-color .18s ease, border-color .18s ease !important;
 }
 
 .site-nav[data-phase01-navbar] .mm-cat::before {
@@ -632,9 +631,10 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .lang-menu {
 body.co-theme-agro .site-nav[data-phase01-navbar] .mm-cat.is-active {
   color: var(--nav-menu-accent) !important;
   background: rgba(255, 255, 255, .055) !important;
-  border-left-color: var(--nav-menu-accent) !important;
+  border-color: var(--nav-menu-accent) !important;
+  box-shadow: none !important;
   outline: none !important;
-  transform: translateX(3px) !important;
+  transform: none !important;
 }
 
 .site-nav[data-phase01-navbar] .mm-cat:hover::before,
