@@ -421,6 +421,47 @@ body.co-theme-agro .nav-mobile[data-phase01-navbar-mobile] {
   padding-left: 8px !important;
 }
 
+/* Mobile accordion state is owned by phase-01-navbar.js. Keep closed panels
+   in the layout so their intrinsic height can animate without a fake cap. */
+.nav-mobile[data-phase01-navbar-mobile] {
+  z-index: 10001 !important;
+  overscroll-behavior: contain !important;
+}
+.nav-mobile[data-phase01-navbar-mobile] .mob-acc-panel {
+  display: flex !important;
+  max-height: 0 !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  transition: max-height .24s ease, opacity .2s ease !important;
+}
+.nav-mobile[data-phase01-navbar-mobile] .mob-acc-panel.is-open {
+  display: flex !important;
+  max-height: var(--mobile-panel-height, 0px) !important;
+  opacity: 1 !important;
+}
+.nav-mobile[data-phase01-navbar-mobile] .mob-acc-panel[hidden] {
+  display: flex !important;
+}
+.nav-mobile[data-phase01-navbar-mobile] .mob-primary[aria-expanded="true"],
+.nav-mobile[data-phase01-navbar-mobile] .mob-corporate-trigger[aria-expanded="true"] {
+  color: #fff !important;
+  background: transparent !important;
+  border-left-color: transparent !important;
+}
+.nav-mobile[data-phase01-navbar-mobile] .mob-section {
+  color: rgba(255, 255, 255, .62) !important;
+}
+.nav-mobile[data-phase01-navbar-mobile] .mob-corporate-trigger {
+  min-height: 44px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-mobile[data-phase01-navbar-mobile] .mob-acc-panel,
+  .nav-mobile[data-phase01-navbar-mobile] .mob-acc-btn::after {
+    transition: none !important;
+  }
+}
+
 .nav-mobile[data-phase01-navbar-mobile] .mob-language {
   margin-top: 8px !important;
   padding: 13px 14px !important;

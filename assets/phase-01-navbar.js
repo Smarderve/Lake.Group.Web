@@ -5,7 +5,14 @@
     const drawer = document.querySelector('[data-phase01-navbar-mobile]');
     const toggle = nav && nav.querySelector('#nav-toggle');
     if (!nav || !drawer || !toggle) return;
-    const page = (window.location.pathname.split('/').pop() || 'index.html').split('?')[0].split('#')[0];
+    const normalizeRoute = (value) => {
+      try {
+        const pathname = new URL(value, window.location.href).pathname.replace(/\/+$/, '');
+        const route = pathname.split('/').pop() || 'index';
+        return route.replace(/\\.html$/i, '') || 'index';
+      } catch (_) { return ''; }
+    };
+    const page = normalizeRoute(window.location.href);
     const companyPages = new Set([
       'lake-oil.html', 'lake-aviation.html', 'lake-gas.html', 'lake-lubes.html',
       'lake-buildings.html', 'lake-plastics.html', 'lake-steel.html', 'lake-cylinders.html',
@@ -73,8 +80,34 @@
       languageTrigger.setAttribute('aria-haspopup', 'menu');
       languageTrigger.setAttribute('aria-expanded', 'false');
     }
-    const mobileLinks = drawer.querySelectorAll('a');
     const mobilePrimary = drawer.querySelector('.mob-primary');
+    const corporateSection = [...drawer.querySelectorAll('.mob-section')].find((section) => {
+      return section.textContent.trim().toLowerCase() === 'corporate' || section.dataset.i18n === 'mob.company';
+    });
+    let corporateButton = null;
+    let corporatePanel = null;
+    if (corporateSection) {
+      corporateButton = document.createElement('button');
+      corporateButton.type = 'button';
+      corporateButton.className = 'mob-acc-btn mob-corporate-trigger';
+      corporateButton.setAttribute('aria-expanded', 'false');
+      corporateButton.setAttribute('aria-controls', 'mob-corporate-panel');
+      corporateButton.textContent = corporateSection.textContent.trim();
+      corporatePanel = document.createElement('div');
+      corporatePanel.className = 'mob-acc-panel mob-corporate-panel';
+      corporatePanel.id = 'mob-corporate-panel';
+      corporatePanel.hidden = true;
+      corporatePanel.setAttribute('aria-label', 'Corporate navigation');
+      corporateSection.replaceWith(corporateButton);
+      corporateButton.after(corporatePanel);
+      let next = corporatePanel.nextElementSibling;
+      while (next && !next.classList.contains('mob-section')) {
+        const current = next;
+        next = next.nextElementSibling;
+        corporatePanel.appendChild(current);
+      }
+    }
+    const mobileLinks = drawer.querySelectorAll('a');
     [...desktopLinks, ...mobileLinks, mobilePrimary].filter(Boolean).forEach((link) => {
       link.classList.remove('active');
       link.removeAttribute('aria-current');
@@ -83,34 +116,69 @@
     if (companyPages.has(page)) desktopActive = nav.querySelector('[data-nav-section="subsidiaries"]');
     else if (corporatePages.has(page)) desktopActive = nav.querySelector('[data-nav-section="corporate"]');
     else desktopActive = [...desktopLinks].find((link) => {
-      const target = (link.getAttribute('href') || '').split('/').pop().split('?')[0].split('#')[0];
+      const target = normalizeRoute(link.getAttribute('href') || '');
       return target === page && !link.hasAttribute('data-nav-section');
     });
     if (desktopActive) {
       desktopActive.classList.add('active');
       desktopActive.setAttribute('aria-current', 'page');
     }
-    if (companyPages.has(page) && mobilePrimary) {
-      mobilePrimary.classList.add('active');
-      mobilePrimary.setAttribute('aria-current', 'page');
-    } else {
-      [...mobileLinks].forEach((link) => {
-        const target = (link.getAttribute('href') || '').split('/').pop().split('?')[0].split('#')[0];
-        if (target === page) {
-          link.classList.add('active');
-          link.setAttribute('aria-current', 'page');
-        }
-      });
-    }
+    [...mobileLinks].forEach((link) => {
+      if (normalizeRoute(link.getAttribute('href') || '') === page) {
+        link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
     const closeAll = (except) => nav.querySelectorAll('.has-dropdown.is-open').forEach((item) => { if (item !== except) { item.classList.remove('is-open'); item.querySelector(':scope > a')?.setAttribute('aria-expanded', 'false'); } });
-    toggle.addEventListener('click', () => { const open = drawer.classList.toggle('open'); drawer.hidden = !open; toggle.setAttribute('aria-expanded', String(open)); });
+    let openMobileSection = null;
+    const setMobilePanel = (button, panel, open) => {
+      if (!button || !panel) return;
+      panel.hidden = false;
+      panel.classList.toggle('is-open', open);
+      button.setAttribute('aria-expanded', String(open));
+      panel.style.setProperty('--mobile-panel-height', open ? `${panel.scrollHeight}px` : '0px');
+      if (!open) panel.hidden = false;
+    };
+    const resetMobileAccordions = () => {
+      openMobileSection = null;
+      setMobilePanel(mobilePrimary, drawer.querySelector('#mob-subsidiaries'), false);
+      setMobilePanel(corporateButton, corporatePanel, false);
+      drawer.querySelectorAll('.mob-accordion .mob-acc-panel').forEach((panel) => {
+        panel.classList.remove('is-open');
+        panel.hidden = false;
+        panel.style.setProperty('--mobile-panel-height', '0px');
+      });
+      drawer.querySelectorAll('.mob-acc-btn').forEach((button) => button.setAttribute('aria-expanded', 'false'));
+    };
+    const toggleTopMobileSection = (key, button, panel) => {
+      const shouldOpen = openMobileSection !== key;
+      if (shouldOpen && openMobileSection === 'subsidiaries') setMobilePanel(mobilePrimary, drawer.querySelector('#mob-subsidiaries'), false);
+      if (shouldOpen && openMobileSection === 'corporate') setMobilePanel(corporateButton, corporatePanel, false);
+      setMobilePanel(button, panel, shouldOpen);
+      openMobileSection = shouldOpen ? key : null;
+    };
+    toggle.addEventListener('click', () => {
+      const open = drawer.classList.toggle('open');
+      drawer.hidden = !open;
+      toggle.setAttribute('aria-expanded', String(open));
+      if (open) resetMobileAccordions();
+    });
     nav.querySelectorAll('.has-dropdown').forEach((item) => { const trigger = item.querySelector(':scope > a'); if (!trigger) return; trigger.addEventListener('click', (event) => { event.preventDefault(); const open = !item.classList.contains('is-open'); closeAll(item); item.classList.toggle('is-open', open); trigger.setAttribute('aria-expanded', String(open)); }); });
     document.addEventListener('click', (event) => { if (!nav.contains(event.target)) closeAll(); });
     document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeAll(); });
     const activateCategory = (button, interaction = 'open') => { const id = button.dataset.mmCat; const menu = button.closest('.nav-megamenu'); menu.querySelectorAll('.mm-cat').forEach((b) => { const active = b === button; b.classList.toggle('is-active', active); b.setAttribute('aria-selected', String(active)); }); menu.querySelectorAll('.mm-pane').forEach((pane) => { const active = pane.dataset.mmPane === id; pane.classList.toggle('is-active', active); pane.hidden = !active; }); playSectorIcon(button, interaction === 'open' ? 'in-reveal' : 'hover-pinch'); };
     nav.querySelectorAll('.mm-cat').forEach((button) => { button.addEventListener('click', () => activateCategory(button, 'interaction')); button.addEventListener('mouseenter', () => { if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) activateCategory(button, 'interaction'); }); button.addEventListener('focus', () => activateCategory(button, 'interaction')); });
     nav.querySelectorAll('.has-dropdown[data-nav-section="subsidiaries"]').forEach((item) => item.addEventListener('mouseenter', () => { const first = item.querySelector('.mm-cat.is-active') || item.querySelector('.mm-cat'); if (first) activateCategory(first, 'open'); }));
-    drawer.querySelectorAll('.mob-acc-btn').forEach((button) => button.addEventListener('click', () => { const panel = document.getElementById(button.getAttribute('aria-controls')); const open = !panel.classList.contains('is-open'); panel.classList.toggle('is-open', open); panel.hidden = !open; button.setAttribute('aria-expanded', String(open)); }));
+    const subsidiariesPanel = drawer.querySelector('#mob-subsidiaries');
+    if (mobilePrimary && subsidiariesPanel) mobilePrimary.addEventListener('click', () => toggleTopMobileSection('subsidiaries', mobilePrimary, subsidiariesPanel));
+    if (corporateButton && corporatePanel) corporateButton.addEventListener('click', () => toggleTopMobileSection('corporate', corporateButton, corporatePanel));
+    drawer.querySelectorAll('.mob-accordion .mob-acc-btn').forEach((button) => button.addEventListener('click', () => {
+      const panel = document.getElementById(button.getAttribute('aria-controls'));
+      if (!panel) return;
+      const open = !panel.classList.contains('is-open');
+      setMobilePanel(button, panel, open);
+    }));
+    resetMobileAccordions();
   }
   document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', init) : init();
 })();
