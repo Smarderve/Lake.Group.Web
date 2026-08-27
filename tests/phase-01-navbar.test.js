@@ -95,8 +95,8 @@ test('subsidiary coverage uses unique supplied company marks and includes ACFS',
 test('shared glass navbar and active-page state remain consistent', () => {
   const css = fs.readFileSync(path.join(ROOT, 'assets/phase-01-navbar.css'), 'utf8');
   const script = fs.readFileSync(path.join(ROOT, 'assets/phase-01-navbar.js'), 'utf8');
-  assert.match(css, /backdrop-filter:blur\(15px\)/);
-  assert.match(css, /rgba\(1,63,92,\.72\)/);
+  assert.match(css, /backdrop-filter:\s*blur\(8px\)/);
+  assert.match(css, /rgba\(0, 43, 65, \.52\)/);
   assert.doesNotMatch(css, /background:#0181bb!important/);
   assert.doesNotMatch(css, /\.nav-links>li>a\.active\{[^}]*border-(?:bottom|top|left|right)/);
   assert.match(script, /link\.classList\.add\('active'\)/);
@@ -108,6 +108,6 @@ test('shared glass navbar and active-page state remain consistent', () => {
 
 test('legacy active-link pseudo elements cannot render underline bars', () => {
   const phaseCss = fs.readFileSync(path.join(ROOT, 'assets/phase-01-navbar.css'), 'utf8');
-  assert.match(phaseCss, />a::before[^}]*content:none!important/);
-  assert.match(phaseCss, />a::after[^}]*content:none!important/);
+  assert.match(phaseCss, /> a::before,[\s\S]*?> a::after\s*\{[^}]*content:\s*none\s*!important/);
+  assert.match(phaseCss, /> a::after\s*\{[^}]*border:\s*0\s*!important/);
 });

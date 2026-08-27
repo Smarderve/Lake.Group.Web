@@ -16,7 +16,8 @@
     const corporatePages = new Set(['history.html', 'africa-network.html', 'csr.html', 'sustainability.html', 'investors.html', 'projects.html', 'gallery.html']);
     const desktopLinks = nav.querySelectorAll('.nav-links > li > a');
     const mobileLinks = drawer.querySelectorAll('a');
-    [...desktopLinks, ...mobileLinks].forEach((link) => {
+    const mobilePrimary = drawer.querySelector('.mob-primary');
+    [...desktopLinks, ...mobileLinks, mobilePrimary].filter(Boolean).forEach((link) => {
       link.classList.remove('active');
       link.removeAttribute('aria-current');
     });
@@ -31,13 +32,18 @@
       desktopActive.classList.add('active');
       desktopActive.setAttribute('aria-current', 'page');
     }
-    [...mobileLinks].forEach((link) => {
-      const target = (link.getAttribute('href') || '').split('/').pop().split('?')[0].split('#')[0];
-      if (target === page) {
-        link.classList.add('active');
-        link.setAttribute('aria-current', 'page');
-      }
-    });
+    if (companyPages.has(page) && mobilePrimary) {
+      mobilePrimary.classList.add('active');
+      mobilePrimary.setAttribute('aria-current', 'page');
+    } else {
+      [...mobileLinks].forEach((link) => {
+        const target = (link.getAttribute('href') || '').split('/').pop().split('?')[0].split('#')[0];
+        if (target === page) {
+          link.classList.add('active');
+          link.setAttribute('aria-current', 'page');
+        }
+      });
+    }
     const closeAll = (except) => nav.querySelectorAll('.has-dropdown.is-open').forEach((item) => { if (item !== except) { item.classList.remove('is-open'); item.querySelector(':scope > a')?.setAttribute('aria-expanded', 'false'); } });
     toggle.addEventListener('click', () => { const open = drawer.classList.toggle('open'); drawer.hidden = !open; toggle.setAttribute('aria-expanded', String(open)); });
     nav.querySelectorAll('.has-dropdown').forEach((item) => { const trigger = item.querySelector(':scope > a'); if (!trigger) return; trigger.addEventListener('click', (event) => { event.preventDefault(); const open = !item.classList.contains('is-open'); closeAll(item); item.classList.toggle('is-open', open); trigger.setAttribute('aria-expanded', String(open)); }); });

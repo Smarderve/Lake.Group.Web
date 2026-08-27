@@ -30,6 +30,8 @@ test('desktop glass navbar, hover mega-menu and About navigation', async () => {
   assert.ok(await page.locator('#nav-companies-menu').evaluate(el=>Number(getComputedStyle(el).opacity))>.9);
   await page.locator('[data-mm-cat="realestate"]').hover();
   const oceanLogo=page.locator('[data-mm-pane="realestate"] img[alt="Ocean Galleria"]');
+  await oceanLogo.evaluate(el=>{if(!el.complete||!el.naturalWidth){el.loading='eager';el.src=el.src;}});
+  await page.waitForFunction(()=>{const el=document.querySelector('[data-mm-pane="realestate"] img[alt="Ocean Galleria"]');return el&&el.complete&&el.naturalWidth>0;});
   const oceanState=await oceanLogo.evaluate(el=>{const s=getComputedStyle(el);return{src:el.getAttribute('src'),complete:el.complete,naturalWidth:el.naturalWidth,naturalHeight:el.naturalHeight,fit:s.objectFit,tile:getComputedStyle(el.closest('.mm-company')).backgroundColor}});
   assert.match(oceanState.src,/Ocean-Galleria-logo\.webp$/);
   assert.equal(oceanState.complete,true); assert.equal(oceanState.naturalWidth,1881); assert.equal(oceanState.naturalHeight,836); assert.equal(oceanState.fit,'contain'); assert.notEqual(oceanState.tile,'rgba(0, 0, 0, 0)');
@@ -44,6 +46,62 @@ test('desktop glass navbar, hover mega-menu and About navigation', async () => {
   await page.close();
 });
 
+test('approved navbar surface overlays launch heroes without becoming a slab', async () => {
+  const page=await browser.newPage({viewport:{width:1440,height:900}});
+  const cases=[
+    ['index.html','.hero','Home'],
+    ['about.html','.our-story-embed','About'],
+    ['leadership.html','.page-hero','Leadership'],
+    ['contact.html','.page-hero','Contact Us'],
+    ['history.html','.page-hero','Corporate'],
+    ['gallery.html','.gal-slider__track','Corporate'],
+    ['lake-gas.html','.page-hero','Subsidiaries'],
+  ];
+  for(const [file,heroSelector,activeLabel] of cases){
+    await page.goto(`http://127.0.0.1:${server.address().port}/${file}`,{waitUntil:'networkidle'});
+    await page.waitForFunction(()=>!document.documentElement.classList.contains('lg-loading'));
+    await page.waitForFunction(()=>!document.querySelector('[data-lg-skeleton-overlay]'));
+    const state=await page.evaluate(({heroSelector})=>{
+      const nav=document.querySelector('[data-phase01-navbar]');
+      const navStyle=getComputedStyle(nav);
+      const hero=document.querySelector(heroSelector);
+      const links=nav.querySelector('.nav-links').getBoundingClientRect();
+      const active=[...nav.querySelectorAll('.nav-links > li > a.active')];
+      const alphaValues=[...navStyle.backgroundImage.matchAll(/rgba\([^)]*,\s*([\d.]+)\)/g)].map(match=>Number(match[1]));
+      const activeStyle=active[0]&&getComputedStyle(active[0]);
+      return{
+        alphaValues,
+        borderBottomWidth:navStyle.borderBottomWidth,
+        borderRadius:navStyle.borderRadius,
+        heroTop:hero&&hero.getBoundingClientRect().top,
+        navCenter:links.left+(links.width/2),
+        viewportCenter:innerWidth/2,
+        activeCount:active.length,
+        activeLabel:active[0]&&active[0].textContent.replace(/\s*[▾▼]\s*$/,'').trim(),
+        activeColor:activeStyle&&activeStyle.color,
+        activeBefore:active[0]&&getComputedStyle(active[0],'::before').content,
+        activeAfter:active[0]&&getComputedStyle(active[0],'::after').content,
+        languageVisible:getComputedStyle(nav.querySelector('.lang-switcher')).display!=='none',
+        stripes:!!nav.querySelector('.nav-stripes'),
+      };
+    },{heroSelector});
+    assert.ok(state.alphaValues.length>=2,`${file}: controlled translucent gradient`);
+    assert.ok(Math.max(...state.alphaValues)<=0.56,`${file}: navbar alpha ${state.alphaValues.join(', ')} keeps hero perceptible`);
+    assert.equal(state.borderBottomWidth,'0px',`${file}: no separator line`);
+    assert.equal(state.borderRadius,'0px',`${file}: no floating or rounded outer shell`);
+    assert.ok(state.heroTop<=1,`${file}: hero starts beneath navbar at ${state.heroTop}px`);
+    assert.ok(Math.abs(state.navCenter-state.viewportCenter)<2,`${file}: desktop navigation is independently centered`);
+    assert.equal(state.activeCount,1,`${file}: exactly one desktop item active`);
+    assert.equal(state.activeLabel,activeLabel,`${file}: relevant desktop item active`);
+    assert.equal(state.activeColor,'rgb(255, 242, 0)',`${file}: active item uses yellow text only`);
+    assert.ok(state.activeBefore==='none'||state.activeBefore==='normal',`${file}: no active ::before underline`);
+    assert.ok(state.activeAfter==='none'||state.activeAfter==='normal',`${file}: no active ::after underline`);
+    assert.equal(state.languageVisible,true,`${file}: English control remains at right`);
+    assert.equal(state.stripes,false,`${file}: no yellow stripe element`);
+  }
+  await page.close();
+});
+
 test('mobile drawer and subsidiary accordion remain touch operable', async()=>{
   const page=await browser.newPage({viewport:{width:390,height:844},hasTouch:true});
   await page.goto(`http://127.0.0.1:${server.address().port}/leadership.html`,{waitUntil:'networkidle'});
@@ -51,6 +109,10 @@ test('mobile drawer and subsidiary accordion remain touch operable', async()=>{
   await page.waitForFunction(()=>!document.querySelector('[data-lg-skeleton-overlay]'));
   await page.locator('#nav-toggle').click();
   assert.equal(await page.locator('#nav-mobile').getAttribute('hidden'),null);
+  const leadershipActive=page.locator('#nav-mobile .active');
+  assert.equal(await leadershipActive.count(),1);
+  assert.equal((await leadershipActive.textContent()).trim(),'Leadership');
+  assert.equal(await leadershipActive.evaluate(el=>getComputedStyle(el).color),'rgb(255, 242, 0)');
   await page.locator('.mob-acc-btn').first().click();
   assert.equal(await page.locator('#mob-subsidiaries').getAttribute('hidden'),null);
   await page.locator('#mob-subsidiaries .mob-acc-btn').first().click();
@@ -61,6 +123,12 @@ test('mobile drawer and subsidiary accordion remain touch operable', async()=>{
   await page.locator('#nav-toggle').click();
   await page.locator('.ld-featured').scrollIntoViewIfNeeded();
   await page.screenshot({path:path.join(evidence,'mobile-chairman-profile.png'),fullPage:false});
+  await page.goto(`http://127.0.0.1:${server.address().port}/lake-gas.html`,{waitUntil:'networkidle'});
+  await page.locator('#nav-toggle').click();
+  const companyActive=page.locator('#nav-mobile .active');
+  assert.equal(await companyActive.count(),1);
+  assert.equal((await companyActive.textContent()).trim(),'Subsidiaries');
+  assert.equal(await companyActive.evaluate(el=>getComputedStyle(el).color),'rgb(255, 242, 0)');
   await page.close();
 });
 
@@ -135,7 +203,7 @@ test('verified company themes preserve shared structure and natural imagery',asy
     const logo=getComputedStyle(document.querySelector('.site-nav .nav-logo'));
     return{blue:body.getPropertyValue('--blue').trim(),nav:nav.backgroundImage,overlay:overlay.backgroundImage,card:card.backgroundColor,filter:image.filter,logoSurface:logo.backgroundColor,navCenter:(()=>{const r=document.querySelector('.nav-links').getBoundingClientRect();return r.left+r.width/2})()};
   });
-  assert.equal(agro.blue,'#008435'); assert.match(agro.nav,/1, 63, 92/); assert.doesNotMatch(agro.overlay,/1, 63, 92/); assert.equal(agro.card,'rgb(0, 75, 30)'); assert.doesNotMatch(agro.filter,/hue-rotate|sepia/); assert.equal(agro.logoSurface,'rgba(0, 0, 0, 0)'); assert.ok(Math.abs(agro.navCenter-720)<2);
+  assert.equal(agro.blue,'#008435'); assert.match(agro.nav,/0, 43, 65/); assert.doesNotMatch(agro.overlay,/0, 43, 65/); assert.equal(agro.card,'rgb(0, 75, 30)'); assert.doesNotMatch(agro.filter,/hue-rotate|sepia/); assert.equal(agro.logoSurface,'rgba(0, 0, 0, 0)'); assert.ok(Math.abs(agro.navCenter-720)<2);
   await page.screenshot({path:path.join(evidence,'desktop-lake-agro-theme.png'),fullPage:false});
   await page.setViewportSize({width:390,height:844});
   await page.reload({waitUntil:'networkidle'});

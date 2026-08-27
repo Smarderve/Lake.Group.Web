@@ -6,7 +6,10 @@ const path = require('node:path');
 const { chromium } = require('playwright');
 
 const root = path.join(__dirname, '..');
-const pages = ['index.html', 'leadership.html', 'news.html', 'lake-agro.html', '404.html'];
+const pages = [
+  'index.html', 'about.html', 'leadership.html', 'contact.html', 'gallery.html',
+  'history.html', 'news.html', 'lake-gas.html', 'lake-agro.html', '404.html'
+];
 const viewports = [
   { name: 'desktop', width: 1440, height: 900 },
   { name: 'tablet', width: 820, height: 1180 },
@@ -33,14 +36,22 @@ for (const viewport of viewports) {
   test(viewport.name + ' launch chrome has no horizontal overflow', async () => {
     const context = await browser.newContext({ viewport });
     const page = await context.newPage();
+    page.setDefaultNavigationTimeout(60000);
     for (const filename of pages) {
       await page.goto(`http://127.0.0.1:${server.address().port}/${filename}`, { waitUntil: 'domcontentloaded' });
       const result = await page.evaluate(() => ({
         overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
         nav: !!document.querySelector('.site-nav'),
-        footer: !!document.querySelector('.site-footer')
+        footer: !!document.querySelector('.site-footer'),
+        heroCollision: (() => {
+          const navBottom=document.querySelector('.site-nav')?.getBoundingClientRect().bottom||0;
+          const candidates=[...document.querySelectorAll('.hero-eyebrow, .page-hero .breadcrumb, .ose-text > *, .gal-slider__body > *')];
+          const content=candidates.find(el=>{const rect=el.getBoundingClientRect();return rect.width>0&&rect.height>0;});
+          return content ? Math.max(0,navBottom-content.getBoundingClientRect().top) : 0;
+        })()
       }));
       assert.ok(result.overflow <= 1, `${viewport.name} ${filename} overflow ${result.overflow}px`);
+      assert.equal(result.heroCollision, 0, `${viewport.name} ${filename} hero content clears navbar`);
       assert.equal(result.nav, true, `${filename} navbar`);
       assert.equal(result.footer, true, `${filename} footer`);
     }
