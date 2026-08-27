@@ -11,8 +11,14 @@ const i18n = fs.readFileSync(path.join(__dirname, '..', 'assets', 'i18n.js'), 'u
 assert.match(css, /\.site-nav\[data-phase01-navbar\] \.nav-megamenu[\s\S]*?background:\s*var\(--nav-menu-surface\)\s*!important/);
 assert.match(css, /\.site-nav\[data-phase01-navbar\] \.nav-megamenu[\s\S]*?backdrop-filter:\s*blur\(18px\)[^;]*!important/);
 assert.match(css, /\.site-nav\[data-phase01-navbar\] \.nav-megamenu[\s\S]*?border:\s*1px solid var\(--nav-menu-border\)\s*!important/);
-assert.match(css, /\.mm-cat\[data-mm-cat="energies"\]::before/);
-assert.match(css, /\.mm-cat\[data-mm-cat="automotive"\]::before/);
+assert.match(css, /\.mm-sector-icon/);
+assert.match(css, /\.mm-cat::before\s*\{[\s\S]*?display:\s*none\s*!important/);
+assert.match(js, /energy\.li/);
+assert.match(js, /playSectorIcon/);
+assert.match(js, /prefers-reduced-motion/);
+assert.match(css, /\.nav-megamenu\s*\{[\s\S]*?overflow:\s*hidden auto\s*!important/);
+assert.match(css, /\.mm-company:hover img[\s\S]*?transform:\s*scale\(1\.05\)/);
+assert.doesNotMatch(css, /\.nav-megamenu \.mm-company:hover[\s\S]*?border-bottom-color:\s*rgba/);
 assert.match(css, /\.site-nav\[data-phase01-navbar\] \.lang-menu[\s\S]*?background:\s*var\(--nav-menu-surface\)\s*!important/);
 assert.match(js, /languageTrigger\.removeAttribute\(['"]disabled['"]\)/);
 assert.match(i18n, /setAttribute\('role', 'menuitemradio'\)/);

@@ -32,8 +32,8 @@ test('white marquee uses full blue lake lockups with visible subsidiary letterin
 test('mega-menu keeps a clean corporate rail and uses animated sector icon treatment', () => {
   assert.match(menuCss, /\.site-nav\[data-phase01-navbar\] \.mm-cats,\s*\n\.site-nav\[data-phase01-navbar\] \.mm-panes[\s\S]*?background:\s*transparent\s*!important/);
   assert.match(menuCss, /\.site-nav\[data-phase01-navbar\] \.mm-cats,\s*\n\.site-nav\[data-phase01-navbar\] \.mm-panes[\s\S]*?border:\s*0\s*!important/);
-  assert.match(menuCss, /\.site-nav\[data-phase01-navbar\] \.mm-cat::before[\s\S]*?mask-image:/);
-  assert.match(menuCss, /\.site-nav\[data-phase01-navbar\] \.mm-cat:hover::before[\s\S]*?transform:/);
+  assert.match(menuCss, /\.site-nav\[data-phase01-navbar\] \.mm-sector-icon/);
+  assert.match(menuCss, /\.mm-cat::before\s*\{[\s\S]*?display:\s*none\s*!important/);
   assert.doesNotMatch(menuCss, /content:\s*["'][^"']*[✦⚙⇄⌂❋◇]/);
 });
 

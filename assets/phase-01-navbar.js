@@ -16,6 +16,58 @@
     const corporatePages = new Set(['history.html', 'africa-network.html', 'csr.html', 'sustainability.html', 'investors.html', 'projects.html', 'gallery.html']);
     const desktopLinks = nav.querySelectorAll('.nav-links > li > a');
     const languageTrigger = nav.querySelector('.lang-trigger');
+    const sectorIcons = {
+      energies: 'assets/icons/sectors/energy.li',
+      manufacturing: 'assets/icons/sectors/manufacturing.li',
+      logistics: 'assets/icons/sectors/logistics.li',
+      realestate: 'assets/icons/sectors/real-estate.li',
+      agro: 'assets/icons/sectors/agro-processing.li',
+      automotive: 'assets/icons/sectors/automotive.li'
+    };
+    const ensureSectorIconPlayer = () => {
+      if (!window.customElements || customElements.get('lord-icon')) return Promise.resolve();
+      if (!window.__lakeLordiconLoader) {
+        window.__lakeLordiconLoader = new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          script.src = 'assets/vendor/lordicon-element.js';
+          script.onload = resolve;
+          script.onerror = reject;
+          document.head.appendChild(script);
+        });
+      }
+      return window.__lakeLordiconLoader;
+    };
+    const initSectorIcons = () => {
+      nav.querySelectorAll('.mm-cat[data-mm-cat]').forEach((button) => {
+        if (button.querySelector('.mm-sector-icon')) return;
+        const src = sectorIcons[button.dataset.mmCat];
+        if (!src) return;
+        const icon = document.createElement('lord-icon');
+        icon.className = 'mm-sector-icon';
+        icon.setAttribute('src', src);
+        icon.setAttribute('trigger', 'manual');
+        icon.setAttribute('loading', 'interaction');
+        icon.setAttribute('state', 'in-reveal');
+        icon.setAttribute('colors', 'primary:#b8c8d3,secondary:#b8c8d3');
+        icon.setAttribute('stroke', 'regular');
+        icon.setAttribute('aria-hidden', 'true');
+        button.prepend(icon);
+        playSectorIcon(button, 'in-reveal');
+      });
+    };
+    const playSectorIcon = (button, state) => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const icon = button.querySelector('.mm-sector-icon');
+      if (!icon) return;
+      icon.state = state;
+      const play = () => {
+        window.__LAKE_SECTOR_ICON_EVENTS__ = window.__LAKE_SECTOR_ICON_EVENTS__ || [];
+        window.__LAKE_SECTOR_ICON_EVENTS__.push({ id: button.dataset.mmCat, state, at: Date.now() });
+        icon.playerInstance?.playFromBeginning?.();
+      };
+      icon.ready ? play() : icon.addEventListener('ready', play, { once: true });
+    };
+    ensureSectorIconPlayer().then(() => { initSectorIcons(); }).catch(() => {});
     if (languageTrigger) {
       languageTrigger.removeAttribute('disabled');
       languageTrigger.setAttribute('aria-haspopup', 'menu');
@@ -55,8 +107,9 @@
     nav.querySelectorAll('.has-dropdown').forEach((item) => { const trigger = item.querySelector(':scope > a'); if (!trigger) return; trigger.addEventListener('click', (event) => { event.preventDefault(); const open = !item.classList.contains('is-open'); closeAll(item); item.classList.toggle('is-open', open); trigger.setAttribute('aria-expanded', String(open)); }); });
     document.addEventListener('click', (event) => { if (!nav.contains(event.target)) closeAll(); });
     document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeAll(); });
-    const activateCategory = (button) => { const id = button.dataset.mmCat; const menu = button.closest('.nav-megamenu'); menu.querySelectorAll('.mm-cat').forEach((b) => { const active = b === button; b.classList.toggle('is-active', active); b.setAttribute('aria-selected', String(active)); }); menu.querySelectorAll('.mm-pane').forEach((pane) => { const active = pane.dataset.mmPane === id; pane.classList.toggle('is-active', active); pane.hidden = !active; }); };
-    nav.querySelectorAll('.mm-cat').forEach((button) => { button.addEventListener('click', () => activateCategory(button)); button.addEventListener('mouseenter', () => { if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) activateCategory(button); }); button.addEventListener('focus', () => activateCategory(button)); });
+    const activateCategory = (button, interaction = 'open') => { const id = button.dataset.mmCat; const menu = button.closest('.nav-megamenu'); menu.querySelectorAll('.mm-cat').forEach((b) => { const active = b === button; b.classList.toggle('is-active', active); b.setAttribute('aria-selected', String(active)); }); menu.querySelectorAll('.mm-pane').forEach((pane) => { const active = pane.dataset.mmPane === id; pane.classList.toggle('is-active', active); pane.hidden = !active; }); playSectorIcon(button, interaction === 'open' ? 'in-reveal' : 'hover-pinch'); };
+    nav.querySelectorAll('.mm-cat').forEach((button) => { button.addEventListener('click', () => activateCategory(button, 'interaction')); button.addEventListener('mouseenter', () => { if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) activateCategory(button, 'interaction'); }); button.addEventListener('focus', () => activateCategory(button, 'interaction')); });
+    nav.querySelectorAll('.has-dropdown[data-nav-section="subsidiaries"]').forEach((item) => item.addEventListener('mouseenter', () => { const first = item.querySelector('.mm-cat.is-active') || item.querySelector('.mm-cat'); if (first) activateCategory(first, 'open'); }));
     drawer.querySelectorAll('.mob-acc-btn').forEach((button) => button.addEventListener('click', () => { const panel = document.getElementById(button.getAttribute('aria-controls')); const open = !panel.classList.contains('is-open'); panel.classList.toggle('is-open', open); panel.hidden = !open; button.setAttribute('aria-expanded', String(open)); }));
   }
   document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', init) : init();

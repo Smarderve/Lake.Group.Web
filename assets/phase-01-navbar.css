@@ -514,6 +514,8 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .lang-menu {
 .site-nav[data-phase01-navbar] .nav-megamenu {
   padding: 18px !important;
   transform: translate(-50%, -6px) !important;
+  overflow: hidden auto !important;
+  background-clip: padding-box !important;
 }
 
 .site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-megamenu,
@@ -611,6 +613,27 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .mm-cat.is-active {
   transform: translateX(2px) scale(1.12) !important;
 }
 
+/* Sector glyphs are supplied by the shared Lordicon player, not CSS masks. */
+.site-nav[data-phase01-navbar] .mm-cat::before {
+  display: none !important;
+  content: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+.site-nav[data-phase01-navbar] .mm-sector-icon {
+  display: block !important;
+  width: 22px !important;
+  height: 22px !important;
+  flex: 0 0 22px !important;
+  color: var(--nav-menu-muted) !important;
+  transition: color .18s ease !important;
+}
+.site-nav[data-phase01-navbar] .mm-cat:hover .mm-sector-icon,
+.site-nav[data-phase01-navbar] .mm-cat:focus-visible .mm-sector-icon,
+.site-nav[data-phase01-navbar] .mm-cat.is-active .mm-sector-icon {
+  color: var(--nav-menu-accent) !important;
+}
+
 .site-nav[data-phase01-navbar] .mm-pane {
   height: 100% !important;
 }
@@ -628,18 +651,38 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .mm-cat.is-active {
   color: var(--nav-menu-muted) !important;
   background: transparent !important;
   border: 0 !important;
-  border-bottom: 2px solid transparent !important;
+  border-bottom: 0 !important;
   border-radius: 0 !important;
-  transition: color .18s ease, background-color .18s ease, border-bottom-color .18s ease, transform .18s ease !important;
+  transition: color .18s ease !important;
 }
 
 .site-nav[data-phase01-navbar] .nav-megamenu .mm-company:hover,
 .site-nav[data-phase01-navbar] .nav-megamenu .mm-company:focus-visible {
-  color: #fff !important;
-  background: rgba(255, 255, 255, .055) !important;
-  border-bottom-color: rgba(255, 242, 0, .55) !important;
-  transform: translateY(-2px) !important;
+  color: var(--nav-menu-muted) !important;
+  background: transparent !important;
+  border-bottom: 0 !important;
+  transform: none !important;
   outline: none !important;
+}
+
+.site-nav[data-phase01-navbar] .nav-megamenu .mm-company:hover,
+.site-nav[data-phase01-navbar] .nav-megamenu .mm-company:focus-visible {
+  color: var(--nav-menu-muted) !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+  filter: none !important;
+}
+.site-nav[data-phase01-navbar] .nav-megamenu .mm-company img {
+  transform-origin: center !important;
+  transition: transform .2s ease, opacity .2s ease !important;
+  filter: none !important;
+}
+.site-nav[data-phase01-navbar] .nav-megamenu .mm-company:hover img,
+.site-nav[data-phase01-navbar] .nav-megamenu .mm-company:focus-visible img {
+  transform: scale(1.05) !important;
+  filter: none !important;
 }
 
 .site-nav[data-phase01-navbar] .nav-megamenu .mm-company img {
@@ -713,6 +756,7 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .mm-cat.is-active {
 @media (prefers-reduced-motion: reduce) {
   .site-nav[data-phase01-navbar] .mm-cat,
   .site-nav[data-phase01-navbar] .mm-cat::before,
+  .site-nav[data-phase01-navbar] .mm-sector-icon,
   .site-nav[data-phase01-navbar] .nav-megamenu .mm-company,
   .site-nav[data-phase01-navbar] .lang-menu {
     transition: none !important;
