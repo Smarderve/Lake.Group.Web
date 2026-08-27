@@ -1,42 +1,55 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Globe from 'react-globe.gl';
-import { TEX, BRAND_YELLOW, BRAND_YELLOW_SOFT, buildArcs, buildPoints, buildRings, prefersReducedMotion } from './locations.js';
+import {
+  TEX,
+  BRAND_YELLOW,
+  BRAND_YELLOW_SOFT,
+  LABEL_COLOR,
+  buildPoints,
+  buildArcs,
+  buildRings,
+  buildLabels,
+  prefersReducedMotion,
+} from './locations.js';
 
-/** Slow, deliberate sweep — one full revolution, then stop facing Africa. */
-const ROTATE_SPEED = 1.6; // ~18–24 s per orbit (measured azimuth, not wall time)
-const ROTATE_FALLBACK_MS = 26000; // safety stop if azimuth polling is unavailable
+/* Camera / timing constants */
 
-/** Destination labels — a pointer dot with the country name above it. */
-const LABEL_SIZE = 2.5; // text height in deg — clearly readable (was 1.5)
-const LABEL_DOT_RADIUS = 0.5; // pointer dot radius in deg — reads as a pin
-const LABEL_ALTITUDE = 0.03; // float just above the surface
-const LABEL_RESOLUTION = 10; // smoother text curves
+const AFRICA_POV = { lat: -6, lng: 35, altitude: 2.05 };
+const SETTLE_DURATION_MS = 2200;
+const POST_SETTLE_PAUSE_MS = 400;
+const ARC_DRAW_DURATION_MS = 1800;
+const ARC_STAGGER_MS = 300;
 
-/** Location markers are white so they read cleanly against the globe. */
+/* Label / marker styling */
+
+const LABEL_SIZE = 0.38;
+const LABEL_ALTITUDE = 0.015;
+const LABEL_DOT_RADIUS = 0.12;
+const LABEL_RESOLUTION = 8;
+
 const MARKER_WHITE = '#ffffff';
 const MARKER_WHITE_RING = (t) => `rgba(255, 255, 255, ${Math.max(0, 1 - t)})`;
 
-/** Africa-facing point of view — the destination cluster is centred here. */
-const AFRICA_POV = { lat: -4.5, lng: 35, altitude: 2.15 };
+/* Easing helper */
+
+function easeInOutCubic(t) {
+  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+}
+
+/* Hooks */
 
 function usePanelSize(panelEl) {
   const [size, setSize] = useState(() => {
     if (!panelEl) return { w: 640, h: 480 };
     const r = panelEl.getBoundingClientRect();
-    return {
-      w: Math.max(1, Math.floor(r.width)),
-      h: Math.max(1, Math.floor(r.height)),
-    };
+    return { w: Math.max(1, Math.floor(r.width)), h: Math.max(1, Math.floor(r.height)) };
   });
 
   useEffect(() => {
     if (!panelEl) return undefined;
     const measure = () => {
       const r = panelEl.getBoundingClientRect();
-      setSize({
-        w: Math.max(1, Math.floor(r.width)),
-        h: Math.max(1, Math.floor(r.height)),
-      });
+      setSize({ w: Math.max(1, Math.floor(r.width)), h: Math.max(1, Math.floor(r.height)) });
     };
     measure();
     if (typeof ResizeObserver === 'undefined') {
@@ -74,158 +87,136 @@ function useReducedMotion() {
   return reduced;
 }
 
+/* Component */
+
 export default function HeroGlobe({ panelEl, locations }) {
   const globeRef = useRef(null);
   const { w, h } = usePanelSize(panelEl);
   const reduced = useReducedMotion();
 
-  const allPoints = useMemo(() => {
-    return buildPoints(locations).map((p) => ({
-      ...p,
-      color: MARKER_WHITE,
-    }));
-  }, [locations]);
-
+  const allPoints = useMemo(() => buildPoints(locations).map((p) => ({ ...p, color: MARKER_WHITE })), [locations]);
   const allRings = useMemo(() => (reduced ? [] : buildRings(locations)), [locations, reduced]);
   const allArcs = useMemo(() => buildArcs(locations), [locations]);
-
-  // Destination labels appear once the globe settles facing Africa; the
-  // connection arcs remain visible throughout the arrival.
-  const allLabels = useMemo(() => {
-    return locations
-      .filter((loc) => !loc.hub)
-      .map((loc) => ({
-        id: loc.id,
-        lat: loc.lat,
-        lng: loc.lng,
-        text: loc.countryName || String(loc.name || '').split(' · ')[0] || loc.name,
-        color: MARKER_WHITE,
-      }));
-  }, [locations]);
+  const allLabels = useMemo(() => buildLabels(locations), [locations]);
 
   const [pointsData, setPointsData] = useState([]);
   const [ringsData, setRingsData] = useState([]);
   const [arcsData, setArcsData] = useState([]);
   const [labelsData, setLabelsData] = useState([]);
+
   const [globeReady, setGlobeReady] = useState(false);
   const [sectionVisible, setSectionVisible] = useState(false);
   const sectionVisibleRef = useRef(false);
-  const arrivalStartedRef = useRef(false);
-  const rafRef = useRef([]);
+  const arrivalRef = useRef(false);
+  const rafIds = useRef([]);
+  const timersRef = useRef([]);
 
-  const clearScheduled = useCallback(() => {
-    rafRef.current.forEach((id) => cancelAnimationFrame(id));
-    rafRef.current = [];
+  const clearTimers = useCallback(() => {
+    timersRef.current.forEach((id) => clearTimeout(id));
+    timersRef.current = [];
+    rafIds.current.forEach((id) => cancelAnimationFrame(id));
+    rafIds.current = [];
   }, []);
 
-  const showFinalState = useCallback(() => {
+  const scheduleTimer = useCallback((fn, ms) => {
+    const id = setTimeout(fn, ms);
+    timersRef.current.push(id);
+    return id;
+  }, []);
+
+  const showAll = useCallback(() => {
     setPointsData(allPoints);
     setRingsData(allRings);
     setArcsData(allArcs);
     setLabelsData(allLabels);
   }, [allPoints, allRings, allArcs, allLabels]);
 
-  const applySpin = useCallback(
-    (visible) => {
-      sectionVisibleRef.current = visible;
-      setSectionVisible(visible);
-      const g = globeRef.current;
-      if (!g) return;
-      if (typeof g.pauseAnimation === 'function' && typeof g.resumeAnimation === 'function') {
-        if (visible) g.resumeAnimation();
-        else g.pauseAnimation();
-      }
-    },
-    [],
-  );
-
-  /**
-   * Entrance: start facing Africa, sweep one full slow revolution, then STOP
-   * exactly when Africa is centred again and reveal every location (points +
-   * labels). Progress is measured from the orbit controls' azimuth — the stop
-   * always lands on Africa regardless of frame rate or spin speed.
-   */
   const startArrival = useCallback(() => {
-    clearScheduled();
+    clearTimers();
     setPointsData([]);
     setRingsData([]);
     setArcsData([]);
     setLabelsData([]);
 
     const g = globeRef.current;
-    if (!g) {
-      showFinalState();
-      return;
-    }
+    if (!g) { showAll(); return; }
     const controls = g.controls && g.controls();
-    if (!controls) {
-      showFinalState();
-      return;
-    }
+    if (!controls) { showAll(); return; }
 
-    // HQ marker + pulse ring ride along during the sweep.
+    controls.autoRotate = false;
+    controls.autoRotateSpeed = 0;
+
+    const startPov = g.pointOfView();
+    const startTime = performance.now();
+
     const hub = allPoints.find((p) => p.hub);
     setPointsData(hub ? [hub] : []);
     setRingsData(allRings);
-    setArcsData(allArcs);
-
-    const useAzimuth = typeof controls.getAzimuthalAngle === 'function';
-    let prev = useAzimuth ? controls.getAzimuthalAngle() : 0;
-    let accumulated = 0;
-    const startedAt = performance.now();
-
-    controls.autoRotate = true;
-    controls.autoRotateSpeed = ROTATE_SPEED;
 
     const tick = () => {
-      const visible = sectionVisibleRef.current;
-      controls.autoRotate = visible; // pause the sweep politely off-screen
-      controls.autoRotateSpeed = visible ? ROTATE_SPEED : 0;
+      const now = performance.now();
+      const elapsed = now - startTime;
+      const t = Math.min(1, elapsed / SETTLE_DURATION_MS);
+      const e = easeInOutCubic(t);
 
-      let done = false;
-      if (useAzimuth) {
-        const cur = controls.getAzimuthalAngle();
-        let delta = cur - prev;
-        // wrap into (-π, π] so a 2π boundary crossing doesn't look like a jump
-        delta = ((delta + Math.PI) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - Math.PI;
-        accumulated += Math.abs(delta);
-        prev = cur;
-        done = accumulated >= 2 * Math.PI; // one full turn → Africa again
-      } else if (performance.now() - startedAt >= ROTATE_FALLBACK_MS) {
-        done = true;
-      }
+      const lat = startPov.lat + (AFRICA_POV.lat - startPov.lat) * e;
+      const lng = startPov.lng + (AFRICA_POV.lng - startPov.lng) * e;
+      const alt = startPov.altitude + (AFRICA_POV.altitude - startPov.altitude) * e;
+      g.pointOfView({ lat, lng, altitude: alt }, 0);
 
-      if (done) {
-        controls.autoRotate = false;
-        controls.autoRotateSpeed = 0;
-        showFinalState();
-        return;
+      if (t < 1) {
+        const id = requestAnimationFrame(tick);
+        rafIds.current.push(id);
+      } else {
+        scheduleTimer(revealRoutes, POST_SETTLE_PAUSE_MS);
       }
-      const id = requestAnimationFrame(tick);
-      rafRef.current.push(id);
     };
     const id = requestAnimationFrame(tick);
-    rafRef.current.push(id);
-  }, [allPoints, allRings, allArcs, showFinalState, clearScheduled]);
+    rafIds.current.push(id);
 
-  // Reduced motion: final state immediately. Else: one arrival once ready +
-  // on screen. The globe then stays stopped facing Africa — no replay loop.
+    function revealRoutes() {
+      const orderMap = new Map(allArcs.map((arc, i) => [arc.id, i]));
+      const orderedDestinations = allPoints
+        .filter((p) => !p.hub)
+        .sort((a, b) => (orderMap.get(a.id) ?? 999) - (orderMap.get(b.id) ?? 999));
+
+      const orderedLabels = allLabels
+        .slice()
+        .sort((a, b) => (orderMap.get(a.id) ?? 999) - (orderMap.get(b.id) ?? 999));
+
+      orderedDestinations.forEach((dest, idx) => {
+        const delay = idx * ARC_STAGGER_MS;
+
+        scheduleTimer(() => {
+          setArcsData((prev) => {
+            const arc = allArcs.find((a) => a.id === dest.id);
+            return arc ? [...prev, arc] : prev;
+          });
+
+          scheduleTimer(() => {
+            setPointsData((prev) => [...prev, dest]);
+            const lbl = orderedLabels.find((l) => l.id === dest.id);
+            if (lbl) setLabelsData((prev) => [...prev, lbl]);
+          }, ARC_DRAW_DURATION_MS);
+        }, delay);
+      });
+    }
+  }, [allPoints, allRings, allArcs, allLabels, showAll, clearTimers, scheduleTimer]);
+
   useEffect(() => {
     if (reduced) {
-      arrivalStartedRef.current = true;
-      clearScheduled();
-      showFinalState();
+      arrivalRef.current = true;
+      clearTimers();
+      showAll();
       return undefined;
     }
-    if (!globeReady || !sectionVisible || arrivalStartedRef.current) {
-      return undefined;
-    }
-    arrivalStartedRef.current = true;
+    if (!globeReady || !sectionVisible || arrivalRef.current) return undefined;
+    arrivalRef.current = true;
     startArrival();
     return undefined;
-  }, [reduced, globeReady, sectionVisible, startArrival, showFinalState, clearScheduled]);
+  }, [reduced, globeReady, sectionVisible, startArrival, showAll, clearTimers]);
 
-  useEffect(() => () => clearScheduled(), [clearScheduled]);
+  useEffect(() => () => clearTimers(), [clearTimers]);
 
   const onGlobeReady = useCallback(() => {
     const g = globeRef.current;
@@ -233,7 +224,7 @@ export default function HeroGlobe({ panelEl, locations }) {
     g.pointOfView(AFRICA_POV, 0);
     const controls = g.controls();
     if (controls) {
-      controls.autoRotate = false; // the arrival sequence owns rotation
+      controls.autoRotate = false;
       controls.autoRotateSpeed = 0;
       controls.enableZoom = false;
       controls.enablePan = false;
@@ -244,23 +235,22 @@ export default function HeroGlobe({ panelEl, locations }) {
   }, []);
 
   useEffect(() => {
-    applySpin(sectionVisibleRef.current);
-  }, [reduced, applySpin]);
-
-  useEffect(() => {
     if (!panelEl) {
-      applySpin(true);
+      setSectionVisible(true);
+      sectionVisibleRef.current = true;
       return undefined;
     }
     const io = new IntersectionObserver(
       (entries) => {
-        applySpin(!!(entries[0] && entries[0].isIntersecting));
+        const visible = !!(entries[0] && entries[0].isIntersecting);
+        sectionVisibleRef.current = visible;
+        setSectionVisible(visible);
       },
       { threshold: 0.05 },
     );
     io.observe(panelEl);
     return () => io.disconnect();
-  }, [panelEl, applySpin]);
+  }, [panelEl]);
 
   return (
     <Globe
@@ -288,17 +278,18 @@ export default function HeroGlobe({ panelEl, locations }) {
       ringRepeatPeriod="repeatPeriod"
       arcsData={arcsData}
       arcColor={() => [BRAND_YELLOW_SOFT, BRAND_YELLOW]}
-      arcAltitudeAutoScale={0.22}
-      arcStroke={0.35}
-      arcDashLength={0.6}
-      arcDashGap={0.22}
-      arcDashAnimateTime={reduced ? 0 : 2800}
+      arcAltitudeAutoScale={0.2}
+      arcStroke={0.3}
+      arcDashLength={1}
+      arcDashGap={0}
+      arcDashInitialGap={0}
+      arcDashAnimateTime={ARC_DRAW_DURATION_MS}
       labelsData={labelsData}
       labelLat="lat"
       labelLng="lng"
       labelText="text"
       labelColor="color"
-      labelSize={LABEL_SIZE}
+      labelSize="size"
       labelAltitude={LABEL_ALTITUDE}
       labelIncludeDot
       labelDotRadius={LABEL_DOT_RADIUS}

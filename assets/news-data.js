@@ -365,7 +365,7 @@ window.LAKE_NEWS = [
     title: "Lake Oil Reaches 80+ Retail Fuel Stations Milestone Across Tanzania",
     date: "18 Aug, 2016",
     category: "Expansion",
-    bannerImage: "assets/images/lakeoil/current/station-lake-energies.jpg",
+    bannerImage: "assets/images/lakeoil/current/station-lake-energies.webp",
     description: [
       "Lake Oil Ltd. continued its rapid retail network expansion, reaching over 80 branded fuel stations across Tanzania . nearly doubling its station count in just over a year. The growth reflected strong consumer acceptance of the Lake Oil brand in the competitive Tanzanian downstream petroleum market.",
       "New station openings in 2016 included sites in the coastal regions (Tanga, Mtwara), lake zone (Mwanza, Bukoba), and northern corridor (Arusha, Moshi). Each station was built to consistent specifications with modern forecourt design, automated dispensers, and enhanced safety systems.",
