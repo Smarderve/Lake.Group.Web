@@ -15,6 +15,12 @@
     ]);
     const corporatePages = new Set(['history.html', 'africa-network.html', 'csr.html', 'sustainability.html', 'investors.html', 'projects.html', 'gallery.html']);
     const desktopLinks = nav.querySelectorAll('.nav-links > li > a');
+    const languageTrigger = nav.querySelector('.lang-trigger');
+    if (languageTrigger) {
+      languageTrigger.removeAttribute('disabled');
+      languageTrigger.setAttribute('aria-haspopup', 'menu');
+      languageTrigger.setAttribute('aria-expanded', 'false');
+    }
     const mobileLinks = drawer.querySelectorAll('a');
     const mobilePrimary = drawer.querySelector('.mob-primary');
     [...desktopLinks, ...mobileLinks, mobilePrimary].filter(Boolean).forEach((link) => {

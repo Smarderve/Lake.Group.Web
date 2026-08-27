@@ -75,10 +75,12 @@
   --color-navbar-bg-scrolled:   rgba(1, 102, 148, 0.96);
   --color-navbar-border:        var(--color-yellow-accent);
   --color-hero-bg:              var(--color-brand-blue-darkest); /* fallback under photo only */
+  /* Neutral readability veil: preserve the original photograph and avoid a
+     branded colour wash. Slightly stronger behind left-aligned copy only. */
   --hero-overlay-gradient:      linear-gradient(105deg,
-                                  rgba(1, 63, 92, 0.92) 0%,
-                                  rgba(1, 129, 187, 0.75) 45%,
-                                  rgba(1, 129, 187, 0.22) 100%);
+                                  rgba(0, 0, 0, 0.16) 0%,
+                                  rgba(0, 0, 0, 0.13) 48%,
+                                  rgba(0, 0, 0, 0.10) 100%);
 
   /* - Nav link metrics (home sentence-case + soft pill) - */
   /* Slightly larger than Bebas-era 0.84rem — Jost needs a touch more size at UI scale */

@@ -84,9 +84,10 @@ body.home .hero-scrim {
   right: 0;
   bottom: -60px;
   z-index: 2;
-  background:
-    linear-gradient(90deg, rgba(1, 63, 92, 0.5) 0%, rgba(1, 63, 92, 0.3) 32%, rgba(1, 63, 92, 0.06) 68%, rgba(1, 63, 92, 0) 100%),
-    linear-gradient(180deg, rgba(1, 63, 92, 0.16) 0%, rgba(1, 63, 92, 0) 25%);
+  background: linear-gradient(90deg,
+    rgba(0, 0, 0, 0.18) 0%,
+    rgba(0, 0, 0, 0.15) 38%,
+    rgba(0, 0, 0, 0.10) 100%);
 }
 
 /* Content: vertically centered, pushed down below navbar */

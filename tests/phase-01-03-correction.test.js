@@ -40,7 +40,8 @@ test('desktop glass navbar, hover mega-menu and About navigation', async () => {
   await page.waitForURL(/about\.html/);
   await page.waitForFunction(()=>!document.documentElement.classList.contains('lg-loading'));
   await page.waitForFunction(()=>!document.querySelector('[data-lg-skeleton-overlay]'));
-  assert.equal(await page.locator('#ose-s1').evaluate(el=>getComputedStyle(el).display),'block');
+  assert.equal(await page.locator('.ose-scene.ose-active').count(),1);
+  assert.equal(await page.locator('.ose-scene.ose-active').getAttribute('aria-hidden'),'false');
   assert.ok(await page.locator('main').evaluate(el=>el.getBoundingClientRect().height)>700);
   await page.screenshot({path:path.join(evidence,'desktop-about.png'),fullPage:false});
   await page.close();

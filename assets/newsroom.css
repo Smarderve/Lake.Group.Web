@@ -22,7 +22,7 @@ body.news-page .page-wrapper{
 
 /* ==========================================================================
    Masthead band (was the full-bleed hero) — a slim newspaper top section.
-   Photo slideshow still crossfades behind, dimmed under a deep-blue scrim.
+   Photo slideshow still crossfades behind a restrained neutral veil.
    ========================================================================== */
 body.news-page .page-hero{
   position:relative;
@@ -41,7 +41,7 @@ body.news-page .page-hero .hero-slide{
   background-size:cover;background-position:center;
   background-repeat:no-repeat;
   opacity:0;
-  filter:saturate(.7) brightness(.8);
+  filter:saturate(.96) contrast(1.02);
   transition:opacity 1.2s ease;
   will-change:opacity;
 }
@@ -49,7 +49,7 @@ body.news-page .page-hero .hero-slide.is-active{opacity:1}
 body.news-page .page-hero .hero-overlay{
   position:absolute;inset:0;z-index:1;
   background:
-    linear-gradient(115deg, rgba(1,63,92,.96) 0%, rgba(1,63,92,.84) 55%, rgba(1,102,148,.6) 100%);
+    linear-gradient(115deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.15) 55%, rgba(0,0,0,.11) 100%);
   pointer-events:none;
 }
 body.news-page .page-hero .container{position:relative;z-index:2}

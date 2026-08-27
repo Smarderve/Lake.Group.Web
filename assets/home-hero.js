@@ -16,7 +16,6 @@
   var index = 0;
   var timer = null;
   var paused = false;
-  var inView = true;
 
   // Per-slide subtitles. The canonical texts live in the i18n dictionary
   // (hero.slide1 .. hero.slide5, one entry per language) so a translation
@@ -66,45 +65,44 @@
   }
 
   function stop() {
-    if (timer) { clearInterval(timer); timer = null; }
+    if (timer !== null) { clearTimeout(timer); timer = null; }
   }
 
-  function start() {
+  /* One authoritative tick per active slide. Every transition schedules the
+     next one after it has completed, so no external event can leave autoplay
+     without a future tick or create competing timers. */
+  function schedule() {
     stop();
-    if (!paused && inView && !document.hidden) {
-      timer = setInterval(function () {
+    if (!paused && !document.hidden) {
+      timer = setTimeout(function advance() {
+        timer = null;
+        if (paused || document.hidden) return;
         index = (index + 1) % slides.length;
         setActive(index);
+        schedule();
       }, DURATION);
     }
   }
 
   setActive(0);
-  start();
+  schedule();
 
   /* Tab click: jump to slide */
   tabs.forEach(function (tab, n) {
     tab.addEventListener("click", function () {
       index = n;
       setActive(index);
-      start();
+      schedule();
     });
   });
 
   /* Pause on touch (mobile) */
-  root.addEventListener("touchstart", function () { paused = true; }, { passive: true });
-  root.addEventListener("touchend", function () { paused = false; start(); }, { passive: true });
-
-  if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function (entries) {
-      inView = entries[0].isIntersecting;
-      start();
-    }, { threshold: 0.05 });
-    io.observe(root);
-  }
+  root.addEventListener("touchstart", function () { paused = true; stop(); }, { passive: true });
+  root.addEventListener("touchend", function () { paused = false; schedule(); }, { passive: true });
+  root.addEventListener("touchcancel", function () { paused = false; schedule(); }, { passive: true });
 
   document.addEventListener("visibilitychange", function () {
-    if (document.hidden) stop(); else start();
+    if (document.hidden) stop(); else schedule();
   });
 
   /* When the visitor switches language (or i18n first applies), re-render the

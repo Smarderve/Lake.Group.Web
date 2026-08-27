@@ -169,6 +169,7 @@ window.LakeI18n = (function () {
     document.querySelectorAll('.lang-btn').forEach((btn) => {
       const active = btn.dataset.lang === lang;
       btn.classList.toggle('active', active);
+      btn.setAttribute('aria-checked', String(active));
       if (active) btn.setAttribute('aria-current', 'true');
       else btn.removeAttribute('aria-current');
     });
@@ -270,6 +271,13 @@ window.LakeI18n = (function () {
 
     const trigger = root.querySelector('.lang-trigger');
     const icons = root.querySelector('.lang-icons');
+    const menu = root.querySelector('.lang-menu');
+    if (trigger) {
+      trigger.setAttribute('aria-haspopup', 'menu');
+      if (menu) trigger.setAttribute('aria-controls', menu.id || '');
+      if (!trigger.hasAttribute('aria-expanded')) trigger.setAttribute('aria-expanded', 'false');
+    }
+    if (menu) menu.setAttribute('role', 'menu');
     if (trigger) {
       // Click/tap is the primary open path on all devices.
       trigger.addEventListener('click', (e) => {
@@ -356,11 +364,16 @@ window.LakeI18n = (function () {
         if (!root.querySelector('.lang-menu')) {
           const menu = document.createElement('div');
           menu.className = 'lang-menu';
+          menu.id = 'lang-menu';
+          menu.setAttribute('role', 'menu');
+          menu.setAttribute('aria-label', 'Language');
           menu.hidden = true;
           SUPPORTED.forEach((code) => {
             const btn = document.createElement('button');
             btn.type = 'button';
             btn.className = 'lang-btn';
+            btn.setAttribute('role', 'menuitemradio');
+            btn.setAttribute('aria-checked', String(code === current));
             btn.dataset.lang = code;
             btn.textContent = LANG_LABELS[code] || code;
             if (code === current) btn.classList.add('active');
