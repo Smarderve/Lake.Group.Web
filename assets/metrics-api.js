@@ -70,6 +70,7 @@
         document.querySelectorAll('[data-metric-key="' + key + '"]').forEach(function (el) {
           applyValue(el, metric.value);
         });
+        document.dispatchEvent(new CustomEvent('lake:metric-updated', { detail: { key: key } }));
       })
       .catch(function () {
         /* Keep the generated static release rendering. */

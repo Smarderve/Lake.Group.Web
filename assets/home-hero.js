@@ -126,8 +126,6 @@
   var nums = keyfacts.querySelectorAll(".hero-kf-num");
   if (!nums.length) return;
 
-  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
   function parseValue(raw) {
     var trimmed = raw.trim();
     var suffix = "";
@@ -147,20 +145,30 @@
   }
 
   var DURATION_MS = 2200;
-  var started = false;
+  var reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var animationFrame = null;
+  var isAnimating = false;
 
   function animate() {
-    if (started) return;
-    started = true;
-
     var infos = [];
     nums.forEach(function (el) {
       var raw = el.getAttribute("data-count-end") || el.textContent;
       var info = parseValue(raw);
       info.el = el;
-      info.start = performance.now();
       infos.push(info);
     });
+
+    if (animationFrame !== null) cancelAnimationFrame(animationFrame);
+    if (reducedMotion) {
+      infos.forEach(function (info) {
+        info.el.textContent = formatWithCommas(info.end) + info.suffix;
+      });
+      return;
+    }
+
+    isAnimating = true;
+    var start = performance.now();
+    infos.forEach(function (info) { info.start = start; });
 
     function tick(now) {
       var allDone = true;
@@ -171,9 +179,13 @@
         info.el.textContent = formatWithCommas(current) + info.suffix;
         if (t < 1) allDone = false;
       });
-      if (!allDone) requestAnimationFrame(tick);
+      if (!allDone) animationFrame = requestAnimationFrame(tick);
+      else {
+        animationFrame = null;
+        isAnimating = false;
+      }
     }
-    requestAnimationFrame(tick);
+    animationFrame = requestAnimationFrame(tick);
   }
 
   nums.forEach(function (el) {
@@ -183,12 +195,23 @@
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
       if (entries[0].isIntersecting) {
-        io.disconnect();
         animate();
       }
-    }, { threshold: 0.3 });
+    }, { threshold: 0.1 });
     io.observe(keyfacts);
   } else {
     animate();
   }
+
+  /* Metrics hydrate after this deferred script. Retarget and replay once the
+     published value arrives, while ignoring our own animation writes. */
+  document.addEventListener("lake:metric-updated", function (event) {
+    if (isAnimating || !event.detail || !event.detail.key) return;
+    nums.forEach(function (el) {
+      if (el.getAttribute("data-metric-key") === event.detail.key) {
+        el.setAttribute("data-count-end", el.textContent.trim());
+      }
+    });
+    animate();
+  });
 })();
