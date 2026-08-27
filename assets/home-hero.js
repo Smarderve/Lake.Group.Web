@@ -73,10 +73,10 @@
      without a future tick or create competing timers. */
   function schedule() {
     stop();
-    if (!paused && !document.hidden) {
+    if (!paused) {
       timer = setTimeout(function advance() {
         timer = null;
-        if (paused || document.hidden) return;
+        if (paused) return;
         index = (index + 1) % slides.length;
         setActive(index);
         schedule();
@@ -100,10 +100,6 @@
   root.addEventListener("touchstart", function () { paused = true; stop(); }, { passive: true });
   root.addEventListener("touchend", function () { paused = false; schedule(); }, { passive: true });
   root.addEventListener("touchcancel", function () { paused = false; schedule(); }, { passive: true });
-
-  document.addEventListener("visibilitychange", function () {
-    if (document.hidden) stop(); else schedule();
-  });
 
   /* When the visitor switches language (or i18n first applies), re-render the
      subtitle for the current slide so it never keeps stale text from a
