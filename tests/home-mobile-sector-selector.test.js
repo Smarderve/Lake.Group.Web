@@ -9,14 +9,15 @@ const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const js = fs.readFileSync(path.join(root, 'assets/home-hero.js'), 'utf8');
 const css = fs.readFileSync(path.join(root, 'assets/home-redesign.css'), 'utf8');
 
-assert.match(html, /data-hero-mobile-selector/);
-assert.equal((html.match(/data-hero-mobile-sector="\d"/g) || []).length, 6);
-assert.match(html, /aria-haspopup="listbox"/);
+assert.match(html, /data-hero-mobile-indicator/);
+assert.equal((html.match(/data-hero-mobile-sector="\d"/g) || []).length, 0);
+assert.doesNotMatch(html, /aria-haspopup="listbox"/);
 assert.match(js, /data-hero-mobile-sector-label/);
-assert.match(js, /setActive\(index\);\s*schedule\(\);\s*closeMobileSelector/);
-assert.match(js, /event\.key === "Escape"/);
+assert.match(js, /hero-mobile-sector-progress/);
+assert.match(js, /mobileProgress\.classList\.add\("is-running"\)/);
+assert.doesNotMatch(js, /mobileTrigger|mobileOptions|mobileOptionButtons|closeMobileSelector/);
 assert.match(css, /@media \(max-width: 720px\)[\s\S]*?\.hero-tabs\s*\{\s*display: none/);
-assert.match(css, /@media \(max-width: 720px\)[\s\S]*?\.hero-mobile-sector-selector\s*\{[\s\S]*?backdrop-filter: blur\(10px\)/);
-assert.match(css, /hero-mobile-sector-options button[\s\S]*?min-height: 44px/);
+assert.match(css, /hero-mobile-sector-indicator[\s\S]*?pointer-events: none/);
+assert.match(css, /hero-mobile-sector-progress[\s\S]*?lake-mobile-sector-progress 8s/);
 
-console.log('Homepage mobile sector selector checks passed');
+console.log('Homepage mobile sector indicator checks passed');

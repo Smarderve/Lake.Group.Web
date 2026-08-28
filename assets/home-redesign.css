@@ -504,6 +504,54 @@ body.home .hero-tab:hover {
   }
 }
 
+/* The mobile hero category is informational; autoplay remains authoritative. */
+@media (max-width: 720px) {
+  body.home .hero-mobile-sector-selector { display: none !important; }
+  body.home .hero-mobile-sector-indicator {
+    position: absolute;
+    z-index: 6;
+    display: block;
+    left: 20px;
+    right: 20px;
+    bottom: clamp(28px, 4.5vh, 46px);
+    color: #fff;
+    pointer-events: none;
+  }
+  body.home .hero-mobile-sector-label {
+    display: block;
+    color: rgba(255, 255, 255, .9);
+    font-size: .66rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+  body.home .hero-mobile-sector-label.is-updating { animation: lake-mobile-sector-in .35s ease both; }
+  body.home .hero-mobile-sector-progress {
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin-top: 10px;
+    background: rgba(255, 255, 255, .22);
+    overflow: hidden;
+  }
+  body.home .hero-mobile-sector-progress > span {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: var(--color-yellow-accent, var(--yellow));
+    transform-origin: left center;
+  }
+  body.home .hero-mobile-sector-progress.is-running > span { animation: lake-mobile-sector-progress 8s linear forwards; }
+  @keyframes lake-mobile-sector-progress { from { width: 0; } to { width: 100%; } }
+  @keyframes lake-mobile-sector-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+  body.home .hero-mobile-sector-indicator[hidden] { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.home .hero-mobile-sector-progress > span { width: 100%; animation: none !important; }
+  body.home .hero-mobile-sector-label.is-updating { animation: none !important; }
+}
+
 /* --------------------------------------------------------------------------
    3. KEY FACTS band  — solid navy, yellow numerals, hairline dividers
    -------------------------------------------------------------------------- */
@@ -583,6 +631,11 @@ body.home .aramco-card-media img {
 body.home .aramco-card:hover .aramco-card-media img {
   transform: scale(1.07);
 }
+body.home a[href="lake-oil.html"] .aramco-card-media img { object-position: 62% 50%; }
+body.home a[href="lake-gas.html"] .aramco-card-media img { object-position: 50% 48%; }
+body.home a[href="lake-trans.html"] .aramco-card-media img { object-position: 48% 46%; }
+body.home a[href="lake-premix-cement.html"] .aramco-card-media img { object-position: 50% 48%; }
+body.home a[href="lake-lubes.html"] .aramco-card-media img { object-position: 52% 52%; }
 body.home .aramco-card-shade {
   position: absolute;
   inset: 0;

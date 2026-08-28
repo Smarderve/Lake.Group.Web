@@ -12,11 +12,9 @@
   var content = document.querySelector(".hero-content");
   var subtitle = content ? content.querySelector(".hero-sub") : null;
   var tabs = root.querySelectorAll(".hero-tab");
-  var mobileSelector = root.querySelector("[data-hero-mobile-selector]");
-  var mobileTrigger = mobileSelector ? mobileSelector.querySelector(".hero-mobile-sector-trigger") : null;
+  var mobileSelector = root.querySelector("[data-hero-mobile-indicator]");
   var mobileLabel = mobileSelector ? mobileSelector.querySelector("[data-hero-mobile-sector-label]") : null;
-  var mobileOptions = mobileSelector ? mobileSelector.querySelector(".hero-mobile-sector-options") : null;
-  var mobileOptionButtons = mobileSelector ? mobileSelector.querySelectorAll("[data-hero-mobile-sector]") : [];
+  var mobileProgress = mobileSelector ? mobileSelector.querySelector(".hero-mobile-sector-progress") : null;
   var DURATION = 8000;
   var index = 0;
   var timer = null;
@@ -57,11 +55,16 @@
         }
       }
     });
-    mobileOptionButtons.forEach(function (option, n) {
-      option.setAttribute("aria-selected", n === i ? "true" : "false");
-    });
     if (mobileLabel && tabs[i]) {
       mobileLabel.textContent = (tabs[i].children[1] || tabs[i]).textContent.trim();
+      mobileLabel.classList.remove("is-updating");
+      void mobileLabel.offsetWidth;
+      mobileLabel.classList.add("is-updating");
+    }
+    if (mobileProgress) {
+      mobileProgress.classList.remove("is-running");
+      void mobileProgress.offsetWidth;
+      mobileProgress.classList.add("is-running");
     }
     if (subtitle) {
       subtitle.classList.remove("hero-sub-slide");
@@ -106,40 +109,6 @@
       schedule();
     });
   });
-
-  function closeMobileSelector() {
-    if (!mobileSelector || !mobileTrigger || !mobileOptions) return;
-    mobileSelector.classList.remove("is-open");
-    mobileTrigger.setAttribute("aria-expanded", "false");
-    mobileOptions.hidden = true;
-  }
-
-  if (mobileSelector && mobileTrigger && mobileOptions) {
-    mobileTrigger.addEventListener("click", function () {
-      var open = !mobileSelector.classList.contains("is-open");
-      mobileSelector.classList.toggle("is-open", open);
-      mobileTrigger.setAttribute("aria-expanded", open ? "true" : "false");
-      mobileOptions.hidden = !open;
-    });
-    mobileOptionButtons.forEach(function (option) {
-      option.addEventListener("click", function () {
-        index = parseInt(option.getAttribute("data-hero-mobile-sector"), 10) || 0;
-        setActive(index);
-        schedule();
-        closeMobileSelector();
-      });
-    });
-    document.addEventListener("click", function (event) {
-      if (!mobileSelector.contains(event.target)) closeMobileSelector();
-    });
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") closeMobileSelector();
-      if ((event.key === "Enter" || event.key === " ") && document.activeElement === mobileTrigger) {
-        event.preventDefault();
-        mobileTrigger.click();
-      }
-    });
-  }
 
   /* Pause on touch (mobile) */
   root.addEventListener("touchstart", function () { paused = true; stop(); }, { passive: true });

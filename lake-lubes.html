@@ -67,8 +67,9 @@
 .img-mosaic img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .4s ease}
 .img-mosaic .fs-media:hover img{transform:scale(1.03)}
 
-.lubes-services .svc-card__media{aspect-ratio:4/3}
-.lubes-services .svc-card__media img{object-fit:cover}
+.lubes-services .svc-card__media{aspect-ratio:4/3;background:var(--paper-2);padding:14px}
+.lubes-services .svc-card__media img{object-fit:contain;object-position:center}
+.lubes-services .svc-card:hover .svc-card__media img{transform:none}
 
 .edge-ico{
   width:56px;height:56px;margin:0 auto var(--sp-4);
