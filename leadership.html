@@ -225,21 +225,49 @@ a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
 }
 body .page-hero .hero-media {
   animation: hero-zoom 14s var(--ease-out, ease) forwards 0.5s;
-  transform-origin: center 50%;
+  transform-origin: 50% 48%;
   will-change: transform;
 }
 body .page-hero .hero-media {
   background-size: cover;
-  background-position: center 44%;
+  background-position: 50% 48%;
 }
 body .page-hero .hero-overlay {
-  background: rgba(0, 0, 0, .16) !important;
+  background: linear-gradient(90deg, rgba(3, 53, 79, .68) 0%, rgba(3, 53, 79, .48) 34%, rgba(0, 0, 0, .16) 64%, rgba(0, 0, 0, 0) 100%) !important;
+}
+body .page-hero {
+  min-height: 560px;
+  padding: 0 0 64px;
+}
+body .page-hero .container {
+  max-width: 1280px;
+}
+body .page-hero .container > * {
+  max-width: 620px;
+}
+body .page-hero .breadcrumb {
+  margin-bottom: 22px;
+  font-size: .68rem;
+  opacity: .62;
+}
+body .page-hero .eyebrow {
+  margin-bottom: 16px;
+}
+body .page-hero h1 {
+  font-size: clamp(4rem, 5.2vw, 4.75rem);
+  line-height: 1.02;
 }
 @media (max-width: 1024px) {
-  body .page-hero .hero-media { background-position: center 42%; }
+  body .page-hero { min-height: 520px; padding-bottom: 56px; }
+  body .page-hero .hero-media { background-position: 50% 44%; }
 }
 @media (max-width: 640px) {
-  body .page-hero .hero-media { background-position: center 38%; }
+  body .page-hero { min-height: 660px; padding-bottom: 72px; }
+  body .page-hero .hero-media { background-position: 43% 42%; }
+  body .page-hero .hero-overlay {
+    background: linear-gradient(180deg, rgba(3, 53, 79, .12) 0%, rgba(3, 53, 79, .24) 35%, rgba(3, 53, 79, .72) 70%, rgba(3, 53, 79, .86) 100%) !important;
+  }
+  body .page-hero h1 { font-size: clamp(3.1rem, 13vw, 4rem); }
 }
 @media (prefers-reduced-motion: reduce) {
   body .page-hero .hero-media {
