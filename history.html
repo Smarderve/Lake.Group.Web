@@ -4,14 +4,14 @@
   <style id="lg-skel-critical">html.lg-loading{overflow:hidden}html.lg-loading::before{content:"";position:fixed;inset:0;z-index:99989;background:#013f5c;pointer-events:none}html.lg-skel-done::before{display:none}.nav-logo img,.site-nav .nav-logo img{height:var(--nav-logo-height,48px)!important;width:auto!important;max-width:min(220px,55vw)!important;max-height:var(--nav-logo-height,48px)!important;object-fit:contain}</style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The story of Lake Group: from a single fuel outlet in Dar es Salaam in 2006 to a pan-African conglomerate.">
-  <meta name="twitter:description" content="The story of Lake Group: from a single fuel outlet in Dar es Salaam in 2006 to a pan-African conglomerate.">
+  <meta name="description" content="Explore Lake Group's timeline from the establishment of Lake Oil in Tanzania in 2006 through its expansion across energy, logistics, manufacturing, aviation, real estate and agriculture.">
+  <meta name="twitter:description" content="Explore Lake Group's timeline from the establishment of Lake Oil in Tanzania in 2006 through its expansion across energy, logistics, manufacturing, aviation, real estate and agriculture.">
   <meta name="twitter:title" content="Our History | Lake Group Since 2006">
   <meta name="twitter:image" content="https://www.lakeoilgroup.com/assets/images/logos/LAKE_GROUP_LOGO.png">
   <meta property="og:site_name" content="Lake Group">
   <meta property="og:url" content="https://www.lakeoilgroup.com/history.html">
   <meta property="og:title" content="Our History | Lake Group Since 2006">
-  <meta property="og:description" content="The story of Lake Group: from a single fuel outlet in Dar es Salaam in 2006 to a pan-African conglomerate.">
+  <meta property="og:description" content="Explore Lake Group's timeline from the establishment of Lake Oil in Tanzania in 2006 through its expansion across energy, logistics, manufacturing, aviation, real estate and agriculture.">
   <meta property="og:image" content="https://www.lakeoilgroup.com/assets/images/logos/LAKE_GROUP_LOGO.png">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
@@ -31,6 +31,28 @@
 .hx-cta { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--sp-8); flex-wrap: wrap; }
 .hx-cta .fs-display { font-size: clamp(2rem, 4vw, 3.4rem); margin-bottom: var(--sp-2); }
 .hx-actions { display: flex; gap: var(--sp-3); flex-wrap: wrap; }
+.history-hero { min-height: clamp(500px, 62vh, 680px); }
+.history-hero .hero-media { background-position: center 58%; }
+.history-hero .hero-overlay { background: linear-gradient(90deg, rgba(1,26,40,.78), rgba(1,26,40,.34) 52%, rgba(1,26,40,.08)); }
+.history-hero .container { padding-top: 48px; }
+.history-timeline { display:grid; gap:0; }
+.history-year-group { display:grid; grid-template-columns:100px minmax(0,1fr); gap:var(--sp-6); padding:var(--sp-6) 0; border-top:1px solid var(--line-2); }
+.history-year-group:first-child { border-top:0; padding-top:0; }
+.history-year { color:var(--color-brand-blue,#0181bb); font-family:var(--font-display); font-size:clamp(1.8rem,3vw,2.6rem); font-weight:700; line-height:1; }
+.history-events { display:grid; gap:var(--sp-6); }
+.history-event { padding-left:var(--sp-5); border-left:2px solid rgba(1,129,187,.2); }
+.history-event h4 { margin-bottom:6px; }
+.history-event p { margin:0; }
+.history-country { color:var(--color-brand-blue,#0181bb); font-size:.75rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px; }
+.history-status { display:inline-block; margin-bottom:8px; padding:4px 8px; color:var(--ink); background:var(--gold); font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+.hx-cta-yellow { background:var(--gold); color:var(--ink); }
+.hx-cta-yellow .fs-display, .hx-cta-yellow p { color:var(--ink); }
+.hx-cta-yellow .btn-primary { background:var(--ink); color:var(--gold); }
+.hx-cta-yellow .btn-primary:hover { background:#fff; color:var(--ink); }
+.hx-cta-yellow .btn-outline { border-color:rgba(1,35,55,.45); color:var(--ink); }
+.hx-cta-yellow .btn-outline:hover { border-color:var(--ink); background:var(--ink); color:var(--gold); }
+@media(max-width:880px){.history-hero{min-height:560px}.history-hero .container{padding-top:28px}.history-year-group{grid-template-columns:72px minmax(0,1fr);gap:var(--sp-4)}}
+@media(max-width:600px){.history-hero{min-height:620px}.history-hero .hero-media{background-position:62% center}.history-year-group{grid-template-columns:1fr;gap:var(--sp-3)}.history-year{font-size:2rem}.history-event{padding-left:var(--sp-4)}}
 </style>
 <script type="application/ld+json">
 {
@@ -126,14 +148,13 @@
 
 
 <div class="page-wrapper">
-<section class="page-hero">
-  <div class="hero-media" style="background-image:url('assets/images/lakeoil/current/tanker-lake-energies.jpg')" aria-hidden="true"></div>
+<section class="page-hero history-hero">
+  <div class="hero-media" style="background-image:url('assets/images/laketrans/profile/fleet-lineup.jpg')" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container" style="position:relative;z-index:2">
-    <nav class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span>/</span><span data-i18n="history.1">Our History</span></nav>
-    <div data-i18n="history.2" class="eyebrow">Since 2006</div>
-    <h1 data-i18n="history.3">The Lake Group Story</h1>
-    <p data-i18n="history.4">From a single fuel station to a pan-African conglomerate, the journey of Lake Group since 2006.</p>
+    <div class="eyebrow">Our History</div>
+    <h1>The Lake Group Story</h1>
+    <p>A timeline of Lake Group's growth across energy, logistics, manufacturing, real estate and agriculture.</p>
   </div>
 </section>
 
@@ -141,91 +162,35 @@
   <div class="container">
     <div class="fs-split">
       <div class="hx-intro">
-        <div data-i18n="history.5" class="section-label">Timeline</div>
-        <h2 data-i18n="history.6" class="section-title">Two Decades of Growth</h2>
-        <p data-i18n="history.7" class="section-subtitle">A story of bold decisions, relentless expansion, and building an energy empire from the ground up.</p>
+        <div class="section-label">Timeline</div>
+        <h2 class="section-title">Two Decades of Growth</h2>
+        <p class="section-subtitle">From petroleum operations in Tanzania in 2006 to a diversified regional group spanning energy, logistics, manufacturing, aviation, real estate and agriculture.</p>
         <div class="divider-yellow"></div>
       </div>
-      <div class="timeline" data-hydrate="history-events" data-hydrate-match="title">
-        <div class="timeline-item reveal" data-entity-key="Lake Oil Founded">
-          <div class="timeline-year">2006</div>
-          <div class="timeline-content">
-            <h4 data-i18n="history.8" data-entity-field="title">Lake Oil Founded</h4>
-            <p data-i18n="history.9" data-entity-field="description">Ally Edha Awadh founds Lake Oil Ltd. at age 27 in Dar es Salaam, Tanzania, the seed of what would become Lake Group. Begins petroleum distribution with a small fleet.</p>
-          </div>
-      </div>
-        <div class="timeline-item reveal" data-entity-key="Logistics &amp; First Regional Steps">
-          <div class="timeline-year">2008</div>
-          <div class="timeline-content">
-            <h4 data-i18n="history.10" data-entity-field="title">Logistics & First Regional Steps</h4>
-            <p data-i18n="history.11" data-entity-field="description">Lake Trans Ltd. is established as the Group's logistics arm. The same year, DRC Petroleum S.A.R.L. is founded in the Democratic Republic of Congo and Lake Petroleum Ltd. is incorporated in Zambia — the Group's first ventures beyond Tanzania.</p>
-          </div>
-      </div>
-        <div class="timeline-item reveal" data-entity-key="GCCP Ready-Mix Concrete">
-          <div class="timeline-year">2010</div>
-          <div class="timeline-content">
-            <h4 data-i18n="history.12" data-entity-field="title">GCCP Ready-Mix Concrete</h4>
-            <p data-i18n="history.13" data-entity-field="description">Gulf Concrete and Cement Products Company (GCCP) is established, quickly becoming the market leader in ready-mix concrete supply in Dar es Salaam.</p>
-          </div>
-      </div>
-        <div class="timeline-item reveal" data-entity-key="East African Footprint Grows">
-          <div class="timeline-year">2012</div>
-          <div class="timeline-content">
-            <h4 data-i18n="history.14" data-entity-field="title">East African Footprint Grows</h4>
-            <p data-i18n="history.15" data-entity-field="description">Burundi Petroleum opens its first petrol station in Burundi, and Lake Petroleum Rwanda — established in Kigali in 2011 — begins importing and distributing fuel across Rwanda.</p>
-          </div>
-      </div>
-        <div class="timeline-item reveal" data-entity-key="Lubricants &amp; Composite Cylinders">
-          <div class="timeline-year">2014</div>
-          <div class="timeline-content">
-            <h4 data-i18n="history.16" data-entity-field="title">Lubricants & Composite Cylinders</h4>
-            <p data-i18n="history.17" data-entity-field="description">Lake Lubes Ltd. is established in Dar es Salaam to blend and market the Group's own lubricants, and Lake Gas launches Africa's first composite LPG cylinders — non-explosive, lightweight and translucent.</p>
-          </div>
-      </div>
-        <div class="timeline-item reveal" data-entity-key="Kenya Entry at Scale">
-          <div class="timeline-year">2017</div>
-          <div class="timeline-content">
-            <h4 data-i18n="history.18" data-entity-field="title">Kenya Entry at Scale</h4>
-            <p data-i18n="history.19" data-entity-field="description">The Competition Authority of Kenya approves Lake Oil's acquisition of Hashi Energy's Kenyan fuel-station network — a landmark step into East Africa's largest retail fuel market.</p>
-          </div>
-      </div>
-        <div class="timeline-item reveal" data-entity-key="Tanga LPG Terminal">
-          <div class="timeline-year">2018</div>
-          <div class="timeline-content">
-            <h4 data-i18n="history.20" data-entity-field="title">Tanga LPG Terminal</h4>
-            <p data-i18n="history.21" data-entity-field="description">Lake Gas invests in Tanga, commissioning what opens as East Africa's largest LPG storage terminal — 1,000 MT of capacity, receiving ships through a dedicated single point mooring buoy.</p>
-          </div>
-      </div>
-        <div class="timeline-item reveal" data-entity-key="Lake Steel Begins Production">
-          <div class="timeline-year">2019</div>
-          <div class="timeline-content">
-            <h4 data-i18n="history.22" data-entity-field="title">Lake Steel Begins Production</h4>
-            <p data-i18n="history.23" data-entity-field="description">Lake Steel and Allied Products starts operations at Visiga, Kibaha — the first producer of high-strength, corrosion-resistant (HS-CR) rebar in Tanzania, with an annual capacity of 100,000 metric tonnes.</p>
-          </div>
-      </div>
-        <div class="timeline-item reveal" data-entity-key="Recognition &amp; LPG Expansion">
-          <div class="timeline-year">2022</div>
-          <div class="timeline-content">
-            <h4 data-i18n="history.24" data-entity-field="title">Recognition & LPG Expansion</h4>
-            <p data-i18n="history.25" data-entity-field="description">The Tanga LPG terminal is expanded to 3,000 MT, and founder Ally Edha Awadh is named Young Business Leader of the Year by the African Leadership Magazine.</p>
-          </div>
-      </div>
-        <div class="timeline-item reveal" data-entity-key="30,000+ employees. 10 Countries. Still Growing.">
-          <div data-i18n="history.26" class="timeline-year">Today</div>
-          <div class="timeline-content">
-            <h4 data-i18n="history.27" data-entity-field="title">30,000+ employees. 10 Countries. Still Growing.</h4>
-            <p data-i18n="history.28" data-entity-field="description">Lake Group continues to expand, deepening its regional footprint, investing in new technologies, and driving economic development across East and Central Africa.</p>
-          </div>
-      </div>
+      <div class="history-timeline">
+        <div class="history-year-group"><div class="history-year">2006</div><div class="history-events"><article class="history-event"><h4>Lake Oil Ltd</h4><div class="history-country">Tanzania</div><p>Entered petroleum importation, storage, distribution, marketing, fuel retail stations, logistics and fuel storage operations.</p></article></div></div>
+        <div class="history-year-group"><div class="history-year">2010</div><div class="history-events"><article class="history-event"><h4>AFICD &amp; AILL</h4><div class="history-country">Tanzania</div><p>AFICD &amp; AILL established in Tanzania.</p></article></div></div>
+        <div class="history-year-group"><div class="history-year">2011</div><div class="history-events"><article class="history-event"><h4>Lake Trans Ltd</h4><div class="history-country">Tanzania</div><p>Established transportation and logistics business specializing in petroleum transport and cross-border logistics.</p></article><article class="history-event"><h4>Sun Fuel SARL</h4><div class="history-country">DRC</div><p>Began petroleum retail, bulk fuel supply, depot operations and LPG distribution.</p></article></div></div>
+        <div class="history-year-group"><div class="history-year">2013</div><div class="history-events"><article class="history-event"><h4>Lake Gas Ltd</h4><div class="history-country">Kenya</div><p>Incorporated to market and distribute LPG across Kenya and regional markets. Operations commenced in February 2014.</p></article></div></div>
+        <div class="history-year-group"><div class="history-year">2014</div><div class="history-events"><article class="history-event"><h4>Lake Gas Ltd</h4><div class="history-country">Kenya</div><p>Started LPG retail, commercial and bulk supply operations.</p></article></div></div>
+        <div class="history-year-group"><div class="history-year">2016</div><div class="history-events"><article class="history-event"><h4>Lake Lubes Ltd</h4><div class="history-country">Tanzania</div><p>Established lubricant and grease manufacturing business with blending and packaging capabilities.</p></article></div></div>
+        <div class="history-year-group"><div class="history-year">2017</div><div class="history-events"><article class="history-event"><h4>Lake Oil Ltd</h4><div class="history-country">Kenya</div><p>Entered Kenyan market through acquisition of 19 service stations and Nairobi terminal.</p></article><article class="history-event"><h4>Lake Steel &amp; Allied Products Ltd</h4><div class="history-country">Tanzania</div><p>Established steel manufacturing business producing TMT reinforcement bars and allied steel products.</p></article></div></div>
+        <div class="history-year-group"><div class="history-year">2019</div><div class="history-events"><article class="history-event"><h4>Lake Lubes Ltd</h4><div class="history-country">Kenya</div><p>Established lubricant manufacturing, distribution and marketing business. Operations officially began in 2021.</p></article><article class="history-event"><h4>ATL Ltd</h4><div class="history-country">Tanzania</div><p>Established its operations in Tanzania manufacturing high-quality aluminium trailers.</p></article></div></div>
+        <div class="history-year-group"><div class="history-year">2020</div><div class="history-events"><article class="history-event"><h4>Lake Aviation</h4><div class="history-country">Tanzania</div><p>Commenced aviation fuel supply and into-plane fueling services at Kilimanjaro International Airport (JRO).</p></article><article class="history-event"><h4>Lake Oil LDA</h4><div class="history-country">Mozambique</div><p>Commenced petroleum storage and distribution operations in Beira with an initial three-tank terminal.</p></article><article class="history-event"><h4>Gulf Premix Ltd</h4><div class="history-country">Kenya</div><p>Incorporated ready-mix concrete company serving construction and infrastructure sectors.</p></article></div></div>
+        <div class="history-year-group"><div class="history-year">2021</div><div class="history-events"><article class="history-event"><h4>Cross Country Developer Ltd</h4><div class="history-country">Tanzania</div><p>Established real estate development company focused on commercial, retail, hospitality and mixed-use developments.</p></article><article class="history-event"><h4>Gulf Premix Ltd</h4><div class="history-country">Kenya</div><p>Official commencement of ready-mix concrete operations.</p></article><article class="history-event"><h4>Lake Lubes Ltd</h4><div class="history-country">Kenya</div><p>Lubricant manufacturing operations officially started.</p></article></div></div>
+        <div class="history-year-group"><div class="history-year">2023</div><div class="history-events"><article class="history-event"><h4>Lake Aviation</h4><div class="history-country">Tanzania</div><p>Opened second aviation fuel terminal and depot at Julius Nyerere International Airport (DAR), Dar es Salaam.</p></article><article class="history-event"><h4>Lake Steel &amp; Allied Products Ltd</h4><div class="history-country">Tanzania</div><p>Commissioned Steel Melting Shop (SMS) and Continuous Casting Machine (CCM), enabling billet production and backward integration.</p></article></div></div>
+        <div class="history-year-group"><div class="history-year">2025</div><div class="history-events"><article class="history-event"><h4>Lake Aviation</h4><div class="history-country">Tanzania</div><p>Expanded to Zanzibar through development of third aviation fuel terminal at Abeid Amani Karume International Airport (ZNZ).</p></article></div></div>
+        <div class="history-year-group"><div class="history-year">2026</div><div class="history-events"><article class="history-event"><h4>Lake Aviation</h4><div class="history-country">Tanzania</div><p>Zanzibar aviation terminal commissioned.</p></article><article class="history-event"><h4>Gulf Aggregates (T) Ltd</h4><div class="history-country">Tanzania</div><p>Quarrying, crushing and aggregate production operations at Lugoba for construction and infrastructure sectors.</p></article><article class="history-event"><span class="history-status">Upcoming · 2026</span><h4>Ocean Galleria</h4><div class="history-country">Tanzania</div><p>Modern lifestyle entertainment, shopping destination, coastal neighbourhood by the Indian Ocean coast.</p></article></div></div>
+        <div class="history-year-group"><div class="history-year">2027</div><div class="history-events"><article class="history-event"><span class="history-status">Planned · 2027</span><h4>Lake Agro Ltd</h4><div class="history-country">Tanzania</div><p>Planned commissioning of integrated sugarcane plantation and sugar factory in Rufiji.</p></article></div></div>
       </div>
     </div>
   </div>
 </section>
-<section class="fs-section-sm fs-on-dark">
+<section class="fs-section-sm hx-cta-yellow">
   <div class="container">
     <div class="hx-cta">
-      <div><h2 data-i18n="history.29" class="fs-display">Be Part of the Next Chapter</h2><p data-i18n="history.30">Join our team or partner with us across Africa.</p></div>
-      <div class="hx-actions"><a data-i18n="history.31" href="careers.html" class="btn btn-primary">Explore Careers</a><a data-i18n="history.32" href="contact.html" class="btn btn-outline">Partner With Us</a></div>
+      <div><h2 class="fs-display">Be Part of the Next Chapter</h2><p>Join our team or partner with Lake Group as we continue building across Africa.</p></div>
+      <div class="hx-actions"><a href="careers.html" class="btn btn-primary">Explore Careers</a><a href="contact.html" class="btn btn-outline">Partner With Us</a></div>
     </div>
   </div>
 </section>
