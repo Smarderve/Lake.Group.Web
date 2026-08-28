@@ -247,6 +247,12 @@
       }
     }
     window.addEventListener('scroll', onSweep, { passive: true });
+    /* Progressive enhancement must never strand content if an observer is
+       delayed by a busy main thread or an unusual browser lifecycle. */
+    window.setTimeout(function () {
+      pending.slice().forEach(function (el) { show(el); io.unobserve(el); });
+      if (!pending.length) window.removeEventListener('scroll', onSweep);
+    }, 2200);
   }
 
   /* ------------------------------------------------------------------ */

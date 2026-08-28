@@ -479,8 +479,9 @@ body.about .page-wrapper { padding-top: 0; }
   <div class="container">
     <div class="fs-marker"><span class="fs-marker-no">04</span><span class="fs-eyebrow">In Action</span></div>
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)">A Glimpse Through the Lake Group Story</h2>
-          <div class="fs-video">
-        <iframe src="https://www.youtube-nocookie.com/embed/Zy3N7l7Uiek" title="Lake Group Profile" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <div class="fs-video youtube-facade" data-youtube-id="Zy3N7l7Uiek" data-video-title="Lake Group Profile">
+        <img src="assets/images/about/about-hero-07.webp" alt="Lake Group operations" loading="lazy" decoding="async" width="1920" height="1080">
+        <button type="button" class="youtube-facade__play" data-video-play aria-label="Play Lake Group Profile"></button>
       </div>
   </div>
 </section>
@@ -574,8 +575,11 @@ body.about .page-wrapper { padding-top: 0; }
     scene.setAttribute('aria-hidden', 'true');
     const photo = scene.querySelector('.ose-photo');
     photo.removeAttribute('fetchpriority');
-    photo.setAttribute('loading', 'eager');
+    photo.setAttribute('loading', 'lazy');
+    photo.setAttribute('fetchpriority', 'low');
     applySlide(scene, slide);
+    photo.dataset.slideSrc = slide.image;
+    photo.removeAttribute('src');
     stage.insertBefore(scene, previousButton);
   });
   const scenes = [...stage.querySelectorAll('.ose-scene')];
@@ -586,11 +590,17 @@ body.about .page-wrapper { padding-top: 0; }
   let timer = null;
   let paused = false;
   let touchStartX = null;
-  const preload = slideImages.map((src) => new Promise((resolve) => {
+  const preloaded = new Set();
+  function preloadSlide(index) {
+    const normalized = (index + slideImages.length) % slideImages.length;
+    if (preloaded.has(normalized)) return;
+    preloaded.add(normalized);
     const image = new Image();
-    image.onload = image.onerror = () => resolve(image.naturalWidth > 0);
-    image.src = src;
-  }));
+    image.decoding = 'async';
+    image.onload = image.onerror = () => {};
+    image.src = slideImages[normalized];
+  }
+  preloadSlide(1);
 
   for (let i = 0; i < N; i++) {
     const d = document.createElement('button');
@@ -619,6 +629,11 @@ body.about .page-wrapper { padding-top: 0; }
 
   function showScene(i) {
     current = (i + N) % N;
+    const activePhoto = scenes[current].querySelector('.ose-photo');
+    if (activePhoto && !activePhoto.getAttribute('src') && activePhoto.dataset.slideSrc) {
+      activePhoto.src = activePhoto.dataset.slideSrc;
+    }
+    preloadSlide(current + 1);
     scenes.forEach((scene, index) => {
       const active = index === current;
       scene.classList.toggle('ose-active', active);
@@ -649,9 +664,6 @@ body.about .page-wrapper { padding-top: 0; }
     else schedule();
   });
   showScene(0);
-  preload.forEach((ready, index) => ready.then((loaded) => {
-    if (!loaded) console.warn(`About hero image failed to load: ${slideImages[index]}`);
-  }));
 })();
 </script>
 <script src="assets/pwa.js?v=20260828-01" defer></script>

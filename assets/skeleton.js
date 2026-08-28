@@ -9,7 +9,9 @@
   if (html.classList.contains('lg-skel-done')) return;
   html.classList.add('lg-loading');
 
-  var MAX_MS = 8000;
+  // The overlay is a paint aid, never a prerequisite for usable content.
+  // Release it quickly if a slow or failed resource prevents settling.
+  var MAX_MS = 2800;
   var FADE_MS = 380;
   var hidden = false;
   var progressFill = null;
@@ -649,6 +651,7 @@
       scheduleSettle();
     }, { once: true });
     scheduleSettle();
+    window.setTimeout(hide, 1800);
     window.setTimeout(hide, MAX_MS);
   }
 

@@ -810,6 +810,32 @@
     });
   }
 
+  /* Keep heavyweight video providers out of the critical request path. The
+     local poster is immediately useful; the iframe is created only after an
+     explicit user action. */
+  function initVideoFacades() {
+    document.querySelectorAll('[data-youtube-id]').forEach((facade) => {
+      const button = facade.querySelector('[data-video-play]');
+      const load = () => {
+        if (facade.dataset.videoLoaded === '1') return;
+        const id = facade.getAttribute('data-youtube-id');
+        if (!id) return;
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?rel=0&autoplay=1';
+        iframe.title = facade.getAttribute('data-video-title') || 'Lake Group video';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+        iframe.allowFullscreen = true;
+        facade.replaceChildren(iframe);
+        facade.dataset.videoLoaded = '1';
+      };
+      facade.addEventListener('click', load);
+      if (button) button.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); load(); }
+      });
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     initNav();
     initCompanyBranding();
@@ -821,6 +847,7 @@
     initForms();
     initCurrency();
     initSmartLazyImages();
+    initVideoFacades();
     document.addEventListener('lake-i18n-applied', refreshCountersForLang);
     if (window.LakeI18n) window.LakeI18n.init();
     else refreshCountersForLang();
