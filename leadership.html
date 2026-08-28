@@ -24,25 +24,7 @@
   <link rel="manifest" href="manifest.webmanifest">
 <style>
 
-/* Leadership directory � Aramco-style wells; contain (never crop) OG portraits */
-.ld-intro { max-width: 720px; margin: 0 auto var(--sp-12); text-align: center; }
-.ld-intro .section-subtitle { margin-top: 14px; margin-left: auto; margin-right: auto; }
-.ld-team-label { margin-bottom: var(--sp-10); text-align: center; }
-.ld-team-label .section-subtitle { margin-top: 12px; margin-left: auto; margin-right: auto; }
-/* Modest intro title . between lede and display (keep quieter than team label) */
-.ld-intro .section-title {
-  font-size: clamp(1.3rem, 2.2vw, 1.65rem);
-  line-height: 1.25;
-  letter-spacing: var(--display-letter-spacing, -0.01em);
-  text-transform: none;
-}
-/* Ally Edha Awadh . site --fs-display scale */
-.ld-team-label .section-title {
-  font-size: var(--fs-display);
-  line-height: var(--display-line-height, 1.05);
-  letter-spacing: var(--display-letter-spacing, -0.01em);
-}
-
+/* Leadership directory — preserve the approved editorial feature layout. */
 /* Row 1: Founder and Chairman alone, centered */
 .ld-featured {
   display: flex; justify-content: center;
@@ -243,8 +225,21 @@ a.ld-person-card:hover .ld-person-photo--logo img { transform: none; }
 }
 body .page-hero .hero-media {
   animation: hero-zoom 14s var(--ease-out, ease) forwards 0.5s;
-  transform-origin: center 40%;
+  transform-origin: center 50%;
   will-change: transform;
+}
+body .page-hero .hero-media {
+  background-size: cover;
+  background-position: center 44%;
+}
+body .page-hero .hero-overlay {
+  background: rgba(0, 0, 0, .16) !important;
+}
+@media (max-width: 1024px) {
+  body .page-hero .hero-media { background-position: center 42%; }
+}
+@media (max-width: 640px) {
+  body .page-hero .hero-media { background-position: center 38%; }
 }
 @media (prefers-reduced-motion: reduce) {
   body .page-hero .hero-media {
@@ -269,6 +264,7 @@ body .page-hero .hero-media {
   <link rel="preload" href="assets/fonts/files/jost-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/images/leadership/leadership-group-meeting.webp" as="image" type="image/webp" fetchpriority="high" />
 <link rel="stylesheet" href="assets/flagship.css?v=106">
 <link rel="stylesheet" href="assets/split-text.css?v=48">
   <link rel="stylesheet" href="assets/assistant.css?v=71">
@@ -338,30 +334,17 @@ body .page-hero .hero-media {
 
 <div class="page-wrapper">
 <section class="page-hero">
-  <div class="hero-media" style="background-image:url('assets/images/leadership/annual-event.jpg')" aria-hidden="true"></div>
+  <div class="hero-media" style="background-image:url('assets/images/leadership/leadership-group-meeting.webp')" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container" style="position:relative;z-index:2">
     <nav class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span>/</span><span data-i18n="leadership.1">Leadership</span></nav>
     <div data-i18n="leadership.2" class="eyebrow">Our People</div>
     <h1 data-i18n="leadership.3">Our Leadership</h1>
-    <p>Meet Ally Edha Awadh, Founder and Chairman of Lake Group.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="ld-intro reveal">
-      <div data-i18n="leadership.5" class="section-label" style="justify-content:center">Group Leadership</div>
-      <h2 data-i18n="leadership.6" class="section-title">Guided by Experience. Driven by Vision.</h2>
-      <p class="section-subtitle">Founder and Chairman Ally Edha Awadh guides Lake Group with a long-term commitment to quality, service, safety and professionalism.</p>
-    </div>
-
-    <div class="ld-team-label">
-      <div class="section-label" style="justify-content:center">Founder &amp; Chairman</div>
-      <h2 class="section-title" style="text-align:center">Ally Edha Awadh</h2>
-      <p class="section-subtitle">Founder and Chairman of Lake Group.</p>
-    </div>
-
     <div class="ld-featured" data-hydrate="leadership" data-hydrate-match="name">
       <article class="ld-person-card" data-entity-key="Ally Edha Awadh">
         <div class="ld-person-photo"><img data-entity-field="photo" data-entity-attr="src" src="assets/images/leadership/ally-edha-awadh.png" alt="Ally Edha Awadh" data-i18n-alt="leadership.9" loading="lazy" decoding="async"></div>
