@@ -75,6 +75,13 @@
         if (button.querySelector('.mm-sector-icon')) return;
         const animation = sectorAnimations[button.dataset.mmCat];
         if (!animation) return;
+        const textNode = [...button.childNodes].find((node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
+        if (textNode) {
+          const label = document.createElement('span');
+          label.className = 'mm-sector-label';
+          label.textContent = textNode.textContent.trim();
+          textNode.replaceWith(label);
+        }
         const icon = document.createElement('lord-icon');
         icon.className = 'mm-sector-icon';
         icon.setAttribute('src', animation.reveal);
@@ -92,6 +99,13 @@
         const animation = sectorAnimations[id];
         if (!animation || button.querySelector('.mm-sector-icon')) return;
         button.dataset.mmCat = id;
+        const textNode = [...button.childNodes].find((node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
+        if (textNode) {
+          const label = document.createElement('span');
+          label.className = 'mob-sector-label';
+          label.textContent = textNode.textContent.trim();
+          textNode.replaceWith(label);
+        }
         const icon = document.createElement('lord-icon');
         icon.className = 'mm-sector-icon mob-sector-icon';
         icon.setAttribute('src', animation.reveal);
@@ -162,7 +176,23 @@
         link.setAttribute('aria-current', 'page');
       }
     });
-    const closeAll = (except) => nav.querySelectorAll('.has-dropdown.is-open').forEach((item) => { if (item !== except) { item.classList.remove('is-open'); item.querySelector(':scope > a')?.setAttribute('aria-expanded', 'false'); } });
+    // One shared controller owns every desktop navbar surface.  Language is
+    // created asynchronously by i18n.js, so it must be included here rather
+    // than managed as an unrelated boolean state.
+    const closeAll = (except) => {
+      nav.querySelectorAll('.has-dropdown.is-open').forEach((item) => {
+        if (item === except) return;
+        item.classList.remove('is-open');
+        item.querySelector(':scope > a')?.setAttribute('aria-expanded', 'false');
+      });
+      const language = nav.querySelector('.lang-switcher');
+      if (language && language !== except) {
+        language.classList.remove('is-open');
+        language.querySelector('.lang-trigger')?.setAttribute('aria-expanded', 'false');
+        const menu = language.querySelector('.lang-menu');
+        if (menu) menu.hidden = true;
+      }
+    };
     let openMobileSection = null;
     const setMobilePanel = (button, panel, open) => {
       if (!button || !panel) return;
@@ -206,7 +236,22 @@
       if (open) resetMobileAccordions();
       else closeMobile();
     });
-    nav.querySelectorAll('.has-dropdown').forEach((item) => { const trigger = item.querySelector(':scope > a'); if (!trigger) return; trigger.addEventListener('click', (event) => { event.preventDefault(); const open = !item.classList.contains('is-open'); closeAll(item); item.classList.toggle('is-open', open); trigger.setAttribute('aria-expanded', String(open)); if (open && item.querySelector('.nav-megamenu')) revealSectorIcons(); }); });
+    nav.querySelectorAll('.has-dropdown').forEach((item) => {
+      const trigger = item.querySelector(':scope > a');
+      if (!trigger) return;
+      trigger.addEventListener('click', (event) => {
+        event.preventDefault();
+        const open = !item.classList.contains('is-open');
+        closeAll(open ? item : null);
+        item.classList.toggle('is-open', open);
+        trigger.setAttribute('aria-expanded', String(open));
+        if (open && item.querySelector('.nav-megamenu')) revealSectorIcons();
+      });
+    });
+    // i18n.js binds the language menu after its dictionary bootstrap.  This
+    // listener runs first and closes any active page dropdown before i18n
+    // opens Language, keeping the surfaces mutually exclusive.
+    languageTrigger?.addEventListener('click', () => closeAll(languageTrigger.closest('.lang-switcher')), true);
     document.addEventListener('click', (event) => { if (!nav.contains(event.target)) closeAll(); });
     document.addEventListener('keydown', (event) => { if (event.key === 'Escape') { closeAll(); if (drawer.classList.contains('open')) closeMobile(); } });
     const activateCategory = (button, interaction = 'open') => { const id = button.dataset.mmCat; const menu = button.closest('.nav-megamenu'); menu.querySelectorAll('.mm-cat').forEach((b) => { const active = b === button; b.classList.toggle('is-active', active); b.setAttribute('aria-selected', String(active)); }); menu.querySelectorAll('.mm-pane').forEach((pane) => { const active = pane.dataset.mmPane === id; pane.classList.toggle('is-active', active); pane.hidden = !active; }); playSectorIcon(button, interaction === 'open' ? 'in-reveal' : 'hover-pinch'); };
