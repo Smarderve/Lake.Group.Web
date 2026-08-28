@@ -150,14 +150,16 @@
 .aficd-values{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--sp-4);margin-top:var(--sp-8)}
 .aficd-value{padding:var(--sp-5);border:1px solid var(--ink-line-2);background:rgba(255,255,255,.025)}
 .aficd-value h3{color:var(--white);font-family:var(--font-display);font-size:.95rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:7px}
-.aficd-value p{color:var(--ink-mute);font-size:.82rem;line-height:1.55;margin:0}
+.aficd-value p{color:rgba(244,248,252,.86);font-size:.9rem;line-height:1.62;margin:0}
 .aficd-commit{max-width:78ch;font-size:1.05rem;line-height:1.8;color:var(--ink-mute)}
 @media(max-width:960px){.aficd-cap-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.aficd-values{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.aficd-cap-grid,.aficd-list,.aficd-values{grid-template-columns:1fr}.aficd-glance{padding:var(--sp-6)}.aficd-glance-row{display:block}.aficd-glance-row strong{display:block;text-align:left;max-width:none;margin-top:3px}}
-.aficd-hero{min-height:clamp(520px,68vh,720px)}
-.aficd-hero .hero-media{background-position:center 58%}
-.aficd-hero .hero-overlay{background:linear-gradient(90deg,rgba(1,20,31,.8),rgba(1,20,31,.38) 54%,rgba(1,20,31,.08))}
-.aficd-hero .container{max-width:900px}
+.aficd-hero{min-height:clamp(600px,70vh,760px)}
+.aficd-hero .hero-media{background-position:68% center}
+.aficd-hero .hero-overlay{background:linear-gradient(90deg,rgba(1,20,31,.78),rgba(1,20,31,.34) 48%,rgba(1,20,31,.06))}
+.aficd-hero .container{max-width:1200px}
+.aficd-hero h1{max-width:620px;font-size:clamp(2.8rem,5.2vw,5.2rem);line-height:.98;letter-spacing:-.025em}
+.aficd-hero p{max-width:38ch;font-size:1.02rem;line-height:1.65}
 .aficd-intro .fs-split-even{align-items:start}
 .aficd-photo-frame{overflow:hidden;border-radius:20px;background:var(--ink-3);box-shadow:0 18px 42px rgba(3,53,79,.14)}
 .aficd-photo-frame img{display:block;width:100%;height:100%;object-fit:cover}
@@ -187,10 +189,10 @@
 .aficd-commitment-copy{padding:var(--sp-12) var(--sp-8) var(--sp-12) 0}
 .aficd-commitment-copy .fs-marker,.aficd-commitment-copy h2{color:var(--white)}
 .aficd-commitment-copy .aficd-commit{color:var(--ink-mute)}
-.aficd-commitment-photo{min-height:460px;height:100%;margin-right:calc((100vw - min(1200px, 100%))/2 * -1)}
+.aficd-commitment-photo{min-height:460px;height:100%;margin-right:0}
 .aficd-commitment-photo img{width:100%;height:100%;object-fit:cover;display:block}
 @media(max-width:900px){.aficd-solutions{grid-template-columns:repeat(2,minmax(0,1fr))}.aficd-ops-split,.aficd-expansion-split,.aficd-commitment-split{grid-template-columns:1fr}.aficd-commitment-copy{padding-right:0}.aficd-commitment-photo{min-height:300px;margin:0}}
-@media(max-width:600px){.aficd-hero{min-height:600px}.aficd-hero .hero-media{background-position:60% center}.aficd-glance-photo{margin:-var(--sp-6) -var(--sp-6) var(--sp-5)}.aficd-cap-grid,.aficd-solutions{grid-template-columns:1fr}.aficd-ops-stats{grid-template-columns:1fr 1fr}.aficd-commitment-copy{padding-top:var(--sp-10);padding-bottom:var(--sp-8)}}
+@media(max-width:600px){.aficd-hero{min-height:620px}.aficd-hero .hero-media{background-position:72% center}.aficd-hero h1{font-size:clamp(2.5rem,12vw,4rem)}.aficd-hero p{font-size:.94rem}.aficd-glance-photo{margin:-var(--sp-6) -var(--sp-6) var(--sp-5)}.aficd-cap-grid,.aficd-solutions{grid-template-columns:1fr}.aficd-ops-stats{grid-template-columns:1fr 1fr}.aficd-commitment-copy{padding-top:var(--sp-10);padding-bottom:var(--sp-8)}}
   </style>
 <script type="application/ld+json">
 {
@@ -220,7 +222,7 @@
 }
 </script>
 <link rel="stylesheet" href="assets/tokens.css?v=62">
-  <link rel="preload" as="image" href="assets/images/aficd/operations/aficd-hero-reach-stacker.jpeg" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/images/aficd/operations/aficd-truck-loading.jpeg" fetchpriority="high" />
   <link rel="preload" href="assets/fonts/files/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin />
@@ -232,11 +234,11 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https://www.youtube.com https://www.youtube-nocookie.com; worker-src 'self'; manifest-src 'self'; media-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <link rel="stylesheet" href="assets/phase-01-navbar.css">
   <link rel="stylesheet" href="assets/phase-01-footer.css">
-</head><body data-company-logo="assets/images/logos/companies/aficd-white.webp?v=1" data-company-alt="AFICD" data-shared-footer="true">
+</head><body data-company-logo="assets/images/logos/companies/aficd-white-logo.png?v=1" data-company-alt="AFICD" data-shared-footer="true">
   <script src="assets/skeleton.js?v=8"></script>
 <nav class="site-nav" data-phase01-navbar dir="ltr">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo nav-logo--company" aria-label="AFICD home"><img src="assets/images/logos/companies/aficd-white.webp?v=1" alt="AFICD" decoding="async"></a>
+    <a href="index.html" class="nav-logo nav-logo--company" aria-label="AFICD home"><img src="assets/images/logos/companies/aficd-white-logo.png?v=1" alt="AFICD" decoding="async"></a>
     <ul class="nav-links">
       <li><a href="index.html" data-i18n="nav.home">Home</a></li><li><a href="about.html" data-i18n="nav.about">About</a></li>
       <li class="has-dropdown has-megamenu"><a href="index.html" id="nav-companies-trigger" data-nav-section="subsidiaries" data-i18n="nav.companies" aria-haspopup="true" aria-expanded="false" aria-controls="nav-companies-menu">Business Verticals &#9662;</a>
@@ -245,7 +247,7 @@
         </div><div class="mm-panes">
           <div class="mm-pane is-active" role="tabpanel" id="mm-pane-energies" data-mm-pane="energies"><div class="mm-companies"><a href="lake-oil.html" class="mm-company"><img src="assets/images/logos/companies/lake-oil.png" alt="Lake Oil" loading="eager"></a><a href="lake-aviation.html" class="mm-company"><img src="assets/images/logos/companies/lake-aviation.png" alt="Lake Aviation" loading="eager"></a><a href="lake-gas.html" class="mm-company"><img src="assets/images/logos/companies/lake-gas.png" alt="Lake Gas" loading="eager"></a><a href="lake-lubes.html" class="mm-company"><img src="assets/images/logos/companies/lake-lubes.png" alt="Lake Lubes" loading="eager"></a></div></div>
           <div class="mm-pane" role="tabpanel" id="mm-pane-manufacturing" data-mm-pane="manufacturing" hidden><div class="mm-companies"><a href="lake-buildings.html" class="mm-company"><img src="assets/images/logos/companies/lake-buildings.png" alt="Lake Buildings" loading="lazy"></a><a href="lake-plastics.html" class="mm-company"><img src="assets/images/logos/companies/lake-plastics.png" alt="Lake Plastics" loading="lazy"></a><a href="lake-steel.html" class="mm-company"><img src="assets/images/logos/companies/lake-steel.png" alt="Lake Steel" loading="lazy"></a><a href="lake-cylinders.html" class="mm-company"><img src="assets/images/logos/companies/lake-cylinders.png" alt="Lake Cylinders" loading="lazy"></a><a href="gulf-aggregates.html" class="mm-company"><img src="assets/images/logos/companies/gulf-aggregates.png" alt="Gulf Aggregates" loading="lazy"></a><a href="lake-premix-cement.html" class="mm-company"><img src="assets/images/logos/companies/lake-premix-cement.png" alt="Lake Premix and Cement" loading="lazy"></a></div></div>
-          <div class="mm-pane" role="tabpanel" id="mm-pane-logistics" data-mm-pane="logistics" hidden><div class="mm-companies"><a href="aficd.html" class="mm-company"><img src="assets/images/logos/companies/aficd-white.webp" alt="AFICD" loading="lazy"></a><a href="acfs.html" class="mm-company"><img src="assets/images/logos/companies/acfs.png" alt="ACFS" loading="lazy"></a><a href="aill.html" class="mm-company"><img src="assets/images/logos/companies/aill.png" alt="AILL" loading="lazy"></a><a href="lake-trans.html" class="mm-company"><img src="assets/images/logos/companies/lake-trans.png" alt="Lake Trans" loading="lazy"></a></div></div>
+          <div class="mm-pane" role="tabpanel" id="mm-pane-logistics" data-mm-pane="logistics" hidden><div class="mm-companies"><a href="aficd.html" class="mm-company"><img src="assets/images/logos/companies/aficd-white-logo.png" alt="AFICD" loading="lazy"></a><a href="acfs.html" class="mm-company"><img src="assets/images/logos/companies/acfs.png" alt="ACFS" loading="lazy"></a><a href="aill.html" class="mm-company"><img src="assets/images/logos/companies/aill.png" alt="AILL" loading="lazy"></a><a href="lake-trans.html" class="mm-company"><img src="assets/images/logos/companies/lake-trans.png" alt="Lake Trans" loading="lazy"></a></div></div>
           <div class="mm-pane" role="tabpanel" id="mm-pane-realestate" data-mm-pane="realestate" hidden><div class="mm-companies"><a href="cross-country.html" class="mm-company"><img src="assets/images/logos/companies/cross-country.png" alt="Cross Country" loading="lazy"></a><a href="ocean-galleria.html" class="mm-company mm-company--light-logo"><img src="assets/images/logos/companies/Ocean-Galleria-logo.webp" alt="Ocean Galleria" loading="lazy"></a></div></div>
           <div class="mm-pane" role="tabpanel" id="mm-pane-agro" data-mm-pane="agro" hidden><div class="mm-companies"><a href="lake-agro.html" class="mm-company"><img src="assets/images/logos/companies/lake-agro.png" alt="Lake Agro" loading="lazy"></a></div></div>
           <div class="mm-pane" role="tabpanel" id="mm-pane-automotive" data-mm-pane="automotive" hidden><div class="mm-companies"><a href="assembly-tech.html" class="mm-company mm-company--wordmark"><span data-i18n="nav.co.assemblyTech">Assembly Tech Limited</span></a><a href="agrinova-tech.html" class="mm-company mm-company--wordmark"><span data-i18n="nav.co.agrinovaTech">AgriNova Tech Limited</span></a><a href="nextdrive-motors.html" class="mm-company mm-company--wordmark"><span data-i18n="nav.co.nextDriveMotors">NextDrive Motors Limited</span></a></div></div>
@@ -275,7 +277,7 @@
   <div class="mob-acc-panel mob-subsidiaries-panel" id="mob-subsidiaries" hidden><div class="mob-accordion">
     <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-energies">Energies</button><div class="mob-acc-panel" id="mob-acc-energies" hidden><a href="lake-oil.html"><img src="assets/images/logos/companies/lake-oil.png" alt="">Lake Oil</a><a href="lake-aviation.html"><img src="assets/images/logos/companies/lake-aviation.png" alt="">Lake Aviation</a><a href="lake-gas.html"><img src="assets/images/logos/companies/lake-gas.png" alt="">Lake Gas</a><a href="lake-lubes.html"><img src="assets/images/logos/companies/lake-lubes.png" alt="">Lake Lubes</a></div>
     <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-manufacturing">Manufacturing</button><div class="mob-acc-panel" id="mob-acc-manufacturing" hidden><a href="lake-buildings.html"><img src="assets/images/logos/companies/lake-buildings.png" alt="">Lake Buildings</a><a href="lake-plastics.html"><img src="assets/images/logos/companies/lake-plastics.png" alt="">Lake Plastics</a><a href="lake-steel.html"><img src="assets/images/logos/companies/lake-steel.png" alt="">Lake Steel</a><a href="lake-cylinders.html"><img src="assets/images/logos/companies/lake-cylinders.png" alt="">Lake Cylinders</a><a href="gulf-aggregates.html"><img src="assets/images/logos/companies/gulf-aggregates.png" alt="">Gulf Aggregates</a><a href="lake-premix-cement.html"><img src="assets/images/logos/companies/lake-premix-cement.png" alt="">Lake Premix &amp; Cement</a></div>
-    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-logistics">Logistics</button><div class="mob-acc-panel" id="mob-acc-logistics" hidden><a href="aficd.html"><img src="assets/images/logos/companies/aficd-white.webp" alt="">AFICD</a><a href="acfs.html"><img src="assets/images/logos/companies/acfs.png" alt="">ACFS</a><a href="aill.html"><img src="assets/images/logos/companies/aill.png" alt="">AILL</a><a href="lake-trans.html"><img src="assets/images/logos/companies/lake-trans.png" alt="">Lake Trans</a></div>
+    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-logistics">Logistics</button><div class="mob-acc-panel" id="mob-acc-logistics" hidden><a href="aficd.html"><img src="assets/images/logos/companies/aficd-white-logo.png" alt="">AFICD</a><a href="acfs.html"><img src="assets/images/logos/companies/acfs.png" alt="">ACFS</a><a href="aill.html"><img src="assets/images/logos/companies/aill.png" alt="">AILL</a><a href="lake-trans.html"><img src="assets/images/logos/companies/lake-trans.png" alt="">Lake Trans</a></div>
     <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-realestate">Real Estate</button><div class="mob-acc-panel" id="mob-acc-realestate" hidden><a href="cross-country.html"><img src="assets/images/logos/companies/cross-country.png" alt="">Cross Country</a><a href="ocean-galleria.html"><img src="assets/images/logos/companies/Ocean-Galleria-logo.webp" alt="">Ocean Galleria</a></div>
     <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-agro">Agro Processing</button><div class="mob-acc-panel" id="mob-acc-agro" hidden><a href="lake-agro.html"><img src="assets/images/logos/companies/lake-agro.png" alt="">Lake Agro</a></div>
     <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-automotive">Automotive</button><div class="mob-acc-panel" id="mob-acc-automotive" hidden><a href="assembly-tech.html">Assembly Tech Limited</a><a href="agrinova-tech.html">AgriNova Tech Limited</a><a href="nextdrive-motors.html">NextDrive Motors Limited</a></div>
@@ -302,7 +304,7 @@
 
 <div class="page-wrapper">
 <section class="page-hero aficd-hero">
-  <div class="hero-media" style="background-image:url('assets/images/aficd/operations/aficd-hero-reach-stacker.jpeg')" aria-hidden="true"></div>
+  <div class="hero-media" style="background-image:url('assets/images/aficd/operations/aficd-truck-loading.jpeg')" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container">
     <div class="eyebrow">African Inland Container Depot (AFICD)</div>

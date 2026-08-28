@@ -78,8 +78,6 @@
         const icon = document.createElement('lord-icon');
         icon.className = 'mm-sector-icon';
         icon.setAttribute('src', animation.reveal);
-        icon.setAttribute('colors', 'primary:#ffffff,secondary:#ffffff');
-        icon.setAttribute('stroke', 'regular');
         icon.setAttribute('aria-hidden', 'true');
         icon.dataset.iconSource = animation.reveal;
         button.prepend(icon);
@@ -97,8 +95,6 @@
         const icon = document.createElement('lord-icon');
         icon.className = 'mm-sector-icon mob-sector-icon';
         icon.setAttribute('src', animation.reveal);
-        icon.setAttribute('colors', 'primary:#ffffff,secondary:#ffffff');
-        icon.setAttribute('stroke', 'regular');
         icon.setAttribute('aria-hidden', 'true');
         icon.dataset.iconSource = animation.reveal;
         button.prepend(icon);

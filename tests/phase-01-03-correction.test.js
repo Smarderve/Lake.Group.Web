@@ -158,7 +158,7 @@ test('company pages use contextual navbar branding without shifting centered nav
   const cases=[
     ['lake-gas.html','lake-gas.png','Lake Gas'],
     ['lake-steel.html','lake-steel.png','Lake Steel'],
-    ['aficd.html','aficd.png','AFICD'],
+    ['aficd.html','aficd-white-logo.png','AFICD'],
     ['cross-country.html','cross-country.png','Cross Country'],
   ];
   for(const [file,asset,alt] of cases){
