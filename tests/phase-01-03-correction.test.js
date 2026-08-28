@@ -56,7 +56,7 @@ test('approved navbar surface overlays launch heroes without becoming a slab', a
     ['contact.html','.page-hero','Contact Us'],
     ['history.html','.page-hero','Corporate'],
     ['gallery.html','.gal-slider__track','Corporate'],
-    ['lake-gas.html','.page-hero','Subsidiaries'],
+    ['lake-gas.html','.page-hero','Business Verticals'],
   ];
   for(const [file,heroSelector,activeLabel] of cases){
     await page.goto(`http://127.0.0.1:${server.address().port}/${file}`,{waitUntil:'networkidle'});
@@ -128,7 +128,7 @@ test('mobile drawer and subsidiary accordion remain touch operable', async()=>{
   await page.locator('#nav-toggle').click();
   const companyActive=page.locator('#nav-mobile .active');
   assert.equal(await companyActive.count(),1);
-  assert.equal((await companyActive.textContent()).trim(),'Subsidiaries');
+  assert.equal((await companyActive.textContent()).trim(),'Business Verticals');
   assert.equal(await companyActive.evaluate(el=>getComputedStyle(el).color),'rgb(255, 242, 0)');
   await page.close();
 });

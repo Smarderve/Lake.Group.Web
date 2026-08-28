@@ -595,9 +595,12 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .lang-menu {
 .site-nav[data-phase01-navbar] .nav-megamenu {
   position: absolute !important;
   isolation: isolate !important;
-  padding: 18px !important;
+  width: min(820px, calc(100vw - 24px)) !important;
+  max-width: min(820px, calc(100vw - 24px)) !important;
+  min-width: 0 !important;
+  padding: 14px !important;
   transform: translate(-50%, -6px) !important;
-  overflow: hidden auto !important;
+  overflow: hidden !important;
   background-clip: padding-box !important;
   clip-path: inset(0 round var(--nav-dropdown-radius)) !important;
 }
@@ -609,23 +612,32 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .lang-menu {
 }
 
 .site-nav[data-phase01-navbar] .mm-layout {
-  grid-template-columns: minmax(0, 220px) minmax(0, 1fr) !important;
-  gap: 18px 22px !important;
-  min-height: 286px !important;
+  grid-template-columns: minmax(0, 250px) minmax(0, 1fr) !important;
+  gap: 14px !important;
+  min-height: 0 !important;
+  align-items: stretch !important;
 }
 
 .site-nav[data-phase01-navbar] .mm-cats,
 .site-nav[data-phase01-navbar] .mm-panes {
   min-width: 0 !important;
   padding: 0 !important;
-  background: transparent !important;
   border: 0 !important;
   border-radius: 0 !important;
 }
 
 .site-nav[data-phase01-navbar] .mm-cats {
-  gap: 2px !important;
+  gap: 1px !important;
   align-self: stretch !important;
+  padding: 10px !important;
+  background: #03354f !important;
+  border-radius: 10px 0 0 10px !important;
+}
+
+.site-nav[data-phase01-navbar] .mm-panes {
+  align-self: stretch !important;
+  padding: 8px 10px !important;
+  background: rgba(255, 255, 255, .035) !important;
 }
 
 .site-nav[data-phase01-navbar] .mm-cat {
@@ -673,8 +685,8 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .lang-menu {
 .site-nav[data-phase01-navbar] .mm-cat.is-active,
 body.co-theme-agro .site-nav[data-phase01-navbar] .mm-cat.is-active {
   color: var(--nav-menu-accent) !important;
-  background: rgba(255, 255, 255, .055) !important;
-  border-color: var(--nav-menu-accent) !important;
+  background: transparent !important;
+  border-color: transparent !important;
   box-shadow: none !important;
   outline: none !important;
   transform: none !important;
@@ -682,7 +694,7 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .mm-cat.is-active {
 
 .site-nav[data-phase01-navbar] .mm-cat:hover,
 .site-nav[data-phase01-navbar] .mm-cat:focus-visible {
-  border-color: var(--nav-menu-accent) !important;
+  border-color: transparent !important;
 }
 
 .site-nav[data-phase01-navbar] .mm-cat:hover::before,
@@ -730,7 +742,7 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .mm-cat.is-active {
 }
 
 .site-nav[data-phase01-navbar] .mm-pane {
-  height: 100% !important;
+  height: auto !important;
 }
 
 .site-nav[data-phase01-navbar] .mm-companies {
@@ -739,16 +751,27 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .mm-cat.is-active {
 }
 
 .site-nav[data-phase01-navbar] .nav-megamenu .mm-company {
-  width: 132px !important;
+  width: 106px !important;
   min-height: 88px !important;
   height: auto !important;
-  padding: 8px 6px !important;
+  padding: 8px 2px !important;
   color: var(--nav-menu-muted) !important;
   background: transparent !important;
   border: 0 !important;
   border-bottom: 0 !important;
   border-radius: 0 !important;
   transition: color .18s ease !important;
+}
+
+/* Compact two-surface Business Verticals menu: the sector rail is solid,
+   while the logo pane remains part of the shared glass shell. */
+.site-nav[data-phase01-navbar] .mm-cat,
+.site-nav[data-phase01-navbar] .mm-cat:hover,
+.site-nav[data-phase01-navbar] .mm-cat:focus-visible,
+.site-nav[data-phase01-navbar] .mm-cat.is-active {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  box-shadow: none !important;
 }
 
 .site-nav[data-phase01-navbar] .nav-megamenu .mm-company:hover,

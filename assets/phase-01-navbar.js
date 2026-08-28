@@ -23,6 +23,16 @@
     const corporatePages = new Set(['history.html', 'africa-network.html', 'csr.html', 'sustainability.html', 'investors.html', 'projects.html', 'gallery.html']);
     const desktopLinks = nav.querySelectorAll('.nav-links > li > a');
     const languageTrigger = nav.querySelector('.lang-trigger');
+    const businessVerticalsLink = nav.querySelector('[data-nav-section="subsidiaries"]');
+    if (businessVerticalsLink) {
+      businessVerticalsLink.setAttribute('aria-label', 'Business Verticals');
+      businessVerticalsLink.setAttribute('data-nav-label', 'Business Verticals');
+      if (businessVerticalsLink.firstChild && businessVerticalsLink.firstChild.nodeType === Node.TEXT_NODE) {
+        businessVerticalsLink.firstChild.nodeValue = 'Business Verticals ';
+      }
+    }
+    const mobileBusinessVerticals = drawer && drawer.querySelector('.mob-primary[aria-controls="mob-subsidiaries"]');
+    if (mobileBusinessVerticals) mobileBusinessVerticals.textContent = 'Business Verticals';
     const sectorAnimations = {
       energies: { reveal: 'assets/icons/sectors/lottie/energies-in-reveal.json', hover: 'assets/icons/sectors/lottie/energies-hover-pinch.json' },
       manufacturing: { reveal: 'assets/icons/sectors/lottie/manufacturing-in-reveal.json', hover: 'assets/icons/sectors/lottie/manufacturing-hover-pinch.json' },
