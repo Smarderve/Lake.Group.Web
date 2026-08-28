@@ -445,7 +445,12 @@
     }
     // The navbar always paints last so it sits above full-bleed hero media.
     var navBlocks = nav && isShown(nav) ? collectNavBlocks(nav) : [];
-    return kept.concat(navBlocks);
+    // Legacy pages can expose a taller or offset navbar while their older
+    // stylesheet is still settling. Apply the same viewport clamp used by
+    // content blocks so the global loader never creates off-screen geometry.
+    var visibleNavBlocks = [];
+    for (i = 0; i < navBlocks.length; i++) pushBlock(visibleNavBlocks, navBlocks[i]);
+    return kept.concat(visibleNavBlocks);
   }
 
   function createBlock(target) {
@@ -618,7 +623,9 @@
     if (!document.body || document.querySelector('[data-lg-skeleton-overlay]')) return;
     var targets = collectSkeletonTargets(document.body);
     var overlay = buildSkeletonOverlay(targets);
-    document.body.insertBefore(overlay, document.body.firstChild);
+    // Mount at the document root so legacy page-level layout rules cannot
+    // establish a containing block or collapse the fixed first-paint veil.
+    document.documentElement.appendChild(overlay);
     document.body.appendChild(createStatus());
     trackResources();
 

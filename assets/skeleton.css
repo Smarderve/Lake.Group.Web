@@ -18,8 +18,10 @@ html.lg-skel-done::before {
 }
 
 [data-lg-skeleton-overlay] {
-  position: fixed;
+  position: fixed !important;
   inset: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: 99990;
   overflow: hidden;
   isolation: isolate;

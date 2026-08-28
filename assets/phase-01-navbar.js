@@ -99,10 +99,9 @@
       });
     };
     const revealSectorIcons = () => {
+      initSectorIcons();
       nav.querySelectorAll('.mm-cat[data-mm-cat]').forEach((button) => playSectorIcon(button, 'in-reveal'));
     };
-    initSectorIcons();
-    initMobileSectorIcons();
     if (languageTrigger) {
       languageTrigger.removeAttribute('disabled');
       languageTrigger.setAttribute('aria-haspopup', 'menu');
@@ -198,7 +197,10 @@
     nav.querySelectorAll('.mm-cat').forEach((button) => { button.addEventListener('click', () => activateCategory(button, 'interaction')); button.addEventListener('mouseenter', () => { if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) activateCategory(button, 'interaction'); }); button.addEventListener('focus', () => activateCategory(button, 'interaction')); });
     nav.querySelectorAll('.has-dropdown[data-nav-section="subsidiaries"]').forEach((item) => item.addEventListener('mouseenter', () => { revealSectorIcons(); const first = item.querySelector('.mm-cat.is-active') || item.querySelector('.mm-cat'); if (first) activateCategory(first, 'open'); }));
     const subsidiariesPanel = drawer.querySelector('#mob-subsidiaries');
-    if (mobilePrimary && subsidiariesPanel) mobilePrimary.addEventListener('click', () => toggleTopMobileSection('subsidiaries', mobilePrimary, subsidiariesPanel));
+    if (mobilePrimary && subsidiariesPanel) mobilePrimary.addEventListener('click', () => {
+      initMobileSectorIcons();
+      toggleTopMobileSection('subsidiaries', mobilePrimary, subsidiariesPanel);
+    });
     if (corporateButton && corporatePanel) corporateButton.addEventListener('click', () => toggleTopMobileSection('corporate', corporateButton, corporatePanel));
     drawer.querySelectorAll('.mob-accordion .mob-acc-btn').forEach((button) => button.addEventListener('click', () => {
       const panel = document.getElementById(button.getAttribute('aria-controls'));
