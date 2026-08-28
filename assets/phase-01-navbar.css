@@ -542,11 +542,11 @@ body.co-theme-agro .nav-mobile[data-phase01-navbar-mobile] {
    loads this file, so the glass surface cannot inherit a company palette.
    -------------------------------------------------------------------------- */
 :root {
-  --nav-dropdown-bg: rgba(3, 53, 79, .72);
+  --nav-dropdown-bg: rgba(3, 53, 79, .58);
   --nav-dropdown-border: rgba(255, 255, 255, .12);
   --nav-dropdown-shadow: 0 18px 48px rgba(0, 0, 0, .22);
   --nav-dropdown-blur: 14px;
-  --nav-dropdown-radius: 14px;
+  --nav-dropdown-radius: 16px;
   --nav-option-bg: transparent;
   --nav-option-border: transparent;
   --nav-option-bg-hover: rgba(255, 255, 255, .06);
@@ -572,8 +572,8 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .lang-menu {
   border-top: 1px solid var(--nav-menu-border) !important;
   border-radius: var(--nav-dropdown-radius) !important;
   box-shadow: var(--nav-dropdown-shadow) !important;
-  backdrop-filter: blur(var(--nav-dropdown-blur)) saturate(120%) !important;
-  -webkit-backdrop-filter: blur(var(--nav-dropdown-blur)) saturate(120%) !important;
+  backdrop-filter: blur(var(--nav-dropdown-blur)) !important;
+  -webkit-backdrop-filter: blur(var(--nav-dropdown-blur)) !important;
 }
 
 .site-nav[data-phase01-navbar] .nav-dropdown::before,
@@ -582,10 +582,13 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .lang-menu {
 }
 
 .site-nav[data-phase01-navbar] .nav-megamenu {
+  position: absolute !important;
+  isolation: isolate !important;
   padding: 18px !important;
   transform: translate(-50%, -6px) !important;
   overflow: hidden auto !important;
   background-clip: padding-box !important;
+  clip-path: inset(0 round var(--nav-dropdown-radius)) !important;
 }
 
 .site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-megamenu,
@@ -668,7 +671,7 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .mm-cat.is-active {
 
 .site-nav[data-phase01-navbar] .mm-cat:hover,
 .site-nav[data-phase01-navbar] .mm-cat:focus-visible {
-  border-color: rgba(255, 255, 255, .28) !important;
+  border-color: var(--nav-menu-accent) !important;
 }
 
 .site-nav[data-phase01-navbar] .mm-cat:hover::before,
