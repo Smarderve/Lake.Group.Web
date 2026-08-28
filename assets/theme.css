@@ -9,9 +9,9 @@
    NOTE: never style .experience-3d-* or #fuel-experience  owned elsewhere.
    ========================================================================== */
 
-@import url("tokens.css?v=62");
-@import url("fonts/fonts.css?v=60");
-@import url("ui-icons.css?v=46");
+@import url("tokens.css?v=20260828-01");
+@import url("fonts/fonts.css?v=20260828-01");
+@import url("ui-icons.css?v=20260828-01");
 
 /* --------------------------------------------------------------------------
    1. THEME-ONLY TOKENS (motion + shadows; brand lives in tokens.css)

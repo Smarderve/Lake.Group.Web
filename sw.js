@@ -21,12 +21,12 @@
  *
  * v71: News tiles get the rounded dashboard-card look (radius + soft shadows).
  *      Version bump forces a full cache purge on the next visit so the new
- *      newsroom.css?v=4 reaches every client even with stale ?v= entries.
+ *      newsroom.css?v=20260828-01 reaches every client even with stale ?v= entries.
  */
 
 'use strict';
 
-const VERSION = 'v72';
+const VERSION = 'v73-20260828-01';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -55,34 +55,38 @@ const PRECACHE_URLS = [
   './lake-steel.html',
   './lake-trans.html',
   './manifest.webmanifest',
-  './assets/pwa.js?v=62',
-  './assets/site.js?v=61',
-  './assets/tokens.css?v=62',
-  './assets/theme.css?v=94',
-  './assets/flagship.css?v=106',
-  './assets/home-redesign.css?v=4',
-  './assets/skeleton.css?v=7',
-  './assets/skeleton.js?v=8',
-  './assets/motion.js?v=58',
-  './assets/flagship-motion.js?v=59',
-  './assets/split-text.js?v=48',
-  './assets/split-text.css?v=48',
+  './assets/pwa.js?v=20260828-01',
+  './assets/build-version.js?v=20260828-01',
+  './assets/site.js?v=20260828-01',
+  './assets/tokens.css?v=20260828-01',
+  './assets/theme.css?v=20260828-01',
+  './assets/flagship.css?v=20260828-01',
+  './assets/home-redesign.css?v=20260828-01',
+  './assets/skeleton.css?v=20260828-01',
+  './assets/skeleton.js?v=20260828-01',
+  './assets/motion.js?v=20260828-01',
+  './assets/flagship-motion.js?v=20260828-01',
+  './assets/split-text.js?v=20260828-01',
+  './assets/split-text.css?v=20260828-01',
   './assets/vendor/gsap/gsap.min.js',
   './assets/vendor/gsap/ScrollTrigger.min.js',
-  './assets/i18n.js?v=58',
-  './assets/i18n-content.js?v=65',
-  './assets/assistant.js?v=68',
-  './assets/assistant.css?v=71',
+  './assets/i18n.js?v=20260828-01',
+  './assets/i18n-content.js?v=20260828-01',
+  './assets/assistant.js?v=20260828-01',
+  './assets/assistant.css?v=20260828-01',
+  './assets/phase-01-navbar.css?v=20260828-01',
+  './assets/phase-01-footer.css?v=20260828-01',
+  './assets/phase-01-navbar.js?v=20260828-01',
   './assets/assistant-kb.js',
   './assets/vendor/flexsearch/flexsearch.bundle.min.js',
   './assets/images/logos/LAKE_GROUP_LOGO.png',
-  './assets/images/banner/LakeOil1.jpg?v=81',
+  './assets/images/banner/LakeOil1.jpg?v=20260828-01',
   './assets/images/lakeoil/current/lake-energies-station-approved.png',
   './assets/images/lakeoil/current/depot-terminal.jpg',
-  './assets/images/lakegas/ops/cylinders-yard.jpg?v=82',
+  './assets/images/lakegas/ops/cylinders-yard.jpg?v=20260828-01',
   './assets/icons/pwa/icon-192.png',
   './assets/icons/pwa/icon-512.png',
-  './assets/fonts/fonts.css?v=60',
+  './assets/fonts/fonts.css?v=20260828-01',
   './assets/fonts/files/jost-latin-100-normal.woff2',
   './assets/fonts/files/jost-latin-300-normal.woff2',
   './assets/fonts/files/jost-latin-400-normal.woff2',
