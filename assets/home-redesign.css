@@ -525,7 +525,7 @@ body.home .hero-tab:hover {
     letter-spacing: .16em;
     text-transform: uppercase;
   }
-  body.home .hero-mobile-sector-label.is-updating { animation: lake-mobile-sector-in .35s ease both; }
+  body.home .hero-mobile-sector-label.is-updating { animation: lake-mobile-sector-fade .32s ease both; }
   body.home .hero-mobile-sector-progress {
     display: block;
     width: 100%;
@@ -543,7 +543,7 @@ body.home .hero-tab:hover {
   }
   body.home .hero-mobile-sector-progress.is-running > span { animation: lake-mobile-sector-progress 8s linear forwards; }
   @keyframes lake-mobile-sector-progress { from { width: 0; } to { width: 100%; } }
-  @keyframes lake-mobile-sector-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes lake-mobile-sector-fade { from { opacity: 0; } to { opacity: 1; } }
   body.home .hero-mobile-sector-indicator[hidden] { display: none; }
 }
 

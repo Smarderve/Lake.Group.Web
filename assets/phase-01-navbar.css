@@ -890,3 +890,188 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .mm-cat.is-active {
     width: min(224px, calc(100vw - 24px)) !important;
   }
 }
+
+/* Final shared Business Verticals geometry: a compact glass shell with a
+   solid navigation rail and a transparent logo pane. */
+.site-nav[data-phase01-navbar] .nav-megamenu {
+  width: min(820px, calc(100vw - 32px)) !important;
+  max-width: min(820px, calc(100vw - 32px)) !important;
+  /* The Agro theme has a more-specific generic dropdown rule with left: 0.
+     Keep the shared mega-menu viewport-centred so it cannot be clipped by
+     the -50% transform on company pages. */
+  left: 50% !important;
+  padding: 0 !important;
+  background: rgba(3, 53, 79, .58) !important;
+  background-color: rgba(3, 53, 79, .58) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+}
+.site-nav[data-phase01-navbar] .mm-layout {
+  grid-template-columns: 260px minmax(0, 1fr) !important;
+  gap: 0 !important;
+  min-height: 0 !important;
+  align-items: stretch !important;
+}
+.site-nav[data-phase01-navbar] .mm-cats {
+  gap: 0 !important;
+  padding: 12px !important;
+  background: #03354f !important;
+  border-radius: 0 !important;
+  align-self: stretch !important;
+}
+.site-nav[data-phase01-navbar] .mm-cat,
+.site-nav[data-phase01-navbar] .mm-cat:hover,
+.site-nav[data-phase01-navbar] .mm-cat:focus-visible,
+.site-nav[data-phase01-navbar] .mm-cat.is-active {
+  grid-template-columns: 24px minmax(0, 1fr) 8px !important;
+  min-height: 44px !important;
+  padding: 10px 8px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #fff !important;
+  outline: none !important;
+}
+.site-nav[data-phase01-navbar] .mm-cat:hover,
+.site-nav[data-phase01-navbar] .mm-cat:focus-visible,
+.site-nav[data-phase01-navbar] .mm-cat.is-active { color: #fff200 !important; }
+.site-nav[data-phase01-navbar] .mm-cat::after { border-color: currentColor !important; }
+.site-nav[data-phase01-navbar] .mm-sector-icon {
+  --lord-icon-primary: #fff !important;
+  --lord-icon-secondary: #fff !important;
+  opacity: .96 !important;
+}
+.site-nav[data-phase01-navbar] .mm-cat:hover .mm-sector-icon,
+.site-nav[data-phase01-navbar] .mm-cat:focus-visible .mm-sector-icon,
+.site-nav[data-phase01-navbar] .mm-cat.is-active .mm-sector-icon {
+  --lord-icon-primary: #fff200 !important;
+  --lord-icon-secondary: #fff200 !important;
+}
+.site-nav[data-phase01-navbar] .mm-panes {
+  padding: 18px 20px !important;
+  background: transparent !important;
+  align-self: stretch !important;
+}
+.site-nav[data-phase01-navbar] .mm-companies {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  align-items: center !important;
+}
+.site-nav[data-phase01-navbar] .nav-megamenu .mm-company {
+  width: auto !important;
+  min-height: 76px !important;
+  padding: 6px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+.site-nav[data-phase01-navbar] .nav-megamenu .mm-company:hover,
+.site-nav[data-phase01-navbar] .nav-megamenu .mm-company:focus-visible {
+  background: rgba(255, 255, 255, .06) !important;
+  outline: none !important;
+}
+.site-nav[data-phase01-navbar] .nav-megamenu .mm-company img {
+  width: 100% !important;
+  height: 56px !important;
+  max-width: 112px !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+.site-nav[data-phase01-navbar] .nav-megamenu .mm-company img[src*="aficd-white"] { background: transparent !important; }
+
+/* Normalize the Agro theme's higher-specificity dropdown positioning.  The
+   shared mega-menu is centred on the viewport on every company page. */
+body.co-theme-agro .site-nav[data-phase01-navbar] .nav-megamenu {
+  left: 50% !important;
+}
+body.co-theme-agro .nav-mobile[data-phase01-navbar-mobile].open {
+  display: flex !important;
+}
+
+/* Full-height mobile drawer and progressive disclosure hierarchy. */
+html.lg-nav-open, body.lg-nav-open { overflow: hidden !important; }
+.nav-mobile[data-phase01-navbar-mobile] {
+  top: 68px !important;
+  min-height: calc(100dvh - 68px) !important;
+  max-height: calc(100dvh - 68px) !important;
+  padding: 10px 20px 28px !important;
+  background: #03354f !important;
+  border-bottom: 0 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.nav-mobile[data-phase01-navbar-mobile] .mob-drawer-head {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  min-height: 48px !important;
+  margin-bottom: 8px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, .14) !important;
+}
+.nav-mobile[data-phase01-navbar-mobile] .mob-drawer-title {
+  color: #fff200 !important;
+  font: 700 .72rem/1 Jost, Arial, sans-serif !important;
+  letter-spacing: .18em !important;
+  text-transform: uppercase !important;
+}
+.nav-mobile[data-phase01-navbar-mobile] .mob-close {
+  display: grid !important;
+  place-items: center !important;
+  width: 44px !important;
+  height: 44px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  color: #fff !important;
+  font: 400 1.8rem/1 Arial, sans-serif !important;
+  cursor: pointer !important;
+}
+.nav-mobile[data-phase01-navbar-mobile] > a,
+.nav-mobile[data-phase01-navbar-mobile] > .mob-acc-btn {
+  min-height: 50px !important;
+  padding: 14px 4px !important;
+  color: #fff !important;
+  font-size: .95rem !important;
+  font-weight: 600 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, .1) !important;
+}
+.nav-mobile[data-phase01-navbar-mobile] > .mob-acc-btn { border-left: 0 !important; }
+.nav-mobile[data-phase01-navbar-mobile] > .mob-acc-btn[aria-expanded="true"] { color: #fff200 !important; }
+.nav-mobile[data-phase01-navbar-mobile] .mob-acc-panel {
+  padding: 2px 0 6px 14px !important;
+  background: transparent !important;
+}
+.nav-mobile[data-phase01-navbar-mobile] .mob-acc-panel[hidden] { display: none !important; }
+.nav-mobile[data-phase01-navbar-mobile] .mob-subsidiaries-panel,
+.nav-mobile[data-phase01-navbar-mobile] .mob-corporate-panel { padding-left: 14px !important; }
+.nav-mobile[data-phase01-navbar-mobile] .mob-accordion > .mob-acc-btn {
+  min-height: 46px !important;
+  padding: 11px 4px !important;
+  grid-template-columns: minmax(0, 1fr) 12px !important;
+  border-bottom: 0 !important;
+  color: rgba(255,255,255,.84) !important;
+}
+.nav-mobile[data-phase01-navbar-mobile] .mob-accordion > .mob-acc-btn[aria-expanded="true"] { color: #fff200 !important; }
+.nav-mobile[data-phase01-navbar-mobile] .mob-acc-panel a {
+  min-height: 44px !important;
+  gap: 10px !important;
+  padding: 9px 4px 9px 10px !important;
+  color: rgba(255,255,255,.74) !important;
+  border: 0 !important;
+  font-size: .83rem !important;
+}
+.nav-mobile[data-phase01-navbar-mobile] .mob-acc-panel a img {
+  width: 36px !important;
+  height: 28px !important;
+  object-fit: contain !important;
+  flex: 0 0 36px !important;
+  background: transparent !important;
+}
+.nav-mobile[data-phase01-navbar-mobile] .mob-acc-panel a:hover { color: #fff200 !important; background: rgba(255,255,255,.05) !important; }
+.nav-mobile[data-phase01-navbar-mobile] .mob-language { margin-top: 18px !important; }

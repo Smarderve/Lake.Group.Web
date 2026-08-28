@@ -121,9 +121,9 @@
     const corporateSection = [...drawer.querySelectorAll('.mob-section')].find((section) => {
       return section.textContent.trim().toLowerCase() === 'corporate' || section.dataset.i18n === 'mob.company';
     });
-    let corporateButton = null;
-    let corporatePanel = null;
-    if (corporateSection) {
+    let corporateButton = drawer.querySelector('.mob-corporate-trigger') || null;
+    let corporatePanel = corporateButton ? drawer.querySelector(`#${corporateButton.getAttribute('aria-controls')}`) : null;
+    if (!corporateButton && corporateSection) {
       corporateButton = document.createElement('button');
       corporateButton.type = 'button';
       corporateButton.className = 'mob-acc-btn mob-corporate-trigger';
@@ -170,11 +170,10 @@
     let openMobileSection = null;
     const setMobilePanel = (button, panel, open) => {
       if (!button || !panel) return;
-      panel.hidden = false;
+      panel.hidden = !open;
       panel.classList.toggle('is-open', open);
       button.setAttribute('aria-expanded', String(open));
       panel.style.setProperty('--mobile-panel-height', open ? `${panel.scrollHeight}px` : '0px');
-      if (!open) panel.hidden = false;
     };
     const resetMobileAccordions = () => {
       openMobileSection = null;
@@ -194,18 +193,29 @@
       setMobilePanel(button, panel, shouldOpen);
       openMobileSection = shouldOpen ? key : null;
     };
+    const closeMobile = () => {
+      drawer.classList.remove('open');
+      drawer.hidden = true;
+      toggle.setAttribute('aria-expanded', 'false');
+      document.documentElement.classList.remove('lg-nav-open');
+      document.body.classList.remove('lg-nav-open');
+    };
+    drawer.querySelector('.mob-close')?.addEventListener('click', closeMobile);
     toggle.addEventListener('click', () => {
       const open = drawer.classList.toggle('open');
       drawer.hidden = !open;
       toggle.setAttribute('aria-expanded', String(open));
+      document.documentElement.classList.toggle('lg-nav-open', open);
+      document.body.classList.toggle('lg-nav-open', open);
       if (open) resetMobileAccordions();
+      else closeMobile();
     });
     nav.querySelectorAll('.has-dropdown').forEach((item) => { const trigger = item.querySelector(':scope > a'); if (!trigger) return; trigger.addEventListener('click', (event) => { event.preventDefault(); const open = !item.classList.contains('is-open'); closeAll(item); item.classList.toggle('is-open', open); trigger.setAttribute('aria-expanded', String(open)); if (open && item.querySelector('.nav-megamenu')) revealSectorIcons(); }); });
     document.addEventListener('click', (event) => { if (!nav.contains(event.target)) closeAll(); });
-    document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeAll(); });
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape') { closeAll(); if (drawer.classList.contains('open')) closeMobile(); } });
     const activateCategory = (button, interaction = 'open') => { const id = button.dataset.mmCat; const menu = button.closest('.nav-megamenu'); menu.querySelectorAll('.mm-cat').forEach((b) => { const active = b === button; b.classList.toggle('is-active', active); b.setAttribute('aria-selected', String(active)); }); menu.querySelectorAll('.mm-pane').forEach((pane) => { const active = pane.dataset.mmPane === id; pane.classList.toggle('is-active', active); pane.hidden = !active; }); playSectorIcon(button, interaction === 'open' ? 'in-reveal' : 'hover-pinch'); };
     nav.querySelectorAll('.mm-cat').forEach((button) => { button.addEventListener('click', () => activateCategory(button, 'interaction')); button.addEventListener('mouseenter', () => { if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) activateCategory(button, 'interaction'); }); button.addEventListener('focus', () => activateCategory(button, 'interaction')); });
-    nav.querySelectorAll('.has-dropdown[data-nav-section="subsidiaries"]').forEach((item) => item.addEventListener('mouseenter', () => { revealSectorIcons(); const first = item.querySelector('.mm-cat.is-active') || item.querySelector('.mm-cat'); if (first) activateCategory(first, 'open'); }));
+    nav.querySelectorAll('.has-dropdown.has-megamenu').forEach((item) => item.addEventListener('mouseenter', () => { revealSectorIcons(); const first = item.querySelector('.mm-cat.is-active') || item.querySelector('.mm-cat'); if (first) activateCategory(first, 'open'); }));
     const subsidiariesPanel = drawer.querySelector('#mob-subsidiaries');
     if (mobilePrimary && subsidiariesPanel) mobilePrimary.addEventListener('click', () => {
       initMobileSectorIcons();
@@ -216,6 +226,12 @@
       const panel = document.getElementById(button.getAttribute('aria-controls'));
       if (!panel) return;
       const open = !panel.classList.contains('is-open');
+      if (open) drawer.querySelectorAll('.mob-accordion > .mob-acc-btn').forEach((other) => {
+        if (other !== button) {
+          const otherPanel = document.getElementById(other.getAttribute('aria-controls'));
+          setMobilePanel(other, otherPanel, false);
+        }
+      });
       setMobilePanel(button, panel, open);
     }));
     resetMobileAccordions();

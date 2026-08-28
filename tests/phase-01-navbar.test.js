@@ -81,7 +81,7 @@ test('subsidiary coverage uses unique supplied company marks and includes ACFS',
   assert.equal(new Set(desktopLinks.map((match) => match[2])).size, desktopLinks.length, 'no repeated fallback logo');
   assert.equal(desktopLinks.some((match) => /LAKE_LOGO_LAKE_ONLY|placeholder/i.test(match[2])), false, 'company cards use only company-specific marks');
   assert.match(navTemplate, /href="acfs\.html" class="mm-company"><img src="assets\/images\/logos\/companies\/acfs\.png"/);
-  assert.match(mobileTemplate, /href="acfs\.html">ACFS<\/a>/);
+  assert.match(mobileTemplate, /href="acfs\.html"[^>]*>[\s\S]*?ACFS<\/a>/);
   const automotive = ['assembly-tech.html', 'agrinova-tech.html', 'nextdrive-motors.html'];
   for (const file of automotive) {
     assert.match(navTemplate, new RegExp(`<a href="${file}" class="mm-company mm-company--wordmark">`), `${file}: desktop target`);
