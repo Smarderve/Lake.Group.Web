@@ -15,7 +15,7 @@ assert.match(
 );
 assert.match(
   about,
-  /<h2 class="ose-display ose-xl">Built in Africa\.<br>Growing with purpose\.<\/h2>/,
+  /title: 'Built for dependable<br>regional delivery\.'/,
   'About hero headline must use one deliberate responsive line break'
 );
 assert.match(

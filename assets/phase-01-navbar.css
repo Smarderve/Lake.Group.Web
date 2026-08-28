@@ -542,7 +542,7 @@ body.co-theme-agro .nav-mobile[data-phase01-navbar-mobile] {
    loads this file, so the glass surface cannot inherit a company palette.
    -------------------------------------------------------------------------- */
 :root {
-  --nav-dropdown-bg: rgba(3, 53, 79, .62);
+  --nav-dropdown-bg: rgba(3, 53, 79, .72);
   --nav-dropdown-border: rgba(255, 255, 255, .12);
   --nav-dropdown-shadow: 0 18px 48px rgba(0, 0, 0, .22);
   --nav-dropdown-blur: 14px;
@@ -572,8 +572,8 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .lang-menu {
   border-top: 1px solid var(--nav-menu-border) !important;
   border-radius: var(--nav-dropdown-radius) !important;
   box-shadow: var(--nav-dropdown-shadow) !important;
-  backdrop-filter: blur(18px) saturate(120%) !important;
-  -webkit-backdrop-filter: blur(18px) saturate(120%) !important;
+  backdrop-filter: blur(var(--nav-dropdown-blur)) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(var(--nav-dropdown-blur)) saturate(120%) !important;
 }
 
 .site-nav[data-phase01-navbar] .nav-dropdown::before,

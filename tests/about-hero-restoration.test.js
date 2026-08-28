@@ -11,23 +11,21 @@ const { chromium } = require('playwright');
 const { resolveStatic } = require('../scripts/_safe_static.js');
 
 const ROOT = path.join(__dirname, '..');
-const HERO_ASSET = 'assets/images/about/about-hero-03.webp';
+const HERO_ASSET = 'assets/images/about/about-hero-04.webp';
 const STORY_ASSET = 'assets/images/about/about-story-terminal-enhanced.webp';
 const HERO_ASSETS = [
-  'assets/images/about/about-hero-03.webp',
   'assets/images/about/about-hero-04.webp',
   'assets/images/about/about-hero-05.webp',
   'assets/images/about/about-hero-06.webp',
-  'assets/images/about/about-hero-08.webp',
-  'assets/images/about/about-hero-11.webp',
   'assets/images/about/about-hero-12.webp',
 ];
 const REMOVED_HERO_ASSETS = [
   'assets/images/lakeoil/current/lake-energies-station-approved.png',
   'assets/images/about/about-hero-02.webp',
-  'assets/images/about/about-hero-07.webp',
-  'assets/images/about/about-hero-09.webp',
+  'assets/images/about/about-hero-03.webp',
+  'assets/images/about/about-hero-08.webp',
   'assets/images/about/about-hero-10.webp',
+  'assets/images/about/about-hero-11.webp',
 ];
 
 function sha256(file) {
@@ -55,7 +53,7 @@ function startServer() {
   });
 }
 
-test('About uses only the seven approved remaining hero images and keeps the lower story asset separate', () => {
+test('About uses only the approved remaining hero images and keeps the lower story asset separate', () => {
   assert.equal(sha256(STORY_ASSET), '5eeb767efe861cb28988e98b95aa2926a3b75cae9071d1ee8567558af4fbf556');
   const html = fs.readFileSync(path.join(ROOT, 'about.html'), 'utf8');
   HERO_ASSETS.forEach((asset) => assert.match(html, new RegExp(asset.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\$&'))));
@@ -75,7 +73,7 @@ test('About restores a full-screen accessible carousel without homepage controls
       await page.goto(`${base}/about.html`, { waitUntil: 'domcontentloaded' });
       await page.waitForFunction(() => !document.documentElement.classList.contains('lg-loading'), null, { timeout: 12000 });
       await page.locator('[data-lg-skeleton-overlay]').waitFor({ state: 'detached', timeout: 2500 }).catch(() => {});
-      await page.waitForFunction(() => document.querySelectorAll('#ose-progress .ose-dot').length === 7);
+      await page.waitForFunction(() => document.querySelectorAll('#ose-progress .ose-dot').length === 4);
 
       const initial = await page.evaluate(() => {
         const stage = document.querySelector('#ose-stage');
@@ -103,7 +101,7 @@ test('About restores a full-screen accessible carousel without homepage controls
 
       assert(initial.stageHeight >= viewport.height, `${viewport.width}px: hero must fill the viewport`);
       assert.equal(initial.navTop, initial.stageTop, `${viewport.width}px: navbar must overlay the hero`);
-      assert.equal(initial.sceneCount, 7);
+      assert.equal(initial.sceneCount, 4);
       assert.equal(initial.activeCount, 1);
       assert.equal(initial.firstSrc, HERO_ASSET);
       assert.equal(initial.fit, 'cover');
@@ -111,7 +109,7 @@ test('About restores a full-screen accessible carousel without homepage controls
       assert.doesNotMatch(initial.overlay, /rgba?\((?!0, 0, 0)/, 'hero overlay must remain neutral');
       assert.equal(initial.secondSrc, STORY_ASSET);
       assert.equal(initial.arrows, 2);
-      assert.equal(initial.dots, 7);
+      assert.equal(initial.dots, 4);
       assert.equal(initial.homepageControls, 0);
       assert.equal(initial.overflow, false);
 
