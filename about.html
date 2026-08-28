@@ -381,7 +381,7 @@ body.about .page-wrapper { padding-top: 0; }
   <div class="ose-stage" id="ose-stage">
 
     <div class="ose-scene ose-active" id="ose-s1" aria-hidden="false">
-      <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/about/about-hero-04.webp" alt="Lake Group operations" fetchpriority="high" decoding="async"></div>
+      <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/about/about-hero-07.webp" alt="Lake Group operations" fetchpriority="high" decoding="async"></div>
       <div class="ose-tint ose-tint-dark"></div>
       <div class="ose-text">
         <span class="ose-eyebrow">Our people</span>
@@ -519,10 +519,13 @@ body.about .page-wrapper { padding-top: 0; }
   const previousButton = stage.querySelector('.ose-arrow-prev');
   const nextButton = stage.querySelector('.ose-arrow-next');
   const slides = [
+    { image: 'assets/images/about/about-hero-07.webp', copy: { eyebrow: 'Our operations', title: 'Built for dependable<br>regional delivery.', alt: 'Lake Group operations' } },
+    { image: 'assets/images/about/about-hero-09.webp', copy: { eyebrow: 'Our operations', title: 'Built for dependable<br>regional delivery.', alt: 'Lake Group operations' } },
+    { image: 'assets/images/about/about-hero-12.webp', copy: { eyebrow: 'Our people', title: 'One group.<br>A shared purpose.', body: 'More than 30,000 people from 21 nationalities continue to grow Lake Group across 10 countries.', label: 'The people behind our progress' } },
+    { image: 'assets/images/about/about-hero-03.webp', copy: { eyebrow: 'Our people', title: 'One group.<br>A shared purpose.', body: 'More than 30,000 people from 21 nationalities continue to grow Lake Group across 10 countries.', label: 'The people behind our progress' } },
     { image: 'assets/images/about/about-hero-04.webp', copy: { eyebrow: 'Our operations', title: 'Built for dependable<br>regional delivery.', alt: 'Lake Group operations' } },
     { image: 'assets/images/about/about-hero-05.webp', copy: { eyebrow: 'Our beginning', title: 'From a single fuel station<br>to the leading powerhouse.', body: 'Lake Group was established in 2006 with a single fuel outlet in Dar es Salaam, Tanzania, and has since grown into a diversified regional business group.', label: 'Lake Oil &middot; Est. 2006' } },
-    { image: 'assets/images/about/about-hero-06.webp', copy: { eyebrow: 'Our people', title: 'One group.<br>A shared purpose.', body: 'More than 30,000 people from 21 nationalities continue to grow Lake Group across 10 countries.', label: 'The people behind our progress' } },
-    { image: 'assets/images/about/about-hero-12.webp', copy: { eyebrow: 'Our people', title: 'One group.<br>A shared purpose.', body: 'More than 30,000 people from 21 nationalities continue to grow Lake Group across 10 countries.', label: 'The people behind our progress' } }
+    { image: 'assets/images/about/about-hero-06.webp', copy: { eyebrow: 'Our people', title: 'One group.<br>A shared purpose.', body: 'More than 30,000 people from 21 nationalities continue to grow Lake Group across 10 countries.', label: 'The people behind our progress' } }
   ];
   const slideImages = slides.map((slide) => slide.image);
   const firstScene = stage.querySelector('.ose-scene');

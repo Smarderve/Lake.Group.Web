@@ -11,18 +11,20 @@ const { chromium } = require('playwright');
 const { resolveStatic } = require('../scripts/_safe_static.js');
 
 const ROOT = path.join(__dirname, '..');
-const HERO_ASSET = 'assets/images/about/about-hero-04.webp';
+const HERO_ASSET = 'assets/images/about/about-hero-07.webp';
 const STORY_ASSET = 'assets/images/about/about-story-terminal-enhanced.webp';
 const HERO_ASSETS = [
+  'assets/images/about/about-hero-07.webp',
+  'assets/images/about/about-hero-09.webp',
+  'assets/images/about/about-hero-12.webp',
+  'assets/images/about/about-hero-03.webp',
   'assets/images/about/about-hero-04.webp',
   'assets/images/about/about-hero-05.webp',
   'assets/images/about/about-hero-06.webp',
-  'assets/images/about/about-hero-12.webp',
 ];
 const REMOVED_HERO_ASSETS = [
   'assets/images/lakeoil/current/lake-energies-station-approved.png',
   'assets/images/about/about-hero-02.webp',
-  'assets/images/about/about-hero-03.webp',
   'assets/images/about/about-hero-08.webp',
   'assets/images/about/about-hero-10.webp',
   'assets/images/about/about-hero-11.webp',
@@ -73,7 +75,7 @@ test('About restores a full-screen accessible carousel without homepage controls
       await page.goto(`${base}/about.html`, { waitUntil: 'domcontentloaded' });
       await page.waitForFunction(() => !document.documentElement.classList.contains('lg-loading'), null, { timeout: 12000 });
       await page.locator('[data-lg-skeleton-overlay]').waitFor({ state: 'detached', timeout: 2500 }).catch(() => {});
-      await page.waitForFunction(() => document.querySelectorAll('#ose-progress .ose-dot').length === 4);
+      await page.waitForFunction(() => document.querySelectorAll('#ose-progress .ose-dot').length === 7);
 
       const initial = await page.evaluate(() => {
         const stage = document.querySelector('#ose-stage');
@@ -101,7 +103,7 @@ test('About restores a full-screen accessible carousel without homepage controls
 
       assert(initial.stageHeight >= viewport.height, `${viewport.width}px: hero must fill the viewport`);
       assert.equal(initial.navTop, initial.stageTop, `${viewport.width}px: navbar must overlay the hero`);
-      assert.equal(initial.sceneCount, 4);
+      assert.equal(initial.sceneCount, 7);
       assert.equal(initial.activeCount, 1);
       assert.equal(initial.firstSrc, HERO_ASSET);
       assert.equal(initial.fit, 'cover');
@@ -109,7 +111,7 @@ test('About restores a full-screen accessible carousel without homepage controls
       assert.doesNotMatch(initial.overlay, /rgba?\((?!0, 0, 0)/, 'hero overlay must remain neutral');
       assert.equal(initial.secondSrc, STORY_ASSET);
       assert.equal(initial.arrows, 2);
-      assert.equal(initial.dots, 4);
+      assert.equal(initial.dots, 7);
       assert.equal(initial.homepageControls, 0);
       assert.equal(initial.overflow, false);
 
@@ -124,8 +126,8 @@ test('About restores a full-screen accessible carousel without homepage controls
         cycle.push(await page.locator('.ose-scene.ose-active .ose-photo').getAttribute('src'));
         await page.locator('.ose-arrow-next').click();
       }
-      assert.deepEqual(cycle, HERO_ASSETS, `${viewport.width}px: carousel must visit only the remaining approved slides`);
-      assert.equal(await page.locator('.ose-scene.ose-active .ose-photo').getAttribute('src'), HERO_ASSETS[0], `${viewport.width}px: carousel must wrap to the first remaining slide`);
+      assert.deepEqual(cycle, HERO_ASSETS, `${viewport.width}px: carousel must visit all seven approved slides in order`);
+      assert.equal(await page.locator('.ose-scene.ose-active .ose-photo').getAttribute('src'), HERO_ASSETS[0], `${viewport.width}px: carousel must wrap to the first approved slide`);
       await page.waitForTimeout(700);
 
       await page.screenshot({ path: path.join(os.tmpdir(), `lake-about-restored-${viewport.width}.png`), fullPage: false });
