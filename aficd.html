@@ -3,14 +3,14 @@
 <head>
   <style id="lg-skel-critical">html.lg-loading{overflow:hidden}html.lg-loading::before{content:"";position:fixed;inset:0;z-index:99989;background:#013f5c;pointer-events:none}html.lg-skel-done::before{display:none}.nav-logo img,.site-nav .nav-logo img{height:var(--nav-logo-height,48px)!important;width:auto!important;max-width:min(220px,55vw)!important;max-height:var(--nav-logo-height,48px)!important;object-fit:contain}</style>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="AFICD (African Inland Container Depot) - Lake Group's port logistics arm, operating inland container depots in Tanzania, Zambia and Mozambique.">
-  <meta name="twitter:description" content="AFICD (African Inland Container Depot) - Lake Group's port logistics arm, operating inland container depots in Tanzania, Zambia and Mozambique.">
+  <meta name="description" content="African Inland Container Depot (AFICD), a Lake Group logistics facility connecting Dar es Salaam Port Operations with efficient inland logistics through ICD, CFS and ECD services.">
+  <meta name="twitter:description" content="African Inland Container Depot (AFICD), a Lake Group logistics facility connecting Dar es Salaam Port Operations with efficient inland logistics through ICD, CFS and ECD services.">
   <meta name="twitter:title" content="AFICD | Logistics | Lake Group">
   <meta name="twitter:image" content="https://www.lakeoilgroup.com/assets/images/logos/LAKE_GROUP_LOGO.png">
   <meta property="og:site_name" content="Lake Group">
   <meta property="og:url" content="https://www.lakeoilgroup.com/aficd.html">
   <meta property="og:title" content="AFICD | Logistics | Lake Group">
-  <meta property="og:description" content="AFICD (African Inland Container Depot) - Lake Group's port logistics arm, operating inland container depots in Tanzania, Zambia and Mozambique.">
+  <meta property="og:description" content="African Inland Container Depot (AFICD), a Lake Group logistics facility connecting Dar es Salaam Port Operations with efficient inland logistics through ICD, CFS and ECD services.">
   <meta property="og:image" content="https://www.lakeoilgroup.com/assets/images/logos/LAKE_GROUP_LOGO.png">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
@@ -132,6 +132,28 @@
 .ct-label{color:var(--gold);font-size:var(--fs-micro);font-weight:700;text-transform:uppercase;letter-spacing:0.22em;margin-bottom:4px}
 .ct-strong{color:var(--white);font-size:0.92rem;display:block}
 .ct-dim{color:var(--ink-mute);font-size:0.85rem;display:block}
+.aficd-glance{background:var(--ink);padding:var(--sp-7);position:relative;overflow:hidden;border-radius:18px;box-shadow:0 18px 42px rgba(3,53,79,.14)}
+.aficd-glance h3,.aficd-dark-title{font-family:var(--font-display);font-weight:700;font-size:var(--fs-title);letter-spacing:.02em;text-transform:uppercase;color:var(--white);margin-bottom:var(--sp-5)}
+.aficd-glance-list{display:grid;gap:0;position:relative;z-index:1}
+.aficd-glance-row{display:flex;justify-content:space-between;gap:18px;padding:15px 0;border-bottom:1px solid var(--ink-line-2);color:var(--ink-mute);line-height:1.5}
+.aficd-glance-row strong{color:var(--white);font-size:1.04rem;text-align:right;max-width:58%}
+.aficd-glance::after{content:'';position:absolute;right:-34px;bottom:-50px;width:190px;height:140px;border:13px solid var(--gold);border-left:0;border-bottom:0;transform:skewX(-24deg);opacity:.9}
+.aficd-cap-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-5)}
+.aficd-cap{padding:var(--sp-6);background:var(--surface);border:1px solid var(--line-2)}
+.aficd-cap h3{font-family:var(--font-display);font-size:1.05rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text);margin-bottom:8px}
+.aficd-cap p{font-size:.9rem;line-height:1.65;color:var(--muted)}
+.aficd-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 30px;list-style:none;margin:var(--sp-6) 0 0;padding:0}
+.aficd-list li{padding:13px 0;border-bottom:1px solid var(--line-2);color:var(--muted);line-height:1.55;position:relative;padding-left:20px}
+.aficd-list li::before{content:'✓';position:absolute;left:0;color:var(--gold-deep);font-weight:800}
+.aficd-portfolio{display:flex;flex-wrap:wrap;gap:9px;margin-top:var(--sp-5)}
+.aficd-portfolio span{padding:8px 11px;border:1px solid var(--ink-line-2);color:var(--ink-mute);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+.aficd-values{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--sp-4);margin-top:var(--sp-8)}
+.aficd-value{padding:var(--sp-5);border:1px solid var(--ink-line-2);background:rgba(255,255,255,.025)}
+.aficd-value h3{color:var(--white);font-family:var(--font-display);font-size:.95rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:7px}
+.aficd-value p{color:var(--ink-mute);font-size:.82rem;line-height:1.55;margin:0}
+.aficd-commit{max-width:78ch;font-size:1.05rem;line-height:1.8;color:var(--ink-mute)}
+@media(max-width:960px){.aficd-cap-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.aficd-values{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.aficd-cap-grid,.aficd-list,.aficd-values{grid-template-columns:1fr}.aficd-glance{padding:var(--sp-6)}.aficd-glance-row{display:block}.aficd-glance-row strong{display:block;text-align:left;max-width:none;margin-top:3px}}
   </style>
 <script type="application/ld+json">
 {
@@ -140,7 +162,7 @@
     {
       "@type": "Organization",
       "name": "AFICD (African Inland Container Depot)",
-      "description": "AFICD (African Inland Container Depot) - Lake Group's port logistics arm, operating inland container depots in Tanzania, Zambia and Mozambique.",
+      "description": "African Inland Container Depot (AFICD), a Lake Group logistics facility connecting Dar es Salaam Port Operations with efficient inland logistics through ICD, CFS and ECD services.",
       "url": "https://www.lakeoilgroup.com/aficd.html",
       "parentOrganization": {
         "@type": "Organization",
@@ -233,13 +255,14 @@
 
 <div class="page-wrapper">
 <section class="page-hero">
-  <div class="hero-media" style="background-image:url('assets/images/aficd/TA/photo_1.jpg')" aria-hidden="true"></div>
+  <div class="hero-media" style="background-image:url('assets/images/aficd/TA/photo_1.jpg');background-position:center 42%" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container">
     <nav class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span>/</span><span>Logistics</span><span>/</span><span>AFICD</span></nav>
-    <div class="eyebrow">African Inland Container Depot</div>
+    <div class="eyebrow">African Inland Container Depot (AFICD)</div>
     <h1>AFICD</h1>
-    <p>Lake Group's inland container depot network, extending port capacity into the hinterland across Tanzania, Zambia and Mozambique.</p>
+    <p>Connecting Dar es Salaam Port Operations with Efficient Inland Logistics.</p>
+    <p>Serving Tanzania and the wider East African trade corridor with inland container, freight station and empty-container depot services.</p>
   </div>
 </section>
 
@@ -249,34 +272,28 @@
     <div class="fs-split-even">
       <div>
         <div class="fs-marker"><span class="fs-marker-no">01</span><span class="fs-eyebrow">Company Introduction</span></div>
-        <h2 class="fs-display">The Inland Gateway to East African Trade</h2>
+        <h2 class="fs-display">Connecting Port Operations with Inland Logistics</h2>
         <hr class="fs-rule" style="margin:var(--sp-5) 0">
-        <p class="fs-lede">AFICD (African Inland Container Depot) is Lake Group's port logistics arm, providing critical container storage, handling and customs services that extend port capacity into the hinterland.</p>
-        <p style="margin-top:14px">With operations in Tanzania, Zambia and Mozambique, AFICD provides ICD (Inland Container Depot), CFS (Container Freight Station) and empty container depot services, including rail-linked logistics in Tanzania, positioned at strategic corridors to serve regional importers, exporters and shipping lines.</p>
+        <p class="fs-lede">African Inland Container Depot (AFICD), a sister company of Lake Group, is an established and rapidly growing logistics facility in Tanzania, providing comprehensive Inland Container Depot (ICD), Container Freight Station (CFS), and Empty Container Depot (ECD) services. Support to two of the private Terminals in East Africa (DPW) Tanzania and (ADANI/KEAGTL) Tanzania.</p>
+        <p style="margin-top:14px">Strategically positioned to support the growing logistics and trade requirements of Tanzania and the wider East African region, AFICD provides customers with a reliable and efficient platform for the storage, handling, stacking, positioning and movement of containers and cargo between the port and inland facilities.</p>
+        <p style="margin-top:14px">Since its establishment, AFICD has developed a strong and efficient operating network across Dar es Salaam, building productive relationships with shipping lines, logistics partners, transporters and other key stakeholders.</p>
         <ul class="fs-check">
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Container storage and stacking</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Container stuffing and de-stuffing (LCL/FCL)</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Customs examination and clearance support</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Rail-linked logistics in Tanzania</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Integration with Lake Trans trucking network</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Inland Container Depot (ICD), Container Freight Station (CFS) and Empty Container Depot (ECD) services</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Storage, handling, stacking and positioning of containers and cargo</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Port-to-inland and inland-to-port logistics coordination</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Support for shipping lines, logistics partners and transporters</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Secure and controlled container storage</li>
         </ul>
       </div>
       <div>
-        <div class="info-panel fs-on-dark fs-corners">
-          <h3>Our Depot Locations</h3>
-          <div>
-            <div class="depot-row">
-              <div class="depot-head"><span><img src="assets/images/flags/tz.svg" alt="Tanzania flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Tanzania</span><span class="badge badge-yellow">AFICD</span></div>
-              <p>Dar es Salaam, gateway to East Africa's largest economy</p>
-            </div>
-            <div class="depot-row">
-              <div class="depot-head"><span><img src="assets/images/flags/zm.svg" alt="Zambia flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Zambia</span><span class="badge badge-yellow">AFICD</span></div>
-              <p>Inland depot serving the Zambia�Tanzania corridor</p>
-            </div>
-            <div class="depot-row">
-              <div class="depot-head"><span><img src="assets/images/flags/mz.svg" alt="Mozambique flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Mozambique</span><span class="badge badge-yellow">AFICD</span></div>
-              <p>Strategic port logistics for Beira corridor trade flows</p>
-            </div>
+        <div class="aficd-glance fs-on-dark">
+          <h3>AFICD at a Glance</h3>
+          <div class="aficd-glance-list">
+            <div class="aficd-glance-row"><span>Yard</span><strong>14,000 sq. metre</strong></div>
+            <div class="aficd-glance-row"><span>Equipment</span><strong>Front loaders and four reach stackers</strong></div>
+            <div class="aficd-glance-row"><span>Additional capacity</span><strong>Approximately 800–900 TEUs</strong></div>
+            <div class="aficd-glance-row"><span>Availability</span><strong>365 days a year · round the clock</strong></div>
+            <div class="aficd-glance-row"><span>Private terminals</span><strong>DP World Tanzania · ADANI/KEAGTL Tanzania</strong></div>
           </div>
         </div>
       </div>
@@ -287,115 +304,85 @@
 <section class="fs-section fs-on-dark">
   <div class="container">
     <div class="fs-marker"><span class="fs-marker-no">02</span><span class="fs-eyebrow">About the Company</span></div>
-    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Mission, Vision &amp; History</h2>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Mission, Vision &amp; Values</h2>
     <div class="fs-split-even">
       <div>
-        <h3 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Mission</h3>
-        <p>To extend port capacity into the East and Central African hinterland through safe, efficient inland container depot and freight station services.</p>
+        <h3 class="aficd-dark-title">Mission</h3>
+        <p>To provide safe, efficient and timely storage and logistics solutions that facilitate trade, strengthen supply-chain performance and contribute to the sustainable growth of African markets.</p>
       </div>
       <div>
-        <h3 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Vision</h3>
-        <p>To be the region's leading inland container depot network, connecting importers, exporters and shipping lines across borders.</p>
+        <h3 class="aficd-dark-title">Vision</h3>
+        <p>To be Africa's leading inland container depot, recognized for operational excellence, innovative logistics solutions and our ability to enable seamless regional and global trade.</p>
       </div>
     </div>
-    <div style="margin-top:var(--sp-10)">
-      <h3 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">History</h3>
-      <p style="max-width:80ch;line-height:1.75">AFICD was established as part of Lake Group's expansion into port and logistics services, growing to operate inland container depots in Tanzania, Zambia and Mozambique, with rail-linked logistics capability in Tanzania, extending the reach of East Africa's ports into the interior.</p>
-    </div>
-    <div class="val-mini-grid" aria-label="Core values">
-      <div class="val-mini-tile"><h4>Quality</h4><p>No compromise on quality</p></div>
-      <div class="val-mini-tile"><h4>Service</h4><p>Committed to excellence</p></div>
-      <div class="val-mini-tile"><h4>Safety</h4><p>Safety is first, always</p></div>
-      <div class="val-mini-tile"><h4>Professionalism</h4><p>A culture we cherish</p></div>
+    <div class="aficd-values" aria-label="Core values">
+      <div class="aficd-value"><h3>Safety</h3><p>We prioritize the safety of our people, customers, assets and operations in everything we do.</p></div>
+      <div class="aficd-value"><h3>Reliability</h3><p>We are committed to consistent service delivery, operational efficiency, quality and continuous improvement.</p></div>
+      <div class="aficd-value"><h3>Customer Focus</h3><p>We place our customers at the center of our operations, delivering practical, responsive and value-driven logistics solutions.</p></div>
+      <div class="aficd-value"><h3>Integrity</h3><p>We conduct our business with honesty, transparency and accountability, building lasting trust.</p></div>
+      <div class="aficd-value"><h3>Operational Excellence</h3><p>We continuously improve our processes, people, systems and infrastructure to deliver higher standards of service and efficiency.</p></div>
     </div>
   </div>
 </section>
 
 <section class="fs-section section-light">
   <div class="container">
-    <div class="fs-marker"><span class="fs-marker-no">03</span><span class="fs-eyebrow">Services Offered</span></div>
-    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Container Depot &amp; Freight Services</h2>
-    <div class="svc-grid">
-      <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/aficd/TA/photo_1.jpg" alt="AFICD inland container depot" loading="lazy" decoding="async"></div>
-        <div class="svc-card__body">
-          <h4 class="svc-card__title">Container Storage &amp; Stacking</h4>
-          <p class="svc-card__desc">Secure inland storage and stacking for laden and empty containers.</p>
-        </div>
-      </article>
-      <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/home/verticals/logistics.webp" alt="AFICD container depot at sunset" loading="lazy" decoding="async"></div>
-        <div class="svc-card__body">
-          <h4 class="svc-card__title">Stuffing &amp; De-Stuffing (LCL/FCL)</h4>
-          <p class="svc-card__desc">Container loading and unloading services for less-than-container-load and full-container-load cargo.</p>
-        </div>
-      </article>
-      <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/aficd/TA/photo_1.jpg" alt="AFICD customs clearance operations" loading="lazy" decoding="async"></div>
-        <div class="svc-card__body">
-          <h4 class="svc-card__title">Customs Clearance Support</h4>
-          <p class="svc-card__desc">Customs examination and clearance support for importers and exporters.</p>
-        </div>
-      </article>
-      <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/home/verticals/logistics.webp" alt="AFICD reefer container handling" loading="lazy" decoding="async"></div>
-        <div class="svc-card__body">
-          <h4 class="svc-card__title">Reefer Container Handling</h4>
-          <p class="svc-card__desc">Handling of refrigerated (reefer) containers requiring temperature-controlled care.</p>
-        </div>
-      </article>
-      <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/aficd/TA/photo_1.jpg" alt="AFICD container repair and maintenance" loading="lazy" decoding="async"></div>
-        <div class="svc-card__body">
-          <h4 class="svc-card__title">Container Repair &amp; Maintenance</h4>
-          <p class="svc-card__desc">Repair and maintenance services to keep containers in service-ready condition.</p>
-        </div>
-      </article>
-      <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/home/verticals/logistics.webp" alt="AFICD trucking integration" loading="lazy" decoding="async"></div>
-        <div class="svc-card__body">
-          <h4 class="svc-card__title">Trucking Integration</h4>
-          <p class="svc-card__desc">Seamless integration with Lake Trans's regional trucking network for first/last-mile delivery.</p>
-        </div>
-      </article>
+    <div class="fs-marker"><span class="fs-marker-no">03</span><span class="fs-eyebrow">Facilities &amp; Capabilities</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Facilities &amp; Capabilities</h2>
+    <div class="aficd-cap-grid">
+      <article class="aficd-cap"><h3>14,000 Sq. Metre Yard</h3><p>Space designed for efficient container stacking, handling and yard management.</p></article>
+      <article class="aficd-cap"><h3>Modern Handling Equipment</h3><p>Front loaders and four reach stackers support daily operational requirements.</p></article>
+      <article class="aficd-cap"><h3>Additional Capacity</h3><p>Approximately 800–900 TEUs of additional stacking capacity, subject to yard planning.</p></article>
+      <article class="aficd-cap"><h3>Controlled Operations</h3><p>Enhanced security arrangements, dedicated operational resources and an experienced team.</p></article>
     </div>
-</div>
+  </div>
 </section>
 
 <section class="fs-section">
   <div class="container">
-    <div class="fs-marker"><span class="fs-marker-no">04</span><span class="fs-eyebrow">Products Offered</span></div>
-    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Depot &amp; Handling Services</h2>
-    <div class="prod-catalog">
-      <div class="prod-catalog-card">
-        <div class="fs-media"><img src="assets/images/aficd/TA/photo_1.jpg" alt="AFICD inland container depot" loading="lazy" decoding="async"></div>
-        <h4>Inland Container Depot (ICD)</h4>
-        <p>Container storage, handling and customs services extending port capacity into the hinterland.</p>
-      </div>
-      <div class="prod-catalog-card">
-        <div class="prod-glyph" aria-hidden="true"><iconify-icon icon="mdi:train-car-container" width="36" height="36" aria-hidden="true"></iconify-icon></div>
-        <h4>Container Freight Station (CFS)</h4>
-        <p>Consolidation, stuffing/de-stuffing and freight station services for import/export cargo.</p>
-      </div>
+    <div class="fs-marker"><span class="fs-marker-no">04</span><span class="fs-eyebrow">Operational Strength &amp; Readiness</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Operational Strength &amp; Readiness</h2>
+    <div class="fs-split-even">
+      <p class="fs-lede">AFICD is designed and operated as an extension of the Port of Dar es Salaam, providing a reliable inland platform that supports the continuous flow of containers and cargo beyond the port gates.</p>
+      <p>To meet the demands of international trade and time-sensitive supply chains, AFICD operates 365 days a year, round the clock, supported by experienced manpower and reach stackers, front loaders, forklifts and other supporting equipment.</p>
     </div>
-</div>
+    <p style="max-width:80ch;margin-top:var(--sp-5);line-height:1.75">This combination enables efficient container handling, stacking, storage and yard management, while maintaining a strong focus on safety, reliability and service efficiency.</p>
+  </div>
 </section>
 
 <section class="fs-section section-light">
   <div class="container">
-    <div class="fs-marker"><span class="fs-marker-no">07</span><span class="fs-eyebrow">Images</span></div>
-    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Gallery</h2>
-    <div class="co-gal" aria-label="Aficd operations gallery">
-      <figure class="co-gal__item">
-        <img src="assets/images/aficd/TA/photo_1.jpg" alt="AFICD inland container depot" loading="lazy" decoding="async">
-        <figcaption class="co-gal__cap">inland container depot</figcaption>
-      </figure>
-      <figure class="co-gal__item">
-        <img src="assets/images/home/verticals/logistics.webp" alt="AFICD container depot at sunset" loading="lazy" decoding="async">
-        <figcaption class="co-gal__cap">depot at sunset</figcaption>
-      </figure>
-    </div>
-</div>
+    <div class="fs-marker"><span class="fs-marker-no">05</span><span class="fs-eyebrow">Integrated Logistics Solutions</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-3)">Integrated Logistics Solutions</h2>
+    <p style="max-width:78ch;line-height:1.75">AFICD's service offering provides a seamless extension of port operations, helping improve container flow, reduce congestion, optimize yard utilization and enhance supply-chain efficiency.</p>
+    <ul class="aficd-list">
+      <li>Inland Container Depot (ICD) services</li><li>Container Freight Station (CFS) operations</li>
+      <li>Empty Container Depot (ECD) services</li><li>Full and empty container handling and stacking</li>
+      <li>Container positioning and yard management</li><li>Storage and cargo handling</li>
+      <li>Port-to-inland and inland-to-port transportation coordination</li><li>Support to shipping lines, cargo owners, transporters and logistics operators</li>
+      <li>Secure and controlled container storage</li>
+    </ul>
+    <div class="fs-marker" style="margin-top:var(--sp-9)"><span class="fs-eyebrow">Selected Shipping &amp; Logistics Partners</span></div>
+    <div class="aficd-portfolio" aria-label="Selected shipping and logistics partners"><span>COSCO</span><span>RAIS Shipping</span><span>Coral Shipping</span><span>MSC</span><span>CMA CGM</span><span>PIL</span><span>Emirates Shipping</span><span>Masina Shipping</span></div>
+  </div>
+</section>
+
+<section class="fs-section fs-on-dark">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">06</span><span class="fs-eyebrow">Expansion &amp; Future Readiness</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-5)">Expansion &amp; Future Readiness</h2>
+    <p class="aficd-commit">AFICD is undergoing an expansion and capacity enhancement programme, with continued investment in infrastructure, equipment, operational systems and manpower. Geared towards 2027 and beyond, the programme is designed to strengthen capacity, flexibility and operational efficiency in support of the Port of Dar es Salaam and the wider East African trade corridor.</p>
+  </div>
+</section>
+
+<section class="fs-section">
+  <div class="container">
+    <div class="fs-marker"><span class="fs-marker-no">07</span><span class="fs-eyebrow">Our Commitment</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-5)">Our Commitment</h2>
+    <p class="aficd-commit">At AFICD, we understand that an efficient inland logistics operation is an essential link in the movement of international trade. Our focus is not simply on providing space for containers, but on delivering efficient, secure and dependable logistics solutions that help customers move cargo with greater confidence and predictability.</p>
+    <p style="max-width:78ch;line-height:1.75;margin-top:var(--sp-5)">With continued investment in infrastructure, equipment, technology, people and operational capabilities, AFICD is positioned to support Tanzania's trade requirements and strengthen connectivity across the East African supply chain.</p>
+    <p style="font-family:var(--font-display);font-weight:700;color:var(--blue-deep);font-size:1.2rem;margin-top:var(--sp-6)">AFICD — Connecting the Port to the Inland Supply Chain.</p>
+  </div>
 </section>
 
 </div>
