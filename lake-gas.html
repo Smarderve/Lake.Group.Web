@@ -3,14 +3,14 @@
 <head>
   <style id="lg-skel-critical">html.lg-loading{overflow:hidden}html.lg-loading::before{content:"";position:fixed;inset:0;z-index:99989;background:#013f5c;pointer-events:none}html.lg-skel-done::before{display:none}.nav-logo img,.site-nav .nav-logo img{height:var(--nav-logo-height,48px)!important;width:auto!important;max-width:min(220px,55vw)!important;max-height:var(--nav-logo-height,48px)!important;object-fit:contain}</style>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lake Gas Ltd. - East Africa's trusted LPG bottling and distribution company, operating across 6 countries with composite and steel cylinders from 6kg to 38kg.">
-  <meta name="twitter:description" content="Lake Gas Ltd. - East Africa's trusted LPG bottling and distribution company, operating across 6 countries with composite and steel cylinders from 6kg to 38kg.">
+  <meta name="description" content="Lake Gas Limited supplies clean, safe and reliable retail and bulk LPG for household and commercial use across East and Central Africa, with Tanzania as its central hub.">
+  <meta name="twitter:description" content="Lake Gas Limited supplies clean, safe and reliable retail and bulk LPG for household and commercial use across East and Central Africa, with Tanzania as its central hub.">
   <meta name="twitter:title" content="Lake Gas | Lake Energies | Lake Group">
   <meta name="twitter:image" content="https://www.lakeoilgroup.com/assets/images/logos/LAKE_GROUP_LOGO.png">
   <meta property="og:site_name" content="Lake Group">
   <meta property="og:url" content="https://www.lakeoilgroup.com/lake-gas.html">
   <meta property="og:title" content="Lake Gas | Lake Energies | Lake Group">
-  <meta property="og:description" content="Lake Gas Ltd. - East Africa's trusted LPG bottling and distribution company, operating across 6 countries with composite and steel cylinders from 6kg to 38kg.">
+  <meta property="og:description" content="Lake Gas Limited supplies clean, safe and reliable retail and bulk LPG for household and commercial use across East and Central Africa, with Tanzania as its central hub.">
   <meta property="og:image" content="https://www.lakeoilgroup.com/assets/images/logos/LAKE_GROUP_LOGO.png">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
@@ -21,6 +21,7 @@
   <title>Lake Gas | Lake Energies | Lake Group</title>
   <meta name="theme-color" content="#0181BB">
   <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preload" as="image" href="assets/images/lakegas/ops/lake-gas-lpg-filling-line.webp" fetchpriority="high">
   <style>
 /* ==========================================================================
    MERIDIAN PAGE LAYER - company profile page
@@ -35,12 +36,29 @@
 .co-logo-row{display:flex;align-items:center;gap:var(--sp-5);margin-bottom:var(--sp-6);flex-wrap:wrap}
 .co-logo-row img{height:48px;width:auto;max-width:160px;object-fit:contain;background:transparent;border:none;padding:0;border-radius:0}
 
-.info-panel{background:var(--ink);padding:var(--sp-8);position:relative}
-.info-panel h3{font-family:var(--font-display);font-weight:700;font-size:var(--fs-title);letter-spacing:.02em;text-transform:uppercase;color:var(--white);margin-bottom:var(--sp-5)}
-.info-row{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-4);padding:13px 0;border-bottom:1px solid var(--ink-line-2)}
-.info-row:first-of-type{border-top:1px solid var(--ink-line)}
-.info-row>span:first-child{display:inline-flex;align-items:center;gap:8px;color:rgba(233,237,248,0.92);font-size:.92rem}
+.info-panel{background:var(--blue-deep,#03354f);padding:clamp(1.5rem,3vw,2.5rem);position:relative;overflow:hidden;border-radius:20px;box-shadow:0 16px 34px rgba(3,53,79,.14)}
+.info-panel::before{content:"";position:absolute;right:-28px;bottom:-40px;width:190px;height:148px;opacity:.98;background:linear-gradient(135deg,transparent 0 45%,var(--gold) 45% 51%,transparent 51% 100%),linear-gradient(45deg,transparent 0 55%,var(--gold) 55% 62%,transparent 62% 100%),linear-gradient(90deg,transparent 0 70%,var(--gold) 70% 77%,transparent 77%);transform:rotate(-8deg);pointer-events:none}
+.info-panel::after{content:"";position:absolute;right:24px;bottom:14px;width:104px;height:8px;background:var(--gold);transform:rotate(-45deg);transform-origin:right center;box-shadow:0 -30px 0 var(--gold);pointer-events:none}
+.info-panel h3{position:relative;z-index:1;font-family:var(--font-display);font-weight:700;font-size:clamp(1.15rem,2.2vw,1.65rem);letter-spacing:.035em;text-transform:uppercase;color:var(--white);margin:0 0 var(--sp-4);padding-bottom:var(--sp-4);border-bottom:1px solid rgba(233,237,248,.22)}
+.info-rows{position:relative;z-index:1}
+.info-row{display:grid;grid-template-columns:minmax(105px,.9fr) minmax(150px,1.1fr);align-items:center;gap:var(--sp-4);padding:14px 0;border-bottom:1px solid rgba(233,237,248,.17)}
+.info-row:first-child{border-top:0}
+.info-row>span:first-child{display:inline-flex;align-items:center;gap:8px;color:rgba(233,237,248,.94);font-size:.84rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.info-row>span:last-child{border-left:1px solid rgba(233,237,248,.2);padding-left:var(--sp-4)}
+.info-entities{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.lake-company{display:inline-flex;align-items:center;gap:8px;color:var(--white);font-size:.75rem;font-weight:700;letter-spacing:.065em;line-height:1.25;text-transform:uppercase}
+.lake-mark{display:inline-flex;width:18px;height:18px;overflow:hidden;flex:none;align-items:center}
+.lake-mark img{height:18px;width:auto;max-width:none;display:block}
+.flag-icon{width:18px;height:12px;object-fit:fill;flex:none}
+@media(max-width:860px){.info-row{grid-template-columns:minmax(95px,.8fr) minmax(145px,1.2fr)}}
+@media(max-width:600px){.info-panel{padding:1.35rem 1.15rem;border-radius:18px}.info-row{grid-template-columns:1fr;gap:8px;padding:13px 0}.info-row>span:last-child{border-left:0;padding-left:26px}.info-entities{gap:7px}.lake-company{font-size:.72rem}}
 .info-panel .badge-yellow,.info-panel .badge-amber,.info-row .badge{color:#fff!important;border-color:rgba(255,242,0,0.65)!important;background:rgba(255,242,0,0.16)!important}
+.gas-subheading{color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px}
+.gas-locations{margin-top:var(--sp-8);max-width:85ch;color:var(--ink-mute);line-height:1.7}
+.gas-locations strong{color:var(--white)}
+body[data-company-logo="assets/images/logos/companies/lake-gas.png"] .fs-split-even>div:first-child{text-align:left}
+body[data-company-logo="assets/images/logos/companies/lake-gas.png"] .fs-split-even>div:first-child .fs-display{text-align:left}
+body[data-company-logo="assets/images/logos/companies/lake-gas.png"] .fs-split-even>div:first-child .fs-marker{justify-content:flex-start}
 
 .stat-panel2{background:var(--ink);padding:var(--sp-8);position:relative}
 .stat-panel2 h3{font-family:var(--font-display);font-weight:700;font-size:var(--fs-title);letter-spacing:.02em;text-transform:uppercase;color:var(--white);margin-bottom:var(--sp-6)}
@@ -140,7 +158,7 @@
     {
       "@type": "Organization",
       "name": "Lake Gas Ltd.",
-      "description": "Lake Gas Ltd. - East Africa's trusted LPG bottling and distribution company, operating across 6 countries with composite and steel cylinders from 6kg to 38kg.",
+      "description": "Lake Gas Limited supplies clean, safe and reliable retail and bulk LPG for household and commercial use across East and Central Africa, with Tanzania as its central hub.",
       "url": "https://www.lakeoilgroup.com/lake-gas.html",
       "parentOrganization": {
         "@type": "Organization",
@@ -233,13 +251,13 @@
 
 <div class="page-wrapper">
 <section class="page-hero">
-  <div class="hero-media" style="background-image:url('assets/images/lakegas/ops/cylinders-yard.jpg?v=81')" aria-hidden="true"></div>
+  <div class="hero-media" style="background-image:url('assets/images/lakegas/ops/lake-gas-lpg-filling-line.webp')" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container">
     <nav class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span>/</span><span>Lake Energies</span><span>/</span><span>Lake Gas</span></nav>
-    <div class="eyebrow">Lake Gas Ltd.</div>
+    <div class="eyebrow">Lake Gas</div>
     <h1>Lake Gas</h1>
-    <p>Powering homes, restaurants and industry across 6 East and Central African countries with safe, reliable LPG cylinders.</p>
+    <p>Clean, safe and reliable LPG energy for households and businesses across East and Central Africa.</p>
   </div>
 </section>
 
@@ -251,25 +269,26 @@
         <div class="fs-marker"><span class="fs-marker-no">01</span><span class="fs-eyebrow">Company Introduction</span></div>
         <h2 class="fs-display">Clean Energy for Every Kitchen</h2>
         <hr class="fs-rule" style="margin:var(--sp-5) 0">
-        <p class="fs-lede">Lake Gas Ltd. is East Africa's trusted LPG bottling and distribution company, operating across 6 countries. From domestic cooking to large-scale commercial kitchens and industrial applications, Lake Gas provides safe and reliable liquefied petroleum gas.</p>
-        <p style="margin-top:14px">Our innovative composite cylinder range, launched in Dar es Salaam, marked a new revolution in cooking gas technology for the African market, combining safety with aesthetics. Lake Gas also operates East Africa's largest LPG storage terminal, located in Tanga, Tanzania.</p>
+        <p class="fs-lede">Lake Gas Limited, established in 2014, is an energy and logistics company operating across East and Central Africa. Specialising in Liquefied Petroleum Gas (LPG), Lake Gas provides clean, safe and reliable energy solutions for household and commercial use.</p>
+        <p style="margin-top:14px">With Tanzania as its central hub, Lake Gas supplies both retail and bulk LPG across six countries and operates depots and filling stations across nine locations in Tanzania.</p>
         <ul class="fs-check">
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>LPG bottling and distribution across 6 countries</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Composite and steel cylinders from 6kg to 38kg</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>East Africa's largest LPG storage terminal (Tanga, Tanzania)</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Serving domestic, hospitality and industrial customers</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Retail and bulk LPG across 6 countries</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Depots and filling stations across 9 locations in Tanzania</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>East Africa's largest LPG storage terminal in Tanga</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>150,000+ rural residents enabled to adopt clean cooking energy</li>
+          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Q&amp;Q &mdash; Quality with Quantity, supported by tamper-proof cylinder seals</li>
         </ul>
       </div>
       <div>
         <div class="info-panel fs-on-dark fs-corners">
-          <h3>Operations by Country</h3>
-          <div>
-            <div class="info-row"><span><img src="assets/images/flags/tz.svg" alt="Tanzania flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Tanzania</span><span class="badge badge-yellow">Lake Gas Ltd.</span></div>
-            <div class="info-row"><span><img src="assets/images/flags/ke.svg" alt="Kenya flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Kenya</span><span class="badge badge-yellow">Lake Gas Ltd.</span></div>
-            <div class="info-row"><span><img src="assets/images/flags/zm.svg" alt="Zambia flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Zambia</span><span class="badge badge-yellow">Lake Gas Ltd.</span></div>
-            <div class="info-row"><span><img src="assets/images/flags/rw.svg" alt="Rwanda flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Rwanda</span><span class="badge badge-yellow">Lake Gas Ltd.</span></div>
-            <div class="info-row"><span><img src="assets/images/flags/bi.svg" alt="Burundi flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Burundi</span><span class="badge badge-yellow">Lake Gas Ltd.</span></div>
-            <div class="info-row"><span><img src="assets/images/flags/cd.svg" alt="DR Congo flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> DR Congo</span><span class="badge badge-yellow">Lake Gas Ltd.</span></div>
+          <h3>Our Companies by Country</h3>
+          <div class="info-rows" aria-label="Lake Gas companies by country">
+            <div class="info-row"><span><img src="assets/images/flags/tz.svg" alt="Tanzania flag" class="flag-icon" width="18" height="12" loading="lazy" decoding="async"> Tanzania</span><span class="lake-company"><span class="lake-mark" aria-hidden="true"><img src="assets/images/logos/LAKE_LOGO_LAKE_ONLY.png" alt=""></span>Lake Gas Ltd.</span></div>
+            <div class="info-row"><span><img src="assets/images/flags/ke.svg" alt="Kenya flag" class="flag-icon" width="18" height="12" loading="lazy" decoding="async"> Kenya</span><span class="lake-company"><span class="lake-mark" aria-hidden="true"><img src="assets/images/logos/LAKE_LOGO_LAKE_ONLY.png" alt=""></span>Lake Gas Ltd.</span></div>
+            <div class="info-row"><span><img src="assets/images/flags/zm.svg" alt="Zambia flag" class="flag-icon" width="18" height="12" loading="lazy" decoding="async"> Zambia</span><span class="lake-company"><span class="lake-mark" aria-hidden="true"><img src="assets/images/logos/LAKE_LOGO_LAKE_ONLY.png" alt=""></span>Lake Gas Ltd.</span></div>
+            <div class="info-row"><span><img src="assets/images/flags/rw.svg" alt="Rwanda flag" class="flag-icon" width="18" height="12" loading="lazy" decoding="async"> Rwanda</span><span class="lake-company"><span class="lake-mark" aria-hidden="true"><img src="assets/images/logos/LAKE_LOGO_LAKE_ONLY.png" alt=""></span>Lake Gas Ltd.</span></div>
+            <div class="info-row"><span><img src="assets/images/flags/bi.svg" alt="Burundi flag" class="flag-icon" width="18" height="12" loading="lazy" decoding="async"> Burundi</span><span class="lake-company"><span class="lake-mark" aria-hidden="true"><img src="assets/images/logos/LAKE_LOGO_LAKE_ONLY.png" alt=""></span>Lake Gas Ltd.</span></div>
+            <div class="info-row"><span><img src="assets/images/flags/cd.svg" alt="DR Congo flag" class="flag-icon" width="18" height="12" loading="lazy" decoding="async"> DR Congo</span><span class="lake-company"><span class="lake-mark" aria-hidden="true"><img src="assets/images/logos/LAKE_LOGO_LAKE_ONLY.png" alt=""></span>Lake Gas Ltd.</span></div>
           </div>
         </div>
       </div>
@@ -280,115 +299,67 @@
 <section class="fs-section fs-on-dark">
   <div class="container">
     <div class="fs-marker"><span class="fs-marker-no">02</span><span class="fs-eyebrow">About the Company</span></div>
-    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Mission, Vision &amp; History</h2>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Mission, Vision &amp; Values</h2>
     <div class="fs-split-even">
       <div>
-        <h3 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Mission</h3>
-        <p>To provide safe, reliable and affordable LPG products and services across East and Central Africa, without damaging the environment, while creating a work environment where employees exceed their personal best.</p>
+        <h3 class="gas-subheading">Mission</h3>
+        <p>To contribute to the global shift toward green and sustainable energy by supplying environmentally friendly solutions to our customers and stakeholders.</p>
       </div>
       <div>
-        <h3 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Vision</h3>
-        <p>To be the leading LPG marketer in the region, achieving continuous improvement through operational excellence, innovation and a performance-based culture.</p>
+        <h3 class="gas-subheading">Vision</h3>
+        <p>To be a world-class oil and gas marketing company delivering safe, high-quality products and services wherever we operate.</p>
       </div>
     </div>
-    <div style="margin-top:var(--sp-10)">
-      <h3 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">History</h3>
-      <p style="max-width:80ch;line-height:1.75">Lake Gas is one of the founding sectors of Lake Group, which began with the opening of Lake Oil in Dar es Salaam in 2006 under founder Ally Edha Awadh. On 18 June 2014, Lake Gas launched Africa&rsquo;s first composite LPG cylinders&mdash;non-explosive, non-corrosive, lightweight and translucent&mdash;at a launch event in Dar es Salaam, a first for the African market.</p>
-    </div>
     <div class="val-mini-grid" aria-label="Core values">
-      <div class="val-mini-tile"><h4>Quality</h4><p>No compromise on quality</p></div>
-      <div class="val-mini-tile"><h4>Service</h4><p>Committed to excellence</p></div>
-      <div class="val-mini-tile"><h4>Safety</h4><p>Safety is first, always</p></div>
-      <div class="val-mini-tile"><h4>Professionalism</h4><p>A culture we cherish</p></div>
+      <div class="val-mini-tile"><h4>Integrity</h4><p>Upholding the highest ethical standards in our stakeholder relationships.</p></div>
+      <div class="val-mini-tile"><h4>Innovation</h4><p>Driving continuous improvement through smart solutions that serve the market.</p></div>
+      <div class="val-mini-tile"><h4>Sustainability</h4><p>Supporting the transition toward green and sustainable energy through environmentally responsible solutions and practices.</p></div>
+      <div class="val-mini-tile"><h4>Customer Focus</h4><p>Placing customer satisfaction and dependable service delivery at the heart of our operations.</p></div>
     </div>
   </div>
 </section>
 
 <section class="fs-section section-light">
   <div class="container">
-    <div class="fs-marker"><span class="fs-marker-no">03</span><span class="fs-eyebrow">Services Offered</span></div>
-    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">LPG Bottling &amp; Distribution</h2>
+    <div class="fs-marker"><span class="fs-marker-no">03</span><span class="fs-eyebrow">Solutions</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">LPG Supply &amp; Solutions</h2>
     <div class="svc-grid">
       <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/lakegas/ops/cylinders-yard.jpg?v=82" alt="Lake Gas cylinder yard" loading="lazy" decoding="async"></div>
         <div class="svc-card__body">
-          <h4 class="svc-card__title">Domestic Cylinder Supply</h4>
-          <p class="svc-card__desc">6kg and 10kg composite cylinders distributed through retail outlets for household cooking.</p>
+          <h4 class="svc-card__title">Household LPG</h4>
+          <p class="svc-card__desc">Clean and reliable LPG supply for household cooking.</p>
         </div>
       </article>
       <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/lakegas/ops/cylinder-warehouse.jpg?v=82" alt="Lake Gas cylinder warehouse" loading="lazy" decoding="async"></div>
         <div class="svc-card__body">
-          <h4 class="svc-card__title">Hospitality &amp; Restaurant Supply</h4>
-          <p class="svc-card__desc">15kg and 38kg cylinders delivered direct or via dealers to hotels, restaurants and eateries.</p>
+          <h4 class="svc-card__title">Commercial LPG</h4>
+          <p class="svc-card__desc">LPG solutions serving hospitality, restaurants and other commercial customers.</p>
         </div>
       </article>
       <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/lakegas/ops/filling-plant.jpg?v=82" alt="Lake Gas LPG filling plant" loading="lazy" decoding="async"></div>
         <div class="svc-card__body">
-          <h4 class="svc-card__title">Bulk &amp; Storage Services</h4>
-          <p class="svc-card__desc">Bulk LPG storage and handling via East Africa's largest LPG storage terminal in Tanga.</p>
+          <h4 class="svc-card__title">Bulk LPG &amp; Storage</h4>
+          <p class="svc-card__desc">Retail and bulk LPG supply supported by Lake Gas storage and distribution infrastructure.</p>
         </div>
       </article>
+      <article class="svc-card"><div class="svc-card__body"><h4 class="svc-card__title">Composite LPG Cylinders</h4><p class="svc-card__desc">Non-explosive, non-corrosive, lightweight and translucent composite cylinders.</p></div></article>
+      <article class="svc-card"><div class="svc-card__body"><h4 class="svc-card__title">Depot &amp; Filling Network</h4><p class="svc-card__desc">Operations supported through nine strategic locations across Tanzania.</p></div></article>
+      <article class="svc-card"><div class="svc-card__body"><h4 class="svc-card__title">Clean Cooking</h4><p class="svc-card__desc">Clean Cooking Awareness &amp; Behaviour Change programmes supporting adoption of cleaner cooking energy.</p></div></article>
     </div>
 </div>
 </section>
 
-<section class="fs-section">
+<section class="fs-section fs-on-dark">
   <div class="container">
-    <div class="fs-marker"><span class="fs-marker-no">04</span><span class="fs-eyebrow">Products Offered</span></div>
-    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Our LPG Cylinders</h2>
-    <div class="prod-catalog">
-      <div class="prod-catalog-card">
-        <div class="fs-media"><img src="assets/images/lakegas/ops/cylinders-yard.jpg?v=82" alt="Lake Gas cylinder yard" loading="lazy" decoding="async" width="1600" height="900"></div>
-        <h4>6 Kg Cylinder</h4>
-        <p>Domestic use, targeted at middle and lower-middle class households, sold through retail outlets.</p>
-      </div>
-      <div class="prod-catalog-card">
-        <div class="fs-media"><img src="assets/images/lakegas/ops/filling-plant.jpg?v=82" alt="Lake Gas LPG filling plant" loading="lazy" decoding="async" width="1600" height="900"></div>
-        <h4>10 Kg Composite Cylinder <span class="badge badge-yellow" style="margin-left:6px">New</span></h4>
-        <p>Domestic use for middle and upper-class households. Non-explosive, non-corrosive, lightweight and translucent.</p>
-      </div>
-      <div class="prod-catalog-card">
-        <div class="fs-media"><img src="assets/images/lakegas/ops/cylinder-stacks.jpg?v=82" alt="Lake Gas cylinder storage" loading="lazy" decoding="async" width="1600" height="900"></div>
-        <h4>15 Kg Cylinder</h4>
-        <p>Hotels and restaurants, distributed direct and via dealers.</p>
-      </div>
-      <div class="prod-catalog-card">
-        <div class="fs-media"><img src="assets/images/lakegas/ops/cylinder-warehouse.jpg?v=82" alt="Lake Gas cylinder warehouse" loading="lazy" decoding="async" width="1600" height="900"></div>
-        <h4>38 Kg Cylinder</h4>
-        <p>Hotels and restaurants, distributed direct and via dealers.</p>
-      </div>
+    <div class="fs-marker"><span class="fs-marker-no">04</span><span class="fs-eyebrow">Impact &amp; Network</span></div>
+    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Clean Energy, Wider Access</h2>
+    <div class="stat-grid2 gas-impact-grid">
+      <div class="stat-tile2"><span class="stat-no2 gold">150,000+</span><p>Rural residents enabled to adopt clean cooking energy</p></div>
+      <div class="stat-tile2"><span class="stat-no2">9</span><p>Strategic depot and filling locations in Tanzania</p></div>
+      <div class="stat-tile2"><span class="stat-no2">6</span><p>Countries supplied with retail and bulk LPG</p></div>
+      <div class="stat-tile2"><span class="stat-no2 gold">Q&amp;Q</span><p>Quality with Quantity, with tamper-proof cylinder seals</p></div>
     </div>
-</div>
-</section>
-
-<section class="fs-section section-light">
-  <div class="container">
-    <div class="fs-marker"><span class="fs-marker-no">05</span><span class="fs-eyebrow">Images</span></div>
-    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Gallery</h2>
-    <div class="co-gal" aria-label="Lake Gas operations gallery">
-      <figure class="co-gal__item co-gal__item--feat">
-        <img src="assets/images/lakegas/ops/cylinders-yard.jpg?v=82" alt="Lake Gas cylinder yard" loading="lazy" decoding="async">
-        <figcaption class="co-gal__cap">Cylinder yard</figcaption>
-      </figure>
-      <figure class="co-gal__item">
-        <img src="assets/images/lakegas/ops/filling-plant.jpg?v=82" alt="Lake Gas LPG filling plant" loading="lazy" decoding="async">
-        <figcaption class="co-gal__cap">Filling plant</figcaption>
-      </figure>
-      <figure class="co-gal__item">
-        <img src="assets/images/lakegas/ops/cylinder-warehouse.jpg?v=82" alt="Lake Gas cylinder warehouse" loading="lazy" decoding="async">
-        <figcaption class="co-gal__cap">Warehouse</figcaption>
-      </figure>
-      <figure class="co-gal__item">
-        <img src="assets/images/lakegas/ops/worker-silas.jpg?v=82" alt="Lake Gas operations team" loading="lazy" decoding="async">
-        <figcaption class="co-gal__cap">Operations</figcaption>
-      </figure>
-      <figure class="co-gal__item">
-        <img src="assets/images/lakegas/ops/cylinder-stacks.jpg?v=82" alt="Lake Gas depot operations" loading="lazy" decoding="async">
-        <figcaption class="co-gal__cap">Plant floor</figcaption>
-      </figure>
-    </div>
+    <p class="gas-locations"><strong>Tanzania network:</strong> Dar es Salaam, Mwanza, Arusha, Dodoma, Morogoro, Iringa, Mbeya, Tanga and Zanzibar.</p>
   </div>
 </section>
 
