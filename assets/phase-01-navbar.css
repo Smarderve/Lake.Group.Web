@@ -493,6 +493,23 @@ body.co-theme-agro .nav-mobile[data-phase01-navbar-mobile] {
   }
 }
 
+@media (max-width: 767px) {
+  .nav-mobile[data-phase01-navbar-mobile] {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    padding-bottom: calc(28px + env(safe-area-inset-bottom)) !important;
+    overscroll-behavior-y: contain !important;
+  }
+
+  .nav-mobile[data-phase01-navbar-mobile] > a,
+  .nav-mobile[data-phase01-navbar-mobile] > .mob-acc-btn,
+  .nav-mobile[data-phase01-navbar-mobile] .mob-accordion > .mob-acc-btn,
+  .nav-mobile[data-phase01-navbar-mobile] .mob-acc-panel a {
+    min-height: 44px !important;
+  }
+}
+
 .nav-mobile[data-phase01-navbar-mobile] .mob-language {
   margin-top: 8px !important;
   padding: 13px 14px !important;
