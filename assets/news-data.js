@@ -97,7 +97,7 @@ window.LAKE_NEWS = [
     title: "Lake Trans & ATL Fleet Expansion Reaches 1,200+ Vehicles for Regional Logistics",
     date: "09 Sep, 2023",
     category: "Logistics",
-    bannerImage: "assets/images/group/ops/terminal-overview.jpg",
+    bannerImage: "assets/images/group/ops/depot-aerial.jpg",
     description: [
       "Lake Group's logistics division, comprising Lake Trans Ltd. and Associated Trans Logistics Ltd. (ATL), expanded its combined fleet to over 1,200 vehicles, strengthening its position as a leading transport and logistics provider in East and Central Africa.",
       "The fleet includes fuel tankers, bulk liquid carriers, flatbed trucks, and container haulage vehicles operating across Tanzania, Kenya, Zambia, DR Congo, Rwanda, Burundi, and Ethiopia.",
@@ -128,7 +128,7 @@ window.LAKE_NEWS = [
     title: "Lake Oil Uganda Ltd. Incorporated . Expanding Operations into Kampala",
     date: "11 Jun, 2024",
     category: "Expansion",
-    bannerImage: "assets/images/lakeoil/current/depot-terminal.jpg",
+    bannerImage: "assets/images/group/ops/depot-aerial.jpg",
     description: [
       "Lake Group expanded its footprint into Uganda with the incorporation of Lake Oil Uganda Ltd. and Lake Trans Uganda Ltd., establishing operations in Kampala to serve the Ugandan petroleum and logistics market.",
       "The Uganda expansion brings Lake Group's country presence to 10 nations: Tanzania, Kenya, Zambia, Rwanda, Burundi, DR Congo, Ethiopia, Mozambique, and now Uganda, alongside its long-standing hub in Dubai.",
@@ -317,7 +317,7 @@ window.LAKE_NEWS = [
     title: "Lake Oil Expands Retail Network . New Fuel Stations Open Across Tanzania",
     date: "10 Aug, 2015",
     category: "Expansion",
-    bannerImage: "assets/images/lakeoil/current/station-africa-map.jpg",
+    bannerImage: "assets/images/lakeoil/current/lake-energies-station-approved.webp",
     description: [
       "Lake Oil Ltd. accelerated its retail expansion across Tanzania with the opening of multiple new fuel stations in strategic locations, bringing the total branded station network to over 50 outlets nationwide.",
       "New stations opened in regional commercial hubs including Mwanza, Arusha, Mbeya, and Dodoma, alongside continued expansion in Dar es Salaam. Each station featured Lake Oil's branded forecourt design with blue, white, yellow, and red corporate colors, automated fuel dispensers, and convenience retail offerings.",
@@ -365,7 +365,7 @@ window.LAKE_NEWS = [
     title: "Lake Oil Reaches 80+ Retail Fuel Stations Milestone Across Tanzania",
     date: "18 Aug, 2016",
     category: "Expansion",
-    bannerImage: "assets/images/lakeoil/current/lake-energies-station-approved.png",
+    bannerImage: "assets/images/lakeoil/current/lake-energies-station-approved.webp",
     description: [
       "Lake Oil Ltd. continued its rapid retail network expansion, reaching over 80 branded fuel stations across Tanzania . nearly doubling its station count in just over a year. The growth reflected strong consumer acceptance of the Lake Oil brand in the competitive Tanzanian downstream petroleum market.",
       "New station openings in 2016 included sites in the coastal regions (Tanga, Mtwara), lake zone (Mwanza, Bukoba), and northern corridor (Arusha, Moshi). Each station was built to consistent specifications with modern forecourt design, automated dispensers, and enhanced safety systems.",
@@ -612,7 +612,7 @@ window.LAKE_NEWS = [
     title: "Lake Group Expansion into Mozambique Market",
     date: "2019",
     category: "Expansion",
-    bannerImage: "assets/images/lakeoil/current/fleet-loading.jpg",
+    bannerImage: "assets/images/group/ops/tanker-loading.jpg",
     description: [
       "Africa Energy Intelligence's sources report that the Tanzanian oil trading and distribution firm Lake Group has set up shop in Mozambique.",
       "Its founder and CEO, Ally Edha Awadh, recently incorporated a subsidiary named Lake Oil Limited in Beira In central Mozambique.",

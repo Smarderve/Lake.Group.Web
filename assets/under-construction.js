@@ -15,7 +15,10 @@
       var DotLottie = module.DotLottie;
       DotLottie.setWasmUrl('/assets/vendor/dotlottie-web/dotlottie-player.wasm');
       canvases.forEach(function (canvas) {
+        var failed = false;
         var fallback = function () {
+          if (failed) return;
+          failed = true;
           canvas.hidden = true;
           var notice = document.createElement('span');
           notice.className = 'phase-01-under-construction__fallback';
@@ -33,8 +36,12 @@
             layout: { fit: 'contain', align: [0.5, 0.5] },
             renderConfig: { autoResize: true, freezeOnOffscreen: true }
           });
+          player.addEventListener('load', function () { canvas.dataset.animationReady = '1'; });
           player.addEventListener('loadError', fallback);
           player.addEventListener('renderError', fallback);
+          window.setTimeout(function () {
+            if (canvas.dataset.animationReady !== '1') fallback();
+          }, 5000);
           canvas._lakeDotLottie = player;
         } catch (_) { fallback(); }
       });

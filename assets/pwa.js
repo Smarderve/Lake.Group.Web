@@ -4,7 +4,7 @@
  * on every page. Safe to include anywhere . bails out silently when
  * service workers aren't supported (file://, old browsers).
  *
- * v73: deterministic release registration, cache cleanup, check for updates often, auto-apply
+ * v74: deterministic release registration, cache cleanup, check for updates often, auto-apply
  * waiting workers, and reload when a new SW activates so offline matches
  * the latest deploy without a manual hard refresh.
  */
@@ -22,15 +22,15 @@
   // Append a cache-busting query so browsers revalidate sw.js on deploy.
   try {
     var u = new URL(swUrl, location.href);
-    u.searchParams.set('v', '73-20260828-01');
+    u.searchParams.set('v', '74-20260828-01');
     swUrl = u.href;
   } catch (err2) {
-    swUrl = swUrl + (swUrl.indexOf('?') === -1 ? '?v=73-20260828-01' : '&v=73-20260828-01');
+    swUrl = swUrl + (swUrl.indexOf('?') === -1 ? '?v=74-20260828-01' : '&v=74-20260828-01');
   }
 
   var reloadingAfterUpdate = false;
   var expectingControllerChange = false;
-  var RECOVERY_KEY = 'lake-sw-recovery-v73';
+  var RECOVERY_KEY = 'lake-sw-recovery-v74';
 
   function activateWaitingWorker(worker) {
     if (!worker) return;
@@ -190,7 +190,7 @@
     registration.update().catch(function () {});
   }
 
-  window.addEventListener('load', function () {
+  function registerWhenIdle() {
     maybeRecoverBrokenStyles();
 
     navigator.serviceWorker.register(swUrl).then(function (registration) {
@@ -239,5 +239,18 @@
       reloadingAfterUpdate = true;
       location.reload();
     });
-  });
+  }
+
+  // Service-worker registration is deliberately outside the critical render
+  // path. The document, navigation, and content must be usable even if the
+  // worker or its precache is slow to install.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () {
+      var schedule = window.requestIdleCallback || function (cb) { window.setTimeout(cb, 1200); };
+      schedule(registerWhenIdle, { timeout: 2000 });
+    }, { once: true });
+  } else {
+    var scheduleNow = window.requestIdleCallback || function (cb) { window.setTimeout(cb, 1200); };
+    scheduleNow(registerWhenIdle, { timeout: 2000 });
+  }
 })();

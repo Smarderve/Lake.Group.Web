@@ -48,7 +48,9 @@ for (const [asset, assetVersions] of versions) {
 }
 
 const sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8');
-if (!sw.includes('v73-' + release)) errors.push('sw.js: release version is not current');
+if (!new RegExp('v\\d+-' + release.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\$&')).test(sw)) {
+  errors.push('sw.js: release version is not current');
+}
 for (const asset of critical.filter((name) => name !== 'theme.css')) {
   if (!sw.includes(asset + '?v=' + release)) errors.push('sw.js: missing current precache URL for ' + asset);
 }

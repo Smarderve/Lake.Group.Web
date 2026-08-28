@@ -851,7 +851,6 @@
     document.addEventListener('lake-i18n-applied', refreshCountersForLang);
     if (window.LakeI18n) window.LakeI18n.init();
     else refreshCountersForLang();
-    initReveal();
     window.LakeSite = { initReveal, initCounters, refreshCountersForLang, initSmartLazyImages };
   });
 })();

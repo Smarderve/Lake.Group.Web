@@ -26,7 +26,7 @@
 
 'use strict';
 
-const VERSION = 'v73-20260828-01';
+const VERSION = 'v74-20260828-01';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -81,8 +81,8 @@ const PRECACHE_URLS = [
   './assets/vendor/flexsearch/flexsearch.bundle.min.js',
   './assets/images/logos/LAKE_GROUP_LOGO.png',
   './assets/images/banner/LakeOil1.jpg?v=20260828-01',
-  './assets/images/lakeoil/current/lake-energies-station-approved.png',
-  './assets/images/lakeoil/current/depot-terminal.jpg',
+  './assets/images/lakeoil/current/lake-energies-station-approved.webp?v=20260828-01',
+  './assets/images/group/ops/depot-aerial.jpg?v=20260828-01',
   './assets/images/lakegas/ops/cylinders-yard.jpg?v=20260828-01',
   './assets/icons/pwa/icon-192.png',
   './assets/icons/pwa/icon-512.png',

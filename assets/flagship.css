@@ -877,6 +877,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
 .nav-mobile > a:first-child { z-index: 3; }
 .nav-mobile > a:nth-child(2) { z-index: 2; }
 .nav-mobile a:hover { color: var(--gold); border-left-color: var(--gold); background: rgba(255,255,255,0.03); }
+.co-logo-row--wordmark { display:flex; align-items:center; min-height:72px; color:#fff; font-size:clamp(1.15rem,2vw,1.8rem); font-weight:700; letter-spacing:.02em; }
 .mob-section { padding: 14px 16px 4px; font-size: 0.72rem; letter-spacing: var(--eyebrow-letter-spacing, 0.16em); text-transform: uppercase; color: var(--gold); font-weight: 700; }
 
 /* "Subsidiaries" mobile accordion: one collapsible category per button */

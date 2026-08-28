@@ -23,7 +23,7 @@ const HERO_ASSETS = [
   'assets/images/about/about-hero-06.webp',
 ];
 const REMOVED_HERO_ASSETS = [
-  'assets/images/lakeoil/current/lake-energies-station-approved.png',
+  'assets/images/lakeoil/current/lake-energies-station-approved.webp',
   'assets/images/about/about-hero-02.webp',
   'assets/images/about/about-hero-08.webp',
   'assets/images/about/about-hero-10.webp',
