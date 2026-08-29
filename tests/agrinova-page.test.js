@@ -41,3 +41,12 @@ test('Agrinova logo loop and assets are present', () => {
     'assets/images/agrinova/combine.webp'
   ]) assert.ok(fs.existsSync(path.join(root, file)), `${file} exists`);
 });
+
+test('Agrinova uses scoped readable typography, footer, and loading colors', () => {
+  const page = read('agrinova-tech.html');
+  assert.match(page, /--agrinova-green-dark/);
+  assert.match(page, /font-size:clamp\(3rem,4\.4vw,3\.9rem\)/);
+  assert.match(page, /body\.co-theme-agro\[data-shared-footer="true"\] footer\.site-footer\{background:#123d2c!important/);
+  assert.match(page, /html\.lg-loading::before\{[^}]*rgba\(18,61,44/);
+  assert.doesNotMatch(page, /background:#013f5c;pointer-events:none/);
+});
