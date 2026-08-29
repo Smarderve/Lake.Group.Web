@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    LAKE GROUP  FLAGSHIP DESIGN SYSTEM  (flagship.css)
    ==========================================================================
    Complete visual reset. Replaces theme.css on migrated pages (a migrated
@@ -1209,7 +1209,7 @@ body[data-company-logo] .page-hero h1 {
   line-height: var(--display-line-height, 1.05);
 }
 .page-hero h1 em, .page-hero h1 .fs-outline { font-style: normal; color: transparent; -webkit-text-stroke: 1.5px rgba(255,242,0,0.65); }
-.page-hero p { color: var(--ink-text); font-size: var(--fs-lede); font-weight: 300; max-width: 620px; }
+.page-hero p { color: #fff; text-shadow: 0 1px 14px rgba(0,0,0,.48); font-size: var(--fs-lede); font-weight: 400; max-width: 620px; }
 .page-hero .eyebrow {
   display: inline-flex; align-items: center; gap: 14px;
   border: 0; padding: 0;

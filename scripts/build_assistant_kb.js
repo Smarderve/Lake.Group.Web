@@ -115,9 +115,9 @@ const CURATED_FACTS = [
       k: 'countries where operate operations locations presence africa which country region',
     },
     fr: {
-      t: 'Où nous opérons',
-      s: 'Lake Group opère dans 10 pays - la Tanzanie (siège), le Kenya, la Zambie, la RD Congo, le Rwanda, le Burundi, l\u2019Éthiopie, le Mozambique et l\u2019Ouganda - avec aussi une présence aux Émirats arabes unis (Dubaï) via MERM et SAFF.',
-      k: 'pays où opérez opérations présence afrique quels quelles régions implantation',
+      t: 'OÃ¹ nous opÃ©rons',
+      s: 'Lake Group opÃ¨re dans 10 pays - la Tanzanie (siÃ¨ge), le Kenya, la Zambie, la RD Congo, le Rwanda, le Burundi, l\u2019Ã‰thiopie, le Mozambique et l\u2019Ouganda - avec aussi une prÃ©sence aux Ã‰mirats arabes unis (DubaÃ¯) via MERM et SAFF.',
+      k: 'pays oÃ¹ opÃ©rez opÃ©rations prÃ©sence afrique quels quelles rÃ©gions implantation',
     },
     sw: {
       t: 'Tunakofanya kazi',
@@ -135,8 +135,8 @@ const CURATED_FACTS = [
     },
     fr: {
       t: 'Notre fondation',
-      s: 'Lake Group a été fondé en 2006 à Dar es Salaam, en Tanzanie, par Ally Edha Awadh, avec Lake Oil comme société phare. Le groupe est devenu l\u2019un des conglomérats d\u2019énergie et de transport à la croissance la plus rapide d\u2019Afrique de l\u2019Est et centrale.',
-      k: 'fondé fondation quand créé histoire année établi fondateur',
+      s: 'Lake Group a Ã©tÃ© fondÃ© en 2006 Ã  Dar es Salaam, en Tanzanie, par Ally Edha Awadh, avec Lake Oil comme sociÃ©tÃ© phare. Le groupe est devenu l\u2019un des conglomÃ©rats d\u2019Ã©nergie et de transport Ã  la croissance la plus rapide d\u2019Afrique de l\u2019Est et centrale.',
+      k: 'fondÃ© fondation quand crÃ©Ã© histoire annÃ©e Ã©tabli fondateur',
     },
     sw: {
       t: 'Kuanzishwa kwetu',
@@ -154,8 +154,8 @@ const CURATED_FACTS = [
     },
     fr: {
       t: 'Direction',
-      s: 'Ally Edha Awadh est le fondateur, président exécutif et propriétaire de Lake Group. Les profils de direction sont sur la page Leadership. Il a fondé le groupe en 2006, à 27 ans, avec une seule station-service à Dar es Salaam.',
-      k: 'pdg président fondateur direction dirigeant qui dirige awadh directeur président exécutif',
+      s: 'Ally Edha Awadh est le fondateur, prÃ©sident exÃ©cutif et propriÃ©taire de Lake Group. Les profils de direction sont sur la page Leadership. Il a fondÃ© le groupe en 2006, Ã  27 ans, avec une seule station-service Ã  Dar es Salaam.',
+      k: 'pdg prÃ©sident fondateur direction dirigeant qui dirige awadh directeur prÃ©sident exÃ©cutif',
     },
     sw: {
       t: 'Uongozi',
@@ -173,8 +173,8 @@ const CURATED_FACTS = [
     },
     fr: {
       t: 'Nous contacter',
-      s: 'Notre siège : Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055, Dar es Salaam, Tanzanie. Tél : (+255) 222 780 510 ou (+255) 222 780 479. E-mail : admin@lakeoilgroup.com.',
-      k: 'contact téléphone email adresse siège bureau appeler joindre coordonnées',
+      s: 'Notre siÃ¨ge : Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055, Dar es Salaam, Tanzanie. TÃ©l : (+255) 222 780 510 ou (+255) 222 780 479. E-mail : admin@lakeoilgroup.com.',
+      k: 'contact tÃ©lÃ©phone email adresse siÃ¨ge bureau appeler joindre coordonnÃ©es',
     },
     sw: {
       t: 'Wasiliana nasi',
@@ -187,13 +187,13 @@ const CURATED_FACTS = [
     url: 'about.html',
     en: {
       t: 'Our people',
-      s: 'Lake Group employs more than 30,000 people of 21 nationalities across its operations.',
+      s: 'Lake Group employs more than 30,000 people of 10+ nationalities across its operations.',
       k: 'employees staff workforce people how many jobs headcount team',
     },
     fr: {
-      t: 'Nos équipes',
-      s: 'Lake Group emploie plus de 30 000 personnes de 21 nationalités dans l\u2019ensemble de ses opérations.',
-      k: 'employés effectif personnel combien salariés équipe',
+      t: 'Nos Ã©quipes',
+      s: 'Lake Group emploie plus de 30 000 personnes de 21 nationalitÃ©s dans l\u2019ensemble de ses opÃ©rations.',
+      k: 'employÃ©s effectif personnel combien salariÃ©s Ã©quipe',
     },
     sw: {
       t: 'Watu wetu',
@@ -211,8 +211,8 @@ const CURATED_FACTS = [
     },
     fr: {
       t: 'Notre flotte',
-      s: 'Lake Trans, la branche logistique du groupe fondée en 2008, exploite une flotte de plus de 1 600 camions - tous suivis par GPS - transportant liquides en vrac et marchandises vers la Zambie, le Rwanda, la RD Congo, le Burundi, le Malawi, le Kenya et l\u2019Ouganda, avec des ateliers à Kibaha, Kigamboni, Morogoro, Nairobi et Ndola.',
-      k: 'flotte camions combien véhicules citernes transport lake trans',
+      s: 'Lake Trans, la branche logistique du groupe fondÃ©e en 2008, exploite une flotte de plus de 1 600 camions - tous suivis par GPS - transportant liquides en vrac et marchandises vers la Zambie, le Rwanda, la RD Congo, le Burundi, le Malawi, le Kenya et l\u2019Ouganda, avec des ateliers Ã  Kibaha, Kigamboni, Morogoro, Nairobi et Ndola.',
+      k: 'flotte camions combien vÃ©hicules citernes transport lake trans',
     },
     sw: {
       t: 'Meli yetu ya magari',
@@ -230,8 +230,8 @@ const CURATED_FACTS = [
     },
     fr: {
       t: 'Stations-service',
-      s: 'Lake Group exploite 154 stations-service à travers son réseau. Utilisez le localisateur de stations pour trouver la plus proche.',
-      k: 'stations essence combien où localisateur station-service réseau',
+      s: 'Lake Group exploite 154 stations-service Ã  travers son rÃ©seau. Utilisez le localisateur de stations pour trouver la plus proche.',
+      k: 'stations essence combien oÃ¹ localisateur station-service rÃ©seau',
     },
     sw: {
       t: 'Vituo vya mafuta',
@@ -248,9 +248,9 @@ const CURATED_FACTS = [
       k: 'lake oil fuel petroleum diesel petrol depot storage kigamboni distributor bunkering',
     },
     fr: {
-      t: 'Lake Oil - carburants & pétrole',
-      s: 'Lake Oil, la société phare du groupe, est l\u2019un des 5 premiers distributeurs de produits pétroliers en Tanzanie. Son dépôt de Kigamboni à Dar es Salaam offre 38 millions de litres de stockage avec un accès direct par pipeline à la jetée d\u2019importation, appuyé par 154 stations-service et une flotte de 300 camions-citernes.',
-      k: 'lake oil carburant pétrole diesel essence dépôt stockage distributeur',
+      t: 'Lake Oil - carburants & pÃ©trole',
+      s: 'Lake Oil, la sociÃ©tÃ© phare du groupe, est l\u2019un des 5 premiers distributeurs de produits pÃ©troliers en Tanzanie. Son dÃ©pÃ´t de Kigamboni Ã  Dar es Salaam offre 38 millions de litres de stockage avec un accÃ¨s direct par pipeline Ã  la jetÃ©e d\u2019importation, appuyÃ© par 154 stations-service et une flotte de 300 camions-citernes.',
+      k: 'lake oil carburant pÃ©trole diesel essence dÃ©pÃ´t stockage distributeur',
     },
     sw: {
       t: 'Lake Oil - mafuta na petroli',
@@ -268,7 +268,7 @@ const CURATED_FACTS = [
     },
     fr: {
       t: 'Lake Gas - GPL',
-      s: 'Lake Gas fournit du GPL au détail et en vrac en Tanzanie, Zambie, RD Congo, au Kenya, au Burundi et au Rwanda, avec des bouteilles de 6 kg, 10 kg composite, 15 kg et 38 kg. Premier à introduire les bouteilles GPL composites en Afrique, son terminal de Tanga a été construit comme la plus grande installation de stockage de GPL d\u2019Afrique de l\u2019Est.',
+      s: 'Lake Gas fournit du GPL au dÃ©tail et en vrac en Tanzanie, Zambie, RD Congo, au Kenya, au Burundi et au Rwanda, avec des bouteilles de 6 kg, 10 kg composite, 15 kg et 38 kg. Premier Ã  introduire les bouteilles GPL composites en Afrique, son terminal de Tanga a Ã©tÃ© construit comme la plus grande installation de stockage de GPL d\u2019Afrique de l\u2019Est.',
       k: 'gpl gaz bouteilles lake gas cuisine composite tanga vrac',
     },
     sw: {
@@ -287,7 +287,7 @@ const CURATED_FACTS = [
     },
     fr: {
       t: 'Lake Steel',
-      s: 'Lake Steel est la première entreprise de Tanzanie à introduire des barres d\u2019armature haute résistance et anticorrosion (HS-CR). Son laminoir entièrement informatisé à Kibaha produit jusqu\u2019à 25 tonnes par heure - environ 100 000 tonnes par an.',
+      s: 'Lake Steel est la premiÃ¨re entreprise de Tanzanie Ã  introduire des barres d\u2019armature haute rÃ©sistance et anticorrosion (HS-CR). Son laminoir entiÃ¨rement informatisÃ© Ã  Kibaha produit jusqu\u2019Ã  25 tonnes par heure - environ 100 000 tonnes par an.',
       k: 'acier armature hs-cr barres lake steel laminoir fer',
     },
     sw: {
@@ -305,9 +305,9 @@ const CURATED_FACTS = [
       k: 'concrete gccp ready-mix cement aggregate quarry batching premix gulf',
     },
     fr: {
-      t: 'GCCP - béton & granulats',
-      s: 'GCCP (Gulf Concrete & Cement Products), créée en 2010, est le premier fournisseur de béton prêt à l\u2019emploi de Dar es Salaam, avec des centrales à béton entièrement automatiques, sa propre carrière à Lugoba, des pompes à flèche et 20 camions-malaxeurs de 12 m\u00b3. Gulf Aggregates exploite les installations de concassage.',
-      k: 'béton gccp prêt-à-l\u2019emploi ciment granulats carrière gulf',
+      t: 'GCCP - bÃ©ton & granulats',
+      s: 'GCCP (Gulf Concrete & Cement Products), crÃ©Ã©e en 2010, est le premier fournisseur de bÃ©ton prÃªt Ã  l\u2019emploi de Dar es Salaam, avec des centrales Ã  bÃ©ton entiÃ¨rement automatiques, sa propre carriÃ¨re Ã  Lugoba, des pompes Ã  flÃ¨che et 20 camions-malaxeurs de 12 m\u00b3. Gulf Aggregates exploite les installations de concassage.',
+      k: 'bÃ©ton gccp prÃªt-Ã -l\u2019emploi ciment granulats carriÃ¨re gulf',
     },
     sw: {
       t: 'GCCP - zege na kokoto',
@@ -325,7 +325,7 @@ const CURATED_FACTS = [
     },
     fr: {
       t: 'Lake Lubes - lubrifiants',
-      s: 'Lake Lubes, immatriculée à Dar es Salaam en 2014, fabrique et distribue lubrifiants et graisses - dont LAKE 4T, LAKE HD SUPREME, LAKE POWER, huiles pour engrenages, ATF, liquides de refroidissement et graisses - vendus via le réseau de stations Lake Oil et dans les pays du groupe, avec une assistance technique 24 h/24.',
+      s: 'Lake Lubes, immatriculÃ©e Ã  Dar es Salaam en 2014, fabrique et distribue lubrifiants et graisses - dont LAKE 4T, LAKE HD SUPREME, LAKE POWER, huiles pour engrenages, ATF, liquides de refroidissement et graisses - vendus via le rÃ©seau de stations Lake Oil et dans les pays du groupe, avec une assistance technique 24 h/24.',
       k: 'lubrifiants huile graisse lake lubes moteur refroidissement',
     },
     sw: {
@@ -344,8 +344,8 @@ const CURATED_FACTS = [
     },
     fr: {
       t: 'Services de conteneurs',
-      s: 'AFICD (African Inland Container Depot) fournit des services ICD, CFS et de dépôt de conteneurs vides à Tazara, Pugu Road, Dar es Salaam - un parc de 14 000 m\u00b2 d\u2019une capacité de 4 000 EVP relié au port par voie ferrée - au service du Rwanda, du Burundi, de l\u2019Ouganda, de la RD Congo, de la Zambie et du Malawi. ACFS ajoute une gare de fret de 5 000 EVP.',
-      k: 'conteneurs icd cfs aficd acfs dépôt evp fret port',
+      s: 'AFICD (African Inland Container Depot) fournit des services ICD, CFS et de dÃ©pÃ´t de conteneurs vides Ã  Tazara, Pugu Road, Dar es Salaam - un parc de 14 000 m\u00b2 d\u2019une capacitÃ© de 4 000 EVP reliÃ© au port par voie ferrÃ©e - au service du Rwanda, du Burundi, de l\u2019Ouganda, de la RD Congo, de la Zambie et du Malawi. ACFS ajoute une gare de fret de 5 000 EVP.',
+      k: 'conteneurs icd cfs aficd acfs dÃ©pÃ´t evp fret port',
     },
     sw: {
       t: 'Huduma za makontena',
@@ -362,9 +362,9 @@ const CURATED_FACTS = [
       k: 'subsidiaries companies divisions group businesses sectors what do you do services brands',
     },
     fr: {
-      t: 'Sociétés du groupe',
-      s: 'Les principales sociétés de Lake Group sont Lake Oil (carburants & pétrole), Lake Gas (GPL), Lake Trans (logistique), Lake Lubes (lubrifiants), Lake Steel (armatures HS-CR), GCCP et Gulf Aggregates (béton & granulats), AFICD et ACFS (services de conteneurs), plus MERM (béton prêt à l\u2019emploi) et SAFF (transit) à Dubaï.',
-      k: 'filiales sociétés divisions groupe activités secteurs que faites-vous services',
+      t: 'SociÃ©tÃ©s du groupe',
+      s: 'Les principales sociÃ©tÃ©s de Lake Group sont Lake Oil (carburants & pÃ©trole), Lake Gas (GPL), Lake Trans (logistique), Lake Lubes (lubrifiants), Lake Steel (armatures HS-CR), GCCP et Gulf Aggregates (bÃ©ton & granulats), AFICD et ACFS (services de conteneurs), plus MERM (bÃ©ton prÃªt Ã  l\u2019emploi) et SAFF (transit) Ã  DubaÃ¯.',
+      k: 'filiales sociÃ©tÃ©s divisions groupe activitÃ©s secteurs que faites-vous services',
     },
     sw: {
       t: 'Kampuni za kundi',
@@ -381,9 +381,9 @@ const CURATED_FACTS = [
       k: 'careers jobs vacancies hiring work employment apply recruitment opportunity',
     },
     fr: {
-      t: 'Carrières',
-      s: 'Nous recherchons en permanence des talents pour les sociétés de notre groupe dans 10 pays. Consultez la page Carrières pour découvrir les opportunités actuelles et postuler.',
-      k: 'carrières emplois postes recrutement travailler candidature postuler',
+      t: 'CarriÃ¨res',
+      s: 'Nous recherchons en permanence des talents pour les sociÃ©tÃ©s de notre groupe dans 10 pays. Consultez la page CarriÃ¨res pour dÃ©couvrir les opportunitÃ©s actuelles et postuler.',
+      k: 'carriÃ¨res emplois postes recrutement travailler candidature postuler',
     },
     sw: {
       t: 'Ajira',
@@ -401,8 +401,8 @@ const CURATED_FACTS = [
     },
     fr: {
       t: 'Valeurs & culture',
-      s: 'Les valeurs fondamentales de Lake Group sont le travail d\u2019équipe, la fiabilité, l\u2019intégrité et la satisfaction client, portées par une culture de qualité, de service, de sécurité et de professionnalisme.',
-      k: 'valeurs culture mission vision principes qualité sécurité',
+      s: 'Les valeurs fondamentales de Lake Group sont le travail d\u2019Ã©quipe, la fiabilitÃ©, l\u2019intÃ©gritÃ© et la satisfaction client, portÃ©es par une culture de qualitÃ©, de service, de sÃ©curitÃ© et de professionnalisme.',
+      k: 'valeurs culture mission vision principes qualitÃ© sÃ©curitÃ©',
     },
     sw: {
       t: 'Maadili na utamaduni',

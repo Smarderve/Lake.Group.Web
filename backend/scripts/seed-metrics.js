@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 /**
- * Seed the initial published corporate metrics (Phase 3 — Corporate Truth).
+ * Seed the initial published corporate metrics (Phase 3 â€” Corporate Truth).
  *
  * This onboards the *existing* truth (already live on the website) directly
- * as PUBLISHED — it deliberately bypasses the workflow, which exists for
+ * as PUBLISHED â€” it deliberately bypasses the workflow, which exists for
  * future *changes*. Every later change must go through
- * DRAFT → IN_REVIEW → APPROVED → PUBLISHED via the API.
+ * DRAFT â†’ IN_REVIEW â†’ APPROVED â†’ PUBLISHED via the API.
  *
  * Values follow the verified-facts dataset (scripts/_verified_lake_facts.md)
  * and the Phase 0 audit (docs/PHASE-0-AUDIT.md). Figures that are NOT
  * externally verifiable (e.g. the "20+ subsidiaries" claim) are seeded with
- * verificationStatus UNVERIFIED and a note — never silently "corrected".
+ * verificationStatus UNVERIFIED and a note â€” never silently "corrected".
  *
  * Usage:
  *   npm run seed:metrics              # create if missing, never overwrite
@@ -25,7 +25,7 @@ import { writeAudit } from '../src/lib/audit.js';
  * Canonical corporate metrics. Exported so tests can assert the facts
  * dataset without a database (see tests/seed-data.test.js).
  *
- * NOTE (Task 8.1): the Employees value is 30,000+ — the official about-page
+ * NOTE (Task 8.1): the Employees value is 30,000+ â€” the official about-page
  * figure used across the live site. The earlier seed value 4,600+ came from
  * the stale assets/i18n-content.js.bak (audit Task 0.1 marks it OLD); the
  * Phase 0 audit and verified-facts dataset both use 30,000+.
@@ -37,18 +37,18 @@ export const SEEDS = [
     value: '30,000+',
     unit: 'employees',
     source:
-      'Official about page (lakeoilgroup.com) — "Workforce 30,000+ employees, 21 nationalities" (scripts/_verified_lake_facts.md); used sitewide on index, about, our-story, careers, africa-network.',
+      'Official about page (lakeoilgroup.com) â€” "Workforce 30,000+ employees, 10+ nationalities" (scripts/_verified_lake_facts.md); used sitewide on index, about, our-story, careers, africa-network.',
     verificationStatus: 'VERIFIED',
     verificationDate: new Date(),
     verificationNote:
       'Canonical figure per the Phase 0 audit (Task 0.1) and _verified_lake_facts.md. The old 4,600+ only existed in assets/i18n-content.js.bak (stale backup).',
     effectiveDate: new Date(),
     consumers: [
-      'index.html · hero keyfacts (#metric-employees), hero sub, about section',
-      'about.html · story-stats + OSE ending stat',
-      'our-story.html · scene 6 + ending stats',
-      'careers.html · headline stat',
-      'africa-network.html · KB copy',
+      'index.html Â· hero keyfacts (#metric-employees), hero sub, about section',
+      'about.html Â· story-stats + OSE ending stat',
+      'our-story.html Â· scene 6 + ending stats',
+      'careers.html Â· headline stat',
+      'africa-network.html Â· KB copy',
     ],
     status: 'PUBLISHED',
   },
@@ -58,19 +58,19 @@ export const SEEDS = [
     value: '1,600+',
     unit: 'trucks',
     source:
-      'Official about page — group fleet "1,600+ trucks" (site source of truth, 2026; scripts/_verified_lake_facts.md).',
+      'Official about page â€” group fleet "1,600+ trucks" (site source of truth, 2026; scripts/_verified_lake_facts.md).',
     verificationStatus: 'VERIFIED',
     verificationDate: new Date(),
     verificationNote:
       'Sitewide figure (index, about, our-story, services, sustainability, africa-network). Older 700+ / 750 figures exist only in stale backups.',
     effectiveDate: new Date(),
     consumers: [
-      'index.html · hero keyfacts + hero sub',
-      'about.html · story-stats + OSE ending stat',
-      'our-story.html · ending stats',
-      'services.html · Lake Trans row',
-      'sustainability.html · fleet efficiency copy',
-      'africa-network.html · stats band',
+      'index.html Â· hero keyfacts + hero sub',
+      'about.html Â· story-stats + OSE ending stat',
+      'our-story.html Â· ending stats',
+      'services.html Â· Lake Trans row',
+      'sustainability.html Â· fleet efficiency copy',
+      'africa-network.html Â· stats band',
     ],
     status: 'PUBLISHED',
   },
@@ -80,18 +80,18 @@ export const SEEDS = [
     value: '154',
     unit: 'fuel stations',
     source:
-      'Confirmed by Mr. Nabil, Lake Oil — "154 fuel stations" (group source of truth, 2026; scripts/_verified_lake_facts.md).',
+      'Confirmed by Mr. Nabil, Lake Oil â€” "154 fuel stations" (group source of truth, 2026; scripts/_verified_lake_facts.md).',
     verificationStatus: 'VERIFIED',
     verificationDate: new Date(),
     verificationNote:
       'Confirmed current station count used on index, our-story and station-locator. Per-country breakdown remains unverified.',
     effectiveDate: new Date(),
     consumers: [
-      'index.html · hero keyfacts',
-      'about.html · OSE ending stat',
-      'our-story.html · ending stats',
-      'station-locator.html · heading + footer note',
-      'lake-oil.html · operations copy',
+      'index.html Â· hero keyfacts',
+      'about.html Â· OSE ending stat',
+      'our-story.html Â· ending stats',
+      'station-locator.html Â· heading + footer note',
+      'lake-oil.html Â· operations copy',
     ],
     status: 'PUBLISHED',
   },
@@ -108,7 +108,7 @@ export const SEEDS = [
       'This represents the total network footprint across Africa, not Tanzania-only locations and not fuel stations.',
     effectiveDate: new Date(),
     consumers: [
-      'index.html · hero keyfacts',
+      'index.html Â· hero keyfacts',
     ],
     status: 'PUBLISHED',
   },
@@ -118,37 +118,37 @@ export const SEEDS = [
     value: '10',
     unit: 'countries',
     source:
-      'Official about/home pages — "operating across 10 countries" (Tanzania, Kenya, Zambia, DR Congo, Rwanda, Burundi, Ethiopia, Mozambique, Uganda + UAE presence; scripts/_verified_lake_facts.md, assistant-kb fact:countries).',
+      'Official about/home pages â€” "operating across 10 countries" (Tanzania, Kenya, Zambia, DR Congo, Rwanda, Burundi, Ethiopia, Mozambique, Uganda + UAE presence; scripts/_verified_lake_facts.md, assistant-kb fact:countries).',
     verificationStatus: 'VERIFIED',
     verificationDate: new Date(),
     verificationNote:
-      'Canonical "10". The audit flagged residual 9/8 values (index keyfacts "9", our-story ending "8", about "8") — those now hydrate from this published value.',
+      'Canonical "10". The audit flagged residual 9/8 values (index keyfacts "9", our-story ending "8", about "8") â€” those now hydrate from this published value.',
     effectiveDate: new Date(),
     consumers: [
-      'index.html · hero keyfacts + hero sub',
-      'about.html · story copy + story-stats',
-      'our-story.html · scene 7 + ending stats',
-      'careers.html · headline copy',
-      'africa-network.html · intro copy',
+      'index.html Â· hero keyfacts + hero sub',
+      'about.html Â· story copy + story-stats',
+      'our-story.html Â· scene 7 + ending stats',
+      'careers.html Â· headline copy',
+      'africa-network.html Â· intro copy',
     ],
     status: 'PUBLISHED',
   },
   {
     key: 'nationalities',
     label: 'Nationalities',
-    value: '21',
+    value: '10+',
     unit: 'nationalities',
     source:
-      'Official about page — "a diverse mix of 21 nationalities" (scripts/_verified_lake_facts.md).',
+      'Official about page â€” "a diverse mix of 10+ nationalities" (scripts/_verified_lake_facts.md).',
     verificationStatus: 'VERIFIED',
     verificationDate: new Date(),
     verificationNote: 'Sitewide figure (about, careers, index, our-story).',
     effectiveDate: new Date(),
     consumers: [
-      'index.html · about section copy',
-      'about.html · story copy',
-      'our-story.html · scene 6 copy',
-      'careers.html · headline copy',
+      'index.html Â· about section copy',
+      'about.html Â· story copy',
+      'our-story.html Â· scene 6 copy',
+      'careers.html Â· headline copy',
     ],
     status: 'PUBLISHED',
   },
@@ -162,12 +162,12 @@ export const SEEDS = [
     verificationStatus: 'UNVERIFIED',
     verificationDate: null,
     verificationNote:
-      'The Phase 0 audit flags subsidiaries as 20+ / 18+ / 17 by page. "18+" is the about/africa-network figure; NOT confirmed externally — confirm the canonical count with the client before relying on this.',
+      'The Phase 0 audit flags subsidiaries as 20+ / 18+ / 17 by page. "18+" is the about/africa-network figure; NOT confirmed externally â€” confirm the canonical count with the client before relying on this.',
     effectiveDate: new Date(),
     consumers: [
-      'about.html · story-stats',
-      'africa-network.html · stats band',
-      'index.html · about section copy ("20+") — conflicts, pending client confirmation',
+      'about.html Â· story-stats',
+      'africa-network.html Â· stats band',
+      'index.html Â· about section copy ("20+") â€” conflicts, pending client confirmation',
     ],
     status: 'PUBLISHED',
   },
@@ -186,7 +186,7 @@ async function main() {
     for (const seed of SEEDS) {
       const existing = await db.metric.findUnique({ where: { key: seed.key } });
       if (existing && !force) {
-        console.log(`Metric "${seed.key}" already exists (value=${existing.value}, status=${existing.status}) — skipping. Use --force to overwrite.`);
+        console.log(`Metric "${seed.key}" already exists (value=${existing.value}, status=${existing.status}) â€” skipping. Use --force to overwrite.`);
         continue;
       }
 

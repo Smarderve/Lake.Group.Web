@@ -380,7 +380,14 @@
       });
     }, { threshold: 0.4 });
 
-    counters.forEach(function (el) { io.observe(el); });
+    counters.forEach(function (el) {
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        animateCounter(el);
+      } else {
+        io.observe(el);
+      }
+    });
 
     /* Safety: never leave a counter stuck at its markup value. */
     setTimeout(function () {

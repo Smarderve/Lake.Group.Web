@@ -1,5 +1,5 @@
 window.LAKE_NEWS = [
-  // ====== RECENT NEWS: 2024–2026 (researched from trusted sources) ======
+  // ====== RECENT NEWS: 2024â€“2026 (researched from trusted sources) ======
   {
     id: 42,
     title: "Lake Energies Honoured by President Samia Suluhu Hassan for Contribution to Gas Distribution",
@@ -82,7 +82,7 @@ window.LAKE_NEWS = [
     bannerImage: "assets/images/home/verticals/manufacturing.webp",
     description: [
       "Lake Steel & Allied Products Ltd. continues production at its fully computerized automated steel rolling mill in Visiga, Kibaha, Pwani Region, Tanzania. The mill has an annual capacity of ~100,000 metric tons of HS-CR (High Strength . Cold Rolled) reinforcement steel bars.",
-      "The steel produced at the Kibaha mill is corrosion-resistant, designed specifically for coastal, saline, and industrial environments. It retains structural integrity up to 600°C . significantly higher than the standard rebar threshold of ~350°C.",
+      "The steel produced at the Kibaha mill is corrosion-resistant, designed specifically for coastal, saline, and industrial environments. It retains structural integrity up to 600Â°C . significantly higher than the standard rebar threshold of ~350Â°C.",
       "All products are compliant with Tanzania Bureau of Standards (TBS) requirements. The mill serves construction, infrastructure, and industrial projects across Tanzania and the wider East African region.",
       "Lake Steel is one of Lake Group's key manufacturing subsidiaries, alongside Lake Buildings Solutions, Lake Plastics, Lake Premix & Cement (GCCP), Gulf Aggregates, and ATL . Africa Tank Lines Ltd. [Source: Lake Group official website, TBS]"
     ],
@@ -115,7 +115,7 @@ window.LAKE_NEWS = [
     bannerImage: "assets/images/lakesteel/ops/hot-rolling.jpg",
     description: [
       "Lake Steel & Allied Products Ltd. received full certification from the Tanzania Bureau of Standards (TBS) for its High Strength . Cold Rolled (HS-CR) reinforcement steel bars produced at its Kibaha rolling mill.",
-      "The HS-CR rebars are specifically engineered for corrosion resistance in coastal, saline, and industrial environments. They retain structural integrity up to 600°C . significantly higher than the standard rebar threshold of approximately 350°C.",
+      "The HS-CR rebars are specifically engineered for corrosion resistance in coastal, saline, and industrial environments. They retain structural integrity up to 600Â°C . significantly higher than the standard rebar threshold of approximately 350Â°C.",
       "The Kibaha mill, located in Visiga, Pwani Region, has an annual production capacity of approximately 100,000 metric tons and is fully computerized and automated.",
       "Lake Steel is the first company in Tanzania to introduce this grade of corrosion-resistant rebar, serving construction and infrastructure projects across the country and the wider East African region.",
       "[Source: Lake Group official website, TBS]"
@@ -199,7 +199,7 @@ window.LAKE_NEWS = [
       "Lake Group commemorated its 15th anniversary, marking the journey from a single fuel outlet in Dar es Salaam in 2006 to a diversified conglomerate operating across 10 countries in East and Central Africa.",
       "Founded by Ally Edha Awadh at age 27, Lake Group grew from a petroleum trading company into a multi-sector enterprise spanning energy (Lake Oil, Lake Gas, Lake Aviation, Lake Lubes), manufacturing (Lake Steel, Lake Buildings, Lake Plastics, ATL), logistics (Lake Trans, AFICD, AILL), real estate (Cross Country, Ocean Galleria), and agro-processing (Lake Agro).",
       "Over 15 years, the group built key infrastructure including the Kigamboni fuel terminal, Lake Gas LPG filling plant, Lake Steel rolling mill in Kibaha, and the Lake Trans fleet of over 1,600 vehicles.",
-      "The anniversary was celebrated with employees across all subsidiaries, recognizing the contributions of the 30,000+ workforce drawn from 21 nationalities."
+      "The anniversary was celebrated with employees across all subsidiaries, recognizing the contributions of the 30,000+ workforce drawn from 10+ nationalities."
     ],
     images: [],
     video: null
@@ -295,7 +295,7 @@ window.LAKE_NEWS = [
     images: [],
     video: null
   },
-  // ====== 2015–2016: Researched items filling coverage gaps ======
+  // ====== 2015â€“2016: Researched items filling coverage gaps ======
   {
     id: 37,
     title: "AFICD Container Depot Launches Operations at Dar es Salaam Port",
@@ -521,7 +521,7 @@ window.LAKE_NEWS = [
     description: [
       "CSR is corporate philanthropy. This includes monetary donations and aid given to local and non-profit organization and communities, including donations in areas such as education, health and poverty just to mention a few. CSR is the process with the aim of embrace responsibility for the company's actions and encourage a positive impact through its activities on the environment, consumers, employees, communities, stakeholders and all other members of the public sphere who may also be considered as stake holders.",
       "A company's sense of responsibility towards the community and environment is one of the Lake Group's policies which have been practiced since commencement of its operations in 2006 in Dar es salaam, Tanzania. In April 2014, Lake Group reached a decision to extend a helping hand to maternal wards by providing Medical equipments to three municipal in Dar es Salaam as hereunder: Beds for delivery, Tools for delivery (delivery kits), Wheel chairs, Stretchers for delivery purpose, BP Machines, Examination lamps",
-      "The hospitals that enjoyed this aid were Mwananyamala Municipal Hospital – Kinondoni District, Amana Municipal Hospital – Ilala and Temeke hospital. Items were received by Dr. Kawawa and Dr. Mwaikasu on behalf of the Dar es Salaam Regional Commissioner at the occasion held at Mwananyamala Hospital.",
+      "The hospitals that enjoyed this aid were Mwananyamala Municipal Hospital â€“ Kinondoni District, Amana Municipal Hospital â€“ Ilala and Temeke hospital. Items were received by Dr. Kawawa and Dr. Mwaikasu on behalf of the Dar es Salaam Regional Commissioner at the occasion held at Mwananyamala Hospital.",
       "The Dar es Salaam medical in charge, said that \"The aid has been given in a right time due to the fact that many, public hospitals facing the shortage of medical equipments. We would like to encourage other companies to follow what has been started by Lake Group\".",
       "On the other hand, Lake Group representatives said that \"we believe this aid will help to reduce the death rate caused by preventable maternal problems, as a company, our happiness comes, when we contribute to improve health facilities in our community\". In addition, the company promised the Regional Health Committee to continue aiding in Health sector as much as we can."
     ],
@@ -535,8 +535,8 @@ window.LAKE_NEWS = [
     category: "LPG",
     bannerImage: "assets/images/lakegas/ops/filling-plant.jpg",
     description: [
-      "It is a Pleasure to announce a New Milestone achieved by the \"LAKE GAS TEAM\" – The Launch of the \"COMPOSITE CYLINDERS\".",
-      "The Composite Cylinder was officially Launched on 18th June, 2014 at the Program conducted at the Grand Hyatt Regency - Dar Es Salaam. The Guest of Honor – The Asst. Commissioner of Energy (Natural Gas) in the Ministry of Energy & Minerals- Mr. Nobert Kahyoza officiated the Launch by holding up the Composite Cylinder along with Founder & Chairman Mr. Ally Edha Awadh.",
+      "It is a Pleasure to announce a New Milestone achieved by the \"LAKE GAS TEAM\" â€“ The Launch of the \"COMPOSITE CYLINDERS\".",
+      "The Composite Cylinder was officially Launched on 18th June, 2014 at the Program conducted at the Grand Hyatt Regency - Dar Es Salaam. The Guest of Honor â€“ The Asst. Commissioner of Energy (Natural Gas) in the Ministry of Energy & Minerals- Mr. Nobert Kahyoza officiated the Launch by holding up the Composite Cylinder along with Founder & Chairman Mr. Ally Edha Awadh.",
       "Amid a crowd of more than 150 people, which comprised of Dignitaries and names from various works of life; the Launch was captured by an extensive crowd of Media and Press.",
       "The Launch of the composite cylinders in DAR marks a new revolution in the terms of a parallel cooking range, the cylinders are not only Aesthetically pleasing to look and graces the appearance of the kitchen; but also has the 4 unique features which makes it stand tall in comparison to our conventional steel cylinders. They are: Non Explosive, Non Corrosive, Light Weight, Translucent"
     ],
@@ -589,7 +589,7 @@ window.LAKE_NEWS = [
     category: "CSR",
     bannerImage: "assets/images/news/9/photo_1.jpg",
     description: [
-      "To mark The International Women's day the company sponsored all Women's employed by the company for luncheon at KFC – Mikocheni branch."
+      "To mark The International Women's day the company sponsored all Women's employed by the company for luncheon at KFC â€“ Mikocheni branch."
     ],
     images: [
       "assets/images/news/9/photo_2.jpg",
@@ -631,7 +631,7 @@ window.LAKE_NEWS = [
     description: [
       "On 9th September 2016 Lake Group family has presented special mattresses for Maternal Wards and fruits to Temeke Referral District Hospital as part of Eid Al Adha celebrations",
       "A Lake Group delegation presented the commodities to Dr. A. Malima, the Chief Medical Officer of the Hospital in Dar es Salaam.",
-      "Special thanks goes to Ally Edha Awadh – Founder & Chairman, all employees and the steering committee of the event for moral support, materially and monetary contributions.",
+      "Special thanks goes to Ally Edha Awadh â€“ Founder & Chairman, all employees and the steering committee of the event for moral support, materially and monetary contributions.",
       "Let us always share the small portion we have with the society."
     ],
     images: [

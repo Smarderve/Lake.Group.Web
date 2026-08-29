@@ -1,13 +1,13 @@
 /**
  * Static-site adapter for LogoLoop (assets/components/LogoLoop.jsx).
  * The marketing site is plain HTML with no React bundler, so this mount
- * reproduces LogoLoop's DOM, CSS variables, and rAF scroll loop using
+ * reproduces LogoLoop's DOM and CSS variables with a compositor animation using
  * LogoLoop.css. Keep behavior aligned with LogoLoop.jsx when updating.
  */
 (function () {
   'use strict';
 
-  var ANIMATION_CONFIG = { SMOOTH_TAU: 0.25, MIN_COPIES: 2, COPY_HEADROOM: 2 };
+  var ANIMATION_CONFIG = { MIN_COPIES: 2, COPY_HEADROOM: 2 };
 
   /* Path-verified PNGs under assets/images/logos/companies/ + real nav routes only */
     var SUBSIDIARY_LOGOS = [
@@ -26,7 +26,7 @@
     { src: 'assets/images/logos/companies/aficd.png?v=69', alt: 'AFICD', title: 'AFICD', href: 'aficd.html' },
     { src: 'assets/images/logos/companies/aill.png?v=58', alt: 'AILL', title: 'AILL', href: 'aill.html' },
     /* Tight-crop marks read larger than padded Lake logos at the same CSS height */
-    /* Circles-only ATL mark (no tagline) — matches brand sheet */
+    /* Circles-only ATL mark (no tagline) â€” matches brand sheet */
     { src: 'assets/images/logos/companies/atl.png?v=61', alt: 'ATL', title: 'ATL', scale: 0.9 },
     { src: 'assets/images/logos/companies/lake-agro-blue.png?v=70', alt: 'Lake Agro', title: 'Lake Agro', href: 'lake-agro.html', scale: 0.8 },
     { src: 'assets/images/logos/companies/cross-country.png?v=69', alt: 'Cross Country', title: 'Cross Country', href: 'cross-country.html', scale: 1.15 },
@@ -173,23 +173,28 @@
     var seqWidth = 0;
     var seqHeight = 0;
     var seqEl = null;
-    var isHovered = false;
-    var rafId = null;
-    var lastTimestamp = null;
-    var offset = 0;
-    var velocity = 0;
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var containerVisible = true;
+
+    function applyAnimation() {
+      track.classList.remove('logoloop__track--animate');
+      if (reduceMotion) return;
+      var sequenceSize = isVertical ? seqHeight : seqWidth;
+      if (!sequenceSize) return;
+      /* CSS owns every animation frame. Dimensions are measured only at setup
+         and resize, never in an animation loop. */
+      var duration = Math.max(18, sequenceSize / Math.max(magnitude, 1));
+      track.style.setProperty('--logoloop-distance', sequenceSize + 'px');
+      track.style.setProperty('--logoloop-duration', duration + 's');
+      track.classList.add('logoloop__track--animate');
+    }
 
     function rebuildCopies() {
-      var prevTransform = track.style.transform;
       track.innerHTML = '';
       for (var i = 0; i < copyCount; i++) {
         var list = createSequence(logos, i);
         if (i === 0) seqEl = list;
         track.appendChild(list);
       }
-      if (prevTransform) track.style.transform = prevTransform;
     }
 
     function updateDimensions() {
@@ -198,20 +203,8 @@
       var sequenceRect = seqEl.getBoundingClientRect();
       var sequenceWidth = sequenceRect.width || 0;
       var sequenceHeight = sequenceRect.height || 0;
-
       if (isVertical) {
-        var parentHeight = container.parentElement ? container.parentElement.clientHeight : 0;
-        if (parentHeight > 0) container.style.height = Math.ceil(parentHeight) + 'px';
-        if (sequenceHeight > 0) {
-          seqHeight = Math.ceil(sequenceHeight);
-          var viewport = container.clientHeight || parentHeight || sequenceHeight;
-          var copiesNeededV = Math.ceil(viewport / sequenceHeight) + ANIMATION_CONFIG.COPY_HEADROOM;
-          var nextCountV = Math.max(ANIMATION_CONFIG.MIN_COPIES, copiesNeededV);
-          if (nextCountV !== copyCount) {
-            copyCount = nextCountV;
-            rebuildCopies();
-          }
-        }
+        if (sequenceHeight > 0) seqHeight = Math.ceil(sequenceHeight);
       } else if (sequenceWidth > 0) {
         seqWidth = Math.ceil(sequenceWidth);
         var copiesNeeded = Math.ceil(containerWidth / sequenceWidth) + ANIMATION_CONFIG.COPY_HEADROOM;
@@ -219,106 +212,35 @@
         if (nextCount !== copyCount) {
           copyCount = nextCount;
           rebuildCopies();
+          sequenceRect = seqEl.getBoundingClientRect();
+          seqWidth = Math.ceil(sequenceRect.width || 0);
         }
       }
-    }
-
-    function onImagesReady(callback) {
-      var images = seqEl ? seqEl.querySelectorAll('img') : [];
-      if (!images.length) {
-        callback();
-        return;
-      }
-      var remaining = images.length;
-      var done = function () {
-        remaining -= 1;
-        if (remaining <= 0) callback();
-      };
-      for (var i = 0; i < images.length; i++) {
-        if (images[i].complete) done();
-        else {
-          images[i].addEventListener('load', done, { once: true });
-          images[i].addEventListener('error', done, { once: true });
-        }
-      }
-    }
-
-    function animate(timestamp) {
-      if (lastTimestamp === null) lastTimestamp = timestamp;
-      var deltaTime = Math.max(0, timestamp - lastTimestamp) / 1000;
-      lastTimestamp = timestamp;
-
-      var target = isHovered && hoverSpeed !== undefined ? hoverSpeed : targetVelocity;
-      var easingFactor = 1 - Math.exp(-deltaTime / ANIMATION_CONFIG.SMOOTH_TAU);
-      velocity += (target - velocity) * easingFactor;
-
-      var seqSize = isVertical ? seqHeight : seqWidth;
-      if (seqSize > 0 && !reduceMotion) {
-        offset = ((offset + velocity * deltaTime) % seqSize + seqSize) % seqSize;
-        track.style.transform = isVertical
-          ? 'translate3d(0, ' + -offset + 'px, 0)'
-          : 'translate3d(' + -offset + 'px, 0, 0)';
-      }
-
-      if (containerVisible !== false) rafId = requestAnimationFrame(animate);
-      else rafId = null;
+      applyAnimation();
     }
 
     rebuildCopies();
     container.appendChild(track);
     root.appendChild(container);
 
-    track.addEventListener('mouseenter', function () {
-      if (hoverSpeed !== undefined) isHovered = true;
-    });
-    track.addEventListener('mouseleave', function () {
-      if (hoverSpeed !== undefined) isHovered = false;
-    });
-
     var resizeObserver = null;
-    var visObserver = null;
     var mobileMq = window.matchMedia('(max-width: 720px)');
-    function onViewportChange() {
-      applyMetrics();
-      updateDimensions();
-    }
+    function onViewportChange() { applyMetrics(); updateDimensions(); }
     if (mobileMq.addEventListener) mobileMq.addEventListener('change', onViewportChange);
     else if (mobileMq.addListener) mobileMq.addListener(onViewportChange);
 
-    function observe() {
-      if (window.ResizeObserver) {
-        resizeObserver = new ResizeObserver(updateDimensions);
-        resizeObserver.observe(container);
-        if (seqEl) resizeObserver.observe(seqEl);
-      } else {
-        window.addEventListener('resize', updateDimensions);
-      }
+    if (window.ResizeObserver) {
+      resizeObserver = new ResizeObserver(updateDimensions);
+      resizeObserver.observe(container);
+    } else {
+      window.addEventListener('resize', updateDimensions);
     }
-
-    /* Start observing and animating immediately. Waiting for every lazy image
-       deadlocks narrow viewports: off-screen logos do not load until the track
-       moves, while the track previously did not move until they had loaded. */
     updateDimensions();
-    observe();
     onImagesReady(updateDimensions);
-    /* Pause the rAF loop when the container is off-screen to save CPU on mobile */
-    if ('IntersectionObserver' in window) {
-      visObserver = new IntersectionObserver(function (entries) {
-        containerVisible = entries[0].isIntersecting;
-        if (containerVisible && rafId === null) {
-          lastTimestamp = null;
-          rafId = requestAnimationFrame(animate);
-        }
-      }, { rootMargin: '200px 0px' });
-      visObserver.observe(root);
-    }
-    if (!reduceMotion) rafId = requestAnimationFrame(animate);
 
     return function destroy() {
-      if (rafId !== null) cancelAnimationFrame(rafId);
       if (resizeObserver) resizeObserver.disconnect();
       else window.removeEventListener('resize', updateDimensions);
-      if (visObserver) visObserver.disconnect();
       if (mobileMq.removeEventListener) mobileMq.removeEventListener('change', onViewportChange);
       else if (mobileMq.removeListener) mobileMq.removeListener(onViewportChange);
       root.innerHTML = '';

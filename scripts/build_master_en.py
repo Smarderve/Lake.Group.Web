@@ -94,7 +94,7 @@ SHARED_EN = {
     "ose.s5.eyebrow": "eight sectors, one vision",
     "ose.s5.title": "We built more than<br>a fuel company.",
     "ose.s5.label": "GCCP: Dar es Salaam's leading ready-mix concrete supplier",
-    "ose.s6.body": "Every depot, every truck, every cylinder is run by people. 30,000+ of them, from 21 nationalities, across 9 countries. That's the part no spreadsheet can capture.",
+    "ose.s6.body": "Every depot, every truck, every cylinder is run by people. 30,000+ of them, from 10+ nationalities, across 9 countries. That's the part no spreadsheet can capture.",
     "ose.s6.label": "our team, our story",
     "ose.s7.eyebrow": "today",
     "ose.s7.title": "across <em>9 countries</em><br>and counting.",

@@ -172,7 +172,16 @@
       });
     }, { threshold: 0.35, rootMargin: '0px 0px -6% 0px' });
 
-    counters.forEach((el) => co.observe(el));
+    counters.forEach((el) => {
+      // An above-the-fold counter must start on this navigation, rather than
+      // waiting for a later observer delivery that can be skipped on cached
+      // or restored pages.
+      if (isInViewport(el)) {
+        startCounter(el);
+      } else {
+        co.observe(el);
+      }
+    });
 
     // Safety: if IO never fires, still run the count (do not paint the final
     // value early . that was hiding the animation on slow scrolls).

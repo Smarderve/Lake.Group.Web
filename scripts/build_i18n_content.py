@@ -6,7 +6,7 @@ Build assets/i18n-content.json from:
 
 NOTE: The live site locale set is en/fr/sw/pt/es/ar (Hindi removed). Prefer
   scripts/build_pt_es_lang.js to refresh pt/es (and keep fr/sw/ar) rather than
-  running this script alone — this builder only emits en/fr/pt and would drop
+  running this script alone â€” this builder only emits en/fr/pt and would drop
   sw/es/ar if used as a full rewrite.
 
 For French and Portuguese, each English value is translated by:

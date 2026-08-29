@@ -137,7 +137,7 @@
       }
     }
 
-    /* NAV — transparent over the hero; scrolls to solid via .nav-scrolled in theme.css */
+    /* NAV â€” transparent over the hero; scrolls to solid via .nav-scrolled in theme.css */
     :root { --color-navbar-bg: transparent; }
     .site-nav {
       position: fixed;
@@ -169,7 +169,7 @@
 
     .nav-logo img,
     .site-nav .nav-logo img {
-      /* Fallbacks if tokens.css fails (stale SW) â€” prevents giant logo. */
+      /* Fallbacks if tokens.css fails (stale SW) Ã¢â‚¬â€ prevents giant logo. */
       height: var(--nav-logo-height, 48px) !important;
       width: auto !important;
       max-width: min(220px, 55vw) !important;
@@ -243,7 +243,7 @@
       }
     }
 
-    /* Language switcher — match nav link size/weight/alignment */
+    /* Language switcher â€” match nav link size/weight/alignment */
     .site-nav .lang-trigger {
       gap: 6px;
       padding: 0 4px;
@@ -1438,7 +1438,7 @@
     }
 
     .experience-3d-panel.is-loading::before {
-      content: "Loading experienceï¿½";
+      content: "Loading experienceÃ¯Â¿Â½";
       position: absolute;
       left: 50%;
       top: 50%;
@@ -1573,7 +1573,7 @@
       }
     }
 
-    /* HERO LOGO TICKER — stable brand surface keeps every two-tone mark
+    /* HERO LOGO TICKER â€” stable brand surface keeps every two-tone mark
        readable while the photography behind it changes. */
     .marquee-wrap {
       background: #ffffff;
@@ -1602,7 +1602,7 @@
       pointer-events: none;
     }
 
-    /* Language dropdown — match nav dropdown glassmorphism */
+    /* Language dropdown â€” match nav dropdown glassmorphism */
     .lang-menu {
       background: transparent !important;
       border: none !important;
@@ -1733,7 +1733,7 @@
   gap: 4px;
 }
 
-    /* SEE LAKE GROUP IN ACTION — Visual Diary coverflow */
+    /* SEE LAKE GROUP IN ACTION â€” Visual Diary coverflow */
     section#in-action.action-in-view {
       background:
         radial-gradient(ellipse 80% 60% at 10% 0%, rgba(5, 153, 211, 0.45), transparent 55%),
@@ -1910,7 +1910,7 @@
       cursor: grab;
       transform-origin: center center;
       transform: translate(-50%, -50%) scale(0.72);
-      /* Slide into center â€” springy settle, not a hard pop */
+      /* Slide into center Ã¢â‚¬â€ springy settle, not a hard pop */
       transition:
         transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
         opacity 0.4s ease;
@@ -2196,7 +2196,7 @@
       margin-top: 0 !important;
     }
 
-    /* Dropdown arrow indicator — SVG chevron matching lang button */
+    /* Dropdown arrow indicator â€” SVG chevron matching lang button */
     .nav-dd-arrow {
       display: inline-flex;
       align-items: center;
@@ -2233,7 +2233,7 @@
       z-index: 999;
     }
 
-    /* Open only on click (.is-open) — no hover trigger, no focus-within */
+    /* Open only on click (.is-open) â€” no hover trigger, no focus-within */
     .has-dropdown.is-open .nav-dropdown {
       opacity: 1 !important;
       pointer-events: auto !important;
@@ -2714,7 +2714,7 @@
 
   </section>
 
-  <!-- SEE LAKE GROUP IN ACTION â€” Visual Diary coverflow -->
+  <!-- SEE LAKE GROUP IN ACTION Ã¢â‚¬â€ Visual Diary coverflow -->
   <section class="section-sm action-in-view" id="in-action" aria-labelledby="in-action-title">
     <div class="container">
       <div style="text-align: center; margin-bottom: 10px">
@@ -2728,7 +2728,7 @@
 
       <div class="action-diary" data-action-gallery>
         <p class="action-diary-lead" data-i18n="index.action.lead">
-          Depots, stations, LPG plants, and industrial sites across East Africa â€” drag or swipe to browse live operations.
+          Depots, stations, LPG plants, and industrial sites across East Africa Ã¢â‚¬â€ drag or swipe to browse live operations.
         </p>
 
         <div class="action-filters" role="tablist" data-i18n-aria="index.action.filters" aria-label="Filter operations">
@@ -2737,7 +2737,7 @@
           <button type="button" class="action-filter" role="tab" aria-selected="false" data-filter="gas" data-i18n="index.action.gas">Gas</button>
           <button type="button" class="action-filter" role="tab" aria-selected="false" data-filter="industry" data-i18n="index.action.industry">Industry</button>
           <button type="button" class="action-filter" role="tab" aria-selected="false" data-filter="logistics" data-i18n="index.action.logistics">Logistics</button>
-          <a href="gallery.html" class="action-more" data-i18n="index.68">View Full Gallery <span aria-hidden="true">â†’</span></a>
+          <a href="gallery.html" class="action-more" data-i18n="index.68">View Full Gallery <span aria-hidden="true">Ã¢â€ â€™</span></a>
         </div>
 
         <div class="action-stage" aria-roledescription="carousel" aria-live="polite">
@@ -2865,7 +2865,7 @@
       var root = document.querySelector("[data-action-gallery]");
       if (!root) return;
 
-      /* One unique photo per company â€” no duplicates */
+      /* One unique photo per company Ã¢â‚¬â€ no duplicates */
       var ITEMS = [
         { src: "assets/images/lakeoil/current/tanker-lake-energies.jpg", cat: "oil", tKey: "index.action.i01.t", sKey: "index.action.i01.s", title: "Lake Oil", sub: "Petroleum terminal & retail" },
         { src: "assets/images/lakegas/ops/filling-plant.jpg", cat: "gas", tKey: "index.action.i02.t", sKey: "index.action.i02.s", title: "Lake Gas", sub: "LPG filling & cylinders" },
@@ -3061,7 +3061,7 @@
         if (!n) return;
         var step = stepPx();
         var scrub = typeof dragX === "number" ? dragX : 0;
-        /* Fractional progress toward neighbors while dragging (-1 â€¦ 1-ish) */
+        /* Fractional progress toward neighbors while dragging (-1 Ã¢â‚¬Â¦ 1-ish) */
         var progress = scrub / step;
 
         tiles.forEach(function (btn, i) {
@@ -3115,7 +3115,7 @@
             "translate(-50%, -50%) translate3d(" + x + "px," + y + "px,0) scale(" + scale + ")";
         });
 
-        /* z-index alone stacks the center card â€” do NOT reparent (breaks CSS transitions) */
+        /* z-index alone stacks the center card Ã¢â‚¬â€ do NOT reparent (breaks CSS transitions) */
 
         if (countEl) {
           var shown = ((index % n) + n) % n;
@@ -3184,7 +3184,7 @@
           var span = btn.querySelector(".action-tile-cap span");
           if (strong) strong.textContent = copy.title;
           if (span) span.textContent = copy.sub;
-          btn.setAttribute("aria-label", copy.title + " â€” " + copy.sub);
+          btn.setAttribute("aria-label", copy.title + " Ã¢â‚¬â€ " + copy.sub);
         });
       }
 
@@ -3203,7 +3203,7 @@
           btn.type = "button";
           btn.className = "action-tile";
           btn._item = item;
-          btn.setAttribute("aria-label", copy.title + " â€” " + copy.sub);
+          btn.setAttribute("aria-label", copy.title + " Ã¢â‚¬â€ " + copy.sub);
           btn.innerHTML =
             '<img alt="' + copy.title + '" decoding="async" width="640" height="860" draggable="false" data-src="' + item.src + '" />' +
             '<span class="action-tile-cap"><strong>' + copy.title + "</strong><span>" + copy.sub + "</span></span>";

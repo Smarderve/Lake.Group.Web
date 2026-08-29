@@ -25,6 +25,14 @@
   }
 }
 
+.logoloop__track--animate {
+  animation: logoloop-scroll var(--logoloop-duration, 36s) linear infinite;
+  transform: translate3d(0, 0, 0);
+}
+.logoloop--horizontal:hover .logoloop__track--animate { animation-play-state: paused; }
+@keyframes logoloop-scroll { from { transform: translate3d(0,0,0); } to { transform: translate3d(calc(-1 * var(--logoloop-distance, 0px)),0,0); } }
+.logoloop--vertical .logoloop__track--animate { animation-name: logoloop-scroll-vertical; }
+@keyframes logoloop-scroll-vertical { from { transform: translate3d(0,0,0); } to { transform: translate3d(0,calc(-1 * var(--logoloop-distance, 0px)),0); } }
 .logoloop__track {
   display: flex;
   flex-flow: row nowrap;
@@ -38,12 +46,28 @@
 }
 
 @media (max-width: 720px) {
-  .logoloop__track {
+  .logoloop__track--animate {
+  animation: logoloop-scroll var(--logoloop-duration, 36s) linear infinite;
+  transform: translate3d(0, 0, 0);
+}
+.logoloop--horizontal:hover .logoloop__track--animate { animation-play-state: paused; }
+@keyframes logoloop-scroll { from { transform: translate3d(0,0,0); } to { transform: translate3d(calc(-1 * var(--logoloop-distance, 0px)),0,0); } }
+.logoloop--vertical .logoloop__track--animate { animation-name: logoloop-scroll-vertical; }
+@keyframes logoloop-scroll-vertical { from { transform: translate3d(0,0,0); } to { transform: translate3d(0,calc(-1 * var(--logoloop-distance, 0px)),0); } }
+.logoloop__track {
     will-change: auto;
   }
 }
 
-.logoloop--vertical .logoloop__track {
+.logoloop--vertical .logoloop__track--animate {
+  animation: logoloop-scroll var(--logoloop-duration, 36s) linear infinite;
+  transform: translate3d(0, 0, 0);
+}
+.logoloop--horizontal:hover .logoloop__track--animate { animation-play-state: paused; }
+@keyframes logoloop-scroll { from { transform: translate3d(0,0,0); } to { transform: translate3d(calc(-1 * var(--logoloop-distance, 0px)),0,0); } }
+.logoloop--vertical .logoloop__track--animate { animation-name: logoloop-scroll-vertical; }
+@keyframes logoloop-scroll-vertical { from { transform: translate3d(0,0,0); } to { transform: translate3d(0,calc(-1 * var(--logoloop-distance, 0px)),0); } }
+.logoloop__track {
   flex-direction: column;
   height: max-content;
   width: 100%;
@@ -206,7 +230,15 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .logoloop__track {
+  .logoloop__track--animate {
+  animation: logoloop-scroll var(--logoloop-duration, 36s) linear infinite;
+  transform: translate3d(0, 0, 0);
+}
+.logoloop--horizontal:hover .logoloop__track--animate { animation-play-state: paused; }
+@keyframes logoloop-scroll { from { transform: translate3d(0,0,0); } to { transform: translate3d(calc(-1 * var(--logoloop-distance, 0px)),0,0); } }
+.logoloop--vertical .logoloop__track--animate { animation-name: logoloop-scroll-vertical; }
+@keyframes logoloop-scroll-vertical { from { transform: translate3d(0,0,0); } to { transform: translate3d(0,calc(-1 * var(--logoloop-distance, 0px)),0); } }
+.logoloop__track {
     transform: translate3d(0, 0, 0) !important;
   }
 
