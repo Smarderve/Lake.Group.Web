@@ -23,10 +23,12 @@ test('Agrinova page is source-backed and uses supplied local assets', () => {
 test('Agrinova uses the real desktop logo and text-only mobile navigation', () => {
   const desktop = read('scripts/templates/nav.html');
   const mobile = read('scripts/templates/mobile_nav.html');
-  const agro = desktop.match(/id="mm-pane-agro"[\s\S]*?<\/div><\/div>/)?.[0] || '';
-  assert.match(agro, /agrinova-tech\.html/);
-  assert.match(agro, /agrinova-tech\.png/);
-  assert.match(mobile, /data-mm-cat="agro"[\s\S]*Agrinova Tech Limited/);
+  const automotive = desktop.match(/id="mm-pane-automotive"[\s\S]*?<\/div><\/div>/)?.[0] || '';
+  assert.match(automotive, /agrinova-tech\.html/);
+  assert.match(automotive, /agrinova-tech\.png/);
+  assert.match(desktop, /id="mm-pane-agro"[^>]*><div class="mm-companies"><a href="lake-agro\.html"[^>]*><img[^>]*lake-agro\.png[^>]*><\/a><\/div><\/div>/);
+  assert.match(mobile, /data-mm-cat="automotive"[\s\S]*Agrinova Tech Limited/);
+  assert.match(mobile, /data-mm-cat="agro">Agro Processing Sector<\/div><div class="mob-sector-companies"><a href="lake-agro\.html">Lake Agro<\/a><\/div>/);
   assert.doesNotMatch(mobile, /<img[^>]*agrinova/i);
 });
 

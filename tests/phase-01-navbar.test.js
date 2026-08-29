@@ -70,6 +70,7 @@ test('Phase 01 navbar follows launch constraints and all logo destinations resol
 });
 
 test('subsidiary coverage uses unique supplied company marks without retired companies', () => {
+  const phaseCss = fs.readFileSync(path.join(ROOT, 'assets/phase-01-navbar.css'), 'utf8');
   const imageBacked = [
     'lake-oil.html', 'lake-aviation.html', 'lake-gas.html', 'lake-lubes.html',
     'lake-buildings.html', 'lake-pipes.html', 'lake-steel.html', 'lake-cylinders.html',
@@ -88,10 +89,13 @@ test('subsidiary coverage uses unique supplied company marks without retired com
     assert.match(navTemplate, new RegExp(`<a href="${file}" class="mm-company mm-company--wordmark">`), `${file}: desktop target`);
     assert.match(mobileTemplate, new RegExp(`href="${file}"`), `${file}: mobile target`);
   }
+  assert.match(navTemplate, /<a href="agrinova-tech\.html" class="mm-company"><img src="assets\/images\/logos\/companies\/agrinova-tech\.png"/);
   assert.match(navTemplate, /id="mm-tab-automotive"/);
   assert.match(mobileTemplate, /class="mob-sector-heading" data-mm-cat="automotive">Automotive Sector/);
-  assert.match(navTemplate, /id="mm-pane-agro"[\s\S]*agrinova-tech\.png/);
-  assert.match(mobileTemplate, /data-mm-cat="agro"[\s\S]*Agrinova Tech Limited/);
+  assert.match(navTemplate, /id="mm-pane-automotive"[\s\S]*agrinova-tech\.png/);
+  assert.match(navTemplate, /id="mm-pane-agro"[^>]*><div class="mm-companies"><a href="lake-agro\.html"[^>]*><img[^>]*lake-agro\.png[^>]*><\/a><\/div><\/div>/);
+  assert.match(mobileTemplate, /data-mm-cat="automotive"[\s\S]*Agrinova Tech Limited/);
+  assert.match(phaseCss, /img\[src\*="lake-pipes\.png"\][\s\S]*?height:\s*76px/);
   assert.doesNotMatch(navTemplate, /lake-group-placeholder|LAKE_LOGO_LAKE_ONLY\.png" alt="(?:Assembly|AgriNova|NextDrive)/i);
 });
 
