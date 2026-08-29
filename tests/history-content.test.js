@@ -21,7 +21,7 @@ for (const phrase of [
   '30,000+ employees', '>Today<'
 ]) assert.doesNotMatch(html, new RegExp(phrase, 'i'));
 
-assert.match(html, /background-image:url\('assets\/images\/laketrans\/profile\/fleet-lineup\.jpg'\)/);
+assert.match(html, /background-image:url\('assets\/images\/history\/hero\/history-hero\.webp'\)/);
 assert.match(html, /class="fs-section-sm hx-cta-yellow"/);
 assert.match(html, /Join our team or partner with Lake Group as we continue building across Africa\./);
 assert.equal((html.match(/class="history-year-group"/g) || []).length, 14);

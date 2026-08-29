@@ -33,7 +33,7 @@
 .hx-cta .fs-display { font-size: clamp(2rem, 4vw, 3.4rem); margin-bottom: var(--sp-2); }
 .hx-actions { display: flex; gap: var(--sp-3); flex-wrap: wrap; }
 .history-hero { min-height: clamp(500px, 62vh, 680px); }
-.history-hero .hero-media { background-position: center 58%; }
+.history-hero .hero-media { background-position: center 40%; background-size: cover; }
 .history-hero .hero-overlay { background: linear-gradient(90deg, rgba(1,26,40,.78), rgba(1,26,40,.34) 52%, rgba(1,26,40,.08)); }
 .history-hero .container { padding-top: 48px; }
 .history-timeline { display:grid; gap:0; }
@@ -53,7 +53,7 @@
 .hx-cta-yellow .btn-outline { border-color:rgba(1,35,55,.45); color:var(--ink); }
 .hx-cta-yellow .btn-outline:hover { border-color:var(--ink); background:var(--ink); color:var(--gold); }
 @media(max-width:880px){.history-hero{min-height:560px}.history-hero .container{padding-top:28px}.history-year-group{grid-template-columns:72px minmax(0,1fr);gap:var(--sp-4)}}
-@media(max-width:600px){.history-hero{min-height:620px}.history-hero .hero-media{background-position:62% center}.history-year-group{grid-template-columns:1fr;gap:var(--sp-3)}.history-year{font-size:2rem}.history-event{padding-left:var(--sp-4)}}
+@media(max-width:600px){.history-hero{min-height:620px}.history-hero .hero-media{background-position:center 35%}.history-year-group{grid-template-columns:1fr;gap:var(--sp-3)}.history-year{font-size:2rem}.history-event{padding-left:var(--sp-4)}}
 </style>
 <script type="application/ld+json">
 {
@@ -168,7 +168,7 @@
 
 <div class="page-wrapper">
 <section class="page-hero history-hero">
-  <div class="hero-media" style="background-image:url('assets/images/laketrans/profile/fleet-lineup.jpg')" aria-hidden="true"></div>
+  <div class="hero-media" style="background-image:url('assets/images/history/hero/history-hero.webp');background-position:center 40%" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container" style="position:relative;z-index:2">
     <div class="eyebrow">Our History</div>
