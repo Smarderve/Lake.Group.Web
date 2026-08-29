@@ -74,7 +74,7 @@ test('subsidiary coverage uses unique supplied company marks without retired com
   const imageBacked = [
     'lake-oil.html', 'lake-aviation.html', 'lake-gas.html', 'lake-lubes.html',
     'lake-buildings.html', 'lake-pipes.html', 'lake-steel.html', 'lake-cylinders.html',
-    'gulf-aggregates.html', 'lake-premix-cement.html',
+    'lake-premix-cement.html', 'gulf-aggregates.html',
     'aficd.html', 'aill.html', 'lake-trans.html',
     'cross-country.html', 'lake-agro.html', 'agrinova-tech.html',
   ];
