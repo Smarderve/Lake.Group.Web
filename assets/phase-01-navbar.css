@@ -570,8 +570,13 @@ body.co-theme-agro .nav-mobile[data-phase01-navbar-mobile] {
    loads this file, so the glass surface cannot inherit a company palette.
    -------------------------------------------------------------------------- */
 :root {
-  --nav-dropdown-bg: rgba(3, 53, 79, .58);
+  /* Default Lake Group dropdown palette. The category rail is the visual
+     source of truth for every desktop dropdown surface. */
+  --nav-dropdown-bg: rgba(3, 53, 79, .92);
+  --nav-dropdown-sidebar-bg: #03354f;
+  --nav-dropdown-pane-bg: rgba(255, 255, 255, .035);
   --nav-dropdown-border: rgba(255, 255, 255, .12);
+  --nav-dropdown-divider: rgba(255, 255, 255, .14);
   --nav-dropdown-shadow: 0 18px 48px rgba(0, 0, 0, .22);
   --nav-dropdown-blur: 14px;
   --nav-dropdown-radius: 16px;
@@ -585,6 +590,36 @@ body.co-theme-agro .nav-mobile[data-phase01-navbar-mobile] {
   --nav-menu-text: rgba(244, 248, 252, .92);
   --nav-menu-muted: rgba(244, 248, 252, .68);
   --nav-menu-accent: #fff200;
+}
+
+/* Lake Agro keeps the shared component, but its green identity carries
+   through every dropdown layer (desktop and mobile). */
+body.co-theme-agro {
+  --nav-dropdown-bg: rgba(0, 75, 30, .93);
+  --nav-dropdown-sidebar-bg: #004b1e;
+  --nav-dropdown-pane-bg: rgba(218, 242, 221, .075);
+  --nav-dropdown-border: rgba(230, 126, 34, .34);
+  --nav-dropdown-divider: rgba(255, 253, 245, .18);
+  --nav-dropdown-shadow: 0 18px 48px rgba(0, 43, 17, .28);
+  --nav-menu-surface: var(--nav-dropdown-bg);
+  --nav-menu-surface-soft: var(--nav-dropdown-pane-bg);
+  --nav-menu-border: var(--nav-dropdown-border);
+  --nav-menu-text: rgba(255, 253, 245, .94);
+  --nav-menu-muted: rgba(255, 253, 245, .72);
+}
+
+/* Agrinova uses the same green dropdown system at its darker forest-green
+   register, without duplicating the navbar component. */
+body.co-theme-agro[data-company-alt="Agrinova Tech Limited"] {
+  --nav-dropdown-bg: rgba(18, 61, 44, .94);
+  --nav-dropdown-sidebar-bg: #123d2c;
+  --nav-dropdown-pane-bg: rgba(232, 240, 223, .075);
+  --nav-dropdown-border: rgba(216, 168, 60, .34);
+  --nav-dropdown-divider: rgba(255, 253, 245, .18);
+  --nav-dropdown-shadow: 0 18px 48px rgba(8, 36, 24, .32);
+  --nav-menu-surface: var(--nav-dropdown-bg);
+  --nav-menu-surface-soft: var(--nav-dropdown-pane-bg);
+  --nav-menu-border: var(--nav-dropdown-border);
 }
 
 .site-nav[data-phase01-navbar] .nav-dropdown,
@@ -647,14 +682,14 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .lang-menu {
   gap: 1px !important;
   align-self: stretch !important;
   padding: 10px !important;
-  background: #03354f !important;
+  background: var(--nav-dropdown-sidebar-bg) !important;
   border-radius: 10px 0 0 10px !important;
 }
 
 .site-nav[data-phase01-navbar] .mm-panes {
   align-self: stretch !important;
   padding: 8px 10px !important;
-  background: rgba(255, 255, 255, .035) !important;
+  background: var(--nav-dropdown-pane-bg) !important;
 }
 
 .site-nav[data-phase01-navbar] .mm-cat {
@@ -988,7 +1023,7 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .mm-cat.is-active {
 }
 .site-nav[data-phase01-navbar] .mm-panes {
   padding: 18px 20px !important;
-  background: transparent !important;
+  background: var(--nav-dropdown-pane-bg) !important;
   align-self: stretch !important;
 }
 .site-nav[data-phase01-navbar] .mm-companies {
@@ -1038,8 +1073,8 @@ body.co-theme-agro .nav-mobile[data-phase01-navbar-mobile].open {
   left: 50% !important;
   transform: translate(-50%, -6px) !important;
   padding: 0 !important;
-  background: rgba(3, 53, 79, .58) !important;
-  border: 1px solid rgba(255, 255, 255, .16) !important;
+  background: var(--nav-dropdown-bg) !important;
+  border: 1px solid var(--nav-dropdown-border) !important;
   border-radius: 16px !important;
   overflow: hidden !important;
 }
@@ -1069,14 +1104,14 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-m
 .site-nav[data-phase01-navbar] .mm-cats {
   gap: 2px !important;
   padding: 12px !important;
-  background: #03354f !important;
+  background: var(--nav-dropdown-sidebar-bg) !important;
   border-radius: 0 !important;
 }
 .site-nav[data-phase01-navbar] .mm-panes {
   min-width: 0 !important;
   padding: 18px 20px !important;
-  background: transparent !important;
-  border-left: 1px solid rgba(255, 255, 255, .14) !important;
+  background: var(--nav-dropdown-pane-bg) !important;
+  border-left: 1px solid var(--nav-dropdown-divider) !important;
 }
 .site-nav[data-phase01-navbar] .mm-cat,
 .site-nav[data-phase01-navbar] .mm-cat:hover,
@@ -1201,7 +1236,7 @@ html.lg-nav-open, body.lg-nav-open { overflow: hidden !important; }
   min-height: calc(100dvh - 68px) !important;
   max-height: calc(100dvh - 68px) !important;
   padding: 10px 20px 28px !important;
-  background: #03354f !important;
+  background: var(--nav-dropdown-sidebar-bg) !important;
   border-bottom: 0 !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
@@ -1293,6 +1328,12 @@ html.lg-nav-open, body.lg-nav-open { overflow: hidden !important; }
 }
 .nav-mobile[data-phase01-navbar-mobile] .mob-acc-panel a:hover { color: #fff200 !important; background: rgba(255,255,255,.05) !important; }
 .nav-mobile[data-phase01-navbar-mobile] .mob-language { margin-top: 18px !important; }
+
+body.co-theme-agro .nav-mobile[data-phase01-navbar-mobile] {
+  background: var(--nav-dropdown-sidebar-bg) !important;
+  background-color: var(--nav-dropdown-sidebar-bg) !important;
+  border-color: var(--nav-dropdown-border) !important;
+}
 
 /* Mobile-only navigation: one disclosure per top-level category.  The drawer
    owns scrolling while the document behind it remains locked. */
