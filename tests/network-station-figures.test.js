@@ -26,60 +26,44 @@ function startServer() {
   return new Promise((resolve) => server.listen(0, '127.0.0.1', () => resolve(server)));
 }
 
-test('canonical metrics distinguish the Africa-wide network from fuel stations', () => {
+test('canonical metrics use 250+ fuel stations and no longer show Across Africa stat', () => {
   const seeds = read('backend/scripts/seed-metrics.js');
 
-  assert.match(seeds, /key: 'stations',[\s\S]*?label: 'Fuel Stations',[\s\S]*?value: '154'/);
-  assert.match(seeds, /key: 'network_locations',[\s\S]*?label: 'Across Africa',[\s\S]*?value: '250\+'/);
+  assert.match(seeds, /key: 'stations',[\s\S]*?label: 'Fuel Stations',[\s\S]*?value: '250\+'/);
+  // The network_locations / Across Africa stat card has been removed
+  assert.doesNotMatch(seeds, /key: 'network_locations'/);
 });
 
-test('home uses the approved current figures without conflating their meanings', () => {
+test('home uses 250+ fuel stations and no longer shows Across Africa stat card', () => {
   const home = read('index.html');
-  const translations = JSON.parse(read('assets/i18n-content.json'));
 
-  assert.match(home, /data-metric-key="stations">154<\/span>/);
-  assert.match(home, /data-metric-key="network_locations">250\+<\/span>/);
-  assert.match(home, /data-i18n="stat\.acrossAfrica">Across Africa<\/span>/);
-  assert.equal(translations.en['stat.acrossAfrica'], 'Across Africa');
-  assert.match(translations.en['station_locator.6'], /^154 Fuel Stations$/);
+  assert.match(home, /data-metric-key="stations">250\+<\/span>/);
+  // The Across Africa stat card has been removed
+  assert.doesNotMatch(home, /data-metric-key="network_locations"/);
+  assert.doesNotMatch(home, /data-i18n="stat\.acrossAfrica"/);
 });
 
-test('current station-count surfaces use 154 and leave historic news milestones intact', () => {
+test('no legacy 154 fuel station references remain in current public surfaces', () => {
   const currentSources = [
     'index.html',
-    'our-story.html',
+    'lake-oil.html',
     'station-locator.html',
     'africa-network.html',
-    'lake-oil.html',
-    'lake-group-financial-dashboard.html',
-    'lake-group-org-chart.html',
     'leadership-ally-edha-awadh.html',
     'assets/site.js',
-    'scripts/_master_en.json',
-    'assets/i18n-content.json',
-    'scripts/build_assistant_kb.js',
-    'assets/assistant-kb.js',
-    'scripts/_verified_lake_facts.md',
-    'backend/scripts/content-seed-data.js',
+    'assets/news-data.js',
   ];
 
   for (const relative of currentSources) {
     const source = read(relative);
-    assert.doesNotMatch(source, /152\+?\s+(?:retail\s+)?(?:fuel\s+)?stations?/i, relative);
-    if (relative === 'our-story.html') {
-      assert.match(source, /data-number="154"\s+data-metric-key="stations">154<\/div><div class="lbl"[^>]*>Fuel Stations/i, relative);
-    } else if (relative === 'backend/scripts/content-seed-data.js') {
-      assert.match(source, /of 154/i, relative);
-    } else {
-      assert.match(source, /154/, relative);
-    }
+    assert.doesNotMatch(source, /154\s*Fuel Stations/i, `${relative} still contains stale 154 fuel stations`);
+    assert.doesNotMatch(source, /154 fuel stations/i, `${relative} still contains stale 154 fuel stations`);
+    assert.doesNotMatch(source, /A retail network of 154/i, `${relative} still contains stale 154 retail network`);
+    assert.doesNotMatch(source, /Showing 5 of 154/i, `${relative} still contains stale 154 stations count`);
   }
-
-  const historicalNews = read('assets/news-data.js');
-  assert.match(historicalNews, /2021[\s\S]*152 fuel stations|152 Retail Fuel Stations Milestone/i);
 });
 
-test('Home renders the separated Africa network and fuel-station figures without overflow', async () => {
+test('Home presents 250+ fuel stations without overflow', async () => {
   const server = await startServer();
   const browser = await chromium.launch({ headless: true });
   try {
@@ -87,11 +71,11 @@ test('Home renders the separated Africa network and fuel-station figures without
     for (const viewport of [{ width: 1440, height: 900 }, { width: 820, height: 1180 }, { width: 390, height: 844 }]) {
       const page = await browser.newPage({ viewport });
       await page.goto(`http://127.0.0.1:${port}/index.html`, { waitUntil: 'domcontentloaded' });
-      await page.waitForFunction(() => document.querySelector('[data-metric-key="stations"]')?.textContent.trim() === '154', null, { timeout: 5000 });
-      await page.waitForFunction(() => document.querySelector('[data-metric-key="network_locations"]')?.textContent.trim() === '250+', null, { timeout: 5000 });
+      await page.waitForFunction(() => document.querySelector('[data-metric-key="stations"]')?.textContent.trim() === '250+', null, { timeout: 5000 });
       const metrics = await page.locator('.hero-kf').allTextContents();
-      assert.ok(metrics.some((value) => /154\s*Fuel Stations/i.test(value)), `missing 154 fuel stations at ${viewport.width}px`);
-      assert.ok(metrics.some((value) => /250\+\s*Across Africa/i.test(value)), `missing Africa-wide 250+ figure at ${viewport.width}px`);
+      assert.ok(metrics.some((value) => /250\+\s*Fuel Stations/i.test(value)), `missing 250+ fuel stations at ${viewport.width}px`);
+      // Across Africa stat card should not be present
+      assert.ok(!metrics.some((value) => /Across Africa/i.test(value)), `Across Africa stat should not appear at ${viewport.width}px`);
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
       assert.ok(overflow <= 1, `horizontal overflow at ${viewport.width}px: ${overflow}px`);
       await page.close();

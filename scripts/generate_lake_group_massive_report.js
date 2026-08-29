@@ -673,7 +673,7 @@ async function main() {
   children.push(dataTable(["Project","Value","Status","Source"], [["Kenya LPG Terminal — Vipingo, Kilifi","$60M","Completed 2025","SECONDARY: news"],["Yala Swamp — Siaya, Kenya","Sh20B (~$13M)","Planned/ongoing","SECONDARY: Kenya NLC"],["Ocean Galleria — Masaki, DSM","Not disclosed","Near completion","UNVERIFIED"],["Lake Steel Mill — Kibaha","Not disclosed","Operational","lakeoilgroup.com"],["ATL — Dar es Salaam","Not disclosed","Operational ~2019","lakeoilgroup.com"]]));
   children.push(emptyLine());
   children.push(heading("13.1 Key Client Categories", 1, {color:C.blue}));
-  children.push(dataTable(["Client Category","Served By"], [["Government","Lake Oil, Lake Gas"],["Retail","Lake Oil (154 fuel stations)"],["Industrial/Mining","Lake Oil, Lake Lubes"],["Aviation","Lake Aviation"],["Construction","GCCP, Gulf Aggregates, Lake Steel"],["Maritime","Lake Oil (bunkering)"],["Transport","Lake Trans, ATL"],["Agriculture","Lake Agro, Lake Oil"]]));
+  children.push(dataTable(["Client Category","Served By"], [["Government","Lake Oil, Lake Gas"],["Retail","Lake Oil (250+ fuel stations)"],["Industrial/Mining","Lake Oil, Lake Lubes"],["Aviation","Lake Aviation"],["Construction","GCCP, Gulf Aggregates, Lake Steel"],["Maritime","Lake Oil (bunkering)"],["Transport","Lake Trans, ATL"],["Agriculture","Lake Agro, Lake Oil"]]));
   children.push(emptyLine());
   children.push(new Paragraph({children:[new PageBreak()]}));
 
@@ -748,7 +748,7 @@ async function main() {
   children.push(heading("17.2 Revenue Projections [ESTIMATED]", 1, {color:C.blue}));
   children.push(para("These are estimates based on operational capacity and industry benchmarks. NOT official figures.", {size:9, color:C.red, bold:true}));
   children.push(emptyLine());
-  children.push(dataTable(["Sector","Basis","Est. Annual Revenue","Notes"], [["Lake Oil","154 fuel stations + bulk","$500M – $1B+","Based on Forbes $1B (2017)"],["Lake Gas","Kenya LPG 2% share","$9M – $26M","~2% of 415K MT mkt"],["Lake Trans","Tanker fleet","$120M – $180M","Industry rates"],["Lake Steel","100K MT/yr capacity","$48M – $86M","$950/MT, 50-90% util."],["GCCP/Lake Premix","Dar concrete supply","$5M – $15M","Industry estimate"],["Other Mfg","ATL, Aggregates etc.","$5M – $15M","Conservative"],["Lake Agro","Yala Swamp","Pre-revenue (2026)","Development stage"],["Total (excl. Oil core)","","$190M – $327M","Estimate"],["Total (incl. Oil core)","","$1B+","Consistent with Forbes"]]));
+  children.push(dataTable(["Sector","Basis","Est. Annual Revenue","Notes"], [["Lake Oil","250+ fuel stations + bulk","$500M – $1B+","Based on Forbes $1B (2017)"],["Lake Gas","Kenya LPG 2% share","$9M – $26M","~2% of 415K MT mkt"],["Lake Trans","Tanker fleet","$120M – $180M","Industry rates"],["Lake Steel","100K MT/yr capacity","$48M – $86M","$950/MT, 50-90% util."],["GCCP/Lake Premix","Dar concrete supply","$5M – $15M","Industry estimate"],["Other Mfg","ATL, Aggregates etc.","$5M – $15M","Conservative"],["Lake Agro","Yala Swamp","Pre-revenue (2026)","Development stage"],["Total (excl. Oil core)","","$190M – $327M","Estimate"],["Total (incl. Oil core)","","$1B+","Consistent with Forbes"]]));
   children.push(para("All projections [ESTIMATED]. Not for investment decisions. See Section 18 for methodology.", {size:9, italics:true, color:C.muted}));
   children.push(emptyLine());
   children.push(new Paragraph({children:[new PageBreak()]}));

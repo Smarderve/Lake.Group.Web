@@ -164,7 +164,7 @@ const COMPANY_DATA = [
         name: "Lake Oil Ltd.",
         est: "2006",
         hq: "Dar es Salaam, Tanzania (Plot 49, Mikocheni Light Industrial)",
-        desc: "Flagship company and one of Tanzania's top 5 petroleum distributors. Supplies petrol and diesel through 154 fuel stations, bulk delivery, and strategic storage. Provides marine bunkering at the Port of Dar es Salaam.",
+        desc: "Flagship company and one of Tanzania's top 5 petroleum distributors. Supplies petrol and diesel through 250+ fuel stations, bulk delivery, and strategic storage. Provides marine bunkering at the Port of Dar es Salaam.",
         countries: [
           ["Tanzania", "Lake Oil Ltd", "Dar es Salaam (HQ), retail stations & storage"],
           ["Kenya", "Lake Oil Ltd", "Retail stations & storage facilities"],
@@ -504,7 +504,7 @@ async function main() {
     ["Sectors", "Energy, Logistics, Manufacturing, Real Estate, Agro Processing"],
     ["Countries", "10+ countries across East, Central & Southern Africa, and UAE"],
     ["Employees", "30,000+ (direct & indirect)"],
-    ["Fuel Stations", "154 fuel stations"],
+    ["Fuel Stations", "250+ fuel stations"],
     ["Fleet Size", "1,600+ tanker trucks"],
     ["Motto", "Quality, Service, Safety, Professionalism"],
     ["Forbes Feature", "2017 - Covered as a billion-dollar (revenue) integrated energy platform"],
@@ -591,7 +591,7 @@ async function main() {
     ["2022", "Young Business Leader of the Year", "African Leadership Magazine awards Mr. Ally Edha Awadh the Young Business Leader of the Year award.", "Recognition"],
     ["2023", "Young African Energy Leader of the Year", "African Business Leadership Awards recognizes Ally Edha Awadh as Young African Energy Leader of the Year.", "Recognition"],
     ["2025", "$60M Kenya LPG Terminal", "Lake Gas launches a 10,000-metric-ton LPG import and storage terminal in Vipingo, Kilifi County, Kenya — featuring an offshore Conventional Buoy Mooring (CBM) system. Captures approximately 2% of the Kenyan cooking gas market. Lake Agro secures 17,250-acre Yala Swamp lease in Siaya County, Kenya with Sh20 billion (~$13M) investment planned for rice, sugarcane, soya and fish farming.", "Major Investment"],
-    ["2026", "Ocean Galleria Nears Completion / Current State", "East Africa's first waterfront luxury mall in Masaki, Dar es Salaam nears completion. Lake Group now spans 18+ companies across 5 sectors, with operations in 10+ countries, 154 fuel stations, 1,600+ tanker trucks, and 30,000+ employees.", "Milestone"],
+    ["2026", "Ocean Galleria Nears Completion / Current State", "East Africa's first waterfront luxury mall in Masaki, Dar es Salaam nears completion. Lake Group now spans 18+ companies across 5 sectors, with operations in 10+ countries, 250+ fuel stations, 1,600+ tanker trucks, and 30,000+ employees.", "Milestone"],
   ];
 
   children.push(dataTable(
@@ -777,7 +777,7 @@ async function main() {
   children.push(emptyLine());
 
   const subFin = [
-    ["Lake Oil", "Flagship", "Top 5 in Tanzania; 154 fuel stations; storage in 4 countries; marine bunkering"],
+    ["Lake Oil", "Flagship", "Top 5 in Tanzania; 250+ fuel stations; storage in 4 countries; marine bunkering"],
     ["Lake Gas", "LPG", "Launched 2014; $60M Kenya terminal (2025, 10,000 MT capacity); ~2% Kenyan market share"],
     ["Lake Steel", "Manufacturing", "100,000 MT annual capacity; 25 MT/hour production rate; HS-CR reinforcement bars"],
     ["Lake Trans", "Logistics", "1,600+ truck fleet; cross-border operations in 7 countries"],
@@ -952,7 +952,7 @@ async function main() {
 
   children.push(mixedPara([
     { text: "Estimated total (non-oil): $190M – $327M annually. ", bold: true, color: C.navy },
-    { text: "Adding the Lake Oil core business (petroleum distribution, 154 fuel stations, 9 countries) — previously reported at $1B revenue in 2017 and likely grown since — places the group's total estimated revenue well in excess of $1B as of 2026, consistent with its trajectory as one of East Africa's largest privately held conglomerates." },
+    { text: "Adding the Lake Oil core business (petroleum distribution, 250+ fuel stations, 9 countries) — previously reported at $1B revenue in 2017 and likely grown since — places the group's total estimated revenue well in excess of $1B as of 2026, consistent with its trajectory as one of East Africa's largest privately held conglomerates." },
   ]));
   children.push(emptyLine());
 

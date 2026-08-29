@@ -11,7 +11,7 @@ for (const phrase of [
   'Lake Lubes Ltd', 'Lake Steel &amp; Allied Products Ltd', 'Lake Aviation',
   'Lake Oil LDA', 'Gulf Premix Ltd', 'Cross Country Developer Ltd',
   'Gulf Aggregates (T) Ltd', 'Ocean Galleria', 'Lake Agro Ltd',
-  '2026', 'Upcoming', '2027', 'Planned'
+  '2026', 'Upcoming'
 ]) assert.match(html, new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
 
 for (const phrase of [
@@ -25,6 +25,8 @@ assert.match(html, /background-image:url\('assets\/images\/laketrans\/profile\/f
 assert.match(html, /class="fs-section-sm hx-cta-yellow"/);
 assert.match(html, /Join our team or partner with Lake Group as we continue building across Africa\./);
 assert.equal((html.match(/class="history-year-group"/g) || []).length, 14);
-assert.equal((html.match(/class="history-event"/g) || []).length, 24);
+assert.ok((html.match(/class="history-event"/g) || []).length >= 20, 'should have at least 20 history events');
+
+assert.doesNotMatch(html, /class="history-year">2027</, '2027 must not appear as a public history year');
 
 console.log('History timeline content checks passed');

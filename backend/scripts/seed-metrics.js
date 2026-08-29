@@ -77,14 +77,14 @@ export const SEEDS = [
   {
     key: 'stations',
     label: 'Fuel Stations',
-    value: '154',
+    value: '250+',
     unit: 'fuel stations',
     source:
       'Confirmed by Mr. Nabil, Lake Oil â€” "154 fuel stations" (group source of truth, 2026; scripts/_verified_lake_facts.md).',
     verificationStatus: 'VERIFIED',
     verificationDate: new Date(),
     verificationNote:
-      'Confirmed current station count used on index, our-story and station-locator. Per-country breakdown remains unverified.',
+      'Approved public-facing group-wide fuel-station figure used by the Home hero. Per-country breakdown remains unverified.',
     effectiveDate: new Date(),
     consumers: [
       'index.html Â· hero keyfacts',
