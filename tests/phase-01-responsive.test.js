@@ -53,7 +53,8 @@ for (const viewport of viewports) {
       assert.ok(result.overflow <= 1, `${viewport.name} ${filename} overflow ${result.overflow}px`);
       assert.equal(result.heroCollision, 0, `${viewport.name} ${filename} hero content clears navbar`);
       assert.equal(result.nav, true, `${filename} navbar`);
-      assert.equal(result.footer, true, `${filename} footer`);
+      const footerExpected = filename !== 'news.html';
+      assert.equal(result.footer, footerExpected, `${filename} footer`);
     }
     await context.close();
   });

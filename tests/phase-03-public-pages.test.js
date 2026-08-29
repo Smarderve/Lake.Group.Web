@@ -66,5 +66,5 @@ test('Phase 03 content contract', () => {
   assert.doesNotMatch(contact, /lake-group-placeholder\.png/);
   assert.match(contact, /Plots 72 &amp; 73, Vijibweni Area, Kigamboni/);
   assert.match(gallery, /gallery-archive[\s\S]*gal-slider/);
-  assert.ok((history.match(/class="timeline-item/g) || []).length >= 9, 'all legitimate timeline events remain');
+  assert.ok((history.match(/class="history-event/g) || []).length >= 14, 'all legitimate history events remain');
 });

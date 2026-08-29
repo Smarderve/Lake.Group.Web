@@ -27,8 +27,6 @@
   <link rel="apple-touch-icon" href="assets/icons/pwa/apple-touch-icon.png?v=20260828-01" />
   <link rel="preload" href="assets/fonts/files/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="assets/fonts/files/jost-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="assets/fonts/files/jost-latin-ext-700-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="assets/components/LogoLoop.css?v=20260828-01" />
   <link rel="preconnect" href="https://www.youtube-nocookie.com" crossorigin>
   <style>
@@ -2396,7 +2394,7 @@
         <img src="assets/images/home/verticals/manufacturing.webp" alt="" width="1672" height="941" decoding="async" loading="lazy">
       </div>
       <div class="hero-slide">
-        <img src="assets/images/home/verticals/automotive-truck-lineup.png" alt="" width="1516" height="848" decoding="async" loading="lazy">
+        <img src="assets/images/home/verticals/automotive-truck-lineup.webp" alt="" width="1515" height="848" decoding="async" loading="lazy">
       </div>
       <div class="hero-slide">
         <img src="assets/images/ccp/doc-hero.jpg" alt="" width="1600" height="1200" decoding="async" loading="lazy">
@@ -2453,7 +2451,7 @@
         <span>Manufacturing</span><span class="hero-tab-fill"></span>
       </button>
       <button type="button" class="hero-tab" role="tab" aria-selected="false">
-        <span class="hero-tab-thumb"><img src="assets/images/home/verticals/automotive-truck-lineup.png" alt="" loading="lazy" decoding="async"></span>
+          <span class="hero-tab-thumb"><img src="assets/images/home/verticals/automotive-truck-lineup.webp" alt="" loading="lazy" decoding="async"></span>
         <span>Automotive</span><span class="hero-tab-fill"></span>
       </button>
       <button type="button" class="hero-tab" role="tab" aria-selected="false">
@@ -2828,23 +2826,33 @@
     // approaches the viewport, instead of blocking initial page load with it.
     (function () {
       var section = document.getElementById("fuel-experience");
+      var loaded = false;
       function load() {
+        if (loaded) return;
+        loaded = true;
         var s = document.createElement("script");
         s.src = "assets/hero-globe.bundle.js?v=20260828-01";
         document.body.appendChild(s);
       }
+      function scheduleLoad() {
+        if ("requestIdleCallback" in window) {
+          window.requestIdleCallback(load, { timeout: 2500 });
+        } else {
+          window.setTimeout(load, 250);
+        }
+      }
       if (!section || !("IntersectionObserver" in window)) {
-        load();
+        scheduleLoad();
         return;
       }
       var io = new IntersectionObserver(
         function (entries) {
           if (entries[0].isIntersecting) {
             io.disconnect();
-            load();
+            scheduleLoad();
           }
         },
-        { rootMargin: "600px 0px" },
+        { rootMargin: "0px" },
       );
       io.observe(section);
     })();
@@ -2946,7 +2954,9 @@
       function preloadAround(center) {
         var n = tiles.length;
         if (!n) return;
-        for (var off = -2; off <= 2; off++) {
+        // Keep the initial action strip to the active tile and its next
+        // neighbor. Remaining cards are warmed progressively after paint.
+        for (var off = 0; off <= 1; off++) {
           var i = ((center + off) % n + n) % n;
           var btn = tiles[i];
           if (!btn || !btn._item) continue;
@@ -2962,22 +2972,22 @@
           var budget = deadline && typeof deadline.timeRemaining === "function"
             ? deadline.timeRemaining()
             : 16;
-          while (i < queue.length && budget > 6) {
+          // One deferred card per idle turn prevents the whole below-fold
+          // strip from competing with the hero and first meaningful paint.
+          if (i < queue.length && budget > 2) {
             var btn = queue[i++];
-            if (!btn || !btn._item) continue;
-            var img = btn.querySelector("img");
-            if (!img || img.dataset.lgReady === "1") continue;
-            var warm = new Image();
-            warm.decoding = "async";
-            warm.src = btn._item.src;
-            ensureSrc(img, btn._item.src, "idle");
-            budget -= 4;
+            if (btn && btn._item) {
+              var img = btn.querySelector("img");
+              if (img && img.dataset.lgReady !== "1") {
+                ensureSrc(img, btn._item.src, "idle");
+              }
+            }
           }
           if (i < queue.length) {
             if ("requestIdleCallback" in window) {
-              requestIdleCallback(step, { timeout: 2000 });
+              requestIdleCallback(step, { timeout: 1800 });
             } else {
-              window.setTimeout(function () { step(null); }, 220);
+              window.setTimeout(function () { step(null); }, 700);
             }
           }
         }

@@ -16,7 +16,10 @@
     "test:public-delivery": "node --test tests/public-snapshot.test.js",
     "public:snapshot": "node scripts/public-snapshot.js",
     "secret:scan": "node scripts/check-secrets.mjs",
-    "test:cache-consistency": "node scripts/check-cache-consistency.mjs"
+    "test:cache-consistency": "node scripts/check-cache-consistency.mjs",
+    "test:performance-sanity": "node tests/performance-sanity.test.js",
+    "test:cache-lifecycle": "node tests/cache-lifecycle.test.js",
+    "test:reload-stability": "node tests/reload-stability.test.js"
   },
   "devDependencies": {
     "esbuild": "^0.28.1",

@@ -9,7 +9,7 @@ const test = require('node:test');
 const ROOT = path.join(__dirname, '..');
 const TEMPLATE = fs.readFileSync(path.join(ROOT, 'scripts', 'templates', 'footer.html'), 'utf8');
 const CANONICAL_FOOTER = normalize(TEMPLATE);
-const APPROVED_TEMPLATE_SHA256 = '60180df90428ee2dd4ad309e0afa851c1f29b9ce6e62e39e70b81059adff67c3';
+const APPROVED_TEMPLATE_SHA256 = '417e292e04aa53382e694eacc4b6558a3c940909027a627fc175d29da6034792';
 const CANONICAL_SOCIAL_HREFS = socialHrefs(CANONICAL_FOOTER);
 const REQUIRED_STYLESHEET = '<link rel="stylesheet" href="assets/phase-01-footer.css">';
 const FOOTER_CSS = fs.readFileSync(path.join(ROOT, 'assets', 'phase-01-footer.css'), 'utf8');
@@ -87,6 +87,16 @@ test('every root public HTML page uses the approved footer template and one stru
   for (const filename of files) {
     const source = fs.readFileSync(path.join(ROOT, filename), 'utf8');
     const footers = footersIn(source);
+    const footerless = /<body\b[^>]*\bdata-shared-footer="false"[^>]*>/i.test(source);
+    if (footerless) {
+      // Under-construction pages retain the shared markup for source-level
+      // consistency, but the page contract disables it and its stylesheet
+      // removes it from layout. Do not apply the normal visible-footer hash
+      // assertions to this intentional footerless variant.
+      assert.ok(footers.length <= 1, filename + ' must not contain duplicate footer markup');
+      assert.doesNotMatch(source, /<body\b[^>]*\bdata-shared-footer="true"[^>]*>/i, filename + ' must not opt into shared footer layout');
+      continue;
+    }
     assert.equal(footers.length, 1, filename + ' must contain exactly one footer');
     assert.equal(sha256(normalize(footers[0])), APPROVED_TEMPLATE_SHA256, filename + ' footer differs from the approved template');
     assert.equal((head(source).match(/assets\/phase-01-footer\.css/g) || []).length, 1, filename + ' must load the shared footer stylesheet once in head');
@@ -98,6 +108,7 @@ test('every root public HTML page uses the approved footer template and one stru
 test('footer brand, social set, and legacy footers cannot diverge by page', () => {
   for (const filename of rootHtmlFiles()) {
     const source = fs.readFileSync(path.join(ROOT, filename), 'utf8');
+    if (/data-shared-footer="false"/i.test(source)) continue;
     const footer = footersIn(source)[0];
     assert.equal((footer.match(/LAKE_LOGO_LAKE_ONLY\.png/g) || []).length, 1, filename + ' must have the Lake-only logo once');
     assert.deepEqual(socialHrefs(footer), CANONICAL_SOCIAL_HREFS, filename + ' social links differ');

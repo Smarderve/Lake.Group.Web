@@ -121,6 +121,16 @@
       "source": "/lake-story-assets/:path*",
       "destination": "/assets/images/our-story/:path*",
       "permanent": true
+    },
+    {
+      "source": "/la-home.html",
+      "destination": "/lake-agro.html",
+      "permanent": true
+    },
+    {
+      "source": "/la-projects.html",
+      "destination": "/lake-agro.html",
+      "permanent": true
     }
   ],
   "headers": [
@@ -205,16 +215,6 @@
           "value": "public, max-age=0, must-revalidate"
         }
       ]
-    },
-    {
-      "source": "/la-home.html",
-      "destination": "/lake-agro.html",
-      "permanent": true
-    },
-    {
-      "source": "/la-projects.html",
-      "destination": "/lake-agro.html",
-      "permanent": true
     },
     {
       "source": "/",
