@@ -3,6 +3,16 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/acfs.html",
+      "destination": "/index.html",
+      "permanent": true
+    },
+    {
+      "source": "/ocean-galleria.html",
+      "destination": "/index.html",
+      "permanent": true
+    },
+    {
       "source": "/services.html",
       "destination": "/index.html",
       "permanent": true

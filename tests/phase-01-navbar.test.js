@@ -69,20 +69,20 @@ test('Phase 01 navbar follows launch constraints and all logo destinations resol
   }
 });
 
-test('subsidiary coverage uses unique supplied company marks and includes ACFS', () => {
+test('subsidiary coverage uses unique supplied company marks without retired companies', () => {
   const imageBacked = [
     'lake-oil.html', 'lake-aviation.html', 'lake-gas.html', 'lake-lubes.html',
     'lake-buildings.html', 'lake-plastics.html', 'lake-steel.html', 'lake-cylinders.html',
     'gulf-aggregates.html', 'lake-premix-cement.html',
-    'aficd.html', 'acfs.html', 'aill.html', 'lake-trans.html',
-    'cross-country.html', 'ocean-galleria.html', 'lake-agro.html',
+    'aficd.html', 'aill.html', 'lake-trans.html',
+    'cross-country.html', 'lake-agro.html',
   ];
   const desktopLinks = [...navTemplate.matchAll(/<a href="([\w-]+\.html)" class="mm-company(?: [^"]+)?"><img src="([^"]+)"/g)];
   assert.deepEqual(desktopLinks.map((match) => match[1]), imageBacked);
   assert.equal(new Set(desktopLinks.map((match) => match[2])).size, desktopLinks.length, 'no repeated fallback logo');
   assert.equal(desktopLinks.some((match) => /LAKE_LOGO_LAKE_ONLY|placeholder/i.test(match[2])), false, 'company cards use only company-specific marks');
-  assert.match(navTemplate, /href="acfs\.html" class="mm-company"><img src="assets\/images\/logos\/companies\/acfs\.png"/);
-  assert.match(mobileTemplate, /href="acfs\.html"[^>]*>[\s\S]*?ACFS<\/a>/);
+  assert.doesNotMatch(navTemplate, /acfs|ocean-galleria/i);
+  assert.doesNotMatch(mobileTemplate, /acfs|ocean galleria/i);
   const automotive = ['assembly-tech.html', 'agrinova-tech.html', 'nextdrive-motors.html'];
   for (const file of automotive) {
     assert.match(navTemplate, new RegExp(`<a href="${file}" class="mm-company mm-company--wordmark">`), `${file}: desktop target`);

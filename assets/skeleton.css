@@ -9,7 +9,9 @@ html.lg-loading::before {
   position: fixed;
   inset: 0;
   z-index: 99989;
-  background: #013f5c;
+  /* Keep the first paint compatible with the transparent/glass navigation.
+     This is a light veil over the real page, not the retired solid-blue UI. */
+  background: rgba(4, 24, 38, 0.34);
   pointer-events: none;
 }
 
@@ -26,7 +28,8 @@ html.lg-skel-done::before {
   overflow: hidden;
   isolation: isolate;
   pointer-events: none;
-  background: #013f5c;
+  background: rgba(4, 24, 38, 0.38);
+  backdrop-filter: blur(3px);
   opacity: 1;
   visibility: visible;
   transition: opacity 0.35s ease, visibility 0.35s ease;
@@ -53,7 +56,9 @@ html.lg-skel-done::before {
 /* Brand navbar band: slightly lifted from the curtain so the fixed bar reads
    as its own surface, exactly like the real .site-nav over the hero. */
 [data-lg-skeleton-block="navbar"] {
-  background: rgba(1, 102, 148, 0.6);
+  background: rgba(6, 31, 48, 0.28);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
 }
 
 /* Brand bottom edge of the navbar (home/interior yellow rule). */
@@ -130,5 +135,5 @@ html.lg-skel-done::before {
 }
 
 html:has(body.co-theme-agro) [data-lg-skeleton-overlay] {
-  background: #004b1e;
+  background: rgba(0, 75, 30, 0.4);
 }
