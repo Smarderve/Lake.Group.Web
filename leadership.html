@@ -276,6 +276,48 @@ body .page-hero h1 {
   }
 }
 
+/* Editorial leadership page sections */
+.ld-section-number{color:var(--color-brand-blue,#0181BB);font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px}
+.ld-kicker{color:var(--gold-deep,#b8960a);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+.ld-kicker--color{color:var(--gold-deep,#b8960a)}
+.ld-kicker--light{color:rgba(255,255,255,.7)}
+
+/* Chairman section */
+.ld-chairman-section{background:#f8f9fb}
+.ld-chairman-grid{display:grid;grid-template-columns:380px 1fr;gap:clamp(32px,5vw,72px);align-items:start}
+@media(max-width:880px){.ld-chairman-grid{grid-template-columns:1fr;gap:32px}}
+.ld-chairman-photo{position:relative;border-radius:10px;overflow:hidden;background:#e2e8f0;aspect-ratio:4/5}
+.ld-chairman-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+@media(max-width:880px){.ld-chairman-photo{max-width:420px;margin:0 auto}}
+.ld-chairman-content{padding-top:12px}
+.ld-chairman-name{font-size:clamp(2rem,3.5vw,3rem);font-weight:700;line-height:1.05;letter-spacing:-.02em;text-transform:uppercase;margin:0 0 6px;color:#0A1628}
+.ld-chairman-title{color:var(--color-brand-blue,#0181BB);font-size:1rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin:0 0 24px}
+.ld-chairman-bio p{font-size:1.05rem;line-height:1.7;color:#4a5568;margin:0 0 16px;max-width:58ch}
+
+/* Journey section */
+.ld-journey-section{background:var(--ink,#013f5c);color:#fff}
+.ld-timeline{position:relative;padding-left:28px}
+.ld-timeline::before{content:'';position:absolute;left:5px;top:0;bottom:0;width:2px;background:rgba(255,242,0,.3)}
+.ld-timeline-item{position:relative;padding:0 0 36px}
+.ld-timeline-item:last-child{padding-bottom:0}
+.ld-timeline-marker{position:absolute;left:-28px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--color-yellow-accent,#FFF200);border:2px solid var(--ink,#013f5c)}
+.ld-timeline-age{color:var(--color-yellow-accent,#FFF200);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.ld-timeline-content h3{font-size:1.2rem;font-weight:700;margin:6px 0 8px;color:#fff}
+.ld-timeline-content p{font-size:.95rem;line-height:1.65;color:rgba(255,255,255,.8);margin:0;max-width:52ch}
+
+/* Impact section */
+.ld-impact-section{background:#fff}
+.ld-impact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media(max-width:640px){.ld-impact-grid{grid-template-columns:1fr}}
+.ld-impact-card{padding:28px 24px;border:1px solid #e2e8f0;background:#f8f9fb;position:relative}
+.ld-impact-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--color-brand-blue,#0181BB)}
+.ld-impact-number{font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--color-brand-blue,#0181BB);line-height:1;display:block;margin-bottom:8px}
+.ld-impact-card h3{font-size:1rem;font-weight:700;margin:0 0 6px;color:#0A1628}
+.ld-impact-card p{font-size:.9rem;line-height:1.55;color:#6B7280;margin:0}
+
+/* Closing section */
+.ld-closing-section{background:#f8f9fb}
+
 </style>
 <script type="application/ld+json">
 {
@@ -389,23 +431,110 @@ body .page-hero h1 {
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="ld-featured" data-hydrate="leadership" data-hydrate-match="name">
-      <article class="ld-person-card" data-entity-key="Ally Edha Awadh">
-        <div class="ld-person-photo"><img data-entity-field="photo" data-entity-attr="src" src="assets/images/leadership/ally-edha-awadh.png" alt="Ally Edha Awadh" data-i18n-alt="leadership.9" loading="lazy" decoding="async"></div>
-        <div class="ld-person-body">
-          <h3><span data-i18n="leadership.9" data-entity-field="name">Ally Edha Awadh</span></h3>
-          <p class="ld-person-role"><span data-entity-field="position">Founder &amp; Chairman</span></p>
-          <p class="ld-person-sum" data-i18n="leadership.104" data-entity-field="bio">Mr. Ally Edha Awadh is the Founder and Chairman of Lake Group. Born and raised in Tanzania, he completed his primary education locally before pursuing various jobs that shaped his work ethic and entrepreneurial mindset.</p>
-          <p>At the age of 23, he moved to Canada to pursue higher education. While there, he launched his first business in the clothing industry. The success of that venture helped him recognise his entrepreneurial potential and pursue larger opportunities.</p>
-          <p>At the age of 26, he acquired a licence from Tanzania's Petroleum Bulk Procurement Agency (PBPA). This milestone laid the foundation for what became Lake Energies, which grew into the cornerstone of the diversified Lake Group.</p>
-          <p>Through his vision, perseverance and strategic leadership, Lake Group has grown into one of East Africa's leading private-sector conglomerates. In 2022, he received the &ldquo;Young Business Leader of the Year&rdquo; recognition from African Leadership Magazine.</p>
-          <p>Under his leadership, the Group's footprint spans 10 countries, with industrial operations contributing to employment and economic empowerment across the region. Beyond business, he is committed to community welfare initiatives and strategic partnerships contributing to sustainable development across East Africa.</p>
-        </div>
-      </article>
-    </div>
+<section class="ld-intro-section">
+  <div class="container" style="max-width:720px;text-align:center;padding:clamp(48px,6vw,80px) 24px">
+    <p class="ld-section-number">01</p>
+    <p class="ld-kicker">Our Leadership</p>
+    <h2 style="font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;line-height:1.15;margin:0 0 20px">Leadership Built Around Long-Term Value</h2>
+    <p style="font-size:1.05rem;line-height:1.7;max-width:56ch;margin:0 auto;color:#4a5568">Lake Group's leadership provides the expertise, strategic vision and commitment to excellence that support the Group's growth, diversification, innovation, operational excellence and sustainable value creation across every market we serve.</p>
+  </div>
+</section>
 
+<section class="ld-chairman-section">
+  <div class="container" style="max-width:1100px;padding:clamp(48px,6vw,80px) 24px">
+    <div class="ld-chairman-grid">
+      <div class="ld-chairman-photo">
+        <img src="assets/images/leadership/ally-edha-awadh.png" alt="Ally Edha Awadh" loading="lazy" decoding="async">
+      </div>
+      <div class="ld-chairman-content">
+        <p class="ld-kicker">About Our Chairman</p>
+        <h2 class="ld-chairman-name" data-entity-field="name" data-entity-key="Ally Edha Awadh">Ally Edha Awadh</h2>
+        <p class="ld-chairman-title"><span data-entity-field="position">Founder &amp; Chairman</span></p>
+        <div class="ld-chairman-bio">
+          <p>Mr. Ally Edha Awadh is the Founder and Chairman of Lake Group. Born and raised in Tanzania, he completed his primary education locally before pursuing various jobs that shaped his work ethic and entrepreneurial mindset.</p>
+          <p>Through his vision, perseverance and strategic leadership, Lake Group has grown into one of East Africa's leading private-sector conglomerates, with a footprint spanning 10 countries and industrial operations contributing to employment and economic empowerment across the region.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ld-journey-section">
+  <div class="container" style="max-width:960px;padding:clamp(48px,6vw,80px) 24px">
+    <p class="ld-kicker ld-kicker--light">02</p>
+    <h2 style="font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:700;color:#fff;margin:0 0 40px;line-height:1.15">The Entrepreneurial Journey</h2>
+    <div class="ld-timeline">
+      <div class="ld-timeline-item">
+        <div class="ld-timeline-marker"></div>
+        <div class="ld-timeline-content">
+          <span class="ld-timeline-age">Age 23</span>
+          <h3>Moved to Canada</h3>
+          <p>Relocated to Canada to pursue higher education, developing a global perspective on business and opportunity.</p>
+        </div>
+      </div>
+      <div class="ld-timeline-item">
+        <div class="ld-timeline-marker"></div>
+        <div class="ld-timeline-content">
+          <span class="ld-timeline-age">Canada</span>
+          <h3>First Business</h3>
+          <p>Launched his first business in the clothing industry. The success of that venture helped him recognise his entrepreneurial potential and pursue larger opportunities.</p>
+        </div>
+      </div>
+      <div class="ld-timeline-item">
+        <div class="ld-timeline-marker"></div>
+        <div class="ld-timeline-content">
+          <span class="ld-timeline-age">Age 26</span>
+          <h3>PBPA Licence</h3>
+          <p>Acquired a licence from Tanzania's Petroleum Bulk Procurement Agency (PBPA), laying the foundation for what became Lake Energies.</p>
+        </div>
+      </div>
+      <div class="ld-timeline-item">
+        <div class="ld-timeline-marker"></div>
+        <div class="ld-timeline-content">
+          <span class="ld-timeline-age">Foundation</span>
+          <h3>Lake Energies</h3>
+          <p>Lake Energies became the cornerstone of the diversified Lake Group, growing into one of East Africa's leading energy and industrial conglomerates.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ld-impact-section">
+  <div class="container" style="max-width:960px;padding:clamp(48px,6vw,80px) 24px">
+    <p class="ld-section-number">03</p>
+    <p class="ld-kicker">Leadership Impact</p>
+    <h2 style="font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:700;margin:0 0 40px;line-height:1.15">Building Lake Group</h2>
+    <div class="ld-impact-grid">
+      <div class="ld-impact-card">
+        <span class="ld-impact-number">10</span>
+        <h3>Countries</h3>
+        <p>Lake Group's footprint spans 10 countries across East and Central Africa.</p>
+      </div>
+      <div class="ld-impact-card">
+        <span class="ld-impact-number">2022</span>
+        <h3>Recognition</h3>
+        <p>Young Business Leader of the Year &mdash; African Leadership Magazine.</p>
+      </div>
+      <div class="ld-impact-card">
+        <span class="ld-impact-number">2006</span>
+        <h3>Founded</h3>
+        <p>Established Lake Oil with a single fuel outlet in Dar es Salaam.</p>
+      </div>
+      <div class="ld-impact-card">
+        <span class="ld-impact-number">1</span>
+        <h3>Vision</h3>
+        <p>Committed to community welfare and sustainable development across East Africa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ld-closing-section">
+  <div class="container" style="max-width:720px;text-align:center;padding:clamp(48px,6vw,80px) 24px">
+    <p class="ld-kicker">Beyond Business</p>
+    <h2 style="font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:700;margin:0 0 20px;line-height:1.15">Committed to Sustainable Development</h2>
+    <p style="font-size:1.05rem;line-height:1.7;max-width:56ch;margin:0 auto;color:#4a5568">Beyond business, Mr. Awadh is committed to community welfare initiatives and strategic partnerships contributing to sustainable development across East Africa.</p>
   </div>
 </section>
 </div>
