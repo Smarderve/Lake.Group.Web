@@ -40,7 +40,7 @@ Press/secondary sources:
 | Group email | admin@lakeoilgroup.com | [official] contact |
 | Group phones | (+255) 222 780 510, (+255) 222 780 479 | [official] contact |
 | Workforce | 30,000+ employees, 21 nationalities | [official] about |
-| Fleet (group) | 1,200+ trucks (site source of truth, 2026) | [official] about |
+| Fleet (group) | 1,600+ trucks (site source of truth, 2026) | [official] about |
 | Positioning | "one of East and Central Africa's fastest growing energy trading and transportation conglomerates"; "one of the 5 largest distributors of petroleum products in Tanzania" | [official] home |
 | Petroleum trading countries | Tanzania, Zambia, DRC, Burundi, Kenya, Ethiopia, Rwanda | [official] about |
 | Own oil storage in | Tanzania, Kenya, Burundi, DRC | [official] about |

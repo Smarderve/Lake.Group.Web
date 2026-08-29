@@ -21,7 +21,7 @@
  *      retrieval returns a focused passage, not a whole page.
  *   2. CURATED_FACTS below - hand-written from scripts/_verified_lake_facts.md
  *      (verified items only; conflicting official figures use the preferred
- *      "about page" number, e.g. 1,200+ trucks).
+ *      "about page" number, e.g. 1,600+ trucks).
  *
  * Run from repo root:  node scripts/build_assistant_kb.js
  */
@@ -206,17 +206,17 @@ const CURATED_FACTS = [
     url: 'fleet.html',
     en: {
       t: 'Our fleet',
-      s: 'Lake Trans, the group\u2019s logistics arm founded in 2008, operates a fleet of more than 1,200 trucks - every truck GPS-tracked - hauling bulk liquids and cargo to Zambia, Rwanda, DR Congo, Burundi, Malawi, Kenya and Uganda, with workshops in Kibaha, Kigamboni, Morogoro, Nairobi and Ndola.',
+      s: 'Lake Trans, the group\u2019s logistics arm founded in 2008, operates a fleet of more than 1,600 trucks - every truck GPS-tracked - hauling bulk liquids and cargo to Zambia, Rwanda, DR Congo, Burundi, Malawi, Kenya and Uganda, with workshops in Kibaha, Kigamboni, Morogoro, Nairobi and Ndola.',
       k: 'fleet trucks how many vehicles tankers transport haulage lake trans lorries',
     },
     fr: {
       t: 'Notre flotte',
-      s: 'Lake Trans, la branche logistique du groupe fondée en 2008, exploite une flotte de plus de 1 200 camions - tous suivis par GPS - transportant liquides en vrac et marchandises vers la Zambie, le Rwanda, la RD Congo, le Burundi, le Malawi, le Kenya et l\u2019Ouganda, avec des ateliers à Kibaha, Kigamboni, Morogoro, Nairobi et Ndola.',
+      s: 'Lake Trans, la branche logistique du groupe fondée en 2008, exploite une flotte de plus de 1 600 camions - tous suivis par GPS - transportant liquides en vrac et marchandises vers la Zambie, le Rwanda, la RD Congo, le Burundi, le Malawi, le Kenya et l\u2019Ouganda, avec des ateliers à Kibaha, Kigamboni, Morogoro, Nairobi et Ndola.',
       k: 'flotte camions combien véhicules citernes transport lake trans',
     },
     sw: {
       t: 'Meli yetu ya magari',
-      s: 'Lake Trans, tawi la usafirishaji la kampuni lililoanzishwa mwaka 2008, linaendesha zaidi ya malori 1,200 - kila lori likifuatiliwa kwa GPS - yakisafirisha mafuta na mizigo kwenda Zambia, Rwanda, DR Congo, Burundi, Malawi, Kenya na Uganda, yakiwa na karakana Kibaha, Kigamboni, Morogoro, Nairobi na Ndola.',
+      s: 'Lake Trans, tawi la usafirishaji la kampuni lililoanzishwa mwaka 2008, linaendesha zaidi ya malori 1,600 - kila lori likifuatiliwa kwa GPS - yakisafirisha mafuta na mizigo kwenda Zambia, Rwanda, DR Congo, Burundi, Malawi, Kenya na Uganda, yakiwa na karakana Kibaha, Kigamboni, Morogoro, Nairobi na Ndola.',
       k: 'malori magari mangapi usafirishaji lake trans karakana matenki',
     },
   },

@@ -289,7 +289,7 @@ const COMPANY_DATA = [
         name: "Lake Trans Ltd.",
         est: "N/A",
         hq: "Tanzania",
-        desc: "Logistics division operating a fleet of over 1,200 tanker trucks for petroleum product distribution across East and Central Africa.",
+        desc: "Logistics division operating a fleet of over 1,600 tanker trucks for petroleum product distribution across East and Central Africa.",
         countries: [
           ["Tanzania", "Lake Trans", "Fleet operations & logistics hub"],
           ["Kenya", "Lake Trans", "Cross-border transport"],
@@ -505,7 +505,7 @@ async function main() {
     ["Countries", "10+ countries across East, Central & Southern Africa, and UAE"],
     ["Employees", "30,000+ (direct & indirect)"],
     ["Retail Stations", "152 fuel stations"],
-    ["Fleet Size", "1,200+ tanker trucks"],
+    ["Fleet Size", "1,600+ tanker trucks"],
     ["Motto", "Quality, Service, Safety, Professionalism"],
     ["Forbes Feature", "2017 - Covered as a billion-dollar (revenue) integrated energy platform"],
     ["Awards", "African Leadership Magazine - Young Business Leader of the Year (2022); Young African Energy Leader of the Year (2023)"],
@@ -591,7 +591,7 @@ async function main() {
     ["2022", "Young Business Leader of the Year", "African Leadership Magazine awards Mr. Ally Edha Awadh the Young Business Leader of the Year award.", "Recognition"],
     ["2023", "Young African Energy Leader of the Year", "African Business Leadership Awards recognizes Ally Edha Awadh as Young African Energy Leader of the Year.", "Recognition"],
     ["2025", "$60M Kenya LPG Terminal", "Lake Gas launches a 10,000-metric-ton LPG import and storage terminal in Vipingo, Kilifi County, Kenya — featuring an offshore Conventional Buoy Mooring (CBM) system. Captures approximately 2% of the Kenyan cooking gas market. Lake Agro secures 17,250-acre Yala Swamp lease in Siaya County, Kenya with Sh20 billion (~$13M) investment planned for rice, sugarcane, soya and fish farming.", "Major Investment"],
-    ["2026", "Ocean Galleria Nears Completion / Current State", "East Africa's first waterfront luxury mall in Masaki, Dar es Salaam nears completion. Lake Group now spans 18+ companies across 5 sectors, with operations in 10+ countries, 152+ retail stations, 1,200+ tanker trucks, and 30,000+ employees.", "Milestone"],
+    ["2026", "Ocean Galleria Nears Completion / Current State", "East Africa's first waterfront luxury mall in Masaki, Dar es Salaam nears completion. Lake Group now spans 18+ companies across 5 sectors, with operations in 10+ countries, 152+ retail stations, 1,600+ tanker trucks, and 30,000+ employees.", "Milestone"],
   ];
 
   children.push(dataTable(
@@ -705,7 +705,7 @@ async function main() {
     ["Subsidiaries", "18+"],
     ["Countries of Operation", "10+"],
     ["Retail Fuel Stations", "152+"],
-    ["Tanker Truck Fleet", "1,200+"],
+    ["Tanker Truck Fleet", "1,600+"],
     ["Employees (Direct & Indirect)", "30,000+"],
     ["Storage Facilities", "Multiple strategic depots across Tanzania, Kenya, Burundi, DRC"],
     ["LPG Cylinder Milestone", "Africa's first composite LPG cylinders (2014)"],
@@ -756,7 +756,7 @@ async function main() {
     ["Annual Revenue (2017, Forbes)", "$1 billion (reported by Forbes Africa in 2017 feature)"],
     ["Current Revenue Estimate", "Not publicly disclosed; group has diversified significantly since 2017"],
     ["Employees (Direct & Indirect)", "30,000+ (direct and indirect employment)"],
-    ["Tanker Truck Fleet", "1,200+ (company website); 700+ (industry sources 2023-2025)"],
+    ["Tanker Truck Fleet", "1,600+ (company website); 700+ (industry sources 2023-2025)"],
     ["Retail Fuel Stations", "152+"],
     ["Countries of Operation", "10+ across East, Central & Southern Africa, and UAE"],
     ["Industry Ranking", "Top 5 petroleum distributor in Tanzania"],
@@ -780,7 +780,7 @@ async function main() {
     ["Lake Oil", "Flagship", "Top 5 in Tanzania; 152 stations; storage in 4 countries; marine bunkering"],
     ["Lake Gas", "LPG", "Launched 2014; $60M Kenya terminal (2025, 10,000 MT capacity); ~2% Kenyan market share"],
     ["Lake Steel", "Manufacturing", "100,000 MT annual capacity; 25 MT/hour production rate; HS-CR reinforcement bars"],
-    ["Lake Trans", "Logistics", "1,200+ truck fleet; cross-border operations in 7 countries"],
+    ["Lake Trans", "Logistics", "1,600+ truck fleet; cross-border operations in 7 countries"],
     ["Lake Agro", "Agribusiness", "17,250-acre Yala Swamp lease (Kenya); Sh20 billion (~$13M) investment planned"],
     ["Ocean Galleria", "Real Estate", "Luxury waterfront mall, Masaki, Dar es Salaam; completion est. mid-2026"],
     ["ATL", "Manufacturing", "Aluminium tankers; established 2019; Dar es Salaam"],
@@ -854,7 +854,7 @@ async function main() {
 
   children.push(mixedPara([
     { text: "Basis: ", bold: true },
-    { text: "100,000 MT annual capacity × regional rebar price of $850–$1,200/MT (est. $950/MT conservative average). Steel mill EBITDA margins in emerging markets: 6–12%." },
+    { text: "100,000 MT annual capacity × regional rebar price of $850–$1,600/MT (est. $950/MT conservative average). Steel mill EBITDA margins in emerging markets: 6–12%." },
   ]));
   children.push(emptyLine());
 
@@ -883,7 +883,7 @@ async function main() {
 
   children.push(mixedPara([
     { text: "Basis: ", bold: true },
-    { text: "Kenya LPG market at ~415,000 MT (2025), growing at >5% annually. Lake Gas market share at ~2% post-$60M terminal investment. Wholesale LPG price est. $1,000–$1,200/MT. Additional revenue from Tanzania, Zambia, DRC, Rwanda, Burundi, Uganda operations excluded from this model." },
+    { text: "Kenya LPG market at ~415,000 MT (2025), growing at >5% annually. Lake Gas market share at ~2% post-$60M terminal investment. Wholesale LPG price est. $1,000–$1,600/MT. Additional revenue from Tanzania, Zambia, DRC, Rwanda, Burundi, Uganda operations excluded from this model." },
   ]));
   children.push(emptyLine());
 
@@ -911,7 +911,7 @@ async function main() {
   children.push(emptyLine());
 
   const transModel = [
-    ["1,200+ tanker trucks", "$100K – $150K per truck", "$120M – $180M", "8–12%", "$9.6M – $21.6M"],
+    ["1,600+ tanker trucks", "$100K – $150K per truck", "$120M – $180M", "8–12%", "$9.6M – $21.6M"],
   ];
   children.push(dataTable(
     ["Fleet Size", "Revenue per Truck (Est.)", "Fleet Revenue (Est.)", "EBITDA Margin (Est.)", "EBITDA (Est.)"],
@@ -934,7 +934,7 @@ async function main() {
   children.push(emptyLine());
 
   const consolidated = [
-    ["Lake Trans", "Logistics", "$120M – $180M", "1,200+ trucks, 7-country network"],
+    ["Lake Trans", "Logistics", "$120M – $180M", "1,600+ trucks, 7-country network"],
     ["Lake Steel", "Manufacturing", "$48M – $86M", "100,000 MT/yr; 50–90% utilization"],
     ["Lake Gas", "Energy", "$9M – $26M (Kenya)", "Growing from 2% to 5% market share (2025–2028)"],
     ["Lake Premix (GCCP)", "Construction", "Est. $5M – $15M", "Tanzania + Dubai (MERM) operations"],

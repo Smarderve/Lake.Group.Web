@@ -23,7 +23,7 @@ const PORT = 8799;
 
 const STUB = {
   employees: '30,000+',
-  trucks: '1,200+',
+  trucks: '1,600+',
   stations: '152',
   countries: '10',
   nationalities: '21',
@@ -92,11 +92,11 @@ function stopServer() {
 const CASES = [
   { page: 'index.html', key: 'employees', expect: '30,000+' },
   { page: 'index.html', key: 'countries', expect: '10' },
-  { page: 'about.html', key: 'trucks', expect: '1,200+' },
+  { page: 'about.html', key: 'trucks', expect: '1,600+' },
   { page: 'about.html', key: 'countries', expect: '10' },
   { page: 'our-story.html', key: 'stations', expect: '152' },
   { page: 'our-story.html', key: 'countries', expect: '10' },
-  { page: 'africa-network.html', key: 'trucks', expect: '1,200+' },
+  { page: 'africa-network.html', key: 'trucks', expect: '1,600+' },
 ];
 
 async function main() {
@@ -158,7 +158,7 @@ async function main() {
     });
     const fallbackOk =
       staticVals.employees === '30,000+' &&
-      staticVals.trucks === '1,200+' &&
+      staticVals.trucks === '1,600+' &&
       staticVals.countries === '8';
     console.log(`${fallbackOk ? 'PASS' : 'FAIL'} fallback: API down → static kept (${JSON.stringify(staticVals)})`);
     if (!fallbackOk) fail = 1;

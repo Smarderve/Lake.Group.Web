@@ -55,10 +55,10 @@ export const SEEDS = [
   {
     key: 'trucks',
     label: 'Trucks',
-    value: '1,200+',
+    value: '1,600+',
     unit: 'trucks',
     source:
-      'Official about page — group fleet "1,200+ trucks" (site source of truth, 2026; scripts/_verified_lake_facts.md).',
+      'Official about page — group fleet "1,600+ trucks" (site source of truth, 2026; scripts/_verified_lake_facts.md).',
     verificationStatus: 'VERIFIED',
     verificationDate: new Date(),
     verificationNote:

@@ -121,7 +121,7 @@ pending MFA setup and `--inactive`).
 ### 4. Seed the initial metrics (Phase 3)
 
 ```bash
-npm run seed:metrics        # idempotent — creates the canonical group metrics (employees 30,000+, trucks 1,200+, stations 152, countries 10, nationalities 21, subsidiaries 18+) as PUBLISHED
+npm run seed:metrics        # idempotent — creates the canonical group metrics (employees 30,000+, trucks 1,600+, stations 152, countries 10, nationalities 21, subsidiaries 18+) as PUBLISHED
 npm run seed:metrics -- --force   # overwrite an existing metric
 npm run seed:content        # Phase 8/9 content: companies, countries, facilities, projects, leadership, contacts, history, CSR, careers, news + gallery (idempotent)
 npm run seed:content -- --force   # clear + reseed (reverse-dependency cleanup)

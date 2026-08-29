@@ -64,7 +64,7 @@ window.LAKE_NEWS = [
     description: [
       "Ally Edha Awadh, Founder & Chairman of Lake Group, has been featured by Billionaires.Africa and other business publications as one of East Africa's leading energy entrepreneurs, alongside fellow Tanzanian tycoon Rostam Aziz of Taifa Gas.",
       "Under Awadh's leadership, Lake Group has grown from a single fuel outlet in Dar es Salaam in 2006 into a diversified conglomerate spanning petroleum distribution, LPG, steel manufacturing, logistics, real estate, and agro-processing across 10 countries in East and Central Africa.",
-      "The group operates a fleet of over 1,200 vehicles, 152+ retail fuel stations, and employs more than 30,000 people. Forbes Africa previously profiled the company as a $1 billion integrated energy platform in 2017.",
+      "The group operates a fleet of over 1,600 vehicles, 152+ retail fuel stations, and employs more than 30,000 people. Forbes Africa previously profiled the company as a $1 billion integrated energy platform in 2017.",
       "\"Our vision is to become the leading regional energy and industrial conglomerate,\" Awadh stated. \"We are building infrastructure that will serve East Africa for generations.\""
     ],
     images: [
@@ -94,12 +94,12 @@ window.LAKE_NEWS = [
   },
   {
     id: 26,
-    title: "Lake Trans & ATL Fleet Expansion Reaches 1,200+ Vehicles for Regional Logistics",
+    title: "Lake Trans & ATL Fleet Expansion Reaches 1,600+ Vehicles for Regional Logistics",
     date: "09 Sep, 2023",
     category: "Logistics",
     bannerImage: "assets/images/group/ops/depot-aerial.jpg",
     description: [
-      "Lake Group's logistics division, comprising Lake Trans Ltd. and Associated Trans Logistics Ltd. (ATL), expanded its combined fleet to over 1,200 vehicles, strengthening its position as a leading transport and logistics provider in East and Central Africa.",
+      "Lake Group's logistics division, comprising Lake Trans Ltd. and Associated Trans Logistics Ltd. (ATL), expanded its combined fleet to over 1,600 vehicles, strengthening its position as a leading transport and logistics provider in East and Central Africa.",
       "The fleet includes fuel tankers, bulk liquid carriers, flatbed trucks, and container haulage vehicles operating across Tanzania, Kenya, Zambia, DR Congo, Rwanda, Burundi, and Ethiopia.",
       "Lake Trans specializes in bulk liquid petroleum haulage, serving Lake Oil's distribution network and third-party clients. ATL provides general cargo and container logistics, operating from the Dar es Salaam port corridor to inland destinations.",
       "The expanded fleet enables the group to move over 1.5 million metric tons of cargo annually across the region's major transport corridors, including the Central Corridor (Dar es Salaam . Zambia . DRC) and the Northern Corridor (Mombasa . Uganda . Rwanda)."
@@ -198,7 +198,7 @@ window.LAKE_NEWS = [
     description: [
       "Lake Group commemorated its 15th anniversary, marking the journey from a single fuel outlet in Dar es Salaam in 2006 to a diversified conglomerate operating across 10 countries in East and Central Africa.",
       "Founded by Ally Edha Awadh at age 27, Lake Group grew from a petroleum trading company into a multi-sector enterprise spanning energy (Lake Oil, Lake Gas, Lake Aviation, Lake Lubes), manufacturing (Lake Steel, Lake Buildings, Lake Plastics, ATL), logistics (Lake Trans, AFICD, AILL), real estate (Cross Country, Ocean Galleria), and agro-processing (Lake Agro).",
-      "Over 15 years, the group built key infrastructure including the Kigamboni fuel terminal, Lake Gas LPG filling plant, Lake Steel rolling mill in Kibaha, and the Lake Trans fleet of over 1,200 vehicles.",
+      "Over 15 years, the group built key infrastructure including the Kigamboni fuel terminal, Lake Gas LPG filling plant, Lake Steel rolling mill in Kibaha, and the Lake Trans fleet of over 1,600 vehicles.",
       "The anniversary was celebrated with employees across all subsidiaries, recognizing the contributions of the 30,000+ workforce drawn from 21 nationalities."
     ],
     images: [],
@@ -337,7 +337,7 @@ window.LAKE_NEWS = [
     description: [
       "Lake Trans Ltd. expanded its heavy-duty vehicle fleet to over 200 units, strengthening its capacity to serve Lake Group's growing petroleum distribution and general cargo logistics needs across Tanzania and neighboring countries.",
       "The fleet expansion included fuel tankers for Lake Oil's distribution network, flatbed trucks for construction materials transport, and container haulage vehicles serving the Dar es Salaam port corridor. The expanded fleet enabled Lake Trans to serve routes across Tanzania, Zambia, and DR Congo.",
-      "Lake Trans's growth paralleled the overall expansion of Lake Group's logistics division, which later grew to become one of East Africa's largest privately-owned transport fleets with over 1,200 vehicles by 2024.",
+      "Lake Trans's growth paralleled the overall expansion of Lake Group's logistics division, which later grew to become one of East Africa's largest privately-owned transport fleets with over 1,600 vehicles by 2024.",
       "The fleet milestone was supported by Lake Group's partnership with international truck manufacturers and the company's investment in driver training, fleet management systems, and maintenance infrastructure at its Dar es Salaam depot.",
       "[Source: Lake Group official company data]"
     ],

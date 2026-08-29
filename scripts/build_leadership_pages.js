@@ -34,7 +34,7 @@ const LEADERS = [
       'Forbes-featured entrepreneur who founded Lake Oil in 2006 and built Lake Group into one of East and Central Africa’s leading energy, logistics and industrial conglomerates.',
     paragraphs: [
       'Born in 1980 into a family of traders, Awadh studied Business Administration at Brock University in Canada - supporting himself with odd jobs while building early trading instincts. By his mid-20s he had already moved into truck refurbishing and commodity trading. In 2006 he launched Lake Oil; official Group materials place him at 27 at founding.',
-      'His oversight today spans oil marketing, supply chain, downstream logistics and heavy industrial manufacturing across Tanzania, Kenya, Zambia, DRC, Burundi and Rwanda - with wider Group presence also in Ethiopia, Mozambique and Dubai (MERM). Under his chairmanship the Group has grown retail networks (152 stations in Tanzania alone), storage infrastructure, a 1,200+ truck fleet, LPG terminals, Lake Steel, ready-mix concrete and AFICD port-extension services.',
+      'His oversight today spans oil marketing, supply chain, downstream logistics and heavy industrial manufacturing across Tanzania, Kenya, Zambia, DRC, Burundi and Rwanda - with wider Group presence also in Ethiopia, Mozambique and Dubai (MERM). Under his chairmanship the Group has grown retail networks (152 stations in Tanzania alone), storage infrastructure, a 1,600+ truck fleet, LPG terminals, Lake Steel, ready-mix concrete and AFICD port-extension services.',
       'In 2017 Forbes covered Lake Oil Group’s regional push - including Competition Authority of Kenya approval to acquire Hashi Energy’s Kenyan station network - and described the enterprise as a billion-dollar (revenue) integrated energy platform. Awadh has also been recognised by African Leadership Magazine (Young Business Leader of the Year, 2022) and as Young African Energy Leader of the Year (African Business Leadership Awards, 2023).',
     ],
     quote:
@@ -162,7 +162,7 @@ const LEADERS = [
     summary:
       'Owns enterprise technology architecture and digital strategy - from centralised SAP environments to logistics intelligence and cross-border data security.',
     paragraphs: [
-      'Across a Group that runs fuel depots, 1,200+ trucks, ICD/CFS yards and multi-country retail, digital systems are the nervous system. Mani’s mandate focuses on optimising Lake Group’s centralised SAP stack - the operational backbone for shipment orders, inventory and financial posting across units such as Lake Trans and AFICD.',
+      'Across a Group that runs fuel depots, 1,600+ trucks, ICD/CFS yards and multi-country retail, digital systems are the nervous system. Mani’s mandate focuses on optimising Lake Group’s centralised SAP stack - the operational backbone for shipment orders, inventory and financial posting across units such as Lake Trans and AFICD.',
       'He embeds custom logistics and fleet-tracking intelligence so corridor movements stay visible from Dar to Ndola and beyond, and scales cross-border data security infrastructure protecting networks that connect Tanzania hubs with regional country operations.',
       'The goal is a single, resilient digital layer that lets manufacturing, energy and logistics executives act on the same real-time picture.',
     ],
@@ -194,7 +194,7 @@ const LEADERS = [
       'Directs Associated Trans Logistics Ltd (ATL), operating alongside Lake Trans as a logistical backbone for fuel fleets, heavy haulage and multi-national cargo corridors.',
     paragraphs: [
       'Khalid’s ATL wing sits next to Lake Trans Ltd. - the Group’s second company (2008) and primary petroleum haulage arm. Together they move product locally and in transit across Tanzania, Zambia, Rwanda, DRC, Burundi, Malawi, Kenya and Uganda.',
-      'Group messaging cites 1,200+ trucks; tanker capacities typically range 12,000–40,000 litres, with GPS tracking as standard. Workshops in Kibaha, Kigamboni, Morogoro, Nairobi and Ndola support asset uptime on the corridors that make Lake Group’s multi-country model possible.',
+      'Group messaging cites 1,600+ trucks; tanker capacities typically range 12,000–40,000 litres, with GPS tracking as standard. Workshops in Kibaha, Kigamboni, Morogoro, Nairobi and Ndola support asset uptime on the corridors that make Lake Group’s multi-country model possible.',
       'ATL’s role is to keep the physical network seamless: routing fuel fleets, heavy haulage and cargo pipelines so depots, stations and industrial plants stay supplied.',
     ],
     mandate: [
@@ -204,7 +204,7 @@ const LEADERS = [
     ],
     meta: [
       ['ATL', 'Logistics unit'],
-      ['1,200+', 'Group trucks'],
+      ['1,600+', 'Group trucks'],
       ['8+', 'Corridor countries'],
     ],
     links: [
