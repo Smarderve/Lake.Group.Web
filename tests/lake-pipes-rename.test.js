@@ -52,6 +52,18 @@ test('Scrolling logo strip uses Lake Pipes', () => {
   assert.doesNotMatch(js, /lake-plastics/);
 });
 
+test('Scrolling logo strip includes the approved Lake Pipes and Agrinova marks only', () => {
+  const js = read('assets/components/logo-loop-mount.js');
+  const lakePipesEntries = js.match(/alt: 'Lake Pipes'/g) || [];
+  const agrinovaEntries = js.match(/alt: 'Agrinova Tech Limited'/g) || [];
+
+  assert.equal(lakePipesEntries.length, 1, 'Lake Pipes appears once per logical marquee sequence');
+  assert.equal(agrinovaEntries.length, 1, 'Agrinova appears once per logical marquee sequence');
+  assert.match(js, /agrinova-tech\.png\?v=1/);
+  assert.match(js, /className: 'logoloop__item--agrinova'/);
+  assert.doesNotMatch(js, /Lake Plastics|lake-plastics|lakeplastics/i);
+});
+
 test('Lake Pipes marquee asset is the official blue transparent lockup', async () => {
   const sharp = require('sharp');
   const logo = path.join(root, 'assets/images/logos/companies/lake-pipes-blue.png');
