@@ -13,7 +13,7 @@ const menuCss = fs.readFileSync(path.join(ROOT, 'assets/phase-01-navbar.css'), '
 const lakeLockups = [
   'lake-oil-blue.png', 'lake-gas-blue.png', 'lake-lubes-blue.png', 'lake-steel-blue.png',
   'lake-trans-blue.png', 'lake-aviation-blue.png', 'lake-buildings-blue.png',
-  'lake-pipes.png', 'lake-premix-cement-blue.png', 'lake-cylinders-blue.png',
+  'lake-pipes-blue.png', 'lake-premix-cement-blue.png', 'lake-cylinders-blue.png',
   'lake-agro-blue.png',
 ];
 

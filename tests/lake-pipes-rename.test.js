@@ -43,10 +43,30 @@ test('Navigation uses Lake Pipes in all company pages', () => {
 
 test('Scrolling logo strip uses Lake Pipes', () => {
   const js = read('assets/components/logo-loop-mount.js');
-  assert.match(js, /Lake Pipes/);
-  assert.match(js, /lake-pipes\.html/);
+  const entry = js.match(/\{ src: '([^']+lake-pipes[^']+)', alt: 'Lake Pipes'[^}]+\}/)?.[0] || '';
+  assert.match(entry, /lake-pipes-blue\.png\?v=1/);
+  assert.match(entry, /lake-pipes\.html/);
+  assert.match(entry, /scale: 1\.15/);
+  assert.doesNotMatch(entry, /lake-pipes\.png\?v=70/);
   assert.doesNotMatch(js, /Lake Plastics/);
   assert.doesNotMatch(js, /lake-plastics/);
+});
+
+test('Lake Pipes marquee asset is the official blue transparent lockup', async () => {
+  const sharp = require('sharp');
+  const logo = path.join(root, 'assets/images/logos/companies/lake-pipes-blue.png');
+  assert.ok(fs.existsSync(logo), 'blue Lake Pipes marquee logo exists');
+  const image = await sharp(logo).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+  assert.ok(image.info.width > 1000 && image.info.height > 300, 'logo preserves the supplied lockup proportions');
+  let blue = 0;
+  let transparent = 0;
+  for (let i = 0; i < image.data.length; i += 4) {
+    const [red, green, blueChannel, alpha] = image.data.slice(i, i + 4);
+    if (alpha < 16) transparent++;
+    if (alpha > 32 && blueChannel > red * 1.15 && blueChannel > green * 1.05) blue++;
+  }
+  assert.ok(blue > 1000, 'logo contains the blue Lake Pipes artwork');
+  assert.ok(transparent > 1000, 'logo preserves a transparent background');
 });
 
 test('i18n content uses Lake Pipes', () => {
