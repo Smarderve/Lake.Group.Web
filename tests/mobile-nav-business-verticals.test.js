@@ -63,9 +63,10 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 320, height: 568 }
     await drawer.locator('.mob-corporate-trigger').click();
     assert.equal(await drawer.locator('.mob-primary').getAttribute('aria-expanded'), 'false', 'Corporate closes Business Verticals');
     assert.equal(await drawer.locator('.mob-corporate-trigger').getAttribute('aria-expanded'), 'true');
-    for (const label of ['Our History', 'Operations Map', 'CSR & Sustainability', 'Investor Relations', 'Major Projects', 'Gallery']) {
+    for (const label of ['Our History', 'CSR & Sustainability', 'Investor Relations', 'Major Projects', 'Gallery']) {
       assert.equal(await drawer.getByText(label, { exact: true }).isVisible(), true, `${label} is visible`);
     }
+    assert.equal(await drawer.getByText('Operations Map', { exact: true }).count(), 0, 'Operations Map is not exposed in the Corporate menu');
 
     await drawer.locator('.mob-language-trigger').scrollIntoViewIfNeeded();
     await drawer.locator('.mob-language-trigger').click();
