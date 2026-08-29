@@ -872,7 +872,11 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .mm-cat.is-active {
   max-width: 112px !important;
 }
 
-/* Lake Pipes logo — cropped to wide format; no override needed. */
+/* Lake Pipes uses its supplied wide blue artwork. Its visible mark needs a
+   slightly wider cap than the generic logo rule to match the first-row weight. */
+.site-nav[data-phase01-navbar] .nav-megamenu .mm-company img[src*="lake-pipes-blue.png"] {
+  max-width: 132px !important;
+}
 
 .site-nav[data-phase01-navbar] .lang-menu {
   top: calc(100% + 10px) !important;
