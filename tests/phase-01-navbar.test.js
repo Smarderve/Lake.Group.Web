@@ -75,7 +75,7 @@ test('subsidiary coverage uses unique supplied company marks without retired com
     'lake-buildings.html', 'lake-pipes.html', 'lake-steel.html', 'lake-cylinders.html',
     'gulf-aggregates.html', 'lake-premix-cement.html',
     'aficd.html', 'aill.html', 'lake-trans.html',
-    'cross-country.html', 'lake-agro.html',
+    'cross-country.html', 'lake-agro.html', 'agrinova-tech.html',
   ];
   const desktopLinks = [...navTemplate.matchAll(/<a href="([\w-]+\.html)" class="mm-company(?: [^"]+)?"><img src="([^"]+)"/g)];
   assert.deepEqual(desktopLinks.map((match) => match[1]), imageBacked);
@@ -83,13 +83,15 @@ test('subsidiary coverage uses unique supplied company marks without retired com
   assert.equal(desktopLinks.some((match) => /LAKE_LOGO_LAKE_ONLY|placeholder/i.test(match[2])), false, 'company cards use only company-specific marks');
   assert.doesNotMatch(navTemplate, /acfs|ocean-galleria/i);
   assert.doesNotMatch(mobileTemplate, /acfs|ocean galleria/i);
-  const automotive = ['assembly-tech.html', 'agrinova-tech.html', 'nextdrive-motors.html'];
+  const automotive = ['assembly-tech.html', 'nextdrive-motors.html'];
   for (const file of automotive) {
     assert.match(navTemplate, new RegExp(`<a href="${file}" class="mm-company mm-company--wordmark">`), `${file}: desktop target`);
     assert.match(mobileTemplate, new RegExp(`href="${file}"`), `${file}: mobile target`);
   }
   assert.match(navTemplate, /id="mm-tab-automotive"/);
   assert.match(mobileTemplate, /class="mob-sector-heading" data-mm-cat="automotive">Automotive Sector/);
+  assert.match(navTemplate, /id="mm-pane-agro"[\s\S]*agrinova-tech\.png/);
+  assert.match(mobileTemplate, /data-mm-cat="agro"[\s\S]*Agrinova Tech Limited/);
   assert.doesNotMatch(navTemplate, /lake-group-placeholder|LAKE_LOGO_LAKE_ONLY\.png" alt="(?:Assembly|AgriNova|NextDrive)/i);
 });
 

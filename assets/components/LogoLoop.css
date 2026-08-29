@@ -117,6 +117,13 @@
   height: calc(var(--logoloop-logoHeight) * var(--logoloop-item-scale, 1));
 }
 
+/* Preserves Agrinova's official white-and-gold mark on the white logo strip. */
+.logoloop__item--agrinova {
+  background: #123d2c;
+  border-radius: 2px;
+  padding: 7px 12px;
+}
+
 .logoloop--scale-hover .logoloop__item {
   overflow: visible;
 }

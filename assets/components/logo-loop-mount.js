@@ -29,6 +29,7 @@
     /* Circles-only ATL mark (no tagline) â€” matches brand sheet */
     { src: 'assets/images/logos/companies/atl.png?v=61', alt: 'ATL', title: 'ATL', scale: 0.9 },
     { src: 'assets/images/logos/companies/lake-agro-blue.png?v=70', alt: 'Lake Agro', title: 'Lake Agro', href: 'lake-agro.html', scale: 0.8 },
+    { src: 'assets/images/logos/companies/agrinova-tech.png?v=1', alt: 'Agrinova Tech Limited', title: 'Agrinova Tech Limited', href: 'agrinova-tech.html', scale: 0.78, className: 'logoloop__item--agrinova' },
     { src: 'assets/images/logos/companies/cross-country.png?v=69', alt: 'Cross Country', title: 'Cross Country', href: 'cross-country.html', scale: 1.15 },
 
   ];
@@ -64,6 +65,7 @@
   function createLogoItem(item, eager) {
     var li = document.createElement('li');
     li.className = 'logoloop__item';
+    if (item.className) li.classList.add(item.className);
     li.setAttribute('role', 'listitem');
     if (item.scale != null && item.scale > 0 && item.scale !== 1) {
       li.classList.add('logoloop__item--scaled');

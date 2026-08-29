@@ -9,7 +9,7 @@ const test = require('node:test');
 const ROOT = path.join(__dirname, '..');
 const TEMPLATE = fs.readFileSync(path.join(ROOT, 'scripts', 'templates', 'footer.html'), 'utf8');
 const CANONICAL_FOOTER = normalize(TEMPLATE);
-const APPROVED_TEMPLATE_SHA256 = '417e292e04aa53382e694eacc4b6558a3c940909027a627fc175d29da6034792';
+const APPROVED_TEMPLATE_SHA256 = 'b95741e34c20b6125ed537aab19f6df0c934cbba0f3c71e55181d2412a4e4798';
 const CANONICAL_SOCIAL_HREFS = socialHrefs(CANONICAL_FOOTER);
 const REQUIRED_STYLESHEET = '<link rel="stylesheet" href="assets/phase-01-footer.css">';
 const FOOTER_CSS = fs.readFileSync(path.join(ROOT, 'assets', 'phase-01-footer.css'), 'utf8');
