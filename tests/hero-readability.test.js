@@ -44,6 +44,18 @@ function assertNeutralLightOverlay(background, label) {
   }
 }
 
+function assertSubtleHomeTextVeil(background) {
+  const stops = [...background.matchAll(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)(?:\s*,\s*([\d.]+))?\s*\)/g)];
+  assert.equal(stops.length, 3, 'Home: expected the three-stop text-side gradient');
+  const expected = [[1, 63, 92, 0.12], [1, 63, 92, 0.055], [1, 63, 92, 0]];
+  stops.forEach((stop, index) => {
+    const [, red, green, blue, alpha = '1'] = stop;
+    assert.deepEqual([Number(red), Number(green), Number(blue), Number(alpha)], expected[index], 'Home: uses only the subtle Lake-blue veil');
+  });
+  assert.match(background, /42%/);
+  assert.match(background, /58%/);
+}
+
 function assertLightText(color, label) {
   const match = color.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/);
   assert(match, `${label}: text needs a rendered foreground color`);
@@ -89,7 +101,8 @@ test('hero photography uses only a subtle neutral readability veil', async () =>
             overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
           };
         }, { overlaySelector, textSelector });
-        assertNeutralLightOverlay(result.background, `${label} ${viewport.width}px`);
+        if (label === 'Home') assertSubtleHomeTextVeil(result.background);
+        else assertNeutralLightOverlay(result.background, `${label} ${viewport.width}px`);
         assertLightText(result.textColor, `${label}: hero text`);
         assertLightText(result.navColor, `${label}: navbar text`);
         assert.doesNotMatch(result.mediaFilter, /blur|brightness|grayscale|hue-rotate|sepia/, `${label}: photo must retain natural detail and color`);
