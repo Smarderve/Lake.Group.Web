@@ -101,7 +101,7 @@
       "dst": "[[टी0]]"
     },
     "nav.co.lakePlastics": {
-      "src": "Lake Plastics",
+      "src": "Lake Pipes",
       "dst": "[[टी0]]"
     },
     "nav.co.lakeSteel": {
@@ -5687,8 +5687,8 @@
       "dst": "Lake Buildings"
     },
     "nav.co.lakePlastics": {
-      "src": "Lake Plastics",
-      "dst": "Lake Plastics"
+      "src": "Lake Pipes",
+      "dst": "Lake Pipes"
     },
     "nav.co.lakeSteel": {
       "src": "Lake Steel",

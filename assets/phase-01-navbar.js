@@ -17,7 +17,7 @@
     const page = normalizeRoute(window.location.href);
     const companyPages = new Set([
       'lake-oil.html', 'lake-aviation.html', 'lake-gas.html', 'lake-lubes.html',
-      'lake-buildings.html', 'lake-plastics.html', 'lake-steel.html', 'lake-cylinders.html',
+      'lake-buildings.html', 'lake-pipes.html', 'lake-steel.html', 'lake-cylinders.html',
       'gulf-aggregates.html', 'lake-premix-cement.html', 'aficd.html', 'acfs.html',
       'aill.html', 'lake-trans.html', 'cross-country.html', 'ocean-galleria.html',
       'lake-agro.html', 'assembly-tech.html', 'agrinova-tech.html', 'nextdrive-motors.html'

@@ -5,7 +5,7 @@ const ROOT = path.join(__dirname, '..');
 
 const pages = [
   'aill.html', 'cross-country.html', 'lake-aviation.html', 'lake-buildings.html',
-  'lake-cylinders.html', 'lake-plastics.html', 'ocean-galleria.html',
+  'lake-cylinders.html', 'lake-pipes.html', 'ocean-galleria.html',
   'station-locator.html', 'lake-lubes.html', 'about.html', 'contact.html',
   'csr.html', 'dashboard.html', 'fleet.html', 'gallery.html', 'history.html',
   'investors.html', 'leadership.html', 'media-center.html', 'projects.html',

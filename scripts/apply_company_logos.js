@@ -24,7 +24,7 @@ const PAGES = [
   { file: 'lake-gas.html', logo: 'lake-gas.png', alt: 'Lake Gas', navLogo: ENERGIES_NAV.logo, navAlt: ENERGIES_NAV.alt },
   { file: 'lake-lubes.html', logo: 'lake-lubes.png', alt: 'Lake Lubes', navLogo: ENERGIES_NAV.logo, navAlt: ENERGIES_NAV.alt },
   { file: 'lake-buildings.html', logo: 'lake-buildings.png', alt: 'Lake Buildings' },
-  { file: 'lake-plastics.html', logo: 'lake-plastics.png', alt: 'Lake Plastics' },
+  { file: 'lake-pipes.html', logo: 'lake-pipes.png', alt: 'Lake Pipes' },
   { file: 'lake-steel.html', logo: 'lake-steel.png', alt: 'Lake Steel' },
   { file: 'lake-cylinders.html', logo: 'lake-cylinders.png', alt: 'Lake Cylinders' },
   { file: 'gulf-aggregates.html', logo: 'gulf-aggregates.png', alt: 'Gulf Aggregates' },

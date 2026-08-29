@@ -14,7 +14,7 @@ const HERO_PHOTOS = {
   'lake-aviation.html': 'assets/images/n-slider/2.jpg',
   'lake-buildings.html': 'assets/images/ccp/photo_1.jpg',
   'lake-cylinders.html': 'assets/images/banner/LakeGas.jpg',
-  'lake-plastics.html': 'assets/images/merm/photo_3.jpg',
+  'lake-pipes.html': 'assets/images/merm/photo_3.jpg',
   'ocean-galleria.html': 'assets/images/merm/photo_2.jpg',
   'station-locator.html': 'assets/images/banner/LakeOil1.jpg',
   // Flat interior pages

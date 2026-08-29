@@ -43,7 +43,7 @@ No company currently has intro or operations videos embedded.
 | Lake Buildings | Projects / construction demo |
 | Lake Aviation | Aviation fueling / apron ops |
 | Lake Cylinders | Cylinder plant / products |
-| Lake Plastics | Factory / products |
+| Lake Pipes | Factory / products |
 | AFICD | Depot / container yard ops |
 | AILL | Logistics / depot ops |
 | Cross Country | Property / site |
@@ -65,7 +65,7 @@ No company currently has intro or operations videos embedded.
 | **Lake Buildings** | All borrowed GCCP | **Own construction / building photos** |
 | **Lake Aviation** | Wrong sector (oil images) | **Aircraft / fueling / apron photos** |
 | **Lake Cylinders** | Reuses Lake Gas images | **Cylinder plant / product photos** |
-| **Lake Plastics** | Thin / borrowed | **Factory / product photos** |
+| **Lake Pipes** | Thin / borrowed | **Factory / product photos** |
 | AFICD | Depot photos present | Zambia + Mozambique site photos |
 | **AILL** | Borrowed Lake Trans | **Own depot / fleet photos** |
 | **Cross Country** | Borrowed GCCP / slider | **Property / development site photos** |
@@ -100,7 +100,7 @@ Most pages still use Group HQ only (`+255 222 780 510` / `479` and `admin@` or `
 | Lake Buildings | Building desk | Confirm; add socials |
 | Lake Aviation | HQ only | Aviation desk phone/email/socials |
 | Lake Cylinders | HQ only | Cylinders desk phone/email/socials |
-| Lake Plastics | HQ only | Plastics desk phone/email/socials |
+| Lake Pipes | HQ only | Plastics desk phone/email/socials |
 | AFICD | HQ `admin@` | AFICD desk (TZ / ZM / MZ if different) |
 | AILL | HQ + atl-tz.com | AILL desk phone/email/socials |
 | Cross Country | HQ only | Property desk phone/email/socials |

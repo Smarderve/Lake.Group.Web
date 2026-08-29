@@ -29,7 +29,7 @@ Production was not pushed, as instructed. Therefore the live URL still reports t
 | QA-013 | FIXED LOCAL | `assets/i18n-content.js`, `africa-network.html` | Network-facing category/count labels use Business Verticals. |
 | QA-014 | STILL OPEN | `contact.html` | Remaining Contact prose uses “subsidiary” as factual language; it requires content-owner approval before rewriting and is not a navigation label. |
 | QA-015 | FIXED LOCAL | `assets/under-construction.js`, animation pages | Failed dotLottie initialization now has a guarded static fallback and cannot duplicate fallback UI. |
-| QA-016 | FIXED LOCAL | `africa-network.html`, `lake-steel.html`, `lake-plastics.html` | Direct YouTube iframes were replaced by click-to-load facades. |
+| QA-016 | FIXED LOCAL | `africa-network.html`, `lake-steel.html`, `lake-pipes.html` | Direct YouTube iframes were replaced by click-to-load facades. |
 | QA-017 | FIXED LOCAL | `agrinova-tech.html`, `assembly-tech.html`, `nextdrive-motors.html`, `assets/flagship.css` | Missing placeholder image usage was replaced by deliberate text wordmarks. |
 | QA-018 | FIXED LOCAL | `la-home.html`, `la-projects.html`, `vercel.json` | Legacy direct-access URLs immediately redirect to canonical `lake-agro.html`; missing framework files are no longer part of the route’s intended rendering. |
 | QA-019 | FIXED LOCAL | `assets/site.js` | Duplicate `initReveal()` startup call removed. |
@@ -111,7 +111,7 @@ Existing generated evidence remains under `docs/qa/phase-03-public-pages/`. The 
 
 ## Files changed
 
-`africa-network.html`, `agrinova-tech.html`, `assembly-tech.html`, `careers.html`, `csr.html`, `gallery.html`, `lake-oil.html`, `lake-plastics.html`, `lake-steel.html`, `la-home.html`, `la-projects.html`, `news.html`, `nextdrive-motors.html`, `ocean-galleria.html`, `our-story.html`, `projects.html`, `public-content/releases/*/content.json`, `station-locator.html`, `assets/flagship.css`, `assets/i18n-content.js`, `assets/news-data.js`, `assets/pwa.js`, `assets/site.js`, `assets/under-construction.js`, `sw.js`, `tests/about-hero-restoration.test.js`, `vercel.json`.
+`africa-network.html`, `agrinova-tech.html`, `assembly-tech.html`, `careers.html`, `csr.html`, `gallery.html`, `lake-oil.html`, `lake-pipes.html`, `lake-steel.html`, `la-home.html`, `la-projects.html`, `news.html`, `nextdrive-motors.html`, `ocean-galleria.html`, `our-story.html`, `projects.html`, `public-content/releases/*/content.json`, `station-locator.html`, `assets/flagship.css`, `assets/i18n-content.js`, `assets/news-data.js`, `assets/pwa.js`, `assets/site.js`, `assets/under-construction.js`, `sw.js`, `tests/about-hero-restoration.test.js`, `vercel.json`.
 
 ## Commit
 

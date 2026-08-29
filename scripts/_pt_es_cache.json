@@ -33,8 +33,8 @@
       "dst": "Lake Buildings"
     },
     "nav.co.lakePlastics": {
-      "src": "Lake Plastics",
-      "dst": "Lake Plastics"
+      "src": "Lake Pipes",
+      "dst": "Lake Pipes"
     },
     "nav.co.lakeCylinders": {
       "src": "Lake Cylinders",
@@ -2633,8 +2633,8 @@
       "dst": "Mistura de lubrificantes"
     },
     "index.action.i14.t": {
-      "src": "Lake Plastics",
-      "dst": "Lake Plastics"
+      "src": "Lake Pipes",
+      "dst": "Lake Pipes"
     },
     "index.action.i14.s": {
       "src": "Pipe manufacturing",
@@ -2779,8 +2779,8 @@
       "dst": "Lake Buildings"
     },
     "nav.co.lakePlastics": {
-      "src": "Lake Plastics",
-      "dst": "Lake Plastics"
+      "src": "Lake Pipes",
+      "dst": "Lake Pipes"
     },
     "nav.co.lakeSteel": {
       "src": "Lake Steel",
@@ -9955,8 +9955,8 @@
       "dst": "Mezcla de lubricantes"
     },
     "index.action.i14.t": {
-      "src": "Lake Plastics",
-      "dst": "Lake Plastics"
+      "src": "Lake Pipes",
+      "dst": "Lake Pipes"
     },
     "index.action.i14.s": {
       "src": "Pipe manufacturing",

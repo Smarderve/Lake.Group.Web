@@ -48,7 +48,7 @@ const companies = {
     title: 'Lake Buildings',
     tagline: "Lake Group's building materials and construction manufacturing arm.",
     introTitle: "Building East Africa's Future",
-    introLede: 'Lake Buildings Solutions Ltd. is Lake Group\'s building materials and construction manufacturing arm, part of the Manufacturing family of companies alongside Lake Steel, Lake Plastics and Gulf Concrete and Cement Products.',
+    introLede: 'Lake Buildings Solutions Ltd. is Lake Group\'s building materials and construction manufacturing arm, part of the Manufacturing family of companies alongside Lake Steel, Lake Pipes and Gulf Concrete and Cement Products.',
     introDetail: "As part of Lake Group's broader industrial network across East and Central Africa, Lake Buildings supports the region's construction sector with quality building materials and solutions for residential, commercial and infrastructure projects.",
     introChecks: [
       'Building materials manufacturing and supply',
@@ -59,7 +59,7 @@ const companies = {
     ],
     mission: 'To provide high-quality building materials and construction solutions that enable safe, sustainable and affordable construction across East and Central Africa.',
     vision: "To become East Africa's most trusted building materials partner, supporting the region's rapid urbanization and infrastructure development.",
-    history: 'Lake Buildings Solutions Ltd. was established as part of Lake Group\'s Manufacturing division, alongside Lake Steel, Lake Plastics and Gulf Concrete and Cement Products. It serves Tanzania\'s growing construction sector with essential building materials and solutions.',
+    history: 'Lake Buildings Solutions Ltd. was established as part of Lake Group\'s Manufacturing division, alongside Lake Steel, Lake Pipes and Gulf Concrete and Cement Products. It serves Tanzania\'s growing construction sector with essential building materials and solutions.',
     values: [
       { name: 'Quality', desc: 'Premium building materials' },
       { name: 'Durability', desc: 'Built to last' },
@@ -83,14 +83,14 @@ const companies = {
     heroImg: "assets/images/lakebuildings/ops/lake-tanks.jpg?v=80"
   },
 
-  'lake-plastics.html': {
-    breadcrumb: ['Home', 'Manufacturing', 'Lake Plastics'],
+  'lake-pipes.html': {
+    breadcrumb: ['Home', 'Manufacturing', 'Lake Pipes'],
     eyebrow: 'Manufacturing',
-    title: 'Lake Plastics',
+    title: 'Lake Pipes',
     tagline: "Lake Group's plastics manufacturing arm serving packaging and construction markets.",
     introTitle: 'Plastics Solutions for Industry',
-    introLede: 'Lake Plastics Ltd. is Lake Group\'s dedicated plastics manufacturing arm, producing quality plastic products for packaging and construction applications across Tanzania and the region.',
-    introDetail: "As part of Lake Group's Manufacturing family of companies, Lake Plastics leverages modern manufacturing capabilities to serve diverse industries from packaging to construction with reliable, quality products.",
+    introLede: 'Lake Pipes Ltd. is Lake Group\'s dedicated plastics manufacturing arm, producing quality plastic products for packaging and construction applications across Tanzania and the region.',
+    introDetail: "As part of Lake Group's Manufacturing family of companies, Lake Pipes leverages modern manufacturing capabilities to serve diverse industries from packaging to construction with reliable, quality products.",
     introChecks: [
       'Plastic products for packaging and construction',
       'Modern manufacturing processes',
@@ -100,7 +100,7 @@ const companies = {
     ],
     mission: 'To manufacture high-quality plastic products that serve essential needs in packaging, construction and industry, while advancing sustainable manufacturing practices.',
     vision: 'To be a leading plastics manufacturer in East Africa, known for quality, innovation and environmental responsibility.',
-    history: 'Lake Plastics Ltd. was established as part of Lake Group\'s Manufacturing division, expanding the Group\'s industrial capabilities into plastics production. It serves diverse sectors with essential plastic products for everyday use.',
+    history: 'Lake Pipes Ltd. was established as part of Lake Group\'s Manufacturing division, expanding the Group\'s industrial capabilities into plastics production. It serves diverse sectors with essential plastic products for everyday use.',
     values: [
       { name: 'Quality', desc: 'Consistent product quality' },
       { name: 'Innovation', desc: 'Modern manufacturing' },
@@ -119,9 +119,9 @@ const companies = {
       { icon: 'mdi:recycle', title: 'Consumer Products', desc: 'Plastic household and consumer products manufactured to quality standards.' }
     ],
     operations: [
-      { country: 'Tanzania', entity: 'Lake Plastics' }
+      { country: 'Tanzania', entity: 'Lake Pipes' }
     ],
-    heroImg: "assets/images/lakeplastics/ops/blue-pipes.jpg?v=80"
+    heroImg: "assets/images/lakepipes/ops/blue-pipes.jpg?v=80"
   },
 
   'aill.html': {
@@ -299,7 +299,7 @@ files.forEach(file => {
   let newWrapper = build(co);
   let newContent = content.substring(0, divStart) + newWrapper + content.substring(divEnd + 6);
 
-  // Fix lake-buildings and lake-plastics missing data-nav-logo
+  // Fix lake-buildings and lake-pipes missing data-nav-logo
   if (file === 'lake-buildings.html' && !newContent.includes('data-nav-logo')) {
     newContent = newContent.replace(
       'data-company-alt="Lake Buildings">',
@@ -307,10 +307,10 @@ files.forEach(file => {
     );
     console.log(`${file}: Added data-nav-logo attributes`);
   }
-  if (file === 'lake-plastics.html' && !newContent.includes('data-nav-logo')) {
+  if (file === 'lake-pipes.html' && !newContent.includes('data-nav-logo')) {
     newContent = newContent.replace(
-      'data-company-alt="Lake Plastics">',
-      'data-company-alt="Lake Plastics" data-nav-logo="assets/images/logos/companies/lake-energies.png" data-nav-alt="Lake Energies">'
+      'data-company-alt="Lake Pipes">',
+      'data-company-alt="Lake Pipes" data-nav-logo="assets/images/logos/companies/lake-energies.png" data-nav-alt="Lake Energies">'
     );
     console.log(`${file}: Added data-nav-logo attributes`);
   }

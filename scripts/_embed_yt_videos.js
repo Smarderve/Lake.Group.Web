@@ -7,7 +7,7 @@
  *   E6O14yN25CQ Lake Steel Video      -> lake-steel.html
  *   KS_IdCfeDHk Lake Gas              -> lake-gas.html
  *   9e9Nd7UtbFc Lake Gas              -> lake-gas.html (2-up)
- *   b191H5fexbM LAKE BLOW MOLDING     -> lake-plastics.html
+ *   b191H5fexbM LAKE BLOW MOLDING     -> lake-pipes.html
  *   LjmQvb-jQJk Lake Lubes            -> lake-lubes.html
  *   WxsF6OYU4hA Lake Group Mozambique -> africa-network.html
  *   Zy3N7l7Uiek Lake Group Profile    -> about.html
@@ -47,10 +47,10 @@ const COMPANY_VIDEOS = [
     eyebrow: 'In Action',
   },
   {
-    page: 'lake-plastics.html',
+    page: 'lake-pipes.html',
     videoId: 'b191H5fexbM',
     title: 'LAKE BLOW MOLDING',
-    head: 'Watch Lake Plastics in Action',
+    head: 'Watch Lake Pipes in Action',
     eyebrow: 'In Action',
   },
 ];

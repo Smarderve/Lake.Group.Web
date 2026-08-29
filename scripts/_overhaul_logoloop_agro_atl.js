@@ -14,7 +14,7 @@ const ROOT = path.join(__dirname, '..');
 const CACHE = '48';
 const COMPANY_PAGES = [
   'lake-oil.html', 'lake-gas.html', 'lake-lubes.html', 'lake-steel.html',
-  'lake-trans.html', 'lake-aviation.html', 'lake-buildings.html', 'lake-plastics.html',
+  'lake-trans.html', 'lake-aviation.html', 'lake-buildings.html', 'lake-pipes.html',
   'lake-premix-cement.html', 'lake-cylinders.html', 'lake-agro.html', 'atl.html',
   'gulf-aggregates.html', 'cross-country.html', 'ocean-galleria.html',
   'aficd.html', 'aill.html'

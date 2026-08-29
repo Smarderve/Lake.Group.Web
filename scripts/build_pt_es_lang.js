@@ -26,7 +26,7 @@ const PAUSE_MS = 400;
 
 const PROTECT = [
   'Lake Oil Group', 'Lake Group', 'Lake Oil', 'Lake Aviation', 'Lake Gas',
-  'Lake Lubes', 'Lake Buildings', 'Lake Plastics', 'Lake Steel', 'Lake Cylinders',
+  'Lake Lubes', 'Lake Buildings', 'Lake Pipes', 'Lake Steel', 'Lake Cylinders',
   'Lake Trans', 'Lake Agro', 'Lake Premix & Cement', 'Lake Premix and Cement',
   'Gulf Aggregates', 'Ocean Galleria', 'Cross Country', 'AFICD', 'AILL', 'ATL',
   'East Africa', 'Central Africa', 'Tanzania', 'Kenya', 'Uganda', 'Rwanda',

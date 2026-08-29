@@ -190,7 +190,7 @@ const companies = [
     countries: [["Tanzania", "Lake Buildings", "Manufacturing and distribution nationwide"]]
   },
   {
-    name: "Lake Plastics Ltd.",
+    name: "Lake Pipes Ltd.",
     sector: "Manufacturing",
     est: "N/A", ceo: "Not separately identified",
     hq: "Same as Lake Group HQ",
@@ -201,7 +201,7 @@ const companies = [
     desc: "Plastics manufacturing arm.",
     services: ["Plastic product manufacturing", "Custom plastic molding"],
     products: ["Plastic products for packaging", "Construction plastic materials"],
-    countries: [["Tanzania", "Lake Plastics", "Manufacturing; nationwide distribution"]]
+    countries: [["Tanzania", "Lake Pipes", "Manufacturing; nationwide distribution"]]
   },
   {
     name: "Lake Cylinders Ltd.",
@@ -494,7 +494,7 @@ async function main() {
   children.push(emptyLine());
   children.push(dataTable(["Sector", "Companies", "Source"], [
     ["Lake Energies", "Lake Oil, Lake Gas, Lake Aviation, Lake Lubes", "lakeoilgroup.com + LinkedIn"],
-    ["Manufacturing", "Lake Steel, Lake Buildings, Lake Plastics, Lake Cylinders, GCCP, Gulf Aggregates, ATL", "lakeoilgroup.com"],
+    ["Manufacturing", "Lake Steel, Lake Buildings, Lake Pipes, Lake Cylinders, GCCP, Gulf Aggregates, ATL", "lakeoilgroup.com"],
     ["Logistics", "Lake Trans, AFICD, AILL", "lakeoilgroup.com + TASAC"],
     ["Real Estate", "Cross Country*, Ocean Galleria", "lakeoilgroup.com"],
     ["Agro Processing", "Lake Agro", "lakeoilgroup.com + lakeagro.com"],

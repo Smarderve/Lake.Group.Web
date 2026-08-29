@@ -141,6 +141,11 @@
       "source": "/la-projects.html",
       "destination": "/lake-agro.html",
       "permanent": true
+    },
+    {
+      "source": "/lake-plastics",
+      "destination": "/lake-pipes.html",
+      "permanent": true
     }
   ],
   "headers": [

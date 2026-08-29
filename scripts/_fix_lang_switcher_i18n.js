@@ -588,7 +588,7 @@ function patchServices() {
 function patchCompanyPages() {
   const pages = [
     'lake-oil.html', 'lake-aviation.html', 'lake-gas.html', 'lake-lubes.html',
-    'lake-buildings.html', 'lake-plastics.html', 'lake-steel.html', 'lake-cylinders.html',
+    'lake-buildings.html', 'lake-pipes.html', 'lake-steel.html', 'lake-cylinders.html',
     'gulf-aggregates.html', 'lake-premix-cement.html', 'aficd.html', 'aill.html',
     'lake-trans.html', 'cross-country.html', 'ocean-galleria.html',
   ];

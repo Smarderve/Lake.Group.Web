@@ -20,7 +20,7 @@ const logos = [
   'assets/images/logos/companies/lake-trans.png',
   'assets/images/logos/companies/lake-aviation.png',
   'assets/images/logos/companies/lake-buildings.png',
-  'assets/images/logos/companies/lake-plastics.png',
+  'assets/images/logos/companies/lake-pipes.png',
   'assets/images/logos/companies/lake-premix-cement.png',
   'assets/images/logos/companies/gulf-aggregates-blue.png',
   'assets/images/logos/companies/cross-country.png?v=62',

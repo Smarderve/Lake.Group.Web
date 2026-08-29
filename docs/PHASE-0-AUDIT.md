@@ -50,7 +50,7 @@ All pages render **hardcoded content** (inline HTML and/or bundled JS data). The
 | `fleet.html` | Fleet page (1,200+ trucks, vehicle categories) | Hardcoded HTML |
 
 ### Subsidiary pages (all hardcoded)
-`lake-oil.html`, `lake-gas.html`, `lake-lubes.html`, `lake-aviation.html`, `lake-steel.html`, `lake-trans.html`, `lake-premix-cement.html`, `gulf-aggregates.html`, `lake-buildings.html`, `lake-plastics.html`, `lake-cylinders.html`, `atl.html`, `aficd.html`, `acfs.html`, `aill.html`, `cross-country.html`, `ocean-galleria.html`, `lake-agro.html`, `services.html` (division index listing all subsidiaries).
+`lake-oil.html`, `lake-gas.html`, `lake-lubes.html`, `lake-aviation.html`, `lake-steel.html`, `lake-trans.html`, `lake-premix-cement.html`, `gulf-aggregates.html`, `lake-buildings.html`, `lake-pipes.html`, `lake-cylinders.html`, `atl.html`, `aficd.html`, `acfs.html`, `aill.html`, `cross-country.html`, `ocean-galleria.html`, `lake-agro.html`, `services.html` (division index listing all subsidiaries).
 
 ### News (hardcoded dataset, CMS hook dormant)
 | File | Content | Source |
@@ -138,7 +138,7 @@ Every item below is literal text/number in the listed file. Where the same fact 
 - **AFICD / ACFS** — Tazara Pugu Road; 14,000 m² / 4,000 TEU; ACFS 52,000 m², 5,000 TEU, 13 acres, 2 rail tracks (exact figures in `acfs.html` L430–435) — `aficd.html`, `acfs.html`, KB `fact:containers`.
 - **ATL** — "Only aluminium trailer manufacturer in Tanzania" — `atl.html` L394.
 - **MERM (Dubai)** — ready-mix since 2005; **SAFF** — freight forwarding — `projects.html`, `africa-network.html`, KB `fact:subsidiaries`.
-- Other subsidiaries with pages: Lake Aviation, Lake Buildings, Lake Plastics, Lake Cylinders, Gulf Aggregates, AILL, Cross Country, Ocean Galleria, Lake Agro — each page hardcodes its own narrative/figures.
+- Other subsidiaries with pages: Lake Aviation, Lake Buildings, Lake Pipes, Lake Cylinders, Gulf Aggregates, AILL, Cross Country, Ocean Galleria, Lake Agro — each page hardcodes its own narrative/figures.
 
 ### 5. News items (24 hardcoded articles)
 - `assets/news-data.js` — `window.LAKE_NEWS` array, ids 24→1 (2024–2026 researched items): title, date, category, banner image, multi-paragraph description, gallery images, `video: null`. Examples: LPG Vipingo terminal (id 24, 23), founder award (id 22).

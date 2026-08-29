@@ -72,7 +72,7 @@ test('Phase 01 navbar follows launch constraints and all logo destinations resol
 test('subsidiary coverage uses unique supplied company marks without retired companies', () => {
   const imageBacked = [
     'lake-oil.html', 'lake-aviation.html', 'lake-gas.html', 'lake-lubes.html',
-    'lake-buildings.html', 'lake-plastics.html', 'lake-steel.html', 'lake-cylinders.html',
+    'lake-buildings.html', 'lake-pipes.html', 'lake-steel.html', 'lake-cylinders.html',
     'gulf-aggregates.html', 'lake-premix-cement.html',
     'aficd.html', 'aill.html', 'lake-trans.html',
     'cross-country.html', 'lake-agro.html',

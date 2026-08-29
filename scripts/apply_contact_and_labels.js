@@ -19,7 +19,7 @@ const COMPANY_PAGES = [
   { file: 'lake-gas.html', slug: 'lake-gas', name: 'Lake Gas' },
   { file: 'lake-lubes.html', slug: 'lake-lubes', name: 'Lake Lubes' },
   { file: 'lake-buildings.html', slug: 'lake-buildings', name: 'Lake Buildings' },
-  { file: 'lake-plastics.html', slug: 'lake-plastics', name: 'Lake Plastics' },
+  { file: 'lake-pipes.html', slug: 'lake-pipes', name: 'Lake Pipes' },
   { file: 'lake-steel.html', slug: 'lake-steel', name: 'Lake Steel' },
   { file: 'lake-cylinders.html', slug: 'lake-cylinders', name: 'Lake Cylinders' },
   { file: 'gulf-aggregates.html', slug: 'gulf-aggregates', name: 'Gulf Aggregates' },

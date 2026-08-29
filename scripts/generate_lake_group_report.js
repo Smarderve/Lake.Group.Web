@@ -235,12 +235,12 @@ const COMPANY_DATA = [
         ],
       },
       {
-        name: "Lake Plastics Ltd.",
+        name: "Lake Pipes Ltd.",
         est: "N/A",
         hq: "Tanzania",
         desc: "Plastics manufacturing arm producing plastic products for the regional market.",
         countries: [
-          ["Tanzania", "Lake Plastics", "Manufacturing plant"],
+          ["Tanzania", "Lake Pipes", "Manufacturing plant"],
         ],
       },
       {
@@ -643,7 +643,7 @@ async function main() {
 
   const hierarchy = [
     ["Lake Energies", "4 companies", "Lake Oil, Lake Gas, Lake Aviation, Lake Lubes"],
-    ["Manufacturing", "7 companies", "Lake Steel, Lake Buildings, Lake Plastics, Lake Cylinders, Lake Premix & Cement (GCCP), Gulf Aggregates, ATL"],
+    ["Manufacturing", "7 companies", "Lake Steel, Lake Buildings, Lake Pipes, Lake Cylinders, Lake Premix & Cement (GCCP), Gulf Aggregates, ATL"],
     ["Logistics", "3 companies", "Lake Trans, AFICD, AILL"],
     ["Real Estate", "2 companies", "Cross Country, Ocean Galleria"],
     ["Agro Processing", "1 company", "Lake Agro"],
@@ -670,7 +670,7 @@ async function main() {
   children.push(emptyLine());
 
   const geoData = [
-    ["Tanzania", "Group HQ & primary base", "Lake Oil, Lake Gas, Lake Aviation, Lake Lubes, Lake Steel, Lake Buildings, Lake Plastics, Lake Cylinders, Lake Premix (GCCP), Gulf Aggregates, ATL, Lake Trans, AFICD, AILL, Cross Country, Ocean Galleria, Lake Agro", "Dar es Salaam"],
+    ["Tanzania", "Group HQ & primary base", "Lake Oil, Lake Gas, Lake Aviation, Lake Lubes, Lake Steel, Lake Buildings, Lake Pipes, Lake Cylinders, Lake Premix (GCCP), Gulf Aggregates, ATL, Lake Trans, AFICD, AILL, Cross Country, Ocean Galleria, Lake Agro", "Dar es Salaam"],
     ["Kenya", "Major market", "Lake Oil, Lake Gas, Lake Trans, Lake Agro", "Nairobi / Mombasa corridor"],
     ["Zambia", "Growing market", "Lake Petroleum, Lake Gas, Lake Trans, AFICD, Lake Agro", "Lusaka / Ndola"],
     ["DR Congo", "Key market", "Lake Petroleum (DRC), Lake Gas, Lake Trans, Lake Lubes", "Eastern DRC / Lubumbashi"],

@@ -50,7 +50,7 @@ This session restructured the Lake Group static website from a **sector-page** n
 ### Company list (final nav model)
 
 - **Lake Energies:** Lake Oil, Lake Aviation, Lake Gas, Lake Lubes  
-- **Manufacturing:** Lake Buildings, Lake Plastics, Lake Steel, Lake Cylinders, Gulf Aggregates, **ATL (external)**, Lake Premix and Cement  
+- **Manufacturing:** Lake Buildings, Lake Pipes, Lake Steel, Lake Cylinders, Gulf Aggregates, **ATL (external)**, Lake Premix and Cement  
 - **Logistics:** AFICD, AILL, Lake Trans  
 - **Real Estate:** Cross Country, Ocean Galleria  
 - **Agro Processing:** **Lake Agro (external)**
@@ -118,7 +118,7 @@ Study conglomerate nav patterns (Bakhresa Group, LVMH, Tata/Reliance, Wilmar/Sim
 #### Phase 2 — Final company list (ground truth — no countries, no repetition)
 17 companies in 5 categories:
 - **Lake Energies:** Lake Oil, Lake Aviation, Lake Gas, Lake Lubes  
-- **Manufacturing:** Lake Buildings, Lake Plastics, Lake Steel, Lake Cylinders, Gulf Aggregates, ATL (Aluminium Trailers), Lake Premix and Cement  
+- **Manufacturing:** Lake Buildings, Lake Pipes, Lake Steel, Lake Cylinders, Gulf Aggregates, ATL (Aluminium Trailers), Lake Premix and Cement  
 - **Logistics:** AFICD, AILL, Lake Trans  
 - **Real Estate:** Cross Country, Ocean Galleria  
 - **Agro Processing:** Lake Agro  
@@ -258,7 +258,7 @@ Also removed the last red pixels from the old pill logo (aligned with the no-red
 
 Created all 17 root HTML files with full 8-section structure, titles/meta/canonical/OG, Organization + BreadcrumbList JSON-LD, and chrome copied from sector-page boilerplate:
 
-`lake-oil.html`, `lake-aviation.html`, `lake-gas.html`, `lake-lubes.html`, `lake-buildings.html`, `lake-plastics.html`, `lake-steel.html`, `lake-cylinders.html`, `gulf-aggregates.html`, `atl.html`, `lake-premix-cement.html`, `aficd.html`, `aill.html`, `lake-trans.html`, `cross-country.html`, `ocean-galleria.html`, `lake-agro.html`.
+`lake-oil.html`, `lake-aviation.html`, `lake-gas.html`, `lake-lubes.html`, `lake-buildings.html`, `lake-pipes.html`, `lake-steel.html`, `lake-cylinders.html`, `gulf-aggregates.html`, `atl.html`, `lake-premix-cement.html`, `aficd.html`, `aill.html`, `lake-trans.html`, `cross-country.html`, `ocean-galleria.html`, `lake-agro.html`.
 
 - **Real content reused (8):** Lake Oil, Gas, Lubes, Steel, Trans, Premix & Cement (GCCP ready-mix), Gulf Aggregates (GCCP quarry), AFICD — still with honest gaps (case studies, per-company management photos, etc.).
 - **Placeholder-heavy (9):** Aviation, Buildings, Plastics, Cylinders, ATL, AILL, Cross Country, Ocean Galleria, Lake Agro — short intros, `.content-placeholder` boxes, shared HQ contact + form.

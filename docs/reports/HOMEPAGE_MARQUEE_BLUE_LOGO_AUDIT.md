@@ -27,7 +27,7 @@ marquee.
 | Lake Trans | `assets/images/logos/companies/lake-trans.png` | None found | `docs/All Logos/LG - All Logo PNG/LG24 - Trans.png` |
 | Lake Aviation | `assets/images/logos/companies/lake-aviation.png` | None found | `docs/All Logos/LG - All Logo PNG/LG24 - Aviation.png` |
 | Lake Buildings | `assets/images/logos/companies/lake-buildings.png` | None found | `docs/All Logos/LG - All Logo PNG/LG24 - Building.png` |
-| Lake Plastics | `assets/images/logos/companies/lake-plastics.png` | None found | `docs/All Logos/LG - All Logo PNG/LG24 - Plastics.png` |
+| Lake Pipes | `assets/images/logos/companies/lake-pipes.png` | None found | `docs/All Logos/LG - All Logo PNG/LG24 - Plastics.png` |
 | Lake Premix & Cement | `assets/images/logos/companies/lake-premix-cement.png` | None found | `docs/All Logos/LG - All Logo PNG/LG24 - Premix.png` |
 | Lake Cylinders | `assets/images/logos/companies/lake-cylinders.png?v=58` | None found | `docs/All Logos/LG - All Logo PNG/LG24 - Tanks.png` (related family master; not a blue Cylinders variant) |
 
