@@ -40,10 +40,13 @@
 .val-tile::before{content:'';position:absolute;top:-1px;left:-1px;width:8px;height:8px;background:var(--gold)}
 .val-tile:hover{border-color:var(--ink-line)}
 .val-tile h4{font-family:var(--font-display);font-weight:700;font-size:1.35rem;letter-spacing:.05em;text-transform:uppercase;color:#fff;margin:var(--sp-3) 0 var(--sp-1)}
-.val-tile p{font-size:.85rem}
+.val-tile p{font-size:.9rem;color:rgba(255,255,255,.82);line-height:1.55}
 .about-values-label{margin-top:var(--sp-10);color:var(--gold);font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
 .value-icon{display:flex;align-items:center;justify-content:center;width:52px;height:52px;margin:0 auto;border:1px solid var(--ink-line)}
 .value-icon .msi{width:26px;height:26px;color:var(--gold)}
+.fs-on-dark .about-purpose-title{font-size:clamp(2rem,3vw,2.625rem)!important;line-height:1.05;max-width:15ch}
+.fs-on-dark .about-purpose-copy{color:rgba(255,255,255,.9)!important;font-size:clamp(.98rem,1.25vw,1.08rem);line-height:1.68;max-width:55ch}
+@media(max-width:640px){.fs-on-dark .about-purpose-title{font-size:clamp(1.8rem,8vw,2.15rem)!important;max-width:18ch}}
 
 /* CEO spotlight */
 .ceo-figure img{width:100%;max-width:340px;aspect-ratio:3/4;object-fit:cover;display:block;margin:0 auto}
@@ -427,7 +430,7 @@ body.about .page-wrapper { padding-top: 0; }
         <hr class="fs-rule" style="max-width:220px;margin-bottom:var(--sp-6)">
         <p data-i18n="about.7">Lake Group was established in 2006 with a single fuel outlet in Dar es Salaam, Tanzania, and has since grown into a diversified regional business group.</p>
         <p data-i18n="about.9" style="margin-top:12px">Its growth spans energy trading, logistics, manufacturing and automotive industries, with a presence across East and Central Africa and the Middle East.</p>
-        <p data-i18n="about.10" data-i18n-html style="margin-top:12px">Today, Lake Group operates across 10 countries and brings together more than 30,000 people from 10+ nationalities, supported by more than <strong>1,600 trucks</strong>, regional storage facilities, petroleum distribution, lubricant manufacturing and ready-mix concrete manufacturing.</p>
+        <p data-i18n="about.10" data-i18n-html style="margin-top:12px">Today, Lake Group operates across 10 countries and brings together more than 30,000 people from 10+ nationalities, supported by more than <strong>1,200 trucks</strong>, regional storage facilities, petroleum distribution, lubricant manufacturing and ready-mix concrete manufacturing.</p>
         <div style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap">
           <a data-i18n="about.15" href="history.html" class="btn btn-primary">Our Full History</a>
         </div>
@@ -435,20 +438,20 @@ body.about .page-wrapper { padding-top: 0; }
       <div>
         <div class="story-stats">
           <div class="fs-stat">
-            <span class="fs-stat-no" data-count="30000" data-suffix="+" data-metric-key="employees">30,000+</span>
+            <span class="fs-stat-no" data-count="30000" data-suffix="+">30,000+</span>
             <span data-i18n="about.17" class="fs-stat-label">Employees</span>
           </div>
           <div class="fs-stat">
-            <span class="fs-stat-no" data-count="1600" data-suffix="+" data-metric-key="trucks">1,600+</span>
+            <span class="fs-stat-no" data-count="1200" data-suffix="+">1,200+</span>
             <span data-i18n="about.18" class="fs-stat-label">Trucks</span>
           </div>
           <div class="fs-stat">
-            <span class="fs-stat-no" data-metric-key="countries">10</span>
+            <span class="fs-stat-no">10</span>
             <span data-i18n="about.19" class="fs-stat-label">Countries</span>
           </div>
           <div class="fs-stat">
-            <span class="fs-stat-no" data-count="18" data-suffix="+" data-metric-key="subsidiaries">18+</span>
-            <span data-i18n="about.20" class="fs-stat-label">Business Verticals</span>
+            <span class="fs-stat-no" data-count="10" data-suffix="+">10+</span>
+            <span data-i18n="about.20" class="fs-stat-label">Nationalities</span>
           </div>
         </div>
         <figure class="fs-media fs-corners" style="aspect-ratio:16/9">
@@ -463,15 +466,15 @@ body.about .page-wrapper { padding-top: 0; }
     <div class="fs-split-even">
       <div>
         <div class="fs-marker"><span class="fs-marker-no">02</span><span data-i18n="about.21" class="fs-eyebrow">Our Mission</span></div>
-        <h2 data-i18n="about.22" class="fs-display" style="margin-bottom:var(--sp-5)">What Drives Us</h2>
+        <h2 data-i18n="about.22" class="fs-display about-purpose-title" style="margin-bottom:var(--sp-5)">What Powers Our Journey</h2>
         <hr class="fs-rule" style="max-width:220px;margin-bottom:var(--sp-6)">
-        <p data-i18n="about.23">To deliver trusted solutions that fuel progress, create opportunity, and generate lasting value for our customers, employees, and communities.</p>
+        <p data-i18n="about.23" class="about-purpose-copy">To provide customers with quality products and services in a safe, efficient and cost-effective manner without damaging the environment, identifying and entering new areas of business while creating a work environment where employees exceed their personal best.</p>
       </div>
       <div>
         <div class="fs-marker"><span class="fs-marker-no">03</span><span data-i18n="about.27" class="fs-eyebrow">Our Vision</span></div>
-        <h2 data-i18n="about.28" class="fs-display" style="margin-bottom:var(--sp-5)">Where We're Going</h2>
+        <h2 data-i18n="about.28" class="fs-display about-purpose-title" style="margin-bottom:var(--sp-5)">Our Way Forward</h2>
         <hr class="fs-rule" style="max-width:220px;margin-bottom:var(--sp-6)">
-        <p data-i18n="about.29">To be a world-class enterprise that advances industries, empowers communities, and inspires progress through innovation and excellence.</p>
+        <p data-i18n="about.29" class="about-purpose-copy">To become the leading regional convenience retailer and marketer of products and services while achieving continuous improvement through operational excellence, innovation and a culture based on performance.</p>
       </div>
     </div>
         <div class="about-values-label" data-i18n="about.24">Our Core Values</div>
