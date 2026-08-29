@@ -449,7 +449,7 @@ async function main() {
     ["Email", "admin@lakeoilgroup.com", "lakeoilgroup.com/contact"],
     ["Website", "https://www.lakeoilgroup.com", "Verified domain"],
     ["Year Founded", "2006", "lakeoilgroup.com homepage"],
-    ["Founder / Owner", "Mr. Ally Edha Awadh", "lakeoilgroup.com homepage"],
+    ["Founder", "Mr. Ally Edha Awadh", "lakeoilgroup.com homepage"],
     ["Sectors", "Energy, Manufacturing, Logistics, Real Estate, Agro", "Company data"],
     ["Countries", "Tanzania, Kenya, Zambia, DRC, Burundi, Rwanda, Uganda, Mozambique, UAE", "lakeoilgroup.com"]
   ], [28,52,20]));
@@ -726,7 +726,7 @@ async function main() {
   // ═══════ 16. KEY STATS ═══════
   children.push(heading("16. Key Statistics & Milestones", 0, {color:C.navy}));
   children.push(emptyLine());
-  children.push(dataTable(["Metric","Data","Source"], [["Founded","2006","VERIFIED: website"],["Founder/Owner","Ally Edha Awadh","VERIFIED: website"],["HQ","Dar es Salaam, Tanzania","VERIFIED: website"],["Sectors","5","COMPILED"],["Subsidiaries","~18","COMPILED"],["Countries","10+","VERIFIED: website"],["Employees (LinkedIn)","4,601+","VERIFIED: LinkedIn"],["Market Position","Top 5 petroleum distributor in TZ","VERIFIED: website"],["Retail Stations","152+","SECONDARY: LinkedIn"],["Forbes Feature","2017: $1B revenue","VERIFIED: Forbes"],["Awards","YBL 2022, YAEL 2023","SECONDARY"]]));
+  children.push(dataTable(["Metric","Data","Source"], [["Founded","2006","VERIFIED: website"],["Founder","Ally Edha Awadh","VERIFIED: website"],["HQ","Dar es Salaam, Tanzania","VERIFIED: website"],["Sectors","5","COMPILED"],["Subsidiaries","~18","COMPILED"],["Countries","10+","VERIFIED: website"],["Employees (LinkedIn)","4,601+","VERIFIED: LinkedIn"],["Market Position","Top 5 petroleum distributor in TZ","VERIFIED: website"],["Retail Stations","152+","SECONDARY: LinkedIn"],["Forbes Feature","2017: $1B revenue","VERIFIED: Forbes"],["Awards","YBL 2022, YAEL 2023","SECONDARY"]]));
   children.push(emptyLine());
   children.push(heading("16.1 Regulatory Licenses [VERIFIED]", 1, {color:C.blue}));
   children.push(dataTable(["Entity","Regulator","License Type","Year"], [["Lake Oil Ltd.","EWURA","OMC License","Active (2024 order)"],["Lake Gas Ltd.","EWURA","LPG License","Active (2024 order)"],["AFICD","TASAC","Dry Port Operator","Active (2025 license)"]]));

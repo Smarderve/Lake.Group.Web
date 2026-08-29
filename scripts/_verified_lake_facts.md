@@ -191,7 +191,7 @@ Press/secondary sources:
   (176 registered profiles) — not usable.
 - Station counts other than the group total of 152 (per-country breakdown pending client refresh).
 - Any ISO or other certification — no certification is named anywhere on the official site.
-- Any named executives other than Ally Edha Awadh (CEO/Chairman). LinkedIn shows other
+- Any named leaders other than Ally Edha Awadh (Founder & Chairman). LinkedIn shows other
   staff (CFO Bhanupratapsingh Kshatriya, CIO YSV Kumar Babu, etc.) but these are not on
   the official site and titles/tenure cannot be confirmed.
 - "Lake Energies" appears as a newer brand on LinkedIn posts (Lake Energies Tanzania /

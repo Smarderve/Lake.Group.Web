@@ -7,14 +7,17 @@ const { chromium } = require('playwright');
 
 const root = path.join(__dirname, '..');
 const canonicalTitle = 'Founder & Chairman';
-const oldTitle = /executive founder|executive chairman|founder and executive chairman|group executive chairman|chairman & founder|founder & executive chairman|founder and chairman|founder and ceo|ceo & chairman|group ceo|founding ceo and chairman|chairman and managing director/i;
+const prohibitedTitle = /executive founder|executive chairman(?:\s*&\s*owner)?|founder\s*(?:&|and)\s*executive chairman|executive founder\s*(?:&|and)\s*chairman|chairman\s*(?:&|and)\s*owner|group executive chairman/i;
 const publicSources = [
   ...fs.readdirSync(root).filter((name) => name.endsWith('.html')),
   'assets/i18n-content.json',
   'assets/i18n-content.js',
+  'assets/i18n-content.js.bak',
   'assets/news-data.js',
   'assets/assistant-kb.js',
   'backend/scripts/content-seed-data.js',
+  'scripts/_master_en.json',
+  'scripts/translation_dict.py',
   'lake-group-org-chart.html',
   'public-content/releases/ef80b28117e92a9d2d70/content.json',
   'public-content/releases/e1f7948c362af717573c/content.json',
@@ -32,9 +35,18 @@ test('canonical source and public mirrors use the approved Ally title', () => {
 
   const translations = JSON.parse(read('assets/i18n-content.json'));
   for (const [locale, dictionary] of Object.entries(translations)) {
-    assert.equal(dictionary['leadership.8'], canonicalTitle.replace('&', '&amp;'), `${locale} leadership title`);
-    assert.equal(dictionary['about.40'], canonicalTitle.replace('&', '&amp;'), `${locale} about title`);
-    assert.equal(dictionary['index.73'].split(', Lake Group')[0], canonicalTitle.replace('&', '&amp;'), `${locale} index title`);
+    assert.equal(dictionary['leadership.8'], canonicalTitle, `${locale} leadership title`);
+    assert.equal(dictionary['about.40'], canonicalTitle, `${locale} about title`);
+    assert.equal(dictionary['index.73'].split(', Lake Group')[0], canonicalTitle, `${locale} index title`);
+  }
+
+  const legacyTranslations = JSON.parse(read('assets/i18n-content.js.bak')
+    .replace(/^window\.__LAKE_I18N_CONTENT__\s*=\s*/, '')
+    .replace(/;\s*$/, ''));
+  for (const [locale, dictionary] of Object.entries(legacyTranslations)) {
+    assert.equal(dictionary['leadership.8'], canonicalTitle, `${locale} legacy leadership title`);
+    assert.equal(dictionary['about.40'], canonicalTitle, `${locale} legacy about title`);
+    assert.equal(dictionary['index.73'].split(', Lake Group')[0], canonicalTitle, `${locale} legacy index title`);
   }
 
   const failures = [];
@@ -44,7 +56,7 @@ test('canonical source and public mirrors use the approved Ally title', () => {
     let match;
     while ((match = ally.exec(source)) !== null) {
       const context = source.slice(Math.max(0, match.index - 280), Math.min(source.length, match.index + 280));
-      if (oldTitle.test(context)) failures.push(`${relative}: ${context.replace(/\s+/g, ' ').trim()}`);
+      if (prohibitedTitle.test(context)) failures.push(`${relative}: ${context.replace(/\s+/g, ' ').trim()}`);
     }
   }
   assert.deepEqual(failures, [], `Incorrect Ally title references:\n${failures.join('\n')}`);
@@ -76,7 +88,7 @@ test('Leadership renders the canonical title at desktop, tablet, and mobile widt
       await page.goto(`http://127.0.0.1:${port}/leadership.html`, { waitUntil: 'domcontentloaded' });
       const text = await page.locator('body').innerText();
       assert.match(text, new RegExp(canonicalTitle.replace(/[&]/g, '\\&'), 'i'));
-      assert.doesNotMatch(text, oldTitle);
+      assert.doesNotMatch(text, prohibitedTitle);
       await page.close();
     }
     const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
@@ -84,7 +96,7 @@ test('Leadership renders the canonical title at desktop, tablet, and mobile widt
       await page.goto(`http://127.0.0.1:${port}/${route}`, { waitUntil: 'domcontentloaded' });
       const text = await page.locator('body').innerText();
       if (/Ally Edha Awadh/i.test(text)) {
-        assert.doesNotMatch(text, oldTitle, route);
+        assert.doesNotMatch(text, prohibitedTitle, route);
         assert.match(text, /Founder & Chairman/i, route);
       }
     }

@@ -12,7 +12,7 @@ The leaders published on the live Leadership page are **client-confirmed**:
 
 | # | Name | Title |
 |---|------|-------|
-| 1 | Ally Edha Awadh | Executive Chairman & Owner |
+| 1 | Ally Edha Awadh | Founder & Chairman |
 | 2 | Dilip Kumar | CEO · Manufacturing Division |
 | 3 | Bibhuti Singh | CFO · AFICD |
 | 4 | Biji Lapat | CEO · Lake Energies |

@@ -75,7 +75,7 @@ it, and you will never have to touch a file or write code.
 2. Click an existing person's name to edit their profile, or **Create New**
    for someone new.
 3. Fill in the fields:
-   - **Name** and **Role** (their job title, e.g. "Executive Chairman & Owner").
+   - **Name** and **Role** (their job title, e.g. "Founder & Chairman").
    - **Unit** — which part of the group they belong to.
    - **Summary** — one line about them.
    - **Bio** — their profile text.
