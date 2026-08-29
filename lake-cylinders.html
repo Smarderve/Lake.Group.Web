@@ -38,20 +38,13 @@
 
 .info-panel{background:var(--ink);padding:var(--sp-8);position:relative}
 .info-panel h3{font-family:var(--font-display);font-weight:700;font-size:var(--fs-title);letter-spacing:.02em;text-transform:uppercase;color:var(--white);margin-bottom:var(--sp-5)}
-.info-row{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-4);padding:13px 0;border-bottom:1px solid var(--ink-line-2)}
-.info-row:first-of-type{border-top:1px solid var(--ink-line)}
-.info-row>span:first-child{display:inline-flex;align-items:center;gap:8px;color:rgba(233,237,248,0.92);font-size:.92rem}
+.info-rows{position:relative;z-index:1}
+.info-row{display:grid;grid-template-columns:minmax(105px,.9fr) minmax(150px,1.1fr);align-items:center;gap:var(--sp-4);padding:14px 0;border-bottom:1px solid rgba(233,237,248,.17)}
+.info-row:first-child{border-top:0}
+.info-row>span:first-child{display:inline-flex;align-items:center;gap:8px;color:rgba(233,237,248,.94);font-size:.84rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.info-row>span:last-child{border-left:1px solid rgba(233,237,248,.2);padding-left:var(--sp-4)}
+@media(max-width:600px){.info-row{grid-template-columns:1fr;gap:8px;padding:13px 0}.info-row>span:last-child{border-left:0;padding-left:26px}}
 .info-panel .badge-yellow,.info-panel .badge-amber,.info-row .badge{color:#fff!important;border-color:rgba(255,242,0,0.65)!important;background:rgba(255,242,0,0.16)!important}
-
-.stat-panel2{background:var(--ink);padding:var(--sp-8);position:relative}
-.stat-panel2 h3{font-family:var(--font-display);font-weight:700;font-size:var(--fs-title);letter-spacing:.02em;text-transform:uppercase;color:var(--white);margin-bottom:var(--sp-6)}
-.stat-grid2{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-6)}
-.stat-tile2{position:relative;padding:var(--sp-4) 0 var(--sp-3)}
-.stat-tile2::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ink-line)}
-.stat-tile2::before{content:'';position:absolute;left:0;bottom:-3.5px;width:8px;height:8px;background:var(--gold);z-index:1}
-.stat-tile2 .stat-no2{font-family:var(--font-display);font-weight:700;font-size:clamp(2.2rem,4vw,3.2rem);line-height:.95;color:var(--white);display:block}
-.stat-tile2 .stat-no2.gold{color:var(--gold)}
-.stat-tile2 p{font-size:var(--fs-micro);font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute);margin-top:var(--sp-2)}
 
 .val-mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-4);margin-top:var(--sp-8)}
 @media(max-width:960px){.val-mini-grid{grid-template-columns:repeat(2,1fr)}}
@@ -61,21 +54,52 @@
 .val-mini-tile h4{font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;color:var(--white);margin-bottom:6px}
 .val-mini-tile p{font-size:.82rem;color:var(--ink-mute);margin:0;line-height:1.5}
 
-.prod-catalog{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5)}
-@media(max-width:860px){.prod-catalog{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.prod-catalog{grid-template-columns:1fr}}
-.prod-catalog-card{background:var(--surface);border:1px solid var(--line-2);padding:var(--sp-5)}
-.prod-catalog-card .fs-media{aspect-ratio:4/3;margin-bottom:var(--sp-3);overflow:hidden;background:var(--paper-2)}
-.prod-catalog-card .fs-media img{width:100%;height:100%;object-fit:contain;object-position:center;display:block}
-.prod-catalog-card .prod-glyph{
-  width:64px;height:64px;margin:0 0 var(--sp-4);
-  display:flex;align-items:center;justify-content:center;
-  background:rgba(1,129,187,0.08);border:1px solid rgba(1,129,187,0.18);
-  color:var(--blue-deep, var(--blue));
+
+
+/* Compact product catalogue for cylinders */
+.prod-compact{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5)}
+.prod-compact-card{background:var(--surface);border:1px solid var(--line-2);padding:var(--sp-5) var(--sp-4);text-align:center}
+.prod-compact-card .prod-glyph{width:44px;height:44px;margin:0 auto var(--sp-3);display:flex;align-items:center;justify-content:center;background:rgba(1,129,187,0.08);border:1px solid rgba(1,129,187,0.18);color:var(--blue-deep, var(--blue))}
+.prod-compact-card .prod-glyph iconify-icon{display:block;color:inherit}
+.prod-compact-card h4{font-family:var(--font-display);font-weight:700;font-size:1rem;letter-spacing:.03em;text-transform:uppercase;color:var(--text);margin-bottom:6px}
+.prod-compact-card p{font-size:.82rem;line-height:1.55;color:var(--mute);margin:0}
+@media(max-width:640px){.prod-compact{grid-template-columns:1fr}}
+
+/* Leadership text-only cards */
+.lc-lead-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 32px;max-width:560px;margin:0 auto}
+@media(max-width:640px){.lc-lead-grid{grid-template-columns:1fr;max-width:280px}}
+.lc-lead-grid .ld-person-card{position:relative;display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--line-2);padding:var(--sp-5) var(--sp-4);transition:transform .28s var(--ease-out,ease);border-radius:2px}
+.lc-lead-grid .ld-person-card:hover{transform:translateY(-3px)}
+.lc-lead-grid .ld-person-card:focus-visible{outline:2px solid var(--color-brand-blue,#0181BB);outline-offset:4px;border-radius:4px}
+.lc-lead-grid .ld-person-body{display:flex;flex-direction:column;gap:4px}
+.lc-lead-grid .ld-person-body h3{font-family:var(--font-display,var(--font-heading));font-weight:600;font-size:1.08rem;letter-spacing:.01em;text-transform:none;margin:0;color:#0A1628;line-height:1.25}
+.lc-lead-grid .ld-person-role{color:#6B7280;font-size:.85rem;font-weight:400;text-transform:none;letter-spacing:0;margin:0;line-height:1.4}
+
+/* Contact compact */
+.ct-compact{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-6) var(--sp-8);align-items:start}
+.ct-compact .ct-info{background:var(--ink);padding:var(--sp-6);border-radius:2px}
+.ct-compact .ct-info h3{color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.1rem;text-transform:uppercase;letter-spacing:0.03em;margin-bottom:var(--sp-5)}
+.ct-compact .ct-rows{display:flex;flex-direction:column;gap:var(--sp-4)}
+.ct-compact .ct-row{display:flex;gap:var(--sp-3);align-items:flex-start}
+.ct-compact .ct-ico{width:32px;height:32px;border:1px solid var(--ink-line);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.ct-compact .ct-label{color:var(--gold);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.18em;margin-bottom:3px}
+.ct-compact .ct-strong{color:var(--white);font-size:.88rem;display:block}
+.ct-compact .ct-dim{color:var(--ink-mute);font-size:.82rem;display:block}
+@media(max-width:700px){.ct-compact{grid-template-columns:1fr}}
+
+/* Lake Cylinders page-specific hero and contrast */
+body[data-company-logo*="lake-cylinders"] .page-hero .hero-overlay{
+  background:linear-gradient(180deg,rgba(8,16,28,.32) 0%,rgba(8,16,28,.58) 100%)
 }
-.prod-catalog-card .prod-glyph iconify-icon{display:block;color:inherit}
-.prod-catalog-card h4{font-family:var(--font-display);font-weight:700;font-size:1.1rem;letter-spacing:.03em;text-transform:uppercase;color:var(--text)}
-.prod-catalog-card p{font-size:.85rem;margin-top:4px;line-height:1.6}
+body[data-company-logo*="lake-cylinders"] .page-hero .hero-media{
+  background-position:center 35%
+}
+
+/* Dark-section contrast fixes */
+.fs-on-dark .fs-check li{color:rgba(233,237,248,0.92)!important;border-bottom-color:rgba(233,237,248,0.12)!important}
+.fs-on-dark .fs-check li:first-child{border-top-color:rgba(233,237,248,0.12)!important}
+.fs-on-dark p{color:rgba(233,237,248,0.9)!important}
+.fs-on-dark .val-mini-tile p{color:var(--ink-mute)!important}
 
 /* Gallery . Lake Oil pattern, compact photo size */
 .co-gal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:100%;max-width:820px;margin:0 auto}
@@ -134,21 +158,6 @@
 .ct-strong{color:var(--white);font-size:0.92rem;display:block}
 .ct-dim{color:var(--ink-mute);font-size:0.85rem;display:block}
 
-/* Leadership cards - same visual language as the Leadership page (ld-person-card) */
-.lc-lead-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 36px;max-width:640px;margin:0 auto}
-@media(max-width:640px){.lc-lead-grid{grid-template-columns:1fr;max-width:300px}}
-.lc-lead-grid a.ld-person-card{position:relative;display:flex;flex-direction:column;text-decoration:none;color:inherit;background:transparent;border:none;overflow:visible;transition:transform .28s var(--ease-out,ease)}
-.lc-lead-grid a.ld-person-card:hover{transform:translateY(-3px)}
-.lc-lead-grid a.ld-person-card:focus-visible{outline:2px solid var(--color-brand-blue,#0181BB);outline-offset:4px;border-radius:4px}
-.lc-lead-grid .ld-person-photo{position:relative;aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:#EEF1F5;display:flex;align-items:center;justify-content:center}
-.lc-lead-grid .ld-person-photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;transition:transform .4s var(--ease-out,ease)}
-.lc-lead-grid a.ld-person-card:hover .ld-person-photo img{transform:scale(1.02)}
-.lc-lead-grid .ld-person-body{padding:16px 2px 0;display:flex;flex-direction:column;flex:1;gap:4px}
-.lc-lead-grid .ld-person-body h3{font-family:var(--font-display,var(--font-heading));font-weight:600;font-size:1.08rem;letter-spacing:.01em;text-transform:none;margin:0;color:#0A1628;line-height:1.25}
-.lc-lead-grid .ld-person-role{color:#6B7280;font-size:.875rem;font-weight:400;text-transform:none;letter-spacing:0;margin:0;line-height:1.4}
-.lc-lead-grid .ld-person-more{margin-top:14px;font-size:.9rem;font-weight:500;letter-spacing:0;text-transform:none;color:var(--color-brand-blue,#0181BB);display:inline-flex;align-items:center;gap:6px}
-.lc-lead-grid .ld-person-more::after{content:"";display:inline-block;width:12px;height:12px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;transition:transform .25s ease}
-.lc-lead-grid a.ld-person-card:hover .ld-person-more::after{transform:translateX(4px)}
   </style>
 <script type="application/ld+json">
 {
@@ -263,7 +272,7 @@
 
 <div class="page-wrapper">
 <section class="page-hero">
-  <div class="hero-media" style="background-image:url('assets/images/lakegas/ops/cylinder-stacks.jpg')" aria-hidden="true"></div>
+  <div class="hero-media" style="background-image:url('assets/images/lakegas/ops/cylinder-hero.webp');background-position:center 35%" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container">
     <nav class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span>/</span><span>Manufacturing</span><span>/</span><span>Lake Cylinders</span></nav>
@@ -291,11 +300,11 @@
       <div>
         <div class="info-panel fs-on-dark fs-corners">
           <h3>Operations by Country</h3>
-          <div>
-            <div class="info-row"><span><img src="assets/images/flags/tz.svg" alt="Tanzania flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Tanzania</span><span class="badge badge-yellow">Manufacturing Base</span></div>
-            <div class="info-row"><span><img src="assets/images/flags/cd.svg" alt="DR Congo flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> DR Congo</span><span class="badge">Regional Supply</span></div>
-            <div class="info-row"><span><img src="assets/images/flags/rw.svg" alt="Rwanda flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Rwanda</span><span class="badge">Regional Supply</span></div>
-            <div class="info-row"><span><img src="assets/images/flags/zm.svg" alt="Zambia flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Zambia</span><span class="badge">Regional Supply</span></div>
+          <div class="info-rows">
+            <div class="info-row"><span><img src="assets/images/flags/tz.svg" alt="Tanzania flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Tanzania</span><span><span class="badge badge-yellow">Manufacturing Base</span></span></div>
+            <div class="info-row"><span><img src="assets/images/flags/cd.svg" alt="DR Congo flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> DR Congo</span><span><span class="badge">Regional Supply</span></span></div>
+            <div class="info-row"><span><img src="assets/images/flags/rw.svg" alt="Rwanda flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Rwanda</span><span><span class="badge">Regional Supply</span></span></div>
+            <div class="info-row"><span><img src="assets/images/flags/zm.svg" alt="Zambia flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Zambia</span><span><span class="badge">Regional Supply</span></span></div>
           </div>
         </div>
       </div>
@@ -351,108 +360,54 @@
   </div>
 </section>
 
-<section class="fs-section section-light">
-  <div class="container">
-    <div class="fs-marker"><span class="fs-marker-no">03</span><span class="fs-eyebrow">Services Offered</span></div>
-    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Our Services</h2>
-    <div class="svc-grid">
-      <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/lakegas/ops/cylinders-yard.jpg" alt="Lake Cylinders LPG cylinder manufacturing" loading="lazy" decoding="async"></div>
-        <div class="svc-card__body">
-          <h4 class="svc-card__title">LPG Cylinder Manufacturing</h4>
-          <p class="svc-card__desc">Production of high-quality 6 kg and 15 kg LPG cylinders, with expansion into 38 kg cylinder manufacturing.</p>
-        </div>
-      </article>
-      <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/lakegas/ops/cylinder-warehouse.jpg" alt="Lake Cylinders revalidation and refurbishment" loading="lazy" decoding="async"></div>
-        <div class="svc-card__body">
-          <h4 class="svc-card__title">Cylinder Revalidation &amp; Refurbishment</h4>
-          <p class="svc-card__desc">Revalidation and refurbishment services that help distributors maintain cylinder fleets and extend useful service life where standards permit.</p>
-        </div>
-      </article>
-      <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/lakegas/ops/cylinder-stacks.jpg" alt="Lake Cylinders repair and maintenance" loading="lazy" decoding="async"></div>
-        <div class="svc-card__body">
-          <h4 class="svc-card__title">Cylinder Repair &amp; Maintenance</h4>
-          <p class="svc-card__desc">Repair and maintenance services that keep LPG cylinders safe, compliant and operational throughout their service life.</p>
-        </div>
-      </article>
-      <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/lakegas/ops/worker-silas.jpg" alt="Lake Cylinders quality inspection and testing" loading="lazy" decoding="async"></div>
-        <div class="svc-card__body">
-          <h4 class="svc-card__title">Quality Inspection &amp; Testing</h4>
-          <p class="svc-card__desc">Quality inspections and controls integrated throughout the manufacturing process to meet applicable safety requirements.</p>
-        </div>
-      </article>
-      <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/lakegas/ops/cylinder-stacks.jpg" alt="Lake Cylinders customized cylinder solutions" loading="lazy" decoding="async"></div>
-        <div class="svc-card__body">
-          <h4 class="svc-card__title">Customized Cylinder Solutions</h4>
-          <p class="svc-card__desc">Customized cylinder solutions adapted to the needs of different LPG applications and market segments.</p>
-        </div>
-      </article>
-      <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/lakegas/ops/cylinders-yard.jpg" alt="Lake Cylinders supply and distribution" loading="lazy" decoding="async"></div>
-        <div class="svc-card__body">
-          <h4 class="svc-card__title">LPG Cylinder Supply &amp; Distribution</h4>
-          <p class="svc-card__desc">Supply and distribution of LPG cylinders to customers across Tanzania and regional East African markets.</p>
-        </div>
-      </article>
-    </div>
-</div>
-</section>
-
 <section class="fs-section">
   <div class="container">
-    <div class="fs-marker"><span class="fs-marker-no">04</span><span class="fs-eyebrow">Products Offered</span></div>
+    <div class="fs-marker"><span class="fs-marker-no">03</span><span class="fs-eyebrow">Products Offered</span></div>
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Our Products</h2>
-    <div class="prod-catalog">
-      <div class="prod-catalog-card">
-        <div class="prod-glyph" aria-hidden="true"><iconify-icon icon="mdi:gas-cylinder" width="36" height="36"></iconify-icon></div>
+    <div class="prod-compact">
+      <div class="prod-compact-card">
+        <div class="prod-glyph" aria-hidden="true"><iconify-icon icon="mdi:gas-cylinder" width="28" height="28"></iconify-icon></div>
         <h4>6 kg LPG Cylinders</h4>
         <p>Household-sized cylinders for everyday cooking, with capacity to produce up to 40,000 units per month.</p>
       </div>
-      <div class="prod-catalog-card">
-        <div class="prod-glyph" aria-hidden="true"><iconify-icon icon="mdi:gas-cylinder" width="36" height="36"></iconify-icon></div>
+      <div class="prod-compact-card">
+        <div class="prod-glyph" aria-hidden="true"><iconify-icon icon="mdi:gas-cylinder" width="28" height="28"></iconify-icon></div>
         <h4>15 kg LPG Cylinders</h4>
         <p>Mid-capacity cylinders serving both household and commercial LPG markets across the region.</p>
       </div>
-      <div class="prod-catalog-card">
-        <div class="prod-glyph" aria-hidden="true"><iconify-icon icon="mdi:gas-cylinder" width="36" height="36"></iconify-icon></div>
+      <div class="prod-compact-card">
+        <div class="prod-glyph" aria-hidden="true"><iconify-icon icon="mdi:gas-cylinder" width="28" height="28"></iconify-icon></div>
         <h4>38 kg LPG Cylinders</h4>
         <p>Expansion into 38 kg LPG cylinder manufacturing following acquisition of dedicated manufacturing equipment.</p>
       </div>
     </div>
-</div>
+  </div>
+</section>
 
 <section class="fs-section">
   <div class="container">
-    <div class="fs-marker" style="justify-content:center"><span class="fs-marker-no">05</span><span class="fs-eyebrow">Leadership Team</span></div>
+    <div class="fs-marker" style="justify-content:center"><span class="fs-marker-no">04</span><span class="fs-eyebrow">Leadership Team</span></div>
     <h2 class="fs-display" style="text-align:center;margin-bottom:var(--sp-10)">Our Leadership</h2>
     <div class="lc-lead-grid">
-      <a href="leadership.html" class="ld-person-card">
-        <div class="ld-person-photo"><img src="assets/images/leadership/zaki-othman.jpg" alt="Zaki Othman" loading="lazy" decoding="async"></div>
+      <div class="ld-person-card">
         <div class="ld-person-body">
           <h3>Zaki Othman</h3>
           <p class="ld-person-role">General Manager &middot; Lake Cylinders</p>
-          <span class="ld-person-more">Read more</span>
         </div>
-      </a>
-      <a href="leadership.html" class="ld-person-card">
-        <div class="ld-person-photo"><img src="assets/images/leadership/jishnu-jayachandran.jpg" alt="Jishnu Jayachandran" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="ld-person-card">
         <div class="ld-person-body">
           <h3>Jishnu Jayachandran</h3>
           <p class="ld-person-role">Plant Manager &middot; Lake Cylinders</p>
-          <span class="ld-person-more">Read more</span>
         </div>
-      </a>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="fs-section fs-on-dark">
   <div class="container">
-    <div class="fs-marker"><span class="fs-marker-no">06</span><span class="fs-eyebrow">Completed &amp; Ongoing Projects</span></div>
+    <div class="fs-marker"><span class="fs-marker-no">05</span><span class="fs-eyebrow">Completed &amp; Ongoing Projects</span></div>
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Projects &amp; Achievements</h2>
     <div class="fs-split-even" style="align-items:start">
       <div>
@@ -481,52 +436,18 @@
   </div>
 </section>
 
-<section class="fs-section section-light">
-  <div class="container">
-    <div class="fs-marker"><span class="fs-marker-no">07</span><span class="fs-eyebrow">Capabilities</span></div>
-    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Production &amp; Operational Capabilities</h2>
-    <div class="stat-panel2">
-      <h3 style="color:var(--white)">At a Glance</h3>
-      <div class="stat-grid2">
-        <div class="stat-tile2"><span class="stat-no2">40,000</span><p>6 kg cylinders per month, subject to production schedules, operating conditions and customer requirements</p></div>
-        <div class="stat-tile2"><span class="stat-no2 gold">200,000+</span><p>Cylinders delivered to REA</p></div>
-        <div class="stat-tile2"><span class="stat-no2">6 / 15 / 38</span><p>Cylinder sizes manufactured</p></div>
-        <div class="stat-tile2"><span class="stat-no2">4+</span><p>Regional markets served</p></div>
-      </div>
-    </div>
-    <div class="fs-split-even" style="margin-top:var(--sp-8);align-items:start">
-      <div>
-        <h3 style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:10px">Production Capabilities</h3>
-        <ul class="fs-check" style="margin-top:0">
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Up to 40,000 6 kg LPG cylinders per month, subject to production schedules, operating conditions and customer requirements</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>15 kg LPG cylinder production serving household and commercial markets</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Expansion into 38 kg LPG cylinder manufacturing with dedicated equipment</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Cylinder revalidation and refurbishment supporting safe continued use</li>
-        </ul>
-      </div>
-      <div>
-        <h3 style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:10px">Operational Strengths</h3>
-        <ul class="fs-check" style="margin-top:0">
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Proven execution of major institutional orders involving 200,000+ cylinders</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Regional supply capability across Tanzania and neighbouring African markets</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Flexible production planning adapted to different cylinder sizes and requirements</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Continuous investment in automation and manufacturing efficiency</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="fs-section">
   <div class="container">
-    <div class="fs-marker"><span class="fs-marker-no">08</span><span class="fs-eyebrow">Contact</span></div>
+    <div class="fs-marker"><span class="fs-marker-no">06</span><span class="fs-eyebrow">Contact</span></div>
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Contact Lake Cylinders</h2>
-    <div class="ct-info fs-corners">
-      <div class="ct-rows">
-        <div class="ct-row"><div class="ct-ico" aria-hidden="true"><iconify-icon icon="mdi:map-marker" width="20" height="20"></iconify-icon></div><div><div class="ct-label">Address</div><span class="ct-strong">Lake Cylinders Limited</span><span class="ct-dim">Manufacturing Facility: Visiga, Kibaha, Pwani, Tanzania</span></div></div>
-        <div class="ct-row"><div class="ct-ico" aria-hidden="true"><iconify-icon icon="mdi:account" width="20" height="20"></iconify-icon></div><div><div class="ct-label">General Manager</div><span class="ct-strong">Zaki Othman</span></div></div>
-        <div class="ct-row"><div class="ct-ico" aria-hidden="true"><iconify-icon icon="mdi:phone" width="20" height="20"></iconify-icon></div><div><div class="ct-label">Telephone</div><a href="tel:+255745552259" class="ct-strong" style="color:var(--white);text-decoration:none">+255 745 552 259</a></div></div>
-        <div class="ct-row"><div class="ct-ico" aria-hidden="true"><iconify-icon icon="mdi:email" width="20" height="20"></iconify-icon></div><div><div class="ct-label">Email</div><a href="mailto:zaki.othman@lakeoilgroup.com" class="ct-strong" style="color:var(--white);text-decoration:none">zaki.othman@lakeoilgroup.com</a><a href="mailto:production.lc@lakeoilgroup.com" class="ct-dim" style="color:var(--ink-mute);text-decoration:none">production.lc@lakeoilgroup.com</a></div></div>
+    <div class="ct-compact">
+      <div class="ct-info fs-corners">
+        <div class="ct-rows">
+          <div class="ct-row"><div class="ct-ico" aria-hidden="true"><iconify-icon icon="mdi:map-marker" width="18" height="18"></iconify-icon></div><div><div class="ct-label">Address</div><span class="ct-strong">Lake Cylinders Limited</span><span class="ct-dim">Manufacturing Facility: Visiga, Kibaha, Pwani, Tanzania</span></div></div>
+          <div class="ct-row"><div class="ct-ico" aria-hidden="true"><iconify-icon icon="mdi:account" width="18" height="18"></iconify-icon></div><div><div class="ct-label">General Manager</div><span class="ct-strong">Zaki Othman</span></div></div>
+          <div class="ct-row"><div class="ct-ico" aria-hidden="true"><iconify-icon icon="mdi:phone" width="18" height="18"></iconify-icon></div><div><div class="ct-label">Telephone</div><a href="tel:+255745552259" class="ct-strong" style="color:var(--white);text-decoration:none">+255 745 552 259</a></div></div>
+          <div class="ct-row"><div class="ct-ico" aria-hidden="true"><iconify-icon icon="mdi:email" width="18" height="18"></iconify-icon></div><div><div class="ct-label">Email</div><a href="mailto:zaki.othman@lakeoilgroup.com" class="ct-strong" style="color:var(--white);text-decoration:none">zaki.othman@lakeoilgroup.com</a><a href="mailto:production.lc@lakeoilgroup.com" class="ct-dim" style="color:var(--ink-mute);text-decoration:none">production.lc@lakeoilgroup.com</a></div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -534,7 +455,7 @@
 
 <section class="fs-section section-light">
   <div class="container">
-    <div class="fs-marker"><span class="fs-marker-no">09</span><span class="fs-eyebrow">Images</span></div>
+    <div class="fs-marker"><span class="fs-marker-no">07</span><span class="fs-eyebrow">Images</span></div>
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Gallery</h2>
     <div class="co-gal" aria-label="Lake Cylinders gallery">
       <figure class="co-gal__item co-gal__item--feat">
