@@ -1,6 +1,17 @@
 /**
  * Lake Group  knowledge assistant.
  *
+ * CHATBOT_ENABLED feature flag:
+ * Set window.CHATBOT_ENABLED = false (or leave undefined) to completely
+ * disable the chatbot. When disabled, no assistant UI renders, no network
+ * requests fire, and the legacy chat in site.js also stays dormant.
+ * To re-enable: set CHATBOT_ENABLED = true before this script loads.
+ */
+if (window.CHATBOT_ENABLED === false) return;
+
+/**
+ * Lake Group  knowledge assistant.
+ *
  * Progressive-enhancement replacement for the legacy canned-reply chat in
  * assets/site.js. On load it takes over the existing `#chat-widget` mount
  * (creating one if the page has none), swaps in the assistant UI and sets

@@ -1,4 +1,14 @@
-﻿/* ==========================================================================
+﻿/*
+   CHATBOT DISABLED — temporary production gate.
+   Hide all chat widget DOM elements while the assistant is unfinished.
+   To re-enable: remove this rule and set CHATBOT_ENABLED = true.
+   See assets/assistant.js for the feature-flag guard.
+*/
+#chat-widget, #chat-btn, #chat-box {
+  display: none !important;
+}
+
+/* ==========================================================================
    LAKE GROUP  OFFLINE KNOWLEDGE ASSISTANT (assets/assistant.css)
    ==========================================================================
    Styles for the assistant widget injected by assets/assistant.js into the
