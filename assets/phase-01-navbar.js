@@ -89,6 +89,7 @@
         icon.dataset.iconSource = animation.reveal;
         button.prepend(icon);
         icon.readyPromise?.then(() => {
+          button.classList.add('has-sector-icon');
           if (reducedMotion()) icon.playerInstance?.seekToEnd();
         }).catch(() => {});
       });

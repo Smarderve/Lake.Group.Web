@@ -740,13 +740,15 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .mm-cat.is-active {
 
 /* Sector glyphs are supplied by the shared Lordicon player, not CSS masks. */
 .site-nav[data-phase01-navbar] .mm-cat::before {
-  display: none !important;
-  content: none !important;
-  -webkit-mask-image: none !important;
-  mask-image: none !important;
+  display: grid !important;
+  content: "" !important;
+  grid-column: 1 !important;
+  grid-row: 1 !important;
 }
 .site-nav[data-phase01-navbar] .mm-sector-icon {
   display: block !important;
+  grid-column: 1 !important;
+  grid-row: 1 !important;
   width: 22px !important;
   height: 22px !important;
   flex: 0 0 22px !important;
@@ -755,6 +757,9 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .mm-cat.is-active {
   --lord-icon-secondary: var(--nav-menu-muted) !important;
   opacity: .78 !important;
   transition: color .18s ease !important;
+}
+.site-nav[data-phase01-navbar] .mm-cat.has-sector-icon::before {
+  display: none !important;
 }
 .site-nav[data-phase01-navbar] .mm-cat:hover .mm-sector-icon,
 .site-nav[data-phase01-navbar] .mm-cat:focus-visible .mm-sector-icon,
@@ -1090,10 +1095,10 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-m
   color: #fff200 !important;
 }
 .site-nav[data-phase01-navbar] .mm-cat::before {
-  display: none !important;
-  content: none !important;
-  mask: none !important;
-  -webkit-mask: none !important;
+  display: grid !important;
+  content: "" !important;
+  grid-column: 1 !important;
+  grid-row: 1 !important;
 }
 .site-nav[data-phase01-navbar] .mm-cat::after {
   grid-column: 3 !important;
@@ -1126,6 +1131,25 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-m
   --lord-icon-primary: #fff200 !important;
   --lord-icon-secondary: #fff200 !important;
   opacity: 1 !important;
+}
+
+/* Icon-only visibility correction. Keep the approved rail geometry unchanged
+   while giving all desktop sector icons a consistent, readable slot. */
+@media (min-width: 768px) {
+  .site-nav[data-phase01-navbar] .mm-cat,
+  .site-nav[data-phase01-navbar] .mm-cat:hover,
+  .site-nav[data-phase01-navbar] .mm-cat:focus-visible,
+  .site-nav[data-phase01-navbar] .mm-cat.is-active {
+    grid-template-columns: 32px minmax(0, 1fr) 12px !important;
+  }
+  .site-nav[data-phase01-navbar] .mm-cat::before,
+  .site-nav[data-phase01-navbar] .mm-sector-icon {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .site-nav[data-phase01-navbar] .mm-sector-icon {
+    filter: drop-shadow(0 0 .35px currentColor) !important;
+  }
 }
 .site-nav[data-phase01-navbar] .mm-companies {
   display: grid !important;

@@ -37,3 +37,16 @@ test('sector rows have no permanent visible border and mobile rows receive icons
   assert.match(styles, /\.mob-sector-icon/);
   assert.match(navbar, /mob-accordion > \.mob-acc-btn\[aria-controls\^="mob-acc-"\]/);
 });
+
+test('desktop sector icons share a visible slot with static fallback and active styling', () => {
+  const navTemplate = fs.readFileSync(path.join(root, 'scripts/templates/nav.html'), 'utf8');
+  const sectorRows = [...navTemplate.matchAll(/class="mm-cat(?: [^"]+)?"[^>]*data-mm-cat="([^"]+)"/g)].map((match) => match[1]);
+  assert.deepEqual(sectorRows, Object.keys(sectors));
+  assert.match(styles, /\.mm-cat::before\s*\{[\s\S]*display:\s*grid\s*!important/);
+  assert.match(styles, /\.mm-cat\.has-sector-icon::before\s*\{[\s\S]*display:\s*none\s*!important/);
+  assert.match(styles, /@media \(min-width: 768px\)[\s\S]*\.mm-cat::before,[\s\S]*\.mm-sector-icon\s*\{[\s\S]*width:\s*30px\s*!important[\s\S]*height:\s*30px\s*!important/);
+  assert.match(styles, /@media \(min-width: 768px\)[\s\S]*\.mm-sector-icon\s*\{[\s\S]*filter:\s*drop-shadow/);
+  assert.match(styles, /\.mm-cat:hover \.mm-sector-icon,[\s\S]*\.mm-cat\.is-active \.mm-sector-icon/);
+  assert.match(navbar, /button\.classList\.add\('has-sector-icon'\)/);
+  assert.match(navbar, /aria-hidden', 'true'/);
+});
