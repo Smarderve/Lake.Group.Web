@@ -40,6 +40,8 @@ async function waitForIdle(page) {
 (async () => {
   const pwa = fs.readFileSync(path.join(ROOT, 'assets/pwa.js'), 'utf8');
   const sw = fs.readFileSync(path.join(ROOT, 'sw.js'), 'utf8');
+  assert.doesNotMatch(pwa, /lake-pwa-toast|showUpdateToast|new site version|Dismiss/i, 'PWA must not ship an update popup');
+  assert.doesNotMatch(pwa, /registration\.waiting|updatefound/, 'PWA must not retain popup-only worker update listeners');
   assert.doesNotMatch(pwa, /location\.(?:reload|replace|assign)\s*\(/, 'PWA must not force a second navigation');
   assert.doesNotMatch(pwa, /controllerchange/, 'PWA must not reload on controllerchange');
   assert.doesNotMatch(sw, /await self\.skipWaiting\(\)/, 'worker must not take over an open tab');
@@ -57,6 +59,7 @@ async function waitForIdle(page) {
     await first.goto(`${origin}/index.html`, { waitUntil: 'domcontentloaded' });
     await waitForIdle(first);
     assert.equal(firstNavigations, 1, 'initial deployment must not auto-reload');
+    assert.equal(await first.locator('#lake-pwa-toast').count(), 0, 'fresh visit must not show an update popup');
     await first.close();
 
     const second = await browser.newPage();
@@ -64,10 +67,11 @@ async function waitForIdle(page) {
     second.on('framenavigated', (frame) => { if (frame === second.mainFrame()) secondNavigations += 1; });
     await second.goto(`${origin}/index.html`, { waitUntil: 'domcontentloaded' });
     await waitForIdle(second);
-    const state = await second.evaluate(() => ({ build: window.__LAKE_BUILD__, navigationEntries: performance.getEntriesByType('navigation').length }));
+    const state = await second.evaluate(() => ({ build: window.__LAKE_BUILD__, navigationEntries: performance.getEntriesByType('navigation').length, updatePopup: Boolean(document.querySelector('#lake-pwa-toast')) }));
     assert.equal(secondNavigations, 1, 'A→B update must not cause a second top-level navigation');
     assert.equal(state.navigationEntries, 1, 'A→B update must have one document navigation');
     assert.equal(state.build, '2026-08-28.01', 'current document must remain usable during worker update');
+    assert.equal(state.updatePopup, false, 'persistent update visit must not show an update popup');
     await second.close();
     console.log('Persistent A→B lifecycle passed: one navigation per visit, no forced reload.');
   } finally {
