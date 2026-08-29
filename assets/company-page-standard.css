@@ -1,0 +1,110 @@
+/* Shared company-page refinement layer.
+   Scoped to company-standard pages so Agrinova and page-specific brand systems
+   retain their approved visual identity. */
+body.company-standard {
+  --company-section-space: clamp(64px, 8vw, 112px);
+  --company-heading-size: clamp(2rem, 3vw, 2.625rem);
+  --company-body-size: clamp(.95rem, 1.1vw, 1.0625rem);
+}
+
+body.company-standard .fs-section {
+  padding-block: var(--company-section-space);
+}
+
+body.company-standard .fs-section > .container {
+  max-width: 1280px;
+}
+
+body.company-standard .fs-display {
+  font-size: var(--company-heading-size);
+  line-height: 1.08;
+  max-width: 18ch;
+}
+
+body.company-standard .fs-lede,
+body.company-standard .fs-section p:not(.footer-motto) {
+  font-size: var(--company-body-size);
+  line-height: 1.65;
+}
+
+body.company-standard .fs-split-even,
+body.company-standard .fs-split {
+  gap: clamp(32px, 5vw, 72px);
+}
+
+body.company-standard .stat-panel2,
+body.company-standard .stat-tile2,
+body.company-standard .fs-card {
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+body.company-standard .stat-panel2 {
+  padding: clamp(22px, 3vw, 36px);
+}
+
+body.company-standard .stat-grid2 {
+  gap: 14px;
+}
+
+body.company-standard .stat-tile2 {
+  min-height: 0;
+  padding: 18px;
+}
+
+body.company-standard .stat-no2 {
+  font-size: clamp(1.65rem, 2.4vw, 2.45rem);
+  line-height: 1;
+}
+
+body.company-standard .co-gal {
+  gap: clamp(12px, 1.8vw, 24px);
+  margin-inline: auto;
+  max-width: 1280px;
+}
+
+body.company-standard .co-gal__item {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+body.company-standard .fs-on-dark p,
+body.company-standard .fs-on-dark .fs-lede,
+body.company-standard .fs-on-dark .fs-check {
+  color: rgba(255, 255, 255, .88);
+}
+
+body.company-standard .fs-on-dark .fs-eyebrow,
+body.company-standard .fs-on-dark .fs-marker {
+  color: var(--yellow);
+}
+
+/* Company pages are content-led. Do not leave full sections visually empty
+   while the global reveal observer waits for a scroll intersection. */
+html.fs-motion body.company-standard .fx,
+html.fs-motion body.company-standard .reveal,
+html.fs-motion body.company-standard .reveal-img,
+html.fs-motion body.company-standard .fx-img {
+  clip-path: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  will-change: auto !important;
+}
+
+@media (max-width: 760px) {
+  body.company-standard .fs-section {
+    padding-block: clamp(48px, 12vw, 72px);
+  }
+
+  body.company-standard .fs-display {
+    font-size: clamp(1.65rem, 7.5vw, 2rem);
+    max-width: 19ch;
+  }
+
+  body.company-standard .fs-lede,
+  body.company-standard .fs-section p:not(.footer-motto) {
+    font-size: .98rem;
+    line-height: 1.62;
+  }
+}

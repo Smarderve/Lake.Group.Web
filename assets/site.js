@@ -776,11 +776,8 @@
       else navImg.addEventListener('load', applyLetterbox, { once: true });
     }
 
-    const footerImg = document.querySelector('.site-footer .footer-logo img');
-    if (footerImg) {
-      footerImg.src = companySrc;
-      if (companyAlt) footerImg.alt = companyAlt;
-    }
+    // The footer is a Lake Group corporate surface. Company identity belongs in
+    // the page hero and navbar only; never replace the shared corporate mark.
   }
 
   /**

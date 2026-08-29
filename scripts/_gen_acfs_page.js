@@ -189,7 +189,7 @@ ${nav}
       <a href="lake-cylinders.html" data-i18n="nav.co.lakeCylinders">Lake Cylinders</a>
       <a href="gulf-aggregates.html" data-i18n="nav.co.gulfAggregates">Gulf Aggregates</a>
       <a href="atl.html" data-i18n="nav.co.atl">ATL</a>
-      <a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a>
+      <a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix</a>
     </div>
     <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-logistics" data-i18n="nav.dd.logisticsCos">Logistics</button>
     <div class="mob-acc-panel" id="mob-acc-logistics" hidden>

@@ -787,7 +787,7 @@ function contactBlock() {
 
         <div class="lp-links">
           <a href="lake-steel.html" class="btn btn-outline-dark btn-sm" data-i18n="nav.co.lakeSteel">Lake Steel</a>
-          <a href="lake-premix-cement.html" class="btn btn-outline-dark btn-sm" data-i18n="nav.co.lakePremixCement">Lake Premix &amp; Cement</a>
+          <a href="lake-premix-cement.html" class="btn btn-outline-dark btn-sm" data-i18n="nav.co.lakePremixCement">Lake Premix</a>
           <a href="gulf-aggregates.html" class="btn btn-outline-dark btn-sm" data-i18n="nav.co.gulfAggregates">Gulf Aggregates</a>
         </div>
         <div class="lp-nav">

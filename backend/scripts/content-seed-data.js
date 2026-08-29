@@ -59,7 +59,7 @@ export const CONTENT_SEED = {
     { slug: 'gulf-aggregates', name: 'Gulf Aggregates', categorySlug: 'manufacturing',
       description: "Aggregate quarrying at Lugoba, supplying the construction industry and Lake Group's own concrete production.",
       logo: 'assets/images/logos/companies/gulf-aggregates.png', website: 'https://www.lakeoilgroup.com/gulf-aggregates.html' },
-    { slug: 'lake-premix-cement', name: 'Lake Premix & Cement', categorySlug: 'manufacturing', foundedYear: 2010,
+    { slug: 'lake-premix-cement', name: 'Lake Premix', categorySlug: 'manufacturing', foundedYear: 2010,
       description: "Dar es Salaam's leading ready-mix concrete supplier (GCCP), established 2010.",
       logo: 'assets/images/logos/companies/lake-premix-cement.png', website: 'https://www.lakeoilgroup.com/lake-premix-cement.html' },
     { slug: 'aficd', name: 'AFICD', categorySlug: 'logistics',

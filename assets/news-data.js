@@ -84,7 +84,7 @@ window.LAKE_NEWS = [
       "Lake Steel & Allied Products Ltd. continues production at its fully computerized automated steel rolling mill in Visiga, Kibaha, Pwani Region, Tanzania. The mill has an annual capacity of ~100,000 metric tons of HS-CR (High Strength . Cold Rolled) reinforcement steel bars.",
       "The steel produced at the Kibaha mill is corrosion-resistant, designed specifically for coastal, saline, and industrial environments. It retains structural integrity up to 600Â°C . significantly higher than the standard rebar threshold of ~350Â°C.",
       "All products are compliant with Tanzania Bureau of Standards (TBS) requirements. The mill serves construction, infrastructure, and industrial projects across Tanzania and the wider East African region.",
-      "Lake Steel is one of Lake Group's key manufacturing subsidiaries, alongside Lake Buildings Solutions, Lake Pipes, Lake Premix & Cement (GCCP), Gulf Aggregates, and ATL . Africa Tank Lines Ltd. [Source: Lake Group official website, TBS]"
+      "Lake Steel is one of Lake Group's key manufacturing subsidiaries, alongside Lake Buildings Solutions, Lake Pipes, Lake Premix (GCCP), Gulf Aggregates, and ATL . Africa Tank Lines Ltd. [Source: Lake Group official website, TBS]"
     ],
     images: [
       "assets/images/lakesteel/ops/hot-rolling.jpg",
@@ -244,7 +244,7 @@ window.LAKE_NEWS = [
     description: [
       "Lake Buildings Solutions Ltd., the construction and building materials division of Lake Group, completed several major commercial and residential projects across Dar es Salaam and up-country Tanzania.",
       "Projects delivered included commercial building fit-outs, residential developments, and infrastructure works for both Lake Group subsidiaries and external clients. The division provides integrated building solutions including steel structures, roofing, cladding, and general contracting services.",
-      "Lake Buildings operates alongside Lake Group's other construction-related subsidiaries . Lake Steel (rebar), Lake Pipes (piping and fittings), Gulf Aggregates (quarry products), and GCCP . Lake Premix & Cement (ready-mix concrete) . offering clients a complete construction materials and services value chain.",
+      "Lake Buildings operates alongside Lake Group's other construction-related subsidiaries . Lake Steel (rebar), Lake Pipes (piping and fittings), Gulf Aggregates (quarry products), and GCCP . Lake Premix (ready-mix concrete) . offering clients a complete construction materials and services value chain.",
       "The division's project delivery track record supports Lake Group's broader position as a comprehensive construction and infrastructure partner in the Tanzanian market."
     ],
     images: [],

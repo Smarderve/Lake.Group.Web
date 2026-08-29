@@ -28,7 +28,7 @@ const PAGES = [
   { file: 'lake-steel.html', logo: 'lake-steel.png', alt: 'Lake Steel' },
   { file: 'lake-cylinders.html', logo: 'lake-cylinders.png', alt: 'Lake Cylinders' },
   { file: 'gulf-aggregates.html', logo: 'gulf-aggregates.png', alt: 'Gulf Aggregates' },
-  { file: 'lake-premix-cement.html', logo: 'lake-premix-cement.png', alt: 'Lake Premix & Cement' },
+  { file: 'lake-premix-cement.html', logo: 'lake-premix-cement.png', alt: 'Lake Premix' },
   { file: 'aficd.html', logo: 'aficd-white-logo.png', alt: 'AFICD' },
   { file: 'aill.html', logo: 'aill.png', alt: 'AILL' },
   { file: 'lake-trans.html', logo: 'lake-trans.png', alt: 'Lake Trans' },

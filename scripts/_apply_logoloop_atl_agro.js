@@ -118,7 +118,7 @@ function patchMount() {
     { src: 'assets/images/logos/companies/lake-aviation.png', alt: 'Lake Aviation', title: 'Lake Aviation', href: 'lake-aviation.html' },
     { src: 'assets/images/logos/companies/lake-buildings.png', alt: 'Lake Buildings', title: 'Lake Buildings', href: 'lake-buildings.html' },
     { src: 'assets/images/logos/companies/lake-pipes.png', alt: 'Lake Pipes', title: 'Lake Pipes', href: 'lake-pipes.html' },
-    { src: 'assets/images/logos/companies/lake-premix-cement.png', alt: 'Lake Premix & Cement', title: 'Lake Premix & Cement', href: 'lake-premix-cement.html' },
+    { src: 'assets/images/logos/companies/lake-premix-cement.png', alt: 'Lake Premix', title: 'Lake Premix', href: 'lake-premix-cement.html' },
     { src: 'assets/images/logos/companies/gulf-aggregates-blue.png?v=71', alt: 'Gulf Aggregates', title: 'Gulf Aggregates', href: 'gulf-aggregates.html' },
     { src: 'assets/images/logos/companies/atl.png?v=61', alt: 'ATL', title: 'ATL Aluminium Trailers', href: 'atl.html' },
     { src: 'assets/images/logos/companies/lake-agro.png?v=61', alt: 'Lake Agro', title: 'Lake Agro', href: 'lake-agro.html' },

@@ -217,7 +217,7 @@ const companies = [
     countries: [["Tanzania", "Lake Cylinders", "Manufacturing; supplies Lake Gas network"]]
   },
   {
-    name: "Lake Premix & Cement (Gulf Concrete & Cement Products — GCCP)",
+    name: "Lake Premix (Gulf Concrete & Cement Products — GCCP)",
     sector: "Manufacturing",
     est: "2010 [VERIFIED: gccp/contact.html]",
     ceo: "Not separately identified",
@@ -645,7 +645,7 @@ async function main() {
   children.push(emptyLine());
 
   children.push(heading("11.7 Concrete & Aggregates", 1, {color:C.blue}));
-  children.push(dataTable(["Parameter","Details","Source"], [["Division","GCCP / Lake Premix & Cement","lakeoilgroup.com"],["Established","2010","gccp/contact.html"],["Location","Dar es Salaam","lakeoilgroup.com"],["Contact","venkat.galla@lakeoilgroup.com / +255 744 592 426","gccp/contact.html"]]));
+  children.push(dataTable(["Parameter","Details","Source"], [["Division","GCCP / Lake Premix","lakeoilgroup.com"],["Established","2010","gccp/contact.html"],["Location","Dar es Salaam","lakeoilgroup.com"],["Contact","venkat.galla@lakeoilgroup.com / +255 744 592 426","gccp/contact.html"]]));
   children.push(emptyLine());
   children.push(new Paragraph({children:[new PageBreak()]}));
 

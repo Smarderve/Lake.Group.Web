@@ -253,7 +253,7 @@ const COMPANY_DATA = [
         ],
       },
       {
-        name: "Lake Premix & Cement (GCCP)",
+        name: "Lake Premix (GCCP)",
         est: "2010",
         hq: "Dar es Salaam, Tanzania",
         desc: "Gulf Concrete and Cement Products Company Ltd (GCCP) - one of Dar es Salaam's leading ready-mix concrete suppliers. Involved in many of the city's most prestigious construction projects. Extended to Dubai through MERM (Middle East Ready Mix LLC).",
@@ -643,7 +643,7 @@ async function main() {
 
   const hierarchy = [
     ["Lake Energies", "4 companies", "Lake Oil, Lake Gas, Lake Aviation, Lake Lubes"],
-    ["Manufacturing", "7 companies", "Lake Steel, Lake Buildings, Lake Pipes, Lake Cylinders, Lake Premix & Cement (GCCP), Gulf Aggregates, ATL"],
+    ["Manufacturing", "7 companies", "Lake Steel, Lake Buildings, Lake Pipes, Lake Cylinders, Lake Premix (GCCP), Gulf Aggregates, ATL"],
     ["Logistics", "3 companies", "Lake Trans, AFICD, AILL"],
     ["Real Estate", "2 companies", "Cross Country, Ocean Galleria"],
     ["Agro Processing", "1 company", "Lake Agro"],

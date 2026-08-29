@@ -23,7 +23,7 @@ const COMPANY_PAGES = [
   { file: 'lake-steel.html', slug: 'lake-steel', name: 'Lake Steel' },
   { file: 'lake-cylinders.html', slug: 'lake-cylinders', name: 'Lake Cylinders' },
   { file: 'gulf-aggregates.html', slug: 'gulf-aggregates', name: 'Gulf Aggregates' },
-  { file: 'lake-premix-cement.html', slug: 'lake-premix-cement', name: 'Lake Premix & Cement' },
+  { file: 'lake-premix-cement.html', slug: 'lake-premix-cement', name: 'Lake Premix' },
   { file: 'aficd.html', slug: 'aficd', name: 'AFICD' },
   { file: 'aill.html', slug: 'aill', name: 'AILL' },
   { file: 'lake-trans.html', slug: 'lake-trans', name: 'Lake Trans' },

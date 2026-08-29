@@ -84,7 +84,7 @@ const LEADERS = [
     ],
     links: [
       ['Lake Steel', 'lake-steel.html'],
-      ['Lake Premix & Cement', 'lake-premix-cement.html'],
+      ['Lake Premix', 'lake-premix-cement.html'],
       ['Gulf Aggregates', 'gulf-aggregates.html'],
     ],
 

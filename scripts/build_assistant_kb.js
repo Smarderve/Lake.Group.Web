@@ -57,7 +57,7 @@ const PAGES = {
   aviation: { url: 'lake-aviation.html', titleKey: 'nav.co.lakeAviation', title: 'Lake Aviation' },
   lubricants: { url: 'lake-lubes.html', titleKey: 'nav.co.lakeLubes', title: 'Lake Lubes' },
   steel: { url: 'lake-steel.html', titleKey: 'nav.co.lakeSteel', title: 'Lake Steel' },
-  concrete: { url: 'lake-premix-cement.html', titleKey: 'nav.co.lakePremixCement', title: 'Lake Premix & Cement' },
+  concrete: { url: 'lake-premix-cement.html', titleKey: 'nav.co.lakePremixCement', title: 'Lake Premix' },
   logistics: { url: 'lake-trans.html', titleKey: 'nav.co.lakeTrans', title: 'Lake Trans' },
   container_services: { url: 'aficd.html', titleKey: 'nav.co.aficd', title: 'AFICD' },
   africa_network: { url: 'africa-network.html', titleKey: 'nav.africaMap', title: 'Operations Map' },

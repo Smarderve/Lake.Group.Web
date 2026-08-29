@@ -15,7 +15,7 @@ const JS_PATH = path.join(ROOT, 'assets', 'i18n-content.js');
 const PROTECT = [
   'Lake Oil Group', 'Lake Group', 'Lake Oil', 'Lake Aviation', 'Lake Gas',
   'Lake Lubes', 'Lake Buildings', 'Lake Pipes', 'Lake Steel', 'Lake Cylinders',
-  'Lake Trans', 'Lake Agro', 'Lake Premix & Cement', 'Lake Premix and Cement',
+  'Lake Trans', 'Lake Agro', 'Lake Premix', 'Lake Premix',
   'Gulf Aggregates', 'Ocean Galleria', 'Cross Country', 'AFICD', 'AILL', 'ATL',
   'East Africa', 'Central Africa', 'Tanzania', 'Kenya', 'Uganda', 'Rwanda',
   'Burundi', 'DRC', 'Zambia', 'Malawi', 'Mozambique', 'South Sudan',
