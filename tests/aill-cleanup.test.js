@@ -11,6 +11,8 @@ test('AILL is an operations page without leadership or gallery sections', () => 
   assert.doesNotMatch(page, /Mr\. Ally Edha Awadh|Founder &amp; Chairman, Lake Group|Managing Director, AILL|Chief Financial Officer, AILL/i);
   assert.doesNotMatch(page, /<h2[^>]*>Gallery<\/h2>|AILL \. African Inland Logistics gallery|Trusted by the Industry/i);
   assert.doesNotMatch(page, /href="leadership\.html"[^>]*class="fs-card"/i);
+  assert.doesNotMatch(page, /Operations by Country/i);
+  assert.doesNotMatch(page, /Why Customers Choose AILL|Our Commitment/i);
 });
 
 test('AILL retains source-backed operational cargo content and the corporate footer', () => {

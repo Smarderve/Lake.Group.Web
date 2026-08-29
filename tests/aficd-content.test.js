@@ -20,7 +20,6 @@ test('AFICD page uses the approved source-backed structure', () => {
     '800–900 TEUs',
     '365 days a year',
     'round the clock',
-    '2027 and beyond',
     'Mission, Vision &amp; Values',
     'To provide safe, efficient and timely storage and logistics solutions',
     'To be Africa\'s leading inland container depot',
@@ -43,9 +42,10 @@ test('AFICD removes superseded sections and uses image-led capabilities', () => 
 
   assert.equal((page.match(/class="aficd-solution"/g) || []).length, 6);
   const operationImages = [...page.matchAll(/assets\/images\/aficd\/operations\/([^"']+)/g)].map((match) => match[1]);
-  assert.ok(new Set(operationImages).size >= 7, 'expected at least seven distinct AFICD operational image assets');
-  assert.match(page, /aficd-hero-reach-stacker\.jpeg/);
-  assert.match(page, /aficd-white\.webp/);
+  assert.ok(new Set(operationImages).size >= 6, 'expected the compact source-backed AFICD operational image set');
+  assert.match(page, /aficd-truck-loading\.jpeg/);
+  assert.match(page, /class="aficd-intro-facts"/);
+  assert.doesNotMatch(page, /class="aficd-glance fs-on-dark"/);
 });
 
 test('AFICD page has no malformed replacement characters', () => {

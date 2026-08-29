@@ -51,8 +51,11 @@ test('Agrinova uses scoped readable typography, footer, and loading colors', () 
   assert.doesNotMatch(page, /background:#013f5c;pointer-events:none/);
   assert.match(page, /\.ag-vision h2\{text-transform:none;font-size:clamp\(1\.35rem,2\.2vw,2rem\)/);
   assert.match(page, /#contact-agrinova\{background:#3a7a5e;color:#f4f8f0/);
-  assert.match(page, /\.ag-quote\{width:min\(100%,1140px\).*border:1px solid #a8b89e/);
-  assert.match(page, /\.ag-quote input,.ag-quote textarea\{min-height:46px/);
   assert.match(page, /body\.co-theme-agro \[data-lg-skeleton-block="media"\]\{background:rgba\(74,126,89,.58\)/);
   assert.doesNotMatch(page, /body\.co-theme-agro \[data-lg-skeleton-block="media"\]\{background:rgba\(5,153,211/);
+});
+
+test('Agrinova does not publish a quote form', () => {
+  const page = read('agrinova-tech.html');
+  assert.doesNotMatch(page, /id="quote-form"|Find the right equipment for your farm|class="ag-quote"/i);
 });

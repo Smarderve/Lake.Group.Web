@@ -194,6 +194,14 @@
 .aficd-commitment-photo img{width:100%;height:100%;object-fit:cover;display:block}
 @media(max-width:900px){.aficd-solutions{grid-template-columns:repeat(2,minmax(0,1fr))}.aficd-ops-split,.aficd-expansion-split,.aficd-commitment-split{grid-template-columns:1fr}.aficd-commitment-copy{padding-right:0}.aficd-commitment-photo{min-height:300px;margin:0}}
 @media(max-width:600px){.aficd-hero{min-height:620px}.aficd-hero .hero-media{background-position:72% center}.aficd-hero h1{font-size:clamp(2.5rem,12vw,4rem)}.aficd-hero p{font-size:.94rem}.aficd-glance-photo{margin:-var(--sp-6) -var(--sp-6) var(--sp-5)}.aficd-cap-grid,.aficd-solutions{grid-template-columns:1fr}.aficd-ops-stats{grid-template-columns:1fr 1fr}.aficd-commitment-copy{padding-top:var(--sp-10);padding-bottom:var(--sp-8)}}
+/* Editorial facts strip replaces the former floating introduction card. */
+.aficd-intro-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin-top:var(--sp-5);border-top:1px solid var(--line-2);border-left:1px solid var(--line-2)}
+.aficd-intro-facts h3,.aficd-intro-facts .aficd-glance-photo{display:none}
+.aficd-intro-facts .aficd-glance-list{display:contents}
+.aficd-intro-facts .aficd-glance-row{display:block;padding:18px;border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2);color:var(--muted)}
+.aficd-intro-facts .aficd-glance-row span{display:block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.aficd-intro-facts .aficd-glance-row strong{display:block;max-width:none;margin-top:5px;color:var(--text);font-size:1rem;line-height:1.35;text-align:left}
+@media(max-width:600px){.aficd-intro-facts{grid-template-columns:1fr}.aficd-intro-facts .aficd-glance-row{padding:16px}}
   </style>
 <script type="application/ld+json">
 {
@@ -345,7 +353,7 @@
       </div>
       <div>
         <figure class="aficd-photo-frame aficd-photo-frame--intro"><img src="assets/images/aficd/operations/aficd-wide-yard.webp" alt="AFICD container yard operations" width="1536" height="1024" loading="lazy" decoding="async"></figure>
-        <div class="aficd-glance fs-on-dark">
+        <div class="aficd-intro-facts" aria-label="AFICD operating summary">
           <h3>AFICD at a Glance</h3>
           <div class="aficd-glance-photo"><img src="assets/images/aficd/operations/aficd-branded-container.webp" alt="AFICD branded container handling equipment" width="1536" height="1024" loading="lazy" decoding="async"></div>
           <div class="aficd-glance-list">
