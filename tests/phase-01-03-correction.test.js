@@ -24,11 +24,11 @@ test('desktop glass navbar, hover mega-menu and About navigation', async () => {
   const nav=await page.locator('[data-phase01-navbar]').evaluate(el=>{const s=getComputedStyle(el);return{bg:s.backgroundImage,blur:s.backdropFilter,height:s.height,logo:el.querySelector('.nav-logo img').getAttribute('src'),stripes:!!el.querySelector('.nav-stripes')}});
   assert.ok(nav.bg === 'none' || /gradient/i.test(nav.bg)); assert.equal(nav.height,'68px'); assert.match(nav.logo,/LAKE_LOGO_LAKE_ONLY/); assert.equal(nav.stripes,false);
   await page.locator('#nav-companies-trigger').hover();
-  await page.locator('[data-mm-cat="logistics"]').hover();
+  await page.locator('.mm-cat[data-mm-cat="logistics"]').hover();
   assert.equal(await page.locator('[data-mm-pane="logistics"]').evaluate(el=>getComputedStyle(el).display),'block');
   await page.locator('[data-mm-pane="logistics"] .mm-company').first().hover();
   assert.ok(await page.locator('#nav-companies-menu').evaluate(el=>Number(getComputedStyle(el).opacity))>.9);
-  await page.locator('[data-mm-cat="realestate"]').hover();
+  await page.locator('.mm-cat[data-mm-cat="realestate"]').hover();
   const oceanLogo=page.locator('[data-mm-pane="realestate"] img[alt="Ocean Galleria"]');
   await oceanLogo.evaluate(el=>{if(!el.complete||!el.naturalWidth){el.loading='eager';el.src=el.src;}});
   await page.waitForFunction(()=>{const el=document.querySelector('[data-mm-pane="realestate"] img[alt="Ocean Galleria"]');return el&&el.complete&&el.naturalWidth>0;});
@@ -103,21 +103,22 @@ test('approved navbar surface overlays launch heroes without becoming a slab', a
   await page.close();
 });
 
-test('mobile drawer and subsidiary accordion remain touch operable', async()=>{
+test('mobile drawer and Business Verticals disclosure remain touch operable', async()=>{
   const page=await browser.newPage({viewport:{width:390,height:844},hasTouch:true});
   await page.goto(`http://127.0.0.1:${server.address().port}/leadership.html`,{waitUntil:'networkidle'});
   await page.waitForFunction(()=>!document.documentElement.classList.contains('lg-loading'));
   await page.waitForFunction(()=>!document.querySelector('[data-lg-skeleton-overlay]'));
   await page.locator('#nav-toggle').click();
   assert.equal(await page.locator('#nav-mobile').getAttribute('hidden'),null);
-  const leadershipActive=page.locator('#nav-mobile .active');
+  const leadershipActive=page.locator('#nav-mobile > a.active');
   assert.equal(await leadershipActive.count(),1);
   assert.equal((await leadershipActive.textContent()).trim(),'Leadership');
   assert.equal(await leadershipActive.evaluate(el=>getComputedStyle(el).color),'rgb(255, 242, 0)');
-  await page.locator('.mob-acc-btn').first().click();
+  await page.locator('.mob-primary').click();
   assert.equal(await page.locator('#mob-subsidiaries').getAttribute('hidden'),null);
-  await page.locator('#mob-subsidiaries .mob-acc-btn').first().click();
-  assert.equal(await page.locator('#mob-acc-energies').getAttribute('hidden'),null);
+  assert.equal(await page.locator('#mob-subsidiaries .mob-sector-heading').count(),6);
+  assert.equal(await page.locator('#mob-subsidiaries img').count(),0);
+  assert.equal(await page.locator('#mob-subsidiaries').getByText('Lake Oil', { exact: true }).count(),1);
   assert.equal(await page.locator('.ld-featured .ld-person-card').count(),1);
   assert.equal(await page.locator('a[href="leadership-ally-edha-awadh.html"]').count(),0);
   await page.screenshot({path:path.join(evidence,'mobile-leadership.png'),fullPage:false});

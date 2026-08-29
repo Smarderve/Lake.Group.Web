@@ -59,7 +59,8 @@ test('Phase 01 navbar follows launch constraints and all logo destinations resol
   assert.match(navTemplate, /aria-label="Language: English"/);
   assert.doesNotMatch(navTemplate, /nav-stripes/);
   assert.match(mobileTemplate, /href="contact\.html">Contact Us<\/a>/);
-  assert.match(mobileTemplate, /class="mob-language"[^>]*>English<\/div>/);
+  assert.match(mobileTemplate, /class="mob-acc-btn mob-language-trigger"[^>]*aria-controls="mob-language-panel"/);
+  assert.match(mobileTemplate, /data-lang-label>English<\/span>/);
   for (const match of navTemplate.matchAll(/<img src="([^"]+)"/g)) {
     assert.equal(fs.existsSync(path.join(ROOT, match[1])), true, `${match[1]} exists`);
   }
@@ -88,7 +89,7 @@ test('subsidiary coverage uses unique supplied company marks and includes ACFS',
     assert.match(mobileTemplate, new RegExp(`href="${file}"`), `${file}: mobile target`);
   }
   assert.match(navTemplate, /id="mm-tab-automotive"/);
-  assert.match(mobileTemplate, /mob-acc-automotive/);
+  assert.match(mobileTemplate, /class="mob-sector-heading" data-mm-cat="automotive">Automotive Sector/);
   assert.doesNotMatch(navTemplate, /lake-group-placeholder|LAKE_LOGO_LAKE_ONLY\.png" alt="(?:Assembly|AgriNova|NextDrive)/i);
 });
 

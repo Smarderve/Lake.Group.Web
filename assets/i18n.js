@@ -179,6 +179,13 @@ window.LakeI18n = (function () {
       if (active) btn.setAttribute('aria-current', 'true');
       else btn.removeAttribute('aria-current');
     });
+    document.querySelectorAll('.mob-language-option[data-lang]').forEach((btn) => {
+      const active = btn.dataset.lang === lang;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-checked', String(active));
+      if (active) btn.setAttribute('aria-current', 'true');
+      else btn.removeAttribute('aria-current');
+    });
     document.querySelectorAll('.lang-switcher').forEach((root) => {
       root.classList.toggle('is-rtl-lang', RTL_LANGS.indexOf(lang) !== -1);
       root.dataset.activeLang = lang;
@@ -280,6 +287,10 @@ window.LakeI18n = (function () {
       root.classList.add('is-open');
       const trigger = root.querySelector('.lang-trigger');
       if (trigger) trigger.setAttribute('aria-expanded', 'true');
+    });
+    document.querySelectorAll('.mob-language-status').forEach((status) => {
+      status.textContent = `Translation for ${label} is not available yet. Showing English.`;
+      status.hidden = false;
     });
   }
 
@@ -430,6 +441,10 @@ window.LakeI18n = (function () {
       }
     }, true);
     document.addEventListener('pointerdown', () => { keyboardIntent = false; }, true);
+    document.addEventListener('lake-mobile-language-select', (event) => {
+      const lang = event.detail?.lang;
+      if (lang && SUPPORTED.indexOf(lang) !== -1) selectLanguage(lang);
+    });
 
     closeAllMenus();
   }

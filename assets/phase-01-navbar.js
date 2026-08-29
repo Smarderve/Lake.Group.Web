@@ -5,6 +5,8 @@
     const drawer = document.querySelector('[data-phase01-navbar-mobile]');
     const toggle = nav && nav.querySelector('#nav-toggle');
     if (!nav || !drawer || !toggle) return;
+    if (nav.dataset.phase01NavbarInitialized === 'true') return;
+    nav.dataset.phase01NavbarInitialized = 'true';
     const normalizeRoute = (value) => {
       try {
         const pathname = new URL(value, window.location.href).pathname.replace(/\/+$/, '');
@@ -95,12 +97,11 @@
       });
     };
     const initMobileSectorIcons = () => {
-      drawer.querySelectorAll('.mob-accordion > .mob-acc-btn[aria-controls^="mob-acc-"]').forEach((button) => {
-        const id = button.getAttribute('aria-controls').replace('mob-acc-', '');
+      drawer.querySelectorAll('.mob-sector-heading[data-mm-cat]').forEach((heading) => {
+        const id = heading.dataset.mmCat;
         const animation = sectorAnimations[id];
-        if (!animation || button.querySelector('.mm-sector-icon')) return;
-        button.dataset.mmCat = id;
-        const textNode = [...button.childNodes].find((node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
+        if (!animation || heading.querySelector('.mm-sector-icon')) return;
+        const textNode = [...heading.childNodes].find((node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
         if (textNode) {
           const label = document.createElement('span');
           label.className = 'mob-sector-label';
@@ -112,11 +113,11 @@
         icon.setAttribute('src', animation.reveal);
         icon.setAttribute('aria-hidden', 'true');
         icon.dataset.iconSource = animation.reveal;
-        button.prepend(icon);
+        heading.prepend(icon);
         icon.readyPromise?.then(() => {
           if (reducedMotion()) icon.playerInstance?.seekToEnd();
+          else playSectorIcon(heading, 'in-reveal');
         }).catch(() => {});
-        button.addEventListener('focus', () => playSectorIcon(button, 'in-reveal'));
       });
     };
     const revealSectorIcons = () => {
@@ -134,6 +135,8 @@
     });
     let corporateButton = drawer.querySelector('.mob-corporate-trigger') || null;
     let corporatePanel = corporateButton ? drawer.querySelector(`#${corporateButton.getAttribute('aria-controls')}`) : null;
+    const mobileLanguageButton = drawer.querySelector('.mob-language-trigger');
+    const mobileLanguagePanel = mobileLanguageButton ? drawer.querySelector(`#${mobileLanguageButton.getAttribute('aria-controls')}`) : null;
     if (!corporateButton && corporateSection) {
       corporateButton = document.createElement('button');
       corporateButton.type = 'button';
@@ -206,17 +209,16 @@
       openMobileSection = null;
       setMobilePanel(mobilePrimary, drawer.querySelector('#mob-subsidiaries'), false);
       setMobilePanel(corporateButton, corporatePanel, false);
-      drawer.querySelectorAll('.mob-accordion .mob-acc-panel').forEach((panel) => {
-        panel.classList.remove('is-open');
-        panel.hidden = false;
-        panel.style.setProperty('--mobile-panel-height', '0px');
-      });
+      setMobilePanel(mobileLanguageButton, mobileLanguagePanel, false);
       drawer.querySelectorAll('.mob-acc-btn').forEach((button) => button.setAttribute('aria-expanded', 'false'));
     };
     const toggleTopMobileSection = (key, button, panel) => {
       const shouldOpen = openMobileSection !== key;
-      if (shouldOpen && openMobileSection === 'subsidiaries') setMobilePanel(mobilePrimary, drawer.querySelector('#mob-subsidiaries'), false);
-      if (shouldOpen && openMobileSection === 'corporate') setMobilePanel(corporateButton, corporatePanel, false);
+      if (shouldOpen) {
+        setMobilePanel(mobilePrimary, drawer.querySelector('#mob-subsidiaries'), false);
+        setMobilePanel(corporateButton, corporatePanel, false);
+        setMobilePanel(mobileLanguageButton, mobileLanguagePanel, false);
+      }
       setMobilePanel(button, panel, shouldOpen);
       openMobileSection = shouldOpen ? key : null;
     };
@@ -264,17 +266,19 @@
       toggleTopMobileSection('subsidiaries', mobilePrimary, subsidiariesPanel);
     });
     if (corporateButton && corporatePanel) corporateButton.addEventListener('click', () => toggleTopMobileSection('corporate', corporateButton, corporatePanel));
-    drawer.querySelectorAll('.mob-accordion .mob-acc-btn').forEach((button) => button.addEventListener('click', () => {
-      const panel = document.getElementById(button.getAttribute('aria-controls'));
-      if (!panel) return;
-      const open = !panel.classList.contains('is-open');
-      if (open) drawer.querySelectorAll('.mob-accordion > .mob-acc-btn').forEach((other) => {
-        if (other !== button) {
-          const otherPanel = document.getElementById(other.getAttribute('aria-controls'));
-          setMobilePanel(other, otherPanel, false);
-        }
+    if (mobileLanguageButton && mobileLanguagePanel) mobileLanguageButton.addEventListener('click', () => toggleTopMobileSection('language', mobileLanguageButton, mobileLanguagePanel));
+    const syncMobileLanguage = (event) => {
+      const language = event.detail?.lang || window.LakeI18n?.current || 'en';
+      drawer.querySelectorAll('.mob-language-option[data-lang]').forEach((option) => {
+        const active = option.dataset.lang === language;
+        option.classList.toggle('active', active);
+        option.setAttribute('aria-checked', String(active));
       });
-      setMobilePanel(button, panel, open);
+    };
+    document.addEventListener('lake-i18n-applied', syncMobileLanguage);
+    drawer.querySelectorAll('.mob-language-option[data-lang]').forEach((option) => option.addEventListener('click', () => {
+      document.dispatchEvent(new CustomEvent('lake-mobile-language-select', { detail: { lang: option.dataset.lang } }));
+      syncMobileLanguage({ detail: { lang: window.LakeI18n?.current || 'en' } });
     }));
     resetMobileAccordions();
   }
@@ -296,6 +300,11 @@
       document.head.appendChild(script);
     });
   };
-  const start = () => ensureLordicon().then(init);
+  // Navigation must be interactive immediately; animated icons enhance it
+  // asynchronously and must never hold the mobile drawer behind a loader.
+  const start = () => {
+    init();
+    ensureLordicon();
+  };
   document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', start) : start();
 })();

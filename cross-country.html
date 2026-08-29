@@ -173,6 +173,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https://www.youtube.com https://www.youtube-nocookie.com; worker-src 'self'; manifest-src 'self'; media-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <link rel="stylesheet" href="assets/phase-01-navbar.css?v=20260828-01">
   <link rel="stylesheet" href="assets/phase-01-footer.css?v=20260828-01">
+  <link rel="stylesheet" href="assets/phase-01-navbar.css">
 </head><body data-company-logo="assets/images/logos/companies/cross-country.png?v=20260828-01" data-company-alt="Cross Country" data-shared-footer="true">
   <script src="assets/skeleton.js?v=20260828-01"></script>
 <nav class="site-nav" data-phase01-navbar dir="ltr">
@@ -209,22 +210,25 @@
 
 
 
+
 <div class="nav-mobile" id="nav-mobile" data-phase01-navbar-mobile hidden>
-  <div class="mob-drawer-head"><span class="mob-drawer-title">Menu</span><button type="button" class="mob-close" aria-label="Close menu">&times;</button></div>
+  <div class="mob-drawer-head"><button type="button" class="mob-close" aria-label="Close menu">&times;</button></div>
   <a href="index.html">Home</a><a href="about.html">About</a>
   <button type="button" class="mob-acc-btn mob-primary" aria-expanded="false" aria-controls="mob-subsidiaries">Business Verticals</button>
-  <div class="mob-acc-panel mob-subsidiaries-panel" id="mob-subsidiaries" hidden><div class="mob-accordion">
-    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-energies">Energies</button><div class="mob-acc-panel" id="mob-acc-energies" hidden><a href="lake-oil.html"><img src="assets/images/logos/companies/lake-oil.png" alt="">Lake Oil</a><a href="lake-aviation.html"><img src="assets/images/logos/companies/lake-aviation.png" alt="">Lake Aviation</a><a href="lake-gas.html"><img src="assets/images/logos/companies/lake-gas.png" alt="">Lake Gas</a><a href="lake-lubes.html"><img src="assets/images/logos/companies/lake-lubes.png" alt="">Lake Lubes</a></div>
-    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-manufacturing">Manufacturing</button><div class="mob-acc-panel" id="mob-acc-manufacturing" hidden><a href="lake-buildings.html"><img src="assets/images/logos/companies/lake-buildings.png" alt="">Lake Buildings</a><a href="lake-plastics.html"><img src="assets/images/logos/companies/lake-plastics.png" alt="">Lake Plastics</a><a href="lake-steel.html"><img src="assets/images/logos/companies/lake-steel.png" alt="">Lake Steel</a><a href="lake-cylinders.html"><img src="assets/images/logos/companies/lake-cylinders.png" alt="">Lake Cylinders</a><a href="gulf-aggregates.html"><img src="assets/images/logos/companies/gulf-aggregates.png" alt="">Gulf Aggregates</a><a href="lake-premix-cement.html"><img src="assets/images/logos/companies/lake-premix-cement.png" alt="">Lake Premix &amp; Cement</a></div>
-    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-logistics">Logistics</button><div class="mob-acc-panel" id="mob-acc-logistics" hidden><a href="aficd.html"><img src="assets/images/logos/companies/aficd-white-logo.png" alt="">AFICD</a><a href="acfs.html"><img src="assets/images/logos/companies/acfs.png" alt="">ACFS</a><a href="aill.html"><img src="assets/images/logos/companies/aill.png" alt="">AILL</a><a href="lake-trans.html"><img src="assets/images/logos/companies/lake-trans.png" alt="">Lake Trans</a></div>
-    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-realestate">Real Estate</button><div class="mob-acc-panel" id="mob-acc-realestate" hidden><a href="cross-country.html"><img src="assets/images/logos/companies/cross-country.png" alt="">Cross Country</a><a href="ocean-galleria.html"><img src="assets/images/logos/companies/Ocean-Galleria-logo.webp" alt="">Ocean Galleria</a></div>
-    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-agro">Agro Processing</button><div class="mob-acc-panel" id="mob-acc-agro" hidden><a href="lake-agro.html"><img src="assets/images/logos/companies/lake-agro.png" alt="">Lake Agro</a></div>
-    <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-automotive">Automotive</button><div class="mob-acc-panel" id="mob-acc-automotive" hidden><a href="assembly-tech.html">Assembly Tech Limited</a><a href="agrinova-tech.html">AgriNova Tech Limited</a><a href="nextdrive-motors.html">NextDrive Motors Limited</a></div>
+  <div class="mob-acc-panel mob-subsidiaries-panel" id="mob-subsidiaries" hidden><div class="mob-sector-list">
+    <section class="mob-sector-group"><div class="mob-sector-heading" data-mm-cat="energies">Energies Sector</div><div class="mob-sector-companies"><a href="lake-oil.html">Lake Oil</a><a href="lake-aviation.html">Lake Aviation</a><a href="lake-gas.html">Lake Gas</a><a href="lake-lubes.html">Lake Lubes</a></div></section>
+    <section class="mob-sector-group"><div class="mob-sector-heading" data-mm-cat="manufacturing">Manufacturing Sector</div><div class="mob-sector-companies"><a href="lake-buildings.html">Lake Buildings</a><a href="lake-plastics.html">Lake Plastics</a><a href="lake-steel.html">Lake Steel</a><a href="lake-cylinders.html">Lake Cylinders</a><a href="gulf-aggregates.html">Gulf Aggregates</a><a href="lake-premix-cement.html">Lake Premix &amp; Cement</a></div></section>
+    <section class="mob-sector-group"><div class="mob-sector-heading" data-mm-cat="logistics">Logistics Sector</div><div class="mob-sector-companies"><a href="aficd.html">AFICD</a><a href="acfs.html">ACFS</a><a href="aill.html">AILL</a><a href="lake-trans.html">Lake Trans</a></div></section>
+    <section class="mob-sector-group"><div class="mob-sector-heading" data-mm-cat="realestate">Real Estate Sector</div><div class="mob-sector-companies"><a href="cross-country.html">Cross Country</a><a href="ocean-galleria.html">Ocean Galleria</a></div></section>
+    <section class="mob-sector-group"><div class="mob-sector-heading" data-mm-cat="agro">Agro Processing Sector</div><div class="mob-sector-companies"><a href="lake-agro.html">Lake Agro</a></div></section>
+    <section class="mob-sector-group"><div class="mob-sector-heading" data-mm-cat="automotive">Automotive Sector</div><div class="mob-sector-companies"><a href="assembly-tech.html">Assembly Tech Limited</a><a href="agrinova-tech.html">AgriNova Tech Limited</a><a href="nextdrive-motors.html">NextDrive Motors Limited</a></div></section>
   </div></div>
   <a href="leadership.html">Leadership</a>
   <button type="button" class="mob-acc-btn mob-corporate-trigger" aria-expanded="false" aria-controls="mob-corporate-panel">Corporate</button><div class="mob-acc-panel mob-corporate-panel" id="mob-corporate-panel" hidden><a href="history.html">Our History</a><a href="africa-network.html">Operations Map</a><a href="csr.html">CSR &amp; Sustainability</a><a href="investors.html">Investor Relations</a><a href="projects.html">Major Projects</a><a href="gallery.html">Gallery</a></div>
-  <a href="news.html">News</a><a href="careers.html">Careers</a><a href="contact.html">Contact Us</a><div class="mob-language" aria-label="Language">English</div>
+  <a href="news.html">News</a><a href="careers.html">Careers</a><a href="contact.html">Contact Us</a>
+  <button type="button" class="mob-acc-btn mob-language-trigger" aria-expanded="false" aria-controls="mob-language-panel"><svg class="mob-language-globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3 12h18M12 3c2.5 2.5 3.7 5.5 3.7 9S14.5 18.5 12 21M12 3C9.5 5.5 8.3 8.5 8.3 12s1.2 6.5 3.7 9" fill="none" stroke="currentColor" stroke-width="1.7"/></svg><span data-lang-label>English</span></button><div class="mob-acc-panel mob-language-panel" id="mob-language-panel" role="menu" aria-label="Language" hidden><button type="button" class="mob-language-option active" role="menuitemradio" aria-checked="true" data-lang="en">English</button><button type="button" class="mob-language-option" role="menuitemradio" aria-checked="false" data-lang="fr">French</button><button type="button" class="mob-language-option" role="menuitemradio" aria-checked="false" data-lang="sw">Swahili</button><button type="button" class="mob-language-option" role="menuitemradio" aria-checked="false" data-lang="pt">Portuguese</button><button type="button" class="mob-language-option" role="menuitemradio" aria-checked="false" data-lang="es">Spanish</button><button type="button" class="mob-language-option" role="menuitemradio" aria-checked="false" data-lang="ar">Arabic</button><div class="mob-language-status" role="status" hidden></div></div>
 </div>
+
 
 
 
@@ -583,4 +587,5 @@
 </footer>
 
 
+  <script defer src="assets/phase-01-navbar.js"></script>
 </body></html>

@@ -32,10 +32,10 @@ test('shared navbar maps every sector to local Lottie assets', () => {
   assert.match(navbar, /prefers-reduced-motion/);
 });
 
-test('sector rows have no permanent visible border and mobile rows receive icons', () => {
+test('sector rows have no permanent visible border and mobile sector headings receive icons', () => {
   assert.match(styles, /\.mm-cat \{[\s\S]*border: 1px solid transparent/);
   assert.match(styles, /\.mob-sector-icon/);
-  assert.match(navbar, /mob-accordion > \.mob-acc-btn\[aria-controls\^="mob-acc-"\]/);
+  assert.match(navbar, /\.mob-sector-heading\[data-mm-cat\]/);
 });
 
 test('desktop sector icons share a visible slot with static fallback and active styling', () => {
