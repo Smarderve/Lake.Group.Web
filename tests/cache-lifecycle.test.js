@@ -18,12 +18,12 @@ for (const url of urls) {
   assert.ok(fs.existsSync(path.join(ROOT, pathname)), `precache entry exists: ${url}`);
 }
 
-assert.match(sw, /const VERSION = 'v74-20260828-01'/);
-assert.match(sw, /self\.skipWaiting\(\)/);
-assert.match(sw, /self\.clients\.claim\(\)/);
+assert.match(sw, /const VERSION = 'v75-20260829-01'/);
+assert.doesNotMatch(sw, /await self\.skipWaiting\(\)/, 'updated workers must not take over open tabs');
+assert.doesNotMatch(sw, /await self\.clients\.claim\(\)/, 'updated workers must not claim open tabs');
 assert.match(sw, /name\.startsWith\('lake-'\) && !KNOWN_CACHES\.includes\(name\)/);
 assert.match(sw, /fetch\(request, \{ cache: 'no-cache' \}\)/);
 assert.match(sw, /request\.mode === 'navigate' \|\| request\.destination === 'document'/);
 assert.doesNotMatch(sw, /terminal-overview\.jpg|fleet-loading\.jpg|depot-terminal\.jpg/);
 
-console.log(`Cache lifecycle check: ${urls.length} precache entries validated; v74 lifecycle controls present.`);
+console.log(`Cache lifecycle check: ${urls.length} precache entries validated; v75 lifecycle controls present.`);

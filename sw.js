@@ -19,6 +19,9 @@
  *      a stylesheet request that fails with nothing cached returns emergency
  *      chrome instead of throwing and leaving the page naked.
  *
+ * v75: Navigation remains network-first and worker updates do not take over or
+ * reload an already-visible client, preventing stale-first update flashes.
+ *
  * v71: News tiles get the rounded dashboard-card look (radius + soft shadows).
  *      Version bump forces a full cache purge on the next visit so the new
  *      newsroom.css?v=20260828-01 reaches every client even with stale ?v= entries.
@@ -26,7 +29,7 @@
 
 'use strict';
 
-const VERSION = 'v74-20260828-01';
+const VERSION = 'v75-20260829-01';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -55,7 +58,7 @@ const PRECACHE_URLS = [
   './lake-steel.html',
   './lake-trans.html',
   './manifest.webmanifest',
-  './assets/pwa.js?v=20260828-01',
+  './assets/pwa.js?v=20260829-01',
   './assets/build-version.js?v=20260828-01',
   './assets/site.js?v=20260828-01',
   './assets/tokens.css?v=20260828-01',
@@ -151,7 +154,9 @@ self.addEventListener('install', (event) => {
           }
         })
       );
-      await self.skipWaiting();
+      // Leave an updated worker waiting until the current tab is closed. This
+      // prevents a live page from switching asset generations underneath its
+      // already-rendered HTML.
     })()
   );
 });
@@ -167,21 +172,12 @@ self.addEventListener('activate', (event) => {
       );
       await trimCache(IMAGES_CACHE, IMAGE_CACHE_MAX_ENTRIES);
       await trimCache(ASSETS_CACHE, ASSET_CACHE_MAX_ENTRIES);
-      await self.clients.claim();
-      // Tell open tabs a fresh SW took over so they can reload to the new shell.
-      const clientsList = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
-      clientsList.forEach((client) => {
-        client.postMessage({ type: 'SW_ACTIVATED', version: VERSION });
-      });
     })()
   );
 });
 
 self.addEventListener('message', (event) => {
   if (!event.data) return;
-  if (event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
-  }
   if (event.data.type === 'CLEAR_CACHES') {
     event.waitUntil(
       caches.keys().then((names) =>

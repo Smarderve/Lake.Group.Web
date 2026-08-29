@@ -4,9 +4,8 @@
  * on every page. Safe to include anywhere . bails out silently when
  * service workers aren't supported (file://, old browsers).
  *
- * v74: deterministic release registration, cache cleanup, check for updates often, auto-apply
- * waiting workers, and reload when a new SW activates so offline matches
- * the latest deploy without a manual hard refresh.
+ * v75: deterministic release registration and cache cleanup without forcing an
+ * already-visible page through an update/reload cycle.
  */
 (function () {
   'use strict';
@@ -22,21 +21,13 @@
   // Append a cache-busting query so browsers revalidate sw.js on deploy.
   try {
     var u = new URL(swUrl, location.href);
-    u.searchParams.set('v', '74-20260828-01');
+    u.searchParams.set('v', '75-20260829-01');
     swUrl = u.href;
   } catch (err2) {
-    swUrl = swUrl + (swUrl.indexOf('?') === -1 ? '?v=74-20260828-01' : '&v=74-20260828-01');
+    swUrl = swUrl + (swUrl.indexOf('?') === -1 ? '?v=75-20260829-01' : '&v=75-20260829-01');
   }
 
-  var reloadingAfterUpdate = false;
-  var expectingControllerChange = false;
-  var RECOVERY_KEY = 'lake-sw-recovery-v74';
-
-  function activateWaitingWorker(worker) {
-    if (!worker) return;
-    expectingControllerChange = true;
-    worker.postMessage({ type: 'SKIP_WAITING' });
-  }
+  var RECOVERY_KEY = 'lake-sw-recovery-v75';
 
   function showUpdateToast(worker) {
     if (document.getElementById('lake-pwa-toast')) return;
@@ -68,11 +59,11 @@
     ].join(';');
 
     var text = document.createElement('span');
-    text.textContent = 'Site updated . refreshing offline copy\u2026';
+    text.textContent = 'A new site version is ready for your next visit.';
 
     var button = document.createElement('button');
     button.type = 'button';
-    button.textContent = 'Refresh now';
+    button.textContent = 'Dismiss';
     button.style.cssText = [
       'background:#FFF200',
       'color:#013F5C',
@@ -102,9 +93,10 @@
     ].join(';');
 
     button.addEventListener('click', function () {
+      // A refresh is user-initiated only. Never reload automatically when a
+      // worker changes underneath an already-visible page.
       button.disabled = true;
-      button.textContent = 'Updating\u2026';
-      activateWaitingWorker(worker);
+      toast.remove();
     });
     close.addEventListener('click', function () {
       toast.remove();
@@ -119,25 +111,18 @@
       toast.style.transform = 'translateY(0)';
     });
 
-    // Auto-apply shortly after showing so offline stays current without a click.
-    window.setTimeout(function () {
-      activateWaitingWorker(worker);
-    }, 1200);
   }
 
   function watchWorker(worker, registration) {
     worker.addEventListener('statechange', function () {
-      if (worker.state === 'installed' && navigator.serviceWorker.controller) {
-        activateWaitingWorker(registration.waiting || worker);
-        showUpdateToast(registration.waiting || worker);
-      }
+      if (worker.state === 'installed' && navigator.serviceWorker.controller) showUpdateToast(registration.waiting || worker);
     });
   }
 
   /**
    * Detect the classic "giant unstyled logo" failure: design tokens never
    * applied, so nav logo renders at intrinsic PNG size. Recover once by
-   * clearing Lake caches, unregistering the SW, and hard-reloading.
+   * clearing obsolete Lake caches and unregistering a broken legacy worker.
    */
   function maybeRecoverBrokenStyles() {
     try {
@@ -169,10 +154,7 @@
               .map(function (k) { return caches.delete(k); })
           );
         }).then(function () {
-          location.reload();
-        }).catch(function () {
-          location.reload();
-        });
+        }).catch(function () {});
       }
 
       if (logo.complete) {
@@ -194,10 +176,7 @@
     maybeRecoverBrokenStyles();
 
     navigator.serviceWorker.register(swUrl).then(function (registration) {
-      if (registration.waiting && navigator.serviceWorker.controller) {
-        activateWaitingWorker(registration.waiting);
-        showUpdateToast(registration.waiting);
-      }
+      if (registration.waiting && navigator.serviceWorker.controller) showUpdateToast(registration.waiting);
       registration.addEventListener('updatefound', function () {
         if (registration.installing) watchWorker(registration.installing, registration);
       });
@@ -223,22 +202,6 @@
       if (window.console && console.warn) console.warn('SW registration failed:', err);
     });
 
-    navigator.serviceWorker.addEventListener('controllerchange', function () {
-      if (reloadingAfterUpdate) return;
-      var toast = document.getElementById('lake-pwa-toast');
-      if (!expectingControllerChange && !toast) return;
-      reloadingAfterUpdate = true;
-      location.reload();
-    });
-
-    navigator.serviceWorker.addEventListener('message', function (event) {
-      if (!event.data || event.data.type !== 'SW_ACTIVATED') return;
-      if (reloadingAfterUpdate) return;
-      // Only reload when we asked for an update . not on first-ever install.
-      if (!expectingControllerChange) return;
-      reloadingAfterUpdate = true;
-      location.reload();
-    });
   }
 
   // Service-worker registration is deliberately outside the critical render
