@@ -770,7 +770,7 @@ JS_MODULES = [
     ("site.js", "Shared behaviour: nav, reveal, counters, tabs, anchors, forms, currency"),
     ("i18n.js", "LakeI18n — EN/FR/SW; data-i18n attributes; localStorage persistence"),
     ("i18n-content.js", "Build artifact: ~1,442 translation keys as window global"),
-    ("pwa.js", "SW registration, update toast, SKIP_WAITING, no surprise reloads"),
+    ("pwa.js", "Non-blocking SW registration and cache recovery; no update prompt or reload"),
     ("motion.js", "theme.css partner — .reveal, nav hide/show, card tilt (index only)"),
     ("flagship-motion.js", "flagship.css partner — .fx-* choreography, magnetic CTAs"),
     ("hero-3d.js / .bundle.js", "Three.js globe — 39s loop, 9 sites, 4 facility callouts"),
@@ -1119,9 +1119,9 @@ Homepage (index.html) replaces flagship pair with:
     b.content(
         "pwa.js Behaviour & Offline Pages",
         [
-            "Registers SW on window load; resolves sw.js URL relative to pwa.js (subpath-safe)",
-            "Update toast: navy background, gold border — 'Refresh' triggers SKIP_WAITING",
-            "controllerchange reload only if user clicked Refresh (no surprise reloads)",
+            "Registers SW after initial rendering; resolves sw.js URL relative to pwa.js (subpath-safe)",
+            "No user-facing update toast, banner, prompt or forced reload",
+            "Worker updates wait safely without replacing an already-visible document",
             "Silently no-ops on file:// or unsupported browsers",
             "offline.html: PWA fallback with links to precached about, services, contact",
             "404.html: branded not-found; assistant still works offline",
