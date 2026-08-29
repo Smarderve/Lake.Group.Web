@@ -429,7 +429,7 @@ async function main() {
       alignment: AlignmentType.CENTER,
       spacing: { after: 80 },
       children: [
-        new TextRun({ text: "Executive Chairman & Owner", size: 18, font: FONT, color: C.muted, italics: true }),
+        new TextRun({ text: "Founder & Chairman", size: 18, font: FONT, color: C.muted, italics: true }),
       ],
     })
   );
@@ -610,17 +610,17 @@ async function main() {
   children.push(heading("Group Ownership & Executive Leadership", 1, { color: C.blue }));
   children.push(emptyLine());
 
-  children.push(para("The Lake Group is wholly owned by Mr. Ally Edha Awadh, who serves as Executive Chairman. The organizational structure is as follows:"));
+  children.push(para("The Lake Group is wholly owned by Mr. Ally Edha Awadh, Founder & Chairman. The organizational structure is as follows:"));
   children.push(emptyLine());
 
-  children.push(para("Ally Edha Awadh — Executive Chairman & Owner", { bold: true, size: 11, after: 40 }));
+  children.push(para("Ally Edha Awadh — Founder & Chairman", { bold: true, size: 11, after: 40 }));
   children.push(emptyLine());
 
   children.push(heading("Group Executive Leadership", 2, { color: C.navy }));
   children.push(emptyLine());
 
   const leadership = [
-    ["Ally Edha Awadh", "Executive Chairman & Owner", "Group strategy, regional expansion, governance"],
+    ["Ally Edha Awadh", "Founder & Chairman", "Group strategy, regional expansion, governance"],
     ["Juma Nuru", "Director of Operations — Lake Group", "Group-wide operations across energy, logistics and industrial units"],
     ["Biji Lapat", "Managing Director — Lake Energies", "Energy division spanning petroleum, LPG, lubricants and aviation"],
     ["Sridhar Mani", "Leadership Team", "Group-level executive"],
@@ -638,7 +638,7 @@ async function main() {
   children.push(heading("Group Structure by Sector", 2, { color: C.navy }));
   children.push(emptyLine());
 
-  children.push(para("Ally Edha Awadh (Executive Chairman & Owner)", { bold: true, size: 11, after: 40 }));
+  children.push(para("Ally Edha Awadh (Founder & Chairman)", { bold: true, size: 11, after: 40 }));
   children.push(emptyLine());
 
   const hierarchy = [

@@ -46,7 +46,7 @@ window.LAKE_NEWS = [
       "Lake Gas Ltd. has commissioned a landmark $60 million LPG import terminal in Vipingo, Kilifi County, Kenya . marking Lake Group's largest single investment outside Tanzania. The terminal received its maiden shipment of approximately 12,000 metric tonnes of cooking gas from Nigeria in June 2025.",
       "The Vipingo terminal is equipped with an offshore Conventional Buoy Mooring (CBM) system . the first of its kind in the region . enabling direct ship-to-shore LPG offloading. Initial storage capacity stands at 10,000 MT, with infrastructure designed to support expansion to 30,000 MT.",
       "The project represents a major strategic milestone for Lake Group's regional expansion, positioning the company to serve the growing East African LPG market. The terminal serves Kenya, Uganda, Rwanda, Burundi, and eastern DR Congo.",
-      "\"This investment reflects our commitment to making clean cooking energy accessible across East Africa,\" said Ally Edha Awadh, Founder and CEO of Lake Group. \"Kenya is a key market, and we are here for the long term.\""
+      "\"This investment reflects our commitment to making clean cooking energy accessible across East Africa,\" said Ally Edha Awadh, Founder & Chairman of Lake Group. \"Kenya is a key market, and we are here for the long term.\""
     ],
     images: [
       "assets/images/lakegas/ops/filling-plant.jpg",
@@ -62,7 +62,7 @@ window.LAKE_NEWS = [
     category: "Awards",
     bannerImage: "assets/images/leadership/ally-edha-awadh-16x9.jpg",
     description: [
-      "Ally Edha Awadh, Founder and CEO of Lake Group, has been featured by Billionaires.Africa and other business publications as one of East Africa's leading energy entrepreneurs, alongside fellow Tanzanian tycoon Rostam Aziz of Taifa Gas.",
+      "Ally Edha Awadh, Founder & Chairman of Lake Group, has been featured by Billionaires.Africa and other business publications as one of East Africa's leading energy entrepreneurs, alongside fellow Tanzanian tycoon Rostam Aziz of Taifa Gas.",
       "Under Awadh's leadership, Lake Group has grown from a single fuel outlet in Dar es Salaam in 2006 into a diversified conglomerate spanning petroleum distribution, LPG, steel manufacturing, logistics, real estate, and agro-processing across 10 countries in East and Central Africa.",
       "The group operates a fleet of over 1,200 vehicles, 152+ retail fuel stations, and employs more than 30,000 people. Forbes Africa previously profiled the company as a $1 billion integrated energy platform in 2017.",
       "\"Our vision is to become the leading regional energy and industrial conglomerate,\" Awadh stated. \"We are building infrastructure that will serve East Africa for generations.\""
@@ -536,7 +536,7 @@ window.LAKE_NEWS = [
     bannerImage: "assets/images/lakegas/ops/filling-plant.jpg",
     description: [
       "It is a Pleasure to announce a New Milestone achieved by the \"LAKE GAS TEAM\" – The Launch of the \"COMPOSITE CYLINDERS\".",
-      "The Composite Cylinder was officially Launched on 18th June, 2014 at the Program conducted at the Grand Hyatt Regency - Dar Es Salaam. The Guest of Honor – The Asst. Commissioner of Energy (Natural Gas) in the Ministry of Energy & Minerals- Mr. Nobert Kahyoza officiated the Launch by holding up the Composite Cylinder along with our Chairman and Managing Director – Mr. Ally Edha Awadh.",
+      "The Composite Cylinder was officially Launched on 18th June, 2014 at the Program conducted at the Grand Hyatt Regency - Dar Es Salaam. The Guest of Honor – The Asst. Commissioner of Energy (Natural Gas) in the Ministry of Energy & Minerals- Mr. Nobert Kahyoza officiated the Launch by holding up the Composite Cylinder along with Founder & Chairman Mr. Ally Edha Awadh.",
       "Amid a crowd of more than 150 people, which comprised of Dignitaries and names from various works of life; the Launch was captured by an extensive crowd of Media and Press.",
       "The Launch of the composite cylinders in DAR marks a new revolution in the terms of a parallel cooking range, the cylinders are not only Aesthetically pleasing to look and graces the appearance of the kitchen; but also has the 4 unique features which makes it stand tall in comparison to our conventional steel cylinders. They are: Non Explosive, Non Corrosive, Light Weight, Translucent"
     ],
@@ -615,7 +615,7 @@ window.LAKE_NEWS = [
     bannerImage: "assets/images/group/ops/tanker-loading.jpg",
     description: [
       "Africa Energy Intelligence's sources report that the Tanzanian oil trading and distribution firm Lake Group has set up shop in Mozambique.",
-      "Its founder and CEO, Ally Edha Awadh, recently incorporated a subsidiary named Lake Oil Limited in Beira In central Mozambique.",
+      "Its Founder & Chairman, Ally Edha Awadh, recently incorporated a subsidiary named Lake Oil Limited in Beira In central Mozambique.",
       "The move marked a further step in Lake Group's expansion in the region. Apart from Tanzania itself, the firm is active in Zambia, Kenya, Congo-K, Burundi and Rwanda. The company was founded in 2006 by Awadh, who was 27 at the time. Named Lake Oil, it worked initially in importing and storing oil products but Awadh later diversified his business by inaugurating a flurry of companies, including Lake Trans Ltd (transport).",
       "The firm works with oil trading giants like Trafigura and Augusta Energy. Forbes Magazine listed Awadh as one of Africa's most promising young businessmen in 2014 and 2015. Lake Oil's arrival in Mozambique coincides with that of one of its competitors in Tanzania, the MeTL conglomerate of businessman Mohamed Dewji who will work out of Nacala in the north of the country."
     ],
@@ -631,7 +631,7 @@ window.LAKE_NEWS = [
     description: [
       "On 9th September 2016 Lake Group family has presented special mattresses for Maternal Wards and fruits to Temeke Referral District Hospital as part of Eid Al Adha celebrations",
       "A Lake Group delegation presented the commodities to Dr. A. Malima, the Chief Medical Officer of the Hospital in Dar es Salaam.",
-      "Special thanks goes to Ally Edha Awadh – The Group CEO, all employees and the steering committee of the event for moral support, materially and monetary contributions.",
+      "Special thanks goes to Ally Edha Awadh – Founder & Chairman, all employees and the steering committee of the event for moral support, materially and monetary contributions.",
       "Let us always share the small portion we have with the society."
     ],
     images: [

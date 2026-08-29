@@ -149,8 +149,8 @@ const CURATED_FACTS = [
     url: 'leadership.html',
     en: {
       t: 'Leadership',
-      s: 'Ally Edha Awadh is the founder and CEO of Lake Group. Full leadership profiles are on the Leadership page. He founded the group in 2006 at age 27 with a single fuel outlet in Dar es Salaam.',
-      k: 'ceo chairman founder leadership who leads boss awadh ally management director executive chairman owner',
+      s: 'Ally Edha Awadh is the Founder & Chairman of Lake Group. Full leadership profiles are on the Leadership page. He founded the group in 2006 at age 27 with a single fuel outlet in Dar es Salaam.',
+      k: 'founder chairman leadership who leads boss awadh ally management director',
     },
     fr: {
       t: 'Direction',

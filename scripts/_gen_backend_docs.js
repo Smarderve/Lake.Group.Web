@@ -457,13 +457,13 @@ children.push(
 
   /* 6.5 Leaders */
   h2('6.5  Leaders — slug "leaders"'),
-  pv([['Mirrors: ', true], ['leadership-*.html profile pages: photo, role, unit, lede, bio, quote, mandate list, fact grid and the featured Founder and CEO slot.']]),
+  pv([['Mirrors: ', true], ['leadership-*.html profile pages: photo, role, unit, lede, bio, quote, mandate list, fact grid and the featured Founder & Chairman slot.']]),
   pv([['Admin group: ', true], ['Content  ·  Use as title: name']]),
   table(
     ['Field', 'Type', 'Notes'],
     [
       ['name', 'text (required)', 'Leader display name'],
-      ['role', 'text (required)', 'Job title — e.g. Founder and CEO'],
+      ['role', 'text (required)', 'Job title — e.g. Founder & Chairman'],
       ['unit', 'text', 'Division label — e.g. Group Leadership'],
       ['slug', 'text (required, unique, indexed)', 'URL slug — e.g. ally-edha-awadh'],
       ['featured', 'checkbox', 'Default false; exactly one leader featured'],

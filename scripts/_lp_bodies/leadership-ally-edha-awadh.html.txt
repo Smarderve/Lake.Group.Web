@@ -1,7 +1,7 @@
 
         <div class="lp-unit">Group Leadership</div>
         <h1 class="lp-name">Ally Edha Awadh</h1>
-        <p class="lp-role">Executive Chairman &amp; Owner</p>
+        <p class="lp-role">Founder &amp; Chairman</p>
         <p class="lp-lede">Forbes-featured entrepreneur who founded Lake Oil in 2006 and built Lake Group into one of East and Central Africa’s leading energy, logistics and industrial conglomerates.</p>
         <p>Born in 1980 into a family of traders, Awadh studied Business Administration at Brock University in Canada — supporting himself with odd jobs while building early trading instincts. By his mid-20s he had already moved into truck refurbishing and commodity trading. In 2006 he launched Lake Oil; official Group materials place him at 27 at founding.</p>
         <p>His oversight today spans oil marketing, supply chain, downstream logistics and heavy industrial manufacturing across Tanzania, Kenya, Zambia, DRC, Burundi and Rwanda — with wider Group presence also in Ethiopia, Mozambique and Dubai (MERM). Under his chairmanship the Group has grown retail networks (152 stations in Tanzania alone), storage infrastructure, a 1,200+ truck fleet, LPG terminals, Lake Steel, ready-mix concrete and AFICD port-extension services.</p>
@@ -45,4 +45,3 @@
             <a href="leadership.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.58">All leadership</a>
           </div>
         </nav>
-      

@@ -33,7 +33,7 @@ Press/secondary sources:
 |---|---|---|
 | Legal/brand name | Lake Group (a.k.a. Lake Oil Group) | [official] home, about |
 | Founded | 2006, with flagship company Lake Oil | [official] about |
-| Founder | Ally Edha Awadh, founding CEO and Chairman | [official] about |
+| Founder | Ally Edha Awadh, Founder & Chairman | [official] about |
 | Founder age at founding | 27 per official site; 26 per Forbes | [official] home; [press] Forbes |
 | Headquarters | Dar es Salaam, Tanzania | [official] about |
 | Group HQ address | Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055, Dar es Salaam, Tanzania | [official] contact |

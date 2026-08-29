@@ -26,7 +26,7 @@ const LEADERS = [
 {
     id: 'ally-edha-awadh',
     name: 'Ally Edha Awadh',
-    role: 'Founder and CEO',
+    role: 'Founder & Chairman',
     unit: 'Group Leadership',
     photo: 'assets/images/leadership/ally-edha-awadh.png',
     photoLogo: false,

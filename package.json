@@ -19,7 +19,8 @@
     "test:cache-consistency": "node scripts/check-cache-consistency.mjs",
     "test:performance-sanity": "node tests/performance-sanity.test.js",
     "test:cache-lifecycle": "node tests/cache-lifecycle.test.js",
-    "test:reload-stability": "node tests/reload-stability.test.js"
+    "test:reload-stability": "node tests/reload-stability.test.js",
+    "test:chairman-title": "node --test tests/chairman-title-consistency.test.js"
   },
   "devDependencies": {
     "esbuild": "^0.28.1",

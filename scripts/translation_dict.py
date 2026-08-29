@@ -19,7 +19,7 @@ PHRASES_FR = {
         "Avec une équipe d'ingénieurs expérimentés et de professionnels dans toutes nos unités, Lake Group est pleinement équipé pour répondre aux exigences du marché mondial, de la commercialisation de carburant et du transport au GPL, à l'acier, aux lubrifiants et au béton.",
     "One of Africa's fastest-growing energy, logistics & construction conglomerates, operating across 9 countries with 30,000+ employees and 1,200+ trucks on the road.":
         "L'un des conglomérats d'énergie, de logistique et de construction à la croissance la plus rapide d'Afrique, présent dans 9 pays avec plus de 4 600 employés et plus de 700 camions sur les routes.",
-    "Founded by CEO & Chairman Ally Edha Awadh in 2006 at just 27 years old, Lake Group has grown from a single fuel outlet into one of East and Central Africa's largest energy, logistics and industrial conglomerates.":
+    "Founded by Founder & Chairman Ally Edha Awadh in 2006 at just 27 years old, Lake Group has grown from a single fuel outlet into one of East and Central Africa's largest energy, logistics and industrial conglomerates.":
         "Fondé par le PDG et président Ally Edha Awadh en 2006, à seulement 27 ans, Lake Group est passé d'une seule station-service à l'un des plus grands conglomérats d'énergie, de logistique et industriels d'Afrique de l'Est et centrale.",
     "Today, with 30,000+ employees across 21 nationalities, 1,200+ trucks, 85+ fuel stations and 20+ subsidiaries, Lake Group powers everyday life across Tanzania, Kenya, Zambia, Rwanda, Burundi, DRC, Ethiopia and Mozambique.":
         "Aujourd'hui, avec plus de 4 600 employés de 21 nationalités, plus de 700 camions, plus de 85 stations-service et plus de 20 filiales, Lake Group alimente la vie quotidienne en Tanzanie, au Kenya, en Zambie, au Rwanda, au Burundi, en RDC, en Éthiopie et au Mozambique.",
@@ -54,7 +54,7 @@ PHRASES_PT = {
         "Com uma equipa de engenheiros experientes e profissionais de negócios em todas as nossas unidades, o Lake Group está totalmente preparado para responder às exigências do mercado global, desde a comercialização de combustíveis e transporte até GLP, aço, lubrificantes e betão.",
     "One of Africa's fastest-growing energy, logistics & construction conglomerates, operating across 9 countries with 30,000+ employees and 1,200+ trucks on the road.":
         "Um dos conglomerados de energia, logística e construção que mais cresce em África, presente em 9 países com mais de 4.600 colaboradores e mais de 700 camiões em circulação.",
-    "Founded by CEO & Chairman Ally Edha Awadh in 2006 at just 27 years old, Lake Group has grown from a single fuel outlet into one of East and Central Africa's largest energy, logistics and industrial conglomerates.":
+    "Founded by Founder & Chairman Ally Edha Awadh in 2006 at just 27 years old, Lake Group has grown from a single fuel outlet into one of East and Central Africa's largest energy, logistics and industrial conglomerates.":
         "Fundado pelo CEO e Presidente Ally Edha Awadh em 2006, com apenas 27 anos, o Lake Group cresceu de um único posto de combustível para um dos maiores conglomerados de energia, logística e industriais da África Oriental e Central.",
     "Today, with 30,000+ employees across 21 nationalities, 1,200+ trucks, 85+ fuel stations and 20+ subsidiaries, Lake Group powers everyday life across Tanzania, Kenya, Zambia, Rwanda, Burundi, DRC, Ethiopia and Mozambique.":
         "Hoje, com mais de 4.600 colaboradores de 21 nacionalidades, mais de 700 camiões, mais de 85 postos de combustível e mais de 20 subsidiárias, o Lake Group impulsiona o dia a dia na Tanzânia, Quénia, Zâmbia, Ruanda, Burundi, RDC, Etiópia e Moçambique.",
@@ -170,8 +170,8 @@ TERMS_FR = {
     "Group Leadership": "Direction du groupe",
     "Leadership Team": "Équipe de direction",
     "Full Leadership Team": "Équipe de direction complète",
-    "Group CEO & Chairman": "PDG et président du groupe",
-    "CEO & Chairman": "PDG et président",
+    "Founder & Chairman": "PDG et président du groupe",
+    "Founder & Chairman": "PDG et président",
     "CEO Message": "Message du PDG",
     "Executive Director · Lake Group": "Directeur exécutif · Lake Group",
     "Human Resources Director · Lake Oil": "Directrice des ressources humaines · Lake Oil",
@@ -1109,7 +1109,7 @@ TERMS_FR = {
     "<strong>Storage</strong>LAKE OIL terminals filling across 9 countries.":
         "<strong>Stockage</strong>Remplissage des terminaux LAKE OIL dans 9 pays.",
     "Fueling <span>Progress</span>": "Alimenter le <span>progrès</span>",
-    "Founded by CEO & Chairman <strong>Ally Edha Awadh</strong> in 2006 at just 27 years old, Lake Group has grown from a single fuel outlet into one of East and Central Africa's largest energy, logistics and industrial conglomerates.":
+    "Founded by Founder & Chairman <strong>Ally Edha Awadh</strong> in 2006 at just 27 years old, Lake Group has grown from a single fuel outlet into one of East and Central Africa's largest energy, logistics and industrial conglomerates.":
         "Fondé par le PDG et président <strong>Ally Edha Awadh</strong> en 2006, à seulement 27 ans, Lake Group est passé d'une seule station-service à l'un des plus grands conglomérats d'énergie, de logistique et industriels d'Afrique de l'Est et centrale.",
     "Today, with <strong>30,000+ employees</strong> across 21 nationalities, 1,200+ trucks, 85+ fuel stations and 20+ subsidiaries, Lake Group powers everyday life across Tanzania, Kenya, Zambia, Rwanda, Burundi, DRC, Ethiopia and Mozambique.":
         "Aujourd'hui, avec plus de <strong>4 600 employés</strong> de 21 nationalités, plus de 700 camions, plus de 85 stations-service et plus de 20 filiales, Lake Group alimente la vie quotidienne en Tanzanie, au Kenya, en Zambie, au Rwanda, au Burundi, en RDC, en Éthiopie et au Mozambique.",
@@ -1135,7 +1135,7 @@ TERMS_FR = {
     "Message from the CEO": "Message du PDG",
     "\"Welcome to a diverse pioneer in fuel marketing, haulage, LPG bottling, cylinder manufacturing and concrete production. With experienced engineers and business professionals across our divisions, we are fully geared to meet the demands of the global marketplace.\"":
         "« Bienvenue chez un pionnier diversifié de la commercialisation de carburant, du transport, de l'embouteillage de GPL, de la fabrication de bouteilles et de la production de béton. Avec des ingénieurs expérimentés et des professionnels dans toutes nos divisions, nous sommes pleinement équipés pour répondre aux exigences du marché mondial. »",
-    "CEO & Chairman, Lake Group \u00a0|\u00a0 Founded Lake Group at age 27 in 2006":
+    "Founder & Chairman, Lake Group \u00a0|\u00a0 Founded Lake Group at age 27 in 2006":
         "PDG et président, Lake Group \u00a0|\u00a0 A fondé Lake Group à 27 ans en 2006",
     # --- fuel.html ---
     "One of Tanzania's top 5 petroleum distributors, supplying quality fuel across 9 countries in East and Central Africa.":
@@ -1178,7 +1178,7 @@ TERMS_FR = {
     # --- about.html ---
     "One of East and Central Africa's fastest growing energy trading and transportation conglomerates, founded 2006.":
         "L'un des conglomérats de négoce d'énergie et de transport à la croissance la plus rapide d'Afrique de l'Est et centrale, fondé en 2006.",
-    "Lake Group was established by its founding CEO and Chairman <strong>Mr. Ally Edha Awadh</strong> in 2006 with the opening of its flagship company, Lake Oil: a humble beginning in Dar es Salaam, Tanzania.":
+    "Lake Group was established by its Founder & Chairman <strong>Mr. Ally Edha Awadh</strong> in 2006 with the opening of its flagship company, Lake Oil: a humble beginning in Dar es Salaam, Tanzania.":
         "Lake Group a été fondé par son PDG et président <strong>M. Ally Edha Awadh</strong> en 2006 avec l'ouverture de sa société phare, Lake Oil : un début modeste à Dar es Salaam, en Tanzanie.",
     "Mr. Ally Edha Awadh": "M. Ally Edha Awadh",
     "Since inception, the growth story of Lake Group has been vertical, becoming one of the fastest-growing energy trading, logistics and construction supply material conglomerates in East and Central Africa and the Middle East.":
@@ -1301,8 +1301,8 @@ TERMS_PT = {
     "Group Leadership": "Liderança do grupo",
     "Leadership Team": "Equipa de liderança",
     "Full Leadership Team": "Equipa de liderança completa",
-    "Group CEO & Chairman": "CEO e presidente do grupo",
-    "CEO & Chairman": "CEO e presidente",
+    "Founder & Chairman": "CEO e presidente do grupo",
+    "Founder & Chairman": "CEO e presidente",
     "CEO Message": "Mensagem do CEO",
     "Executive Director · Lake Group": "Diretor executivo · Lake Group",
     "Human Resources Director · Lake Oil": "Diretora de recursos humanos · Lake Oil",
@@ -2239,7 +2239,7 @@ TERMS_PT = {
     "<strong>Storage</strong>LAKE OIL terminals filling across 9 countries.":
         "<strong>Armazenamento</strong>Enchimento dos terminais LAKE OIL em 9 países.",
     "Fueling <span>Progress</span>": "Impulsionando o <span>progresso</span>",
-    "Founded by CEO & Chairman <strong>Ally Edha Awadh</strong> in 2006 at just 27 years old, Lake Group has grown from a single fuel outlet into one of East and Central Africa's largest energy, logistics and industrial conglomerates.":
+    "Founded by Founder & Chairman <strong>Ally Edha Awadh</strong> in 2006 at just 27 years old, Lake Group has grown from a single fuel outlet into one of East and Central Africa's largest energy, logistics and industrial conglomerates.":
         "Fundado pelo CEO e Presidente <strong>Ally Edha Awadh</strong> em 2006, com apenas 27 anos, o Lake Group cresceu de um único posto de combustível para um dos maiores conglomerados de energia, logística e industriais da África Oriental e Central.",
     "Today, with <strong>30,000+ employees</strong> across 21 nationalities, 1,200+ trucks, 85+ fuel stations and 20+ subsidiaries, Lake Group powers everyday life across Tanzania, Kenya, Zambia, Rwanda, Burundi, DRC, Ethiopia and Mozambique.":
         "Hoje, com mais de <strong>4.600 colaboradores</strong> de 21 nacionalidades, mais de 700 camiões, mais de 85 postos de combustível e mais de 20 subsidiárias, o Lake Group impulsiona o dia a dia na Tanzânia, Quénia, Zâmbia, Ruanda, Burundi, RDC, Etiópia e Moçambique.",
@@ -2265,7 +2265,7 @@ TERMS_PT = {
     "Message from the CEO": "Mensagem do CEO",
     "\"Welcome to a diverse pioneer in fuel marketing, haulage, LPG bottling, cylinder manufacturing and concrete production. With experienced engineers and business professionals across our divisions, we are fully geared to meet the demands of the global marketplace.\"":
         "\"Bem-vindo a um pioneiro diversificado na comercialização de combustíveis, transporte, engarrafamento de GLP, fabrico de cilindros e produção de betão. Com engenheiros experientes e profissionais de negócios em todas as nossas divisões, estamos totalmente preparados para responder às exigências do mercado global.\"",
-    "CEO & Chairman, Lake Group \u00a0|\u00a0 Founded Lake Group at age 27 in 2006":
+    "Founder & Chairman, Lake Group \u00a0|\u00a0 Founded Lake Group at age 27 in 2006":
         "CEO e Presidente, Lake Group \u00a0|\u00a0 Fundou o Lake Group aos 27 anos em 2006",
     # --- fuel.html ---
     "One of Tanzania's top 5 petroleum distributors, supplying quality fuel across 9 countries in East and Central Africa.":
@@ -2308,7 +2308,7 @@ TERMS_PT = {
     # --- about.html ---
     "One of East and Central Africa's fastest growing energy trading and transportation conglomerates, founded 2006.":
         "Um dos conglomerados de comércio de energia e transporte que mais cresce na África Oriental e Central, fundado em 2006.",
-    "Lake Group was established by its founding CEO and Chairman <strong>Mr. Ally Edha Awadh</strong> in 2006 with the opening of its flagship company, Lake Oil: a humble beginning in Dar es Salaam, Tanzania.":
+    "Lake Group was established by its Founder & Chairman <strong>Mr. Ally Edha Awadh</strong> in 2006 with the opening of its flagship company, Lake Oil: a humble beginning in Dar es Salaam, Tanzania.":
         "O Lake Group foi fundado pelo seu CEO e Presidente fundador <strong>Sr. Ally Edha Awadh</strong> em 2006, com a abertura da sua empresa principal, a Lake Oil: um início modesto em Dar es Salaam, Tanzânia.",
     "Mr. Ally Edha Awadh": "Sr. Ally Edha Awadh",
     "Since inception, the growth story of Lake Group has been vertical, becoming one of the fastest-growing energy trading, logistics and construction supply material conglomerates in East and Central Africa and the Middle East.":

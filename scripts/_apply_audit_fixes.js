@@ -271,7 +271,7 @@ const EDITS = {
   },
   'media_center.10': {
     old: 'Lake Group has formally inaugurated its Mozambique operations, establishing Lake Oil LDA and an AFICD inland container depot to serve growing trade flows along the Beira corridor.',
-    en: "Lake Group founder and Chairman Ally Edha Awadh received the African Leadership Magazine's 2022 Young Business Leader of the Year award at a ceremony held at the House of Lords in London.",
+    en: "Lake Group Founder & Chairman Ally Edha Awadh received the African Leadership Magazine's 2022 Young Business Leader of the Year award at a ceremony held at the House of Lords in London.",
     fr: "Le fondateur et président du Groupe Lake, Ally Edha Awadh, a reçu le prix du Jeune dirigeant d'entreprise de l'année 2022 de l'African Leadership Magazine lors d'une cérémonie à la Chambre des Lords à Londres.",
     sw: 'Mwanzilishi na Mwenyekiti wa Kundi la Lake, Ally Edha Awadh, alipokea tuzo ya Kiongozi Kijana wa Biashara wa Mwaka 2022 ya jarida la African Leadership katika hafla iliyofanyika katika Ukumbi wa House of Lords, London.'
   },

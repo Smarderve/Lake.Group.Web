@@ -25,7 +25,7 @@ test('public UI exposes the planned language selector', () => {
 test('leadership exposes Chairman Ally Edha Awadh only', () => {
   const html = read('leadership.html');
   assert.match(html, /Ally Edha Awadh/);
-  assert.match(html, /Founder and Chairman/);
+  assert.match(html, /Founder &amp; Chairman/);
   for (const file of retired) {
     assert.equal(fs.existsSync(path.join(root, file)), false, file);
     assert.doesNotMatch(html, new RegExp(file.replace('.', '\\.')));

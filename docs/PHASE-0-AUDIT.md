@@ -113,7 +113,7 @@ Every item below is literal text/number in the listed file. Where the same fact 
 | Fleet detail | `assets/assistant-kb.js` `fact:fleet` (tankers 12,000–40,000 L, GPS-tracked; workshops Kibaha/Kigamboni/Morogoro/Nairobi/Ndola) | Chatbot KB only |
 
 ### 2. Leadership (client-confirmed names; see `DATA_GAPS.md`)
-- Founder / Executive Chairman & Owner: **Ally Edha Awadh** — `leadership.html` (featured), `leadership-ally-edha-awadh.html`, `about.html` L39–44, `index.html` (founder quote), `assets/assistant-kb.js` `fact:leadership`.
+- Founder / Founder & Chairman: **Ally Edha Awadh** — `leadership.html` (featured), `leadership-ally-edha-awadh.html`, `about.html` L39–44, `index.html` (founder quote), `assets/assistant-kb.js` `fact:leadership`.
 - Six card profiles in `leadership.html` (≈L499–560): **Dileep Kumar** (CEO Manufacturing), **Bibhuti Singh** (CFO AFICD), **Biji Lapat** (CEO Lake Energies), **Sridhar Mani** (Director of Digital Transformation), **Mohammed Khalid** (MD ATL), **Juma Nuru** (Director of Operations).
 - Profile pages: `leadership-dileep-kumar.html`, `leadership-bibhuti-singh.html`, `leadership-biji-lapat.html`, `leadership-sridhar-mani.html`, `leadership-mohammed-khalid.html`, `leadership-juma-nuru.html`, `leadership-ally-edha-awadh.html`.
 - **Nassoro Abubakari** (Project Manager · Lake Agro) is in `DATA_GAPS.md` as confirmed but has **no profile page**.

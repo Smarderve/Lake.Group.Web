@@ -37,7 +37,7 @@ const DB = {
     { id: 1, title: 'Lake Gas Expands in Kenya', slug: 'lake-gas-kenya', status: 'published', category: 'LPG', date: '2026-01-15T00:00:00.000Z', excerpt: 'First mock article.' },
     { id: 2, title: 'New Terminal Opens in Dar', slug: 'new-terminal-dar', status: 'draft', category: 'Expansion', date: '2026-02-01T00:00:00.000Z', excerpt: 'Second mock article.' },
   ],
-  leaders: [{ id: 11, name: 'Ally Edha Awadh', role: 'Founder and CEO', slug: 'ally-edha-awadh', featured: true, sortOrder: 1 }],
+  leaders: [{ id: 11, name: 'Ally Edha Awadh', role: 'Founder & Chairman', slug: 'ally-edha-awadh', featured: true, sortOrder: 1 }],
   companies: [{ id: 21, name: 'Lake Oil', slug: 'lake-oil', division: 'energies', founded: '2006', sortOrder: 1 }],
   countries: [{ id: 31, name: 'Tanzania', code: 'TZ', isOperational: true, isHeadquarters: true }],
   media: [{ id: 41, filename: 'banner.jpg', alt: 'Test banner', url: '/media/banner.jpg' }],

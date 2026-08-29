@@ -253,7 +253,7 @@ export const CONTENT_SEED = {
 
   // 7 leaders — names, roles, photos and bios mirror leadership.html.
   leadership: [
-    { name: 'Ally Edha Awadh', position: 'Founder and CEO', order: 0,
+    { name: 'Ally Edha Awadh', position: 'Founder & Chairman', order: 0,
       photo: 'assets/images/leadership/ally-edha-awadh.png', companySlug: 'lake-oil',
       bio: 'Forbes-featured entrepreneur who founded Lake Oil in 2006 and built Lake Group into one of East and Central Africa\u2019s leading energy, logistics and industrial conglomerates.' },
     { name: 'Dilip Kumar', position: 'CEO · Manufacturing Division', order: 1,

@@ -324,10 +324,10 @@ export const isAdmin: Access = ({ req: { user } }) =&gt; {
 <thead><tr><th>Field</th><th>Type</th><th>Constraints</th><th>Notes</th></tr></thead>
 <tbody>
 <tr><td><code>name</code></td><td>text</td><td><span class="tag req">required</span></td><td></td></tr>
-<tr><td><code>role</code></td><td>text</td><td><span class="tag req">required</span></td><td>e.g. Founder and CEO</td></tr>
+<tr><td><code>role</code></td><td>text</td><td><span class="tag req">required</span></td><td>e.g. Founder & Chairman</td></tr>
 <tr><td><code>unit</code></td><td>text</td><td></td><td>e.g. Group Leadership</td></tr>
 <tr><td><code>slug</code></td><td>text</td><td><span class="tag req">required</span> · unique · indexed</td><td>e.g. <code>ally-edha-awadh</code></td></tr>
-<tr><td><code>featured</code></td><td>checkbox</td><td>default false · indexed · sidebar</td><td>Founder and CEO slot</td></tr>
+<tr><td><code>featured</code></td><td>checkbox</td><td>default false · indexed · sidebar</td><td>Founder & Chairman slot</td></tr>
 <tr><td><code>sortOrder</code></td><td>number</td><td>default 100 · sidebar</td><td>Directory ordering</td></tr>
 <tr><td><code>photo</code></td><td>upload → media</td><td></td><td>Portrait</td></tr>
 <tr><td><code>isLogo</code></td><td>checkbox</td><td>default false</td><td>Render logo instead of photo on cards</td></tr>

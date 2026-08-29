@@ -469,7 +469,7 @@ def build_html():
         "careers.html": "Culture, benefits, CV submission form (mock).",
         "contact.html": "HQ address, phone, email, regional offices, contact form.",
         "services.html": "Hub page linking all eight business sectors.",
-        "leadership-ally-edha-awadh.html": "Profile — Executive Chairman & Owner.",
+        "leadership-ally-edha-awadh.html": "Profile — Founder & Chairman.",
         "leadership-biji-lapat.html": "Profile — CEO Lake Energies.",
         "leadership-juma-nuru.html": "Profile — Director of Operations.",
         "leadership-sridhar-mani.html": "Profile — Director of Digital Transformation.",

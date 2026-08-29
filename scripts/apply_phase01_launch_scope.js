@@ -48,12 +48,12 @@ for (const filename of fs.readdirSync(root).filter((name) => name.endsWith('.htm
 let leadership = fs.readFileSync(path.join(root, 'leadership.html'), 'utf8');
 leadership = removeBalancedDiv(leadership, 'class="ld-cat-group"');
 leadership = removeBalancedDiv(leadership, 'class="ld-panel reveal"');
-leadership = leadership.replace(/"employee"\s*:\s*\[[\s\S]*?\]/, '"employee": [\n    {"@type": "Person", "name": "Ally Edha Awadh", "jobTitle": "Founder and Chairman", "url": "https://www.lakeoilgroup.com/leadership-ally-edha-awadh.html"}\n  ]');
-leadership = leadership.replace('Meet the executives guiding Lake Group across energy, manufacturing, logistics and agribusiness in East and Central Africa.', 'Meet Ally Edha Awadh, Founder and Chairman of Lake Group.');
-leadership = leadership.replace('Our leaders bring deep domain knowledge across energy, industry, technology and operations. Select a profile to learn more.', 'Founder and Chairman Ally Edha Awadh guides Lake Group with a long-term commitment to quality, service, safety and professionalism.');
+leadership = leadership.replace(/"employee"\s*:\s*\[[\s\S]*?\]/, '"employee": [\n    {"@type": "Person", "name": "Ally Edha Awadh", "jobTitle": "Founder & Chairman", "url": "https://www.lakeoilgroup.com/leadership-ally-edha-awadh.html"}\n  ]');
+leadership = leadership.replace('Meet the executives guiding Lake Group across energy, manufacturing, logistics and agribusiness in East and Central Africa.', 'Meet Ally Edha Awadh, Founder & Chairman of Lake Group.');
+leadership = leadership.replace('Our leaders bring deep domain knowledge across energy, industry, technology and operations. Select a profile to learn more.', 'Founder & Chairman Ally Edha Awadh guides Lake Group with a long-term commitment to quality, service, safety and professionalism.');
 leadership = leadership.replace('Leadership Team', 'Founder & Chairman').replace('Corporate Management', 'Ally Edha Awadh');
-leadership = leadership.replace('The executives driving Lake Group across energy, manufacturing, operations and agribusiness.', 'Founder and Chairman of Lake Group.');
-leadership = leadership.replace('Founder and CEO', 'Founder and Chairman');
+leadership = leadership.replace('The executives driving Lake Group across energy, manufacturing, operations and agribusiness.', 'Founder & Chairman of Lake Group.');
+leadership = leadership.replace('Founder and CEO', 'Founder &amp; Chairman');
 writeIfChanged('leadership.html', leadership);
 
 let story = fs.readFileSync(path.join(root, 'our-story.html'), 'utf8');

@@ -70,7 +70,7 @@ const companies = [
     name: "Lake Oil Ltd.",
     sector: "Lake Energies (Energy & Petroleum)",
     est: "2006 [VERIFIED: lakeoilgroup.com]",
-    ceo: "Ally Edha Awadh — Founder & Executive Chairman [VERIFIED: lakeoilgroup.com]",
+    ceo: "Ally Edha Awadh — Founder & Chairman [VERIFIED: lakeoilgroup.com]",
     hq: "Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055, Dar es Salaam, Tanzania [VERIFIED: Group HQ]",
     phone: ["+255 222 780 510 [VERIFIED: Group HQ line]"],
     email: "admin@lakeoilgroup.com [VERIFIED: Group HQ email]",
@@ -399,7 +399,7 @@ async function main() {
   children.push(new Paragraph({ alignment: AlignmentType.CENTER, spacing:{after:60}, children:[new TextRun({text:"Owned by", size:20, font:FONT, color:C.muted})] }));
   children.push(new Paragraph({ alignment: AlignmentType.CENTER, spacing:{after:200}, children:[new TextRun({text:"Mr. Ally Edha Awadh", size:32, bold:true, font:FONT, color:C.gold})] }));
   children.push(emptyLine(), emptyLine());
-  children.push(new Paragraph({ alignment: AlignmentType.CENTER, spacing:{after:80}, children:[new TextRun({text:"Executive Chairman & Owner", size:18, font:FONT, color:C.muted, italics:true})] }));
+  children.push(new Paragraph({ alignment: AlignmentType.CENTER, spacing:{after:80}, children:[new TextRun({text:"Founder & Chairman", size:18, font:FONT, color:C.muted, italics:true})] }));
   children.push(emptyLine(), emptyLine(), emptyLine(), emptyLine());
   children.push(new Paragraph({ alignment: AlignmentType.CENTER, spacing:{after:60}, children:[new TextRun({text:"Compiled July 2026 — v3.0: Complete with country addresses, Maps checks & email verification", size:16, font:FONT, color:C.muted})] }));
   children.push(new Paragraph({ alignment: AlignmentType.CENTER, children:[new TextRun({text:"Every data point tagged with verification level: See Section 18", size:11, font:FONT, color:C.muted, italics:true})] }));
@@ -476,10 +476,10 @@ async function main() {
   // ═══════ 2. LEADERSHIP ═══════
   children.push(heading("2. Executive Leadership & Organizational Structure", 0, {color:C.navy}));
   children.push(emptyLine());
-  children.push(para("The Lake Group is wholly owned by Mr. Ally Edha Awadh (Executive Chairman). Leadership data from LinkedIn company profile and official website.", {size:10, italics:true, color:C.muted}));
+  children.push(para("The Lake Group is wholly owned by Mr. Ally Edha Awadh (Founder & Chairman). Leadership data from LinkedIn company profile and official website.", {size:10, italics:true, color:C.muted}));
   children.push(emptyLine());
   children.push(dataTable(["Name", "Position", "Source"], [
-    ["Ally Edha Awadh", "Founder & Executive Chairman", "lakeoilgroup.com"],
+    ["Ally Edha Awadh", "Founder & Chairman", "lakeoilgroup.com"],
     ["Juma Nuru", "Director of Operations — Lake Group", "LinkedIn"],
     ["Biji Lapat", "Managing Director — Lake Energies", "LinkedIn"],
     ["Sridhar Mani", "Group Executive", "LinkedIn"],
@@ -490,7 +490,7 @@ async function main() {
   children.push(emptyLine());
   children.push(heading("2.1 Organizational Structure", 1, {color:C.blue}));
   children.push(emptyLine());
-  children.push(para("Ally Edha Awadh (Executive Chairman & Owner)", {bold:true}));
+  children.push(para("Ally Edha Awadh (Founder & Chairman)", {bold:true}));
   children.push(emptyLine());
   children.push(dataTable(["Sector", "Companies", "Source"], [
     ["Lake Energies", "Lake Oil, Lake Gas, Lake Aviation, Lake Lubes", "lakeoilgroup.com + LinkedIn"],
