@@ -91,7 +91,7 @@ test('subsidiary coverage uses unique supplied company marks without retired com
   assert.match(navTemplate, /id="mm-pane-automotive"[\s\S]*agrinova-tech\.png/);
   assert.match(navTemplate, /id="mm-pane-agro"[^>]*><div class="mm-companies"><a href="lake-agro\.html"[^>]*><img[^>]*lake-agro\.png[^>]*><\/a><\/div><\/div>/);
   assert.match(mobileTemplate, /data-mm-cat="automotive"[\s\S]*Agrinova Tech Limited/);
-  assert.match(phaseCss, /img\[src\*="lake-pipes\.png"\][\s\S]*?height:\s*76px/);
+  assert.doesNotMatch(phaseCss, /img\[src\*="lake-pipes\.png"\][\s\S]*?height:\s*76px/);
   assert.doesNotMatch(navTemplate, /lake-group-placeholder|LAKE_LOGO_LAKE_ONLY\.png" alt="(?:Assembly|AgriNova|NextDrive)/i);
 });
 

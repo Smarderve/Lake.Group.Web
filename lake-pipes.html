@@ -133,6 +133,9 @@
 .ct-label{color:var(--gold);font-size:var(--fs-micro);font-weight:700;text-transform:uppercase;letter-spacing:0.22em;margin-bottom:4px}
 .ct-strong{color:var(--white);font-size:0.92rem;display:block}
 .ct-dim{color:var(--ink-mute);font-size:0.85rem;display:block}
+  .lp-capabilities .svc-card{border:1px solid var(--line-2);background:var(--surface)}
+  @media(max-width:860px){.lp-capabilities{grid-template-columns:repeat(2,1fr)!important}}
+  @media(max-width:560px){.lp-capabilities{grid-template-columns:1fr!important}}
   </style>
 <script type="application/ld+json">
 {
@@ -246,38 +249,25 @@
 
 <div class="page-wrapper">
 <section class="page-hero">
-  <div class="hero-media" style="background-image:url('assets/images/lakepipes/ops/tanks-inspection.jpg')" aria-hidden="true"></div>
+  <div class="hero-media" style="background-image:url('assets/images/lakepipes/hero/lake-pipes-hero.webp');background-position:center 35%" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container">
 <div class="eyebrow">Lake Group &middot; Est. 2019</div><h1>Lake Pipes</h1><p>Manufacturing and distributing quality pipes, water tanks and fittings for water management, irrigation, distribution and sewage systems.</p>
 </div></section>
 
-<!-- 1. COMPANY INTRODUCTION -->
 <section class="fs-section">
-  <div class="container">
-    <div class="fs-split-even">
-      <div>
-        <div class="fs-marker"><span class="fs-marker-no">01</span><span class="fs-eyebrow">Company Introduction</span></div>
-        <h2 class="fs-display">Pipe &amp; Water System Manufacturing</h2>
-        <hr class="fs-rule" style="margin:var(--sp-5) 0">
-        <p class="fs-lede">Lake Pipes, a division of Lake Group established in 2019, manufactures and distributes quality PVC and HDPE pipes, water tanks and fittings for water system management, irrigation systems, water distribution systems and sewage disposal systems.</p>
-        <p style="margin-top:14px">The manufacturing plant at Visiga, Kibaha, Tanzania, is equipped with ultramodern PVC, PPR and HDPE multilayer extruders, roto molding and blow molding machines. Products are quality tested at every stage to maintain standards.</p>
-        <ul class="fs-check">
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>PVC, PPR and HDPE multilayer pipe extrusion</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Roto molding and blow molding capability</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>U-PVC fittings per ISO 1452 (20mm &ndash; 200mm)</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Quality tested at every production stage</li>
-        </ul>
-      </div>
-      <div>
-        <div class="info-panel fs-on-dark fs-corners">
-          <h3>Operations by Country</h3>
-          <div>
-            <div class="info-row"><span><img src="assets/images/flags/tz.svg" alt="Tanzania flag" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> Tanzania</span><span class="badge badge-yellow">Lake Pipes</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="container" style="max-width:860px">
+    <div class="fs-marker"><span class="fs-marker-no">01</span><span class="fs-eyebrow">Company Introduction</span></div>
+    <h2 class="fs-display">Pipe &amp; Water System Manufacturing</h2>
+    <hr class="fs-rule" style="margin:var(--sp-5) 0">
+    <p class="fs-lede">Lake Pipes, a division of Lake Group established in 2019, manufactures and distributes quality PVC and HDPE pipes, water tanks and fittings for water system management, irrigation systems, water distribution systems and sewage disposal systems.</p>
+    <p style="margin-top:14px">The manufacturing plant at Visiga, Kibaha, Tanzania, is equipped with ultramodern PVC, PPR and HDPE multilayer extruders, roto molding and blow molding machines. Products are quality tested at every stage to maintain standards.</p>
+    <ul class="fs-check">
+      <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>PVC, PPR and HDPE multilayer pipe extrusion</li>
+      <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Roto molding and blow molding capability</li>
+      <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>U-PVC fittings per ISO 1452 (20mm &ndash; 200mm)</li>
+      <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Quality tested at every production stage</li>
+    </ul>
   </div>
 </section>
 <section class="fs-section fs-on-dark">
@@ -306,35 +296,11 @@
   <div class="container">
     <div class="fs-marker"><span class="fs-marker-no">03</span><span class="fs-eyebrow">Manufacturing Capabilities</span></div>
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Our Capabilities</h2>
-    <div class="svc-grid" style="grid-template-columns:repeat(2,1fr)">
-      <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/lakepipes/ops/blue-pipes.jpg" alt="Lake Pipes extrusion capability" loading="lazy" decoding="async"></div>
-        <div class="svc-card__body">
-          <h4 class="svc-card__title">PVC / PPR / HDPE Extrusion</h4>
-          <p class="svc-card__desc">Multilayer pipe manufacturing with full range of PVC, PPR and HDPE extruders at the Visiga facility.</p>
-        </div>
-      </article>
-      <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/lakepipes/ops/tanks-inspection.jpg" alt="Lake Pipes roto molding" loading="lazy" decoding="async"></div>
-        <div class="svc-card__body">
-          <h4 class="svc-card__title">Roto Molding</h4>
-          <p class="svc-card__desc">Manufacturing capability for water tanks and specialized plastic products at the Visiga facility.</p>
-        </div>
-      </article>
-      <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/lakepipes/ops/blue-pipes.jpg" alt="Lake Pipes blow molding" loading="lazy" decoding="async"></div>
-        <div class="svc-card__body">
-          <h4 class="svc-card__title">Blow Molding</h4>
-          <p class="svc-card__desc">Blow molding machinery for pipe and fitting production at the manufacturing facility.</p>
-        </div>
-      </article>
-      <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/lakepipes/ops/tanks-inspection.jpg" alt="Lake Pipes quality testing" loading="lazy" decoding="async"></div>
-        <div class="svc-card__body">
-          <h4 class="svc-card__title">Quality Testing</h4>
-          <p class="svc-card__desc">Products quality tested at every stage, with raw material testing using PE 80, PE 100 and PVC K-67.</p>
-        </div>
-      </article>
+    <div class="svc-grid lp-capabilities" style="grid-template-columns:repeat(4,1fr)">
+      <article class="svc-card" style="padding:var(--sp-4)"><div class="svc-card__body" style="padding:0"><span style="color:var(--color-brand-blue,#0181BB);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase">01</span><h4 class="svc-card__title" style="margin-top:6px">PVC / PPR / HDPE Extrusion</h4><p class="svc-card__desc">Multilayer pipe manufacturing with full range of PVC, PPR and HDPE extruders at the Visiga facility.</p></div></article>
+      <article class="svc-card" style="padding:var(--sp-4)"><div class="svc-card__body" style="padding:0"><span style="color:var(--color-brand-blue,#0181BB);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase">02</span><h4 class="svc-card__title" style="margin-top:6px">Roto Molding</h4><p class="svc-card__desc">Manufacturing capability for water tanks and specialized plastic products at the Visiga facility.</p></div></article>
+      <article class="svc-card" style="padding:var(--sp-4)"><div class="svc-card__body" style="padding:0"><span style="color:var(--color-brand-blue,#0181BB);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase">03</span><h4 class="svc-card__title" style="margin-top:6px">Blow Molding</h4><p class="svc-card__desc">Blow molding machinery for pipe and fitting production at the manufacturing facility.</p></div></article>
+      <article class="svc-card" style="padding:var(--sp-4)"><div class="svc-card__body" style="padding:0"><span style="color:var(--color-brand-blue,#0181BB);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase">04</span><h4 class="svc-card__title" style="margin-top:6px">Quality Testing</h4><p class="svc-card__desc">Products quality tested at every stage, with raw material testing using PE 80, PE 100 and PVC K-67.</p></div></article>
     </div>
   </div>
 </section>
@@ -366,28 +332,7 @@
     </div>
   </div>
 </section>
-<section class="fs-section section-light">
-  <div class="container">
-    <div class="fs-marker"><span class="fs-marker-no">05</span><span class="fs-eyebrow">Fleet Gallery</span></div>
-    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Gallery</h2>
-    <div class="co-gal" aria-label="Lake Pipes gallery">
-      <figure class="co-gal__item co-gal__item--feat">
-        <img src="assets/images/lakepipes/ops/blue-pipes.jpg" alt="Lake Pipes PVC pipe production" loading="lazy" decoding="async">
-        <figcaption class="co-gal__cap">PVC pipe production</figcaption>
-      </figure>
 
-      <figure class="co-gal__item">
-        <img src="assets/images/lakepipes/ops/tanks-inspection.jpg" alt="Lake Pipes quality inspection" loading="lazy" decoding="async">
-        <figcaption class="co-gal__cap">Quality inspection</figcaption>
-      </figure>
-
-      <figure class="co-gal__item">
-        <img src="assets/images/lakepipes/ops/tanks-inspection.jpg" alt="Lake Pipes water tank production" loading="lazy" decoding="async">
-        <figcaption class="co-gal__cap">Water tank production</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
 </div>
 
 

@@ -872,12 +872,7 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .mm-cat.is-active {
   max-width: 112px !important;
 }
 
-/* Lake Pipes is a square official mark; its own optical size compensates for
-   the wide-wordmark proportions of neighboring Manufacturing logos. */
-.site-nav[data-phase01-navbar] .nav-megamenu .mm-company img[src*="lake-pipes.png"] {
-  height: 76px !important;
-  max-width: 76px !important;
-}
+/* Lake Pipes logo — cropped to wide format; no override needed. */
 
 .site-nav[data-phase01-navbar] .lang-menu {
   top: calc(100% + 10px) !important;
