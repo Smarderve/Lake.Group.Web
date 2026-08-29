@@ -96,23 +96,6 @@ export const SEEDS = [
     status: 'PUBLISHED',
   },
   {
-    key: 'network_locations',
-    label: 'Across Africa',
-    value: '250+',
-    unit: 'locations across Africa',
-    source:
-      'Confirmed group network total of 253 locations across Africa; approved public-facing presentation is "250+" (scripts/_verified_lake_facts.md).',
-    verificationStatus: 'VERIFIED',
-    verificationDate: new Date(),
-    verificationNote:
-      'This represents the total network footprint across Africa, not Tanzania-only locations and not fuel stations.',
-    effectiveDate: new Date(),
-    consumers: [
-      'index.html Â· hero keyfacts',
-    ],
-    status: 'PUBLISHED',
-  },
-  {
     key: 'countries',
     label: 'Countries',
     value: '10',

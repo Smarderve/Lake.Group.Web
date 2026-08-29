@@ -583,7 +583,7 @@
       fuel: 'Lake Oil supplies petroleum products across Tanzania, Kenya, Zambia, DR Congo, Rwanda, Burundi & Ethiopia. Contact admin@lakeoilgroup.com for pricing.',
       lpg: 'Lake Gas offers 6kg, 10kg, 15kg and 38kg cylinders for domestic and commercial use. Available in 6 countries across East & Central Africa.',
       truck: 'Lake Trans operates a fleet of 1,600+ trucks across East & Central Africa for bulk liquid haulage and general cargo.',
-      contact: 'Our headquarters: Plot 49, Mikocheni Light Industrial Area, Dar es Salaam. Tel: +255 222780510 | Email: admin@lakeoilgroup.com',
+      contact: 'Our headquarters: Plots 72 & 73, Vijibweni Area, Kigamboni, Dar es Salaam. Tel: +255 222780510 | Email: admin@lakeoilgroup.com',
       station: 'Visit our Station Locator page to find the nearest Lake Oil fuel station. Lake Group operates 250+ fuel stations across its network.',
       careers: "We're always looking for talented people. Visit our Careers page to explore opportunities across our 20+ subsidiaries.",
       steel: 'Lake Steel & Allied Products Limited manufactures TBS-certified TMT reinforcement steel bars conforming to BS 500. Its computerized rolling mill has 25T/hr capacity and its integrated SMS and CCM produces 60,000 metric tons of billets annually.',
