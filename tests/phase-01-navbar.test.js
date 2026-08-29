@@ -84,11 +84,7 @@ test('subsidiary coverage uses unique supplied company marks without retired com
   assert.equal(desktopLinks.some((match) => /LAKE_LOGO_LAKE_ONLY|placeholder/i.test(match[2])), false, 'company cards use only company-specific marks');
   assert.doesNotMatch(navTemplate, /acfs|ocean-galleria/i);
   assert.doesNotMatch(mobileTemplate, /acfs|ocean galleria/i);
-  const automotive = ['assembly-tech.html', 'nextdrive-motors.html'];
-  for (const file of automotive) {
-    assert.match(navTemplate, new RegExp(`<a href="${file}" class="mm-company mm-company--wordmark">`), `${file}: desktop target`);
-    assert.match(mobileTemplate, new RegExp(`href="${file}"`), `${file}: mobile target`);
-  }
+  // Automotive sector: only Agrinova is approved so far
   assert.match(navTemplate, /<a href="agrinova-tech\.html" class="mm-company"><img src="assets\/images\/logos\/companies\/agrinova-tech\.png"/);
   assert.match(navTemplate, /id="mm-tab-automotive"/);
   assert.match(mobileTemplate, /class="mob-sector-heading" data-mm-cat="automotive">Automotive Sector/);
