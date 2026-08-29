@@ -35,9 +35,13 @@
     }
     const mobileBusinessVerticals = drawer && drawer.querySelector('.mob-primary[aria-controls="mob-subsidiaries"]');
     if (mobileBusinessVerticals) mobileBusinessVerticals.textContent = 'Business Verticals';
+    // The two supplied dotLottie packages are kept locally under
+    // assets/animations/nav. Their embedded JSON is used here because the
+    // existing local Lordicon player is CSP-safe and does not initialise the
+    // dotLottie/WASM runtime that is reserved for under-construction pages.
     const sectorAnimations = {
-      energies: { reveal: 'assets/icons/sectors/lottie/energies-in-reveal.json', hover: 'assets/icons/sectors/lottie/energies-hover-pinch.json' },
-      manufacturing: { reveal: 'assets/icons/sectors/lottie/manufacturing-in-reveal.json', hover: 'assets/icons/sectors/lottie/manufacturing-hover-pinch.json' },
+      energies: { reveal: 'assets/animations/nav/energies.json', hover: 'assets/animations/nav/energies.json' },
+      manufacturing: { reveal: 'assets/animations/nav/manufacturing.json', hover: 'assets/animations/nav/manufacturing.json' },
       logistics: { reveal: 'assets/icons/sectors/lottie/logistics-in-reveal.json', hover: 'assets/icons/sectors/lottie/logistics-hover-pinch.json' },
       realestate: { reveal: 'assets/icons/sectors/lottie/real-estate-in-reveal.json', hover: 'assets/icons/sectors/lottie/real-estate-hover-pinch.json' },
       agro: { reveal: 'assets/icons/sectors/lottie/agro-processing-in-reveal.json', hover: 'assets/icons/sectors/lottie/agro-processing-hover-pinch.json' },
@@ -58,6 +62,7 @@
       const start = () => {
         if (!icon.playerInstance) return;
         icon.playerInstance.loop = false;
+        icon.playerInstance.speed = 3.5;
         if (reducedMotion()) { showStaticFrame(); return; }
         icon.playerInstance.playFromStart();
         recordIconEvent(button, state === 'hover' ? 'hover-pinch' : 'in-reveal');
@@ -72,6 +77,21 @@
         icon.readyPromise?.then(start).catch(() => {});
       }
     };
+    const settleSectorIcon = (button, icon) => {
+      const settle = () => {
+        icon.playerInstance?.seekToEnd();
+        button.classList.add('has-sector-icon');
+      };
+      const whenReady = () => {
+        if (!icon.readyPromise?.then) {
+          requestAnimationFrame(whenReady);
+          return;
+        }
+        icon.readyPromise.then(settle).catch(() => {});
+      };
+      if (window.customElements?.get('lord-icon')) whenReady();
+      else window.customElements?.whenDefined?.('lord-icon').then(whenReady).catch(() => {});
+    };
     const initSectorIcons = () => {
       nav.querySelectorAll('.mm-cat[data-mm-cat]').forEach((button) => {
         if (button.querySelector('.mm-sector-icon')) return;
@@ -85,15 +105,12 @@
           textNode.replaceWith(label);
         }
         const icon = document.createElement('lord-icon');
-        icon.className = 'mm-sector-icon';
+        icon.className = `mm-sector-icon${['energies', 'manufacturing'].includes(button.dataset.mmCat) ? ` mm-sector-icon--approved mm-sector-icon--${button.dataset.mmCat}` : ''}`;
         icon.setAttribute('src', animation.reveal);
         icon.setAttribute('aria-hidden', 'true');
         icon.dataset.iconSource = animation.reveal;
         button.prepend(icon);
-        icon.readyPromise?.then(() => {
-          button.classList.add('has-sector-icon');
-          if (reducedMotion()) icon.playerInstance?.seekToEnd();
-        }).catch(() => {});
+        settleSectorIcon(button, icon);
       });
     };
     const initMobileSectorIcons = () => {
@@ -109,20 +126,27 @@
           textNode.replaceWith(label);
         }
         const icon = document.createElement('lord-icon');
-        icon.className = 'mm-sector-icon mob-sector-icon';
+        icon.className = `mm-sector-icon mob-sector-icon${['energies', 'manufacturing'].includes(id) ? ` mm-sector-icon--approved mm-sector-icon--${id}` : ''}`;
         icon.setAttribute('src', animation.reveal);
         icon.setAttribute('aria-hidden', 'true');
         icon.dataset.iconSource = animation.reveal;
         heading.prepend(icon);
-        icon.readyPromise?.then(() => {
-          if (reducedMotion()) icon.playerInstance?.seekToEnd();
-          else playSectorIcon(heading, 'in-reveal');
-        }).catch(() => {});
+        const begin = () => icon.playerInstance?.seekToEnd();
+        const whenReady = () => {
+          if (!icon.readyPromise?.then) {
+            requestAnimationFrame(whenReady);
+            return;
+          }
+          icon.readyPromise.then(begin).catch(() => {});
+        };
+        if (window.customElements?.get('lord-icon')) whenReady();
+        else window.customElements?.whenDefined?.('lord-icon').then(whenReady).catch(() => {});
       });
     };
     const revealSectorIcons = () => {
       initSectorIcons();
-      nav.querySelectorAll('.mm-cat[data-mm-cat]').forEach((button) => playSectorIcon(button, 'in-reveal'));
+      const active = nav.querySelector('.mm-cat.is-active') || nav.querySelector('.mm-cat[data-mm-cat]');
+      if (active) playSectorIcon(active, 'in-reveal');
     };
     if (languageTrigger) {
       languageTrigger.removeAttribute('disabled');
@@ -257,7 +281,7 @@
     languageTrigger?.addEventListener('click', () => closeAll(languageTrigger.closest('.lang-switcher')), true);
     document.addEventListener('click', (event) => { if (!nav.contains(event.target)) closeAll(); });
     document.addEventListener('keydown', (event) => { if (event.key === 'Escape') { closeAll(); if (drawer.classList.contains('open')) closeMobile(); } });
-    const activateCategory = (button, interaction = 'open') => { const id = button.dataset.mmCat; const menu = button.closest('.nav-megamenu'); menu.querySelectorAll('.mm-cat').forEach((b) => { const active = b === button; b.classList.toggle('is-active', active); b.setAttribute('aria-selected', String(active)); }); menu.querySelectorAll('.mm-pane').forEach((pane) => { const active = pane.dataset.mmPane === id; pane.classList.toggle('is-active', active); pane.hidden = !active; }); playSectorIcon(button, interaction === 'open' ? 'in-reveal' : 'hover-pinch'); };
+    const activateCategory = (button, interaction = 'open') => { const id = button.dataset.mmCat; const menu = button.closest('.nav-megamenu'); menu.querySelectorAll('.mm-cat').forEach((b) => { const active = b === button; b.classList.toggle('is-active', active); b.setAttribute('aria-selected', String(active)); }); menu.querySelectorAll('.mm-pane').forEach((pane) => { const active = pane.dataset.mmPane === id; pane.classList.toggle('is-active', active); pane.hidden = !active; }); playSectorIcon(button, interaction === 'open' ? 'in-reveal' : 'hover'); };
     nav.querySelectorAll('.mm-cat').forEach((button) => { button.addEventListener('click', () => activateCategory(button, 'interaction')); button.addEventListener('mouseenter', () => { if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) activateCategory(button, 'interaction'); }); button.addEventListener('focus', () => activateCategory(button, 'interaction')); });
     nav.querySelectorAll('.has-dropdown.has-megamenu').forEach((item) => item.addEventListener('mouseenter', () => { revealSectorIcons(); const first = item.querySelector('.mm-cat.is-active') || item.querySelector('.mm-cat'); if (first) activateCategory(first, 'open'); }));
     const subsidiariesPanel = drawer.querySelector('#mob-subsidiaries');

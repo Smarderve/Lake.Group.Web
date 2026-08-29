@@ -6,10 +6,11 @@ const path = require('node:path');
 const root = path.join(__dirname, '..');
 const navbar = fs.readFileSync(path.join(root, 'assets/phase-01-navbar.js'), 'utf8');
 const styles = fs.readFileSync(path.join(root, 'assets/phase-01-navbar.css'), 'utf8');
-const lottieDir = path.join(root, 'assets/icons/sectors/lottie');
+const legacyLottieDir = path.join(root, 'assets/icons/sectors/lottie');
+const suppliedLottieDir = path.join(root, 'assets/animations/nav');
 const sectors = {
-  energies: ['energies-in-reveal.json', 'energies-hover-pinch.json'],
-  manufacturing: ['manufacturing-in-reveal.json', 'manufacturing-hover-pinch.json'],
+  energies: ['energies.json'],
+  manufacturing: ['manufacturing.json'],
   logistics: ['logistics-in-reveal.json', 'logistics-hover-pinch.json'],
   realestate: ['real-estate-in-reveal.json', 'real-estate-hover-pinch.json'],
   agro: ['agro-processing-in-reveal.json', 'agro-processing-hover-pinch.json'],
@@ -20,8 +21,11 @@ test('shared navbar maps every sector to local Lottie assets', () => {
   for (const [sector, files] of Object.entries(sectors)) {
     assert.match(navbar, new RegExp(`${sector}: \\{ reveal:`));
     for (const file of files) {
-      assert.match(navbar, new RegExp(`lottie/${file.replaceAll('.', '\\.')}`));
-      const data = JSON.parse(fs.readFileSync(path.join(lottieDir, file), 'utf8'));
+      const isSupplied = sector === 'energies' || sector === 'manufacturing';
+      const directory = isSupplied ? suppliedLottieDir : legacyLottieDir;
+      const sourceDirectory = isSupplied ? 'animations/nav' : 'icons/sectors/lottie';
+      assert.match(navbar, new RegExp(`${sourceDirectory}/${file.replaceAll('.', '\\.')}`));
+      const data = JSON.parse(fs.readFileSync(path.join(directory, file), 'utf8'));
       assert.ok(Number(data.w) > 0);
       assert.ok(Number(data.h) > 0);
     }
@@ -30,6 +34,19 @@ test('shared navbar maps every sector to local Lottie assets', () => {
   assert.match(navbar, /playFromStart\(\)/);
   assert.match(navbar, /seekToEnd\(\)/);
   assert.match(navbar, /prefers-reduced-motion/);
+});
+
+test('Energies and Manufacturing use canonical supplied packages through the local CSP-safe player', () => {
+  for (const file of ['energies.lottie', 'manufacturing.lottie']) {
+    assert.ok(fs.statSync(path.join(suppliedLottieDir, file)).size > 0, `${file} is present`);
+  }
+  assert.match(navbar, /assets\/animations\/nav\/energies\.json/);
+  assert.match(navbar, /assets\/animations\/nav\/manufacturing\.json/);
+  assert.doesNotMatch(navbar, /new\s+DotLottie|setWasmUrl|vendor\/dotlottie/i);
+  assert.match(navbar, /settleSectorIcon/);
+  assert.match(navbar, /window\.customElements\?\.whenDefined\?\.\('lord-icon'\)/);
+  assert.match(navbar, /playerInstance\.speed = 3\.5/);
+  assert.match(navbar, /mm-sector-icon--approved/);
 });
 
 test('sector rows have no permanent visible border and mobile sector headings receive icons', () => {
@@ -49,4 +66,6 @@ test('desktop sector icons share a visible slot with static fallback and active 
   assert.match(styles, /\.mm-cat:hover \.mm-sector-icon,[\s\S]*\.mm-cat\.is-active \.mm-sector-icon/);
   assert.match(navbar, /button\.classList\.add\('has-sector-icon'\)/);
   assert.match(navbar, /aria-hidden', 'true'/);
+  assert.match(styles, /mm-sector-icon--approved\.mm-sector-icon--energies[\s\S]*transform:\s*scale\(1\.55\)/);
+  assert.match(styles, /mm-sector-icon--approved\.mm-sector-icon--manufacturing[\s\S]*transform:\s*scale\(1\.4\)/);
 });

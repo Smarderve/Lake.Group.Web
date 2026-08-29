@@ -14,8 +14,8 @@ assert.match(css, /\.site-nav\[data-phase01-navbar\] \.nav-megamenu[\s\S]*?borde
 assert.match(css, /\.mm-sector-icon/);
 assert.match(css, /\.mm-cat::before\s*\{[\s\S]*?display:\s*none\s*!important/);
 assert.match(js, /sectorAnimations/);
-assert.match(js, /lottie\/energies-in-reveal\.json/);
-assert.match(js, /lottie\/manufacturing-in-reveal\.json/);
+assert.match(js, /animations\/nav\/energies\.json/);
+assert.match(js, /animations\/nav\/manufacturing\.json/);
 assert.match(js, /createElement\(['"]lord-icon['"]\)/);
 assert.match(js, /playSectorIcon/);
 assert.match(js, /prefers-reduced-motion/);

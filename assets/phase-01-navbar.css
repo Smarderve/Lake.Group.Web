@@ -805,6 +805,24 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .mm-cat.is-active {
   opacity: 1 !important;
 }
 
+/* Supplied dotLottie artwork keeps its own aspect ratio. These two files have
+   larger internal canvases than the other approved sector assets, so the
+   scoped scale restores the same perceived 30px icon weight without changing
+   the shared rail geometry. */
+.site-nav[data-phase01-navbar] .mm-sector-icon--approved.mm-sector-icon--energies,
+.nav-mobile[data-phase01-navbar-mobile] .mm-sector-icon--approved.mm-sector-icon--energies {
+  transform: scale(1.55) !important;
+}
+.site-nav[data-phase01-navbar] .mm-sector-icon--approved.mm-sector-icon--manufacturing,
+.nav-mobile[data-phase01-navbar-mobile] .mm-sector-icon--approved.mm-sector-icon--manufacturing {
+  transform: scale(1.4) !important;
+}
+.site-nav[data-phase01-navbar] .mm-cat:hover .mm-sector-icon--approved,
+.site-nav[data-phase01-navbar] .mm-cat:focus-visible .mm-sector-icon--approved,
+.site-nav[data-phase01-navbar] .mm-cat.is-active .mm-sector-icon--approved {
+  filter: brightness(0) saturate(100%) invert(85%) sepia(96%) saturate(966%) hue-rotate(356deg) brightness(106%) contrast(104%) !important;
+}
+
 .site-nav[data-phase01-navbar] .mm-pane {
   height: auto !important;
 }
