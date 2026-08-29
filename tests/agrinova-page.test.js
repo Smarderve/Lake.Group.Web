@@ -46,7 +46,13 @@ test('Agrinova uses scoped readable typography, footer, and loading colors', () 
   const page = read('agrinova-tech.html');
   assert.match(page, /--agrinova-green-dark/);
   assert.match(page, /font-size:clamp\(3rem,4\.4vw,3\.9rem\)/);
-  assert.match(page, /body\.co-theme-agro\[data-shared-footer="true"\] footer\.site-footer\{background:#123d2c!important/);
+  assert.match(page, /footer\.site-footer\{background:#0d2f21!important/);
   assert.match(page, /html\.lg-loading::before\{[^}]*rgba\(18,61,44/);
   assert.doesNotMatch(page, /background:#013f5c;pointer-events:none/);
+  assert.match(page, /\.ag-vision h2\{text-transform:none;font-size:clamp\(1\.35rem,2\.2vw,2rem\)/);
+  assert.match(page, /#contact-agrinova\{background:#3a7a5e;color:#f4f8f0/);
+  assert.match(page, /\.ag-quote\{width:min\(100%,1140px\).*border:1px solid #a8b89e/);
+  assert.match(page, /\.ag-quote input,.ag-quote textarea\{min-height:46px/);
+  assert.match(page, /body\.co-theme-agro \[data-lg-skeleton-block="media"\]\{background:rgba\(74,126,89,.58\)/);
+  assert.doesNotMatch(page, /body\.co-theme-agro \[data-lg-skeleton-block="media"\]\{background:rgba\(5,153,211/);
 });
