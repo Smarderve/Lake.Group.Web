@@ -35,7 +35,7 @@ SHARED_EN = {
     "nav.dd.agro": "Agro Processing",
     "nav.co.lakeOil": "Lake Oil", "nav.co.lakeAviation": "Lake Aviation",
     "nav.co.lakeGas": "Lake Gas", "nav.co.lakeLubes": "Lake Lubes",
-    "nav.co.lakeBuildings": "Lake Building Solution", "nav.co.lakePlastics": "Lake Plastics",
+    "nav.co.lakeBuildings": "Lake Building Solution", "nav.co.lakePipes": "Lake Pipes",
     "nav.co.lakeSteel": "Lake Steel", "nav.co.lakeCylinders": "Lake Cylinders",
     "nav.co.gulfAggregates": "Gulf Aggregates", "nav.co.atl": "ATL",
     "nav.co.lakePremixCement": "Lake Premix", "nav.co.aficd": "AFICD",

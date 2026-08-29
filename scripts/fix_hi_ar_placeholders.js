@@ -156,7 +156,7 @@ const CURATED = {
 
 const BRAND_KEYS = [
   'nav.co.lakeOil', 'nav.co.lakeAviation', 'nav.co.lakeGas', 'nav.co.lakeLubes',
-  'nav.co.lakeBuildings', 'nav.co.lakePlastics', 'nav.co.lakeSteel', 'nav.co.lakeCylinders',
+  'nav.co.lakeBuildings', 'nav.co.lakePipes', 'nav.co.lakeSteel', 'nav.co.lakeCylinders',
   'nav.co.gulfAggregates', 'nav.co.atl', 'nav.co.lakePremixCement', 'nav.co.aficd',
   'nav.co.aill', 'nav.co.lakeTrans', 'nav.co.crossCountry', 'nav.co.oceanGalleria',
   'nav.co.lakeAgro', 'nav.steel'

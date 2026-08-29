@@ -184,7 +184,7 @@ ${nav}
     <button type="button" class="mob-acc-btn" aria-expanded="false" aria-controls="mob-acc-manufacturing" data-i18n="nav.dd.manufacturing">Manufacturing</button>
     <div class="mob-acc-panel" id="mob-acc-manufacturing" hidden>
       <a href="lake-buildings.html" data-i18n="nav.co.lakeBuildings">Lake Buildings</a>
-      <a href="lake-pipes.html" data-i18n="nav.co.lakePlastics">Lake Pipes</a>
+      <a href="lake-pipes.html" data-i18n="nav.co.lakePipes">Lake Pipes</a>
       <a href="lake-steel.html" data-i18n="nav.co.lakeSteel">Lake Steel</a>
       <a href="lake-cylinders.html" data-i18n="nav.co.lakeCylinders">Lake Cylinders</a>
       <a href="gulf-aggregates.html" data-i18n="nav.co.gulfAggregates">Gulf Aggregates</a>
