@@ -225,17 +225,17 @@ const CURATED_FACTS = [
     url: 'station-locator.html',
     en: {
       t: 'Fuel stations',
-      s: 'Lake Group operates 152 fuel stations across Tanzania and the wider region. Use the Station Locator to find the nearest one.',
+      s: 'Lake Group operates 154 fuel stations across its network. Use the Station Locator to find the nearest one.',
       k: 'stations petrol gas station how many where locator filling nearest retail',
     },
     fr: {
       t: 'Stations-service',
-      s: 'Lake Group exploite 152 stations-service en Tanzanie et dans la région. Utilisez le localisateur de stations pour trouver la plus proche.',
+      s: 'Lake Group exploite 154 stations-service à travers son réseau. Utilisez le localisateur de stations pour trouver la plus proche.',
       k: 'stations essence combien où localisateur station-service réseau',
     },
     sw: {
       t: 'Vituo vya mafuta',
-      s: 'Lake Group inaendesha vituo 152 vya mafuta Tanzania na kanda nzima. Tumia ukurasa wa Kitafuta Vituo kupata kituo kilicho karibu nawe.',
+      s: 'Lake Group inaendesha vituo 154 vya mafuta katika mtandao wake. Tumia ukurasa wa Kitafuta Vituo kupata kituo kilicho karibu nawe.',
       k: 'vituo mafuta vingapi wapi kituo karibu petroli',
     },
   },
@@ -249,12 +249,12 @@ const CURATED_FACTS = [
     },
     fr: {
       t: 'Lake Oil - carburants & pétrole',
-      s: 'Lake Oil, la société phare du groupe, est l\u2019un des 5 premiers distributeurs de produits pétroliers en Tanzanie. Son dépôt de Kigamboni à Dar es Salaam offre 38 millions de litres de stockage avec un accès direct par pipeline à la jetée d\u2019importation, appuyé par 152 stations en propre et une flotte de 300 camions-citernes.',
+      s: 'Lake Oil, la société phare du groupe, est l\u2019un des 5 premiers distributeurs de produits pétroliers en Tanzanie. Son dépôt de Kigamboni à Dar es Salaam offre 38 millions de litres de stockage avec un accès direct par pipeline à la jetée d\u2019importation, appuyé par 154 stations-service et une flotte de 300 camions-citernes.',
       k: 'lake oil carburant pétrole diesel essence dépôt stockage distributeur',
     },
     sw: {
       t: 'Lake Oil - mafuta na petroli',
-      s: 'Lake Oil, kampuni kuu ya kundi hili, ni miongoni mwa wasambazaji 5 bora wa bidhaa za petroli Tanzania. Ghala lake la Kigamboni, Dar es Salaam, lina uwezo wa kuhifadhi lita milioni 38 na bomba la moja kwa moja kutoka gati la kupokelea mafuta, likisaidiwa na vituo 152 vya rejareja na matenki 300 ya usafirishaji.',
+      s: 'Lake Oil, kampuni kuu ya kundi hili, ni miongoni mwa wasambazaji 5 bora wa bidhaa za petroli Tanzania. Ghala lake la Kigamboni, Dar es Salaam, lina uwezo wa kuhifadhi lita milioni 38 na bomba la moja kwa moja kutoka gati la kupokelea mafuta, likisaidiwa na vituo 154 vya mafuta na matenki 300 ya usafirishaji.',
       k: 'lake oil mafuta petroli dizeli ghala hifadhi kigamboni msambazaji',
     },
   },

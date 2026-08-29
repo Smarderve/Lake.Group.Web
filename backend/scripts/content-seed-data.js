@@ -150,7 +150,7 @@ export const CONTENT_SEED = {
     { key: 'dubai', name: 'Dubai', regionKey: 'ae', type: 'city', latitude: 25.2048, longitude: 55.2708 },
   ],
 
-  // Facilities: the five stations shown on station-locator.html (of 152
+  // Facilities: the five stations shown on station-locator.html (of 154
   // total) PLUS the 24 map assets that africa-network-map.js currently
   // hardcodes. Names/descriptions mirror the page and map exactly; coords
   // are anchors pending verified geocoding (Task 8.10).

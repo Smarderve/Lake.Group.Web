@@ -77,14 +77,14 @@ export const SEEDS = [
   {
     key: 'stations',
     label: 'Fuel Stations',
-    value: '152',
+    value: '154',
     unit: 'fuel stations',
     source:
-      'Official site stats — "152 fuel stations (group source of truth, 2026)" (scripts/_verified_lake_facts.md).',
+      'Confirmed by Mr. Nabil, Lake Oil — "154 fuel stations" (group source of truth, 2026; scripts/_verified_lake_facts.md).',
     verificationStatus: 'VERIFIED',
     verificationDate: new Date(),
     verificationNote:
-      'Group-wide station count used on index, about, our-story and station-locator. Per-country breakdown still pending client refresh.',
+      'Confirmed current station count used on index, our-story and station-locator. Per-country breakdown remains unverified.',
     effectiveDate: new Date(),
     consumers: [
       'index.html · hero keyfacts',
@@ -92,6 +92,23 @@ export const SEEDS = [
       'our-story.html · ending stats',
       'station-locator.html · heading + footer note',
       'lake-oil.html · operations copy',
+    ],
+    status: 'PUBLISHED',
+  },
+  {
+    key: 'network_locations',
+    label: 'Across Africa',
+    value: '250+',
+    unit: 'locations across Africa',
+    source:
+      'Confirmed group network total of 253 locations across Africa; approved public-facing presentation is "250+" (scripts/_verified_lake_facts.md).',
+    verificationStatus: 'VERIFIED',
+    verificationDate: new Date(),
+    verificationNote:
+      'This represents the total network footprint across Africa, not Tanzania-only locations and not fuel stations.',
+    effectiveDate: new Date(),
+    consumers: [
+      'index.html · hero keyfacts',
     ],
     status: 'PUBLISHED',
   },

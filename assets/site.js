@@ -575,7 +575,7 @@
       lpg: 'Lake Gas offers 6kg, 10kg, 15kg and 38kg cylinders for domestic and commercial use. Available in 6 countries across East & Central Africa.',
       truck: 'Lake Trans operates a fleet of 1,600+ trucks across East & Central Africa for bulk liquid haulage and general cargo.',
       contact: 'Our headquarters: Plot 49, Mikocheni Light Industrial Area, Dar es Salaam. Tel: +255 222780510 | Email: admin@lakeoilgroup.com',
-      station: 'Visit our Station Locator page to find the nearest Lake Oil fuel station. We have 152 stations across Tanzania and the region.',
+      station: 'Visit our Station Locator page to find the nearest Lake Oil fuel station. Lake Group operates 154 fuel stations across its network.',
       careers: "We're always looking for talented people. Visit our Careers page to explore opportunities across our 20+ subsidiaries.",
       steel: 'Lake Steel is the first company in Tanzania to introduce High Strength Corrosion Resistant (HS-CR) rebars with 100,000 MT annual capacity.',
       concrete: "GCCP (Gulf Concrete & Cement Products) is Dar es Salaam's leading ready-mix concrete supplier, established 2010.",

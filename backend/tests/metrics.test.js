@@ -130,7 +130,7 @@ describe('Phase 3 — corporate metrics governance', () => {
 
     const created = await ctx.admin
       .post('/admin/metrics')
-      .send({ key: 'stations', label: 'Fuel Stations', value: '152', unit: 'fuel stations', source: 'Retail network registry', reason: 'New metric' });
+      .send({ key: 'stations', label: 'Fuel Stations', value: '154', unit: 'fuel stations', source: 'Retail network registry', reason: 'New metric' });
     await ctx.admin.post(`/admin/metrics/${created.body.metric.id}/submit`).send({});
 
     // admin submitted it; admin is SUPER_ADMIN (an approver role) but must not approve own change

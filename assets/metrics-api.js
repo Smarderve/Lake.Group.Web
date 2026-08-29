@@ -25,7 +25,7 @@
   }
 
   function extractSuffix(value, current) {
-    /* "30,000+" → "+" ; "152" → keep existing suffix; "$12" → "$" stays prefix. */
+    /* "30,000+" → "+" ; "154" → keep existing suffix; "$12" → "$" stays prefix. */
     var m = String(value).match(/[^0-9,]+$/);
     return m ? m[0] : current || '';
   }

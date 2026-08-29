@@ -59,7 +59,8 @@ Press/secondary sources:
 - Leading oil marketing company in Tanzania; one of top-5 petroleum distributors. [official]
 - Kigamboni (Dar es Salaam) depot: 38 million litres storage capacity, direct pipeline
   access to oil import jetty. [official app_config TA.OIL; East Africa Today]
-- 152 fuel stations (group source of truth, 2026). [official] site stats
+- 154 fuel stations (group source of truth, 2026). Confirmed with Mr. Nabil, Lake Oil.
+- 253 total network locations across Africa; approved public-facing figure: 250+ across Africa.
 - Own logistics fleet of 300 tankers (Lake Oil's own fleet, distinct from Lake Trans). [official app_config TA.OIL]
 - Stations offer convenience stores, car washes, co-branded fast food, mechanical
   services, LUKU prepaid electricity, ATMs; open 24 hours. [official app_config]

@@ -32,7 +32,8 @@ describe('Phase 8 · canonical metric seeds (Corporate Truth)', () => {
     const byKey = Object.fromEntries(SEEDS.map((s) => [s.key, s.value]));
     expect(byKey.employees).toBe('30,000+'); // NOT 4,600+ (stale .bak)
     expect(byKey.trucks).toBe('1,600+'); // not 700+ / 750
-    expect(byKey.stations).toBe('152'); // not 85+
+    expect(byKey.stations).toBe('154'); // not 152 / 85+
+    expect(byKey.network_locations).toBe('250+'); // public figure for 253 locations across Africa
     expect(byKey.countries).toBe('10'); // not 9 / 8
     expect(byKey.nationalities).toBe('21');
   });
