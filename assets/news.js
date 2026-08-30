@@ -255,26 +255,6 @@
     });
   }
 
-  function shareUrl(article) {
-    try {
-      return encodeURIComponent(new URL(articleUrl(article.id), window.location.href).href);
-    } catch (e) {
-      return encodeURIComponent(articleUrl(article.id));
-    }
-  }
-
-  function shareLinks(article) {
-    var url = shareUrl(article);
-    var title = encodeURIComponent(article.title);
-    return (
-      '<div class="news-card__share" aria-label="Share">' +
-        '<a href="https://www.linkedin.com/sharing/share-offsite/?url=' + url + '" target="_blank" rel="noopener" title="LinkedIn" aria-label="Share on LinkedIn">in</a>' +
-        '<a href="https://www.facebook.com/sharer/sharer.php?u=' + url + '" target="_blank" rel="noopener" title="Facebook" aria-label="Share on Facebook">f</a>' +
-        '<a href="https://twitter.com/intent/tweet?url=' + url + '&text=' + title + '" target="_blank" rel="noopener" title="X" aria-label="Share on X">\uD835\uDD4F</a>' +
-      '</div>'
-    );
-  }
-
   /* Share bar for article pages */
   function shareBarArticle(article) {
     var rawUrl = (function() { try { return new URL(articleUrl(article.id), window.location.href).href; } catch(e) { return articleUrl(article.id); } })();
@@ -282,11 +262,8 @@
     var title = encodeURIComponent(article.title);
     var safeUrl = escapeHtml(rawUrl);
     var wa = '<a href="https://wa.me/?text=' + title + '%20' + encodedUrl + '" target="_blank" rel="noopener" class="article-share-btn" title="Share on WhatsApp" aria-label="Share on WhatsApp">WA</a>';
-    var li = '<a href="https://www.linkedin.com/sharing/share-offsite/?url=' + encodedUrl + '" target="_blank" rel="noopener" class="article-share-btn" title="Share on LinkedIn" aria-label="Share on LinkedIn">in</a>';
-    var tw = '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '&text=' + title + '" target="_blank" rel="noopener" class="article-share-btn" title="Share on X" aria-label="Share on X">X</a>';
-    var fb = '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodedUrl + '" target="_blank" rel="noopener" class="article-share-btn" title="Share on Facebook" aria-label="Share on Facebook">f</a>';
     var cp = '<button type="button" class="article-share-btn article-share-btn--copy" title="Copy link" aria-label="Copy link to clipboard" data-copy-url="' + safeUrl + '">\uD83D\uDD17<span class="article-share-copy-tip">Copied!</span></button>';
-    return '<div class="article-share-bar" aria-label="Share this article"><span class="article-share-bar__label">Share</span>' + wa + li + tw + fb + cp + '</div>';
+    return '<div class="article-share-bar" aria-label="Share this article"><span class="article-share-bar__label">Share</span>' + wa + cp + '</div>';
   }
 
   function renderFeatured(article) {
@@ -794,7 +771,6 @@
           '<p class="news-card__excerpt">' + escapeHtml(shortExcerpt(article, 110)) + '</p>' +
           '<div class="news-card__foot">' +
             '<a href="' + url + '" class="news-card__more">Read more</a>' +
-            shareLinks(article) +
           '</div>' +
         '</div>' +
       '</article>'
@@ -1489,9 +1465,6 @@
       sections.push({ id: 'article-gallery', label: 'Photo Gallery' });
     }
 
-    var url = shareUrl(article);
-    var title = encodeURIComponent(article.title);
-
     var tocHtml =
       '<div class="news-toc" id="news-toc">' +
         '<div class="news-toc__title">In This Article</div>' +
@@ -1504,12 +1477,6 @@
         '<span>' + escapeHtml(s.label) + '</span></a></li>';
     });
     tocHtml += '</ul>' +
-      '<div class="news-toc__share">' +
-        '<a href="https://www.linkedin.com/sharing/share-offsite/?url=' + url + '" target="_blank" rel="noopener" title="LinkedIn" aria-label="Share on LinkedIn">in</a>' +
-        '<a href="https://www.facebook.com/sharer/sharer.php?u=' + url + '" target="_blank" rel="noopener" title="Facebook" aria-label="Share on Facebook">f</a>' +
-        '<a href="https://twitter.com/intent/tweet?url=' + url + '&text=' + title + '" target="_blank" rel="noopener" title="X" aria-label="Share on X">\uD835\uDD4F</a>' +
-        '<a href="https://wa.me/?text=' + title + '%20' + url + '" target="_blank" rel="noopener" title="WhatsApp" aria-label="Share on WhatsApp">\u2709</a>' +
-      '</div>' +
     '</div>';
 
     /* Insert TOC after the article back link, before carousel */

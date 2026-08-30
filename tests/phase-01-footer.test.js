@@ -9,7 +9,7 @@ const test = require('node:test');
 const ROOT = path.join(__dirname, '..');
 const TEMPLATE = fs.readFileSync(path.join(ROOT, 'scripts', 'templates', 'footer.html'), 'utf8');
 const CANONICAL_FOOTER = normalize(TEMPLATE);
-const APPROVED_TEMPLATE_SHA256 = 'f39fd06678c261bbb538fa29e4ce9676435595145b6f3db7e0ba70a995c2b8cd';
+const APPROVED_TEMPLATE_SHA256 = 'dc97d6964e12ef1e4d57c3901ef0e9fedb75f3563005358d37eb873a17c7cf00';
 const CANONICAL_SOCIAL_HREFS = socialHrefs(CANONICAL_FOOTER);
 const REQUIRED_STYLESHEET = '<link rel="stylesheet" href="assets/phase-01-footer.css">';
 const FOOTER_CSS = fs.readFileSync(path.join(ROOT, 'assets', 'phase-01-footer.css'), 'utf8');
@@ -66,15 +66,12 @@ test('canonical footer template preserves the approved Lake composition', () => 
   assert.match(CANONICAL_FOOTER, /assets\/images\/logos\/LAKE_GROUP_LOGO\.png/);
   assert.equal((CANONICAL_FOOTER.match(/class="footer-col"/g) || []).length, 4);
   assert.deepEqual(CANONICAL_SOCIAL_HREFS, [
-    'https://www.linkedin.com/company/lake-oil',
-    'https://www.facebook.com/lakeoilgroup',
-    'https://twitter.com/lakeoilgroup',
     'https://youtube.com/@lakegroup6790?si=Qb1aF3ghYIRdCM8J',
     'https://www.instagram.com/lakeenergiestanzania?igsi=cW5jZGVtbHU0eGFs',
     'https://wa.me/255673961597',
   ]);
-  assert.equal((CANONICAL_FOOTER.match(/class="footer-social-ico"/g) || []).length, 6);
-  assert.doesNotMatch(CANONICAL_FOOTER, /tiktok/i);
+  assert.equal((CANONICAL_FOOTER.match(/class="footer-social-ico"/g) || []).length, 3);
+  assert.doesNotMatch(CANONICAL_FOOTER, /linkedin|facebook|twitter|tiktok/i);
   assert.equal((CANONICAL_FOOTER.match(/class="footer-contact-ico"/g) || []).length, 4);
   assert.doesNotMatch(CANONICAL_FOOTER, /<iconify-icon/i);
 });
@@ -111,8 +108,8 @@ test('footer brand, social set, and legacy footers cannot diverge by page', () =
     const footer = footersIn(source)[0];
     assert.equal((footer.match(/LAKE_GROUP_LOGO\.png/g) || []).length, 1, filename + ' must have the Lake Group logo once');
     assert.deepEqual(socialHrefs(footer), CANONICAL_SOCIAL_HREFS, filename + ' social links differ');
-    assert.equal((footer.match(/class="footer-social-ico"/g) || []).length, 6, filename + ' social icons differ');
-    assert.doesNotMatch(footer, /tiktok/i, filename + ' must not expose TikTok');
+    assert.equal((footer.match(/class="footer-social-ico"/g) || []).length, 3, filename + ' social icons differ');
+    assert.doesNotMatch(footer, /linkedin|facebook|twitter|tiktok/i, filename + ' must not expose unapproved social channels');
     assert.doesNotMatch(source, /xs-footer-sec|footer-main|footer-area/i, filename + ' retains a legacy unique footer');
   }
 });

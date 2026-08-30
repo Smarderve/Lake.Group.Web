@@ -43,10 +43,8 @@ const ORGANIZATION = {
   telephone: '+255 222 780 510',
   email: 'admin@lakeoilgroup.com',
   sameAs: [
-    'https://www.facebook.com/lakeoilgroup',
-    'https://twitter.com/lakeoilgroup',
-    'https://www.linkedin.com/company/lake-oil',
     'https://youtube.com/@lakegroup6790?si=Qb1aF3ghYIRdCM8J',
+    'https://www.instagram.com/lakeenergiestanzania?igsi=cW5jZGVtbHU0eGFs',
   ],
 };
 

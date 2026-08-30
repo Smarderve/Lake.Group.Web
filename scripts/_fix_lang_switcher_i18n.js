@@ -13,9 +13,6 @@ const NEW_KEYS = {
   en: {
     'lang.label': 'Language',
     'nav.menu': 'Menu',
-    'footer.linkedin': 'LinkedIn',
-    'footer.facebook': 'Facebook',
-    'footer.twitter': 'X / Twitter',
     'footer.youtube': 'YouTube',
     'common.learnMore': 'Learn more',
     'common.exploreMap': 'Explore the map',
@@ -80,9 +77,6 @@ const NEW_KEYS = {
   sw: {
     'lang.label': 'Lugha',
     'nav.menu': 'Menyu',
-    'footer.linkedin': 'LinkedIn',
-    'footer.facebook': 'Facebook',
-    'footer.twitter': 'X / Twitter',
     'footer.youtube': 'YouTube',
     'common.learnMore': 'Jifunze zaidi',
     'common.exploreMap': 'Chunguza ramani',
@@ -147,9 +141,6 @@ const NEW_KEYS = {
   fr: {
     'lang.label': 'Langue',
     'nav.menu': 'Menu',
-    'footer.linkedin': 'LinkedIn',
-    'footer.facebook': 'Facebook',
-    'footer.twitter': 'X / Twitter',
     'footer.youtube': 'YouTube',
     'common.learnMore': 'En savoir plus',
     'common.exploreMap': 'Explorer la carte',
@@ -214,9 +205,6 @@ const NEW_KEYS = {
   hi: {
     'lang.label': 'भाषा',
     'nav.menu': 'मेनू',
-    'footer.linkedin': 'LinkedIn',
-    'footer.facebook': 'Facebook',
-    'footer.twitter': 'X / Twitter',
     'footer.youtube': 'YouTube',
     'common.learnMore': 'और जानें',
     'common.exploreMap': 'मानचित्र देखें',
@@ -281,9 +269,6 @@ const NEW_KEYS = {
   ar: {
     'lang.label': 'اللغة',
     'nav.menu': 'القائمة',
-    'footer.linkedin': 'LinkedIn',
-    'footer.facebook': 'Facebook',
-    'footer.twitter': 'X / Twitter',
     'footer.youtube': 'YouTube',
     'common.learnMore': 'اعرف المزيد',
     'common.exploreMap': 'استكشف الخريطة',
