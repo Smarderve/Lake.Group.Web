@@ -23,11 +23,18 @@ test('Lake Aviation page reflects the approved company write-up', () => {
   ]) assert.ok(page.includes(fragment), `missing approved fragment: ${fragment}`);
 });
 
-test('Lake Aviation has both operating countries and no standalone history block', () => {
-  assert.match(page, /Tanzania[\s\S]{0,180}Lake Aviation/);
-  assert.match(page, /Uganda[\s\S]{0,220}Lake Aviation \/ Lake Oil Uganda/);
+test('Lake Aviation retains operating-location facts without a country-card or products section', () => {
+  assert.doesNotMatch(page, /<h3[^>]*>\s*Operations by Country\s*<\/h3>|<span class="eyebrow">\s*04\s*<\/span>\s*<h2>\s*Products Offered\s*<\/h2>|<h3>\s*Our Products\s*<\/h3>/i);
+  assert.match(page, /Operating Locations/);
   assert.equal(page.includes('>History</h3>'), false);
   assert.equal(page.includes('Mission, Vision &amp; History'), false);
+});
+
+test('Lake Aviation gallery uses an editorial responsive grid of genuine operational images', () => {
+  assert.match(page, /class="co-gal lake-aviation-gallery"/);
+  assert.match(page, /\.lake-aviation-gallery \.co-gal__item--feat\{aspect-ratio:21\/9/);
+  assert.match(page, /\.lake-aviation-gallery \.co-gal__item:nth-child\(5n\)\{grid-column:span 2/);
+  assert.equal((page.match(/assets\/images\/lake-aviation\/ops\/aviation-/g) || []).length >= 15, true);
 });
 
 test('canonical seed and assistant builder carry the approved Uganda footprint', () => {

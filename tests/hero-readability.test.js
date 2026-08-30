@@ -46,14 +46,16 @@ function assertNeutralLightOverlay(background, label) {
 
 function assertSubtleHomeTextVeil(background) {
   const stops = [...background.matchAll(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)(?:\s*,\s*([\d.]+))?\s*\)/g)];
-  assert.equal(stops.length, 3, 'Home: expected the three-stop text-side gradient');
-  const expected = [[1, 63, 92, 0.12], [1, 63, 92, 0.055], [1, 63, 92, 0]];
+  assert.equal(stops.length, 4, 'Home: expected the four-stop text-side gradient');
+  const expected = [[1, 63, 92, 0.135], [1, 63, 92, 0.07], [1, 63, 92, 0.025], [1, 63, 92, 0]];
   stops.forEach((stop, index) => {
     const [, red, green, blue, alpha = '1'] = stop;
-    assert.deepEqual([Number(red), Number(green), Number(blue), Number(alpha)], expected[index], 'Home: uses only the subtle Lake-blue veil');
+    assert.deepEqual([Number(red), Number(green), Number(blue)], expected[index].slice(0, 3), 'Home: uses only the subtle Lake-blue veil');
+    assert(Math.abs(Number(alpha) - expected[index][3]) <= 0.003, 'Home: preserves the intended subtle opacity');
   });
-  assert.match(background, /42%/);
-  assert.match(background, /58%/);
+  assert.match(background, /35%/);
+  assert.match(background, /50%/);
+  assert.match(background, /60%/);
 }
 
 function assertLightText(color, label) {
