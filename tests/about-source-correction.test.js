@@ -22,12 +22,13 @@ test('About uses the approved journey and vision headings', () => {
 
 test('About keeps only the approved workforce and fleet metrics', () => {
   assert.match(about, />30,000\+<\/span>/);
-  assert.match(about, />1,200\+<\/span>/);
+  assert.match(about, />1,600\+<\/span>/);
+  assert.match(about, /more than <strong>1,600 trucks<\/strong>/);
   assert.match(about, />10<\/span>/);
   assert.match(about, />10\+<\/span>/);
   assert.match(about, />Nationalities<\/span>/);
-  assert.doesNotMatch(about, /1,600\+|18\+|21\+|21\s+nationalities/i);
-  assert.match(i18n, /"about\.10": "[^"]*10\+ nationalities[\s\S]*?1,200 trucks/);
+  assert.doesNotMatch(about, /1,200\+|18\+|21\+|21\s+nationalities/i);
+  assert.match(i18n, /"about\.10": "[^"]*10\+ nationalities[\s\S]*?1,600 trucks/);
   assert.doesNotMatch(i18n, /"about\.(?:4|10|11|12|13)": "[^"]*(?:21\+|21 nationalities)/i);
 });
 

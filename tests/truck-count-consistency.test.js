@@ -6,7 +6,7 @@ const path = require('node:path');
 const test = require('node:test');
 
 const root = path.resolve(__dirname, '..');
-const oldFleetValue = /(?:1,200|1200|1 200|1\.200|1\.2k)[+\s]*(?:trucks?|fleet|vehicles?|camions?|malori|magari|camiones?|caminh)/i;
+const oldFleetValue = /(?:1,200|1200|1 200|1\.200|1\.2k|١٬٢٠٠)[+\s]*(?:trucks?|fleet|vehicles?|camions?|malori|magari|camiones?|caminh|شاحنة|شاحنات)/i;
 
 test('the canonical Lake Group fleet count is 1,600+', () => {
   const seed = fs.readFileSync(path.join(root, 'backend/scripts/seed-metrics.js'), 'utf8');
