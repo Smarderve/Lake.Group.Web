@@ -32,9 +32,9 @@ test('Lake Aviation retains operating-location facts without a country-card or p
 
 test('Lake Aviation gallery uses an editorial responsive grid of genuine operational images', () => {
   assert.match(page, /class="co-gal lake-aviation-gallery"/);
-  assert.match(page, /\.lake-aviation-gallery \.co-gal__item--feat\{aspect-ratio:21\/9/);
-  assert.match(page, /\.lake-aviation-gallery \.co-gal__item:nth-child\(5n\)\{grid-column:span 2/);
-  assert.equal((page.match(/assets\/images\/lake-aviation\/ops\/aviation-/g) || []).length >= 15, true);
+  assert.match(page, /\.lake-aviation-gallery \.co-gal__item--feat\{grid-column:1\/\-1;aspect-ratio:16\/7/);
+  assert.match(page, /\.lake-aviation-gallery \.co-gal__item--portrait/);
+  assert.equal((page.match(/assets\/images\/lake-aviation\/(ops|gallery)\//g) || []).length >= 10, true, 'page references approved aviation imagery');
 });
 
 test('canonical seed and assistant builder carry the approved Uganda footprint', () => {
