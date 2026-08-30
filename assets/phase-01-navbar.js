@@ -248,7 +248,6 @@
     };
     const closeMobile = () => {
       drawer.classList.remove('open');
-      drawer.hidden = true;
       toggle.setAttribute('aria-expanded', 'false');
       document.documentElement.classList.remove('lg-nav-open');
       document.body.classList.remove('lg-nav-open');
@@ -256,7 +255,6 @@
     drawer.querySelector('.mob-close')?.addEventListener('click', closeMobile);
     toggle.addEventListener('click', () => {
       const open = drawer.classList.toggle('open');
-      drawer.hidden = !open;
       toggle.setAttribute('aria-expanded', String(open));
       document.documentElement.classList.toggle('lg-nav-open', open);
       document.body.classList.toggle('lg-nav-open', open);
@@ -305,6 +303,22 @@
       syncMobileLanguage({ detail: { lang: window.LakeI18n?.current || 'en' } });
     }));
     resetMobileAccordions();
+    /* Clean up nav state when crossing the responsive breakpoint so that
+       a desktop window resized to phone width (or vice versa) gets the
+       correct interaction model without requiring a page reload. */
+    const bpQuery = window.matchMedia('(max-width: 1100px)');
+    const onBreakpointChange = () => {
+      if (!bpQuery.matches) {
+        /* Back to desktop — close mobile drawer and reset its accordions. */
+        closeMobile();
+        resetMobileAccordions();
+      } else {
+        /* Entering mobile — close any open desktop dropdowns. */
+        closeAll();
+      }
+    };
+    if (bpQuery.addEventListener) bpQuery.addEventListener('change', onBreakpointChange);
+    else if (bpQuery.addListener) bpQuery.addListener(onBreakpointChange);
   }
   const ensureLordicon = () => {
     if (window.customElements?.get('lord-icon')) return Promise.resolve();
