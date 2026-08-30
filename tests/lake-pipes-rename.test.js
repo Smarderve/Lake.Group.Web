@@ -44,10 +44,9 @@ test('Navigation uses Lake Pipes in all company pages', () => {
 test('Scrolling logo strip uses Lake Pipes', () => {
   const js = read('assets/components/logo-loop-mount.js');
   const entry = js.match(/\{ src: '([^']+lake-pipes[^']+)', alt: 'Lake Pipes'[^}]+\}/)?.[0] || '';
-  assert.match(entry, /lake-pipes-blue\.png\?v=1/);
+  assert.match(entry, /lake-pipes-scrolling\.webp\?v=1/);
   assert.match(entry, /lake-pipes\.html/);
-  assert.match(entry, /scale: 1\.15/);
-  assert.doesNotMatch(entry, /lake-pipes\.png\?v=70/);
+  assert.doesNotMatch(entry, /lake-pipes-blue\.png|scale:/, 'the approved artwork has comparable intrinsic bounds and needs no global-size override');
   assert.doesNotMatch(js, /Lake Plastics/);
   assert.doesNotMatch(js, /lake-plastics/);
 });
@@ -66,7 +65,7 @@ test('Scrolling logo strip includes the approved Lake Pipes and Agrinova marks o
 
 test('Lake Pipes marquee asset is the official blue transparent lockup', async () => {
   const sharp = require('sharp');
-  const logo = path.join(root, 'assets/images/logos/companies/lake-pipes-blue.png');
+  const logo = path.join(root, 'assets/images/logos/companies/lake-pipes-scrolling.webp');
   assert.ok(fs.existsSync(logo), 'blue Lake Pipes marquee logo exists');
   const image = await sharp(logo).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
   assert.ok(image.info.width > 1000 && image.info.height > 300, 'logo preserves the supplied lockup proportions');
