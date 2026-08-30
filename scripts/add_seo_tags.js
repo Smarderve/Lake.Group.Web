@@ -46,7 +46,7 @@ const ORGANIZATION = {
     'https://www.facebook.com/lakeoilgroup',
     'https://twitter.com/lakeoilgroup',
     'https://www.linkedin.com/company/lake-oil',
-    'https://www.youtube.com/@lakeoilgroup',
+    'https://youtube.com/@lakegroup6790?si=Qb1aF3ghYIRdCM8J',
   ],
 };
 
