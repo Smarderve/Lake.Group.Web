@@ -2,7 +2,8 @@
  * Lake Group  knowledge assistant.
  *
  * CHATBOT_ENABLED feature flag:
- * Set window.CHATBOT_ENABLED = false (or leave undefined) to completely
+ * Set window.CHATBOT_ENABLED = true to explicitly enable the chatbot.
+ * The launch default is disabled so no assistant UI or runtime starts.
  * disable the chatbot. When disabled, no assistant UI renders, no network
  * requests fire, and the legacy chat in site.js also stays dormant.
  * To re-enable: set CHATBOT_ENABLED = true before this script loads.
@@ -36,7 +37,7 @@
 (function () {
   'use strict';
 
-  if (window.CHATBOT_ENABLED === false) return;
+  if (window.CHATBOT_ENABLED !== true) return;
 
   // Read by the guard in site.js initChat(): the legacy chat must not bind.
   window.__LAKE_ASSISTANT_ACTIVE__ = true;

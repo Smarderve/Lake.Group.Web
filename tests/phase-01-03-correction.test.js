@@ -97,7 +97,7 @@ test('approved navbar surface overlays launch heroes without becoming a slab', a
     assert.equal(state.activeColor,'rgb(255, 242, 0)',`${file}: active item uses yellow text only`);
     assert.ok(state.activeBefore==='none'||state.activeBefore==='normal',`${file}: no active ::before underline`);
     assert.ok(state.activeAfter==='none'||state.activeAfter==='normal',`${file}: no active ::after underline`);
-    assert.equal(state.languageVisible,true,`${file}: English control remains at right`);
+    assert.equal(state.languageVisible,false,`${file}: language control is hidden for launch`);
     assert.equal(state.stripes,false,`${file}: no yellow stripe element`);
   }
   await page.close();

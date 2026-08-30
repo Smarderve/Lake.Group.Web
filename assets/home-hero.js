@@ -162,6 +162,11 @@
   var nums = keyfacts.querySelectorAll(".hero-kf-num");
   if (!nums.length) return;
 
+  /* Corporate key facts belong to the hero, not the asynchronous CMS metric
+     hydrator. A single immutable source prevents rotations, resize paths or
+     stale cached releases from ever replacing the approved launch figures. */
+  var HOME_HERO_STATS = ["30,000+", "1,600+", "250+"];
+
   function parseValue(raw) {
     var trimmed = raw.trim();
     var suffix = "";
@@ -250,8 +255,8 @@
   }
 
   /* Store final values from the static markup as animation targets. */
-  nums.forEach(function (el) {
-    el.setAttribute("data-count-end", finalText(el));
+  nums.forEach(function (el, index) {
+    el.setAttribute("data-count-end", HOME_HERO_STATS[index] || finalText(el));
   });
 
   /* ---- IntersectionObserver: fires animation when hero scrolls into view ---- */
@@ -305,19 +310,4 @@
     }
   });
 
-  /* Metrics hydrate after this deferred script. Update the final target
-     without replaying a completed counter for every data refresh. */
-  document.addEventListener("lake:metric-updated", function (event) {
-    if (!event.detail || !event.detail.key) return;
-    nums.forEach(function (el) {
-      if (el.getAttribute("data-metric-key") === event.detail.key) {
-        el.setAttribute("data-count-end", el.textContent.trim());
-      }
-    });
-    if (state === "idle" && !reducedMotion) {
-      renderStartValues();
-    } else if (state === "completed") {
-      renderFinalValues();
-    }
-  });
 })();

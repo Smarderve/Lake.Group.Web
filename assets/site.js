@@ -565,7 +565,7 @@
     // chat are disabled. The assistant.js checks this flag first and bails
     // before setting __LAKE_ASSISTANT_ACTIVE__, so this check catches the
     // case where assistant.js did not load at all.
-    if (window.CHATBOT_ENABLED === false) return;
+    if (window.CHATBOT_ENABLED !== true) return;
     // The offline knowledge assistant (assets/assistant.js) replaces this
     // legacy canned-reply chat entirely. It sets this flag during script
     // execution (all deferred scripts run before DOMContentLoaded), so when

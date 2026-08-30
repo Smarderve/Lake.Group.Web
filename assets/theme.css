@@ -378,6 +378,14 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   font-weight: 650;
 }
 .lang-menu-item.active .lang-menu-check { opacity: 1; }
+/* Launch controls: language selection and the assistant remain implemented
+   but are intentionally unavailable until their content is approved. */
+.site-nav[data-phase01-navbar] .lang-switcher,
+.mob-lang-static,
+#chat-widget,
+#chat-widget.la-widget,
+#chat-btn,
+#chat-box { display: none !important; }
 /* Header chrome stays LTR in all languages: logo LEFT, tabs RIGHT. */
 .site-nav,
 .site-nav .nav-inner,

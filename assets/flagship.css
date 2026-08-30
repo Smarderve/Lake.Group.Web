@@ -3047,3 +3047,12 @@ body[data-company-logo] .page-hero .page-hero-overlay {
       rgba(0, 0, 0, 0.28) 48%,
       rgba(0, 0, 0, 0.16) 100%);
 }
+
+/* Launch controls: retain the underlying features, but keep them absent from
+   every public breakpoint until multilingual and assistant content is cleared. */
+.site-nav[data-phase01-navbar] .lang-switcher,
+.mob-lang-static,
+#chat-widget,
+#chat-widget.la-widget,
+#chat-btn,
+#chat-box { display: none !important; }
