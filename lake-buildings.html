@@ -61,8 +61,8 @@
 .val-mini-tile h4{font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;color:var(--white);margin-bottom:6px}
 .val-mini-tile p{font-size:.82rem;color:var(--ink-mute);margin:0;line-height:1.5}
 
-.prod-catalog{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5)}
-@media(max-width:860px){.prod-catalog{grid-template-columns:repeat(2,1fr)}}
+.prod-catalog{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-5);max-width:860px;margin-inline:auto}
+@media(max-width:860px){.prod-catalog{grid-template-columns:1fr;max-width:480px;margin-inline:auto}}
 @media(max-width:560px){.prod-catalog{grid-template-columns:1fr}}
 .prod-catalog-card{background:var(--surface);border:1px solid var(--line-2);padding:var(--sp-5)}
 .prod-catalog-card .fs-media{aspect-ratio:4/3;margin-bottom:var(--sp-3);overflow:hidden;background:var(--paper-2)}
@@ -316,12 +316,12 @@
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Gypsum Board &amp; Marine Board</h2>
     <div class="prod-catalog">
       <div class="prod-catalog-card">
-        <div class="prod-glyph" aria-hidden="true"><iconify-icon icon="mdi:wall" width="36" height="36"></iconify-icon></div>
+        <div class="fs-media"><img src="assets/images/lakebuilding/products/gypsum-board.webp" alt="Gypsum Board" loading="lazy"></div>
         <h4>Gypsum Board</h4>
         <p>Size: 9 mm x 1220 mm x 2440 mm. Weight: 19.2-19.5 kg. Strength: Longitudinal 350 N; Transverse 160 N. High ductility, lightweight, high strength and highly fire resistant.</p>
       </div>
       <div class="prod-catalog-card">
-        <div class="prod-glyph" aria-hidden="true"><iconify-icon icon="mdi:shield-water" width="36" height="36"></iconify-icon></div>
+        <div class="fs-media"><img src="assets/images/lakebuilding/products/marine-board.webp" alt="Marine Board" loading="lazy"></div>
         <h4>Marine Board</h4>
         <p>Size: 18 mm x 1220 mm x 2440 mm. Weight: 34 kg. Water and moisture resistant. Resistant to warping, cracking and shrinking in wet conditions.</p>
       </div>
