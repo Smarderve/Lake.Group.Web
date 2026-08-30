@@ -7,7 +7,7 @@
 (function () {
   'use strict';
 
-  var ANIMATION_CONFIG = { MIN_COPIES: 2, COPY_HEADROOM: 2 };
+  var ANIMATION_CONFIG = { COPIES: 2, DURATION_SECONDS: 24 };
 
   /* Path-verified PNGs under assets/images/logos/companies/ + real nav routes only */
     var SUBSIDIARY_LOGOS = [
@@ -115,6 +115,26 @@
     return ul;
   }
 
+  function onImagesReady(sequence, callback) {
+    var images = sequence ? sequence.querySelectorAll('img') : [];
+    var remaining = images.length;
+    if (!remaining) {
+      requestAnimationFrame(callback);
+      return;
+    }
+    function done() {
+      remaining -= 1;
+      if (remaining === 0) callback();
+    }
+    images.forEach(function (image) {
+      if (image.complete) done();
+      else {
+        image.addEventListener('load', done, { once: true });
+        image.addEventListener('error', done, { once: true });
+      }
+    });
+  }
+
   function resolveMetrics(opts) {
     var mobile = isMobileViewport();
     return {
@@ -171,7 +191,6 @@
     var track = document.createElement('div');
     track.className = 'logoloop__track';
 
-    var copyCount = ANIMATION_CONFIG.MIN_COPIES;
     var seqWidth = 0;
     var seqHeight = 0;
     var seqEl = null;
@@ -184,7 +203,7 @@
       if (!sequenceSize) return;
       /* CSS owns every animation frame. Dimensions are measured only at setup
          and resize, never in an animation loop. */
-      var duration = Math.max(18, sequenceSize / Math.max(magnitude, 1));
+      var duration = opts.duration || ANIMATION_CONFIG.DURATION_SECONDS;
       track.style.setProperty('--logoloop-distance', sequenceSize + 'px');
       track.style.setProperty('--logoloop-duration', duration + 's');
       track.classList.add('logoloop__track--animate');
@@ -192,7 +211,9 @@
 
     function rebuildCopies() {
       track.innerHTML = '';
-      for (var i = 0; i < copyCount; i++) {
+      /* Exactly two matching sequences create the seamless transform loop.
+         No extra clone calculation or runtime DOM rebuild is needed. */
+      for (var i = 0; i < ANIMATION_CONFIG.COPIES; i++) {
         var list = createSequence(logos, i);
         if (i === 0) seqEl = list;
         track.appendChild(list);
@@ -201,7 +222,6 @@
 
     function updateDimensions() {
       if (!seqEl) return;
-      var containerWidth = container.clientWidth || 0;
       var sequenceRect = seqEl.getBoundingClientRect();
       var sequenceWidth = sequenceRect.width || 0;
       var sequenceHeight = sequenceRect.height || 0;
@@ -209,14 +229,6 @@
         if (sequenceHeight > 0) seqHeight = Math.ceil(sequenceHeight);
       } else if (sequenceWidth > 0) {
         seqWidth = Math.ceil(sequenceWidth);
-        var copiesNeeded = Math.ceil(containerWidth / sequenceWidth) + ANIMATION_CONFIG.COPY_HEADROOM;
-        var nextCount = Math.max(ANIMATION_CONFIG.MIN_COPIES, copiesNeeded);
-        if (nextCount !== copyCount) {
-          copyCount = nextCount;
-          rebuildCopies();
-          sequenceRect = seqEl.getBoundingClientRect();
-          seqWidth = Math.ceil(sequenceRect.width || 0);
-        }
       }
       applyAnimation();
     }
@@ -225,24 +237,26 @@
     container.appendChild(track);
     root.appendChild(container);
 
-    var resizeObserver = null;
+    var resizeFrame = null;
     var mobileMq = window.matchMedia('(max-width: 720px)');
-    function onViewportChange() { applyMetrics(); updateDimensions(); }
+    function scheduleDimensionUpdate() {
+      if (resizeFrame !== null) cancelAnimationFrame(resizeFrame);
+      resizeFrame = requestAnimationFrame(function () {
+        resizeFrame = null;
+        updateDimensions();
+      });
+    }
+    function onViewportChange() { applyMetrics(); scheduleDimensionUpdate(); }
     if (mobileMq.addEventListener) mobileMq.addEventListener('change', onViewportChange);
     else if (mobileMq.addListener) mobileMq.addListener(onViewportChange);
 
-    if (window.ResizeObserver) {
-      resizeObserver = new ResizeObserver(updateDimensions);
-      resizeObserver.observe(container);
-    } else {
-      window.addEventListener('resize', updateDimensions);
-    }
+    window.addEventListener('resize', scheduleDimensionUpdate, { passive: true });
     updateDimensions();
-    onImagesReady(updateDimensions);
+    onImagesReady(seqEl, updateDimensions);
 
     return function destroy() {
-      if (resizeObserver) resizeObserver.disconnect();
-      else window.removeEventListener('resize', updateDimensions);
+      if (resizeFrame !== null) cancelAnimationFrame(resizeFrame);
+      window.removeEventListener('resize', scheduleDimensionUpdate);
       if (mobileMq.removeEventListener) mobileMq.removeEventListener('change', onViewportChange);
       else if (mobileMq.removeListener) mobileMq.removeListener(onViewportChange);
       root.innerHTML = '';

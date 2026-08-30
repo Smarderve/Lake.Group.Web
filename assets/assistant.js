@@ -7,8 +7,6 @@
  * requests fire, and the legacy chat in site.js also stays dormant.
  * To re-enable: set CHATBOT_ENABLED = true before this script loads.
  */
-if (window.CHATBOT_ENABLED === false) return;
-
 /**
  * Lake Group  knowledge assistant.
  *
@@ -37,6 +35,8 @@ if (window.CHATBOT_ENABLED === false) return;
  */
 (function () {
   'use strict';
+
+  if (window.CHATBOT_ENABLED === false) return;
 
   // Read by the guard in site.js initChat(): the legacy chat must not bind.
   window.__LAKE_ASSISTANT_ACTIVE__ = true;
