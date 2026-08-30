@@ -76,7 +76,7 @@ test('subsidiary coverage uses unique supplied company marks without retired com
     'lake-buildings.html', 'lake-pipes.html', 'lake-steel.html', 'lake-cylinders.html',
     'lake-premix-cement.html', 'gulf-aggregates.html',
     'aficd.html', 'aill.html', 'lake-trans.html',
-    'cross-country.html', 'lake-agro.html', 'agrinova-tech.html',
+    'cross-country.html', 'lake-agro.html', 'agrinova-tech.html', 'assembly-tech.html',
   ];
   const desktopLinks = [...navTemplate.matchAll(/<a href="([\w-]+\.html)" class="mm-company(?: [^"]+)?"><img src="([^"]+)"/g)];
   assert.deepEqual(desktopLinks.map((match) => match[1]), imageBacked);
@@ -84,10 +84,11 @@ test('subsidiary coverage uses unique supplied company marks without retired com
   assert.equal(desktopLinks.some((match) => /LAKE_LOGO_LAKE_ONLY|placeholder/i.test(match[2])), false, 'company cards use only company-specific marks');
   assert.doesNotMatch(navTemplate, /acfs|ocean-galleria/i);
   assert.doesNotMatch(mobileTemplate, /acfs|ocean galleria/i);
-  // Automotive sector: only Agrinova is approved so far
+  // Automotive sector: Agrinova + ATL
   assert.match(navTemplate, /<a href="agrinova-tech\.html" class="mm-company"><img src="assets\/images\/logos\/companies\/agrinova-tech\.png"/);
+  assert.match(navTemplate, /<a href="assembly-tech\.html" class="mm-company"><img src="assets\/images\/logos\/companies\/assembly-tech-limited-logo\.webp"/);
   assert.match(navTemplate, /id="mm-tab-automotive"/);
-  assert.match(mobileTemplate, /class="mob-sector-heading" data-mm-cat="automotive">Automotive Sector/);
+  assert.match(mobileTemplate, /class="mob-sector-heading" data-mm-cat="automotive">Automotive Sector[\s\S]*?Agrinova Tech Limited[\s\S]*?<a href="assembly-tech\.html">ATL<\/a>/);
   assert.match(navTemplate, /id="mm-pane-automotive"[\s\S]*agrinova-tech\.png/);
   assert.match(navTemplate, /id="mm-pane-agro"[^>]*><div class="mm-companies"><a href="lake-agro\.html"[^>]*><img[^>]*lake-agro\.png[^>]*><\/a><\/div><\/div>/);
   assert.match(mobileTemplate, /data-mm-cat="automotive"[\s\S]*Agrinova Tech Limited/);

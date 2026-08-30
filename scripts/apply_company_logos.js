@@ -33,7 +33,8 @@ const PAGES = [
   { file: 'aill.html', logo: 'aill.png', alt: 'AILL' },
   { file: 'lake-trans.html', logo: 'lake-trans.png', alt: 'Lake Trans' },
   { file: 'cross-country.html', logo: 'cross-country.png?v=62', alt: 'Cross Country' },
-  { file: 'ocean-galleria.html', logo: 'ocean-galleria.png?v=61', alt: 'Ocean Galleria' },
+  { file: 'agrinova-tech.html', logo: 'agrinova-tech.png', alt: 'Agrinova Tech' },
+  { file: 'assembly-tech.html', logo: 'assembly-tech-limited-logo.webp', alt: 'ATL' },
 ];
 
 const LOGO_CSS_OLD =

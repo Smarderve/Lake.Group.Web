@@ -18,7 +18,7 @@
     { src: 'assets/images/logos/companies/lake-trans-blue.png?v=70', alt: 'Lake Trans', title: 'Lake Trans', href: 'lake-trans.html' },
     { src: 'assets/images/logos/companies/lake-aviation-blue.png?v=70', alt: 'Lake Aviation', title: 'Lake Aviation', href: 'lake-aviation.html' },
     { src: 'assets/images/logos/companies/lake-buildings-blue.png?v=70', alt: 'Lake Buildings', title: 'Lake Buildings', href: 'lake-buildings.html' },
-    { src: 'assets/images/logos/companies/lake-pipes-blue.png?v=1', alt: 'Lake Pipes', title: 'Lake Pipes', href: 'lake-pipes.html', scale: 1.15 },
+    { src: 'assets/images/logos/companies/lake-pipes-scrolling.webp?v=1', alt: 'Lake Pipes', title: 'Lake Pipes', href: 'lake-pipes.html' },
     { src: 'assets/images/logos/companies/lake-premix-cement-blue.png?v=70', alt: 'Lake Premix & Cement', title: 'Lake Premix & Cement', href: 'lake-premix-cement.html' },
     { src: 'assets/images/logos/companies/lake-cylinders-blue.png?v=70', alt: 'Lake Cylinders', title: 'Lake Cylinders', href: 'lake-cylinders.html' },
     /* Marquee-only approved lockup: white wordmark with the authentic swoosh. */
@@ -26,8 +26,7 @@
     { src: 'assets/images/logos/companies/aficd.png?v=69', alt: 'AFICD', title: 'AFICD', href: 'aficd.html' },
     { src: 'assets/images/logos/companies/aill.png?v=58', alt: 'AILL', title: 'AILL', href: 'aill.html' },
     /* Tight-crop marks read larger than padded Lake logos at the same CSS height */
-    /* Circles-only ATL mark (no tagline) â€” matches brand sheet */
-    { src: 'assets/images/logos/companies/atl.png?v=61', alt: 'ATL', title: 'ATL', scale: 0.9 },
+    { src: 'assets/images/logos/companies/assembly-tech-limited-logo.webp?v=1', alt: 'ATL', title: 'ATL', href: 'assembly-tech.html', scale: 0.85 },
     { src: 'assets/images/logos/companies/lake-agro-blue.png?v=70', alt: 'Lake Agro', title: 'Lake Agro', href: 'lake-agro.html', scale: 0.8 },
     { src: 'assets/images/logos/companies/agrinova-tech.png?v=1', alt: 'Agrinova Tech Limited', title: 'Agrinova Tech Limited', href: 'agrinova-tech.html', scale: 0.78, className: 'logoloop__item--agrinova' },
     { src: 'assets/images/logos/companies/cross-country.png?v=69', alt: 'Cross Country', title: 'Cross Country', href: 'cross-country.html', scale: 1.15 },
