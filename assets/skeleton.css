@@ -1,139 +1,28 @@
-/* Lake Group layout-derived first-paint skeleton. */
-
-html.lg-loading {
-  overflow: hidden;
-}
-
-html.lg-loading::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 99989;
-  /* Keep the first paint compatible with the transparent/glass navigation.
-     This is a light veil over the real page, not the retired solid-blue UI. */
-  background: rgba(4, 24, 38, 0.34);
+/* Local, decorative media placeholders. Static content is never masked. */
+html body .lg-media-pending {
+  background: linear-gradient(105deg, #d9e8ef 25%, #eef5f7 45%, #d9e8ef 65%) !important;
+  background-size: 220% 100% !important;
+  animation: lg-media-skeleton 1.35s ease-in-out infinite;
   pointer-events: none;
 }
 
-html.lg-skel-done::before {
-  display: none;
+html body .lg-media-background-pending {
+  background-image: linear-gradient(105deg, #d9e8ef 25%, #eef5f7 45%, #d9e8ef 65%) !important;
 }
 
-[data-lg-skeleton-overlay] {
-  position: fixed !important;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 99990;
-  overflow: hidden;
-  isolation: isolate;
-  pointer-events: none;
-  background: rgba(4, 24, 38, 0.38);
-  backdrop-filter: blur(3px);
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.35s ease, visibility 0.35s ease;
+html body.co-theme-agro .lg-media-pending {
+  background: linear-gradient(105deg, #315e49 25%, #4d7a63 45%, #315e49 65%) !important;
+  background-size: 220% 100% !important;
 }
 
-[data-lg-skeleton-block] {
-  position: fixed;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.16);
+html body.co-theme-agro .lg-media-background-pending {
+  background-image: linear-gradient(105deg, #315e49 25%, #4d7a63 45%, #315e49 65%) !important;
 }
 
-[data-lg-skeleton-block="text"] {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-[data-lg-skeleton-block="control"] {
-  background: rgba(255, 242, 0, 0.54);
-}
-
-[data-lg-skeleton-block="media"] {
-  background: rgba(5, 153, 211, 0.32);
-}
-
-/* Brand navbar band: slightly lifted from the curtain so the fixed bar reads
-   as its own surface, exactly like the real .site-nav over the hero. */
-[data-lg-skeleton-block="navbar"] {
-  background: rgba(6, 31, 48, 0.28);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(10px);
-}
-
-/* Brand bottom edge of the navbar (home/interior yellow rule). */
-[data-lg-skeleton-block="navrule"] {
-  background: rgba(255, 242, 0, 0.85);
-}
-
-/* Hairline rules (hr) keep their full width as a thin line. */
-[data-lg-skeleton-block="rule"] {
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 1px;
-}
-
-/* Button-style indicator dots appended to links. */
-[data-lg-skeleton-block="indicator"] {
-  background: rgba(255, 242, 0, 0.65);
-  border-radius: 50%;
-}
-
-[data-lg-skeleton-block]::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(105deg, transparent 0%, rgba(255, 255, 255, 0.04) 40%, rgba(255, 255, 255, 0.26) 50%, rgba(255, 255, 255, 0.04) 60%, transparent 100%);
-  transform: translateX(-100%);
-  animation: lg-skeleton-shimmer 1.35s ease-in-out infinite;
-}
-
-.lg-skel-progress {
-  position: absolute;
-  inset: 0 0 auto;
-  z-index: 1;
-  height: 3px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.lg-skel-progress__fill {
-  width: 0;
-  height: 100%;
-  background: #fff200;
-  transition: width 0.1s ease-out;
-}
-
-.lg-skel-status {
-  position: fixed;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
-
-[data-lg-skeleton-overlay].lg-skel-hide {
-  opacity: 0;
-  visibility: hidden;
-}
-
-@keyframes lg-skeleton-shimmer {
-  to { transform: translateX(100%); }
+@keyframes lg-media-skeleton {
+  to { background-position: -220% 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-lg-skeleton-overlay],
-  .lg-skel-progress__fill {
-    transition: none;
-  }
-
-  [data-lg-skeleton-block]::after {
-    display: none;
-    animation: none;
-  }
-}
-
-html:has(body.co-theme-agro) [data-lg-skeleton-overlay] {
-  background: rgba(0, 75, 30, 0.4);
+  html body .lg-media-pending { animation: none; }
 }

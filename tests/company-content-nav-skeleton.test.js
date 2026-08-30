@@ -42,11 +42,11 @@ test('company pages contain approved source facts and remove superseded claims',
   assert.doesNotMatch(agro, /July 2027|70,000 MT|84%|40%|90%/);
 });
 
-test('shared loading and update systems do not expose retired blue chrome or update prompts', () => {
+test('shared loading uses local media placeholders without a page veil or update prompts', () => {
   const skeleton = read('assets/skeleton.css');
   const pwa = read('assets/pwa.js');
-  assert.doesNotMatch(skeleton, /background:\s*#013f5c/i);
-  assert.match(skeleton, /backdrop-filter:\s*blur/);
+  assert.doesNotMatch(skeleton, /position:\s*fixed|skeleton-overlay|backdrop-filter/i);
+  assert.match(skeleton, /\.lg-media-pending/);
   assert.doesNotMatch(pwa, /lake-pwa-toast|showUpdateToast|new site version|ready for your next visit/i);
   assert.doesNotMatch(read('lake-oil.html'), /8 retail stations/i);
   assert.match(read('lake-oil.html'), /7 fuel stations, with 6 currently operational/);

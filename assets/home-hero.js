@@ -185,7 +185,6 @@
   var animationFrame = null;
   var state = "idle";
   var observer = null;
-  var safetyTimer = null;
 
   function finalText(el) {
     return (el.getAttribute("data-count-end") || el.textContent || "").trim();
@@ -220,7 +219,6 @@
     });
 
     if (animationFrame !== null) cancelAnimationFrame(animationFrame);
-    if (safetyTimer !== null) { clearTimeout(safetyTimer); safetyTimer = null; }
     if (reducedMotion) {
       renderFinalValues();
       state = "completed";
@@ -279,75 +277,13 @@
     }
   }
 
-  /* ---- Loader-aware startup ---- */
-  function beginAfterLoader() {
-    /* If loader is already gone, wait one rAF for the browser to paint
-       the revealed state, then start. Also set up the intersection
-       observer as a backup in case the hero is off-screen. */
-    if (!document.documentElement.classList.contains("lg-loading")) {
-      setupIntersectionObserver();
-      requestAnimationFrame(function () {
-        requestAnimationFrame(function () {
-          beginWhenVisible();
-        });
-      });
-      return;
-    }
-
-    /* Loader is still active. Watch for its removal. */
-    var loaderObserver = new MutationObserver(function () {
-      if (!document.documentElement.classList.contains("lg-loading")) {
-        loaderObserver.disconnect();
-        /* The skeleton overlay fades out over ~400 ms after lg-loading
-           is removed.  Wait for the overlay DOM element to actually
-           disappear so the animation starts after the hero is visible. */
-        waitForOverlayGone();
-      }
-    });
-    loaderObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-  }
-
-  /* Poll for the skeleton overlay element to be removed from the DOM
-     (it fades for 380 ms, then the skeleton JS removes it). */
-  function waitForOverlayGone() {
-    var overlay = document.querySelector("[data-lg-skeleton-overlay]");
-    if (!overlay) {
-      onLoaderFullyGone();
-      return;
-    }
-    var goneObserver = new MutationObserver(function () {
-      if (!document.querySelector("[data-lg-skeleton-overlay]")) {
-        goneObserver.disconnect();
-        onLoaderFullyGone();
-      }
-    });
-    goneObserver.observe(overlay.parentNode || document.documentElement, { childList: true });
-    /* Safety: don't wait forever — if the overlay lingers for any reason,
-       start after 600 ms anyway. */
-    setTimeout(function () {
-      goneObserver.disconnect();
-      onLoaderFullyGone();
-    }, 600);
-  }
-
-  function onLoaderFullyGone() {
-    if (state !== "idle") return;
-    /* Set up the intersection observer unconditionally so a scroll
-       can still trigger the animation if the hero is off-screen. */
+  /* Static hero content is visible immediately. One compositor frame makes
+     the starting values paint before the count-up begins. */
+  function beginAfterFirstPaint() {
     setupIntersectionObserver();
-    /* One rAF to let the browser paint the revealed state before we
-       measure heroIsVisible(). */
     requestAnimationFrame(function () {
       beginWhenVisible();
     });
-    /* Final safety: if neither the visibility check nor the observer
-       has started the animation within 2 s, force it. */
-    safetyTimer = setTimeout(function () {
-      if (state === "idle") {
-        safetyTimer = null;
-        animate();
-      }
-    }, 2000);
   }
 
   if (reducedMotion) {
@@ -355,16 +291,14 @@
     state = "completed";
   } else {
     renderStartValues();
-    beginAfterLoader();
+    beginAfterFirstPaint();
   }
 
   window.addEventListener("pageshow", function (event) {
     if (event.persisted) {
       if (animationFrame !== null) cancelAnimationFrame(animationFrame);
       if (observer) observer.disconnect();
-      if (safetyTimer !== null) clearTimeout(safetyTimer);
       animationFrame = null;
-      safetyTimer = null;
       observer = null;
       renderFinalValues();
       state = "completed";

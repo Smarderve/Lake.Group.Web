@@ -22,8 +22,8 @@ test('Lake Agro and Agrinova scope the shared dropdown system to green', () => {
   assert.match(css, /body\.co-theme-agro \.nav-mobile\[data-phase01-navbar-mobile\][\s\S]*?var\(--nav-dropdown-sidebar-bg\)/);
 });
 
-test('agricultural pages start with green skeleton backgrounds', () => {
-  assert.match(agro, /html\.lg-loading::before[\s\S]*?background:#004b1e/);
+test('agricultural pages retain their themed shells without a loading veil', () => {
+  assert.doesNotMatch(agro, /html\.lg-loading::before/);
   assert.match(agrinova, /html\{background:#123d2c\}/);
-  assert.match(agrinova, /html\.lg-loading::before[\s\S]*?rgba\(18,61,44,\.54\)/);
+  assert.doesNotMatch(agrinova, /html\.lg-loading::before/);
 });

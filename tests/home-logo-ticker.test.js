@@ -52,8 +52,6 @@ async function inspectTicker(page) {
     const firstLogo = document.querySelector('#hero-logo-loop img');
     return firstLogo && firstLogo.complete && firstLogo.naturalWidth > 0;
   });
-  await page.locator('html.lg-skel-done').waitFor({ timeout: 12000 });
-  await page.locator('[data-lg-skeleton-overlay]').waitFor({ state: 'detached', timeout: 2000 });
   await page.locator('.logoloop__list:first-child img').evaluateAll((images) =>
     Promise.all(images.map((image) => image.decode()))
   );

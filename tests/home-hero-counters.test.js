@@ -24,9 +24,9 @@ function startServer() {
   });
 }
 
-test('Home counters begin after the loader, finish once, and keep their exact formatting', async () => {
+test('Home counters begin after first paint, finish once, and keep their exact formatting', async () => {
   assert.match(source, /function heroIsVisible\(\)/, 'counters must check their current visibility without waiting for a new observer transition');
-  assert.match(source, /beginAfterLoader\(\)/, 'counters must wait until the loading shell reveals the hero');
+  assert.match(source, /beginAfterFirstPaint\(\)/, 'counters start after the first visible frame without a page-level loader');
   assert.match(source, /event\.persisted/, 'bfcache restores must not leave counters at zero');
   assert.match(source, /prefers-reduced-motion/, 'reduced-motion users must receive final values without animation');
   assert.doesNotMatch(source, /setTimeout\(.*DURATION_MS/, 'counter animation must not use arbitrary timer delays');
@@ -46,7 +46,6 @@ test('Home counters begin after the loader, finish once, and keep their exact fo
       new MutationObserver(record).observe(document, { childList: true, subtree: true, characterData: true });
     });
     await page.goto(`http://127.0.0.1:${server.address().port}/index.html`, { waitUntil: 'domcontentloaded' });
-    await page.waitForFunction(() => !document.documentElement.classList.contains('lg-loading'));
     await page.waitForFunction(() => Array.from(document.querySelectorAll('.hero-kf-num')).every((node) => node.textContent.trim() === node.getAttribute('data-count-end')));
     const result = await page.evaluate(() => ({
       final: Array.from(document.querySelectorAll('.hero-kf-num')).map((node) => node.textContent.trim()),
@@ -77,7 +76,6 @@ test('Home counters complete automatically after a fresh load at every supported
     for (const viewport of viewports) {
       const page = await browser.newPage({ viewport });
       await page.goto(`http://127.0.0.1:${server.address().port}/index.html`, { waitUntil: 'domcontentloaded' });
-      await page.waitForFunction(() => !document.documentElement.classList.contains('lg-loading'));
       await page.waitForFunction(() => Array.from(document.querySelectorAll('.hero-kf-num')).every((node) => node.textContent.trim() === node.getAttribute('data-count-end')), { timeout: 7000 });
       assert.deepEqual(
         await page.locator('.hero-kf-num').evaluateAll((nodes) => nodes.map((node) => node.textContent.trim())),
