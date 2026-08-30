@@ -55,20 +55,18 @@ body.home .hero-slide {
   opacity: 0;
   transform: translate3d(-1.5%, 0, 0);
   transition: opacity 900ms ease, transform 900ms ease;
-  will-change: auto;
+  will-change: opacity, transform;
 }
 body.home .hero-slide.is-active {
   opacity: 1;
   transform: translate3d(0, 0, 0);
   z-index: 1;
 }
-body.home .hero--transitioning .hero-slide { will-change: transform, opacity; }
 body.home .hero-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: saturate(0.92) contrast(1.05);
 }
 /* The real-estate slide keeps the approved Cross Country building in frame,
    including the narrower crop used by the mobile hero. */
