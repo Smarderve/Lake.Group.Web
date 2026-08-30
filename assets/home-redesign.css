@@ -68,6 +68,11 @@ body.home .hero-slide img {
   filter: saturate(0.92) contrast(1.05);
   will-change: transform;
 }
+/* The real-estate slide keeps the approved Cross Country building in frame,
+   including the narrower crop used by the mobile hero. */
+body.home .hero-slide img[src*="cross-country-hero.webp"] {
+  object-position: 55% center;
+}
 body.home .hero-slide.is-active img {
   animation: lake-zoom 8s linear forwards;
 }
@@ -352,6 +357,9 @@ body.home .hero-tab:hover {
 
 /* Mobile: simpler tabs */
 @media (max-width: 720px) {
+  body.home .hero-slide img[src*="cross-country-hero.webp"] {
+    object-position: 58% center;
+  }
   body.home .hero-tab-thumb {
     display: none;
   }

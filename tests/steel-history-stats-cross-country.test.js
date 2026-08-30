@@ -35,10 +35,15 @@ test('Home presents 250+ fuel stations without an Across Africa keyfact', () => 
 });
 
 test('approved Cross Country visual is used on Cross Country and Home Real Estate', () => {
-  const asset = 'assets/images/cross-country/cross-country-hq.webp';
+  const asset = 'assets/images/cross-country/cross-country-hero.webp';
+  const homeStyles = read('assets/home-redesign.css');
   assert.ok(fs.existsSync(path.join(root, asset)));
   assert.match(read('cross-country.html'), new RegExp(asset.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   assert.match(read('index.html'), new RegExp(asset.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  assert.doesNotMatch(read('cross-country.html'), /cross-country-hq\.webp/);
+  assert.doesNotMatch(read('index.html'), /cross-country-hq\.webp/);
+  assert.match(homeStyles, /cross-country-hero\.webp"\]\s*\{\s*object-position:\s*55% center/);
+  assert.match(read('cross-country.html'), /hero-media\{background-position:55% center\}/);
 });
 
 test('retired companies remain absent from navigation while AFICD remains', () => {
