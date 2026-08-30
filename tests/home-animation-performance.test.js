@@ -33,7 +33,7 @@ test('Home animation sources retain compositor-only hero and fixed two-copy marq
   assert.match(heroScript, /function preloadNext\(/, 'only the next hero image is warmed before its transition');
   assert.match(heroCss, /transition: opacity 900ms ease, transform 900ms ease/, 'hero transitions use only opacity and transform');
   assert.doesNotMatch(heroCss, /lake-zoom|animation: lake-zoom/, 'the continuous full-hero zoom is removed');
-  assert.match(loopScript, /COPIES: 2, DURATION_SECONDS: 24/, 'marquee uses exactly one duplicate and a 24 second cycle');
+  assert.match(loopScript, /COPIES: 2, DURATION_SECONDS: 29/, 'marquee uses exactly one duplicate and a calmer 29 second cycle');
   assert.doesNotMatch(loopScript, /ResizeObserver/, 'marquee does not retain a resize measurement loop');
   assert.match(loopCss, /animation: logoloop-scroll var\(--logoloop-duration, 36s\) linear infinite/, 'marquee remains a linear CSS transform animation');
   assert.match(loopCss, /translate3d\(/, 'marquee is GPU-composited through translate3d');
