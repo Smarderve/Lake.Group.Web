@@ -19,6 +19,9 @@ body.company-standard .fs-display {
   font-size: var(--company-heading-size);
   line-height: 1.08;
   max-width: 18ch;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 body.company-standard .fs-lede,
@@ -100,6 +103,9 @@ html.fs-motion body.company-standard .fx-img {
   body.company-standard .fs-display {
     font-size: clamp(1.65rem, 7.5vw, 2rem);
     max-width: 19ch;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
   }
 
   body.company-standard .fs-lede,
