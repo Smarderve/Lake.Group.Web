@@ -7,7 +7,7 @@
 (function () {
   'use strict';
 
-  var ANIMATION_CONFIG = { COPIES: 2, DURATION_SECONDS: 29 };
+  var ANIMATION_CONFIG = { COPIES: 2, DURATION_SECONDS: 36 };
 
   /* Path-verified PNGs under assets/images/logos/companies/ + real nav routes only */
     var SUBSIDIARY_LOGOS = [
@@ -18,7 +18,7 @@
     { src: 'assets/images/logos/companies/lake-trans-blue.png?v=70', alt: 'Lake Trans', title: 'Lake Trans', href: 'lake-trans.html' },
     { src: 'assets/images/logos/companies/lake-aviation-blue.png?v=70', alt: 'Lake Aviation', title: 'Lake Aviation', href: 'lake-aviation.html' },
     { src: 'assets/images/logos/companies/lake-buildings-blue.png?v=70', alt: 'Lake Buildings', title: 'Lake Buildings', href: 'lake-buildings.html' },
-    { src: 'assets/images/logos/companies/lake-pipes-scrolling.webp?v=1', alt: 'Lake Pipes', title: 'Lake Pipes', href: 'lake-pipes.html', scale: 0.885 },
+    { src: 'assets/images/logos/companies/lake-pipes-scrolling.webp?v=1', alt: 'Lake Pipes', title: 'Lake Pipes', href: 'lake-pipes.html', scale: 0.85 },
     { src: 'assets/images/logos/companies/lake-premix-cement-blue.png?v=70', alt: 'Lake Premix & Cement', title: 'Lake Premix & Cement', href: 'lake-premix-cement.html' },
     { src: 'assets/images/logos/companies/lake-cylinders-blue.png?v=70', alt: 'Lake Cylinders', title: 'Lake Cylinders', href: 'lake-cylinders.html' },
     /* Marquee-only approved lockup: white wordmark with the authentic swoosh. */
