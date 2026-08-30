@@ -4,8 +4,8 @@
  * include anywhere . bails out silently when service workers are not
  * supported (file://, old browsers).
  *
- * v75: deterministic release registration and cache cleanup without forcing an
- * already-visible page through an update/reload cycle.
+ * v78: network-first document lifecycle with an unobtrusive degraded-network
+ * notice. No update path reloads the current document.
  */
 (function () {
   'use strict';
@@ -21,13 +21,58 @@
   // Append a cache-busting query so browsers revalidate sw.js on deploy.
   try {
     var u = new URL(swUrl, location.href);
-    u.searchParams.set('v', '75-20260829-01');
+    u.searchParams.set('v', '78-20260831-02');
     swUrl = u.href;
   } catch (err2) {
-    swUrl = swUrl + (swUrl.indexOf('?') === -1 ? '?v=75-20260829-01' : '&v=75-20260829-01');
+    swUrl = swUrl + (swUrl.indexOf('?') === -1 ? '?v=78-20260831-02' : '&v=78-20260831-02');
   }
 
-  var RECOVERY_KEY = 'lake-sw-recovery-v75';
+  var RECOVERY_KEY = 'lake-sw-recovery-v78';
+  var networkNotice;
+  var healthyTimer;
+
+  function showNetworkNotice(message, persistent) {
+    if (!networkNotice) {
+      networkNotice = document.createElement('div');
+      networkNotice.id = 'lake-network-status';
+      networkNotice.setAttribute('role', 'status');
+      networkNotice.setAttribute('aria-live', 'polite');
+      networkNotice.style.cssText = 'position:fixed;top:var(--navbar-height,68px);left:0;right:0;z-index:10001;display:none;padding:8px 18px;background:#013c5c;color:#fff;text-align:center;font:600 12px/1.35 Jost,Arial,sans-serif;letter-spacing:.01em;box-shadow:0 2px 10px rgba(0,0,0,.14);pointer-events:none';
+      document.body.appendChild(networkNotice);
+    }
+    window.clearTimeout(healthyTimer);
+    networkNotice.textContent = message;
+    networkNotice.style.display = 'block';
+    if (!persistent) {
+      healthyTimer = window.setTimeout(function () {
+        if (networkNotice) networkNotice.style.display = 'none';
+      }, 3600);
+    }
+  }
+
+  function showOfflineState() {
+    showNetworkNotice(
+      navigator.onLine
+        ? 'Connection is unstable. Showing the latest available version while we reconnect.'
+        : 'You’re offline. Showing the latest available version until your connection returns.',
+      true
+    );
+  }
+
+  function installNetworkNotice() {
+    window.addEventListener('offline', showOfflineState);
+    window.addEventListener('online', function () {
+      showNetworkNotice('You’re back online. Content is up to date.', false);
+    });
+    if (!navigator.onLine) showOfflineState();
+    navigator.serviceWorker.addEventListener('message', function (event) {
+      if (!event.data) return;
+      if (event.data.type === 'LAKE_NETWORK_FALLBACK') showOfflineState();
+      if (event.data.type === 'LAKE_NETWORK_HEALTHY' && networkNotice && networkNotice.style.display !== 'none' && navigator.onLine) {
+        showNetworkNotice('You’re back online. Content is up to date.', false);
+      }
+    });
+  }
 
   /**
    * Detect the classic "giant unstyled logo" failure: design tokens never
@@ -84,15 +129,9 @@
 
   function registerWhenIdle() {
     maybeRecoverBrokenStyles();
+    installNetworkNotice();
 
     navigator.serviceWorker.register(swUrl).then(function (registration) {
-      // Check often while the tab stays open . offline should track deploys.
-      try {
-        window.setInterval(function () {
-          pokeUpdate(registration);
-        }, 5 * 60 * 1000);
-      } catch (err) { /* ignore */ }
-
       document.addEventListener('visibilitychange', function () {
         if (document.visibilityState === 'visible') pokeUpdate(registration);
       });

@@ -29,7 +29,7 @@
 
 'use strict';
 
-const VERSION = 'v77-20260831-01';
+const VERSION = 'v78-20260831-02';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -154,9 +154,10 @@ self.addEventListener('install', (event) => {
           }
         })
       );
-      // Leave an updated worker waiting until the current tab is closed. This
-      // prevents a live page from switching asset generations underneath its
-      // already-rendered HTML.
+      // Activate the release immediately. Existing documents are not reloaded;
+      // their next navigation is served by this worker and gets the current
+      // network document instead of a stale build.
+      await self.skipWaiting();
     })()
   );
 });
@@ -172,6 +173,7 @@ self.addEventListener('activate', (event) => {
       );
       await trimCache(IMAGES_CACHE, IMAGE_CACHE_MAX_ENTRIES);
       await trimCache(ASSETS_CACHE, ASSET_CACHE_MAX_ENTRIES);
+      await self.clients.claim();
     })()
   );
 });
@@ -348,10 +350,21 @@ async function staleWhileRevalidate(request, cacheName, maxEntries) {
   throw new Error('stale-while-revalidate: network failed and nothing cached');
 }
 
-async function navigationHandler(request) {
+async function notifyClient(clientId, type) {
+  if (!clientId) return;
   try {
-    return await networkFirst(request, PAGES_CACHE);
+    const client = await self.clients.get(clientId);
+    if (client) client.postMessage({ type });
+  } catch (err) { /* best-effort UX signal */ }
+}
+
+async function navigationHandler(request, clientId) {
+  try {
+    const response = await networkFirst(request, PAGES_CACHE);
+    await notifyClient(clientId, 'LAKE_NETWORK_HEALTHY');
+    return response;
   } catch (err) {
+    await notifyClient(clientId, 'LAKE_NETWORK_FALLBACK');
     const url = new URL(request.url);
     // Prefer the exact page from any cache, then home, then offline shell.
     const pageHit =
@@ -436,9 +449,10 @@ function classify(request, url) {
     return 'cache-first-asset';
   }
 
-  // Remaining same-origin CSS/JS: stale-while-revalidate (fast + updates).
+  // HTML, styles and scripts must all come from the current network release
+  // while online. Cache copies are retained strictly for degraded-network use.
   if (/\.(css|js|mjs|json|webmanifest)$/i.test(path) || path.endsWith('/manifest.webmanifest')) {
-    return 'swr-asset';
+    return 'network-first-asset';
   }
 
   return 'swr-asset';
@@ -464,7 +478,7 @@ self.addEventListener('fetch', (event) => {
 
   switch (route) {
     case 'navigate':
-      event.respondWith(navigationHandler(request));
+      event.respondWith(navigationHandler(request, event.clientId));
       break;
     case 'network-first-design':
       event.respondWith(networkFirstAsset(request));

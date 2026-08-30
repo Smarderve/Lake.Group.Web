@@ -50,7 +50,7 @@ function startServer() {
       }
     }
     await context.close();
-    assert.deepEqual([...builds], ['2026-08-28.01']);
+    assert.deepEqual([...builds], ['2026-08-31.02']);
     assert.equal(failures, 0, 'reload stress produced HTTP failures');
     console.log(`Reload stability passed: ${pages.length * 20} mobile reloads, one build marker, no failures.`);
   } finally {

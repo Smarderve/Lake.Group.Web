@@ -18,12 +18,13 @@ for (const url of urls) {
   assert.ok(fs.existsSync(path.join(ROOT, pathname)), `precache entry exists: ${url}`);
 }
 
-assert.match(sw, /const VERSION = 'v75-20260829-01'/);
-assert.doesNotMatch(sw, /await self\.skipWaiting\(\)/, 'updated workers must not take over open tabs');
-assert.doesNotMatch(sw, /await self\.clients\.claim\(\)/, 'updated workers must not claim open tabs');
+assert.match(sw, /const VERSION = 'v78-20260831-02'/);
+assert.match(sw, /await self\.skipWaiting\(\)/, 'the current worker activates without waiting for closed tabs');
+assert.match(sw, /await self\.clients\.claim\(\)/, 'future navigations are claimed without reloading visible tabs');
 assert.match(sw, /name\.startsWith\('lake-'\) && !KNOWN_CACHES\.includes\(name\)/);
 assert.match(sw, /fetch\(request, \{ cache: 'no-cache' \}\)/);
 assert.match(sw, /request\.mode === 'navigate' \|\| request\.destination === 'document'/);
+assert.match(sw, /return 'network-first-asset'/);
 assert.doesNotMatch(sw, /terminal-overview\.jpg|fleet-loading\.jpg|depot-terminal\.jpg/);
 
-console.log(`Cache lifecycle check: ${urls.length} precache entries validated; v75 lifecycle controls present.`);
+console.log(`Cache lifecycle check: ${urls.length} precache entries validated; v78 network-first lifecycle controls present.`);
