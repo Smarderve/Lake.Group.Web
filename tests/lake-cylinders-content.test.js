@@ -56,11 +56,9 @@ test('No leader image placeholders remain', () => {
   assert.ok(!page.includes('assets/images/leadership/jishnu-jayachandran.jpg'), 'Jishnu Jayachandran image should not be present');
 });
 
-test('Leader names are preserved', () => {
-  assert.ok(page.includes('Zaki Othman'), 'Zaki Othman name should be present');
-  assert.ok(page.includes('Jishnu Jayachandran'), 'Jishnu Jayachandran name should be present');
+test('General Manager contact info is present', () => {
+  assert.ok(page.includes('Zaki Othman'), 'Zaki Othman name should be in contact section');
   assert.ok(page.includes('General Manager'), 'General Manager title should be present');
-  assert.ok(page.includes('Plant Manager'), 'Plant Manager title should be present');
 });
 
 test('No invalid Read More links without profile pages', () => {
@@ -129,7 +127,10 @@ test('Gallery section is preserved', () => {
   assert.ok(page.includes('Cylinder storage yard'), 'gallery captions should be present');
 });
 
-test('Leadership card uses text-only design', () => {
-  assert.ok(page.includes('ld-person-card'), 'leadership cards should be present');
-  assert.ok(!page.includes('ld-person-photo'), 'leadership cards should not have photo areas');
+test('Leadership section has been removed', () => {
+  assert.ok(!page.includes('Leadership Team'), 'Leadership Team section should be removed');
+  assert.ok(!page.includes('Our Leadership'), 'Our Leadership heading should be removed');
+  assert.ok(!page.includes('ld-person-card'), 'leadership cards should be removed');
+  assert.ok(!page.includes('Jishnu Jayachandran'), 'Plant Manager should be removed');
+  assert.ok(!page.includes('Plant Manager'), 'Plant Manager title should be removed');
 });
