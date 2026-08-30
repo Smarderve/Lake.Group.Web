@@ -45,6 +45,13 @@ test('Lake Oil page contains the approved company write-up and DRC entities', ()
   ]) assert.doesNotMatch(html, new RegExp(stale.replace(/[.*+?^${}()|[\\]\\]/g, '\\$&'), 'i'));
 });
 
+test('Lake Oil capability cards use the approved facility imagery', () => {
+  const html = pageHtml();
+  assert.match(html, /depot-aerial\.jpg[^>]*alt="Lake Energies depot terminal"/, 'Bulk Petroleum Supply retains its approved facility aerial');
+  assert.match(html, /storage-facilities-terminal\.webp[^>]*alt="Lake Energies storage terminal"/, 'Storage Facilities uses the approved terminal image');
+  assert.ok(fs.existsSync(path.join(ROOT, 'assets', 'images', 'lakeoil', 'current', 'storage-facilities-terminal.webp')), 'the Storage Facilities asset is present');
+});
+
 test('Lake Oil approved content is rendered on desktop and mobile', async (t) => {
   const server = http.createServer((req, res) => {
     const requested = decodeURIComponent((req.url || '/').split('?')[0]);
