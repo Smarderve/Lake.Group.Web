@@ -159,12 +159,6 @@
     var hoverSpeed = opts.hoverSpeed !== undefined ? opts.hoverSpeed : pauseOnHover ? 0 : undefined;
 
     var isVertical = direction === 'up' || direction === 'down';
-    var magnitude = Math.abs(speed);
-    var directionMultiplier = isVertical
-      ? direction === 'up' ? 1 : -1
-      : direction === 'left' ? 1 : -1;
-    var speedMultiplier = speed < 0 ? -1 : 1;
-    var targetVelocity = magnitude * directionMultiplier * speedMultiplier;
 
     root.innerHTML = '';
 
@@ -194,18 +188,79 @@
     var seqHeight = 0;
     var seqEl = null;
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var position = 0;
+    var velocity = 0;
+    var animationFrame = null;
+    var lastFrameTime = null;
+    var pointerInside = false;
+    var dragState = null;
+    var manualTimer = null;
+    var suppressClick = false;
+
+    function sequenceSize() {
+      return isVertical ? seqHeight : seqWidth;
+    }
+
+    function normalizePosition() {
+      var size = sequenceSize();
+      if (!size) return;
+      /* Keep the transform inside the first/duplicate sequence pair. This
+         wrap is visually identical, so a drag can cross either boundary
+         without exposing a track end or jumping back to the beginning. */
+      position = position % size;
+      if (position > 0) position -= size;
+    }
+
+    function renderPosition() {
+      if (isVertical) track.style.transform = 'translate3d(0,' + position + 'px,0)';
+      else track.style.transform = 'translate3d(' + position + 'px,0,0)';
+    }
+
+    function shouldAutoScroll() {
+      return !reduceMotion && !!sequenceSize() && !pointerInside && !dragState && !manualTimer;
+    }
+
+    function syncAnimationState() {
+      var active = shouldAutoScroll();
+      track.style.willChange = active || dragState ? 'transform' : '';
+      if (active && animationFrame === null) {
+        lastFrameTime = null;
+        animationFrame = requestAnimationFrame(step);
+      }
+    }
+
+    function step(timestamp) {
+      animationFrame = null;
+      if (!shouldAutoScroll()) {
+        lastFrameTime = null;
+        syncAnimationState();
+        return;
+      }
+      if (lastFrameTime !== null) {
+        /* The duration remains the existing approved duration. Only this
+           compositor transform updates per frame; no layout is read here. */
+        position += velocity * Math.min((timestamp - lastFrameTime) / 1000, 0.05);
+        normalizePosition();
+        renderPosition();
+      }
+      lastFrameTime = timestamp;
+      animationFrame = requestAnimationFrame(step);
+    }
 
     function applyAnimation() {
-      track.classList.remove('logoloop__track--animate');
-      if (reduceMotion) return;
-      var sequenceSize = isVertical ? seqHeight : seqWidth;
-      if (!sequenceSize) return;
-      /* CSS owns every animation frame. Dimensions are measured only at setup
-         and resize, never in an animation loop. */
+      if (reduceMotion) {
+        position = 0;
+        renderPosition();
+        syncAnimationState();
+        return;
+      }
+      var size = sequenceSize();
+      if (!size) return;
       var duration = opts.duration || ANIMATION_CONFIG.DURATION_SECONDS;
-      track.style.setProperty('--logoloop-distance', sequenceSize + 'px');
-      track.style.setProperty('--logoloop-duration', duration + 's');
-      track.classList.add('logoloop__track--animate');
+      velocity = (size / duration) * (direction === 'right' || direction === 'down' ? 1 : -1);
+      normalizePosition();
+      renderPosition();
+      syncAnimationState();
     }
 
     function rebuildCopies() {
@@ -221,6 +276,8 @@
 
     function updateDimensions() {
       if (!seqEl) return;
+      var previousSize = sequenceSize();
+      var previousProgress = previousSize ? position / previousSize : 0;
       var sequenceRect = seqEl.getBoundingClientRect();
       var sequenceWidth = sequenceRect.width || 0;
       var sequenceHeight = sequenceRect.height || 0;
@@ -229,6 +286,7 @@
       } else if (sequenceWidth > 0) {
         seqWidth = Math.ceil(sequenceWidth);
       }
+      if (previousSize && sequenceSize()) position = previousProgress * sequenceSize();
       applyAnimation();
     }
 
@@ -253,11 +311,164 @@
     updateDimensions();
     onImagesReady(seqEl, updateDimensions);
 
+    function pauseForManualInput() {
+      if (manualTimer !== null) {
+        clearTimeout(manualTimer);
+        manualTimer = null;
+      }
+      syncAnimationState();
+    }
+
+    function resumeAfterTouch() {
+      if (manualTimer !== null) clearTimeout(manualTimer);
+      /* A small pause preserves the natural end of a touch swipe without
+         adding carousel-style inertia or a visible speed change. */
+      manualTimer = setTimeout(function () {
+        manualTimer = null;
+        syncAnimationState();
+      }, 180);
+    }
+
+    function applyManualDelta(delta) {
+      if (!sequenceSize()) return;
+      position += delta;
+      normalizePosition();
+      renderPosition();
+    }
+
+    function pointerIsInside(event) {
+      var rect = container.getBoundingClientRect();
+      return event.clientX >= rect.left && event.clientX <= rect.right &&
+        event.clientY >= rect.top && event.clientY <= rect.bottom;
+    }
+
+    function onPointerEnter(event) {
+      if (event.pointerType === 'touch') return;
+      pointerInside = true;
+      pauseForManualInput();
+    }
+
+    function onPointerLeave(event) {
+      if (event.pointerType === 'touch' || dragState) return;
+      pointerInside = false;
+      syncAnimationState();
+    }
+
+    function onPointerDown(event) {
+      if (event.pointerType === 'mouse' && event.button !== 0) return;
+      pointerInside = event.pointerType !== 'touch';
+      dragState = {
+        id: event.pointerId,
+        type: event.pointerType,
+        startX: event.clientX,
+        startY: event.clientY,
+        lastX: event.clientX,
+        lastY: event.clientY,
+        horizontal: event.pointerType === 'mouse',
+        moved: false
+      };
+      container.classList.add('is-dragging');
+      if (event.pointerType === 'mouse' && container.setPointerCapture) {
+        try { container.setPointerCapture(event.pointerId); } catch (ignore) {}
+      }
+      pauseForManualInput();
+    }
+
+    function onPointerMove(event) {
+      if (!dragState || event.pointerId !== dragState.id) return;
+      var dx = event.clientX - dragState.startX;
+      var dy = event.clientY - dragState.startY;
+      if (!dragState.horizontal) {
+        if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return;
+        dragState.horizontal = isVertical ? Math.abs(dy) > Math.abs(dx) : Math.abs(dx) > Math.abs(dy);
+        if (!dragState.horizontal) return;
+        if (container.setPointerCapture) {
+          try { container.setPointerCapture(event.pointerId); } catch (ignore) {}
+        }
+      }
+      var delta = isVertical ? event.clientY - dragState.lastY : event.clientX - dragState.lastX;
+      dragState.lastX = event.clientX;
+      dragState.lastY = event.clientY;
+      if (Math.abs(delta) > 0) {
+        dragState.moved = true;
+        applyManualDelta(delta);
+        if (event.cancelable) event.preventDefault();
+      }
+    }
+
+    function onPointerEnd(event) {
+      if (!dragState || event.pointerId !== dragState.id) return;
+      var state = dragState;
+      dragState = null;
+      container.classList.remove('is-dragging');
+      if (container.hasPointerCapture && container.hasPointerCapture(event.pointerId)) {
+        container.releasePointerCapture(event.pointerId);
+      }
+      suppressClick = state.moved;
+      if (state.type === 'touch') {
+        pointerInside = false;
+        resumeAfterTouch();
+      } else {
+        pointerInside = pointerIsInside(event);
+        syncAnimationState();
+      }
+    }
+
+    function onWheel(event) {
+      var horizontalDelta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : (event.shiftKey ? event.deltaY : 0);
+      if (!horizontalDelta) return;
+      pointerInside = true;
+      pauseForManualInput();
+      applyManualDelta(-horizontalDelta);
+      if (event.cancelable) event.preventDefault();
+    }
+
+    function onClick(event) {
+      if (!suppressClick) return;
+      suppressClick = false;
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    function onDragStart(event) {
+      /* Links remain clickable, but native link dragging must not cancel the
+         pointer stream that drives the seamless manual marquee drag. */
+      event.preventDefault();
+    }
+
+    function onVisibilityChange() {
+      lastFrameTime = null;
+      syncAnimationState();
+    }
+
+    container.addEventListener('pointerenter', onPointerEnter);
+    container.addEventListener('pointerleave', onPointerLeave);
+    container.addEventListener('pointerdown', onPointerDown);
+    container.addEventListener('pointermove', onPointerMove, { passive: false });
+    container.addEventListener('pointerup', onPointerEnd);
+    container.addEventListener('pointercancel', onPointerEnd);
+    container.addEventListener('wheel', onWheel, { passive: false });
+    container.addEventListener('click', onClick, true);
+    container.addEventListener('dragstart', onDragStart);
+    document.addEventListener('visibilitychange', onVisibilityChange);
+
     return function destroy() {
       if (resizeFrame !== null) cancelAnimationFrame(resizeFrame);
+      if (animationFrame !== null) cancelAnimationFrame(animationFrame);
+      if (manualTimer !== null) clearTimeout(manualTimer);
       window.removeEventListener('resize', scheduleDimensionUpdate);
       if (mobileMq.removeEventListener) mobileMq.removeEventListener('change', onViewportChange);
       else if (mobileMq.removeListener) mobileMq.removeListener(onViewportChange);
+      container.removeEventListener('pointerenter', onPointerEnter);
+      container.removeEventListener('pointerleave', onPointerLeave);
+      container.removeEventListener('pointerdown', onPointerDown);
+      container.removeEventListener('pointermove', onPointerMove);
+      container.removeEventListener('pointerup', onPointerEnd);
+      container.removeEventListener('pointercancel', onPointerEnd);
+      container.removeEventListener('wheel', onWheel);
+      container.removeEventListener('click', onClick, true);
+      container.removeEventListener('dragstart', onDragStart);
+      document.removeEventListener('visibilitychange', onVisibilityChange);
       root.innerHTML = '';
     };
   }

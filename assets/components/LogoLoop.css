@@ -3,6 +3,8 @@
   display: block;
   width: 100%;
   overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y;
 
   --logoloop-gap: 36px;
   --logoloop-logoHeight: 28px;
@@ -25,14 +27,6 @@
   }
 }
 
-.logoloop__track--animate {
-  animation: logoloop-scroll var(--logoloop-duration, 36s) linear infinite;
-  transform: translate3d(0, 0, 0);
-}
-.logoloop--horizontal:hover .logoloop__track--animate { animation-play-state: paused; }
-@keyframes logoloop-scroll { from { transform: translate3d(0,0,0); } to { transform: translate3d(calc(-1 * var(--logoloop-distance, 0px)),0,0); } }
-.logoloop--vertical .logoloop__track--animate { animation-name: logoloop-scroll-vertical; }
-@keyframes logoloop-scroll-vertical { from { transform: translate3d(0,0,0); } to { transform: translate3d(0,calc(-1 * var(--logoloop-distance, 0px)),0); } }
 .logoloop__track {
   display: flex;
   flex-flow: row nowrap;
@@ -42,7 +36,13 @@
   user-select: none;
   position: relative;
   z-index: 0;
+  cursor: grab;
+  touch-action: pan-y;
 }
+
+.logoloop__track:active { cursor: grabbing; }
+.logoloop.is-dragging,
+.logoloop.is-dragging .logoloop__track { cursor: grabbing; }
 
 .logoloop--vertical .logoloop__track {
   flex-direction: column;
