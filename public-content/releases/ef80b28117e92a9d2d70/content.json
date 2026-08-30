@@ -32,7 +32,7 @@
       {
         "key": "stations",
         "label": "Fuel Stations",
-        "value": "152",
+        "value": "250+",
         "unit": "fuel stations",
         "effectiveDate": "2026-08-11T11:35:54.618Z",
         "updatedAt": "2026-08-11T11:35:54.817Z"
@@ -59,7 +59,7 @@
         "id": "10f42482-735a-47f3-8083-a3dd2e45156a",
         "name": "ATL (Aluminium Trailers)",
         "slug": "atl",
-        "description": "Tanzania's aluminium fuel tanker and custom trailer manufacturer — engineered for African routes.",
+        "description": "Tanzania's aluminium fuel tanker and custom trailer manufacturer \u00e2\u20ac\u201d engineered for African routes.",
         "logo": "assets/images/logos/companies/atl.png",
         "logoMediaId": null,
         "parentCompanyId": null,
@@ -73,7 +73,7 @@
         "id": "d140c01f-5115-4806-abda-d2d0cf412f64",
         "name": "Lake Agro",
         "slug": "lake-agro",
-        "description": "Agribusiness plantations and integrated agro-parks — creating customers and food for life across Africa.",
+        "description": "Agribusiness plantations and integrated agro-parks \u00e2\u20ac\u201d creating customers and food for life across Africa.",
         "logo": "assets/images/logos/companies/lake-agro.png",
         "logoMediaId": null,
         "parentCompanyId": null,
@@ -129,7 +129,7 @@
         "id": "9b4eee45-cc21-422f-88d8-c6a5dcfe755b",
         "name": "AILL",
         "slug": "aill",
-        "description": "African Inland Logistic Limited — part of Lake Group's logistics network.",
+        "description": "African Inland Logistic Limited \u00e2\u20ac\u201d part of Lake Group's logistics network.",
         "logo": "assets/images/logos/companies/aill.png",
         "logoMediaId": null,
         "parentCompanyId": null,
@@ -143,7 +143,7 @@
         "id": "3c1bfe9d-1504-4044-ae9b-a744440b7cc7",
         "name": "ACFS",
         "slug": "acfs",
-        "description": "African Cargo Freight Station — container freight station and empty container depot services at Tazara, Pugu Road, Dar es Salaam.",
+        "description": "African Cargo Freight Station \u00e2\u20ac\u201d container freight station and empty container depot services at Tazara, Pugu Road, Dar es Salaam.",
         "logo": "assets/images/logos/companies/acfs.png",
         "logoMediaId": null,
         "parentCompanyId": null,
@@ -157,7 +157,7 @@
         "id": "ff4b382f-6617-449b-b2f4-a63c1a17a9c7",
         "name": "AFICD",
         "slug": "aficd",
-        "description": "African Inland Container Depot — licensed dry-port operator (TASAC) with inland container depot services across Tanzania, Zambia and Mozambique.",
+        "description": "African Inland Container Depot \u00e2\u20ac\u201d licensed dry-port operator (TASAC) with inland container depot services across Tanzania, Zambia and Mozambique.",
         "logo": "assets/images/logos/companies/aficd.png",
         "logoMediaId": null,
         "parentCompanyId": null,
@@ -283,7 +283,7 @@
         "id": "c2cb9037-882b-4286-9b96-f5840386277f",
         "name": "Lake Aviation",
         "slug": "lake-aviation",
-        "description": "Lake Group's aviation services division — Jet A-1 fuel supply and aviation fuel handling.",
+        "description": "Lake Group's aviation services division \u00e2\u20ac\u201d Jet A-1 fuel supply and aviation fuel handling.",
         "logo": "assets/images/logos/companies/lake-aviation.png",
         "logoMediaId": null,
         "parentCompanyId": null,
@@ -297,7 +297,7 @@
         "id": "9f536306-a78f-413a-82c9-08c31e5f50fe",
         "name": "Lake Oil",
         "slug": "lake-oil",
-        "description": "Lake Group's flagship company — one of Tanzania's top 5 petroleum distributors, with retail stations, bulk supply and storage across 10 countries.",
+        "description": "Lake Group's flagship company \u00e2\u20ac\u201d one of Tanzania's top 5 petroleum distributors, with retail stations, bulk supply and storage across 10 countries.",
         "logo": "assets/images/logos/companies/lake-oil.png",
         "logoMediaId": null,
         "parentCompanyId": null,
@@ -1311,46 +1311,46 @@
       {
         "id": "928997e6-00e5-48b4-93e1-8e0e5f3453aa",
         "slug": "leadership-mohammed-khalid",
-        "title": "Mohammed Khalid - Managing Director � ATL",
+        "title": "Mohammed Khalid - Managing Director \u00ef\u00bf\u00bd ATL",
         "layoutType": "standard",
-        "metaTitle": "Mohammed Khalid - Managing Director � ATL | Lake Group",
+        "metaTitle": "Mohammed Khalid - Managing Director \u00ef\u00bf\u00bd ATL | Lake Group",
         "metaDescription": "Directs Associated Trans Logistics Ltd (ATL), operating alongside Lake Trans as a logistical backbone for fuel fleets, heavy haulage and multi-national cargo corridors.",
         "updatedAt": "2026-08-13T17:11:56.315Z"
       },
       {
         "id": "40cf9d67-8991-4f93-aba6-1ee00fbe733b",
         "slug": "leadership-juma-nuru",
-        "title": "Juma Nuru - Director of Operations � Lake Group",
+        "title": "Juma Nuru - Director of Operations \u00ef\u00bf\u00bd Lake Group",
         "layoutType": "standard",
-        "metaTitle": "Juma Nuru - Director of Operations � Lake Group | Lake Group",
-        "metaDescription": "Leads Group-wide operations across Lake Group�s energy, logistics and industrial units - coordinating day-to-day execution and operational performance.",
+        "metaTitle": "Juma Nuru - Director of Operations \u00ef\u00bf\u00bd Lake Group | Lake Group",
+        "metaDescription": "Leads Group-wide operations across Lake Group\u00ef\u00bf\u00bds energy, logistics and industrial units - coordinating day-to-day execution and operational performance.",
         "updatedAt": "2026-08-13T17:11:56.312Z"
       },
       {
         "id": "40582f2c-dd46-453c-85b6-7ced1535e2dc",
         "slug": "leadership-dileep-kumar",
-        "title": "Dilip Kumar - CEO � Manufacturing Division",
+        "title": "Dilip Kumar - CEO \u00ef\u00bf\u00bd Manufacturing Division",
         "layoutType": "standard",
-        "metaTitle": "Dilip Kumar - CEO � Manufacturing Division | Lake Group",
+        "metaTitle": "Dilip Kumar - CEO \u00ef\u00bf\u00bd Manufacturing Division | Lake Group",
         "metaDescription": "With over two decades of leadership experience spanning manufacturing, operations, logistics, administration and strategic business development, Dilip Kumar has built a distinguished career delivering operational excellence across diverse industries in India and East Africa.",
         "updatedAt": "2026-08-13T17:11:56.307Z"
       },
       {
         "id": "f3d1e086-ab20-46a4-8b8f-d302d2a01c0a",
         "slug": "leadership-biji-lapat",
-        "title": "Biji Lapat - CEO · Lake Energies",
+        "title": "Biji Lapat - CEO \u00c2\u00b7 Lake Energies",
         "layoutType": "standard",
-        "metaTitle": "Biji Lapat - CEO · Lake Energies | Lake Group",
-        "metaDescription": "CEO of Lake Energies, Lake Group�s energy division spanning petroleum, LPG, lubricants and aviation services across the Group�s regional footprint.",
+        "metaTitle": "Biji Lapat - CEO \u00c2\u00b7 Lake Energies | Lake Group",
+        "metaDescription": "CEO of Lake Energies, Lake Group\u00ef\u00bf\u00bds energy division spanning petroleum, LPG, lubricants and aviation services across the Group\u00ef\u00bf\u00bds regional footprint.",
         "updatedAt": "2026-08-13T17:11:56.302Z"
       },
       {
         "id": "4427c8ef-af93-488d-9d5c-2f43ebfc67f8",
         "slug": "leadership-bibhuti-singh",
-        "title": "Bibhuti Singh - CFO � AFICD",
+        "title": "Bibhuti Singh - CFO \u00ef\u00bf\u00bd AFICD",
         "layoutType": "standard",
-        "metaTitle": "Bibhuti Singh - CFO � AFICD | Lake Group",
-        "metaDescription": "Oversees financial planning, risk analysis and corporate governance for African Inland Container Depot (AFICD) - Lake Group�s dry-port platform in Dar es Salaam.",
+        "metaTitle": "Bibhuti Singh - CFO \u00ef\u00bf\u00bd AFICD | Lake Group",
+        "metaDescription": "Oversees financial planning, risk analysis and corporate governance for African Inland Container Depot (AFICD) - Lake Group\u00ef\u00bf\u00bds dry-port platform in Dar es Salaam.",
         "updatedAt": "2026-08-13T17:11:56.298Z"
       },
       {
@@ -1359,7 +1359,7 @@
         "title": "Ally Edha Awadh - Founder & Chairman",
         "layoutType": "standard",
         "metaTitle": "Ally Edha Awadh - Founder & Chairman | Lake Group",
-        "metaDescription": "Forbes-featured entrepreneur who founded Lake Oil in 2006 and built Lake Group into one of East and Central Africa�s leading energy, logistics and industrial conglomerates.",
+        "metaDescription": "Forbes-featured entrepreneur who founded Lake Oil in 2006 and built Lake Group into one of East and Central Africa\u00ef\u00bf\u00bds leading energy, logistics and industrial conglomerates.",
         "updatedAt": "2026-08-13T17:11:56.295Z"
       },
       {
@@ -1512,7 +1512,7 @@
         "title": "Gulf Aggregates | Manufacturing",
         "layoutType": "standard",
         "metaTitle": "Gulf Aggregates | Manufacturing | Lake Group",
-        "metaDescription": "Gulf Aggregates - operates its own quarry at Lugoba, Tanzania, producing approximately 30,000 m� of aggregate monthly for GCCP",
+        "metaDescription": "Gulf Aggregates - operates its own quarry at Lugoba, Tanzania, producing approximately 30,000 m\u00ef\u00bf\u00bd of aggregate monthly for GCCP",
         "updatedAt": "2026-08-13T17:11:56.215Z"
       },
       {
@@ -1798,7 +1798,7 @@
         "id": "b4721266-e0ff-49f9-a338-8e427c1c5d98",
         "title": "Donation of Mattresses to Temeke Hospital . Eid Al Adha 2016",
         "slug": "donation-of-mattresses-to-temeke-hospital-eid-al-adha-2016-5",
-        "body": "On 9th September 2016 Lake Group family has presented special mattresses for Maternal Wards and fruits to Temeke Referral District Hospital as part of Eid Al Adha celebrations\n\nA Lake Group delegation presented the commodities to Dr. A. Malima, the Chief Medical Officer of the Hospital in Dar es Salaam.\n\nSpecial thanks goes to Ally Edha Awadh – Founder & Chairman, all employees and the steering committee of the event for moral support, materially and monetary contributions.\n\nLet us always share the small portion we have with the society.",
+        "body": "On 9th September 2016 Lake Group family has presented special mattresses for Maternal Wards and fruits to Temeke Referral District Hospital as part of Eid Al Adha celebrations\n\nA Lake Group delegation presented the commodities to Dr. A. Malima, the Chief Medical Officer of the Hospital in Dar es Salaam.\n\nSpecial thanks goes to Ally Edha Awadh \u00e2\u20ac\u201c Founder & Chairman, all employees and the steering committee of the event for moral support, materially and monetary contributions.\n\nLet us always share the small portion we have with the society.",
         "authorId": null,
         "relatedCompanyId": null,
         "relatedProjectId": null,
@@ -1843,13 +1843,13 @@
         "id": "3932d7ad-1f45-4874-bdd8-8cd549b5e6fc",
         "title": "International Women's Day 2014 . Staff Luncheon",
         "slug": "international-women-s-day-2014-staff-luncheon-9",
-        "body": "To mark The International Women's day the company sponsored all Women's employed by the company for luncheon at KFC – Mikocheni branch.",
+        "body": "To mark The International Women's day the company sponsored all Women's employed by the company for luncheon at KFC \u00e2\u20ac\u201c Mikocheni branch.",
         "authorId": null,
         "relatedCompanyId": null,
         "relatedProjectId": null,
         "publicationDate": "2014-03-08T00:00:00.000Z",
         "metaTitle": "International Women's Day 2014 . Staff Luncheon",
-        "metaDescription": "To mark The International Women's day the company sponsored all Women's employed by the company for luncheon at KFC – Mikocheni branch.",
+        "metaDescription": "To mark The International Women's day the company sponsored all Women's employed by the company for luncheon at KFC \u00e2\u20ac\u201c Mikocheni branch.",
         "updatedAt": "2026-08-11T11:58:09.167Z",
         "category": "CSR",
         "bannerImage": "assets/images/news/9/photo_1.jpg"
@@ -1903,13 +1903,13 @@
         "id": "361fd7f2-8409-47e5-92c0-d40cf07da53c",
         "title": "Composite Cylinder Launch . 18th June 2014",
         "slug": "composite-cylinder-launch-18th-june-2014-13",
-        "body": "It is a Pleasure to announce a New Milestone achieved by the \"LAKE GAS TEAM\" – The Launch of the \"COMPOSITE CYLINDERS\".\n\nThe Composite Cylinder was officially Launched on 18th June, 2014 at the Program conducted at the Grand Hyatt Regency - Dar Es Salaam. The Guest of Honor – The Asst. Commissioner of Energy (Natural Gas) in the Ministry of Energy & Minerals- Mr. Nobert Kahyoza officiated the Launch by holding up the Composite Cylinder along with Founder & Chairman Mr. Ally Edha Awadh.\n\nAmid a crowd of more than 150 people, which comprised of Dignitaries and names from various works of life; the Launch was captured by an extensive crowd of Media and Press.\n\nThe Launch of the composite cylinders in DAR marks a new revolution in the terms of a parallel cooking range, the cylinders are not only Aesthetically pleasing to look and graces the appearance of the kitchen; but also has the 4 unique features which makes it stand tall in comparison to our conventional steel cylinders. They are: Non Explosive, Non Corrosive, Light Weight, Translucent",
+        "body": "It is a Pleasure to announce a New Milestone achieved by the \"LAKE GAS TEAM\" \u00e2\u20ac\u201c The Launch of the \"COMPOSITE CYLINDERS\".\n\nThe Composite Cylinder was officially Launched on 18th June, 2014 at the Program conducted at the Grand Hyatt Regency - Dar Es Salaam. The Guest of Honor \u00e2\u20ac\u201c The Asst. Commissioner of Energy (Natural Gas) in the Ministry of Energy & Minerals- Mr. Nobert Kahyoza officiated the Launch by holding up the Composite Cylinder along with Founder & Chairman Mr. Ally Edha Awadh.\n\nAmid a crowd of more than 150 people, which comprised of Dignitaries and names from various works of life; the Launch was captured by an extensive crowd of Media and Press.\n\nThe Launch of the composite cylinders in DAR marks a new revolution in the terms of a parallel cooking range, the cylinders are not only Aesthetically pleasing to look and graces the appearance of the kitchen; but also has the 4 unique features which makes it stand tall in comparison to our conventional steel cylinders. They are: Non Explosive, Non Corrosive, Light Weight, Translucent",
         "authorId": null,
         "relatedCompanyId": null,
         "relatedProjectId": null,
         "publicationDate": "2014-06-18T00:00:00.000Z",
         "metaTitle": "Composite Cylinder Launch . 18th June 2014",
-        "metaDescription": "It is a Pleasure to announce a New Milestone achieved by the \"LAKE GAS TEAM\" – The Launch of the \"COMPOSITE CYLINDERS\".",
+        "metaDescription": "It is a Pleasure to announce a New Milestone achieved by the \"LAKE GAS TEAM\" \u00e2\u20ac\u201c The Launch of the \"COMPOSITE CYLINDERS\".",
         "updatedAt": "2026-08-11T11:58:09.140Z",
         "category": "LPG",
         "bannerImage": "assets/images/news/6/photo_1.jpg"
@@ -1918,7 +1918,7 @@
         "id": "08ce33ac-3065-44a3-a013-30357d450043",
         "title": "Corporate Social Responsibilities . Maternal Health Aid Program",
         "slug": "corporate-social-responsibilities-maternal-health-aid-program-14",
-        "body": "CSR is corporate philanthropy. This includes monetary donations and aid given to local and non-profit organization and communities, including donations in areas such as education, health and poverty just to mention a few. CSR is the process with the aim of embrace responsibility for the company's actions and encourage a positive impact through its activities on the environment, consumers, employees, communities, stakeholders and all other members of the public sphere who may also be considered as stake holders.\n\nA company's sense of responsibility towards the community and environment is one of the Lake Group's policies which have been practiced since commencement of its operations in 2006 in Dar es salaam, Tanzania. In April 2014, Lake Group reached a decision to extend a helping hand to maternal wards by providing Medical equipments to three municipal in Dar es Salaam as hereunder: Beds for delivery, Tools for delivery (delivery kits), Wheel chairs, Stretchers for delivery purpose, BP Machines, Examination lamps\n\nThe hospitals that enjoyed this aid were Mwananyamala Municipal Hospital – Kinondoni District, Amana Municipal Hospital – Ilala and Temeke hospital. Items were received by Dr. Kawawa and Dr. Mwaikasu on behalf of the Dar es Salaam Regional Commissioner at the occasion held at Mwananyamala Hospital.\n\nThe Dar es Salaam medical in charge, said that \"The aid has been given in a right time due to the fact that many, public hospitals facing the shortage of medical equipments. We would like to encourage other companies to follow what has been started by Lake Group\".\n\nOn the other hand, Lake Group representatives said that \"we believe this aid will help to reduce the death rate caused by preventable maternal problems, as a company, our happiness comes, when we contribute to improve health facilities in our community\". In addition, the company promised the Regional Health Committee to continue aiding in Health sector as much as we can.",
+        "body": "CSR is corporate philanthropy. This includes monetary donations and aid given to local and non-profit organization and communities, including donations in areas such as education, health and poverty just to mention a few. CSR is the process with the aim of embrace responsibility for the company's actions and encourage a positive impact through its activities on the environment, consumers, employees, communities, stakeholders and all other members of the public sphere who may also be considered as stake holders.\n\nA company's sense of responsibility towards the community and environment is one of the Lake Group's policies which have been practiced since commencement of its operations in 2006 in Dar es salaam, Tanzania. In April 2014, Lake Group reached a decision to extend a helping hand to maternal wards by providing Medical equipments to three municipal in Dar es Salaam as hereunder: Beds for delivery, Tools for delivery (delivery kits), Wheel chairs, Stretchers for delivery purpose, BP Machines, Examination lamps\n\nThe hospitals that enjoyed this aid were Mwananyamala Municipal Hospital \u00e2\u20ac\u201c Kinondoni District, Amana Municipal Hospital \u00e2\u20ac\u201c Ilala and Temeke hospital. Items were received by Dr. Kawawa and Dr. Mwaikasu on behalf of the Dar es Salaam Regional Commissioner at the occasion held at Mwananyamala Hospital.\n\nThe Dar es Salaam medical in charge, said that \"The aid has been given in a right time due to the fact that many, public hospitals facing the shortage of medical equipments. We would like to encourage other companies to follow what has been started by Lake Group\".\n\nOn the other hand, Lake Group representatives said that \"we believe this aid will help to reduce the death rate caused by preventable maternal problems, as a company, our happiness comes, when we contribute to improve health facilities in our community\". In addition, the company promised the Regional Health Committee to continue aiding in Health sector as much as we can.",
         "authorId": null,
         "relatedCompanyId": null,
         "relatedProjectId": null,
@@ -2263,7 +2263,7 @@
         "id": "20349cbe-b5b6-4d29-9a2d-19d9619f421b",
         "title": "Lake Steel Receives TBS Certification for High-Strength Corrosion-Resistant Rebars",
         "slug": "lake-steel-receives-tbs-certification-for-high-strength-corrosion-resi-27",
-        "body": "Lake Steel & Allied Products Ltd. received full certification from the Tanzania Bureau of Standards (TBS) for its High Strength . Cold Rolled (HS-CR) reinforcement steel bars produced at its Kibaha rolling mill.\n\nThe HS-CR rebars are specifically engineered for corrosion resistance in coastal, saline, and industrial environments. They retain structural integrity up to 600°C . significantly higher than the standard rebar threshold of approximately 350°C.\n\nThe Kibaha mill, located in Visiga, Pwani Region, has an annual production capacity of approximately 100,000 metric tons and is fully computerized and automated.\n\nLake Steel is the first company in Tanzania to introduce this grade of corrosion-resistant rebar, serving construction and infrastructure projects across the country and the wider East African region.\n\n[Source: Lake Group official website, TBS]",
+        "body": "Lake Steel & Allied Products Ltd. received full certification from the Tanzania Bureau of Standards (TBS) for its High Strength . Cold Rolled (HS-CR) reinforcement steel bars produced at its Kibaha rolling mill.\n\nThe HS-CR rebars are specifically engineered for corrosion resistance in coastal, saline, and industrial environments. They retain structural integrity up to 600\u00c2\u00b0C . significantly higher than the standard rebar threshold of approximately 350\u00c2\u00b0C.\n\nThe Kibaha mill, located in Visiga, Pwani Region, has an annual production capacity of approximately 100,000 metric tons and is fully computerized and automated.\n\nLake Steel is the first company in Tanzania to introduce this grade of corrosion-resistant rebar, serving construction and infrastructure projects across the country and the wider East African region.\n\n[Source: Lake Group official website, TBS]",
         "authorId": null,
         "relatedCompanyId": null,
         "relatedProjectId": null,
@@ -2293,7 +2293,7 @@
         "id": "d0199780-841a-48d5-9a0c-762cdb3fd49b",
         "title": "Lake Steel Mill Continues Operations at Kibaha Facility",
         "slug": "lake-steel-mill-continues-operations-at-kibaha-facility-21",
-        "body": "Lake Steel & Allied Products Ltd. continues production at its fully computerized automated steel rolling mill in Visiga, Kibaha, Pwani Region, Tanzania. The mill has an annual capacity of ~100,000 metric tons of HS-CR (High Strength . Cold Rolled) reinforcement steel bars.\n\nThe steel produced at the Kibaha mill is corrosion-resistant, designed specifically for coastal, saline, and industrial environments. It retains structural integrity up to 600°C . significantly higher than the standard rebar threshold of ~350°C.\n\nAll products are compliant with Tanzania Bureau of Standards (TBS) requirements. The mill serves construction, infrastructure, and industrial projects across Tanzania and the wider East African region.\n\nLake Steel is one of Lake Group's key manufacturing subsidiaries, alongside Lake Buildings Solutions, Lake Pipes, Lake Premix & Cement (GCCP), Gulf Aggregates, and ATL . Africa Tank Lines Ltd. [Source: Lake Group official website, TBS]",
+        "body": "Lake Steel & Allied Products Ltd. continues production at its fully computerized automated steel rolling mill in Visiga, Kibaha, Pwani Region, Tanzania. The mill has an annual capacity of ~100,000 metric tons of HS-CR (High Strength . Cold Rolled) reinforcement steel bars.\n\nThe steel produced at the Kibaha mill is corrosion-resistant, designed specifically for coastal, saline, and industrial environments. It retains structural integrity up to 600\u00c2\u00b0C . significantly higher than the standard rebar threshold of ~350\u00c2\u00b0C.\n\nAll products are compliant with Tanzania Bureau of Standards (TBS) requirements. The mill serves construction, infrastructure, and industrial projects across Tanzania and the wider East African region.\n\nLake Steel is one of Lake Group's key manufacturing subsidiaries, alongside Lake Buildings Solutions, Lake Pipes, Lake Premix & Cement (GCCP), Gulf Aggregates, and ATL . Africa Tank Lines Ltd. [Source: Lake Group official website, TBS]",
         "authorId": null,
         "relatedCompanyId": null,
         "relatedProjectId": null,
@@ -2359,7 +2359,7 @@
         "sector": "LPG Gas",
         "startDate": null,
         "endDate": null,
-        "description": "Lake Gas pioneered the introduction of composite LPG cylinders in East Africa — non-explosive, lightweight and translucent — revolutionising domestic cooking gas safety.",
+        "description": "Lake Gas pioneered the introduction of composite LPG cylinders in East Africa \u00e2\u20ac\u201d non-explosive, lightweight and translucent \u00e2\u20ac\u201d revolutionising domestic cooking gas safety.",
         "impact": null,
         "coverMediaId": null,
         "updatedAt": "2026-08-11T11:58:08.637Z"
@@ -2385,7 +2385,7 @@
         "sector": "Concrete",
         "startDate": null,
         "endDate": null,
-        "description": "Middle East Ready Mix LLC (MERM), Lake Group’s Dubai-based premix concrete operation, has been producing ready-mix concrete since 2005 and serves major construction projects across Dubai.",
+        "description": "Middle East Ready Mix LLC (MERM), Lake Group\u00e2\u20ac\u2122s Dubai-based premix concrete operation, has been producing ready-mix concrete since 2005 and serves major construction projects across Dubai.",
         "impact": null,
         "coverMediaId": null,
         "updatedAt": "2026-08-11T11:58:08.630Z"
@@ -2398,7 +2398,7 @@
         "sector": "Steel Manufacturing",
         "startDate": null,
         "endDate": null,
-        "description": "Tanzania's first HS-CR rebar producer. The fully computerised rolling mill at Visiga, Kibaha runs at up to 25 tonnes per hour — 100,000 MT annual capacity — and its bars are approved for use in government projects.",
+        "description": "Tanzania's first HS-CR rebar producer. The fully computerised rolling mill at Visiga, Kibaha runs at up to 25 tonnes per hour \u00e2\u20ac\u201d 100,000 MT annual capacity \u00e2\u20ac\u201d and its bars are approved for use in government projects.",
         "impact": null,
         "coverMediaId": null,
         "updatedAt": "2026-08-11T11:58:08.627Z"
@@ -2411,7 +2411,7 @@
         "sector": "Fuel & Logistics",
         "startDate": null,
         "endDate": null,
-        "description": "Lake Oil and Lake Trans jointly operate one of East Africa’s largest petroleum supply chains, distributing fuel to 10 countries with 1,600+ trucks running 24/7.",
+        "description": "Lake Oil and Lake Trans jointly operate one of East Africa\u00e2\u20ac\u2122s largest petroleum supply chains, distributing fuel to 10 countries with 1,600+ trucks running 24/7.",
         "impact": null,
         "coverMediaId": null,
         "updatedAt": "2026-08-11T11:58:08.625Z"
@@ -2424,7 +2424,7 @@
         "sector": "LPG Gas",
         "startDate": null,
         "endDate": null,
-        "description": "Lake Gas built East Africa's largest LPG storage terminal at Tanga — commissioned at 1,000 MT and later expanded to 3,000 MT — with a dedicated single point mooring buoy that lets ships discharge directly to the terminal.",
+        "description": "Lake Gas built East Africa's largest LPG storage terminal at Tanga \u00e2\u20ac\u201d commissioned at 1,000 MT and later expanded to 3,000 MT \u00e2\u20ac\u201d with a dedicated single point mooring buoy that lets ships discharge directly to the terminal.",
         "impact": null,
         "coverMediaId": null,
         "updatedAt": "2026-08-11T11:58:08.620Z"
@@ -2434,7 +2434,7 @@
       {
         "id": "4c32a147-4b8b-4cce-bc24-0b5577e8570d",
         "name": "Mohammed Khalid",
-        "position": "Managing Director · ATL",
+        "position": "Managing Director \u00c2\u00b7 ATL",
         "bio": "Directs Associated Trans Logistics Ltd (ATL), operating alongside Lake Trans as a logistical backbone for fuel fleets, heavy haulage and multi-national cargo corridors.",
         "photo": "assets/images/leadership/bhaskar-shetty.png",
         "photoMediaId": null,
@@ -2446,8 +2446,8 @@
       {
         "id": "153e6ba6-2c20-4a62-8273-d9aff28ce73a",
         "name": "Biji Lapat",
-        "position": "CEO · Lake Energies",
-        "bio": "CEO of Lake Energies, Lake Group’s energy division spanning petroleum, LPG, lubricants and aviation services across the Group’s regional footprint.",
+        "position": "CEO \u00c2\u00b7 Lake Energies",
+        "bio": "CEO of Lake Energies, Lake Group\u00e2\u20ac\u2122s energy division spanning petroleum, LPG, lubricants and aviation services across the Group\u00e2\u20ac\u2122s regional footprint.",
         "photo": "assets/images/leadership/biji-lapat.png",
         "photoMediaId": null,
         "order": 3,
@@ -2458,8 +2458,8 @@
       {
         "id": "44ca7c4b-ded5-40ac-b3c6-b2063afd2b78",
         "name": "Juma Nuru",
-        "position": "Director of Operations · Lake Group",
-        "bio": "Leads Group-wide operations across Lake Group’s energy, logistics and industrial units — coordinating day-to-day execution and operational performance.",
+        "position": "Director of Operations \u00c2\u00b7 Lake Group",
+        "bio": "Leads Group-wide operations across Lake Group\u00e2\u20ac\u2122s energy, logistics and industrial units \u00e2\u20ac\u201d coordinating day-to-day execution and operational performance.",
         "photo": "assets/images/leadership/juma-nuru.png",
         "photoMediaId": null,
         "order": 6,
@@ -2471,7 +2471,7 @@
         "id": "83f79098-b69d-4f6d-a2f8-2b5240ce037e",
         "name": "Sridhar Mani",
         "position": "Director of Digital Transformation",
-        "bio": "Owns enterprise technology architecture and digital strategy — from centralised SAP environments to logistics intelligence and cross-border data security.",
+        "bio": "Owns enterprise technology architecture and digital strategy \u00e2\u20ac\u201d from centralised SAP environments to logistics intelligence and cross-border data security.",
         "photo": "assets/images/leadership/vivek-choudhary.png",
         "photoMediaId": null,
         "order": 4,
@@ -2482,8 +2482,8 @@
       {
         "id": "88726a25-5ce6-474d-9c34-b3dd11274034",
         "name": "Biji Alapat",
-        "position": "CEO · Lake Energies",
-        "bio": "CEO of Lake Energies, Lake Group’s energy division spanning petroleum, LPG, lubricants and aviation services across the Group’s regional footprint.",
+        "position": "CEO \u00c2\u00b7 Lake Energies",
+        "bio": "CEO of Lake Energies, Lake Group\u00e2\u20ac\u2122s energy division spanning petroleum, LPG, lubricants and aviation services across the Group\u00e2\u20ac\u2122s regional footprint.",
         "photo": "assets/images/leadership/biji-lapat.png",
         "photoMediaId": null,
         "order": 3,
@@ -2494,8 +2494,8 @@
       {
         "id": "62c58b1f-c673-491e-8b16-74cc5e1c0f95",
         "name": "Bibhuti Singh",
-        "position": "CFO · AFICD",
-        "bio": "Oversees financial planning, risk analysis and corporate governance for African Inland Container Depot (AFICD) — Lake Group’s dry-port platform in Dar es Salaam.",
+        "position": "CFO \u00c2\u00b7 AFICD",
+        "bio": "Oversees financial planning, risk analysis and corporate governance for African Inland Container Depot (AFICD) \u00e2\u20ac\u201d Lake Group\u00e2\u20ac\u2122s dry-port platform in Dar es Salaam.",
         "photo": "assets/images/leadership/pankaj-kumar.png",
         "photoMediaId": null,
         "order": 2,
@@ -2506,7 +2506,7 @@
       {
         "id": "e307cca4-8c98-4789-8d04-4714e42387e1",
         "name": "Dilip Kumar",
-        "position": "CEO · Manufacturing Division",
+        "position": "CEO \u00c2\u00b7 Manufacturing Division",
         "bio": "With over two decades of leadership experience spanning manufacturing, operations, logistics, administration and strategic business development, Dilip Kumar has built a distinguished career delivering operational excellence across diverse industries in India and East Africa.",
         "photo": "assets/images/leadership/sibtian-ansari.png",
         "photoMediaId": null,
@@ -2519,7 +2519,7 @@
         "id": "8f084537-ff9c-4e81-bbe3-79429ec57aa3",
         "name": "Ally Edha Awadh",
         "position": "Founder & Chairman",
-        "bio": "Forbes-featured entrepreneur who founded Lake Oil in 2006 and built Lake Group into one of East and Central Africa’s leading energy, logistics and industrial conglomerates.",
+        "bio": "Forbes-featured entrepreneur who founded Lake Oil in 2006 and built Lake Group into one of East and Central Africa\u00e2\u20ac\u2122s leading energy, logistics and industrial conglomerates.",
         "photo": "assets/images/leadership/ally-edha-awadh.png",
         "photoMediaId": null,
         "order": 0,
@@ -2531,7 +2531,7 @@
     "contacts": [
       {
         "id": "f997b51b-3789-4357-947e-04e33556a996",
-        "name": "MERM — Middle East Ready Mix LLC",
+        "name": "MERM \u00e2\u20ac\u201d Middle East Ready Mix LLC",
         "type": "COMPANY_SPECIFIC",
         "companyId": "5578301a-7a26-4d28-9ecf-580c73020db9",
         "locationId": null,
@@ -2542,7 +2542,7 @@
       },
       {
         "id": "63e348e0-889d-4305-a9d2-3ab53b59da23",
-        "name": "Wadi Elsundus Petroleum — Ethiopia",
+        "name": "Wadi Elsundus Petroleum \u00e2\u20ac\u201d Ethiopia",
         "type": "COMPANY_SPECIFIC",
         "companyId": null,
         "locationId": null,
@@ -2553,7 +2553,7 @@
       },
       {
         "id": "7f499b90-46ea-4d93-9994-b1200eac24ad",
-        "name": "Lake Oil LDA — Mozambique",
+        "name": "Lake Oil LDA \u00e2\u20ac\u201d Mozambique",
         "type": "COMPANY_SPECIFIC",
         "companyId": "9f536306-a78f-413a-82c9-08c31e5f50fe",
         "locationId": null,
@@ -2597,7 +2597,7 @@
       },
       {
         "id": "e5637303-c17c-43a7-863c-d07bad971a60",
-        "name": "Lake Group Operations — Goma",
+        "name": "Lake Group Operations \u00e2\u20ac\u201d Goma",
         "type": "COMPANY_SPECIFIC",
         "companyId": null,
         "locationId": null,
@@ -2619,7 +2619,7 @@
       },
       {
         "id": "e6862afe-542f-4d46-919f-90cbe32dc3ee",
-        "name": "Lake Group Depot — Ndola",
+        "name": "Lake Group Depot \u00e2\u20ac\u201d Ndola",
         "type": "COMPANY_SPECIFIC",
         "companyId": null,
         "locationId": null,
@@ -2630,7 +2630,7 @@
       },
       {
         "id": "e39bb694-282f-4c0a-9dd2-08d415a96f90",
-        "name": "Lake Petroleum Ltd. — Zambia",
+        "name": "Lake Petroleum Ltd. \u00e2\u20ac\u201d Zambia",
         "type": "COMPANY_SPECIFIC",
         "companyId": "9f536306-a78f-413a-82c9-08c31e5f50fe",
         "locationId": null,
@@ -2652,7 +2652,7 @@
       },
       {
         "id": "bbb0bfdb-1b36-49d6-887b-9159396348a6",
-        "name": "Lake Gas — Vipingo Terminal",
+        "name": "Lake Gas \u00e2\u20ac\u201d Vipingo Terminal",
         "type": "COMPANY_SPECIFIC",
         "companyId": "e1d3a5d4-065e-41a7-ab8f-469eb69c75f7",
         "locationId": null,
@@ -2663,7 +2663,7 @@
       },
       {
         "id": "8805ca9b-6c67-424c-930a-3b64d732067f",
-        "name": "AFICD — Depot",
+        "name": "AFICD \u00e2\u20ac\u201d Depot",
         "type": "COMPANY_SPECIFIC",
         "companyId": "ff4b382f-6617-449b-b2f4-a63c1a17a9c7",
         "locationId": null,
@@ -2674,7 +2674,7 @@
       },
       {
         "id": "2c1e7365-0f23-4980-97e3-3439b8f8c0a6",
-        "name": "Lake Steel — Plant",
+        "name": "Lake Steel \u00e2\u20ac\u201d Plant",
         "type": "COMPANY_SPECIFIC",
         "companyId": "9bf9becf-9526-414b-8bc9-f86d599f88ff",
         "locationId": null,
@@ -2685,7 +2685,7 @@
       },
       {
         "id": "6bd6dbe5-bf5c-4cdc-8f01-0cbce46629ba",
-        "name": "Lake Oil — HQ",
+        "name": "Lake Oil \u00e2\u20ac\u201d HQ",
         "type": "COMPANY_SPECIFIC",
         "companyId": "9f536306-a78f-413a-82c9-08c31e5f50fe",
         "locationId": null,
@@ -2732,7 +2732,7 @@
         "title": "Lake Steel Begins Production",
         "date": "2019-06-15T00:00:00.000Z",
         "endDate": null,
-        "description": "Lake Steel and Allied Products starts operations at Visiga, Kibaha — the first producer of high-strength, corrosion-resistant (HS-CR) rebar in Tanzania, with an annual capacity of 100,000 metric tonnes.",
+        "description": "Lake Steel and Allied Products starts operations at Visiga, Kibaha \u00e2\u20ac\u201d the first producer of high-strength, corrosion-resistant (HS-CR) rebar in Tanzania, with an annual capacity of 100,000 metric tonnes.",
         "imageMediaId": null,
         "order": 7,
         "updatedAt": "2026-08-11T11:58:08.827Z"
@@ -2742,7 +2742,7 @@
         "title": "Tanga LPG Terminal",
         "date": "2018-06-15T00:00:00.000Z",
         "endDate": null,
-        "description": "Lake Gas invests in Tanga, commissioning what opens as East Africa’s largest LPG storage terminal — 1,000 MT of capacity, receiving ships through a dedicated single point mooring buoy.",
+        "description": "Lake Gas invests in Tanga, commissioning what opens as East Africa\u00e2\u20ac\u2122s largest LPG storage terminal \u00e2\u20ac\u201d 1,000 MT of capacity, receiving ships through a dedicated single point mooring buoy.",
         "imageMediaId": null,
         "order": 6,
         "updatedAt": "2026-08-11T11:58:08.818Z"
@@ -2752,7 +2752,7 @@
         "title": "Kenya Entry at Scale",
         "date": "2017-06-15T00:00:00.000Z",
         "endDate": null,
-        "description": "The Competition Authority of Kenya approves Lake Oil’s acquisition of Hashi Energy’s Kenyan fuel-station network — a landmark step into East Africa’s largest retail fuel market.",
+        "description": "The Competition Authority of Kenya approves Lake Oil\u00e2\u20ac\u2122s acquisition of Hashi Energy\u00e2\u20ac\u2122s Kenyan fuel-station network \u00e2\u20ac\u201d a landmark step into East Africa\u00e2\u20ac\u2122s largest retail fuel market.",
         "imageMediaId": null,
         "order": 5,
         "updatedAt": "2026-08-11T11:58:08.808Z"
@@ -2762,7 +2762,7 @@
         "title": "Lubricants & Composite Cylinders",
         "date": "2014-06-15T00:00:00.000Z",
         "endDate": null,
-        "description": "Lake Lubes Ltd. is established in Dar es Salaam to blend and market the Group’s own lubricants, and Lake Gas launches Africa’s first composite LPG cylinders — non-explosive, lightweight and translucent.",
+        "description": "Lake Lubes Ltd. is established in Dar es Salaam to blend and market the Group\u00e2\u20ac\u2122s own lubricants, and Lake Gas launches Africa\u00e2\u20ac\u2122s first composite LPG cylinders \u00e2\u20ac\u201d non-explosive, lightweight and translucent.",
         "imageMediaId": null,
         "order": 4,
         "updatedAt": "2026-08-11T11:58:08.802Z"
@@ -2772,7 +2772,7 @@
         "title": "East African Footprint Grows",
         "date": "2012-06-15T00:00:00.000Z",
         "endDate": null,
-        "description": "Burundi Petroleum opens its first petrol station in Burundi, and Lake Petroleum Rwanda — established in Kigali in 2011 — begins importing and distributing fuel across Rwanda.",
+        "description": "Burundi Petroleum opens its first petrol station in Burundi, and Lake Petroleum Rwanda \u00e2\u20ac\u201d established in Kigali in 2011 \u00e2\u20ac\u201d begins importing and distributing fuel across Rwanda.",
         "imageMediaId": null,
         "order": 3,
         "updatedAt": "2026-08-11T11:58:08.792Z"
@@ -2792,7 +2792,7 @@
         "title": "Logistics & First Regional Steps",
         "date": "2008-06-15T00:00:00.000Z",
         "endDate": null,
-        "description": "Lake Trans Ltd. is established as the Group’s logistics arm. The same year, DRC Petroleum S.A.R.L. is founded in the Democratic Republic of Congo and Lake Petroleum Ltd. is incorporated in Zambia — the Group’s first ventures beyond Tanzania.",
+        "description": "Lake Trans Ltd. is established as the Group\u00e2\u20ac\u2122s logistics arm. The same year, DRC Petroleum S.A.R.L. is founded in the Democratic Republic of Congo and Lake Petroleum Ltd. is incorporated in Zambia \u00e2\u20ac\u201d the Group\u00e2\u20ac\u2122s first ventures beyond Tanzania.",
         "imageMediaId": null,
         "order": 1,
         "updatedAt": "2026-08-11T11:58:08.779Z"
@@ -2895,7 +2895,7 @@
       {
         "id": "73ea0f4d-526e-4b5a-9361-60e0308025b6",
         "title": "Clean Cooking Access",
-        "description": "Expanding reliable LPG access for households across East Africa — reducing dependence on charcoal, improving indoor air quality and easing deforestation pressure.",
+        "description": "Expanding reliable LPG access for households across East Africa \u00e2\u20ac\u201d reducing dependence on charcoal, improving indoor air quality and easing deforestation pressure.",
         "category": "environment",
         "imageMediaId": null,
         "companyId": "e1d3a5d4-065e-41a7-ab8f-469eb69c75f7",
@@ -2928,7 +2928,7 @@
       {
         "id": "27c9e95f-e427-4291-b7f6-4329f2c7100d",
         "title": "Children & Community Welfare",
-        "description": "Assisting needy children and orphanage centres, supporting places of worship, and providing emergency relief — including food and LPG cooking sets for flood-affected families in Rufiji.",
+        "description": "Assisting needy children and orphanage centres, supporting places of worship, and providing emergency relief \u00e2\u20ac\u201d including food and LPG cooking sets for flood-affected families in Rufiji.",
         "category": "community",
         "imageMediaId": null,
         "companyId": "e1d3a5d4-065e-41a7-ab8f-469eb69c75f7",
@@ -2939,7 +2939,7 @@
       {
         "id": "6d710651-a096-4d38-af72-a2a5b484c1ba",
         "title": "Healthcare Support",
-        "description": "Donating medical equipment to maternal wards in Dar es Salaam’s municipal hospitals — delivery beds, delivery kits, wheelchairs, stretchers and BP machines — and supporting referral hospitals such as Temeke.",
+        "description": "Donating medical equipment to maternal wards in Dar es Salaam\u00e2\u20ac\u2122s municipal hospitals \u00e2\u20ac\u201d delivery beds, delivery kits, wheelchairs, stretchers and BP machines \u00e2\u20ac\u201d and supporting referral hospitals such as Temeke.",
         "category": "community",
         "imageMediaId": null,
         "companyId": "9f536306-a78f-413a-82c9-08c31e5f50fe",
@@ -3031,7 +3031,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "dubai"
@@ -3049,7 +3049,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "dubai"
@@ -3067,7 +3067,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "dubai"
@@ -3085,7 +3085,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "dubai"
@@ -3103,7 +3103,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "dubai"
@@ -3121,7 +3121,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "dubai"
@@ -3139,7 +3139,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "dubai"
@@ -3157,7 +3157,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "dubai"
@@ -3175,7 +3175,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "dubai"
@@ -3193,7 +3193,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "dubai"
@@ -3211,7 +3211,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "concrete"
@@ -3229,7 +3229,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "concrete"
@@ -3247,7 +3247,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "concrete"
@@ -3265,7 +3265,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "concrete"
@@ -3283,7 +3283,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "concrete"
@@ -3301,7 +3301,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "concrete"
@@ -3319,7 +3319,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "concrete"
@@ -3337,7 +3337,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "concrete"
@@ -3348,14 +3348,14 @@
       {
         "id": "a1d7d133-ae2a-4b26-bc9e-2a52517b8289",
         "url": "assets/images/gccp/photo_4.jpg",
-        "altText": "GCCP, Mixer Truck Fleet (20 units, 12m³ each)",
-        "caption": "GCCP, Mixer Truck Fleet (20 units, 12m³ each)",
+        "altText": "GCCP, Mixer Truck Fleet (20 units, 12m\u00c2\u00b3 each)",
+        "caption": "GCCP, Mixer Truck Fleet (20 units, 12m\u00c2\u00b3 each)",
         "mimeType": null,
         "sizeBytes": null,
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "concrete"
@@ -3373,7 +3373,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "concrete"
@@ -3391,7 +3391,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "concrete"
@@ -3409,7 +3409,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "concrete"
@@ -3427,7 +3427,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "operations"
@@ -3445,7 +3445,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "operations"
@@ -3463,7 +3463,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "operations"
@@ -3481,7 +3481,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "operations"
@@ -3499,7 +3499,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "lpg"
@@ -3517,7 +3517,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "lpg"
@@ -3535,7 +3535,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "lpg"
@@ -3553,7 +3553,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "fuel"
@@ -3571,7 +3571,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "fuel"
@@ -3589,7 +3589,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "fuel"
@@ -3607,7 +3607,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "fuel"
@@ -3625,7 +3625,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "operations"
@@ -3643,7 +3643,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "operations"
@@ -3661,7 +3661,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "fuel"
@@ -3679,7 +3679,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "operations"
@@ -3697,7 +3697,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "operations"
@@ -3715,7 +3715,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "operations"
@@ -3733,7 +3733,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "gallery",
           "operations"
@@ -3751,7 +3751,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -3768,7 +3768,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -3785,7 +3785,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -3802,7 +3802,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -3819,7 +3819,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -3836,7 +3836,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -3853,7 +3853,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -3870,7 +3870,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -3887,7 +3887,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -3904,7 +3904,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -3921,7 +3921,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -3938,7 +3938,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -3955,7 +3955,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -3972,7 +3972,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -3989,7 +3989,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -4006,7 +4006,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -4023,7 +4023,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -4040,7 +4040,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -4057,7 +4057,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -4074,7 +4074,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -4091,7 +4091,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -4108,7 +4108,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -4125,7 +4125,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -4142,7 +4142,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -4159,7 +4159,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -4176,7 +4176,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -4193,7 +4193,7 @@
         "width": null,
         "height": null,
         "copyright": null,
-        "license": "© Lake Group",
+        "license": "\u00c2\u00a9 Lake Group",
         "tags": [
           "news"
         ],
@@ -4929,7 +4929,7 @@
         "type": "metric",
         "lang": "en",
         "text": "Employees: 30,000+ (employees)",
-        "source": "Official about page (lakeoilgroup.com) — \"Workforce 30,000+ employees, 21 nationalities\" (scripts/_verified_lake_facts.md); used sitewide on index, about, our-story, careers, africa-network.",
+        "source": "Official about page (lakeoilgroup.com) \u00e2\u20ac\u201d \"Workforce 30,000+ employees, 21 nationalities\" (scripts/_verified_lake_facts.md); used sitewide on index, about, our-story, careers, africa-network.",
         "verification": "VERIFIED",
         "url": "/about.html",
         "title": "About Lake Group"
@@ -4939,7 +4939,7 @@
         "type": "metric",
         "lang": "en",
         "text": "Trucks: 1,600+ (trucks)",
-        "source": "Official about page — group fleet \"1,600+ trucks\" (site source of truth, 2026; scripts/_verified_lake_facts.md).",
+        "source": "Official about page \u00e2\u20ac\u201d group fleet \"1,600+ trucks\" (site source of truth, 2026; scripts/_verified_lake_facts.md).",
         "verification": "VERIFIED",
         "url": "/about.html",
         "title": "About Lake Group"
@@ -4949,7 +4949,7 @@
         "type": "metric",
         "lang": "en",
         "text": "Fuel Stations: 152 (fuel stations)",
-        "source": "Official site stats — \"152 fuel stations (group source of truth, 2026)\" (scripts/_verified_lake_facts.md).",
+        "source": "Official site stats \u00e2\u20ac\u201d \"152 fuel stations (group source of truth, 2026)\" (scripts/_verified_lake_facts.md).",
         "verification": "VERIFIED",
         "url": "/about.html",
         "title": "About Lake Group"
@@ -4959,7 +4959,7 @@
         "type": "metric",
         "lang": "en",
         "text": "Countries: 10 (countries)",
-        "source": "Official about/home pages — \"operating across 10 countries\" (Tanzania, Kenya, Zambia, DR Congo, Rwanda, Burundi, Ethiopia, Mozambique, Uganda + UAE presence; scripts/_verified_lake_facts.md, assistant-kb fact:countries).",
+        "source": "Official about/home pages \u00e2\u20ac\u201d \"operating across 10 countries\" (Tanzania, Kenya, Zambia, DR Congo, Rwanda, Burundi, Ethiopia, Mozambique, Uganda + UAE presence; scripts/_verified_lake_facts.md, assistant-kb fact:countries).",
         "verification": "VERIFIED",
         "url": "/about.html",
         "title": "About Lake Group"
@@ -4969,7 +4969,7 @@
         "type": "metric",
         "lang": "en",
         "text": "Nationalities: 21 (nationalities)",
-        "source": "Official about page — \"a diverse mix of 21 nationalities\" (scripts/_verified_lake_facts.md).",
+        "source": "Official about page \u00e2\u20ac\u201d \"a diverse mix of 21 nationalities\" (scripts/_verified_lake_facts.md).",
         "verification": "VERIFIED",
         "url": "/about.html",
         "title": "About Lake Group"
@@ -4998,7 +4998,7 @@
         "id": "company:lake-oil",
         "type": "company",
         "lang": "en",
-        "text": "Lake Oil — Lake Group's flagship company — one of Tanzania's top 5 petroleum distributors, with retail stations, bulk supply and storage across 10 countries.",
+        "text": "Lake Oil \u00e2\u20ac\u201d Lake Group's flagship company \u00e2\u20ac\u201d one of Tanzania's top 5 petroleum distributors, with retail stations, bulk supply and storage across 10 countries.",
         "source": "Lake Group official website (company registry)",
         "verification": "VERIFIED",
         "url": "/lake-oil.html",
@@ -5008,7 +5008,7 @@
         "id": "company:lake-aviation",
         "type": "company",
         "lang": "en",
-        "text": "Lake Aviation — Lake Group's aviation services division — Jet A-1 fuel supply and aviation fuel handling.",
+        "text": "Lake Aviation \u00e2\u20ac\u201d Lake Group's aviation services division \u00e2\u20ac\u201d Jet A-1 fuel supply and aviation fuel handling.",
         "source": "Lake Group official website (company registry)",
         "verification": "VERIFIED",
         "url": "/lake-aviation.html",
@@ -5018,7 +5018,7 @@
         "id": "company:lake-gas",
         "type": "company",
         "lang": "en",
-        "text": "Lake Gas — LPG bottling and distribution with cylinders for domestic and commercial use across 6 countries. Operates the Tanga import terminal and the $60M Vipingo terminal in Kenya.",
+        "text": "Lake Gas \u00e2\u20ac\u201d LPG bottling and distribution with cylinders for domestic and commercial use across 6 countries. Operates the Tanga import terminal and the $60M Vipingo terminal in Kenya.",
         "source": "Lake Group official website (company registry)",
         "verification": "VERIFIED",
         "url": "/lake-gas.html",
@@ -5028,7 +5028,7 @@
         "id": "company:lake-lubes",
         "type": "company",
         "lang": "en",
-        "text": "Lake Lubes — Manufactures and distributes automotive, industrial and specialty lubricants in 5 countries.",
+        "text": "Lake Lubes \u00e2\u20ac\u201d Manufactures and distributes automotive, industrial and specialty lubricants in 5 countries.",
         "source": "Lake Group official website (company registry)",
         "verification": "VERIFIED",
         "url": "/lake-lubes.html",
@@ -5038,7 +5038,7 @@
         "id": "company:lake-buildings",
         "type": "company",
         "lang": "en",
-        "text": "Lake Buildings — Lake Group's building materials and construction solutions arm.",
+        "text": "Lake Buildings \u00e2\u20ac\u201d Lake Group's building materials and construction solutions arm.",
         "source": "Lake Group official website (company registry)",
         "verification": "VERIFIED",
         "url": "/lake-buildings.html",
@@ -5048,7 +5048,7 @@
         "id": "company:lake-pipes",
         "type": "company",
         "lang": "en",
-        "text": "Lake Pipes — Lake Group's plastics manufacturing division.",
+        "text": "Lake Pipes \u00e2\u20ac\u201d Lake Group's plastics manufacturing division.",
         "source": "Lake Group official website (company registry)",
         "verification": "VERIFIED",
         "url": "/lake-pipes.html",
@@ -5058,7 +5058,7 @@
         "id": "company:lake-steel",
         "type": "company",
         "lang": "en",
-        "text": "Lake Steel — Tanzania's first HS-CR rebar producer. Fully automated rolling mill at Visiga, Kibaha with 100,000 MT/year capacity.",
+        "text": "Lake Steel \u00e2\u20ac\u201d Tanzania's first HS-CR rebar producer. Fully automated rolling mill at Visiga, Kibaha with 100,000 MT/year capacity.",
         "source": "Lake Group official website (company registry)",
         "verification": "VERIFIED",
         "url": "/lake-steel.html",
@@ -5068,7 +5068,7 @@
         "id": "company:lake-cylinders",
         "type": "company",
         "lang": "en",
-        "text": "Lake Cylinders — Lake Group's gas cylinder manufacturing division.",
+        "text": "Lake Cylinders \u00e2\u20ac\u201d Lake Group's gas cylinder manufacturing division.",
         "source": "Lake Group official website (company registry)",
         "verification": "VERIFIED",
         "url": "/lake-cylinders.html",
@@ -5078,7 +5078,7 @@
         "id": "company:gulf-aggregates",
         "type": "company",
         "lang": "en",
-        "text": "Gulf Aggregates — Aggregate quarrying at Lugoba, supplying the construction industry and Lake Group's own concrete production.",
+        "text": "Gulf Aggregates \u00e2\u20ac\u201d Aggregate quarrying at Lugoba, supplying the construction industry and Lake Group's own concrete production.",
         "source": "Lake Group official website (company registry)",
         "verification": "VERIFIED",
         "url": "/gulf-aggregates.html",
@@ -5088,7 +5088,7 @@
         "id": "company:lake-premix-cement",
         "type": "company",
         "lang": "en",
-        "text": "Lake Premix & Cement — Dar es Salaam's leading ready-mix concrete supplier (GCCP), established 2010.",
+        "text": "Lake Premix & Cement \u00e2\u20ac\u201d Dar es Salaam's leading ready-mix concrete supplier (GCCP), established 2010.",
         "source": "Lake Group official website (company registry)",
         "verification": "VERIFIED",
         "url": "/lake-premix-cement.html",
@@ -5098,7 +5098,7 @@
         "id": "company:cross-country",
         "type": "company",
         "lang": "en",
-        "text": "Cross Country — Lake Group's real estate and property development arm.",
+        "text": "Cross Country \u00e2\u20ac\u201d Lake Group's real estate and property development arm.",
         "source": "Lake Group official website (company registry)",
         "verification": "VERIFIED",
         "url": "/cross-country.html",
@@ -5108,7 +5108,7 @@
         "id": "company:ocean-galleria",
         "type": "company",
         "lang": "en",
-        "text": "Ocean Galleria — Lake Group's real estate and retail gallery development.",
+        "text": "Ocean Galleria \u00e2\u20ac\u201d Lake Group's real estate and retail gallery development.",
         "source": "Lake Group official website (company registry)",
         "verification": "VERIFIED",
         "url": "/ocean-galleria.html",
@@ -5118,7 +5118,7 @@
         "id": "company:lake-agro",
         "type": "company",
         "lang": "en",
-        "text": "Lake Agro — Agribusiness plantations and integrated agro-parks — creating customers and food for life across Africa.",
+        "text": "Lake Agro \u00e2\u20ac\u201d Agribusiness plantations and integrated agro-parks \u00e2\u20ac\u201d creating customers and food for life across Africa.",
         "source": "Lake Group official website (company registry)",
         "verification": "VERIFIED",
         "url": "/lake-agro.html",
@@ -5128,7 +5128,7 @@
         "id": "company:aficd",
         "type": "company",
         "lang": "en",
-        "text": "AFICD — African Inland Container Depot — licensed dry-port operator (TASAC) with inland container depot services across Tanzania, Zambia and Mozambique.",
+        "text": "AFICD \u00e2\u20ac\u201d African Inland Container Depot \u00e2\u20ac\u201d licensed dry-port operator (TASAC) with inland container depot services across Tanzania, Zambia and Mozambique.",
         "source": "Lake Group official website (company registry)",
         "verification": "VERIFIED",
         "url": "/aficd.html",
@@ -5138,7 +5138,7 @@
         "id": "company:acfs",
         "type": "company",
         "lang": "en",
-        "text": "ACFS — African Cargo Freight Station — container freight station and empty container depot services at Tazara, Pugu Road, Dar es Salaam.",
+        "text": "ACFS \u00e2\u20ac\u201d African Cargo Freight Station \u00e2\u20ac\u201d container freight station and empty container depot services at Tazara, Pugu Road, Dar es Salaam.",
         "source": "Lake Group official website (company registry)",
         "verification": "VERIFIED",
         "url": "/acfs.html",
@@ -5148,7 +5148,7 @@
         "id": "company:aill",
         "type": "company",
         "lang": "en",
-        "text": "AILL — African Inland Logistic Limited — part of Lake Group's logistics network.",
+        "text": "AILL \u00e2\u20ac\u201d African Inland Logistic Limited \u00e2\u20ac\u201d part of Lake Group's logistics network.",
         "source": "Lake Group official website (company registry)",
         "verification": "VERIFIED",
         "url": "/aill.html",
@@ -5158,7 +5158,7 @@
         "id": "company:lake-trans",
         "type": "company",
         "lang": "en",
-        "text": "Lake Trans — 1,600+ trucks for bulk liquid haulage and regional cross-border transport across East & Central Africa.",
+        "text": "Lake Trans \u00e2\u20ac\u201d 1,600+ trucks for bulk liquid haulage and regional cross-border transport across East & Central Africa.",
         "source": "Lake Group official website (company registry)",
         "verification": "VERIFIED",
         "url": "/lake-trans.html",
@@ -5168,7 +5168,7 @@
         "id": "company:atl",
         "type": "company",
         "lang": "en",
-        "text": "ATL (Aluminium Trailers) — Tanzania's aluminium fuel tanker and custom trailer manufacturer — engineered for African routes.",
+        "text": "ATL (Aluminium Trailers) \u00e2\u20ac\u201d Tanzania's aluminium fuel tanker and custom trailer manufacturer \u00e2\u20ac\u201d engineered for African routes.",
         "source": "Lake Group official website (company registry)",
         "verification": "VERIFIED",
         "url": "/atl.html",
@@ -5178,7 +5178,7 @@
         "id": "leadership:Dilip Kumar",
         "type": "leadership",
         "lang": "en",
-        "text": "Dilip Kumar is CEO · Manufacturing Division. With over two decades of leadership experience spanning manufacturing, operations, logistics, administration and strategic business development, Dilip Kumar has built a distinguished career delivering operational excellence across diverse industries in India and East Africa.",
+        "text": "Dilip Kumar is CEO \u00c2\u00b7 Manufacturing Division. With over two decades of leadership experience spanning manufacturing, operations, logistics, administration and strategic business development, Dilip Kumar has built a distinguished career delivering operational excellence across diverse industries in India and East Africa.",
         "source": "Lake Group official website (leadership)",
         "verification": "VERIFIED",
         "url": "/leadership.html",
@@ -5188,7 +5188,7 @@
         "id": "leadership:Bibhuti Singh",
         "type": "leadership",
         "lang": "en",
-        "text": "Bibhuti Singh is CFO · AFICD. Oversees financial planning, risk analysis and corporate governance for African Inland Container Depot (AFICD) — Lake Group’s dry-port platform in Dar es Salaam.",
+        "text": "Bibhuti Singh is CFO \u00c2\u00b7 AFICD. Oversees financial planning, risk analysis and corporate governance for African Inland Container Depot (AFICD) \u00e2\u20ac\u201d Lake Group\u00e2\u20ac\u2122s dry-port platform in Dar es Salaam.",
         "source": "Lake Group official website (leadership)",
         "verification": "VERIFIED",
         "url": "/leadership.html",
@@ -5198,7 +5198,7 @@
         "id": "leadership:Sridhar Mani",
         "type": "leadership",
         "lang": "en",
-        "text": "Sridhar Mani is Director of Digital Transformation. Owns enterprise technology architecture and digital strategy — from centralised SAP environments to logistics intelligence and cross-border data security.",
+        "text": "Sridhar Mani is Director of Digital Transformation. Owns enterprise technology architecture and digital strategy \u00e2\u20ac\u201d from centralised SAP environments to logistics intelligence and cross-border data security.",
         "source": "Lake Group official website (leadership)",
         "verification": "VERIFIED",
         "url": "/leadership.html",
@@ -5208,7 +5208,7 @@
         "id": "leadership:Juma Nuru",
         "type": "leadership",
         "lang": "en",
-        "text": "Juma Nuru is Director of Operations · Lake Group. Leads Group-wide operations across Lake Group’s energy, logistics and industrial units — coordinating day-to-day execution and operational performance.",
+        "text": "Juma Nuru is Director of Operations \u00c2\u00b7 Lake Group. Leads Group-wide operations across Lake Group\u00e2\u20ac\u2122s energy, logistics and industrial units \u00e2\u20ac\u201d coordinating day-to-day execution and operational performance.",
         "source": "Lake Group official website (leadership)",
         "verification": "VERIFIED",
         "url": "/leadership.html",
@@ -5218,7 +5218,7 @@
         "id": "leadership:Ally Edha Awadh",
         "type": "leadership",
         "lang": "en",
-        "text": "Ally Edha Awadh is Founder & Chairman. Forbes-featured entrepreneur who founded Lake Oil in 2006 and built Lake Group into one of East and Central Africa’s leading energy, logistics and industrial conglomerates.",
+        "text": "Ally Edha Awadh is Founder & Chairman. Forbes-featured entrepreneur who founded Lake Oil in 2006 and built Lake Group into one of East and Central Africa\u00e2\u20ac\u2122s leading energy, logistics and industrial conglomerates.",
         "source": "Lake Group official website (leadership)",
         "verification": "VERIFIED",
         "url": "/leadership.html",
@@ -5228,7 +5228,7 @@
         "id": "leadership:Biji Alapat",
         "type": "leadership",
         "lang": "en",
-        "text": "Biji Alapat is CEO · Lake Energies. CEO of Lake Energies, Lake Group’s energy division spanning petroleum, LPG, lubricants and aviation services across the Group’s regional footprint.",
+        "text": "Biji Alapat is CEO \u00c2\u00b7 Lake Energies. CEO of Lake Energies, Lake Group\u00e2\u20ac\u2122s energy division spanning petroleum, LPG, lubricants and aviation services across the Group\u00e2\u20ac\u2122s regional footprint.",
         "source": "Lake Group official website (leadership)",
         "verification": "VERIFIED",
         "url": "/leadership.html",
@@ -5238,7 +5238,7 @@
         "id": "leadership:Biji Lapat",
         "type": "leadership",
         "lang": "en",
-        "text": "Biji Lapat is CEO · Lake Energies. CEO of Lake Energies, Lake Group’s energy division spanning petroleum, LPG, lubricants and aviation services across the Group’s regional footprint.",
+        "text": "Biji Lapat is CEO \u00c2\u00b7 Lake Energies. CEO of Lake Energies, Lake Group\u00e2\u20ac\u2122s energy division spanning petroleum, LPG, lubricants and aviation services across the Group\u00e2\u20ac\u2122s regional footprint.",
         "source": "Lake Group official website (leadership)",
         "verification": "VERIFIED",
         "url": "/leadership.html",
@@ -5248,7 +5248,7 @@
         "id": "leadership:Mohammed Khalid",
         "type": "leadership",
         "lang": "en",
-        "text": "Mohammed Khalid is Managing Director · ATL. Directs Associated Trans Logistics Ltd (ATL), operating alongside Lake Trans as a logistical backbone for fuel fleets, heavy haulage and multi-national cargo corridors.",
+        "text": "Mohammed Khalid is Managing Director \u00c2\u00b7 ATL. Directs Associated Trans Logistics Ltd (ATL), operating alongside Lake Trans as a logistical backbone for fuel fleets, heavy haulage and multi-national cargo corridors.",
         "source": "Lake Group official website (leadership)",
         "verification": "VERIFIED",
         "url": "/leadership.html",
@@ -5268,7 +5268,7 @@
         "id": "history:d83cd670-72a5-4ca4-a40c-7c2df8319bb1",
         "type": "history",
         "lang": "en",
-        "text": "2008: Logistics & First Regional Steps. Lake Trans Ltd. is established as the Group’s logistics arm. The same year, DRC Petroleum S.A.R.L. is founded in the Democratic Republic of Congo and Lake Petroleum Ltd. is incorporated in Zambia — the Group’s first ventures beyond Tanzania.",
+        "text": "2008: Logistics & First Regional Steps. Lake Trans Ltd. is established as the Group\u00e2\u20ac\u2122s logistics arm. The same year, DRC Petroleum S.A.R.L. is founded in the Democratic Republic of Congo and Lake Petroleum Ltd. is incorporated in Zambia \u00e2\u20ac\u201d the Group\u00e2\u20ac\u2122s first ventures beyond Tanzania.",
         "source": "Lake Group official website (history)",
         "verification": "VERIFIED",
         "url": "/history.html",
@@ -5288,7 +5288,7 @@
         "id": "history:1948b5e5-5f19-44ab-9a16-7904cdb0bd58",
         "type": "history",
         "lang": "en",
-        "text": "2012: East African Footprint Grows. Burundi Petroleum opens its first petrol station in Burundi, and Lake Petroleum Rwanda — established in Kigali in 2011 — begins importing and distributing fuel across Rwanda.",
+        "text": "2012: East African Footprint Grows. Burundi Petroleum opens its first petrol station in Burundi, and Lake Petroleum Rwanda \u00e2\u20ac\u201d established in Kigali in 2011 \u00e2\u20ac\u201d begins importing and distributing fuel across Rwanda.",
         "source": "Lake Group official website (history)",
         "verification": "VERIFIED",
         "url": "/history.html",
@@ -5298,7 +5298,7 @@
         "id": "history:b4997849-a909-44ff-b52e-1c2837d52702",
         "type": "history",
         "lang": "en",
-        "text": "2014: Lubricants & Composite Cylinders. Lake Lubes Ltd. is established in Dar es Salaam to blend and market the Group’s own lubricants, and Lake Gas launches Africa’s first composite LPG cylinders — non-explosive, lightweight and translucent.",
+        "text": "2014: Lubricants & Composite Cylinders. Lake Lubes Ltd. is established in Dar es Salaam to blend and market the Group\u00e2\u20ac\u2122s own lubricants, and Lake Gas launches Africa\u00e2\u20ac\u2122s first composite LPG cylinders \u00e2\u20ac\u201d non-explosive, lightweight and translucent.",
         "source": "Lake Group official website (history)",
         "verification": "VERIFIED",
         "url": "/history.html",
@@ -5308,7 +5308,7 @@
         "id": "history:b18ce9a6-6ade-4e9e-a5aa-251656d25d5c",
         "type": "history",
         "lang": "en",
-        "text": "2017: Kenya Entry at Scale. The Competition Authority of Kenya approves Lake Oil’s acquisition of Hashi Energy’s Kenyan fuel-station network — a landmark step into East Africa’s largest retail fuel market.",
+        "text": "2017: Kenya Entry at Scale. The Competition Authority of Kenya approves Lake Oil\u00e2\u20ac\u2122s acquisition of Hashi Energy\u00e2\u20ac\u2122s Kenyan fuel-station network \u00e2\u20ac\u201d a landmark step into East Africa\u00e2\u20ac\u2122s largest retail fuel market.",
         "source": "Lake Group official website (history)",
         "verification": "VERIFIED",
         "url": "/history.html",
@@ -5318,7 +5318,7 @@
         "id": "history:468f8640-0fb6-4497-98e6-ce3802d9f9d3",
         "type": "history",
         "lang": "en",
-        "text": "2018: Tanga LPG Terminal. Lake Gas invests in Tanga, commissioning what opens as East Africa’s largest LPG storage terminal — 1,000 MT of capacity, receiving ships through a dedicated single point mooring buoy.",
+        "text": "2018: Tanga LPG Terminal. Lake Gas invests in Tanga, commissioning what opens as East Africa\u00e2\u20ac\u2122s largest LPG storage terminal \u00e2\u20ac\u201d 1,000 MT of capacity, receiving ships through a dedicated single point mooring buoy.",
         "source": "Lake Group official website (history)",
         "verification": "VERIFIED",
         "url": "/history.html",
@@ -5328,7 +5328,7 @@
         "id": "history:0e304fd1-79c4-41c7-b5ff-2792a6967aad",
         "type": "history",
         "lang": "en",
-        "text": "2019: Lake Steel Begins Production. Lake Steel and Allied Products starts operations at Visiga, Kibaha — the first producer of high-strength, corrosion-resistant (HS-CR) rebar in Tanzania, with an annual capacity of 100,000 metric tonnes.",
+        "text": "2019: Lake Steel Begins Production. Lake Steel and Allied Products starts operations at Visiga, Kibaha \u00e2\u20ac\u201d the first producer of high-strength, corrosion-resistant (HS-CR) rebar in Tanzania, with an annual capacity of 100,000 metric tonnes.",
         "source": "Lake Group official website (history)",
         "verification": "VERIFIED",
         "url": "/history.html",
@@ -5358,7 +5358,7 @@
         "id": "project:313fd1e2-6585-418e-97a8-782dd21f0467",
         "type": "project",
         "lang": "en",
-        "text": "Tanga LPG Import Terminal  East Africa's Largest. Lake Gas built East Africa's largest LPG storage terminal at Tanga — commissioned at 1,000 MT and later expanded to 3,000 MT — with a dedicated single point mooring buoy that lets ships discharge directly to the terminal.",
+        "text": "Tanga LPG Import Terminal  East Africa's Largest. Lake Gas built East Africa's largest LPG storage terminal at Tanga \u00e2\u20ac\u201d commissioned at 1,000 MT and later expanded to 3,000 MT \u00e2\u20ac\u201d with a dedicated single point mooring buoy that lets ships discharge directly to the terminal.",
         "source": "Lake Group official website (major projects)",
         "verification": "VERIFIED",
         "url": "/projects.html",
@@ -5368,7 +5368,7 @@
         "id": "project:c4eaf9c1-e3c7-4b31-9598-0f08a6b335bf",
         "type": "project",
         "lang": "en",
-        "text": "Pan-African Petroleum Supply Chain. Lake Oil and Lake Trans jointly operate one of East Africa’s largest petroleum supply chains, distributing fuel to 10 countries with 1,600+ trucks running 24/7.",
+        "text": "Pan-African Petroleum Supply Chain. Lake Oil and Lake Trans jointly operate one of East Africa\u00e2\u20ac\u2122s largest petroleum supply chains, distributing fuel to 10 countries with 1,600+ trucks running 24/7.",
         "source": "Lake Group official website (major projects)",
         "verification": "VERIFIED",
         "url": "/projects.html",
@@ -5378,7 +5378,7 @@
         "id": "project:1b04bd38-0421-44bf-9128-04443ca21e73",
         "type": "project",
         "lang": "en",
-        "text": "Lake Steel Rolling Mill, Tanzania First. Tanzania's first HS-CR rebar producer. The fully computerised rolling mill at Visiga, Kibaha runs at up to 25 tonnes per hour — 100,000 MT annual capacity — and its bars are approved for use in government projects.",
+        "text": "Lake Steel Rolling Mill, Tanzania First. Tanzania's first HS-CR rebar producer. The fully computerised rolling mill at Visiga, Kibaha runs at up to 25 tonnes per hour \u00e2\u20ac\u201d 100,000 MT annual capacity \u00e2\u20ac\u201d and its bars are approved for use in government projects.",
         "source": "Lake Group official website (major projects)",
         "verification": "VERIFIED",
         "url": "/projects.html",
@@ -5388,7 +5388,7 @@
         "id": "project:e184dacf-e69e-4f06-9c26-4e3032d30969",
         "type": "project",
         "lang": "en",
-        "text": "MERM Ready Mix, Dubai Expansion. Middle East Ready Mix LLC (MERM), Lake Group’s Dubai-based premix concrete operation, has been producing ready-mix concrete since 2005 and serves major construction projects across Dubai.",
+        "text": "MERM Ready Mix, Dubai Expansion. Middle East Ready Mix LLC (MERM), Lake Group\u00e2\u20ac\u2122s Dubai-based premix concrete operation, has been producing ready-mix concrete since 2005 and serves major construction projects across Dubai.",
         "source": "Lake Group official website (major projects)",
         "verification": "VERIFIED",
         "url": "/projects.html",
@@ -5408,7 +5408,7 @@
         "id": "project:ebbdfcce-eac1-43e2-beac-3b2c7430cc5f",
         "type": "project",
         "lang": "en",
-        "text": "LPG Composite Cylinder Launch. Lake Gas pioneered the introduction of composite LPG cylinders in East Africa — non-explosive, lightweight and translucent — revolutionising domestic cooking gas safety.",
+        "text": "LPG Composite Cylinder Launch. Lake Gas pioneered the introduction of composite LPG cylinders in East Africa \u00e2\u20ac\u201d non-explosive, lightweight and translucent \u00e2\u20ac\u201d revolutionising domestic cooking gas safety.",
         "source": "Lake Group official website (major projects)",
         "verification": "VERIFIED",
         "url": "/projects.html",
@@ -5418,7 +5418,7 @@
         "id": "csr:6d710651-a096-4d38-af72-a2a5b484c1ba",
         "type": "csr",
         "lang": "en",
-        "text": "Healthcare Support — Donating medical equipment to maternal wards in Dar es Salaam’s municipal hospitals — delivery beds, delivery kits, wheelchairs, stretchers and BP machines — and supporting referral hospitals such as Temeke.",
+        "text": "Healthcare Support \u00e2\u20ac\u201d Donating medical equipment to maternal wards in Dar es Salaam\u00e2\u20ac\u2122s municipal hospitals \u00e2\u20ac\u201d delivery beds, delivery kits, wheelchairs, stretchers and BP machines \u00e2\u20ac\u201d and supporting referral hospitals such as Temeke.",
         "source": "Lake Group official website (CSR & Sustainability)",
         "verification": "VERIFIED",
         "url": "/csr.html",
@@ -5428,7 +5428,7 @@
         "id": "csr:27c9e95f-e427-4291-b7f6-4329f2c7100d",
         "type": "csr",
         "lang": "en",
-        "text": "Children & Community Welfare — Assisting needy children and orphanage centres, supporting places of worship, and providing emergency relief — including food and LPG cooking sets for flood-affected families in Rufiji.",
+        "text": "Children & Community Welfare \u00e2\u20ac\u201d Assisting needy children and orphanage centres, supporting places of worship, and providing emergency relief \u00e2\u20ac\u201d including food and LPG cooking sets for flood-affected families in Rufiji.",
         "source": "Lake Group official website (CSR & Sustainability)",
         "verification": "VERIFIED",
         "url": "/csr.html",
@@ -5438,7 +5438,7 @@
         "id": "csr:8a8d7935-cf86-47bf-80c9-81a016e5856f",
         "type": "csr",
         "lang": "en",
-        "text": "Environmental Stewardship — Responsible handling, storage and transport of petroleum products across the supply chain, with continuous investment in modern equipment and cleaner operations.",
+        "text": "Environmental Stewardship \u00e2\u20ac\u201d Responsible handling, storage and transport of petroleum products across the supply chain, with continuous investment in modern equipment and cleaner operations.",
         "source": "Lake Group official website (CSR & Sustainability)",
         "verification": "VERIFIED",
         "url": "/csr.html",
@@ -5448,7 +5448,7 @@
         "id": "csr:ecf5fe86-afd0-4713-be4d-f6db3f951be4",
         "type": "csr",
         "lang": "en",
-        "text": "Local Employment — 30,000+ jobs across 10 countries, with a strong preference for hiring and developing local talent at every level of the organisation.",
+        "text": "Local Employment \u00e2\u20ac\u201d 30,000+ jobs across 10 countries, with a strong preference for hiring and developing local talent at every level of the organisation.",
         "source": "Lake Group official website (CSR & Sustainability)",
         "verification": "VERIFIED",
         "url": "/csr.html",
@@ -5458,7 +5458,7 @@
         "id": "csr:73ea0f4d-526e-4b5a-9361-60e0308025b6",
         "type": "csr",
         "lang": "en",
-        "text": "Clean Cooking Access — Expanding reliable LPG access for households across East Africa — reducing dependence on charcoal, improving indoor air quality and easing deforestation pressure.",
+        "text": "Clean Cooking Access \u00e2\u20ac\u201d Expanding reliable LPG access for households across East Africa \u00e2\u20ac\u201d reducing dependence on charcoal, improving indoor air quality and easing deforestation pressure.",
         "source": "Lake Group official website (CSR & Sustainability)",
         "verification": "VERIFIED",
         "url": "/csr.html",
@@ -5468,7 +5468,7 @@
         "id": "csr:32a74ded-14bd-4486-aab3-58c17d7e4658",
         "type": "csr",
         "lang": "en",
-        "text": "Health & Safety — Industry-leading safety standards across all divisions. Zero-harm ambition for employees, contractors and the communities we operate in.",
+        "text": "Health & Safety \u00e2\u20ac\u201d Industry-leading safety standards across all divisions. Zero-harm ambition for employees, contractors and the communities we operate in.",
         "source": "Lake Group official website (CSR & Sustainability)",
         "verification": "VERIFIED",
         "url": "/csr.html",
@@ -5478,7 +5478,7 @@
         "id": "contact:44514fba-9a4b-46d1-8785-5a3998caa5c8",
         "type": "contact",
         "lang": "en",
-        "text": "Lake Group Head Office · +255 222 780 510 · admin@lakeoilgroup.com",
+        "text": "Lake Group Head Office \u00c2\u00b7 +255 222 780 510 \u00c2\u00b7 admin@lakeoilgroup.com",
         "source": "Lake Group verified contact data (official site)",
         "verification": "VERIFIED",
         "url": "/contact.html",
@@ -5488,47 +5488,47 @@
         "id": "contact:6bd6dbe5-bf5c-4cdc-8f01-0cbce46629ba",
         "type": "contact",
         "lang": "en",
-        "text": "Lake Oil — HQ · +255 222 780 510 · admin@lakeoilgroup.com",
+        "text": "Lake Oil \u00e2\u20ac\u201d HQ \u00c2\u00b7 +255 222 780 510 \u00c2\u00b7 admin@lakeoilgroup.com",
         "source": "Lake Group verified contact data (official site)",
         "verification": "VERIFIED",
         "url": "/contact.html",
-        "title": "Lake Oil — HQ"
+        "title": "Lake Oil \u00e2\u20ac\u201d HQ"
       },
       {
         "id": "contact:2c1e7365-0f23-4980-97e3-3439b8f8c0a6",
         "type": "contact",
         "lang": "en",
-        "text": "Lake Steel — Plant · +255 222 780 510 · admin@lakeoilgroup.com",
+        "text": "Lake Steel \u00e2\u20ac\u201d Plant \u00c2\u00b7 +255 222 780 510 \u00c2\u00b7 admin@lakeoilgroup.com",
         "source": "Lake Group verified contact data (official site)",
         "verification": "VERIFIED",
         "url": "/contact.html",
-        "title": "Lake Steel — Plant"
+        "title": "Lake Steel \u00e2\u20ac\u201d Plant"
       },
       {
         "id": "contact:8805ca9b-6c67-424c-930a-3b64d732067f",
         "type": "contact",
         "lang": "en",
-        "text": "AFICD — Depot · +255 787 535 757 · info@aficd.co.tz",
+        "text": "AFICD \u00e2\u20ac\u201d Depot \u00c2\u00b7 +255 787 535 757 \u00c2\u00b7 info@aficd.co.tz",
         "source": "Lake Group verified contact data (official site)",
         "verification": "VERIFIED",
         "url": "/contact.html",
-        "title": "AFICD — Depot"
+        "title": "AFICD \u00e2\u20ac\u201d Depot"
       },
       {
         "id": "contact:bbb0bfdb-1b36-49d6-887b-9159396348a6",
         "type": "contact",
         "lang": "en",
-        "text": "Lake Gas — Vipingo Terminal · +254 715 468 473 · contact.kenya@lakeoilgroup.com",
+        "text": "Lake Gas \u00e2\u20ac\u201d Vipingo Terminal \u00c2\u00b7 +254 715 468 473 \u00c2\u00b7 contact.kenya@lakeoilgroup.com",
         "source": "Lake Group verified contact data (official site)",
         "verification": "VERIFIED",
         "url": "/contact.html",
-        "title": "Lake Gas — Vipingo Terminal"
+        "title": "Lake Gas \u00e2\u20ac\u201d Vipingo Terminal"
       },
       {
         "id": "contact:8fcb360b-204c-43cd-b575-d532ff563d6e",
         "type": "contact",
         "lang": "en",
-        "text": "Lake Oil Kenya · contact.kenya@lakeoilgroup.com",
+        "text": "Lake Oil Kenya \u00c2\u00b7 contact.kenya@lakeoilgroup.com",
         "source": "Lake Group verified contact data (official site)",
         "verification": "VERIFIED",
         "url": "/contact.html",
@@ -5538,27 +5538,27 @@
         "id": "contact:e39bb694-282f-4c0a-9dd2-08d415a96f90",
         "type": "contact",
         "lang": "en",
-        "text": "Lake Petroleum Ltd. — Zambia · contact.zambia@lakeoilgroup.com",
+        "text": "Lake Petroleum Ltd. \u00e2\u20ac\u201d Zambia \u00c2\u00b7 contact.zambia@lakeoilgroup.com",
         "source": "Lake Group verified contact data (official site)",
         "verification": "VERIFIED",
         "url": "/contact.html",
-        "title": "Lake Petroleum Ltd. — Zambia"
+        "title": "Lake Petroleum Ltd. \u00e2\u20ac\u201d Zambia"
       },
       {
         "id": "contact:e6862afe-542f-4d46-919f-90cbe32dc3ee",
         "type": "contact",
         "lang": "en",
-        "text": "Lake Group Depot — Ndola · +255 222 780 510 · admin@lakeoilgroup.com",
+        "text": "Lake Group Depot \u00e2\u20ac\u201d Ndola \u00c2\u00b7 +255 222 780 510 \u00c2\u00b7 admin@lakeoilgroup.com",
         "source": "Lake Group verified contact data (official site)",
         "verification": "VERIFIED",
         "url": "/contact.html",
-        "title": "Lake Group Depot — Ndola"
+        "title": "Lake Group Depot \u00e2\u20ac\u201d Ndola"
       },
       {
         "id": "contact:d19c912b-ca5e-4bc7-824b-34f63cf21c27",
         "type": "contact",
         "lang": "en",
-        "text": "DRC Petroleum S.A.R.L. · contact.drc@lakeoilgroup.com",
+        "text": "DRC Petroleum S.A.R.L. \u00c2\u00b7 contact.drc@lakeoilgroup.com",
         "source": "Lake Group verified contact data (official site)",
         "verification": "VERIFIED",
         "url": "/contact.html",
@@ -5568,17 +5568,17 @@
         "id": "contact:e5637303-c17c-43a7-863c-d07bad971a60",
         "type": "contact",
         "lang": "en",
-        "text": "Lake Group Operations — Goma · +255 222 780 510 · admin@lakeoilgroup.com",
+        "text": "Lake Group Operations \u00e2\u20ac\u201d Goma \u00c2\u00b7 +255 222 780 510 \u00c2\u00b7 admin@lakeoilgroup.com",
         "source": "Lake Group verified contact data (official site)",
         "verification": "VERIFIED",
         "url": "/contact.html",
-        "title": "Lake Group Operations — Goma"
+        "title": "Lake Group Operations \u00e2\u20ac\u201d Goma"
       },
       {
         "id": "contact:615d5a6c-4766-4f86-9938-8a2b5217df36",
         "type": "contact",
         "lang": "en",
-        "text": "Burundi Petroleum Ltd. · +255 222 780 510 · admin@lakeoilgroup.com",
+        "text": "Burundi Petroleum Ltd. \u00c2\u00b7 +255 222 780 510 \u00c2\u00b7 admin@lakeoilgroup.com",
         "source": "Lake Group verified contact data (official site)",
         "verification": "VERIFIED",
         "url": "/contact.html",
@@ -5588,7 +5588,7 @@
         "id": "contact:5e0c7f1b-8afb-427b-9529-b9c1be784c91",
         "type": "contact",
         "lang": "en",
-        "text": "Lake Petroleum Rwanda Ltd. · +250 786395115 · contact.rwanda@lakeoilgroup.com",
+        "text": "Lake Petroleum Rwanda Ltd. \u00c2\u00b7 +250 786395115 \u00c2\u00b7 contact.rwanda@lakeoilgroup.com",
         "source": "Lake Group verified contact data (official site)",
         "verification": "VERIFIED",
         "url": "/contact.html",
@@ -5598,7 +5598,7 @@
         "id": "contact:970a739e-7db0-427d-85c5-30fe41f98f00",
         "type": "contact",
         "lang": "en",
-        "text": "Lake Oil Uganda Ltd. · +255 222 780 510 · admin@lakeoilgroup.com",
+        "text": "Lake Oil Uganda Ltd. \u00c2\u00b7 +255 222 780 510 \u00c2\u00b7 admin@lakeoilgroup.com",
         "source": "Lake Group verified contact data (official site)",
         "verification": "VERIFIED",
         "url": "/contact.html",
@@ -5608,31 +5608,31 @@
         "id": "contact:7f499b90-46ea-4d93-9994-b1200eac24ad",
         "type": "contact",
         "lang": "en",
-        "text": "Lake Oil LDA — Mozambique · +258 84 621 2219 · admin@lakeoilgroup.com",
+        "text": "Lake Oil LDA \u00e2\u20ac\u201d Mozambique \u00c2\u00b7 +258 84 621 2219 \u00c2\u00b7 admin@lakeoilgroup.com",
         "source": "Lake Group verified contact data (official site)",
         "verification": "VERIFIED",
         "url": "/contact.html",
-        "title": "Lake Oil LDA — Mozambique"
+        "title": "Lake Oil LDA \u00e2\u20ac\u201d Mozambique"
       },
       {
         "id": "contact:63e348e0-889d-4305-a9d2-3ab53b59da23",
         "type": "contact",
         "lang": "en",
-        "text": "Wadi Elsundus Petroleum — Ethiopia · +251 903 182 752 · admin@lakeoilgroup.com",
+        "text": "Wadi Elsundus Petroleum \u00e2\u20ac\u201d Ethiopia \u00c2\u00b7 +251 903 182 752 \u00c2\u00b7 admin@lakeoilgroup.com",
         "source": "Lake Group verified contact data (official site)",
         "verification": "VERIFIED",
         "url": "/contact.html",
-        "title": "Wadi Elsundus Petroleum — Ethiopia"
+        "title": "Wadi Elsundus Petroleum \u00e2\u20ac\u201d Ethiopia"
       },
       {
         "id": "contact:f997b51b-3789-4357-947e-04e33556a996",
         "type": "contact",
         "lang": "en",
-        "text": "MERM — Middle East Ready Mix LLC · admin@lakeoilgroup.com",
+        "text": "MERM \u00e2\u20ac\u201d Middle East Ready Mix LLC \u00c2\u00b7 admin@lakeoilgroup.com",
         "source": "Lake Group verified contact data (official site)",
         "verification": "VERIFIED",
         "url": "/contact.html",
-        "title": "MERM — Middle East Ready Mix LLC"
+        "title": "MERM \u00e2\u20ac\u201d Middle East Ready Mix LLC"
       },
       {
         "id": "news:e512b3c3-d62c-4dfd-af62-7371682f2d89",
@@ -5938,7 +5938,7 @@
         "id": "news:361fd7f2-8409-47e5-92c0-d40cf07da53c",
         "type": "news",
         "lang": "en",
-        "text": "Composite Cylinder Launch . 18th June 2014. It is a Pleasure to announce a New Milestone achieved by the \"LAKE GAS TEAM\" – The Launch of the \"COMPOSITE CYLINDERS\".",
+        "text": "Composite Cylinder Launch . 18th June 2014. It is a Pleasure to announce a New Milestone achieved by the \"LAKE GAS TEAM\" \u00e2\u20ac\u201c The Launch of the \"COMPOSITE CYLINDERS\".",
         "source": "Lake Group newsroom",
         "verification": "VERIFIED",
         "url": "/news.html",
@@ -5978,7 +5978,7 @@
         "id": "news:3932d7ad-1f45-4874-bdd8-8cd549b5e6fc",
         "type": "news",
         "lang": "en",
-        "text": "International Women's Day 2014 . Staff Luncheon. To mark The International Women's day the company sponsored all Women's employed by the company for luncheon at KFC – Mikocheni branch.",
+        "text": "International Women's Day 2014 . Staff Luncheon. To mark The International Women's day the company sponsored all Women's employed by the company for luncheon at KFC \u00e2\u20ac\u201c Mikocheni branch.",
         "source": "Lake Group newsroom",
         "verification": "VERIFIED",
         "url": "/news.html",
