@@ -100,6 +100,8 @@
   .svc-card__desc{font-size:.88rem;line-height:1.65;color:var(--mute)}
   @media(max-width:860px){.svc-grid{grid-template-columns:repeat(2,1fr)!important}}
   @media(max-width:560px){.svc-grid{grid-template-columns:1fr!important}}
+  .fs-split-even [style*="grid-template-columns:1fr 1fr"]{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4) var(--sp-6)}
+  @media(max-width:760px){.fs-split-even{flex-direction:column!important}.fs-split-even [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr}}
 </style>
 <script type="application/ld+json">
 {
@@ -247,169 +249,143 @@
 <!-- 2. CAPACITY & OPERATING STRENGTH -->
 <section class="fs-section">
   <div class="container">
-    <div class="fs-marker"><span class="fs-marker-no">04</span><span class="fs-eyebrow">Infrastructure &amp; Operational Capacity</span></div>
-    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Built to Handle. Equipped to Deliver.</h2>
-    <p style="max-width:80ch;line-height:1.75">AILL combines strategically located logistics facilities with a substantial fleet of cargo-handling, transportation and processing equipment, enabling us to manage high-volume, time-sensitive and complex cargo operations safely and efficiently. Our operational assets support bulk, break-bulk and containerized cargo throughout the complete logistics journey.</p>
-    <div class="fs-split-even" style="margin-top:var(--sp-8);align-items:start">
+    <div class="fs-marker"><span class="fs-marker-no">02</span><span class="fs-eyebrow">Capacity &amp; Operating Strength</span></div>
+    <h2 class="fs-display">Built to Handle. Equipped to Deliver.</h2>
+    <p style="max-width:80ch;line-height:1.75;margin-top:var(--sp-4)">AILL combines strategically located facilities with dedicated fleets, enabling safe, efficient management of high-volume, time-sensitive cargo operations across bulk, break-bulk and containerized cargo.</p>
+    <!-- Sulphur + Copper side-by-side -->
+    <div class="fs-split-even" style="margin-top:var(--sp-8);align-items:start;gap:var(--sp-8)">
       <div>
-        <div class="stat-panel2">
-          <h3>Warehouse &amp; Yard &#8212; Sulphur</h3>
-          <div class="stat-grid2">
-            <div class="stat-tile2"><span class="stat-no2">19,000</span><p>sqm dedicated warehouse space</p></div>
-            <div class="stat-tile2"><span class="stat-no2">33,000</span><p>sqm dedicated open-yard area</p></div>
-            <div class="stat-tile2"><span class="stat-no2 gold">180K&rarr;300K</span><p>MT storage &#183; current &rarr; planned</p></div>
-            <div class="stat-tile2"><span class="stat-no2">#1</span><p>In bulk Sulphur handling at Dar es Salaam Port</p></div>
-          </div>
+        <p style="font-family:var(--font-display);font-weight:700;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--sp-4)">Sulphur Operations</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-5) var(--sp-6)">
+          <div><span style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1;color:var(--text)">19,000</span><p style="font-size:.82rem;color:var(--mute);margin-top:4px">sqm warehouse</p></div>
+          <div><span style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1;color:var(--text)">33,000</span><p style="font-size:.82rem;color:var(--mute);margin-top:4px">sqm open-yard area</p></div>
+          <div><span style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1;color:var(--gold)">180K &#8594; 300K</span><p style="font-size:.82rem;color:var(--mute);margin-top:4px">MT storage &middot; current &#8594; planned</p></div>
+          <div><span style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1;color:var(--text)">#1</span><p style="font-size:.82rem;color:var(--mute);margin-top:4px">Bulk sulphur handling at Dar es Salaam Port</p></div>
         </div>
       </div>
       <div>
-        <div class="stat-panel2">
-          <h3>Warehouse &amp; Yard &#8212; Copper</h3>
-          <div class="stat-grid2">
-            <div class="stat-tile2"><span class="stat-no2">3</span><p>Dedicated warehouses</p></div>
-            <div class="stat-tile2"><span class="stat-no2">15,000</span><p>sqm combined warehouse capacity</p></div>
-            <div class="stat-tile2"><span class="stat-no2">32,000</span><p>sqm dedicated open-yard area</p></div>
-            <div class="stat-tile2"><span class="stat-no2 gold">150K&rarr;230K</span><p>MT storage &#183; current &rarr; planned</p></div>
-          </div>
+        <p style="font-family:var(--font-display);font-weight:700;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--sp-4)">Copper Operations</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-5) var(--sp-6)">
+          <div><span style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1;color:var(--text)">3</span><p style="font-size:.82rem;color:var(--mute);margin-top:4px">Dedicated warehouses</p></div>
+          <div><span style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1;color:var(--text)">15,000</span><p style="font-size:.82rem;color:var(--mute);margin-top:4px">sqm combined capacity</p></div>
+          <div><span style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1;color:var(--text)">32,000</span><p style="font-size:.82rem;color:var(--mute);margin-top:4px">sqm open-yard area</p></div>
+          <div><span style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1;color:var(--gold)">150K &#8594; 230K</span><p style="font-size:.82rem;color:var(--mute);margin-top:4px">MT storage &middot; current &#8594; planned</p></div>
         </div>
       </div>
     </div>
-    <div style="margin-top:var(--sp-8)">
-      <h3 style="font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Planned Expansion &#8212; November 2026</h3>
-      <p style="max-width:80ch;line-height:1.75">AILL is scheduled to add a new 22,000 sqm multi-purpose warehouse, designed to support both Sulphur and Copper operations and other minerals. The additional facility will increase storage capacity, provide greater operational flexibility and strengthen AILL's ability to accommodate increasing cargo volumes and evolving customer requirements.</p>
+    <!-- Key operational facts -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-6);margin-top:var(--sp-8)">
+      <div>
+        <p style="font-family:var(--font-display);font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px">Planned Expansion</p>
+        <p style="font-size:.92rem;line-height:1.7">A new 22,000 sqm multi-purpose warehouse is scheduled to support Sulphur, Copper and other minerals, increasing capacity and operational flexibility.</p>
+      </div>
+      <div>
+        <p style="font-family:var(--font-display);font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px">Operating Footprint</p>
+        <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px"><span style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1;color:var(--text)">201,000 &#8594; 331,000</span><span style="font-size:.82rem;color:var(--mute)">sqm</span></div>
+        <p style="font-size:.82rem;color:var(--mute)">Current &rarr; planned total by end of 2026</p>
+      </div>
+      <div>
+        <p style="font-family:var(--font-display);font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px">Combined Growth</p>
+        <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px"><span style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1;color:var(--text)">400,000</span><span style="font-size:.82rem;color:var(--mute)">sqm</span></div>
+        <p style="font-size:.82rem;color:var(--mute)">Potential AILL + AFICD development footprint</p>
+      </div>
     </div>
-    <div style="margin-top:var(--sp-8)">
-      <h3 style="font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Current &amp; Planned Footprint</h3>
-      <p style="max-width:80ch;line-height:1.75">AILL currently operates approximately 201,000 sqm of operating yard, with a planned total footprint of approximately 331,000 sqm by the end of 2026. Our infrastructure is supported by dedicated engineering, maintenance, operations and HSE teams to ensure equipment availability, operational reliability, safety and continuity.</p>
-    </div>
-    <div style="margin-top:var(--sp-8)">
-      <h3 style="font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Strategic Land Footprint &amp; Future Growth</h3>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-8);align-items:start;margin-top:var(--sp-6)">
+    <!-- Strategic Land & Growth -->
+    <div style="margin-top:var(--sp-8);padding-top:var(--sp-6);border-top:1px solid var(--line-2)">
+      <h3 style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:var(--sp-4)">Strategic Land Footprint &amp; Future Growth</h3>
+      <div class="fs-split-even" style="align-items:start;gap:var(--sp-8)">
         <div>
-          <div style="margin-bottom:var(--sp-6)">
-            <p style="font-family:var(--font-display);font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Strategic Land Potential</p>
-            <div style="display:flex;align-items:baseline;gap:12px">
-              <span style="font-family:var(--font-display);font-weight:700;font-size:clamp(2.8rem,5vw,4.2rem);line-height:1;color:var(--text)">200,000</span>
-              <span style="font-family:var(--font-display);font-weight:700;font-size:1.1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)">SQM</span>
-            </div>
-            <p style="font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-top:6px">Potential Development Footprint</p>
-          </div>
-          <p style="max-width:80ch;line-height:1.75">AILL has the potential to develop and market up to 200,000 sqm to support the growing demand for bulk cargo handling, warehousing, storage, distribution and integrated logistics solutions.</p>
-          <p style="max-width:80ch;line-height:1.75;margin-top:14px">Our expansion strategy is designed to create future-ready logistics infrastructure, with the flexibility to accommodate additional warehouses, open storage areas, cargo-handling facilities and other value-added services.</p>
+          <div style="margin-bottom:var(--sp-4)"><span style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.8rem,3vw,2.4rem);line-height:1;color:var(--text)">200,000</span> <span style="font-family:var(--font-display);font-weight:700;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)">SQM</span><p style="font-size:.82rem;color:var(--mute);margin-top:4px">Potential Development Footprint</p></div>
+          <p style="font-size:.92rem;line-height:1.7">AILL has the potential to develop up to 200,000 sqm to support growing demand for bulk cargo handling, warehousing, storage, distribution and integrated logistics solutions.</p>
         </div>
         <div>
-          <p style="max-width:80ch;line-height:1.75">Together with AFICD, the two businesses represent a potential development footprint of up to 400,000 sqm, providing a strong platform for long-term growth and enabling both businesses to scale their infrastructure in line with increasing cargo volumes and customer requirements.</p>
-          <p style="max-width:80ch;line-height:1.75;margin-top:14px">This positions AILL as a scalable logistics hub capable of supporting customers not only today, but well into the future.</p>
-          <div style="margin-top:var(--sp-6);display:flex;flex-wrap:wrap;gap:8px">
-            <span style="display:inline-flex;align-items:center;background:var(--surface);border:1px solid var(--line-2);padding:8px 16px;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text)">Bulk Cargo Handling</span>
-            <span style="display:inline-flex;align-items:center;background:var(--surface);border:1px solid var(--line-2);padding:8px 16px;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text)">Warehousing</span>
-            <span style="display:inline-flex;align-items:center;background:var(--surface);border:1px solid var(--line-2);padding:8px 16px;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text)">Storage</span>
-            <span style="display:inline-flex;align-items:center;background:var(--surface);border:1px solid var(--line-2);padding:8px 16px;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text)">Distribution</span>
-            <span style="display:inline-flex;align-items:center;background:var(--surface);border:1px solid var(--line-2);padding:8px 16px;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text)">Integrated Logistics</span>
-          </div>
+          <div style="margin-bottom:var(--sp-4)"><span style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.8rem,3vw,2.4rem);line-height:1;color:var(--gold)">400,000</span> <span style="font-family:var(--font-display);font-weight:700;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)">SQM</span><p style="font-size:.82rem;color:var(--mute);margin-top:4px">Combined AILL + AFICD Footprint</p></div>
+          <p style="font-size:.92rem;line-height:1.7">Together with AFICD, the two businesses represent a potential development footprint of up to 400,000 sqm, providing a strong platform for long-term growth and scalable infrastructure.</p>
         </div>
       </div>
-    </div>
-    <div style="margin-top:var(--sp-8)">
-      <h3 style="font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Equipment &amp; Manpower Strength</h3>
-      <p style="max-width:80ch;line-height:1.75">AILL operates a substantial fleet of cargo-handling, transportation and processing equipment, supported by experienced operations, engineering, maintenance and HSE teams. Our manpower strength spans skilled equipment operators, warehouse and yard teams, bagging crews, customs and documentation specialists, and transport and rail coordination staff, ensuring every stage of the cargo journey is safely and efficiently managed.</p>
-    </div>
-    <div style="margin-top:var(--sp-8)">
-      <h3 style="font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Key Operational Activities</h3>
-      <div class="val-mini-grid" aria-label="AILL key operational activities">
-        <div class="val-mini-tile"><h4>Bulk Receiving</h4><p>Receipt and coordination of bulk cargo from vessel discharge and port handling.</p></div>
-        <div class="val-mini-tile"><h4>Bagging</h4><p>Bulk-to-bag conversion and bagging operations for dispatch-ready cargo.</p></div>
-        <div class="val-mini-tile"><h4>Stacking / Storage</h4><p>Secure stacking and storage within dedicated warehouses and open yards.</p></div>
-        <div class="val-mini-tile"><h4>Delivery</h4><p>Loading, dispatch and delivery to customers, ports and regional borders.</p></div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:var(--sp-5)">
+        <span style="display:inline-flex;align-items:center;background:var(--surface);border:1px solid var(--line-2);padding:6px 14px;font-size:.78rem;font-weight:600;color:var(--text)">Bulk Cargo Handling</span>
+        <span style="display:inline-flex;align-items:center;background:var(--surface);border:1px solid var(--line-2);padding:6px 14px;font-size:.78rem;font-weight:600;color:var(--text)">Warehousing</span>
+        <span style="display:inline-flex;align-items:center;background:var(--surface);border:1px solid var(--line-2);padding:6px 14px;font-size:.78rem;font-weight:600;color:var(--text)">Storage</span>
+        <span style="display:inline-flex;align-items:center;background:var(--surface);border:1px solid var(--line-2);padding:6px 14px;font-size:.78rem;font-weight:600;color:var(--text)">Distribution</span>
+        <span style="display:inline-flex;align-items:center;background:var(--surface);border:1px solid var(--line-2);padding:6px 14px;font-size:.78rem;font-weight:600;color:var(--text)">Integrated Logistics</span>
       </div>
     </div>
+    <!-- Compact operational activities -->
     <div style="margin-top:var(--sp-8)">
-      <h3 style="font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Safety &amp; Security</h3>
-      <div class="val-mini-grid" aria-label="AILL safety and security features">
-        <div class="val-mini-tile"><h4>Controlled Access</h4><p>Gated, controlled access to facilities with trained security personnel on site.</p></div>
-        <div class="val-mini-tile"><h4>Safe Handling</h4><p>Safe cargo handling procedures with dedicated HSE oversight and protective equipment.</p></div>
-        <div class="val-mini-tile"><h4>Fire &amp; Safety Systems</h4><p>Fire safety measures and emergency response procedures across facilities.</p></div>
-        <div class="val-mini-tile"><h4>Cargo Protection</h4><p>Secure storage and monitoring to protect customer cargo throughout its journey.</p></div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <span style="display:inline-flex;align-items:center;background:var(--surface);border:1px solid var(--line-2);padding:8px 16px;font-size:.82rem;font-weight:600;color:var(--text)">Bulk Receiving</span>
+        <span style="display:inline-flex;align-items:center;background:var(--surface);border:1px solid var(--line-2);padding:8px 16px;font-size:.82rem;font-weight:600;color:var(--text)">Bagging</span>
+        <span style="display:inline-flex;align-items:center;background:var(--surface);border:1px solid var(--line-2);padding:8px 16px;font-size:.82rem;font-weight:600;color:var(--text)">Stacking &amp; Storage</span>
+        <span style="display:inline-flex;align-items:center;background:var(--surface);border:1px solid var(--line-2);padding:8px 16px;font-size:.82rem;font-weight:600;color:var(--text)">Delivery</span>
+        <span style="display:inline-flex;align-items:center;background:var(--surface);border:1px solid var(--line-2);padding:8px 16px;font-size:.82rem;font-weight:600;color:var(--text)">Customs Clearance</span>
+        <span style="display:inline-flex;align-items:center;background:var(--surface);border:1px solid var(--line-2);padding:8px 16px;font-size:.82rem;font-weight:600;color:var(--text)">Rail Logistics</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 5. OUR SERVICES -->
+<!-- 3. CARGO SOLUTIONS -->
 <section class="fs-section section-light">
   <div class="container">
-    <div class="fs-marker"><span class="fs-marker-no">05</span><span class="fs-eyebrow">Services Offered</span></div>
-    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">One Partner Across the Entire Cargo Journey</h2>
-    <div class="svc-grid" style="grid-template-columns:repeat(4,1fr)">
-      <article class="svc-card" style="padding:var(--sp-5)"><div class="svc-card__body"><h4 class="svc-card__title">Port Handling</h4><p class="svc-card__desc">Coordination of import and export cargo between vessel operations, inland terminals and onward transport.</p></div></article>
-      <article class="svc-card" style="padding:var(--sp-5)"><div class="svc-card__body"><h4 class="svc-card__title">Bulk &amp; Break-Bulk Cargo Handling</h4><p class="svc-card__desc">High-volume handling of Sulphur, copper and other bulk and break-bulk cargo, supported by dedicated equipment, infrastructure and experienced operational teams.</p></div></article>
-      <article class="svc-card" style="padding:var(--sp-5)"><div class="svc-card__body"><h4 class="svc-card__title">Customs Clearance &amp; Compliance</h4><p class="svc-card__desc">Documentation, clearance, verification coordination and border requirements for imports and exports.</p></div></article>
-      <article class="svc-card" style="padding:var(--sp-5)"><div class="svc-card__body"><h4 class="svc-card__title">Warehousing &amp; Storage</h4><p class="svc-card__desc">Secure warehouse and open-yard solutions for high-volume bulk, break-bulk and containerized cargo.</p></div></article>
-      <article class="svc-card" style="padding:var(--sp-5)"><div class="svc-card__body"><h4 class="svc-card__title">Bagging &amp; Stuffing Operations</h4><p class="svc-card__desc">Bulk-to-bag conversion, bagging, stuffing, segregation, loading and unloading, verification support and dispatch preparation.</p></div></article>
-      <article class="svc-card" style="padding:var(--sp-5)"><div class="svc-card__body"><h4 class="svc-card__title">Road Transportation</h4><p class="svc-card__desc">Cargo movement between Dar es Salaam Port, AILL facilities, customer destinations and regional borders through dedicated capability and Lake Group's network.</p></div></article>
-      <article class="svc-card" style="padding:var(--sp-5)"><div class="svc-card__body"><h4 class="svc-card__title">Rail Logistics</h4><p class="svc-card__desc">Through a sister company, AILL accesses licensed rail operations supported by 2 locomotives, 57 wagons, 250+ empty container boxes and rail-line access within the yard. This supports flexible integrated road-and-rail solutions for high-volume cargo.</p></div></article>
+    <div class="fs-marker"><span class="fs-marker-no">03</span><span class="fs-eyebrow">Cargo Solutions</span></div>
+    <h2 class="fs-display">One Partner Across the Entire Cargo Journey</h2>
+    <div class="val-mini-grid" aria-label="AILL cargo solutions" style="margin-top:var(--sp-6)">
+      <div class="val-mini-tile"><h4>Port Handling</h4><p>Import and export coordination between vessel operations, inland terminals and onward transport.</p></div>
+      <div class="val-mini-tile"><h4>Bulk Cargo Handling</h4><p>High-volume handling of Sulphur, copper and break-bulk cargo with dedicated equipment and experienced teams.</p></div>
+      <div class="val-mini-tile"><h4>Warehousing &amp; Storage</h4><p>Secure warehouse and open-yard solutions for bulk, break-bulk and containerized cargo.</p></div>
+      <div class="val-mini-tile"><h4>Bagging &amp; Stuffing</h4><p>Bulk-to-bag conversion, stuffing, segregation, loading, verification and dispatch preparation.</p></div>
+      <div class="val-mini-tile"><h4>Transportation</h4><p>Road and rail cargo movement between port, facilities, destinations and regional borders.</p></div>
+      <div class="val-mini-tile"><h4>Customs &amp; Compliance</h4><p>Documentation, clearance, verification coordination and border requirements for imports and exports.</p></div>
     </div>
   </div>
 </section>
 
-<!-- 6. SULPHUR LOGISTICS -->
+<!-- 4. SPECIALIZED CARGO HANDLING -->
 <section class="fs-section">
   <div class="container">
-    <div class="fs-marker"><span class="fs-marker-no">06</span><span class="fs-eyebrow">Sulphur Logistics</span></div>
-    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">A Market Leader in Bulk Sulphur Handling</h2>
-    <p style="max-width:80ch;line-height:1.75">AILL provides an integrated sulphur logistics solution covering the complete cargo cycle, from vessel discharge through final border delivery.</p>
-    <h3 style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.08em;text-transform:uppercase;margin:var(--sp-6) 0 var(--sp-3);color:var(--text)">Integrated Import Cycle</h3>
-    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:var(--sp-8)">
-      <span style="display:inline-flex;align-items:center;background:rgba(1,63,92,.06);border:1px solid var(--line-2);padding:7px 13px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text)">Vessel &amp; Port Handling</span><span style="color:var(--gold-deep);font-weight:700" aria-hidden="true">&rarr;</span>
-      <span style="display:inline-flex;align-items:center;background:rgba(1,63,92,.06);border:1px solid var(--line-2);padding:7px 13px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text)">Transportation</span><span style="color:var(--gold-deep);font-weight:700" aria-hidden="true">&rarr;</span>
-      <span style="display:inline-flex;align-items:center;background:rgba(1,63,92,.06);border:1px solid var(--line-2);padding:7px 13px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text)">Storage</span><span style="color:var(--gold-deep);font-weight:700" aria-hidden="true">&rarr;</span>
-      <span style="display:inline-flex;align-items:center;background:rgba(1,63,92,.06);border:1px solid var(--line-2);padding:7px 13px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text)">Bagging</span><span style="color:var(--gold-deep);font-weight:700" aria-hidden="true">&rarr;</span>
-      <span style="display:inline-flex;align-items:center;background:rgba(1,63,92,.06);border:1px solid var(--line-2);padding:7px 13px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text)">Loading / Unloading</span><span style="color:var(--gold-deep);font-weight:700" aria-hidden="true">&rarr;</span>
-      <span style="display:inline-flex;align-items:center;background:rgba(1,63,92,.06);border:1px solid var(--line-2);padding:7px 13px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text)">Customs Clearance</span><span style="color:var(--gold-deep);font-weight:700" aria-hidden="true">&rarr;</span>
-      <span style="display:inline-flex;align-items:center;background:rgba(1,63,92,.06);border:1px solid var(--line-2);padding:7px 13px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text)">Truck Loading</span><span style="color:var(--gold-deep);font-weight:700" aria-hidden="true">&rarr;</span>
-      <span style="display:inline-flex;align-items:center;background:#013F5C;border:1px solid #013F5C;padding:7px 13px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#FFF200">Border Clearance</span>
-    </div>
-    <div class="stat-panel2">
-      <h3>Sulphur Milestones</h3>
-      <div class="stat-grid2">
-        <div class="stat-tile2"><span class="stat-no2">100+</span><p>Full vessels independently handled</p></div>
-        <div class="stat-tile2"><span class="stat-no2">150,000</span><p>MT discharged across three back-to-back vessels in a peak month</p></div>
-        <div class="stat-tile2"><span class="stat-no2 gold">180,000</span><p>MT approximate sulphur storage capacity</p></div>
-        <div class="stat-tile2"><span class="stat-no2 gold">60%+</span><p>Reported market share</p></div>
+    <div class="fs-marker"><span class="fs-marker-no">04</span><span class="fs-eyebrow">Specialized Cargo Handling</span></div>
+    <h2 class="fs-display">Sulphur &amp; Copper &#8212; End-to-End Solutions</h2>
+    <p style="max-width:80ch;line-height:1.75;margin-top:var(--sp-4)">AILL provides integrated logistics solutions for both Sulphur and Copper cargo, covering the complete cycle from vessel discharge through storage, processing and final delivery.</p>
+    <!-- Sulphur + Copper editorial halves -->
+    <div class="fs-split-even" style="margin-top:var(--sp-8);align-items:start;gap:var(--sp-8)">
+      <div>
+        <p style="font-family:var(--font-display);font-weight:700;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--sp-4)">Sulphur Logistics</p>
+        <p style="font-size:.92rem;line-height:1.7;margin-bottom:var(--sp-5)">Integrated import cycle from vessel discharge through transport, storage, bagging, customs clearance and border delivery.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4) var(--sp-6)">
+          <div><span style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.4rem,2.5vw,1.8rem);line-height:1;color:var(--text)">100+</span><p style="font-size:.82rem;color:var(--mute);margin-top:4px">Full vessels independently handled</p></div>
+          <div><span style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.4rem,2.5vw,1.8rem);line-height:1;color:var(--text)">150,000</span><p style="font-size:.82rem;color:var(--mute);margin-top:4px">MT discharged in a peak month</p></div>
+          <div><span style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.4rem,2.5vw,1.8rem);line-height:1;color:var(--gold)">180,000</span><p style="font-size:.82rem;color:var(--mute);margin-top:4px">MT storage capacity</p></div>
+          <div><span style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.4rem,2.5vw,1.8rem);line-height:1;color:var(--gold)">60%+</span><p style="font-size:.82rem;color:var(--mute);margin-top:4px">Reported market share</p></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin-top:var(--sp-5)">
+          <span style="display:inline-flex;padding:5px 10px;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line-2);color:var(--text)">Port</span><span style="color:var(--gold-deep);font-weight:700;font-size:.72rem" aria-hidden="true">&#8594;</span>
+          <span style="display:inline-flex;padding:5px 10px;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line-2);color:var(--text)">Transport</span><span style="color:var(--gold-deep);font-weight:700;font-size:.72rem" aria-hidden="true">&#8594;</span>
+          <span style="display:inline-flex;padding:5px 10px;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line-2);color:var(--text)">Store</span><span style="color:var(--gold-deep);font-weight:700;font-size:.72rem" aria-hidden="true">&#8594;</span>
+          <span style="display:inline-flex;padding:5px 10px;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line-2);color:var(--text)">Bag</span><span style="color:var(--gold-deep);font-weight:700;font-size:.72rem" aria-hidden="true">&#8594;</span>
+          <span style="display:inline-flex;padding:5px 10px;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line-2);color:var(--text)">Clear</span><span style="color:var(--gold-deep);font-weight:700;font-size:.72rem" aria-hidden="true">&#8594;</span>
+          <span style="display:inline-flex;padding:5px 10px;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--ink);border:1px solid var(--ink);color:#FFF200">Deliver</span>
+        </div>
+      </div>
+      <div>
+        <p style="font-family:var(--font-display);font-weight:700;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--sp-4)">Copper Logistics</p>
+        <p style="font-size:.92rem;line-height:1.7;margin-bottom:var(--sp-5)">Integrated export cycle from cargo receipt through secure storage, segregation, customs, verification and port delivery.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4) var(--sp-6)">
+          <div><span style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.4rem,2.5vw,1.8rem);line-height:1;color:var(--text)">3M+</span><p style="font-size:.82rem;color:var(--mute);margin-top:4px">MT copper cargo handled</p></div>
+          <div><span style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.4rem,2.5vw,1.8rem);line-height:1;color:var(--text)">108,000</span><p style="font-size:.82rem;color:var(--mute);margin-top:4px">MT peak monthly volume</p></div>
+          <div><span style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.4rem,2.5vw,1.8rem);line-height:1;color:var(--gold)">150,000</span><p style="font-size:.82rem;color:var(--mute);margin-top:4px">MT storage capacity</p></div>
+          <div><span style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.4rem,2.5vw,1.8rem);line-height:1;color:var(--gold)">42%+</span><p style="font-size:.82rem;color:var(--mute);margin-top:4px">Reported market share</p></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin-top:var(--sp-5)">
+          <span style="display:inline-flex;padding:5px 10px;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line-2);color:var(--text)">Receive</span><span style="color:var(--gold-deep);font-weight:700;font-size:.72rem" aria-hidden="true">&#8594;</span>
+          <span style="display:inline-flex;padding:5px 10px;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line-2);color:var(--text)">Store</span><span style="color:var(--gold-deep);font-weight:700;font-size:.72rem" aria-hidden="true">&#8594;</span>
+          <span style="display:inline-flex;padding:5px 10px;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line-2);color:var(--text)">Segregate</span><span style="color:var(--gold-deep);font-weight:700;font-size:.72rem" aria-hidden="true">&#8594;</span>
+          <span style="display:inline-flex;padding:5px 10px;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line-2);color:var(--text)">Clear</span><span style="color:var(--gold-deep);font-weight:700;font-size:.72rem" aria-hidden="true">&#8594;</span>
+          <span style="display:inline-flex;padding:5px 10px;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line-2);color:var(--text)">Stuff</span><span style="color:var(--gold-deep);font-weight:700;font-size:.72rem" aria-hidden="true">&#8594;</span>
+          <span style="display:inline-flex;padding:5px 10px;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--ink);border:1px solid var(--ink);color:#FFF200">Port</span>
+        </div>
       </div>
     </div>
-    <p style="max-width:80ch;line-height:1.75;margin-top:var(--sp-6)">AILL's Sulphur operations are supported by dedicated handling equipment, storage infrastructure, bagging capability, transportation assets and experienced operational teams.</p>
-  </div>
-</section>
-
-<!-- 7. COPPER LOGISTICS -->
-<section class="fs-section section-light">
-  <div class="container">
-    <div class="fs-marker"><span class="fs-marker-no">07</span><span class="fs-eyebrow">Copper Logistics</span></div>
-    <h2 class="fs-display" style="margin-bottom:var(--sp-6)">High-Capacity Copper Handling Solutions</h2>
-    <p style="max-width:80ch;line-height:1.75">AILL provides integrated logistics solutions for copper cargo from receipt through secure storage, customs processing, containerization and onward port movement.</p>
-    <h3 style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.08em;text-transform:uppercase;margin:var(--sp-6) 0 var(--sp-3);color:var(--text)">Integrated Export Cycle</h3>
-    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:var(--sp-8)">
-      <span style="display:inline-flex;align-items:center;background:rgba(1,63,92,.06);border:1px solid var(--line-2);padding:7px 13px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text)">Cargo Receiving</span><span style="color:var(--gold-deep);font-weight:700" aria-hidden="true">&rarr;</span>
-      <span style="display:inline-flex;align-items:center;background:rgba(1,63,92,.06);border:1px solid var(--line-2);padding:7px 13px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text)">Secure Storage</span><span style="color:var(--gold-deep);font-weight:700" aria-hidden="true">&rarr;</span>
-      <span style="display:inline-flex;align-items:center;background:rgba(1,63,92,.06);border:1px solid var(--line-2);padding:7px 13px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text)">Segregation</span><span style="color:var(--gold-deep);font-weight:700" aria-hidden="true">&rarr;</span>
-      <span style="display:inline-flex;align-items:center;background:rgba(1,63,92,.06);border:1px solid var(--line-2);padding:7px 13px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text)">Customs Clearance</span><span style="color:var(--gold-deep);font-weight:700" aria-hidden="true">&rarr;</span>
-      <span style="display:inline-flex;align-items:center;background:rgba(1,63,92,.06);border:1px solid var(--line-2);padding:7px 13px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text)">Verification</span><span style="color:var(--gold-deep);font-weight:700" aria-hidden="true">&rarr;</span>
-      <span style="display:inline-flex;align-items:center;background:rgba(1,63,92,.06);border:1px solid var(--line-2);padding:7px 13px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text)">Container Stuffing</span><span style="color:var(--gold-deep);font-weight:700" aria-hidden="true">&rarr;</span>
-      <span style="display:inline-flex;align-items:center;background:rgba(1,63,92,.06);border:1px solid var(--line-2);padding:7px 13px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text)">Loading</span><span style="color:var(--gold-deep);font-weight:700" aria-hidden="true">&rarr;</span>
-      <span style="display:inline-flex;align-items:center;background:rgba(1,63,92,.06);border:1px solid var(--line-2);padding:7px 13px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text)">Transportation</span><span style="color:var(--gold-deep);font-weight:700" aria-hidden="true">&rarr;</span>
-      <span style="display:inline-flex;align-items:center;background:#013F5C;border:1px solid #013F5C;padding:7px 13px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#FFF200">Port Handling</span>
-    </div>
-    <div class="stat-panel2">
-      <h3>Copper Milestones</h3>
-      <div class="stat-grid2">
-        <div class="stat-tile2"><span class="stat-no2">3+</span><p>Million MT copper cargo handled</p></div>
-        <div class="stat-tile2"><span class="stat-no2">108,000</span><p>MT average monthly volume achieved over three consecutive peak months</p></div>
-        <div class="stat-tile2"><span class="stat-no2 gold">150,000</span><p>MT approximate copper storage capacity</p></div>
-        <div class="stat-tile2"><span class="stat-no2 gold">42%+</span><p>Reported market share</p></div>
-      </div>
-    </div>
-    <p style="max-width:80ch;line-height:1.75;margin-top:var(--sp-6)">AILL's copper operations combine secure storage, cargo segregation, customs and verification support, container stuffing, transportation and port handling into one coordinated logistics solution.</p>
   </div>
 </section>
 
