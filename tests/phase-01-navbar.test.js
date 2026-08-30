@@ -59,7 +59,7 @@ test('Phase 01 navbar follows launch constraints and all logo destinations resol
   assert.match(navTemplate, /aria-label="Language: English"/);
   assert.doesNotMatch(navTemplate, /nav-stripes/);
   assert.match(mobileTemplate, /href="contact\.html">Contact Us<\/a>/);
-  assert.match(mobileTemplate, /class="mob-acc-btn mob-language-trigger"[^>]*aria-controls="mob-language-panel"/);
+  assert.match(mobileTemplate, /class="mob-lang-static"/);
   assert.match(mobileTemplate, /data-lang-label>English<\/span>/);
   for (const match of navTemplate.matchAll(/<img src="([^"]+)"/g)) {
     assert.equal(fs.existsSync(path.join(ROOT, match[1])), true, `${match[1]} exists`);

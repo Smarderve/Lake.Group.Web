@@ -30,7 +30,7 @@
  */
 window.LakeI18n = (function () {
   const STORAGE_KEY = 'lake-lang';
-  const SUPPORTED = ['en', 'fr', 'sw', 'pt', 'es', 'ar'];
+  const SUPPORTED = ['en'];  // TODO: restore ['en', 'fr', 'sw', 'pt', 'es', 'ar'] when translations are ready
   const AVAILABLE_TRANSLATIONS = ['en'];
   const RTL_LANGS = ['ar'];
   // ASCII-safe escapes so labels survive encoding mishaps in editors/tooling.

@@ -58,7 +58,7 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 320, height: 568 }
     await drawer.evaluate((el) => { el.scrollTop = el.scrollHeight; });
     await page.waitForTimeout(50);
     assert.equal(await drawer.getByText('Contact Us', { exact: true }).isVisible(), true, 'bottom navigation remains reachable');
-    assert.equal(await drawer.locator('.mob-language-trigger').isVisible(), true, 'language disclosure remains reachable');
+    assert.equal(await drawer.locator('.mob-lang-static').isVisible(), true, 'static English language indicator is reachable');
 
     await drawer.locator('.mob-corporate-trigger').click();
     assert.equal(await drawer.locator('.mob-primary').getAttribute('aria-expanded'), 'false', 'Corporate closes Business Verticals');
@@ -67,16 +67,6 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 320, height: 568 }
       assert.equal(await drawer.getByText(label, { exact: true }).isVisible(), true, `${label} is visible`);
     }
     assert.equal(await drawer.getByText('Operations Map', { exact: true }).count(), 0, 'Operations Map is not exposed in the Corporate menu');
-
-    await drawer.locator('.mob-language-trigger').scrollIntoViewIfNeeded();
-    await drawer.locator('.mob-language-trigger').click();
-    assert.equal(await drawer.locator('.mob-corporate-trigger').getAttribute('aria-expanded'), 'false', 'Language closes Corporate');
-    assert.equal(await drawer.locator('.mob-language-trigger').getAttribute('aria-expanded'), 'true');
-    await drawer.evaluate((el) => { el.scrollTop = el.scrollHeight; });
-    assert.equal(await drawer.getByRole('menuitemradio', { name: 'Arabic' }).isVisible(), true, 'last language option is reachable');
-    await drawer.getByRole('menuitemradio', { name: 'French' }).click();
-    await page.waitForTimeout(25);
-    assert.match(await drawer.locator('.mob-language-status').textContent(), /Translation for French is not available yet/, 'language choices preserve the configured unavailable-translation status');
 
     await drawer.locator('.mob-close').click();
     assert.equal(await page.evaluate(() => document.body.classList.contains('lg-nav-open')), false, 'closing restores page scrolling');

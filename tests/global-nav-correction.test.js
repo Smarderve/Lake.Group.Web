@@ -17,7 +17,7 @@ assert.match(home, /<a href="about\.html" class="hero-link">/);
 for (const [code, label] of [['en', 'English'], ['fr', 'French'], ['sw', 'Swahili'], ['pt', 'Portuguese'], ['es', 'Spanish'], ['ar', 'Arabic']]) {
   assert.match(i18n, new RegExp(`${code}: ['"]${label}['"]`));
 }
-assert.match(i18n, /const SUPPORTED = \['en', 'fr', 'sw', 'pt', 'es', 'ar'\]/);
+assert.match(i18n, /const SUPPORTED = \['en'\]/);  // English-only for launch; full list restored later
 assert.match(i18n, /Translation for/);
 assert.match(i18n, /lang-status/);
 assert.match(navCss, /\.site-nav\[data-phase01-navbar\] \.lang-menu[\s\S]*?right: 0/);
