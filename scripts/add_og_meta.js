@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /*
  * Idempotently normalizes Open Graph / Twitter card tags on root HTML pages:
- *   - og:image + twitter:image → absolute https://www.lakeoilgroup.com/assets/images/logos/LAKE_GROUP_LOGO.png
+ *   - og:image + twitter:image → absolute branded Lake Group social card
  *   - ensures og:title, og:description, og:type, og:url, og:site_name
  *   - ensures twitter:card=summary_large_image + twitter:image
  *
@@ -15,8 +15,8 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
-const BASE = 'https://www.lakeoilgroup.com/';
-const OG_IMAGE = BASE + 'assets/images/logos/LAKE_GROUP_LOGO.png';
+const BASE = 'https://lakegroup.vercel.app/';
+const OG_IMAGE = BASE + 'assets/images/social/lake-group-og-v2.jpg';
 
 const SKIP = new Set([
   '404.html',
@@ -93,6 +93,14 @@ function upsertMeta(html, attrName, attrValue, content) {
   return html;
 }
 
+function upsertCanonical(html, url) {
+  const tag = `<link rel="canonical" href="${url}">`;
+  const re = /<link\b[^>]*\brel=["']canonical["'][^>]*>/i;
+  if (re.test(html)) return html.replace(re, tag);
+  const headEnd = html.indexOf('</head>');
+  return headEnd !== -1 ? html.slice(0, headEnd) + `  ${tag}\n` + html.slice(headEnd) : html;
+}
+
 const files = fs
   .readdirSync(ROOT)
   .filter((f) => f.endsWith('.html'))
@@ -133,6 +141,9 @@ for (const file of files) {
   html = upsertMeta(html, 'property', 'og:title', escapeAttr(ogTitle));
   html = upsertMeta(html, 'property', 'og:description', escapeAttr(ogDesc));
   html = upsertMeta(html, 'property', 'og:image', OG_IMAGE);
+  html = upsertMeta(html, 'property', 'og:image:width', '1200');
+  html = upsertMeta(html, 'property', 'og:image:height', '630');
+  html = upsertMeta(html, 'property', 'og:image:type', 'image/jpeg');
   html = upsertMeta(html, 'property', 'og:type', 'website');
   html = upsertMeta(html, 'property', 'og:url', pageUrl(file));
   html = upsertMeta(html, 'property', 'og:site_name', 'Lake Group');
@@ -140,6 +151,7 @@ for (const file of files) {
   html = upsertMeta(html, 'name', 'twitter:image', OG_IMAGE);
   html = upsertMeta(html, 'name', 'twitter:title', escapeAttr(ogTitle));
   html = upsertMeta(html, 'name', 'twitter:description', escapeAttr(ogDesc));
+  html = upsertCanonical(html, pageUrl(file));
 
   html = html.replace(
     /content=["']assets\/images\/og-cover\.jpg["']/g,
