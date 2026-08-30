@@ -46,7 +46,8 @@ test('Scrolling logo strip uses Lake Pipes', () => {
   const entry = js.match(/\{ src: '([^']+lake-pipes[^']+)', alt: 'Lake Pipes'[^}]+\}/)?.[0] || '';
   assert.match(entry, /lake-pipes-scrolling\.webp\?v=1/);
   assert.match(entry, /lake-pipes\.html/);
-  assert.doesNotMatch(entry, /lake-pipes-blue\.png|scale:/, 'the approved artwork has comparable intrinsic bounds and needs no global-size override');
+  assert.match(entry, /scale:\s*0\.94/, 'Lake Pipes receives only its approved 6% optical-size adjustment');
+  assert.doesNotMatch(entry, /lake-pipes-blue\.png/, 'the scrolling strip keeps the approved Lake Pipes asset');
   assert.doesNotMatch(js, /Lake Plastics/);
   assert.doesNotMatch(js, /lake-plastics/);
 });
