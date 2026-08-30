@@ -1149,6 +1149,7 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
   position: absolute;
   inset: 0;
   z-index: 0;
+  display: block;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

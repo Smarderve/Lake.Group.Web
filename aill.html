@@ -131,8 +131,8 @@
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-700-normal.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="assets/flagship.css?v=20260828-01">
   <link rel="stylesheet" href="assets/company-page-standard.css">
-<link rel="stylesheet" href="assets/split-text.css?v=20260828-01">
-  <link rel="stylesheet" href="assets/assistant.css?v=20260828-01">
+<link rel="stylesheet" href="assets/split-text.css?v=20260828-01" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="assets/assistant.css?v=20260828-01" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="assets/skeleton.css?v=20260830-02">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https: http://127.0.0.1:*; frame-src https://www.youtube.com https://www.youtube-nocookie.com; worker-src 'self'; manifest-src 'self'; media-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self' https:; upgrade-insecure-requests">
   <link rel="stylesheet" href="assets/phase-01-navbar.css?v=20260828-01">
@@ -214,7 +214,7 @@
 
 <div class="page-wrapper">
 <section class="page-hero">
-  <div class="hero-media" style="background-image:url('assets/images/home/verticals/logistics.webp')" aria-hidden="true"></div>
+  <picture class="hero-media" aria-hidden="true"><source srcset="assets/images/home/verticals/logistics-960.webp" media="(max-width:768px)"><img src="assets/images/home/verticals/logistics.webp" alt="" width="1536" height="1024" fetchpriority="high" decoding="async" loading="eager" style="width:100%;height:100%;object-fit:cover"></picture>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container">
 <div class="eyebrow">Logistics</div><h1>AILL . African Inland Logistics</h1><p>Port handling, warehousing, bagging, customs clearance and logistics solutions for bulk, break-bulk and containerized cargo.</p><p style="margin-top:10px;color:rgba(255,255,255,.92);font-weight:600;letter-spacing:.02em">Moving Cargo. Connecting Markets. Delivering End-to-End Logistics Solutions.</p>

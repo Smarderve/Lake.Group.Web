@@ -164,8 +164,8 @@ body[data-company-logo*="cross-country"] .page-hero .hero-media{background-posit
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-700-normal.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="assets/flagship.css?v=20260828-01">
   <link rel="stylesheet" href="assets/company-page-standard.css">
-<link rel="stylesheet" href="assets/split-text.css?v=20260828-01">
-  <link rel="stylesheet" href="assets/assistant.css?v=20260828-01">
+<link rel="stylesheet" href="assets/split-text.css?v=20260828-01" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="assets/assistant.css?v=20260828-01" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="assets/skeleton.css?v=20260830-02">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https://www.youtube.com https://www.youtube-nocookie.com; worker-src 'self'; manifest-src 'self'; media-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <link rel="stylesheet" href="assets/phase-01-navbar.css?v=20260828-01">
@@ -247,7 +247,7 @@ body[data-company-logo*="cross-country"] .page-hero .hero-media{background-posit
 
 <div class="page-wrapper">
 <section class="page-hero">
-  <div class="hero-media" style="background-image:url('assets/images/cross-country/cross-country-hero.webp')" aria-hidden="true"></div>
+  <picture class="hero-media" aria-hidden="true"><source srcset="assets/images/cross-country/cross-country-hero-960.webp" media="(max-width:768px)"><img src="assets/images/cross-country/cross-country-hero.webp" alt="" width="1920" height="1080" fetchpriority="high" decoding="async" loading="eager" style="width:100%;height:100%;object-fit:cover"></picture>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container">
 <div class="eyebrow">Real Estate</div><h1>Cross Country</h1><p>Lake Group's real estate development company, established in 2021 to develop and manage commercial, retail, hospitality and mixed-use properties across Tanzania.</p>
