@@ -94,6 +94,12 @@
   .aill-intro-media{margin:0;overflow:hidden;background:var(--ink)}
   .aill-intro-media img{display:block;width:100%;max-height:480px;object-fit:cover}
   @media(max-width:760px){.aill-intro-media img{max-height:320px}}
+  .svc-card{background:var(--surface);border:1px solid var(--line-2);border-radius:14px;transition:box-shadow .2s}
+  .svc-card:hover{box-shadow:0 4px 20px rgba(1,63,92,.08)}
+  .svc-card__title{font-family:var(--font-display);font-weight:700;font-size:1rem;letter-spacing:.03em;text-transform:uppercase;color:var(--text);margin-bottom:6px}
+  .svc-card__desc{font-size:.88rem;line-height:1.65;color:var(--mute)}
+  @media(max-width:860px){.svc-grid{grid-template-columns:repeat(2,1fr)!important}}
+  @media(max-width:560px){.svc-grid{grid-template-columns:1fr!important}}
 </style>
 <script type="application/ld+json">
 {
@@ -336,56 +342,14 @@
   <div class="container">
     <div class="fs-marker"><span class="fs-marker-no">05</span><span class="fs-eyebrow">Services Offered</span></div>
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)">One Partner Across the Entire Cargo Journey</h2>
-    <div class="svc-grid">
-      <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/aficd/TA/photo_1.jpg" alt="AILL port handling operations" loading="lazy" decoding="async"></div>
-        <div class="svc-card__body">
-          <h4 class="svc-card__title">Port Handling</h4>
-          <p class="svc-card__desc">Coordination of import and export cargo between vessel operations, inland terminals and onward transport.</p>
-        </div>
-      </article>
-      <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/gccp/photo_10.jpg" alt="AILL bulk and break-bulk cargo handling" loading="lazy" decoding="async"></div>
-        <div class="svc-card__body">
-          <h4 class="svc-card__title">Bulk &amp; Break-Bulk Cargo Handling</h4>
-          <p class="svc-card__desc">High-volume handling of Sulphur, copper and other bulk and break-bulk cargo, supported by dedicated equipment, infrastructure and experienced operational teams.</p>
-        </div>
-      </article>
-      <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/home/verticals/logistics.webp" alt="AILL customs clearance and compliance" loading="lazy" decoding="async"></div>
-        <div class="svc-card__body">
-          <h4 class="svc-card__title">Customs Clearance &amp; Compliance</h4>
-          <p class="svc-card__desc">Documentation, clearance, verification coordination and border requirements for imports and exports.</p>
-        </div>
-      </article>
-      <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/acfs/TA/photo_3.jpg" alt="AILL warehousing and storage" loading="lazy" decoding="async"></div>
-        <div class="svc-card__body">
-          <h4 class="svc-card__title">Warehousing &amp; Storage</h4>
-          <p class="svc-card__desc">Secure warehouse and open-yard solutions for high-volume bulk, break-bulk and containerized cargo.</p>
-        </div>
-      </article>
-      <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/acfs/TA/photo_6.jpg" alt="AILL bagging and stuffing operations" loading="lazy" decoding="async"></div>
-        <div class="svc-card__body">
-          <h4 class="svc-card__title">Bagging &amp; Stuffing Operations</h4>
-          <p class="svc-card__desc">Bulk-to-bag conversion, bagging, stuffing, segregation, loading and unloading, verification support and dispatch preparation.</p>
-        </div>
-      </article>
-      <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/laketrans/profile/road-fuel-tanker.jpg" alt="AILL road transportation" loading="lazy" decoding="async"></div>
-        <div class="svc-card__body">
-          <h4 class="svc-card__title">Road Transportation</h4>
-          <p class="svc-card__desc">Cargo movement between Dar es Salaam Port, AILL facilities, customer destinations and regional borders through dedicated capability and Lake Group's network.</p>
-        </div>
-      </article>
-      <article class="svc-card">
-        <div class="svc-card__media"><img src="assets/images/acfs/TA/photo_7.jpg" alt="AILL rail logistics" loading="lazy" decoding="async"></div>
-        <div class="svc-card__body">
-          <h4 class="svc-card__title">Rail Logistics</h4>
-          <p class="svc-card__desc">Through a sister company, AILL accesses licensed rail operations supported by 2 locomotives, 57 wagons, 250+ empty container boxes and rail-line access within the yard. This supports flexible integrated road-and-rail solutions for high-volume cargo.</p>
-        </div>
-      </article>
+    <div class="svc-grid" style="grid-template-columns:repeat(4,1fr)">
+      <article class="svc-card" style="padding:var(--sp-5)"><div class="svc-card__body"><h4 class="svc-card__title">Port Handling</h4><p class="svc-card__desc">Coordination of import and export cargo between vessel operations, inland terminals and onward transport.</p></div></article>
+      <article class="svc-card" style="padding:var(--sp-5)"><div class="svc-card__body"><h4 class="svc-card__title">Bulk &amp; Break-Bulk Cargo Handling</h4><p class="svc-card__desc">High-volume handling of Sulphur, copper and other bulk and break-bulk cargo, supported by dedicated equipment, infrastructure and experienced operational teams.</p></div></article>
+      <article class="svc-card" style="padding:var(--sp-5)"><div class="svc-card__body"><h4 class="svc-card__title">Customs Clearance &amp; Compliance</h4><p class="svc-card__desc">Documentation, clearance, verification coordination and border requirements for imports and exports.</p></div></article>
+      <article class="svc-card" style="padding:var(--sp-5)"><div class="svc-card__body"><h4 class="svc-card__title">Warehousing &amp; Storage</h4><p class="svc-card__desc">Secure warehouse and open-yard solutions for high-volume bulk, break-bulk and containerized cargo.</p></div></article>
+      <article class="svc-card" style="padding:var(--sp-5)"><div class="svc-card__body"><h4 class="svc-card__title">Bagging &amp; Stuffing Operations</h4><p class="svc-card__desc">Bulk-to-bag conversion, bagging, stuffing, segregation, loading and unloading, verification support and dispatch preparation.</p></div></article>
+      <article class="svc-card" style="padding:var(--sp-5)"><div class="svc-card__body"><h4 class="svc-card__title">Road Transportation</h4><p class="svc-card__desc">Cargo movement between Dar es Salaam Port, AILL facilities, customer destinations and regional borders through dedicated capability and Lake Group's network.</p></div></article>
+      <article class="svc-card" style="padding:var(--sp-5)"><div class="svc-card__body"><h4 class="svc-card__title">Rail Logistics</h4><p class="svc-card__desc">Through a sister company, AILL accesses licensed rail operations supported by 2 locomotives, 57 wagons, 250+ empty container boxes and rail-line access within the yard. This supports flexible integrated road-and-rail solutions for high-volume cargo.</p></div></article>
     </div>
   </div>
 </section>
