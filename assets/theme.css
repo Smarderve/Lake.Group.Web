@@ -386,6 +386,9 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
 #chat-widget.la-widget,
 #chat-btn,
 #chat-box { display: none !important; }
+
+/* Home also uses theme.css rather than flagship.css. */
+.lake-back-to-top{--btt-nudge:0px;position:fixed;right:max(28px,calc(env(safe-area-inset-right) + 18px));bottom:max(86px,calc(env(safe-area-inset-bottom) + 76px));z-index:9997;width:46px;height:46px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.28);border-radius:50%;background:#013c5c;color:#fff;box-shadow:0 10px 28px rgba(1,43,66,.24);opacity:0;pointer-events:none;transform:translate3d(0,12px,0) scale(.92);transition:opacity .24s ease,transform .38s cubic-bezier(.22,1.28,.36,1),box-shadow .2s ease,border-color .2s ease}.lake-back-to-top span{font:500 1.35rem/1 Arial,sans-serif;transform:translateY(1px);transition:transform .2s ease}.lake-back-to-top.is-visible{opacity:1;pointer-events:auto;transform:translate3d(0,var(--btt-nudge),0) scale(1)}.lake-back-to-top.is-react-down{--btt-nudge:6px}.lake-back-to-top.is-react-up{--btt-nudge:-5px}.lake-back-to-top:hover{border-color:rgba(255,242,0,.78);box-shadow:0 14px 32px rgba(1,43,66,.32)}.lake-back-to-top:hover span{transform:translateY(-2px)}.lake-back-to-top:active{transform:translate3d(0,var(--btt-nudge),0) scale(.95)}.lake-back-to-top:focus-visible{outline:3px solid #fff200;outline-offset:3px}@media(max-width:600px){.lake-back-to-top{right:max(16px,calc(env(safe-area-inset-right) + 12px));bottom:max(76px,calc(env(safe-area-inset-bottom) + 62px));width:44px;height:44px}}@media(prefers-reduced-motion:reduce){.lake-back-to-top{transition:opacity .18s ease}.lake-back-to-top span{transition:none}.lake-back-to-top.is-react-down,.lake-back-to-top.is-react-up{--btt-nudge:0px}}
 /* Header chrome stays LTR in all languages: logo LEFT, tabs RIGHT. */
 .site-nav,
 .site-nav .nav-inner,

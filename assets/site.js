@@ -847,6 +847,98 @@
     });
   }
 
+  // A shared, hero-aware return control. It uses IntersectionObserver for the
+  // visibility threshold; the passive scroll listener only supplies a tiny
+  // direction cue and never performs layout reads on modern browsers.
+  function initBackToTop() {
+    if (document.getElementById('lake-back-to-top')) return;
+
+    const button = document.createElement('button');
+    button.id = 'lake-back-to-top';
+    button.className = 'lake-back-to-top';
+    button.type = 'button';
+    button.setAttribute('aria-label', 'Back to top');
+    button.setAttribute('title', 'Back to top');
+    button.innerHTML = '<span aria-hidden="true">↑</span>';
+    document.body.appendChild(button);
+
+    // Legacy public pages without the shared theme stylesheet still receive
+    // this global control without requiring page-specific visual changes.
+    if (window.getComputedStyle(button).position !== 'fixed') {
+      const fallbackStyles = document.createElement('style');
+      fallbackStyles.id = 'lake-back-to-top-styles';
+      fallbackStyles.textContent = '.lake-back-to-top{--btt-nudge:0px;position:fixed;right:max(28px,calc(env(safe-area-inset-right) + 18px));bottom:max(86px,calc(env(safe-area-inset-bottom) + 76px));z-index:9997;width:46px;height:46px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.28);border-radius:50%;background:#013c5c;color:#fff;box-shadow:0 10px 28px rgba(1,43,66,.24);opacity:0;pointer-events:none;transform:translate3d(0,12px,0) scale(.92);transition:opacity .24s ease,transform .38s cubic-bezier(.22,1.28,.36,1),box-shadow .2s ease,border-color .2s ease}.lake-back-to-top span{font:500 1.35rem/1 Arial,sans-serif;transform:translateY(1px);transition:transform .2s ease}.lake-back-to-top.is-visible{opacity:1;pointer-events:auto;transform:translate3d(0,var(--btt-nudge),0) scale(1)}.lake-back-to-top.is-react-down{--btt-nudge:6px}.lake-back-to-top.is-react-up{--btt-nudge:-5px}.lake-back-to-top:hover{border-color:rgba(255,242,0,.78);box-shadow:0 14px 32px rgba(1,43,66,.32)}.lake-back-to-top:hover span{transform:translateY(-2px)}.lake-back-to-top:active{transform:translate3d(0,var(--btt-nudge),0) scale(.95)}.lake-back-to-top:focus-visible{outline:3px solid #fff200;outline-offset:3px}@media(max-width:600px){.lake-back-to-top{right:max(16px,calc(env(safe-area-inset-right) + 12px));bottom:max(76px,calc(env(safe-area-inset-bottom) + 62px));width:44px;height:44px}}@media(prefers-reduced-motion:reduce){.lake-back-to-top{transition:opacity .18s ease}.lake-back-to-top span{transition:none}.lake-back-to-top.is-react-down,.lake-back-to-top.is-react-up{--btt-nudge:0px}}';
+      document.head.appendChild(fallbackStyles);
+    }
+
+    const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const thresholdSelectors = [
+      '.hero, .page-hero, [data-hero], .our-story-embed',
+      'main > section',
+      'main',
+      'body > section',
+      'body > header',
+      'body > div:not(.nav-mobile):not(.la-widget)'
+    ];
+    const hero = thresholdSelectors.reduce(function (match, selector) {
+      if (match) return match;
+      return Array.from(document.querySelectorAll(selector)).find(function (candidate) {
+        const rect = candidate.getBoundingClientRect();
+        return rect.width > 0 && rect.height > 0;
+      }) || null;
+    }, null);
+    let visible = false;
+    let lastY = window.scrollY || 0;
+    let directionFrame = 0;
+    let thresholdFrame = 0;
+    let settleTimer = 0;
+
+    function setVisible(next) {
+      if (visible === next) return;
+      visible = next;
+      button.classList.toggle('is-visible', next);
+      if (!next) button.classList.remove('is-react-up', 'is-react-down');
+    }
+
+    function reactToScroll() {
+      directionFrame = 0;
+      const nextY = window.scrollY || 0;
+      const delta = nextY - lastY;
+      lastY = nextY;
+      if (!visible || reducedMotion || Math.abs(delta) < 2) return;
+      button.classList.toggle('is-react-down', delta > 0);
+      button.classList.toggle('is-react-up', delta < 0);
+      window.clearTimeout(settleTimer);
+      settleTimer = window.setTimeout(function () {
+        button.classList.remove('is-react-up', 'is-react-down');
+      }, 110);
+    }
+
+    if (hero && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(function (entries) {
+        setVisible(!entries[0].isIntersecting);
+      }, { threshold: 0 });
+      observer.observe(hero);
+    } else if (hero) {
+      const updateFallback = function () {
+        thresholdFrame = 0;
+        setVisible(hero.getBoundingClientRect().bottom <= 0);
+      };
+      window.addEventListener('scroll', function () {
+        if (!thresholdFrame) thresholdFrame = window.requestAnimationFrame(updateFallback);
+      }, { passive: true });
+      updateFallback();
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!directionFrame) directionFrame = window.requestAnimationFrame(reactToScroll);
+    }, { passive: true });
+
+    button.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     initNav();
     initCompanyBranding();
@@ -859,9 +951,10 @@
     initCurrency();
     initSmartLazyImages();
     initVideoFacades();
+    initBackToTop();
     document.addEventListener('lake-i18n-applied', refreshCountersForLang);
     if (window.LakeI18n) window.LakeI18n.init();
     else refreshCountersForLang();
-    window.LakeSite = { initReveal, initCounters, refreshCountersForLang, initSmartLazyImages };
+    window.LakeSite = { initReveal, initCounters, refreshCountersForLang, initSmartLazyImages, initBackToTop };
   });
 })();
