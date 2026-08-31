@@ -122,7 +122,7 @@ function patchMount() {
     { src: 'assets/images/logos/companies/gulf-aggregates-blue.png?v=71', alt: 'Gulf Aggregates', title: 'Gulf Aggregates', href: 'gulf-aggregates.html' },
     { src: 'assets/images/logos/companies/atl.png?v=61', alt: 'ATL', title: 'ATL Aluminium Trailers', href: 'atl.html' },
     { src: 'assets/images/logos/companies/lake-agro.png?v=61', alt: 'Lake Agro', title: 'Lake Agro', href: 'lake-agro.html' },
-    { src: 'assets/images/logos/companies/cross-country.png?v=62', alt: 'Cross Country', title: 'Cross Country', href: 'cross-country.html' },
+    { src: 'assets/images/logos/companies/cross-country-developer-limited-logo.webp?v=62', alt: 'Cross Country', title: 'Cross Country', href: 'cross-country.html' },
     { src: 'assets/images/logos/companies/ocean-galleria.png?v=61', alt: 'Ocean Galleria', title: 'Ocean Galleria', href: 'ocean-galleria.html' }
   ];`;
   s = s.replace(/var SUBSIDIARY_LOGOS = \[[\s\S]*?\];/, logos);
@@ -170,11 +170,11 @@ function patchServices() {
   let s = read('services.html');
   s = s.replace(
     /<a href="https:\/\/atl-tz\.com" class="div-row div-external"[^>]*>[\s\S]*?<\/a>/,
-    `<a href="atl.html" class="div-row"><div class="div-no">10</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/atl.png?v=61" alt="" loading="lazy"></span> <span>ATL (Aluminium Trailers)</span></h3></div><div class="div-side"><p data-i18n="services.desc.atl">Tanzania's aluminium fuel tanker and custom trailer manufacturer — engineered for African routes.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>`
+    `<a href="atl.html" class="div-row"><div class="div-no">10</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/atl.png?v=61" alt="" loading="lazy"></span> <span>ATL (Aluminium Trailers)</span></h3></div><div class="div-side"><p data-i18n="services.desc.atl">Tanzania's aluminium fuel tanker and custom trailer manufacturer â€” engineered for African routes.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>`
   );
   s = s.replace(
     /<a href="https:\/\/lakeagro\.com\/?" class="div-row div-external"[^>]*>[\s\S]*?<\/a>/,
-    `<a href="lake-agro.html" class="div-row"><div class="div-no">17</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/lake-agro.png?v=61" alt="" loading="lazy"></span> <span>Lake Agro</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeAgro">Agribusiness plantations and integrated Ag Parks — creating customers and food for life across Africa.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>`
+    `<a href="lake-agro.html" class="div-row"><div class="div-no">17</div><div class="div-main"><h3><span class="div-glyph" aria-hidden="true"><img src="assets/images/logos/companies/lake-agro.png?v=61" alt="" loading="lazy"></span> <span>Lake Agro</span></h3></div><div class="div-side"><p data-i18n="services.desc.lakeAgro">Agribusiness plantations and integrated Ag Parks â€” creating customers and food for life across Africa.</p><span class="svc-link" data-i18n="common.learnMore">Learn more</span></div></a>`
   );
   write('services.html', s);
 }

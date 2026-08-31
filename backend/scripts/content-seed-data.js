@@ -76,7 +76,7 @@ export const CONTENT_SEED = {
       logo: 'assets/images/logos/companies/lake-trans.png', website: 'https://www.lakeoilgroup.com/lake-trans.html' },
     { slug: 'cross-country', name: 'Cross Country', categorySlug: 'realestate',
       description: "Lake Group's real estate and property development arm.",
-      logo: 'assets/images/logos/companies/cross-country.png', website: 'https://www.lakeoilgroup.com/cross-country.html' },
+      logo: 'assets/images/logos/companies/cross-country-developer-limited-logo.webp', website: 'https://www.lakeoilgroup.com/cross-country.html' },
     { slug: 'ocean-galleria', name: 'Ocean Galleria', categorySlug: 'realestate',
       description: "Lake Group's real estate and retail gallery development.",
       logo: 'assets/images/logos/companies/Ocean-Galleria-logo.webp', website: 'https://www.lakeoilgroup.com/ocean-galleria.html' },

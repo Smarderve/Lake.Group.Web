@@ -116,6 +116,11 @@
   padding: 7px 12px;
 }
 
+/* Preserve the supplied Cross Country lockup's soft white corners in the strip. */
+.logoloop__item--cross-country img {
+  border-radius: 18px;
+}
+
 .logoloop--scale-hover .logoloop__item {
   overflow: visible;
 }

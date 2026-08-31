@@ -154,13 +154,12 @@ async function inspectTicker(page) {
       );
 
       const independentBrands = {
-        'Gulf Aggregates': 'assets/images/logos/companies/gulf-aggregates.png?v=69',
+        'Gulf Aggregates': 'assets/images/logos/companies/gulf-aggregates-blue.png?v=71',
         AFICD: 'assets/images/logos/companies/aficd.png?v=69',
         AILL: 'assets/images/logos/companies/aill.png?v=58',
-        ATL: 'assets/images/logos/companies/atl.png?v=61',
-        'Lake Agro': 'assets/images/logos/companies/lake-agro.png?v=61',
-        'Cross Country': 'assets/images/logos/companies/cross-country.png?v=69',
-        'Ocean Galleria': 'assets/images/logos/companies/Ocean-Galleria-logo.webp',
+        ATL: 'assets/images/logos/companies/assembly-tech-limited-logo.webp?v=1',
+        'Lake Agro': 'assets/images/logos/companies/lake-agro-blue.png?v=70',
+        'Cross Country Developer Limited': 'assets/images/logos/companies/cross-country-developer-limited-logo.webp?v=1',
       };
       for (const [alt, src] of Object.entries(independentBrands)) {
         const logo = before.logos.find((candidate) => candidate.alt === alt);
