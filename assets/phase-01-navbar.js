@@ -132,6 +132,13 @@
     };
     const revealSectorIcons = () => {
       initSectorIcons();
+      const rail = nav.querySelector('.mm-cats');
+      if (rail && !reducedMotion()) {
+        rail.classList.remove('is-icon-entering');
+        // Restart the small entrance sequence on every megamenu opening.
+        void rail.offsetWidth;
+        rail.classList.add('is-icon-entering');
+      }
       const active = nav.querySelector('.mm-cat.is-active') || nav.querySelector('.mm-cat[data-mm-cat]');
       if (active) playSectorIcon(active, 'in-reveal');
     };

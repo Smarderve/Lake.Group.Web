@@ -1210,6 +1210,56 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-m
   filter: none !important;
 }
 
+/* Motion is intentionally applied to the existing stable icon wrapper. The
+   Lordicon source and safe final frame never change between UI states. */
+.site-nav[data-phase01-navbar] .mm-sector-icon {
+  --sector-icon-base-scale: 1;
+  transform: scale(var(--sector-icon-base-scale)) !important;
+  transform-origin: center center;
+  transition: transform 180ms cubic-bezier(.22, .61, .36, 1) !important;
+  will-change: transform;
+}
+.site-nav[data-phase01-navbar] .mm-sector-icon--approved.mm-sector-icon--energies {
+  --sector-icon-base-scale: 1.55;
+}
+.site-nav[data-phase01-navbar] .mm-sector-icon--approved.mm-sector-icon--manufacturing {
+  --sector-icon-base-scale: 1.4;
+}
+.site-nav[data-phase01-navbar] .mm-cat.is-active .mm-sector-icon {
+  transform: scale(calc(var(--sector-icon-base-scale) * 1.04)) !important;
+}
+.site-nav[data-phase01-navbar] .mm-cat:hover .mm-sector-icon,
+.site-nav[data-phase01-navbar] .mm-cat:focus-visible .mm-sector-icon {
+  transform: translateX(2px) scale(calc(var(--sector-icon-base-scale) * 1.08)) !important;
+}
+.site-nav[data-phase01-navbar] .mm-cat:hover::after,
+.site-nav[data-phase01-navbar] .mm-cat:focus-visible::after {
+  transform: translateX(2px) rotate(45deg) !important;
+}
+@keyframes lake-sector-icon-enter {
+  from { transform: translateX(-4px) scale(calc(var(--sector-icon-base-scale) * .94)); }
+  to { transform: translateX(0) scale(var(--sector-icon-base-scale)); }
+}
+.site-nav[data-phase01-navbar] .mm-cats.is-icon-entering .mm-sector-icon {
+  animation: lake-sector-icon-enter 220ms cubic-bezier(.22, .61, .36, 1) both;
+}
+.site-nav[data-phase01-navbar] .mm-cats.is-icon-entering .mm-cat:nth-child(2) .mm-sector-icon { animation-delay: 32ms; }
+.site-nav[data-phase01-navbar] .mm-cats.is-icon-entering .mm-cat:nth-child(3) .mm-sector-icon { animation-delay: 64ms; }
+.site-nav[data-phase01-navbar] .mm-cats.is-icon-entering .mm-cat:nth-child(4) .mm-sector-icon { animation-delay: 96ms; }
+.site-nav[data-phase01-navbar] .mm-cats.is-icon-entering .mm-cat:nth-child(5) .mm-sector-icon { animation-delay: 128ms; }
+.site-nav[data-phase01-navbar] .mm-cats.is-icon-entering .mm-cat:nth-child(6) .mm-sector-icon { animation-delay: 160ms; }
+@media (prefers-reduced-motion: reduce) {
+  .site-nav[data-phase01-navbar] .mm-sector-icon {
+    animation: none !important;
+    transition: none !important;
+  }
+  .site-nav[data-phase01-navbar] .mm-cat:hover .mm-sector-icon,
+  .site-nav[data-phase01-navbar] .mm-cat:focus-visible .mm-sector-icon,
+  .site-nav[data-phase01-navbar] .mm-cat.is-active .mm-sector-icon {
+    transform: scale(var(--sector-icon-base-scale)) !important;
+  }
+}
+
 /* Icon-only visibility correction. Keep the approved rail geometry unchanged
    while giving all desktop sector icons a consistent, readable slot. */
 @media (min-width: 768px) {
