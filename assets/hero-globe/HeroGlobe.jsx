@@ -16,16 +16,16 @@ import {
 
 const INITIAL_POV = { lat: 28, lng: -142, altitude: 2.12 };
 const AFRICA_POV = { lat: -4, lng: 33, altitude: 1.85 };
-const SETTLE_DURATION_MS = 2200;
-const POST_SETTLE_PAUSE_MS = 500;
-const ARC_DRAW_DURATION_MS = 1650;
-const ARC_STAGGER_MS = 320;
+const SETTLE_DURATION_MS = 2400;
+const POST_SETTLE_PAUSE_MS = 400;
+const ARC_DRAW_DURATION_MS = 1800;
+const ARC_STAGGER_MS = 280;
 
 /* Label / marker styling */
 
-const LABEL_ALTITUDE = 0.018;
-const LABEL_DOT_RADIUS = 0.15;
-const LABEL_RESOLUTION = 10;
+const LABEL_ALTITUDE = 0.022;
+const LABEL_DOT_RADIUS = 0.18;
+const LABEL_RESOLUTION = 12;
 
 const MARKER_WHITE = '#ffffff';
 const MARKER_WHITE_RING = (t) => `rgba(255, 255, 255, ${Math.max(0, 1 - t)})`;
@@ -100,7 +100,7 @@ export default function HeroGlobe({ panelEl, locations }) {
   const allLabels = useMemo(() => {
     // Preserve a controlled label scale on phones, where the globe occupies a
     // smaller physical area but the country names remain essential content.
-    const compactMultiplier = w < 600 ? 1.28 : 1;
+    const compactMultiplier = w < 600 ? 1.35 : 1;
     return buildLabels(locations).map((label) => ({
       ...label,
       size: label.size * compactMultiplier,
@@ -301,7 +301,7 @@ export default function HeroGlobe({ panelEl, locations }) {
       arcsData={arcsData}
       arcColor={() => [ROUTE_BLUE_START, ROUTE_BLUE_END]}
       arcAltitude="altitude"
-      arcStroke={0.64}
+      arcStroke={1.0}
       arcDashLength="progress"
       arcDashGap={0}
       arcDashInitialGap={0}

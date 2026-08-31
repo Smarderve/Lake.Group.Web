@@ -12,12 +12,12 @@ export const BRAND_YELLOW = '#FFF200';
 export const BRAND_YELLOW_SOFT = 'rgba(255, 242, 0, 0.55)';
 export const BRAND_YELLOW_RING = (t) => `rgba(255, 242, 0, ${Math.max(0, 1 - t)})`;
 
-/** Lake-blue route treatment: bright enough to read without competing with hubs. */
-export const ROUTE_BLUE_START = 'rgba(38, 169, 220, 0.48)';
+/** Lake-blue route treatment: bright enough to read against terrain. */
+export const ROUTE_BLUE_START = 'rgba(38, 169, 220, 0.72)';
 export const ROUTE_BLUE_END = '#73d2f2';
 
-/** Label color — off-white for clean, restrained map typography. */
-export const LABEL_COLOR = 'rgba(255, 255, 255, 0.82)';
+/** Label color — white for strong readable map typography. */
+export const LABEL_COLOR = 'rgba(255, 255, 255, 0.95)';
 
 /**
  * Geographic label offset map.
@@ -52,7 +52,7 @@ function approvedLocations(locations) {
 export function buildPoints(locations) {
   return approvedLocations(locations).map((loc) => ({
     ...loc,
-    size: loc.hub ? 0.5 : 0.22,
+    size: loc.hub ? 0.6 : 0.25,
     color: BRAND_YELLOW,
   }));
 }
@@ -73,9 +73,8 @@ export function buildArcs(locations) {
     startLng: hq.lng,
     endLat: loc.lat,
     endLng: loc.lng,
-    // Explicit altitude produces a genuine outward bow from the globe instead
-    // of a surface-hugging great-circle line. The UAE route gets the tallest arc.
-    altitude: loc.id === 'ae' ? 0.42 : ['et', 'cd', 'mz', 'zm'].includes(loc.id) ? 0.31 : 0.24,
+    // Elevated arcs: longer routes rise higher so curves are visible from front.
+    altitude: loc.id === 'ae' ? 0.48 : ['et', 'cd', 'mz', 'zm'].includes(loc.id) ? 0.36 : 0.28,
     progress: 0.001,
     id: loc.id,
   }));
@@ -96,8 +95,8 @@ export function buildLabels(locations) {
         lng: loc.lng + offset[0],
         text: (loc.countryName || loc.name || '').toUpperCase(),
         color: loc.hub ? BRAND_YELLOW : LABEL_COLOR,
-        // Tanzania is the origin, so it receives subtle extra hierarchy.
-        size: loc.hub ? 1.1 : 0.9,
+        // Larger labels for legibility; Tanzania is the origin hub.
+        size: loc.hub ? 1.6 : 1.1,
       };
     });
 }
