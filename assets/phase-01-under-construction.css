@@ -22,3 +22,26 @@ body[data-phase-01-under-construction="true"] .site-footer { display:none!import
 @media (max-width:900px) { .phase-01-under-construction { min-height:calc(100svh - 82px); padding:48px 32px; } .phase-01-under-construction__inner { gap:18px; grid-template-columns:minmax(0,1fr) minmax(280px,.9fr); } .phase-01-under-construction h1 { font-size:clamp(2.65rem,6vw,4.3rem); } .phase-01-under-construction__visual { min-height:340px; } .phase-01-under-construction__lottie { height:min(42vw,420px); width:min(42vw,420px); } }
 @media (max-width:640px) { .phase-01-under-construction { min-height:calc(100svh - 72px); padding:78px 20px 32px; } .phase-01-under-construction__inner { align-items:stretch; display:flex; flex-direction:column; gap:4px; } .phase-01-under-construction__copy { max-width:none; } .phase-01-under-construction__eyebrow { margin-bottom:14px; } .phase-01-under-construction h1 { font-size:clamp(2.6rem,13vw,4rem); max-width:10ch; } .phase-01-under-construction__lede { font-size:1rem; line-height:1.55; margin-top:20px; } .phase-01-under-construction__actions { align-items:flex-start; flex-direction:column; gap:17px; margin-top:24px; } .phase-01-under-construction__visual { min-height:200px; order:2; } .phase-01-under-construction__lottie { height:min(70vw,300px); width:min(70vw,300px); } }
 @media (prefers-reduced-motion:reduce) { .phase-01-under-construction__primary { transition:none; } .phase-01-under-construction__primary:hover { transform:none; } }
+
+/* Under-construction surfaces start on a pale canvas. Keep the approved
+   transparent navbar treatment, but switch only its top-level chrome to
+   Lake ink so navigation remains readable without adding a header bar. */
+body[data-phase-01-under-construction="true"] .site-nav[data-phase01-navbar] .nav-links > li > a,
+body[data-phase-01-under-construction="true"] .site-nav[data-phase01-navbar] .lang-trigger,
+body[data-phase-01-under-construction="true"] .site-nav[data-phase01-navbar] .nav-logo-wordmark {
+  color: #013f5c !important;
+}
+body[data-phase-01-under-construction="true"] .site-nav[data-phase01-navbar] .nav-links > li > a:hover,
+body[data-phase-01-under-construction="true"] .site-nav[data-phase01-navbar] .nav-links > li > a:focus-visible,
+body[data-phase-01-under-construction="true"] .site-nav[data-phase01-navbar] .nav-links > li > a.active,
+body[data-phase-01-under-construction="true"] .site-nav[data-phase01-navbar] .nav-links > li.is-open > a {
+  color: #fff200 !important;
+}
+body[data-phase-01-under-construction="true"] .site-nav[data-phase01-navbar] .nav-links > li > a:focus-visible,
+body[data-phase-01-under-construction="true"] .site-nav[data-phase01-navbar] .nav-toggle:focus-visible {
+  outline: 2px solid #013f5c !important;
+  outline-offset: 3px !important;
+}
+body[data-phase-01-under-construction="true"] .site-nav[data-phase01-navbar] .nav-toggle span {
+  background: #013f5c !important;
+}
