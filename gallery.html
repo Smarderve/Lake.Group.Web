@@ -74,10 +74,10 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
 .gallery-meta strong{color:#013F5C;font-weight:700}
 
 .gallery-toolbar{
-  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
   gap:12px;padding:10px 0 14px;
 }
-.gallery-toolbar__left{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.gallery-toolbar__left{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;width:100%}
 .gallery-count{
   display:inline-flex;align-items:center;gap:8px;
   border:1px solid #E3E5E0;background:#fff;
@@ -96,19 +96,8 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
   padding:8px 10px;cursor:pointer;
 }
 .gallery-sort select option{background:#fff;color:#013F5C}
-.gallery-view{display:inline-flex;border:1px solid #E3E5E0}
-.gallery-view button{
-  appearance:none;border:0;background:#fff;color:#5a6570;
-  font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  padding:8px 12px;cursor:pointer;
-  transition:background 150ms ease,color 150ms ease;
-}
-.gallery-view button+button{border-left:1px solid #E3E5E0}
-.gallery-view button:hover{color:#013F5C}
-.gallery-view button.is-active{background:#013F5C;color:#FFF200}
-
 .gallery-filter-bar{
-  display:flex;flex-wrap:wrap;gap:8px;
+  display:flex;flex-wrap:wrap;justify-content:center;gap:8px;
   padding:10px 0 18px;
   border-bottom:1px solid #E3E5E0;
   margin-bottom:18px;
@@ -249,27 +238,6 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
   background-color:#013F5C;
   border-color:#013F5C;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h14M13 6l6 6-6 6'/></svg>");
-}
-
-.gallery-grid.is-list{
-  grid-template-columns:repeat(2, 1fr);
-  gap:8px;
-}
-@media (min-width: 1200px) {
-  .gallery-grid.is-list{gap:12px}
-}
-.gallery-grid.is-list .gallery-tile{
-  display:grid;
-  grid-template-columns:120px 1fr;
-}
-.gallery-grid.is-list .gallery-tile__image{height:96px}
-@media (min-width: 768px) {
-  .gallery-grid.is-list .gallery-tile__image{height:110px}
-}
-.gallery-grid.is-list .gallery-tile__caption{
-  border-top:0;
-  border-left:1px solid #E3E5E0;
-  align-items:center;
 }
 
 #lightbox{
@@ -614,10 +582,6 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
             <option value="category">Category</option>
           </select>
         </label>
-      </div>
-      <div class="gallery-view" role="group" aria-label="View mode">
-        <button type="button" class="is-active" data-view="grid" id="view-grid" aria-pressed="true">Grid</button>
-        <button type="button" data-view="list" id="view-list" aria-pressed="false">List</button>
       </div>
     </div>
 
@@ -977,19 +941,6 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
     btn.addEventListener('click', () => filterGallery(btn.dataset.filter, btn));
   });
   sortEl.addEventListener('change', applySort);
-
-  document.getElementById('view-grid').addEventListener('click', function(){
-    grid.classList.remove('is-list');
-    this.classList.add('is-active'); this.setAttribute('aria-pressed','true');
-    const list = document.getElementById('view-list');
-    list.classList.remove('is-active'); list.setAttribute('aria-pressed','false');
-  });
-  document.getElementById('view-list').addEventListener('click', function(){
-    grid.classList.add('is-list');
-    this.classList.add('is-active'); this.setAttribute('aria-pressed','true');
-    const g = document.getElementById('view-grid');
-    g.classList.remove('is-active'); g.setAttribute('aria-pressed','false');
-  });
 
   const lb = document.getElementById('lightbox');
   const lbImg = document.getElementById('lb-img');
