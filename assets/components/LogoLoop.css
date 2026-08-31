@@ -109,46 +109,6 @@
   height: calc(var(--logoloop-logoHeight) * var(--logoloop-item-scale, 1));
 }
 
-/* Lake Pipes: the scrolling source (2084×755) contains Lake wordmark,
-   PIPES secondary text, and a decorative swoosh.  PIPES strokes are
-   inherently heavier than the secondary text on sibling Lake logos,
-   so we split into two layers — Lake-only (main) and PIPES-only
-   (secondary) — then erode PIPES to match the family stroke weight. */
-.logoloop__item--lake-pipes .logoloop__link {
-  position: relative;
-}
-
-/* Show only Lake wordmark + icon (rows 0-400 of 755px source). */
-.logoloop__item--lake-pipes .logoloop__pipes-main {
-  clip-path: inset(0 0 47% 0);
-}
-
-.logoloop__pipes-secondary {
-  position: absolute;
-  inset: 0;
-  display: block;
-  pointer-events: none;
-}
-
-/* Show only PIPES text (rows ~392-557 of 755px source), scale to
-   match sibling secondary-word sizes, and erode strokes to match.
-   The filter lives on the span so the child <img> computed style stays
-   'none' (avoids the no-CSS-filter regression gate). */
-.logoloop__pipes-secondary {
-  filter: url(#pipes-weight-erode);
-}
-
-.logoloop__pipes-secondary img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  clip-path: inset(52% 0 27% 0);
-  transform: scale(1.55);
-  transform-origin: 50% 63%;
-}
-
 /* Preserves Agrinova's official white-and-gold mark on the white logo strip. */
 .logoloop__item--agrinova {
   background: #123d2c;
