@@ -113,26 +113,11 @@ function autoMount() {
   /* Mount immediately with hardcoded locations so the Earth renders
      without waiting for the CMS content delivery promise.  If the
      CMS resolves later and provides different locations, we can
-     re-render then — but the globe must never be blocked by it. */
+     re-render then â€” but the globe must never be blocked by it. */
   var locations = fallbackLocations();
   mountHeroGlobe('#experience-3d-panel', locations);
 
-  /* Optionally enrich with CMS data when it arrives (non-blocking). */
-  var delivery = window.LakePublicContentReady ||
-    Promise.resolve(window.LakePublicContent || null);
-  delivery
-    .then((client) => client ? client.map() : null)
-    .then((map) => {
-      if (!map) return;
-      var cmsLocations = publishedGlobeLocations(map);
-      if (cmsLocations.length && mount.__heroGlobeRoot) {
-        mount.__heroGlobeRoot.unmount();
-        mount.dataset.heroGlobeMounted = '';
-        delete mount.__heroGlobeRoot;
-        mountHeroGlobe('#experience-3d-panel', cmsLocations);
-      }
-    })
-    .catch(() => {}); /* ignore CMS failures — fallback locations already mounted */
+  /* CMS delivery must never restart the renderer after the base Earth is live. */
 }
 
 if (typeof window !== 'undefined') {

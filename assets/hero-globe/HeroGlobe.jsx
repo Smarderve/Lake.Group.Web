@@ -345,6 +345,17 @@ export default function HeroGlobe({ panelEl, locations }) {
     return undefined;
   }, [sectionVisible]);
 
+  /* react-globe.gl owns a continuous renderer loop. Keep the already-painted
+     base Earth available, but pause GPU work while this section is offscreen. */
+  useEffect(() => {
+    if (!globeReady) return undefined;
+    const globe = globeRef.current;
+    if (!globe) return undefined;
+    if (sectionVisible) globe.resumeAnimation?.();
+    else globe.pauseAnimation?.();
+    return undefined;
+  }, [globeReady, sectionVisible]);
+
   useEffect(() => () => clearTimers(), [clearTimers]);
 
   /* ── Cap devicePixelRatio ── */
