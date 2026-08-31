@@ -104,12 +104,6 @@ body.about .page-wrapper { padding-top: 0; }
 }
 
 .ose-text { position: relative; z-index: 5; text-align: center; max-width: 900px; padding: 1.5rem; }
-.ose-eyebrow {
-  font-size: clamp(11px, 2.4vw, 13px); font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase;
-  color: var(--yellow); display: block; margin-bottom: 1.1rem;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-  opacity: 0; transform: translateY(8px); transition: opacity 0.45s ease 0.15s, transform 0.45s ease 0.15s;
-}
 .ose-display {
   font-family: var(--font-display); font-weight: 700; line-height: 1.12; color: #fff;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
@@ -119,21 +113,7 @@ body.about .page-wrapper { padding-top: 0; }
 .ose-xl { font-size: clamp(1.55rem, 3.5vw, 3.2rem); max-width: 34ch; }
 .ose-lg { font-size: var(--fs-display); }
 .ose-md { font-size: var(--fs-title); }
-.ose-body {
-  font-family: var(--font-body); font-weight: 300; font-size: clamp(0.95rem, 1.7vw, 1.15rem);
-  line-height: 1.7; color: rgba(247,248,255,0.85); max-width: 540px; margin: 0 auto;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
-  opacity: 0; transform: translateY(8px); transition: opacity 0.55s ease 0.25s, transform 0.55s ease 0.25s;
-}
-.ose-body.ose-small { font-size: clamp(0.85rem, 1.5vw, 1rem); margin-top: 0.4rem; }
-.ose-line {
-  width: 40px; height: 2px; background: var(--yellow); margin: 1.3rem auto;
-  opacity: 0; transition: opacity 0.5s ease 0.2s;
-}
-.ose-scene.ose-active .ose-eyebrow,
-.ose-scene.ose-active .ose-display,
-.ose-scene.ose-active .ose-body,
-.ose-scene.ose-active .ose-line { opacity: 1; transform: translateY(0); }
+.ose-scene.ose-active .ose-display { opacity: 1; transform: translateY(0); }
 
 .ose-label {
   position: absolute; bottom: 1.8rem; left: 50%; transform: translateX(-50%); z-index: 6;
@@ -285,7 +265,7 @@ body.about .page-wrapper { padding-top: 0; }
 
 /* Accessibility: disable text-shadows for users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .ose-eyebrow, .ose-display, .ose-body {
+  .ose-display {
     text-shadow: none !important;
   }
 }
@@ -412,7 +392,6 @@ body.about .page-wrapper { padding-top: 0; }
       <div class="ose-photo-bg"><img class="ose-photo" src="assets/images/about/about-hero-07.webp" alt="Lake Group operations" fetchpriority="high" decoding="async"></div>
       <div class="ose-tint ose-tint-dark"></div>
       <div class="ose-text">
-        <span class="ose-eyebrow">Our people</span>
         <h2 class="ose-display ose-xl">Bringing People, Markets,<br>and Opportunities Together.</h2>
       </div>
       <span class="ose-stamp" data-i18n="ose.s1.stamp" hidden></span>
@@ -548,12 +527,12 @@ body.about .page-wrapper { padding-top: 0; }
   const previousButton = stage.querySelector('.ose-arrow-prev');
   const nextButton = stage.querySelector('.ose-arrow-next');
   const slides = [
-    { image: 'assets/images/about/about-hero-09.webp', copy: { eyebrow: 'Our operations', title: 'Advancing Industries, Empowering People, Shaping Tomorrow.', alt: 'Lake Group operations' } },
-    { image: 'assets/images/about/about-hero-12.webp', copy: { eyebrow: 'Our people', title: 'Investing in People, Partnerships, and Progress.', body: 'More than 30,000 people from 10+ nationalities continue to grow Lake Group across 10 countries.', label: 'The people behind our progress' } },
-    { image: 'assets/images/about/about-hero-03.webp', copy: { eyebrow: 'Our people', title: 'Bringing People, Markets, and Opportunities Together.', body: 'More than 30,000 people from 10+ nationalities continue to grow Lake Group across 10 countries.', label: 'The people behind our progress' } },
-    { image: 'assets/images/about/about-hero-04.webp', copy: { eyebrow: 'Our operations', title: 'Generating Impact Across Generations and Markets.', alt: 'Lake Group operations' } },
-    { image: 'assets/images/about/about-hero-05.webp', copy: { eyebrow: 'Our beginning', title: 'Leading with Purpose, Growing with Integrity, Delivering Excellence.', body: 'Lake Group, established in 2006 with a single fuel outlet in Dar es Salaam, Tanzania, has now grown to a whole regional business group.', label: 'Lake Oil &middot; Est. 2006' } },
-    { image: 'assets/images/about/about-hero-06.webp', copy: { eyebrow: 'Our operations', title: 'Balancing Economic Success with Social Responsibility.', alt: 'Lake Group operations' } }
+    { image: 'assets/images/about/about-hero-09.webp', copy: { title: 'Advancing Industries, Empowering People, Shaping Tomorrow.', alt: 'Lake Group operations' } },
+    { image: 'assets/images/about/about-hero-12.webp', copy: { title: 'Investing in People, Partnerships, and Progress.' } },
+    { image: 'assets/images/about/about-hero-03.webp', copy: { title: 'Bringing People, Markets, and Opportunities Together.' } },
+    { image: 'assets/images/about/about-hero-04.webp', copy: { title: 'Generating Impact Across Generations and Markets.', alt: 'Lake Group operations' } },
+    { image: 'assets/images/about/about-hero-05.webp', copy: { title: 'Leading with Purpose, Growing with Integrity, Delivering Excellence.' } },
+    { image: 'assets/images/about/about-hero-06.webp', copy: { title: 'Balancing Economic Success with Social Responsibility.', alt: 'Lake Group operations' } }
   ];
   const slideImages = slides.map((slide) => slide.image);
   const firstScene = stage.querySelector('.ose-scene');
@@ -562,22 +541,7 @@ body.about .page-wrapper { padding-top: 0; }
     const photo = scene.querySelector('.ose-photo');
     photo.src = slide.image;
     photo.alt = copy.alt || 'Lake Group operations';
-    scene.querySelector('.ose-eyebrow').textContent = copy.eyebrow;
     scene.querySelector('.ose-display').innerHTML = copy.title;
-    const body = scene.querySelector('.ose-body');
-    const text = scene.querySelector('.ose-text');
-    if (copy.body && !body) {
-      const line = document.createElement('div');
-      line.className = 'ose-line';
-      text.appendChild(line);
-      const paragraph = document.createElement('p');
-      paragraph.className = 'ose-body';
-      paragraph.textContent = copy.body;
-      text.appendChild(paragraph);
-    } else if (!copy.body && body) {
-      body.previousElementSibling?.remove();
-      body.remove();
-    }
     const label = scene.querySelector('.ose-label');
     if (label) { label.innerHTML = copy.label || ''; label.hidden = !copy.label; }
     const stamp = scene.querySelector('.ose-stamp');
