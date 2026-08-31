@@ -229,19 +229,27 @@ export default function HeroGlobe({ panelEl, locations }) {
 
     const restartAfterShowcase = () => {
       if (sequenceCancelledRef.current) return;
-      const from = globe.pointOfView();
-      const showcaseTarget = {
-        lat: AFRICA_POV.lat,
-        lng: AFRICA_POV.lng + 360,
-        altitude: AFRICA_POV.altitude,
-      };
-      cancelCameraRef.current = animateCamera(globe, from, showcaseTarget, SHOWCASE_ROTATION_MS, () => {
-        cancelCameraRef.current = null;
+      // Step 1: Clear all routes + destination labels
+      setCompletedArcs([]);
+      setActiveArc(null);
+      activeDashRef.current = 0;
+      setRevealedMarkers([]);
+      // Short pause after clear, then rotate
+      scheduleTimer(() => {
         if (sequenceCancelledRef.current) return;
-        // Equivalent longitudes preserve the visual orientation without a snap.
-        globe.pointOfView(AFRICA_POV, 0);
-        scheduleTimer(runSequence, RESET_SETTLE_MS);
-      });
+        const from = globe.pointOfView();
+        const showcaseTarget = {
+          lat: AFRICA_POV.lat,
+          lng: AFRICA_POV.lng + 360,
+          altitude: AFRICA_POV.altitude,
+        };
+        cancelCameraRef.current = animateCamera(globe, from, showcaseTarget, SHOWCASE_ROTATION_MS, () => {
+          cancelCameraRef.current = null;
+          if (sequenceCancelledRef.current) return;
+          globe.pointOfView(AFRICA_POV, 0);
+          scheduleTimer(runSequence, RESET_SETTLE_MS);
+        });
+      }, 500);
     };
 
     /** Draw one route with progressive dash reveal. */
