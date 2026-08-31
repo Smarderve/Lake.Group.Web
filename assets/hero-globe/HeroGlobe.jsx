@@ -3,8 +3,8 @@ import Globe from 'react-globe.gl';
 import {
   TEX,
   BRAND_YELLOW,
-  BRAND_YELLOW_SOFT,
-  LABEL_COLOR,
+  ROUTE_BLUE_START,
+  ROUTE_BLUE_END,
   buildPoints,
   buildArcs,
   buildRings,
@@ -14,16 +14,16 @@ import {
 
 /* Camera / timing constants */
 
+const INITIAL_POV = { lat: 28, lng: -142, altitude: 2.12 };
 const AFRICA_POV = { lat: -4, lng: 33, altitude: 1.85 };
-const SETTLE_DURATION_MS = 2000;
+const SETTLE_DURATION_MS = 2200;
 const POST_SETTLE_PAUSE_MS = 500;
-const ARC_DRAW_DURATION_MS = 2000;
-const ARC_STAGGER_MS = 450;
+const ARC_DRAW_DURATION_MS = 1650;
+const ARC_STAGGER_MS = 320;
 
 /* Label / marker styling */
 
-const LABEL_SIZE = 0.55;
-const LABEL_ALTITUDE = 0.02;
+const LABEL_ALTITUDE = 0.018;
 const LABEL_DOT_RADIUS = 0.15;
 const LABEL_RESOLUTION = 10;
 
@@ -94,10 +94,18 @@ export default function HeroGlobe({ panelEl, locations }) {
   const { w, h } = usePanelSize(panelEl);
   const reduced = useReducedMotion();
 
-  const allPoints = useMemo(() => buildPoints(locations).map((p) => ({ ...p, color: MARKER_WHITE })), [locations]);
+  const allPoints = useMemo(() => buildPoints(locations).map((p) => ({ ...p, color: p.hub ? BRAND_YELLOW : MARKER_WHITE })), [locations]);
   const allRings = useMemo(() => (reduced ? [] : buildRings(locations)), [locations, reduced]);
   const allArcs = useMemo(() => buildArcs(locations), [locations]);
-  const allLabels = useMemo(() => buildLabels(locations), [locations]);
+  const allLabels = useMemo(() => {
+    // Preserve a controlled label scale on phones, where the globe occupies a
+    // smaller physical area but the country names remain essential content.
+    const compactMultiplier = w < 600 ? 1.28 : 1;
+    return buildLabels(locations).map((label) => ({
+      ...label,
+      size: label.size * compactMultiplier,
+    }));
+  }, [locations, w]);
 
   const [pointsData, setPointsData] = useState([]);
   const [ringsData, setRingsData] = useState([]);
@@ -150,8 +158,10 @@ export default function HeroGlobe({ panelEl, locations }) {
     const startTime = performance.now();
 
     const hub = allPoints.find((p) => p.hub);
+    const hubLabel = allLabels.find((label) => label.id === hub?.id);
     setPointsData(hub ? [hub] : []);
     setRingsData(allRings);
+    setLabelsData(hubLabel ? [hubLabel] : []);
 
     const tick = () => {
       const now = performance.now();
@@ -188,16 +198,26 @@ export default function HeroGlobe({ panelEl, locations }) {
         const delay = idx * ARC_STAGGER_MS;
 
         scheduleTimer(() => {
-          setArcsData((prev) => {
-            const arc = allArcs.find((a) => a.id === dest.id);
-            return arc ? [...prev, arc] : prev;
-          });
+          const arc = allArcs.find((item) => item.id === dest.id);
+          if (!arc) return;
+          setArcsData((prev) => [...prev, { ...arc, progress: 0.001 }]);
 
-          scheduleTimer(() => {
+          const drawStartedAt = performance.now();
+          const drawRoute = () => {
+            const t = Math.min(1, (performance.now() - drawStartedAt) / ARC_DRAW_DURATION_MS);
+            const progress = easeInOutCubic(t);
+            setArcsData((prev) => prev.map((item) => item.id === arc.id ? { ...item, progress } : item));
+            if (t < 1) {
+              const id = requestAnimationFrame(drawRoute);
+              rafIds.current.push(id);
+              return;
+            }
             setPointsData((prev) => [...prev, dest]);
-            const lbl = orderedLabels.find((l) => l.id === dest.id);
+            const lbl = orderedLabels.find((label) => label.id === dest.id);
             if (lbl) setLabelsData((prev) => [...prev, lbl]);
-          }, ARC_DRAW_DURATION_MS);
+          };
+          const id = requestAnimationFrame(drawRoute);
+          rafIds.current.push(id);
         }, delay);
       });
     }
@@ -221,7 +241,9 @@ export default function HeroGlobe({ panelEl, locations }) {
   const onGlobeReady = useCallback(() => {
     const g = globeRef.current;
     if (!g) return;
-    g.pointOfView(AFRICA_POV, 0);
+    // Begin with a controlled global view, then run the single cinematic move
+    // toward East Africa once the section becomes visible.
+    g.pointOfView(reduced ? AFRICA_POV : INITIAL_POV, 0);
     const controls = g.controls();
     if (controls) {
       controls.autoRotate = false;
@@ -232,7 +254,7 @@ export default function HeroGlobe({ panelEl, locations }) {
       controls.maxPolarAngle = Math.PI * 0.75;
     }
     setGlobeReady(true);
-  }, []);
+  }, [reduced]);
 
   useEffect(() => {
     if (!panelEl) {
@@ -262,7 +284,7 @@ export default function HeroGlobe({ panelEl, locations }) {
       bumpImageUrl={TEX.bump}
       atmosphereColor="#4db8e8"
       atmosphereAltitude={0.14}
-      animateIn={!reduced}
+      animateIn={false}
       onGlobeReady={onGlobeReady}
       pointsData={pointsData}
       pointLat="lat"
@@ -277,13 +299,14 @@ export default function HeroGlobe({ panelEl, locations }) {
       ringPropagationSpeed="propagationSpeed"
       ringRepeatPeriod="repeatPeriod"
       arcsData={arcsData}
-      arcColor={() => [BRAND_YELLOW_SOFT, BRAND_YELLOW]}
-      arcAltitudeAutoScale={0.15}
-      arcStroke={0.4}
-      arcDashLength={1}
+      arcColor={() => [ROUTE_BLUE_START, ROUTE_BLUE_END]}
+      arcAltitude="altitude"
+      arcStroke={0.64}
+      arcDashLength="progress"
       arcDashGap={0}
       arcDashInitialGap={0}
-      arcDashAnimateTime={ARC_DRAW_DURATION_MS}
+      arcDashAnimateTime={0}
+      arcsTransitionDuration={0}
       labelsData={labelsData}
       labelLat="lat"
       labelLng="lng"
