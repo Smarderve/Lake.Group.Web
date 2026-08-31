@@ -272,6 +272,18 @@
         trigger.setAttribute('aria-expanded', String(open));
         if (open && item.querySelector('.nav-megamenu')) revealSectorIcons();
       });
+      item.addEventListener('mouseenter', () => {
+        if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+        closeAll(item);
+        item.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+        if (item.querySelector('.nav-megamenu')) revealSectorIcons();
+      });
+      item.addEventListener('mouseleave', () => {
+        if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+        item.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+      });
     });
     // i18n.js binds the language menu after its dictionary bootstrap.  This
     // listener runs first and closes any active page dropdown before i18n

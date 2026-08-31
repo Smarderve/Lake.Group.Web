@@ -241,7 +241,6 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .nav-dropdown {
 }
 
 .site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-dropdown,
-.site-nav[data-phase01-navbar] .has-dropdown:hover > .nav-dropdown,
 .site-nav[data-phase01-navbar] .has-dropdown:focus-within > .nav-dropdown {
   opacity: 1 !important;
   pointer-events: auto !important;
@@ -274,7 +273,6 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .nav-dropdown {
 }
 
 .site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-megamenu,
-.site-nav[data-phase01-navbar] .has-dropdown:hover > .nav-megamenu,
 .site-nav[data-phase01-navbar] .has-dropdown:focus-within > .nav-megamenu {
   transform: translate(-50%, 0) !important;
 }
@@ -658,7 +656,6 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .lang-menu {
 }
 
 .site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-megamenu,
-.site-nav[data-phase01-navbar] .has-dropdown:hover > .nav-megamenu,
 .site-nav[data-phase01-navbar] .has-dropdown:focus-within > .nav-megamenu {
   transform: translate(-50%, 0) !important;
 }
