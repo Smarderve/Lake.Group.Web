@@ -1190,6 +1190,26 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-m
   opacity: 1 !important;
 }
 
+/* The animated sector assets are the single source of icon artwork.  Disable
+   the old CSS-mask fallback completely so it cannot flash or replace an icon
+   during hover, focus, or menu reopening. */
+.site-nav[data-phase01-navbar] .mm-cat::before {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+.site-nav[data-phase01-navbar] .mm-sector-icon,
+.site-nav[data-phase01-navbar] .mm-cat:hover .mm-sector-icon,
+.site-nav[data-phase01-navbar] .mm-cat:focus-visible .mm-sector-icon,
+.site-nav[data-phase01-navbar] .mm-cat.is-active .mm-sector-icon {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
 /* Icon-only visibility correction. Keep the approved rail geometry unchanged
    while giving all desktop sector icons a consistent, readable slot. */
 @media (min-width: 768px) {

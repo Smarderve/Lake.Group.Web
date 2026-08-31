@@ -35,51 +35,38 @@
     }
     const mobileBusinessVerticals = drawer && drawer.querySelector('.mob-primary[aria-controls="mob-subsidiaries"]');
     if (mobileBusinessVerticals) mobileBusinessVerticals.textContent = 'Business Verticals';
-    // The two supplied dotLottie packages are kept locally under
-    // assets/animations/nav. Their embedded JSON is used here because the
-    // existing local Lordicon player is CSP-safe and does not initialise the
-    // dotLottie/WASM runtime that is reserved for under-construction pages.
+    // One canonical, local icon source per sector. Keeping a stable source
+    // prevents legacy artwork or a loading gap when a row changes state.
     const sectorAnimations = {
-      energies: { reveal: 'assets/animations/nav/energies.json', hover: 'assets/animations/nav/energies.json' },
-      manufacturing: { reveal: 'assets/animations/nav/manufacturing.json', hover: 'assets/animations/nav/manufacturing.json' },
-      logistics: { reveal: 'assets/icons/sectors/lottie/logistics-in-reveal.json', hover: 'assets/icons/sectors/lottie/logistics-hover-pinch.json' },
-      realestate: { reveal: 'assets/icons/sectors/lottie/real-estate-in-reveal.json', hover: 'assets/icons/sectors/lottie/real-estate-hover-pinch.json' },
-      agro: { reveal: 'assets/icons/sectors/lottie/agro-processing-in-reveal.json', hover: 'assets/icons/sectors/lottie/agro-processing-hover-pinch.json' },
+      energies: { reveal: 'assets/animations/nav/energies.json' },
+      manufacturing: { reveal: 'assets/animations/nav/manufacturing.json' },
+      logistics: { reveal: 'assets/icons/sectors/lottie/logistics-in-reveal.json' },
+      realestate: { reveal: 'assets/icons/sectors/lottie/real-estate-in-reveal.json' },
+      agro: { reveal: 'assets/icons/sectors/lottie/agro-processing-in-reveal.json' },
       automotive: { reveal: 'assets/icons/sectors/lottie/automotive-in-reveal.json' }
     };
+    // These two supplied animations finish on an empty frame. Keep their
+    // approved artwork on the last visible frame instead of seeking past it.
+    const sectorStaticFrames = { energies: 15, manufacturing: 30 };
     const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const recordIconEvent = (button, state) => {
       window.__LAKE_SECTOR_ICON_EVENTS__ = window.__LAKE_SECTOR_ICON_EVENTS__ || [];
       window.__LAKE_SECTOR_ICON_EVENTS__.push({ id: button.dataset.mmCat, state, at: Date.now() });
     };
+    const settleSectorIconFrame = (icon, sector) => {
+      const frame = sectorStaticFrames[sector];
+      if (Number.isFinite(frame)) icon.playerInstance?.seek(frame);
+      else icon.playerInstance?.seekToEnd();
+    };
     const playSectorIcon = (button, state) => {
       const icon = button.querySelector('.mm-sector-icon');
       if (!icon) return;
-      const animation = sectorAnimations[button.dataset.mmCat];
-      const source = animation && (state === 'hover' && animation.hover ? animation.hover : animation.reveal);
-      if (!source) return;
-      const showStaticFrame = () => icon.playerInstance?.seekToEnd();
-      const start = () => {
-        if (!icon.playerInstance) return;
-        icon.playerInstance.loop = false;
-        icon.playerInstance.speed = 3.5;
-        if (reducedMotion()) { showStaticFrame(); return; }
-        icon.playerInstance.playFromStart();
-        recordIconEvent(button, state === 'hover' ? 'hover-pinch' : 'in-reveal');
-      };
-      if (icon.dataset.iconSource !== source) {
-        icon.dataset.iconSource = source;
-        icon.setAttribute('src', source);
-        icon.readyPromise?.then(start).catch(() => {});
-      } else if (icon.ready) {
-        start();
-      } else {
-        icon.readyPromise?.then(start).catch(() => {});
-      }
+      settleSectorIconFrame(icon, button.dataset.mmCat);
+      recordIconEvent(button, state === 'hover' ? 'hover-stable' : 'in-reveal-stable');
     };
     const settleSectorIcon = (button, icon) => {
       const settle = () => {
-        icon.playerInstance?.seekToEnd();
+        settleSectorIconFrame(icon, button.dataset.mmCat);
         button.classList.add('has-sector-icon');
       };
       const whenReady = () => {
@@ -131,7 +118,7 @@
         icon.setAttribute('aria-hidden', 'true');
         icon.dataset.iconSource = animation.reveal;
         heading.prepend(icon);
-        const begin = () => icon.playerInstance?.seekToEnd();
+        const begin = () => settleSectorIconFrame(icon, id);
         const whenReady = () => {
           if (!icon.readyPromise?.then) {
             requestAnimationFrame(whenReady);
