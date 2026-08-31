@@ -32,9 +32,17 @@ test('Lake Aviation retains operating-location facts without a country-card or p
 
 test('Lake Aviation gallery uses an editorial responsive grid of genuine operational images', () => {
   assert.match(page, /class="co-gal lake-aviation-gallery"/);
-  assert.match(page, /\.lake-aviation-gallery \.co-gal__item--feat\{grid-column:1\/\-1;aspect-ratio:16\/7/);
-  assert.match(page, /\.lake-aviation-gallery \.co-gal__item--portrait/);
+  assert.match(page, /grid-template-columns:repeat\(4,minmax\(0,1fr\)\)/);
+  assert.match(page, /\.lake-aviation-gallery \.co-gal__item:nth-child\(1\)\{grid-column:1 \/ span 2;grid-row:1 \/ span 2/);
+  assert.match(page, /@media\(max-width:720px\)\{[\s\S]*?\.lake-aviation-gallery\{grid-template-columns:1fr/);
   assert.equal((page.match(/assets\/images\/lake-aviation\/(ops|gallery)\//g) || []).length >= 10, true, 'page references approved aviation imagery');
+});
+
+test('Lake Aviation uses the approved apron hero across desktop and mobile', () => {
+  assert.match(page, /assets\/images\/lake-aviation\/ops\/lake-aviation-hero-apron\.webp/);
+  assert.doesNotMatch(page, /lake-aviation-hero(?:-800)?\.webp/);
+  assert.match(page, /object-position:58% 52%/);
+  assert.match(page, /object-position:61% 50%!important/);
 });
 
 test('canonical seed and assistant builder carry the approved Uganda footprint', () => {
