@@ -117,6 +117,20 @@ function autoMount() {
   var locations = fallbackLocations();
   mountHeroGlobe('#experience-3d-panel', locations);
 
+  /* Grab / grabbing cursor on the globe drag surface. */
+  var globeRoot = document.getElementById('hero-globe-root');
+  if (globeRoot) {
+    globeRoot.addEventListener('pointerdown', function () {
+      globeRoot.classList.add('is-dragging');
+    });
+    var stopDrag = function () {
+      globeRoot.classList.remove('is-dragging');
+    };
+    globeRoot.addEventListener('pointerup', stopDrag);
+    globeRoot.addEventListener('pointercancel', stopDrag);
+    globeRoot.addEventListener('lostpointercapture', stopDrag);
+  }
+
   /* CMS delivery must never restart the renderer after the base Earth is live. */
 }
 
