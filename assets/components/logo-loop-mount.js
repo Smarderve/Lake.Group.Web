@@ -192,6 +192,8 @@
     var velocity = 0;
     var animationFrame = null;
     var lastFrameTime = null;
+    var viewportVisible = true;
+    var documentVisible = !document.hidden;
     var pointerInside = false;
     var dragState = null;
     var manualTimer = null;
@@ -217,7 +219,7 @@
     }
 
     function shouldAutoScroll() {
-      return !reduceMotion && !!sequenceSize() && !pointerInside && !dragState && !manualTimer;
+      return !reduceMotion && viewportVisible && documentVisible && !!sequenceSize() && !pointerInside && !dragState && !manualTimer;
     }
 
     function syncAnimationState() {
@@ -308,6 +310,15 @@
     else if (mobileMq.addListener) mobileMq.addListener(onViewportChange);
 
     window.addEventListener('resize', scheduleDimensionUpdate, { passive: true });
+    var visibilityObserver = null;
+    if ('IntersectionObserver' in window) {
+      visibilityObserver = new IntersectionObserver(function (entries) {
+        viewportVisible = !!(entries[0] && entries[0].isIntersecting);
+        lastFrameTime = null;
+        syncAnimationState();
+      }, { threshold: 0 });
+      visibilityObserver.observe(container);
+    }
     updateDimensions();
     onImagesReady(seqEl, updateDimensions);
 
@@ -440,6 +451,7 @@
     }
 
     function onVisibilityChange() {
+      documentVisible = !document.hidden;
       lastFrameTime = null;
       syncAnimationState();
     }
@@ -460,6 +472,7 @@
       if (animationFrame !== null) cancelAnimationFrame(animationFrame);
       if (manualTimer !== null) clearTimeout(manualTimer);
       window.removeEventListener('resize', scheduleDimensionUpdate);
+      if (visibilityObserver) visibilityObserver.disconnect();
       if (mobileMq.removeEventListener) mobileMq.removeEventListener('change', onViewportChange);
       else if (mobileMq.removeListener) mobileMq.removeListener(onViewportChange);
       container.removeEventListener('pointerenter', onPointerEnter);

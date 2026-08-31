@@ -29,7 +29,7 @@
 
 'use strict';
 
-const VERSION = 'v78-20260831-02';
+const VERSION = 'v79-20260831-03';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -484,11 +484,7 @@ self.addEventListener('fetch', (event) => {
       event.respondWith(networkFirstAsset(request));
       break;
     case 'network-first-asset':
-      event.respondWith(
-        networkFirst(request, ASSETS_CACHE, ASSET_CACHE_MAX_ENTRIES).catch(
-          () => new Response('', { status: 503 })
-        )
-      );
+      event.respondWith(networkFirstAsset(request));
       break;
     case 'network-only-passthrough':
       // Let the browser fetch sw.js directly (no respondWith).

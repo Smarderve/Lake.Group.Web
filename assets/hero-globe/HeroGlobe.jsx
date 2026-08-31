@@ -20,6 +20,7 @@ const SETTLE_DURATION_MS = 2400;
 const POST_SETTLE_PAUSE_MS = 400;
 const ARC_DRAW_DURATION_MS = 1800;
 const ARC_STAGGER_MS = 280;
+const ROUTE_FRAME_INTERVAL_MS = 1000 / 30;
 
 /* Label / marker styling */
 
@@ -87,12 +88,25 @@ function useReducedMotion() {
   return reduced;
 }
 
+function useDocumentVisible() {
+  const [visible, setVisible] = useState(() => !document.hidden);
+
+  useEffect(() => {
+    const onVisibilityChange = () => setVisible(!document.hidden);
+    document.addEventListener('visibilitychange', onVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', onVisibilityChange);
+  }, []);
+
+  return visible;
+}
+
 /* Component */
 
 export default function HeroGlobe({ panelEl, locations }) {
   const globeRef = useRef(null);
   const { w, h } = usePanelSize(panelEl);
   const reduced = useReducedMotion();
+  const documentVisible = useDocumentVisible();
 
   const allPoints = useMemo(() => buildPoints(locations).map((p) => ({ ...p, color: p.hub ? BRAND_YELLOW : MARKER_WHITE })), [locations]);
   const allRings = useMemo(() => (reduced ? [] : buildRings(locations)), [locations, reduced]);
@@ -116,14 +130,17 @@ export default function HeroGlobe({ panelEl, locations }) {
   const [sectionVisible, setSectionVisible] = useState(false);
   const sectionVisibleRef = useRef(false);
   const arrivalRef = useRef(false);
-  const rafIds = useRef([]);
+  const cameraFrameRef = useRef(null);
+  const routeAnimationFrame = useRef(null);
   const timersRef = useRef([]);
 
   const clearTimers = useCallback(() => {
     timersRef.current.forEach((id) => clearTimeout(id));
     timersRef.current = [];
-    rafIds.current.forEach((id) => cancelAnimationFrame(id));
-    rafIds.current = [];
+    if (cameraFrameRef.current !== null) cancelAnimationFrame(cameraFrameRef.current);
+    if (routeAnimationFrame.current !== null) cancelAnimationFrame(routeAnimationFrame.current);
+    cameraFrameRef.current = null;
+    routeAnimationFrame.current = null;
   }, []);
 
   const scheduleTimer = useCallback((fn, ms) => {
@@ -175,14 +192,13 @@ export default function HeroGlobe({ panelEl, locations }) {
       g.pointOfView({ lat, lng, altitude: alt }, 0);
 
       if (t < 1) {
-        const id = requestAnimationFrame(tick);
-        rafIds.current.push(id);
+        cameraFrameRef.current = requestAnimationFrame(tick);
       } else {
+        cameraFrameRef.current = null;
         scheduleTimer(revealRoutes, POST_SETTLE_PAUSE_MS);
       }
     };
-    const id = requestAnimationFrame(tick);
-    rafIds.current.push(id);
+    cameraFrameRef.current = requestAnimationFrame(tick);
 
     function revealRoutes() {
       const orderMap = new Map(allArcs.map((arc, i) => [arc.id, i]));
@@ -194,32 +210,55 @@ export default function HeroGlobe({ panelEl, locations }) {
         .slice()
         .sort((a, b) => (orderMap.get(a.id) ?? 999) - (orderMap.get(b.id) ?? 999));
 
-      orderedDestinations.forEach((dest, idx) => {
-        const delay = idx * ARC_STAGGER_MS;
+      const routePlan = orderedDestinations
+        .map((dest, index) => ({
+          arc: allArcs.find((item) => item.id === dest.id),
+          destination: dest,
+          label: orderedLabels.find((item) => item.id === dest.id),
+          startAt: performance.now() + index * ARC_STAGGER_MS,
+        }))
+        .filter((route) => route.arc);
+      const hubPoint = allPoints.find((point) => point.hub);
+      const hubLabel = allLabels.find((label) => label.id === hubPoint?.id);
+      let lastCommit = 0;
 
-        scheduleTimer(() => {
-          const arc = allArcs.find((item) => item.id === dest.id);
-          if (!arc) return;
-          setArcsData((prev) => [...prev, { ...arc, progress: 0.001 }]);
+      /* One coordinated RAF commits the whole route plan at 30fps. The
+         previous per-route RAFs could overlap and force many React renders in
+         one display frame as the network built. */
+      const drawRoutes = (now) => {
+        const shownArcs = [];
+        const shownPoints = hubPoint ? [hubPoint] : [];
+        const shownLabels = hubLabel ? [hubLabel] : [];
+        let complete = true;
 
-          const drawStartedAt = performance.now();
-          const drawRoute = () => {
-            const t = Math.min(1, (performance.now() - drawStartedAt) / ARC_DRAW_DURATION_MS);
-            const progress = easeInOutCubic(t);
-            setArcsData((prev) => prev.map((item) => item.id === arc.id ? { ...item, progress } : item));
-            if (t < 1) {
-              const id = requestAnimationFrame(drawRoute);
-              rafIds.current.push(id);
-              return;
-            }
-            setPointsData((prev) => [...prev, dest]);
-            const lbl = orderedLabels.find((label) => label.id === dest.id);
-            if (lbl) setLabelsData((prev) => [...prev, lbl]);
-          };
-          const id = requestAnimationFrame(drawRoute);
-          rafIds.current.push(id);
-        }, delay);
-      });
+        routePlan.forEach((route) => {
+          if (now < route.startAt) {
+            complete = false;
+            return;
+          }
+          const progress = Math.min(1, (now - route.startAt) / ARC_DRAW_DURATION_MS);
+          shownArcs.push({ ...route.arc, progress: Math.max(0.001, easeInOutCubic(progress)) });
+          if (progress < 1) complete = false;
+          else {
+            shownPoints.push(route.destination);
+            if (route.label) shownLabels.push(route.label);
+          }
+        });
+
+        if (complete || now - lastCommit >= ROUTE_FRAME_INTERVAL_MS) {
+          lastCommit = now;
+          setArcsData(shownArcs);
+          setPointsData(shownPoints);
+          setLabelsData(shownLabels);
+        }
+        if (!complete) {
+          routeAnimationFrame.current = requestAnimationFrame(drawRoutes);
+        } else {
+          routeAnimationFrame.current = null;
+        }
+      };
+
+      routeAnimationFrame.current = requestAnimationFrame(drawRoutes);
     }
   }, [allPoints, allRings, allArcs, allLabels, showAll, clearTimers, scheduleTimer]);
 
@@ -238,6 +277,31 @@ export default function HeroGlobe({ panelEl, locations }) {
 
   useEffect(() => () => clearTimers(), [clearTimers]);
 
+  useEffect(() => {
+    const globe = globeRef.current;
+    if (!globe || !globeReady) return undefined;
+    const active = sectionVisible && documentVisible;
+    if (active) {
+      globe.resumeAnimation();
+      return undefined;
+    }
+
+    globe.pauseAnimation();
+    /* Do not keep route/camera RAF work alive after the panel leaves view.
+       Returning visitors see the already-complete approved network rather
+       than a hidden animation consuming CPU or restarting unexpectedly. */
+    if (arrivalRef.current && !reduced) {
+      clearTimers();
+      showAll();
+    }
+    return undefined;
+  }, [globeReady, sectionVisible, documentVisible, reduced, clearTimers, showAll]);
+
+  useEffect(() => {
+    const renderer = globeRef.current?.renderer?.();
+    if (renderer) renderer.setPixelRatio(Math.min(1.5, window.devicePixelRatio));
+  }, [globeReady, w, h]);
+
   const onGlobeReady = useCallback(() => {
     const g = globeRef.current;
     if (!g) return;
@@ -253,6 +317,8 @@ export default function HeroGlobe({ panelEl, locations }) {
       controls.minPolarAngle = Math.PI * 0.25;
       controls.maxPolarAngle = Math.PI * 0.75;
     }
+    const renderer = g.renderer?.();
+    if (renderer) renderer.setPixelRatio(Math.min(1.5, window.devicePixelRatio));
     setGlobeReady(true);
   }, [reduced]);
 
