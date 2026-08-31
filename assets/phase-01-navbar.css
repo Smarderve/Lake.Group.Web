@@ -894,6 +894,14 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .mm-cat.is-active {
   max-width: 132px !important;
 }
 
+/* Cross Country logo is vertically composed — give it more width to read clearly. */
+.site-nav[data-phase01-navbar] .nav-megamenu .mm-company img[src*="cross-country"] {
+  width: clamp(160px, 18vw, 220px) !important;
+  height: auto !important;
+  max-width: none !important;
+  object-fit: contain !important;
+}
+
 .site-nav[data-phase01-navbar] .lang-menu {
   top: calc(100% + 10px) !important;
   right: 0 !important;
