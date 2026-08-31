@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets" / "animations"
 PRIMARY = (1, 63, 92)
 TONES = ((1, 63, 92), (13, 102, 137), (72, 153, 184), (142, 197, 214), (197, 224, 231))
+YELLOW = (255, 242, 0)
 
 
 def is_source_brand_colour(red: int, green: int, blue: int) -> bool:
@@ -55,6 +56,7 @@ def recolor_png(path: Path) -> None:
 
 def recolor_json(path: Path) -> None:
     animation = json.loads(path.read_text(encoding="utf-8"))
+    accent_candidates: list[dict[str, object]] = []
 
     def walk(value: object) -> None:
         if isinstance(value, dict):
@@ -63,9 +65,14 @@ def recolor_json(path: Path) -> None:
                 channels = color.get("k")
                 if isinstance(channels, list) and len(channels) >= 3:
                     rgb = tuple(round(channel * 255) for channel in channels[:3])
-                    if is_source_brand_colour(*rgb):
+                    if rgb == YELLOW:
+                        color["k"] = [channel / 255 for channel in TONES[1]] + channels[3:]
+                        accent_candidates.append(color)
+                    elif is_source_brand_colour(*rgb):
                         mapped = lake_tone(*rgb)
                         color["k"] = [channel / 255 for channel in mapped] + channels[3:]
+                    elif rgb == TONES[1]:
+                        accent_candidates.append(color)
             for nested in value.values():
                 walk(nested)
         elif isinstance(value, list):
@@ -73,6 +80,11 @@ def recolor_json(path: Path) -> None:
                 walk(nested)
 
     walk(animation)
+    # Preserve the illustration's blue-led hierarchy while turning only three
+    # small former interface highlights into the Lake yellow brand accent.
+    for color in accent_candidates[6:9]:
+        channels = color["k"]
+        color["k"] = [channel / 255 for channel in YELLOW] + channels[3:]
     path.write_text(json.dumps(animation, separators=(",", ":")), encoding="utf-8")
 
 
