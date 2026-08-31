@@ -75,6 +75,24 @@
     var isLakePipes = item.className === 'logoloop__item--lake-pipes';
     img.src = item.src;
     img.alt = item.alt || '';
+    if (isLakePipes && !document.getElementById('pipes-weight-erode')) {
+      var svgNS = 'http://www.w3.org/2000/svg';
+      var svg = document.createElementNS(svgNS, 'svg');
+      svg.setAttribute('width', '0');
+      svg.setAttribute('height', '0');
+      svg.style.position = 'absolute';
+      svg.setAttribute('aria-hidden', 'true');
+      var defs = document.createElementNS(svgNS, 'defs');
+      var filter = document.createElementNS(svgNS, 'filter');
+      filter.setAttribute('id', 'pipes-weight-erode');
+      var morphology = document.createElementNS(svgNS, 'feMorphology');
+      morphology.setAttribute('operator', 'erode');
+      morphology.setAttribute('radius', '0.25');
+      filter.appendChild(morphology);
+      defs.appendChild(filter);
+      svg.appendChild(defs);
+      document.body.appendChild(svg);
+    }
     if (item.title) img.title = item.title;
     img.loading = eager ? 'eager' : 'lazy';
     img.decoding = 'async';
