@@ -63,6 +63,13 @@
 .val-mini-tile::before{content:'';position:absolute;top:-1px;left:-1px;width:8px;height:8px;background:var(--gold)}
 .val-mini-tile h4{font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;color:var(--white);margin-bottom:6px}
 .val-mini-tile p{font-size:.82rem;color:var(--ink-mute);margin:0;line-height:1.5}
+.aviation-credential{display:flex;align-items:center;justify-content:center;gap:var(--sp-5);max-width:480px;margin:clamp(32px,4vw,48px) auto;padding:var(--sp-4) var(--sp-5);border-top:1px solid var(--ink-line-2);border-bottom:1px solid var(--ink-line-2)}
+.aviation-credential__image{width:150px;height:150px;flex:none;object-fit:contain;border-radius:18px}
+.aviation-credential__copy{display:flex;flex-direction:column;gap:6px;min-width:0}
+.aviation-credential__eyebrow{display:flex;align-items:center;gap:10px;color:var(--gold);font-size:var(--fs-micro);font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.aviation-credential__eyebrow::before{content:'';width:18px;height:2px;background:var(--gold);flex:none}
+.aviation-credential__title{font-family:var(--font-display);font-size:clamp(1.15rem,2vw,1.45rem);font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--white);line-height:1.05}
+@media(max-width:600px){.aviation-credential{gap:18px;margin:36px auto;padding:var(--sp-4) 0}.aviation-credential__image{width:124px;height:124px;border-radius:16px}.aviation-credential__eyebrow{font-size:.62rem;letter-spacing:.14em}.aviation-credential__eyebrow::before{width:14px}.aviation-credential__title{font-size:1.05rem}}
 
 /* Gallery . Lake Oil pattern, compact photo size */
 .co-gal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:100%;max-width:820px;margin:0 auto}
@@ -303,7 +310,14 @@
       <div class="val-mini-tile"><h4>Professionalism</h4><p>Timely service, competence and accountability</p></div>
       <div class="val-mini-tile"><h4>Cohesiveness</h4><p>Collaboration, shared accountability and seamless coordination</p></div>
     </div>
-    <div class="info-panel fs-on-dark fs-corners" style="margin-top:var(--sp-10)">
+    <div class="aviation-credential" aria-label="Industry credential: JIG Member 2026">
+      <img class="aviation-credential__image" src="assets/images/lake-aviation/credentials/jig-member-2026.webp" alt="JIG Member 2026" width="150" height="150" loading="lazy" decoding="async">
+      <div class="aviation-credential__copy">
+        <span class="aviation-credential__eyebrow">Industry Credential</span>
+        <strong class="aviation-credential__title">JIG Member 2026</strong>
+      </div>
+    </div>
+    <div class="info-panel fs-on-dark fs-corners" style="margin-top:0">
       <h3>Operating Locations</h3>
       <div class="info-row"><span>Kilimanjaro International Airport</span><span class="badge">JRO</span></div>
       <div class="info-row"><span>Julius Nyerere International Airport</span><span class="badge">DAR</span></div>
