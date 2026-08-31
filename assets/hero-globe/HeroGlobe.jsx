@@ -16,20 +16,13 @@ const CAMERA_INTRO_MS = 1000;
 const POST_INTRO_PAUSE_MS = 300;
 const ROUTE_DRAW_MS = 900;
 const POST_ROUTE_PAUSE_MS = 400;
-const POST_SEQUENCE_PAUSE_MS = 1500;
+const NETWORK_HOLD_MS = 1500;
+const SHOWCASE_ROTATION_MS = 4600;
+const RESET_SETTLE_MS = 450;
 const MARKER_ALTITUDE = 0.022;
 
 function easeInOutCubic(t) {
   return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-}
-
-/** Shortest angular difference in degrees */
-function angleDiff(a, b) {
-  let d = b - a;
-  while (d > 180) d -= 360;
-  while (d > 180) d -= 360;
-  while (d < -180) d += 360;
-  return d;
 }
 
 function usePanelSize(panelEl) {
@@ -85,7 +78,7 @@ function getCachedMarkerEl(marker, isMobile) {
 
   const label = document.createElement('span');
   label.className = 'hero-globe-marker__label';
-  label.textContent = marker.countryName;
+  label.textContent = marker.label;
   const [ox, oy] = marker.labelOffset || [12, -14];
   const fontSize = isMobile ? 9 : 10.5;
   label.style.cssText = [
@@ -200,7 +193,10 @@ export default function HeroGlobe({ panelEl, locations }) {
   }, []);
 
   const scheduleTimer = useCallback((fn, delay) => {
-    const id = window.setTimeout(fn, delay);
+    const id = window.setTimeout(() => {
+      timersRef.current = timersRef.current.filter((timer) => timer !== id);
+      fn();
+    }, delay);
     timersRef.current.push(id);
     return id;
   }, []);
@@ -231,7 +227,22 @@ export default function HeroGlobe({ panelEl, locations }) {
     activeDashRef.current = 0;
     setRevealedMarkers([]);
 
-    let currentPov = globe.pointOfView();
+    const restartAfterShowcase = () => {
+      if (sequenceCancelledRef.current) return;
+      const from = globe.pointOfView();
+      const showcaseTarget = {
+        lat: AFRICA_POV.lat,
+        lng: AFRICA_POV.lng + 360,
+        altitude: AFRICA_POV.altitude,
+      };
+      cancelCameraRef.current = animateCamera(globe, from, showcaseTarget, SHOWCASE_ROTATION_MS, () => {
+        cancelCameraRef.current = null;
+        if (sequenceCancelledRef.current) return;
+        // Equivalent longitudes preserve the visual orientation without a snap.
+        globe.pointOfView(AFRICA_POV, 0);
+        scheduleTimer(runSequence, RESET_SETTLE_MS);
+      });
+    };
 
     /** Draw one route with progressive dash reveal. */
     const drawRoute = (index) => {
@@ -242,8 +253,8 @@ export default function HeroGlobe({ panelEl, locations }) {
         // All routes done — hold, then loop
         scheduleTimer(() => {
           if (sequenceCancelledRef.current) return;
-          runSequence();
-        }, POST_SEQUENCE_PAUSE_MS);
+          restartAfterShowcase();
+        }, NETWORK_HOLD_MS);
         return;
       }
 
@@ -252,20 +263,6 @@ export default function HeroGlobe({ panelEl, locations }) {
         drawRoute(index + 1);
         return;
       }
-
-      // Camera tracking toward destination
-      const midLat = (arc.startLat + arc.endLat) / 2;
-      const midLng = (arc.startLng + arc.endLng) / 2;
-      const dist = Math.sqrt(
-        Math.pow(arc.endLat - arc.startLat, 2) +
-        Math.pow(angleDiff(arc.startLng, arc.endLng), 2),
-      );
-      const targetAlt = Math.min(2.2, Math.max(1.6, 1.4 + dist * 0.015));
-      const trackPov = { lat: midLat, lng: midLng, altitude: targetAlt };
-
-      cancelCameraRef.current = animateCamera(globe, currentPov, trackPov, ROUTE_DRAW_MS, () => {
-        cancelCameraRef.current = null;
-      });
 
       // Set active arc with dash = 0 (invisible)
       const arcData = { ...arc, dashLength: 0 };
@@ -292,8 +289,6 @@ export default function HeroGlobe({ panelEl, locations }) {
           setActiveArc(null);
           activeDashRef.current = 0;
           setRevealedMarkers((prev) => [...prev, dest]);
-          currentPov = globe.pointOfView();
-
           // Hold, then next route
           scheduleTimer(() => {
             drawRoute(index + 1);
@@ -307,7 +302,6 @@ export default function HeroGlobe({ panelEl, locations }) {
     const introPov = globe.pointOfView();
     cancelCameraRef.current = animateCamera(globe, introPov, AFRICA_POV, CAMERA_INTRO_MS, () => {
       cancelCameraRef.current = null;
-      currentPov = globe.pointOfView();
       scheduleTimer(() => drawRoute(0), POST_INTRO_PAUSE_MS);
     });
   }, [allArcs, markerById, scheduleTimer]);
