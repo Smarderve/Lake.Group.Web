@@ -113,7 +113,7 @@ function autoMount() {
   /* Mount immediately with hardcoded locations so the Earth renders
      without waiting for the CMS content delivery promise.  If the
      CMS resolves later and provides different locations, we can
-     re-render then â€” but the globe must never be blocked by it. */
+     re-render then — but the globe must never be blocked by it. */
   var locations = fallbackLocations();
   mountHeroGlobe('#experience-3d-panel', locations);
 

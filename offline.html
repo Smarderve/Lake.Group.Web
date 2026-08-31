@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#0181BB">
   <meta name="robots" content="noindex">
   <link rel="manifest" href="manifest.webmanifest">
-  <meta name="description" content="You're offline â€” check your connection and retry. Lake Group: energy, logistics, manufacturing and agro across Africa.">
+  <meta name="description" content="You're offline — check your connection and retry. Lake Group: energy, logistics, manufacturing and agro across Africa.">
   <title>You're Offline | Lake Group</title>
   <link rel="canonical" href="https://www.lakeoilgroup.com/offline.html">
   <link rel="icon" href="favicon.ico?v=20260828-01" sizes="32x32">
@@ -275,7 +275,7 @@
       var retryBtn = document.getElementById('retry-btn');
       function onOnline() {
         statusEl.classList.add('online');
-        textEl.textContent = 'Back online . reloadingâ€¦';
+        textEl.textContent = 'Back online . reloading…';
         setTimeout(function () {
           if (/offline\.html$/.test(location.pathname)) {
             location.replace('index.html');
@@ -286,7 +286,7 @@
       }
       retryBtn.addEventListener('click', function () {
         retryBtn.disabled = true;
-        retryBtn.textContent = 'Checkingâ€¦';
+        retryBtn.textContent = 'Checking…';
         if (navigator.onLine) onOnline();
         else {
           retryBtn.disabled = false;

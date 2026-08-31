@@ -31,11 +31,11 @@ const LEADERS = [
     photo: 'assets/images/leadership/ally-edha-awadh.png',
     photoLogo: false,
     summary:
-      'Forbes-featured entrepreneur who founded Lake Oil in 2006 and built Lake Group into one of East and Central Africaâ€™s leading energy, logistics and industrial conglomerates.',
+      'Forbes-featured entrepreneur who founded Lake Oil in 2006 and built Lake Group into one of East and Central Africa’s leading energy, logistics and industrial conglomerates.',
     paragraphs: [
       'Born in 1980 into a family of traders, Awadh studied Business Administration at Brock University in Canada - supporting himself with odd jobs while building early trading instincts. By his mid-20s he had already moved into truck refurbishing and commodity trading. In 2006 he launched Lake Oil; official Group materials place him at 27 at founding.',
       'His oversight today spans oil marketing, supply chain, downstream logistics and heavy industrial manufacturing across Tanzania, Kenya, Zambia, DRC, Burundi and Rwanda - with wider Group presence also in Ethiopia, Mozambique and Dubai (MERM). Under his chairmanship the Group has grown retail networks (250+ fuel stations), storage infrastructure, a 1,600+ truck fleet, LPG terminals, Lake Steel, ready-mix concrete and AFICD port-extension services.',
-      'In 2017 Forbes covered Lake Oil Groupâ€™s regional push - including Competition Authority of Kenya approval to acquire Hashi Energyâ€™s Kenyan station network - and described the enterprise as a billion-dollar (revenue) integrated energy platform. Awadh has also been recognised by African Leadership Magazine (Young Business Leader of the Year, 2022) and as Young African Energy Leader of the Year (African Business Leadership Awards, 2023).',
+      'In 2017 Forbes covered Lake Oil Group’s regional push - including Competition Authority of Kenya approval to acquire Hashi Energy’s Kenyan station network - and described the enterprise as a billion-dollar (revenue) integrated energy platform. Awadh has also been recognised by African Leadership Magazine (Young Business Leader of the Year, 2022) and as Young African Energy Leader of the Year (African Business Leadership Awards, 2023).',
     ],
     quote:
       'With a team of experienced engineers and business professionals across our units, Lake Group is fully geared to meet the demands of the global marketplace.',
@@ -59,7 +59,7 @@ const LEADERS = [
 {
     id: 'dileep-kumar',
     name: 'Dilip Kumar',
-    role: 'CEO Â· Manufacturing Division',
+    role: 'CEO · Manufacturing Division',
     unit: 'Manufacturing',
     photo: 'assets/images/leadership/sibtian-ansari.png',
     photoLogo: false,
@@ -67,10 +67,10 @@ const LEADERS = [
       "With over two decades of leadership experience spanning manufacturing, operations, logistics, administration and strategic business development, Dilip Kumar has built a distinguished career delivering operational excellence across diverse industries in India and East Africa.",
     paragraphs: [
       "With over two decades of leadership experience spanning manufacturing, operations, logistics, administration and strategic business development, Dilip Kumar has built a distinguished career delivering operational excellence across diverse industries in India and East Africa.",
-      "Having been part of Lake Group for more than fourteen years, he has played a pivotal role in transforming the organizationâ€™s operational capabilities and supporting its expansion across multiple business verticals. His expertise ranges from establishing greenfield manufacturing facilities and industrial infrastructure to leading large-scale operational transformations, regulatory compliance, supply chain optimization and people development.",
+      "Having been part of Lake Group for more than fourteen years, he has played a pivotal role in transforming the organization’s operational capabilities and supporting its expansion across multiple business verticals. His expertise ranges from establishing greenfield manufacturing facilities and industrial infrastructure to leading large-scale operational transformations, regulatory compliance, supply chain optimization and people development.",
       "Throughout his career, Dilip has successfully led cross-functional teams, established manufacturing units from concept to commercial production, strengthened governance frameworks, and implemented systems that improved operational efficiency while maintaining the highest standards of safety and compliance.",
       "Known for his collaborative leadership style, strategic thinking and execution excellence, he has consistently delivered sustainable business growth by building high-performing teams, fostering innovation and developing scalable operational processes.",
-      "As Chief Executive Officer, Manufacturing, Dilip is committed to driving operational excellence, sustainable industrial growth and technological advancement while strengthening Lake Groupâ€™s position as a leading manufacturing organization across the region.",
+      "As Chief Executive Officer, Manufacturing, Dilip is committed to driving operational excellence, sustainable industrial growth and technological advancement while strengthening Lake Group’s position as a leading manufacturing organization across the region.",
     ],
     mandate: [
       'Lake Steel production infrastructure & mill output',
@@ -92,16 +92,16 @@ const LEADERS = [
 {
     id: 'bibhuti-singh',
     name: 'Bibhuti Singh',
-    role: 'CFO Â· AFICD',
-    unit: 'Finance Â· Containers',
+    role: 'CFO · AFICD',
+    unit: 'Finance · Containers',
     photo: 'assets/images/leadership/pankaj-kumar.png',
     photoLogo: false,
     summary:
-      'Oversees financial planning, risk analysis and corporate governance for African Inland Container Depot (AFICD) - Lake Groupâ€™s dry-port platform in Dar es Salaam.',
+      'Oversees financial planning, risk analysis and corporate governance for African Inland Container Depot (AFICD) - Lake Group’s dry-port platform in Dar es Salaam.',
     paragraphs: [
       'AFICD is a core Group asset: an inland container depot at Tazara / Pugu Road with rail siding toward the port (~6 km), serving landlocked markets including Rwanda, Burundi, Uganda, DRC, Zambia and Malawi.',
       'The Dar yard covers about 14,000 mÂ² with capacity around 4,000 TEU, SAP-based operations, container repairs, and sister sites in Zambia (Ndola) and Mozambique (Beira). ACFS extends the brand into a larger CFS terminal with warehouse, weighbridge and reefer capacity.',
-      'As CFO, Singhâ€™s brief is capital discipline and governance around that cargo engine - planning, risk and controls for import-export volumes, customs-linked workflows and container clearing.',
+      'As CFO, Singh’s brief is capital discipline and governance around that cargo engine - planning, risk and controls for import-export volumes, customs-linked workflows and container clearing.',
     ],
     mandate: [
       'Financial planning & performance for AFICD',
@@ -123,16 +123,16 @@ const LEADERS = [
 {
     id: 'biji-lapat',
     name: 'Biji Alapat',
-    role: 'CEO Â· Lake Energies',
+    role: 'CEO · Lake Energies',
     unit: 'Lake Energies',
     photo: 'assets/images/leadership/biji-lapat.png',
     photoLogo: false,
     summary:
-      'CEO of Lake Energies, Lake Groupâ€™s energy division spanning petroleum, LPG, lubricants and aviation services across the Groupâ€™s regional footprint.',
+      'CEO of Lake Energies, Lake Group’s energy division spanning petroleum, LPG, lubricants and aviation services across the Group’s regional footprint.',
     paragraphs: [
-      'As CEO of Lake Energies, Biji Alapat leads the Groupâ€™s energy division - the family of operating companies that includes Lake Oil, Lake Gas, Lake Lubes and Lake Aviation.',
-      'Lake Energies sits at the core of Lake Groupâ€™s downstream energy platform: retail and bulk petroleum distribution, LPG bottling and storage, lubricant blending, and aviation fuel services supporting customers across East and Central Africa.',
-      'Working from the Groupâ€™s Dar es Salaam headquarters, the Lake Energies mandate aligns commercial and operational priorities across these energy units with Lake Groupâ€™s wider logistics and industrial network.',
+      'As CEO of Lake Energies, Biji Alapat leads the Group’s energy division - the family of operating companies that includes Lake Oil, Lake Gas, Lake Lubes and Lake Aviation.',
+      'Lake Energies sits at the core of Lake Group’s downstream energy platform: retail and bulk petroleum distribution, LPG bottling and storage, lubricant blending, and aviation fuel services supporting customers across East and Central Africa.',
+      'Working from the Group’s Dar es Salaam headquarters, the Lake Energies mandate aligns commercial and operational priorities across these energy units with Lake Group’s wider logistics and industrial network.',
     ],
     mandate: [
       'Leadership of Lake Energies operating companies',
@@ -162,7 +162,7 @@ const LEADERS = [
     summary:
       'Owns enterprise technology architecture and digital strategy - from centralised SAP environments to logistics intelligence and cross-border data security.',
     paragraphs: [
-      'Across a Group that runs fuel depots, 1,600+ trucks, ICD/CFS yards and multi-country retail, digital systems are the nervous system. Maniâ€™s mandate focuses on optimising Lake Groupâ€™s centralised SAP stack - the operational backbone for shipment orders, inventory and financial posting across units such as Lake Trans and AFICD.',
+      'Across a Group that runs fuel depots, 1,600+ trucks, ICD/CFS yards and multi-country retail, digital systems are the nervous system. Mani’s mandate focuses on optimising Lake Group’s centralised SAP stack - the operational backbone for shipment orders, inventory and financial posting across units such as Lake Trans and AFICD.',
       'He embeds custom logistics and fleet-tracking intelligence so corridor movements stay visible from Dar to Ndola and beyond, and scales cross-border data security infrastructure protecting networks that connect Tanzania hubs with regional country operations.',
       'The goal is a single, resilient digital layer that lets manufacturing, energy and logistics executives act on the same real-time picture.',
     ],
@@ -186,16 +186,16 @@ const LEADERS = [
 {
     id: 'mohammed-khalid',
     name: 'Mohammed Khalid',
-    role: 'Managing Director Â· ATL',
+    role: 'Managing Director · ATL',
     unit: 'Logistics',
     photo: 'assets/images/leadership/bhaskar-shetty.png',
     photoLogo: false,
     summary:
       'Directs Associated Trans Logistics Ltd (ATL), operating alongside Lake Trans as a logistical backbone for fuel fleets, heavy haulage and multi-national cargo corridors.',
     paragraphs: [
-      'Khalidâ€™s ATL wing sits next to Lake Trans Ltd. - the Groupâ€™s second company (2008) and primary petroleum haulage arm. Together they move product locally and in transit across Tanzania, Zambia, Rwanda, DRC, Burundi, Malawi, Kenya and Uganda.',
-      'Group messaging cites 1,600+ trucks; tanker capacities typically range 12,000â€“40,000 litres, with GPS tracking as standard. Workshops in Kibaha, Kigamboni, Morogoro, Nairobi and Ndola support asset uptime on the corridors that make Lake Groupâ€™s multi-country model possible.',
-      'ATLâ€™s role is to keep the physical network seamless: routing fuel fleets, heavy haulage and cargo pipelines so depots, stations and industrial plants stay supplied.',
+      'Khalid’s ATL wing sits next to Lake Trans Ltd. - the Group’s second company (2008) and primary petroleum haulage arm. Together they move product locally and in transit across Tanzania, Zambia, Rwanda, DRC, Burundi, Malawi, Kenya and Uganda.',
+      'Group messaging cites 1,600+ trucks; tanker capacities typically range 12,000â€“40,000 litres, with GPS tracking as standard. Workshops in Kibaha, Kigamboni, Morogoro, Nairobi and Ndola support asset uptime on the corridors that make Lake Group’s multi-country model possible.',
+      'ATL’s role is to keep the physical network seamless: routing fuel fleets, heavy haulage and cargo pipelines so depots, stations and industrial plants stay supplied.',
     ],
     mandate: [
       'Fuel distribution fleet routing & execution',
@@ -217,15 +217,15 @@ const LEADERS = [
 {
     id: 'juma-nuru',
     name: 'Juma Nuru',
-    role: 'Director of Operations Â· Lake Group',
+    role: 'Director of Operations · Lake Group',
     unit: 'Operations',
     photo: 'assets/images/leadership/juma-nuru.png',
     photoLogo: false,
     summary:
-      'Leads Group-wide operations across Lake Groupâ€™s energy, logistics and industrial units - coordinating day-to-day execution and operational performance.',
+      'Leads Group-wide operations across Lake Group’s energy, logistics and industrial units - coordinating day-to-day execution and operational performance.',
     paragraphs: [
-      'As Director of Operations, Juma Nuru is responsible for aligning day-to-day execution across Lake Groupâ€™s operating companies so energy, logistics and industrial units deliver reliably against Group standards.',
-      'One of his key responsibilities is to ensure that all operations are executed efficiently and without disruption. This includes maintaining strong coordination between the operations team and management, so that everything runs seamlessly and in alignment with Lake Groupâ€™s goals.',
+      'As Director of Operations, Juma Nuru is responsible for aligning day-to-day execution across Lake Group’s operating companies so energy, logistics and industrial units deliver reliably against Group standards.',
+      'One of his key responsibilities is to ensure that all operations are executed efficiently and without disruption. This includes maintaining strong coordination between the operations team and management, so that everything runs seamlessly and in alignment with Lake Group’s goals.',
       'The role spans operational performance, coordination between business units, and continuous improvement of processes that keep depots, fleets, plants and commercial teams running as one organisation. Working through Group HQ in Dar es Salaam, the operations desk supports country and unit leadership with clear priorities, escalation paths and performance visibility.',
     ],
     quote:
@@ -586,11 +586,11 @@ function buildProfile(leader, index) {
       const ext = /^https?:/.test(href);
       return `<a href="${esc(href)}" class="btn btn-outline-dark btn-sm"${
         ext ? ' target="_blank" rel="noopener noreferrer"' : ''
-      }>${esc(label)}${ext ? ' â†—' : ''}</a>`;
+      }>${esc(label)}${ext ? ' ↗' : ''}</a>`;
     })
     .join('\n          ');
   const quote = leader.quote
-    ? `<blockquote class="lp-quote">â€œ${esc(leader.quote)}â€</blockquote>`
+    ? `<blockquote class="lp-quote">“${esc(leader.quote)}”</blockquote>`
     : '';
 
   const body = `<div class="page-wrapper">

@@ -30,20 +30,20 @@
     overflow-x: hidden;
   }
 
-  /* â”€â”€â”€ Scrollbar â”€â”€â”€ */
+  /* ─── Scrollbar ─── */
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: #0b1622; }
   ::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 3px; }
   ::-webkit-scrollbar-thumb:hover { background: #0181BB; }
 
-  /* â”€â”€â”€ Container â”€â”€â”€ */
+  /* ─── Container ─── */
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
   }
 
-  /* â”€â”€â”€ Hero â”€â”€â”€ */
+  /* ─── Hero ─── */
   .hero {
     background: linear-gradient(135deg, #003f5c 0%, #0181BB 40%, #0b1622 100%);
     padding: 60px 20px 50px;
@@ -106,7 +106,7 @@
     margin-top: 4px;
   }
 
-  /* â”€â”€â”€ Section base â”€â”€â”€ */
+  /* ─── Section base ─── */
   .section {
     padding: 48px 0;
   }
@@ -131,7 +131,7 @@
     margin: 14px 0 20px;
   }
 
-  /* â”€â”€â”€ Card grid â”€â”€â”€ */
+  /* ─── Card grid ─── */
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
   .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
@@ -179,7 +179,7 @@
     margin-top: 2px;
   }
 
-  /* â”€â”€â”€ Metric rows inside cards â”€â”€â”€ */
+  /* ─── Metric rows inside cards ─── */
   .metric-row {
     display: flex; justify-content: space-between; align-items: center;
     padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
@@ -188,7 +188,7 @@
   .metric-row .m-label { font-size: 0.8rem; color: #94a3b8; }
   .metric-row .m-value { font-size: 0.9rem; font-weight: 600; color: #fff; }
 
-  /* â”€â”€â”€ Progress bar â”€â”€â”€ */
+  /* ─── Progress bar ─── */
   .progress-track {
     height: 6px; background: #1e2d42; border-radius: 3px;
     margin-top: 6px; overflow: hidden;
@@ -199,7 +199,7 @@
     width: 0;
   }
 
-  /* â”€â”€â”€ Timeline â”€â”€â”€ */
+  /* ─── Timeline ─── */
   .timeline { position: relative; padding-left: 32px; }
   .timeline::before {
     content: '';
@@ -254,7 +254,7 @@
   .tl-tag.agro { background: rgba(179,74,74,0.15); color: #d47878; }
   .tl-tag.milestone { background: rgba(207,156,46,0.15); color: #cf9c2e; }
 
-  /* â”€â”€â”€ Bar chart â”€â”€â”€ */
+  /* ─── Bar chart ─── */
   .bar-chart { display: flex; gap: 12px; align-items: flex-end; height: 200px; padding: 0 4px; }
   .bar-group { flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; }
   .bar {
@@ -277,7 +277,7 @@
   .bar.b-2025 { background: linear-gradient(180deg, #8B5CF6, #6d3fdb); }
   .bar.b-2026 { background: linear-gradient(180deg, #cf9c2e, #b08020); }
 
-  /* â”€â”€â”€ Country grid â”€â”€â”€ */
+  /* ─── Country grid ─── */
   .country-grid { display: flex; flex-wrap: wrap; gap: 8px; }
   .country-chip {
     display: inline-flex; align-items: center; gap: 6px;
@@ -297,7 +297,7 @@
   .country-chip .dot.active { background: #1B7350; }
   .country-chip .dot.emerging { background: #C67B22; }
 
-  /* â”€â”€â”€ Awards â”€â”€â”€ */
+  /* ─── Awards ─── */
   .award-grid { display: flex; flex-wrap: wrap; gap: 12px; }
   .award-card {
     background: linear-gradient(145deg, #121e2e, #0f1a28);
@@ -312,7 +312,7 @@
   .award-card .a-title { font-size: 0.88rem; font-weight: 600; color: #fff; margin: 4px 0; }
   .award-card .a-by { font-size: 0.72rem; color: #64748b; }
 
-  /* â”€â”€â”€ Investment cards â”€â”€â”€ */
+  /* ─── Investment cards ─── */
   .invest-card {
     background: linear-gradient(145deg, #121e2e, #0f1a28);
     border: 1px solid #1e2d42;
@@ -333,7 +333,7 @@
   .invest-card .inv-title { font-size: 0.9rem; font-weight: 600; color: #e2e8f0; }
   .invest-card .inv-desc { font-size: 0.78rem; color: #64748b; margin-top: 4px; line-height: 1.5; }
 
-  /* â”€â”€â”€ Footer â”€â”€â”€ */
+  /* ─── Footer ─── */
   .footer {
     text-align: center;
     padding: 24px;
@@ -343,7 +343,7 @@
   }
   .footer a { color: #0181BB; text-decoration: none; }
 
-  /* â”€â”€â”€ Scroll animations â”€â”€â”€ */
+  /* ─── Scroll animations ─── */
   .reveal {
     opacity: 0;
     transform: translateY(24px);
@@ -358,7 +358,7 @@
   .reveal-delay-3 { transition-delay: 0.3s; }
   .reveal-delay-4 { transition-delay: 0.4s; }
 
-  /* â”€â”€â”€ Print â”€â”€â”€ */
+  /* ─── Print ─── */
   @media print {
     body { background: #fff; color: #222; }
     .hero { background: #003f5c !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -434,7 +434,7 @@
 
   <script src="assets/skeleton.js?v=20260830-02"></script>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â• HERO â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ─────────── HERO ─────────── -->
 <header class="hero">
   <div class="hero-logo">Lake Group of Companies</div>
   <h1>Financial Dashboard</h1>
@@ -449,7 +449,7 @@
 
 <div class="container">
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â• 1. GROWTH TRAJECTORY â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ─────────── 1. GROWTH TRAJECTORY ─────────── -->
   <section class="section" id="growth">
     <div class="reveal">
       <div class="section-title">Growth <span class="hl">Trajectory</span></div>
@@ -525,7 +525,7 @@
     </div>
   </section>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â• 2. FINANCIAL METRICS â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ─────────── 2. FINANCIAL METRICS ─────────── -->
   <section class="section" id="metrics">
     <div class="reveal">
       <div class="section-title">Financial &amp; Operational <span class="hl">Metrics</span></div>
@@ -535,25 +535,25 @@
 
     <div class="grid-4" style="margin-top:8px">
       <div class="card reveal reveal-delay-1">
-        <div class="card-icon" style="background:rgba(1,129,187,0.12);color:#60b8dc">ðŸ’°</div>
+        <div class="card-icon" style="background:rgba(1,129,187,0.12);color:#60b8dc">💰</div>
         <div class="card-val"><span class="count-up" data-target="1" data-prefix="$">0</span><span class="small">B+</span></div>
         <div class="card-lbl">Annual Revenue (2017)</div>
         <div class="card-sub">Forbes Africa report</div>
       </div>
       <div class="card reveal reveal-delay-2">
-        <div class="card-icon" style="background:rgba(207,156,46,0.12);color:#cf9c2e">ðŸ­</div>
+        <div class="card-icon" style="background:rgba(207,156,46,0.12);color:#cf9c2e">🏰</div>
         <div class="card-val"><span class="count-up" data-target="18" data-suffix="+">0</span></div>
         <div class="card-lbl">Subsidiary Companies</div>
         <div class="card-sub">Across 6 business sectors</div>
       </div>
       <div class="card reveal reveal-delay-3">
-        <div class="card-icon" style="background:rgba(27,115,80,0.12);color:#5cb885">ðŸš›</div>
+        <div class="card-icon" style="background:rgba(27,115,80,0.12);color:#5cb885">🚛</div>
         <div class="card-val"><span class="count-up" data-target="1600" data-suffix="+">0</span></div>
         <div class="card-lbl">Tanker Truck Fleet</div>
         <div class="card-sub">Lake Trans logistics network</div>
       </div>
       <div class="card reveal reveal-delay-4">
-        <div class="card-icon" style="background:rgba(139,92,246,0.12);color:#a78bfa">â›½</div>
+        <div class="card-icon" style="background:rgba(139,92,246,0.12);color:#a78bfa">⏸</div>
         <div class="card-val"><span class="count-up" data-target="154" data-suffix="">0</span></div>
         <div class="card-lbl">Retail Fuel Stations</div>
         <div class="card-sub">Across Tanzania &amp; region</div>
@@ -563,21 +563,21 @@
     <!-- Secondary metrics -->
     <div class="grid-3" style="margin-top:16px">
       <div class="card reveal reveal-delay-2">
-        <div class="card-icon" style="background:rgba(198,123,34,0.12);color:#e8962e">ðŸ”©</div>
+        <div class="card-icon" style="background:rgba(198,123,34,0.12);color:#e8962e">🔌</div>
         <div class="card-val">100,000<span class="small"> MT/yr</span></div>
         <div class="card-lbl">Lake Steel Production Capacity</div>
         <div class="card-sub">Fully automated rolling mill</div>
         <div class="progress-track" style="margin-top:10px"><div class="progress-fill" style="background:linear-gradient(90deg,#C67B22,#e8962e);width:0" data-w="75"></div></div>
       </div>
       <div class="card reveal reveal-delay-3">
-        <div class="card-icon" style="background:rgba(1,129,187,0.12);color:#60b8dc">ðŸŒ</div>
+        <div class="card-icon" style="background:rgba(1,129,187,0.12);color:#60b8dc">🌍</div>
         <div class="card-val"><span class="count-up" data-target="10" data-suffix="+">0</span></div>
         <div class="card-lbl">Operational Countries</div>
         <div class="card-sub">East, Central &amp; Southern Africa + UAE</div>
         <div class="progress-track" style="margin-top:10px"><div class="progress-fill" style="background:linear-gradient(90deg,#0181BB,#60b8dc);width:0" data-w="80"></div></div>
       </div>
       <div class="card reveal reveal-delay-4">
-        <div class="card-icon" style="background:rgba(27,115,80,0.12);color:#5cb885">ðŸ‘¥</div>
+        <div class="card-icon" style="background:rgba(27,115,80,0.12);color:#5cb885">👥</div>
         <div class="card-val"><span class="count-up" data-target="30000" data-suffix="+">0</span></div>
         <div class="card-lbl">Employees (Direct &amp; Indirect)</div>
         <div class="card-sub">Across all subsidiaries</div>
@@ -586,7 +586,7 @@
     </div>
   </section>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â• 3. SECTOR BREAKDOWN â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ─────────── 3. SECTOR BREAKDOWN ─────────── -->
   <section class="section" id="sectors">
     <div class="reveal">
       <div class="section-title">Sector <span class="hl">Breakdown</span></div>
@@ -597,7 +597,7 @@
     <div class="grid-2" style="margin-top:8px">
       <!-- Energies -->
       <div class="card reveal reveal-delay-1">
-        <div class="card-icon" style="background:rgba(1,129,187,0.12);color:#60b8dc">âš¡</div>
+        <div class="card-icon" style="background:rgba(1,129,187,0.12);color:#60b8dc">⚡</div>
         <div class="card-val"><span class="count-up" data-target="4">0</span></div>
         <div class="card-lbl" style="color:#60b8dc;font-weight:600">Lake Energies</div>
         <div style="margin-top:8px">
@@ -611,7 +611,7 @@
 
       <!-- Manufacturing -->
       <div class="card reveal reveal-delay-2">
-        <div class="card-icon" style="background:rgba(27,115,80,0.12);color:#5cb885">ðŸ—ï¸</div>
+        <div class="card-icon" style="background:rgba(27,115,80,0.12);color:#5cb885">🏷️</div>
         <div class="card-val"><span class="count-up" data-target="7">0</span></div>
         <div class="card-lbl" style="color:#5cb885;font-weight:600">Manufacturing</div>
         <div style="margin-top:8px">
@@ -624,7 +624,7 @@
 
       <!-- Logistics -->
       <div class="card reveal reveal-delay-3">
-        <div class="card-icon" style="background:rgba(198,123,34,0.12);color:#e8962e">ðŸšš</div>
+        <div class="card-icon" style="background:rgba(198,123,34,0.12);color:#e8962e">🚚</div>
         <div class="card-val"><span class="count-up" data-target="3">0</span></div>
         <div class="card-lbl" style="color:#e8962e;font-weight:600">Logistics</div>
         <div style="margin-top:8px">
@@ -639,12 +639,12 @@
       <div class="card reveal reveal-delay-4" style="display:flex;flex-direction:column">
         <div style="display:flex;gap:12px;margin-bottom:8px">
           <div>
-            <div class="card-icon" style="background:rgba(139,92,246,0.12);color:#a78bfa">ðŸ™ï¸</div>
+            <div class="card-icon" style="background:rgba(139,92,246,0.12);color:#a78bfa">🏹️</div>
             <div class="card-val" style="font-size:1.2rem"><span class="count-up" data-target="2">0</span></div>
             <div class="card-lbl" style="color:#a78bfa;font-weight:600">Real Estate</div>
           </div>
           <div>
-            <div class="card-icon" style="background:rgba(179,74,74,0.12);color:#d47878">ðŸŒ¾</div>
+            <div class="card-icon" style="background:rgba(179,74,74,0.12);color:#d47878">🌾</div>
             <div class="card-val" style="font-size:1.2rem"><span class="count-up" data-target="1">0</span></div>
             <div class="card-lbl" style="color:#d47878;font-weight:600">Agro Processing</div>
           </div>
@@ -659,7 +659,7 @@
     </div>
   </section>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â• 4. MAJOR INVESTMENTS â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ─────────── 4. MAJOR INVESTMENTS ─────────── -->
   <section class="section" id="investments">
     <div class="reveal">
       <div class="section-title">Major <span class="hl">Investments</span></div>
@@ -714,7 +714,7 @@
     </div>
   </section>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â• 5. REVENUE PROJECTIONS â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ─────────── 5. REVENUE PROJECTIONS ─────────── -->
   <section class="section" id="projections">
     <div class="reveal">
       <div class="section-title">Revenue <span class="hl">Projections</span></div>
@@ -724,8 +724,8 @@
 
     <!-- Lake Steel Model -->
     <div class="card reveal" style="margin-top:8px;padding:24px">
-      <h3 style="font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:6px">ðŸ”© Lake Steel . Utilization &amp; Revenue Model</h3>
-      <p style="font-size:0.78rem;color:#64748b;margin-bottom:16px">100,000 MT/yr capacity Ã— $950/MT avg rebar price. Steel EBITDA margins: 6â€“12% emerging market benchmark.</p>
+      <h3 style="font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:6px">🔌 Lake Steel . Utilization &amp; Revenue Model</h3>
+      <p style="font-size:0.78rem;color:#64748b;margin-bottom:16px">100,000 MT/yr capacity × $950/MT avg rebar price. Steel EBITDA margins: 6â€“12% emerging market benchmark.</p>
       <div style="display:flex;flex-direction:column;gap:10px">
         <div>
           <div style="display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:3px"><span style="color:#94a3b8">50% Utilization (50,000 MT)</span><span style="color:#fff;font-weight:600">$47.5M rev Â· $2.9â€“5.7M EBITDA</span></div>
@@ -750,7 +750,7 @@
     <!-- Lake Gas Model -->
     <div class="grid-2" style="margin-top:16px">
       <div class="card reveal reveal-delay-1" style="padding:24px">
-        <h3 style="font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:6px">ðŸ”¥ Lake Gas . Market Share Trajectory</h3>
+        <h3 style="font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:6px">🔥 Lake Gas . Market Share Trajectory</h3>
         <p style="font-size:0.78rem;color:#64748b;margin-bottom:16px">Kenya LPG market ~415K MT, growing >5%/yr. $60M terminal enables share growth. Wholesale ~$1,100/MT.</p>
         <div style="display:flex;flex-direction:column;gap:8px">
           <div class="metric-row"><span class="m-label">2025</span><span class="m-value">2.0% share Â· 8,300 MT Â· $9.1M rev</span></div>
@@ -768,7 +768,7 @@
       </div>
 
       <div class="card reveal reveal-delay-2" style="padding:24px">
-        <h3 style="font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:6px">ðŸš› Lake Trans . Fleet Revenue Estimate</h3>
+        <h3 style="font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:6px">🚛 Lake Trans . Fleet Revenue Estimate</h3>
         <p style="font-size:0.78rem;color:#64748b;margin-bottom:16px">1,600+ tanker trucks across 7-country network. Freight rates: $0.12â€“0.18/tonne-km.</p>
         <div style="text-align:center;padding:12px 0">
           <div style="font-size:2rem;font-weight:800;color:#fff">$120M<span style="font-size:1.2rem;color:#64748b"> â€“ </span>$180M</div>
@@ -784,17 +784,17 @@
 
     <!-- Consolidated Estimate Card -->
     <div class="card reveal" style="margin-top:16px;padding:24px;border-color:rgba(207,156,46,0.2);background:linear-gradient(145deg,#1a2535,#121e2e)">
-      <h3 style="font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:4px">ðŸ“Š Consolidated Group Revenue Estimate</h3>
+      <h3 style="font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:4px">📊 Consolidated Group Revenue Estimate</h3>
       <p style="font-size:0.8rem;color:#64748b;margin-bottom:14px">Excluding core Lake Oil petroleum distribution (reported at $1B in 2017)</p>
       <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">
-        <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(1,129,187,0.1);border:1px solid rgba(1,129,187,0.2);padding:4px 10px;border-radius:6px;font-size:0.72rem">ðŸšš Lake Trans: <strong style="color:#fff">$120â€“180M</strong></span>
-        <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(27,115,80,0.1);border:1px solid rgba(27,115,80,0.2);padding:4px 10px;border-radius:6px;font-size:0.72rem">ðŸ”© Lake Steel: <strong style="color:#fff">$48â€“86M</strong></span>
-        <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(1,129,187,0.1);border:1px solid rgba(1,129,187,0.2);padding:4px 10px;border-radius:6px;font-size:0.72rem">ðŸ”¥ Lake Gas (Kenya): <strong style="color:#fff">$9â€“26M</strong></span>
-        <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(27,115,80,0.1);border:1px solid rgba(27,115,80,0.2);padding:4px 10px;border-radius:6px;font-size:0.72rem">ðŸ—ï¸ Lake Premix (GCCP): <strong style="color:#fff">$5â€“15M</strong></span>
-        <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(27,115,80,0.1);border:1px solid rgba(27,115,80,0.2);padding:4px 10px;border-radius:6px;font-size:0.72rem">â›½ ATL: <strong style="color:#fff">$3â€“8M</strong></span>
-        <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(198,123,34,0.1);border:1px solid rgba(198,123,34,0.2);padding:4px 10px;border-radius:6px;font-size:0.72rem">ðŸ“¦ AFICD/AILL: <strong style="color:#fff">$5â€“12M</strong></span>
-        <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(179,74,74,0.1);border:1px solid rgba(179,74,74,0.2);padding:4px 10px;border-radius:6px;font-size:0.72rem">ðŸŒ¾ Lake Agro: <strong style="color:#94a3b8">Pre-revenue</strong></span>
-        <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.2);padding:4px 10px;border-radius:6px;font-size:0.72rem">ðŸ™ï¸ Waterfront Mall: <strong style="color:#94a3b8">2026 completion</strong></span>
+        <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(1,129,187,0.1);border:1px solid rgba(1,129,187,0.2);padding:4px 10px;border-radius:6px;font-size:0.72rem">🚚 Lake Trans: <strong style="color:#fff">$120â€“180M</strong></span>
+        <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(27,115,80,0.1);border:1px solid rgba(27,115,80,0.2);padding:4px 10px;border-radius:6px;font-size:0.72rem">🔌 Lake Steel: <strong style="color:#fff">$48â€“86M</strong></span>
+        <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(1,129,187,0.1);border:1px solid rgba(1,129,187,0.2);padding:4px 10px;border-radius:6px;font-size:0.72rem">🔥 Lake Gas (Kenya): <strong style="color:#fff">$9â€“26M</strong></span>
+        <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(27,115,80,0.1);border:1px solid rgba(27,115,80,0.2);padding:4px 10px;border-radius:6px;font-size:0.72rem">🏷️ Lake Premix (GCCP): <strong style="color:#fff">$5â€“15M</strong></span>
+        <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(27,115,80,0.1);border:1px solid rgba(27,115,80,0.2);padding:4px 10px;border-radius:6px;font-size:0.72rem">⏸ ATL: <strong style="color:#fff">$3â€“8M</strong></span>
+        <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(198,123,34,0.1);border:1px solid rgba(198,123,34,0.2);padding:4px 10px;border-radius:6px;font-size:0.72rem">📦 AFICD/AILL: <strong style="color:#fff">$5â€“12M</strong></span>
+        <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(179,74,74,0.1);border:1px solid rgba(179,74,74,0.2);padding:4px 10px;border-radius:6px;font-size:0.72rem">🌾 Lake Agro: <strong style="color:#94a3b8">Pre-revenue</strong></span>
+        <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.2);padding:4px 10px;border-radius:6px;font-size:0.72rem">🏹️ Waterfront Mall: <strong style="color:#94a3b8">2026 completion</strong></span>
       </div>
       <div style="display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap;padding:14px 0;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06)">
         <div style="text-align:center">
@@ -813,7 +813,7 @@
     </div>
   </section>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â• 6. COUNTRY PRESENCE â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ─────────── 6. COUNTRY PRESENCE ─────────── -->
     <div class="reveal">
       <div class="section-title">Country <span class="hl">Presence</span></div>
       <div class="section-sub">Operational footprint across East, Central &amp; Southern Africa, and the Middle East</div>
@@ -839,7 +839,7 @@
     </div>
   </section>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â• 6. AWARDS â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ─────────── 6. AWARDS ─────────── -->
   <section class="section" id="awards">
     <div class="reveal">
       <div class="section-title">Awards &amp; <span class="hl">Recognition</span></div>
@@ -871,7 +871,7 @@
     </div>
   </section>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â• 7. VALUATION NOTES â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ─────────── 7. VALUATION NOTES ─────────── -->
   <section class="section" id="notes">
     <div class="reveal">
       <div class="section-title">Valuation <span class="hl">Notes</span></div>
@@ -906,7 +906,7 @@
 (function() {
   'use strict';
 
-  // â”€â”€â”€ Count-up animation â”€â”€â”€
+  // ─── Count-up animation ───
   function animateCountUp(el) {
     var target = parseFloat(el.getAttribute('data-target'));
     var prefix = el.getAttribute('data-prefix') || '';
@@ -929,7 +929,7 @@
     requestAnimationFrame(step);
   }
 
-  // â”€â”€â”€ Bar chart animation â”€â”€â”€
+  // ─── Bar chart animation ───
   function animateBars() {
     document.querySelectorAll('.bar-chart .bar').forEach(function(bar) {
       var h = parseFloat(bar.getAttribute('data-h'));
@@ -937,7 +937,7 @@
     });
   }
 
-  // â”€â”€â”€ Progress bars â”€â”€â”€
+  // ─── Progress bars ───
   function animateProgress() {
     document.querySelectorAll('.progress-fill').forEach(function(fill) {
       var w = parseFloat(fill.getAttribute('data-w'));
@@ -945,7 +945,7 @@
     });
   }
 
-  // â”€â”€â”€ Intersection Observer for scroll reveals â”€â”€â”€
+  // ─── Intersection Observer for scroll reveals ───
   var revealed = false;
   function onScrollReveal(entries) {
     entries.forEach(function(entry) {
