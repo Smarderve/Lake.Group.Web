@@ -109,6 +109,35 @@
   height: calc(var(--logoloop-logoHeight) * var(--logoloop-item-scale, 1));
 }
 
+/* Lake Pipes has an unusually small secondary lockup in the approved source.
+   Preserve the main artwork at its established marquee size, then reuse the
+   source pixels for a modestly larger PIPES line only. */
+.logoloop__item--lake-pipes .logoloop__link {
+  position: relative;
+}
+
+.logoloop__item--lake-pipes .logoloop__pipes-main {
+  clip-path: inset(0 0 18.5% 0);
+}
+
+.logoloop__pipes-secondary {
+  position: absolute;
+  inset: 0;
+  display: block;
+  pointer-events: none;
+}
+
+.logoloop__pipes-secondary img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  clip-path: inset(77% 0 0 0);
+  transform: scale(1.2);
+  transform-origin: 73% 88%;
+}
+
 /* Preserves Agrinova's official white-and-gold mark on the white logo strip. */
 .logoloop__item--agrinova {
   background: #123d2c;

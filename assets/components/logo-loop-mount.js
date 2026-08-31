@@ -18,7 +18,7 @@
     { src: 'assets/images/logos/companies/lake-trans-blue.png?v=70', alt: 'Lake Trans', title: 'Lake Trans', href: 'lake-trans.html' },
     { src: 'assets/images/logos/companies/lake-aviation-blue.png?v=70', alt: 'Lake Aviation', title: 'Lake Aviation', href: 'lake-aviation.html' },
     { src: 'assets/images/logos/companies/lake-buildings-blue.png?v=70', alt: 'Lake Buildings', title: 'Lake Buildings', href: 'lake-buildings.html' },
-    { src: 'assets/images/logos/companies/lake-pipes-scrolling.webp?v=1', alt: 'Lake Pipes', title: 'Lake Pipes', href: 'lake-pipes.html', scale: 0.91 },
+    { src: 'assets/images/logos/companies/lake-pipes-scrolling.webp?v=1', alt: 'Lake Pipes', title: 'Lake Pipes', href: 'lake-pipes.html', scale: 0.91, className: 'logoloop__item--lake-pipes' },
     { src: 'assets/images/logos/companies/lake-premix-cement-blue.png?v=70', alt: 'Lake Premix & Cement', title: 'Lake Premix & Cement', href: 'lake-premix-cement.html' },
     { src: 'assets/images/logos/companies/lake-cylinders-blue.png?v=70', alt: 'Lake Cylinders', title: 'Lake Cylinders', href: 'lake-cylinders.html' },
     /* Marquee-only approved lockup: white wordmark with the authentic swoosh. */
@@ -72,12 +72,14 @@
     }
 
     var img = document.createElement('img');
+    var isLakePipes = item.className === 'logoloop__item--lake-pipes';
     img.src = item.src;
     img.alt = item.alt || '';
     if (item.title) img.title = item.title;
     img.loading = eager ? 'eager' : 'lazy';
     img.decoding = 'async';
     img.draggable = false;
+    if (isLakePipes) img.classList.add('logoloop__pipes-main');
     img.addEventListener('error', function () {
       hideFailedLogoItem(img);
     });
@@ -92,6 +94,21 @@
         link.rel = 'noreferrer noopener';
       }
       link.appendChild(img);
+      if (isLakePipes) {
+        /* Reuses the approved artwork: only the small PIPES lockup is
+           optically enlarged, while the Lake wordmark stays at its approved
+           marquee scale. */
+        var secondary = document.createElement('span');
+        secondary.className = 'logoloop__pipes-secondary';
+        secondary.setAttribute('aria-hidden', 'true');
+        var secondaryImage = document.createElement('img');
+        secondaryImage.src = item.src;
+        secondaryImage.alt = '';
+        secondaryImage.decoding = 'async';
+        secondaryImage.draggable = false;
+        secondary.appendChild(secondaryImage);
+        link.appendChild(secondary);
+      }
       li.appendChild(link);
     } else {
       li.appendChild(img);

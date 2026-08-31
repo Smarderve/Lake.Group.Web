@@ -87,3 +87,13 @@ test('both marquee sequences expose the same complete set of reachable company l
     assert.ok(fs.existsSync(path.join(ROOT, link.href)), `${link.href}: target company page exists`);
   }
 });
+
+test('Lake Pipes keeps its main mark while using the approved artwork for a larger secondary lockup', () => {
+  const mount = fs.readFileSync(path.join(ROOT, 'assets', 'components', 'logo-loop-mount.js'), 'utf8');
+  const styles = fs.readFileSync(path.join(ROOT, 'assets', 'components', 'LogoLoop.css'), 'utf8');
+
+  assert.match(mount, /lake-pipes-scrolling\.webp\?v=1[^\n]+logoloop__item--lake-pipes/);
+  assert.match(mount, /secondaryImage\.src = item\.src/);
+  assert.match(styles, /\.logoloop__pipes-main\s*\{\s*clip-path:/);
+  assert.match(styles, /\.logoloop__pipes-secondary img[\s\S]*?transform: scale\(1\.2\)/);
+});
