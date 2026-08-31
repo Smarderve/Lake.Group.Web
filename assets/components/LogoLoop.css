@@ -116,9 +116,9 @@
   padding: 7px 12px;
 }
 
-/* Preserve the supplied Cross Country lockup's soft white corners in the strip. */
+/* Cross Country transparent logo — no background card, no border-radius. */
 .logoloop__item--cross-country img {
-  border-radius: 18px;
+  border-radius: 0;
 }
 
 .logoloop--scale-hover .logoloop__item {
