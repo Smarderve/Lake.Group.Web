@@ -38,8 +38,8 @@
     // One canonical, local icon source per sector. Keeping a stable source
     // prevents legacy artwork or a loading gap when a row changes state.
     const sectorAnimations = {
-      energies: { reveal: 'assets/icons/sectors/lottie/energies-in-reveal.json', hover: 'assets/icons/sectors/lottie/energies-hover-pinch.json' },
-      manufacturing: { reveal: 'assets/icons/sectors/lottie/manufacturing-in-reveal.json', hover: 'assets/icons/sectors/lottie/manufacturing-hover-pinch.json' },
+      energies: { reveal: 'assets/animations/nav/energies.json' },
+      manufacturing: { reveal: 'assets/animations/nav/manufacturing.json' },
       logistics: { reveal: 'assets/icons/sectors/lottie/logistics-in-reveal.json', hover: 'assets/icons/sectors/lottie/logistics-hover-pinch.json' },
       realestate: { reveal: 'assets/icons/sectors/lottie/real-estate-in-reveal.json', hover: 'assets/icons/sectors/lottie/real-estate-hover-pinch.json' },
       agro: { reveal: 'assets/icons/sectors/lottie/agro-processing-in-reveal.json', hover: 'assets/icons/sectors/lottie/agro-processing-hover-pinch.json' },
