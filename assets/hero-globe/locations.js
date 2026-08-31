@@ -12,9 +12,9 @@ export const BRAND_YELLOW = '#FFF200';
 export const BRAND_YELLOW_SOFT = 'rgba(255, 242, 0, 0.55)';
 export const BRAND_YELLOW_RING = (t) => `rgba(255, 242, 0, ${Math.max(0, 1 - t)})`;
 
-/** Lake-blue route treatment: bright enough to read against terrain. */
-export const ROUTE_BLUE_START = 'rgba(38, 169, 220, 0.72)';
-export const ROUTE_BLUE_END = '#73d2f2';
+/** Exact Lake corporate blue for every connection route. */
+export const ROUTE_BLUE_START = '#0181BB';
+export const ROUTE_BLUE_END = '#0181BB';
 
 /** Label color — white for strong readable map typography. */
 export const LABEL_COLOR = 'rgba(255, 255, 255, 0.95)';
@@ -45,6 +45,28 @@ export const LABEL_OFFSETS = {
 export const ROUTE_ORDER = ['ke', 'ug', 'rw', 'bi', 'zm', 'cd', 'mz', 'et', 'ae'];
 export const APPROVED_COUNTRY_IDS = new Set(['tz', ...ROUTE_ORDER]);
 
+/* Canonical capital-city reference points keep labels and endpoints inside
+   each real country, independent of facility ordering in the CMS payload. */
+export const COUNTRY_REFERENCE_COORDINATES = {
+  tz: { lat: -6.7924, lng: 39.2083 },
+  ke: { lat: -1.2921, lng: 36.8219 },
+  ug: { lat: 0.3476, lng: 32.5825 },
+  rw: { lat: -1.9441, lng: 30.0619 },
+  bi: { lat: -3.3614, lng: 29.3599 },
+  cd: { lat: -4.4419, lng: 15.2663 },
+  zm: { lat: -15.3875, lng: 28.3228 },
+  mz: { lat: -25.9692, lng: 32.5732 },
+  et: { lat: 8.9806, lng: 38.7578 },
+  ae: { lat: 24.4539, lng: 54.3773 },
+};
+
+// A controlled fan keeps nearby East African routes distinct without creating
+// decorative loops; longer regional routes naturally sit higher.
+const ROUTE_ALTITUDES = {
+  ke: 0.22, ug: 0.26, rw: 0.3, bi: 0.33, zm: 0.36,
+  cd: 0.41, mz: 0.39, et: 0.45, ae: 0.56,
+};
+
 function approvedLocations(locations) {
   return locations.filter((location) => APPROVED_COUNTRY_IDS.has(location.id));
 }
@@ -73,8 +95,7 @@ export function buildArcs(locations) {
     startLng: hq.lng,
     endLat: loc.lat,
     endLng: loc.lng,
-    // Elevated arcs: longer routes rise higher so curves are visible from front.
-    altitude: loc.id === 'ae' ? 0.48 : ['et', 'cd', 'mz', 'zm'].includes(loc.id) ? 0.36 : 0.28,
+    altitude: ROUTE_ALTITUDES[loc.id] || 0.3,
     progress: 0.001,
     id: loc.id,
   }));
@@ -93,7 +114,7 @@ export function buildLabels(locations) {
         id: loc.id,
         lat: loc.lat + offset[1],
         lng: loc.lng + offset[0],
-        text: (loc.countryName || loc.name || '').toUpperCase(),
+        text: loc.countryName || loc.name || '',
         color: loc.hub ? BRAND_YELLOW : LABEL_COLOR,
         // Larger labels for legibility; Tanzania is the origin hub.
         size: loc.hub ? 1.6 : 1.1,

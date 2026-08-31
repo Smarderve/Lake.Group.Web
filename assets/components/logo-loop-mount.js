@@ -86,7 +86,7 @@
       var link = document.createElement('a');
       link.className = 'logoloop__link';
       link.href = item.href;
-      link.setAttribute('aria-label', item.alt || item.title || 'logo link');
+      link.setAttribute('aria-label', 'Visit ' + (item.alt || item.title || 'company'));
       if (isExternalHref(item.href)) {
         link.target = '_blank';
         link.rel = 'noreferrer noopener';
@@ -405,6 +405,12 @@
         container.releasePointerCapture(event.pointerId);
       }
       suppressClick = state.moved;
+      if (suppressClick) {
+        // Some touch browsers omit the compatibility click after a drag. Clear
+        // the suppression immediately after that event turn so the next tap
+        // is always free to follow its company link.
+        setTimeout(function () { suppressClick = false; }, 0);
+      }
       if (state.type === 'touch') {
         pointerInside = false;
         resumeAfterTouch();

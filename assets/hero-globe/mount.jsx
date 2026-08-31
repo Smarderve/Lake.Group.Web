@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import HeroGlobe from './HeroGlobe.jsx';
+import { APPROVED_COUNTRY_IDS, COUNTRY_REFERENCE_COORDINATES } from './locations.js';
 
 function showError(mount, message) {
   mount.classList.remove('is-loading');
@@ -37,16 +38,15 @@ function webglAvailable() {
 
 export function publishedGlobeLocations(map) {
   return (map?.countries || []).map((country) => {
-    const locations = (country.regions || []).flatMap((region) => region.locations || []);
-    const location = locations.find((item) =>
-      Number.isFinite(Number(item.latitude)) && Number.isFinite(Number(item.longitude)));
-    if (!location) return null;
+    const id = String(country.isoCode || country.id).toLowerCase();
+    const coordinate = COUNTRY_REFERENCE_COORDINATES[id];
+    if (!APPROVED_COUNTRY_IDS.has(id) || !coordinate) return null;
     return {
-      id: String(country.isoCode || country.id).toLowerCase(),
-      name: `${country.name} · ${location.name}`,
+      id,
+      name: String(country.name || ''),
       countryName: String(country.name || ''),
-      lat: Number(location.latitude),
-      lng: Number(location.longitude),
+      lat: coordinate.lat,
+      lng: coordinate.lng,
       hub: String(country.isoCode || '').toUpperCase() === 'TZ',
     };
   }).filter(Boolean);
