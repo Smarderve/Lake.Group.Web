@@ -38,35 +38,34 @@
     // One canonical, local icon source per sector. Keeping a stable source
     // prevents legacy artwork or a loading gap when a row changes state.
     const sectorAnimations = {
-      energies: { reveal: 'assets/animations/nav/energies.json' },
-      manufacturing: { reveal: 'assets/animations/nav/manufacturing.json' },
-      logistics: { reveal: 'assets/icons/sectors/lottie/logistics-in-reveal.json' },
-      realestate: { reveal: 'assets/icons/sectors/lottie/real-estate-in-reveal.json' },
-      agro: { reveal: 'assets/icons/sectors/lottie/agro-processing-in-reveal.json' },
+      energies: { reveal: 'assets/icons/sectors/lottie/energies-in-reveal.json', hover: 'assets/icons/sectors/lottie/energies-hover-pinch.json' },
+      manufacturing: { reveal: 'assets/icons/sectors/lottie/manufacturing-in-reveal.json', hover: 'assets/icons/sectors/lottie/manufacturing-hover-pinch.json' },
+      logistics: { reveal: 'assets/icons/sectors/lottie/logistics-in-reveal.json', hover: 'assets/icons/sectors/lottie/logistics-hover-pinch.json' },
+      realestate: { reveal: 'assets/icons/sectors/lottie/real-estate-in-reveal.json', hover: 'assets/icons/sectors/lottie/real-estate-hover-pinch.json' },
+      agro: { reveal: 'assets/icons/sectors/lottie/agro-processing-in-reveal.json', hover: 'assets/icons/sectors/lottie/agro-processing-hover-pinch.json' },
       automotive: { reveal: 'assets/icons/sectors/lottie/automotive-in-reveal.json' }
     };
-    // These two supplied animations finish on an empty frame. Keep their
-    // approved artwork on the last visible frame instead of seeking past it.
-    const sectorStaticFrames = { energies: 15, manufacturing: 30 };
     const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const recordIconEvent = (button, state) => {
       window.__LAKE_SECTOR_ICON_EVENTS__ = window.__LAKE_SECTOR_ICON_EVENTS__ || [];
       window.__LAKE_SECTOR_ICON_EVENTS__.push({ id: button.dataset.mmCat, state, at: Date.now() });
     };
-    const settleSectorIconFrame = (icon, sector) => {
-      const frame = sectorStaticFrames[sector];
-      if (Number.isFinite(frame)) icon.playerInstance?.seek(frame);
-      else icon.playerInstance?.seekToEnd();
+    /** Play a lord-icon Lottie from the beginning. */
+    const playLottieFromStart = (icon) => {
+      if (!icon?.playerInstance) return;
+      try { icon.playerInstance.seek(0); } catch (_) {}
+      try { icon.playerInstance.play(); } catch (_) {}
     };
     const playSectorIcon = (button, state) => {
       const icon = button.querySelector('.mm-sector-icon');
       if (!icon) return;
-      settleSectorIconFrame(icon, button.dataset.mmCat);
-      recordIconEvent(button, state === 'hover' ? 'hover-stable' : 'in-reveal-stable');
+      playLottieFromStart(icon);
+      recordIconEvent(button, state === 'hover' ? 'hover' : 'in-reveal');
     };
     const settleSectorIcon = (button, icon) => {
       const settle = () => {
-        settleSectorIconFrame(icon, button.dataset.mmCat);
+        // Seek to a visible resting frame once the Lottie is loaded.
+        playLottieFromStart(icon);
         button.classList.add('has-sector-icon');
       };
       const whenReady = () => {
@@ -118,7 +117,7 @@
         icon.setAttribute('aria-hidden', 'true');
         icon.dataset.iconSource = animation.reveal;
         heading.prepend(icon);
-        const begin = () => settleSectorIconFrame(icon, id);
+        const begin = () => playLottieFromStart(icon);
         const whenReady = () => {
           if (!icon.readyPromise?.then) {
             requestAnimationFrame(whenReady);
@@ -132,22 +131,12 @@
     };
     const revealSectorIcons = () => {
       initSectorIcons();
-      const rail = nav.querySelector('.mm-cats');
-      if (rail && !reducedMotion()) {
-        rail.classList.remove('is-icon-entering');
-        // Remove anim-done so entrance can replay
-        rail.querySelectorAll('.mm-sector-icon').forEach((ic) => ic.classList.remove('anim-done'));
-        // Restart the small entrance sequence on every megamenu opening.
-        void rail.offsetWidth;
-        rail.classList.add('is-icon-entering');
-        // After entrance animation completes, remove fill so hover transforms work
-        const icons = rail.querySelectorAll('.mm-sector-icon');
-        const cleanup = () => { icons.forEach((ic) => ic.classList.add('anim-done')); };
-        icons.forEach((ic) => {
-          ic.addEventListener('animationend', cleanup, { once: true });
+      if (!reducedMotion()) {
+        // Play each sector's Lottie reveal animation on dropdown open.
+        nav.querySelectorAll('.mm-cat[data-mm-cat]').forEach((button) => {
+          const icon = button.querySelector('.mm-sector-icon');
+          if (icon) playLottieFromStart(icon);
         });
-        // Fallback cleanup in case animationend doesn't fire
-        setTimeout(cleanup, 400);
       }
       const active = nav.querySelector('.mm-cat.is-active') || nav.querySelector('.mm-cat[data-mm-cat]');
       if (active) playSectorIcon(active, 'in-reveal');
