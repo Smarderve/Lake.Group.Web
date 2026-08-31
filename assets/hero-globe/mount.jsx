@@ -1,7 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import HeroGlobe from './HeroGlobe.jsx';
-import { APPROVED_COUNTRY_IDS, COUNTRY_REFERENCE_COORDINATES } from './locations.js';
+import { APPROVED_COUNTRY_IDS, COUNTRY_REFERENCE_COORDINATES, COUNTRY_LOCATIONS } from './locations.js';
 
 function showError(mount, message) {
   mount.classList.remove('is-loading');
@@ -95,24 +95,44 @@ export function mountHeroGlobe(selector, locations = []) {
   }
 }
 
+function fallbackLocations() {
+  return Object.entries(COUNTRY_LOCATIONS).map(([id, loc]) => ({
+    id,
+    name: loc.countryName,
+    countryName: loc.countryName,
+    lat: loc.lat,
+    lng: loc.lng,
+    hub: !!loc.hub,
+  }));
+}
+
 function autoMount() {
-  const delivery = window.LakePublicContentReady ||
+  var mount = document.getElementById('experience-3d-panel');
+  if (!mount) return;
+
+  /* Mount immediately with hardcoded locations so the Earth renders
+     without waiting for the CMS content delivery promise.  If the
+     CMS resolves later and provides different locations, we can
+     re-render then — but the globe must never be blocked by it. */
+  var locations = fallbackLocations();
+  mountHeroGlobe('#experience-3d-panel', locations);
+
+  /* Optionally enrich with CMS data when it arrives (non-blocking). */
+  var delivery = window.LakePublicContentReady ||
     Promise.resolve(window.LakePublicContent || null);
   delivery
     .then((client) => client ? client.map() : null)
     .then((map) => {
-      const locations = publishedGlobeLocations(map);
-      if (!locations.length) {
-        const mount = document.getElementById('experience-3d-panel');
-        if (mount) showError(mount, 'Published operations are temporarily unavailable.');
-        return;
+      if (!map) return;
+      var cmsLocations = publishedGlobeLocations(map);
+      if (cmsLocations.length && mount.__heroGlobeRoot) {
+        mount.__heroGlobeRoot.unmount();
+        mount.dataset.heroGlobeMounted = '';
+        delete mount.__heroGlobeRoot;
+        mountHeroGlobe('#experience-3d-panel', cmsLocations);
       }
-      mountHeroGlobe('#experience-3d-panel', locations);
     })
-    .catch(() => {
-      const mount = document.getElementById('experience-3d-panel');
-      if (mount) showError(mount, 'Published operations are temporarily unavailable.');
-    });
+    .catch(() => {}); /* ignore CMS failures — fallback locations already mounted */
 }
 
 if (typeof window !== 'undefined') {
