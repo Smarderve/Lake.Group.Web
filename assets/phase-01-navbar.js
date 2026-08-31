@@ -135,9 +135,19 @@
       const rail = nav.querySelector('.mm-cats');
       if (rail && !reducedMotion()) {
         rail.classList.remove('is-icon-entering');
+        // Remove anim-done so entrance can replay
+        rail.querySelectorAll('.mm-sector-icon').forEach((ic) => ic.classList.remove('anim-done'));
         // Restart the small entrance sequence on every megamenu opening.
         void rail.offsetWidth;
         rail.classList.add('is-icon-entering');
+        // After entrance animation completes, remove fill so hover transforms work
+        const icons = rail.querySelectorAll('.mm-sector-icon');
+        const cleanup = () => { icons.forEach((ic) => ic.classList.add('anim-done')); };
+        icons.forEach((ic) => {
+          ic.addEventListener('animationend', cleanup, { once: true });
+        });
+        // Fallback cleanup in case animationend doesn't fire
+        setTimeout(cleanup, 400);
       }
       const active = nav.querySelector('.mm-cat.is-active') || nav.querySelector('.mm-cat[data-mm-cat]');
       if (active) playSectorIcon(active, 'in-reveal');

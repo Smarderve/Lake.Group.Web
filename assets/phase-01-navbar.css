@@ -1243,6 +1243,9 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-m
 .site-nav[data-phase01-navbar] .mm-cats.is-icon-entering .mm-sector-icon {
   animation: lake-sector-icon-enter 220ms cubic-bezier(.22, .61, .36, 1) both;
 }
+.site-nav[data-phase01-navbar] .mm-cats.is-icon-entering .mm-sector-icon.anim-done {
+  animation: none;
+}
 .site-nav[data-phase01-navbar] .mm-cats.is-icon-entering .mm-cat:nth-child(2) .mm-sector-icon { animation-delay: 32ms; }
 .site-nav[data-phase01-navbar] .mm-cats.is-icon-entering .mm-cat:nth-child(3) .mm-sector-icon { animation-delay: 64ms; }
 .site-nav[data-phase01-navbar] .mm-cats.is-icon-entering .mm-cat:nth-child(4) .mm-sector-icon { animation-delay: 96ms; }
