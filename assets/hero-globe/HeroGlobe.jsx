@@ -12,15 +12,22 @@ import {
 const MARKER_ICON = 'assets/icons/location-marker.apng';
 const INITIAL_POV = { lat: 28, lng: -142, altitude: 2.12 };
 const AFRICA_POV = { lat: -4, lng: 33, altitude: 1.85 };
-const CAMERA_DURATION_MS = 1200;
-const POST_CAMERA_PAUSE_MS = 150;
-const ROUTE_DRAW_MS = 700;
-const MARKER_REVEAL_MS = 200;
-const BETWEEN_ROUTES_MS = 180;
-const MARKER_ALTITUDE = 0.024;
+const CAMERA_INTRO_MS = 1200;
+const POST_INTRO_PAUSE_MS = 200;
+const ROUTE_DRAW_MS = 800;
+const POST_ROUTE_PAUSE_MS = 250;
+const MARKER_ALTITUDE = 0.022;
 
 function easeInOutCubic(t) {
   return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+}
+
+/** Shortest angular difference in degrees */
+function angleDiff(a, b) {
+  let d = b - a;
+  while (d > 180) d -= 360;
+  while (d < -180) d += 360;
+  return d;
 }
 
 function usePanelSize(panelEl) {
@@ -29,7 +36,6 @@ function usePanelSize(panelEl) {
     const r = panelEl.getBoundingClientRect();
     return { w: Math.max(1, Math.floor(r.width)), h: Math.max(1, Math.floor(r.height)) };
   });
-
   useEffect(() => {
     if (!panelEl) return undefined;
     const measure = () => {
@@ -41,7 +47,6 @@ function usePanelSize(panelEl) {
     obs.observe(panelEl);
     return () => obs.disconnect();
   }, [panelEl]);
-
   return size;
 }
 
@@ -67,9 +72,7 @@ function useDocumentVisible() {
   return visible;
 }
 
-/**
- * Cache marker DOM elements to avoid recreating on every render.
- */
+/** Cache marker DOM elements to avoid recreating on every render. */
 const markerCache = new Map();
 function getCachedMarkerEl(marker, isMobile) {
   const key = marker.id + (isMobile ? '_m' : '_d');
@@ -112,6 +115,35 @@ function getCachedMarkerEl(marker, isMobile) {
   return root;
 }
 
+/**
+ * Animate camera from one POV to another over durationMs.
+ * Returns a cancel function. Calls onDone when complete.
+ */
+function animateCamera(globe, from, to, durationMs, onDone) {
+  const start = performance.now();
+  let raf;
+  const tick = () => {
+    const elapsed = performance.now() - start;
+    const t = Math.min(1, elapsed / durationMs);
+    const e = easeInOutCubic(t);
+    globe.pointOfView(
+      {
+        lat: from.lat + (to.lat - from.lat) * e,
+        lng: from.lng + (to.lng - from.lng) * e,
+        altitude: from.altitude + (to.altitude - from.altitude) * e,
+      },
+      0,
+    );
+    if (t < 1) {
+      raf = requestAnimationFrame(tick);
+    } else {
+      onDone();
+    }
+  };
+  raf = requestAnimationFrame(tick);
+  return () => { if (raf) cancelAnimationFrame(raf); };
+}
+
 export default function HeroGlobe({ panelEl, locations }) {
   const globeRef = useRef(null);
   const { w, h } = usePanelSize(panelEl);
@@ -123,8 +155,7 @@ export default function HeroGlobe({ panelEl, locations }) {
   const [markersData, setMarkersData] = useState([]);
   const arrivalRef = useRef(false);
   const timersRef = useRef([]);
-  const cameraFrameRef = useRef(null);
-  const seqIndexRef = useRef(0);
+  const cancelCameraRef = useRef(null);
 
   const allMarkers = useMemo(() => buildMarkers(locations), [locations]);
   const allArcs = useMemo(() => buildArcs(locations), [locations]);
@@ -138,9 +169,9 @@ export default function HeroGlobe({ panelEl, locations }) {
   const clearTimers = useCallback(() => {
     timersRef.current.forEach((id) => clearTimeout(id));
     timersRef.current = [];
-    if (cameraFrameRef.current !== null) {
-      cancelAnimationFrame(cameraFrameRef.current);
-      cameraFrameRef.current = null;
+    if (cancelCameraRef.current) {
+      cancelCameraRef.current();
+      cancelCameraRef.current = null;
     }
   }, []);
 
@@ -161,19 +192,13 @@ export default function HeroGlobe({ panelEl, locations }) {
   );
 
   /**
-   * Sequential route animation — ONE route at a time.
+   * Sequential route animation with camera tracking.
    *
-   * For each destination:
-   *   1. Mount arc at Tanzania (endLat/Lng = startLat/Lng) → zero-length
-   *   2. After 1 frame, update endLat/Lng to destination → arc tweens outward
-   *   3. After ROUTE_DRAW_MS, show destination marker + label
-   *   4. After brief pause, begin next route
-   *
-   * All completed routes remain visible, building the network.
+   * State machine:
+   *   INTRO → DRAW_ROUTE → REVEAL → HOLD → DRAW_ROUTE → ... → COMPLETE
    */
   const startArrival = useCallback(() => {
     clearTimers();
-    seqIndexRef.current = 0;
 
     const hub = allMarkers.find((m) => m.hub);
     setArcsData([]);
@@ -188,57 +213,67 @@ export default function HeroGlobe({ panelEl, locations }) {
 
     controls.autoRotate = false;
     controls.autoRotateSpeed = 0;
-    const startPov = globe.pointOfView();
-    const startedAt = performance.now();
+    const currentPov = globe.pointOfView();
 
-    const runRoute = (index) => {
+    /** Draw one route at index, then reveal destination, then next. */
+    const drawRoute = (index) => {
       const arc = allArcs[index];
-      if (!arc) return;
-      seqIndexRef.current = index;
+      if (!arc) return; // all done
 
-      // Step 1: Mount arc at origin (zero-length)
+      const dest = markerById.get(arc.id);
+      if (!dest) {
+        drawRoute(index + 1);
+        return;
+      }
+
+      // --- Step 1: Mount zero-length arc at Tanzania ---
       const activeArc = { ...arc, endLat: arc.startLat, endLng: arc.startLng };
       setArcsData((cur) => [...cur, activeArc]);
 
-      // Step 2: After 1 frame, tween endpoint to destination
+      // --- Step 2: Camera gently tracks toward destination ---
+      const fromPov = globe.pointOfView();
+      // Compute a camera POV that keeps both Tanzania and destination visible
+      const midLat = (arc.startLat + arc.endLat) / 2;
+      const midLng = (arc.startLng + arc.endLng) / 2;
+      // Slightly pull back altitude for longer routes
+      const dist = Math.sqrt(
+        Math.pow(arc.endLat - arc.startLat, 2) +
+        Math.pow(angleDiff(arc.startLng, arc.endLng), 2),
+      );
+      const targetAlt = Math.min(2.2, Math.max(1.6, 1.4 + dist * 0.015));
+      const trackPov = { lat: midLat, lng: midLng, altitude: targetAlt };
+
+      cancelCameraRef.current = animateCamera(globe, fromPov, trackPov, ROUTE_DRAW_MS, () => {
+        cancelCameraRef.current = null;
+      });
+
+      // --- Step 3: After 1 frame, tween arc endpoint to destination ---
       scheduleTimer(() => {
         activeArc.endLat = arc.endLat;
         activeArc.endLng = arc.endLng;
         setArcsData((cur) => cur.slice());
       }, 16);
 
-      // Step 3: After draw completes, reveal destination marker + label
+      // --- Step 4: After route draw, reveal destination marker + label ---
       scheduleTimer(() => {
-        const dest = markerById.get(arc.id);
-        if (dest) {
-          setMarkersData((cur) => [...cur, dest]);
-        }
-        // Step 4: Brief pause, then next route
-        scheduleTimer(() => runRoute(index + 1), BETWEEN_ROUTES_MS);
-      }, ROUTE_DRAW_MS + MARKER_REVEAL_MS);
+        setMarkersData((cur) => [...cur, dest]);
+
+        // --- Step 5: Brief hold, then next route ---
+        scheduleTimer(() => drawRoute(index + 1), POST_ROUTE_PAUSE_MS);
+      }, ROUTE_DRAW_MS + 80);
     };
 
-    const moveCamera = () => {
-      const elapsed = performance.now() - startedAt;
-      const progress = Math.min(1, elapsed / CAMERA_DURATION_MS);
-      const eased = easeInOutCubic(progress);
-      globe.pointOfView(
-        {
-          lat: startPov.lat + (AFRICA_POV.lat - startPov.lat) * eased,
-          lng: startPov.lng + (AFRICA_POV.lng - startPov.lng) * eased,
-          altitude: startPov.altitude + (AFRICA_POV.altitude - startPov.altitude) * eased,
-        },
-        0,
-      );
-      if (progress < 1) {
-        cameraFrameRef.current = requestAnimationFrame(moveCamera);
-      } else {
-        cameraFrameRef.current = null;
-        scheduleTimer(() => runRoute(0), POST_CAMERA_PAUSE_MS);
-      }
-    };
-
-    cameraFrameRef.current = requestAnimationFrame(moveCamera);
+    // --- INTRO: Camera from Pacific to Africa ---
+    cancelCameraRef.current = animateCamera(
+      globe,
+      currentPov,
+      AFRICA_POV,
+      CAMERA_INTRO_MS,
+      () => {
+        cancelCameraRef.current = null;
+        scheduleTimer(() => drawRoute(0), POST_INTRO_PAUSE_MS);
+      },
+    );
   }, [allArcs, allMarkers, clearTimers, markerById, scheduleTimer, showAll]);
 
   // Start arrival sequence when globe + section are ready

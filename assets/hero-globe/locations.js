@@ -25,20 +25,25 @@ export const APPROVED_COUNTRY_IDS = new Set(['tz', ...ROUTE_ORDER]);
 
 /**
  * Canonical city anchors — real geographic coordinates.
- * Arc altitudes scale with distance. Arc curves separate overlapping routes.
- * labelOffset is screen-space pixel offset for readability.
+ *
+ * Arc altitudes are LOW to prevent visual tangling/looping.
+ * Short routes (Kenya, Uganda, Rwanda, Burundi): 0.06–0.10
+ * Medium routes (DR Congo, Zambia, Mozambique, Ethiopia): 0.12–0.20
+ * Long route (UAE): 0.28
+ *
+ * labelOffset is screen-space pixel offset for readability only.
  */
 export const COUNTRY_LOCATIONS = {
-  tz: { cityAnchor: 'Dar es Salaam', countryName: 'TANZANIA', lat: -6.7924, lng: 39.2083, labelOffset: [12, 18], arcAltitude: 0, arcCurve: 0, hub: true },
-  ke: { cityAnchor: 'Nairobi', countryName: 'KENYA', lat: -1.2921, lng: 36.8219, labelOffset: [14, -16], arcAltitude: 0.12, arcCurve: -0.3 },
-  ug: { cityAnchor: 'Kampala', countryName: 'UGANDA', lat: 0.3476, lng: 32.5825, labelOffset: [-58, -20], arcAltitude: 0.16, arcCurve: -0.4 },
-  rw: { cityAnchor: 'Kigali', countryName: 'RWANDA', lat: -1.9441, lng: 30.0619, labelOffset: [-56, 4], arcAltitude: 0.18, arcCurve: -0.5 },
-  bi: { cityAnchor: 'Bujumbura', countryName: 'BURUNDI', lat: -3.3614, lng: 29.3599, labelOffset: [-64, 22], arcAltitude: 0.20, arcCurve: -0.5 },
-  cd: { cityAnchor: 'Kinshasa', countryName: 'DR CONGO', lat: -4.4419, lng: 15.2663, labelOffset: [-68, 4], arcAltitude: 0.32, arcCurve: -0.6 },
-  zm: { cityAnchor: 'Lusaka', countryName: 'ZAMBIA', lat: -15.3875, lng: 28.3228, labelOffset: [-56, 22], arcAltitude: 0.28, arcCurve: -0.4 },
-  mz: { cityAnchor: 'Maputo', countryName: 'MOZAMBIQUE', lat: -25.9692, lng: 32.5732, labelOffset: [14, 18], arcAltitude: 0.35, arcCurve: 0.5 },
-  et: { cityAnchor: 'Addis Ababa', countryName: 'ETHIOPIA', lat: 8.9806, lng: 38.7578, labelOffset: [14, -16], arcAltitude: 0.38, arcCurve: -0.3 },
-  ae: { cityAnchor: 'Abu Dhabi', countryName: 'UAE', lat: 24.4539, lng: 54.3773, labelOffset: [14, -16], arcAltitude: 0.55, arcCurve: -0.2 },
+  tz: { cityAnchor: 'Dar es Salaam', countryName: 'TANZANIA', lat: -6.7924, lng: 39.2083, labelOffset: [12, 18], arcAltitude: 0, hub: true },
+  ke: { cityAnchor: 'Nairobi', countryName: 'KENYA', lat: -1.2921, lng: 36.8219, labelOffset: [14, -16], arcAltitude: 0.06 },
+  ug: { cityAnchor: 'Kampala', countryName: 'UGANDA', lat: 0.3476, lng: 32.5825, labelOffset: [-58, -20], arcAltitude: 0.08 },
+  rw: { cityAnchor: 'Kigali', countryName: 'RWANDA', lat: -1.9441, lng: 30.0619, labelOffset: [-56, 4], arcAltitude: 0.09 },
+  bi: { cityAnchor: 'Bujumbura', countryName: 'BURUNDI', lat: -3.3614, lng: 29.3599, labelOffset: [-64, 22], arcAltitude: 0.10 },
+  cd: { cityAnchor: 'Kinshasa', countryName: 'DR CONGO', lat: -4.4419, lng: 15.2663, labelOffset: [-68, 4], arcAltitude: 0.16 },
+  zm: { cityAnchor: 'Lusaka', countryName: 'ZAMBIA', lat: -15.3875, lng: 28.3228, labelOffset: [-56, 22], arcAltitude: 0.14 },
+  mz: { cityAnchor: 'Maputo', countryName: 'MOZAMBIQUE', lat: -25.9692, lng: 32.5732, labelOffset: [14, 18], arcAltitude: 0.18 },
+  et: { cityAnchor: 'Addis Ababa', countryName: 'ETHIOPIA', lat: 8.9806, lng: 38.7578, labelOffset: [14, -16], arcAltitude: 0.20 },
+  ae: { cityAnchor: 'Abu Dhabi', countryName: 'UAE', lat: 24.4539, lng: 54.3773, labelOffset: [14, -16], arcAltitude: 0.28 },
 };
 
 export const COUNTRY_REFERENCE_COORDINATES = Object.fromEntries(
@@ -81,8 +86,7 @@ export function buildArcs(locations) {
       startLng: hq.lng,
       endLat: loc.lat,
       endLng: loc.lng,
-      altitude: config.arcAltitude || 0.3,
-      arcCurve: config.arcCurve || 0,
+      altitude: config.arcAltitude || 0.15,
       id: loc.id,
     };
   });
