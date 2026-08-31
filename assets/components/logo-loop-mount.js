@@ -364,13 +364,10 @@
         startY: event.clientY,
         lastX: event.clientX,
         lastY: event.clientY,
-        horizontal: event.pointerType === 'mouse',
+        horizontal: false,
         moved: false
       };
       container.classList.add('is-dragging');
-      if (event.pointerType === 'mouse' && container.setPointerCapture) {
-        try { container.setPointerCapture(event.pointerId); } catch (ignore) {}
-      }
       pauseForManualInput();
     }
 
