@@ -19,7 +19,6 @@ const POST_ROUTE_PAUSE_MS = 400;
 const NETWORK_HOLD_MS = 1500;
 const SHOWCASE_ROTATION_MS = 4600;
 const RESET_SETTLE_MS = 450;
-const ORIGIN_HOLD_MS = 500;
 const MARKER_ALTITUDE = 0.022;
 
 function easeInOutCubic(t) {
@@ -80,8 +79,8 @@ function getCachedMarkerEl(marker, isMobile) {
   const label = document.createElement('span');
   label.className = 'hero-globe-marker__label';
   label.textContent = marker.label;
-  const [ox, oy] = (isMobile ? marker.mobileLabelOffset : marker.labelOffset) || [12, -14];
-  const fontSize = isMobile ? 10 : 10.5;
+  const [ox, oy] = marker.labelOffset || [12, -14];
+  const fontSize = isMobile ? 9 : 10.5;
   label.style.cssText = [
     'position:absolute',
     `transform:translate(${ox}px,${oy}px)`,
@@ -146,7 +145,6 @@ export default function HeroGlobe({ panelEl, locations }) {
 
   /* ── Marker data: only revealed destinations ── */
   const [revealedMarkers, setRevealedMarkers] = useState([]);
-  const [originVisible, setOriginVisible] = useState(false);
 
   /* ── Animation lifecycle refs ── */
   const sequenceCancelledRef = useRef(false);
@@ -155,13 +153,14 @@ export default function HeroGlobe({ panelEl, locations }) {
   const cancelCameraRef = useRef(null);
   const loopActiveRef = useRef(false);
 
-  const isMobile = w < 600;
   const allMarkers = useMemo(() => buildMarkers(locations), [locations]);
-  const allArcs = useMemo(() => buildArcs(locations, isMobile), [locations, isMobile]);
+  const allArcs = useMemo(() => buildArcs(locations), [locations]);
   const markerById = useMemo(
     () => new Map(allMarkers.map((m) => [m.id, m])),
     [allMarkers],
   );
+
+  const isMobile = w < 600;
 
   /* ── Combined arc data for the Globe component ── */
   const arcsData = useMemo(() => {
@@ -175,9 +174,9 @@ export default function HeroGlobe({ panelEl, locations }) {
   /* ── Combined marker data ── */
   const hubMarker = useMemo(() => allMarkers.find((m) => m.hub), [allMarkers]);
   const markersData = useMemo(() => {
-    const list = originVisible && hubMarker ? [hubMarker] : [];
+    const list = hubMarker ? [hubMarker] : [];
     return [...list, ...revealedMarkers];
-  }, [hubMarker, originVisible, revealedMarkers]);
+  }, [hubMarker, revealedMarkers]);
 
   /* ── Cleanup helpers ── */
   const clearTimers = useCallback(() => {
@@ -227,16 +226,14 @@ export default function HeroGlobe({ panelEl, locations }) {
     setActiveArc(null);
     activeDashRef.current = 0;
     setRevealedMarkers([]);
-    setOriginVisible(false);
 
     const restartAfterShowcase = () => {
       if (sequenceCancelledRef.current) return;
-      // Clear every country UI, including Tanzania, before the 360° showcase.
+      // Step 1: Clear all routes + destination labels
       setCompletedArcs([]);
       setActiveArc(null);
       activeDashRef.current = 0;
       setRevealedMarkers([]);
-      setOriginVisible(false);
       // Short pause after clear, then rotate
       scheduleTimer(() => {
         if (sequenceCancelledRef.current) return;
@@ -313,9 +310,7 @@ export default function HeroGlobe({ panelEl, locations }) {
     const introPov = globe.pointOfView();
     cancelCameraRef.current = animateCamera(globe, introPov, AFRICA_POV, CAMERA_INTRO_MS, () => {
       cancelCameraRef.current = null;
-      if (sequenceCancelledRef.current) return;
-      setOriginVisible(true);
-      scheduleTimer(() => drawRoute(0), ORIGIN_HOLD_MS + POST_INTRO_PAUSE_MS);
+      scheduleTimer(() => drawRoute(0), POST_INTRO_PAUSE_MS);
     });
   }, [allArcs, markerById, scheduleTimer]);
 
@@ -325,7 +320,6 @@ export default function HeroGlobe({ panelEl, locations }) {
       clearTimers();
       setCompletedArcs(allArcs.map((a) => ({ ...a, dashLength: 1 })));
       setActiveArc(null);
-      setOriginVisible(true);
       setRevealedMarkers(allMarkers.filter((m) => !m.hub));
       return undefined;
     }
@@ -350,11 +344,6 @@ export default function HeroGlobe({ panelEl, locations }) {
       cancelAnimationFrame(rafRef.current);
       rafRef.current = null;
     }
-    setCompletedArcs([]);
-    setActiveArc(null);
-    setRevealedMarkers([]);
-    setOriginVisible(false);
-    globeRef.current?.pointOfView(AFRICA_POV, 0);
     return undefined;
   }, [sectionVisible]);
 
@@ -418,18 +407,14 @@ export default function HeroGlobe({ panelEl, locations }) {
       atmosphereAltitude={0.14}
       animateIn={false}
       onGlobeReady={onGlobeReady}
-      pathsData={arcsData}
-      pathPoints="points"
-      pathPointLat="lat"
-      pathPointLng="lng"
-      pathPointAlt="alt"
-      pathResolution={2}
-      pathColor={() => ROUTE_YELLOW}
-      pathStroke={0.85}
-      pathDashLength="dashLength"
-      pathDashGap={0.05}
-      pathDashAnimateTime={0}
-      pathTransitionDuration={0}
+      arcsData={arcsData}
+      arcColor={() => ROUTE_YELLOW}
+      arcAltitude="altitude"
+      arcStroke={0.85}
+      arcDashLength="dashLength"
+      arcDashGap={0.05}
+      arcDashAnimateTime={0}
+      arcsTransitionDuration={0}
       htmlElementsData={markersData}
       htmlLat="lat"
       htmlLng="lng"
