@@ -26,7 +26,7 @@
     { src: 'assets/images/logos/companies/aficd.png?v=69', alt: 'AFICD', title: 'AFICD', href: 'aficd.html' },
     { src: 'assets/images/logos/companies/aill.png?v=58', alt: 'AILL', title: 'AILL', href: 'aill.html' },
     /* Tight-crop marks read larger than padded Lake logos at the same CSS height */
-    { src: 'assets/images/logos/companies/assembly-tech-limited-logo.webp?v=1', alt: 'ATL', title: 'ATL', href: 'assembly-tech.html', scale: 0.85 },
+    { src: 'assets/images/logos/companies/atl-icon.webp', alt: 'ATL', title: 'ATL', href: 'assembly-tech.html', scale: 1.1 },
     { src: 'assets/images/logos/companies/lake-agro-blue.png?v=70', alt: 'Lake Agro', title: 'Lake Agro', href: 'lake-agro.html', scale: 0.8 },
     { src: 'assets/images/logos/companies/agrinova-tech.png?v=1', alt: 'Agrinova Tech Limited', title: 'Agrinova Tech Limited', href: 'agrinova-tech.html', scale: 0.78, className: 'logoloop__item--agrinova' },
     { src: 'assets/images/logos/companies/cross-country-developer-limited-transparent.webp?v=1', alt: 'Cross Country Developer Limited', title: 'Cross Country Developer Limited', href: 'cross-country.html', scale: 0.95, className: 'logoloop__item--cross-country' },
