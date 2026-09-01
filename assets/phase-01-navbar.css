@@ -894,21 +894,17 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .mm-cat.is-active {
   max-width: 132px !important;
 }
 
-/* Cross Country logo tile — match AFICD slot size and add curved border. */
-.site-nav[data-phase01-navbar] .nav-megamenu .mm-company:has(img[src*="cross-country"]) {
-  padding: 6px !important;
-  background: rgba(255,255,255,.92) !important;
-  border-radius: 12px !important;
-}
-.site-nav[data-phase01-navbar] .nav-megamenu .mm-company:has(img[src*="cross-country"]):hover {
-  background: rgba(255,255,255,1) !important;
-}
+/* Cross Country logo — no background, match AFICD sizing. */
 .site-nav[data-phase01-navbar] .nav-megamenu .mm-company img[src*="cross-country"] {
   width: 100% !important;
   height: 56px !important;
   max-width: 112px !important;
   object-fit: contain !important;
-  border-radius: 8px !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
 }
 
 .site-nav[data-phase01-navbar] .lang-menu {
