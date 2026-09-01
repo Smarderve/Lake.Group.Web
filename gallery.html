@@ -235,7 +235,7 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
   display:flex;align-items:center;justify-content:center;
   transition:border-color 150ms ease,color 150ms ease;
 }
-#lb-close{top:20px;right:24px;font-size:1.4rem;width:44px;height:44px}
+#lb-close{top:20px;right:24px;font-size:1.4rem;width:44px;height:44px;z-index:10;pointer-events:auto}
 #lb-prev,#lb-next{top:50%;transform:translateY(-50%);font-size:1.3rem;width:48px;height:48px}
 #lb-prev{left:20px}#lb-next{right:20px}
 #lb-prev:hover,#lb-next:hover,#lb-close:hover{border-color:#FFF200;color:#FFF200}
@@ -658,9 +658,10 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(el); }
     });
   });
-  document.getElementById('lb-close').onclick = closeLightbox;
-  document.getElementById('lb-prev').onclick = () => showLB(cur - 1);
-  document.getElementById('lb-next').onclick = () => showLB(cur + 1);
+  document.getElementById('lb-close').addEventListener('click', closeLightbox);
+  lb.addEventListener('click', function(e) { if (e.target === lb) closeLightbox(); });
+  document.getElementById('lb-prev').addEventListener('click', function(e) { e.stopPropagation(); showLB(cur - 1); });
+  document.getElementById('lb-next').addEventListener('click', function(e) { e.stopPropagation(); showLB(cur + 1); });
   document.addEventListener('keydown', e => {
     if (!lb.classList.contains('open')) return;
     if (e.key === 'ArrowLeft') showLB(cur - 1);
