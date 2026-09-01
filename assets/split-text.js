@@ -233,6 +233,7 @@
   }
 
   function enhanceOne(gsap, el, options) {
+    if (el && el.hasAttribute('data-split-skip')) return null;
     if (!el || el.dataset.splitEnhanced === '1') return null;
     if (!el.textContent || !el.textContent.trim()) return null;
 
@@ -358,7 +359,7 @@
   function enhanceAll(options) {
     if (reducedMotion) {
       document.querySelectorAll(SELECTOR).forEach(function (el) {
-        if (el && el.textContent && el.textContent.trim()) {
+        if (el && !el.hasAttribute('data-split-skip') && el.textContent && el.textContent.trim()) {
           el.classList.add('split-text--ready', 'split-text--done');
         }
       });

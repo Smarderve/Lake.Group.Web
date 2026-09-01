@@ -191,8 +191,8 @@ body.co-theme-automotive .nav-mobile{background:#013f5c!important;background-col
 .nd-hero .hero-media{background-image:linear-gradient(90deg,rgba(0,30,47,.25) 0%,rgba(1,50,75,.18) 47%,rgba(1,42,63,.08) 100%),url('assets/images/home/verticals/automotive-truck-lineup.webp')!important;background-position:center;background-size:cover;filter:none}
 .nd-hero .hero-overlay{background:transparent}
 .nd-hero .container{position:relative;z-index:1;max-width:1280px;width:100%}
-.nd-kicker,.nd-section-label{display:flex;align-items:center;gap:10px;margin:0 0 18px;font-size:.73rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--nd-yellow)}
-.nd-kicker::before,.nd-section-label::before{content:'';width:28px;height:2px;background:currentColor}
+.nd-section-label{display:flex;align-items:center;gap:10px;margin:0 0 18px;font-size:.73rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--nd-yellow)}
+.nd-section-label::before{content:'';width:28px;height:2px;background:currentColor}
 .nd-hero .hero-title{max-width:760px;margin:0;color:#fff;font-size:clamp(3.2rem,7vw,6.4rem);line-height:.94;letter-spacing:-.035em}
 .nd-hero .hero-title::after{content:'';display:block;width:54px;height:3px;margin-top:28px;background:var(--nd-yellow)}
 .nd-tagline{max-width:700px;margin:24px 0 0;font-family:var(--font-display);font-size:clamp(1.05rem,1.7vw,1.35rem);font-weight:700;letter-spacing:.02em;line-height:1.3;text-transform:uppercase;color:var(--nd-yellow)}
@@ -271,6 +271,16 @@ body.co-theme-automotive .nav-mobile{background:#013f5c!important;background-col
 @media(max-width:640px){.nd-support-grid{grid-template-columns:1fr}.nd-support-grid .nd-support-item{border-left:0}}
 @media(max-width:900px){.nd-portfolio-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.nd-portfolio-item:nth-child(4){border-left:0}.nd-portfolio-item:first-child{grid-column:span 3;border-bottom:1px solid var(--line-2)}.nd-product-showcase{grid-template-columns:1fr;gap:30px;padding:54px 0}.nd-product-showcase--reverse .nd-product-copy,.nd-product-copy{order:1}.nd-product-showcase--reverse .nd-product-visual,.nd-product-visual{order:2}.nd-product-copy{max-width:620px}.nd-product-visual{min-height:0;max-width:720px}.nd-product-visual img{height:auto;max-height:none}.nd-intro,.nd-industries-layout,.nd-support-layout{grid-template-columns:1fr;gap:42px}.nd-portfolio-head{display:block}.nd-portfolio-note{margin-top:18px}.nd-purpose-grid{gap:38px}.nd-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.nd-flow-step:nth-child(2){border-right:0}.nd-flow-step:nth-child(n+3){margin-top:26px}}
 @media(max-width:640px){.nd-hero{min-height:650px;padding:112px 0 70px}.nd-hero .hero-media{background-position:62% center}.nd-hero .hero-title{font-size:clamp(2.85rem,14vw,4.1rem)}.nd-tagline{font-size:1rem}.nd-hero .hero-sub{font-size:.98rem}.nd-page .fs-section{padding:64px 0}.nd-intro-copy p,.nd-commitment-copy{font-size:1rem}.nd-portfolio{padding:60px 0!important}.nd-portfolio-grid{grid-template-columns:1fr}.nd-portfolio-item,.nd-portfolio-item:nth-child(4){border-left:0;border-bottom:1px solid var(--line-2);padding:21px 0}.nd-portfolio-item:last-child{border-bottom:0}.nd-portfolio-item:first-child{grid-column:auto}.nd-product-showcase:first-child{margin-top:30px}.nd-product-showcase{gap:22px;padding:44px 0}.nd-product-visual{padding:14px}.nd-product-eyebrow{font-size:.68rem;letter-spacing:.12em}.nd-product-copy h3{max-width:12ch;margin-top:16px;font-size:clamp(1.85rem,9.5vw,2.4rem)}.nd-product-copy p{margin-top:18px;font-size:1rem;line-height:1.65}.nd-industry-list{grid-template-columns:1fr;max-width:100%}.nd-industry,.nd-industry:nth-child(odd),.nd-industry:nth-child(even){padding:20px 0;border-left:0;text-align:center}.nd-support-item{grid-template-columns:1fr;gap:10px;padding:22px 16px}.nd-purpose-grid{grid-template-columns:1fr;gap:32px;margin-top:32px}.nd-purpose-block{padding-left:18px}.nd-purpose-block p{font-size:1rem}.nd-flow{margin-top:36px}.nd-flow-step{padding:20px 16px 0 0}.nd-flow-step:not(:first-child){padding-left:16px}.nd-flow-step h3{font-size:1.05rem}}
+
+/* Current NexDrive route corrections: a restrained identity-led hero and a
+   light, logo-first mobility portfolio. Scoped so no other company page moves. */
+.nd-hero{min-height:clamp(500px,58vh,620px)!important;padding:96px 0 72px!important}
+.nd-hero .nd-hero-title{max-width:680px!important;margin:0!important;color:#fff!important;font-size:clamp(2.625rem,3.5vw,3.25rem)!important;line-height:1!important;letter-spacing:-.028em!important;white-space:normal!important;opacity:1!important;transform:none!important;visibility:visible!important}.nd-hero .nd-hero-title span{display:block}
+.nd-tagline{margin-top:18px!important}.nd-hero .hero-sub{margin-top:12px!important}
+.nd-portfolio{background:#fff!important}.nd-portfolio-grid{border-color:var(--nd-line)!important}.nd-portfolio-item{padding:32px 20px!important;border-color:var(--nd-line)!important}
+.nd-portfolio-item .nd-portfolio-logo{height:88px!important;margin-bottom:18px!important}.nd-portfolio-item .nd-portfolio-logo img{width:auto!important;height:auto!important;object-fit:contain!important}
+.nd-portfolio-item .nd-portfolio-logo--nexdrive img{max-width:180px!important;max-height:70px!important}.nd-portfolio-item .nd-portfolio-logo--jac img{max-width:142px!important;max-height:72px!important}.nd-portfolio-item .nd-portfolio-logo--ashok img{max-width:190px!important;max-height:65px!important}.nd-portfolio-item .nd-portfolio-logo--sany img{max-width:178px!important;max-height:68px!important}.nd-portfolio-item .nd-portfolio-logo--atl img{max-width:170px!important;max-height:72px!important}
+@media(max-width:900px){.nd-portfolio-item{padding:28px 18px!important}}@media(max-width:640px){.nd-hero{min-height:500px!important;padding:104px 0 68px!important}.nd-hero .nd-hero-title{max-width:450px!important;font-size:clamp(2.35rem,11vw,3rem)!important}.nd-hero .nd-hero-title span{display:inline}.nd-portfolio-item,.nd-portfolio-item:nth-child(4){padding:26px 0!important}.nd-portfolio-item .nd-portfolio-logo{height:78px!important;margin-bottom:14px!important}}
   </style>
   <script type="application/ld+json">
 {
@@ -382,7 +392,7 @@ body.co-theme-automotive .nav-mobile{background:#013f5c!important;background-col
       <div class="hero-media" aria-hidden="true"></div>
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="container">
-        <h1 class="hero-title">NexDrive Motors Limited</h1>
+        <h1 class="nd-hero-title" data-split-skip>NexDrive Motors <span>Limited</span></h1>
         <p class="nd-tagline">Powering Progress. Driving the Future Mobility.</p>
         <p class="hero-sub">Commercial vehicle sales, distribution and support for modern transportation and logistics requirements.</p>
       </div>
@@ -402,11 +412,11 @@ body.co-theme-automotive .nav-mobile{background:#013f5c!important;background-col
         <h2 class="nd-section-heading" style="margin:0 auto;color:var(--nd-navy)">Commercial Mobility Portfolio</h2>
         <p style="margin:16px auto 0;max-width:480px;color:var(--mute);font-size:.95rem;line-height:1.65">A focused range of transportation solutions for everyday commercial requirements.</p>
         <div class="nd-portfolio-grid" style="margin-top:32px" aria-label="NexDrive commercial mobility portfolio">
-          <article class="nd-portfolio-item"><div class="nd-portfolio-logo"><img src="assets/images/logos/companies/nexdrive-motors-logo.webp" alt="NexDrive Motors" loading="lazy" decoding="async"></div><strong>Commercial Vehicles</strong><span>Sales, Distribution &amp; Support</span></article>
-          <article class="nd-portfolio-item"><div class="nd-portfolio-logo"><img src="assets/images/nexdrive/products/jac-pickups.webp" alt="JAC pick-up" loading="lazy" decoding="async"></div><strong>JAC</strong><span>Pick-ups</span></article>
-          <article class="nd-portfolio-item"><div class="nd-portfolio-logo"><img src="assets/images/nexdrive/products/ashok-leyland-trucks.webp" alt="Ashok Leyland truck" loading="lazy" decoding="async"></div><strong>Ashok Leyland</strong><span>Light &amp; Medium-Duty Trucks</span></article>
-          <article class="nd-portfolio-item"><div class="nd-portfolio-logo"><img src="assets/images/nexdrive/products/sany-heavy-commercial-truck.webp" alt="SANY heavy commercial truck" loading="lazy" decoding="async"></div><strong>SANY</strong><span>Heavy Commercial Trucks</span></article>
-          <article class="nd-portfolio-item"><div class="nd-portfolio-logo"><img src="assets/images/logos/companies/atl-icon.webp" alt="ATL Assembly Tech Limited" loading="lazy" decoding="async"></div><strong>Trailers</strong><span>Commercial Transport Solutions</span></article>
+          <article class="nd-portfolio-item"><div class="nd-portfolio-logo nd-portfolio-logo--nexdrive"><img src="assets/images/logos/companies/nexdrive-motors-logo.webp" alt="NexDrive Motors" loading="lazy" decoding="async"></div><strong>Commercial Vehicles</strong><span>Sales, Distribution &amp; Support</span></article>
+          <article class="nd-portfolio-item"><div class="nd-portfolio-logo nd-portfolio-logo--jac"><img src="assets/images/nexdrive/brands/jac-pick-ups-logo.png" alt="JAC Pick Ups" loading="lazy" decoding="async"></div><strong>JAC</strong><span>Pick-ups</span></article>
+          <article class="nd-portfolio-item"><div class="nd-portfolio-logo nd-portfolio-logo--ashok"><img src="assets/images/nexdrive/brands/ashok-leyland-trucks-logo.png" alt="Ashok Leyland Trucks" loading="lazy" decoding="async"></div><strong>Ashok Leyland</strong><span>Light &amp; Medium-Duty Trucks</span></article>
+          <article class="nd-portfolio-item"><div class="nd-portfolio-logo nd-portfolio-logo--sany"><img src="assets/images/nexdrive/brands/sany-trucks-logo.png" alt="SANY Trucks" loading="lazy" decoding="async"></div><strong>SANY</strong><span>Heavy Commercial Trucks</span></article>
+          <article class="nd-portfolio-item"><div class="nd-portfolio-logo nd-portfolio-logo--atl"><img src="assets/images/logos/companies/atl-icon.webp" alt="ATL Assembly Tech Limited" loading="lazy" decoding="async"></div><strong>Trailers</strong><span>Commercial Transport Solutions</span></article>
         </div>
       </div>
     </section>
