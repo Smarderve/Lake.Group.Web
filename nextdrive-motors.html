@@ -202,17 +202,17 @@ body.co-theme-automotive .nav-mobile{background:#013f5c!important;background-col
 .nd-intro .fs-display,.nd-section-heading{margin:0;font-size:clamp(2rem,3.6vw,3.4rem);line-height:1.06;letter-spacing:-.02em}
 .nd-intro-copy{max-width:630px;padding-top:8px}
 .nd-intro-copy p{margin:0;font-size:clamp(1.02rem,1.3vw,1.16rem);line-height:1.75;color:var(--mute)}
-.nd-portfolio{padding:clamp(64px,7vw,94px) 0!important;background:var(--nd-navy-deep)}
+.nd-portfolio{padding:clamp(64px,7vw,94px) 0!important;background:var(--nd-paper)}
 .nd-portfolio-head{display:flex;align-items:end;justify-content:space-between;gap:32px;margin-bottom:38px}
-.nd-portfolio-head .nd-section-heading{max-width:660px;color:#fff;font-size:clamp(2.2rem,4vw,3.8rem)}
-.nd-portfolio-note{max-width:330px;margin:0;color:rgba(255,255,255,.72);font-size:.95rem;line-height:1.65}
-.nd-portfolio-grid{display:grid;grid-template-columns:1.45fr repeat(4,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.2);border-bottom:1px solid rgba(255,255,255,.2)}
-.nd-portfolio-item{min-width:0;padding:28px 24px;border-left:1px solid rgba(255,255,255,.16)}
+.nd-portfolio-head .nd-section-heading{max-width:660px;color:var(--nd-navy);font-size:clamp(2.2rem,4vw,3.8rem)}
+.nd-portfolio-note{max-width:330px;margin:0;color:var(--mute);font-size:.95rem;line-height:1.65}
+.nd-portfolio-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+.nd-portfolio-item{min-width:0;padding:28px 24px;border-left:1px solid var(--line-2);text-align:center}
 .nd-portfolio-item:first-child{border-left:0}
-.nd-portfolio-item .nd-portfolio-logo{height:64px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-.nd-portfolio-item .nd-portfolio-logo img{max-width:150px;max-height:60px;width:auto;height:auto;object-fit:contain}
-.nd-portfolio-item strong{display:block;font-family:var(--font-display);font-size:clamp(1.1rem,1.5vw,1.5rem);line-height:1.12;color:#fff}
-.nd-portfolio-item span{display:block;margin-top:10px;font-size:.73rem;font-weight:700;letter-spacing:.11em;line-height:1.5;text-transform:uppercase;color:var(--nd-yellow)}
+.nd-portfolio-item .nd-portfolio-logo{height:72px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.nd-portfolio-item .nd-portfolio-logo img{max-width:140px;max-height:64px;width:auto;height:auto;object-fit:contain}
+.nd-portfolio-item strong{display:block;font-family:var(--font-display);font-size:clamp(1rem,1.3vw,1.3rem);line-height:1.12;color:var(--nd-navy)}
+.nd-portfolio-item span{display:block;margin-top:8px;font-size:.7rem;font-weight:700;letter-spacing:.11em;line-height:1.5;text-transform:uppercase;color:var(--nd-yellow)}
 .nd-products{background:var(--nd-paper)}
 .nd-products-head{max-width:720px}
 .nd-products-head .nd-section-heading{max-width:650px}
@@ -248,30 +248,29 @@ body.co-theme-automotive .nav-mobile{background:#013f5c!important;background-col
 .nd-commitment-head{max-width:740px;text-align:center;margin:0 auto}.nd-commitment-copy{max-width:620px;margin:20px auto 0;font-size:1.05rem;line-height:1.72;color:var(--mute)}
 .nd-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:52px;border-top:1px solid var(--nd-line)}
 .nd-flow-step{position:relative;padding:24px 24px 0 0;border-right:1px solid var(--nd-line)}.nd-flow-step:not(:first-child){padding-left:24px}.nd-flow-step:last-child{border-right:0}.nd-flow-no{display:block;font-size:.73rem;font-weight:700;letter-spacing:.14em;color:#b88d00}.nd-flow-step h3{margin:12px 0 0;font-family:var(--font-display);font-size:1.2rem;letter-spacing:.02em;text-transform:uppercase;color:var(--nd-navy)}.nd-flow-step p{margin:6px 0 0;font-size:.94rem;line-height:1.55;color:var(--mute)}
-.nd-portfolio .nd-section-heading{color:#fff!important}
+.nd-portfolio .nd-section-heading{color:var(--nd-navy)!important}
 .nd-products{max-width:1240px;margin:0 auto}
-.nd-product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin-top:36px;text-align:left}
-.nd-product-card{background:var(--nd-paper);border:1px solid rgba(1,63,92,.08);border-radius:10px;overflow:hidden;transition:border-color .35s ease,box-shadow .35s ease}
-.nd-product-card:hover{border-color:rgba(255,222,0,.5);box-shadow:0 8px 32px rgba(1,63,92,.1)}
-.nd-product-card-img{position:relative;height:clamp(240px,28vw,300px);overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center;padding:0;border-bottom:2px solid var(--nd-yellow)}
-.nd-product-card-img img{width:85%;height:85%;object-fit:contain;object-position:center;transition:transform .4s ease}
-.nd-product-card:hover .nd-product-card-img img{transform:scale(1.04)}
-/* Product-specific image scaling to reduce white canvas */
-.nd-product-card:nth-child(1) .nd-product-card-img img{width:92%;height:92%}
-.nd-product-card:nth-child(2) .nd-product-card-img img{width:88%;height:88%}
-.nd-product-card:nth-child(3) .nd-product-card-img img{width:80%;height:80%}
-.nd-product-card:nth-child(4) .nd-product-card-img img{width:90%;height:90%}
+.nd-product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:32px;text-align:left;max-width:1100px;margin-left:auto;margin-right:auto}
+.nd-product-card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:8px;overflow:hidden;transition:border-color .3s ease,box-shadow .3s ease}
+.nd-product-card:hover{border-color:var(--nd-yellow);box-shadow:0 6px 24px rgba(0,0,0,.08)}
+.nd-product-card-img{position:relative;height:220px;overflow:hidden;background:#f5f6f7;display:flex;align-items:center;justify-content:center;padding:16px;border-bottom:2px solid var(--nd-yellow)}
+.nd-product-card-img img{width:90%;height:90%;object-fit:contain;object-position:center;transition:transform .35s ease}
+.nd-product-card:hover .nd-product-card-img img{transform:scale(1.03)}
+.nd-product-card:nth-child(1) .nd-product-card-img img{width:95%;height:95%}
+.nd-product-card:nth-child(2) .nd-product-card-img img{width:92%;height:92%}
+.nd-product-card:nth-child(3) .nd-product-card-img img{width:85%;height:85%}
+.nd-product-card:nth-child(4) .nd-product-card-img img{width:92%;height:92%}
 .nd-product-card-num{display:block;font-size:.65rem;font-weight:800;letter-spacing:.16em;color:var(--nd-yellow);margin-bottom:6px}
-.nd-product-card-body{padding:20px 24px 24px}
-.nd-product-card-body h3{margin:0 0 8px;font-family:var(--font-display);font-size:clamp(1.1rem,1.4vw,1.35rem);font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--nd-navy);line-height:1.15}
-.nd-product-card-body p{margin:0;font-size:.9rem;line-height:1.6;color:var(--mute)}
+.nd-product-card-body{padding:18px 22px 22px}
+.nd-product-card-body h3{margin:0 0 6px;font-family:var(--font-display);font-size:clamp(1rem,1.3vw,1.2rem);font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--nd-navy);line-height:1.15}
+.nd-product-card-body p{margin:0;font-size:.88rem;line-height:1.55;color:var(--mute)}
 .nd-support-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.15);border-top:1px solid rgba(255,255,255,.2);border-bottom:1px solid rgba(255,255,255,.2);text-align:left}
 .nd-support-grid .nd-support-item{border-left:1px solid rgba(255,255,255,.15)}
 .nd-support-grid .nd-support-item:first-child{border-left:0}
 @media(max-width:900px){.nd-product-grid{grid-template-columns:1fr;max-width:540px;margin-left:auto;margin-right:auto;gap:20px}.nd-product-card-img{height:220px}.nd-product-card:nth-child(n) .nd-product-card-img img{width:88%;height:88%}}
 @media(max-width:640px){.nd-support-grid{grid-template-columns:1fr}.nd-support-grid .nd-support-item{border-left:0}}
-@media(max-width:900px){.nd-portfolio-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.nd-portfolio-item:nth-child(4){border-left:0}.nd-portfolio-item:first-child{grid-column:span 3;border-bottom:1px solid rgba(255,255,255,.16)}.nd-product-showcase{grid-template-columns:1fr;gap:30px;padding:54px 0}.nd-product-showcase--reverse .nd-product-copy,.nd-product-copy{order:1}.nd-product-showcase--reverse .nd-product-visual,.nd-product-visual{order:2}.nd-product-copy{max-width:620px}.nd-product-visual{min-height:0;max-width:720px}.nd-product-visual img{height:auto;max-height:none}.nd-intro,.nd-industries-layout,.nd-support-layout{grid-template-columns:1fr;gap:42px}.nd-portfolio-head{display:block}.nd-portfolio-note{margin-top:18px}.nd-purpose-grid{gap:38px}.nd-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.nd-flow-step:nth-child(2){border-right:0}.nd-flow-step:nth-child(n+3){margin-top:26px}}
-@media(max-width:640px){.nd-hero{min-height:650px;padding:112px 0 70px}.nd-hero .hero-media{background-position:62% center}.nd-hero .hero-title{font-size:clamp(2.85rem,14vw,4.1rem)}.nd-tagline{font-size:1rem}.nd-hero .hero-sub{font-size:.98rem}.nd-page .fs-section{padding:64px 0}.nd-intro-copy p,.nd-commitment-copy{font-size:1rem}.nd-portfolio{padding:60px 0!important}.nd-portfolio-grid{grid-template-columns:1fr}.nd-portfolio-item,.nd-portfolio-item:nth-child(4){border-left:0;border-bottom:1px solid rgba(255,255,255,.16);padding:21px 0}.nd-portfolio-item:last-child{border-bottom:0}.nd-portfolio-item:first-child{grid-column:auto}.nd-product-showcase:first-child{margin-top:30px}.nd-product-showcase{gap:22px;padding:44px 0}.nd-product-visual{padding:14px}.nd-product-eyebrow{font-size:.68rem;letter-spacing:.12em}.nd-product-copy h3{max-width:12ch;margin-top:16px;font-size:clamp(1.85rem,9.5vw,2.4rem)}.nd-product-copy p{margin-top:18px;font-size:1rem;line-height:1.65}.nd-industry-list{grid-template-columns:1fr;max-width:100%}.nd-industry,.nd-industry:nth-child(odd),.nd-industry:nth-child(even){padding:20px 0;border-left:0;text-align:center}.nd-support-item{grid-template-columns:1fr;gap:10px;padding:22px 16px}.nd-purpose-grid{grid-template-columns:1fr;gap:32px;margin-top:32px}.nd-purpose-block{padding-left:18px}.nd-purpose-block p{font-size:1rem}.nd-flow{margin-top:36px}.nd-flow-step{padding:20px 16px 0 0}.nd-flow-step:not(:first-child){padding-left:16px}.nd-flow-step h3{font-size:1.05rem}}
+@media(max-width:900px){.nd-portfolio-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.nd-portfolio-item:nth-child(4){border-left:0}.nd-portfolio-item:first-child{grid-column:span 3;border-bottom:1px solid var(--line-2)}.nd-product-showcase{grid-template-columns:1fr;gap:30px;padding:54px 0}.nd-product-showcase--reverse .nd-product-copy,.nd-product-copy{order:1}.nd-product-showcase--reverse .nd-product-visual,.nd-product-visual{order:2}.nd-product-copy{max-width:620px}.nd-product-visual{min-height:0;max-width:720px}.nd-product-visual img{height:auto;max-height:none}.nd-intro,.nd-industries-layout,.nd-support-layout{grid-template-columns:1fr;gap:42px}.nd-portfolio-head{display:block}.nd-portfolio-note{margin-top:18px}.nd-purpose-grid{gap:38px}.nd-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.nd-flow-step:nth-child(2){border-right:0}.nd-flow-step:nth-child(n+3){margin-top:26px}}
+@media(max-width:640px){.nd-hero{min-height:650px;padding:112px 0 70px}.nd-hero .hero-media{background-position:62% center}.nd-hero .hero-title{font-size:clamp(2.85rem,14vw,4.1rem)}.nd-tagline{font-size:1rem}.nd-hero .hero-sub{font-size:.98rem}.nd-page .fs-section{padding:64px 0}.nd-intro-copy p,.nd-commitment-copy{font-size:1rem}.nd-portfolio{padding:60px 0!important}.nd-portfolio-grid{grid-template-columns:1fr}.nd-portfolio-item,.nd-portfolio-item:nth-child(4){border-left:0;border-bottom:1px solid var(--line-2);padding:21px 0}.nd-portfolio-item:last-child{border-bottom:0}.nd-portfolio-item:first-child{grid-column:auto}.nd-product-showcase:first-child{margin-top:30px}.nd-product-showcase{gap:22px;padding:44px 0}.nd-product-visual{padding:14px}.nd-product-eyebrow{font-size:.68rem;letter-spacing:.12em}.nd-product-copy h3{max-width:12ch;margin-top:16px;font-size:clamp(1.85rem,9.5vw,2.4rem)}.nd-product-copy p{margin-top:18px;font-size:1rem;line-height:1.65}.nd-industry-list{grid-template-columns:1fr;max-width:100%}.nd-industry,.nd-industry:nth-child(odd),.nd-industry:nth-child(even){padding:20px 0;border-left:0;text-align:center}.nd-support-item{grid-template-columns:1fr;gap:10px;padding:22px 16px}.nd-purpose-grid{grid-template-columns:1fr;gap:32px;margin-top:32px}.nd-purpose-block{padding-left:18px}.nd-purpose-block p{font-size:1rem}.nd-flow{margin-top:36px}.nd-flow-step{padding:20px 16px 0 0}.nd-flow-step:not(:first-child){padding-left:16px}.nd-flow-step h3{font-size:1.05rem}}
   </style>
   <script type="application/ld+json">
 {
@@ -383,7 +382,6 @@ body.co-theme-automotive .nav-mobile{background:#013f5c!important;background-col
       <div class="hero-media" aria-hidden="true"></div>
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="container">
-        <p class="nd-kicker">Commercial Mobility</p>
         <h1 class="hero-title">NexDrive Motors Limited</h1>
         <p class="nd-tagline">Powering Progress. Driving the Future Mobility.</p>
         <p class="hero-sub">Commercial vehicle sales, distribution and support for modern transportation and logistics requirements.</p>
@@ -401,8 +399,8 @@ body.co-theme-automotive .nav-mobile{background:#013f5c!important;background-col
     <section class="fs-section nd-portfolio">
       <div class="container" style="text-align:center">
         <p class="nd-section-label" style="justify-content:center">02 <span>Mobility Portfolio</span></p>
-        <h2 class="nd-section-heading" style="margin:0 auto;color:#fff">Commercial Mobility Portfolio</h2>
-        <p style="margin:16px auto 0;max-width:480px;color:rgba(255,255,255,.72);font-size:.95rem;line-height:1.65">A focused range of transportation solutions for everyday commercial requirements.</p>
+        <h2 class="nd-section-heading" style="margin:0 auto;color:var(--nd-navy)">Commercial Mobility Portfolio</h2>
+        <p style="margin:16px auto 0;max-width:480px;color:var(--mute);font-size:.95rem;line-height:1.65">A focused range of transportation solutions for everyday commercial requirements.</p>
         <div class="nd-portfolio-grid" style="margin-top:32px" aria-label="NexDrive commercial mobility portfolio">
           <article class="nd-portfolio-item"><div class="nd-portfolio-logo"><img src="assets/images/logos/companies/nexdrive-motors-logo.webp" alt="NexDrive Motors" loading="lazy" decoding="async"></div><strong>Commercial Vehicles</strong><span>Sales, Distribution &amp; Support</span></article>
           <article class="nd-portfolio-item"><div class="nd-portfolio-logo"><img src="assets/images/nexdrive/products/jac-pickups.webp" alt="JAC pick-up" loading="lazy" decoding="async"></div><strong>JAC</strong><span>Pick-ups</span></article>
