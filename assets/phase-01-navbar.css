@@ -896,14 +896,22 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .mm-cat.is-active {
 
 /* Cross Country logo is vertically composed — give it more width to read clearly. */
 .site-nav[data-phase01-navbar] .nav-megamenu .mm-company:has(img[src*="cross-country"]) {
-  padding: 0 !important;
+  padding: 10px 12px !important;
 }
 .site-nav[data-phase01-navbar] .nav-megamenu .mm-company img[src*="cross-country"] {
-  width: 100% !important;
-  height: 100% !important;
-  max-width: 100% !important;
-  max-height: 100% !important;
+  width: auto !important;
+  height: 92px !important;
+  max-width: 142px !important;
+  max-height: 92px !important;
   object-fit: contain !important;
+}
+
+@media (max-height: 900px) {
+  .site-nav[data-phase01-navbar] .nav-megamenu .mm-company img[src*="cross-country"] {
+    height: 80px !important;
+    max-width: 124px !important;
+    max-height: 80px !important;
+  }
 }
 
 .site-nav[data-phase01-navbar] .lang-menu {
