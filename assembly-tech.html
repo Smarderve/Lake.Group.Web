@@ -229,6 +229,16 @@ body.co-theme-automotive .nav-mobile{background:var(--atl-blue)!important;backgr
 .atl-product-desc{font-size:clamp(.95rem,1.1vw,1.05rem);line-height:1.7;color:var(--mute);max-width:48ch}
 .atl-content-image{position:relative;overflow:hidden;border-radius:4px}
 .atl-content-image img{width:100%;height:100%;min-height:320px;max-height:420px;object-fit:cover;display:block}
+.atl-product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,24px)}
+.atl-product-card{border:1px solid var(--line-2);background:var(--surface);overflow:hidden;transition:border-color .2s ease}
+.atl-product-card:hover{border-color:var(--atl-red)}
+.atl-product-card-img{height:clamp(180px,20vw,240px);overflow:hidden;background:var(--paper-2)}
+.atl-product-card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.atl-product-card-body{padding:clamp(14px,1.5vw,20px)}
+.atl-product-card-title{font-family:var(--font-display);font-size:clamp(.95rem,1.3vw,1.15rem);font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--atl-blue);margin:0 0 6px;line-height:1.2}
+.atl-product-card-body p{margin:0;font-size:clamp(.82rem,.9vw,.9rem);line-height:1.6;color:var(--mute)}
+@media(max-width:960px){.atl-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.atl-product-grid{grid-template-columns:1fr;gap:16px}.atl-product-card-img{height:200px}}
 @media(max-width:960px){.atl-content-image img{min-height:240px;max-height:320px}}
 @media(max-width:720px){.atl-content-image img{min-height:200px;max-height:260px}}
 .atl-page{--gold:var(--atl-red);--gold-deep:var(--atl-red)}
@@ -415,18 +425,18 @@ body.co-theme-automotive .nav-mobile{background:var(--atl-blue)!important;backgr
       </div>
     </section>
 
-    <section class="fs-section">
+    <section class="fs-section" style="padding-bottom:0">
       <div class="container">
         <div class="fs-marker" style="text-align:center"><span class="fs-marker-no">03</span><span class="fs-eyebrow">Our Products</span></div>
         <h2 class="fs-display" style="text-align:center">Built For The Road. Engineered For The Job.</h2>
-        <p class="fs-lede" style="text-align:center;max-width:720px;margin:var(--sp-4) auto 0">ATL assembles a growing range of commercial vehicles and trailers designed to support transportation, logistics and specialized operating requirements across East and Central Africa.</p>
+        <p class="fs-lede" style="text-align:center;max-width:720px;margin:var(--sp-3) auto 0">ATL assembles a growing range of commercial vehicles and trailers designed to support transportation, logistics and specialized operating requirements across East and Central Africa.</p>
       </div>
     </section>
 
-    <section class="fs-section section-light">
+    <section class="fs-section section-light" style="padding-top:0">
       <div class="container">
-        <div class="fs-split-even">
-          <div class="atl-content-image"><img src="assets/images/atl/content/atl-tanker-avanco-fleet.webp" alt="White AVANCO aluminium fuel tanker fleet manufactured by ATL" loading="lazy" decoding="async"></div>
+        <div class="fs-split-even" style="align-items:center">
+          <div class="atl-content-image" style="border-radius:6px"><img src="assets/images/atl/content/atl-tanker-avanco-fleet.webp" alt="White AVANCO aluminium fuel tanker fleet manufactured by ATL" loading="lazy" decoding="async" style="min-height:280px;max-height:380px"></div>
           <div>
             <span class="atl-product-num">01</span>
             <h3 class="atl-product-title">Aluminium Fuel Tankers</h3>
@@ -436,76 +446,38 @@ body.co-theme-automotive .nav-mobile{background:var(--atl-blue)!important;backgr
       </div>
     </section>
 
-    <section class="fs-section">
+    <section class="fs-section" style="padding-top:0">
       <div class="container">
-        <div class="fs-split-even">
-          <div>
-            <span class="atl-product-num">02</span>
-            <h3 class="atl-product-title">Flatbed Trailers</h3>
-            <p class="atl-product-desc">Versatile flatbed trailer solutions for transporting equipment, machinery and commercial cargo requiring an open loading platform.</p>
-          </div>
-          <div class="atl-content-image"><img src="assets/images/atl/content/atl-flatbed-red.webp" alt="Red ATL flatbed trailer" loading="lazy" decoding="async"></div>
+        <div class="atl-product-grid">
+          <article class="atl-product-card">
+            <div class="atl-product-card-img"><img src="assets/images/atl/content/atl-flatbed-red.webp" alt="Red ATL flatbed trailer" loading="lazy" decoding="async"></div>
+            <div class="atl-product-card-body"><span class="atl-product-num">02</span><h4 class="atl-product-card-title">Flatbed Trailers</h4><p>Versatile open-platform solutions for transporting equipment, machinery and commercial cargo.</p></div>
+          </article>
+          <article class="atl-product-card">
+            <div class="atl-product-card-img"><img src="assets/images/atl/content/atl-curtain-side.webp" alt="Curtain side trailer for protected cargo transport" loading="lazy" decoding="async"></div>
+            <div class="atl-product-card-body"><span class="atl-product-num">03</span><h4 class="atl-product-card-title">Curtain Side Trailers</h4><p>Protected commercial transport with efficient side access for loading and unloading.</p></div>
+          </article>
+          <article class="atl-product-card">
+            <div class="atl-product-card-img"><img src="assets/images/atl/content/atl-tipper-dark-blue.webp" alt="Heavy-duty tipper trailer for bulk transport" loading="lazy" decoding="async"></div>
+            <div class="atl-product-card-body"><span class="atl-product-num">04</span><h4 class="atl-product-card-title">Tipper Trailers</h4><p>Heavy-duty tipping solutions for bulk material and demanding transport applications.</p></div>
+          </article>
+          <article class="atl-product-card">
+            <div class="atl-product-card-img"><img src="assets/images/atl/content/atl-drawbar-rollstone.webp" alt="Drawbar trailer configuration" loading="lazy" decoding="async"></div>
+            <div class="atl-product-card-body"><span class="atl-product-num">05</span><h4 class="atl-product-card-title">Drawbar Trailers</h4><p>Flexible trailer configurations for commercial and specialized transport requirements.</p></div>
+          </article>
+          <article class="atl-product-card">
+            <div class="atl-product-card-img"><img src="assets/images/atl/content/atl-flatbed-with-tractor.webp" alt="ATL commercial trailer assembly" loading="lazy" decoding="async"></div>
+            <div class="atl-product-card-body"><span class="atl-product-num">06</span><h4 class="atl-product-card-title">Danglers</h4><p>Specialized trailer solutions within ATL's expanding commercial transport portfolio.</p></div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="fs-section section-light">
+    <section class="fs-section fs-on-dark" style="padding:clamp(2rem,3vw,3rem) 0;text-align:center">
       <div class="container">
-        <div class="fs-split-even">
-          <div class="atl-content-image"><img src="assets/images/atl/content/atl-curtain-side.webp" alt="Curtain side trailer for protected cargo transport" loading="lazy" decoding="async"></div>
-          <div>
-            <span class="atl-product-num">03</span>
-            <h3 class="atl-product-title">Curtain Side Trailers</h3>
-            <p class="atl-product-desc">Enclosed curtain-side trailer solutions designed to support efficient loading, unloading and protected transportation of commercial goods.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="fs-section">
-      <div class="container">
-        <div class="fs-split-even">
-          <div>
-            <span class="atl-product-num">04</span>
-            <h3 class="atl-product-title">Tipper Trailers</h3>
-            <p class="atl-product-desc">Heavy-duty tipping trailer solutions designed for demanding bulk-material and commercial transport applications.</p>
-          </div>
-          <div class="atl-content-image"><img src="assets/images/atl/content/atl-tipper-dark-blue.webp" alt="Heavy-duty tipper trailer for bulk transport" loading="lazy" decoding="async"></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="fs-section section-light">
-      <div class="container">
-        <div class="fs-split-even">
-          <div class="atl-content-image"><img src="assets/images/atl/content/atl-drawbar-rollstone.webp" alt="Drawbar trailer configuration" loading="lazy" decoding="async"></div>
-          <div>
-            <span class="atl-product-num">05</span>
-            <h3 class="atl-product-title">Drawbar Trailers</h3>
-            <p class="atl-product-desc">Flexible drawbar trailer configurations supporting commercial transport and specialized operating requirements.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="fs-section">
-      <div class="container">
-        <div class="fs-split-even">
-          <div>
-            <span class="atl-product-num">06</span>
-            <h3 class="atl-product-title">Danglers</h3>
-            <p class="atl-product-desc">Specialized trailer solutions offered as part of ATL's expanding product portfolio for commercial transport requirements.</p>
-          </div>
-          <div class="atl-content-image"><img src="assets/images/atl/content/atl-flatbed-with-tractor.webp" alt="ATL commercial vehicle and trailer assembly" loading="lazy" decoding="async"></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="fs-section fs-on-dark" style="text-align:center">
-      <div class="container">
-        <div class="fs-marker" style="justify-content:center"><span class="fs-marker-no" style="color:var(--atl-red)">07</span><span class="fs-eyebrow">Vehicle Assembly</span></div>
-        <h2 class="fs-display" style="color:#fff">Commercial Vehicle Assembly</h2>
-        <p style="max-width:640px;margin:var(--sp-4) auto 0;color:rgba(255,255,255,.82);font-size:1.05rem;line-height:1.7">ATL's assembly capabilities extend to commercial vehicles including JAC pick-ups, Ashok Leyland and SANY vehicles, supporting the growing demand for reliable transportation solutions.</p>
+        <p class="fs-eyebrow" style="justify-content:center;margin-bottom:var(--sp-3)"><span>Vehicle Assembly</span></p>
+        <h3 style="font-family:var(--font-display);font-size:clamp(1.1rem,1.8vw,1.5rem);font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:#fff;margin:0 0 var(--sp-2)">Commercial Vehicle Assembly</h3>
+        <p style="color:rgba(255,255,255,.72);font-size:.95rem;max-width:520px;margin:0 auto">ATL also assembles commercial vehicles including <strong style="color:var(--atl-red)">JAC</strong>, <strong style="color:var(--atl-red)">Ashok Leyland</strong> and <strong style="color:var(--atl-red)">SANY</strong>.</p>
       </div>
     </section>
 
