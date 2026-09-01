@@ -97,7 +97,7 @@ html.fs-motion body.company-standard .fx-img {
 
 @media (max-width: 760px) {
   body.company-standard {
-    --company-mobile-gutter: clamp(16px, 5vw, 24px);
+    --company-mobile-gutter: clamp(16px, 5vw, 20px);
     --company-mobile-eyebrow: clamp(.6875rem, 3vw, .8125rem);
     --company-mobile-heading: clamp(1.75rem, 7vw, 2rem);
     --company-mobile-body: clamp(1rem, 4vw, 1.0625rem);
@@ -107,7 +107,7 @@ html.fs-motion body.company-standard .fx-img {
   }
 
   body.company-standard .fs-section {
-    padding-block: clamp(56px, 14vw, 72px);
+    padding-block: clamp(48px, 12vw, 64px);
   }
 
   /* Keep each company section on the same mathematical content centre. The
@@ -133,7 +133,7 @@ html.fs-motion body.company-standard .fx-img {
     justify-content: center;
     text-align: center;
     gap: 12px;
-    margin-bottom: clamp(20px, 6vw, 28px);
+    margin-bottom: clamp(18px, 5vw, 24px);
   }
 
   body.company-standard .fs-marker .fs-marker-no {
@@ -169,6 +169,18 @@ html.fs-motion body.company-standard .fx-img {
     box-sizing: border-box;
   }
 
+  body.company-standard .fs-split,
+  body.company-standard .fs-split-even,
+  body.company-standard .fs-split-rev {
+    gap: clamp(24px, 7vw, 32px);
+  }
+
+  body.company-standard .val-mini-grid,
+  body.company-standard .svc-grid,
+  body.company-standard .prod-catalog {
+    gap: 16px;
+  }
+
   body.company-standard .fs-split > *,
   body.company-standard .fs-split-even > *,
   body.company-standard .fs-split-rev > *,
@@ -187,6 +199,12 @@ html.fs-motion body.company-standard .fx-img {
     width: 100%;
     margin-inline: auto;
     padding: clamp(20px, 6vw, 28px);
+  }
+
+  body.company-standard .svc-card,
+  body.company-standard .prod-catalog-card {
+    width: 100%;
+    margin-inline: auto;
   }
 
   body.company-standard .stat-panel2 h3 {
@@ -242,6 +260,11 @@ html.fs-motion body.company-standard .fx-img {
     line-height: 1.68;
   }
 
+  body.company-standard .fs-lede {
+    max-width: 34ch;
+    margin-inline: auto;
+  }
+
   body.company-standard .stat-panel2 .stat-tile2 p {
     font-size: var(--company-mobile-stat-label);
     max-width: 100%;
@@ -249,6 +272,12 @@ html.fs-motion body.company-standard .fx-img {
     word-break: normal;
     letter-spacing: .1em;
     line-height: 1.5;
+  }
+
+  body.company-standard .site-footer .container {
+    box-sizing: border-box;
+    width: 100%;
+    padding-inline: var(--company-mobile-gutter);
   }
 }
 
