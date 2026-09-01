@@ -182,43 +182,72 @@ body.co-theme-agro .page-hero .hero-media {
   }
 }
 
-/* NexDrive composition: commercial clarity with the existing Lake Group navy
-   canvas and a restrained yellow operational accent. */
+/* NexDrive composition: an editorial automotive profile built with the existing
+   Lake Group navy canvas and a restrained yellow operational accent. */
 body.co-theme-automotive{--color-navbar-bg:#013f5c;--color-navbar-border:#ffde00;--color-navbar-bg-scrolled:rgba(1,63,92,.96)}
 body.co-theme-automotive .nav-mobile{background:#013f5c!important;background-color:#013f5c!important;border-bottom-color:#ffde00!important}
-.nd-page .co-logo-row{min-height:0;margin:0 0 var(--sp-4)}
-.nd-page .co-logo-row img{height:72px;max-width:min(270px,78vw);object-fit:contain;filter:drop-shadow(0 5px 16px rgba(0,0,0,.28))}
-.nd-hero{background:linear-gradient(118deg,#012d47 0%,#014c72 52%,#0b3047 100%)}
-.nd-hero .hero-media{background-image:linear-gradient(118deg,rgba(1,31,51,.85),rgba(1,63,92,.62) 52%,rgba(7,39,58,.78))!important;filter:none}
-.nd-hero .hero-title{position:relative;padding-bottom:var(--sp-5)}
-.nd-hero .hero-title::after{content:'';position:absolute;bottom:0;left:0;width:52px;height:3px;background:var(--gold)}
-.nd-hero .nd-tagline{font-family:var(--font-display);font-size:clamp(1rem,1.6vw,1.3rem);font-weight:700;letter-spacing:.03em;line-height:1.25;text-transform:uppercase;color:var(--gold);margin:0 0 var(--sp-3);max-width:660px}
-.nd-overview{display:grid;grid-template-columns:1.25fr repeat(4,minmax(0,1fr));gap:1px;background:var(--ink-line);border:1px solid var(--ink-line);margin-top:var(--sp-10)}
-.nd-overview-item{min-width:0;background:var(--ink);padding:var(--sp-7) var(--sp-5)}
-.nd-overview-value{display:block;font-family:var(--font-display);font-size:clamp(1.15rem,2vw,1.7rem);font-weight:700;line-height:1.1;color:var(--white);overflow-wrap:anywhere}
-.nd-overview-label{display:block;margin-top:var(--sp-3);font-size:var(--fs-micro);font-weight:700;letter-spacing:.11em;line-height:1.45;text-transform:uppercase;color:var(--gold)}
-.nd-product-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:var(--sp-5);margin-top:var(--sp-10)}
-.nd-product-card{position:relative;grid-column:span 2;min-width:0;padding:var(--sp-7) var(--sp-6) var(--sp-6);border:1px solid var(--line-2);background:var(--surface);transition:border-color var(--dur-2) ease,box-shadow var(--dur-2) ease,transform var(--dur-2) var(--ease-out)}
-.nd-product-card:nth-child(1),.nd-product-card:nth-child(2){grid-column:span 3}.nd-product-card::before,.nd-focus-card::before,.nd-why-card::before,.nd-support-card::before,.nd-readiness-card::before,.nd-advantage-card::before{content:'';position:absolute;top:0;left:0;width:36px;height:3px;background:var(--gold)}
-.nd-product-card:hover,.nd-focus-card:hover,.nd-why-card:hover,.nd-support-card:hover,.nd-readiness-card:hover,.nd-advantage-card:hover{border-color:var(--line);box-shadow:var(--shadow-2);transform:translateY(-4px)}
-.nd-card-index{display:block;margin-bottom:var(--sp-5);font-size:var(--fs-micro);font-weight:700;letter-spacing:.16em;color:var(--blue-deep)}
-.nd-product-card h3,.nd-focus-card h3,.nd-why-card h3,.nd-support-card h3,.nd-readiness-card h3,.nd-advantage-card h3{font-family:var(--font-display);font-size:1.1rem;font-weight:700;letter-spacing:.03em;line-height:1.15;text-transform:uppercase;color:var(--text)}
-.nd-product-card p,.nd-focus-card p,.nd-why-card p,.nd-support-card p,.nd-readiness-card p,.nd-advantage-card p{margin-top:var(--sp-3);font-size:.94rem;line-height:1.65;color:var(--mute)}
-.nd-focus-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;margin-top:var(--sp-10);background:var(--ink-line);border:1px solid var(--ink-line)}
-.nd-focus-card{position:relative;min-width:0;background:var(--ink);padding:var(--sp-7) var(--sp-5)}
-.nd-focus-card::before{background:var(--gold)}.nd-focus-card h3{color:var(--white);font-size:1rem}.nd-focus-card p{color:var(--ink-mute);font-size:.88rem}
-.nd-why-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-5);margin-top:var(--sp-10)}
-.nd-why-card,.nd-support-card,.nd-readiness-card,.nd-advantage-card{position:relative;min-width:0;padding:var(--sp-7) var(--sp-6) var(--sp-6);border:1px solid var(--line-2);background:var(--surface);transition:border-color var(--dur-2) ease,box-shadow var(--dur-2) ease,transform var(--dur-2) var(--ease-out)}
-.nd-support-grid,.nd-readiness-grid,.nd-advantage-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-5);margin-top:var(--sp-10)}
-.nd-support-card{background:var(--ink-2);border-color:var(--ink-line-2)}.nd-support-card h3{color:var(--white)}.nd-support-card p{color:var(--ink-mute)}
-.nd-readiness-card{background:#eef4f7}.nd-advantage-card{background:var(--surface)}
-.nd-purpose .fs-split-even{margin-top:var(--sp-9)}.nd-purpose .fs-split-even>div{border-left:2px solid var(--gold);padding-left:var(--sp-5)}.nd-purpose .fs-split-even h3{font-family:var(--font-display);font-size:1.4rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--white);margin-bottom:var(--sp-4)}
-.nd-commitment{max-width:780px;margin:var(--sp-7) auto 0;text-align:center;font-size:var(--fs-lede);line-height:1.7}
-.nd-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-4);margin-top:var(--sp-10)}
-.nd-flow-step{position:relative;border-top:2px solid var(--blue-deep);padding:var(--sp-5) 0 0}.nd-flow-no{display:block;font-size:var(--fs-micro);font-weight:700;letter-spacing:.16em;color:var(--gold-deep)}.nd-flow-step h3{margin-top:var(--sp-3);font-family:var(--font-display);font-size:1.1rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--text)}.nd-flow-step p{margin-top:4px;color:var(--mute);font-size:.9rem;line-height:1.55}
-@media(max-width:1100px){.nd-overview{grid-template-columns:repeat(3,minmax(0,1fr))}.nd-focus-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.nd-focus-card:last-child{grid-column:2}.nd-product-card,.nd-product-card:nth-child(1),.nd-product-card:nth-child(2){grid-column:span 3}.nd-product-card:last-child{grid-column:2 / span 2}}
-@media(max-width:720px){.nd-page .co-logo-row img{height:56px}.nd-overview{grid-template-columns:repeat(2,minmax(0,1fr))}.nd-overview-item{padding:var(--sp-5) var(--sp-4)}.nd-overview-value{font-size:1.1rem}.nd-product-grid,.nd-why-grid,.nd-support-grid,.nd-readiness-grid,.nd-advantage-grid{grid-template-columns:1fr;gap:var(--sp-4);margin-top:var(--sp-7)}.nd-product-card,.nd-product-card:nth-child(1),.nd-product-card:nth-child(2),.nd-product-card:last-child{grid-column:auto}.nd-product-card,.nd-why-card,.nd-support-card,.nd-readiness-card,.nd-advantage-card{padding:var(--sp-6) var(--sp-5)}.nd-focus-grid{grid-template-columns:1fr;gap:1px;margin-top:var(--sp-7)}.nd-focus-card:last-child{grid-column:auto}.nd-purpose .fs-split-even{margin-top:var(--sp-7)}.nd-flow{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-6) var(--sp-4)}}
-@media(prefers-reduced-motion:reduce){.nd-product-card,.nd-focus-card,.nd-why-card,.nd-support-card,.nd-readiness-card,.nd-advantage-card{transition:none}.nd-product-card:hover,.nd-focus-card:hover,.nd-why-card:hover,.nd-support-card:hover,.nd-readiness-card:hover,.nd-advantage-card:hover{transform:none}}
+.nd-page{--nd-navy:#013f5c;--nd-navy-deep:#012c43;--nd-yellow:#ffde00;--nd-paper:#f5f7f8;--nd-line:#d9e1e5}
+.nd-hero{min-height:clamp(620px,78vh,820px);display:flex;align-items:center;background:var(--nd-navy-deep)}
+.nd-hero .hero-media{background-image:linear-gradient(90deg,rgba(0,30,47,.92) 0%,rgba(1,50,75,.79) 47%,rgba(1,42,63,.33) 100%),url('assets/images/home/verticals/automotive-truck-lineup.webp')!important;background-position:center;background-size:cover;filter:none}
+.nd-hero .hero-overlay{background:transparent}
+.nd-hero .container{position:relative;z-index:1;max-width:1280px;width:100%}
+.nd-kicker,.nd-section-label{display:flex;align-items:center;gap:10px;margin:0 0 18px;font-size:.73rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--nd-yellow)}
+.nd-kicker::before,.nd-section-label::before{content:'';width:28px;height:2px;background:currentColor}
+.nd-hero .hero-title{max-width:760px;margin:0;color:#fff;font-size:clamp(3.2rem,7vw,6.4rem);line-height:.94;letter-spacing:-.035em}
+.nd-hero .hero-title::after{content:'';display:block;width:54px;height:3px;margin-top:28px;background:var(--nd-yellow)}
+.nd-tagline{max-width:700px;margin:24px 0 0;font-family:var(--font-display);font-size:clamp(1.05rem,1.7vw,1.35rem);font-weight:700;letter-spacing:.02em;line-height:1.3;text-transform:uppercase;color:var(--nd-yellow)}
+.nd-hero .hero-sub{max-width:610px;margin-top:14px;font-size:1.05rem;line-height:1.7;color:rgba(255,255,255,.86)}
+.nd-page .fs-section{padding:clamp(84px,9vw,128px) 0}
+.nd-intro{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(48px,9vw,140px);align-items:start}
+.nd-intro .fs-display,.nd-section-heading{margin:0;font-size:clamp(2.45rem,4.8vw,4.5rem);line-height:1.02;letter-spacing:-.025em}
+.nd-intro-copy{max-width:630px;padding-top:8px}
+.nd-intro-copy p{margin:0;font-size:clamp(1.02rem,1.3vw,1.16rem);line-height:1.75;color:var(--mute)}
+.nd-portfolio{padding:clamp(64px,7vw,94px) 0!important;background:var(--nd-navy-deep)}
+.nd-portfolio-head{display:flex;align-items:end;justify-content:space-between;gap:32px;margin-bottom:38px}
+.nd-portfolio-head .nd-section-heading{max-width:660px;color:#fff;font-size:clamp(2.2rem,4vw,3.8rem)}
+.nd-portfolio-note{max-width:330px;margin:0;color:var(--ink-mute);font-size:.95rem;line-height:1.65}
+.nd-portfolio-grid{display:grid;grid-template-columns:1.45fr repeat(4,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.2);border-bottom:1px solid rgba(255,255,255,.2)}
+.nd-portfolio-item{min-width:0;padding:28px 24px;border-left:1px solid rgba(255,255,255,.16)}
+.nd-portfolio-item:first-child{border-left:0}
+.nd-portfolio-item strong{display:block;font-family:var(--font-display);font-size:clamp(1.1rem,1.5vw,1.5rem);line-height:1.12;color:#fff}
+.nd-portfolio-item span{display:block;margin-top:10px;font-size:.73rem;font-weight:700;letter-spacing:.11em;line-height:1.5;text-transform:uppercase;color:var(--nd-yellow)}
+.nd-products{background:var(--nd-paper)}
+.nd-products-head{max-width:720px}
+.nd-products-head .nd-section-heading{max-width:650px}
+.nd-product-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:22px;margin-top:44px}
+.nd-product-card{position:relative;grid-column:span 4;min-width:0;min-height:260px;padding:30px 30px 32px;border:1px solid var(--nd-line);background:#fff;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .25s var(--ease-out),box-shadow .25s ease,border-color .25s ease}
+.nd-product-card:nth-child(4),.nd-product-card:nth-child(5){grid-column:span 6;min-height:230px}
+.nd-product-card::before{content:'';position:absolute;top:0;left:0;width:42px;height:3px;background:var(--nd-yellow)}
+.nd-product-card:hover{transform:translateY(-4px);border-color:#b8c7ce;box-shadow:0 16px 36px rgba(1,63,92,.12)}
+.nd-card-index{display:block;margin-bottom:auto;font-size:.74rem;font-weight:700;letter-spacing:.16em;color:#58707d}
+.nd-product-card h3{margin:36px 0 0;font-family:var(--font-display);font-size:1.34rem;line-height:1.12;letter-spacing:.015em;text-transform:uppercase;color:var(--nd-navy)}
+.nd-product-card p{max-width:43ch;margin:12px 0 0;font-size:.96rem;line-height:1.68;color:var(--mute)}
+.nd-industries{background:#fff}
+.nd-industries-layout{display:grid;grid-template-columns:minmax(0,.84fr) minmax(0,1.16fr);gap:clamp(42px,8vw,120px);align-items:start}
+.nd-industries-copy{max-width:485px}
+.nd-industries-copy p{margin:22px 0 0;line-height:1.72;color:var(--mute)}
+.nd-industry-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--nd-line)}
+.nd-industry{padding:24px 0;border-bottom:1px solid var(--nd-line);display:flex;gap:16px;align-items:baseline}
+.nd-industry:nth-child(odd){padding-right:28px}.nd-industry:nth-child(even){padding-left:28px;border-left:1px solid var(--nd-line)}
+.nd-industry b{font-size:.74rem;letter-spacing:.12em;color:#b88d00}.nd-industry h3{margin:0;font-family:var(--font-display);font-size:1.22rem;letter-spacing:.01em;text-transform:uppercase;color:var(--nd-navy)}.nd-industry p{grid-column:2;margin:7px 0 0;font-size:.92rem;line-height:1.6;color:var(--mute)}
+.nd-support{background:var(--nd-navy-deep)}
+.nd-support-layout{display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);gap:clamp(48px,8vw,122px);align-items:start}
+.nd-support-copy .nd-section-heading{color:#fff;max-width:540px}.nd-support-copy>p:last-child{max-width:480px;margin:22px 0 0;line-height:1.72;color:var(--ink-mute)}
+.nd-support-list{border-top:1px solid rgba(255,255,255,.24)}
+.nd-support-item{display:grid;grid-template-columns:82px minmax(0,1fr);gap:18px;padding:24px 0;border-bottom:1px solid rgba(255,255,255,.2)}
+.nd-support-item b{font-size:.75rem;letter-spacing:.14em;color:var(--nd-yellow)}
+.nd-support-item h3{margin:0;font-family:var(--font-display);font-size:1.23rem;letter-spacing:.02em;text-transform:uppercase;color:#fff}.nd-support-item p{margin:7px 0 0;color:var(--ink-mute);font-size:.95rem;line-height:1.65}
+.nd-purpose{background:#022e46}
+.nd-purpose-head{max-width:680px}.nd-purpose .nd-section-heading{color:#fff}
+.nd-purpose-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:44px}
+.nd-purpose-block{padding:0 0 0 24px;border-left:3px solid var(--nd-yellow)}.nd-purpose-block h3{margin:0;font-family:var(--font-display);font-size:1.45rem;letter-spacing:.03em;text-transform:uppercase;color:var(--nd-yellow)}.nd-purpose-block p{max-width:510px;margin:16px 0 0;font-size:1.06rem;line-height:1.75;color:rgba(255,255,255,.88)}
+.nd-commitment{background:#fff}
+.nd-commitment-head{max-width:740px}.nd-commitment-copy{max-width:680px;margin:24px 0 0;font-size:1.1rem;line-height:1.75;color:var(--mute)}
+.nd-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:52px;border-top:1px solid var(--nd-line)}
+.nd-flow-step{position:relative;padding:24px 24px 0 0;border-right:1px solid var(--nd-line)}.nd-flow-step:not(:first-child){padding-left:24px}.nd-flow-step:last-child{border-right:0}.nd-flow-no{display:block;font-size:.73rem;font-weight:700;letter-spacing:.14em;color:#b88d00}.nd-flow-step h3{margin:12px 0 0;font-family:var(--font-display);font-size:1.2rem;letter-spacing:.02em;text-transform:uppercase;color:var(--nd-navy)}.nd-flow-step p{margin:6px 0 0;font-size:.94rem;line-height:1.55;color:var(--mute)}
+@media(max-width:900px){.nd-portfolio-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.nd-portfolio-item:nth-child(4){border-left:0}.nd-portfolio-item:first-child{grid-column:span 3;border-bottom:1px solid rgba(255,255,255,.16)}.nd-product-card,.nd-product-card:nth-child(4),.nd-product-card:nth-child(5){grid-column:span 6}.nd-intro,.nd-industries-layout,.nd-support-layout{grid-template-columns:1fr;gap:42px}.nd-portfolio-head{display:block}.nd-portfolio-note{margin-top:18px}.nd-purpose-grid{gap:38px}.nd-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.nd-flow-step:nth-child(2){border-right:0}.nd-flow-step:nth-child(n+3){margin-top:26px}}
+@media(max-width:640px){.nd-hero{min-height:650px;padding:112px 0 70px}.nd-hero .hero-media{background-position:62% center}.nd-hero .hero-title{font-size:clamp(2.85rem,14vw,4.1rem)}.nd-tagline{font-size:1rem}.nd-hero .hero-sub{font-size:.98rem}.nd-page .fs-section{padding:64px 0}.nd-intro-copy p,.nd-commitment-copy{font-size:1rem}.nd-portfolio{padding:60px 0!important}.nd-portfolio-grid{grid-template-columns:1fr}.nd-portfolio-item,.nd-portfolio-item:nth-child(4){border-left:0;border-bottom:1px solid rgba(255,255,255,.16);padding:21px 0}.nd-portfolio-item:last-child{border-bottom:0}.nd-portfolio-item:first-child{grid-column:auto}.nd-product-grid{grid-template-columns:1fr;gap:16px;margin-top:32px}.nd-product-card,.nd-product-card:nth-child(4),.nd-product-card:nth-child(5){grid-column:auto;min-height:0;padding:24px}.nd-product-card h3{margin-top:28px;font-size:1.2rem}.nd-product-card p{font-size:.94rem}.nd-industry-list{grid-template-columns:1fr}.nd-industry,.nd-industry:nth-child(odd),.nd-industry:nth-child(even){padding:20px 0;border-left:0}.nd-support-item{grid-template-columns:1fr;gap:10px;padding:22px 0}.nd-purpose-grid{grid-template-columns:1fr;gap:32px;margin-top:32px}.nd-purpose-block{padding-left:18px}.nd-purpose-block p{font-size:1rem}.nd-flow{margin-top:36px}.nd-flow-step{padding:20px 16px 0 0}.nd-flow-step:not(:first-child){padding-left:16px}.nd-flow-step h3{font-size:1.05rem}}
+@media(prefers-reduced-motion:reduce){.nd-product-card{transition:none}.nd-product-card:hover{transform:none}}
   </style>
   <script type="application/ld+json">
 {
@@ -330,38 +359,50 @@ body.co-theme-automotive .nav-mobile{background:#013f5c!important;background-col
       <div class="hero-media" aria-hidden="true"></div>
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="container">
-        <div class="co-logo-row" aria-label="NexDrive Motors Limited"><img src="assets/images/logos/companies/nexdrive-motors.webp" alt="NexDrive Motors" decoding="async"></div>
-        <p class="nd-kicker">Commercial mobility</p>
+        <p class="nd-kicker">Commercial Mobility</p>
         <h1 class="hero-title">NexDrive Motors Limited</h1>
-        <p class="nd-tagline">Powering Progress. Driving The Future Mobility.</p>
+        <p class="nd-tagline">Powering Progress. Driving the Future Mobility.</p>
         <p class="hero-sub">Commercial vehicle sales, distribution and support for modern transportation and logistics requirements.</p>
       </div>
     </section>
 
     <section class="fs-section">
-      <div class="container">
-        <div class="fs-marker"><span class="fs-marker-no">01</span><span class="fs-eyebrow">Company Introduction</span></div>
-        <h2 class="fs-display">Commercial Mobility Solutions</h2>
-        <p class="fs-lede">NEXTDRIVE MOTORS is a commercial vehicle company specializing in the sales, distribution and support of reliable transportation solutions for businesses and individuals. Its portfolio includes JAC pick-ups, Ashok Leyland light and medium-duty trucks, SANY heavy commercial trucks and trailers designed for modern transportation and logistics requirements.</p>
-      </div>
-    </section>
-
-    <section class="fs-section-sm fs-on-dark nd-overview-section">
-      <div class="container">
-        <div class="nd-overview" aria-label="NexDrive Motors at a glance">
-          <article class="nd-overview-item"><strong class="nd-overview-value">Commercial Vehicles</strong><span class="nd-overview-label">Sales, Distribution &amp; Support</span></article>
-          <article class="nd-overview-item"><strong class="nd-overview-value">JAC</strong><span class="nd-overview-label">Pick-ups</span></article>
-          <article class="nd-overview-item"><strong class="nd-overview-value">Ashok Leyland</strong><span class="nd-overview-label">Light &amp; Medium-Duty Trucks</span></article>
-          <article class="nd-overview-item"><strong class="nd-overview-value">SANY</strong><span class="nd-overview-label">Heavy Commercial Trucks</span></article>
-          <article class="nd-overview-item"><strong class="nd-overview-value">Trailers</strong><span class="nd-overview-label">Commercial Transport Solutions</span></article>
+      <div class="container nd-intro">
+        <div>
+          <p class="nd-section-label">01 <span>Company Introduction</span></p>
+          <h2 class="fs-display">Commercial Mobility Solutions</h2>
+        </div>
+        <div class="nd-intro-copy">
+          <p>NEXTDRIVE MOTORS is a commercial vehicle company specializing in the sales, distribution and support of reliable transportation solutions for businesses and individuals. Its portfolio includes JAC pick-ups, Ashok Leyland light and medium-duty trucks, SANY heavy commercial trucks and trailers designed for modern transportation and logistics requirements.</p>
         </div>
       </div>
     </section>
 
-    <section class="fs-section section-light">
+    <section class="fs-section nd-portfolio">
       <div class="container">
-        <div class="fs-marker"><span class="fs-marker-no">02</span><span class="fs-eyebrow">Product Range</span></div>
-        <h2 class="fs-display">Vehicles for Every Commercial Journey.</h2>
+        <div class="nd-portfolio-head">
+          <div>
+            <p class="nd-section-label">02 <span>Mobility Portfolio</span></p>
+            <h2 class="nd-section-heading">Commercial Mobility Portfolio</h2>
+          </div>
+          <p class="nd-portfolio-note">A focused range of transportation solutions for everyday commercial requirements.</p>
+        </div>
+        <div class="nd-portfolio-grid" aria-label="NexDrive commercial mobility portfolio">
+          <article class="nd-portfolio-item"><strong>Commercial Vehicles</strong><span>Sales, Distribution &amp; Support</span></article>
+          <article class="nd-portfolio-item"><strong>JAC</strong><span>Pick-ups</span></article>
+          <article class="nd-portfolio-item"><strong>Ashok Leyland</strong><span>Light &amp; Medium-Duty Trucks</span></article>
+          <article class="nd-portfolio-item"><strong>SANY</strong><span>Heavy Commercial Trucks</span></article>
+          <article class="nd-portfolio-item"><strong>Trailers</strong><span>Commercial Transport Solutions</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fs-section nd-products">
+      <div class="container">
+        <div class="nd-products-head">
+          <p class="nd-section-label">03 <span>Product Range</span></p>
+          <h2 class="nd-section-heading">Vehicles for Every Commercial Journey.</h2>
+        </div>
         <div class="nd-product-grid">
           <article class="nd-product-card"><span class="nd-card-index">01</span><h3>Pick-ups</h3><p>Dependable and versatile vehicles for personal use, small businesses, deliveries, agriculture and field operations.</p></article>
           <article class="nd-product-card"><span class="nd-card-index">02</span><h3>Light-Duty Trucks</h3><p>Designed for urban distribution, retail, transport services and everyday commercial operations.</p></article>
@@ -372,84 +413,59 @@ body.co-theme-automotive .nav-mobile{background:#013f5c!important;background-col
       </div>
     </section>
 
-    <section class="fs-section fs-on-dark nd-focus-section">
-      <div class="container">
-        <div class="fs-marker"><span class="fs-marker-no">03</span><span class="fs-eyebrow">Business Focus</span></div>
-        <h2 class="fs-display">Built Around Your Business.</h2>
-        <div class="nd-focus-grid">
-          <article class="nd-focus-card"><h3>Construction</h3><p>Power, payload and durability for demanding sites.</p></article>
-          <article class="nd-focus-card"><h3>Logistics</h3><p>Efficient vehicles for freight, deliveries and fleet operations.</p></article>
-          <article class="nd-focus-card"><h3>Mining</h3><p>Heavy-duty capability for challenging environments.</p></article>
-          <article class="nd-focus-card"><h3>Retail</h3><p>Practical transport for distribution and deliveries.</p></article>
-          <article class="nd-focus-card"><h3>General Commercial</h3><p>Flexible solutions for diverse business requirements.</p></article>
+    <section class="fs-section nd-industries">
+      <div class="container nd-industries-layout">
+        <div class="nd-industries-copy">
+          <p class="nd-section-label">04 <span>Industries</span></p>
+          <h2 class="nd-section-heading">Built Around Your Business.</h2>
+          <p>Practical commercial mobility solutions are matched to the operating needs of a diverse range of businesses.</p>
+        </div>
+        <div class="nd-industry-list" aria-label="Business applications">
+          <article class="nd-industry"><b>01</b><div><h3>Construction</h3><p>Power, payload and durability for demanding sites.</p></div></article>
+          <article class="nd-industry"><b>02</b><div><h3>Logistics</h3><p>Efficient vehicles for freight, deliveries and fleet operations.</p></div></article>
+          <article class="nd-industry"><b>03</b><div><h3>Mining</h3><p>Heavy-duty capability for challenging environments.</p></div></article>
+          <article class="nd-industry"><b>04</b><div><h3>Retail</h3><p>Practical transport for distribution and deliveries.</p></div></article>
+          <article class="nd-industry"><b>05</b><div><h3>General Commercial</h3><p>Flexible solutions for diverse business requirements.</p></div></article>
         </div>
       </div>
     </section>
 
-    <section class="fs-section nd-why-section">
-      <div class="container">
-        <div class="fs-marker"><span class="fs-marker-no">04</span><span class="fs-eyebrow">Why NexDrive</span></div>
-        <h2 class="fs-display">More Than a Vehicle Supplier.</h2>
-        <div class="nd-why-grid">
-          <article class="nd-why-card"><h3>Quality Range of Vehicles</h3><p>Reliable products engineered for commercial use.</p></article>
-          <article class="nd-why-card"><h3>Competitive Pricing</h3><p>Value-focused pricing and flexible financing options.</p></article>
-          <article class="nd-why-card"><h3>Expert Advice</h3><p>Professional guidance to select the right vehicle.</p></article>
-          <article class="nd-why-card"><h3>After-Sales Support</h3><p>Reliable technical assistance and service support.</p></article>
-          <article class="nd-why-card"><h3>Genuine Spare Parts</h3><p>Maintenance solutions using genuine parts.</p></article>
-          <article class="nd-why-card"><h3>Customer-Focused Service</h3><p>Professional assistance built around long-term partnerships.</p></article>
+    <section class="fs-section nd-support">
+      <div class="container nd-support-layout">
+        <div class="nd-support-copy">
+          <p class="nd-section-label">05 <span>Ownership Support</span></p>
+          <h2 class="nd-section-heading">Support Beyond the Vehicle.</h2>
+          <p>From expert vehicle selection to after-sales coordination, NexDrive supports customers through the operational journey.</p>
+        </div>
+        <div class="nd-support-list">
+          <article class="nd-support-item"><b>01</b><div><h3>Customer Support</h3><p>Quality range of vehicles, competitive pricing, expert advice and customer-focused service.</p></div></article>
+          <article class="nd-support-item"><b>02</b><div><h3>After-Sales &amp; Parts</h3><p>Reliable technical assistance, service support and maintenance solutions using genuine spare parts.</p></div></article>
+          <article class="nd-support-item"><b>03</b><div><h3>Roadside &amp; Fleet Support</h3><p>24/7 vehicle assistance, roadside rescue coordination and fleet uptime support for urgent situations.</p></div></article>
+          <article class="nd-support-item"><b>04</b><div><h3>Training &amp; Readiness</h3><p>Vehicle familiarization, efficient driving guidance and safety-focused operational readiness support.</p></div></article>
         </div>
       </div>
     </section>
 
-    <section class="fs-section fs-on-dark nd-support-section">
+    <section class="fs-section nd-purpose">
       <div class="container">
-        <div class="fs-marker"><span class="fs-marker-no">05</span><span class="fs-eyebrow">Support</span></div>
-        <h2 class="fs-display">Beyond the Sale: 24/7 Support</h2>
-        <div class="nd-support-grid">
-          <article class="nd-support-card"><span class="nd-card-index">24/7</span><h3>24/7 Vehicle Assistance</h3><p>Responsive support designed to help customers address urgent vehicle-related situations and minimize operational disruption.</p></article>
-          <article class="nd-support-card"><span class="nd-card-index">02</span><h3>Roadside Rescue</h3><p>Dedicated roadside assistance coordination for breakdown situations, helping customers get the appropriate support when it matters most.</p></article>
-          <article class="nd-support-card"><span class="nd-card-index">03</span><h3>Fleet Uptime Support</h3><p>A customer-focused approach combining technical guidance, after-sales coordination and genuine parts support to keep vehicles productive.</p></article>
+        <div class="nd-purpose-head">
+          <p class="nd-section-label">06 <span>Purpose</span></p>
+          <h2 class="nd-section-heading">Mission &amp; Vision</h2>
+        </div>
+        <div class="nd-purpose-grid">
+          <article class="nd-purpose-block"><h3>Mission</h3><p>To deliver reliable commercial mobility solutions that help businesses operate efficiently, grow confidently, and move forward with dependable support at every stage.</p></article>
+          <article class="nd-purpose-block"><h3>Vision</h3><p>To shape the future of commercial mobility through trusted solutions, customer focus, and sustainable growth.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="fs-section nd-readiness-section">
+    <section class="fs-section nd-commitment">
       <div class="container">
-        <div class="fs-marker"><span class="fs-marker-no">06</span><span class="fs-eyebrow">Operational Readiness</span></div>
-        <h2 class="fs-display">Driver Training &amp; Operational Readiness</h2>
-        <div class="nd-readiness-grid">
-          <article class="nd-readiness-card"><span class="nd-card-index">01</span><h3>Vehicle Familiarization</h3><p>Practical orientation on vehicle features, controls, daily checks and responsible operation.</p></article>
-          <article class="nd-readiness-card"><span class="nd-card-index">02</span><h3>Efficient Driving</h3><p>Guidance aimed at improving driving practices, vehicle care, fuel-conscious operation and fleet productivity.</p></article>
-          <article class="nd-readiness-card"><span class="nd-card-index">03</span><h3>Safety &amp; Responsibility</h3><p>Training support focused on road safety awareness, pre-trip inspection routines and professional operating standards.</p></article>
+        <div class="nd-commitment-head">
+          <p class="nd-section-label">07 <span>Our Commitment</span></p>
+          <h2 class="nd-section-heading">Vehicles That Keep Businesses Moving.</h2>
+          <p class="nd-commitment-copy">We are committed to providing the right vehicle for every operation, from reliable pick-ups for daily activities to medium-duty trucks for distribution, heavy commercial trucks for long-haul transport, and trailers for specialized cargo.</p>
         </div>
-      </div>
-    </section>
-
-    <section class="fs-section section-light nd-advantage-section">
-      <div class="container">
-        <div class="fs-marker"><span class="fs-marker-no">07</span><span class="fs-eyebrow">NexDrive Advantage</span></div>
-        <h2 class="fs-display">A Complete Commercial Mobility Partnership.</h2>
-        <div class="nd-advantage-grid">
-          <article class="nd-advantage-card"><h3>Right Vehicle</h3><p>Pick-ups, light-duty, medium-duty and heavy commercial trucks, plus trailer solutions matched to business requirements.</p></article>
-          <article class="nd-advantage-card"><h3>Professional Support</h3><p>Expert advice, competitive value, genuine spare parts, after-sales assistance and customer-focused service.</p></article>
-          <article class="nd-advantage-card"><h3>Keep Moving</h3><p>24/7 vehicle and roadside rescue support, together with driver training, to strengthen operational readiness and confidence.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="fs-section fs-on-dark nd-purpose">
-      <div class="container">
-        <div class="fs-marker"><span class="fs-marker-no">08</span><span class="fs-eyebrow">Purpose</span></div>
-        <h2 class="fs-display">Mission &amp; Vision</h2>
-        <div class="fs-split-even"><div><h3>Mission</h3><p>To deliver reliable commercial mobility solutions that help businesses operate efficiently, grow confidently, and move forward with dependable support at every stage.</p></div><div><h3>Vision</h3><p>To shape the future of commercial mobility through trusted solutions, customer focus, and sustainable growth.</p></div></div>
-      </div>
-    </section>
-
-    <section class="fs-section nd-commitment-section">
-      <div class="container">
-        <div class="fs-marker"><span class="fs-marker-no">09</span><span class="fs-eyebrow">Our Commitment</span></div>
-        <h2 class="fs-display">Vehicles That Keep Businesses Moving.</h2>
-        <p class="nd-commitment">We are committed to providing the right vehicle for every operation &mdash; from reliable pick-ups for daily activities to medium-duty trucks for distribution, heavy commercial trucks for long-haul transport, and trailers for specialized cargo.</p>
         <div class="nd-flow" aria-label="NexDrive commitment process">
           <article class="nd-flow-step"><span class="nd-flow-no">01</span><h3>Understand</h3><p>Your operation</p></article>
           <article class="nd-flow-step"><span class="nd-flow-no">02</span><h3>Recommend</h3><p>The right vehicle</p></article>
