@@ -56,9 +56,9 @@
 .stat-tile2 .stat-no2.gold{color:var(--gold)}
 .stat-tile2 p{font-size:var(--fs-micro);font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute);margin-top:var(--sp-2)}
 
-.val-mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-4);margin-top:var(--sp-8)}
-@media(max-width:960px){.val-mini-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.val-mini-grid{grid-template-columns:1fr}}
+.val-mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-4);margin-top:var(--sp-8);max-width:960px;margin-left:auto;margin-right:auto}
+@media(max-width:960px){.val-mini-grid{grid-template-columns:repeat(2,1fr);max-width:640px}}
+@media(max-width:600px){.val-mini-grid{grid-template-columns:1fr;max-width:400px}}
 .val-mini-tile{position:relative;text-align:center;padding:var(--sp-6) var(--sp-4);border:1px solid var(--ink-line-2);background:rgba(255,255,255,0.02)}
 .val-mini-tile::before{content:'';position:absolute;top:-1px;left:-1px;width:8px;height:8px;background:var(--gold)}
 .val-mini-tile h4{font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;color:var(--white);margin-bottom:6px}
@@ -326,9 +326,9 @@
       <article class="svc-card svc-card--compact"><div class="svc-card__body"><h4 class="svc-card__title">Self-Consolidating Concrete (SCC)</h4><p class="svc-card__desc">Flows and consolidates under its own weight, ideal for congested reinforcement.</p></div></article>
       <article class="svc-card svc-card--compact"><div class="svc-card__body"><h4 class="svc-card__title">Architectural Concrete</h4><p class="svc-card__desc">Specialized concrete solution for facades, decorative surfaces and exposed elements.</p></div></article>
     </div>
-    <div style="margin-top:var(--sp-8)">
-      <div class="fs-marker"><span class="fs-eyebrow">Concrete Grades</span></div>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:var(--sp-3)">
+    <div style="margin-top:var(--sp-8);text-align:center">
+      <div class="fs-marker" style="justify-content:center"><span class="fs-eyebrow">Concrete Grades</span></div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:var(--sp-3)">
         <span style="padding:8px 16px;border:1px solid var(--line-2);font-weight:600;font-size:.92rem">C10</span>
         <span style="padding:8px 16px;border:1px solid var(--line-2);font-weight:600;font-size:.92rem">C15</span>
         <span style="padding:8px 16px;border:1px solid var(--line-2);font-weight:600;font-size:.92rem">C20</span>
@@ -354,9 +354,9 @@
       <article class="svc-card svc-card--compact"><div class="svc-card__body"><h4 class="svc-card__title">Mixer Trucks</h4><p class="svc-card__desc">30 mixer trucks for transportation and delivery of ready-mix concrete to construction sites.</p></div></article>
       <article class="svc-card svc-card--compact"><div class="svc-card__body"><h4 class="svc-card__title">Pumping Equipment</h4><p class="svc-card__desc">5 boom pump trucks and 3 line pump trucks for concrete placement at construction sites.</p></div></article>
     </div>
-    <div style="margin-top:var(--sp-8)">
-      <div class="fs-marker"><span class="fs-eyebrow">Quarry &amp; Aggregate Operations</span></div>
-      <p style="margin-top:var(--sp-3);max-width:80ch;line-height:1.75">Lake Premix has its own quarry at Lugoba with crushing facilities. The quarry and crushers provide aggregate for the company's own consumption and also supply the construction industry.</p>
+    <div style="margin-top:var(--sp-8);text-align:center;max-width:900px;margin-left:auto;margin-right:auto">
+      <div class="fs-marker" style="justify-content:center"><span class="fs-eyebrow">Quarry &amp; Aggregate Operations</span></div>
+      <p style="margin-top:var(--sp-3);max-width:80ch;margin-left:auto;margin-right:auto;line-height:1.75">Lake Premix has its own quarry at Lugoba with crushing facilities. The quarry and crushers provide aggregate for the company's own consumption and also supply the construction industry.</p>
     </div>
   </div>
 </section>
