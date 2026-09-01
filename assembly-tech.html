@@ -209,10 +209,11 @@ body.co-theme-automotive .nav-mobile{background:var(--atl-blue)!important;backgr
 .atl-purpose .fs-split-even{margin-top:var(--sp-9)}
 .atl-purpose .fs-split-even>div{border-left:2px solid var(--atl-red);padding-left:var(--sp-5)}
 .atl-purpose .fs-split-even h3{font-family:var(--font-display);font-size:1.4rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--white);margin-bottom:var(--sp-4)}
-.atl-values{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-4);margin-top:var(--sp-10)}
-.atl-value{border:1px solid var(--ink-line-2);padding:var(--sp-5);background:rgba(255,255,255,.025);position:relative}
+.atl-values{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-4);margin-top:var(--sp-10);grid-auto-rows:1fr}
+.atl-value{border:1px solid var(--ink-line-2);padding:var(--sp-6);background:rgba(255,255,255,.025);position:relative;display:flex;flex-direction:column;height:100%}
 .atl-value::before{content:'';position:absolute;top:0;left:0;width:8px;height:8px;background:var(--atl-red)}
-.atl-value h3{font-family:var(--font-display);font-size:1rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--white);margin-top:8px}
+.atl-value h3{font-family:var(--font-display);font-size:1rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--white);margin:8px 0 14px}
+.atl-value p{margin:0;color:rgba(255,255,255,.78);font-size:.92rem;font-weight:500;line-height:1.6}
 .atl-history-copy{max-width:760px;margin:var(--sp-7) auto 0;text-align:center;font-size:var(--fs-lede);line-height:1.7}
 .atl-page .section-light .fs-display{color:var(--atl-blue)}
 .atl-page .section-light .fs-eyebrow{color:var(--atl-red)}
@@ -243,7 +244,7 @@ body.co-theme-automotive .nav-mobile{background:var(--atl-blue)!important;backgr
 .atl-capability-card p,.atl-application-card p,.atl-why-card p{margin-top:var(--sp-4);font-size:.95rem;line-height:1.7}
 .atl-purpose .fs-split-even{margin-top:clamp(1.75rem,3vw,2.5rem);gap:clamp(1.5rem,2.5vw,2rem)}
 .atl-values{gap:clamp(1.25rem,1.7vw,1.5rem);margin-top:clamp(1.75rem,3vw,2.5rem)}
-.atl-value{padding:clamp(1.25rem,2vw,1.5rem)}
+.atl-value{padding:clamp(1.5rem,2vw,1.75rem)}
 .atl-value::before{width:10px;height:10px}
 .atl-history-copy{margin-top:clamp(1.5rem,2.5vw,2rem)}
 @media(max-width:960px){.atl-glance{grid-template-columns:repeat(2,minmax(0,1fr))}.atl-capability-grid,.atl-application-grid,.atl-why-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.atl-values{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -417,7 +418,7 @@ body.co-theme-automotive .nav-mobile{background:var(--atl-blue)!important;backgr
         <div class="fs-marker"><span class="fs-marker-no">04</span><span class="fs-eyebrow">Purpose</span></div>
         <h2 class="fs-display">Mission, Vision &amp; Values</h2>
         <div class="fs-split-even"><div><h3>Mission</h3><p>To design and manufacture the highest quality trailers by fostering a culture of integrity, excellence, and continuous improvement.</p></div><div><h3>Vision</h3><p>To become the leading trailer manufacturer in East and Central Africa, providing sustainable solutions for transport needs with a focus on safety, innovation and customization.</p></div></div>
-        <div class="atl-values"><article class="atl-value"><h3>Integrity</h3></article><article class="atl-value"><h3>People</h3></article><article class="atl-value"><h3>Sustainability</h3></article><article class="atl-value"><h3>Customers</h3></article></div>
+        <div class="atl-values"><article class="atl-value"><h3>Integrity</h3><p>Honesty, transparency and accountability guide our actions and decisions.</p></article><article class="atl-value"><h3>People</h3><p>A supportive and inclusive workplace where people are empowered to grow, innovate and contribute to our success.</p></article><article class="atl-value"><h3>Sustainability</h3><p>Minimizing environmental impact and promoting sustainable practices throughout our operations.</p></article><article class="atl-value"><h3>Customers</h3><p>Building lasting relationships through trust, mutual respect and consistent delivery of value.</p></article></div>
       </div>
     </section>
 
