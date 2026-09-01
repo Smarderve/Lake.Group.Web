@@ -155,14 +155,13 @@ export default function HeroGlobe({ panelEl, locations }) {
   const cancelCameraRef = useRef(null);
   const loopActiveRef = useRef(false);
 
+  const isMobile = w < 600;
   const allMarkers = useMemo(() => buildMarkers(locations), [locations]);
-  const allArcs = useMemo(() => buildArcs(locations), [locations]);
+  const allArcs = useMemo(() => buildArcs(locations, isMobile), [locations, isMobile]);
   const markerById = useMemo(
     () => new Map(allMarkers.map((m) => [m.id, m])),
     [allMarkers],
   );
-
-  const isMobile = w < 600;
 
   /* ── Combined arc data for the Globe component ── */
   const arcsData = useMemo(() => {
@@ -419,14 +418,18 @@ export default function HeroGlobe({ panelEl, locations }) {
       atmosphereAltitude={0.14}
       animateIn={false}
       onGlobeReady={onGlobeReady}
-      arcsData={arcsData}
-      arcColor={() => ROUTE_YELLOW}
-      arcAltitude="altitude"
-      arcStroke={0.85}
-      arcDashLength="dashLength"
-      arcDashGap={0.05}
-      arcDashAnimateTime={0}
-      arcsTransitionDuration={0}
+      pathsData={arcsData}
+      pathPoints="points"
+      pathPointLat="lat"
+      pathPointLng="lng"
+      pathPointAlt="alt"
+      pathResolution={2}
+      pathColor={() => ROUTE_YELLOW}
+      pathStroke={0.85}
+      pathDashLength="dashLength"
+      pathDashGap={0.05}
+      pathDashAnimateTime={0}
+      pathTransitionDuration={0}
       htmlElementsData={markersData}
       htmlLat="lat"
       htmlLng="lng"
