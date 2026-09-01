@@ -187,8 +187,8 @@ body.co-theme-agro .page-hero .hero-media {
 :root{
   --atl-blue:#013f5c;
   --atl-blue-deep:#012a42;
-  --atl-red:#e8122f;
-  --atl-red-soft:#ff2244;
+  --atl-red:#ff2244;
+  --atl-red-soft:#ff3355;
 }
 body.co-theme-automotive{--color-navbar-bg:var(--atl-blue);--color-navbar-border:var(--atl-red);--color-navbar-bg-scrolled:rgba(1,63,92,.96)}
 body.co-theme-automotive .nav-mobile{background:var(--atl-blue)!important;background-color:var(--atl-blue)!important;border-bottom-color:var(--atl-red)!important}
@@ -224,6 +224,10 @@ body.co-theme-automotive .nav-mobile{background:var(--atl-blue)!important;backgr
 .atl-page .section-light .fs-marker-no{color:var(--atl-blue)}
 .atl-page .hero-title{position:relative;padding-bottom:var(--sp-5)}
 .atl-page .hero-title::after{content:'';position:absolute;bottom:0;left:0;width:48px;height:3px;background:var(--atl-red)}
+.atl-content-image{position:relative;overflow:hidden;border-radius:4px}
+.atl-content-image img{width:100%;height:100%;min-height:320px;max-height:420px;object-fit:cover;display:block}
+@media(max-width:960px){.atl-content-image img{min-height:240px;max-height:320px}}
+@media(max-width:720px){.atl-content-image img{min-height:200px;max-height:260px}}
 .atl-page{--gold:var(--atl-red);--gold-deep:var(--atl-red)}
 .atl-page .page-hero .container{padding-top:var(--sp-6);padding-bottom:var(--sp-6)}
 .atl-page .fs-section{padding-block:clamp(4.5rem,6vw,6rem)}
@@ -360,7 +364,7 @@ body.co-theme-automotive .nav-mobile{background:var(--atl-blue)!important;backgr
 
   <main class="atl-page">
     <section class="page-hero">
-      <div class="hero-media" style="background-image:linear-gradient(100deg,rgba(1,28,48,.86) 0%,rgba(1,44,71,.62) 48%,rgba(1,35,56,.36) 100%),url('assets/images/atl/tanker-1.jpg');background-position:center" aria-hidden="true"></div>
+      <div class="hero-media" style="background-image:linear-gradient(100deg,rgba(1,28,48,.38) 0%,rgba(1,44,71,.28) 48%,rgba(1,35,56,.18) 100%),url('assets/images/atl/content/atl-tanker-finishing.webp');background-position:center 40%;background-size:cover" aria-hidden="true"></div>
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="container">
         <h1 class="hero-title">Assembly Tech Limited</h1>
@@ -391,27 +395,37 @@ body.co-theme-automotive .nav-mobile{background:var(--atl-blue)!important;backgr
 
     <section class="fs-section section-light">
       <div class="container">
-        <div class="fs-marker"><span class="fs-marker-no">02</span><span class="fs-eyebrow">Product Capability</span></div>
-        <h2 class="fs-display">Aluminium Engineering For Fuel Transport.</h2>
-        <div class="atl-capability-grid">
-          <article class="atl-capability-card"><span class="atl-card-index">01</span><h3>Fuel Transportation</h3><p>Aluminium construction suitable for fuel transportation.</p></article>
-          <article class="atl-capability-card"><span class="atl-card-index">02</span><h3>Payload Efficiency</h3><p>Lightweight trailer design supporting higher payload efficiency.</p></article>
-          <article class="atl-capability-card"><span class="atl-card-index">03</span><h3>Strength To Weight</h3><p>High strength-to-weight performance for demanding transport requirements.</p></article>
-          <article class="atl-capability-card"><span class="atl-card-index">04</span><h3>Durable Structures</h3><p>Designed for demanding fuel transport operations.</p></article>
-          <article class="atl-capability-card"><span class="atl-card-index">05</span><h3>Impact Absorption</h3><p>Aluminium construction offering useful impact absorption characteristics in demanding operating conditions.</p></article>
+        <div class="fs-split-even">
+          <div>
+            <div class="fs-marker"><span class="fs-marker-no">02</span><span class="fs-eyebrow">Product Capability</span></div>
+            <h2 class="fs-display">Aluminium Engineering For Fuel Transport.</h2>
+            <div class="atl-capability-grid" style="margin-top:var(--sp-6)">
+              <article class="atl-capability-card"><span class="atl-card-index">01</span><h3>Fuel Transportation</h3><p>Aluminium construction suitable for fuel transportation.</p></article>
+              <article class="atl-capability-card"><span class="atl-card-index">02</span><h3>Payload Efficiency</h3><p>Lightweight trailer design supporting higher payload efficiency.</p></article>
+              <article class="atl-capability-card"><span class="atl-card-index">03</span><h3>Strength To Weight</h3><p>High strength-to-weight performance for demanding transport requirements.</p></article>
+              <article class="atl-capability-card"><span class="atl-card-index">04</span><h3>Durable Structures</h3><p>Designed for demanding fuel transport operations.</p></article>
+              <article class="atl-capability-card"><span class="atl-card-index">05</span><h3>Impact Absorption</h3><p>Aluminium construction offering useful impact absorption characteristics in demanding operating conditions.</p></article>
+            </div>
+          </div>
+          <div class="atl-content-image"><img src="assets/images/atl/content/atl-tanker-polished.webp" alt="Polished aluminium tanker trailer in ATL manufacturing facility" loading="lazy" decoding="async"></div>
         </div>
       </div>
     </section>
 
     <section class="fs-section">
       <div class="container">
-        <div class="fs-marker"><span class="fs-marker-no">03</span><span class="fs-eyebrow">Applications</span></div>
-        <h2 class="fs-display">Built For Demanding Transport Operations.</h2>
-        <div class="atl-application-grid">
-          <article class="atl-application-card"><h3>Fuel Transport</h3><p>Engineered for reliable transportation of fuel products.</p></article>
-          <article class="atl-application-card"><h3>Commercial Haulage</h3><p>Lightweight aluminium structures supporting payload efficiency.</p></article>
-          <article class="atl-application-card"><h3>Custom Trailer Solutions</h3><p>Designed to support specialized transport requirements.</p></article>
-          <article class="atl-application-card"><h3>Regional Operations</h3><p>Solutions intended for customers across East and Central Africa.</p></article>
+        <div class="fs-split-even">
+          <div class="atl-content-image"><img src="assets/images/atl/content/atl-tanker-blue.webp" alt="Finished blue fuel tanker trailer ready for delivery" loading="lazy" decoding="async"></div>
+          <div>
+            <div class="fs-marker"><span class="fs-marker-no">03</span><span class="fs-eyebrow">Applications</span></div>
+            <h2 class="fs-display">Built For Demanding Transport Operations.</h2>
+            <div class="atl-application-grid" style="margin-top:var(--sp-6)">
+              <article class="atl-application-card"><h3>Fuel Transport</h3><p>Engineered for reliable transportation of fuel products.</p></article>
+              <article class="atl-application-card"><h3>Commercial Haulage</h3><p>Lightweight aluminium structures supporting payload efficiency.</p></article>
+              <article class="atl-application-card"><h3>Custom Trailer Solutions</h3><p>Designed to support specialized transport requirements.</p></article>
+              <article class="atl-application-card"><h3>Regional Operations</h3><p>Solutions intended for customers across East and Central Africa.</p></article>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -427,22 +441,32 @@ body.co-theme-automotive .nav-mobile{background:var(--atl-blue)!important;backgr
 
     <section class="fs-section section-light">
       <div class="container">
-        <div class="fs-marker"><span class="fs-marker-no">05</span><span class="fs-eyebrow">Company History</span></div>
-        <h2 class="fs-display">From Aluminum Trailers Limited To Assembly Tech Limited</h2>
-        <p class="atl-history-copy">Established in 2019 as Aluminum Trailers Limited, the company rebranded as Assembly Tech Ltd in 2026 as part of its continued development and expansion of premium customized trailer solutions.</p>
+        <div class="fs-split-even">
+          <div>
+            <div class="fs-marker"><span class="fs-marker-no">05</span><span class="fs-eyebrow">Company History</span></div>
+            <h2 class="fs-display">From Aluminum Trailers Limited To Assembly Tech Limited</h2>
+            <p class="atl-history-copy" style="text-align:left;margin-left:0">Established in 2019 as Aluminum Trailers Limited, the company rebranded as Assembly Tech Ltd in 2026 as part of its continued development and expansion of premium customized trailer solutions.</p>
+          </div>
+          <div class="atl-content-image"><img src="assets/images/atl/content/atl-workers-welding.webp" alt="ATL workers welding tanker chassis in manufacturing facility" loading="lazy" decoding="async"></div>
+        </div>
       </div>
     </section>
 
     <section class="fs-section">
       <div class="container">
-        <div class="fs-marker"><span class="fs-marker-no">06</span><span class="fs-eyebrow">Why ATL</span></div>
-        <h2 class="fs-display">Engineered For Reliable Transport.</h2>
-        <div class="atl-why-grid">
-          <article class="atl-why-card"><h3>Lightweight Construction</h3><p>Supports increased payload potential while helping improve hauling efficiency.</p></article>
-          <article class="atl-why-card"><h3>High Strength-To-Weight</h3><p>Strong aluminium structures designed for demanding fuel transportation.</p></article>
-          <article class="atl-why-card"><h3>Fuel Compatibility</h3><p>Aluminium is non-reactive with many fuels, helping reduce contamination risk.</p></article>
-          <article class="atl-why-card"><h3>Impact Performance</h3><p>Aluminium construction can provide useful impact absorption characteristics in demanding operating situations.</p></article>
-          <article class="atl-why-card"><h3>Customization</h3><p>Product development focused on premium customized trailer solutions.</p></article>
+        <div class="fs-split-even">
+          <div class="atl-content-image"><img src="assets/images/atl/content/atl-worker-fabricating.webp" alt="ATL worker fabricating aluminium components" loading="lazy" decoding="async"></div>
+          <div>
+            <div class="fs-marker"><span class="fs-marker-no">06</span><span class="fs-eyebrow">Why ATL</span></div>
+            <h2 class="fs-display">Engineered For Reliable Transport.</h2>
+            <div class="atl-why-grid" style="margin-top:var(--sp-6)">
+              <article class="atl-why-card"><h3>Lightweight Construction</h3><p>Supports increased payload potential while helping improve hauling efficiency.</p></article>
+              <article class="atl-why-card"><h3>High Strength-To-Weight</h3><p>Strong aluminium structures designed for demanding fuel transportation.</p></article>
+              <article class="atl-why-card"><h3>Fuel Compatibility</h3><p>Aluminium is non-reactive with many fuels, helping reduce contamination risk.</p></article>
+              <article class="atl-why-card"><h3>Impact Performance</h3><p>Aluminium construction can provide useful impact absorption characteristics in demanding operating situations.</p></article>
+              <article class="atl-why-card"><h3>Customization</h3><p>Product development focused on premium customized trailer solutions.</p></article>
+            </div>
+          </div>
         </div>
       </div>
     </section>
