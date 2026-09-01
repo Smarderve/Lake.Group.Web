@@ -214,14 +214,14 @@ body.co-theme-automotive .nav-mobile{background:#013f5c!important;background-col
 .nd-products{background:var(--nd-paper)}
 .nd-products-head{max-width:720px}
 .nd-products-head .nd-section-heading{max-width:650px}
-.nd-product-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:22px;margin-top:44px}
-.nd-product-card{position:relative;grid-column:span 4;min-width:0;min-height:260px;padding:30px 30px 32px;border:1px solid var(--nd-line);background:#fff;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .25s var(--ease-out),box-shadow .25s ease,border-color .25s ease}
-.nd-product-card:nth-child(4),.nd-product-card:nth-child(5){grid-column:span 6;min-height:230px}
-.nd-product-card::before{content:'';position:absolute;top:0;left:0;width:42px;height:3px;background:var(--nd-yellow)}
-.nd-product-card:hover{transform:translateY(-4px);border-color:#b8c7ce;box-shadow:0 16px 36px rgba(1,63,92,.12)}
-.nd-card-index{display:block;margin-bottom:auto;font-size:.74rem;font-weight:700;letter-spacing:.16em;color:#58707d}
-.nd-product-card h3{margin:36px 0 0;font-family:var(--font-display);font-size:1.34rem;line-height:1.12;letter-spacing:.015em;text-transform:uppercase;color:var(--nd-navy)}
-.nd-product-card p{max-width:43ch;margin:12px 0 0;font-size:.96rem;line-height:1.68;color:var(--mute)}
+.nd-product-showcase{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(48px,7vw,104px);align-items:center;padding:clamp(52px,7vw,88px) 0;border-top:1px solid var(--nd-line)}
+.nd-product-showcase:first-child{margin-top:44px}.nd-product-showcase:last-child{border-bottom:1px solid var(--nd-line)}
+.nd-product-showcase--reverse .nd-product-visual{order:2}.nd-product-showcase--reverse .nd-product-copy{order:1}
+.nd-product-visual{display:flex;align-items:center;justify-content:center;min-width:0;min-height:clamp(300px,31vw,440px);margin:0;padding:clamp(16px,2.5vw,32px);background:#fff;border:1px solid #e1e7e9;overflow:hidden}
+.nd-product-visual img{display:block;width:100%;height:100%;max-height:396px;object-fit:contain}
+.nd-product-copy{max-width:510px;min-width:0}.nd-product-eyebrow{display:flex;align-items:center;gap:12px;margin:0;font-size:.75rem;font-weight:700;letter-spacing:.14em;line-height:1.4;text-transform:uppercase;color:#58707d}.nd-product-eyebrow::before{content:'';width:30px;height:3px;flex:0 0 auto;background:var(--nd-yellow)}
+.nd-product-copy h3{max-width:11ch;margin:20px 0 0;font-family:var(--font-display);font-size:clamp(2rem,3.1vw,3.45rem);line-height:1.02;letter-spacing:-.025em;text-transform:uppercase;color:var(--nd-navy)}
+.nd-product-copy p{max-width:45ch;margin:22px 0 0;font-size:clamp(1rem,1.1vw,1.12rem);line-height:1.72;color:var(--mute)}
 .nd-industries{background:#fff}
 .nd-industries-layout{display:grid;grid-template-columns:minmax(0,.84fr) minmax(0,1.16fr);gap:clamp(42px,8vw,120px);align-items:start}
 .nd-industries-copy{max-width:485px}
@@ -245,9 +245,8 @@ body.co-theme-automotive .nav-mobile{background:#013f5c!important;background-col
 .nd-commitment-head{max-width:740px}.nd-commitment-copy{max-width:680px;margin:24px 0 0;font-size:1.1rem;line-height:1.75;color:var(--mute)}
 .nd-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:52px;border-top:1px solid var(--nd-line)}
 .nd-flow-step{position:relative;padding:24px 24px 0 0;border-right:1px solid var(--nd-line)}.nd-flow-step:not(:first-child){padding-left:24px}.nd-flow-step:last-child{border-right:0}.nd-flow-no{display:block;font-size:.73rem;font-weight:700;letter-spacing:.14em;color:#b88d00}.nd-flow-step h3{margin:12px 0 0;font-family:var(--font-display);font-size:1.2rem;letter-spacing:.02em;text-transform:uppercase;color:var(--nd-navy)}.nd-flow-step p{margin:6px 0 0;font-size:.94rem;line-height:1.55;color:var(--mute)}
-@media(max-width:900px){.nd-portfolio-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.nd-portfolio-item:nth-child(4){border-left:0}.nd-portfolio-item:first-child{grid-column:span 3;border-bottom:1px solid rgba(255,255,255,.16)}.nd-product-card,.nd-product-card:nth-child(4),.nd-product-card:nth-child(5){grid-column:span 6}.nd-intro,.nd-industries-layout,.nd-support-layout{grid-template-columns:1fr;gap:42px}.nd-portfolio-head{display:block}.nd-portfolio-note{margin-top:18px}.nd-purpose-grid{gap:38px}.nd-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.nd-flow-step:nth-child(2){border-right:0}.nd-flow-step:nth-child(n+3){margin-top:26px}}
-@media(max-width:640px){.nd-hero{min-height:650px;padding:112px 0 70px}.nd-hero .hero-media{background-position:62% center}.nd-hero .hero-title{font-size:clamp(2.85rem,14vw,4.1rem)}.nd-tagline{font-size:1rem}.nd-hero .hero-sub{font-size:.98rem}.nd-page .fs-section{padding:64px 0}.nd-intro-copy p,.nd-commitment-copy{font-size:1rem}.nd-portfolio{padding:60px 0!important}.nd-portfolio-grid{grid-template-columns:1fr}.nd-portfolio-item,.nd-portfolio-item:nth-child(4){border-left:0;border-bottom:1px solid rgba(255,255,255,.16);padding:21px 0}.nd-portfolio-item:last-child{border-bottom:0}.nd-portfolio-item:first-child{grid-column:auto}.nd-product-grid{grid-template-columns:1fr;gap:16px;margin-top:32px}.nd-product-card,.nd-product-card:nth-child(4),.nd-product-card:nth-child(5){grid-column:auto;min-height:0;padding:24px}.nd-product-card h3{margin-top:28px;font-size:1.2rem}.nd-product-card p{font-size:.94rem}.nd-industry-list{grid-template-columns:1fr}.nd-industry,.nd-industry:nth-child(odd),.nd-industry:nth-child(even){padding:20px 0;border-left:0}.nd-support-item{grid-template-columns:1fr;gap:10px;padding:22px 0}.nd-purpose-grid{grid-template-columns:1fr;gap:32px;margin-top:32px}.nd-purpose-block{padding-left:18px}.nd-purpose-block p{font-size:1rem}.nd-flow{margin-top:36px}.nd-flow-step{padding:20px 16px 0 0}.nd-flow-step:not(:first-child){padding-left:16px}.nd-flow-step h3{font-size:1.05rem}}
-@media(prefers-reduced-motion:reduce){.nd-product-card{transition:none}.nd-product-card:hover{transform:none}}
+@media(max-width:900px){.nd-portfolio-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.nd-portfolio-item:nth-child(4){border-left:0}.nd-portfolio-item:first-child{grid-column:span 3;border-bottom:1px solid rgba(255,255,255,.16)}.nd-product-showcase{grid-template-columns:1fr;gap:30px;padding:54px 0}.nd-product-showcase--reverse .nd-product-copy,.nd-product-copy{order:1}.nd-product-showcase--reverse .nd-product-visual,.nd-product-visual{order:2}.nd-product-copy{max-width:620px}.nd-product-visual{min-height:0;max-width:720px}.nd-product-visual img{height:auto;max-height:none}.nd-intro,.nd-industries-layout,.nd-support-layout{grid-template-columns:1fr;gap:42px}.nd-portfolio-head{display:block}.nd-portfolio-note{margin-top:18px}.nd-purpose-grid{gap:38px}.nd-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.nd-flow-step:nth-child(2){border-right:0}.nd-flow-step:nth-child(n+3){margin-top:26px}}
+@media(max-width:640px){.nd-hero{min-height:650px;padding:112px 0 70px}.nd-hero .hero-media{background-position:62% center}.nd-hero .hero-title{font-size:clamp(2.85rem,14vw,4.1rem)}.nd-tagline{font-size:1rem}.nd-hero .hero-sub{font-size:.98rem}.nd-page .fs-section{padding:64px 0}.nd-intro-copy p,.nd-commitment-copy{font-size:1rem}.nd-portfolio{padding:60px 0!important}.nd-portfolio-grid{grid-template-columns:1fr}.nd-portfolio-item,.nd-portfolio-item:nth-child(4){border-left:0;border-bottom:1px solid rgba(255,255,255,.16);padding:21px 0}.nd-portfolio-item:last-child{border-bottom:0}.nd-portfolio-item:first-child{grid-column:auto}.nd-product-showcase:first-child{margin-top:30px}.nd-product-showcase{gap:22px;padding:44px 0}.nd-product-visual{padding:14px}.nd-product-eyebrow{font-size:.68rem;letter-spacing:.12em}.nd-product-copy h3{max-width:12ch;margin-top:16px;font-size:clamp(1.85rem,9.5vw,2.4rem)}.nd-product-copy p{margin-top:18px;font-size:1rem;line-height:1.65}.nd-industry-list{grid-template-columns:1fr}.nd-industry,.nd-industry:nth-child(odd),.nd-industry:nth-child(even){padding:20px 0;border-left:0}.nd-support-item{grid-template-columns:1fr;gap:10px;padding:22px 0}.nd-purpose-grid{grid-template-columns:1fr;gap:32px;margin-top:32px}.nd-purpose-block{padding-left:18px}.nd-purpose-block p{font-size:1rem}.nd-flow{margin-top:36px}.nd-flow-step{padding:20px 16px 0 0}.nd-flow-step:not(:first-child){padding-left:16px}.nd-flow-step h3{font-size:1.05rem}}
   </style>
   <script type="application/ld+json">
 {
@@ -403,12 +402,23 @@ body.co-theme-automotive .nav-mobile{background:#013f5c!important;background-col
           <p class="nd-section-label">03 <span>Product Range</span></p>
           <h2 class="nd-section-heading">Vehicles for Every Commercial Journey.</h2>
         </div>
-        <div class="nd-product-grid">
-          <article class="nd-product-card"><span class="nd-card-index">01</span><h3>Pick-ups</h3><p>Dependable and versatile vehicles for personal use, small businesses, deliveries, agriculture and field operations.</p></article>
-          <article class="nd-product-card"><span class="nd-card-index">02</span><h3>Light-Duty Trucks</h3><p>Designed for urban distribution, retail, transport services and everyday commercial operations.</p></article>
-          <article class="nd-product-card"><span class="nd-card-index">03</span><h3>Medium-Duty Trucks</h3><p>Built for increased payload requirements with a balance of performance, efficiency and durability.</p></article>
-          <article class="nd-product-card"><span class="nd-card-index">04</span><h3>Heavy Commercial Trucks</h3><p>Designed for long-distance transport, construction, mining, freight and other heavy-duty applications.</p></article>
-          <article class="nd-product-card"><span class="nd-card-index">05</span><h3>Trailers</h3><p>Solutions for cargo, equipment, fuel transport, commercial goods and specialized transport requirements.</p></article>
+        <div class="nd-product-showcase-list">
+          <article class="nd-product-showcase">
+            <figure class="nd-product-visual"><img src="assets/images/nexdrive/products/jac-pickups.webp" alt="JAC pick-up" loading="lazy" decoding="async"></figure>
+            <div class="nd-product-copy"><p class="nd-product-eyebrow">01 / Pick-ups</p><h3>JAC Pick-ups</h3><p>Dependable and versatile vehicles for personal use, small businesses, deliveries, agriculture and field operations.</p></div>
+          </article>
+          <article class="nd-product-showcase nd-product-showcase--reverse">
+            <figure class="nd-product-visual"><img src="assets/images/nexdrive/products/ashok-leyland-trucks.webp" alt="Ashok Leyland commercial truck" loading="lazy" decoding="async"></figure>
+            <div class="nd-product-copy"><p class="nd-product-eyebrow">02 / Light &amp; Medium-Duty Trucks</p><h3>Ashok Leyland</h3><p>Practical commercial mobility for urban distribution, retail, transport services and operations requiring greater payload capability.</p></div>
+          </article>
+          <article class="nd-product-showcase">
+            <figure class="nd-product-visual"><img src="assets/images/nexdrive/products/sany-heavy-commercial-truck.webp" alt="SANY heavy commercial truck" loading="lazy" decoding="async"></figure>
+            <div class="nd-product-copy"><p class="nd-product-eyebrow">03 / Heavy Commercial Trucks</p><h3>SANY</h3><p>Powerful and reliable trucks for long-distance transport, construction, mining, freight and other heavy-duty applications.</p></div>
+          </article>
+          <article class="nd-product-showcase nd-product-showcase--reverse">
+            <figure class="nd-product-visual"><img src="assets/images/nexdrive/products/atl-trailer.webp" alt="ATL Assembly Tech Limited tanker trailer" loading="lazy" decoding="async"></figure>
+            <div class="nd-product-copy"><p class="nd-product-eyebrow">04 / Trailers</p><h3>ATL / Assembly Tech Limited</h3><p>Strong and dependable trailer solutions for cargo, equipment, fuel transport, commercial goods and specialized transport requirements.</p></div>
+          </article>
         </div>
       </div>
     </section>
