@@ -753,15 +753,12 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   max-width: 132px;
 }
 /* Tall stacked mark — taller than peers so visual weight matches Ocean Galleria. */
-.mm-company img[src*="cross-country-developer-transparent.webp"] {
+.mm-company img[src*="cross-country-developer-limited-logo.webp"] {
   height: auto;
   width: auto;
-  max-width: 180px;
+  max-width: 190px;
   max-height: 84px;
   padding: 0;
-  background: transparent;
-  border-radius: 0;
-  box-shadow: none;
 }
 .mm-company img[src*="Ocean-Galleria-logo.webp"] {
   height: 78px;
@@ -796,14 +793,12 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
     max-width: 116px;
     padding: 6px 8px;
   }
-  .mm-company img[src*="cross-country-developer-transparent.webp"] {
+  .mm-company img[src*="cross-country-developer-limited-logo.webp"] {
     height: auto;
     width: auto;
-    max-width: 160px;
+    max-width: 170px;
     max-height: 74px;
     padding: 0;
-    background: transparent;
-    border-radius: 0;
   }
   .mm-company img[src*="Ocean-Galleria-logo.webp"] {
     height: 66px;
