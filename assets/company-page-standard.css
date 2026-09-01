@@ -98,10 +98,16 @@ html.fs-motion body.company-standard .fx-img {
 @media (max-width: 760px) {
   body.company-standard {
     --company-mobile-gutter: clamp(16px, 5vw, 24px);
+    --company-mobile-eyebrow: clamp(.6875rem, 3vw, .8125rem);
+    --company-mobile-heading: clamp(1.75rem, 7vw, 2rem);
+    --company-mobile-body: clamp(1rem, 4vw, 1.0625rem);
+    --company-mobile-card-title: clamp(1.5rem, 6vw, 1.75rem);
+    --company-mobile-stat: clamp(2.125rem, 9vw, 2.625rem);
+    --company-mobile-stat-label: clamp(.8125rem, 3.6vw, .9375rem);
   }
 
   body.company-standard .fs-section {
-    padding-block: clamp(48px, 12vw, 72px);
+    padding-block: clamp(56px, 14vw, 72px);
   }
 
   /* Keep each company section on the same mathematical content centre. The
@@ -126,6 +132,25 @@ html.fs-motion body.company-standard .fx-img {
   body.company-standard .fs-marker {
     justify-content: center;
     text-align: center;
+    gap: 12px;
+    margin-bottom: clamp(20px, 6vw, 28px);
+  }
+
+  body.company-standard .fs-marker .fs-marker-no {
+    font-size: clamp(1.5625rem, 7vw, 1.875rem);
+    line-height: 1;
+    letter-spacing: .05em;
+  }
+
+  body.company-standard .fs-marker .fs-marker-no::after {
+    width: 26px;
+    margin-left: 10px;
+  }
+
+  body.company-standard .fs-eyebrow {
+    font-size: var(--company-mobile-eyebrow);
+    letter-spacing: .12em;
+    gap: 10px;
   }
 
   /* Shared split, card and grid primitives must never retain intrinsic
@@ -164,6 +189,12 @@ html.fs-motion body.company-standard .fx-img {
     padding: clamp(20px, 6vw, 28px);
   }
 
+  body.company-standard .stat-panel2 h3 {
+    font-size: var(--company-mobile-card-title);
+    line-height: 1.08;
+    margin-bottom: clamp(20px, 6vw, 28px);
+  }
+
   body.company-standard .stat-grid2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
@@ -174,20 +205,31 @@ html.fs-motion body.company-standard .fx-img {
   }
 
   body.company-standard .stat-tile2 .stat-no2 {
-    font-size: clamp(1.5rem, 8.5vw, 2.2rem);
+    font-size: var(--company-mobile-stat);
     overflow-wrap: normal;
   }
 
-  body.company-standard .stat-tile2 p {
-    max-width: 100%;
-    overflow-wrap: normal;
-    word-break: normal;
-    letter-spacing: .14em;
-    line-height: 1.45;
+  body.company-standard .fs-split > div:not(.stat-panel2) > h3,
+  body.company-standard .fs-split-even > div:not(.stat-panel2) > h3 {
+    font-size: clamp(1.5rem, 5.6vw, 1.625rem) !important;
+    line-height: 1.12;
+    margin-bottom: 12px !important;
+  }
+
+  body.company-standard .fs-check li {
+    align-items: flex-start;
+    gap: 12px;
+    font-size: clamp(.9375rem, 4vw, 1rem);
+    line-height: 1.6;
+  }
+
+  body.company-standard .fs-check li > span:first-child {
+    margin-top: .22em;
   }
 
   body.company-standard .fs-display {
-    font-size: clamp(1.65rem, 7.5vw, 2rem);
+    font-size: var(--company-mobile-heading);
+    line-height: 1.1;
     max-width: 19ch;
     margin-left: auto;
     margin-right: auto;
@@ -196,8 +238,17 @@ html.fs-motion body.company-standard .fx-img {
 
   body.company-standard .fs-lede,
   body.company-standard .fs-section p:not(.footer-motto) {
-    font-size: .98rem;
-    line-height: 1.62;
+    font-size: var(--company-mobile-body);
+    line-height: 1.68;
+  }
+
+  body.company-standard .stat-panel2 .stat-tile2 p {
+    font-size: var(--company-mobile-stat-label);
+    max-width: 100%;
+    overflow-wrap: normal;
+    word-break: normal;
+    letter-spacing: .1em;
+    line-height: 1.5;
   }
 }
 
