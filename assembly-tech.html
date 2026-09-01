@@ -221,8 +221,33 @@ body.co-theme-automotive .nav-mobile{background:var(--atl-blue)!important;backgr
 .atl-page .section-light .fs-marker-no{color:var(--atl-blue)}
 .atl-page .hero-title{position:relative;padding-bottom:var(--sp-5)}
 .atl-page .hero-title::after{content:'';position:absolute;bottom:0;left:0;width:48px;height:3px;background:var(--atl-red)}
+.atl-page{--gold:var(--atl-red);--gold-deep:var(--atl-red)}
+.atl-page .page-hero .container{padding-top:var(--sp-6);padding-bottom:var(--sp-6)}
+.atl-page .fs-section{padding-block:clamp(4.5rem,6vw,6rem)}
+.atl-page .fs-section-sm{padding-block:clamp(3.25rem,4vw,4.5rem)}
+.atl-page .fs-marker{margin-bottom:clamp(1.15rem,1.8vw,1.5rem)}
+.atl-page .fs-marker .fs-marker-no,.atl-page .section-light .fs-marker-no{color:var(--atl-red)}
+.atl-page .fs-marker .fs-marker-no::after{background:var(--line)}
+.atl-page .fs-on-dark .fs-marker .fs-marker-no::after{background:var(--ink-line)}
+.atl-page .fs-eyebrow::before{background:var(--atl-red);box-shadow:22px 3.5px 0 -3px rgba(1,63,92,.48)}
+.atl-page .fs-on-dark .fs-eyebrow::before{box-shadow:22px 3.5px 0 -3px rgba(255,255,255,.42)}
+.atl-page .section-light .fs-eyebrow,.atl-page .fs-on-dark .fs-eyebrow{color:var(--atl-red)}
+.atl-glance{gap:2px;margin-top:clamp(1.75rem,3vw,2.5rem)}
+.atl-glance-item{padding:clamp(1.5rem,2.5vw,2rem) clamp(1.25rem,2vw,1.75rem)}
+.atl-glance-item:nth-child(-n+2) .atl-glance-value{color:var(--atl-red-soft)}
+.atl-capability-grid,.atl-application-grid,.atl-why-grid{gap:clamp(1.25rem,1.7vw,1.5rem);margin-top:clamp(1.75rem,3vw,2.5rem);grid-auto-rows:1fr}
+.atl-capability-card,.atl-application-card,.atl-why-card{height:100%;padding:clamp(1.25rem,2vw,1.5rem);display:flex;flex-direction:column}
+.atl-capability-card::before,.atl-application-card::before,.atl-why-card::before{width:42px;height:4px}
+.atl-card-index{margin-bottom:var(--sp-4);color:var(--atl-red)}
+.atl-capability-card h3,.atl-application-card h3,.atl-why-card h3{color:var(--atl-blue);margin:0}
+.atl-capability-card p,.atl-application-card p,.atl-why-card p{margin-top:var(--sp-4);font-size:.95rem;line-height:1.7}
+.atl-purpose .fs-split-even{margin-top:clamp(1.75rem,3vw,2.5rem);gap:clamp(1.5rem,2.5vw,2rem)}
+.atl-values{gap:clamp(1.25rem,1.7vw,1.5rem);margin-top:clamp(1.75rem,3vw,2.5rem)}
+.atl-value{padding:clamp(1.25rem,2vw,1.5rem)}
+.atl-value::before{width:10px;height:10px}
+.atl-history-copy{margin-top:clamp(1.5rem,2.5vw,2rem)}
 @media(max-width:960px){.atl-glance{grid-template-columns:repeat(2,minmax(0,1fr))}.atl-capability-grid,.atl-application-grid,.atl-why-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.atl-values{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:720px){.atl-page .co-logo-row img{height:58px}.atl-glance-item{padding:var(--sp-5) var(--sp-4)}.atl-glance-value{font-size:1.35rem}.atl-capability-grid,.atl-application-grid,.atl-why-grid{grid-template-columns:1fr;gap:var(--sp-4);margin-top:var(--sp-7)}.atl-capability-card,.atl-application-card,.atl-why-card{padding:var(--sp-6) var(--sp-5)}.atl-values{grid-template-columns:1fr;gap:var(--sp-3)}.atl-purpose .fs-split-even{margin-top:var(--sp-7)}}
+@media(max-width:720px){.atl-page .fs-section{padding-block:3.5rem}.atl-page .fs-section-sm{padding-block:3rem}.atl-glance-item{padding:1.25rem}.atl-glance-value{font-size:1.35rem}.atl-capability-grid,.atl-application-grid,.atl-why-grid{grid-template-columns:1fr;gap:1.125rem;margin-top:1.75rem}.atl-capability-card,.atl-application-card,.atl-why-card{padding:1.25rem}.atl-values{grid-template-columns:1fr;gap:1rem}.atl-value{padding:1.25rem}.atl-purpose .fs-split-even{margin-top:1.75rem}}
 @media(prefers-reduced-motion:reduce){.atl-capability-card,.atl-application-card,.atl-why-card{transition:none}.atl-capability-card:hover,.atl-application-card:hover,.atl-why-card:hover{transform:none}}
   </style>
   <script type="application/ld+json">
@@ -335,7 +360,6 @@ body.co-theme-automotive .nav-mobile{background:var(--atl-blue)!important;backgr
       <div class="hero-media" style="background-image:linear-gradient(100deg,rgba(1,28,48,.86) 0%,rgba(1,44,71,.62) 48%,rgba(1,35,56,.36) 100%),url('assets/images/atl/tanker-1.jpg');background-position:center" aria-hidden="true"></div>
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="container">
-        <div class="co-logo-row" aria-label="ATL Assembly Tech Limited"><img src="assets/images/logos/companies/assembly-tech-limited-logo.webp" alt="ATL Assembly Tech Limited"></div>
         <h1 class="hero-title">Assembly Tech Limited</h1>
         <p class="hero-sub">Tankers &amp; Custom Trailers Engineered To Last</p>
         <p class="hero-sub">Aluminium trailers and durable fuel transportation solutions for East and Central Africa.</p>
