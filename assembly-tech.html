@@ -231,7 +231,7 @@ body.co-theme-automotive .nav-mobile{background:var(--atl-blue)!important;backgr
 .atl-content-image img{width:100%;height:100%;min-height:320px;max-height:420px;object-fit:cover;display:block}
 .atl-product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,24px)}
 .atl-product-card{border:1px solid var(--line-2);background:var(--surface);overflow:hidden;transition:border-color .2s ease}
-.atl-product-card:hover{border-color:var(--atl-red)}
+.atl-product-card:hover{border-color:var(--atl-red)}.atl-product-grid>:last-child:nth-child(3n+2){grid-column:2;justify-self:center}.atl-product-grid>:last-child:nth-child(3n+1){grid-column:1/3;justify-self:center;max-width:calc(33.333% - 16px)}
 .atl-product-card-img{height:clamp(180px,20vw,240px);overflow:hidden;background:var(--paper-2)}
 .atl-product-card-img img{width:100%;height:100%;object-fit:cover;display:block}
 .atl-product-card-body{padding:clamp(14px,1.5vw,20px)}
@@ -433,21 +433,25 @@ body.co-theme-automotive .nav-mobile{background:var(--atl-blue)!important;backgr
       </div>
     </section>
 
-    <section class="fs-section section-light" style="padding-top:0">
+    <section class="fs-section section-light">
       <div class="container">
-        <div class="fs-split-even" style="align-items:center">
-          <div class="atl-content-image" style="border-radius:6px"><img src="assets/images/atl/content/atl-tanker-avanco-fleet.webp" alt="White AVANCO aluminium fuel tanker fleet manufactured by ATL" loading="lazy" decoding="async" style="min-height:280px;max-height:380px"></div>
+        <div style="text-align:center;max-width:720px;margin:0 auto var(--sp-8)">
+          <div class="fs-marker" style="justify-content:center"><span class="fs-marker-no">03</span><span class="fs-eyebrow">Our Products</span></div>
+          <h2 class="fs-display">Built For The Road. Engineered For The Job.</h2>
+          <p class="fs-lede" style="margin:var(--sp-3) auto 0">ATL assembles a growing range of commercial vehicles and trailers designed to support transportation, logistics and specialized operating requirements across East and Central Africa.</p>
+        </div>
+
+        <!-- Featured product -->
+        <div class="fs-split-even" style="align-items:center;gap:clamp(32px,4vw,56px);margin-bottom:var(--sp-8)">
+          <div class="atl-content-image" style="border-radius:6px;overflow:hidden"><img src="assets/images/atl/content/atl-tanker-avanco-fleet.webp" alt="White AVANCO aluminium fuel tanker fleet manufactured by ATL" loading="lazy" decoding="async" style="min-height:240px;max-height:340px"></div>
           <div>
             <span class="atl-product-num">01</span>
             <h3 class="atl-product-title">Aluminium Fuel Tankers</h3>
             <p class="atl-product-desc">Lightweight aluminium tanker solutions designed for reliable fuel transportation, combining durability, payload efficiency and strong structural performance.</p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section class="fs-section" style="padding-top:0">
-      <div class="container">
+        <!-- Compact product grid -->
         <div class="atl-product-grid">
           <article class="atl-product-card">
             <div class="atl-product-card-img"><img src="assets/images/atl/content/atl-flatbed-red.webp" alt="Red ATL flatbed trailer" loading="lazy" decoding="async"></div>
@@ -516,7 +520,7 @@ body.co-theme-automotive .nav-mobile{background:var(--atl-blue)!important;backgr
             <h2 class="fs-display">From Aluminum Trailers Limited To Assembly Tech Limited</h2>
             <p class="atl-history-copy" style="text-align:left;margin-left:0">Established in 2019 as Aluminum Trailers Limited, the company rebranded as Assembly Tech Ltd in 2026 as part of its continued development and expansion of premium customized trailer solutions.</p>
           </div>
-          <div class="atl-content-image"><img src="assets/images/atl/content/atl-workers-welding.webp" alt="ATL workers welding tanker chassis in manufacturing facility" loading="lazy" decoding="async"></div>
+          <div class="atl-content-image" style="background:#fff;display:flex;align-items:center;justify-content:center;padding:24px"><img src="assets/images/atl/content/atl-aluminium-trailers-old-logo.webp" alt="ATL Aluminium Trailers Ltd — original company logo" loading="lazy" decoding="async" style="max-height:260px;width:auto;object-fit:contain"></div>
         </div>
       </div>
     </section>
