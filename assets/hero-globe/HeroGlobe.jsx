@@ -19,6 +19,7 @@ const POST_ROUTE_PAUSE_MS = 400;
 const NETWORK_HOLD_MS = 1500;
 const SHOWCASE_ROTATION_MS = 4600;
 const RESET_SETTLE_MS = 450;
+const ORIGIN_HOLD_MS = 500;
 const MARKER_ALTITUDE = 0.022;
 
 function easeInOutCubic(t) {
@@ -79,8 +80,8 @@ function getCachedMarkerEl(marker, isMobile) {
   const label = document.createElement('span');
   label.className = 'hero-globe-marker__label';
   label.textContent = marker.label;
-  const [ox, oy] = marker.labelOffset || [12, -14];
-  const fontSize = isMobile ? 9 : 10.5;
+  const [ox, oy] = (isMobile ? marker.mobileLabelOffset : marker.labelOffset) || [12, -14];
+  const fontSize = isMobile ? 10 : 10.5;
   label.style.cssText = [
     'position:absolute',
     `transform:translate(${ox}px,${oy}px)`,
@@ -145,6 +146,7 @@ export default function HeroGlobe({ panelEl, locations }) {
 
   /* ── Marker data: only revealed destinations ── */
   const [revealedMarkers, setRevealedMarkers] = useState([]);
+  const [originVisible, setOriginVisible] = useState(false);
 
   /* ── Animation lifecycle refs ── */
   const sequenceCancelledRef = useRef(false);
@@ -174,9 +176,9 @@ export default function HeroGlobe({ panelEl, locations }) {
   /* ── Combined marker data ── */
   const hubMarker = useMemo(() => allMarkers.find((m) => m.hub), [allMarkers]);
   const markersData = useMemo(() => {
-    const list = hubMarker ? [hubMarker] : [];
+    const list = originVisible && hubMarker ? [hubMarker] : [];
     return [...list, ...revealedMarkers];
-  }, [hubMarker, revealedMarkers]);
+  }, [hubMarker, originVisible, revealedMarkers]);
 
   /* ── Cleanup helpers ── */
   const clearTimers = useCallback(() => {
@@ -226,14 +228,16 @@ export default function HeroGlobe({ panelEl, locations }) {
     setActiveArc(null);
     activeDashRef.current = 0;
     setRevealedMarkers([]);
+    setOriginVisible(false);
 
     const restartAfterShowcase = () => {
       if (sequenceCancelledRef.current) return;
-      // Step 1: Clear all routes + destination labels
+      // Clear every country UI, including Tanzania, before the 360° showcase.
       setCompletedArcs([]);
       setActiveArc(null);
       activeDashRef.current = 0;
       setRevealedMarkers([]);
+      setOriginVisible(false);
       // Short pause after clear, then rotate
       scheduleTimer(() => {
         if (sequenceCancelledRef.current) return;
@@ -310,7 +314,9 @@ export default function HeroGlobe({ panelEl, locations }) {
     const introPov = globe.pointOfView();
     cancelCameraRef.current = animateCamera(globe, introPov, AFRICA_POV, CAMERA_INTRO_MS, () => {
       cancelCameraRef.current = null;
-      scheduleTimer(() => drawRoute(0), POST_INTRO_PAUSE_MS);
+      if (sequenceCancelledRef.current) return;
+      setOriginVisible(true);
+      scheduleTimer(() => drawRoute(0), ORIGIN_HOLD_MS + POST_INTRO_PAUSE_MS);
     });
   }, [allArcs, markerById, scheduleTimer]);
 
@@ -320,6 +326,7 @@ export default function HeroGlobe({ panelEl, locations }) {
       clearTimers();
       setCompletedArcs(allArcs.map((a) => ({ ...a, dashLength: 1 })));
       setActiveArc(null);
+      setOriginVisible(true);
       setRevealedMarkers(allMarkers.filter((m) => !m.hub));
       return undefined;
     }
@@ -344,6 +351,11 @@ export default function HeroGlobe({ panelEl, locations }) {
       cancelAnimationFrame(rafRef.current);
       rafRef.current = null;
     }
+    setCompletedArcs([]);
+    setActiveArc(null);
+    setRevealedMarkers([]);
+    setOriginVisible(false);
+    globeRef.current?.pointOfView(AFRICA_POV, 0);
     return undefined;
   }, [sectionVisible]);
 
