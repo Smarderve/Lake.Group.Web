@@ -894,14 +894,12 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .mm-cat.is-active {
   max-width: 132px !important;
 }
 
-/* Cross Country logo — new supplied logo with rounded corners. */
+/* Cross Country logo — canonical supplied logo with built-in rounded corners. */
 .site-nav[data-phase01-navbar] .nav-megamenu .mm-company img[src*="cross-country"] {
   width: 100% !important;
   height: 80px !important;
   max-width: 160px !important;
   object-fit: contain !important;
-  border-radius: 10px !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,.12) !important;
 }
 
 .site-nav[data-phase01-navbar] .lang-menu {

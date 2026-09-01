@@ -23,7 +23,7 @@ const logos = [
   'assets/images/logos/companies/lake-pipes.png',
   'assets/images/logos/companies/lake-premix-cement.png',
   'assets/images/logos/companies/gulf-aggregates-blue.png',
-  'assets/images/logos/companies/cross-country-developer-limited-logo.webp?v=62',
+  'assets/images/logos/companies/cross-country-developer-logo.webp',
   'assets/images/logos/companies/Ocean-Galleria-logo.webp',
 ];
 
