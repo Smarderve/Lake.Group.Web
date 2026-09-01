@@ -217,6 +217,9 @@ body.co-theme-automotive .nav-mobile{background:var(--atl-blue)!important;backgr
 .atl-value h3{font-family:var(--font-display);font-size:1rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--white);margin:8px 0 14px}
 .atl-value p{margin:0;color:rgba(255,255,255,.78);font-size:.92rem;font-weight:500;line-height:1.6}
 .atl-history-copy{max-width:760px;margin:var(--sp-7) auto 0;text-align:center;font-size:var(--fs-lede);line-height:1.7}
+.atl-logo-transition{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:center;justify-items:center;gap:clamp(16px,3vw,40px)}
+.atl-logo-transition img{width:100%;max-width:260px;height:auto;object-fit:contain}
+@media(max-width:600px){.atl-logo-transition{grid-template-columns:1fr;gap:24px}.atl-logo-transition img{max-width:220px;margin:0 auto}}
 .atl-page .section-light .fs-display{color:var(--atl-blue)}
 .atl-page .section-light .fs-eyebrow{color:var(--atl-red);font-weight:800}
 .atl-page .fs-on-dark .fs-eyebrow{color:var(--atl-red);font-weight:800}
@@ -520,7 +523,7 @@ body.co-theme-automotive .nav-mobile{background:var(--atl-blue)!important;backgr
             <h2 class="fs-display">From Aluminum Trailers Limited To Assembly Tech Limited</h2>
             <p class="atl-history-copy" style="text-align:left;margin-left:0">Established in 2019 as Aluminum Trailers Limited, the company rebranded as Assembly Tech Ltd in 2026 as part of its continued development and expansion of premium customized trailer solutions.</p>
           </div>
-          <div class="atl-content-image" style="background:transparent;display:flex;align-items:center;justify-content:center;min-height:auto"><img src="assets/images/atl/content/atl-aluminium-trailers-old-logo.webp" alt="ATL Aluminium Trailers Ltd — original company logo" loading="lazy" decoding="async" style="width:100%;max-width:480px;height:auto;min-height:0;max-height:none;object-fit:contain"></div>
+          <div class="atl-logo-transition"><div><img src="assets/images/atl/content/atl-aluminium-trailers-old-logo.webp" alt="ATL Aluminium Trailers Ltd — original company logo" loading="lazy" decoding="async"></div><div><img src="assets/images/atl/content/atl-assembly-tech-new-logo.webp" alt="ATL Assembly Tech Limited — current company logo" loading="lazy" decoding="async"></div></div>
         </div>
       </div>
     </section>
