@@ -51,7 +51,7 @@
 .stat-grid2{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-6)}
 .stat-tile2{position:relative;padding:var(--sp-4) 0 var(--sp-3)}
 .stat-tile2::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ink-line)}
-.stat-tile2::before{content:'';position:absolute;left:0;bottom:-3.5px;width:8px;height:8px;background:var(--gold);z-index:1}
+.stat-tile2::before{content:'';position:absolute;left:0;bottom:-3.5px;width:8px;height:8px;background:var(--atl-red);z-index:1}
 .stat-tile2 .stat-no2{font-family:var(--font-display);font-weight:700;font-size:clamp(2.2rem,4vw,3.2rem);line-height:.95;color:var(--white);display:block}
 .stat-tile2 .stat-no2.gold{color:var(--gold)}
 .stat-tile2 p{font-size:var(--fs-micro);font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute);margin-top:var(--sp-2)}
@@ -60,7 +60,7 @@
 @media(max-width:960px){.val-mini-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.val-mini-grid{grid-template-columns:1fr}}
 .val-mini-tile{position:relative;text-align:center;padding:var(--sp-6) var(--sp-4);border:1px solid var(--ink-line-2);background:rgba(255,255,255,0.02)}
-.val-mini-tile::before{content:'';position:absolute;top:-1px;left:-1px;width:8px;height:8px;background:var(--gold)}
+.val-mini-tile::before{content:'';position:absolute;top:-1px;left:-1px;width:8px;height:8px;background:var(--atl-red)}
 .val-mini-tile h4{font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;color:var(--white);margin-bottom:6px}
 .val-mini-tile p{font-size:.82rem;color:var(--ink-mute);margin:0;line-height:1.5}
 
@@ -182,30 +182,45 @@ body.co-theme-agro .page-hero .hero-media {
   }
 }
 
-/* ATL composition: a compact industrial editorial layer using the existing
-   Lake Group blue, yellow and shared company-page primitives. */
-body.co-theme-automotive{--color-navbar-bg:#013f5c;--color-navbar-border:#ffde00;--color-navbar-bg-scrolled:rgba(1,63,92,.96)}
-body.co-theme-automotive .nav-mobile{background:#013f5c!important;background-color:#013f5c!important;border-bottom-color:#ffde00!important}
+/* ATL composition: a compact industrial editorial layer using ATL's own
+   blue/red brand identity — blue dominant, red as controlled accent. */
+:root{
+  --atl-blue:#013f5c;
+  --atl-blue-deep:#012a42;
+  --atl-red:#c41230;
+  --atl-red-soft:#e8122f;
+}
+body.co-theme-automotive{--color-navbar-bg:var(--atl-blue);--color-navbar-border:var(--atl-red);--color-navbar-bg-scrolled:rgba(1,63,92,.96)}
+body.co-theme-automotive .nav-mobile{background:var(--atl-blue)!important;background-color:var(--atl-blue)!important;border-bottom-color:var(--atl-red)!important}
 .atl-page .co-logo-row{min-height:0;margin:0 0 var(--sp-4)}
 .atl-page .co-logo-row img{height:78px;max-width:min(260px,75vw);filter:drop-shadow(0 4px 16px rgba(0,0,0,.28))}
 .atl-glance{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--ink-line);border:1px solid var(--ink-line);margin-top:var(--sp-10)}
 .atl-glance-item{min-width:0;background:var(--ink);padding:var(--sp-7) var(--sp-5)}
 .atl-glance-value{display:block;font-family:var(--font-display);font-size:clamp(1.45rem,2.7vw,2.35rem);font-weight:700;line-height:1.05;color:var(--white);overflow-wrap:anywhere}
-.atl-glance-label{display:block;margin-top:var(--sp-3);font-size:var(--fs-micro);font-weight:700;letter-spacing:.12em;line-height:1.45;text-transform:uppercase;color:var(--gold)}
+.atl-glance-label{display:block;margin-top:var(--sp-3);font-size:var(--fs-micro);font-weight:700;letter-spacing:.12em;line-height:1.45;text-transform:uppercase;color:var(--atl-red)}
 .atl-capability-grid,.atl-application-grid,.atl-why-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-5);margin-top:var(--sp-10)}
 .atl-capability-card,.atl-application-card,.atl-why-card{position:relative;min-width:0;padding:var(--sp-7) var(--sp-6) var(--sp-6);border:1px solid var(--line-2);background:var(--surface);transition:border-color var(--dur-2) ease,box-shadow var(--dur-2) ease,transform var(--dur-2) var(--ease-out)}
-.atl-capability-card::before,.atl-application-card::before,.atl-why-card::before{content:'';position:absolute;top:0;left:0;width:34px;height:3px;background:var(--gold)}
-.atl-capability-card:hover,.atl-application-card:hover,.atl-why-card:hover{border-color:var(--line);box-shadow:var(--shadow-2);transform:translateY(-4px)}
-.atl-card-index{display:block;margin-bottom:var(--sp-5);font-size:var(--fs-micro);font-weight:700;letter-spacing:.16em;color:var(--blue-deep)}
+.atl-capability-card::before,.atl-application-card::before,.atl-why-card::before{content:'';position:absolute;top:0;left:0;width:34px;height:3px;background:var(--atl-red)}
+.atl-capability-card:hover,.atl-application-card:hover,.atl-why-card:hover{border-color:var(--atl-red);box-shadow:0 8px 24px rgba(1,63,92,.12);transform:translateY(-4px)}
+.atl-capability-card:hover::before,.atl-application-card:hover::before,.atl-why-card:hover::before{width:100%;transition:width .35s ease}
+.atl-card-index{display:block;margin-bottom:var(--sp-5);font-size:var(--fs-micro);font-weight:700;letter-spacing:.16em;color:var(--atl-blue)}
 .atl-capability-card h3,.atl-application-card h3,.atl-why-card h3{font-family:var(--font-display);font-size:1.1rem;font-weight:700;letter-spacing:.03em;line-height:1.15;text-transform:uppercase;color:var(--text)}
 .atl-capability-card p,.atl-application-card p,.atl-why-card p{margin-top:var(--sp-3);font-size:.94rem;line-height:1.65;color:var(--mute)}
 .atl-purpose .fs-split-even{margin-top:var(--sp-9)}
-.atl-purpose .fs-split-even>div{border-left:2px solid var(--gold);padding-left:var(--sp-5)}
+.atl-purpose .fs-split-even>div{border-left:2px solid var(--atl-red);padding-left:var(--sp-5)}
 .atl-purpose .fs-split-even h3{font-family:var(--font-display);font-size:1.4rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--white);margin-bottom:var(--sp-4)}
 .atl-values{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-4);margin-top:var(--sp-10)}
-.atl-value{border:1px solid var(--ink-line-2);padding:var(--sp-5);background:rgba(255,255,255,.025)}
-.atl-value h3{font-family:var(--font-display);font-size:1rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--white)}
+.atl-value{border:1px solid var(--ink-line-2);padding:var(--sp-5);background:rgba(255,255,255,.025);position:relative}
+.atl-value::before{content:'';position:absolute;top:0;left:0;width:8px;height:8px;background:var(--atl-red)}
+.atl-value h3{font-family:var(--font-display);font-size:1rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--white);margin-top:8px}
 .atl-history-copy{max-width:760px;margin:var(--sp-7) auto 0;text-align:center;font-size:var(--fs-lede);line-height:1.7}
+.atl-page .section-light .fs-display{color:var(--atl-blue)}
+.atl-page .section-light .fs-eyebrow{color:var(--atl-red)}
+.atl-page .fs-on-dark .fs-eyebrow{color:var(--atl-red)}
+.atl-page .fs-section .fs-marker-no{color:var(--atl-red)}
+.atl-page .section-light .fs-marker-no{color:var(--atl-blue)}
+.atl-page .hero-title{position:relative;padding-bottom:var(--sp-5)}
+.atl-page .hero-title::after{content:'';position:absolute;bottom:0;left:0;width:48px;height:3px;background:var(--atl-red)}
 @media(max-width:960px){.atl-glance{grid-template-columns:repeat(2,minmax(0,1fr))}.atl-capability-grid,.atl-application-grid,.atl-why-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.atl-values{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:720px){.atl-page .co-logo-row img{height:58px}.atl-glance-item{padding:var(--sp-5) var(--sp-4)}.atl-glance-value{font-size:1.35rem}.atl-capability-grid,.atl-application-grid,.atl-why-grid{grid-template-columns:1fr;gap:var(--sp-4);margin-top:var(--sp-7)}.atl-capability-card,.atl-application-card,.atl-why-card{padding:var(--sp-6) var(--sp-5)}.atl-values{grid-template-columns:1fr;gap:var(--sp-3)}.atl-purpose .fs-split-even{margin-top:var(--sp-7)}}
 @media(prefers-reduced-motion:reduce){.atl-capability-card,.atl-application-card,.atl-why-card{transition:none}.atl-capability-card:hover,.atl-application-card:hover,.atl-why-card:hover{transform:none}}
