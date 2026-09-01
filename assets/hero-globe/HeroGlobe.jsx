@@ -19,7 +19,6 @@ const POST_ROUTE_PAUSE_MS = 400;
 const NETWORK_HOLD_MS = 1500;
 const SHOWCASE_ROTATION_MS = 4600;
 const RESET_SETTLE_MS = 450;
-const MOBILE_AFRICA_POV = { lat: -4, lng: 33, altitude: 1.4 };
 const MARKER_ALTITUDE = 0.022;
 
 function easeInOutCubic(t) {
@@ -60,20 +59,9 @@ function useReducedMotion() {
 
 /** Cache marker DOM elements to avoid recreating on every render. */
 const markerCache = new Map();
-function getCachedMarkerEl(marker, isMobile, containerWidth) {
+function getCachedMarkerEl(marker, isMobile) {
   const key = marker.id + (isMobile ? '_m' : '_d');
   if (markerCache.has(key)) return markerCache.get(key);
-
-  const pinSize = isMobile ? 12 : 18;
-  const fontSize = isMobile ? 9 : 10.5;
-
-  /* Scale label offsets for mobile: the marker geo-projected position
-     doesn't change, but on a smaller globe we need smaller pixel offsets
-     so labels don't pile up. */
-  const rawOffset = marker.labelOffset || [12, -14];
-  const scale = isMobile ? 0.6 : 1;
-  const ox = Math.round(rawOffset[0] * scale);
-  const oy = Math.round(rawOffset[1] * scale);
 
   const root = document.createElement('div');
   root.className = 'hero-globe-marker';
@@ -83,14 +71,16 @@ function getCachedMarkerEl(marker, isMobile, containerWidth) {
   pin.className = 'hero-globe-marker__pin';
   pin.src = MARKER_ICON;
   pin.alt = '';
-  pin.width = pinSize;
-  pin.height = pinSize;
+  pin.width = isMobile ? 15 : 18;
+  pin.height = isMobile ? 15 : 18;
   pin.decoding = 'async';
   pin.style.cssText = 'position:absolute;left:0;top:0;transform:translate(-50%,-100%);object-fit:contain;';
 
   const label = document.createElement('span');
   label.className = 'hero-globe-marker__label';
   label.textContent = marker.label;
+  const [ox, oy] = marker.labelOffset || [12, -14];
+  const fontSize = isMobile ? 9 : 10.5;
   label.style.cssText = [
     'position:absolute',
     `transform:translate(${ox}px,${oy}px)`,
@@ -171,17 +161,15 @@ export default function HeroGlobe({ panelEl, locations }) {
   );
 
   const isMobile = w < 600;
-  const africaPov = isMobile ? MOBILE_AFRICA_POV : AFRICA_POV;
 
   /* ── Combined arc data for the Globe component ── */
   const arcsData = useMemo(() => {
-    const completedOpacity = isMobile ? 0.35 : 1;
-    const arcs = completedArcs.map((a) => ({ ...a, dashLength: 1, _completedOpacity: completedOpacity }));
+    const arcs = completedArcs.map((a) => ({ ...a, dashLength: 1 }));
     if (activeArc) {
-      arcs.push({ ...activeArc, dashLength: activeDashRef.current, _completedOpacity: 1 });
+      arcs.push({ ...activeArc, dashLength: activeDashRef.current });
     }
     return arcs;
-  }, [completedArcs, activeArc, isMobile]);
+  }, [completedArcs, activeArc]);
 
   /* ── Combined marker data ── */
   const hubMarker = useMemo(() => allMarkers.find((m) => m.hub), [allMarkers]);
@@ -214,8 +202,8 @@ export default function HeroGlobe({ panelEl, locations }) {
   }, []);
 
   const markerElement = useCallback(
-    (marker) => getCachedMarkerEl(marker, isMobile, w),
-    [isMobile, w],
+    (marker) => getCachedMarkerEl(marker, isMobile),
+    [isMobile],
   );
 
   /* ══════════════════════════════════════════════════════════════════
@@ -251,14 +239,14 @@ export default function HeroGlobe({ panelEl, locations }) {
         if (sequenceCancelledRef.current) return;
         const from = globe.pointOfView();
         const showcaseTarget = {
-          lat: africaPov.lat,
-          lng: africaPov.lng + 360,
-          altitude: africaPov.altitude,
+          lat: AFRICA_POV.lat,
+          lng: AFRICA_POV.lng + 360,
+          altitude: AFRICA_POV.altitude,
         };
         cancelCameraRef.current = animateCamera(globe, from, showcaseTarget, SHOWCASE_ROTATION_MS, () => {
           cancelCameraRef.current = null;
           if (sequenceCancelledRef.current) return;
-          globe.pointOfView(africaPov, 0);
+          globe.pointOfView(AFRICA_POV, 0);
           scheduleTimer(runSequence, RESET_SETTLE_MS);
         });
       }, 500);
@@ -320,16 +308,15 @@ export default function HeroGlobe({ panelEl, locations }) {
 
     // Camera intro from Pacific to Africa
     const introPov = globe.pointOfView();
-    cancelCameraRef.current = animateCamera(globe, introPov, africaPov, CAMERA_INTRO_MS, () => {
+    cancelCameraRef.current = animateCamera(globe, introPov, AFRICA_POV, CAMERA_INTRO_MS, () => {
       cancelCameraRef.current = null;
       scheduleTimer(() => drawRoute(0), POST_INTRO_PAUSE_MS);
     });
-  }, [allArcs, markerById, scheduleTimer, africaPov]);
+  }, [allArcs, markerById, scheduleTimer]);
 
   /* ── Start/restart on visibility ── */
   useEffect(() => {
     if (reduced) {
-      globeRef.current?.pointOfView(africaPov, 0);
       clearTimers();
       setCompletedArcs(allArcs.map((a) => ({ ...a, dashLength: 1 })));
       setActiveArc(null);
@@ -376,16 +363,13 @@ export default function HeroGlobe({ panelEl, locations }) {
   /* ── Cap devicePixelRatio ── */
   useEffect(() => {
     const renderer = globeRef.current?.renderer?.();
-    if (renderer) {
-      const dprCap = isMobile ? 1.25 : 1.5;
-      renderer.setPixelRatio(Math.min(dprCap, window.devicePixelRatio));
-    }
-  }, [globeReady, h, w, isMobile]);
+    if (renderer) renderer.setPixelRatio(Math.min(1.5, window.devicePixelRatio));
+  }, [globeReady, h, w]);
 
   const onGlobeReady = useCallback(() => {
     const globe = globeRef.current;
     if (!globe) return;
-    globe.pointOfView(reduced ? africaPov : INITIAL_POV, 0);
+    globe.pointOfView(reduced ? AFRICA_POV : INITIAL_POV, 0);
     const controls = globe.controls();
     controls.autoRotate = false;
     controls.autoRotateSpeed = 0;
@@ -424,12 +408,9 @@ export default function HeroGlobe({ panelEl, locations }) {
       animateIn={false}
       onGlobeReady={onGlobeReady}
       arcsData={arcsData}
-      arcColor={(arc) => {
-        const o = arc._completedOpacity ?? 1;
-        return o < 1 ? `rgba(255,242,0,${o})` : ROUTE_YELLOW;
-      }}
+      arcColor={() => ROUTE_YELLOW}
       arcAltitude="altitude"
-      arcStroke={isMobile ? 0.6 : 0.85}
+      arcStroke={0.85}
       arcDashLength="dashLength"
       arcDashGap={0.05}
       arcDashAnimateTime={0}
