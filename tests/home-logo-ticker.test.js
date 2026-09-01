@@ -159,7 +159,7 @@ async function inspectTicker(page) {
         AILL: 'assets/images/logos/companies/aill.png?v=58',
         ATL: 'assets/images/logos/companies/assembly-tech-limited-logo.webp?v=1',
         'Lake Agro': 'assets/images/logos/companies/lake-agro-blue.png?v=70',
-        'Cross Country Developer Limited': 'assets/images/logos/companies/cross-country-developer-logo.webp',
+        'Cross Country Developer Limited': 'assets/images/logos/companies/cross-country-developer-transparent.webp',
       };
       for (const [alt, src] of Object.entries(independentBrands)) {
         const logo = before.logos.find((candidate) => candidate.alt === alt);
