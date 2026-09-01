@@ -24,6 +24,7 @@ const logos = [
   'assets/images/logos/companies/lake-premix-cement.png',
   'assets/images/logos/companies/gulf-aggregates-blue.png',
   'assets/images/logos/companies/cross-country-developer-transparent.webp',
+  'assets/images/logos/companies/nexdrive-motors-logo.webp',
   'assets/images/logos/companies/Ocean-Galleria-logo.webp',
 ];
 
