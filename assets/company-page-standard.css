@@ -96,8 +96,94 @@ html.fs-motion body.company-standard .fx-img {
 }
 
 @media (max-width: 760px) {
+  body.company-standard {
+    --company-mobile-gutter: clamp(16px, 5vw, 24px);
+  }
+
   body.company-standard .fs-section {
     padding-block: clamp(48px, 12vw, 72px);
+  }
+
+  /* Keep each company section on the same mathematical content centre. The
+     base pages were authored at different times, so normalising the shared
+     container here prevents nested cards and header groups from inheriting
+     asymmetric desktop padding on phones. */
+  body.company-standard .fs-section > .container {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1280px;
+    padding-inline: var(--company-mobile-gutter);
+  }
+
+  body.company-standard .fs-marker,
+  body.company-standard .fs-display,
+  body.company-standard .fs-lede {
+    width: 100%;
+    box-sizing: border-box;
+    margin-inline: auto;
+  }
+
+  body.company-standard .fs-marker {
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Shared split, card and grid primitives must never retain intrinsic
+     desktop widths inside a narrow company-page container. */
+  body.company-standard .fs-split,
+  body.company-standard .fs-split-even,
+  body.company-standard .fs-split-rev,
+  body.company-standard .stat-grid2,
+  body.company-standard .val-mini-grid,
+  body.company-standard .svc-grid,
+  body.company-standard .prod-catalog,
+  body.company-standard .co-gal {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  body.company-standard .fs-split > *,
+  body.company-standard .fs-split-even > *,
+  body.company-standard .fs-split-rev > *,
+  body.company-standard .stat-panel2,
+  body.company-standard .stat-tile2,
+  body.company-standard .val-mini-tile,
+  body.company-standard .fs-card,
+  body.company-standard .svc-card,
+  body.company-standard .prod-catalog-card {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  body.company-standard .stat-panel2 {
+    width: 100%;
+    margin-inline: auto;
+    padding: clamp(20px, 6vw, 28px);
+  }
+
+  body.company-standard .stat-grid2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  body.company-standard .stat-tile2 {
+    padding: 16px 0 14px;
+  }
+
+  body.company-standard .stat-tile2 .stat-no2 {
+    font-size: clamp(1.5rem, 8.5vw, 2.2rem);
+    overflow-wrap: normal;
+  }
+
+  body.company-standard .stat-tile2 p {
+    max-width: 100%;
+    overflow-wrap: normal;
+    word-break: normal;
+    letter-spacing: .14em;
+    line-height: 1.45;
   }
 
   body.company-standard .fs-display {
@@ -112,5 +198,18 @@ html.fs-motion body.company-standard .fx-img {
   body.company-standard .fs-section p:not(.footer-motto) {
     font-size: .98rem;
     line-height: 1.62;
+  }
+}
+
+@media (max-width: 360px) {
+  /* Preserve readable stat labels instead of compressing a desktop-derived
+     two-column grid below its usable text width. */
+  body.company-standard .stat-grid2 {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  body.company-standard .stat-panel2 {
+    padding: 20px;
   }
 }
