@@ -82,7 +82,7 @@ export const CONTENT_SEED = {
       logo: 'assets/images/logos/companies/Ocean-Galleria-logo.webp', website: 'https://www.lakeoilgroup.com/ocean-galleria.html' },
     { slug: 'lake-agro', name: 'Lake Agro', categorySlug: 'agro',
       description: 'Agribusiness plantations and integrated agro-parks — creating customers and food for life across Africa.',
-      logo: 'assets/images/logos/companies/lake-agro.png', website: 'https://www.lakeoilgroup.com/lake-agro.html' },
+      logo: 'assets/images/logos/companies/lake-agro-new.webp', website: 'https://www.lakeoilgroup.com/lake-agro.html' },
     // Automotive sector — placeholder records only; no company data exists yet.
     // Logos use the shared default placeholder until real marks are provided.
     { slug: 'assembly-tech', name: 'Assembly Tech Limited', categorySlug: 'automotive',

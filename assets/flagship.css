@@ -731,7 +731,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
    AFICD (blue), ACFS (gray) and Cross Country (navy) read too dark against the
    dark megamenu — the white chip keeps them visible, same as ATL / Lake Agro.
    Gulf Aggregates + Ocean Galleria stay transparent (light content on dark). */
-.mm-company img[src*="lake-agro.png"],
+.mm-company img[src*="lake-agro-new.webp"],
 .mm-company img[src*="atl.png"],
 .mm-company img[src*="aficd.png"],
 .mm-company img[src*="acfs.png"] {
@@ -748,7 +748,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   object-fit: contain;
   overflow: visible;
 }
-.mm-company img[src*="lake-agro.png"] {
+.mm-company img[src*="lake-agro-new.webp"] {
   height: 64px;
   max-width: 132px;
 }
@@ -791,7 +791,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
     max-height: 52px;
     padding: 6px 8px;
   }
-  .mm-company img[src*="lake-agro.png"] {
+  .mm-company img[src*="lake-agro-new.webp"] {
     height: 52px;
     max-width: 116px;
     padding: 6px 8px;

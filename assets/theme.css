@@ -650,7 +650,7 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
 /* Light chip behind navy/low-contrast logos (do not filter/recolor PNGs).
    AFICD (blue), ACFS (gray) and Cross Country (navy) read too dark against the
    dark megamenu — the white chip keeps them visible, same as ATL / Lake Agro. */
-.mm-company img[src*="lake-agro.png"],
+.mm-company img[src*="lake-agro-new.webp"],
 .mm-company img[src*="atl.png"],
 .mm-company img[src*="aficd.png"],
 .mm-company img[src*="acfs.png"] {
@@ -667,20 +667,11 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
   object-fit: contain;
   overflow: visible;
 }
-.mm-company img[src*="lake-agro.png"] {
+.mm-company img[src*="lake-agro-new.webp"] {
   height: 64px;
   max-width: 132px;
 }
 /* Tall stacked mark — taller than peers so visual weight matches Ocean Galleria. */
-.mm-company img[src*="cross-country-developer-limited-logo.webp"] {
-  height: 84px;
-  max-width: 160px;
-  max-height: 84px;
-  background: #fff;
-  border-radius: 20px;
-  padding: 0;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.14);
-}
 .mm-company img[src*="Ocean-Galleria-logo.webp"] {
   height: 78px;
   max-width: 150px;
@@ -709,17 +700,10 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
     max-height: 52px;
     padding: 6px 8px;
   }
-  .mm-company img[src*="lake-agro.png"] {
+  .mm-company img[src*="lake-agro-new.webp"] {
     height: 52px;
     max-width: 116px;
     padding: 6px 8px;
-  }
-  .mm-company img[src*="cross-country-developer-limited-logo.webp"] {
-    height: 74px;
-    max-width: 140px;
-    max-height: 74px;
-    padding: 0;
-    border-radius: 18px;
   }
   .mm-company img[src*="Ocean-Galleria-logo.webp"] {
     height: 66px;
