@@ -71,7 +71,9 @@ body.about .site-nav[data-phase01-navbar].nav-scrolled {
 }
 
 .site-nav[data-phase01-navbar] .nav-logo--company img {
-  max-width: 168px !important;
+  height: 54px !important;
+  max-height: 54px !important;
+  max-width: 200px !important;
 }
 
 body.co-theme-agro .site-nav[data-phase01-navbar] .nav-logo--company,
@@ -82,7 +84,7 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .nav-logo--company img {
 }
 
 body.co-theme-agro .site-nav[data-phase01-navbar] .nav-logo--company img {
-  height: 42px !important;
+  height: 54px !important;
 }
 
 .site-nav[data-phase01-navbar] .nav-logo-wordmark {
