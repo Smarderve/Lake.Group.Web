@@ -200,8 +200,8 @@ body.co-theme-automotive .nav-mobile{background:var(--atl-blue)!important;backgr
 .atl-glance-item{min-width:0;background:var(--ink);padding:var(--sp-6) var(--sp-5)}
 .atl-glance-value{display:block;font-family:var(--font-display);font-size:clamp(1.35rem,2.5vw,2.1rem);font-weight:700;line-height:1.05;color:var(--white);overflow-wrap:anywhere}
 .atl-glance-label{display:block;margin-top:var(--sp-2);font-size:var(--fs-micro);font-weight:800;letter-spacing:.1em;line-height:1.45;text-transform:uppercase;color:var(--atl-red);opacity:1}
-.atl-capability-grid,.atl-application-grid,.atl-why-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-5);margin-top:var(--sp-10)}
-.atl-capability-card,.atl-application-card,.atl-why-card{position:relative;min-width:0;padding:var(--sp-7) var(--sp-6) var(--sp-6);border:1px solid var(--line-2);background:var(--surface);transition:border-color var(--dur-2) ease,box-shadow var(--dur-2) ease,transform var(--dur-2) var(--ease-out)}
+.atl-capability-grid,.atl-application-grid,.atl-why-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-5);margin-top:var(--sp-10)}
+.atl-capability-card,.atl-application-card,.atl-why-card{position:relative;min-width:0;padding:var(--sp-7) var(--sp-6) var(--sp-6);border:1px solid var(--line-2);background:var(--surface);transition:border-color var(--dur-2) ease,box-shadow var(--dur-2) ease,transform var(--dur-2) var(--ease-out);white-space:normal;overflow-wrap:break-word}
 .atl-capability-card::before,.atl-application-card::before,.atl-why-card::before{content:'';position:absolute;top:0;left:0;width:34px;height:3px;background:var(--atl-red)}
 .atl-capability-card:hover,.atl-application-card:hover,.atl-why-card:hover{border-color:var(--atl-red);box-shadow:0 8px 24px rgba(1,63,92,.12);transform:translateY(-4px)}
 .atl-capability-card:hover::before,.atl-application-card:hover::before,.atl-why-card:hover::before{width:100%;transition:width .35s ease}
@@ -242,8 +242,8 @@ body.co-theme-automotive .nav-mobile{background:var(--atl-blue)!important;backgr
 .atl-glance{gap:2px;margin-top:clamp(1.75rem,3vw,2.5rem)}
 .atl-glance-item{padding:clamp(1.5rem,2.5vw,2rem) clamp(1.25rem,2vw,1.75rem)}
 .atl-glance-item:nth-child(-n+2) .atl-glance-value{color:var(--atl-red-soft)}
-.atl-capability-grid,.atl-application-grid,.atl-why-grid{gap:clamp(1.25rem,1.7vw,1.5rem);margin-top:clamp(1.75rem,3vw,2.5rem);grid-auto-rows:1fr}
-.atl-capability-card,.atl-application-card,.atl-why-card{height:100%;padding:clamp(1.25rem,2vw,1.5rem);display:flex;flex-direction:column}
+.atl-capability-grid,.atl-application-grid,.atl-why-grid{gap:clamp(1.25rem,1.7vw,1.5rem);margin-top:clamp(1.75rem,3vw,2.5rem)}
+.atl-capability-card,.atl-application-card,.atl-why-card{height:auto;padding:clamp(1.25rem,2vw,1.5rem)}
 .atl-capability-card::before,.atl-application-card::before,.atl-why-card::before{width:42px;height:4px}
 .atl-card-index{margin-bottom:var(--sp-4);color:var(--atl-red)}
 .atl-capability-card h3,.atl-application-card h3,.atl-why-card h3{color:var(--atl-blue);margin:0}
@@ -253,8 +253,8 @@ body.co-theme-automotive .nav-mobile{background:var(--atl-blue)!important;backgr
 .atl-value{padding:clamp(1.5rem,2vw,1.75rem)}
 .atl-value::before{width:10px;height:10px}
 .atl-history-copy{margin-top:clamp(1.5rem,2.5vw,2rem)}
-@media(max-width:960px){.atl-intro-right{justify-content:flex-start;margin-top:var(--sp-8)}.atl-glance{width:100%}.atl-capability-grid,.atl-application-grid,.atl-why-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.atl-values{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:720px){.atl-page .fs-section{padding-block:3.5rem}.atl-intro-left{text-align:center}.atl-intro-right{justify-content:center;margin-top:var(--sp-6)}.atl-glance{grid-template-columns:1fr}.atl-glance-item{padding:1.25rem}.atl-glance-value{font-size:1.35rem}.atl-capability-grid,.atl-application-grid,.atl-why-grid{grid-template-columns:1fr;gap:1.125rem;margin-top:1.75rem}.atl-capability-card,.atl-application-card,.atl-why-card{padding:1.25rem}.atl-values{grid-template-columns:1fr;gap:1rem}.atl-value{padding:1.25rem}.atl-purpose .fs-split-even{margin-top:1.75rem}}
+@media(max-width:960px){.atl-intro-right{justify-content:flex-start;margin-top:var(--sp-8)}.atl-glance{width:100%}.atl-values{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.atl-page .fs-section{padding-block:3.5rem}.atl-intro-left{text-align:center}.atl-intro-right{justify-content:center;margin-top:var(--sp-6)}.atl-glance{grid-template-columns:1fr}.atl-glance-item{padding:1.25rem}.atl-glance-value{font-size:1.35rem}.atl-capability-grid,.atl-application-grid,.atl-why-grid{grid-template-columns:1fr;gap:1.125rem;margin-top:1.75rem}.atl-capability-card,.atl-application-card,.atl-why-card{padding:1.25rem;font-size:.95rem}.atl-values{grid-template-columns:1fr;gap:1rem}.atl-value{padding:1.25rem}.atl-purpose .fs-split-even{margin-top:1.75rem}}
 @media(prefers-reduced-motion:reduce){.atl-capability-card,.atl-application-card,.atl-why-card{transition:none}.atl-capability-card:hover,.atl-application-card:hover,.atl-why-card:hover{transform:none}}
   </style>
   <script type="application/ld+json">
