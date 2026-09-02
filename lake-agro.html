@@ -44,9 +44,9 @@
 .val-mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-4);margin-top:var(--sp-8)}
 @media(max-width:960px){.val-mini-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.val-mini-grid{grid-template-columns:1fr}}
-.agro-gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.agro-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .agro-gallery-grid figure{margin:0;overflow:hidden;border-radius:14px;background:#0b3e20}
-.agro-gallery-grid img{display:block;width:100%;aspect-ratio:3/2;object-fit:contain;filter:none;transform:translateZ(0);background:#edf4ec}
+.agro-gallery-grid img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;filter:none;transform:translateZ(0)}
 .agro-gallery-grid figcaption{padding:11px 13px;color:#fff;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
 @media(max-width:900px){.agro-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:520px){.agro-gallery-grid{grid-template-columns:1fr}}
@@ -75,17 +75,17 @@
 .co-gal-label{margin:var(--sp-6) 0 var(--sp-3);font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--color-agro-green-deep,#004b1e)}
 /* Our Projects — photo-dominant tiles (photo fills the tile, green overlay caption) */
 .agro-prj-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;width:100%}
-.agro-prj{position:relative;border-radius:10px;overflow:hidden;background:#004b1e;display:block;aspect-ratio:3/4;transition:transform .35s ease,box-shadow .35s ease}
+.agro-prj{position:relative;border-radius:10px;overflow:hidden;background:#004b1e;display:block;aspect-ratio:4/3.1;transition:transform .35s ease,box-shadow .35s ease}
 .agro-prj:hover{transform:translateY(-5px);box-shadow:0 24px 48px -22px rgba(0,75,30,.45)}
 .agro-prj__media{position:absolute;inset:0;overflow:hidden}
-.agro-prj__media img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;transition:transform .6s ease;background:#0b3e20}
+.agro-prj__media img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .6s ease}
 .agro-prj:hover .agro-prj__media img{transform:scale(1.06)}
 .agro-prj__body{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;gap:5px;padding:18px 18px 20px;background:linear-gradient(180deg,rgba(0,75,30,0) 0%,rgba(0,75,30,.28) 42%,rgba(0,75,30,.88) 100%)}
 .agro-prj__tag{font-size:.64rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#f2b64c}
 .agro-prj__title{font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.02em;text-transform:uppercase;color:#fff;margin:0}
 .agro-prj__text{font-size:.82rem;line-height:1.55;color:rgba(255,255,255,.88);margin:0}
-@media(max-width:1024px){.agro-prj-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.agro-prj{aspect-ratio:3/3.5}}
-@media(max-width:640px){.agro-prj-grid{grid-template-columns:1fr}.agro-prj{aspect-ratio:3/4}}
+@media(max-width:1024px){.agro-prj-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.agro-prj{aspect-ratio:4/2.9}}
+@media(max-width:640px){.agro-prj-grid{grid-template-columns:1fr}.agro-prj{aspect-ratio:4/3}}
 
 .img-mosaic{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:820px}
 @media(max-width:720px){.img-mosaic{grid-template-columns:1fr 1fr;gap:8px;max-width:100%}}
@@ -128,7 +128,8 @@
 
 /* Full-screen hero for Lake Agro . matches homepage .hero height */
 body.co-theme-agro .page-hero {
-  min-height: clamp(600px, 58vw, 860px);
+  min-height: 100vh;
+  min-height: 100dvh;
   padding: 100px 0 60px;
   display: flex;
   flex-direction: column;
@@ -142,8 +143,6 @@ body.co-theme-agro #why-we-are {
 }
 /* Optimize hero media position for landscape farm imagery */
 body.co-theme-agro .page-hero .hero-media {
-  position: absolute;
-  inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -151,11 +150,10 @@ body.co-theme-agro .page-hero .hero-media {
 }
 body.co-theme-agro .page-hero .hero-media img {
   display: block;
-  width: 100% !important;
-  height: auto !important;
-  max-height: 75vh !important;
-  object-fit: contain !important;
-  object-position: center !important;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
 }
 @keyframes agro-hero-media-in {
   from { opacity: 0; transform: scale(1.02); }
@@ -174,7 +172,7 @@ body.co-theme-agro .page-hero .hero-media img {
     min-height: 680px;
     padding: 60px 0 60px;
   }
-  body.co-theme-agro .page-hero .hero-media img { object-position: center !important; max-height: 60vh !important; }
+  body.co-theme-agro .page-hero .hero-media img { object-position: center 35%; }
 }
 /* Official Lake Agro presentation: keep the public page focused on the
    approved Rufiji sugar project rather than the retired generic profile copy. */
@@ -308,14 +306,6 @@ body.co-theme-agro .aramco-card p {
   color: rgba(255, 255, 255, 0.88);
   line-height: 1.55;
 }
-/* Lake Agro photography is operational evidence, not decorative texture.
-   Portrait and landscape media retain their respective subjects. */
-body.co-theme-agro .agro-prj{aspect-ratio:auto;min-height:0;background:#004b1e}
-body.co-theme-agro .agro-prj__media{position:relative;inset:auto;display:block;aspect-ratio:3/4;background:#edf4ec}
-body.co-theme-agro .agro-prj__media img{width:100%;height:100%;object-fit:contain;object-position:center;transform:none!important}
-body.co-theme-agro .agro-prj__body{height:auto;min-height:148px;margin:0;padding:20px 18px;background:#004b1e}
-body.co-theme-agro .agro-prj--landscape{aspect-ratio:4/3}
-body.co-theme-agro .agro-prj--landscape .agro-prj__media{aspect-ratio:4/3}
 .agro-equipment-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
 .agro-equipment-grid figure,.agro-operations-grid figure{margin:0;overflow:hidden;border-radius:14px;background:#edf4ec}
 .agro-equipment-grid img{display:block;width:100%;height:auto;object-fit:contain;background:#edf4ec}
@@ -453,7 +443,7 @@ body.co-theme-agro .lake-back-to-top:hover {
 
 <div class="page-wrapper">
 <section class="page-hero">
-  <picture class="hero-media" aria-hidden="true"><img src="assets/images/lake-agro/la-maize-tractor.webp" alt="" width="1080" height="1440" fetchpriority="high" decoding="async" loading="eager"></picture>
+  <picture class="hero-media" aria-hidden="true"><img src="assets/images/lake-agro/la-quadtrac-equipment.webp" alt="" width="1600" height="900" fetchpriority="high" decoding="async" loading="eager"></picture>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container">
 <div class="eyebrow">Lake Agro · Lake Group Agricultural Company</div>
