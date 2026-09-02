@@ -36,6 +36,7 @@ for (const file of all) {
   if ((html.match(/type="application\/ld\+json"/g) || []).length > 1) errors.push(`${file}: JSON-LD is duplicated`);
   if ((html.match(/hreflang=/gi) || []).length) errors.push(`${file}: contains hreflang without a published translation`);
   if (indexable && (html.match(/<h1\b/gi) || []).length !== 1) errors.push(`${file}: indexable page must contain exactly one H1`);
+  if (file === 'index.html' && /<h1\b[^>]*\b(?:visually-hidden|sr-only)\b/i.test(html)) errors.push(`${file}: must not use a hidden SEO-only H1`);
   if (/lakegroup\.vercel\.app/i.test(html)) errors.push(`${file}: contains a Vercel preview-domain URL`);
   const pageTitle = html.match(/<title>([\s\S]*?)<\/title>/i)?.[1]?.trim();
   const pageDescription = html.match(/<meta name="description" content="([\s\S]*?)">/i)?.[1]?.trim();
