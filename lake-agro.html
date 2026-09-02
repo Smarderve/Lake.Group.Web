@@ -302,6 +302,15 @@ body.co-theme-agro .aramco-card p {
   line-height: 1.55;
 }
   </style>
+  <style>
+/* Lake Agro branded footer: override corporate blue with approved dark green */
+body.co-theme-agro[data-shared-footer="true"] footer.site-footer {
+  background: #004b1e !important;
+}
+body.co-theme-agro[data-shared-footer="true"] footer.site-footer::before {
+  background: #fff200 !important;
+}
+  </style>
 <link rel="stylesheet" href="assets/tokens.css?v=20260828-01">
   <link rel="preload" href="assets/fonts/files/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
