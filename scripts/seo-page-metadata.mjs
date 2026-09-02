@@ -90,7 +90,7 @@ export const PAGE_METADATA = Object.freeze({
   },
   "lake-agro.html": {
     "title": "Lake Agro | Agro Processing &amp; Agricultural Development | Lake Group",
-    "description": "Lake Agro Limited develops integrated agricultural and sugar manufacturing operations in Rufiji, Tanzania, as part of Lake Group."
+    "description": "Lake Agro Limited develops integrated agricultural operations in Tanzania and Zambia, including five farms in Zambia with active operations in Luombwa and Mulembo."
   },
   "lake-aviation.html": {
     "title": "Lake Aviation | Aviation Fuel &amp; Into-Plane Fueling | Lake Group",
