@@ -33,6 +33,14 @@ The Business Verticals menu is the crawlable parent pathway for Energies, Manufa
 
 Each field in `PAGE_METADATA` and `SEARCH_INTENTS` is a source-language field. A localized route must receive reviewed native-language titles, descriptions and answer context, while keeping approved company names unchanged. Do not publish locale URLs, hreflang, or translated metadata until the equivalent source page exists and has been reviewed.
 
+## International discoverability baseline
+
+The public website is English-only. Every public document declares `lang="en"`; the locale registry is retained for future reviewed equivalents but has no published routes, hreflang annotations or visible selector. The sitemap contains canonical English URLs only.
+
+Lake Group's Organization entity uses the verified corporate operations network for its geographic context: Tanzania, Kenya, Zambia, Rwanda, Burundi, DR Congo, Ethiopia, Mozambique, Uganda and the United Arab Emirates. Individual company entity records only state their own verified market context. This distinction prevents the corporate network from being misrepresented as the operating footprint of every company.
+
+The JSON-LD graph connects each company WebPage to its own Organization entity, its verified Lake Group parent relationship, its sector, answer-intent topics and—where supported—its operating geography. The Operations Network page separately mentions the verified group markets so this information remains discoverable without relying on the interactive globe.
+
 ## Information constraints
 
 Deeper optimization is intentionally deferred for pages whose current source does not provide a stable public entity/service model: generic news-detail content, internal dashboards, legacy redirect sources, and utility/error pages. These pages are not indexable.

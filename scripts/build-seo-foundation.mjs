@@ -3,7 +3,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {
-  SITE, INDEXABLE_ROUTES, NON_INDEXABLE_ROUTES, COMPANY_ENTITIES, PAGE_METADATA,
+  SITE, INDEXABLE_ROUTES, NON_INDEXABLE_ROUTES, COMPANY_ENTITIES, GROUP_MARKETS,
+  GROUP_VERTICALS, PAGE_METADATA, SEARCH_INTENTS,
   ROUTE_LABELS, absoluteUrl, publishedLocalesFor, localePath,
 } from './seo-config.mjs';
 
@@ -47,6 +48,16 @@ function breadcrumb(file, pageTitle) {
   return { '@type': 'BreadcrumbList', '@id': `${absoluteUrl(file)}#breadcrumb`, itemListElement: items };
 }
 
+function areaServed(value) {
+  if (!value) return undefined;
+  return (Array.isArray(value) ? value : [value]).map((name) => ({ '@type': 'Place', name }));
+}
+
+function topicsFor(file) {
+  const intent = SEARCH_INTENTS[file];
+  return intent ? [intent.primary, ...(intent.secondary || [])] : undefined;
+}
+
 function schema(file, pageTitle, pageDescription) {
   if (!indexable.has(file)) return null;
   const url = absoluteUrl(file);
@@ -62,11 +73,12 @@ function schema(file, pageTitle, pageDescription) {
       description: pageDescription, foundingDate: '2006',
       address: { '@type': 'PostalAddress', streetAddress: 'Plot 49, Mikocheni Light Industrial', addressLocality: 'Dar es Salaam', addressCountry: 'TZ' },
       telephone: '+255 222 780 510', email: 'admin@lakeoilgroup.com',
+      areaServed: areaServed(GROUP_MARKETS), knowsAbout: GROUP_VERTICALS,
       sameAs: ['https://youtube.com/@lakegroup6790?si=Qb1aF3ghYIRdCM8J', 'https://www.instagram.com/lakeenergiestanzania?igsi=cW5jZGVtbHU0eGFs'],
     });
     graph.push({
       '@type': 'WebSite', '@id': SITE.websiteId, url: SITE.origin + '/', name: SITE.name,
-      inLanguage: 'en', publisher: { '@id': SITE.organizationId },
+      inLanguage: 'en', publisher: { '@id': SITE.organizationId }, about: { '@id': SITE.organizationId },
     });
   }
   if (COMPANY_ENTITIES[file]) {
@@ -74,9 +86,12 @@ function schema(file, pageTitle, pageDescription) {
     graph.push({
       '@type': 'Organization', '@id': `${url}#organization`, name: company.name,
       url, description: pageDescription, parentOrganization: { '@id': SITE.organizationId },
+      areaServed: areaServed(company.areaServed), knowsAbout: topicsFor(file),
     });
     graph[0].about = { '@id': `${url}#organization` };
+    graph[0].mainEntity = { '@id': `${url}#organization` };
   }
+  if (file === 'africa-network.html') graph[0].mentions = areaServed(GROUP_MARKETS);
   if (file !== 'index.html') graph.push(breadcrumb(file, pageTitle));
   return { '@context': 'https://schema.org', '@graph': graph };
 }

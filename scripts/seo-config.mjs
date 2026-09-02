@@ -19,6 +19,19 @@ export const SITE = Object.freeze({
   websiteId: 'https://www.lakeoilgroup.com/#website',
 });
 
+// These markets are stated in the existing English operations-network and
+// homepage content. They describe Lake Group's corporate presence only; they
+// must not be inferred as the market of every individual operating company.
+export const GROUP_MARKETS = Object.freeze([
+  'Tanzania', 'Kenya', 'Zambia', 'Rwanda', 'Burundi', 'DR Congo',
+  'Ethiopia', 'Mozambique', 'Uganda', 'United Arab Emirates',
+]);
+
+export const GROUP_VERTICALS = Object.freeze([
+  'Energies', 'Manufacturing', 'Logistics', 'Real Estate',
+  'Agro Processing', 'Automotive',
+]);
+
 // A locale is only published when its route and reviewed native-language
 // primary content exist. This prevents empty locale folders, false hreflang,
 // and machine-translated doorway pages from entering the index.
@@ -53,23 +66,23 @@ export const NON_INDEXABLE_ROUTES = Object.freeze([
 ]);
 
 export const COMPANY_ENTITIES = Object.freeze({
-  'lake-oil.html': { name: 'Lake Oil Ltd.', sector: 'Energies' },
-  'lake-gas.html': { name: 'Lake Gas Limited', sector: 'Energies' },
-  'lake-lubes.html': { name: 'Lake Lubes Ltd', sector: 'Energies' },
-  'lake-aviation.html': { name: 'Lake Aviation', sector: 'Energies' },
-  'lake-steel.html': { name: 'Lake Steel & Allied Products Limited', sector: 'Manufacturing' },
-  'lake-pipes.html': { name: 'Lake Pipes', sector: 'Manufacturing' },
-  'lake-buildings.html': { name: 'Lake Building Solution', sector: 'Manufacturing' },
-  'lake-premix-cement.html': { name: 'Lake Premix', sector: 'Manufacturing' },
-  'lake-cylinders.html': { name: 'Lake Cylinders Limited', sector: 'Manufacturing' },
-  'gulf-aggregates.html': { name: 'Gulf Aggregates', sector: 'Manufacturing' },
-  'lake-trans.html': { name: 'Lake Trans Limited', sector: 'Logistics' },
-  'aficd.html': { name: 'African Inland Container Depot (AFICD)', sector: 'Logistics' },
-  'aill.html': { name: 'African Inland Logistics Ltd. (AILL)', sector: 'Logistics' },
-  'cross-country.html': { name: 'Cross Country Developer Limited', sector: 'Real Estate' },
-  'lake-agro.html': { name: 'Lake Agro Limited', sector: 'Agro Processing' },
-  'agrinova-tech.html': { name: 'Agrinova Tech Limited', sector: 'Automotive' },
-  'assembly-tech.html': { name: 'Assembly Tech Limited', sector: 'Automotive' },
+  'lake-oil.html': { name: 'Lake Oil Ltd.', sector: 'Energies', areaServed: 'East and Central Africa' },
+  'lake-gas.html': { name: 'Lake Gas Limited', sector: 'Energies', areaServed: 'East and Central Africa' },
+  'lake-lubes.html': { name: 'Lake Lubes Ltd', sector: 'Energies', areaServed: 'Tanzania' },
+  'lake-aviation.html': { name: 'Lake Aviation', sector: 'Energies', areaServed: ['Tanzania', 'Uganda'] },
+  'lake-steel.html': { name: 'Lake Steel & Allied Products Limited', sector: 'Manufacturing', areaServed: 'Tanzania' },
+  'lake-pipes.html': { name: 'Lake Pipes', sector: 'Manufacturing', areaServed: 'Kibaha, Tanzania' },
+  'lake-buildings.html': { name: 'Lake Building Solution', sector: 'Manufacturing', areaServed: 'Kibaha Visiga, Tanzania' },
+  'lake-premix-cement.html': { name: 'Lake Premix', sector: 'Manufacturing', areaServed: ['Dar es Salaam, Tanzania', 'Kenya'] },
+  'lake-cylinders.html': { name: 'Lake Cylinders Limited', sector: 'Manufacturing', areaServed: 'Tanzania and East Africa' },
+  'gulf-aggregates.html': { name: 'Gulf Aggregates', sector: 'Manufacturing', areaServed: 'Lugoba, Tanzania' },
+  'lake-trans.html': { name: 'Lake Trans Limited', sector: 'Logistics', areaServed: 'East Africa' },
+  'aficd.html': { name: 'African Inland Container Depot (AFICD)', sector: 'Logistics', areaServed: 'Tanzania' },
+  'aill.html': { name: 'African Inland Logistics Ltd. (AILL)', sector: 'Logistics', areaServed: 'Dar es Salaam, Tanzania' },
+  'cross-country.html': { name: 'Cross Country Developer Limited', sector: 'Real Estate', areaServed: 'Tanzania' },
+  'lake-agro.html': { name: 'Lake Agro Limited', sector: 'Agro Processing', areaServed: 'Rufiji, Tanzania' },
+  'agrinova-tech.html': { name: 'Agrinova Tech Limited', sector: 'Automotive', areaServed: 'Tanzania' },
+  'assembly-tech.html': { name: 'Assembly Tech Limited', sector: 'Automotive', areaServed: 'East and Central Africa' },
   'nextdrive-motors.html': { name: 'NextDrive Motors Limited', sector: 'Automotive' },
 });
 

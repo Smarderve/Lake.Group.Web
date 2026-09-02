@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
-import { INDEXABLE_ROUTES, NON_INDEXABLE_ROUTES, SITE, COMPANY_ENTITIES, PAGE_METADATA, SEARCH_INTENTS } from './seo-config.mjs';
+import { INDEXABLE_ROUTES, NON_INDEXABLE_ROUTES, SITE, COMPANY_ENTITIES, GROUP_MARKETS, LOCALES, PAGE_METADATA, SEARCH_INTENTS } from './seo-config.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const errors = [];
@@ -14,6 +14,9 @@ Object.keys(COMPANY_ENTITIES).forEach((file) => {
     errors.push(`${file}: missing complete internal search-intent record`);
   }
 });
+if (Object.values(LOCALES.registry).some((locale) => locale.published)) {
+  errors.push('English-only launch: no locale may be marked published');
+}
 for (const file of all) {
   const html = fs.readFileSync(path.join(root, file), 'utf8');
   const indexable = INDEXABLE_ROUTES.includes(file);
@@ -31,6 +34,8 @@ for (const file of all) {
   if ((html.match(/rel="canonical"/g) || []).length !== 1) errors.push(`${file}: canonical is not unique`);
   if ((html.match(/name="description"/g) || []).length !== 1) errors.push(`${file}: description is not unique`);
   if ((html.match(/type="application\/ld\+json"/g) || []).length > 1) errors.push(`${file}: JSON-LD is duplicated`);
+  if ((html.match(/hreflang=/gi) || []).length) errors.push(`${file}: contains hreflang without a published translation`);
+  if (indexable && (html.match(/<h1\b/gi) || []).length !== 1) errors.push(`${file}: indexable page must contain exactly one H1`);
   if (/lakegroup\.vercel\.app/i.test(html)) errors.push(`${file}: contains a Vercel preview-domain URL`);
   const pageTitle = html.match(/<title>([\s\S]*?)<\/title>/i)?.[1]?.trim();
   const pageDescription = html.match(/<meta name="description" content="([\s\S]*?)">/i)?.[1]?.trim();
@@ -44,7 +49,36 @@ for (const file of all) {
     else descriptions.set(pageDescription, file);
   }
   const scripts = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
-  scripts.forEach((match) => { try { JSON.parse(match[1]); } catch { errors.push(`${file}: malformed JSON-LD`); } });
+  scripts.forEach((match) => {
+    try {
+      const data = JSON.parse(match[1]);
+      const graph = data['@graph'] || [];
+      if (indexable && !graph.some((node) => node['@type'] === 'WebPage')) errors.push(`${file}: missing WebPage entity`);
+      if (COMPANY_ENTITIES[file]) {
+        const companyId = `${url}#organization`;
+        const organization = graph.find((node) => node['@id'] === companyId);
+        const webPage = graph.find((node) => node['@type'] === 'WebPage');
+        if (!organization?.parentOrganization || !organization?.knowsAbout?.length) errors.push(`${file}: incomplete company entity relationship`);
+        if (webPage?.mainEntity?.['@id'] !== companyId) errors.push(`${file}: WebPage does not identify its company as mainEntity`);
+      }
+      if (file === 'index.html') {
+        const organization = graph.find((node) => node['@id'] === SITE.organizationId);
+        if (organization?.areaServed?.length !== GROUP_MARKETS.length || !organization?.knowsAbout?.length) errors.push(`${file}: incomplete parent organization geography or verticals`);
+      }
+      if (file === 'africa-network.html') {
+        const webPage = graph.find((node) => node['@type'] === 'WebPage');
+        if (webPage?.mentions?.length !== GROUP_MARKETS.length) errors.push(`${file}: incomplete operations-network geography`);
+      }
+    } catch { errors.push(`${file}: malformed JSON-LD`); }
+  });
 }
+const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
+const sitemapLocations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+const expectedLocations = INDEXABLE_ROUTES.map((file) => `${SITE.origin}${file === 'index.html' ? '/' : `/${file}`}`);
+if (sitemapLocations.length !== expectedLocations.length || new Set(sitemapLocations).size !== sitemapLocations.length) errors.push('sitemap: duplicate or incomplete canonical URLs');
+expectedLocations.forEach((url) => { if (!sitemapLocations.includes(url)) errors.push(`sitemap: missing ${url}`); });
+if (sitemapLocations.some((url) => /\/(?:en|sw|fr|ar|pt)(?:\/|$)/i.test(url))) errors.push('sitemap: contains unpublished locale URL');
+const robots = fs.readFileSync(path.join(root, 'robots.txt'), 'utf8');
+if (!robots.includes('Allow: /') || !robots.includes(`Sitemap: ${SITE.origin}/sitemap.xml`)) errors.push('robots: public crawl access or sitemap reference is missing');
 if (errors.length) { console.error(errors.join('\n')); process.exit(1); }
 console.log(`SEO validation passed: ${INDEXABLE_ROUTES.length} indexable + ${NON_INDEXABLE_ROUTES.length} non-indexable routes.`);
