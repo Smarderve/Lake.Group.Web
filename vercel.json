@@ -289,5 +289,7 @@
         }
       ]
     }
-  ]
+  ],
+  "outputDirectory": ".",
+  "buildCommand": "npm run build"
 }
