@@ -9,16 +9,16 @@ import {
   prefersReducedMotion,
 } from './locations.js';
 
-const MARKER_ICON = 'assets/icons/location-marker.apng';
+const MARKER_ICON = 'assets/icons/location-marker.svg';
 const INITIAL_POV = { lat: 28, lng: -142, altitude: 2.12 };
 const AFRICA_POV = { lat: -4, lng: 33, altitude: 1.85 };
 const CAMERA_INTRO_MS = 1000;
 const POST_INTRO_PAUSE_MS = 300;
-const ROUTE_DRAW_MS = 900;
-const POST_ROUTE_PAUSE_MS = 400;
-const NETWORK_HOLD_MS = 1500;
-const SHOWCASE_ROTATION_MS = 4600;
-const RESET_SETTLE_MS = 450;
+const ROUTE_DRAW_MS = 1200;
+const POST_ROUTE_PAUSE_MS = 500;
+const NETWORK_HOLD_MS = 1800;
+const SHOWCASE_ROTATION_MS = 5000;
+const RESET_SETTLE_MS = 600;
 const MARKER_ALTITUDE = 0.022;
 
 function easeInOutCubic(t) {
@@ -71,8 +71,8 @@ function getCachedMarkerEl(marker, isMobile) {
   pin.className = 'hero-globe-marker__pin';
   pin.src = MARKER_ICON;
   pin.alt = '';
-  pin.width = isMobile ? 15 : 18;
-  pin.height = isMobile ? 15 : 18;
+  pin.width = isMobile ? 14 : 18;
+  pin.height = isMobile ? 19 : 24;
   pin.decoding = 'async';
   pin.style.cssText = 'position:absolute;left:0;top:0;transform:translate(-50%,-100%);object-fit:contain;';
 
@@ -128,7 +128,7 @@ function animateCamera(globe, from, to, durationMs, onDone) {
     }
   };
   raf = requestAnimationFrame(tick);
-  return () => { cancelled = true; if (raf) cancelAnimationFrame(raf); };
+  return () => { cancelled = true; if (raf) cancelAnimationFrame(raf); }
 }
 
 export default function HeroGlobe({ panelEl, locations }) {
@@ -145,6 +145,9 @@ export default function HeroGlobe({ panelEl, locations }) {
 
   /* ── Marker data: only revealed destinations ── */
   const [revealedMarkers, setRevealedMarkers] = useState([]);
+
+  /* ── Hub (Tanzania) visibility control ── */
+  const [showHub, setShowHub] = useState(false);
 
   /* ── Animation lifecycle refs ── */
   const sequenceCancelledRef = useRef(false);
@@ -174,9 +177,9 @@ export default function HeroGlobe({ panelEl, locations }) {
   /* ── Combined marker data ── */
   const hubMarker = useMemo(() => allMarkers.find((m) => m.hub), [allMarkers]);
   const markersData = useMemo(() => {
-    const list = hubMarker ? [hubMarker] : [];
+    const list = (showHub && hubMarker) ? [hubMarker] : [];
     return [...list, ...revealedMarkers];
-  }, [hubMarker, revealedMarkers]);
+  }, [hubMarker, revealedMarkers, showHub]);
 
   /* ── Cleanup helpers ── */
   const clearTimers = useCallback(() => {
@@ -221,19 +224,21 @@ export default function HeroGlobe({ panelEl, locations }) {
       controls.autoRotateSpeed = 0;
     }
 
-    // Reset state
+    // Reset state — hide everything
     setCompletedArcs([]);
     setActiveArc(null);
     activeDashRef.current = 0;
     setRevealedMarkers([]);
+    setShowHub(false);
 
     const restartAfterShowcase = () => {
       if (sequenceCancelledRef.current) return;
-      // Step 1: Clear all routes + destination labels
+      // Clear all routes + destination labels + hub
       setCompletedArcs([]);
       setActiveArc(null);
       activeDashRef.current = 0;
       setRevealedMarkers([]);
+      setShowHub(false);
       // Short pause after clear, then rotate
       scheduleTimer(() => {
         if (sequenceCancelledRef.current) return;
@@ -247,12 +252,21 @@ export default function HeroGlobe({ panelEl, locations }) {
           cancelCameraRef.current = null;
           if (sequenceCancelledRef.current) return;
           globe.pointOfView(AFRICA_POV, 0);
-          scheduleTimer(runSequence, RESET_SETTLE_MS);
+          // After globe settles facing Africa — show Tanzania FIRST
+          scheduleTimer(() => {
+            if (sequenceCancelledRef.current) return;
+            setShowHub(true);
+            // Then start routes
+            scheduleTimer(() => {
+              if (sequenceCancelledRef.current) return;
+              drawRoute(0);
+            }, POST_INTRO_PAUSE_MS);
+          }, RESET_SETTLE_MS);
         });
       }, 500);
     };
 
-    /** Draw one route with progressive dash reveal. */
+    /** Draw one route with progressive solid-line reveal. */
     const drawRoute = (index) => {
       if (sequenceCancelledRef.current) return;
 
@@ -278,6 +292,7 @@ export default function HeroGlobe({ panelEl, locations }) {
       activeDashRef.current = 0;
 
       // Animate dash from 0 → 1 over ROUTE_DRAW_MS
+      // With arcDashGap=0 this creates a solid line that grows
       const drawStart = performance.now();
       const animateDash = () => {
         if (sequenceCancelledRef.current) return;
@@ -310,7 +325,16 @@ export default function HeroGlobe({ panelEl, locations }) {
     const introPov = globe.pointOfView();
     cancelCameraRef.current = animateCamera(globe, introPov, AFRICA_POV, CAMERA_INTRO_MS, () => {
       cancelCameraRef.current = null;
-      scheduleTimer(() => drawRoute(0), POST_INTRO_PAUSE_MS);
+      // Show Tanzania first after intro
+      scheduleTimer(() => {
+        if (sequenceCancelledRef.current) return;
+        setShowHub(true);
+        // Then start routes
+        scheduleTimer(() => {
+          if (sequenceCancelledRef.current) return;
+          drawRoute(0);
+        }, POST_INTRO_PAUSE_MS);
+      }, RESET_SETTLE_MS);
     });
   }, [allArcs, markerById, scheduleTimer]);
 
@@ -321,6 +345,7 @@ export default function HeroGlobe({ panelEl, locations }) {
       setCompletedArcs(allArcs.map((a) => ({ ...a, dashLength: 1 })));
       setActiveArc(null);
       setRevealedMarkers(allMarkers.filter((m) => !m.hub));
+      setShowHub(true);
       return undefined;
     }
     if (!globeReady || !sectionVisible) return undefined;
@@ -339,7 +364,6 @@ export default function HeroGlobe({ panelEl, locations }) {
   /* ── Pause RAF when section leaves viewport ── */
   useEffect(() => {
     if (sectionVisible) return undefined;
-    // Cancel any running RAF
     if (rafRef.current) {
       cancelAnimationFrame(rafRef.current);
       rafRef.current = null;
@@ -347,8 +371,7 @@ export default function HeroGlobe({ panelEl, locations }) {
     return undefined;
   }, [sectionVisible]);
 
-  /* react-globe.gl owns a continuous renderer loop. Keep the already-painted
-     base Earth available, but pause GPU work while this section is offscreen. */
+  /* Pause GPU work while offscreen. */
   useEffect(() => {
     if (!globeReady) return undefined;
     const globe = globeRef.current;
@@ -412,7 +435,7 @@ export default function HeroGlobe({ panelEl, locations }) {
       arcAltitude="altitude"
       arcStroke={0.85}
       arcDashLength="dashLength"
-      arcDashGap={0.05}
+      arcDashGap={0}
       arcDashAnimateTime={0}
       arcsTransitionDuration={0}
       htmlElementsData={markersData}

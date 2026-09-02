@@ -33,16 +33,16 @@ export const APPROVED_COUNTRY_IDS = new Set(['tz', ...ROUTE_ORDER]);
  * labelOffset is screen-space pixel offset for readability only.
  */
 export const COUNTRY_LOCATIONS = {
-  tz: { countryName: 'TANZANIA', flag: '🇹🇿', lat: -6.3730, lng: 34.8888, labelOffset: [12, 18], arcAltitude: 0, hub: true },
-  ke: { countryName: 'KENYA', flag: '🇰🇪', lat: -0.0236, lng: 37.9062, labelOffset: [14, -16], arcAltitude: 0.06 },
-  ug: { countryName: 'UGANDA', flag: '🇺🇬', lat: 1.3733, lng: 32.2903, labelOffset: [-58, -20], arcAltitude: 0.08 },
-  rw: { countryName: 'RWANDA', flag: '🇷🇼', lat: -1.9403, lng: 29.8739, labelOffset: [-56, 4], arcAltitude: 0.09 },
-  bi: { countryName: 'BURUNDI', flag: '🇧🇮', lat: -3.3731, lng: 29.9189, labelOffset: [-64, 22], arcAltitude: 0.10 },
-  cd: { countryName: 'DR CONGO', flag: '🇨🇩', lat: -2.8628, lng: 23.6560, labelOffset: [-68, 4], arcAltitude: 0.16 },
-  zm: { countryName: 'ZAMBIA', flag: '🇿🇲', lat: -13.1339, lng: 27.8493, labelOffset: [-56, 22], arcAltitude: 0.14 },
-  mz: { countryName: 'MOZAMBIQUE', flag: '🇲🇿', lat: -18.6657, lng: 35.5296, labelOffset: [14, 18], arcAltitude: 0.18 },
-  et: { countryName: 'ETHIOPIA', flag: '🇪🇹', lat: 9.1450, lng: 40.4897, labelOffset: [14, -16], arcAltitude: 0.20 },
-  ae: { countryName: 'UAE', flag: '🇦🇪', lat: 23.4241, lng: 53.8478, labelOffset: [14, -16], arcAltitude: 0.28 },
+  tz: { countryName: 'TANZANIA', flag: '🇹🇿', lat: -6.3730, lng: 34.8888, labelOffset: [14, 20], arcAltitude: 0, hub: true },
+  ke: { countryName: 'KENYA', flag: '🇰🇪', lat: -0.0236, lng: 37.9062, labelOffset: [16, -18], arcAltitude: 0.07 },
+  ug: { countryName: 'UGANDA', flag: '🇺🇬', lat: 1.3733, lng: 32.2903, labelOffset: [-72, -16], arcAltitude: 0.10 },
+  rw: { countryName: 'RWANDA', flag: '🇷🇼', lat: -1.9403, lng: 29.8739, labelOffset: [-68, 18], arcAltitude: 0.12 },
+  bi: { countryName: 'BURUNDI', flag: '🇧🇮', lat: -3.3731, lng: 29.9189, labelOffset: [-78, -8], arcAltitude: 0.14 },
+  cd: { countryName: 'DR CONGO', flag: '🇨🇩', lat: -2.8628, lng: 23.6560, labelOffset: [-80, 6], arcAltitude: 0.18 },
+  zm: { countryName: 'ZAMBIA', flag: '🇿🇲', lat: -13.1339, lng: 27.8493, labelOffset: [-68, 20], arcAltitude: 0.16 },
+  mz: { countryName: 'MOZAMBIQUE', flag: '🇲🇿', lat: -18.6657, lng: 35.5296, labelOffset: [16, 20], arcAltitude: 0.20 },
+  et: { countryName: 'ETHIOPIA', flag: '🇪🇹', lat: 9.1450, lng: 40.4897, labelOffset: [16, -18], arcAltitude: 0.22 },
+  ae: { countryName: 'UAE', flag: '🇦🇪', lat: 23.4241, lng: 53.8478, labelOffset: [16, -18], arcAltitude: 0.30 },
 };
 
 export const COUNTRY_REFERENCE_COORDINATES = Object.fromEntries(
