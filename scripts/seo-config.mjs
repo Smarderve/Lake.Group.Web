@@ -9,8 +9,18 @@ import { PAGE_METADATA } from './seo-page-metadata.mjs';
  * generator reads that source copy and applies the standard search document.
  */
 
+// The one canonical production URL used by every generated public SEO asset.
+export const SITE_URL = 'https://www.lakeoilgroup.com';
+
+// Tokens are optional build-time values. Set them in the deployment environment
+// only after receiving the real token from the relevant webmaster platform.
+export const SEARCH_ENGINE_VERIFICATION = Object.freeze({
+  google: process.env.GOOGLE_SITE_VERIFICATION?.trim() || '',
+  bing: process.env.BING_SITE_VERIFICATION?.trim() || '',
+});
+
 export const SITE = Object.freeze({
-  origin: 'https://www.lakeoilgroup.com',
+  origin: SITE_URL,
   name: 'Lake Group',
   locale: 'en_TZ',
   logo: '/assets/images/logos/LAKE_GROUP_LOGO.png',
@@ -52,8 +62,8 @@ export const INDEXABLE_ROUTES = Object.freeze([
   'lake-aviation.html', 'lake-buildings.html', 'lake-cylinders.html',
   'lake-gas.html', 'lake-lubes.html', 'lake-oil.html', 'lake-pipes.html',
   'lake-premix-cement.html', 'lake-steel.html', 'lake-trans.html',
-  'leadership.html', 'leadership-ally-edha-awadh.html', 'media-center.html',
-  'news.html', 'our-story.html', 'projects.html', 'station-locator.html',
+  'leadership.html', 'leadership-ally-edha-awadh.html', 'news.html',
+  'our-story.html', 'projects.html', 'station-locator.html',
   'sustainability.html', 'nextdrive-motors.html',
 ]);
 
@@ -61,7 +71,7 @@ export const INDEXABLE_ROUTES = Object.freeze([
 // source file is available locally.
 export const NON_INDEXABLE_ROUTES = Object.freeze([
   '404.html', 'offline.html', 'dashboard.html', 'acfs.html', 'atl.html',
-  'la-home.html', 'la-projects.html', 'ocean-galleria.html', 'news-article.html',
+  'la-home.html', 'la-projects.html', 'ocean-galleria.html', 'news-article.html', 'media-center.html',
   'lake-group-financial-dashboard.html', 'lake-group-org-chart.html',
 ]);
 

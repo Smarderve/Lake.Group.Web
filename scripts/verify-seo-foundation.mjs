@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
-import { INDEXABLE_ROUTES, NON_INDEXABLE_ROUTES, SITE, COMPANY_ENTITIES, GROUP_MARKETS, LOCALES, PAGE_METADATA, SEARCH_INTENTS } from './seo-config.mjs';
+import { INDEXABLE_ROUTES, NON_INDEXABLE_ROUTES, SITE, COMPANY_ENTITIES, GROUP_MARKETS, LOCALES, PAGE_METADATA, SEARCH_ENGINE_VERIFICATION, SEARCH_INTENTS } from './seo-config.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const errors = [];
@@ -48,6 +48,8 @@ for (const file of all) {
     if (descriptions.has(pageDescription)) errors.push(`${file}: description duplicates ${descriptions.get(pageDescription)}`);
     else descriptions.set(pageDescription, file);
   }
+  if (!SEARCH_ENGINE_VERIFICATION.google && /name="google-site-verification"/i.test(html)) errors.push(`${file}: contains an unconfigured Google verification token`);
+  if (!SEARCH_ENGINE_VERIFICATION.bing && /name="msvalidate\.01"/i.test(html)) errors.push(`${file}: contains an unconfigured Bing verification token`);
   const scripts = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
   scripts.forEach((match) => {
     try {
@@ -80,5 +82,7 @@ expectedLocations.forEach((url) => { if (!sitemapLocations.includes(url)) errors
 if (sitemapLocations.some((url) => /\/(?:en|sw|fr|ar|pt)(?:\/|$)/i.test(url))) errors.push('sitemap: contains unpublished locale URL');
 const robots = fs.readFileSync(path.join(root, 'robots.txt'), 'utf8');
 if (!robots.includes('Allow: /') || !robots.includes(`Sitemap: ${SITE.origin}/sitemap.xml`)) errors.push('robots: public crawl access or sitemap reference is missing');
+const llms = fs.readFileSync(path.join(root, 'llms.txt'), 'utf8');
+if (!llms.includes(SITE.origin) || /cms-|onrender\.com/i.test(llms)) errors.push('llms.txt: canonical public links or private-service exclusions are invalid');
 if (errors.length) { console.error(errors.join('\n')); process.exit(1); }
 console.log(`SEO validation passed: ${INDEXABLE_ROUTES.length} indexable + ${NON_INDEXABLE_ROUTES.length} non-indexable routes.`);

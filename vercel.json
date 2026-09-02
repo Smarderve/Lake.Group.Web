@@ -23,11 +23,6 @@
       "permanent": true
     },
     {
-      "source": "/leadership-ally-edha-awadh.html",
-      "destination": "/leadership.html",
-      "permanent": true
-    },
-    {
       "source": "/leadership-bibhuti-singh.html",
       "destination": "/leadership.html",
       "permanent": true
@@ -104,27 +99,27 @@
     },
     {
       "source": "/leadership-dileep.html",
-      "destination": "/leadership-dileep-kumar.html",
+      "destination": "/leadership.html",
       "permanent": true
     },
     {
       "source": "/leadership-sibtian-ansari.html",
-      "destination": "/leadership-dileep-kumar.html",
+      "destination": "/leadership.html",
       "permanent": true
     },
     {
       "source": "/leadership-vivek-choudhary.html",
-      "destination": "/leadership-sridhar-mani.html",
+      "destination": "/leadership.html",
       "permanent": true
     },
     {
       "source": "/leadership-bhaskar-shetty.html",
-      "destination": "/leadership-mohammed-khalid.html",
+      "destination": "/leadership.html",
       "permanent": true
     },
     {
       "source": "/leadership-pankaj-kumar.html",
-      "destination": "/leadership-bibhuti-singh.html",
+      "destination": "/leadership.html",
       "permanent": true
     },
     {

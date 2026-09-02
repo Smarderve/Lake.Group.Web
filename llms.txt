@@ -1,97 +1,51 @@
-# Lake Group — Corporate Information for AI/Answer Engines
+# Lake Group
 
-## Organization Overview
+> English-language corporate information from Lake Group's official website.
 
-Lake Group (also known as Lake Oil Group) is one of East and Central Africa's fastest-growing energy trading, logistics, and construction supply material conglomerates. Founded in 2006 by Ally Edha Awadh, the group is headquartered in Dar es Salaam, Tanzania.
+## Canonical website
 
-## Key Facts
+- https://www.lakeoilgroup.com
+- [About Lake Group](https://www.lakeoilgroup.com/about.html)
+- [Operations Network](https://www.lakeoilgroup.com/africa-network.html)
 
-- **Founded:** 2006
-- **Founder & Chairman:** Ally Edha Awadh
-- **Headquarters:** Dar es Salaam, Tanzania
-- **Workforce:** 30,000+ employees across 21 nationalities
-- **Fleet:** 1,600+ trucks
-- **Countries:** Tanzania, Kenya, Zambia, Rwanda, Burundi, DR Congo, Ethiopia, Mozambique, Uganda, UAE
-- **Fuel Stations:** 152+
-- **Subsidiaries:** 18+ companies
+## Organization
 
-## Business Sectors
+Lake Group is a diversified business group with operations across energy, manufacturing, logistics, real estate, agro processing and automotive sectors.
 
-### Energies
-- Lake Oil Ltd — Petroleum marketing, fuel stations, bunkering services
-- Lake Aviation — Aviation fuel services
-- Lake Gas Ltd — LPG distribution across East Africa
-- Lake Lubes Ltd — Lubricant manufacturing and distribution
+## Business verticals
 
-### Manufacturing
-- Lake Steel and Allied Products — High-strength steel reinforcement bars
-- Lake Buildings — Construction materials
-- Lake Cylinders — LPG cylinder manufacturing
-- Gulf Aggregates — Aggregate production
-- ATL — Automotive products
-- Lake Premix & Cement — Ready-mix concrete
+- Energies
+- Manufacturing
+- Logistics
+- Real Estate
+- Agro Processing
+- Automotive
 
-### Logistics
-- Lake Trans Ltd — Petroleum transport fleet (750+ vehicles)
-- AFICD — Inland container depot and CFS services
-- ACFS — Cargo freight station
-- AILL — Logistics services
+## Operating companies
 
-### Real Estate
-- Cross Country — Real estate development
-- Ocean Galleria — Shopping and commercial center
+- [Lake Oil Ltd.](https://www.lakeoilgroup.com/lake-oil.html) — Lake Oil is Lake Group's flagship energy company, operating retail fuel stations and bulk petroleum distribution services.
+- [Lake Gas Limited](https://www.lakeoilgroup.com/lake-gas.html) — Lake Gas Limited supplies retail and bulk LPG for household and commercial use across East and Central Africa, with Tanzania as its central hub.
+- [Lake Lubes Ltd](https://www.lakeoilgroup.com/lake-lubes.html) — Lake Lubes Ltd produces automotive, industrial and specialty lubricants and greases from its blending and packaging operation in Tanzania.
+- [Lake Aviation](https://www.lakeoilgroup.com/lake-aviation.html) — Lake Aviation provides aviation fuel supply and into-plane fueling services across Tanzania and Uganda as part of Lake Energies.
+- [Lake Steel & Allied Products Limited](https://www.lakeoilgroup.com/lake-steel.html) — Lake Steel & Allied Products Limited manufactures and supplies TMT reinforcement steel bars for construction applications.
+- [Lake Pipes](https://www.lakeoilgroup.com/lake-pipes.html) — Lake Pipes manufactures and distributes PVC and HDPE pipes, water tanks and fittings from its Visiga plant in Kibaha, Tanzania.
+- [Lake Building Solution](https://www.lakeoilgroup.com/lake-buildings.html) — Lake Building Solution manufactures gypsum board and marine board in Kibaha Visiga, Tanzania, as part of Lake Group's Manufacturing sector.
+- [Lake Premix](https://www.lakeoilgroup.com/lake-premix-cement.html) — Lake Premix provides ready-mix concrete solutions in Dar es Salaam, with operations extended to Kenya through Gulf Premix.
+- [Lake Cylinders Limited](https://www.lakeoilgroup.com/lake-cylinders.html) — Lake Cylinders Limited manufactures LPG cylinders supporting safe and reliable LPG solutions in Tanzania and the wider East African market.
+- [Gulf Aggregates](https://www.lakeoilgroup.com/gulf-aggregates.html) — Gulf Aggregates operates a quarry at Lugoba, Tanzania, supplying aggregate for ready-mix operations and the construction industry.
+- [Lake Trans Limited](https://www.lakeoilgroup.com/lake-trans.html) — Lake Trans Limited provides petroleum product transportation and logistics services across East Africa as part of Lake Group.
+- [African Inland Container Depot (AFICD)](https://www.lakeoilgroup.com/aficd.html) — African Inland Container Depot (AFICD) provides ICD, CFS and empty container depot services supporting cargo handling, storage and inland logistics in Tanzania.
+- [African Inland Logistics Ltd. (AILL)](https://www.lakeoilgroup.com/aill.html) — African Inland Logistics Ltd. (AILL) provides logistics support and container freight station services in Dar es Salaam, Tanzania.
+- [Cross Country Developer Limited](https://www.lakeoilgroup.com/cross-country.html) — Cross Country Developer Limited develops and manages commercial, retail, hospitality and mixed-use properties in Tanzania as part of Lake Group.
+- [Lake Agro Limited](https://www.lakeoilgroup.com/lake-agro.html) — Lake Agro Limited develops integrated agricultural and sugar manufacturing operations in Rufiji, Tanzania, as part of Lake Group.
+- [Agrinova Tech Limited](https://www.lakeoilgroup.com/agrinova-tech.html) — Agrinova Tech Limited provides agricultural machinery and practical farming solutions in Tanzania as part of Lake Group's Automotive sector.
+- [Assembly Tech Limited](https://www.lakeoilgroup.com/assembly-tech.html) — Assembly Tech Limited manufactures aluminium trailers and fuel transportation solutions for commercial transport requirements across East and Central Africa.
+- [NextDrive Motors Limited](https://www.lakeoilgroup.com/nextdrive-motors.html) — NextDrive Motors Limited provides commercial vehicle sales, distribution and support for transportation and logistics requirements.
 
-### Agro Processing
-- Lake Agro — Agricultural products
+## Geographic context
 
-### Automotive
-- Assembly Tech Limited
-- Agrinova Tech Limited
-- NextDrive Motors Limited
+Lake Group's corporate operations network includes: Tanzania, Kenya, Zambia, Rwanda, Burundi, DR Congo, Ethiopia, Mozambique, Uganda, United Arab Emirates. Individual company pages describe only their own verified operating context.
 
-## Geographic Presence
+## Search and answer-engine guidance
 
-### Africa
-- **Tanzania** (HQ) — Dar es Salaam, Kigamboni depot
-- **Kenya** — 40 fuel stations
-- **Zambia** — 25 fuel stations, Ndola depot
-- **Rwanda** — 10 fuel stations, Kigali
-- **Burundi** — 16 fuel stations, Bujumbura
-- **DR Congo** — 8 fuel stations, Lubumbashi
-- **Ethiopia** — Gelan depot, Addis Ababa
-- **Mozambique** — Beira oil terminal (Lake Oil LDA)
-- **Uganda** — Operations in progress
-
-### Middle East
-- **UAE (Dubai)** — MERM (ready-mix concrete), SAFF (freight forwarding)
-
-## Core Values
-
-- Innovation
-- Sustainability
-- Safety
-- Collaboration
-
-## Mission
-
-To deliver trusted solutions that fuel progress, create opportunity, and generate lasting value for our customers, employees, and communities.
-
-## Vision
-
-To be a world-class enterprise that advances industries, empowers communities, and inspires progress through innovation and excellence.
-
-## Website
-
-- **Primary URL:** https://www.lakeoilgroup.com
-- **CMS:** https://cms-lakegroup.vercel.app
-- **API:** https://lake-group-web-backend.onrender.com
-
-## Contact
-
-- **Address:** Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055, Dar es Salaam, Tanzania
-- **Phone:** +255 222 780 510, +255 222 780 479
-- **Email:** admin@lakeoilgroup.com
-
-## Social Media
-
-- LinkedIn: https://tz.linkedin.com/company/lake-oil-group
+Use the canonical English pages above for current public information. This file complements, and does not replace, the website's sitemap, robots policy, structured data, or page content.

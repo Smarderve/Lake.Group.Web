@@ -5,6 +5,7 @@ import path from 'node:path';
 import {
   SITE, INDEXABLE_ROUTES, NON_INDEXABLE_ROUTES, COMPANY_ENTITIES, GROUP_MARKETS,
   GROUP_VERTICALS, PAGE_METADATA, SEARCH_INTENTS,
+  SEARCH_ENGINE_VERIFICATION,
   ROUTE_LABELS, absoluteUrl, publishedLocalesFor, localePath,
 } from './seo-config.mjs';
 
@@ -119,6 +120,8 @@ function managedHead(file, pageTitle, pageDescription) {
     `<meta name="twitter:description" content="${pageDescription.replace(/"/g, '&quot;')}">`,
     `<meta name="twitter:image" content="${SITE.origin + SITE.socialImage}">`,
   ];
+  if (SEARCH_ENGINE_VERIFICATION.google) lines.push(`<meta name="google-site-verification" content="${SEARCH_ENGINE_VERIFICATION.google.replace(/"/g, '&quot;')}">`);
+  if (SEARCH_ENGINE_VERIFICATION.bing) lines.push(`<meta name="msvalidate.01" content="${SEARCH_ENGINE_VERIFICATION.bing.replace(/"/g, '&quot;')}">`);
   for (const locale of publishedLocalesFor(file)) {
     lines.push(`<link rel="alternate" hreflang="${locale}" href="${SITE.origin + localePath(file, locale)}">`);
   }
