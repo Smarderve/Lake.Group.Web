@@ -4,6 +4,7 @@
   "scripts": {
     "serve": "npx firebase emulators:start --only hosting",
     "deploy": "npx firebase deploy --only hosting",
+    "build": "npm run build:seo",
     "build:hero-globe": "node scripts/build_hero_globe.js",
     "build:seo": "node scripts/build-seo-foundation.mjs && node scripts/build-sitemap.js && node scripts/build-llms.mjs",
     "test:seo": "node scripts/verify-seo-foundation.mjs",

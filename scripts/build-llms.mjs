@@ -5,6 +5,16 @@ import path from 'node:path';
 import { COMPANY_ENTITIES, GROUP_MARKETS, GROUP_VERTICALS, PAGE_METADATA, SITE, absoluteUrl } from './seo-config.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
+if (!SITE.isConfigured) {
+  fs.writeFileSync(
+    path.join(root, 'llms.txt'),
+    '# Lake Group\n\nThe official public domain is not configured yet. This preview deployment is not a canonical public source.\n',
+    'utf8',
+  );
+  console.log('llms.txt: emitted pre-domain-migration placeholder.');
+  process.exit(0);
+}
+
 const companyLines = Object.entries(COMPANY_ENTITIES)
   .map(([file, company]) => `- [${company.name}](${absoluteUrl(file)}) — ${PAGE_METADATA[file].description}`)
   .join('\n');

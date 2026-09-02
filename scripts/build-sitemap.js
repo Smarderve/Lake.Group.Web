@@ -1,6 +1,6 @@
 /**
  * Build the public XML sitemap and robots.txt from the central SEO manifest.
- * Usage: node scripts/build-sitemap.js --domain=https://www.lakeoilgroup.com
+ * Usage: SITE_URL=https://official-domain.example node scripts/build-sitemap.js
  */
 const fs = require('fs');
 const path = require('path');
@@ -12,9 +12,13 @@ async function main() {
   const { SITE, INDEXABLE_ROUTES } = await import(
     pathToFileURL(path.join(__dirname, 'seo-config.mjs')).href
   );
-  const DOMAIN = (
-    process.argv.find((arg) => arg.startsWith('--domain=')) || `--domain=${SITE.origin}`
-  ).split('=')[1].replace(/\/+$/, '');
+  if (!SITE.isConfigured) {
+    fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>\n');
+    fs.writeFileSync(path.join(ROOT, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
+    console.log('SITE_URL is not configured: emitted noindex-safe sitemap and robots policy.');
+    return;
+  }
+  const DOMAIN = SITE.origin;
   const mainRoutes = new Set([
     'index.html', 'about.html', 'our-story.html', 'africa-network.html',
     'projects.html', 'news.html', 'leadership.html', 'contact.html', 'history.html',

@@ -9,8 +9,27 @@ import { PAGE_METADATA } from './seo-page-metadata.mjs';
  * generator reads that source copy and applies the standard search document.
  */
 
-// The one canonical production URL used by every generated public SEO asset.
-export const SITE_URL = 'https://www.lakeoilgroup.com';
+// The canonical production URL is deliberately supplied at deploy time. Do
+// not add a fallback: until Lake Group confirms and connects its official
+// domain, preview deployments must not establish a competing search identity.
+const configuredSiteUrl = (process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || '').trim();
+
+function normalizeSiteUrl(value) {
+  if (!value) return '';
+  let parsed;
+  try {
+    parsed = new URL(value);
+  } catch {
+    throw new Error('SITE_URL must be an absolute HTTPS URL, for example https://www.example.com');
+  }
+  if (parsed.protocol !== 'https:' || parsed.pathname !== '/' || parsed.search || parsed.hash) {
+    throw new Error('SITE_URL must be an HTTPS origin without a path, query, or hash');
+  }
+  return parsed.origin;
+}
+
+export const SITE_URL = normalizeSiteUrl(configuredSiteUrl);
+export const SITE_URL_CONFIGURED = Boolean(SITE_URL);
 
 // Tokens are optional build-time values. Set them in the deployment environment
 // only after receiving the real token from the relevant webmaster platform.
@@ -21,12 +40,13 @@ export const SEARCH_ENGINE_VERIFICATION = Object.freeze({
 
 export const SITE = Object.freeze({
   origin: SITE_URL,
+  isConfigured: SITE_URL_CONFIGURED,
   name: 'Lake Group',
   locale: 'en_TZ',
   logo: '/assets/images/logos/LAKE_GROUP_LOGO.png',
   socialImage: '/assets/images/social/lake-group-og-v2.jpg',
-  organizationId: 'https://www.lakeoilgroup.com/#organization',
-  websiteId: 'https://www.lakeoilgroup.com/#website',
+  organizationId: SITE_URL ? `${SITE_URL}/#organization` : '',
+  websiteId: SITE_URL ? `${SITE_URL}/#website` : '',
 });
 
 // These markets are stated in the existing English operations-network and
@@ -152,6 +172,9 @@ export function routePath(file) {
 }
 
 export function absoluteUrl(file) {
+  if (!SITE.isConfigured) {
+    throw new Error('SITE_URL is not configured; absolute public SEO URLs are unavailable until the official domain is set.');
+  }
   return `${SITE.origin}${routePath(file)}`;
 }
 

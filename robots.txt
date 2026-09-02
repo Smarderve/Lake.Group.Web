@@ -1,10 +1,2 @@
 User-agent: *
-Allow: /
-Disallow: /404.html
-Disallow: /offline.html
-Disallow: /dashboard.html
-Disallow: /cms/
-Disallow: /backend/
-Disallow: /docs/
-
-Sitemap: https://www.lakeoilgroup.com/sitemap.xml
+Disallow: /

@@ -12,6 +12,7 @@ routeForPath.set('/index.html', 'index.html');
 const redirects = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8')).redirects || [];
 const redirectMap = new Map(redirects.map((redirect) => [redirect.source, redirect.destination]));
 const incoming = new Map(INDEXABLE_ROUTES.map((file) => [file, new Set()]));
+const crawlOrigin = SITE.origin || 'https://crawl-validation.invalid';
 
 function resolveRedirect(source) {
   const seen = new Set([source]);
@@ -36,8 +37,8 @@ for (const file of INDEXABLE_ROUTES) {
   const anchors = [...markup.matchAll(/<a\b[^>]*\bhref=(['"])(.*?)\1/gi)].map((match) => match[2]);
   for (const href of anchors) {
     if (!href || /^(?:#|mailto:|tel:|javascript:|data:)/i.test(href)) continue;
-    const url = new URL(href, `${SITE.origin}${routePath(file)}`);
-    if (url.origin !== SITE.origin) continue;
+    const url = new URL(href, `${crawlOrigin}${routePath(file)}`);
+    if (url.origin !== crawlOrigin) continue;
     const targetPath = url.pathname === '/' ? '/' : url.pathname;
     const targetFile = routeForPath.get(targetPath);
     if (targetFile) {
@@ -60,23 +61,25 @@ for (const file of INDEXABLE_ROUTES.filter((file) => file !== 'index.html')) {
 
 const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
 const locations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-for (const file of INDEXABLE_ROUTES) {
-  const expected = `${SITE.origin}${routePath(file)}`;
-  if (!locations.includes(expected)) errors.push(`sitemap missing canonical route: ${expected}`);
-}
-for (const location of locations) {
-  if (!location.startsWith(SITE.origin) || /\/(?:en|sw|fr|ar|pt)(?:\/|$)/i.test(location)) errors.push(`invalid sitemap location: ${location}`);
-  const route = location.slice(SITE.origin.length) || '/';
-  if (!routeForPath.has(route)) errors.push(`sitemap includes non-indexable route: ${location}`);
-}
-
-for (const file of NON_INDEXABLE_ROUTES) {
-  if (locations.includes(`${SITE.origin}${routePath(file)}`)) errors.push(`sitemap includes noindex route: ${file}`);
+if (!SITE.isConfigured && locations.length) errors.push('sitemap must remain empty until SITE_URL is configured');
+if (SITE.isConfigured) {
+  for (const file of INDEXABLE_ROUTES) {
+    const expected = `${SITE.origin}${routePath(file)}`;
+    if (!locations.includes(expected)) errors.push(`sitemap missing canonical route: ${expected}`);
+  }
+  for (const location of locations) {
+    if (!location.startsWith(SITE.origin) || /\/(?:en|sw|fr|ar|pt)(?:\/|$)/i.test(location)) errors.push(`invalid sitemap location: ${location}`);
+    const route = location.slice(SITE.origin.length) || '/';
+    if (!routeForPath.has(route)) errors.push(`sitemap includes non-indexable route: ${location}`);
+  }
+  for (const file of NON_INDEXABLE_ROUTES) {
+    if (locations.includes(`${SITE.origin}${routePath(file)}`)) errors.push(`sitemap includes noindex route: ${file}`);
+  }
 }
 
 if (errors.length) {
   console.error(errors.join('\n'));
   process.exit(1);
 }
-console.log(`Crawl readiness passed: ${INDEXABLE_ROUTES.length} indexable URLs, ${redirectMap.size} redirects, ${[...incoming.values()].filter((sources) => sources.size).length - 1} internally linked non-home routes.`);
+console.log(`Crawl readiness passed: ${SITE.isConfigured ? INDEXABLE_ROUTES.length : 0} published URLs, ${redirectMap.size} redirects, ${[...incoming.values()].filter((sources) => sources.size).length - 1} internally linked non-home routes.`);
 if (warnings.length) console.warn(`Crawl readiness warnings (${warnings.length}):\n${warnings.slice(0, 20).join('\n')}`);
