@@ -16,6 +16,10 @@ function decode(value) {
   return value.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&apos;/g, "'");
 }
 
+function escapeHtmlText(value) {
+  return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 function attribute(html, name) {
   const tag = html.match(new RegExp(`<meta\\b[^>]*\\bname=["']${name}["'][^>]*>`, 'i'))?.[0]
     || html.match(new RegExp(`<meta\\b[^>]*\\bproperty=["']${name}["'][^>]*>`, 'i'))?.[0];
@@ -119,6 +123,7 @@ function replaceManagedHead(html, file) {
     .replace(/\s*<link\b[^>]*\brel=["']canonical["'][^>]*>/gi, '')
     .replace(/\s*<link\b[^>]*\brel=["']alternate["'][^>]*\bhreflang=["'][^"']+["'][^>]*>/gi, '')
     .replace(/\s*<script\b[^>]*type=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>/gi, '');
+  html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeHtmlText(pageTitle)}</title>`);
   return html.replace(/<\/head>/i, `  ${managedHead(file, pageTitle, pageDescription)}\n</head>`);
 }
 

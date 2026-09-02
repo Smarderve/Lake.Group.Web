@@ -1,36 +1,36 @@
-/** Approved source metadata captured from the static English pages. */
+/** Approved, localization-ready English source metadata for every static route. */
 export const PAGE_METADATA = Object.freeze({
   "404.html": {
     "title": "404 . Page Not Found | Lake Group",
     "description": "Page not found . return to Lake Group homepage, companies, or contact."
   },
   "about.html": {
-    "title": "About Lake Group | Our Story &amp; Vision",
-    "description": "Lake Group was established in 2006 with a single fuel outlet in Dar es Salaam and now operates across 10 countries with more than 30,000 employees from 10+ nationalities."
+    "title": "About Lake Group | Diversified Business Group in East &amp; Central Africa",
+    "description": "Learn how Lake Group grew from a single fuel outlet in Dar es Salaam into a diversified business group operating across East and Central Africa."
   },
   "acfs.html": {
     "title": "ACFS | Logistics | Lake Group",
     "description": "ACFS (African Cargo Freight Station) - Lake Group's container freight station and empty container depot at Tazara, Pugu Road, Dar es Salaam, with 5,000 TEU capacity and rail link."
   },
   "aficd.html": {
-    "title": "AFICD | Logistics | Lake Group",
-    "description": "African Inland Container Depot (AFICD) provides ICD, CFS and Empty Container Depot services in Tanzania, supporting efficient container handling, storage and inland logistics across the East African trade corridor."
+    "title": "AFICD | Inland Container Depot &amp; Logistics Services | Lake Group",
+    "description": "African Inland Container Depot (AFICD) provides ICD, CFS and empty container depot services supporting cargo handling, storage and inland logistics in Tanzania."
   },
   "africa-network.html": {
-    "title": "Operations Map | Lake Group",
-    "description": "Lake Group operations across Tanzania, Kenya, Zambia, Rwanda, Burundi, DR Congo, Ethiopia, Mozambique and Dubai."
+    "title": "Lake Group Operations Network | East &amp; Central Africa",
+    "description": "Explore Lake Group's operations network across Tanzania, Kenya, Zambia, Rwanda, Burundi, DR Congo, Ethiopia, Mozambique and the UAE."
   },
   "agrinova-tech.html": {
-    "title": "Agrinova Tech Limited | Lake Group",
-    "description": "Agrinova Tech Limited provides agricultural machinery and practical solutions for modern farming in Tanzania."
+    "title": "Agrinova Tech Limited | Agricultural Machinery Solutions | Lake Group",
+    "description": "Agrinova Tech Limited provides agricultural machinery and practical farming solutions in Tanzania as part of Lake Group's Automotive sector."
   },
   "aill.html": {
-    "title": "AILL | Logistics | Lake Group",
-    "description": "African Inland Logistics Ltd. (AILL) provides comprehensive logistics support and container freight station services in Dar es Salaam, Tanzania."
+    "title": "AILL | Inland Logistics &amp; Container Freight Services | Lake Group",
+    "description": "African Inland Logistics Ltd. (AILL) provides logistics support and container freight station services in Dar es Salaam, Tanzania."
   },
   "assembly-tech.html": {
-    "title": "Assembly Tech Limited | Automotive | Lake Group",
-    "description": "ATL Limited, Assembly Tech Ltd, manufactures high-quality aluminium trailers and durable fuel transportation solutions."
+    "title": "Assembly Tech Limited | Aluminium Trailer Manufacturing | Lake Group",
+    "description": "Assembly Tech Limited manufactures aluminium trailers and fuel transportation solutions for commercial transport requirements across East and Central Africa."
   },
   "atl.html": {
     "title": "ATL | Aluminium Trailers | Lake Group",
@@ -45,8 +45,8 @@ export const PAGE_METADATA = Object.freeze({
     "description": "Contact Lake Group headquarters and every subsidiary across East and Central Africa. Phone, email and addresses for Lake Oil, Lake Gas, Lake Trans and more."
   },
   "cross-country.html": {
-    "title": "Cross Country | Real Estate | Lake Group",
-    "description": "Cross Country Developer Limited is Lake Group's real estate development company, established in 2021 to develop and manage commercial, retail, hospitality and mixed-use properties across Tanzania."
+    "title": "Cross Country Developer Limited | Real Estate Development | Lake Group",
+    "description": "Cross Country Developer Limited develops and manages commercial, retail, hospitality and mixed-use properties in Tanzania as part of Lake Group."
   },
   "csr.html": {
     "title": "CSR &amp; Sustainability | Lake Group",
@@ -57,24 +57,24 @@ export const PAGE_METADATA = Object.freeze({
     "description": "Lake Group content management console . sign in to manage news, leaders, companies, countries and media through the self-hosted CMS."
   },
   "fleet.html": {
-    "title": "Our Fleet | Lake Trans | Lake Group",
-    "description": "1,600+ trucks operating bulk liquid haulage and logistics across East and Central Africa."
+    "title": "Lake Trans Fleet | Transport &amp; Logistics | Lake Group",
+    "description": "Explore the Lake Trans fleet supporting bulk liquid haulage and logistics operations across East and Central Africa."
   },
   "gallery.html": {
     "title": "Gallery | Lake Group",
     "description": "Photos from Lake Group operations, events, and facilities across East and Central Africa."
   },
   "gulf-aggregates.html": {
-    "title": "Gulf Aggregates | Manufacturing | Lake Group",
-    "description": "Gulf Aggregates - operates its own quarry at Lugoba, Tanzania, producing approximately 30,000 m³ of aggregate monthly for GCCP's ready-mix operations and the wider construction industry."
+    "title": "Gulf Aggregates | Quarry &amp; Aggregate Processing | Lake Group",
+    "description": "Gulf Aggregates operates a quarry at Lugoba, Tanzania, supplying aggregate for ready-mix operations and the construction industry."
   },
   "history.html": {
     "title": "Our History | Lake Group Since 2006",
     "description": "Explore Lake Group's timeline from the establishment of Lake Oil in Tanzania in 2006 through its expansion across energy, logistics, manufacturing, aviation, real estate and agriculture."
   },
   "index.html": {
-    "title": "Lake Group | Powering East &amp; Central Africa",
-    "description": "Lake Group is one of Tanzania's leading diversified business groups, driving sustainable growth, innovation, and regional development across East Africa."
+    "title": "Lake Group | Diversified Business Group in East &amp; Central Africa",
+    "description": "Lake Group is a diversified business group with operations across energy, manufacturing, logistics, real estate, agro processing and automotive sectors."
   },
   "investors.html": {
     "title": "Investor Relations | Lake Group",
@@ -89,24 +89,24 @@ export const PAGE_METADATA = Object.freeze({
     "description": ""
   },
   "lake-agro.html": {
-    "title": "Lake Agro | Agro Processing | Lake Group",
-    "description": "Lake Agro Limited is developing a 16,000-hectare integrated sugarcane plantation and sugar manufacturing project in Rufiji, Tanzania."
+    "title": "Lake Agro | Agro Processing &amp; Agricultural Development | Lake Group",
+    "description": "Lake Agro Limited develops integrated agricultural and sugar manufacturing operations in Rufiji, Tanzania, as part of Lake Group."
   },
   "lake-aviation.html": {
-    "title": "Lake Aviation | Lake Energies | Lake Group",
-    "description": "Lake Aviation, established in 2020 as part of Lake Energies, specializes in aviation fuel supply and into-plane fueling services across Tanzania and Uganda."
+    "title": "Lake Aviation | Aviation Fuel &amp; Into-Plane Fueling | Lake Group",
+    "description": "Lake Aviation provides aviation fuel supply and into-plane fueling services across Tanzania and Uganda as part of Lake Energies."
   },
   "lake-buildings.html": {
-    "title": "Lake Building Solution | Manufacturing | Lake Group",
-    "description": "Lake Building Solution is a Lake Group subsidiary specializing in high-quality gypsum board and marine board manufacturing in Kibaha Visiga, Tanzania."
+    "title": "Lake Building Solution | Gypsum &amp; Marine Board Manufacturing | Lake Group",
+    "description": "Lake Building Solution manufactures gypsum board and marine board in Kibaha Visiga, Tanzania, as part of Lake Group's Manufacturing sector."
   },
   "lake-cylinders.html": {
-    "title": "Lake Cylinders | Manufacturing | Lake Group",
-    "description": "Lake Cylinders Limited is a specialized LPG cylinder manufacturing company supporting safe, reliable LPG solutions in Tanzania and the wider East African market."
+    "title": "Lake Cylinders | LPG Cylinder Manufacturing | Lake Group",
+    "description": "Lake Cylinders Limited manufactures LPG cylinders supporting safe and reliable LPG solutions in Tanzania and the wider East African market."
   },
   "lake-gas.html": {
-    "title": "Lake Gas | Lake Energies | Lake Group",
-    "description": "Lake Gas Limited supplies clean, safe and reliable retail and bulk LPG for household and commercial use across East and Central Africa, with Tanzania as its central hub."
+    "title": "Lake Gas | LPG Supply &amp; Distribution | Lake Group",
+    "description": "Lake Gas Limited supplies retail and bulk LPG for household and commercial use across East and Central Africa, with Tanzania as its central hub."
   },
   "lake-group-financial-dashboard.html": {
     "title": "Lake Group . Financial Dashboard",
@@ -117,28 +117,28 @@ export const PAGE_METADATA = Object.freeze({
     "description": "Interactive organisational chart of Lake Group companies owned by Mr. Ally Edha Awadh . energy, manufacturing, logistics, real estate, and agro-processing subsidiaries."
   },
   "lake-lubes.html": {
-    "title": "Lake Lubes | Lake Energies | Lake Group",
-    "description": "Lake Lubes Ltd is a Lake Group lubricant and grease manufacturer established in 2016, producing automotive, industrial and specialty lubricants from its integrated blending and packaging operation in Tanzania."
+    "title": "Lake Lubes | Lubricant &amp; Grease Manufacturing | Lake Group",
+    "description": "Lake Lubes Ltd produces automotive, industrial and specialty lubricants and greases from its blending and packaging operation in Tanzania."
   },
   "lake-oil.html": {
-    "title": "Lake Oil | Lake Energies | Lake Group",
-    "description": "Lake Oil, the flagship company of Lake Group, was established in 2006 and operates as retail stations and bulk petroleum distributors."
+    "title": "Lake Oil | Fuel Distribution &amp; Retail Stations | Lake Group",
+    "description": "Lake Oil is Lake Group's flagship energy company, operating retail fuel stations and bulk petroleum distribution services."
   },
   "lake-pipes.html": {
-    "title": "Lake Pipes | Manufacturing | Lake Group",
-    "description": "Lake Pipes, division of Lake Group since 2019, manufactures and distributes quality PVC and HDPE pipes, water tanks and fittings from its Visiga plant in Kibaha, Tanzania."
+    "title": "Lake Pipes | PVC &amp; HDPE Pipe Manufacturing | Lake Group",
+    "description": "Lake Pipes manufactures and distributes PVC and HDPE pipes, water tanks and fittings from its Visiga plant in Kibaha, Tanzania."
   },
   "lake-premix-cement.html": {
-    "title": "Lake Premix | Manufacturing | Lake Group",
-    "description": "Lake Premix is a Lake Group subsidiary providing ready-mix concrete solutions in Dar es Salaam since 2010, with operations extended to Kenya through Gulf Premix."
+    "title": "Lake Premix | Ready-Mix Concrete Solutions | Lake Group",
+    "description": "Lake Premix provides ready-mix concrete solutions in Dar es Salaam, with operations extended to Kenya through Gulf Premix."
   },
   "lake-steel.html": {
-    "title": "Lake Steel | Manufacturing | Lake Group",
-    "description": "Lake Steel & Allied Products Limited manufactures and supplies high-quality, TBS-certified TMT reinforcement steel bars conforming to BS 500."
+    "title": "Lake Steel | Reinforcement Steel Manufacturing | Lake Group",
+    "description": "Lake Steel & Allied Products Limited manufactures and supplies TMT reinforcement steel bars for construction applications."
   },
   "lake-trans.html": {
-    "title": "Lake Trans | Transport &amp; Logistics | Lake Group",
-    "description": "Lake Trans Limited, part of Lake Group since 2011, is an ISO-certified transport company specialising in secure petroleum product transportation with a fleet of more than 1,500 trucks across East Africa."
+    "title": "Lake Trans | Petroleum Transport &amp; Logistics | Lake Group",
+    "description": "Lake Trans Limited provides petroleum product transportation and logistics services across East Africa as part of Lake Group."
   },
   "leadership-ally-edha-awadh.html": {
     "title": "Ally Edha Awadh - Founder &amp; Chairman | Lake Group",
@@ -161,8 +161,8 @@ export const PAGE_METADATA = Object.freeze({
     "description": "Latest announcements, expansions and community activities from Lake Group across Africa."
   },
   "nextdrive-motors.html": {
-    "title": "NextDrive Motors Limited | Automotive | Lake Group",
-    "description": "NextDrive Motors is a commercial vehicle company providing sales, distribution and support for transportation solutions."
+    "title": "NextDrive Motors Limited | Commercial Vehicle Solutions | Lake Group",
+    "description": "NextDrive Motors Limited provides commercial vehicle sales, distribution and support for transportation and logistics requirements."
   },
   "ocean-galleria.html": {
     "title": "Waterfront Mall | Real Estate | Lake Group",

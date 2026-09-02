@@ -1,13 +1,19 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
-import { INDEXABLE_ROUTES, NON_INDEXABLE_ROUTES, SITE } from './seo-config.mjs';
+import { INDEXABLE_ROUTES, NON_INDEXABLE_ROUTES, SITE, COMPANY_ENTITIES, PAGE_METADATA, SEARCH_INTENTS } from './seo-config.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const errors = [];
 const all = [...INDEXABLE_ROUTES, ...NON_INDEXABLE_ROUTES];
 const titles = new Map();
 const descriptions = new Map();
+Object.keys(COMPANY_ENTITIES).forEach((file) => {
+  const intent = SEARCH_INTENTS[file];
+  if (!intent?.entity || !intent?.primary || !intent?.vertical || !intent?.questions?.length) {
+    errors.push(`${file}: missing complete internal search-intent record`);
+  }
+});
 for (const file of all) {
   const html = fs.readFileSync(path.join(root, file), 'utf8');
   const indexable = INDEXABLE_ROUTES.includes(file);
@@ -28,6 +34,8 @@ for (const file of all) {
   if (/lakegroup\.vercel\.app/i.test(html)) errors.push(`${file}: contains a Vercel preview-domain URL`);
   const pageTitle = html.match(/<title>([\s\S]*?)<\/title>/i)?.[1]?.trim();
   const pageDescription = html.match(/<meta name="description" content="([\s\S]*?)">/i)?.[1]?.trim();
+  const expectedTitle = PAGE_METADATA[file]?.title;
+  if (expectedTitle && pageTitle !== expectedTitle) errors.push(`${file}: title does not match centralized metadata`);
   if (indexable && (!pageTitle || !pageDescription)) errors.push(`${file}: title or description is empty`);
   if (indexable) {
     if (titles.has(pageTitle)) errors.push(`${file}: title duplicates ${titles.get(pageTitle)}`);
