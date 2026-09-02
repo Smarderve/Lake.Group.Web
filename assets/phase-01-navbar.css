@@ -156,6 +156,36 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .nav-logo--company img {
   border: 0 !important;
 }
 
+/* Dropdown chevron indicator — SVG inline beside dropdown labels */
+.site-nav[data-phase01-navbar] .nav-dd-arrow {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 12px !important;
+  height: 12px !important;
+  margin-left: 5px !important;
+  vertical-align: middle !important;
+  flex-shrink: 0 !important;
+  opacity: .65 !important;
+  transition: transform .22s ease, opacity .22s ease !important;
+  pointer-events: none !important;
+}
+.site-nav[data-phase01-navbar] .nav-dd-arrow svg {
+  width: 12px !important;
+  height: 12px !important;
+  display: block !important;
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 2.2 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+.site-nav[data-phase01-navbar] .has-dropdown.is-open > a .nav-dd-arrow,
+.site-nav[data-phase01-navbar] .has-dropdown:focus-within > a .nav-dd-arrow {
+  transform: rotate(180deg) !important;
+  opacity: 1 !important;
+}
+
 .nav-stripes {
   display: none !important;
 }
