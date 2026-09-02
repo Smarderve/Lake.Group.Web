@@ -44,12 +44,11 @@
 .val-mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-4);margin-top:var(--sp-8)}
 @media(max-width:960px){.val-mini-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.val-mini-grid{grid-template-columns:1fr}}
-.agro-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.agro-gallery-grid figure{margin:0;overflow:hidden;border-radius:14px;background:#0b3e20}
+.agro-gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:1100px;margin:0 auto}
+.agro-gallery-grid figure{margin:0;overflow:hidden;border-radius:10px;background:#0b3e20}
 .agro-gallery-grid img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;filter:none;transform:translateZ(0)}
-.agro-gallery-grid figcaption{padding:11px 13px;color:#fff;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
-@media(max-width:900px){.agro-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:520px){.agro-gallery-grid{grid-template-columns:1fr}}
+.agro-gallery-grid figcaption{padding:10px 14px;color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:#004b1e}
+@media(max-width:768px){.agro-gallery-grid{grid-template-columns:1fr;max-width:480px}}
 .val-mini-tile{position:relative;text-align:center;padding:var(--sp-6) var(--sp-4);border:1px solid var(--ink-line-2);background:rgba(255,255,255,0.02)}
 .val-mini-tile::before{content:'';position:absolute;top:-1px;left:-1px;width:8px;height:8px;background:var(--gold)}
 .val-mini-tile h4{font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;color:var(--white);margin-bottom:6px}
@@ -74,17 +73,17 @@
 /* Gallery . Lake Agro projects - photo cards (reference GIF style) */
 .co-gal-label{margin:var(--sp-6) 0 var(--sp-3);font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--color-agro-green-deep,#004b1e)}
 /* Our Projects — photo-dominant tiles (photo fills the tile, green overlay caption) */
-.agro-prj-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;width:100%}
-.agro-prj{position:relative;border-radius:10px;overflow:hidden;background:#004b1e;display:block;aspect-ratio:4/3.1;transition:transform .35s ease,box-shadow .35s ease}
-.agro-prj:hover{transform:translateY(-5px);box-shadow:0 24px 48px -22px rgba(0,75,30,.45)}
+.agro-prj-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;width:100%;max-width:1100px;margin:0 auto}
+.agro-prj{position:relative;border-radius:10px;overflow:hidden;background:#004b1e;display:block;aspect-ratio:4/2.8;transition:transform .35s ease,box-shadow .35s ease}
+.agro-prj:hover{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(0,75,30,.40)}
 .agro-prj__media{position:absolute;inset:0;overflow:hidden}
-.agro-prj__media img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .6s ease}
-.agro-prj:hover .agro-prj__media img{transform:scale(1.06)}
-.agro-prj__body{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;gap:5px;padding:18px 18px 20px;background:linear-gradient(180deg,rgba(0,75,30,0) 0%,rgba(0,75,30,.28) 42%,rgba(0,75,30,.88) 100%)}
-.agro-prj__tag{font-size:.64rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#f2b64c}
-.agro-prj__title{font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:.02em;text-transform:uppercase;color:#fff;margin:0}
-.agro-prj__text{font-size:.82rem;line-height:1.55;color:rgba(255,255,255,.88);margin:0}
-@media(max-width:768px){.agro-prj-grid{grid-template-columns:1fr}.agro-prj{aspect-ratio:4/3}}
+.agro-prj__media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.agro-prj:hover .agro-prj__media img{transform:scale(1.05)}
+.agro-prj__body{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;gap:3px;padding:14px 16px 16px;background:linear-gradient(180deg,rgba(0,75,30,0) 0%,rgba(0,75,30,.25) 40%,rgba(0,75,30,.85) 100%)}
+.agro-prj__tag{font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#f2b64c}
+.agro-prj__title{font-family:var(--font-display);font-weight:700;font-size:.92rem;letter-spacing:.02em;text-transform:uppercase;color:#fff;margin:0}
+.agro-prj__text{font-size:.76rem;line-height:1.5;color:rgba(255,255,255,.88);margin:0}
+@media(max-width:768px){.agro-prj-grid{grid-template-columns:1fr;max-width:480px}.agro-prj{aspect-ratio:4/3}}
 
 .img-mosaic{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:820px}
 @media(max-width:720px){.img-mosaic{grid-template-columns:1fr 1fr;gap:8px;max-width:100%}}
@@ -152,10 +151,10 @@ body.co-theme-agro .page-hero .hero-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 45%;
+  object-position: center 58%;
 }
 body.co-theme-agro .hero-overlay {
-  background: linear-gradient(180deg, rgba(0,60,25,.22) 0%, rgba(0,60,25,.12) 50%, rgba(0,60,25,.30) 100%);
+  background: linear-gradient(180deg, rgba(0,50,20,.18) 0%, rgba(0,50,20,.08) 45%, rgba(0,50,20,.22) 100%);
 }
 @keyframes agro-hero-media-in {
   from { opacity: 0; transform: scale(1.02); }
@@ -174,7 +173,7 @@ body.co-theme-agro .hero-overlay {
     min-height: 680px;
     padding: 60px 0 60px;
   }
-  body.co-theme-agro .page-hero .hero-media img { object-position: center 35%; }
+  body.co-theme-agro .page-hero .hero-media img { object-position: center 55%; }
 }
 /* Official Lake Agro presentation: keep the public page focused on the
    approved Rufiji sugar project rather than the retired generic profile copy. */
@@ -444,7 +443,7 @@ body.co-theme-agro .lake-back-to-top:hover {
 
 <div class="page-wrapper">
 <section class="page-hero">
-  <picture class="hero-media" aria-hidden="true"><img src="assets/images/lake-agro/la-hero-landscape.webp" alt="" width="1448" height="1086" fetchpriority="high" decoding="async" loading="eager"></picture>
+  <picture class="hero-media" aria-hidden="true"><img src="assets/images/lake-agro/la-combine-harvester.webp" alt="" width="1086" height="1448" fetchpriority="high" decoding="async" loading="eager"></picture>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container">
 <div class="eyebrow">Lake Agro · Lake Group Agricultural Company</div>
@@ -457,7 +456,7 @@ body.co-theme-agro .lake-back-to-top:hover {
 
 <section class="fs-section fs-on-dark" id="our-operations"><div class="container"><div class="fs-marker"><span class="fs-marker-no">02</span><span class="fs-eyebrow">Our Operations</span></div><h2 class="fs-display">Integrated agriculture at scale.</h2><div class="fs-split-even" style="margin-top:var(--sp-6)"><div><p class="fs-lede">Lake Agro is developing a diversified and resilient agricultural business built around large-scale crop production, livestock, modern farming technology and agricultural infrastructure.</p><p style="margin-top:14px">Across its operations, the company combines commercial farming with technology and innovation to strengthen food production, improve operational efficiency and support sustainable agricultural growth.</p></div><div class="agro-zambia-facts" aria-label="Lake Agro operating pillars"><div><strong>Crop Production</strong><span>Commercial production across maize, soya beans, wheat and sugarcane</span></div><div><strong>Beef &amp; Livestock</strong><span>Livestock and beef production as part of an integrated agribusiness strategy</span></div></div></div></div></section>
 
-<section class="fs-section" id="agricultural-activities"><div class="container"><div class="fs-marker"><span class="fs-marker-no">03</span><span class="fs-eyebrow">Agricultural Activities</span></div><h2 class="fs-display" style="margin-bottom:var(--sp-6)">Diversified commercial production.</h2><div class="agro-prj-grid"><article class="agro-prj"><div class="agro-prj__media"><img src="assets/images/lake-agro/lake-agro-livestock.webp" alt="Lake Agro livestock and beef production" loading="lazy" decoding="async" width="1086" height="1448"></div><div class="agro-prj__body"><span class="agro-prj__tag">Livestock</span><h3 class="agro-prj__title">Beef &amp; Livestock</h3><p class="agro-prj__text">Expanding livestock and beef production across Zambia farm operations.</p></div></article><article class="agro-prj"><div class="agro-prj__media"><img src="assets/images/lake-agro/lake-agro-maize.webp" alt="Lake Agro maize cultivation with tractor" loading="lazy" decoding="async" width="1086" height="1448"></div><div class="agro-prj__body"><span class="agro-prj__tag">Crops</span><h3 class="agro-prj__title">Maize</h3><p class="agro-prj__text">Large-scale commercial maize plantations supported by modern equipment.</p></div></article><article class="agro-prj"><div class="agro-prj__media"><img src="assets/images/lake-agro/lake-agro-soya.webp" alt="Lake Agro soya bean crop field" loading="lazy" decoding="async" width="1086" height="1448"></div><div class="agro-prj__body"><span class="agro-prj__tag">Crops</span><h3 class="agro-prj__title">Soya Beans</h3><p class="agro-prj__text">Large-scale soya bean production with centre-pivot irrigation systems.</p></div></article><article class="agro-prj agro-prj--landscape"><div class="agro-prj__media"><img src="assets/images/lake-agro/la-tanzania-factory.webp" alt="Lake Agro commercial crop production" loading="lazy" decoding="async" width="1280" height="720"></div><div class="agro-prj__body"><span class="agro-prj__tag">Crops</span><h3 class="agro-prj__title">Commercial Wheat Production</h3><p class="agro-prj__text">Commercial wheat production as part of diversified crop operations.</p></div></article></div></div></section>
+<section class="fs-section" id="agricultural-activities"><div class="container"><div class="fs-marker"><span class="fs-marker-no">03</span><span class="fs-eyebrow">Agricultural Activities</span></div><h2 class="fs-display" style="margin-bottom:var(--sp-6)">Diversified commercial production.</h2><div class="agro-prj-grid"><article class="agro-prj"><div class="agro-prj__media"><img src="assets/images/lake-agro/lake-agro-livestock.webp" alt="Lake Agro livestock and beef production" loading="lazy" decoding="async" width="1086" height="1448" style="object-position:center 40%"></div><div class="agro-prj__body"><span class="agro-prj__tag">Livestock</span><h3 class="agro-prj__title">Beef &amp; Livestock</h3><p class="agro-prj__text">Expanding livestock and beef production across Zambia farm operations.</p></div></article><article class="agro-prj"><div class="agro-prj__media"><img src="assets/images/lake-agro/lake-agro-maize.webp" alt="Lake Agro maize cultivation with tractor" loading="lazy" decoding="async" width="1086" height="1448" style="object-position:center 45%"></div><div class="agro-prj__body"><span class="agro-prj__tag">Crops</span><h3 class="agro-prj__title">Maize</h3><p class="agro-prj__text">Large-scale commercial maize plantations supported by modern equipment.</p></div></article><article class="agro-prj"><div class="agro-prj__media"><img src="assets/images/lake-agro/lake-agro-soya.webp" alt="Lake Agro soya bean crop field" loading="lazy" decoding="async" width="1086" height="1448" style="object-position:center 50%"></div><div class="agro-prj__body"><span class="agro-prj__tag">Crops</span><h3 class="agro-prj__title">Soya Beans</h3><p class="agro-prj__text">Large-scale soya bean production with centre-pivot irrigation systems.</p></div></article><article class="agro-prj agro-prj--landscape"><div class="agro-prj__media"><img src="assets/images/lake-agro/la-tanzania-factory.webp" alt="Lake Agro commercial crop production" loading="lazy" decoding="async" width="1280" height="720" style="object-position:center 60%"></div><div class="agro-prj__body"><span class="agro-prj__tag">Crops</span><h3 class="agro-prj__title">Commercial Wheat Production</h3><p class="agro-prj__text">Commercial wheat production as part of diversified crop operations.</p></div></article></div></div></section>
 
 <section class="fs-section section-light" id="operational-capabilities"><div class="container"><div class="fs-marker"><span class="fs-marker-no">04</span><span class="fs-eyebrow">Operational Capabilities</span></div><h2 class="fs-display" style="margin-bottom:var(--sp-6)">Agricultural equipment and infrastructure.</h2><div class="agro-equipment-grid" aria-label="Lake Agro operational capabilities"><figure><div class="agro-equip-media"><img src="assets/images/lake-agro/la-tractors-duo.webp" alt="Lake Agro tractors and sprayer equipment" loading="lazy" decoding="async" width="968" height="1625"></div><figcaption>Tractors</figcaption></figure><figure><div class="agro-equip-media"><img src="assets/images/lake-agro/la-quadtrac-equipment.webp" alt="Lake Agro Quadtrac heavy farm equipment" loading="lazy" decoding="async" width="1600" height="900"></div><figcaption>Heavy Equipment</figcaption></figure><figure><div class="agro-equip-media"><img src="assets/images/lake-agro/la-combine-harvester.webp" alt="Lake Agro combine harvester" loading="lazy" decoding="async" width="1086" height="1448"></div><figcaption>Combine Harvester</figcaption></figure><figure><div class="agro-equip-media"><img src="assets/images/lake-agro/la-irrigation-bareland.webp" alt="Lake Agro centre-pivot irrigation system" loading="lazy" decoding="async" width="1448" height="1086"></div><figcaption>Irrigation Infrastructure</figcaption></figure></div></div></section>
 
@@ -465,7 +464,7 @@ body.co-theme-agro .lake-back-to-top:hover {
 
 <section class="fs-section section-light" id="tanzania-project"><div class="container"><div class="fs-marker"><span class="fs-marker-no">06</span><span class="fs-eyebrow">Tanzania Sugarcane &amp; Sugar Project</span></div><h2 class="fs-display" style="margin-bottom:var(--sp-6)">Growing with efficient irrigation.</h2><div class="fs-split-even"><div><p class="fs-lede">Lake Agro initiated its integrated sugarcane and sugar manufacturing project in Tanzania in 2021, associated with 16,000 hectares of land.</p><p style="margin-top:14px">634 hectares of sugarcane have been planted using Centre Pivot, Semi-solid and Drip irrigation systems. The development is supported by 17 km of 33KV High Tension Power Line and further bulk-water infrastructure.</p><p style="margin-top:14px">The current plant capacity is 2,500 TCD and is expandable to 3,500 TCD. Bosch Projects (Pty) Ltd of South Africa and Booker Tate Limited of the United Kingdom are the international consultants supporting the project.</p></div><div class="agro-irrigation-pair"><div class="fs-media"><img src="assets/images/lake-agro/la-irrigation-green.webp" alt="Lake Agro centre-pivot irrigation over a green crop field" loading="lazy" decoding="async" width="1448" height="1086"></div><div class="fs-media"><img src="assets/images/lake-agro/la-irrigation-bareland.webp" alt="Lake Agro centre-pivot irrigation across prepared fields" loading="lazy" decoding="async" width="1448" height="1086"></div></div></div></div></section>
 
-<section class="fs-section" id="project-gallery"><div class="container"><div class="fs-marker"><span class="fs-marker-no">07</span><span class="fs-eyebrow">Lake Agro in Focus</span></div><h2 class="fs-display" style="margin-bottom:var(--sp-6)">Our operations.</h2><div class="agro-gallery-grid" aria-label="Lake Agro project gallery"><figure><img src="assets/images/lake-agro/la-excavators.webp" alt="Lake Agro land development with SANY excavators" loading="lazy" decoding="async" width="1280" height="720"><figcaption>Land Development</figcaption></figure><figure><img src="assets/images/lake-agro/la-tanzania-sugarcane.webp" alt="Lake Agro sugarcane plantation beside farm road" loading="lazy" decoding="async" width="1080" height="1440"><figcaption>Sugarcane Operations</figcaption></figure><figure><img src="assets/images/lake-agro/la-machinery-shed.webp" alt="Lake Agro farm machinery shed with combine and implements" loading="lazy" decoding="async" width="1080" height="1440"><figcaption>Farm Equipment</figcaption></figure><figure><img src="assets/images/lake-agro/la-tanzania-factory.webp" alt="Lake Agro sugarcane field with manufacturing facility" loading="lazy" decoding="async" width="1280" height="720"><figcaption>Manufacturing Facility</figcaption></figure></div></div></section>
+<section class="fs-section" id="project-gallery"><div class="container"><div class="fs-marker"><span class="fs-marker-no">07</span><span class="fs-eyebrow">Lake Agro in Focus</span></div><h2 class="fs-display" style="margin-bottom:var(--sp-6)">Our operations.</h2><div class="agro-gallery-grid" aria-label="Lake Agro project gallery"><figure><img src="assets/images/lake-agro/la-excavators.webp" alt="Lake Agro land development with SANY excavators" loading="lazy" decoding="async" width="1280" height="720"><figcaption>Land Development</figcaption></figure><figure><img src="assets/images/lake-agro/la-tanzania-sugarcane.webp" alt="Lake Agro sugarcane plantation beside farm road" loading="lazy" decoding="async" width="1080" height="1440" style="object-position:center 45%"><figcaption>Sugarcane Operations</figcaption></figure><figure><img src="assets/images/lake-agro/la-machinery-shed.webp" alt="Lake Agro farm machinery shed with combine and implements" loading="lazy" decoding="async" width="1080" height="1440" style="object-position:center 50%"><figcaption>Farm Equipment</figcaption></figure><figure><img src="assets/images/lake-agro/la-tanzania-factory.webp" alt="Lake Agro sugarcane field with manufacturing facility" loading="lazy" decoding="async" width="1280" height="720"><figcaption>Manufacturing Facility</figcaption></figure></div></div></section>
 </div>
 
 <footer class="site-footer" role="contentinfo">
