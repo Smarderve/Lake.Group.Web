@@ -21,10 +21,10 @@
   // Append a cache-busting query so browsers revalidate sw.js on deploy.
   try {
     var u = new URL(swUrl, location.href);
-    u.searchParams.set('v', '78-20260831-02');
+    u.searchParams.set('v', '80-20260902-01');
     swUrl = u.href;
   } catch (err2) {
-    swUrl = swUrl + (swUrl.indexOf('?') === -1 ? '?v=78-20260831-02' : '&v=78-20260831-02');
+    swUrl = swUrl + (swUrl.indexOf('?') === -1 ? '?v=80-20260902-01' : '&v=80-20260902-01');
   }
 
   var RECOVERY_KEY = 'lake-sw-recovery-v78';
