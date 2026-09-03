@@ -77,7 +77,7 @@ export const SEEDS = [
   {
     key: 'stations',
     label: 'Fuel Stations',
-    value: '250+',
+    value: '290+',
     unit: 'fuel stations',
     source:
       'Confirmed by Mr. Nabil, Lake Oil â€” "154 fuel stations" (group source of truth, 2026; scripts/_verified_lake_facts.md).',

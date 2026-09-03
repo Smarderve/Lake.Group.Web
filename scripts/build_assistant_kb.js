@@ -225,17 +225,17 @@ const CURATED_FACTS = [
     url: 'station-locator.html',
     en: {
       t: 'Fuel stations',
-      s: 'Lake Group operates 250+ fuel stations across its network. Use the Station Locator to find the nearest one.',
+      s: 'Lake Group operates 290+ fuel stations across its network. Use the Station Locator to find the nearest one.',
       k: 'stations petrol gas station how many where locator filling nearest retail',
     },
     fr: {
       t: 'Stations-service',
-      s: 'Lake Group exploite 250+ stations-service Ã  travers son rÃ©seau. Utilisez le localisateur de stations pour trouver la plus proche.',
+      s: 'Lake Group exploite 290+ stations-service Ã  travers son rÃ©seau. Utilisez le localisateur de stations pour trouver la plus proche.',
       k: 'stations essence combien oÃ¹ localisateur station-service rÃ©seau',
     },
     sw: {
       t: 'Vituo vya mafuta',
-      s: 'Lake Group inaendesha vituo 250+ vya mafuta katika mtandao wake. Tumia ukurasa wa Kitafuta Vituo kupata kituo kilicho karibu nawe.',
+      s: 'Lake Group inaendesha vituo 290+ vya mafuta katika mtandao wake. Tumia ukurasa wa Kitafuta Vituo kupata kituo kilicho karibu nawe.',
       k: 'vituo mafuta vingapi wapi kituo karibu petroli',
     },
   },
@@ -254,7 +254,7 @@ const CURATED_FACTS = [
     },
     sw: {
       t: 'Lake Oil - mafuta na petroli',
-      s: 'Lake Oil, kampuni kuu ya kundi hili, ni miongoni mwa wasambazaji 5 bora wa bidhaa za petroli Tanzania. Ghala lake la Kigamboni, Dar es Salaam, lina uwezo wa kuhifadhi lita milioni 38 na bomba la moja kwa moja kutoka gati la kupokelea mafuta, likisaidiwa na vituo 250+ vya mafuta na matenki 300 ya usafirishaji.',
+      s: 'Lake Oil, kampuni kuu ya kundi hili, ni miongoni mwa wasambazaji 5 bora wa bidhaa za petroli Tanzania. Ghala lake la Kigamboni, Dar es Salaam, lina uwezo wa kuhifadhi lita milioni 38 na bomba la moja kwa moja kutoka gati la kupokelea mafuta, likisaidiwa na vituo 290+ vya mafuta na matenki 300 ya usafirishaji.',
       k: 'lake oil mafuta petroli dizeli ghala hifadhi kigamboni msambazaji',
     },
   },

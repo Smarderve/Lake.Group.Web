@@ -165,7 +165,7 @@
   /* Corporate key facts belong to the hero, not the asynchronous CMS metric
      hydrator. A single immutable source prevents rotations, resize paths or
      stale cached releases from ever replacing the approved launch figures. */
-  var HOME_HERO_STATS = ["30,000+", "1,600+", "250+"];
+  var HOME_HERO_STATS = ["30,000+", "1,600+", "290+"];
 
   function parseValue(raw) {
     var trimmed = raw.trim();

@@ -26,18 +26,18 @@ function startServer() {
   return new Promise((resolve) => server.listen(0, '127.0.0.1', () => resolve(server)));
 }
 
-test('canonical metrics use 250+ fuel stations and no longer show Across Africa stat', () => {
+test('canonical metrics use 290+ fuel stations and no longer show Across Africa stat', () => {
   const seeds = read('backend/scripts/seed-metrics.js');
 
-  assert.match(seeds, /key: 'stations',[\s\S]*?label: 'Fuel Stations',[\s\S]*?value: '250\+'/);
+  assert.match(seeds, /key: 'stations',[\s\S]*?label: 'Fuel Stations',[\s\S]*?value: '290\+'/);
   // The network_locations / Across Africa stat card has been removed
   assert.doesNotMatch(seeds, /key: 'network_locations'/);
 });
 
-test('home uses 250+ fuel stations and no longer shows Across Africa stat card', () => {
+test('home uses 290+ fuel stations and no longer shows Across Africa stat card', () => {
   const home = read('index.html');
 
-  assert.match(home, /data-metric-key="stations">250\+<\/span>/);
+  assert.match(home, /data-metric-key="stations">290\+<\/span>/);
   // The Across Africa stat card has been removed
   assert.doesNotMatch(home, /data-metric-key="network_locations"/);
   assert.doesNotMatch(home, /data-i18n="stat\.acrossAfrica"/);
@@ -63,7 +63,7 @@ test('no legacy 154 fuel station references remain in current public surfaces', 
   }
 });
 
-test('Home presents 250+ fuel stations without overflow', async () => {
+test('Home presents 290+ fuel stations without overflow', async () => {
   const server = await startServer();
   const browser = await chromium.launch({ headless: true });
   try {
@@ -71,9 +71,9 @@ test('Home presents 250+ fuel stations without overflow', async () => {
     for (const viewport of [{ width: 1440, height: 900 }, { width: 820, height: 1180 }, { width: 390, height: 844 }]) {
       const page = await browser.newPage({ viewport });
       await page.goto(`http://127.0.0.1:${port}/index.html`, { waitUntil: 'domcontentloaded' });
-      await page.waitForFunction(() => document.querySelector('[data-metric-key="stations"]')?.textContent.trim() === '250+', null, { timeout: 5000 });
+      await page.waitForFunction(() => document.querySelector('[data-metric-key="stations"]')?.textContent.trim() === '290+', null, { timeout: 5000 });
       const metrics = await page.locator('.hero-kf').allTextContents();
-      assert.ok(metrics.some((value) => /250\+\s*Fuel Stations/i.test(value)), `missing 250+ fuel stations at ${viewport.width}px`);
+      assert.ok(metrics.some((value) => /290\+\s*Fuel Stations/i.test(value)), `missing 290+ fuel stations at ${viewport.width}px`);
       // Across Africa stat card should not be present
       assert.ok(!metrics.some((value) => /Across Africa/i.test(value)), `Across Africa stat should not appear at ${viewport.width}px`);
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);

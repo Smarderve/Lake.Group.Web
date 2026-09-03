@@ -26,9 +26,9 @@ test('public History timeline ends at 2026 and retains verified 2026 entries', (
   assert.match(history, /Upcoming · 2026/);
 });
 
-test('Home presents 250+ fuel stations without an Across Africa keyfact', () => {
+test('Home presents 290+ fuel stations without an Across Africa keyfact', () => {
   const home = read('index.html');
-  assert.match(home, /data-metric-key="stations">250\+<\/span>/);
+  assert.match(home, /data-metric-key="stations">290\+<\/span>/);
   assert.doesNotMatch(home, /data-metric-key="network_locations"/);
   assert.doesNotMatch(home, /data-i18n="stat\.acrossAfrica"/);
   assert.doesNotMatch(home, /data-metric-key="stations">154<\/span>/);
