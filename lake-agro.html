@@ -149,7 +149,13 @@ body.co-theme-agro .page-hero .hero-media img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  object-position: center 42%;
+  object-position: center 45%;
+}
+@media (min-width: 768px) {
+  body.co-theme-agro .page-hero .hero-media img {
+    object-fit: cover;
+    object-position: center center;
+  }
 }
 body.co-theme-agro .hero-overlay {
   background: linear-gradient(to right, rgba(0,42,18,.72) 0%, rgba(0,55,24,.48) 35%, rgba(0,60,28,.28) 60%, rgba(0,50,22,.14) 100%);
@@ -171,7 +177,7 @@ body.co-theme-agro .hero-overlay {
     min-height: 680px;
     padding: 60px 0 60px;
   }
-  body.co-theme-agro .page-hero .hero-media img { object-position: center 35%; }
+  body.co-theme-agro .page-hero .hero-media img { object-fit: contain; object-position: center 48%; }
 }
 /* Official Lake Agro presentation: keep the public page focused on the
    approved Rufiji sugar project rather than the retired generic profile copy. */
@@ -362,7 +368,13 @@ body.co-theme-agro .page-hero .hero-media img {
   width: 100% !important;
   height: 100% !important;
   object-fit: contain !important;
-  object-position: center 42% !important;
+  object-position: center 45% !important;
+}
+@media (min-width: 768px) {
+  body.co-theme-agro .page-hero .hero-media img {
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
 }
 body.co-theme-agro .hero-overlay {
   background: linear-gradient(to right, rgba(0,42,18,.72) 0%, rgba(0,55,24,.48) 35%, rgba(0,60,28,.28) 60%, rgba(0,50,22,.14) 100%) !important;
@@ -372,7 +384,7 @@ body.co-theme-agro .hero-overlay {
     min-height: calc(100dvh + 84px) !important;
     padding: 80px 0 48px !important;
   }
-  body.co-theme-agro .page-hero .hero-media img { object-position: center 38% !important; }
+  body.co-theme-agro .page-hero .hero-media img { object-fit: contain !important; object-position: center 48% !important; }
 }
 @media (min-width: 768px) {
   body.co-theme-agro .page-hero {
@@ -485,7 +497,7 @@ body.co-theme-agro .nav-links > li.has-dropdown.is-open:focus-within > a {
 
 <div class="page-wrapper">
 <section class="page-hero">
-  <picture class="hero-media" aria-hidden="true"><img src="assets/images/lake-agro/lake-agro-new-holland-combine.webp" alt="" width="948" height="1660" fetchpriority="high" decoding="async" loading="eager"></picture>
+  <picture class="hero-media" aria-hidden="true"><source media="(min-width: 768px)" srcset="assets/images/lake-agro/lake-agro-hero-desktop.webp"><img src="assets/images/lake-agro/lake-agro-hero-mobile.png" alt="Lake Agro agricultural operations" width="948" height="1660" fetchpriority="high" decoding="async" loading="eager"></picture>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container">
 <div class="eyebrow" style="color:#fff !important"><span style="color:#fff !important">Lake Group Agricultural Company</span></div>
