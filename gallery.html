@@ -197,10 +197,8 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
   z-index:9998;
   align-items:center;justify-content:center;flex-direction:column;
   padding:24px;
-  opacity:0;
 }
 #lightbox.open{display:flex}
-#lightbox.is-ready{opacity:1}
 #lb-img{
   max-width:min(920px,88vw);max-height:72vh;width:auto;height:auto;
   object-fit:contain;box-shadow:0 12px 40px rgba(0,0,0,.35);
@@ -215,15 +213,16 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
   color:#FFF200;font-weight:700;letter-spacing:.16em;font-size:.72rem;
 }
 #lb-close,#lb-prev,#lb-next{
-  position:absolute;background:transparent;border:1px solid rgba(255,255,255,.35);
-  color:#fff;cursor:pointer;border-radius:0;
+  position:absolute;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);
+  color:#fff;cursor:pointer;border-radius:8px;
   display:flex;align-items:center;justify-content:center;
-  transition:border-color 150ms ease,color 150ms ease;
+  transition:background 150ms ease,border-color 150ms ease;
+  z-index:10;
 }
-#lb-close{top:20px;right:24px;font-size:1.4rem;width:44px;height:44px;z-index:10;pointer-events:auto}
+#lb-close{top:20px;right:24px;font-size:1.4rem;width:48px;height:48px}
 #lb-prev,#lb-next{top:50%;transform:translateY(-50%);font-size:1.3rem;width:48px;height:48px}
 #lb-prev{left:20px}#lb-next{right:20px}
-#lb-prev:hover,#lb-next:hover,#lb-close:hover{border-color:#FFF200;color:#FFF200}
+#lb-prev:hover,#lb-next:hover,#lb-close:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.6)}
 
 .g-foot{
   text-align:center;margin-top:40px;padding:28px 20px;
@@ -242,7 +241,7 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
   position:relative;
   overflow:hidden;
   background:#E9E3D6;
-  border-radius:16px;
+  border-radius:0;
   box-shadow:0 14px 34px rgba(13,38,56,.14);
 }
 .gal-slider__track{
@@ -433,7 +432,7 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
 </div></section>
 
 <div id="lightbox" aria-hidden="true">
-  <button type="button" id="lb-close" aria-label="Close">&times;</button>
+  <button type="button" id="lb-close" aria-label="Close">&#10005;</button>
   <button type="button" id="lb-prev" aria-label="Previous">&#8592;</button>
   <img id="lb-img" src="" alt="" loading="lazy" decoding="async">
   <div id="lb-caption">
@@ -450,8 +449,8 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
       <div class="gal-slider__viewport">
         <div class="gal-slider__track" id="gal-slider-track">
           <div class="gal-slider__slide is-active" role="tabpanel" aria-hidden="false">
-            <a class="gal-slider__link" role="button" tabindex="0" data-slide-src="assets/images/group/ops/depot-aerial.webp?v=20260828-01" aria-label="Open photo: Fuel distribution terminal">
-              <img src="assets/images/group/ops/depot-aerial.webp?v=20260828-01" alt="Fuel distribution terminal" loading="eager" fetchpriority="high" decoding="async" width="1600" height="844">
+            <a class="gal-slider__link" role="button" tabindex="0" data-slide-src="assets/images/lakeoil/current/storage-facilities-terminal.webp" aria-label="Open photo: Fuel distribution terminal">
+              <img src="assets/images/lakeoil/current/storage-facilities-terminal.webp" alt="Fuel distribution terminal" loading="eager" fetchpriority="high" decoding="async" width="1600" height="844">
               <span class="gal-slider__scrim" aria-hidden="true"></span>
               <span class="gal-slider__body">
                 <span class="gal-slider__cat">Energy</span>
@@ -461,8 +460,8 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
             </a>
           </div>
           <div class="gal-slider__slide" role="tabpanel" aria-hidden="true">
-            <a class="gal-slider__link" role="button" tabindex="-1" data-slide-src="assets/images/lakegas/ops/cylinders-yard.jpg?v=20260828-01" aria-label="Open photo: LPG cylinder operations">
-              <img src="assets/images/lakegas/ops/cylinders-yard.jpg?v=20260828-01" alt="LPG cylinder operations" loading="lazy" decoding="async">
+            <a class="gal-slider__link" role="button" tabindex="-1" data-slide-src="assets/images/lakegas/ops/cylinder-hero.webp" aria-label="Open photo: LPG cylinder operations">
+              <img src="assets/images/lakegas/ops/cylinder-hero.webp" alt="LPG cylinder operations" loading="lazy" decoding="async">
               <span class="gal-slider__scrim" aria-hidden="true"></span>
               <span class="gal-slider__body">
                 <span class="gal-slider__cat">Energy</span>
@@ -472,8 +471,8 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
             </a>
           </div>
           <div class="gal-slider__slide" role="tabpanel" aria-hidden="true">
-            <a class="gal-slider__link" role="button" tabindex="-1" data-slide-src="assets/images/gccp/photo_7.jpg" aria-label="Open photo: Concrete production facility">
-              <img src="assets/images/gccp/photo_7.jpg" alt="Concrete production facility" loading="lazy" decoding="async">
+            <a class="gal-slider__link" role="button" tabindex="-1" data-slide-src="assets/images/lakebuilding/hero/building-factory-hero.webp" aria-label="Open photo: Concrete production facility">
+              <img src="assets/images/lakebuilding/hero/building-factory-hero.webp" alt="Concrete production facility" loading="lazy" decoding="async">
               <span class="gal-slider__scrim" aria-hidden="true"></span>
               <span class="gal-slider__body">
                 <span class="gal-slider__cat">Construction &amp; Materials</span>
@@ -494,12 +493,12 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
             </a>
           </div>
           <div class="gal-slider__slide" role="tabpanel" aria-hidden="true">
-            <a class="gal-slider__link" role="button" tabindex="-1" data-slide-src="assets/images/laketrans/ops/fleet-inspection.jpg?v=20260828-01" aria-label="Open photo: Fleet safety operations">
-              <img src="assets/images/laketrans/ops/fleet-inspection.jpg?v=20260828-01" alt="Fleet safety operations" loading="lazy" decoding="async">
+            <a class="gal-slider__link" role="button" tabindex="-1" data-slide-src="assets/images/lake-agro/lake-agro-hero-desktop.webp" aria-label="Open photo: Lake Agro farming operations">
+              <img src="assets/images/lake-agro/lake-agro-hero-desktop.webp" alt="Lake Agro farming operations" loading="lazy" decoding="async">
               <span class="gal-slider__scrim" aria-hidden="true"></span>
               <span class="gal-slider__body">
-                <span class="gal-slider__cat">Logistics</span>
-                <span class="gal-slider__title">Fleet Safety Operations</span>
+                <span class="gal-slider__cat">Agro Processing</span>
+                <span class="gal-slider__title">Agro Processing Operations</span>
                 <span class="gal-slider__meta">Lake Group operations</span>
               </span>
             </a>
@@ -519,25 +518,28 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
 
     <div class="gallery-grid" id="gallery-grid">
       <article class="gallery-tile" data-cat="operations" data-src="assets/images/lakegas/ops/worker-silas.jpg?v=20260828-01" data-caption="Operations Team" tabindex="0" role="button" aria-label="Operations Team"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/lakegas/ops/worker-silas.jpg?v=20260828-01" alt="Operations team" loading="lazy" decoding="async" width="1600" height="900"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Operations Team</span><span class="gallery-tile__sub">Personnel supporting Lake Group operations.</span></span></div></article>
-      <article class="gallery-tile" data-cat="energy" data-src="assets/images/group/ops/depot-aerial.webp?v=20260828-01" data-caption="Fuel Distribution Terminal" tabindex="0" role="button" aria-label="Fuel Distribution Terminal"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/group/ops/depot-aerial.webp?v=20260828-01" alt="Fuel distribution terminal" loading="lazy" decoding="async" width="1600" height="844"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Fuel Distribution Terminal</span><span class="gallery-tile__sub">Fuel storage and distribution infrastructure.</span></span></div></article>
+      <article class="gallery-tile" data-cat="energy" data-src="assets/images/lakeoil/current/storage-facilities-terminal.webp" data-caption="Fuel Distribution Terminal" tabindex="0" role="button" aria-label="Fuel Distribution Terminal"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/lakeoil/current/storage-facilities-terminal.webp" alt="Fuel distribution terminal" loading="lazy" decoding="async" width="1600" height="844"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Fuel Distribution Terminal</span><span class="gallery-tile__sub">Fuel storage and distribution infrastructure.</span></span></div></article>
       <article class="gallery-tile" data-cat="energy" data-src="assets/images/group/ops/tanker-loading.jpg?v=20260828-01" data-caption="Fuel Distribution Fleet" tabindex="0" role="button" aria-label="Fuel Distribution Fleet"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/group/ops/tanker-loading.jpg?v=20260828-01" alt="Fuel distribution fleet" loading="lazy" decoding="async" width="2453" height="1380"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Fuel Distribution Fleet</span><span class="gallery-tile__sub">Tanker fleet supporting regional fuel distribution.</span></span></div></article>
       <article class="gallery-tile" data-cat="energy" data-src="assets/images/lakeoil/current/lake-energies-station-approved.webp" data-caption="Retail Fuel Station" tabindex="0" role="button" aria-label="Retail Fuel Station"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/lakeoil/current/lake-energies-station-approved.webp" alt="Lake Energies retail station" loading="lazy" decoding="async" width="1600" height="900"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Retail Fuel Station</span><span class="gallery-tile__sub">Lake Energies retail station serving motorists.</span></span></div></article>
       <article class="gallery-tile" data-cat="energy" data-src="assets/images/lakeoil/current/tanker-lake-energies.webp?v=20260828-01" data-caption="Fuel Tanker Operations" tabindex="0" role="button" aria-label="Fuel Tanker Operations"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/lakeoil/current/tanker-lake-energies.webp?v=20260828-01" alt="Fuel tanker operations" loading="lazy" decoding="async" width="1600" height="900"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Fuel Tanker Operations</span><span class="gallery-tile__sub">Tanker prepared for fuel distribution operations.</span></span></div></article>
-      <article class="gallery-tile" data-cat="energy" data-src="assets/images/lakegas/ops/cylinders-yard.jpg?v=20260828-01" data-caption="LPG Cylinder Operations" tabindex="0" role="button" aria-label="LPG Cylinder Operations"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/lakegas/ops/cylinders-yard.jpg?v=20260828-01" alt="LPG cylinder operations" loading="lazy" decoding="async" width="2070" height="1380"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">LPG Cylinder Operations</span><span class="gallery-tile__sub">Cylinder handling supporting LPG distribution.</span></span></div></article>
-      <article class="gallery-tile" data-cat="energy" data-src="assets/images/lakegas/ops/filling-plant.jpg?v=20260828-01" data-caption="LPG Filling Operations" tabindex="0" role="button" aria-label="LPG Filling Operations"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/lakegas/ops/filling-plant.jpg?v=20260828-01" alt="LPG filling operations" loading="lazy" decoding="async" width="1600" height="900"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">LPG Filling Operations</span><span class="gallery-tile__sub">Cylinder filling and handling within LPG operations.</span></span></div></article>
-      <article class="gallery-tile" data-cat="logistics" data-src="assets/images/laketrans/ops/fleet-inspection.jpg?v=20260828-01" data-caption="Fleet Safety Operations" tabindex="0" role="button" aria-label="Fleet Safety Operations"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/laketrans/ops/fleet-inspection.jpg?v=20260828-01" alt="Fleet safety operations" loading="lazy" decoding="async" width="1600" height="900"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Fleet Safety Operations</span><span class="gallery-tile__sub">Operational safety activities involving transport personnel.</span></span></div></article>
-      <article class="gallery-tile" data-cat="manufacturing" data-src="assets/images/lakesteel/ops/hot-rolling.jpg?v=20260828-01" data-caption="Steel Rolling Operations" tabindex="0" role="button" aria-label="Steel Rolling Operations"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/lakesteel/ops/hot-rolling.jpg?v=20260828-01" alt="Steel rolling operations" loading="lazy" decoding="async" width="1600" height="900"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Steel Rolling Operations</span><span class="gallery-tile__sub">Industrial steel processing and rolling operations.</span></span></div></article>
-      <article class="gallery-tile" data-cat="manufacturing" data-src="assets/images/lake-pipes/ops/blue-pipes.jpg?v=20260828-01" data-caption="Pipe Manufacturing" tabindex="0" role="button" aria-label="Pipe Manufacturing"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/lake-pipes/ops/blue-pipes.jpg?v=20260828-01" alt="Pipe manufacturing" loading="lazy" decoding="async" width="1600" height="900"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Pipe Manufacturing</span><span class="gallery-tile__sub">Production of pipes within Lake Group operations.</span></span></div></article>
-      <article class="gallery-tile" data-cat="manufacturing" data-src="assets/images/lakebuildings/ops/lake-tanks.jpg?v=20260828-01" data-caption="Tank Manufacturing" tabindex="0" role="button" aria-label="Tank Manufacturing"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/lakebuildings/ops/lake-tanks.jpg?v=20260828-01" alt="Tank manufacturing" loading="lazy" decoding="async" width="1600" height="900"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Tank Manufacturing</span><span class="gallery-tile__sub">Manufacturing operations for tank solutions.</span></span></div></article>
-      <article class="gallery-tile" data-cat="materials" data-src="assets/images/gccp/photo_7.jpg" data-caption="Concrete Production Facility" tabindex="0" role="button" aria-label="Concrete Production Facility"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/gccp/photo_7.jpg" alt="Concrete production facility" loading="lazy" decoding="async" width="2070" height="1380"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Concrete Production Facility</span><span class="gallery-tile__sub">Ready-mix production facility supporting construction supply.</span></span></div></article>
+      <article class="gallery-tile" data-cat="energy" data-src="assets/images/lakegas/ops/cylinder-hero.webp" data-caption="LPG Cylinder Operations" tabindex="0" role="button" aria-label="LPG Cylinder Operations"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/lakegas/ops/cylinder-hero.webp" alt="LPG cylinder operations" loading="lazy" decoding="async" width="2070" height="1380"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">LPG Cylinder Operations</span><span class="gallery-tile__sub">Cylinder handling supporting LPG distribution.</span></span></div></article>
+      <article class="gallery-tile" data-cat="energy" data-src="assets/images/lakegas/ops/filling-plant-opt.webp" data-caption="LPG Cylinder Filling" tabindex="0" role="button" aria-label="LPG Cylinder Filling"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/lakegas/ops/filling-plant-opt.webp" alt="Lake Gas LPG cylinder filling plant" loading="lazy" decoding="async" width="1600" height="900"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">LPG Cylinder Filling</span><span class="gallery-tile__sub">LPG cylinder filling and distribution plant operations.</span></span></div></article>
+      <article class="gallery-tile" data-cat="logistics" data-src="assets/images/laketrans/ops/fleet-inspection.jpg?v=20260828-01" data-caption="Fleet Safety Operations" tabindex="0" role="button" aria-label="Fleet Safety Operations"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/laketrans/ops/fleet-inspection.jpg?v=20260828-01" alt="Fleet safety inspection operations" loading="lazy" decoding="async" width="1600" height="900"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Fleet Safety Operations</span><span class="gallery-tile__sub">Operational safety activities involving transport personnel.</span></span></div></article>
+      <article class="gallery-tile" data-cat="energy" data-src="assets/images/lakelubes/products/optimized/lake-lubes-drums.webp" data-caption="Lake Lubes Products" tabindex="0" role="button" aria-label="Lake Lubes Products"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/lakelubes/products/optimized/lake-lubes-drums.webp" alt="Lake Lubes lubricant product drums and packaging" loading="lazy" decoding="async" width="1600" height="900"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Lake Lubes Products</span><span class="gallery-tile__sub">Range of automotive and industrial lubricant products.</span></span></div></article>
+      <article class="gallery-tile" data-cat="manufacturing" data-src="assets/images/lake-agro/la-tractors-duo.webp" data-caption="Lake Agro Tractors" tabindex="0" role="button" aria-label="Lake Agro Tractors"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/lake-agro/la-tractors-duo.webp" alt="Lake Agro tractor fleet for farming operations" loading="lazy" decoding="async" width="1600" height="900"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Lake Agro Tractors</span><span class="gallery-tile__sub">Fleet of agricultural tractors for large-scale farming.</span></span></div></article>
+      <article class="gallery-tile" data-cat="materials" data-src="assets/images/lakebuilding/hero/building-factory-hero.webp" data-caption="Concrete Production Facility" tabindex="0" role="button" aria-label="Concrete Production Facility"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/lakebuilding/hero/building-factory-hero.webp" alt="Concrete production facility" loading="lazy" decoding="async" width="2070" height="1380"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Concrete Production Facility</span><span class="gallery-tile__sub">Ready-mix production facility supporting construction supply.</span></span></div></article>
       <article class="gallery-tile" data-cat="materials" data-src="assets/images/gccp/photo_3.jpg" data-caption="Concrete Delivery Operations" tabindex="0" role="button" aria-label="Concrete Delivery Operations"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/gccp/photo_3.jpg" alt="Concrete delivery operations" loading="lazy" decoding="async" width="2061" height="1380"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Concrete Delivery Operations</span><span class="gallery-tile__sub">Ready-mix trucks prepared for customer deliveries.</span></span></div></article>
       <article class="gallery-tile" data-cat="materials" data-src="assets/images/gccp/photo_5.jpg" data-caption="Concrete Pump Operations" tabindex="0" role="button" aria-label="Concrete Pump Operations"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/gccp/photo_5.jpg" alt="Concrete pump operations" loading="lazy" decoding="async" width="1280" height="720"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Concrete Pump Operations</span><span class="gallery-tile__sub">Concrete pump supporting on-site construction work.</span></span></div></article>
       <article class="gallery-tile" data-cat="materials" data-src="assets/images/gccp/photo_8.jpg" data-caption="Concrete Production Equipment" tabindex="0" role="button" aria-label="Concrete Production Equipment"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/gccp/photo_8.jpg" alt="Concrete production equipment" loading="lazy" decoding="async" width="1040" height="780"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Concrete Production Equipment</span><span class="gallery-tile__sub">Equipment supporting concrete batching operations.</span></span></div></article>
-      <article class="gallery-tile" data-cat="materials" data-src="assets/images/gccp/photo_10.jpg" data-caption="Quarry Aggregate Production" tabindex="0" role="button" aria-label="Quarry Aggregate Production"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/gccp/photo_10.jpg" alt="Quarry aggregate production" loading="lazy" decoding="async" width="780" height="1040"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Quarry Aggregate Production</span><span class="gallery-tile__sub">Aggregate production and material processing operations.</span></span></div></article>
-      <article class="gallery-tile" data-cat="materials" data-src="assets/images/gccp/photo_12.jpg" data-caption="Truck Mixer Loading" tabindex="0" role="button" aria-label="Truck Mixer Loading"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/gccp/photo_12.jpg" alt="Truck mixer loading" loading="lazy" decoding="async" width="1032" height="774"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Truck Mixer Loading</span><span class="gallery-tile__sub">Ready-mix loading at the concrete batching facility.</span></span></div></article>
-      <article class="gallery-tile" data-cat="materials" data-src="assets/images/merm/photo_1.jpg" data-caption="Ready-Mix Operations" tabindex="0" role="button" aria-label="Ready-Mix Operations"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/merm/photo_1.jpg" alt="Ready-mix operations" loading="lazy" decoding="async" width="800" height="455"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Ready-Mix Operations</span><span class="gallery-tile__sub">Concrete production operations in the UAE.</span></span></div></article>
-      <article class="gallery-tile" data-cat="materials" data-src="assets/images/merm/photo_2.jpg" data-caption="Ready-Mix Production Facility" tabindex="0" role="button" aria-label="Ready-Mix Production Facility"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/merm/photo_2.jpg" alt="Ready-mix production facility" loading="lazy" decoding="async" width="1114" height="787"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Ready-Mix Production Facility</span><span class="gallery-tile__sub">Concrete production facility supporting construction supply.</span></span></div></article>
-      <article class="gallery-tile" data-cat="materials" data-src="assets/images/merm/photo_3.jpg" data-caption="Ready-Mix Concrete Fleet" tabindex="0" role="button" aria-label="Ready-Mix Concrete Fleet"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/merm/photo_3.jpg" alt="Ready-mix concrete fleet" loading="lazy" decoding="async" width="1600" height="1067"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Ready-Mix Concrete Fleet</span><span class="gallery-tile__sub">Concrete delivery fleet supporting ready-mix operations.</span></span></div></article>
+      <article class="gallery-tile" data-cat="energy" data-src="assets/images/lakeoil/current/lake-energies-tanker-network.webp" data-caption="Fuel Tanker Network" tabindex="0" role="button" aria-label="Fuel Tanker Network"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/lakeoil/current/lake-energies-tanker-network.webp" alt="Lake Energies fuel tanker distribution network" loading="lazy" decoding="async" width="1600" height="900"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Fuel Tanker Network</span><span class="gallery-tile__sub">Lake Energies tanker fleet supporting regional fuel distribution.</span></span></div></article>
+      <article class="gallery-tile" data-cat="energy" data-src="assets/images/lakegas/ops/lake-gas-lpg-filling-line.webp" data-caption="LPG Filling Line" tabindex="0" role="button" aria-label="LPG Filling Line"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/lakegas/ops/lake-gas-lpg-filling-line.webp" alt="Lake Gas LPG cylinder filling production line" loading="lazy" decoding="async" width="1600" height="900"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">LPG Filling Line</span><span class="gallery-tile__sub">Lake Gas LPG cylinder filling and production line.</span></span></div></article>
+      <article class="gallery-tile" data-cat="energy" data-src="assets/images/lakelubes/ops/plant-opt.webp" data-caption="Lake Lubes Plant" tabindex="0" role="button" aria-label="Lake Lubes Plant"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/lakelubes/ops/plant-opt.webp" alt="Lake Lubes lubricant production plant" loading="lazy" decoding="async" width="1600" height="900"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Lake Lubes Plant</span><span class="gallery-tile__sub">Lubricant blending and packaging plant operations.</span></span></div></article>
+      <article class="gallery-tile" data-cat="manufacturing" data-src="assets/images/lakesteel/ops/hot-rolling-opt.webp" data-caption="Steel Hot Rolling" tabindex="0" role="button" aria-label="Steel Hot Rolling"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/lakesteel/ops/hot-rolling-opt.webp" alt="Lake Steel hot rolling mill operations" loading="lazy" decoding="async" width="1600" height="900"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Steel Hot Rolling</span><span class="gallery-tile__sub">Hot rolling mill producing steel bars and structural sections.</span></span></div></article>
+      <article class="gallery-tile" data-cat="manufacturing" data-src="assets/images/lake-pipes/ops/blue-pipes-opt.webp" data-caption="Blue Pipe Production" tabindex="0" role="button" aria-label="Blue Pipe Production"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/lake-pipes/ops/blue-pipes-opt.webp" alt="Lake Pipes blue PVC pipe production" loading="lazy" decoding="async" width="1600" height="900"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Blue Pipe Production</span><span class="gallery-tile__sub">Manufacturing of PVC and HDPE pipes for water infrastructure.</span></span></div></article>
+      <article class="gallery-tile" data-cat="manufacturing" data-src="assets/images/lakebuildings/ops/lake-tanks-opt.webp" data-caption="Tank Manufacturing" tabindex="0" role="button" aria-label="Tank Manufacturing"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/lakebuildings/ops/lake-tanks-opt.webp" alt="Lake Building Solutions water tank manufacturing" loading="lazy" decoding="async" width="1600" height="900"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Tank Manufacturing</span><span class="gallery-tile__sub">Manufacturing of polyethylene water storage tanks.</span></span></div></article>
+      <article class="gallery-tile" data-cat="materials" data-src="assets/images/gulf-aggregates/hero/gulf-aggregates-hero.webp" data-caption="Gulf Aggregates Operations" tabindex="0" role="button" aria-label="Gulf Aggregates Operations"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/gulf-aggregates/hero/gulf-aggregates-hero.webp" alt="Gulf Aggregates quarry and aggregate production" loading="lazy" decoding="async" width="1600" height="900"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Gulf Aggregates Operations</span><span class="gallery-tile__sub">Quarry aggregate extraction and processing operations.</span></span></div></article>
+      <article class="gallery-tile" data-cat="manufacturing" data-src="assets/images/lake-agro/la-tanzania-factory.webp" data-caption="Lake Agro Factory" tabindex="0" role="button" aria-label="Lake Agro Factory"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/lake-agro/la-tanzania-factory.webp" alt="Lake Agro Tanzania processing factory" loading="lazy" decoding="async" width="1600" height="900"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">Lake Agro Factory</span><span class="gallery-tile__sub">Agricultural commodity processing factory in Tanzania.</span></span></div></article>
+      <article class="gallery-tile" data-cat="logistics" data-src="assets/images/aficd/operations/aficd-hero-reach-stacker.webp" data-caption="AFICD Container Operations" tabindex="0" role="button" aria-label="AFICD Container Operations"><div class="gallery-tile__image"><img class="gallery-tile__img" src="assets/images/aficd/operations/aficd-hero-reach-stacker.webp" alt="AFICD reach stacker handling shipping containers" loading="lazy" decoding="async" width="1600" height="900"></div><div class="gallery-tile__caption"><span class="gallery-tile__text"><span class="gallery-tile__title">AFICD Container Operations</span><span class="gallery-tile__sub">Container handling and freight logistics at AFICD depot.</span></span></div></article>
     </div>
 
 
@@ -597,31 +599,19 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
   }
 
   function openLightbox(el){
-    const all = visItems();
+    var all = visItems();
     cur = all.indexOf(el);
     showLB(cur);
     lb.classList.add('open');
     lb.setAttribute('aria-hidden','false');
     document.body.style.overflow = 'hidden';
-    if (!reduceMotion && window.anime && typeof anime.animate === 'function') {
-      anime.animate(lb, { opacity: [0, 1], duration: 300, ease: 'outExpo' });
-      anime.animate(lbImg, { opacity: [0, 1], scale: [0.97, 1], duration: 300, ease: 'outExpo' });
-    } else {
-      lb.classList.add('is-ready');
-      lb.style.opacity = '1';
-    }
+    try { document.getElementById('lb-close').focus(); } catch(e) {}
   }
 
   function closeLightbox(){
-    const done = () => {
-      lb.classList.remove('open','is-ready');
-      lb.style.opacity = '';
-      lb.setAttribute('aria-hidden','true');
-      document.body.style.overflow = '';
-    };
-    if (!reduceMotion && window.anime && typeof anime.animate === 'function' && lb.classList.contains('open')) {
-      anime.animate(lb, { opacity: [1, 0], duration: 220, ease: 'outExpo', onComplete: done });
-    } else done();
+    lb.classList.remove('open');
+    lb.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
   }
 
   tiles().forEach(el => {
@@ -630,10 +620,10 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(el); }
     });
   });
-  document.getElementById('lb-close').addEventListener('click', closeLightbox);
-  lb.addEventListener('click', function(e) { if (e.target === lb) closeLightbox(); });
-  document.getElementById('lb-prev').addEventListener('click', function(e) { e.stopPropagation(); showLB(cur - 1); });
-  document.getElementById('lb-next').addEventListener('click', function(e) { e.stopPropagation(); showLB(cur + 1); });
+  document.getElementById('lb-close').onclick = function(e) { e.stopPropagation(); e.preventDefault(); closeLightbox(); return false; };
+  lb.onclick = function(e) { if (e.target === lb) closeLightbox(); };
+  document.getElementById('lb-prev').onclick = function(e) { e.stopPropagation(); e.preventDefault(); showLB(cur - 1); return false; };
+  document.getElementById('lb-next').onclick = function(e) { e.stopPropagation(); e.preventDefault(); showLB(cur + 1); return false; };
   document.addEventListener('keydown', e => {
     if (!lb.classList.contains('open')) return;
     if (e.key === 'ArrowLeft') showLB(cur - 1);
@@ -732,14 +722,24 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
       function galStop() {
         if (galTimer) { clearInterval(galTimer); galTimer = null; }
       }
-      galSlides.forEach((s) => {
+      galSlides.forEach((s, idx) => {
         const link = s.querySelector('.gal-slider__link');
         if (!link) return;
         link.addEventListener('click', (e) => {
           e.preventDefault();
-          const src = link.dataset.slideSrc;
-          const match = tiles().find((t) => t.dataset.src === src);
-          if (match) openLightbox(match);
+          e.stopPropagation();
+          const img = s.querySelector('img');
+          const title = s.querySelector('.gal-slider__title');
+          const desc = s.querySelector('.gal-slider__meta');
+          lbImg.src = img ? img.src : '';
+          lbImg.alt = img ? img.alt : '';
+          lbText.textContent = (title ? title.textContent.trim() : '') + (desc ? ' ' + desc.textContent.trim() : '');
+          const all = visItems();
+          cur = idx < all.length ? idx : 0;
+          lbCounter.textContent = String(cur + 1).padStart(2, '0') + ' / ' + String(all.length).padStart(2, '0');
+          lb.classList.add('open');
+          lb.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
         });
         link.addEventListener('keydown', (e) => {
           if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); link.click(); }
