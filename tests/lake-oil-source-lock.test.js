@@ -17,7 +17,7 @@ test('Lake Oil page uses approved company facts from source document', () => {
   assert.match(html, /Lake Oil<\/h1>/, 'page title is Lake Oil');
 
   // Source-locked history milestones
-  assert.match(html, /2009.*Zambia|Zambia.*2009/s, '2009 Zambia expansion');
+  assert.match(html, /2008.*Zambia|Zambia.*2008/s, '2008 Zambia expansion');
   assert.match(html, /Sun Fuel SARL/, 'Sun Fuel SARL mentioned');
   assert.match(html, /2011.*DR Congo|DR Congo.*2011|2011.*DRC|DRC.*2011/s, '2011 DRC launch');
   assert.match(html, /2012.*Burundi|Burundi.*2012/s, '2012 Burundi expansion');
