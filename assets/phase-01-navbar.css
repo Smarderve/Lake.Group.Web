@@ -1249,7 +1249,7 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-m
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
-  filter: drop-shadow(0 0 .55px currentColor) !important;
+  filter: drop-shadow(0 0 .8px currentColor) !important;
 }
 
 /* Motion is intentionally applied to the existing stable icon wrapper. The
@@ -1260,7 +1260,7 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-m
   transform-origin: center center;
   transition: transform 180ms cubic-bezier(.22, .61, .36, 1) !important;
   will-change: transform;
-  filter: drop-shadow(0 0 .55px currentColor) !important;
+  filter: drop-shadow(0 0 .8px currentColor) !important;
 }
 .site-nav[data-phase01-navbar] .mm-sector-icon--approved.mm-sector-icon--energies {
   --sector-icon-base-scale: 1.55;
@@ -1307,7 +1307,7 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-m
     height: 30px !important;
   }
   .site-nav[data-phase01-navbar] .mm-sector-icon {
-    filter: drop-shadow(0 0 .55px currentColor) !important;
+    filter: drop-shadow(0 0 .8px currentColor) !important;
   }
 }
 .site-nav[data-phase01-navbar] .mm-companies {
@@ -1549,7 +1549,7 @@ body.lg-nav-open {
     --lord-icon-primary: rgba(255, 255, 255, .92) !important;
     --lord-icon-secondary: rgba(255, 255, 255, .92) !important;
     opacity: 1 !important;
-    filter: drop-shadow(0 0 .55px currentColor) !important;
+    filter: drop-shadow(0 0 .8px currentColor) !important;
   }
   .nav-mobile[data-phase01-navbar-mobile] .mob-sector-label {
     grid-column: 2 !important;
