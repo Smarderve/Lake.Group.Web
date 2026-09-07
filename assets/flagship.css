@@ -55,27 +55,27 @@ html {
 :root {
   /* Re-assert brand chrome after @import so a stale tokens.css (SW / edge)
      cannot leave interiors on the old dark navbar while home (inline) looks new. */
-  --color-brand-blue:        #0181BB;
-  --color-brand-blue-light:  #0599D3;
-  --color-brand-blue-deep:   #0181BB;
-  --color-brand-blue-darkest:#0181BB;
+  --color-brand-blue:        var(--lake-deep-blue);
+  --color-brand-blue-light:  var(--lake-light-blue);
+  --color-brand-blue-deep:   var(--lake-deep-blue);
+  --color-brand-blue-darkest:var(--lake-deep-blue);
   --color-yellow-accent:     #FFF200;
   --color-navbar-bg:         #0181BB;
   --color-navbar-bg-scrolled: rgba(1, 129, 187, 0.96);
   --color-navbar-border:     #FFF200;
   --color-hero-bg:           #0181BB;
-  --blue:   #0181BB;
-  --blue2:  #0599D3;
-  --blue3:  #0181BB;
+  --blue:   var(--lake-deep-blue);
+  --blue2:  var(--lake-light-blue);
+  --blue3:  var(--lake-deep-blue);
   --yellow: #FFF200;
-  --navy:   #0181BB;
-  --navy2:  #0599D3;
-  --navy3:  #0181BB;
+  --navy:   var(--lake-deep-blue);
+  --navy2:  var(--lake-light-blue);
+  --navy3:  var(--lake-deep-blue);
 
   /* Ink system - mid-page immersive content bands ONLY (not nav / page-hero) */
-  --ink:        #0181BB;
-  --ink-2:      #0599D3;
-  --ink-3:      #0181BB;
+  --ink:        var(--lake-deep-blue);
+  --ink-2:      var(--lake-light-blue);
+  --ink-3:      var(--lake-deep-blue);
   --ink-line:   rgba(255,255,255,0.14);
   --ink-line-2: rgba(255,255,255,0.07);
   --ink-text:   rgba(233,237,248,0.78);

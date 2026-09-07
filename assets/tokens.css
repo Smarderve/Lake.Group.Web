@@ -20,14 +20,18 @@
 
 :root {
   /* - Brand palette (docs) - */
-  --color-brand-blue:        #0181BB; /* Deep Blue - primary */
-  --color-brand-blue-light:  #0599D3; /* Light Blue */
-  --color-brand-blue-deep:   var(--color-brand-blue); /* legacy surface alias */
-  --color-brand-blue-darkest:var(--color-brand-blue); /* legacy darkest alias */
-  --color-yellow-accent:     #FFF200; /* Sunrise Yellow */
+  --lake-deep-blue:          #0181BB;
+  --lake-light-blue:         #0599D3;
+  --lake-yellow:             #FFF200;
+  --lake-white:              #FFFFFF;
+  --color-brand-blue:        var(--lake-deep-blue); /* Deep Blue */
+  --color-brand-blue-light:  var(--lake-light-blue); /* Light Blue */
+  --color-brand-blue-deep:   var(--lake-deep-blue); /* semantic deep-blue surface */
+  --color-brand-blue-darkest:var(--lake-deep-blue); /* semantic deep-blue surface */
+  --color-yellow-accent:     var(--lake-yellow); /* Sunrise Yellow */
   --color-yellow-deep:       var(--color-yellow-accent);
   --color-yellow-muted:      var(--color-yellow-accent);
-  --color-white:             #FFFFFF;
+  --color-white:             var(--lake-white);
   --color-offwhite:          #F7F8FC;
   --color-light:             #EFF2FB;
 
@@ -151,7 +155,7 @@
      ======================================================================== */
   --blue:       var(--color-brand-blue);
   --blue-light: var(--color-brand-blue-light);
-  --blue2:      var(--color-brand-blue-deep);
+  --blue2:      var(--lake-light-blue);
   --blue3:      var(--color-brand-blue-darkest);
   --blue-deep:  var(--color-brand-blue-deep);
   --yellow:     var(--color-yellow-accent);
