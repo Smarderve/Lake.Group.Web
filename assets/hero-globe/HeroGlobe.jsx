@@ -79,10 +79,36 @@ function getCachedMarkerEl(marker, isMobile) {
 
   const label = document.createElement('span');
   label.className = 'hero-globe-marker__label';
-  label.textContent = marker.label;
+  label.style.cssText = [
+    'display:inline-flex',
+    'align-items:center',
+    'gap:5px',
+  ].join(';');
+
+  const flag = document.createElement('img');
+  flag.className = 'hero-globe-marker__flag';
+  flag.src = marker.flagSrc;
+  flag.alt = '';
+  flag.setAttribute('aria-hidden', 'true');
+  flag.width = isMobile ? 16 : 19;
+  flag.height = isMobile ? 11 : 13;
+  flag.decoding = 'async';
+  flag.loading = 'eager';
+  flag.style.cssText = [
+    `width:${isMobile ? 16 : 19}px`,
+    `height:${isMobile ? 11 : 13}px`,
+    'flex:0 0 auto',
+    'object-fit:contain',
+    'object-position:center',
+  ].join(';');
+  flag.onerror = () => { flag.hidden = true; };
+
+  const countryName = document.createElement('span');
+  countryName.textContent = marker.label;
+  countryName.style.cssText = 'display:inline-block;';
   const [ox, oy] = marker.labelOffset || [12, -14];
   const fontSize = isMobile ? 9 : 10.5;
-  label.style.cssText = [
+  label.style.cssText += ';' + [
     'position:absolute',
     `transform:translate(${ox}px,${oy}px)`,
     'white-space:nowrap',
@@ -96,6 +122,7 @@ function getCachedMarkerEl(marker, isMobile) {
     'pointer-events:none',
   ].join(';');
 
+  label.append(flag, countryName);
   root.append(pin, label);
   markerCache.set(key, root);
   return root;
