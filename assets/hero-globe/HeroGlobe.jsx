@@ -20,6 +20,7 @@ const NETWORK_HOLD_MS = 1800;
 const SHOWCASE_ROTATION_MS = 5000;
 const RESET_SETTLE_MS = 600;
 const MARKER_ALTITUDE = 0.022;
+const ROUTE_FRAME_INTERVAL_MS = 50;
 
 function easeInOutCubic(t) {
   return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
@@ -137,6 +138,9 @@ export default function HeroGlobe({ panelEl, locations }) {
   const reduced = useReducedMotion();
   const [globeReady, setGlobeReady] = useState(false);
   const [sectionVisible, setSectionVisible] = useState(false);
+  const [documentVisible, setDocumentVisible] = useState(
+    () => typeof document === 'undefined' || !document.hidden,
+  );
 
   /* ── Arc data: completed arcs + one active arc being drawn ── */
   const [completedArcs, setCompletedArcs] = useState([]);
@@ -155,6 +159,7 @@ export default function HeroGlobe({ panelEl, locations }) {
   const timersRef = useRef([]);
   const cancelCameraRef = useRef(null);
   const loopActiveRef = useRef(false);
+  const dashUpdateTimerRef = useRef(null);
 
   const allMarkers = useMemo(() => buildMarkers(locations), [locations]);
   const allArcs = useMemo(() => buildArcs(locations), [locations]);
@@ -192,6 +197,10 @@ export default function HeroGlobe({ panelEl, locations }) {
     if (rafRef.current) {
       cancelAnimationFrame(rafRef.current);
       rafRef.current = null;
+    }
+    if (dashUpdateTimerRef.current) {
+      clearInterval(dashUpdateTimerRef.current);
+      dashUpdateTimerRef.current = null;
     }
   }, []);
 
@@ -294,19 +303,27 @@ export default function HeroGlobe({ panelEl, locations }) {
       // Animate dash from 0 → 1 over ROUTE_DRAW_MS
       // With arcDashGap=0 this creates a solid line that grows
       const drawStart = performance.now();
-      const animateDash = () => {
+      dashUpdateTimerRef.current = window.setInterval(() => {
+        // Keep React out of the 60fps animation loop. The globe still reads
+        // the ref-backed dash value, while React only refreshes the arc data
+        // at a modest cadence so the route reveal remains visibly animated.
+        setActiveArc((prev) => prev ? { ...prev } : null);
+      }, ROUTE_FRAME_INTERVAL_MS);
+      const routeAnimationFrame = () => {
         if (sequenceCancelledRef.current) return;
         const elapsed = performance.now() - drawStart;
         const t = Math.min(1, elapsed / ROUTE_DRAW_MS);
         activeDashRef.current = easeInOutCubic(t);
 
-        // Force re-render by updating activeArc reference
-        setActiveArc((prev) => prev ? { ...prev } : null);
-
         if (t < 1) {
-          rafRef.current = requestAnimationFrame(animateDash);
+          rafRef.current = requestAnimationFrame(routeAnimationFrame);
         } else {
           rafRef.current = null;
+          if (dashUpdateTimerRef.current) {
+            clearInterval(dashUpdateTimerRef.current);
+            dashUpdateTimerRef.current = null;
+          }
+          setActiveArc((prev) => prev ? { ...prev } : null);
           // Route complete — move to completed, reveal destination
           setCompletedArcs((prev) => [...prev, { ...arc, dashLength: 1 }]);
           setActiveArc(null);
@@ -318,7 +335,7 @@ export default function HeroGlobe({ panelEl, locations }) {
           }, POST_ROUTE_PAUSE_MS);
         }
       };
-      rafRef.current = requestAnimationFrame(animateDash);
+      rafRef.current = requestAnimationFrame(routeAnimationFrame);
     };
 
     // Camera intro from Pacific to Africa
@@ -348,7 +365,7 @@ export default function HeroGlobe({ panelEl, locations }) {
       setShowHub(true);
       return undefined;
     }
-    if (!globeReady || !sectionVisible) return undefined;
+    if (!globeReady || !sectionVisible || !documentVisible) return undefined;
 
     sequenceCancelledRef.current = false;
     loopActiveRef.current = true;
@@ -359,7 +376,7 @@ export default function HeroGlobe({ panelEl, locations }) {
       loopActiveRef.current = false;
       clearTimers();
     };
-  }, [globeReady, sectionVisible, reduced, runSequence, clearTimers, allArcs, allMarkers]);
+  }, [globeReady, sectionVisible, documentVisible, reduced, runSequence, clearTimers, allArcs, allMarkers]);
 
   /* ── Pause RAF when section leaves viewport ── */
   useEffect(() => {
@@ -371,15 +388,24 @@ export default function HeroGlobe({ panelEl, locations }) {
     return undefined;
   }, [sectionVisible]);
 
+  useEffect(() => {
+    const onVisibilityChange = () => setDocumentVisible(!document.hidden);
+    document.addEventListener('visibilitychange', onVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', onVisibilityChange);
+  }, []);
+
   /* Pause GPU work while offscreen. */
   useEffect(() => {
     if (!globeReady) return undefined;
     const globe = globeRef.current;
     if (!globe) return undefined;
-    if (sectionVisible) globe.resumeAnimation?.();
-    else globe.pauseAnimation?.();
+    if (sectionVisible && documentVisible) {
+      if (typeof globe.resumeAnimation === 'function') globe.resumeAnimation();
+    } else if (typeof globe.pauseAnimation === 'function') {
+      globe.pauseAnimation();
+    }
     return undefined;
-  }, [globeReady, sectionVisible]);
+  }, [globeReady, sectionVisible, documentVisible]);
 
   useEffect(() => () => clearTimers(), [clearTimers]);
 
