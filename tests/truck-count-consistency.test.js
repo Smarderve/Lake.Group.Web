@@ -22,7 +22,7 @@ test('the canonical Lake Group fleet count is 1,600+', () => {
 });
 
 test('truck counters animate to 1,600+ and public fallback text agrees', () => {
-  for (const file of ['about.html', 'africa-network.html', 'fleet.html']) {
+  for (const file of ['about.html', 'fleet.html']) {
     const html = fs.readFileSync(path.join(root, file), 'utf8');
     assert.match(html, /data-count="1600"[^>]*data-suffix="\+"/);
     assert.match(html, />1,600\+</);

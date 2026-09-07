@@ -16,10 +16,6 @@ export const PAGE_METADATA = Object.freeze({
     "title": "AFICD | Inland Container Depot &amp; Logistics Services | Lake Group",
     "description": "African Inland Container Depot (AFICD) provides ICD, CFS and empty container depot services supporting cargo handling, storage and inland logistics in Tanzania."
   },
-  "africa-network.html": {
-    "title": "Lake Group Operations Network | East &amp; Central Africa",
-    "description": "Explore Lake Group's operations network across Tanzania, Kenya, Zambia, Rwanda, Burundi, DR Congo, Ethiopia, Mozambique and the UAE."
-  },
   "agrinova-tech.html": {
     "title": "Agrinova Tech Limited | Agricultural Machinery Solutions | Lake Group",
     "description": "Agrinova Tech Limited provides agricultural machinery and practical farming solutions in Tanzania as part of Lake Group's Automotive sector."
@@ -75,10 +71,6 @@ export const PAGE_METADATA = Object.freeze({
   "index.html": {
     "title": "Lake Group | Diversified Business Group in East &amp; Central Africa",
     "description": "Lake Group is a diversified business group with operations across energy, manufacturing, logistics, real estate, agro processing and automotive sectors."
-  },
-  "investors.html": {
-    "title": "Investor Relations | Lake Group",
-    "description": "Financial performance, governance and investment information for Lake Group  one of East Africa's fastest-growing conglomerates."
   },
   "la-home.html": {
     "title": "Lake Agro - Home",
@@ -151,14 +143,6 @@ export const PAGE_METADATA = Object.freeze({
   "media-center.html": {
     "title": "Media Center | Lake Group",
     "description": "Press releases, media kits and corporate communications from Lake Group."
-  },
-  "news-article.html": {
-    "title": "News Article | Lake Group",
-    "description": "Read the full story from Lake Group news and events."
-  },
-  "news.html": {
-    "title": "News &amp; Events | Lake Group",
-    "description": "Latest announcements, expansions and community activities from Lake Group across Africa."
   },
   "nextdrive-motors.html": {
     "title": "NextDrive Motors Limited | Commercial Vehicle Solutions | Lake Group",

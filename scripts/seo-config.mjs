@@ -75,14 +75,14 @@ export const LOCALES = Object.freeze({
 
 // These are valid public pages with approved primary English content.
 export const INDEXABLE_ROUTES = Object.freeze([
-  'index.html', 'about.html', 'africa-network.html', 'agrinova-tech.html',
+  'index.html', 'about.html', 'agrinova-tech.html',
   'aficd.html', 'aill.html', 'assembly-tech.html', 'careers.html', 'contact.html',
   'cross-country.html', 'csr.html', 'fleet.html', 'gallery.html',
-  'gulf-aggregates.html', 'history.html', 'investors.html', 'lake-agro.html',
+  'gulf-aggregates.html', 'history.html', 'lake-agro.html',
   'lake-aviation.html', 'lake-buildings.html', 'lake-cylinders.html',
   'lake-gas.html', 'lake-lubes.html', 'lake-oil.html', 'lake-pipes.html',
   'lake-premix-cement.html', 'lake-steel.html', 'lake-trans.html',
-  'leadership.html', 'leadership-ally-edha-awadh.html', 'news.html',
+  'leadership.html', 'leadership-ally-edha-awadh.html',
   'our-story.html', 'projects.html', 'station-locator.html',
   'sustainability.html', 'nextdrive-motors.html',
 ]);
@@ -91,7 +91,7 @@ export const INDEXABLE_ROUTES = Object.freeze([
 // source file is available locally.
 export const NON_INDEXABLE_ROUTES = Object.freeze([
   '404.html', 'offline.html', 'dashboard.html', 'acfs.html', 'atl.html',
-  'la-home.html', 'la-projects.html', 'ocean-galleria.html', 'news-article.html', 'media-center.html',
+  'la-home.html', 'la-projects.html', 'ocean-galleria.html', 'media-center.html',
   'lake-group-financial-dashboard.html', 'lake-group-org-chart.html',
 ]);
 
@@ -149,18 +149,15 @@ export const SEARCH_INTENTS = Object.freeze({
 
 export const ROUTE_LABELS = Object.freeze({
   'about.html': 'About Lake Group',
-  'africa-network.html': 'Operations Network',
   'careers.html': 'Careers',
   'contact.html': 'Contact Us',
   'csr.html': 'CSR & Sustainability',
   'fleet.html': 'Our Fleet',
   'gallery.html': 'Gallery',
   'history.html': 'Our History',
-  'investors.html': 'Investor Relations',
   'leadership.html': 'Leadership',
   'leadership-ally-edha-awadh.html': 'Ally Edha Awadh',
   'media-center.html': 'Media Center',
-  'news.html': 'News & Events',
   'our-story.html': 'Our Story',
   'projects.html': 'Major Projects',
   'station-locator.html': 'Station Locator',

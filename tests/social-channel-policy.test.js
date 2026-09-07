@@ -19,7 +19,6 @@ test('public social surfaces expose only the approved Lake Group channels', () =
   assert.match(footer, /https:\/\/wa\.me\/255673961597/);
   assert.match(footer, /https:\/\/www\.facebook\.com\/lakeoilgroup/);
   assert.doesNotMatch(footer, /linkedin|twitter|tiktok/i);
-  assert.doesNotMatch(read('assets/news.js'), PUBLIC_SOCIAL_URL);
   assert.doesNotMatch(read('scripts/add_seo_tags.js'), PUBLIC_SOCIAL_URL);
 
   for (const file of fs.readdirSync(ROOT).filter((name) => name.endsWith('.html'))) {

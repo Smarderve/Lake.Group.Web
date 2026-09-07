@@ -24,7 +24,6 @@
  *
  * v71: News tiles get the rounded dashboard-card look (radius + soft shadows).
  *      Version bump forces a full cache purge on the next visit so the new
- *      newsroom.css?v=20260828-01 reaches every client even with stale ?v= entries.
  */
 
 'use strict';
@@ -47,7 +46,6 @@ const PRECACHE_URLS = [
   './offline.html',
   './404.html',
   './about.html',
-  './africa-network.html',
   './contact.html',
   './gallery.html',
   './station-locator.html',
@@ -412,7 +410,7 @@ const SWR_IMAGE_RE =
 
 /** Critical design / layout assets — always freshest-first with cache fallback. */
 const DESIGN_CHROME_RE =
-  /\/assets\/(tokens|theme|flagship|assistant|skeleton|split-text|LogoLoop|ui-icons)\.(css|js)$|\/assets\/(site|motion|flagship-motion|pwa|i18n|i18n-content|assistant|assistant-kb|news-data|news-api|news)\.js$/;
+  /\/assets\/(tokens|theme|flagship|assistant|skeleton|split-text|LogoLoop|ui-icons)\.(css|js)$|\/assets\/(site|motion|flagship-motion|pwa|i18n|i18n-content|assistant|assistant-kb)\.js$/;
 
 function classify(request, url) {
   if (request.mode === 'navigate' || request.destination === 'document') {

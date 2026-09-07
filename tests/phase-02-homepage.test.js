@@ -45,13 +45,11 @@ for (const viewport of [{ name: 'desktop', width: 1440, height: 900 }, { name: '
       overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
       hero: getComputedStyle(document.querySelector('.hero')).minHeight,
       logoBackground: getComputedStyle(document.querySelector('.marquee-wrap')).backgroundColor,
-      mapDisplayed: getComputedStyle(document.querySelector('[data-home-operations-map]')).display,
-      mapCta: [...document.querySelectorAll('#fuel-experience a')].some((a) => /operations map/i.test(a.textContent)),
+      globeSection: !!document.querySelector('#fuel-experience'),
     }));
     assert.ok(state.overflow <= 1, `horizontal overflow: ${state.overflow}px`);
     assert.equal(state.logoBackground, 'rgb(255, 255, 255)');
-    assert.equal(state.mapDisplayed, 'none');
-    assert.equal(state.mapCta, false);
+    assert.equal(state.globeSection, true);
     await page.screenshot({ path: path.join(evidence, `${viewport.name}-hero.png`), fullPage: false });
     await page.locator('#fuel-experience').scrollIntoViewIfNeeded();
     await page.waitForFunction(() => document.querySelector('#experience-3d-panel canvas'), null, { timeout: 15000 });

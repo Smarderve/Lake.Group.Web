@@ -9,7 +9,7 @@ const liveOrigin = 'https://lakegroup.vercel.app';
 const localViewports = [{ name: 'desktop', width: 1440, height: 900 }, { name: 'tablet', width: 820, height: 1180 }, { name: 'mobile', width: 390, height: 844 }];
 const liveViewports = [{ name: 'wide', width: 1920, height: 1080 }, { name: 'desktop', width: 1440, height: 900 }, { name: 'tablet', width: 820, height: 1180 }, { name: 'mobile', width: 390, height: 844 }, { name: 'small-mobile', width: 360, height: 800 }];
 const rootPages = fs.readdirSync(root).filter(f => f.endsWith('.html')).sort();
-const keyPages = ['index.html', 'about.html', 'leadership.html', 'history.html', 'gallery.html', 'contact.html', 'news.html', 'careers.html', 'csr.html', 'investors.html', 'africa-network.html', 'projects.html', 'lake-oil.html', 'lake-gas.html', 'lake-lubes.html', 'lake-agro.html', 'aficd.html', 'lake-trans.html', 'lake-steel.html', 'lake-premix-cement.html', 'station-locator.html', 'under-construction.html'].filter(f => rootPages.includes(f));
+const keyPages = ['index.html', 'about.html', 'leadership.html', 'history.html', 'gallery.html', 'contact.html', 'careers.html', 'csr.html', 'projects.html', 'lake-oil.html', 'lake-gas.html', 'lake-lubes.html', 'lake-agro.html', 'aficd.html', 'lake-trans.html', 'lake-steel.html', 'lake-premix-cement.html', 'station-locator.html', 'under-construction.html'].filter(f => rootPages.includes(f));
 
 function serve() {
   const server = http.createServer((req, res) => {

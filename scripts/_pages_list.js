@@ -8,7 +8,7 @@
  *   node scripts/_pages_list.js --matrix     # outputs GitHub Actions matrix JSON (desktop only)
  *   node scripts/_pages_list.js --matrix --dual-viewport  # outputs matrix with desktop + mobile
  *
- * Excludes pages that won't run standalone (404, offline, news-article) and
+ * Excludes pages that won't run standalone (404, offline) and
  * leadership sub-pages that duplicate leadership.html content.
  */
 
@@ -21,7 +21,6 @@ const ROOT = path.resolve(__dirname, '..');
 const EXCLUDE = new Set([
   '404.html',
   'offline.html',
-  'news-article.html',       // dynamically rendered, needs query params
   'dashboard.html',          // admin/dashboard page
   'lake-group-org-chart.html',
   'station-locator.html',    // heavy map interaction, not a content page

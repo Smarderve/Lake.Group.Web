@@ -72,7 +72,7 @@ test('Company pages globally have no breadcrumb navigation', () => {
   const companyPages = [
     'lake-oil.html', 'lake-gas.html', 'lake-steel.html', 'lake-lubes.html',
     'lake-trans.html', 'lake-aviation.html', 'lake-cylinders.html', 'lake-agro.html',
-    'cross-country.html', 'africa-network.html', 'history.html',
+    'cross-country.html', 'history.html',
     'careers.html', 'csr.html', 'fleet.html', 'gallery.html',
     'station-locator.html', 'projects.html', 'leadership.html',
   ];

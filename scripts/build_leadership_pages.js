@@ -178,7 +178,6 @@ const LEADERS = [
     ],
     links: [
       ['Our fleet', 'fleet.html'],
-      ['Africa network', 'africa-network.html'],
       ['AFICD', 'aficd.html'],
     ],
 

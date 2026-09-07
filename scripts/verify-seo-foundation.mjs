@@ -71,10 +71,6 @@ for (const file of all) {
         const organization = graph.find((node) => node['@id'] === SITE.organizationId);
         if (organization?.areaServed?.length !== GROUP_MARKETS.length || !organization?.knowsAbout?.length) errors.push(`${file}: incomplete parent organization geography or verticals`);
       }
-      if (SITE.isConfigured && file === 'africa-network.html') {
-        const webPage = graph.find((node) => node['@type'] === 'WebPage');
-        if (webPage?.mentions?.length !== GROUP_MARKETS.length) errors.push(`${file}: incomplete operations-network geography`);
-      }
     } catch { errors.push(`${file}: malformed JSON-LD`); }
   });
 }

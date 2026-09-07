@@ -60,16 +60,13 @@ const PAGES = {
   concrete: { url: 'lake-premix-cement.html', titleKey: 'nav.co.lakePremixCement', title: 'Lake Premix' },
   logistics: { url: 'lake-trans.html', titleKey: 'nav.co.lakeTrans', title: 'Lake Trans' },
   container_services: { url: 'aficd.html', titleKey: 'nav.co.aficd', title: 'AFICD' },
-  africa_network: { url: 'africa-network.html', titleKey: 'nav.africaMap', title: 'Operations Map' },
   station_locator: { url: 'station-locator.html', titleKey: 'nav.stations', title: 'Station Locator' },
   fleet: { url: 'fleet.html', titleKey: 'nav.fleet', title: 'Our Fleet' },
   careers: { url: 'careers.html', titleKey: 'nav.careers', title: 'Careers' },
   csr: { url: 'csr.html', titleKey: 'nav.csr', title: 'CSR & Sustainability' },
   sustainability: { url: 'sustainability.html', titleKey: 'nav.csr', title: 'Sustainability' },
-  investors: { url: 'investors.html', titleKey: 'nav.investors', title: 'Investor Relations' },
   projects: { url: 'projects.html', titleKey: 'nav.projects', title: 'Major Projects' },
   gallery: { url: 'gallery.html', titleKey: 'nav.gallery', title: 'Gallery' },
-  news: { url: 'news.html', titleKey: 'nav.news', title: 'News & Events' },
   media_center: { url: 'media-center.html', titleKey: 'nav.news', title: 'Media Center' },
   contact: { url: 'contact.html', titleKey: 'footer.contact', title: 'Contact' },
 };
@@ -108,7 +105,7 @@ const CURATED_FACTS = [
   },
   {
     id: 'countries',
-    url: 'africa-network.html',
+    url: 'about.html',
     en: {
       t: 'Where we operate',
       s: 'Lake Group operates across 10 countries - Tanzania (headquarters), Kenya, Zambia, DR Congo, Rwanda, Burundi, Ethiopia, Mozambique and Uganda - plus a presence in the UAE (Dubai) through MERM and SAFF.',

@@ -79,7 +79,6 @@ test('hero photography uses only a subtle neutral readability veil', async () =>
     ['Lake Agro', 'lake-agro.html', '.page-hero .hero-overlay', '.page-hero h1'],
     ['Gulf Aggregates', 'gulf-aggregates.html', '.page-hero .hero-overlay', '.page-hero h1'],
     ['Ocean Galleria', 'ocean-galleria.html', '.page-hero .hero-overlay', '.page-hero h1'],
-    ['News', 'news.html', '.page-hero .hero-overlay', '.page-hero h1'],
   ];
 
   try {

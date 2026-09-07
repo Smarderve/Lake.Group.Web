@@ -5,7 +5,7 @@ const path = require('node:path');
 const root = path.join(__dirname, '..');
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 
-const underConstruction = ['news.html', 'careers.html', 'csr.html', 'sustainability.html', 'africa-network.html', 'investors.html'];
+const underConstruction = ['careers.html', 'csr.html', 'sustainability.html'];
 const retired = ['leadership-bibhuti-singh.html', 'leadership-biji-lapat.html', 'leadership-dileep-kumar.html', 'leadership-jishnu-jayachandran.html', 'leadership-juma-nuru.html', 'leadership-mohammed-khalid.html', 'leadership-sridhar-mani.html', 'leadership-zaki-othman.html'];
 
 test('launch-reduced pages use the common under-construction surface', () => {

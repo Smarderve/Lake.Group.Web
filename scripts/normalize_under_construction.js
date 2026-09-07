@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const ROOT = path.join(__dirname, '..');
-const PAGES = ['news.html', 'careers.html', 'csr.html', 'sustainability.html', 'africa-network.html', 'investors.html'];
+const PAGES = ['careers.html', 'csr.html', 'sustainability.html'];
 const STYLESHEET = '<link rel="stylesheet" href="assets/phase-01-under-construction.css">';
 const CRITICAL_OVERLAY = '[data-lg-skeleton-overlay]{position:fixed!important;inset:0;width:100vw;height:100vh;background:#013f5c;opacity:1}';
 const TEMPLATE = fs.readFileSync(path.join(ROOT, 'scripts', 'templates', 'under-construction.html'), 'utf8').trim();

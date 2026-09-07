@@ -92,7 +92,6 @@ function schema(file, pageTitle, pageDescription) {
     graph[0].about = { '@id': `${url}#organization` };
     graph[0].mainEntity = { '@id': `${url}#organization` };
   }
-  if (file === 'africa-network.html') graph[0].mentions = areaServed(GROUP_MARKETS);
   if (file !== 'index.html') graph.push(breadcrumb(file, pageTitle));
   return { '@context': 'https://schema.org', '@graph': graph };
 }

@@ -8,7 +8,7 @@ const { chromium } = require('playwright');
 const root = path.join(__dirname, '..');
 const pages = [
   'index.html', 'about.html', 'leadership.html', 'contact.html', 'gallery.html',
-  'history.html', 'news.html', 'lake-gas.html', 'lake-agro.html', '404.html'
+  'history.html', 'lake-gas.html', 'lake-agro.html', '404.html'
 ];
 const viewports = [
   { name: 'desktop', width: 1440, height: 900 },
@@ -53,7 +53,7 @@ for (const viewport of viewports) {
       assert.ok(result.overflow <= 1, `${viewport.name} ${filename} overflow ${result.overflow}px`);
       assert.equal(result.heroCollision, 0, `${viewport.name} ${filename} hero content clears navbar`);
       assert.equal(result.nav, true, `${filename} navbar`);
-      const footerExpected = filename !== 'news.html';
+      const footerExpected = true;
       assert.equal(result.footer, footerExpected, `${filename} footer`);
     }
     await context.close();
