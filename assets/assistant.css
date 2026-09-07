@@ -28,14 +28,14 @@
 #chat-widget.la-widget {
   --la-blue: var(--color-brand-blue, #0181bb);
   --la-blue-light: var(--color-brand-blue-light, #0599d3);
-  --la-blue-deep: var(--color-brand-blue-deep, #016694);
-  --la-ink: var(--color-brand-blue-darkest, #013f5c);
+  --la-blue-deep: var(--color-brand-blue-deep, #0181bb);
+  --la-ink: var(--color-brand-blue-darkest, #0181bb);
   --la-gold: var(--color-yellow-accent, #fff200);
-  --la-gold-deep: var(--color-yellow-deep, #e6d900);
+  --la-gold-deep: var(--color-yellow-deep, #fff200);
   --la-paper: var(--color-offwhite, #f7f8fc);
   --la-paper-2: var(--color-light, #eff2fb);
   --la-surface: var(--color-white, #ffffff);
-  --la-text: var(--color-text-heading, #013f5c);
+  --la-text: var(--color-text-heading, #0181bb);
   --la-mute: var(--color-text-body, #5a6478);
   --la-on-brand: var(--color-text-on-brand, #ffffff);
   --la-on-brand-muted: var(--color-text-on-brand-muted, rgba(255, 255, 255, 0.85));
@@ -215,19 +215,19 @@
   gap: 10px;
   background: var(--la-paper);
   scrollbar-width: auto;
-  scrollbar-color: var(--color-brand-blue, #0181bb) var(--color-brand-blue-darkest, #013f5c);
+  scrollbar-color: var(--color-brand-blue, #0181bb) var(--color-brand-blue-darkest, #0181bb);
 }
 #chat-widget.la-widget .la-msgs::-webkit-scrollbar {
   width: 10px;
 }
 #chat-widget.la-widget .la-msgs::-webkit-scrollbar-track {
-  background: var(--color-brand-blue-darkest, #013f5c);
+  background: var(--color-brand-blue-darkest, #0181bb);
   border-radius: 999px;
 }
 #chat-widget.la-widget .la-msgs::-webkit-scrollbar-thumb {
   background: var(--color-brand-blue, #0181bb);
   border-radius: 999px;
-  border: 2px solid var(--color-brand-blue-darkest, #013f5c);
+  border: 2px solid var(--color-brand-blue-darkest, #0181bb);
   background-clip: padding-box;
 }
 #chat-widget.la-widget .la-msgs::-webkit-scrollbar-thumb:hover {
@@ -439,7 +439,7 @@
    Page-level token remaps alone are incomplete for this widget:
    · Header gradient used --la-blue-light → agro bright lime (#489f10), which
      reads muddy vs solid nav green.
-   · --la-gold-deep still pointed at Lake yellow (#E6D900) on hover.
+   · --la-gold-deep uses the canonical Lake yellow (#FFF200) on hover.
    · Borders / FAB shadows hard-coded Lake blue + sunrise yellow rgba.
 
    Explicit --la-* remap + chrome overrides keep Agro green/orange cohesive
@@ -513,7 +513,7 @@ body.co-theme-agro #chat-widget.la-widget .la-fab-dot {
 
 body.co-theme-agro #chat-widget.la-widget .la-launcher:hover {
   background: transparent;
-  color: #e6d900; /* same deepen as home --la-gold-deep on yellow */
+  color: #fff200; /* canonical Lake yellow hover state */
   filter: brightness(0.97);
   transform: translateY(-2px) scale(1.04);
 }
@@ -530,7 +530,7 @@ body.co-theme-agro #chat-btn {
   filter: none;
 }
 body.co-theme-agro #chat-btn:hover {
-  color: #e6d900;
+  color: #fff200;
   filter: brightness(0.97);
 }
 body.co-theme-agro #chat-btn .la-fab-dot {

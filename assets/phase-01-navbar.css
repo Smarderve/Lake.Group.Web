@@ -603,8 +603,8 @@ body.co-theme-agro .nav-mobile[data-phase01-navbar-mobile] {
 :root {
   /* Default Lake Group dropdown palette. The category rail is the visual
      source of truth for every desktop dropdown surface. */
-  --nav-dropdown-bg: rgba(3, 53, 79, .92);
-  --nav-dropdown-sidebar-bg: #03354f;
+  --nav-dropdown-bg: rgba(1, 129, 187, .96);
+  --nav-dropdown-sidebar-bg: #0181BB;
   --nav-dropdown-pane-bg: rgba(255, 255, 255, .035);
   --nav-dropdown-border: rgba(255, 255, 255, .12);
   --nav-dropdown-divider: rgba(255, 255, 255, .14);
@@ -1045,7 +1045,7 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .mm-cat.is-active {
 .site-nav[data-phase01-navbar] .mm-cats {
   gap: 0 !important;
   padding: 12px !important;
-  background: #03354f !important;
+  background: #0181BB !important;
   border-radius: 0 !important;
   align-self: stretch !important;
 }

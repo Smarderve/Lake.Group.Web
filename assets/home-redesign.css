@@ -228,7 +228,7 @@ body.home .hero-link:hover {
 body.home .hero-link:hover .hero-link-ico {
   background: var(--color-yellow-accent, var(--yellow));
   border-color: var(--color-yellow-accent, var(--yellow));
-  color: var(--color-brand-blue-darkest, #013f5c);
+  color: var(--color-brand-blue-darkest, #0181bb);
   transform: translateX(4px);
 }
 
@@ -574,7 +574,7 @@ body.home .hero-tab:hover {
    3. KEY FACTS band  — solid navy, yellow numerals, hairline dividers
    -------------------------------------------------------------------------- */
 body.home .keyfacts {
-  background: var(--color-brand-blue-darkest, #013f5c);
+  background: var(--color-brand-blue-darkest, #0181bb);
   border-top: 3px solid var(--color-yellow-accent, var(--yellow));
   border-bottom: 3px solid var(--color-yellow-accent, var(--yellow));
   position: relative;
@@ -623,7 +623,7 @@ body.home .aramco-card {
   flex-direction: column;
   overflow: hidden;
   border-radius: 14px;
-  background: var(--color-brand-blue-darkest, #013f5c);
+  background: var(--color-brand-blue-darkest, #0181bb);
   color: #ffffff;
   min-height: 330px;
   max-height: 380px;
@@ -681,7 +681,7 @@ body.home .aramco-card-ico svg {
 body.home .aramco-card:hover .aramco-card-ico {
   background: var(--color-yellow-accent, var(--yellow));
   border-color: var(--color-yellow-accent, var(--yellow));
-  color: var(--color-brand-blue-darkest, #013f5c);
+  color: var(--color-brand-blue-darkest, #0181bb);
 }
 body.home .aramco-card-body {
   position: relative;
@@ -802,7 +802,7 @@ body.home .aramco-card--solid .aramco-card-logo {
    All existing links preserved.
    -------------------------------------------------------------------------- */
 body.home .site-footer {
-  background: var(--color-brand-blue-darkest, #013f5c);
+  background: var(--color-brand-blue-darkest, #0181bb);
   border-top: 3px solid var(--color-yellow-accent, var(--yellow));
 }
 body.home .footer-grid {
@@ -848,7 +848,7 @@ body.home .social-link {
 body.home .social-link:hover {
   background: var(--color-yellow-accent, var(--yellow));
   border-color: var(--color-yellow-accent, var(--yellow));
-  color: var(--color-brand-blue-darkest, #013f5c);
+  color: var(--color-brand-blue-darkest, #0181bb);
 }
 body.home .country-tag {
   background: transparent !important;
@@ -973,5 +973,5 @@ body.home .site-footer .footer-bottom {
 /* Global: fix social icon turning gold-on-gold (invisible) on hover — applies all pages */
 .site-footer .social-link:hover .footer-social-ico,
 .site-footer .social-link:hover .lg-ico {
-  color: var(--color-brand-blue-darkest, #013f5c) !important;
+  color: var(--color-brand-blue-darkest, #0181bb) !important;
 }

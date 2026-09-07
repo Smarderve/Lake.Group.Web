@@ -94,7 +94,7 @@
   --nav-link-color:          #FFFFFF;
   --nav-link-hover-bg:       rgba(255, 255, 255, 0.16);
   --nav-link-active-color:   #FFFFFF;
-  --nav-link-active-bg:      #2A95C6; /* reference: lighter-blue pill with white text + white outline */
+  --nav-link-active-bg:      var(--color-brand-blue-light); /* canonical Lake light-blue active state */
   --nav-link-active-outline: 1px solid rgba(255, 255, 255, 0.9);
 
   /* - Eyebrow / breadcrumb (interior heroes) - */

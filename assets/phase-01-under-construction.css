@@ -1,15 +1,15 @@
 /* Shared Under Construction surface. Kept page-scoped so the global chrome is untouched. */
-.phase-01-under-construction { align-items:center; background:#f7f8f6; color:#013f5c; display:flex; font-family:"Jost","Segoe UI",Arial,sans-serif; min-height:calc(100svh - 92px); overflow:hidden; padding:clamp(42px,6vw,84px) clamp(24px,7vw,112px); position:relative; }
-.phase-01-under-construction::before { background:linear-gradient(180deg,rgba(1,63,92,.84) 0,rgba(1,63,92,.62) 72px,rgba(1,63,92,.22) 174px,rgba(1,63,92,0) 334px),radial-gradient(circle at 84% 46%,rgba(1,129,187,.10),transparent 28%),linear-gradient(135deg,rgba(1,63,92,.045),transparent 48%); content:""; inset:0; pointer-events:none; position:absolute; }
+.phase-01-under-construction { align-items:center; background:#f7f8f6; color:#0181bb; display:flex; font-family:"Jost","Segoe UI",Arial,sans-serif; min-height:calc(100svh - 92px); overflow:hidden; padding:clamp(42px,6vw,84px) clamp(24px,7vw,112px); position:relative; }
+.phase-01-under-construction::before { background:linear-gradient(180deg,rgba(1,129,187,.84) 0,rgba(1,129,187,.62) 72px,rgba(1,129,187,.22) 174px,rgba(1,129,187,0) 334px),radial-gradient(circle at 84% 46%,rgba(1,129,187,.10),transparent 28%),linear-gradient(135deg,rgba(1,129,187,.045),transparent 48%); content:""; inset:0; pointer-events:none; position:absolute; }
 .phase-01-under-construction__inner { align-items:center; display:grid; gap:clamp(32px,7vw,112px); grid-template-columns:minmax(0,.88fr) minmax(360px,1.12fr); margin:0 auto; max-width:1320px; position:relative; width:100%; }
 .phase-01-under-construction__copy { max-width:540px; }
 .phase-01-under-construction :is(h1,h2) { font-size:clamp(2.9rem,5.6vw,5.8rem); letter-spacing:-.055em; line-height:.94; margin:0; max-width:8ch; }
 .phase-01-under-construction__lede { color:#486274; font-size:clamp(1rem,1.35vw,1.16rem); line-height:1.65; margin:28px 0 0; max-width:46ch; }
 .phase-01-under-construction__actions { align-items:center; display:flex; flex-wrap:wrap; gap:24px; margin-top:34px; }
-.phase-01-under-construction__primary { background:#013f5c; color:#fff200; display:inline-block; font-weight:700; padding:15px 22px; text-decoration:none; transition:background-color .2s ease,transform .2s ease; }
+.phase-01-under-construction__primary { background:#0181bb; color:#fff200; display:inline-block; font-weight:700; padding:15px 22px; text-decoration:none; transition:background-color .2s ease,transform .2s ease; }
 .phase-01-under-construction__primary:hover,.phase-01-under-construction__primary:focus-visible { background:#0181bb; color:#fff; transform:translateY(-2px); }
 .phase-01-under-construction__primary:focus-visible,.phase-01-under-construction__secondary:focus-visible { outline:2px solid #fff200; outline-offset:4px; }
-.phase-01-under-construction__secondary { color:#013f5c; font-size:.95rem; font-weight:700; text-decoration:none; }
+.phase-01-under-construction__secondary { color:#0181bb; font-size:.95rem; font-weight:700; text-decoration:none; }
 .phase-01-under-construction__secondary:hover { color:#0181bb; }
 .phase-01-under-construction__visual { align-items:center; display:flex; justify-content:center; min-height:min(62vh,560px); }
 .phase-01-under-construction__lottie { display:block; height:min(52vw,570px); max-height:570px; max-width:100%; width:min(52vw,570px); }

@@ -116,7 +116,7 @@ test('footer brand, social set, and legacy footers cannot diverge by page', () =
 });
 
 test('footer CSS pins approved visual tokens and isolates legacy themes', () => {
-  for (const token of ['#013f5c', '#fff200', '#f5f7fb']) {
+  for (const token of ['#0181bb', '#fff200', '#f5f7fb']) {
     assert.match(FOOTER_CSS, new RegExp(token, 'i'));
   }
   assert.doesNotMatch(FOOTER_CSS, /var\(/i);
