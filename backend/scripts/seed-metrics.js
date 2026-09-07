@@ -80,11 +80,11 @@ export const SEEDS = [
     value: '290+',
     unit: 'fuel stations',
     source:
-      'Confirmed by Mr. Nabil, Lake Oil â€” "154 fuel stations" (group source of truth, 2026; scripts/_verified_lake_facts.md).',
+      'Approved group-wide website figure — "290+ fuel stations" (current Home source; the separate Lake Oil Tanzania retail count remains a distinct subsidiary-level figure).',
     verificationStatus: 'VERIFIED',
     verificationDate: new Date(),
     verificationNote:
-      'Approved public-facing group-wide fuel-station figure used by the Home hero. Per-country breakdown remains unverified.',
+      'Approved public-facing group-wide fuel-station figure used by Home and shared metric consumers. Subsidiary-level and per-country breakdowns remain separate and unverified.',
     effectiveDate: new Date(),
     consumers: [
       'index.html Â· hero keyfacts',
