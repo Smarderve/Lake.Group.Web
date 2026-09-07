@@ -3070,7 +3070,7 @@ body[data-company-logo] .page-hero .page-hero-overlay {
   place-items: center;
   border: 1px solid rgba(255,255,255,.28);
   border-radius: 50%;
-  background: #013c5c;
+  background: var(--lake-light-blue);
   color: #fff;
   box-shadow: 0 10px 28px rgba(1,43,66,.24);
   opacity: 0;
@@ -3082,7 +3082,7 @@ body[data-company-logo] .page-hero .page-hero-overlay {
 .lake-back-to-top.is-visible { opacity: 1; pointer-events: auto; transform: translate3d(0,var(--btt-nudge),0) scale(1); }
 .lake-back-to-top.is-react-down { --btt-nudge: 6px; }
 .lake-back-to-top.is-react-up { --btt-nudge: -5px; }
-.lake-back-to-top:hover { border-color: rgba(255,242,0,.78); box-shadow: 0 14px 32px rgba(1,43,66,.32); }
+.lake-back-to-top:hover { border-color: rgba(255,242,0,.78); box-shadow: 0 14px 32px rgba(0,0,0,.18); }
 .lake-back-to-top:hover span { transform: translateY(-2px); }
 .lake-back-to-top:active { transform: translate3d(0,var(--btt-nudge),0) scale(.95); }
 .lake-back-to-top:focus-visible { outline: 3px solid #fff200; outline-offset: 3px; }
