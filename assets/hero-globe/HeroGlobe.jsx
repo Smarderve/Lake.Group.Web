@@ -10,7 +10,6 @@ import {
 } from './locations.js';
 
 const MARKER_ICON = 'assets/icons/location-marker.svg';
-const INITIAL_POV = { lat: 28, lng: -142, altitude: 2.12 };
 const AFRICA_POV = { lat: -4, lng: 33, altitude: 1.85 };
 const CAMERA_INTRO_MS = 1000;
 const POST_INTRO_PAUSE_MS = 300;
@@ -79,6 +78,7 @@ function getCachedMarkerEl(marker, isMobile) {
 
   const label = document.createElement('span');
   label.className = 'hero-globe-marker__label';
+  label.classList.add(`hero-globe-marker__label--${marker.labelSide || 'east'}`);
   label.style.cssText = [
     'display:inline-flex',
     'align-items:center',
@@ -106,11 +106,9 @@ function getCachedMarkerEl(marker, isMobile) {
   const countryName = document.createElement('span');
   countryName.textContent = marker.label;
   countryName.style.cssText = 'display:inline-block;';
-  const [ox, oy] = marker.labelOffset || [12, -14];
   const fontSize = isMobile ? 9 : 10.5;
   label.style.cssText += ';' + [
     'position:absolute',
-    `transform:translate(${ox}px,${oy}px)`,
     'white-space:nowrap',
     'font-family:Inter,Arial,sans-serif',
     `font-size:${fontSize}px`,
@@ -176,6 +174,9 @@ export default function HeroGlobe({ panelEl, locations }) {
 
   /* ── Marker data: only revealed destinations ── */
   const [revealedMarkers, setRevealedMarkers] = useState([]);
+
+  /* ── Arrival rings: one restrained pulse at each destination ── */
+  const [arrivalRings, setArrivalRings] = useState([]);
 
   /* ── Hub (Tanzania) visibility control ── */
   const [showHub, setShowHub] = useState(false);
@@ -245,6 +246,32 @@ export default function HeroGlobe({ panelEl, locations }) {
     [isMobile],
   );
 
+  /* Resolve projected label collisions after the globe has positioned HTML
+     markers. This runs at a modest cadence so it improves legibility without
+     adding a layout read to the render loop. */
+  useEffect(() => {
+    if (!panelEl) return undefined;
+    const resolveCollisions = () => {
+      const labels = [...panelEl.querySelectorAll('.hero-globe-marker__label')]
+        .filter((label) => !label.closest('.is-behind-globe'));
+      labels.forEach((label) => label.classList.remove('is-collision-hidden'));
+      const occupied = [];
+      labels.forEach((label) => {
+        const rect = label.getBoundingClientRect();
+        if (!rect.width || !rect.height) return;
+        const collides = occupied.some((other) => !(
+          rect.right < other.left - 3 || rect.left > other.right + 3 ||
+          rect.bottom < other.top - 3 || rect.top > other.bottom + 3
+        ));
+        if (collides) label.classList.add('is-collision-hidden');
+        else occupied.push(rect);
+      });
+    };
+    const timer = window.setInterval(resolveCollisions, 240);
+    resolveCollisions();
+    return () => window.clearInterval(timer);
+  }, [panelEl, markersData, isMobile]);
+
   /* ══════════════════════════════════════════════════════════════════
    *  SEQUENCE ENGINE — progressive route draw + infinite loop
    * ══════════════════════════════════════════════════════════════════ */
@@ -265,6 +292,7 @@ export default function HeroGlobe({ panelEl, locations }) {
     setActiveArc(null);
     activeDashRef.current = 0;
     setRevealedMarkers([]);
+    setArrivalRings([]);
     setShowHub(false);
 
     const restartAfterShowcase = () => {
@@ -274,6 +302,7 @@ export default function HeroGlobe({ panelEl, locations }) {
       setActiveArc(null);
       activeDashRef.current = 0;
       setRevealedMarkers([]);
+      setArrivalRings([]);
       setShowHub(false);
       // Short pause after clear, then rotate
       scheduleTimer(() => {
@@ -355,6 +384,11 @@ export default function HeroGlobe({ panelEl, locations }) {
           setCompletedArcs((prev) => [...prev, { ...arc, dashLength: 1 }]);
           setActiveArc(null);
           activeDashRef.current = 0;
+          setArrivalRings((prev) => [...prev.slice(-2), {
+            id: `arrival-${dest.id}-${Date.now()}`,
+            lat: dest.lat,
+            lng: dest.lng,
+          }]);
           setRevealedMarkers((prev) => [...prev, dest]);
           // Hold, then next route
           scheduleTimer(() => {
@@ -389,6 +423,7 @@ export default function HeroGlobe({ panelEl, locations }) {
       setCompletedArcs(allArcs.map((a) => ({ ...a, dashLength: 1 })));
       setActiveArc(null);
       setRevealedMarkers(allMarkers.filter((m) => !m.hub));
+      setArrivalRings([]);
       setShowHub(true);
       return undefined;
     }
@@ -445,12 +480,15 @@ export default function HeroGlobe({ panelEl, locations }) {
   const onGlobeReady = useCallback(() => {
     const globe = globeRef.current;
     if (!globe) return;
-    globe.pointOfView(reduced ? AFRICA_POV : INITIAL_POV, 0);
+    globe.pointOfView(AFRICA_POV, 0);
     const controls = globe.controls();
     controls.autoRotate = false;
     controls.autoRotateSpeed = 0;
     controls.enableZoom = false;
     controls.enablePan = false;
+    controls.enableRotate = true;
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.08;
     controls.minPolarAngle = Math.PI * 0.25;
     controls.maxPolarAngle = Math.PI * 0.75;
     globe.renderer?.().setPixelRatio(Math.min(1.5, window.devicePixelRatio));
@@ -497,6 +535,18 @@ export default function HeroGlobe({ panelEl, locations }) {
       htmlAltitude={MARKER_ALTITUDE}
       htmlElement={markerElement}
       htmlTransitionDuration={300}
+      htmlElementVisibilityModifier={(element, isVisible) => {
+        element.classList.toggle('is-behind-globe', !isVisible);
+      }}
+      ringsData={arrivalRings}
+      ringLat="lat"
+      ringLng="lng"
+      ringColor={() => ROUTE_YELLOW}
+      ringAltitude={MARKER_ALTITUDE + 0.008}
+      ringMaxRadius={isMobile ? 1.8 : 2.5}
+      ringPropagationSpeed={1.8}
+      ringRepeatPeriod={1700}
+      ringResolution={32}
       enablePointerInteraction={!reduced}
     />
   );

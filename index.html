@@ -1428,6 +1428,35 @@
       filter: saturate(1.04) contrast(1.02);
     }
 
+    /* Projected labels stay anchored to their actual lat/lng point. Their
+       semantic side keeps the cluster readable as the globe resizes. */
+    .hero-globe-marker__label {
+      top: -0.5em;
+      left: 12px;
+      padding: 4px 6px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 3px;
+      background: rgba(1, 26, 40, 0.72);
+      transition: opacity 180ms ease;
+    }
+
+    .hero-globe-marker__label--west {
+      left: auto;
+      right: 12px;
+    }
+
+    .hero-globe-marker__label.is-behind-globe,
+    .hero-globe-marker__label.is-collision-hidden {
+      opacity: 0;
+    }
+
+    @media (max-width: 600px) {
+      .hero-globe-marker__label {
+        padding: 3px 4px;
+        letter-spacing: 0.04em;
+      }
+    }
+
     .experience-3d-panel.is-loading {
       background: transparent;
     }
@@ -2774,7 +2803,7 @@
         if (loaded) return;
         loaded = true;
         var s = document.createElement("script");
-        s.src = "assets/hero-globe.bundle.js?v=20260831-12";
+        s.src = "assets/hero-globe.bundle.js?v=20260908-01";
         document.body.appendChild(s);
       }
       function loadAfterPageLoad() {
