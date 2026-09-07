@@ -6,7 +6,7 @@ body[data-shared-footer="true"] footer.site-footer * {
 }
 
 body[data-shared-footer="true"] footer.site-footer {
-  background: #013f5c !important;
+  background: #0181bb !important;
   border: 0 !important;
   border-top: 3px solid #fff200 !important;
   clear: both !important;
@@ -241,7 +241,7 @@ body[data-shared-footer="true"] footer.site-footer .btn.btn-outline.btn-sm {
 body[data-shared-footer="true"] footer.site-footer .btn.btn-outline.btn-sm:hover,
 body[data-shared-footer="true"] footer.site-footer .btn.btn-outline.btn-sm:focus-visible {
   background: #fff200 !important;
-  color: #013f5c !important;
+  color: #0181bb !important;
 }
 
 body[data-shared-footer="true"] footer.site-footer .footer-bottom {

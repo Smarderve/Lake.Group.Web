@@ -24,9 +24,9 @@ body.home .hero-zone::before {
   height: 220px;
   background: linear-gradient(
     180deg,
-    rgba(1, 63, 92, 0.38) 0%,
-    rgba(1, 63, 92, 0.18) 45%,
-    rgba(1, 63, 92, 0) 100%
+    rgba(1, 129, 187, 0.38) 0%,
+    rgba(1, 129, 187, 0.18) 45%,
+    rgba(1, 129, 187, 0) 100%
   );
   z-index: 2;
   pointer-events: none;
@@ -45,7 +45,7 @@ body.home .marquee-wrap {
 body.home .hero {
   min-height: 100vh;
   min-height: 100dvh;
-  background: var(--color-brand-blue-darkest, #013f5c);
+  background: var(--color-brand-blue, #0181bb);
   position: relative;
   display: flex;
   align-items: center;
@@ -99,10 +99,10 @@ body.home .hero-scrim {
   bottom: -60px;
   z-index: 2;
   background: linear-gradient(90deg,
-    rgba(1, 63, 92, 0.22) 0%,
-    rgba(1, 63, 92, 0.12) 30%,
-    rgba(1, 63, 92, 0.04) 50%,
-    rgba(1, 63, 92, 0) 65%);
+    rgba(1, 129, 187, 0.22) 0%,
+    rgba(1, 129, 187, 0.12) 30%,
+    rgba(1, 129, 187, 0.04) 50%,
+    rgba(1, 129, 187, 0) 65%);
 }
 
 /* Content: vertically centered, pushed down below navbar */
@@ -630,7 +630,7 @@ body.home .aramco-card {
   transition: box-shadow 0.35s ease, transform 0.35s var(--ease-out);
 }
 body.home .aramco-card:hover {
-  box-shadow: 0 24px 48px -18px rgba(1, 63, 92, 0.55);
+  box-shadow: 0 24px 48px -18px rgba(1, 129, 187, 0.55);
   transform: translateY(-4px);
 }
 body.home .aramco-card-media {
@@ -657,7 +657,7 @@ body.home a[href="lake-lubes.html"] .aramco-card-media img { object-position: 52
 body.home .aramco-card-shade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(1, 63, 92, 0.08) 22%, rgba(1, 63, 92, 0.42) 55%, rgba(1, 63, 92, 0.95) 100%);
+  background: linear-gradient(180deg, rgba(1, 129, 187, 0.08) 22%, rgba(1, 129, 187, 0.42) 55%, rgba(1, 129, 187, 0.95) 100%);
 }
 body.home .aramco-card-ico {
   position: absolute;
@@ -757,15 +757,15 @@ body.home .aramco-card .map-link::after {
   height: 0.55em;
 }
 body.home .aramco-card--solid {
-  background: linear-gradient(160deg, rgba(5, 153, 211, 0.88) 0%, rgba(1, 129, 187, 0.82) 48%, rgba(1, 63, 92, 0.92) 100%), url('images/pages-map.png') center/cover no-repeat !important;
-  background-color: #013f5c !important;
+  background: linear-gradient(160deg, rgba(5, 153, 211, 0.88) 0%, rgba(1, 129, 187, 0.82) 48%, rgba(1, 129, 187, 0.92) 100%), url('images/pages-map.png') center/cover no-repeat !important;
+  background-color: #0181bb !important;
   isolation: isolate;
 }
 body.home .aramco-card--solid::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(160deg, rgba(5, 153, 211, 0.88) 0%, rgba(1, 129, 187, 0.82) 48%, rgba(1, 63, 92, 0.92) 100%);
+  background: linear-gradient(160deg, rgba(5, 153, 211, 0.88) 0%, rgba(1, 129, 187, 0.82) 48%, rgba(1, 129, 187, 0.92) 100%);
   z-index: 0;
 }
 body.home .aramco-card--solid > * {

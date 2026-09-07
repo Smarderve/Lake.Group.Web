@@ -317,7 +317,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   display: flex; flex-direction: column; gap: 2px;
   padding: 8px;
   background:
-    linear-gradient(180deg, rgba(1, 102, 148, 0.98) 0%, rgba(1, 63, 92, 0.99) 100%);
+    linear-gradient(180deg, rgba(5, 153, 211, 0.98) 0%, rgba(1, 129, 187, 0.99) 100%);
   border: 0;
   border-radius: 12px;
   box-shadow:
@@ -436,7 +436,7 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
 
 /* Dropdown: elevated glass panel + micro slide on links */
 .nav-dropdown {
-  background: linear-gradient(180deg, rgba(1,102,148,0.96), rgba(1,63,92,0.98));
+  background: linear-gradient(180deg, rgba(5,153,211,0.96), rgba(1,129,187,0.98));
   backdrop-filter: blur(18px) saturate(1.25);
   -webkit-backdrop-filter: blur(18px) saturate(1.25);
   border: 0;

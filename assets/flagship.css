@@ -57,24 +57,24 @@ html {
      cannot leave interiors on the old dark navbar while home (inline) looks new. */
   --color-brand-blue:        #0181BB;
   --color-brand-blue-light:  #0599D3;
-  --color-brand-blue-deep:   #016694;
-  --color-brand-blue-darkest:#013F5C;
+  --color-brand-blue-deep:   #0181BB;
+  --color-brand-blue-darkest:#0181BB;
   --color-yellow-accent:     #FFF200;
   --color-navbar-bg:         #0181BB;
-  --color-navbar-bg-scrolled: rgba(1, 102, 148, 0.96);
+  --color-navbar-bg-scrolled: rgba(1, 129, 187, 0.96);
   --color-navbar-border:     #FFF200;
-  --color-hero-bg:           #013F5C;
+  --color-hero-bg:           #0181BB;
   --blue:   #0181BB;
-  --blue2:  #016694;
-  --blue3:  #013F5C;
+  --blue2:  #0599D3;
+  --blue3:  #0181BB;
   --yellow: #FFF200;
   --navy:   #0181BB;
-  --navy2:  #016694;
-  --navy3:  #013F5C;
+  --navy2:  #0599D3;
+  --navy3:  #0181BB;
 
   /* Ink system - mid-page immersive content bands ONLY (not nav / page-hero) */
-  --ink:        #013F5C; /* remapped from near-black #070C1E â†’ deepest brand blue */
-  --ink-2:      #016694;
+  --ink:        #0181BB;
+  --ink-2:      #0599D3;
   --ink-3:      #0181BB;
   --ink-line:   rgba(255,255,255,0.14);
   --ink-line-2: rgba(255,255,255,0.07);
@@ -329,7 +329,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
   left: 0;
   z-index: 10000;
   padding: 12px 24px;
-  background: var(--color-brand-blue-darkest, #013F5C);
+  background: var(--color-brand-blue, #0181BB);
   color: var(--color-yellow-accent, #FFF200);
   font-size: 0.9rem;
   font-weight: 700;
@@ -486,7 +486,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
 
 .nav-dropdown {
   position: absolute; top: calc(100% + 6px); left: 0;
-  background: linear-gradient(180deg, rgba(1,102,148,0.96), rgba(1,63,92,0.98));
+  background: linear-gradient(180deg, rgba(5,153,211,0.96), rgba(1,129,187,0.98));
   backdrop-filter: blur(18px) saturate(1.25);
   -webkit-backdrop-filter: blur(18px) saturate(1.25);
   border: 0;
@@ -986,7 +986,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   display: flex; flex-direction: column; gap: 2px;
   padding: 8px;
   background:
-    linear-gradient(180deg, rgba(1, 102, 148, 0.98) 0%, rgba(1, 63, 92, 0.99) 100%);
+    linear-gradient(180deg, rgba(5, 153, 211, 0.98) 0%, rgba(1, 129, 187, 0.99) 100%);
   border: 0;
   border-radius: 12px;
   box-shadow:
@@ -1306,7 +1306,7 @@ body[data-company-logo] .page-hero h1 {
 .btn.is-loading::after {
   content: ''; position: absolute; left: 50%; top: 50%;
   width: 16px; height: 16px; margin: -8px 0 0 -8px;
-  border: 2px solid rgba(1,63,92,0.25); border-top-color: var(--ink);
+  border: 2px solid rgba(1,129,187,0.25); border-top-color: var(--ink);
   border-radius: 50%;
   animation: fs-spin 0.7s linear infinite;
 }

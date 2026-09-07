@@ -22,11 +22,11 @@
   /* - Brand palette (docs) - */
   --color-brand-blue:        #0181BB; /* Deep Blue - primary */
   --color-brand-blue-light:  #0599D3; /* Light Blue */
-  --color-brand-blue-deep:   #016694; /* surfaces / scrolled nav */
-  --color-brand-blue-darkest:#013F5C; /* deepest brand blue (text/emphasis) */
+  --color-brand-blue-deep:   var(--color-brand-blue); /* legacy surface alias */
+  --color-brand-blue-darkest:var(--color-brand-blue); /* legacy darkest alias */
   --color-yellow-accent:     #FFF200; /* Sunrise Yellow */
-  --color-yellow-deep:       #E6D900;
-  --color-yellow-muted:      #B8AE00; /* decorative only; not for on-light text */
+  --color-yellow-deep:       var(--color-yellow-accent);
+  --color-yellow-muted:      var(--color-yellow-accent);
   --color-white:             #FFFFFF;
   --color-offwhite:          #F7F8FC;
   --color-light:             #EFF2FB;
@@ -43,7 +43,7 @@
   --color-agro-paper-2:       #e8efe6;
 
   /* - Text - */
-  --color-text-heading:      #013F5C;
+  --color-text-heading:      var(--color-brand-blue);
   --color-text-body:         #5A6478;
   --color-text-on-brand:     #FFFFFF;
   --color-text-on-brand-muted: rgba(255, 255, 255, 0.85);
@@ -72,15 +72,15 @@
   --footer-logo-height:            34px;
   --footer-logo-height-mobile:     28px;
   --color-navbar-bg:            var(--color-brand-blue);
-  --color-navbar-bg-scrolled:   rgba(1, 102, 148, 0.96);
+  --color-navbar-bg-scrolled:   rgba(1, 129, 187, 0.96);
   --color-navbar-border:        var(--color-yellow-accent);
-  --color-hero-bg:              var(--color-brand-blue-darkest); /* fallback under photo only */
+  --color-hero-bg:              var(--color-brand-blue); /* fallback under photo only */
   /* Very subtle left-side Lake-blue tint behind text only. Fade to transparent
      before the hero midpoint — image remains bright and natural elsewhere. */
   --hero-overlay-gradient:      linear-gradient(to right,
-                                  rgba(1, 63, 92, 0.09) 0%,
-                                  rgba(1, 63, 92, 0.04) 28%,
-                                  rgba(1, 63, 92, 0.01) 42%,
+                                  rgba(1, 129, 187, 0.09) 0%,
+                                  rgba(1, 129, 187, 0.04) 28%,
+                                  rgba(1, 129, 187, 0.01) 42%,
                                   transparent 55%);
 
   /* - Nav link metrics (home sentence-case + soft pill) - */
