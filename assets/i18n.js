@@ -108,6 +108,17 @@ window.LakeI18n = (function () {
         }
         if (el.hasAttribute('data-i18n-html')) {
           el.innerHTML = val;
+        } else if (el.matches('.nav-links > li.has-dropdown > a') && el.querySelector(':scope > .nav-dd-arrow')) {
+          // Dropdown anchors own a decorative chevron that must survive
+          // language switches. Replace only the label text, never the SVG.
+          const indicator = el.querySelector(':scope > .nav-dd-arrow');
+          const textNodes = [...el.childNodes].filter((node) => node.nodeType === Node.TEXT_NODE);
+          if (textNodes.length) {
+            textNodes[0].nodeValue = val;
+            textNodes.slice(1).forEach((node) => node.remove());
+          } else {
+            el.insertBefore(document.createTextNode(val), indicator);
+          }
         } else {
           el.textContent = val;
         }
