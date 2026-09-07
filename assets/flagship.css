@@ -3070,7 +3070,7 @@ body[data-company-logo] .page-hero .page-hero-overlay {
   place-items: center;
   border: 1px solid rgba(255,255,255,.28);
   border-radius: 50%;
-  background: var(--lake-light-blue);
+  background: var(--lake-deep-blue);
   color: #fff;
   box-shadow: 0 10px 28px rgba(1,43,66,.24);
   opacity: 0;
