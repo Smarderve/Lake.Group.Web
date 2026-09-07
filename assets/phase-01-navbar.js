@@ -22,7 +22,7 @@
       'aill.html', 'lake-trans.html', 'cross-country.html',
       'lake-agro.html', 'assembly-tech.html', 'agrinova-tech.html', 'nextdrive-motors.html'
     ]);
-    const corporatePages = new Set(['history.html', 'africa-network.html', 'csr.html', 'sustainability.html', 'investors.html', 'projects.html', 'gallery.html']);
+    const corporatePages = new Set(['history.html', 'africa-network.html', 'csr.html', 'sustainability.html', 'investors.html', 'gallery.html']);
     const desktopLinks = nav.querySelectorAll('.nav-links > li > a');
     const languageTrigger = nav.querySelector('.lang-trigger');
     const businessVerticalsLink = nav.querySelector('[data-nav-section="subsidiaries"]');

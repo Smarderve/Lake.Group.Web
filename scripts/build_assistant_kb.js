@@ -65,7 +65,6 @@ const PAGES = {
   careers: { url: 'careers.html', titleKey: 'nav.careers', title: 'Careers' },
   csr: { url: 'csr.html', titleKey: 'nav.csr', title: 'CSR & Sustainability' },
   sustainability: { url: 'sustainability.html', titleKey: 'nav.csr', title: 'Sustainability' },
-  projects: { url: 'projects.html', titleKey: 'nav.projects', title: 'Major Projects' },
   gallery: { url: 'gallery.html', titleKey: 'nav.gallery', title: 'Gallery' },
   media_center: { url: 'media-center.html', titleKey: 'nav.news', title: 'Media Center' },
   contact: { url: 'contact.html', titleKey: 'footer.contact', title: 'Contact' },

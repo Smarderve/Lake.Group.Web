@@ -65,7 +65,7 @@ describe('Phase 8 · content seeds (registry + CMS entities)', () => {
     expect(regions).toHaveLength(10); // one per operating country
     expect(locations.length).toBeGreaterThanOrEqual(16); // all verified address cities
     expect(facilities.length).toBeGreaterThanOrEqual(29); // 5 stations + 24 map assets
-    expect(projects).toHaveLength(6); // projects.html prj-cards
+    expect(projects).toHaveLength(0); // Major Projects page removed
     expect(leadership).toHaveLength(7); // leadership.html cards
     expect(contacts.length).toBeGreaterThanOrEqual(16); // HQ + verified country addresses
     expect(historyEvents.length).toBeGreaterThanOrEqual(10); // history.html timeline

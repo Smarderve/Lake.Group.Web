@@ -160,10 +160,6 @@ export const PAGE_METADATA = Object.freeze({
     "title": "Lake Group: Our Story",
     "description": "The Lake Group story  from one fuel depot in Dar es Salaam in 2006 to an energy, logistics and industrial group operating across 10 countries. An immersive scroll experience."
   },
-  "projects.html": {
-    "title": "Major Projects | Lake Group",
-    "description": "Major construction, logistics and industrial projects delivered by Lake Group subsidiaries."
-  },
   "station-locator.html": {
     "title": "Station Locator | Lake Oil | Lake Group",
     "description": "Find your nearest Lake Oil fuel station across Tanzania and the region."

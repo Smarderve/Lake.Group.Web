@@ -93,19 +93,6 @@ export async function knowledgeFacts(db) {
     }));
   }
 
-  /* Projects. */
-  const projects = await db.project.findMany({ where: { status: 'PUBLISHED' } });
-  for (const p of projects) {
-    facts.push(fact({
-      id: `project:${p.id}`,
-      type: 'project',
-      text: `${p.title}. ${p.description ?? ''}`.trim(),
-      source: 'Lake Group official website (major projects)',
-      url: '/projects.html',
-      title: 'Major Projects',
-    }));
-  }
-
   /* CSR pillars. */
   const csr = await db.cSREntry.findMany({ where: { status: 'PUBLISHED' } });
   for (const c of csr) {

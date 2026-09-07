@@ -21,7 +21,7 @@ async function main() {
   const DOMAIN = SITE.origin;
   const mainRoutes = new Set([
     'index.html', 'about.html', 'our-story.html',
-    'projects.html', 'leadership.html', 'contact.html', 'history.html',
+    'leadership.html', 'contact.html', 'history.html',
     'gallery.html', 'csr.html', 'careers.html', 'station-locator.html',
   ]);
   const pages = INDEXABLE_ROUTES.filter((file) => file !== 'index.html').slice().sort();

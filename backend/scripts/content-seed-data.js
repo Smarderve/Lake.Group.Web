@@ -220,36 +220,9 @@ export const CONTENT_SEED = {
       markerLabel: 'Vipingo Terminal', operationalStatus: 'OPERATIONAL', coordinates: '-3.7900,39.8600', address: 'Vipingo, Kilifi County, Kenya', desc: '$60M LPG import terminal — 10,000 MT storage, offshore CBM offloading.' },
   ],
 
-  // 6 projects — mirror projects.html prj-cards exactly.
-  projects: [
-    // NOTE: the live page renders this title with a double space where an em
-    // dash should be — the seed mirrors the page byte-for-byte so hydration
-    // (matching by title) works.
-    { title: "Tanga LPG Import Terminal  East Africa's Largest", sector: 'LPG Gas',
-      badges: ['Infrastructure', 'Completed'], tags: ['Tanzania', 'LPG Gas'],
-      description: "Lake Gas built East Africa's largest LPG storage terminal at Tanga — commissioned at 1,000 MT and later expanded to 3,000 MT — with a dedicated single point mooring buoy that lets ships discharge directly to the terminal.",
-      companySlug: 'lake-gas', locationKey: 'tanga' },
-    { title: 'Pan-African Petroleum Supply Chain', sector: 'Fuel & Logistics',
-      badges: ['Logistics', 'Ongoing'], tags: ['10 Countries', 'Fuel & Logistics'],
-      description: 'Lake Oil and Lake Trans jointly operate one of East Africa\u2019s largest petroleum supply chains, distributing fuel to 10 countries with 1,600+ trucks running 24/7.',
-      companySlug: 'lake-oil', locationKey: 'dar-es-salaam' },
-    { title: 'Lake Steel Rolling Mill, Tanzania First', sector: 'Steel Manufacturing',
-      badges: ['Manufacturing', 'Ongoing'], tags: ['Tanzania', 'Steel Manufacturing'],
-      description: "Tanzania's first HS-CR rebar producer. The fully computerised rolling mill at Visiga, Kibaha runs at up to 25 tonnes per hour — 100,000 MT annual capacity — and its bars are approved for use in government projects.",
-      companySlug: 'lake-steel', locationKey: 'kibaha' },
-    { title: 'MERM Ready Mix, Dubai Expansion', sector: 'Concrete',
-      badges: ['Real Estate', 'Completed'], tags: ['Dubai, UAE', 'Concrete'],
-      description: 'Middle East Ready Mix LLC (MERM), Lake Group\u2019s Dubai-based premix concrete operation, has been producing ready-mix concrete since 2005 and serves major construction projects across Dubai.',
-      companySlug: 'lake-premix-cement', locationKey: 'dubai' },
-    { title: 'African Inland Container Depot Network', sector: 'Container Services',
-      badges: ['Port Logistics', 'Ongoing'], tags: ['Tanzania / Zambia / Mozambique', 'Container Services'],
-      description: 'AFICD operates strategic inland container depots in Tanzania, Zambia and Mozambique, extending port capacity into the hinterland and enabling efficient cross-border trade.',
-      companySlug: 'aficd', locationKey: 'dar-es-salaam' },
-    { title: 'LPG Composite Cylinder Launch', sector: 'LPG Gas',
-      badges: ['Energy', 'Ongoing'], tags: ['6 Countries', 'LPG Gas'],
-      description: 'Lake Gas pioneered the introduction of composite LPG cylinders in East Africa — non-explosive, lightweight and translucent — revolutionising domestic cooking gas safety.',
-      companySlug: 'lake-gas', locationKey: 'dar-es-salaam' },
-  ],
+  // The former Major Projects public page and its page-specific seed records
+  // have been removed. Keep the collection shape for generic project tooling.
+  projects: [],
 
   // 7 leaders — names, roles, photos and bios mirror leadership.html.
   leadership: [

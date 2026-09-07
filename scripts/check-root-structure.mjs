@@ -48,7 +48,6 @@ const APPROVED = new Set([
   'our-story.html',
   'contact.html',
   'services.html',
-  'projects.html',
   'media-center.html',
   'gallery.html',
   'sustainability.html',

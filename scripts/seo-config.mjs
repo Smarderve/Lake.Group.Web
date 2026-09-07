@@ -83,7 +83,7 @@ export const INDEXABLE_ROUTES = Object.freeze([
   'lake-gas.html', 'lake-lubes.html', 'lake-oil.html', 'lake-pipes.html',
   'lake-premix-cement.html', 'lake-steel.html', 'lake-trans.html',
   'leadership.html', 'leadership-ally-edha-awadh.html',
-  'our-story.html', 'projects.html', 'station-locator.html',
+  'our-story.html', 'station-locator.html',
   'sustainability.html', 'nextdrive-motors.html',
 ]);
 
@@ -159,7 +159,6 @@ export const ROUTE_LABELS = Object.freeze({
   'leadership-ally-edha-awadh.html': 'Ally Edha Awadh',
   'media-center.html': 'Media Center',
   'our-story.html': 'Our Story',
-  'projects.html': 'Major Projects',
   'station-locator.html': 'Station Locator',
   'sustainability.html': 'Sustainability',
 });
