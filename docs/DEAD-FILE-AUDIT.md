@@ -2,7 +2,7 @@
 
 Audit date: 2026-09-07  
 Branch: `main`  
-Restore point: `restore-before-dead-file-audit-20260907-195201`  
+Restore point: `restore-before-dead-file-audit-20260907-194947`  
 Audit baseline: `762e838` (`fix(globe): use cross-browser country flag assets`)
 
 ## Scope and method
