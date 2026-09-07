@@ -129,6 +129,12 @@
         else window.customElements?.whenDefined?.('lord-icon').then(whenReady).catch(() => {});
       });
     };
+    // Mount every shared sector icon while the navbar is initializing. This
+    // lets the browser discover and fetch the existing approved animation
+    // assets before the dropdown is opened, so interaction never gates icon
+    // visibility or animation startup.
+    initSectorIcons();
+    initMobileSectorIcons();
     const revealSectorIcons = () => {
       initSectorIcons();
       if (!reducedMotion()) {
