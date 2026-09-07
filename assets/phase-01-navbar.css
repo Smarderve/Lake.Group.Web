@@ -1130,7 +1130,10 @@ body.co-theme-agro .nav-mobile[data-phase01-navbar-mobile].open {
   left: 50% !important;
   transform: translate(-50%, -6px) !important;
   padding: 0 !important;
-  background: var(--nav-dropdown-bg) !important;
+  /* Keep the shell transparent so the pane's alpha reveals the page behind
+     it instead of revealing another opaque blue layer underneath. */
+  background: transparent !important;
+  background-color: transparent !important;
   border: 1px solid var(--nav-dropdown-border) !important;
   border-radius: 16px !important;
   overflow: hidden !important;
@@ -1170,13 +1173,14 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-m
   background: var(--nav-dropdown-pane-bg) !important;
   border-left: 1px solid var(--nav-dropdown-divider) !important;
 }
-/* Keep the corporate logo pane visibly Lake Light Blue while allowing a
-   restrained amount of the hero to show through. Company-specific green
-   themes intentionally stay on their existing pane treatment. */
+/* Keep the corporate logo pane visibly Lake Light Blue while allowing the
+   page/hero behind the menu to remain perceptible. The shell above is
+   transparent, so this alpha is composited against the actual page rather
+   than an opaque dropdown background. */
 body:not(.co-theme-agro) .site-nav[data-phase01-navbar] .mm-panes {
-  background: rgba(5, 153, 211, .9) !important;
-  backdrop-filter: blur(4px) !important;
-  -webkit-backdrop-filter: blur(4px) !important;
+  background: rgba(5, 153, 211, .72) !important;
+  backdrop-filter: blur(8px) saturate(110%) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(110%) !important;
 }
 .site-nav[data-phase01-navbar] .mm-cat,
 .site-nav[data-phase01-navbar] .mm-cat:hover,
