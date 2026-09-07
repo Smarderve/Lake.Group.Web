@@ -1,0 +1,420 @@
+{
+  "generatedAt": "2026-09-07T20:27:33.412Z",
+  "manifest": "docs/reports/media-inventory-20260907.json",
+  "safeNoEdit": [
+    {
+      "original": "assets/images/acfs/TA/photo_3.jpg",
+      "webp": "assets/images/acfs/TA/photo_3.webp",
+      "width": 837,
+      "height": 424,
+      "finalBytes": 32752,
+      "decision": "no-edit-required-visible-third-party-mark-not-found"
+    },
+    {
+      "original": "assets/images/acfs/TA/photo_5.jpg",
+      "webp": "assets/images/acfs/TA/photo_5.webp",
+      "width": 847,
+      "height": 365,
+      "finalBytes": 18902,
+      "decision": "no-edit-required-visible-third-party-mark-not-found"
+    },
+    {
+      "original": "assets/images/acfs/TA/photo_6.jpg",
+      "webp": "assets/images/acfs/TA/photo_6.webp",
+      "width": 847,
+      "height": 335,
+      "finalBytes": 18112,
+      "decision": "no-edit-required-visible-third-party-mark-not-found"
+    },
+    {
+      "original": "assets/images/acfs/TA/photo_7.jpg",
+      "webp": "assets/images/acfs/TA/photo_7.webp",
+      "width": 847,
+      "height": 404,
+      "finalBytes": 5676,
+      "decision": "no-edit-required-visible-third-party-mark-not-found"
+    },
+    {
+      "original": "assets/images/news/4/photo_1.jpg",
+      "webp": "assets/images/news/4/photo_1.webp",
+      "width": 1600,
+      "height": 1067,
+      "finalBytes": 183946,
+      "decision": "no-edit-required-visible-third-party-mark-not-found"
+    },
+    {
+      "original": "assets/images/news/4/photo_2.jpg",
+      "webp": "assets/images/news/4/photo_2.webp",
+      "width": 1600,
+      "height": 1067,
+      "finalBytes": 122190,
+      "decision": "no-edit-required-visible-third-party-mark-not-found"
+    },
+    {
+      "original": "assets/images/news/4/photo_3.jpg",
+      "webp": "assets/images/news/4/photo_3.webp",
+      "width": 1600,
+      "height": 1067,
+      "finalBytes": 207872,
+      "decision": "no-edit-required-visible-third-party-mark-not-found"
+    },
+    {
+      "original": "assets/images/news/6/photo_1.jpg",
+      "webp": "assets/images/news/6/photo_1.webp",
+      "width": 628,
+      "height": 472,
+      "finalBytes": 33426,
+      "decision": "no-edit-required-visible-third-party-mark-not-found"
+    },
+    {
+      "original": "assets/images/news/6/photo_2.jpg",
+      "webp": "assets/images/news/6/photo_2.webp",
+      "width": 628,
+      "height": 247,
+      "finalBytes": 21574,
+      "decision": "no-edit-required-visible-third-party-mark-not-found"
+    },
+    {
+      "original": "assets/images/news/6/photo_3.jpg",
+      "webp": "assets/images/news/6/photo_3.webp",
+      "width": 628,
+      "height": 395,
+      "finalBytes": 20530,
+      "decision": "no-edit-required-visible-third-party-mark-not-found"
+    }
+  ],
+  "unresolved": [
+    {
+      "path": "assets/images/acfs/TA/photo_1.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/acfs/TA/photo_10.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/acfs/TA/photo_11.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/acfs/TA/photo_2.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/acfs/TA/photo_8.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/acfs/TA/photo_9.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/aficd/operations/aficd-branded-container.webp",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/aficd/operations/aficd-container-handling.webp",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/aficd/operations/aficd-sany-reach-stacker.webp",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/aficd/operations/aficd-truck-loading.webp",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/aficd/operations/aficd-wide-yard.webp",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/aficd/operations/aficd-yard-lift.webp",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/aficd/operations/aficd-yard.webp",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/aficd/TA/photo_1.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/aficd/TA/photo_1.webp",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/ficd/TA/photo_1.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-agro/la-combine-harvester.webp",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-agro/la-excavators.webp",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-agro/la-machinery-shed.webp",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-agro/la-tractors-duo.webp",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-aviation/gallery/aviation-flysafair-refuel.webp",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-aviation/gallery/aviation-fueling-coastal.webp",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-aviation/gallery/aviation-nyerere-tanker.webp",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-aviation/gallery/aviation-oman-air-cargo.webp",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-aviation/gallery/aviation-skyward-apron.webp",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-aviation/gallery/aviation-team-truck.webp",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-aviation/gallery/aviation-worker-underwing.webp",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/aviation-10.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/aviation-11.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/aviation-12.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/aviation-13.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/aviation-14.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/aviation-15.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/aviation-2.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/aviation-4.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/aviation-6.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/aviation-8.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/aviation-9.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/bulk-storage-lake-energies.webp",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/lake-aviation-hero-apron.webp",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/laketrans/profile/blue-truck-lineup.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/laketrans/profile/fleet-lineup.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/laketrans/profile/fleet-tankers.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/laketrans/profile/lake-trans-truck-fleet.webp",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/laketrans/profile/petroleum-tanker.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/laketrans/profile/road-fuel-tanker.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/16/photo_1.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/16/photo_2.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/16/photo_3.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_1.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_10.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_11.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_12.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_13.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_14.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_15.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_16.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_17.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_18.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_19.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_2.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_20.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_21.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_22.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_23.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_24.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_3.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_4.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_5.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_6.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_7.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_8.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/17/photo_9.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/2/photo_1.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/4/photo_4.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/42/photo_1.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/42/photo_2.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/5/photo_1.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/5/photo_2.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/9/photo_1.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/9/photo_2.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/9/photo_3.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    },
+    {
+      "path": "assets/images/news/6/photo_4.jpg",
+      "reason": "manual review retained: visible third-party identity, licensing/ownership uncertainty, or Lake/subsidiary branding requiring preservation"
+    }
+  ]
+}

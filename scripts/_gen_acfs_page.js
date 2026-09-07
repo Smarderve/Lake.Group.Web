@@ -367,19 +367,19 @@ ${nav}
         <figcaption class="co-gal__cap">empty container depot</figcaption>
       </figure>
       <figure class="co-gal__item">
-        <img src="assets/images/acfs/TA/photo_3.jpg" alt="ACFS container stacking yard" loading="lazy" decoding="async">
+        <img src="assets/images/acfs/TA/photo_3.webp" alt="ACFS container stacking yard" loading="lazy" decoding="async">
         <figcaption class="co-gal__cap">container stacking yard</figcaption>
       </figure>
       <figure class="co-gal__item">
-        <img src="assets/images/acfs/TA/photo_5.jpg" alt="ACFS depot operations" loading="lazy" decoding="async">
+        <img src="assets/images/acfs/TA/photo_5.webp" alt="ACFS depot operations" loading="lazy" decoding="async">
         <figcaption class="co-gal__cap">depot operations</figcaption>
       </figure>
       <figure class="co-gal__item">
-        <img src="assets/images/acfs/TA/photo_6.jpg" alt="ACFS container handling" loading="lazy" decoding="async">
+        <img src="assets/images/acfs/TA/photo_6.webp" alt="ACFS container handling" loading="lazy" decoding="async">
         <figcaption class="co-gal__cap">container handling</figcaption>
       </figure>
       <figure class="co-gal__item">
-        <img src="assets/images/acfs/TA/photo_7.jpg" alt="ACFS rail-linked terminal" loading="lazy" decoding="async">
+        <img src="assets/images/acfs/TA/photo_7.webp" alt="ACFS rail-linked terminal" loading="lazy" decoding="async">
         <figcaption class="co-gal__cap">rail-linked terminal</figcaption>
       </figure>
       <figure class="co-gal__item">

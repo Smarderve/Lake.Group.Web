@@ -1,0 +1,25 @@
+{
+  "affectedPages": 31,
+  "results": 62,
+  "failures": [],
+  "excludedResults": [
+    {
+      "file": "atl.html",
+      "broken": 0,
+      "imageCount": 41,
+      "hasProcessedWebp": true
+    },
+    {
+      "file": "agrinova-tech.html",
+      "broken": 0,
+      "imageCount": 34,
+      "hasProcessedWebp": true
+    },
+    {
+      "file": "nextdrive-motors.html",
+      "broken": 0,
+      "imageCount": 39,
+      "hasProcessedWebp": true
+    }
+  ]
+}
