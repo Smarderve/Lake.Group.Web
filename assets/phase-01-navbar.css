@@ -1170,6 +1170,14 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-m
   background: var(--nav-dropdown-pane-bg) !important;
   border-left: 1px solid var(--nav-dropdown-divider) !important;
 }
+/* Keep the corporate logo pane visibly Lake Light Blue while allowing a
+   restrained amount of the hero to show through. Company-specific green
+   themes intentionally stay on their existing pane treatment. */
+body:not(.co-theme-agro) .site-nav[data-phase01-navbar] .mm-panes {
+  background: rgba(5, 153, 211, .9) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+}
 .site-nav[data-phase01-navbar] .mm-cat,
 .site-nav[data-phase01-navbar] .mm-cat:hover,
 .site-nav[data-phase01-navbar] .mm-cat:focus-visible,
