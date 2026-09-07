@@ -72,9 +72,11 @@ body[data-shared-footer="true"] footer.site-footer span {
 body[data-shared-footer="true"] footer.site-footer .footer-logo {
   background: transparent !important;
   border: 0 !important;
+  cursor: pointer !important;
   display: inline-block !important;
   margin: 0 !important;
   padding: 0 !important;
+  text-decoration: none !important;
 }
 
 body[data-shared-footer="true"] footer.site-footer .footer-logo img {
