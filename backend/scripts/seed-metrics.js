@@ -77,10 +77,10 @@ export const SEEDS = [
   {
     key: 'stations',
     label: 'Fuel Stations',
-    value: '290+',
+    value: '500+',
     unit: 'fuel stations',
     source:
-      'Approved group-wide website figure — "290+ fuel stations" (current Home source; the separate Lake Oil Tanzania retail count remains a distinct subsidiary-level figure).',
+      'Approved group-wide website figure — "500+ fuel stations" (current Home source; the separate Lake Oil Tanzania retail count remains a distinct subsidiary-level figure).',
     verificationStatus: 'VERIFIED',
     verificationDate: new Date(),
     verificationNote:

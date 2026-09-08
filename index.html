@@ -1432,7 +1432,7 @@
        semantic side keeps the cluster readable as the globe resizes. */
     .hero-globe-marker__label {
       top: -0.5em;
-      left: 12px;
+      left: calc(var(--label-distance) + 4px);
       padding: 4px 6px;
       border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 3px;
@@ -1440,13 +1440,35 @@
       transition: opacity 180ms ease;
     }
 
-    .hero-globe-marker__label--west {
-      left: auto;
-      right: 12px;
+    .hero-globe-marker__leader {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: var(--label-distance);
+      height: 1px;
+      background: rgba(255, 242, 0, 0.62);
+      transform-origin: left center;
+      transition: opacity 180ms ease, width 360ms ease;
     }
 
+    .hero-globe-marker__label--west {
+      left: auto;
+      right: calc(var(--label-distance) + 4px);
+    }
+
+    .hero-globe-marker__leader--west {
+      left: auto;
+      right: 0;
+      transform-origin: right center;
+    }
+
+    .hero-globe-marker.is-behind-globe,
     .hero-globe-marker__label.is-behind-globe,
     .hero-globe-marker__label.is-collision-hidden {
+      opacity: 0;
+    }
+
+    .hero-globe-marker__leader.is-collision-hidden {
       opacity: 0;
     }
 
@@ -2412,7 +2434,7 @@
           <span class="hero-kf-label" data-i18n="stat.trucks">Trucks</span>
         </div>
         <div class="hero-kf">
-          <span class="hero-kf-num" data-metric-key="stations">290+</span>
+          <span class="hero-kf-num" data-metric-key="stations">500+</span>
           <span class="hero-kf-label" data-i18n="stat.stations">Fuel Stations</span>
         </div>
       </div>
@@ -2495,7 +2517,7 @@
                 <span class="step-num">3</span>
                 <div class="step-copy">
                   <strong class="step-title" data-i18n="index.26">On the Ground</strong>
-                  <p class="step-desc" data-i18n="index.25">290+ fuel stations and a vessel bunkering at the port.</p>
+                  <p class="step-desc" data-i18n="index.25">500+ fuel stations and a vessel bunkering at the port.</p>
                 </div>
               </li>
             </ul>
