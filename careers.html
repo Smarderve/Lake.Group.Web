@@ -15,14 +15,14 @@
 
 .cr-benefits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-4); margin-top: var(--sp-8); }
 @media (max-width: 760px) { .cr-benefits { grid-template-columns: 1fr; } }
-.cr-benefit { position: relative; overflow: hidden; border: 1px solid var(--line-2); background: var(--surface); }
+.cr-benefit { position: relative; overflow: hidden; border: 1px solid var(--line-2); background: var(--surface); transition: transform 520ms cubic-bezier(.22,1,.36,1), box-shadow 520ms cubic-bezier(.22,1,.36,1), border-color 520ms cubic-bezier(.22,1,.36,1); }
 .cr-benefit::before { content: ''; position: absolute; z-index: 1; top: 0; left: 0; width: 40px; height: 3px; background: var(--gold); }
 .cr-benefit-media { aspect-ratio: 16 / 9; margin: 0; overflow: hidden; background: var(--ink); }
-.cr-benefit-media img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 320ms ease; }
+.cr-benefit-media img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 520ms cubic-bezier(.22,1,.36,1), filter 520ms cubic-bezier(.22,1,.36,1); }
 .cr-benefit-copy { padding: var(--sp-5); }
-.cr-benefit h4 { font-size: 0.95rem; }
+.cr-benefit h4 { font-size: 0.95rem; transition: color 520ms cubic-bezier(.22,1,.36,1); }
 .cr-benefit p { font-size: 0.84rem; margin-top: 4px; }
-@media (hover: hover) and (pointer: fine) { .cr-benefit:hover .cr-benefit-media img { transform: scale(1.035); } }
+@media (hover: hover) and (pointer: fine) { .cr-benefit:hover { transform: translateY(-7px); border-color: rgba(1,129,187,.28); box-shadow: 0 18px 34px rgba(10,33,48,.14); } .cr-benefit:hover::before { width: 68px; transition: width 520ms cubic-bezier(.22,1,.36,1); } .cr-benefit:hover .cr-benefit-media img { transform: scale(1.03); filter: saturate(1.04) contrast(1.03); } .cr-benefit:hover h4 { color: var(--blue); } }
 .cr-hire { background: var(--ink); padding: var(--sp-8); }
 .cr-hire h3 { color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 1.6rem; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: var(--sp-5); }
 .cr-roles { display: flex; flex-direction: column; }
@@ -42,6 +42,8 @@
 .cr-field input[aria-invalid="true"], .cr-field select[aria-invalid="true"], .cr-field textarea[aria-invalid="true"] { border-color: #a32929; }
 .cr-field fieldset { border: 0; padding: 0; margin: 0; }
 .cr-help { color: var(--muted); font-size: 0.75rem; }
+.cr-selected-opportunity { color: var(--blue); font-size: 0.78rem; font-weight: 700; margin: 0; }
+.cr-selected-opportunity[hidden] { display: none; }
 .cr-error { color: #a32929; font-size: 0.75rem; min-height: 1em; }
 .cr-consent { display: flex; align-items: flex-start; gap: 10px; }
 .cr-consent input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--blue); }
@@ -50,6 +52,37 @@
 .cr-form-status[hidden], .cr-driver-fields[hidden] { display: none; }
 .cr-form-actions { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); flex-wrap: wrap; margin-top: var(--sp-5); }
 @media (max-width: 600px) { .cr-form { padding: var(--sp-6); } .cr-form-grid { grid-template-columns: 1fr; } .cr-field-full { grid-column: auto; } .cr-form-actions { align-items: stretch; flex-direction: column; } .cr-form-actions .btn { width: 100%; } }
+.page-wrapper .page-hero.cr-hero { min-height: clamp(540px, 76vh, 760px); justify-content: center; padding: 84px 0 76px; }
+.page-wrapper .page-hero.cr-hero .hero-media { background-position: 50% 39%; filter: saturate(.96) contrast(1.04); }
+.page-wrapper .page-hero.cr-hero .hero-overlay { background: linear-gradient(90deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.54) 36%, rgba(1,129,187,.12) 62%, rgba(1,129,187,0) 82%); }
+.cr-hero-content { max-width: 720px; padding-top: var(--sp-8); }
+.cr-hero h1 { max-width: 680px; margin: var(--sp-5) 0 var(--sp-6); font-size: clamp(3rem, 6.2vw, 6.4rem); line-height: .94; letter-spacing: -.035em; }
+.cr-hero h1 span { color: var(--yellow); }
+.cr-hero p { max-width: 580px; font-size: clamp(1rem, 1.45vw, 1.25rem); line-height: 1.55; }
+.cr-hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: var(--sp-7); }
+.cr-hero-actions .btn { display: inline-flex; align-items: center; gap: 10px; transition: transform 420ms cubic-bezier(.22,1,.36,1), box-shadow 420ms cubic-bezier(.22,1,.36,1), background-color 420ms cubic-bezier(.22,1,.36,1); }
+.cr-hero-primary { background: var(--yellow); color: var(--blue); }
+.cr-hero-primary .cr-arrow { transition: transform 420ms cubic-bezier(.22,1,.36,1); }
+.cr-hero-primary:hover { color: var(--blue); transform: translateY(-3px); box-shadow: 0 12px 24px rgba(0,0,0,.2); }
+.cr-hero-primary:hover .cr-arrow { transform: translateX(4px); }
+.cr-hero-secondary { border-color: rgba(255,255,255,.8); color: #fff; background: rgba(255,255,255,.08); }
+.cr-hero-secondary:hover { color: #fff; background: rgba(255,255,255,.2); border-color: #fff; transform: translateY(-3px); }
+.cr-hero::after { content: ''; position: absolute; z-index: 2; left: 0; right: 0; bottom: -1px; height: 38px; background: var(--paper-2); clip-path: polygon(0 100%, 0 72%, 18% 72%, 20% 46%, 58% 46%, 60% 25%, 100% 25%, 100% 100%); }
+.cr-work-section { position: relative; z-index: 3; padding-top: clamp(48px, 7vw, 92px); }
+.cr-work-grid { display: grid; grid-template-columns: minmax(220px, .78fr) minmax(360px, 1.35fr) minmax(270px, .87fr); gap: clamp(20px, 2.6vw, 44px); align-items: start; }
+.cr-intro .section-title { max-width: 300px; }
+.cr-intro .divider-yellow { width: 84px; margin-bottom: var(--sp-6); }
+.cr-work-grid .cr-benefits { grid-template-columns: 1fr 1fr; margin-top: 0; }
+.cr-work-grid .cr-hire { margin-top: 0; position: sticky; top: 104px; }
+.cr-benefit-media { aspect-ratio: 4 / 3; }
+.cr-benefit:nth-child(1) .cr-benefit-media img { object-position: 50% 48%; }
+.cr-benefit:nth-child(2) .cr-benefit-media img { object-position: 48% 50%; }
+.cr-benefit:nth-child(3) .cr-benefit-media img { object-position: 50% 42%; }
+.cr-benefit:nth-child(4) .cr-benefit-media img { object-position: 50% 50%; }
+@media (max-width: 1120px) { .cr-work-grid { grid-template-columns: minmax(220px, .8fr) minmax(360px, 1.2fr); } .cr-work-grid .cr-hire { grid-column: 1 / -1; position: static; } }
+@media (max-width: 760px) { .page-wrapper .page-hero.cr-hero { min-height: 540px; padding: 64px 0 70px; justify-content: flex-end; } .page-wrapper .page-hero.cr-hero .hero-media { background-position: 50% 50%; } .page-wrapper .page-hero.cr-hero .hero-overlay { background: linear-gradient(90deg, rgba(0,0,0,.74), rgba(0,0,0,.28) 84%), linear-gradient(0deg, rgba(0,0,0,.45), transparent 62%); } .cr-hero-content { padding-top: var(--sp-12); } .cr-hero h1 { font-size: clamp(2.65rem, 13vw, 4.6rem); } .cr-hero-actions .btn { flex: 1 1 210px; justify-content: center; } .cr-work-grid { grid-template-columns: 1fr; } .cr-work-grid .cr-hire { grid-column: auto; } .cr-work-grid .cr-benefits { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .cr-work-grid .cr-benefits { grid-template-columns: 1fr; } .page-wrapper .page-hero.cr-hero { min-height: 530px; } }
+@media (prefers-reduced-motion: reduce) { .cr-hero-actions .btn, .cr-hero-primary .cr-arrow, .cr-benefit, .cr-benefit::before, .cr-benefit-media img, .cr-benefit h4 { transition: none; } }
 </style>
 <link rel="stylesheet" href="assets/tokens.css?v=20260828-01">
   <link rel="preload" href="assets/fonts/files/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
@@ -153,23 +186,32 @@
 
 
 <div class="page-wrapper">
-<section class="page-hero">
+<section class="page-hero cr-hero">
   <div class="hero-media" style="background-image:url('assets/images/delivery/n-slider/8.webp')" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container" style="position:relative;z-index:3">
-<div data-i18n="careers.2" class="eyebrow">Join the Team</div><h1 data-i18n="careers.3">Careers at Lake Group</h1><p data-i18n="careers.4">We are always looking for talented, driven professionals to join our growing team across East and Central Africa.</p>
+    <div class="cr-hero-content">
+      <div class="eyebrow">Careers</div>
+      <h1>Build a brighter<br><span>tomorrow</span></h1>
+      <p data-i18n="careers.4">We are always looking for talented, driven professionals to join our growing team across East and Central Africa.</p>
+      <div class="cr-hero-actions">
+        <a class="btn btn-primary btn-lg cr-hero-primary" href="#opportunities">Explore opportunities <span class="cr-arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn-outline btn-lg cr-hero-secondary" href="#benefits">Our people</a>
+      </div>
+    </div>
 </div></section>
 
-<section class="section">
+<section class="section cr-work-section">
   <div class="container">
-    <div class="fs-split-rev">
-      <div>
+    <div class="cr-work-grid">
+      <div class="cr-intro">
         <div data-i18n="careers.5" class="section-label">Why Work With Us</div>
-        <h2 data-i18n="careers.6" class="section-title">Build Your Career Across Africa</h2>
+        <h2 class="section-title">Make a Difference<br>Across Africa</h2>
         <div class="divider-yellow"></div>
         <p data-i18n="careers.7">Lake Group offers careers with real impact, you'll work across one of East Africa's most dynamic businesses, with genuine opportunities to grow, lead and make a difference.</p>
         <p data-i18n="careers.8" style="margin-top:14px">With 30,000+ employees across 10 countries and 10+ nationalities, we are a truly pan-African team united by shared values: Quality, Service, Safety and Professionalism.</p>
-        <div class="cr-benefits">
+      </div>
+      <div id="benefits" class="cr-benefits">
           <article class="cr-benefit">
             <figure class="cr-benefit-media"><img src="assets/images/leadership/leadership-group-meeting.webp" alt="Lake Group colleagues collaborating around a conference table" width="1821" height="864" loading="lazy" decoding="async"></figure>
             <div class="cr-benefit-copy"><h4 data-i18n="careers.9">Career Growth</h4><p data-i18n="careers.10">Cross-country and cross-division advancement opportunities</p></div>
@@ -186,10 +228,8 @@
             <figure class="cr-benefit-media"><img src="assets/images/lakegas/ops/worker-silas.webp" alt="Lake Gas operator wearing branded protective equipment" width="1920" height="1080" loading="lazy" decoding="async"></figure>
             <div class="cr-benefit-copy"><h4 data-i18n="careers.15">Safety First</h4><p data-i18n="careers.16">Industry-leading safety standards in all operations</p></div>
           </article>
-        </div>
       </div>
-      <div>
-        <div class="cr-hire">
+      <div id="opportunities" class="cr-hire">
           <h3 data-i18n="careers.17">Where We Hire</h3>
           <div class="cr-roles">
             <div class="cr-role">
@@ -214,7 +254,6 @@
             </div>
           </div>
         </div>
-      </div>
     </div>
   </div>
 </section>
@@ -233,9 +272,14 @@
       <div id="career-form-status" class="cr-form-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
       <div class="cr-form-grid">
         <div class="cr-field">
-          <label for="career-name">Full name <span aria-hidden="true">*</span></label>
-          <input id="career-name" name="fullName" type="text" autocomplete="name" required aria-describedby="career-name-error">
-          <span id="career-name-error" class="cr-error" aria-live="polite"></span>
+          <label for="career-first-name">First name <span aria-hidden="true">*</span></label>
+          <input id="career-first-name" name="firstName" type="text" autocomplete="given-name" required aria-describedby="career-first-name-error">
+          <span id="career-first-name-error" class="cr-error" aria-live="polite"></span>
+        </div>
+        <div class="cr-field">
+          <label for="career-last-name">Last name <span aria-hidden="true">*</span></label>
+          <input id="career-last-name" name="lastName" type="text" autocomplete="family-name" required aria-describedby="career-last-name-error">
+          <span id="career-last-name-error" class="cr-error" aria-live="polite"></span>
         </div>
         <div class="cr-field">
           <label for="career-email">Email address <span aria-hidden="true">*</span></label>
@@ -248,6 +292,16 @@
           <span id="career-phone-error" class="cr-error" aria-live="polite"></span>
         </div>
         <div class="cr-field">
+          <label for="career-country">Country <span aria-hidden="true">*</span></label>
+          <input id="career-country" name="country" type="text" autocomplete="country-name" required aria-describedby="career-country-error">
+          <span id="career-country-error" class="cr-error" aria-live="polite"></span>
+        </div>
+        <div class="cr-field">
+          <label for="career-city">City <span aria-hidden="true">*</span></label>
+          <input id="career-city" name="city" type="text" autocomplete="address-level2" required aria-describedby="career-city-error">
+          <span id="career-city-error" class="cr-error" aria-live="polite"></span>
+        </div>
+        <div class="cr-field">
           <label for="career-opportunity">Opportunity <span aria-hidden="true">*</span></label>
           <select id="career-opportunity" name="opportunity" required aria-describedby="career-opportunity-error">
             <option value="">Select an area</option>
@@ -257,6 +311,7 @@
             <option value="Manufacturing & Industrial">Manufacturing &amp; Industrial</option>
             <option value="Professional Drivers">Professional Drivers</option>
           </select>
+          <p id="career-selected-opportunity" class="cr-selected-opportunity" aria-live="polite" hidden></p>
           <span id="career-opportunity-error" class="cr-error" aria-live="polite"></span>
         </div>
         <div class="cr-field">
@@ -270,6 +325,26 @@
             <option>Multiple locations</option>
           </select>
           <span id="career-location-error" class="cr-error" aria-live="polite"></span>
+        </div>
+        <div class="cr-field">
+          <label for="career-job-title">Current or recent job title</label>
+          <input id="career-job-title" name="jobTitle" type="text" autocomplete="organization-title" aria-describedby="career-job-title-error">
+          <span id="career-job-title-error" class="cr-error" aria-live="polite"></span>
+        </div>
+        <div class="cr-field">
+          <label for="career-education">Highest education</label>
+          <input id="career-education" name="education" type="text" autocomplete="off" aria-describedby="career-education-error">
+          <span id="career-education-error" class="cr-error" aria-live="polite"></span>
+        </div>
+        <div class="cr-field">
+          <label for="career-field-study">Field of study</label>
+          <input id="career-field-study" name="fieldOfStudy" type="text" autocomplete="off" aria-describedby="career-field-study-error">
+          <span id="career-field-study-error" class="cr-error" aria-live="polite"></span>
+        </div>
+        <div class="cr-field">
+          <label for="career-availability">Availability</label>
+          <input id="career-availability" name="availability" type="text" autocomplete="off" placeholder="e.g. Immediately or 30 days" aria-describedby="career-availability-error">
+          <span id="career-availability-error" class="cr-error" aria-live="polite"></span>
         </div>
         <div class="cr-field">
           <label for="career-cv">CV / resume <span aria-hidden="true">*</span></label>
@@ -295,9 +370,14 @@
           </fieldset>
         </div>
         <div class="cr-field cr-field-full">
-          <label for="career-message">Short cover note <span aria-hidden="true">*</span></label>
-          <textarea id="career-message" name="coverNote" required aria-describedby="career-message-error" placeholder="Tell us what you could contribute to Lake Group."></textarea>
-          <span id="career-message-error" class="cr-error" aria-live="polite"></span>
+          <label for="career-skills">Key skills</label>
+          <textarea id="career-skills" name="skills" aria-describedby="career-skills-error" placeholder="List the skills most relevant to this opportunity."></textarea>
+          <span id="career-skills-error" class="cr-error" aria-live="polite"></span>
+        </div>
+        <div class="cr-field cr-field-full">
+          <label for="career-motivation">Motivation for joining Lake Group <span aria-hidden="true">*</span></label>
+          <textarea id="career-motivation" name="motivation" required aria-describedby="career-motivation-error" placeholder="Tell us what you could contribute to Lake Group."></textarea>
+          <span id="career-motivation-error" class="cr-error" aria-live="polite"></span>
         </div>
         <div class="cr-field cr-field-full cr-consent">
           <input id="career-consent" name="consent" type="checkbox" required aria-describedby="career-consent-error">

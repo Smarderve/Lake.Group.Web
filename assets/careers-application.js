@@ -3,6 +3,7 @@
   if (!form) return;
 
   const opportunity = document.querySelector('#career-opportunity');
+  const selectedOpportunity = document.querySelector('#career-selected-opportunity');
   const driverFields = document.querySelector('#career-driver-fields');
   const status = document.querySelector('#career-form-status');
   const cvInput = document.querySelector('#career-cv');
@@ -37,6 +38,8 @@
   function updateDriverFields() {
     const isDriver = opportunity.value === 'Professional Drivers';
     driverFields.hidden = !isDriver;
+    selectedOpportunity.hidden = !opportunity.value;
+    selectedOpportunity.textContent = opportunity.value ? `Applying for ${opportunity.value}` : '';
     if (!isDriver) {
       driverFields.querySelectorAll('input').forEach((field) => {
         field.value = '';
