@@ -5,7 +5,7 @@ window.LAKE_NEWS = [
     title: "Lake Energies Honoured by President Samia Suluhu Hassan for Contribution to Gas Distribution",
     date: "12 Aug, 2026",
     category: "Awards",
-    bannerImage: "assets/images/news/42/photo_1.jpg",
+    bannerImage: "assets/images/news/42/photo_1.webp",
     description: [
       "A huge honour to Lake Energies! On 12th August 2026, Lake Energies received an award from Her Excellency President Samia Suluhu Hassan in recognition of the company's contribution to the distribution of gas across Tanzania.",
       "The recognition celebrates Lake Group's role in expanding access to clean cooking energy in Tanzania and across East Africa, supporting the national drive toward sustainable and safe cooking solutions.",
@@ -13,7 +13,7 @@ window.LAKE_NEWS = [
       "\"Heshima kubwa kwa Lake Energies! Jana tumepokea tuzo kutoka kwa Mhe. Samia Suluhu Hassan kwa kutambuliwa kwa mchango wetu katika usambazaji wa gesi nchini Tanzania. Tunajivunia kuwa sehemu ya juhudi za kuhamasisha na kuendeleza matumizi ya nishati safi ya kupikia Tanzania.\""
     ],
     images: [
-      "assets/images/news/42/photo_2.jpg"
+      "assets/images/news/42/photo_2.webp"
     ],
     video: null
   },
@@ -301,7 +301,7 @@ window.LAKE_NEWS = [
     title: "AFICD Container Depot Launches Operations at Dar es Salaam Port",
     date: "14 Oct, 2015",
     category: "Logistics",
-    bannerImage: "assets/images/aficd/TA/photo_1.jpg",
+    bannerImage: "assets/images/aficd/TA/photo_1.webp",
     description: [
       "African Inland Container Depot Ltd. (AFICD) commenced operations at the Dar es Salaam port corridor, providing container freight station, warehousing, and cargo consolidation services for importers and exporters across Tanzania and the wider East African region.",
       "The depot serves as a key logistics hub for containerized cargo moving through the Dar es Salaam port . East Africa's second-largest port . connecting to landlocked countries including Zambia, DR Congo, Rwanda, Burundi, and Uganda via the Central Corridor.",
@@ -453,32 +453,32 @@ window.LAKE_NEWS = [
     title: "Car Rally",
     date: "01 Jan, 2019",
     category: "Events",
-    bannerImage: "assets/images/news/17/photo_1.jpg",
+    bannerImage: "assets/images/news/17/photo_1.webp",
     description: [],
     images: [
-      "assets/images/news/17/photo_2.jpg",
-      "assets/images/news/17/photo_3.jpg",
-      "assets/images/news/17/photo_4.jpg",
-      "assets/images/news/17/photo_5.jpg",
-      "assets/images/news/17/photo_6.jpg",
-      "assets/images/news/17/photo_7.jpg",
-      "assets/images/news/17/photo_8.jpg",
-      "assets/images/news/17/photo_9.jpg",
-      "assets/images/news/17/photo_10.jpg",
-      "assets/images/news/17/photo_11.jpg",
-      "assets/images/news/17/photo_12.jpg",
-      "assets/images/news/17/photo_13.jpg",
-      "assets/images/news/17/photo_14.jpg",
-      "assets/images/news/17/photo_15.jpg",
-      "assets/images/news/17/photo_16.jpg",
-      "assets/images/news/17/photo_17.jpg",
-      "assets/images/news/17/photo_18.jpg",
-      "assets/images/news/17/photo_19.jpg",
-      "assets/images/news/17/photo_20.jpg",
-      "assets/images/news/17/photo_21.jpg",
-      "assets/images/news/17/photo_22.jpg",
-      "assets/images/news/17/photo_23.jpg",
-      "assets/images/news/17/photo_24.jpg"
+      "assets/images/news/17/photo_2.webp",
+      "assets/images/news/17/photo_3.webp",
+      "assets/images/news/17/photo_4.webp",
+      "assets/images/news/17/photo_5.webp",
+      "assets/images/news/17/photo_6.webp",
+      "assets/images/news/17/photo_7.webp",
+      "assets/images/news/17/photo_8.webp",
+      "assets/images/news/17/photo_9.webp",
+      "assets/images/news/17/photo_10.webp",
+      "assets/images/news/17/photo_11.webp",
+      "assets/images/news/17/photo_12.webp",
+      "assets/images/news/17/photo_13.webp",
+      "assets/images/news/17/photo_14.webp",
+      "assets/images/news/17/photo_15.webp",
+      "assets/images/news/17/photo_16.webp",
+      "assets/images/news/17/photo_17.webp",
+      "assets/images/news/17/photo_18.webp",
+      "assets/images/news/17/photo_19.webp",
+      "assets/images/news/17/photo_20.webp",
+      "assets/images/news/17/photo_21.webp",
+      "assets/images/news/17/photo_22.webp",
+      "assets/images/news/17/photo_23.webp",
+      "assets/images/news/17/photo_24.webp"
     ],
     video: null
   },
@@ -487,11 +487,11 @@ window.LAKE_NEWS = [
     title: "Auto Fest 10th Anniversary",
     date: "01 Jan, 2019",
     category: "Events",
-    bannerImage: "assets/images/news/16/photo_1.jpg",
+    bannerImage: "assets/images/news/16/photo_1.webp",
     description: [],
     images: [
-      "assets/images/news/16/photo_2.jpg",
-      "assets/images/news/16/photo_3.jpg"
+      "assets/images/news/16/photo_2.webp",
+      "assets/images/news/16/photo_3.webp"
     ],
     video: null
   },
@@ -587,13 +587,13 @@ window.LAKE_NEWS = [
     title: "International Women's Day 2014 . Staff Luncheon",
     date: "08 Mar, 2014",
     category: "CSR",
-    bannerImage: "assets/images/news/9/photo_1.jpg",
+    bannerImage: "assets/images/news/9/photo_1.webp",
     description: [
       "To mark The International Women's day the company sponsored all Women's employed by the company for luncheon at KFC – Mikocheni branch."
     ],
     images: [
-      "assets/images/news/9/photo_2.jpg",
-      "assets/images/news/9/photo_3.jpg"
+      "assets/images/news/9/photo_2.webp",
+      "assets/images/news/9/photo_3.webp"
     ],
     video: null
   },
@@ -627,7 +627,7 @@ window.LAKE_NEWS = [
     title: "Donation of Mattresses to Temeke Hospital . Eid Al Adha 2016",
     date: "09 Sep, 2016",
     category: "CSR",
-    bannerImage: "assets/images/news/5/photo_1.jpg",
+    bannerImage: "assets/images/news/5/photo_1.webp",
     description: [
       "On 9th September 2016 Lake Group family has presented special mattresses for Maternal Wards and fruits to Temeke Referral District Hospital as part of Eid Al Adha celebrations",
       "A Lake Group delegation presented the commodities to Dr. A. Malima, the Chief Medical Officer of the Hospital in Dar es Salaam.",
@@ -635,7 +635,7 @@ window.LAKE_NEWS = [
       "Let us always share the small portion we have with the society."
     ],
     images: [
-      "assets/images/news/5/photo_2.jpg"
+      "assets/images/news/5/photo_2.webp"
     ],
     video: null
   },
@@ -653,7 +653,7 @@ window.LAKE_NEWS = [
     images: [
       "assets/images/news/4/photo_2.webp",
       "assets/images/news/4/photo_3.webp",
-      "assets/images/news/4/photo_4.jpg"
+      "assets/images/news/4/photo_4.webp"
     ],
     video: null
   },
@@ -674,7 +674,7 @@ window.LAKE_NEWS = [
     title: "Africa CEO Forum 2018 Awards . Recognition for Growth",
     date: "2018",
     category: "Awards",
-    bannerImage: "assets/images/news/2/photo_1.jpg",
+    bannerImage: "assets/images/news/2/photo_1.webp",
     description: [
       "Lake Group was recognized at the Africa CEO Forum 2018 Awards for its remarkable growth trajectory and contribution to the African energy sector."
     ],

@@ -1753,7 +1753,7 @@
         "metaDescription": "Lake Group was recognized at the Africa CEO Forum 2018 Awards for its remarkable growth trajectory and contribution to the African energy sector.",
         "updatedAt": "2026-08-11T11:58:09.192Z",
         "category": "Awards",
-        "bannerImage": "assets/images/news/2/photo_1.jpg"
+        "bannerImage": "assets/images/news/2/photo_1.webp"
       },
       {
         "id": "5bfb6ff8-f5d0-4667-be49-414202d0c65c",
@@ -1798,7 +1798,7 @@
         "metaDescription": "On 9th September 2016 Lake Group family has presented special mattresses for Maternal Wards and fruits to Temeke Referral District Hospital as part of Eid Al Ad",
         "updatedAt": "2026-08-11T11:58:09.181Z",
         "category": "CSR",
-        "bannerImage": "assets/images/news/5/photo_1.jpg"
+        "bannerImage": "assets/images/news/5/photo_1.webp"
       },
       {
         "id": "ab1f0048-a76f-4db3-8caa-6cf401444909",
@@ -1843,7 +1843,7 @@
         "metaDescription": "To mark The International Women's day the company sponsored all Women's employed by the company for luncheon at KFC â€“ Mikocheni branch.",
         "updatedAt": "2026-08-11T11:58:09.167Z",
         "category": "CSR",
-        "bannerImage": "assets/images/news/9/photo_1.jpg"
+        "bannerImage": "assets/images/news/9/photo_1.webp"
       },
       {
         "id": "65112c1b-1c99-4b50-867e-d22bf2feecc8",
@@ -1948,7 +1948,7 @@
         "metaDescription": "Auto Fest 10th Anniversary",
         "updatedAt": "2026-08-11T11:58:09.125Z",
         "category": "Events",
-        "bannerImage": "assets/images/news/16/photo_1.jpg"
+        "bannerImage": "assets/images/news/16/photo_1.webp"
       },
       {
         "id": "e512b3c3-d62c-4dfd-af62-7371682f2d89",
@@ -1963,7 +1963,7 @@
         "metaDescription": "Car Rally",
         "updatedAt": "2026-08-13T10:17:52.286Z",
         "category": "Events",
-        "bannerImage": "assets/images/news/17/photo_1.jpg"
+        "bannerImage": "assets/images/news/17/photo_1.webp"
       },
       {
         "id": "979117bb-95a5-410b-895c-7b0597a17849",
@@ -3655,7 +3655,7 @@
       },
       {
         "id": "539b1da2-9f3b-4855-bb12-a657a7d7c7fe",
-        "url": "assets/images/news/2/photo_1.jpg",
+        "url": "assets/images/news/2/photo_1.webp",
         "altText": "Africa CEO Forum 2018 Awards . Recognition for Growth",
         "caption": "Africa CEO Forum 2018 Awards . Recognition for Growth",
         "mimeType": null,
@@ -3689,7 +3689,7 @@
       },
       {
         "id": "c74405a7-926f-4f32-a595-2436fa7f1d47",
-        "url": "assets/images/news/5/photo_1.jpg",
+        "url": "assets/images/news/5/photo_1.webp",
         "altText": "Donation of Mattresses to Temeke Hospital . Eid Al Adha 2016",
         "caption": "Donation of Mattresses to Temeke Hospital . Eid Al Adha 2016",
         "mimeType": null,
@@ -3740,7 +3740,7 @@
       },
       {
         "id": "793fcc7b-9026-4e50-8441-af0fe3d0938a",
-        "url": "assets/images/news/9/photo_1.jpg",
+        "url": "assets/images/news/9/photo_1.webp",
         "altText": "International Women's Day 2014 . Staff Luncheon",
         "caption": "International Women's Day 2014 . Staff Luncheon",
         "mimeType": null,
@@ -3842,7 +3842,7 @@
       },
       {
         "id": "f9a4771b-82f4-41b4-9718-ff376ebe5970",
-        "url": "assets/images/news/16/photo_1.jpg",
+        "url": "assets/images/news/16/photo_1.webp",
         "altText": "Auto Fest 10th Anniversary",
         "caption": "Auto Fest 10th Anniversary",
         "mimeType": null,
@@ -3859,7 +3859,7 @@
       },
       {
         "id": "24ee755c-c0ce-43dd-a43c-0267525d620b",
-        "url": "assets/images/news/17/photo_1.jpg",
+        "url": "assets/images/news/17/photo_1.webp",
         "altText": "Car Rally",
         "caption": "Car Rally",
         "mimeType": null,
