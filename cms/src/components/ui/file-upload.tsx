@@ -2,7 +2,7 @@
 import { cn } from "../../lib/utils";
 import React, { useRef, useState } from "react";
 import { motion } from "motion/react";
-import { IconUpload } from "@tabler/icons-react";
+import { IconFileCv, IconUpload } from "@tabler/icons-react";
 import { useDropzone } from "react-dropzone";
 
 const mainVariant = {
@@ -11,9 +11,9 @@ const mainVariant = {
     y: 0,
   },
   animate: {
-    x: 20,
-    y: -20,
-    opacity: 0.9,
+    x: 22,
+    y: -16,
+    opacity: 1,
   },
 };
 
@@ -84,16 +84,15 @@ export const FileUpload = ({
     const y = `${event.clientY - rect.top}px`;
     const tileX = `${normalizedX * 24}px`;
     const tileY = `${normalizedY * 16}px`;
-    const rotateX = `${normalizedY * -1}deg`;
-    const rotateY = `${normalizedX}deg`;
+    const distance = Math.min(1, Math.sqrt(normalizedX * normalizedX + normalizedY * normalizedY));
+    const proximity = `${Math.max(0, 1 - distance).toFixed(3)}`;
     if (pointerFrame.current) cancelAnimationFrame(pointerFrame.current);
     pointerFrame.current = requestAnimationFrame(() => {
       target.style.setProperty("--mouse-x", x);
       target.style.setProperty("--mouse-y", y);
       target.style.setProperty("--tile-x", tileX);
       target.style.setProperty("--tile-y", tileY);
-      target.style.setProperty("--tile-rx", rotateX);
-      target.style.setProperty("--tile-ry", rotateY);
+      target.style.setProperty("--tile-proximity", proximity);
     });
   };
 
@@ -106,8 +105,7 @@ export const FileUpload = ({
       target.style.setProperty("--mouse-y", "50%");
       target.style.setProperty("--tile-x", "0px");
       target.style.setProperty("--tile-y", "0px");
-      target.style.setProperty("--tile-rx", "0deg");
-      target.style.setProperty("--tile-ry", "0deg");
+      target.style.setProperty("--tile-proximity", "0");
     });
   };
 
@@ -147,49 +145,53 @@ export const FileUpload = ({
         <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]">
           <GridPattern />
         </div>
-        <div className="flex flex-col items-center justify-center">
-          <p className="relative z-20 font-sans text-base font-bold text-neutral-700 dark:text-neutral-300">
+        <div className="relative flex flex-col items-center justify-center">
+          <p className="relative z-20 font-sans text-sm font-semibold uppercase tracking-[0.18em] text-[#0181BB]">
             Upload your CV
           </p>
-          <p className="relative z-20 mt-2 font-sans text-base font-normal text-neutral-400 dark:text-neutral-400">
+          <p className="relative z-20 mt-2 max-w-[22rem] text-balance font-sans text-sm font-normal text-neutral-500">
             {isDragActive ? "DROP YOUR CV HERE" : "Drop your CV here or click to select"}
           </p>
-          <div className="relative mx-auto mt-10 w-full max-w-xl">
+          <div className="relative mx-auto mt-8 w-full max-w-xl">
             {files.length > 0 &&
               files.map((file, idx) => (
                 <motion.div
                   key={"file" + idx}
                   layoutId={idx === 0 ? "file-upload" : "file-upload-" + idx}
                   className={cn(
-                    "cr-ac-upload-file relative z-40 mx-auto mt-4 flex w-full flex-col items-start justify-start overflow-hidden rounded-md bg-white p-4 md:h-24 dark:bg-neutral-900",
-                    "shadow-sm",
+                    "cr-ac-upload-file relative z-40 mx-auto mt-4 flex w-full flex-col items-start justify-start overflow-hidden",
                   )}
                 >
-                  <div className="flex w-full items-center justify-between gap-4">
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      layout
-                      className="max-w-xs truncate text-base text-neutral-700 dark:text-neutral-300"
-                    >
-                      {file.name}
-                    </motion.p>
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      layout
-                      className="cr-ac-upload-size shadow-input w-fit shrink-0 rounded-lg px-2 py-1 text-sm text-neutral-600 dark:bg-neutral-800 dark:text-white"
-                    >
-                      {(file.size / (1024 * 1024)).toFixed(2)} MB
-                    </motion.p>
+                  <div className="cr-ac-upload-file-top flex w-full items-center gap-4">
+                    <div className="cr-ac-upload-file-icon" aria-hidden="true">
+                      <IconFileCv />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        layout
+                        className="cr-ac-upload-file-name max-w-full truncate"
+                      >
+                        {file.name}
+                      </motion.p>
+                      <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        layout
+                        className="cr-ac-upload-file-size"
+                      >
+                        {(file.size / (1024 * 1024)).toFixed(1)} MB
+                      </motion.p>
+                    </div>
                   </div>
 
-                  <div className="mt-2 flex w-full flex-col items-start justify-between text-sm text-neutral-600 md:flex-row md:items-center dark:text-neutral-400">
+                  <div className="cr-ac-upload-file-actions mt-3 flex w-full items-center justify-between gap-3">
                     <motion.p
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       layout
-                      className="rounded-md bg-gray-100 px-1 py-0.5 dark:bg-neutral-800"
+                      className="cr-ac-upload-file-type"
                     >
                       {getFileTypeLabel(file)}
                     </motion.p>
@@ -198,11 +200,10 @@ export const FileUpload = ({
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       layout
+                      className="flex items-center gap-3"
                     >
-                      <span>
-                        <button type="button" className="cr-ac-upload-replace" onClick={(event) => { event.stopPropagation(); handleClick(); }}>Replace</button>
-                        <button type="button" className="cr-ac-upload-remove" onClick={removeFile}>Remove</button>
-                      </span>
+                      <button type="button" className="cr-ac-upload-replace" onClick={(event) => { event.stopPropagation(); handleClick(); }}>Replace</button>
+                      <button type="button" className="cr-ac-upload-remove" onClick={removeFile}>Remove</button>
                     </motion.p>
                   </div>
                 </motion.div>
@@ -216,22 +217,24 @@ export const FileUpload = ({
                   stiffness: 300,
                   damping: 20,
                 }}
-                  className={cn(
-                    "cr-ac-upload-empty relative z-40 mx-auto mt-4 flex h-32 w-full max-w-[8rem] items-center justify-center rounded-md bg-white group-hover/file:shadow-2xl dark:bg-neutral-900",
-                  "shadow-[0px_10px_50px_rgba(0,0,0,0.1)]",
+                className={cn(
+                  "cr-ac-upload-empty relative z-40 mx-auto mt-4 flex items-center justify-center",
                 )}
               >
                 {isDragActive ? (
                   <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="flex flex-col items-center text-neutral-600"
+                    className="cr-ac-upload-empty-content"
                   >
-                    Drop your CV here
-                    <IconUpload className="h-4 w-4 text-neutral-600 dark:text-neutral-400" />
+                    <IconUpload />
+                    <span>Drop your CV here</span>
                   </motion.p>
                 ) : (
-                  <IconUpload className="h-4 w-4 text-neutral-600 dark:text-neutral-300" />
+                  <span className="cr-ac-upload-empty-content">
+                    <IconUpload />
+                    <span>ADD FILE</span>
+                  </span>
                 )}
               </motion.div>
             )}
