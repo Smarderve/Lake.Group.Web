@@ -7,8 +7,8 @@
 export const TEX_BASE = 'assets/images/globe/';
 
 export const TEX = {
-  day: TEX_BASE + 'earth_day.jpg',
-  bump: TEX_BASE + 'earth_topology.png',
+  day: TEX_BASE + 'earth_day.webp',
+  bump: TEX_BASE + 'earth_topology.webp',
 };
 
 /** Brand yellow — mirrors tokens.css --color-yellow-accent / --yellow */

@@ -23,6 +23,18 @@
   var transitionTimer = null;
   var preloaded = {};
 
+  function hydrateSlideImage(slide) {
+    var image = slide && slide.querySelector("img[data-src]");
+    if (!image) return null;
+    if (image.dataset.srcset) image.srcset = image.dataset.srcset;
+    if (image.dataset.sizes) image.sizes = image.dataset.sizes;
+    if (image.dataset.src) image.src = image.dataset.src;
+    image.removeAttribute("data-src");
+    image.removeAttribute("data-srcset");
+    image.removeAttribute("data-sizes");
+    return image;
+  }
+
   // Per-slide subtitles. The canonical texts live in the i18n dictionary
   // (hero.slide1 .. hero.slide5, one entry per language) so a translation
   // survives every carousel rotation and never reverts to the previous
@@ -47,9 +59,15 @@
     if (preloaded[nextIndex]) return;
     var image = slides[nextIndex].querySelector("img");
     if (!image) return;
+    var src = image.dataset.src || image.currentSrc || image.src;
+    var srcset = image.dataset.srcset || image.srcset;
+    var sizes = image.dataset.sizes || image.sizes;
+    if (!src) return;
     var preload = new Image();
     preload.decoding = "async";
-    preload.src = image.currentSrc || image.src;
+    if (srcset) preload.srcset = srcset;
+    if (sizes) preload.sizes = sizes;
+    preload.src = src;
     preloaded[nextIndex] = preload;
   }
 
@@ -57,7 +75,14 @@
     slides.forEach(function (s, n) {
       s.classList.toggle("is-active", n === i);
     });
-    preloadNext(i);
+    hydrateSlideImage(slides[i]);
+    if (shouldTransition === false) {
+      // Let the first hero paint and become interactive before warming the
+      // next carousel image. Subsequent slides are warmed on demand.
+      setTimeout(function () { preloadNext(i); }, 4000);
+    } else {
+      preloadNext(i);
+    }
     if (shouldTransition !== false) {
       root.classList.add("hero--transitioning");
       if (transitionTimer !== null) clearTimeout(transitionTimer);

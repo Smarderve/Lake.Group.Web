@@ -129,23 +129,19 @@
         else window.customElements?.whenDefined?.('lord-icon').then(whenReady).catch(() => {});
       });
     };
-    // Mount every shared sector icon while the navbar is initializing. This
-    // lets the browser discover and fetch the existing approved animation
-    // assets before the dropdown is opened, so interaction never gates icon
-    // visibility or animation startup.
-    initSectorIcons();
-    initMobileSectorIcons();
     const revealSectorIcons = () => {
-      initSectorIcons();
-      if (!reducedMotion()) {
-        // Play each sector's Lottie reveal animation on dropdown open.
-        nav.querySelectorAll('.mm-cat[data-mm-cat]').forEach((button) => {
-          const icon = button.querySelector('.mm-sector-icon');
-          if (icon) playLottieFromStart(icon);
-        });
-      }
-      const active = nav.querySelector('.mm-cat.is-active') || nav.querySelector('.mm-cat[data-mm-cat]');
-      if (active) playSectorIcon(active, 'in-reveal');
+      ensureLordicon().then(() => {
+        initSectorIcons();
+        if (!reducedMotion()) {
+          // Play each sector's Lottie reveal animation on dropdown open.
+          nav.querySelectorAll('.mm-cat[data-mm-cat]').forEach((button) => {
+            const icon = button.querySelector('.mm-sector-icon');
+            if (icon) playLottieFromStart(icon);
+          });
+        }
+        const active = nav.querySelector('.mm-cat.is-active') || nav.querySelector('.mm-cat[data-mm-cat]');
+        if (active) playSectorIcon(active, 'in-reveal');
+      });
     };
     if (languageTrigger) {
       languageTrigger.removeAttribute('disabled');
@@ -295,7 +291,7 @@
     nav.querySelectorAll('.has-dropdown.has-megamenu').forEach((item) => item.addEventListener('mouseenter', () => { revealSectorIcons(); const first = item.querySelector('.mm-cat.is-active') || item.querySelector('.mm-cat'); if (first) activateCategory(first, 'open'); }));
     const subsidiariesPanel = drawer.querySelector('#mob-subsidiaries');
     if (mobilePrimary && subsidiariesPanel) mobilePrimary.addEventListener('click', () => {
-      initMobileSectorIcons();
+      ensureLordicon().then(() => initMobileSectorIcons());
       toggleTopMobileSection('subsidiaries', mobilePrimary, subsidiariesPanel);
     });
     if (corporateButton && corporatePanel) corporateButton.addEventListener('click', () => toggleTopMobileSection('corporate', corporateButton, corporatePanel));
@@ -353,7 +349,6 @@
   // asynchronously and must never hold the mobile drawer behind a loader.
   const start = () => {
     init();
-    ensureLordicon();
   };
   document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', start) : start();
 })();

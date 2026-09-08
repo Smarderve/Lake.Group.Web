@@ -318,6 +318,13 @@ window.LakeI18n = (function () {
     return loadDictionaries().then(() => applyAll(lang));
   }
 
+  function hydrateDictionaries(content) {
+    if (!content || typeof content !== 'object') return;
+    dictionaries = content;
+    applyAll(current);
+    document.dispatchEvent(new CustomEvent('lake-i18n-applied', { detail: { lang: current, hydrated: true } }));
+  }
+
   function bindSwitcher(root) {
     if (!root || root.dataset.i18nBound === '1') return;
     root.dataset.i18nBound = '1';
@@ -463,6 +470,7 @@ window.LakeI18n = (function () {
   return {
     init,
     apply,
+    hydrateDictionaries,
     t,
     formatNumberForLang,
     localizeDigitsInText,
