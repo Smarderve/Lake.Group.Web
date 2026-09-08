@@ -13,14 +13,16 @@
 <style>
 /* CAREERS  Meridian page composition (leans on assets/flagship.css?v=20260828-01) */
 
-.cr-benefits { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); margin-top: var(--sp-8); }
-@media (max-width: 520px) { .cr-benefits { grid-template-columns: 1fr; } }
-.cr-benefit { position: relative; padding: var(--sp-5); border: 1px solid var(--line-2); background: var(--surface); }
-.cr-benefit::before { content: ''; position: absolute; top: 0; left: 0; width: 26px; height: 2px; background: var(--gold); }
+.cr-benefits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-4); margin-top: var(--sp-8); }
+@media (max-width: 760px) { .cr-benefits { grid-template-columns: 1fr; } }
+.cr-benefit { position: relative; overflow: hidden; border: 1px solid var(--line-2); background: var(--surface); }
+.cr-benefit::before { content: ''; position: absolute; z-index: 1; top: 0; left: 0; width: 40px; height: 3px; background: var(--gold); }
+.cr-benefit-media { aspect-ratio: 16 / 9; margin: 0; overflow: hidden; background: var(--ink); }
+.cr-benefit-media img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 320ms ease; }
+.cr-benefit-copy { padding: var(--sp-5); }
 .cr-benefit h4 { font-size: 0.95rem; }
 .cr-benefit p { font-size: 0.84rem; margin-top: 4px; }
-.career-icon { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid var(--line); margin-bottom: 10px; }
-.career-icon .msi { width: 24px; height: 24px; color: var(--blue); }
+@media (hover: hover) and (pointer: fine) { .cr-benefit:hover .cr-benefit-media img { transform: scale(1.035); } }
 .cr-hire { background: var(--ink); padding: var(--sp-8); }
 .cr-hire h3 { color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 1.6rem; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: var(--sp-5); }
 .cr-roles { display: flex; flex-direction: column; }
@@ -29,7 +31,25 @@
 .cr-role-title { color: #fff; font-size: 0.9rem; font-weight: 600; }
 .cr-role-loc { color: var(--ink-mute); font-size: 0.78rem; }
 .cr-form { background: var(--surface); padding: var(--sp-10); border: 1px solid var(--line-2); box-shadow: var(--shadow-2); }
-@media (max-width: 600px) { .cr-form { padding: var(--sp-6); } }
+.cr-form-intro { margin-bottom: var(--sp-6); }
+.cr-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-5); }
+.cr-field { display: grid; gap: 7px; }
+.cr-field-full { grid-column: 1 / -1; }
+.cr-field label, .cr-field legend { color: var(--ink); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; }
+.cr-field input, .cr-field select, .cr-field textarea { width: 100%; border: 1px solid var(--line); border-radius: 0; background: #fff; color: var(--ink); font: inherit; padding: 12px 13px; }
+.cr-field textarea { min-height: 132px; resize: vertical; }
+.cr-field input:focus, .cr-field select:focus, .cr-field textarea:focus { outline: 3px solid rgba(1,129,187,.2); border-color: var(--blue); }
+.cr-field input[aria-invalid="true"], .cr-field select[aria-invalid="true"], .cr-field textarea[aria-invalid="true"] { border-color: #a32929; }
+.cr-field fieldset { border: 0; padding: 0; margin: 0; }
+.cr-help { color: var(--muted); font-size: 0.75rem; }
+.cr-error { color: #a32929; font-size: 0.75rem; min-height: 1em; }
+.cr-consent { display: flex; align-items: flex-start; gap: 10px; }
+.cr-consent input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--blue); }
+.cr-consent label { font-weight: 400; letter-spacing: 0; }
+.cr-form-status { padding: 13px 15px; border-left: 3px solid var(--gold); background: rgba(255,242,0,.11); color: var(--ink); font-size: 0.82rem; }
+.cr-form-status[hidden], .cr-driver-fields[hidden] { display: none; }
+.cr-form-actions { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); flex-wrap: wrap; margin-top: var(--sp-5); }
+@media (max-width: 600px) { .cr-form { padding: var(--sp-6); } .cr-form-grid { grid-template-columns: 1fr; } .cr-field-full { grid-column: auto; } .cr-form-actions { align-items: stretch; flex-direction: column; } .cr-form-actions .btn { width: 100%; } }
 </style>
 <link rel="stylesheet" href="assets/tokens.css?v=20260828-01">
   <link rel="preload" href="assets/fonts/files/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
@@ -150,26 +170,22 @@
         <p data-i18n="careers.7">Lake Group offers careers with real impact, you'll work across one of East Africa's most dynamic businesses, with genuine opportunities to grow, lead and make a difference.</p>
         <p data-i18n="careers.8" style="margin-top:14px">With 30,000+ employees across 10 countries and 10+ nationalities, we are a truly pan-African team united by shared values: Quality, Service, Safety and Professionalism.</p>
         <div class="cr-benefits">
-          <div class="cr-benefit">
-            <div class="career-icon" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="m123-240-43-43 292-291 167 167 241-241H653v-60h227v227h-59v-123L538-321 371-488 123-240Z"/></svg></div>
-            <h4 data-i18n="careers.9">Career Growth</h4>
-            <p data-i18n="careers.10">Cross-country and cross-division advancement opportunities</p>
-          </div>
-          <div class="cr-benefit">
-            <div class="career-icon" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M324-111.5Q251-143 197-197t-85.5-127Q80-397 80-480t31.5-156Q143-709 197-763t127-85.5Q397-880 480-880t156 31.5Q709-817 763-763t85.5 127Q880-563 880-480t-31.5 156Q817-251 763-197t-127 85.5Q563-80 480-80t-156-31.5ZM437-141v-82q-35 0-59-26t-24-61v-44L149-559q-5 20-7 39.5t-2 39.5q0 130 84.5 227T437-141Zm294-108q44-48 66.5-107.5T820-480q0-106-58-192.5T607-799v18q0 35-24 61t-59 26h-87v87q0 17-13.5 28T393-568h-83v88h258q17 0 28 13t11 30v127h43q29 0 51 17t30 44Z"/></svg></div>
-            <h4 data-i18n="careers.11">Pan-African Impact</h4>
-            <p data-i18n="careers.12">Work on projects that shape East Africa's development</p>
-          </div>
-          <div class="cr-benefit">
-            <div class="career-icon" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M40-160v-160q0-29 20.5-49.5T110-390h141q17 0 32.5 8.5T310-358q29 42 74 65t96 23q51 0 96-23t75-65q11-15 26-23.5t32-8.5h141q29 0 49.5 20.5T920-320v160H660v-119q-36 33-82.5 51T480-210q-51 0-97-18t-83-51v119H40Zm440-170q-35 0-67.5-16.5T360-392q-16-23-38.5-37T273-448q29-30 91-46t116-16q54 0 116.5 16t91.5 46q-26 5-48.5 19T601-392q-20 29-52.5 45.5T480-330ZM160-460q-45 0-77.5-32.5T50-570q0-46 32.5-78t77.5-32q46 0 78 32t32 78q0 45-32 77.5T160-460Zm640 0q-45 0-77.5-32.5T690-570q0-46 32.5-78t77.5-32q46 0 78 32t32 78q0 45-32 77.5T800-460ZM480-580q-45 0-77.5-32.5T370-690q0-46 32.5-78t77.5-32q46 0 78 32t32 78q0 45-32 77.5T480-580Z"/></svg></div>
-            <h4 data-i18n="careers.13">Diverse Teams</h4>
-            <p data-i18n="careers.14">Work alongside 10+ nationalities across 10 countries</p>
-          </div>
-          <div class="cr-benefit">
-            <div class="career-icon" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M440-360h80v-100h100v-80H520v-100h-80v100H340v80h100v100Zm40 279q-140-35-230-162.5T160-523v-238l320-120 320 120v238q0 152-90 279.5T480-81Zm0-62q115-38 187.5-143.5T740-523v-196l-260-98-260 98v196q0 131 72.5 236.5T480-143Zm0-337Z"/></svg></div>
-            <h4 data-i18n="careers.15">Safety First</h4>
-            <p data-i18n="careers.16">Industry-leading safety standards in all operations</p>
-          </div>
+          <article class="cr-benefit">
+            <figure class="cr-benefit-media"><img src="assets/images/leadership/leadership-group-meeting.webp" alt="Lake Group colleagues collaborating around a conference table" width="1821" height="864" loading="lazy" decoding="async"></figure>
+            <div class="cr-benefit-copy"><h4 data-i18n="careers.9">Career Growth</h4><p data-i18n="careers.10">Cross-country and cross-division advancement opportunities</p></div>
+          </article>
+          <article class="cr-benefit">
+            <figure class="cr-benefit-media"><img src="assets/images/laketrans/profile/lake-trans-truck-fleet.webp" alt="Lake Trans truck fleet ready for regional operations" width="1854" height="848" loading="lazy" decoding="async"></figure>
+            <div class="cr-benefit-copy"><h4 data-i18n="careers.11">Pan-African Impact</h4><p data-i18n="careers.12">Work on projects that shape East Africa's development</p></div>
+          </article>
+          <article class="cr-benefit">
+            <figure class="cr-benefit-media"><img src="assets/images/lake-aviation/gallery/aviation-team-truck.webp" alt="Lake Group aviation operations team working beside an aircraft" width="1444" height="1089" loading="lazy" decoding="async"></figure>
+            <div class="cr-benefit-copy"><h4 data-i18n="careers.13">Diverse Teams</h4><p data-i18n="careers.14">Work alongside 10+ nationalities across 10 countries</p></div>
+          </article>
+          <article class="cr-benefit">
+            <figure class="cr-benefit-media"><img src="assets/images/lakegas/ops/worker-silas.webp" alt="Lake Gas operator wearing branded protective equipment" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+            <div class="cr-benefit-copy"><h4 data-i18n="careers.15">Safety First</h4><p data-i18n="careers.16">Industry-leading safety standards in all operations</p></div>
+          </article>
         </div>
       </div>
       <div>
@@ -178,23 +194,23 @@
           <div class="cr-roles">
             <div class="cr-role">
               <div><p data-i18n="careers.18" class="cr-role-title">Engineering & Operations</p><p data-i18n="careers.19" class="cr-role-loc">Depots, terminals & plants across the Group</p></div>
-              <a data-i18n="careers.20" href="#apply" class="btn btn-primary btn-sm">Apply</a>
+              <a data-i18n="careers.20" data-opportunity="Engineering & Operations" href="#apply" class="btn btn-primary btn-sm">Apply</a>
             </div>
             <div class="cr-role">
               <div><p data-i18n="careers.21" class="cr-role-title">Logistics & Transport</p><p data-i18n="careers.22" class="cr-role-loc">Tanzania, Kenya & Zambia</p></div>
-              <a data-i18n="careers.23" href="#apply" class="btn btn-primary btn-sm">Apply</a>
+              <a data-i18n="careers.23" data-opportunity="Logistics & Transport" href="#apply" class="btn btn-primary btn-sm">Apply</a>
             </div>
             <div class="cr-role">
               <div><p data-i18n="careers.24" class="cr-role-title">Finance & Administration</p><p data-i18n="careers.25" class="cr-role-loc">Dar es Salaam, Tanzania</p></div>
-              <a data-i18n="careers.26" href="#apply" class="btn btn-primary btn-sm">Apply</a>
+              <a data-i18n="careers.26" data-opportunity="Finance & Administration" href="#apply" class="btn btn-primary btn-sm">Apply</a>
             </div>
             <div class="cr-role">
               <div><p data-i18n="careers.27" class="cr-role-title">Manufacturing & Industrial</p><p data-i18n="careers.28" class="cr-role-loc">Steel, concrete & LPG plants</p></div>
-              <a data-i18n="careers.29" href="#apply" class="btn btn-primary btn-sm">Apply</a>
+              <a data-i18n="careers.29" data-opportunity="Manufacturing & Industrial" href="#apply" class="btn btn-primary btn-sm">Apply</a>
             </div>
             <div class="cr-role">
               <div><p data-i18n="careers.30" class="cr-role-title">Professional Drivers</p><p data-i18n="careers.31" class="cr-role-loc">Multiple Locations</p></div>
-              <a data-i18n="careers.32" href="#apply" class="btn btn-primary btn-sm">Apply</a>
+              <a data-i18n="careers.32" data-opportunity="Professional Drivers" href="#apply" class="btn btn-primary btn-sm">Apply</a>
             </div>
           </div>
         </div>
@@ -209,10 +225,91 @@
       <h2 data-i18n="careers.34" class="section-title">Drop Us Your CV</h2>
       <p data-i18n="careers.35" class="section-subtitle" style="margin-left:auto;margin-right:auto">Even if no specific role matches your profile, we welcome speculative applications from talented professionals.</p>
     </div>
-    <div class="fs-corners cr-form" style="max-width:640px;margin:0 auto">
-      <p>To apply, email your CV and a short cover note to the Lake Group team.</p>
-      <a class="btn btn-primary btn-lg" href="mailto:admin@lakeoilgroup.com?subject=Lake%20Group%20career%20application">Email your application</a>
-    </div>
+    <form id="career-application-form" class="fs-corners cr-form" style="max-width:820px;margin:0 auto" novalidate>
+      <div class="cr-form-intro">
+        <p><strong>Start your application</strong></p>
+        <p class="cr-help">Complete the form below and keep your CV ready as a PDF or DOC/DOCX file. This form currently validates your details in the browser; applications are not transmitted until the careers submission service is connected.</p>
+      </div>
+      <div id="career-form-status" class="cr-form-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
+      <div class="cr-form-grid">
+        <div class="cr-field">
+          <label for="career-name">Full name <span aria-hidden="true">*</span></label>
+          <input id="career-name" name="fullName" type="text" autocomplete="name" required aria-describedby="career-name-error">
+          <span id="career-name-error" class="cr-error" aria-live="polite"></span>
+        </div>
+        <div class="cr-field">
+          <label for="career-email">Email address <span aria-hidden="true">*</span></label>
+          <input id="career-email" name="email" type="email" autocomplete="email" required aria-describedby="career-email-error">
+          <span id="career-email-error" class="cr-error" aria-live="polite"></span>
+        </div>
+        <div class="cr-field">
+          <label for="career-phone">Phone number</label>
+          <input id="career-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" aria-describedby="career-phone-error">
+          <span id="career-phone-error" class="cr-error" aria-live="polite"></span>
+        </div>
+        <div class="cr-field">
+          <label for="career-opportunity">Opportunity <span aria-hidden="true">*</span></label>
+          <select id="career-opportunity" name="opportunity" required aria-describedby="career-opportunity-error">
+            <option value="">Select an area</option>
+            <option value="Engineering & Operations">Engineering &amp; Operations</option>
+            <option value="Logistics & Transport">Logistics &amp; Transport</option>
+            <option value="Finance & Administration">Finance &amp; Administration</option>
+            <option value="Manufacturing & Industrial">Manufacturing &amp; Industrial</option>
+            <option value="Professional Drivers">Professional Drivers</option>
+          </select>
+          <span id="career-opportunity-error" class="cr-error" aria-live="polite"></span>
+        </div>
+        <div class="cr-field">
+          <label for="career-location">Preferred location <span aria-hidden="true">*</span></label>
+          <select id="career-location" name="location" required aria-describedby="career-location-error">
+            <option value="">Select a location</option>
+            <option>Tanzania</option>
+            <option>Kenya</option>
+            <option>Zambia</option>
+            <option>Dar es Salaam, Tanzania</option>
+            <option>Multiple locations</option>
+          </select>
+          <span id="career-location-error" class="cr-error" aria-live="polite"></span>
+        </div>
+        <div class="cr-field">
+          <label for="career-cv">CV / resume <span aria-hidden="true">*</span></label>
+          <input id="career-cv" name="cv" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required aria-describedby="career-cv-help career-cv-error">
+          <span id="career-cv-help" class="cr-help">PDF, DOC or DOCX; maximum 5 MB.</span>
+          <span id="career-cv-error" class="cr-error" aria-live="polite"></span>
+        </div>
+        <div id="career-driver-fields" class="cr-field cr-field-full cr-driver-fields" hidden>
+          <fieldset>
+            <legend>Driver details</legend>
+            <div class="cr-form-grid" style="margin-top:var(--sp-4)">
+              <div class="cr-field">
+                <label for="career-license">Licence class</label>
+                <input id="career-license" name="licenseClass" type="text" autocomplete="off" aria-describedby="career-license-error">
+                <span id="career-license-error" class="cr-error" aria-live="polite"></span>
+              </div>
+              <div class="cr-field">
+                <label for="career-experience">Years of professional driving experience</label>
+                <input id="career-experience" name="drivingExperience" type="number" min="0" max="60" inputmode="numeric" aria-describedby="career-experience-error">
+                <span id="career-experience-error" class="cr-error" aria-live="polite"></span>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="cr-field cr-field-full">
+          <label for="career-message">Short cover note <span aria-hidden="true">*</span></label>
+          <textarea id="career-message" name="coverNote" required aria-describedby="career-message-error" placeholder="Tell us what you could contribute to Lake Group."></textarea>
+          <span id="career-message-error" class="cr-error" aria-live="polite"></span>
+        </div>
+        <div class="cr-field cr-field-full cr-consent">
+          <input id="career-consent" name="consent" type="checkbox" required aria-describedby="career-consent-error">
+          <label for="career-consent">I consent to Lake Group using these details to review this career enquiry. <span aria-hidden="true">*</span></label>
+          <span id="career-consent-error" class="cr-error" aria-live="polite"></span>
+        </div>
+      </div>
+      <div class="cr-form-actions">
+        <span class="cr-help">Required fields are marked with an asterisk.</span>
+        <button type="submit" class="btn btn-primary btn-lg">Review application</button>
+      </div>
+    </form>
   </div>
 </section>
 
@@ -256,6 +353,7 @@
 <script src="assets/flagship-motion.js?v=20260828-01" defer></script>
 <script src="assets/split-text.js?v=20260828-01" defer></script>
   <script defer src="assets/phase-01-navbar.js?v=20260828-01"></script>
+  <script defer src="assets/careers-application.js?v=20260908-01"></script>
 
 <footer class="site-footer" role="contentinfo">
   <div class="container">
