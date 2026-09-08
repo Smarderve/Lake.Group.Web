@@ -66,6 +66,7 @@ function getCachedMarkerEl(marker, isMobile) {
   const root = document.createElement('div');
   root.className = 'hero-globe-marker';
   root.style.cssText = 'position:relative;width:0;height:0;pointer-events:none;';
+  root.style.setProperty('--label-distance', `${marker.labelDistance || 22}px`);
 
   const pin = document.createElement('img');
   pin.className = 'hero-globe-marker__pin';
@@ -75,6 +76,10 @@ function getCachedMarkerEl(marker, isMobile) {
   pin.height = isMobile ? 19 : 24;
   pin.decoding = 'async';
   pin.style.cssText = 'position:absolute;left:0;top:0;transform:translate(-50%,-100%);object-fit:contain;';
+
+  const leader = document.createElement('span');
+  leader.className = `hero-globe-marker__leader hero-globe-marker__leader--${marker.labelSide || 'east'}`;
+  leader.setAttribute('aria-hidden', 'true');
 
   const label = document.createElement('span');
   label.className = 'hero-globe-marker__label';
@@ -121,7 +126,9 @@ function getCachedMarkerEl(marker, isMobile) {
   ].join(';');
 
   label.append(flag, countryName);
-  root.append(pin, label);
+  root.append(pin, leader, label);
+  leader.style.width = '0';
+  requestAnimationFrame(() => { leader.style.width = 'var(--label-distance)'; });
   markerCache.set(key, root);
   return root;
 }
@@ -254,7 +261,10 @@ export default function HeroGlobe({ panelEl, locations }) {
     const resolveCollisions = () => {
       const labels = [...panelEl.querySelectorAll('.hero-globe-marker__label')]
         .filter((label) => !label.closest('.is-behind-globe'));
-      labels.forEach((label) => label.classList.remove('is-collision-hidden'));
+      labels.forEach((label) => {
+        label.classList.remove('is-collision-hidden');
+        label.parentElement?.querySelector('.hero-globe-marker__leader')?.classList.remove('is-collision-hidden');
+      });
       const occupied = [];
       labels.forEach((label) => {
         const rect = label.getBoundingClientRect();
@@ -263,7 +273,10 @@ export default function HeroGlobe({ panelEl, locations }) {
           rect.right < other.left - 3 || rect.left > other.right + 3 ||
           rect.bottom < other.top - 3 || rect.top > other.bottom + 3
         ));
-        if (collides) label.classList.add('is-collision-hidden');
+        if (collides) {
+          label.classList.add('is-collision-hidden');
+          label.parentElement?.querySelector('.hero-globe-marker__leader')?.classList.add('is-collision-hidden');
+        }
         else occupied.push(rect);
       });
     };
@@ -293,7 +306,7 @@ export default function HeroGlobe({ panelEl, locations }) {
     activeDashRef.current = 0;
     setRevealedMarkers([]);
     setArrivalRings([]);
-    setShowHub(false);
+    setShowHub(true);
 
     const restartAfterShowcase = () => {
       if (sequenceCancelledRef.current) return;
@@ -303,7 +316,7 @@ export default function HeroGlobe({ panelEl, locations }) {
       activeDashRef.current = 0;
       setRevealedMarkers([]);
       setArrivalRings([]);
-      setShowHub(false);
+      setShowHub(true);
       // Short pause after clear, then rotate
       scheduleTimer(() => {
         if (sequenceCancelledRef.current) return;
@@ -384,11 +397,15 @@ export default function HeroGlobe({ panelEl, locations }) {
           setCompletedArcs((prev) => [...prev, { ...arc, dashLength: 1 }]);
           setActiveArc(null);
           activeDashRef.current = 0;
+          const ringId = `arrival-${dest.id}-${Date.now()}`;
           setArrivalRings((prev) => [...prev.slice(-2), {
-            id: `arrival-${dest.id}-${Date.now()}`,
+            id: ringId,
             lat: dest.lat,
             lng: dest.lng,
           }]);
+          scheduleTimer(() => {
+            setArrivalRings((prev) => prev.filter((ring) => ring.id !== ringId));
+          }, 1800);
           setRevealedMarkers((prev) => [...prev, dest]);
           // Hold, then next route
           scheduleTimer(() => {
@@ -524,7 +541,7 @@ export default function HeroGlobe({ panelEl, locations }) {
       arcsData={arcsData}
       arcColor={() => ROUTE_YELLOW}
       arcAltitude="altitude"
-      arcStroke={0.85}
+      arcStroke={0.52}
       arcDashLength="dashLength"
       arcDashGap={0}
       arcDashAnimateTime={0}
@@ -545,7 +562,7 @@ export default function HeroGlobe({ panelEl, locations }) {
       ringAltitude={MARKER_ALTITUDE + 0.008}
       ringMaxRadius={isMobile ? 1.8 : 2.5}
       ringPropagationSpeed={1.8}
-      ringRepeatPeriod={1700}
+      ringRepeatPeriod={1600}
       ringResolution={32}
       enablePointerInteraction={!reduced}
     />
