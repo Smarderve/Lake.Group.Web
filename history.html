@@ -41,27 +41,53 @@
   z-index:0;
   left:var(--timeline-axis-x);
   top:var(--timeline-axis-start);
-  width:2px;
+  width:4px;
   border-radius:99px;
   transform:translateX(-50%);
   pointer-events:none;
 }
-.history-timeline::before { bottom:calc(100% - var(--timeline-axis-end)); background:rgba(1,129,187,.18); }
-.history-timeline::after { height:calc(var(--timeline-progress) * (var(--timeline-axis-end) - var(--timeline-axis-start))); background:#FFF200; transition:height 220ms ease-out; }
+.history-timeline::before { bottom:calc(100% - var(--timeline-axis-end)); background:#0181BB; opacity:.28; -webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 5%,black 95%,transparent 100%); mask-image:linear-gradient(to bottom,transparent 0%,black 5%,black 95%,transparent 100%); }
+.history-timeline::after { height:calc(var(--timeline-progress) * (var(--timeline-axis-end) - var(--timeline-axis-start))); background:#0181BB; opacity:.92; transition:height 120ms linear; }
 .history-year-group { --history-year-size:clamp(1.8rem,3vw,2.6rem); position:relative; display:grid; grid-template-columns:var(--timeline-axis-x) minmax(0,1fr); align-items:start; gap:var(--sp-6); padding:clamp(4.5rem,7vw,6.75rem) 0; border-top:1px solid var(--line-2); }
 .history-year-group:first-child { border-top:0; padding-top:0; }
-.history-node { position:absolute; z-index:1; left:var(--timeline-axis-x); top:var(--history-node-y, calc(var(--history-year-size) / 2)); width:.72rem; height:.72rem; transform:translate(-50%,-50%); border:2px solid #0181BB; border-radius:50%; background:#FFFFFF; transition:background 220ms ease, border-color 220ms ease, transform 220ms ease; }
-.history-year-group.is-active .history-node { border-color:#0181BB; background:#FFF200; transform:translate(-50%,-50%) scale(1.28); }
-.history-year { color:#0181BB; font-family:var(--font-display); font-size:var(--history-year-size); font-weight:700; line-height:1; opacity:.72; transform:translateX(48px); transition:color 220ms ease, opacity 600ms cubic-bezier(.22,1,.36,1), transform 600ms cubic-bezier(.22,1,.36,1); }
-.history-year-group.is-active .history-year { color:#0181BB; opacity:1; }
-.history-year-group.is-visible .history-year { opacity:1; transform:none; }
+.history-node { position:absolute; z-index:1; left:var(--timeline-axis-x); top:var(--history-node-y, calc(var(--history-year-size) / 2)); width:.72rem; height:.72rem; transform:translate(-50%,-50%); border:2px solid #0181BB; border-radius:50%; background:#FFFFFF; transition:background 220ms ease, border-color 220ms ease, opacity 220ms ease; }
+.history-year-group.is-future .history-node { opacity:.58; }
+.history-year-group.is-complete .history-node { background:#0181BB; border-color:#0181BB; opacity:.82; }
+.history-year-group.is-active .history-node { background:#FFF200; border-color:#0181BB; opacity:1; animation:history-node-activate 320ms cubic-bezier(.22,1,.36,1); }
+@keyframes history-node-activate { 0% { transform:translate(-50%,-50%) scale(1); } 55% { transform:translate(-50%,-50%) scale(1.15); } 100% { transform:translate(-50%,-50%) scale(1); } }
+.history-year { color:#0181BB; font-family:var(--font-display); font-size:var(--history-year-size); font-weight:700; line-height:1; opacity:0; visibility:hidden; transform:translateX(90px) scale(.97); transition:color 220ms ease, opacity 700ms cubic-bezier(.22,1,.36,1), transform 700ms cubic-bezier(.22,1,.36,1), visibility 0s linear 700ms; }
 .history-events { display:grid; gap:32px; padding-left:32px; }
-.history-event { padding-left:0; border-left:0; opacity:.48; transform:translateX(48px); transition:opacity 600ms cubic-bezier(.22,1,.36,1), transform 600ms cubic-bezier(.22,1,.36,1); }
-.history-event:nth-child(2) { transition-delay:70ms; }
-.history-event:nth-child(3) { transition-delay:120ms; }
-.history-event:nth-child(4) { transition-delay:170ms; }
-.history-event:nth-child(n+5) { transition-delay:210ms; }
-.history-year-group.is-visible .history-event { opacity:1; transform:none; }
+.history-event { padding-left:0; border-left:0; }
+.history-event h4,
+.history-country,
+.history-event p,
+.history-status { opacity:0; visibility:hidden; transform:translateX(62px); transition:opacity 620ms cubic-bezier(.22,1,.36,1), transform 620ms cubic-bezier(.22,1,.36,1), visibility 0s linear 620ms; }
+.history-year-group.is-complete .history-year { color:#0181BB; opacity:.76; visibility:visible; transform:none; transition-delay:0s; }
+.history-year-group.is-complete .history-event h4,
+.history-year-group.is-complete .history-country,
+.history-year-group.is-complete .history-event p,
+.history-year-group.is-complete .history-status { opacity:.78; visibility:visible; transform:none; transition-delay:0s; }
+.history-year-group.is-active .history-year { color:#FFF200; opacity:1; visibility:visible; transform:none; transition-delay:0s; }
+.history-year-group.is-active .history-event h4,
+.history-year-group.is-active .history-country,
+.history-year-group.is-active .history-event p,
+.history-year-group.is-active .history-status { opacity:1; visibility:visible; transform:none; }
+.history-year-group.is-active .history-event h4 { transition-delay:80ms; }
+.history-year-group.is-active .history-country { transition-delay:140ms; }
+.history-year-group.is-active .history-event p,
+.history-year-group.is-active .history-status { transition-delay:220ms; }
+.history-year-group.is-active .history-event:nth-child(2) h4 { transition-delay:250ms; }
+.history-year-group.is-active .history-event:nth-child(2) .history-country { transition-delay:310ms; }
+.history-year-group.is-active .history-event:nth-child(2) p { transition-delay:390ms; }
+.history-year-group.is-active .history-event:nth-child(3) h4 { transition-delay:420ms; }
+.history-year-group.is-active .history-event:nth-child(3) .history-country { transition-delay:480ms; }
+.history-year-group.is-active .history-event:nth-child(3) p { transition-delay:560ms; }
+.history-year-group.is-active .history-event:nth-child(4) h4 { transition-delay:590ms; }
+.history-year-group.is-active .history-event:nth-child(4) .history-country { transition-delay:650ms; }
+.history-year-group.is-active .history-event:nth-child(4) p { transition-delay:730ms; }
+.history-year-group.is-active .history-event:nth-child(n+5) h4 { transition-delay:650ms; }
+.history-year-group.is-active .history-event:nth-child(n+5) .history-country { transition-delay:710ms; }
+.history-year-group.is-active .history-event:nth-child(n+5) p { transition-delay:790ms; }
 .history-event h4 { margin-bottom:6px; }
 .history-event p { margin:0; }
 .history-country { color:var(--color-brand-blue,#0181bb); font-size:.75rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px; }
@@ -75,7 +101,7 @@
 @media(max-width:880px) and (min-width:601px){.history-timeline{--timeline-axis-x:72px}}
 @media(max-width:880px){.history-hero{min-height:560px}.history-hero .container{padding-top:28px}.history-year-group{grid-template-columns:var(--timeline-axis-x) minmax(0,1fr);gap:var(--sp-4)}}
 @media(max-width:600px){.history-hero{min-height:620px}.history-hero .hero-media{background-position:center 35%}.history-timeline-shell{padding-left:0}.history-timeline{--timeline-axis-x:0px}.history-year-group{--history-year-size:2rem;grid-template-columns:1fr;gap:var(--sp-3);padding:clamp(3.5rem,12vw,5rem) 0 clamp(4rem,13vw,5.5rem) 1.5rem}.history-year-group:first-child{padding-top:0}.history-year{font-size:var(--history-year-size);transform:translateX(28px)}.history-event{transform:translateX(28px)}.history-events{gap:28px;padding-left:0}}
-@media(prefers-reduced-motion:reduce){.history-timeline::after,.history-node,.history-year,.history-event{transition:none}.history-year,.history-event{opacity:1;transform:none}.history-year-group.is-visible .history-event{transition-delay:0ms}}
+@media(prefers-reduced-motion:reduce){.history-timeline::after,.history-node,.history-year,.history-event h4,.history-country,.history-event p,.history-status{transition:none;animation:none}.history-year,.history-event h4,.history-country,.history-event p,.history-status{transform:none}.history-year-group.is-active .history-year,.history-year-group.is-active .history-event h4,.history-year-group.is-active .history-country,.history-year-group.is-active .history-event p,.history-year-group.is-active .history-status,.history-year-group.is-complete .history-year,.history-year-group.is-complete .history-event h4,.history-year-group.is-complete .history-country,.history-year-group.is-complete .history-event p,.history-year-group.is-complete .history-status{transition:none}}
 </style>
 <link rel="stylesheet" href="assets/tokens.css?v=20260828-01">
   <link rel="preload" href="assets/fonts/files/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
