@@ -13,16 +13,17 @@
 <style>
 /* CAREERS  Meridian page composition (leans on assets/flagship.css?v=20260828-01) */
 
-.cr-benefits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-4); margin-top: var(--sp-8); }
+.cr-benefits { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; margin-top: var(--sp-8); }
 @media (max-width: 760px) { .cr-benefits { grid-template-columns: 1fr; } }
-.cr-benefit { position: relative; overflow: hidden; border: 1px solid var(--line-2); background: var(--surface); transition: transform 520ms cubic-bezier(.22,1,.36,1), box-shadow 520ms cubic-bezier(.22,1,.36,1), border-color 520ms cubic-bezier(.22,1,.36,1); }
+.cr-benefit { --card-x: 0px; --card-y: 0px; position: relative; overflow: hidden; border: 1px solid var(--line-2); border-radius: 3px; background: var(--surface); transition: transform 520ms cubic-bezier(.22,1,.36,1), box-shadow 520ms cubic-bezier(.22,1,.36,1), border-color 520ms cubic-bezier(.22,1,.36,1); }
+.cr-benefit::after { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0; background: radial-gradient(circle 120px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,.12), transparent 70%); transition: opacity 520ms cubic-bezier(.22,1,.36,1); }
 .cr-benefit::before { content: ''; position: absolute; z-index: 1; top: 0; left: 0; width: 40px; height: 3px; background: var(--gold); }
 .cr-benefit-media { aspect-ratio: 16 / 9; margin: 0; overflow: hidden; background: var(--ink); }
-.cr-benefit-media img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 520ms cubic-bezier(.22,1,.36,1), filter 520ms cubic-bezier(.22,1,.36,1); }
-.cr-benefit-copy { padding: var(--sp-5); }
+.cr-benefit-media img { display: block; width: 100%; height: 100%; object-fit: cover; transform: translate(var(--card-x), var(--card-y)); transition: transform 520ms cubic-bezier(.22,1,.36,1), filter 520ms cubic-bezier(.22,1,.36,1); }
+.cr-benefit-copy { padding: 18px 19px 20px; }
 .cr-benefit h4 { font-size: 0.95rem; transition: color 520ms cubic-bezier(.22,1,.36,1); }
 .cr-benefit p { font-size: 0.84rem; margin-top: 4px; }
-@media (hover: hover) and (pointer: fine) { .cr-benefit:hover { transform: translateY(-7px); border-color: rgba(1,129,187,.28); box-shadow: 0 18px 34px rgba(10,33,48,.14); } .cr-benefit:hover::before { width: 68px; transition: width 520ms cubic-bezier(.22,1,.36,1); } .cr-benefit:hover .cr-benefit-media img { transform: scale(1.03); filter: saturate(1.04) contrast(1.03); } .cr-benefit:hover h4 { color: var(--blue); } }
+@media (hover: hover) and (pointer: fine) { .cr-benefit:hover { transform: translateY(-6px); border-color: rgba(1,129,187,.28); box-shadow: 0 14px 28px rgba(10,33,48,.12); } .cr-benefit:hover::before { width: 62px; transition: width 520ms cubic-bezier(.22,1,.36,1); } .cr-benefit:hover::after { opacity: 1; } .cr-benefit:hover .cr-benefit-media img { transform: translate(var(--card-x), var(--card-y)) scale(1.035); filter: saturate(1.03) contrast(1.02); } .cr-benefit:hover h4 { color: var(--blue); } }
 .cr-hire { background: var(--ink); padding: var(--sp-8); }
 .cr-hire h3 { color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 1.6rem; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: var(--sp-5); }
 .cr-roles { display: flex; flex-direction: column; }
@@ -45,23 +46,21 @@
 .cr-selected-opportunity { color: var(--blue); font-size: 0.78rem; font-weight: 700; margin: 0; }
 .cr-selected-opportunity[hidden] { display: none; }
 .cr-error { color: #a32929; font-size: 0.75rem; min-height: 1em; }
-.cr-consent { display: flex; align-items: flex-start; gap: 10px; }
-.cr-consent input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--blue); }
-.cr-consent label { font-weight: 400; letter-spacing: 0; }
+.cr-consent { display: block; grid-column: 1 / -1; margin-top: 4px; }
+.cr-consent-control { display: flex; align-items: flex-start; gap: 11px; padding: 14px 16px; border: 1px solid var(--line-2); background: rgba(1,129,187,.025); transition: border-color 300ms ease, background-color 300ms ease; }
+.cr-consent-control:hover, .cr-consent-control:focus-within { border-color: rgba(1,129,187,.45); background: rgba(1,129,187,.06); }
+.cr-consent input { flex: 0 0 20px; width: 20px; height: 20px; margin: 1px 0 0; accent-color: var(--blue); }
+.cr-consent input { min-width: 20px !important; min-height: 20px !important; width: 20px !important; height: 20px !important; }
+.cr-consent label { font-weight: 400; letter-spacing: 0; line-height: 1.45; }
 .cr-form-status { padding: 13px 15px; border-left: 3px solid var(--gold); background: rgba(255,242,0,.11); color: var(--ink); font-size: 0.82rem; }
 .cr-form-status[hidden], .cr-driver-fields[hidden] { display: none; }
-.cr-form-actions { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); flex-wrap: wrap; margin-top: var(--sp-5); }
-.cr-upload-dropzone { position: relative; display: grid; place-items: center; gap: 8px; min-height: 166px; overflow: hidden; border: 1px dashed rgba(1,129,187,.52); background: linear-gradient(135deg, rgba(1,129,187,.06), rgba(255,242,0,.08)); color: var(--blue); text-align: center; cursor: pointer; transition: border-color 420ms cubic-bezier(.22,1,.36,1), background-color 420ms cubic-bezier(.22,1,.36,1), transform 420ms cubic-bezier(.22,1,.36,1); }
-.cr-upload-dropzone::before { content: ''; position: absolute; inset: 0; opacity: .32; background-image: linear-gradient(rgba(1,129,187,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(1,129,187,.16) 1px, transparent 1px); background-size: 24px 24px; mask-image: linear-gradient(to bottom, black, transparent 82%); pointer-events: none; }
-.cr-upload-dropzone > * { position: relative; z-index: 1; }
-.cr-upload-dropzone:focus-visible, .cr-upload-dropzone.is-dragover { outline: 3px solid rgba(1,129,187,.2); border-color: var(--blue); background-color: rgba(1,129,187,.1); }
-.cr-upload-dropzone.is-dragover { transform: translateY(-2px); }
-.cr-upload-input { position: absolute; width: 1px !important; height: 1px !important; opacity: 0; pointer-events: none; }
-.cr-upload-title { font-size: .95rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
-.cr-upload-copy, .cr-upload-meta { color: var(--muted); font-size: .78rem; }
-.cr-upload-file { max-width: 90%; overflow: hidden; color: var(--ink); font-size: .82rem; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+.cr-form-actions { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); flex-wrap: wrap; margin-top: 26px; padding-top: 24px; border-top: 1px solid var(--line-2); }
+.cr-upload-dropzone { position: relative; }
+.cr-upload-dropzone input[type="file"] { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.cr-upload-meta { display: block; margin-top: 7px; color: var(--muted); font-size: .75rem; }
 .cr-upload-error { min-height: 1em; margin-top: 7px; color: #a32929; font-size: .75rem; }
-@media (max-width: 600px) { .cr-form { padding: var(--sp-6); } .cr-form-grid { grid-template-columns: 1fr; } .cr-field-full { grid-column: auto; } .cr-form-actions { align-items: stretch; flex-direction: column; } .cr-form-actions .btn { width: 100%; } }
+@media (max-width: 1200px) { .cr-benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .cr-form { padding: var(--sp-6); } .cr-form-grid { grid-template-columns: 1fr; } .cr-field-full { grid-column: auto; } .cr-consent { grid-column: auto; } .cr-form-actions { align-items: stretch; flex-direction: column; } .cr-form-actions .btn { width: 100%; } }
 .page-wrapper .page-hero.cr-hero { min-height: clamp(520px, 68vh, 700px); justify-content: center; padding: 72px 0 68px; }
 .page-wrapper .page-hero.cr-hero .hero-media { background: none; filter: none; }
 .page-wrapper .page-hero.cr-hero .hero-media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 39%; }
@@ -110,7 +109,7 @@
 @media (max-width: 1120px) { .cr-work-top { grid-template-columns: 1fr; gap: 48px; } .cr-intro { max-width: 820px; } }
 @media (max-width: 760px) { .page-wrapper .page-hero.cr-hero { min-height: 540px; padding: 64px 0 70px; justify-content: flex-end; } .page-wrapper .page-hero.cr-hero .hero-media img { object-position: 50% 50%; } .page-wrapper .page-hero.cr-hero .hero-overlay { background: linear-gradient(90deg, rgba(0,0,0,.48) 0%, rgba(0,0,0,.22) 68%, rgba(0,0,0,.04) 100%), linear-gradient(0deg, rgba(0,0,0,.3), transparent 62%); } .cr-hero-content { padding-top: var(--sp-12); } .cr-hero h1 { font-size: clamp(2.4rem, 11vw, 4rem); } .cr-hero-actions .btn { flex: 0 1 auto; justify-content: center; } .cr-work-top { gap: 40px; } .cr-work-grid .cr-benefits { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .cr-work-grid .cr-benefits { grid-template-columns: 1fr; } .cr-hero-actions .btn { flex: 1 1 100%; } }
-@media (prefers-reduced-motion: reduce) { .cr-hero-actions .btn, .cr-hero-primary .cr-arrow, .cr-benefit, .cr-benefit::before, .cr-benefit-media img, .cr-benefit h4 { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .cr-hero-actions .btn, .cr-hero-primary .cr-arrow, .cr-benefit, .cr-benefit::before, .cr-benefit::after, .cr-benefit-media img, .cr-benefit h4 { transition: none; } }
 </style>
 <link rel="stylesheet" href="assets/tokens.css?v=20260828-01">
   <link rel="preload" href="assets/fonts/files/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
@@ -331,18 +330,17 @@
         </div>
         <div class="cr-field cr-field-full">
           <label for="career-cv">Upload CV <span aria-hidden="true">*</span></label>
-          <div id="career-cv-dropzone" class="cr-upload-dropzone" role="button" tabindex="0" aria-describedby="career-cv-help career-cv-error">
-            <input id="career-cv" class="cr-upload-input" name="cv" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required>
-            <span class="cr-upload-title">Upload your CV</span>
-            <span class="cr-upload-copy">Drop your CV here or click to select</span>
+          <div id="career-cv-dropzone" class="cr-upload-dropzone" aria-describedby="career-cv-help career-cv-error">
+            <div id="career-cv-upload-root"></div>
             <span id="career-cv-help" class="cr-upload-meta">PDF, DOC or DOCX · maximum 10 MB · one file</span>
-            <span id="career-cv-file" class="cr-upload-file">No file selected</span>
           </div>
           <span id="career-cv-error" class="cr-upload-error" aria-live="polite"></span>
         </div>
         <div class="cr-field cr-field-full cr-consent">
-          <input id="career-consent" name="consent" type="checkbox" required aria-describedby="career-consent-error">
-          <label for="career-consent">I consent to Lake Group using these details to review this career enquiry. <span aria-hidden="true">*</span></label>
+          <div class="cr-consent-control">
+            <input id="career-consent" name="consent" type="checkbox" required aria-describedby="career-consent-error">
+            <label for="career-consent">I consent to Lake Group using these details to review this career enquiry. <span aria-hidden="true">*</span></label>
+          </div>
           <span id="career-consent-error" class="cr-error" aria-live="polite"></span>
         </div>
       </div>
@@ -394,6 +392,7 @@
 <script src="assets/flagship-motion.js?v=20260828-01" defer></script>
 <script src="assets/split-text.js?v=20260828-01" defer></script>
   <script defer src="assets/phase-01-navbar.js?v=20260828-01"></script>
+  <script defer src="assets/careers-file-upload.js?v=20260908-02"></script>
   <script defer src="assets/careers-application.js?v=20260908-01"></script>
 
 <footer class="site-footer" role="contentinfo">

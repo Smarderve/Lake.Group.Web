@@ -5,9 +5,7 @@
   const opportunity = document.querySelector('#career-opportunity');
   const selectedOpportunity = document.querySelector('#career-selected-opportunity');
   const status = document.querySelector('#career-form-status');
-  const dropzone = document.querySelector('#career-cv-dropzone');
   const cvInput = document.querySelector('#career-cv');
-  const cvFile = document.querySelector('#career-cv-file');
   const maxCvBytes = 10 * 1024 * 1024;
   const acceptedExtensions = new Set(['pdf', 'doc', 'docx']);
 
@@ -51,32 +49,30 @@
     });
   });
 
-  function chooseFile() { cvInput.click(); }
-  dropzone.addEventListener('click', (event) => {
-    if (event.target !== cvInput) chooseFile();
-  });
-  dropzone.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); chooseFile(); }
-  });
-  ['dragenter', 'dragover'].forEach((type) => dropzone.addEventListener(type, (event) => {
-    event.preventDefault();
-    dropzone.classList.add('is-dragover');
-  }));
-  ['dragleave', 'drop'].forEach((type) => dropzone.addEventListener(type, (event) => {
-    event.preventDefault();
-    dropzone.classList.remove('is-dragover');
-  }));
-  dropzone.addEventListener('drop', (event) => {
-    const files = event.dataTransfer?.files;
-    if (!files?.length) return;
-    const transfer = new DataTransfer();
-    transfer.items.add(files[0]);
-    cvInput.files = transfer.files;
-    cvInput.dispatchEvent(new Event('change', { bubbles: true }));
-  });
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.cr-benefit').forEach((card) => {
+      let frame = 0;
+      card.addEventListener('pointermove', (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = Math.max(-3, Math.min(3, ((event.clientX - rect.left) / rect.width - 0.5) * 6));
+        const y = Math.max(-3, Math.min(3, ((event.clientY - rect.top) / rect.height - 0.5) * 6));
+        window.cancelAnimationFrame(frame);
+        frame = window.requestAnimationFrame(() => {
+          card.style.setProperty('--card-x', `${x.toFixed(2)}px`);
+          card.style.setProperty('--card-y', `${y.toFixed(2)}px`);
+          card.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`);
+          card.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`);
+        });
+      });
+      card.addEventListener('pointerleave', () => {
+        window.cancelAnimationFrame(frame);
+        card.style.setProperty('--card-x', '0px');
+        card.style.setProperty('--card-y', '0px');
+      });
+    });
+  }
+
   cvInput.addEventListener('change', () => {
-    const file = cvInput.files?.[0];
-    cvFile.textContent = file ? file.name : 'No file selected';
     validateField(cvInput);
   });
 
