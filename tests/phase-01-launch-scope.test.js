@@ -5,7 +5,7 @@ const path = require('node:path');
 const root = path.join(__dirname, '..');
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 
-const underConstruction = ['careers.html', 'csr.html', 'sustainability.html'];
+const underConstruction = ['csr.html', 'sustainability.html'];
 const retired = ['leadership-bibhuti-singh.html', 'leadership-biji-lapat.html', 'leadership-dileep-kumar.html', 'leadership-jishnu-jayachandran.html', 'leadership-juma-nuru.html', 'leadership-mohammed-khalid.html', 'leadership-sridhar-mani.html', 'leadership-zaki-othman.html'];
 
 test('launch-reduced pages use the common under-construction surface', () => {
@@ -14,6 +14,13 @@ test('launch-reduced pages use the common under-construction surface', () => {
     assert.match(html, /data-phase-01-under-construction="true"/, file);
     assert.equal((html.match(/class="phase-01-under-construction"/g) || []).length, 1, file);
   }
+});
+
+test('careers is a live public page, not an under-construction surface', () => {
+  const html = read('careers.html');
+  assert.doesNotMatch(html, /under construction|coming soon|preparing this section/i);
+  assert.doesNotMatch(html, /data-phase-01-under-construction/);
+  assert.match(html, /Careers at Lake Group/);
 });
 
 test('public UI exposes the planned language selector', () => {
