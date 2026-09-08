@@ -1,0 +1,1608 @@
+{
+  "generatedAt": "2026-09-08T08:23:44.869Z",
+  "start": 0,
+  "batchSize": 80,
+  "candidates": 337,
+  "results": [
+    {
+      "source": "assets/images/about/about-hero-03.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/about/about-hero-03.master.webp",
+      "delivery": "assets/images/delivery/about/about-hero-03.webp",
+      "masterInfo": {
+        "bytes": 262780,
+        "width": 1672,
+        "height": 940,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 148892,
+        "width": 1672,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "315cf4465e37e38d9b7d141383d0b49f77c502f3a6e99f21c36fb83dfe300b01",
+      "deliveryHash": "f04e7caef88ea631ffc83ab1fb765ad75cfa2b9f084e680ad8c3500bb8c01ce8"
+    },
+    {
+      "source": "assets/images/about/about-hero-04.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/about/about-hero-04.master.webp",
+      "delivery": "assets/images/delivery/about/about-hero-04.webp",
+      "masterInfo": {
+        "bytes": 336220,
+        "width": 1573,
+        "height": 1000,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 214438,
+        "width": 1573,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "47eef99fa4a5644aa4c2b8822a737c3ee8aadd2b3fea248492b66afc41eeaa76",
+      "deliveryHash": "83dbe95cf754cec8726e06a8e2876b0a5416efcfff1dbe47630450f338e02660"
+    },
+    {
+      "source": "assets/images/about/about-hero-05.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/about/about-hero-05.master.webp",
+      "delivery": "assets/images/delivery/about/about-hero-05.webp",
+      "masterInfo": {
+        "bytes": 361294,
+        "width": 1672,
+        "height": 941,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 223492,
+        "width": 1672,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "308765a5319ad9826715399ab3e93e01c90fca70cc46beac81110e87cb74cc25",
+      "deliveryHash": "4368e2088cdb55cb980688972e6b631c884030cac399047179e8c0c8633b279e"
+    },
+    {
+      "source": "assets/images/about/about-hero-06.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/about/about-hero-06.master.webp",
+      "delivery": "assets/images/delivery/about/about-hero-06.webp",
+      "masterInfo": {
+        "bytes": 247996,
+        "width": 1536,
+        "height": 1024,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 145724,
+        "width": 1536,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "324c5baa8c7ae9c7d4c533054544c542d95674442cada3c67067e99641d7e1ec",
+      "deliveryHash": "5cd3ad3b3f871bfc9df9769e93e3caed914cd556a7f9e9e664d06c843a50fa1a"
+    },
+    {
+      "source": "assets/images/about/about-hero-07.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/about/about-hero-07.master.webp",
+      "delivery": "assets/images/delivery/about/about-hero-07.webp",
+      "masterInfo": {
+        "bytes": 350742,
+        "width": 1536,
+        "height": 1024,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 223526,
+        "width": 1536,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "e264b5ea1f1fc338697552401c93d25ef8c33572a065c706d1ff910b2145a39f",
+      "deliveryHash": "54ecea5f8e4e9c1b2c6102ba34391dd76fff06b00268848651270db5fcf84dfc"
+    },
+    {
+      "source": "assets/images/about/about-hero-09.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/about/about-hero-09.master.webp",
+      "delivery": "assets/images/delivery/about/about-hero-09.webp",
+      "masterInfo": {
+        "bytes": 390338,
+        "width": 1538,
+        "height": 1023,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 244630,
+        "width": 1538,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "2fe8f0f4076ffda29b447dad1a11030a7779f9a2cf20cad09a3b92203d0f6b4c",
+      "deliveryHash": "ebf50c0780dd137df59717e3172570ee24726ddda6834fbeae78dc58a0830752"
+    },
+    {
+      "source": "assets/images/about/about-hero-12.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/about/about-hero-12.master.webp",
+      "delivery": "assets/images/delivery/about/about-hero-12.webp",
+      "masterInfo": {
+        "bytes": 217960,
+        "width": 1646,
+        "height": 956,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 140134,
+        "width": 1646,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "c7e9d19085d3ec27306e342d15f082aa33726d1f07e0d27d791c7848098219c9",
+      "deliveryHash": "c891b65b4739afa757bef6b86d73acdef9f4282402763bba9eef26198e596622"
+    },
+    {
+      "source": "assets/images/about/about-story-terminal-enhanced.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/about/about-story-terminal-enhanced.master.webp",
+      "delivery": "assets/images/delivery/about/about-story-terminal-enhanced.webp",
+      "masterInfo": {
+        "bytes": 262780,
+        "width": 1672,
+        "height": 940,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 148892,
+        "width": 1672,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "315cf4465e37e38d9b7d141383d0b49f77c502f3a6e99f21c36fb83dfe300b01",
+      "deliveryHash": "f04e7caef88ea631ffc83ab1fb765ad75cfa2b9f084e680ad8c3500bb8c01ce8"
+    },
+    {
+      "source": "assets/images/acfs/TA/photo_1.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/acfs/TA/photo_1.master.webp",
+      "delivery": "assets/images/delivery/acfs/TA/photo_1.webp",
+      "masterInfo": {
+        "bytes": 32304,
+        "width": 841,
+        "height": 230,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 21594,
+        "width": 841,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "3a2cc66138d250c907b951039cc7004b52dcd2c66eeb8ed13f7a8043658161fc",
+      "deliveryHash": "3e972a616f753bc434a7789f2176388d42ac6cbabfd815eea8a4784fbc67b122"
+    },
+    {
+      "source": "assets/images/acfs/TA/photo_10.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/acfs/TA/photo_10.master.webp",
+      "delivery": "assets/images/delivery/acfs/TA/photo_10.webp",
+      "masterInfo": {
+        "bytes": 40852,
+        "width": 1080,
+        "height": 256,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 22692,
+        "width": 1080,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "622346ffe18a5b9867dfc19eb355645c7961c29369702f2dbee703c22ff0ca52",
+      "deliveryHash": "78e98f7caa005be636fdd3a3974f367c06d4a05d5bc5f20f4021078146870e30"
+    },
+    {
+      "source": "assets/images/acfs/TA/photo_11.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/acfs/TA/photo_11.master.webp",
+      "delivery": "assets/images/delivery/acfs/TA/photo_11.webp",
+      "masterInfo": {
+        "bytes": 109804,
+        "width": 2616,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 60084,
+        "width": 2616,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "376428277c2d84aa409576165407027c179f7a8c44aaf0266897ade42695a61f",
+      "deliveryHash": "87c63eaacd77617519aed3baebdf3daca725be520f7d59a6b2fb1afbba172491"
+    },
+    {
+      "source": "assets/images/acfs/TA/photo_2.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/acfs/TA/photo_2.master.webp",
+      "delivery": "assets/images/delivery/acfs/TA/photo_2.webp",
+      "masterInfo": {
+        "bytes": 24168,
+        "width": 843,
+        "height": 268,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 13574,
+        "width": 843,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "12fca426223ce7d7d07655f440ff8219b1f5ee16b8d5edc1c096dbc2fe76f054",
+      "deliveryHash": "fb5c290a0fa64f2b2a1928a3b979eab46a0da9b72b434ce0adf18b581e63b8f1"
+    },
+    {
+      "source": "assets/images/acfs/TA/photo_3.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/acfs/TA/photo_3.master.webp",
+      "delivery": "assets/images/delivery/acfs/TA/photo_3.webp",
+      "masterInfo": {
+        "bytes": 53790,
+        "width": 837,
+        "height": 424,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 36266,
+        "width": 837,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "f1f6da47b70cb9bcaa305382bc37de2a71461dfe8f593f2ffa54925c83c6c870",
+      "deliveryHash": "7aa2d2606dbeea917a2c6ba9b0850dffc0f6ccaeb830240867a12a791a91e5b1"
+    },
+    {
+      "source": "assets/images/acfs/TA/photo_5.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/acfs/TA/photo_5.master.webp",
+      "delivery": "assets/images/delivery/acfs/TA/photo_5.webp",
+      "masterInfo": {
+        "bytes": 31524,
+        "width": 847,
+        "height": 365,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 20656,
+        "width": 847,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "f56f2b02ae3809147b4c268cd70654f295d3fc6694d811f871ada3df6ca4d801",
+      "deliveryHash": "8da7296babc3aee1eeb58497b05ddaa42949ce8c9522701d3e775ce08035bec9"
+    },
+    {
+      "source": "assets/images/acfs/TA/photo_6.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/acfs/TA/photo_6.master.webp",
+      "delivery": "assets/images/delivery/acfs/TA/photo_6.webp",
+      "masterInfo": {
+        "bytes": 32504,
+        "width": 847,
+        "height": 335,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 18842,
+        "width": 847,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "b00836a83c9133e38abd396218a15fff5cff86368caaf82c08d4be1d9b8c5c9c",
+      "deliveryHash": "b19acbb7cdcc069596d705baf87da1a62d9c0562501f0f8468a61883c6c9d077"
+    },
+    {
+      "source": "assets/images/acfs/TA/photo_7.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/acfs/TA/photo_7.master.webp",
+      "delivery": "assets/images/delivery/acfs/TA/photo_7.webp",
+      "masterInfo": {
+        "bytes": 8762,
+        "width": 847,
+        "height": 404,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 5830,
+        "width": 847,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "d984dc426c8465a4153a6114eb8ea8a0eb3825abd97c229f66c761ce13678c2d",
+      "deliveryHash": "b389071bd6dea18181e78aa48a76f2ac69a65ca632c60e611301367640d959aa"
+    },
+    {
+      "source": "assets/images/acfs/TA/photo_8.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/acfs/TA/photo_8.master.webp",
+      "delivery": "assets/images/delivery/acfs/TA/photo_8.webp",
+      "masterInfo": {
+        "bytes": 73606,
+        "width": 1400,
+        "height": 555,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 50316,
+        "width": 1400,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "30042c63c287969c0ca8b1ba717f2fa3d81f70aac9a0be4cfc5972eaa70ba525",
+      "deliveryHash": "517aa0da89dd1be53aa55dbc8eb59419497fffbac4c2eba0b43950b48d7dfcdd"
+    },
+    {
+      "source": "assets/images/acfs/TA/photo_9.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/acfs/TA/photo_9.master.webp",
+      "delivery": "assets/images/delivery/acfs/TA/photo_9.webp",
+      "masterInfo": {
+        "bytes": 37054,
+        "width": 1080,
+        "height": 268,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 24010,
+        "width": 1080,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "be21cbb3ff9fec155f1b49954ea255f6321aeb425f46d9842e54dd3031ecb3e5",
+      "deliveryHash": "bc1b2cec6ab35c38f0b1ebebc67064abdbb151c81e9d5c5d6864cf795de0358e"
+    },
+    {
+      "source": "assets/images/aficd/operations/aficd-branded-container.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/aficd/operations/aficd-branded-container.master.webp",
+      "delivery": "assets/images/delivery/aficd/operations/aficd-branded-container.webp",
+      "masterInfo": {
+        "bytes": 280316,
+        "width": 1536,
+        "height": 1024,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 163596,
+        "width": 1536,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "7a0cad8c8475c492be77cb8f58642234dd319f916072d86def94792f4142f390",
+      "deliveryHash": "be8bdd9527244fda2b49a6d166b36e179db140d64b73ae02f8156e5d559d74a3"
+    },
+    {
+      "source": "assets/images/aficd/operations/aficd-container-handling.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/aficd/operations/aficd-container-handling.master.webp",
+      "delivery": "assets/images/delivery/aficd/operations/aficd-container-handling.webp",
+      "masterInfo": {
+        "bytes": 224876,
+        "width": 1200,
+        "height": 800,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 146398,
+        "width": 1200,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "7d295c7aeed6a7d4a025d4940394c0705ea2029e440f9bec60a17519cd90dad5",
+      "deliveryHash": "05a8c1d5eb8021acedff4f89747973aefe7190be66c017eb63ce9851af89ad53"
+    },
+    {
+      "source": "assets/images/aficd/operations/aficd-sany-reach-stacker.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/aficd/operations/aficd-sany-reach-stacker.master.webp",
+      "delivery": "assets/images/delivery/aficd/operations/aficd-sany-reach-stacker.webp",
+      "masterInfo": {
+        "bytes": 292558,
+        "width": 1552,
+        "height": 1013,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 180638,
+        "width": 1552,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "2d081fc6fe4ea56a78dbc44c0e652938eb029dc61387673defc0beaec0ca6608",
+      "deliveryHash": "92e2f026bb050d013c21a225f9c2cbe548c7fb009a001c7984bfd4e396cb88de"
+    },
+    {
+      "source": "assets/images/aficd/operations/aficd-truck-loading.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/aficd/operations/aficd-truck-loading.master.webp",
+      "delivery": "assets/images/delivery/aficd/operations/aficd-truck-loading.webp",
+      "masterInfo": {
+        "bytes": 240484,
+        "width": 1200,
+        "height": 800,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 157714,
+        "width": 1200,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "3d42ca9a5fb7cfe847f0947325fab3bb3ab788ac2c3a27bfd8a1eb852990f586",
+      "deliveryHash": "62268eaeec16f5606fbf7d4f39820cd5c61e636738a76e821d776ec40a48d7f4"
+    },
+    {
+      "source": "assets/images/aficd/operations/aficd-wide-yard.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/aficd/operations/aficd-wide-yard.master.webp",
+      "delivery": "assets/images/delivery/aficd/operations/aficd-wide-yard.webp",
+      "masterInfo": {
+        "bytes": 131406,
+        "width": 1536,
+        "height": 1024,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 81378,
+        "width": 1536,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "e4404cc12540d8bc49956844844477e102808e6413432e9d6ce6330382c9ecec",
+      "deliveryHash": "c9b869a15f8d22cfbbd6a66c47bb93a0adac9a5589e3d1262f0b415b62c42d55"
+    },
+    {
+      "source": "assets/images/aficd/operations/aficd-yard-lift.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/aficd/operations/aficd-yard-lift.master.webp",
+      "delivery": "assets/images/delivery/aficd/operations/aficd-yard-lift.webp",
+      "masterInfo": {
+        "bytes": 211486,
+        "width": 1200,
+        "height": 800,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 132476,
+        "width": 1200,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "0bc849848280866d86771ecbcafd407110b7530ff0568c11858cb84e5ac51f77",
+      "deliveryHash": "f39915eff982b1bea761effcabd64813e5aed7c2ef16880128537e9430e78312"
+    },
+    {
+      "source": "assets/images/aficd/operations/aficd-yard.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/aficd/operations/aficd-yard.master.webp",
+      "delivery": "assets/images/delivery/aficd/operations/aficd-yard.webp",
+      "masterInfo": {
+        "bytes": 200420,
+        "width": 1200,
+        "height": 800,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 131436,
+        "width": 1200,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "fb162f0ba849e5d0dd948a7059a8c3b630efbeab9dab1842b480cfb04f7dd68c",
+      "deliveryHash": "d6a9e42b9951337a547b467b31e18cace12b5a6357757f8c6cd7b057accdd566"
+    },
+    {
+      "source": "assets/images/aficd/TA/photo_1.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/aficd/TA/photo_1.master.webp",
+      "delivery": "assets/images/delivery/aficd/TA/photo_1.webp",
+      "masterInfo": {
+        "bytes": 986066,
+        "width": 2048,
+        "height": 1080,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 504094,
+        "width": 2000,
+        "quality": 72
+      },
+      "referencesUpdated": 0,
+      "masterHash": "31356cc28a37b39b001cc30d21dd96e7c2b246d6cb11fcd8f2ef081a7e9e4105",
+      "deliveryHash": "7fc380b3547089e3d5bf82d8bb911c73948aebca2fe725c376637a2c24924503"
+    },
+    {
+      "source": "assets/images/aficd/TA/photo_1.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/aficd/TA/photo_1.master.webp",
+      "delivery": "assets/images/delivery/aficd/TA/photo_1.webp",
+      "masterInfo": {
+        "bytes": 986066,
+        "width": 2048,
+        "height": 1080,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 504094,
+        "width": 2000,
+        "quality": 72
+      },
+      "referencesUpdated": 0,
+      "masterHash": "31356cc28a37b39b001cc30d21dd96e7c2b246d6cb11fcd8f2ef081a7e9e4105",
+      "deliveryHash": "7fc380b3547089e3d5bf82d8bb911c73948aebca2fe725c376637a2c24924503"
+    },
+    {
+      "source": "assets/images/aill/aill-hero-960.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/aill/aill-hero-960.master.webp",
+      "delivery": "assets/images/delivery/aill/aill-hero-960.webp",
+      "masterInfo": {
+        "bytes": 121192,
+        "width": 960,
+        "height": 640,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 81456,
+        "width": 960,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "f756c829fd6da85c9d1dd94b2004da6a2b5717489180ccb3041046cc81b7068f",
+      "deliveryHash": "7a342be64b5395be8c7678abcbca20140243ef9984f1f64b75deabef61f0d578"
+    },
+    {
+      "source": "assets/images/aill/aill-hero.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/aill/aill-hero.master.webp",
+      "delivery": "assets/images/delivery/aill/aill-hero.webp",
+      "masterInfo": {
+        "bytes": 280316,
+        "width": 1536,
+        "height": 1024,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 163596,
+        "width": 1536,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "7a0cad8c8475c492be77cb8f58642234dd319f916072d86def94792f4142f390",
+      "deliveryHash": "be8bdd9527244fda2b49a6d166b36e179db140d64b73ae02f8156e5d559d74a3"
+    },
+    {
+      "source": "assets/images/banner/LakeOil.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/banner/LakeOil.master.webp",
+      "delivery": "assets/images/delivery/banner/LakeOil.webp",
+      "masterInfo": {
+        "bytes": 306194,
+        "width": 1376,
+        "height": 768,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 210480,
+        "width": 1376,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "42c143b8b3d0437c21edb7d1e02f57e2e5f667a4c15a9e9d3a34d40dbc462d4b",
+      "deliveryHash": "cfb22a5f97588ba1bbaf168d803866484a0bdab17b08ee92a262474d1e945d7c"
+    },
+    {
+      "source": "assets/images/banner/LakeOil1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/banner/LakeOil1.master.webp",
+      "delivery": "assets/images/delivery/banner/LakeOil1.webp",
+      "masterInfo": {
+        "bytes": 227822,
+        "width": 1800,
+        "height": 1275,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 141098,
+        "width": 1800,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "0ee054e2d27757622108a38373084971485636f2831f7fb7651f8a44d0e7ad5c",
+      "deliveryHash": "96f584d572c702dd2370400c62ea0a0a623a52584a96516f2665693d329c3363"
+    },
+    {
+      "source": "assets/images/banner/LakeTrans-opt.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/banner/LakeTrans-opt.master.webp",
+      "delivery": "assets/images/delivery/banner/LakeTrans-opt.webp",
+      "masterInfo": {
+        "bytes": 123314,
+        "width": 800,
+        "height": 500,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 80254,
+        "width": 800,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "a95ffde41fae591f00e6be73867c1259a5323dc08fb42a3b6f02bed5939c1eb2",
+      "deliveryHash": "a4b9abfa44c84298a8ca8e2891d4c451a5ec428b01c538a7fe832625a38161fc"
+    },
+    {
+      "source": "assets/images/ccp/doc-comp-1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/doc-comp-1.master.webp",
+      "delivery": "assets/images/delivery/ccp/doc-comp-1.webp",
+      "masterInfo": {
+        "bytes": 213502,
+        "width": 1672,
+        "height": 940,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 113206,
+        "width": 1672,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "d6296a21fc0fd00ecc6841f0e566e0be36bd61451896ffe4e11d4fb234dcb864",
+      "deliveryHash": "76f9f0f4495e6b665078de8dc68d80ec0028fd4ecd8a4a92cc46c8220622eda4"
+    },
+    {
+      "source": "assets/images/ccp/doc-comp-2.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/doc-comp-2.master.webp",
+      "delivery": "assets/images/delivery/ccp/doc-comp-2.webp",
+      "masterInfo": {
+        "bytes": 302066,
+        "width": 1024,
+        "height": 768,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 220344,
+        "width": 1024,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "792154d2a73d068e6539717497538fd9f788abc8761ebfbc81419c4a68a85402",
+      "deliveryHash": "e32171908692825f8c5badb70f33583e3ab4d88a32a282e7465994595d929e0d"
+    },
+    {
+      "source": "assets/images/ccp/doc-comp-3.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/doc-comp-3.master.webp",
+      "delivery": "assets/images/delivery/ccp/doc-comp-3.webp",
+      "masterInfo": {
+        "bytes": 70336,
+        "width": 540,
+        "height": 405,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 50396,
+        "width": 540,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "142bc150e6d1e172082e2f404123a8594bc6ae04d17d092de7553c6ea6a8cccd",
+      "deliveryHash": "cc5554d76d9282eead1b13e6585c388f056170a1ae88fde53c57b7ad66118e2f"
+    },
+    {
+      "source": "assets/images/ccp/doc-comp-4.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/doc-comp-4.master.webp",
+      "delivery": "assets/images/delivery/ccp/doc-comp-4.webp",
+      "masterInfo": {
+        "bytes": 84086,
+        "width": 405,
+        "height": 540,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 61738,
+        "width": 405,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "377de04f8cb8733ad3240a68abadde22397a7812b39ec051fa66c0dc68ce6a42",
+      "deliveryHash": "20ef09e5e7f34adc0791b64ca60e1359e837391579324df1dbc6c72e7cf9a10e"
+    },
+    {
+      "source": "assets/images/ccp/doc-comp-5.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/doc-comp-5.master.webp",
+      "delivery": "assets/images/delivery/ccp/doc-comp-5.webp",
+      "masterInfo": {
+        "bytes": 68274,
+        "width": 432,
+        "height": 324,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 49776,
+        "width": 432,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "f80a79930bb402a49ab9149fffc83e6a0ae4fe89851fd998ccbcbfb427084400",
+      "deliveryHash": "e1bd09e54d2ea6a20990787caa2cfd74bb1512c1a4d02de2cd264f7d546d0ecf"
+    },
+    {
+      "source": "assets/images/ccp/doc-comp-6.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/doc-comp-6.master.webp",
+      "delivery": "assets/images/delivery/ccp/doc-comp-6.webp",
+      "masterInfo": {
+        "bytes": 47742,
+        "width": 432,
+        "height": 324,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 34516,
+        "width": 432,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "cfb8473bbbbbe90be0869ea9343c91dd646de77abc26df3ab2d5ed8adf5d1ac4",
+      "deliveryHash": "4bfa4d488ef936712ebe815807626229088dcbc58349f97bacc8bd75c637be05"
+    },
+    {
+      "source": "assets/images/ccp/doc-dev-3.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/doc-dev-3.master.webp",
+      "delivery": "assets/images/delivery/ccp/doc-dev-3.webp",
+      "masterInfo": {
+        "bytes": 438732,
+        "width": 1600,
+        "height": 899,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 306630,
+        "width": 1600,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "17faf6b6524b4cc2286629d11dae8211db9e81769a0b40ff8d4e8fc4b119a254",
+      "deliveryHash": "f3594b27d1d7c6cb42e26703fcc00a4edc1960694384cd7c27478e2c096db8cb"
+    },
+    {
+      "source": "assets/images/ccp/doc-future-1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/doc-future-1.master.webp",
+      "delivery": "assets/images/delivery/ccp/doc-future-1.webp",
+      "masterInfo": {
+        "bytes": 316454,
+        "width": 1600,
+        "height": 1066,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 206576,
+        "width": 1600,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "cec1bd3b0a33075a647027cfd181e692573b005a24aaaa79cbb8f4603f3b6a6e",
+      "deliveryHash": "0a69e424ba00f5c254e1dc72519a8aa13f0d2e4f4b58ec6ffbd3e02af2626265"
+    },
+    {
+      "source": "assets/images/ccp/doc-future-2.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/doc-future-2.master.webp",
+      "delivery": "assets/images/delivery/ccp/doc-future-2.webp",
+      "masterInfo": {
+        "bytes": 262282,
+        "width": 1600,
+        "height": 1066,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 165006,
+        "width": 1600,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "a350682fb492e786c110ee0da8b12491f809f2599db5b3f837662fccce1f4289",
+      "deliveryHash": "891548fe1212b681becfec8ac06492ed5d7cee3e7f744ebd0d41a8330e6e83e2"
+    },
+    {
+      "source": "assets/images/ccp/doc-hero.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/doc-hero.master.webp",
+      "delivery": "assets/images/delivery/ccp/doc-hero.webp",
+      "masterInfo": {
+        "bytes": 463604,
+        "width": 1600,
+        "height": 1200,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 304394,
+        "width": 1600,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "97cc37f8a47fa1e7532da41aad2f575f3020331b5dde6e426d60ef4470afd23e",
+      "deliveryHash": "098a45447658d89c5b7e4467e3477b6d7c5dde0da31102757d6a3e41fdc74119"
+    },
+    {
+      "source": "assets/images/ccp/doc-overview.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/doc-overview.master.webp",
+      "delivery": "assets/images/delivery/ccp/doc-overview.webp",
+      "masterInfo": {
+        "bytes": 235244,
+        "width": 1600,
+        "height": 1066,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 151968,
+        "width": 1600,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "9a03c766b896a6097f719838a3fdb5a9293024c1983f7288bf9a2203bbfd470f",
+      "deliveryHash": "7c21d48de838ab9dfaaa42bc995cee0348e600e36ef6110664133357b00d3a5b"
+    },
+    {
+      "source": "assets/images/ccp/doc-values.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/doc-values.master.webp",
+      "delivery": "assets/images/delivery/ccp/doc-values.webp",
+      "masterInfo": {
+        "bytes": 135606,
+        "width": 1600,
+        "height": 1066,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 70768,
+        "width": 1600,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "53b969725018938aad284ab6790d8d9afdc0ded1c99550b2d5c81d6f19419995",
+      "deliveryHash": "06047b0e2a497b6bac68c65f3e8602a3e5563bf706e38b4da94b3d25d8b64b8a"
+    },
+    {
+      "source": "assets/images/ccp/doc-vision.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/doc-vision.master.webp",
+      "delivery": "assets/images/delivery/ccp/doc-vision.webp",
+      "masterInfo": {
+        "bytes": 258704,
+        "width": 1600,
+        "height": 1066,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 178532,
+        "width": 1600,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "e36c2372f01c3466995ae1756b460b3083ebc0aeadf006c3301ce3d8a10736b4",
+      "deliveryHash": "7823a8853bd2a5c1d1320f1ce50f039393d85ffbe993b84e70b5328b56c13a48"
+    },
+    {
+      "source": "assets/images/ccp/doc-wide.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/doc-wide.master.webp",
+      "delivery": "assets/images/delivery/ccp/doc-wide.webp",
+      "masterInfo": {
+        "bytes": 112204,
+        "width": 1599,
+        "height": 1066,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 59066,
+        "width": 1599,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "6c41dfc58b3e47f3192e4d90ddd58b54c18d68d24cc90cbff0d3b633a51ecdfd",
+      "deliveryHash": "883f1ca1dee86146f4f4e7f28c7fbe14c792d307c55bbe9701574a56eb1f1a29"
+    },
+    {
+      "source": "assets/images/ccp/photo_1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/photo_1.master.webp",
+      "delivery": "assets/images/delivery/ccp/photo_1.webp",
+      "masterInfo": {
+        "bytes": 294786,
+        "width": 2061,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 163888,
+        "width": 2061,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "32c60edd2537c86f39fdbe6bf131bd2cef06ae1aa050469238d2f92df9d8bae1",
+      "deliveryHash": "6f74b91f38411260a2252f04a97374bc643d4e1f5aafbc75f20519d20f28d347"
+    },
+    {
+      "source": "assets/images/ccp/photo_10.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/photo_10.master.webp",
+      "delivery": "assets/images/delivery/ccp/photo_10.webp",
+      "masterInfo": {
+        "bytes": 134854,
+        "width": 780,
+        "height": 1040,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 93876,
+        "width": 780,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "293038ce5b37052abbfa2f819cfe2671f500211d6cb05f41764f45bf63b30f8e",
+      "deliveryHash": "c54172fa1bc966eae3e9ebc3c880d12da55d34407fafe2b2e22a9edb3ceb4ec4"
+    },
+    {
+      "source": "assets/images/ccp/photo_11.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/photo_11.master.webp",
+      "delivery": "assets/images/delivery/ccp/photo_11.webp",
+      "masterInfo": {
+        "bytes": 167814,
+        "width": 1032,
+        "height": 774,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 118072,
+        "width": 1032,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "f04c9fd0e2171e2ae3c47c0f8de8d50e4f01afe9fde9940c4eca36a632624a90",
+      "deliveryHash": "b2e53921a24b4fb955cdf8da08b7c47778b84bf2e45d3ee04db0a95280e7a5c3"
+    },
+    {
+      "source": "assets/images/ccp/photo_12.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/photo_12.master.webp",
+      "delivery": "assets/images/delivery/ccp/photo_12.webp",
+      "masterInfo": {
+        "bytes": 122032,
+        "width": 1032,
+        "height": 774,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 80032,
+        "width": 1032,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "8510f219800f0208a5a2411f503619b1183124775747b14a4bb7ebea6c3d3974",
+      "deliveryHash": "29a8c581e1ff60ba558686f96d0b2c3f13df0ef851bcd815edd420efed0d04be"
+    },
+    {
+      "source": "assets/images/ccp/photo_2.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/photo_2.master.webp",
+      "delivery": "assets/images/delivery/ccp/photo_2.webp",
+      "masterInfo": {
+        "bytes": 334164,
+        "width": 2061,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 199566,
+        "width": 2061,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "5634914c65ae61cfe18a2a71826ba132148cac7b463df9cc2a2865310aa0772c",
+      "deliveryHash": "e57971ea166274f755dab6c3a6cf4d8e33c703063322ea04614cbd08761023ed"
+    },
+    {
+      "source": "assets/images/ccp/photo_3.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/photo_3.master.webp",
+      "delivery": "assets/images/delivery/ccp/photo_3.webp",
+      "masterInfo": {
+        "bytes": 502956,
+        "width": 2061,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 347850,
+        "width": 2061,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "483074ea31351a441c1774af3dfe16873b291a0e6809daa9f541a9effc7bb844",
+      "deliveryHash": "684839451fdc145cc10cc6b4d87b92f2f280e1897d1116e3362b82f559a7390a"
+    },
+    {
+      "source": "assets/images/ccp/photo_4.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/photo_4.master.webp",
+      "delivery": "assets/images/delivery/ccp/photo_4.webp",
+      "masterInfo": {
+        "bytes": 144184,
+        "width": 1080,
+        "height": 608,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 101760,
+        "width": 1080,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "353aac0c654bc0a6e05092e6adc255f517d6933159478b5cea7233e95ed7acca",
+      "deliveryHash": "5a1478117ba2bf7a635540d9ce60e2abe19b908a78c3104b3c32b0f0a3c1860a"
+    },
+    {
+      "source": "assets/images/ccp/photo_5.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/photo_5.master.webp",
+      "delivery": "assets/images/delivery/ccp/photo_5.webp",
+      "masterInfo": {
+        "bytes": 170158,
+        "width": 1280,
+        "height": 720,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 121022,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "d14d2c42a43beb603974b3ec3cecee55f3be3459e1383c1c905dc81cff3982ef",
+      "deliveryHash": "040b8b07830d204b4d46bfae4849f4fa22e10ebcc4a512dfc89624291bf249ec"
+    },
+    {
+      "source": "assets/images/ccp/photo_6.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/photo_6.master.webp",
+      "delivery": "assets/images/delivery/ccp/photo_6.webp",
+      "masterInfo": {
+        "bytes": 580020,
+        "width": 2070,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 382428,
+        "width": 2070,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "7488db32a478d9a8cda33b2e96729ac7ddb4ee3c7362a1579bcee5eac0e8b82f",
+      "deliveryHash": "92035f101788ac7dbc0e6b7eb8a5edffec757e5b8abad601b34ef40734d00ca0"
+    },
+    {
+      "source": "assets/images/ccp/photo_7.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/photo_7.master.webp",
+      "delivery": "assets/images/delivery/ccp/photo_7.webp",
+      "masterInfo": {
+        "bytes": 501510,
+        "width": 2070,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 299860,
+        "width": 2070,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "03e01a124ddff014c0ee4458d7fd1594d0cb8e3b79b15b1aaa35c219e09b5a52",
+      "deliveryHash": "998c17f8094bffd900684a961758b38d897f079c06e80aae64c894e8194cad0c"
+    },
+    {
+      "source": "assets/images/ccp/photo_8.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/photo_8.master.webp",
+      "delivery": "assets/images/delivery/ccp/photo_8.webp",
+      "masterInfo": {
+        "bytes": 158484,
+        "width": 1040,
+        "height": 780,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 112258,
+        "width": 1040,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "b316b78a592fa2527130b4abd7f3d34dc7f0178fd626a53948f811a85b623e3a",
+      "deliveryHash": "cd8c8203257daa0e840d97ee76405287230ff8b180ecf3cb0427e2a756a747f7"
+    },
+    {
+      "source": "assets/images/ccp/photo_9.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/ccp/photo_9.master.webp",
+      "delivery": "assets/images/delivery/ccp/photo_9.webp",
+      "masterInfo": {
+        "bytes": 144184,
+        "width": 1080,
+        "height": 608,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 101760,
+        "width": 1080,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "353aac0c654bc0a6e05092e6adc255f517d6933159478b5cea7233e95ed7acca",
+      "deliveryHash": "5a1478117ba2bf7a635540d9ce60e2abe19b908a78c3104b3c32b0f0a3c1860a"
+    },
+    {
+      "source": "assets/images/contact/contact-hero-lake-energies.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/contact/contact-hero-lake-energies.master.webp",
+      "delivery": "assets/images/delivery/contact/contact-hero-lake-energies.webp",
+      "masterInfo": {
+        "bytes": 262780,
+        "width": 1672,
+        "height": 940,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 148892,
+        "width": 1672,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "315cf4465e37e38d9b7d141383d0b49f77c502f3a6e99f21c36fb83dfe300b01",
+      "deliveryHash": "f04e7caef88ea631ffc83ab1fb765ad75cfa2b9f084e680ad8c3500bb8c01ce8"
+    },
+    {
+      "source": "assets/images/contact/kigamboni-hq.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/contact/kigamboni-hq.master.webp",
+      "delivery": "assets/images/delivery/contact/kigamboni-hq.webp",
+      "masterInfo": {
+        "bytes": 241716,
+        "width": 1535,
+        "height": 1024,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 137686,
+        "width": 1535,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "432ccbd5a2924e2384d34aef7b6ef3a1b7242e680ccc9258cda13be18a0abd32",
+      "deliveryHash": "16ece5e3959b5c4fd765392f89b11c5c3bb65a504986bf08c41a3c51e84f2a71"
+    },
+    {
+      "source": "assets/images/cross-country/cross-country-hero-960.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/cross-country/cross-country-hero-960.master.webp",
+      "delivery": "assets/images/delivery/cross-country/cross-country-hero-960.webp",
+      "masterInfo": {
+        "bytes": 83102,
+        "width": 960,
+        "height": 539,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 52634,
+        "width": 960,
+        "quality": 84
+      },
+      "referencesUpdated": 2,
+      "masterHash": "7367a165d116fb16f7e247756ed3c24291baa4184e124ec386b1b0fa8e03a648",
+      "deliveryHash": "16d35c03d62261ed0a22c041964b5989c8fce6a5d69af1a9f9bbc1dc6f447bda"
+    },
+    {
+      "source": "assets/images/cross-country/cross-country-hero-thumb.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/cross-country/cross-country-hero-thumb.master.webp",
+      "delivery": "assets/images/delivery/cross-country/cross-country-hero-thumb.webp",
+      "masterInfo": {
+        "bytes": 8042,
+        "width": 240,
+        "height": 140,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 5038,
+        "width": 240,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "e1632aff66bc6f9a7f75eeec4011341b8aa4653f3201307f3d5e7bb024a743fc",
+      "deliveryHash": "0619ffefa8e39aa731bc455dd6311d71f2d61f32588a1f09365161707970e461"
+    },
+    {
+      "source": "assets/images/cross-country/cross-country-hero.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/cross-country/cross-country-hero.master.webp",
+      "delivery": "assets/images/delivery/cross-country/cross-country-hero.webp",
+      "masterInfo": {
+        "bytes": 213502,
+        "width": 1672,
+        "height": 940,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 113206,
+        "width": 1672,
+        "quality": 84
+      },
+      "referencesUpdated": 2,
+      "masterHash": "d6296a21fc0fd00ecc6841f0e566e0be36bd61451896ffe4e11d4fb234dcb864",
+      "deliveryHash": "76f9f0f4495e6b665078de8dc68d80ec0028fd4ecd8a4a92cc46c8220622eda4"
+    },
+    {
+      "source": "assets/images/ficd/TA/photo_1.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/ficd/TA/photo_1.master.webp",
+      "delivery": "assets/images/delivery/ficd/TA/photo_1.webp",
+      "masterInfo": {
+        "bytes": 986066,
+        "width": 2048,
+        "height": 1080,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 504094,
+        "width": 2000,
+        "quality": 72
+      },
+      "referencesUpdated": 0,
+      "masterHash": "31356cc28a37b39b001cc30d21dd96e7c2b246d6cb11fcd8f2ef081a7e9e4105",
+      "deliveryHash": "7fc380b3547089e3d5bf82d8bb911c73948aebca2fe725c376637a2c24924503"
+    },
+    {
+      "source": "assets/images/gccp/lake-premix-batching-plant.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/gccp/lake-premix-batching-plant.master.webp",
+      "delivery": "assets/images/delivery/gccp/lake-premix-batching-plant.webp",
+      "masterInfo": {
+        "bytes": 328974,
+        "width": 1541,
+        "height": 1021,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 193810,
+        "width": 1541,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "2c9cb10a4fbb697ad08da3e29c9d88dda462c9850c426de9b406518412c12ed9",
+      "deliveryHash": "fb5f5eb1b2e76db31457a07776b3065af932128acf7cb0206ac551722ae67768"
+    },
+    {
+      "source": "assets/images/gccp/photo_1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/gccp/photo_1.master.webp",
+      "delivery": "assets/images/delivery/gccp/photo_1.webp",
+      "masterInfo": {
+        "bytes": 294786,
+        "width": 2061,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 163888,
+        "width": 2061,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "32c60edd2537c86f39fdbe6bf131bd2cef06ae1aa050469238d2f92df9d8bae1",
+      "deliveryHash": "6f74b91f38411260a2252f04a97374bc643d4e1f5aafbc75f20519d20f28d347"
+    },
+    {
+      "source": "assets/images/gccp/photo_10.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/gccp/photo_10.master.webp",
+      "delivery": "assets/images/delivery/gccp/photo_10.webp",
+      "masterInfo": {
+        "bytes": 134854,
+        "width": 780,
+        "height": 1040,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 93876,
+        "width": 780,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "293038ce5b37052abbfa2f819cfe2671f500211d6cb05f41764f45bf63b30f8e",
+      "deliveryHash": "c54172fa1bc966eae3e9ebc3c880d12da55d34407fafe2b2e22a9edb3ceb4ec4"
+    },
+    {
+      "source": "assets/images/gccp/photo_11.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/gccp/photo_11.master.webp",
+      "delivery": "assets/images/delivery/gccp/photo_11.webp",
+      "masterInfo": {
+        "bytes": 167814,
+        "width": 1032,
+        "height": 774,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 118072,
+        "width": 1032,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "f04c9fd0e2171e2ae3c47c0f8de8d50e4f01afe9fde9940c4eca36a632624a90",
+      "deliveryHash": "b2e53921a24b4fb955cdf8da08b7c47778b84bf2e45d3ee04db0a95280e7a5c3"
+    },
+    {
+      "source": "assets/images/gccp/photo_12.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/gccp/photo_12.master.webp",
+      "delivery": "assets/images/delivery/gccp/photo_12.webp",
+      "masterInfo": {
+        "bytes": 122032,
+        "width": 1032,
+        "height": 774,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 80032,
+        "width": 1032,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "8510f219800f0208a5a2411f503619b1183124775747b14a4bb7ebea6c3d3974",
+      "deliveryHash": "29a8c581e1ff60ba558686f96d0b2c3f13df0ef851bcd815edd420efed0d04be"
+    },
+    {
+      "source": "assets/images/gccp/photo_2.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/gccp/photo_2.master.webp",
+      "delivery": "assets/images/delivery/gccp/photo_2.webp",
+      "masterInfo": {
+        "bytes": 334164,
+        "width": 2061,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 199566,
+        "width": 2061,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "5634914c65ae61cfe18a2a71826ba132148cac7b463df9cc2a2865310aa0772c",
+      "deliveryHash": "e57971ea166274f755dab6c3a6cf4d8e33c703063322ea04614cbd08761023ed"
+    },
+    {
+      "source": "assets/images/gccp/photo_3.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/gccp/photo_3.master.webp",
+      "delivery": "assets/images/delivery/gccp/photo_3.webp",
+      "masterInfo": {
+        "bytes": 502956,
+        "width": 2061,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 347850,
+        "width": 2061,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "483074ea31351a441c1774af3dfe16873b291a0e6809daa9f541a9effc7bb844",
+      "deliveryHash": "684839451fdc145cc10cc6b4d87b92f2f280e1897d1116e3362b82f559a7390a"
+    },
+    {
+      "source": "assets/images/gccp/photo_4.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/gccp/photo_4.master.webp",
+      "delivery": "assets/images/delivery/gccp/photo_4.webp",
+      "masterInfo": {
+        "bytes": 144184,
+        "width": 1080,
+        "height": 608,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 101760,
+        "width": 1080,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "353aac0c654bc0a6e05092e6adc255f517d6933159478b5cea7233e95ed7acca",
+      "deliveryHash": "5a1478117ba2bf7a635540d9ce60e2abe19b908a78c3104b3c32b0f0a3c1860a"
+    },
+    {
+      "source": "assets/images/gccp/photo_5.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/gccp/photo_5.master.webp",
+      "delivery": "assets/images/delivery/gccp/photo_5.webp",
+      "masterInfo": {
+        "bytes": 170158,
+        "width": 1280,
+        "height": 720,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 121022,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "d14d2c42a43beb603974b3ec3cecee55f3be3459e1383c1c905dc81cff3982ef",
+      "deliveryHash": "040b8b07830d204b4d46bfae4849f4fa22e10ebcc4a512dfc89624291bf249ec"
+    },
+    {
+      "source": "assets/images/gccp/photo_6.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/gccp/photo_6.master.webp",
+      "delivery": "assets/images/delivery/gccp/photo_6.webp",
+      "masterInfo": {
+        "bytes": 580020,
+        "width": 2070,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 382428,
+        "width": 2070,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "7488db32a478d9a8cda33b2e96729ac7ddb4ee3c7362a1579bcee5eac0e8b82f",
+      "deliveryHash": "92035f101788ac7dbc0e6b7eb8a5edffec757e5b8abad601b34ef40734d00ca0"
+    },
+    {
+      "source": "assets/images/gccp/photo_7.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/gccp/photo_7.master.webp",
+      "delivery": "assets/images/delivery/gccp/photo_7.webp",
+      "masterInfo": {
+        "bytes": 501510,
+        "width": 2070,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 299860,
+        "width": 2070,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "03e01a124ddff014c0ee4458d7fd1594d0cb8e3b79b15b1aaa35c219e09b5a52",
+      "deliveryHash": "998c17f8094bffd900684a961758b38d897f079c06e80aae64c894e8194cad0c"
+    },
+    {
+      "source": "assets/images/gccp/photo_8.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/gccp/photo_8.master.webp",
+      "delivery": "assets/images/delivery/gccp/photo_8.webp",
+      "masterInfo": {
+        "bytes": 158484,
+        "width": 1040,
+        "height": 780,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 112258,
+        "width": 1040,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "b316b78a592fa2527130b4abd7f3d34dc7f0178fd626a53948f811a85b623e3a",
+      "deliveryHash": "cd8c8203257daa0e840d97ee76405287230ff8b180ecf3cb0427e2a756a747f7"
+    },
+    {
+      "source": "assets/images/gccp/photo_9.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/gccp/photo_9.master.webp",
+      "delivery": "assets/images/delivery/gccp/photo_9.webp",
+      "masterInfo": {
+        "bytes": 144184,
+        "width": 1080,
+        "height": 608,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 101760,
+        "width": 1080,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "353aac0c654bc0a6e05092e6adc255f517d6933159478b5cea7233e95ed7acca",
+      "deliveryHash": "5a1478117ba2bf7a635540d9ce60e2abe19b908a78c3104b3c32b0f0a3c1860a"
+    },
+    {
+      "source": "assets/images/group/ops/depot-aerial.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/group/ops/depot-aerial.master.webp",
+      "delivery": "assets/images/delivery/group/ops/depot-aerial.webp",
+      "masterInfo": {
+        "bytes": 669090,
+        "width": 2400,
+        "height": 1600,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 434312,
+        "width": 2400,
+        "quality": 84
+      },
+      "referencesUpdated": 4,
+      "masterHash": "916b19a015ecb016e946c4327f676ea4153d33229391a76c428bacaa14dd6f6a",
+      "deliveryHash": "a91a2b9357ec26f451274c0b20c150f40b8930917b45e7d3a22db103b7c4a48c"
+    },
+    {
+      "source": "assets/images/group/ops/tanker-loading.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/group/ops/tanker-loading.master.webp",
+      "delivery": "assets/images/delivery/group/ops/tanker-loading.webp",
+      "masterInfo": {
+        "bytes": 290252,
+        "width": 1136,
+        "height": 752,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 208852,
+        "width": 1136,
+        "quality": 84
+      },
+      "referencesUpdated": 3,
+      "masterHash": "057d7312188bd5b6fb9180d4ff8ffa6cee1fe567aa3d57b851c0e69f229b688e",
+      "deliveryHash": "04db950ae54b051b4c21a5e18278c12e1b60ebffd011f8b532176b5257c66c5b"
+    },
+    {
+      "source": "assets/images/gulf-aggregates/hero/gulf-aggregates-hero-960.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/gulf-aggregates/hero/gulf-aggregates-hero-960.master.webp",
+      "delivery": "assets/images/delivery/gulf-aggregates/hero/gulf-aggregates-hero-960.webp",
+      "masterInfo": {
+        "bytes": 301798,
+        "width": 960,
+        "height": 635,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 228340,
+        "width": 960,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "a9e887d9face02dcfb21b08a20da0252785ea5e45e8259afe3a267cbbe9dd6b2",
+      "deliveryHash": "350304f65fa17ffc8f81403f64c5d9ae35abd51bcc70407e8b7af23bbb15c8c3"
+    }
+  ]
+}

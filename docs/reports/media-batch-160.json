@@ -1,0 +1,1608 @@
+{
+  "generatedAt": "2026-09-08T08:29:11.307Z",
+  "start": 160,
+  "batchSize": 80,
+  "candidates": 337,
+  "results": [
+    {
+      "source": "assets/images/lakelubes/products/optimized/super-cool-5l.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakelubes/products/optimized/super-cool-5l.master.webp",
+      "delivery": "assets/images/delivery/lakelubes/products/optimized/super-cool-5l.webp",
+      "masterInfo": {
+        "bytes": 128306,
+        "width": 900,
+        "height": 1352,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 74444,
+        "width": 900,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "60232fc21eaf337b6192fffc23a0e958b298e8946f05c038d64c3d2cf5dc335b",
+      "deliveryHash": "3613ac797a4c09ced4c601dd8e81c481cbe66eb2afb1b42989fbe6cc733ee07e"
+    },
+    {
+      "source": "assets/images/lakelubes/TA/photo_1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakelubes/TA/photo_1.master.webp",
+      "delivery": "assets/images/delivery/lakelubes/TA/photo_1.webp",
+      "masterInfo": {
+        "bytes": 177464,
+        "width": 2070,
+        "height": 1379,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 100066,
+        "width": 2070,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "bfed4d8aa52ee3c5ba6be76c8b2d88bdf9f5611b15ae1191717fa44e0b4638e7",
+      "deliveryHash": "26ea2f6702af67c0a249ccbd30f9d634e8f13c6dace0301b310f870f12972243"
+    },
+    {
+      "source": "assets/images/lakelubes/TA/photo_2.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakelubes/TA/photo_2.master.webp",
+      "delivery": "assets/images/delivery/lakelubes/TA/photo_2.webp",
+      "masterInfo": {
+        "bytes": 50350,
+        "width": 800,
+        "height": 533,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 29774,
+        "width": 800,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "2d150de1c8967d7fc2d74c62a97c402b38768da014d203dc5dfc315d4b22a628",
+      "deliveryHash": "2b82c9b30b3206f74640bb45d414e3cc1f5721bcec0eef43dce68bf9fb0137b2"
+    },
+    {
+      "source": "assets/images/lakelubes/TA/photo_3.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakelubes/TA/photo_3.master.webp",
+      "delivery": "assets/images/delivery/lakelubes/TA/photo_3.webp",
+      "masterInfo": {
+        "bytes": 223600,
+        "width": 2070,
+        "height": 1379,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 145150,
+        "width": 2070,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "5d74b5c4aa5a0fe77a19d2a04d7417899badfb26c415b3e6c858ed72a73d3876",
+      "deliveryHash": "2fed30579036366d2f81c73047fdee88ef0aeb7732e299c5ac37dd072e3dceb5"
+    },
+    {
+      "source": "assets/images/lakelubes/TA/photo_4.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakelubes/TA/photo_4.master.webp",
+      "delivery": "assets/images/delivery/lakelubes/TA/photo_4.webp",
+      "masterInfo": {
+        "bytes": 80542,
+        "width": 2070,
+        "height": 1379,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 43320,
+        "width": 2070,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "70014cf5d6a676851149defc8880c6ee7639b4304ac0bc3e2d318f8d8cf27994",
+      "deliveryHash": "5af152c228675deb294087f047590377629838eaaed6adb59468b6edceee844c"
+    },
+    {
+      "source": "assets/images/lakeoil/current/lake-energies-station-approved.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakeoil/current/lake-energies-station-approved.master.webp",
+      "delivery": "assets/images/delivery/lakeoil/current/lake-energies-station-approved.webp",
+      "masterInfo": {
+        "bytes": 258822,
+        "width": 1489,
+        "height": 1056,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 160510,
+        "width": 1489,
+        "quality": 84
+      },
+      "referencesUpdated": 6,
+      "masterHash": "536697dae1c3337595dc1afbd78c56e155d5ba2cd12c86b42c29da976ade9dc6",
+      "deliveryHash": "b0b5822c5db47cc1df0ecaf21acc486b716fd25813189385a36d313f57da3110"
+    },
+    {
+      "source": "assets/images/lakeoil/current/lake-energies-tanker-network.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakeoil/current/lake-energies-tanker-network.master.webp",
+      "delivery": "assets/images/delivery/lakeoil/current/lake-energies-tanker-network.webp",
+      "masterInfo": {
+        "bytes": 216416,
+        "width": 1672,
+        "height": 941,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 123576,
+        "width": 1672,
+        "quality": 84
+      },
+      "referencesUpdated": 2,
+      "masterHash": "700e8258dc3727bbc626f5a244ba24f582c0e37f5a8c66f069cd74d39fa44108",
+      "deliveryHash": "7ce188f07753788073a14ba12ac61ae02cda9652cbfff69922ffc6f975812c17"
+    },
+    {
+      "source": "assets/images/lakeoil/current/storage-facilities-terminal.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakeoil/current/storage-facilities-terminal.master.webp",
+      "delivery": "assets/images/delivery/lakeoil/current/storage-facilities-terminal.webp",
+      "masterInfo": {
+        "bytes": 262780,
+        "width": 1672,
+        "height": 940,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 148892,
+        "width": 1672,
+        "quality": 84
+      },
+      "referencesUpdated": 2,
+      "masterHash": "315cf4465e37e38d9b7d141383d0b49f77c502f3a6e99f21c36fb83dfe300b01",
+      "deliveryHash": "f04e7caef88ea631ffc83ab1fb765ad75cfa2b9f084e680ad8c3500bb8c01ce8"
+    },
+    {
+      "source": "assets/images/lakeoil/current/tanker-lake-energies-opt.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakeoil/current/tanker-lake-energies-opt.master.webp",
+      "delivery": "assets/images/delivery/lakeoil/current/tanker-lake-energies-opt.webp",
+      "masterInfo": {
+        "bytes": 169562,
+        "width": 800,
+        "height": 500,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 122464,
+        "width": 800,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "8f2ffa20ffe73c8966167ff41e8638e6e81b3848e4a45180ae302005bd15d540",
+      "deliveryHash": "76e48ae305b33be1a5f149e4f945617cb0636c771019da8c6d39f160a6638652"
+    },
+    {
+      "source": "assets/images/lakeoil/current/tanker-lake-energies.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakeoil/current/tanker-lake-energies.master.webp",
+      "delivery": "assets/images/delivery/lakeoil/current/tanker-lake-energies.webp",
+      "masterInfo": {
+        "bytes": 641498,
+        "width": 1800,
+        "height": 1191,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 449028,
+        "width": 1800,
+        "quality": 84
+      },
+      "referencesUpdated": 2,
+      "masterHash": "416411c32c57153e515c98dba7feca2564fe93baf08b44a2b2a3a136d6f0790b",
+      "deliveryHash": "e64a5d04f89042817b81985e8e49f76cb2718b1c759f004777965aa7898f3863"
+    },
+    {
+      "source": "assets/images/lakeoil/current/tanker-lake-energies.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakeoil/current/tanker-lake-energies.master.webp",
+      "delivery": "assets/images/delivery/lakeoil/current/tanker-lake-energies.webp",
+      "masterInfo": {
+        "bytes": 641498,
+        "width": 1800,
+        "height": 1191,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 449028,
+        "width": 1800,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "416411c32c57153e515c98dba7feca2564fe93baf08b44a2b2a3a136d6f0790b",
+      "deliveryHash": "e64a5d04f89042817b81985e8e49f76cb2718b1c759f004777965aa7898f3863"
+    },
+    {
+      "source": "assets/images/lakeoil/hero/lake-oil-hero-800.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakeoil/hero/lake-oil-hero-800.master.webp",
+      "delivery": "assets/images/delivery/lakeoil/hero/lake-oil-hero-800.webp",
+      "masterInfo": {
+        "bytes": 93300,
+        "width": 800,
+        "height": 567,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 64022,
+        "width": 800,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "670f217b7170a096ee2c07c276e00284acb5c6eeba90b3bacb659d89dc82d2b7",
+      "deliveryHash": "28ae50324b3e60aced0622770ef8350a30e5e9113f20deecc9cb6c06a8ab53bd"
+    },
+    {
+      "source": "assets/images/lakeoil/hero/lake-oil-hero.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakeoil/hero/lake-oil-hero.master.webp",
+      "delivery": "assets/images/delivery/lakeoil/hero/lake-oil-hero.webp",
+      "masterInfo": {
+        "bytes": 258822,
+        "width": 1489,
+        "height": 1056,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 160510,
+        "width": 1489,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "536697dae1c3337595dc1afbd78c56e155d5ba2cd12c86b42c29da976ade9dc6",
+      "deliveryHash": "b0b5822c5db47cc1df0ecaf21acc486b716fd25813189385a36d313f57da3110"
+    },
+    {
+      "source": "assets/images/lakepipes/hero/lake-pipes-hero-800.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakepipes/hero/lake-pipes-hero-800.master.webp",
+      "delivery": "assets/images/delivery/lakepipes/hero/lake-pipes-hero-800.webp",
+      "masterInfo": {
+        "bytes": 90084,
+        "width": 800,
+        "height": 473,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 62434,
+        "width": 800,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "5600cc104d5c6c9b087b243802a3285da0af0f5263eee2ed7f40f144c7f36180",
+      "deliveryHash": "e0793c25cddb8ea5c417fae6940c9913dca841491584078567c8f95fe61fe092"
+    },
+    {
+      "source": "assets/images/lakepipes/hero/lake-pipes-hero.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakepipes/hero/lake-pipes-hero.master.webp",
+      "delivery": "assets/images/delivery/lakepipes/hero/lake-pipes-hero.webp",
+      "masterInfo": {
+        "bytes": 78678,
+        "width": 1200,
+        "height": 600,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 60740,
+        "width": 1200,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "5847e29c8d3ff63e9460b0f50c488144e4ab077a5c45ed677822e98305249c07",
+      "deliveryHash": "15f7d8668046ad542aba04addc7b342a3099ed3e885860fac921383f48d4c572"
+    },
+    {
+      "source": "assets/images/lakepremix/hero/premix-trucks-hero-800.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakepremix/hero/premix-trucks-hero-800.master.webp",
+      "delivery": "assets/images/delivery/lakepremix/hero/premix-trucks-hero-800.webp",
+      "masterInfo": {
+        "bytes": 125656,
+        "width": 800,
+        "height": 533,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 89232,
+        "width": 800,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "f0eb4ded7ae04ad0184ce3fc10a00484eaf63b19bebf77487ebcd1be4718fc66",
+      "deliveryHash": "3724a621323d53e0a589ebcc59ee0fcec67243528a869db577ac7b3931ba634c"
+    },
+    {
+      "source": "assets/images/lakepremix/hero/premix-trucks-hero.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakepremix/hero/premix-trucks-hero.master.webp",
+      "delivery": "assets/images/delivery/lakepremix/hero/premix-trucks-hero.webp",
+      "masterInfo": {
+        "bytes": 350742,
+        "width": 1536,
+        "height": 1024,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 223526,
+        "width": 1536,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "e264b5ea1f1fc338697552401c93d25ef8c33572a065c706d1ff910b2145a39f",
+      "deliveryHash": "54ecea5f8e4e9c1b2c6102ba34391dd76fff06b00268848651270db5fcf84dfc"
+    },
+    {
+      "source": "assets/images/lakesteel/ops/hot-rolling-opt.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakesteel/ops/hot-rolling-opt.master.webp",
+      "delivery": "assets/images/delivery/lakesteel/ops/hot-rolling-opt.webp",
+      "masterInfo": {
+        "bytes": 114184,
+        "width": 800,
+        "height": 500,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 79980,
+        "width": 800,
+        "quality": 84
+      },
+      "referencesUpdated": 2,
+      "masterHash": "23e00383d29f968d0a1d1e7ac1c3dc30e6f21d7eff3f314a1fb83c9fa91ea600",
+      "deliveryHash": "83241677ed945b208bf25880bf70c7ce0285bd07d4c84b26bbfbc384459a156a"
+    },
+    {
+      "source": "assets/images/lakesteel/ops/hot-rolling.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakesteel/ops/hot-rolling.master.webp",
+      "delivery": "assets/images/delivery/lakesteel/ops/hot-rolling.webp",
+      "masterInfo": {
+        "bytes": 402992,
+        "width": 1920,
+        "height": 1080,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 270768,
+        "width": 1920,
+        "quality": 84
+      },
+      "referencesUpdated": 2,
+      "masterHash": "6ae64af60eadd8a836b13280c071328f13affaefd88ab0aed55f5b0ea1c60dfc",
+      "deliveryHash": "677fdfaaee0a0c8d5f9a304421a45ae3a47eccf3289ff258830d8c42208992ec"
+    },
+    {
+      "source": "assets/images/lakesteel/ops/rebar-yard.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakesteel/ops/rebar-yard.master.webp",
+      "delivery": "assets/images/delivery/lakesteel/ops/rebar-yard.webp",
+      "masterInfo": {
+        "bytes": 366734,
+        "width": 1920,
+        "height": 1080,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 226094,
+        "width": 1920,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "0705357c6be39178b2b52eb23e41b209fd36fec69c2c9bf8cc0d71b0ba940ff6",
+      "deliveryHash": "e72a1be6cf90781c1dd2b9693ffc7d2e257ecb67fbee23d4915c41bdca77b76b"
+    },
+    {
+      "source": "assets/images/lakesteel/TA/photo_1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakesteel/TA/photo_1.master.webp",
+      "delivery": "assets/images/delivery/lakesteel/TA/photo_1.webp",
+      "masterInfo": {
+        "bytes": 518778,
+        "width": 2070,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 334486,
+        "width": 2070,
+        "quality": 84
+      },
+      "referencesUpdated": 2,
+      "masterHash": "7aa4f16c298456c6c1da4efffa06693f6a7f4af714fb57ee2f49c40bb6d4fd41",
+      "deliveryHash": "13efbdb937e3a2d73b1b4f0cf36dcb0e934d6b0863860dbdb27e6472fa83a59a"
+    },
+    {
+      "source": "assets/images/lakesteel/TA/photo_13.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakesteel/TA/photo_13.master.webp",
+      "delivery": "assets/images/delivery/lakesteel/TA/photo_13.webp",
+      "masterInfo": {
+        "bytes": 89514,
+        "width": 800,
+        "height": 533,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 63294,
+        "width": 800,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "a7e68fe43c938f8b5dc958ad2d51a193dd657fa1d6dc5eee665e935083bc25eb",
+      "deliveryHash": "8bcbe5623a52c993cdda43df7cb2efa9c71a13e9f819e4516a58c3c118d04977"
+    },
+    {
+      "source": "assets/images/lakesteel/TA/photo_14.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakesteel/TA/photo_14.master.webp",
+      "delivery": "assets/images/delivery/lakesteel/TA/photo_14.webp",
+      "masterInfo": {
+        "bytes": 71076,
+        "width": 2070,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 44276,
+        "width": 2070,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "fafa0300ed11b6bb710917e463a85426fc043023e667ab77090d30605cef03cd",
+      "deliveryHash": "f7b80787eaa6cc87020118726fb76969cf0b1eedbb8d573f3621204e665632e9"
+    },
+    {
+      "source": "assets/images/laketrans/hero/lake-trans-fleet-hero-800.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/laketrans/hero/lake-trans-fleet-hero-800.master.webp",
+      "delivery": "assets/images/delivery/laketrans/hero/lake-trans-fleet-hero-800.webp",
+      "masterInfo": {
+        "bytes": 57450,
+        "width": 800,
+        "height": 365,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 38906,
+        "width": 800,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "f0bf67abbe0e2980a65ac6175de4ffe9fc435011436cf0289f31cef18b750a3c",
+      "deliveryHash": "6fe624b8dc0cbc74457191cb69a4f55c828b8ebc1e91f3d51646007a5809a361"
+    },
+    {
+      "source": "assets/images/laketrans/hero/lake-trans-fleet-hero.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/laketrans/hero/lake-trans-fleet-hero.master.webp",
+      "delivery": "assets/images/delivery/laketrans/hero/lake-trans-fleet-hero.webp",
+      "masterInfo": {
+        "bytes": 224180,
+        "width": 1854,
+        "height": 848,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 132172,
+        "width": 1854,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "5121ea4673b0e1256808de3549a90903745f956486a843992f07c3e77eae41e6",
+      "deliveryHash": "8f8cac78f0c785815898be47ce4c46eec09271e6e84aa85cdd1304901bdb89f2"
+    },
+    {
+      "source": "assets/images/laketrans/ops/fleet-inspection.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/laketrans/ops/fleet-inspection.master.webp",
+      "delivery": "assets/images/delivery/laketrans/ops/fleet-inspection.webp",
+      "masterInfo": {
+        "bytes": 242318,
+        "width": 1280,
+        "height": 958,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 153892,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 4,
+      "masterHash": "c6b4ade26497bf44c1503c7d4521887a6818b573e716111bd479ce54a74d8a2f",
+      "deliveryHash": "29b901bdefb337af10b3b37ff9706778210bc5a0e94112f530f10a6d0ccf35fb"
+    },
+    {
+      "source": "assets/images/laketrans/profile/blue-truck-lineup.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/laketrans/profile/blue-truck-lineup.master.webp",
+      "delivery": "assets/images/delivery/laketrans/profile/blue-truck-lineup.webp",
+      "masterInfo": {
+        "bytes": 71408,
+        "width": 624,
+        "height": 540,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 50322,
+        "width": 624,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "45602f9c188025be8186adc28a244ded2a644a5d99e17bbc169d7712c081dd95",
+      "deliveryHash": "788fdbc4195b7ab307a1751e15a0e21cafa0a2077184b7e4aee8f3123736f9b1"
+    },
+    {
+      "source": "assets/images/laketrans/profile/fleet-lineup.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/laketrans/profile/fleet-lineup.master.webp",
+      "delivery": "assets/images/delivery/laketrans/profile/fleet-lineup.webp",
+      "masterInfo": {
+        "bytes": 93106,
+        "width": 960,
+        "height": 540,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 63552,
+        "width": 960,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "35b400502e3881dc4511830834222b1837732f693166b60b067252cbe0a22f76",
+      "deliveryHash": "a927bf69ac4fc5462933f81042b209b6d319d45fbf8001d2623ddef085bda2b2"
+    },
+    {
+      "source": "assets/images/laketrans/profile/fleet-tankers.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/laketrans/profile/fleet-tankers.master.webp",
+      "delivery": "assets/images/delivery/laketrans/profile/fleet-tankers.webp",
+      "masterInfo": {
+        "bytes": 40364,
+        "width": 475,
+        "height": 400,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 27950,
+        "width": 475,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "a9d07428b14a2f34b96debfb4a79ed1badac72b182e11b39194f2e4127291a2a",
+      "deliveryHash": "37f21c4dd02db3d800adc147ff1e53f0126de9e1e7343d09afb9e6c93d35fdef"
+    },
+    {
+      "source": "assets/images/laketrans/profile/lake-trans-truck-fleet.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/laketrans/profile/lake-trans-truck-fleet.master.webp",
+      "delivery": "assets/images/delivery/laketrans/profile/lake-trans-truck-fleet.webp",
+      "masterInfo": {
+        "bytes": 224180,
+        "width": 1854,
+        "height": 848,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 132172,
+        "width": 1854,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "5121ea4673b0e1256808de3549a90903745f956486a843992f07c3e77eae41e6",
+      "deliveryHash": "8f8cac78f0c785815898be47ce4c46eec09271e6e84aa85cdd1304901bdb89f2"
+    },
+    {
+      "source": "assets/images/laketrans/profile/petroleum-tanker.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/laketrans/profile/petroleum-tanker.master.webp",
+      "delivery": "assets/images/delivery/laketrans/profile/petroleum-tanker.webp",
+      "masterInfo": {
+        "bytes": 46232,
+        "width": 813,
+        "height": 300,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 32144,
+        "width": 813,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "9db0f5ad2ee9890e2c365199eecddd15ad55a1b1279854c942a99e5b2d444338",
+      "deliveryHash": "8f989cd101d5c89ac2bca3beafc587d374aab5e5f127e72f38181190cffb8ff9"
+    },
+    {
+      "source": "assets/images/laketrans/profile/road-fuel-tanker.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/laketrans/profile/road-fuel-tanker.master.webp",
+      "delivery": "assets/images/delivery/laketrans/profile/road-fuel-tanker.webp",
+      "masterInfo": {
+        "bytes": 62672,
+        "width": 731,
+        "height": 404,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 44128,
+        "width": 731,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "89d456efb677c2ce758f651fd84c2be6e793d77070391d308a35ce7f2e728d11",
+      "deliveryHash": "5c0a0d7c91d22968f2539d6ea6d61f8a827c340b92e4952d19bc6111bc68c41e"
+    },
+    {
+      "source": "assets/images/laketrans/TA/photo_1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/laketrans/TA/photo_1.master.webp",
+      "delivery": "assets/images/delivery/laketrans/TA/photo_1.webp",
+      "masterInfo": {
+        "bytes": 617988,
+        "width": 2048,
+        "height": 1080,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 435728,
+        "width": 2048,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "787d43a295889e17c4ae0a15fcb6152be9379e18e217630bcde933dafb6fcd5e",
+      "deliveryHash": "087b8ee962f3a0f1f721856732d488c5e622e1e468dfd9087202e2623a435384"
+    },
+    {
+      "source": "assets/images/laketrans/TA/photo_1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/laketrans/TA/photo_1.master.webp",
+      "delivery": "assets/images/delivery/laketrans/TA/photo_1.webp",
+      "masterInfo": {
+        "bytes": 617988,
+        "width": 2048,
+        "height": 1080,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 435728,
+        "width": 2048,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "787d43a295889e17c4ae0a15fcb6152be9379e18e217630bcde933dafb6fcd5e",
+      "deliveryHash": "087b8ee962f3a0f1f721856732d488c5e622e1e468dfd9087202e2623a435384"
+    },
+    {
+      "source": "assets/images/leadership/ally-edha-awadh-16x9.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/leadership/ally-edha-awadh-16x9.master.webp",
+      "delivery": "assets/images/delivery/leadership/ally-edha-awadh-16x9.webp",
+      "masterInfo": {
+        "bytes": 45718,
+        "width": 819,
+        "height": 460,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 29176,
+        "width": 819,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "7406801c45c55d59d20270e4b347ff0c76f421999c6d8cfc89e8a75045e2b099",
+      "deliveryHash": "f875d71c0a6758e4c9580b2399b2f003b6fe8f656df7a2af8b3951b6692c5253"
+    },
+    {
+      "source": "assets/images/leadership/ally-edha-awadh.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/leadership/ally-edha-awadh.master.webp",
+      "delivery": "assets/images/delivery/leadership/ally-edha-awadh.webp",
+      "masterInfo": {
+        "bytes": 99244,
+        "width": 819,
+        "height": 1024,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 56208,
+        "width": 819,
+        "quality": 84
+      },
+      "referencesUpdated": 3,
+      "masterHash": "30756001c28ea507407e6350d792fa5ee482bc6b2e09e73a16ebcceeeca638d2",
+      "deliveryHash": "82f42b31c374f0c775be3d973da7ec2817e38341bc27b347e009b9676a97a0bc"
+    },
+    {
+      "source": "assets/images/leadership/ally-morocco-mou.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/leadership/ally-morocco-mou.master.webp",
+      "delivery": "assets/images/delivery/leadership/ally-morocco-mou.webp",
+      "masterInfo": {
+        "bytes": 79574,
+        "width": 960,
+        "height": 640,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 51806,
+        "width": 960,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "0fefa2b7d81d030cd2c7bbbe7afd21a64baeb8b4111f8861371bd33db60d8c61",
+      "deliveryHash": "0eeea8ad480b795b31084eab8e3a53ebd172c4611ed8075f4508581538a49f55"
+    },
+    {
+      "source": "assets/images/leadership/ally-sino-trucks.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/leadership/ally-sino-trucks.master.webp",
+      "delivery": "assets/images/delivery/leadership/ally-sino-trucks.webp",
+      "masterInfo": {
+        "bytes": 107954,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 58070,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "6d6f0dd788ae866f98fc2f9b9fb4886f6764430dec3eabc6688aca9360cd0da8",
+      "deliveryHash": "9c763b7617bcd8a5cd7de6dd34c5cde2c123c1cff9ae5b64b533246791a50475"
+    },
+    {
+      "source": "assets/images/leadership/annual-event.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/leadership/annual-event.master.webp",
+      "delivery": "assets/images/delivery/leadership/annual-event.webp",
+      "masterInfo": {
+        "bytes": 180964,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 121800,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "658dc83adca653728b55f7ef08ed31f08b8d11d4d9c72f166092db11f4f24c54",
+      "deliveryHash": "da2f9be50a80ca74eb20bc4b19afa27870a6044ccd888dc7a467c6b9709fc9ef"
+    },
+    {
+      "source": "assets/images/leadership/bhaskar-shetty.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/leadership/bhaskar-shetty.master.webp",
+      "delivery": "assets/images/delivery/leadership/bhaskar-shetty.webp",
+      "masterInfo": {
+        "bytes": 41664,
+        "width": 731,
+        "height": 1024,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 22906,
+        "width": 731,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "03ba603dc053191cceb9545a1f42e2a4e694b83d8e081cb4115f94ffa94485e4",
+      "deliveryHash": "49d73354e93fe9a9ed3b03b774fb68b8bdbacf60c345c4c3206f69b17003ae14"
+    },
+    {
+      "source": "assets/images/leadership/biji-lapat.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/leadership/biji-lapat.master.webp",
+      "delivery": "assets/images/delivery/leadership/biji-lapat.webp",
+      "masterInfo": {
+        "bytes": 94304,
+        "width": 1024,
+        "height": 819,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 52616,
+        "width": 1024,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "78f3fb290686858e2853d4760cbbea7930c7c16efa8e3d50d330706474481d59",
+      "deliveryHash": "d52de9ee618b17c3e4de9cc6b438c57630ac952031b2bcf40f5a3ff79d722ed0"
+    },
+    {
+      "source": "assets/images/leadership/juma-nuru.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/leadership/juma-nuru.master.webp",
+      "delivery": "assets/images/delivery/leadership/juma-nuru.webp",
+      "masterInfo": {
+        "bytes": 101332,
+        "width": 1024,
+        "height": 819,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 59056,
+        "width": 1024,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "3dc19a6c4994e56b0430d2edb2e27ea02429af851a48a7760483fbb07b222191",
+      "deliveryHash": "ed2783437775988417d71f7ebc8ae1501277c9ddd72c1f0197cf95cdd62e100f"
+    },
+    {
+      "source": "assets/images/leadership/leadership-group-meeting.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/leadership/leadership-group-meeting.master.webp",
+      "delivery": "assets/images/delivery/leadership/leadership-group-meeting.webp",
+      "masterInfo": {
+        "bytes": 272544,
+        "width": 1821,
+        "height": 864,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 170750,
+        "width": 1821,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "45adb8ca368ead895df973ccccec55188adaaeed16c54d884bb34acaa301cec0",
+      "deliveryHash": "106887146bb52aea2e7e0ee87d8e19c3a50c93130d5efd37ed43a663a8b6fc9c"
+    },
+    {
+      "source": "assets/images/leadership/pankaj-kumar.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/leadership/pankaj-kumar.master.webp",
+      "delivery": "assets/images/delivery/leadership/pankaj-kumar.webp",
+      "masterInfo": {
+        "bytes": 84402,
+        "width": 768,
+        "height": 1024,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 45800,
+        "width": 768,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "352ae3997b4cfa52705f1c5f92f03ea7f0165b2ed209e1f33230a6e6882b05ee",
+      "deliveryHash": "3d96596a745b4fa65dbc1b98e6a02ac5d00c891a36ced85c0a88aa5a3344e6be"
+    },
+    {
+      "source": "assets/images/leadership/sibtian-ansari.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/leadership/sibtian-ansari.master.webp",
+      "delivery": "assets/images/delivery/leadership/sibtian-ansari.webp",
+      "masterInfo": {
+        "bytes": 83704,
+        "width": 1024,
+        "height": 682,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 50060,
+        "width": 1024,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "286a48f02cfc8ae1d2a1f51174d80f7046357aa16961243f7f296d0b42a972df",
+      "deliveryHash": "5b015890317e8d710793ee0feb8f47257baacfc843e5293d924b1093611ceb61"
+    },
+    {
+      "source": "assets/images/leadership/vivek-choudhary.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/leadership/vivek-choudhary.master.webp",
+      "delivery": "assets/images/delivery/leadership/vivek-choudhary.webp",
+      "masterInfo": {
+        "bytes": 61940,
+        "width": 1024,
+        "height": 812,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 36734,
+        "width": 1024,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "d603fc5ae39e636e148b3a566cd9fd998cc0e6d0ee35587224468e9a20a32c66",
+      "deliveryHash": "6aef7e4fd013f0a3223af35e8548225cc3067ba36903b971412abb412243feca"
+    },
+    {
+      "source": "assets/images/main-slider/8.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/main-slider/8.master.webp",
+      "delivery": "assets/images/delivery/main-slider/8.webp",
+      "masterInfo": {
+        "bytes": 389502,
+        "width": 2070,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 217692,
+        "width": 2070,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "d25f851b96d717d4a3888e32cdfb62383ffc5294f0dafdabbd136130002c5553",
+      "deliveryHash": "6fd5acb592cdca3a84edc9ec87af50ab1e650b95a6f3dd51041154cc11aa0035"
+    },
+    {
+      "source": "assets/images/merm/photo_1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/merm/photo_1.master.webp",
+      "delivery": "assets/images/delivery/merm/photo_1.webp",
+      "masterInfo": {
+        "bytes": 70250,
+        "width": 800,
+        "height": 455,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 48672,
+        "width": 800,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "b5b87ce9011f8870c8f40ca3a1df5148d94aa66a99f23f11080cec22f6b91ba4",
+      "deliveryHash": "f32ae7cb427a75b7338c28aecdff1df834e669b5f7a22d69b19cd24e7db46671"
+    },
+    {
+      "source": "assets/images/merm/photo_10.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/merm/photo_10.master.webp",
+      "delivery": "assets/images/delivery/merm/photo_10.webp",
+      "masterInfo": {
+        "bytes": 128070,
+        "width": 810,
+        "height": 1080,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 84252,
+        "width": 810,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "98c8da278ef41827495a1210743696b2cdee2525d8f491cb2de2dd70abb54547",
+      "deliveryHash": "6838b18ef51f1be7bf94372c72ecc15c9f75e484364ab6c78a11c285a3cf9bd3"
+    },
+    {
+      "source": "assets/images/merm/photo_2.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/merm/photo_2.master.webp",
+      "delivery": "assets/images/delivery/merm/photo_2.webp",
+      "masterInfo": {
+        "bytes": 176830,
+        "width": 1114,
+        "height": 787,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 119258,
+        "width": 1114,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "4e56973b0bcbf3fbdd9d08ea0d2f5750cbdd4a4d9bb42339c5ddc0c8aa8f12ef",
+      "deliveryHash": "100f144bf1d1ca58f4983de395b8810dcc1781e41f82c9895b0338b378ed9038"
+    },
+    {
+      "source": "assets/images/merm/photo_3.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/merm/photo_3.master.webp",
+      "delivery": "assets/images/delivery/merm/photo_3.webp",
+      "masterInfo": {
+        "bytes": 341806,
+        "width": 1600,
+        "height": 1067,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 240332,
+        "width": 1600,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "a67c5b30aac961f9ec016b9c8cec051c81a94e0ab41f55a571298b93b007aaf2",
+      "deliveryHash": "2ab93d2b78900d53b0169a0aa42a5d6d6fe7d06881c72c461ee445d4dd7bea06"
+    },
+    {
+      "source": "assets/images/merm/photo_4.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/merm/photo_4.master.webp",
+      "delivery": "assets/images/delivery/merm/photo_4.webp",
+      "masterInfo": {
+        "bytes": 24024,
+        "width": 332,
+        "height": 196,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 17480,
+        "width": 332,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "91c197f3bb043f2827d221aa022b4804cf5d94ecb316ee24847ec09502a60655",
+      "deliveryHash": "faa81338e797473ca28d7c0f6c14a2a58ac9e3ee44d9042731b8e8cd9d33ddc9"
+    },
+    {
+      "source": "assets/images/merm/photo_5.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/merm/photo_5.master.webp",
+      "delivery": "assets/images/delivery/merm/photo_5.webp",
+      "masterInfo": {
+        "bytes": 71540,
+        "width": 1080,
+        "height": 810,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 45084,
+        "width": 1080,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "83622e1dabebc1c6b7d2528dff81c6a9c87c20c34aa870b8c99accc874a7e4e4",
+      "deliveryHash": "450d64b9e33a837296e5391372837dedc1b68af3408bfe248b0e75ea48c85fc6"
+    },
+    {
+      "source": "assets/images/merm/photo_6.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/merm/photo_6.master.webp",
+      "delivery": "assets/images/delivery/merm/photo_6.webp",
+      "masterInfo": {
+        "bytes": 166972,
+        "width": 810,
+        "height": 1080,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 115728,
+        "width": 810,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "7bc53e163cec3540f6ec732b3c4b8bd2be5b0d7b3de14b2c7d64c4e0c88600d2",
+      "deliveryHash": "e7d2298901b5846b0da6b1c38ae169f06abc211c54efe98696498f4f14eb57e1"
+    },
+    {
+      "source": "assets/images/merm/photo_7.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/merm/photo_7.master.webp",
+      "delivery": "assets/images/delivery/merm/photo_7.webp",
+      "masterInfo": {
+        "bytes": 129326,
+        "width": 1080,
+        "height": 810,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 82272,
+        "width": 1080,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "a16a462deba9fe0792584c633c82d37c1a0a9a85b8e6f932e0facf95ce9b18a2",
+      "deliveryHash": "fccb78a94a85c4904be91fcf50ae20a045d3009f072669203d03788a74da806a"
+    },
+    {
+      "source": "assets/images/merm/photo_8.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/merm/photo_8.master.webp",
+      "delivery": "assets/images/delivery/merm/photo_8.webp",
+      "masterInfo": {
+        "bytes": 130118,
+        "width": 1080,
+        "height": 810,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 86372,
+        "width": 1080,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "73f1bb75bb4274904d9840b909eddbdb698d780177d4edb4713f939346c88815",
+      "deliveryHash": "7981da1fb3b51bebf17fbb687ddfe71c3bc6619c7ce7772ccbe7d4b6c702d803"
+    },
+    {
+      "source": "assets/images/merm/photo_9.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/merm/photo_9.master.webp",
+      "delivery": "assets/images/delivery/merm/photo_9.webp",
+      "masterInfo": {
+        "bytes": 113850,
+        "width": 1080,
+        "height": 810,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 67780,
+        "width": 1080,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "b64c5af7b97ebef1cf862d1555d62ee0365f32614c3339460d30da472ff4a3ed",
+      "deliveryHash": "f6a5c4ad2a6acafb8b63d336837f0a88084f3363dc50b8891048c09e39bd41c0"
+    },
+    {
+      "source": "assets/images/n-slider/2.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/n-slider/2.master.webp",
+      "delivery": "assets/images/delivery/n-slider/2.webp",
+      "masterInfo": {
+        "bytes": 231744,
+        "width": 2061,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 110740,
+        "width": 2061,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "54e94d05701a9c873a781d3d7a9de0f167aff645a0c354fb8c3685d273e88d92",
+      "deliveryHash": "dcadeda845fd97374d0b0d355ec37ce15f3d20d06aea27cad657536c01d0898d"
+    },
+    {
+      "source": "assets/images/n-slider/3.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/n-slider/3.master.webp",
+      "delivery": "assets/images/delivery/n-slider/3.webp",
+      "masterInfo": {
+        "bytes": 591752,
+        "width": 2070,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 362770,
+        "width": 2070,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "c443e8efb8e47fcd460e30e34b00dc1a29869b130079fff19ac22e4c72ddda52",
+      "deliveryHash": "7c8e76a818c0f7e826a59fb236eac60f5020ade662f24f10913f5f36b906e46a"
+    },
+    {
+      "source": "assets/images/n-slider/3.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/n-slider/3.master.webp",
+      "delivery": "assets/images/delivery/n-slider/3.webp",
+      "masterInfo": {
+        "bytes": 591752,
+        "width": 2070,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 362770,
+        "width": 2070,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "c443e8efb8e47fcd460e30e34b00dc1a29869b130079fff19ac22e4c72ddda52",
+      "deliveryHash": "7c8e76a818c0f7e826a59fb236eac60f5020ade662f24f10913f5f36b906e46a"
+    },
+    {
+      "source": "assets/images/n-slider/4.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/n-slider/4.master.webp",
+      "delivery": "assets/images/delivery/n-slider/4.webp",
+      "masterInfo": {
+        "bytes": 432894,
+        "width": 2070,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 243424,
+        "width": 2070,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "6904d36f7fa0ea54d40acd41abee6f96e0cf497033590965ed334ec242a91620",
+      "deliveryHash": "414b27fb0389b3ae5bb5233e1f12242fcf522b9099da5384cd757ad51aa76c2c"
+    },
+    {
+      "source": "assets/images/n-slider/4.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/n-slider/4.master.webp",
+      "delivery": "assets/images/delivery/n-slider/4.webp",
+      "masterInfo": {
+        "bytes": 432894,
+        "width": 2070,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 243424,
+        "width": 2070,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "6904d36f7fa0ea54d40acd41abee6f96e0cf497033590965ed334ec242a91620",
+      "deliveryHash": "414b27fb0389b3ae5bb5233e1f12242fcf522b9099da5384cd757ad51aa76c2c"
+    },
+    {
+      "source": "assets/images/n-slider/5.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/n-slider/5.master.webp",
+      "delivery": "assets/images/delivery/n-slider/5.webp",
+      "masterInfo": {
+        "bytes": 196038,
+        "width": 2070,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 103128,
+        "width": 2070,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "692192e8225ca1c94e3bf5bd8f7226e54c55ab56a7d4a43ce9e3d41d8f3f8029",
+      "deliveryHash": "c04dcda76521cac9303654d444faa03553f2f7405981055e8509670650304012"
+    },
+    {
+      "source": "assets/images/n-slider/5.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/n-slider/5.master.webp",
+      "delivery": "assets/images/delivery/n-slider/5.webp",
+      "masterInfo": {
+        "bytes": 196038,
+        "width": 2070,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 103128,
+        "width": 2070,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "692192e8225ca1c94e3bf5bd8f7226e54c55ab56a7d4a43ce9e3d41d8f3f8029",
+      "deliveryHash": "c04dcda76521cac9303654d444faa03553f2f7405981055e8509670650304012"
+    },
+    {
+      "source": "assets/images/n-slider/6.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/n-slider/6.master.webp",
+      "delivery": "assets/images/delivery/n-slider/6.webp",
+      "masterInfo": {
+        "bytes": 531162,
+        "width": 2453,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 335654,
+        "width": 2453,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "7856d297361cd1764d2695e90c9e67d29b4220d73b44c15352ad0401452ee98b",
+      "deliveryHash": "868b180e2a4c81f4747abb11b120de2b8f3f69e43905d445036d1eb59d2477ab"
+    },
+    {
+      "source": "assets/images/n-slider/6.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/n-slider/6.master.webp",
+      "delivery": "assets/images/delivery/n-slider/6.webp",
+      "masterInfo": {
+        "bytes": 531162,
+        "width": 2453,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 335654,
+        "width": 2453,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "7856d297361cd1764d2695e90c9e67d29b4220d73b44c15352ad0401452ee98b",
+      "deliveryHash": "868b180e2a4c81f4747abb11b120de2b8f3f69e43905d445036d1eb59d2477ab"
+    },
+    {
+      "source": "assets/images/n-slider/8.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/n-slider/8.master.webp",
+      "delivery": "assets/images/delivery/n-slider/8.webp",
+      "masterInfo": {
+        "bytes": 389502,
+        "width": 2070,
+        "height": 1380,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 217692,
+        "width": 2070,
+        "quality": 84
+      },
+      "referencesUpdated": 3,
+      "masterHash": "d25f851b96d717d4a3888e32cdfb62383ffc5294f0dafdabbd136130002c5553",
+      "deliveryHash": "6fd5acb592cdca3a84edc9ec87af50ab1e650b95a6f3dd51041154cc11aa0035"
+    },
+    {
+      "source": "assets/images/n-slider/9.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/n-slider/9.master.webp",
+      "delivery": "assets/images/delivery/n-slider/9.webp",
+      "masterInfo": {
+        "bytes": 462778,
+        "width": 2048,
+        "height": 1080,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 304824,
+        "width": 2048,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "aa546fd7c8ec2c247d23f8037e41e9ed71a09533f80279c27d67e0beaf9df78c",
+      "deliveryHash": "060f67c8d1bbdd67bae8282ded938c161b1400e586680af17c036a225150390f"
+    },
+    {
+      "source": "assets/images/n-slider/9.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/n-slider/9.master.webp",
+      "delivery": "assets/images/delivery/n-slider/9.webp",
+      "masterInfo": {
+        "bytes": 462778,
+        "width": 2048,
+        "height": 1080,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 304824,
+        "width": 2048,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "aa546fd7c8ec2c247d23f8037e41e9ed71a09533f80279c27d67e0beaf9df78c",
+      "deliveryHash": "060f67c8d1bbdd67bae8282ded938c161b1400e586680af17c036a225150390f"
+    },
+    {
+      "source": "assets/images/news/1/photo_1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/1/photo_1.master.webp",
+      "delivery": "assets/images/delivery/news/1/photo_1.webp",
+      "masterInfo": {
+        "bytes": 107954,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 58070,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "6d6f0dd788ae866f98fc2f9b9fb4886f6764430dec3eabc6688aca9360cd0da8",
+      "deliveryHash": "9c763b7617bcd8a5cd7de6dd34c5cde2c123c1cff9ae5b64b533246791a50475"
+    },
+    {
+      "source": "assets/images/news/10/photo_1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/10/photo_1.master.webp",
+      "delivery": "assets/images/delivery/news/10/photo_1.webp",
+      "masterInfo": {
+        "bytes": 230854,
+        "width": 1024,
+        "height": 768,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 159434,
+        "width": 1024,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "5de98dc14b5ff41ea5bc4ef308ecab8db4757a0411ea873e19a8a66c3b58419d",
+      "deliveryHash": "f497f5f48ef2f870a0cedf15a0f4c3635e9780c7937dc008a9d8ea55b4a28a92"
+    },
+    {
+      "source": "assets/images/news/11/photo_1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/11/photo_1.master.webp",
+      "delivery": "assets/images/delivery/news/11/photo_1.webp",
+      "masterInfo": {
+        "bytes": 222150,
+        "width": 1024,
+        "height": 768,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 158238,
+        "width": 1024,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "d66108a1454c000e8c764fea0b2a445fa61d0163aa086dd93127a0a48e9ea207",
+      "deliveryHash": "ade1af5e18e15c676cffa4d1ad4298089a7d32c1de75484514dfdea4da302d47"
+    },
+    {
+      "source": "assets/images/news/12/photo_1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/12/photo_1.master.webp",
+      "delivery": "assets/images/delivery/news/12/photo_1.webp",
+      "masterInfo": {
+        "bytes": 53970,
+        "width": 640,
+        "height": 480,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 35382,
+        "width": 640,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "ae2c520c04d484bbc1726492c312b480b82d3a36116f8623b4d3a3722b9c0285",
+      "deliveryHash": "40a3ac7987e387d78a8b24d0f340606457b9c4448f94eb36e880911b714d7680"
+    },
+    {
+      "source": "assets/images/news/14/photo_1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/14/photo_1.master.webp",
+      "delivery": "assets/images/delivery/news/14/photo_1.webp",
+      "masterInfo": {
+        "bytes": 288012,
+        "width": 1024,
+        "height": 768,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 212992,
+        "width": 1024,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "38a77890e450fe0b9cc899691a501aef131c3e5ef66d2f3304c143a173a06906",
+      "deliveryHash": "a38a15fb2f40cd2840e6eae2622d54cb6643f2f8ed10ee4b7babfb7efab14e76"
+    },
+    {
+      "source": "assets/images/news/15/photo_1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/15/photo_1.master.webp",
+      "delivery": "assets/images/delivery/news/15/photo_1.webp",
+      "masterInfo": {
+        "bytes": 182024,
+        "width": 1280,
+        "height": 852,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 123924,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "14ba995a28e189979f0800c7fc3316128b8c8676df0645c513b0afc15b8d4493",
+      "deliveryHash": "e08fda2a3fe775d61ab5e21fb9787cfc41222ec8f1c46233bccb974e7eccda97"
+    },
+    {
+      "source": "assets/images/news/15/photo_2.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/15/photo_2.master.webp",
+      "delivery": "assets/images/delivery/news/15/photo_2.webp",
+      "masterInfo": {
+        "bytes": 181198,
+        "width": 1280,
+        "height": 852,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 124204,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "76654efb1a85a9dca21015a071954268a8a43893aea9420651355cef3323a162",
+      "deliveryHash": "d28fea7f2a68ec3f8248972bc7f85ae7e7d28500d8f0e34978846b33d596d0e0"
+    },
+    {
+      "source": "assets/images/news/15/photo_3.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/15/photo_3.master.webp",
+      "delivery": "assets/images/delivery/news/15/photo_3.webp",
+      "masterInfo": {
+        "bytes": 187120,
+        "width": 1280,
+        "height": 852,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 127608,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "db1f233a9bddb89137151e186b687c1e9d57e3b808bc7f8e04fd408654b8f178",
+      "deliveryHash": "95261290148a1a143b92f4c767de73d0bc074a1a42dd749224b4ded11b92e1f8"
+    },
+    {
+      "source": "assets/images/news/15/photo_4.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/15/photo_4.master.webp",
+      "delivery": "assets/images/delivery/news/15/photo_4.webp",
+      "masterInfo": {
+        "bytes": 110108,
+        "width": 945,
+        "height": 1280,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 58380,
+        "width": 945,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "58cb3789c7c695624cfccc1f1273e24a8babdf58fa0b565125cca51397cfcf6f",
+      "deliveryHash": "460acddbdc729ed0142b64e9ba67fb76afe1d751886a70a7250ec9df21173b1b"
+    },
+    {
+      "source": "assets/images/news/15/photo_5.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/15/photo_5.master.webp",
+      "delivery": "assets/images/delivery/news/15/photo_5.webp",
+      "masterInfo": {
+        "bytes": 170358,
+        "width": 1280,
+        "height": 852,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 105938,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "ce511e517da22d8a0cbc67beb4b6e5c5c77ccbc0e236c9193b0fd997c2e0ba45",
+      "deliveryHash": "cceb9e88bc7a6f12e83c0fd7ea42921d456a7b84a840c4a3fa5c49dcdc26dd80"
+    },
+    {
+      "source": "assets/images/news/15/photo_6.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/15/photo_6.master.webp",
+      "delivery": "assets/images/delivery/news/15/photo_6.webp",
+      "masterInfo": {
+        "bytes": 182024,
+        "width": 1280,
+        "height": 852,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 123924,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "14ba995a28e189979f0800c7fc3316128b8c8676df0645c513b0afc15b8d4493",
+      "deliveryHash": "e08fda2a3fe775d61ab5e21fb9787cfc41222ec8f1c46233bccb974e7eccda97"
+    }
+  ]
+}

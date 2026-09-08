@@ -1,0 +1,348 @@
+{
+  "generatedAt": "2026-09-08T08:32:26.180Z",
+  "start": 320,
+  "batchSize": 80,
+  "candidates": 337,
+  "results": [
+    {
+      "source": "assets/images/news/6/photo_2.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/6/photo_2.master.webp",
+      "delivery": "assets/images/delivery/news/6/photo_2.webp",
+      "masterInfo": {
+        "bytes": 34354,
+        "width": 628,
+        "height": 247,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 23780,
+        "width": 628,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "aeb7b973cbb0ee6fae15def356eed4eb9320f087f8fcbd2c4fea2eece0ca1814",
+      "deliveryHash": "4a927faa7ee9bd5c1921d1da58a66bac143c90c5cf6d53d4253b409abde6e764"
+    },
+    {
+      "source": "assets/images/news/6/photo_3.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/6/photo_3.master.webp",
+      "delivery": "assets/images/delivery/news/6/photo_3.webp",
+      "masterInfo": {
+        "bytes": 34774,
+        "width": 628,
+        "height": 395,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 21470,
+        "width": 628,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "7cbd30f8f485e0841d10738a04be30019d8eb48d6117128af8f0a4340c7de408",
+      "deliveryHash": "d3300bf66a23bff7f350490194117cc9bf8707695056b83b1f2435235c2e1a6c"
+    },
+    {
+      "source": "assets/images/news/6/photo_4.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/6/photo_4.master.webp",
+      "delivery": "assets/images/delivery/news/6/photo_4.webp",
+      "masterInfo": {
+        "bytes": 103704,
+        "width": 389,
+        "height": 569,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 77446,
+        "width": 389,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "88b9c88fa8702f479f277cff30d7eb88ee5d836950fbc68d4205fd4bed2265fa",
+      "deliveryHash": "5deb2c79111cd15cf7916793111e9c8ea7853b59f40f7faff8c8a23155bdd2f6"
+    },
+    {
+      "source": "assets/images/news/8/photo_1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/8/photo_1.master.webp",
+      "delivery": "assets/images/delivery/news/8/photo_1.webp",
+      "masterInfo": {
+        "bytes": 44534,
+        "width": 640,
+        "height": 480,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 31110,
+        "width": 640,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "de3d6a5279ed222fc37beb75336318c04b85b69af1986a30c9dc709c2639b35e",
+      "deliveryHash": "a2a0e45b2fe4b2b3fc632b50e3474e617677f231a88649ef562a2b59499a91ee"
+    },
+    {
+      "source": "assets/images/news/9/photo_1.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/9/photo_1.master.webp",
+      "delivery": "assets/images/delivery/news/9/photo_1.webp",
+      "masterInfo": {
+        "bytes": 48884,
+        "width": 640,
+        "height": 480,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 36078,
+        "width": 640,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "4087352e79c13f053a5b0fdeec282a7fa7a5918671edf35a79efb10ba7f90d17",
+      "deliveryHash": "f8c297602bb25a8767556d0edccd16f60feb07dd28e5d076544fdde30c03f795"
+    },
+    {
+      "source": "assets/images/news/9/photo_2.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/9/photo_2.master.webp",
+      "delivery": "assets/images/delivery/news/9/photo_2.webp",
+      "masterInfo": {
+        "bytes": 80632,
+        "width": 800,
+        "height": 600,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 49650,
+        "width": 800,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "0e900e1059dc55305f8da2b13e1afe18f320e8f6bf3491dcb9b5c6a75cb47d33",
+      "deliveryHash": "e935df06e7a4446763030e9136c21c1820af3366083cfe758c1296e0aa14fa06"
+    },
+    {
+      "source": "assets/images/news/9/photo_3.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/9/photo_3.master.webp",
+      "delivery": "assets/images/delivery/news/9/photo_3.webp",
+      "masterInfo": {
+        "bytes": 93580,
+        "width": 600,
+        "height": 800,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 67884,
+        "width": 600,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "79f33f539510c0c2f7f517392876ee5294cfd2cabe2655dd178e686c719a73d0",
+      "deliveryHash": "2a918dd19b59b16771956dc6359ec0ac47ee07ae40c632d79a70418afef3b4d2"
+    },
+    {
+      "source": "assets/images/rm/photo_1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/rm/photo_1.master.webp",
+      "delivery": "assets/images/delivery/rm/photo_1.webp",
+      "masterInfo": {
+        "bytes": 70250,
+        "width": 800,
+        "height": 455,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 48672,
+        "width": 800,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "b5b87ce9011f8870c8f40ca3a1df5148d94aa66a99f23f11080cec22f6b91ba4",
+      "deliveryHash": "f32ae7cb427a75b7338c28aecdff1df834e669b5f7a22d69b19cd24e7db46671"
+    },
+    {
+      "source": "assets/images/rm/photo_10.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/rm/photo_10.master.webp",
+      "delivery": "assets/images/delivery/rm/photo_10.webp",
+      "masterInfo": {
+        "bytes": 128070,
+        "width": 810,
+        "height": 1080,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 84252,
+        "width": 810,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "98c8da278ef41827495a1210743696b2cdee2525d8f491cb2de2dd70abb54547",
+      "deliveryHash": "6838b18ef51f1be7bf94372c72ecc15c9f75e484364ab6c78a11c285a3cf9bd3"
+    },
+    {
+      "source": "assets/images/rm/photo_2.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/rm/photo_2.master.webp",
+      "delivery": "assets/images/delivery/rm/photo_2.webp",
+      "masterInfo": {
+        "bytes": 176830,
+        "width": 1114,
+        "height": 787,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 119258,
+        "width": 1114,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "4e56973b0bcbf3fbdd9d08ea0d2f5750cbdd4a4d9bb42339c5ddc0c8aa8f12ef",
+      "deliveryHash": "100f144bf1d1ca58f4983de395b8810dcc1781e41f82c9895b0338b378ed9038"
+    },
+    {
+      "source": "assets/images/rm/photo_3.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/rm/photo_3.master.webp",
+      "delivery": "assets/images/delivery/rm/photo_3.webp",
+      "masterInfo": {
+        "bytes": 341806,
+        "width": 1600,
+        "height": 1067,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 240332,
+        "width": 1600,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "a67c5b30aac961f9ec016b9c8cec051c81a94e0ab41f55a571298b93b007aaf2",
+      "deliveryHash": "2ab93d2b78900d53b0169a0aa42a5d6d6fe7d06881c72c461ee445d4dd7bea06"
+    },
+    {
+      "source": "assets/images/rm/photo_4.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/rm/photo_4.master.webp",
+      "delivery": "assets/images/delivery/rm/photo_4.webp",
+      "masterInfo": {
+        "bytes": 24024,
+        "width": 332,
+        "height": 196,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 17480,
+        "width": 332,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "91c197f3bb043f2827d221aa022b4804cf5d94ecb316ee24847ec09502a60655",
+      "deliveryHash": "faa81338e797473ca28d7c0f6c14a2a58ac9e3ee44d9042731b8e8cd9d33ddc9"
+    },
+    {
+      "source": "assets/images/rm/photo_5.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/rm/photo_5.master.webp",
+      "delivery": "assets/images/delivery/rm/photo_5.webp",
+      "masterInfo": {
+        "bytes": 71540,
+        "width": 1080,
+        "height": 810,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 45084,
+        "width": 1080,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "83622e1dabebc1c6b7d2528dff81c6a9c87c20c34aa870b8c99accc874a7e4e4",
+      "deliveryHash": "450d64b9e33a837296e5391372837dedc1b68af3408bfe248b0e75ea48c85fc6"
+    },
+    {
+      "source": "assets/images/rm/photo_6.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/rm/photo_6.master.webp",
+      "delivery": "assets/images/delivery/rm/photo_6.webp",
+      "masterInfo": {
+        "bytes": 166972,
+        "width": 810,
+        "height": 1080,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 115728,
+        "width": 810,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "7bc53e163cec3540f6ec732b3c4b8bd2be5b0d7b3de14b2c7d64c4e0c88600d2",
+      "deliveryHash": "e7d2298901b5846b0da6b1c38ae169f06abc211c54efe98696498f4f14eb57e1"
+    },
+    {
+      "source": "assets/images/rm/photo_7.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/rm/photo_7.master.webp",
+      "delivery": "assets/images/delivery/rm/photo_7.webp",
+      "masterInfo": {
+        "bytes": 129326,
+        "width": 1080,
+        "height": 810,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 82272,
+        "width": 1080,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "a16a462deba9fe0792584c633c82d37c1a0a9a85b8e6f932e0facf95ce9b18a2",
+      "deliveryHash": "fccb78a94a85c4904be91fcf50ae20a045d3009f072669203d03788a74da806a"
+    },
+    {
+      "source": "assets/images/rm/photo_8.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/rm/photo_8.master.webp",
+      "delivery": "assets/images/delivery/rm/photo_8.webp",
+      "masterInfo": {
+        "bytes": 130118,
+        "width": 1080,
+        "height": 810,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 86372,
+        "width": 1080,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "73f1bb75bb4274904d9840b909eddbdb698d780177d4edb4713f939346c88815",
+      "deliveryHash": "7981da1fb3b51bebf17fbb687ddfe71c3bc6619c7ce7772ccbe7d4b6c702d803"
+    },
+    {
+      "source": "assets/images/rm/photo_9.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/rm/photo_9.master.webp",
+      "delivery": "assets/images/delivery/rm/photo_9.webp",
+      "masterInfo": {
+        "bytes": 113850,
+        "width": 1080,
+        "height": 810,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 67780,
+        "width": 1080,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "b64c5af7b97ebef1cf862d1555d62ee0365f32614c3339460d30da472ff4a3ed",
+      "deliveryHash": "f6a5c4ad2a6acafb8b63d336837f0a88084f3363dc50b8891048c09e39bd41c0"
+    }
+  ]
+}
