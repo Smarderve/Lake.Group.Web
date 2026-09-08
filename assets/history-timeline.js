@@ -9,11 +9,13 @@
   const smoothing = reduceMotion ? 1 : 0.09;
   const state = {
     anchors: [],
+    lineStart: 0,
     lineEnd: 0,
+    finalNodeOffset: 0,
     nodeProgress: [],
     targetProgress: 0,
     renderedProgress: 0,
-    activeIndex: -1,
+    activeIndex: null,
     frame: 0,
     geometryReady: false,
     initialized: false,
@@ -27,17 +29,21 @@
     group.prepend(node);
   });
 
+  const tail = document.createElement('span');
+  tail.className = 'history-timeline-tail';
+  tail.setAttribute('aria-hidden', 'true');
+  timeline.append(tail);
+
   const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
   const readTargetProgress = () => {
     if (!state.geometryReady) return 0;
     const viewportLine = window.scrollY + window.innerHeight * focusRatio;
-    const firstAnchor = state.anchors[0];
-    return clamp((viewportLine - firstAnchor) / Math.max(1, state.lineEnd - firstAnchor), 0, 1);
+    return clamp((viewportLine - state.lineStart) / Math.max(1, state.lineEnd - state.lineStart), 0, 1);
   };
 
   const getActiveIndex = (progress) => {
-    let activeIndex = 0;
+    let activeIndex = -1;
     state.nodeProgress.forEach((nodeProgress, index) => {
       if (progress >= nodeProgress) activeIndex = index;
     });
@@ -61,6 +67,9 @@
       ? state.targetProgress
       : state.renderedProgress + distance * smoothing;
     timeline.style.setProperty('--timeline-progress', state.renderedProgress.toFixed(5));
+    const travelled = state.renderedProgress * Math.max(1, state.lineEnd - state.lineStart);
+    timeline.style.setProperty('--timeline-line-height', `${Math.min(travelled, state.finalNodeOffset).toFixed(2)}px`);
+    tail.style.setProperty('--timeline-tail-height', `${Math.max(0, travelled - state.finalNodeOffset).toFixed(2)}px`);
     applyGroupState(getActiveIndex(state.renderedProgress));
 
     if (!reduceMotion && Math.abs(state.targetProgress - state.renderedProgress) >= 0.0005) {
@@ -85,14 +94,18 @@
       return anchor + window.scrollY;
     });
 
-    const tail = Math.max(72, Math.min(120, window.innerHeight * 0.12));
-    const start = anchors[0] - timelineDocumentTop;
-    const end = anchors[anchors.length - 1] + tail - timelineDocumentTop;
+    const tailLength = Math.max(96, Math.min(160, window.innerHeight * 0.16));
+    const start = Math.max(0, anchors[0] - timelineDocumentTop - 72);
+    const finalAnchor = anchors[anchors.length - 1] - timelineDocumentTop;
+    const end = anchors[anchors.length - 1] + tailLength - timelineDocumentTop;
     timeline.style.setProperty('--timeline-axis-start', `${start}px`);
     timeline.style.setProperty('--timeline-axis-end', `${end}px`);
+    timeline.style.setProperty('--timeline-tail-start', `${finalAnchor}px`);
     state.anchors = anchors;
-    state.lineEnd = anchors[anchors.length - 1] + tail;
-    state.nodeProgress = anchors.map((anchor) => clamp((anchor - anchors[0]) / Math.max(1, state.lineEnd - anchors[0]), 0, 1));
+    state.lineStart = timelineDocumentTop + start;
+    state.lineEnd = anchors[anchors.length - 1] + tailLength;
+    state.finalNodeOffset = finalAnchor - start;
+    state.nodeProgress = anchors.map((anchor) => clamp((anchor - state.lineStart) / Math.max(1, state.lineEnd - state.lineStart), 0, 1));
     state.geometryReady = true;
     state.targetProgress = readTargetProgress();
     if (!state.initialized) {
