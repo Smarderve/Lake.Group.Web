@@ -26,6 +26,11 @@ const secondaryVariant = {
   },
 };
 
+const getFileTypeLabel = (file: File) => {
+  const extension = file.name.split(".").pop()?.toUpperCase();
+  return extension ? `${extension} document` : "CV document";
+};
+
 export const FileUpload = ({
   onChange,
   accept,
@@ -70,26 +75,53 @@ export const FileUpload = ({
     if (event.pointerType === "touch") return;
     const target = event.currentTarget;
     const rect = target.getBoundingClientRect();
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const normalizedX = Math.max(-1, Math.min(1, (event.clientX - centerX) / (rect.width / 2)));
+    const normalizedY = Math.max(-1, Math.min(1, (event.clientY - centerY) / (rect.height / 2)));
     const x = `${event.clientX - rect.left}px`;
     const y = `${event.clientY - rect.top}px`;
+    const tileX = `${normalizedX * 24}px`;
+    const tileY = `${normalizedY * 16}px`;
+    const rotateX = `${normalizedY * -1}deg`;
+    const rotateY = `${normalizedX}deg`;
     if (pointerFrame.current) cancelAnimationFrame(pointerFrame.current);
     pointerFrame.current = requestAnimationFrame(() => {
       target.style.setProperty("--mouse-x", x);
       target.style.setProperty("--mouse-y", y);
+      target.style.setProperty("--tile-x", tileX);
+      target.style.setProperty("--tile-y", tileY);
+      target.style.setProperty("--tile-rx", rotateX);
+      target.style.setProperty("--tile-ry", rotateY);
     });
   };
 
   const handlePointerLeave = (event: React.PointerEvent<HTMLDivElement>) => {
     if (event.pointerType === "touch") return;
-    event.currentTarget.style.setProperty("--mouse-x", "50%");
-    event.currentTarget.style.setProperty("--mouse-y", "50%");
+    const target = event.currentTarget;
+    if (pointerFrame.current) cancelAnimationFrame(pointerFrame.current);
+    pointerFrame.current = requestAnimationFrame(() => {
+      target.style.setProperty("--mouse-x", "50%");
+      target.style.setProperty("--mouse-y", "50%");
+      target.style.setProperty("--tile-x", "0px");
+      target.style.setProperty("--tile-y", "0px");
+      target.style.setProperty("--tile-rx", "0deg");
+      target.style.setProperty("--tile-ry", "0deg");
+    });
   };
 
   const { getRootProps, isDragActive } = useDropzone({
     multiple: false,
     noClick: true,
     onDrop: (newFiles) => handleFileChange(newFiles),
-    accept: accept ? Object.fromEntries(accept.split(",").map((type) => [type.trim(), []])) : undefined,
+    accept: accept
+      ? {
+          "application/pdf": [".pdf"],
+          "application/msword": [".doc"],
+          "application/vnd.openxmlformats-officedocument.wordprocessingml.document": [".docx"],
+        }
+      : undefined,
     onDropRejected: (error) => {
       console.log(error);
     },
@@ -117,10 +149,10 @@ export const FileUpload = ({
         </div>
         <div className="flex flex-col items-center justify-center">
           <p className="relative z-20 font-sans text-base font-bold text-neutral-700 dark:text-neutral-300">
-            {isDragActive ? "Drop to upload" : "Upload your CV"}
+            Upload your CV
           </p>
           <p className="relative z-20 mt-2 font-sans text-base font-normal text-neutral-400 dark:text-neutral-400">
-            Drop your CV here or click to select
+            {isDragActive ? "DROP YOUR CV HERE" : "Drop your CV here or click to select"}
           </p>
           <div className="relative mx-auto mt-10 w-full max-w-xl">
             {files.length > 0 &&
@@ -159,7 +191,7 @@ export const FileUpload = ({
                       layout
                       className="rounded-md bg-gray-100 px-1 py-0.5 dark:bg-neutral-800"
                     >
-                      {file.type || "CV document"}
+                      {getFileTypeLabel(file)}
                     </motion.p>
 
                     <motion.p
@@ -195,7 +227,7 @@ export const FileUpload = ({
                     animate={{ opacity: 1 }}
                     className="flex flex-col items-center text-neutral-600"
                   >
-                    Drop it
+                    Drop your CV here
                     <IconUpload className="h-4 w-4 text-neutral-600 dark:text-neutral-400" />
                   </motion.p>
                 ) : (

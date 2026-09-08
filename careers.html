@@ -46,7 +46,7 @@
 .cr-selected-opportunity { color: var(--blue); font-size: 0.78rem; font-weight: 700; margin: 0; }
 .cr-selected-opportunity[hidden] { display: none; }
 .cr-error { color: #a32929; font-size: 0.75rem; min-height: 1em; }
-.cr-consent { display: block; grid-column: 1 / -1; margin-top: 4px; }
+.cr-consent { display: block; grid-column: 1 / -1; width: min(100%, 800px); margin: 4px auto 0; }
 .cr-consent-control { display: flex; align-items: flex-start; gap: 11px; padding: 14px 16px; border: 1px solid var(--line-2); background: rgba(1,129,187,.025); transition: border-color 300ms ease, background-color 300ms ease; }
 .cr-consent-control:hover, .cr-consent-control:focus-within { border-color: rgba(1,129,187,.45); background: rgba(1,129,187,.06); }
 .cr-consent input { flex: 0 0 20px; width: 20px; height: 20px; margin: 1px 0 0; accent-color: var(--blue); }
@@ -55,10 +55,13 @@
 .cr-form-status { padding: 13px 15px; border-left: 3px solid var(--gold); background: rgba(255,242,0,.11); color: var(--ink); font-size: 0.82rem; }
 .cr-form-status[hidden], .cr-driver-fields[hidden] { display: none; }
 .cr-form-actions { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); flex-wrap: wrap; margin-top: 26px; padding-top: 24px; border-top: 1px solid var(--line-2); }
-.cr-upload-dropzone { position: relative; }
+.cr-cv-field { display: flex; flex-direction: column; align-items: center; margin-top: 18px; text-align: center; }
+.cr-cv-field > label { align-self: center; }
+.cr-upload-dropzone { width: min(100%, 800px); margin-top: 20px; position: relative; }
+.cr-upload-dropzone #career-cv-upload-root { width: 100%; }
 .cr-upload-dropzone input[type="file"] { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
-.cr-upload-meta { display: block; margin-top: 7px; color: var(--muted); font-size: .75rem; }
-.cr-upload-error { min-height: 1em; margin-top: 7px; color: #a32929; font-size: .75rem; }
+.cr-upload-meta { display: block; margin-top: 8px; color: var(--muted); font-size: .75rem; }
+.cr-upload-error { width: 100%; min-height: 1em; margin-top: 7px; color: #a32929; font-size: .75rem; text-align: center; }
 @media (max-width: 1200px) { .cr-benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .cr-form { padding: var(--sp-6); } .cr-form-grid { grid-template-columns: 1fr; } .cr-field-full { grid-column: auto; } .cr-consent { grid-column: auto; } .cr-form-actions { align-items: stretch; flex-direction: column; } .cr-form-actions .btn { width: 100%; } }
 .page-wrapper .page-hero.cr-hero { min-height: clamp(520px, 68vh, 700px); justify-content: center; padding: 72px 0 68px; }
@@ -328,7 +331,7 @@
           <span id="career-cover-letter-help" class="cr-help">Tell us why you would like to join Lake Group and what you can contribute.</span>
           <span id="career-cover-letter-error" class="cr-error" aria-live="polite"></span>
         </div>
-        <div class="cr-field cr-field-full">
+        <div class="cr-field cr-field-full cr-cv-field">
           <label for="career-cv">Upload CV <span aria-hidden="true">*</span></label>
           <div id="career-cv-dropzone" class="cr-upload-dropzone" aria-describedby="career-cv-help career-cv-error">
             <div id="career-cv-upload-root"></div>
@@ -392,7 +395,7 @@
 <script src="assets/flagship-motion.js?v=20260828-01" defer></script>
 <script src="assets/split-text.js?v=20260828-01" defer></script>
   <script defer src="assets/phase-01-navbar.js?v=20260828-01"></script>
-  <script defer src="assets/careers-file-upload.js?v=20260908-02"></script>
+<script defer src="assets/careers-file-upload.js?v=20260908-03"></script>
   <script defer src="assets/careers-application.js?v=20260908-01"></script>
 
 <footer class="site-footer" role="contentinfo">
