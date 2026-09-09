@@ -97,13 +97,18 @@
     const tailLength = Math.max(96, Math.min(160, window.innerHeight * 0.16));
     const start = Math.max(0, anchors[0] - timelineDocumentTop - 72);
     const finalAnchor = anchors[anchors.length - 1] - timelineDocumentTop;
-    const end = anchors[anchors.length - 1] + tailLength - timelineDocumentTop;
+    // The final tail follows the complete last year group, including its
+    // upcoming event, instead of ending a fixed distance below the year dot.
+    // This keeps the line attached to real content as the group reflows.
+    const finalGroupBounds = groups[groups.length - 1].getBoundingClientRect();
+    const finalGroupBottom = finalGroupBounds.bottom + window.scrollY;
+    const end = finalGroupBottom + tailLength;
     timeline.style.setProperty('--timeline-axis-start', `${start}px`);
     timeline.style.setProperty('--timeline-axis-end', `${end}px`);
     timeline.style.setProperty('--timeline-tail-start', `${finalAnchor}px`);
     state.anchors = anchors;
     state.lineStart = timelineDocumentTop + start;
-    state.lineEnd = anchors[anchors.length - 1] + tailLength;
+    state.lineEnd = end;
     state.finalNodeOffset = finalAnchor - start;
     state.nodeProgress = anchors.map((anchor) => clamp((anchor - state.lineStart) / Math.max(1, state.lineEnd - state.lineStart), 0, 1));
     state.geometryReady = true;

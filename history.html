@@ -48,7 +48,7 @@
 }
 .history-timeline::after { height:var(--timeline-line-height, 0px); background:#0181BB; opacity:.98; transition:height 120ms linear; -webkit-mask-image:linear-gradient(to bottom,transparent 0,black 42px,black 100%); mask-image:linear-gradient(to bottom,transparent 0,black 42px,black 100%); }
 .history-timeline-tail { position:absolute; z-index:0; left:var(--timeline-axis-x); top:var(--timeline-tail-start, 0px); width:5px; height:var(--timeline-tail-height, 0px); transform:translateX(-50%); border-radius:99px; background:linear-gradient(to bottom,#0181BB 0%,rgba(1,129,187,.72) 40%,rgba(1,129,187,0) 100%); opacity:.98; pointer-events:none; }
-.history-year-group { --history-year-size:clamp(1.8rem,3vw,2.6rem); position:relative; display:grid; grid-template-columns:var(--timeline-axis-x) minmax(0,1fr); align-items:start; gap:var(--sp-6); padding:clamp(4.5rem,7vw,6.75rem) 0; border-top:0; }
+.history-year-group { --history-year-size:clamp(1.8rem,3vw,2.6rem); position:relative; display:grid; grid-template-columns:var(--timeline-axis-x) minmax(0,1fr); align-items:start; gap:var(--sp-6); padding:clamp(2.5rem,4vw,4rem) 0; border-top:0; }
 .history-year-group:first-child { border-top:0; padding-top:0; }
 .history-node { position:absolute; z-index:1; left:var(--timeline-axis-x); top:var(--history-node-y, calc(var(--history-year-size) / 2)); width:16px; height:16px; transform:translate(-50%,-50%); border:0; border-radius:50%; background:#FFF200; opacity:1; box-shadow:none; }
 @keyframes history-node-activate { 0% { transform:translate(-50%,-50%) scale(1); } 55% { transform:translate(-50%,-50%) scale(1.15); } 100% { transform:translate(-50%,-50%) scale(1); } }
@@ -294,7 +294,7 @@
 <script src="assets/pwa.js?v=20260828-01" defer></script>
 <script src="assets/flagship-motion.js?v=20260828-01" defer></script>
 <script src="assets/split-text.js?v=20260828-01" defer></script>
-<script src="assets/history-timeline.js?v=20260908-01" defer></script>
+<script src="assets/history-timeline.js?v=20260909-01" defer></script>
   <script defer src="assets/phase-01-navbar.js?v=20260828-01"></script>
 
 <footer class="site-footer" role="contentinfo">
