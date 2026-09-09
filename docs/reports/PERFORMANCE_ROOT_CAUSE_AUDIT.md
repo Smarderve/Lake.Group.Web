@@ -61,7 +61,7 @@ Home does not include the ~2 MB globe bundle on initial load; it injects it lazi
 
 # Service Worker Findings
 
-`sw.js` is versioned (`v80-20260902-02` at audit time), purges old `lake-*` caches on activate, uses network-first for design assets and navigation, and never caches `sw.js` through its own strategy. The deployed worker must be bumped with this release so clients leave the old duplicate-script HTML behind.
+`sw.js` is now versioned `v81-20260828-01`, matching the repository release marker and critical asset query versions. It purges old `lake-*` caches on activate, uses network-first for design assets and navigation, and never caches `sw.js` through its own strategy.
 
 # Network Findings
 
@@ -89,7 +89,7 @@ Evidence: shared source contains several independent animation systems, so lifec
 
 # Before vs After Measurements
 
-Before: production Home had 2 navbar references. After source fix: local Home has 1. Before Careers mount had no guard; after it has a single-root guard. No trustworthy before/after CPU or heap trace was captured, so those values are intentionally not invented.
+Before: production Home had 2 navbar references and mixed critical asset versions. After source fix: production Home has 1 navbar reference, the cache-consistency test passes, and the worker is aligned to `v81-20260828-01`. Before Careers mount had no guard; after it has a single-root guard. No trustworthy before/after CPU or heap trace was captured, so those values are intentionally not invented.
 
 # Remaining Risks
 
@@ -98,4 +98,3 @@ Chrome/Firefox DevTools traces, five-minute stability testing, heap snapshots, a
 # Regression Prevention
 
 Use the guardrails document and add CI checks for one navbar include per page, route-scoped heavy scripts, RAF lifecycle ownership, and asset dimension budgets.
-
