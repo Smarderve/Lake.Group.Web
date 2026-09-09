@@ -1441,7 +1441,8 @@
       border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 3px;
       background: rgba(1, 26, 40, 0.72);
-      transition: opacity 180ms ease;
+      transform: translate(var(--label-shift-x, 0px), var(--label-shift-y, 0px));
+      transition: opacity 180ms ease, transform 220ms cubic-bezier(.22,1,.36,1);
     }
 
     .hero-globe-marker__leader {
@@ -1452,7 +1453,7 @@
       height: 1px;
       background: rgba(255, 242, 0, 0.62);
       transform-origin: left center;
-      transition: opacity 180ms ease, width 360ms ease;
+      transition: opacity 180ms ease, width 220ms ease, transform 220ms cubic-bezier(.22,1,.36,1);
     }
 
     .hero-globe-marker__label--west {

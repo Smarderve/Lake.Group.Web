@@ -21,6 +21,7 @@ export const ROUTE_YELLOW = BRAND_YELLOW;
  */
 export const ROUTE_ORDER = ['ke', 'ug', 'rw', 'bi', 'cd', 'zm', 'mz', 'et', 'ae'];
 export const APPROVED_COUNTRY_IDS = new Set(['tz', ...ROUTE_ORDER]);
+export const LABEL_PRIORITY = ['tz', 'ke', 'ug', 'cd', 'zm', 'mz', 'et', 'rw', 'bi', 'ae'];
 
 /** Canonical local flag assets used by every globe country label. */
 export const COUNTRY_FLAGS = {
@@ -48,16 +49,16 @@ export const COUNTRY_FLAGS = {
  * the projection remains stable as the globe and viewport resize.
  */
 export const COUNTRY_LOCATIONS = {
-  tz: { countryName: 'TANZANIA', flagSrc: COUNTRY_FLAGS.tz, lat: -6.7924, lng: 39.2083, labelSide: 'east', labelDistance: 20, arcAltitude: 0, hub: true },
-  ke: { countryName: 'KENYA', flagSrc: COUNTRY_FLAGS.ke, lat: -1.2921, lng: 36.8219, labelSide: 'east', labelDistance: 22, arcAltitude: 0.07 },
-  ug: { countryName: 'UGANDA', flagSrc: COUNTRY_FLAGS.ug, lat: 0.3476, lng: 32.5825, labelSide: 'west', labelDistance: 24, arcAltitude: 0.10 },
-  rw: { countryName: 'RWANDA', flagSrc: COUNTRY_FLAGS.rw, lat: -1.9441, lng: 30.0619, labelSide: 'west', labelDistance: 26, arcAltitude: 0.12 },
-  bi: { countryName: 'BURUNDI', flagSrc: COUNTRY_FLAGS.bi, lat: -3.3614, lng: 29.3599, labelSide: 'west', labelDistance: 28, arcAltitude: 0.14 },
-  cd: { countryName: 'DR CONGO', flagSrc: COUNTRY_FLAGS.cd, lat: -4.4419, lng: 15.2663, labelSide: 'west', labelDistance: 22, arcAltitude: 0.18 },
-  zm: { countryName: 'ZAMBIA', flagSrc: COUNTRY_FLAGS.zm, lat: -15.3875, lng: 28.3228, labelSide: 'west', labelDistance: 22, arcAltitude: 0.16 },
-  mz: { countryName: 'MOZAMBIQUE', flagSrc: COUNTRY_FLAGS.mz, lat: -25.9692, lng: 32.5732, labelSide: 'east', labelDistance: 22, arcAltitude: 0.20 },
-  et: { countryName: 'ETHIOPIA', flagSrc: COUNTRY_FLAGS.et, lat: 9.0300, lng: 38.7400, labelSide: 'east', labelDistance: 22, arcAltitude: 0.22 },
-  ae: { countryName: 'UAE', flagSrc: COUNTRY_FLAGS.ae, lat: 24.4539, lng: 54.3773, labelSide: 'east', labelDistance: 22, arcAltitude: 0.30 },
+  tz: { countryName: 'TANZANIA', flagSrc: COUNTRY_FLAGS.tz, lat: -6.7924, lng: 39.2083, labelSide: 'east', labelDistance: 20, labelOffset: [0, 12], arcAltitude: 0, hub: true },
+  ke: { countryName: 'KENYA', flagSrc: COUNTRY_FLAGS.ke, lat: -1.2921, lng: 36.8219, labelSide: 'east', labelDistance: 22, labelOffset: [10, -18], arcAltitude: 0.07 },
+  ug: { countryName: 'UGANDA', flagSrc: COUNTRY_FLAGS.ug, lat: 0.3476, lng: 32.5825, labelSide: 'west', labelDistance: 24, labelOffset: [-10, -20], arcAltitude: 0.10 },
+  rw: { countryName: 'RWANDA', flagSrc: COUNTRY_FLAGS.rw, lat: -1.9441, lng: 30.0619, labelSide: 'west', labelDistance: 26, labelOffset: [-22, 0], arcAltitude: 0.12 },
+  bi: { countryName: 'BURUNDI', flagSrc: COUNTRY_FLAGS.bi, lat: -3.3614, lng: 29.3599, labelSide: 'west', labelDistance: 28, labelOffset: [-18, 20], arcAltitude: 0.14 },
+  cd: { countryName: 'DR CONGO', flagSrc: COUNTRY_FLAGS.cd, lat: -4.4419, lng: 15.2663, labelSide: 'west', labelDistance: 22, labelOffset: [-12, 56], arcAltitude: 0.18 },
+  zm: { countryName: 'ZAMBIA', flagSrc: COUNTRY_FLAGS.zm, lat: -15.3875, lng: 28.3228, labelSide: 'west', labelDistance: 22, labelOffset: [-8, 72], arcAltitude: 0.16 },
+  mz: { countryName: 'MOZAMBIQUE', flagSrc: COUNTRY_FLAGS.mz, lat: -25.9692, lng: 32.5732, labelSide: 'east', labelDistance: 22, labelOffset: [12, 16], arcAltitude: 0.20 },
+  et: { countryName: 'ETHIOPIA', flagSrc: COUNTRY_FLAGS.et, lat: 9.0300, lng: 38.7400, labelSide: 'east', labelDistance: 22, labelOffset: [12, -14], arcAltitude: 0.22 },
+  ae: { countryName: 'UAE', flagSrc: COUNTRY_FLAGS.ae, lat: 24.4539, lng: 54.3773, labelSide: 'east', labelDistance: 22, labelOffset: [8, -8], arcAltitude: 0.30 },
 };
 
 export const COUNTRY_REFERENCE_COORDINATES = Object.fromEntries(
@@ -81,6 +82,7 @@ export function buildMarkers(locations) {
       label: canonical.countryName,
       labelSide: canonical.labelSide,
       labelDistance: canonical.labelDistance,
+      labelOffset: canonical.labelOffset,
       hub: !!canonical.hub,
     };
   });
