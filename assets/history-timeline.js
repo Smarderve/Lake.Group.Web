@@ -34,6 +34,15 @@
   tail.setAttribute('aria-hidden', 'true');
   timeline.append(tail);
 
+  // Branch SVGs stay anchored to each milestone and are measured only on layout.
+  const branchSvgs = groups.map((group) => {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.classList.add('history-branches');
+    svg.setAttribute('aria-hidden', 'true');
+    group.prepend(svg);
+    return svg;
+  });
+
   const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
   const readTargetProgress = () => {
@@ -94,7 +103,10 @@
   if (canTiltCards) {
     const cards = [...timeline.querySelectorAll('.history-event')];
     const resetCard = () => {
-      if (activeCard) activeCard.style.transform = '';
+      if (activeCard) {
+        activeCard.style.setProperty('--card-tilt-x', '0deg');
+        activeCard.style.setProperty('--card-tilt-y', '0deg');
+      }
       activeCard = null;
       cardRect = null;
     };
@@ -103,7 +115,8 @@
       if (!activeCard || !cardRect) return;
       const x = (pointerX - cardRect.left) / Math.max(1, cardRect.width) - 0.5;
       const y = (pointerY - cardRect.top) / Math.max(1, cardRect.height) - 0.5;
-      activeCard.style.transform = `translate3d(0,0,0) rotateX(${(-y * 2).toFixed(2)}deg) rotateY(${(x * 2).toFixed(2)}deg)`;
+      activeCard.style.setProperty('--card-tilt-x', `${(-y * 3.2).toFixed(2)}deg`);
+      activeCard.style.setProperty('--card-tilt-y', `${(x * 3.2).toFixed(2)}deg`);
     };
     const scheduleCardFrame = () => {
       if (!cardFrame) cardFrame = window.requestAnimationFrame(renderCard);
@@ -147,6 +160,30 @@
       const borderTop = Number.parseFloat(window.getComputedStyle(group).borderTopWidth) || 0;
       group.style.setProperty('--history-node-y', `${anchor - groupBounds.top - borderTop}px`);
       return anchor + window.scrollY;
+    });
+
+    groups.forEach((group, index) => {
+      const svg = branchSvgs[index];
+      const groupRect = group.getBoundingClientRect();
+      svg.setAttribute('viewBox', `0 0 ${Math.max(1, groupRect.width)} ${Math.max(1, groupRect.height)}`);
+      svg.replaceChildren();
+      const nodeRect = group.querySelector('.history-node')?.getBoundingClientRect();
+      const cards = [...group.querySelectorAll('.history-event')];
+      if (!nodeRect || !cards.length) return;
+      const sx = nodeRect.left + nodeRect.width / 2 - groupRect.left;
+      const sy = nodeRect.top + nodeRect.height / 2 - groupRect.top;
+      cards.forEach((card, cardIndex) => {
+        const cardRect = card.getBoundingClientRect();
+        const ex = cardRect.left - groupRect.left;
+        const ey = cardRect.top + cardRect.height / 2 - groupRect.top;
+        const spread = cards.length > 1 ? (cardIndex - (cards.length - 1) / 2) * 16 : 0;
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        const bend = Math.max(24, (ex - sx) * .3);
+        path.setAttribute('d', `M ${sx.toFixed(1)} ${sy.toFixed(1)} C ${(sx + bend).toFixed(1)} ${(sy + spread).toFixed(1)}, ${(ex - bend).toFixed(1)} ${(ey - spread).toFixed(1)}, ${ex.toFixed(1)} ${ey.toFixed(1)}`);
+        path.classList.add('history-branch');
+        svg.append(path);
+        requestAnimationFrame(() => path.style.setProperty('--branch-length', `${Math.ceil(path.getTotalLength())}`));
+      });
     });
 
     const tailLength = Math.max(96, Math.min(160, window.innerHeight * 0.16));
