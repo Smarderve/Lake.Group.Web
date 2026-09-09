@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "../../lib/utils";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { IconFileCv, IconUpload } from "@tabler/icons-react";
 import { useDropzone } from "react-dropzone";
@@ -43,6 +43,12 @@ export const FileUpload = ({
   const [files, setFiles] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const pointerFrame = useRef<number | null>(null);
+  const pointerRect = useRef<DOMRect | null>(null);
+  const pointerPosition = useRef({ x: 0, y: 0 });
+
+  useEffect(() => () => {
+    if (pointerFrame.current !== null) cancelAnimationFrame(pointerFrame.current);
+  }, []);
 
   const handleFileChange = (newFiles: File[], syncInput = true) => {
     const nextFile = newFiles[0];
@@ -71,36 +77,37 @@ export const FileUpload = ({
     fileInputRef.current?.click();
   };
 
+  const handlePointerEnter = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (event.pointerType !== "touch") pointerRect.current = event.currentTarget.getBoundingClientRect();
+  };
+
   const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
     if (event.pointerType === "touch") return;
-    const target = event.currentTarget;
-    const rect = target.getBoundingClientRect();
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const normalizedX = Math.max(-1, Math.min(1, (event.clientX - centerX) / (rect.width / 2)));
-    const normalizedY = Math.max(-1, Math.min(1, (event.clientY - centerY) / (rect.height / 2)));
-    const x = `${event.clientX - rect.left}px`;
-    const y = `${event.clientY - rect.top}px`;
-    const tileX = `${normalizedX * 24}px`;
-    const tileY = `${normalizedY * 16}px`;
-    const distance = Math.min(1, Math.sqrt(normalizedX * normalizedX + normalizedY * normalizedY));
-    const proximity = `${Math.max(0, 1 - distance).toFixed(3)}`;
-    if (pointerFrame.current) cancelAnimationFrame(pointerFrame.current);
+    const target = event.currentTarget;
+    pointerPosition.current = { x: event.clientX, y: event.clientY };
+    if (pointerFrame.current !== null) return;
     pointerFrame.current = requestAnimationFrame(() => {
-      target.style.setProperty("--mouse-x", x);
-      target.style.setProperty("--mouse-y", y);
-      target.style.setProperty("--tile-x", tileX);
-      target.style.setProperty("--tile-y", tileY);
-      target.style.setProperty("--tile-proximity", proximity);
+      pointerFrame.current = null;
+      const rect = pointerRect.current;
+      if (!rect) return;
+      const normalizedX = Math.max(-1, Math.min(1, (pointerPosition.current.x - (rect.left + rect.width / 2)) / (rect.width / 2)));
+      const normalizedY = Math.max(-1, Math.min(1, (pointerPosition.current.y - (rect.top + rect.height / 2)) / (rect.height / 2)));
+      target.style.setProperty("--mouse-x", `${pointerPosition.current.x - rect.left}px`);
+      target.style.setProperty("--mouse-y", `${pointerPosition.current.y - rect.top}px`);
+      target.style.setProperty("--tile-x", `${normalizedX * 24}px`);
+      target.style.setProperty("--tile-y", `${normalizedY * 16}px`);
+      target.style.setProperty("--tile-proximity", `${Math.max(0, 1 - Math.min(1, Math.sqrt(normalizedX * normalizedX + normalizedY * normalizedY))).toFixed(3)}`);
     });
   };
 
   const handlePointerLeave = (event: React.PointerEvent<HTMLDivElement>) => {
     if (event.pointerType === "touch") return;
     const target = event.currentTarget;
-    if (pointerFrame.current) cancelAnimationFrame(pointerFrame.current);
+    pointerRect.current = null;
+    if (pointerFrame.current !== null) cancelAnimationFrame(pointerFrame.current);
     pointerFrame.current = requestAnimationFrame(() => {
+      pointerFrame.current = null;
       target.style.setProperty("--mouse-x", "50%");
       target.style.setProperty("--mouse-y", "50%");
       target.style.setProperty("--tile-x", "0px");
@@ -129,6 +136,7 @@ export const FileUpload = ({
     <div className="w-full" {...getRootProps()}>
       <motion.div
         onClick={handleClick}
+        onPointerEnter={handlePointerEnter}
         onPointerMove={handlePointerMove}
         onPointerLeave={handlePointerLeave}
         whileHover="animate"
