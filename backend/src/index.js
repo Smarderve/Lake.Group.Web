@@ -7,6 +7,7 @@ import { loginRateLimiter } from './middleware/rate-limit.js';
 import { createObjectStorage } from './lib/object-storage.js';
 import { startPublicReleaseWorker } from './lib/public-release.js';
 import { createSecretBox, inspectMfaKey } from './lib/secret-box.js';
+import { createResendMailer } from './routes/careers.js';
 
 const logger = createLogger(config.logLevel);
 // Phase 6 — the runtime connects with the least-privilege role when the
@@ -86,6 +87,9 @@ const app = createApp({
   prefsStore,
   mediaStorage,
   mediaUploadMaxBytes: config.mediaUploadMaxBytes,
+  careersRecipientEmail: config.careersRecipientEmail,
+  careersAllowedOrigins: config.careersAllowedOrigins,
+  careersMailer: createResendMailer({ apiKey: config.careersMailApiKey, from: config.careersMailFrom }),
 });
 
 const server = app.listen(config.port, () => {

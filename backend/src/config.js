@@ -175,6 +175,10 @@ export function resolveConfig(env) {
     publicReleaseApiBaseUrl: (env.PUBLIC_RELEASE_API_BASE_URL || '').replace(/\/+$/, ''),
     publicReleasePollMs: finiteNumber(env.PUBLIC_RELEASE_POLL_MS, 15_000),
     publicReleaseMaxAttempts: finiteNumber(env.PUBLIC_RELEASE_MAX_ATTEMPTS, 8),
+    careersRecipientEmail: env.CAREERS_RECIPIENT_EMAIL || 'projectdevemail001@gmail.com',
+    careersAllowedOrigins: commaSeparated(env.CAREERS_ALLOWED_ORIGINS),
+    careersMailApiKey: env.CAREERS_MAIL_API_KEY || '',
+    careersMailFrom: env.CAREERS_MAIL_FROM || '',
   };
 }
 

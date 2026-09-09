@@ -8,6 +8,8 @@
   const cvInput = document.querySelector('#career-cv');
   const maxCvBytes = 10 * 1024 * 1024;
   const acceptedExtensions = new Set(['pdf', 'doc', 'docx']);
+  const startedAt = document.querySelector('#career-started-at');
+  if (startedAt) startedAt.value = String(Date.now());
 
   function setError(field, message) {
     const error = document.querySelector(`#${field.id}-error`);
@@ -80,7 +82,7 @@
     field.addEventListener('blur', () => validateField(field));
   });
 
-  form.addEventListener('submit', (event) => {
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
     status.hidden = true;
     const fields = [...form.querySelectorAll('input, textarea')]
@@ -90,8 +92,26 @@
       fields.find((field) => field.getAttribute('aria-invalid') === 'true')?.focus();
       return;
     }
-    status.textContent = 'APPLICATION BACKEND CONNECTION REQUIRED. Your information has not been sent or stored. Please use the Contact Us page to arrange a secure handoff with the Lake Group team.';
+    const submitButton = form.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    submitButton.setAttribute('aria-busy', 'true');
+    status.textContent = 'Submitting your application…';
     status.hidden = false;
     status.focus();
+    try {
+      const apiBase = (window.LAKE_API_BASE || '').replace(/\/+$/, '');
+      const response = await fetch(`${apiBase}/api/careers/applications`, { method: 'POST', body: new FormData(form), credentials: 'omit' });
+      const body = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(body?.error?.message || 'The application could not be submitted. Please try again.');
+      status.textContent = 'APPLICATION RECEIVED. Thank you — the Lake Group team will review your application.';
+      form.reset();
+      if (startedAt) startedAt.value = String(Date.now());
+    } catch (error) {
+      status.textContent = error.message || 'The application could not be submitted. Please try again.';
+    } finally {
+      submitButton.disabled = false;
+      submitButton.removeAttribute('aria-busy');
+      status.focus();
+    }
   });
 })();
