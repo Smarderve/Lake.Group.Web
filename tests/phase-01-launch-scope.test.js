@@ -5,7 +5,7 @@ const path = require('node:path');
 const root = path.join(__dirname, '..');
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 
-const underConstruction = ['csr.html', 'sustainability.html'];
+const underConstruction = ['sustainability.html'];
 const retired = ['leadership-bibhuti-singh.html', 'leadership-biji-lapat.html', 'leadership-dileep-kumar.html', 'leadership-jishnu-jayachandran.html', 'leadership-juma-nuru.html', 'leadership-mohammed-khalid.html', 'leadership-sridhar-mani.html', 'leadership-zaki-othman.html'];
 
 test('launch-reduced pages use the common under-construction surface', () => {
@@ -21,6 +21,14 @@ test('careers is a live public page, not an under-construction surface', () => {
   assert.doesNotMatch(html, /under construction|coming soon|preparing this section/i);
   assert.doesNotMatch(html, /data-phase-01-under-construction/);
   assert.match(html, /Careers at Lake Group/);
+});
+
+test('CSR is a live public page with approved source content', () => {
+  const html = read('csr.html');
+  assert.doesNotMatch(html, /under construction|coming soon|preparing this section/i);
+  assert.match(html, /Growing Communities, Sustaining Futures\./);
+  assert.match(html, /150,000 rural residents/);
+  assert.match(html, /Rural Energy Agency \(REA\)/);
 });
 
 test('public UI exposes the planned language selector', () => {

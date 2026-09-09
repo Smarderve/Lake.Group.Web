@@ -348,26 +348,12 @@ export const CONTENT_SEED = {
       companySlug: null, order: 9 },
   ],
 
-  // 6 CSR pillars — mirror csr.html exactly.
+  // Approved CSR focus areas — mirror csr.html exactly.
   csrEntries: [
-    { title: 'Healthcare Support', category: 'community',
-      description: 'Donating medical equipment to maternal wards in Dar es Salaam\u2019s municipal hospitals — delivery beds, delivery kits, wheelchairs, stretchers and BP machines — and supporting referral hospitals such as Temeke.',
-      companySlug: 'lake-oil' },
-    { title: 'Children & Community Welfare', category: 'community',
-      description: 'Assisting needy children and orphanage centres, supporting places of worship, and providing emergency relief — including food and LPG cooking sets for flood-affected families in Rufiji.',
-      companySlug: 'lake-gas' },
-    { title: 'Environmental Stewardship', category: 'environment',
-      description: 'Responsible handling, storage and transport of petroleum products across the supply chain, with continuous investment in modern equipment and cleaner operations.',
-      companySlug: 'lake-oil' },
-    { title: 'Local Employment', category: 'community',
-      description: '30,000+ jobs across 10 countries, with a strong preference for hiring and developing local talent at every level of the organisation.',
-      companySlug: null },
-    { title: 'Clean Cooking Access', category: 'environment',
-      description: 'Expanding reliable LPG access for households across East Africa — reducing dependence on charcoal, improving indoor air quality and easing deforestation pressure.',
-      companySlug: 'lake-gas' },
-    { title: 'Health & Safety', category: 'environment',
-      description: 'Industry-leading safety standards across all divisions. Zero-harm ambition for employees, contractors and the communities we operate in.',
-      companySlug: 'lake-trans' },
+    { title: 'Education', category: 'community', description: 'Support for education that helps communities build opportunity.', companySlug: null },
+    { title: 'Health', category: 'community', description: 'Support for health and wellbeing in the communities we serve.', companySlug: null },
+    { title: 'Community Development', category: 'community', description: 'Practical support for stronger, more resilient communities.', companySlug: null },
+    { title: 'Employment Creation', category: 'community', description: 'Creating opportunities that help improve livelihoods.', companySlug: null },
   ],
 
   // 5 hiring areas — mirror careers.html "Where We Hire" exactly.

@@ -69,7 +69,7 @@ describe('Phase 8 · content seeds (registry + CMS entities)', () => {
     expect(leadership).toHaveLength(7); // leadership.html cards
     expect(contacts.length).toBeGreaterThanOrEqual(16); // HQ + verified country addresses
     expect(historyEvents.length).toBeGreaterThanOrEqual(10); // history.html timeline
-    expect(csrEntries).toHaveLength(6); // csr.html pillars
+    expect(csrEntries).toHaveLength(4); // approved csr.html focus areas
     expect(careerListings).toHaveLength(5); // careers.html hiring areas
     expect(mapCategories).toHaveLength(7); // map marker layers
 
