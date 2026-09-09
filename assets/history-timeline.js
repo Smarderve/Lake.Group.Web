@@ -199,12 +199,17 @@
         const spineX = cards.length > 1 ? Math.max(sx + 34, Math.min(...cards.map((item) => item.getBoundingClientRect().left - groupRect.left)) - 20) : sx;
         const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
         const bend = Math.max(18, (ex - spineX) * .34);
+        const twigBend = Math.max(24, (ex - spineX) * .34);
+        const twigBow = Math.max(28, Math.min(64, Math.abs(ey - sy) * .22 + 28));
         path.setAttribute('d', cards.length > 1
-          ? `M ${spineX.toFixed(1)} ${ey.toFixed(1)} C ${(spineX + bend).toFixed(1)} ${ey.toFixed(1)}, ${(ex - bend).toFixed(1)} ${ey.toFixed(1)}, ${ex.toFixed(1)} ${ey.toFixed(1)}`
-          : `M ${sx.toFixed(1)} ${sy.toFixed(1)} C ${(sx + Math.max(24, (ex - sx) * .3)).toFixed(1)} ${sy.toFixed(1)}, ${(ex - Math.max(24, (ex - sx) * .3)).toFixed(1)} ${ey.toFixed(1)}, ${ex.toFixed(1)} ${ey.toFixed(1)}`);
+          ? `M ${spineX.toFixed(1)} ${ey.toFixed(1)} C ${(spineX + twigBend * .42).toFixed(1)} ${(ey - twigBow).toFixed(1)}, ${(ex - twigBend * .42).toFixed(1)} ${(ey + twigBow).toFixed(1)}, ${ex.toFixed(1)} ${ey.toFixed(1)}`
+          : `M ${sx.toFixed(1)} ${sy.toFixed(1)} C ${(sx + Math.max(28, (ex - sx) * .28)).toFixed(1)} ${(sy - twigBow).toFixed(1)}, ${(ex - Math.max(28, (ex - sx) * .28)).toFixed(1)} ${(ey + twigBow).toFixed(1)}, ${ex.toFixed(1)} ${ey.toFixed(1)}`);
         path.classList.add('history-branch', cards.length > 1 ? 'history-branch--twig' : 'history-branch--primary');
+        path.style.setProperty('--branch-delay', `${cardIndex * 120}ms`);
         svg.append(path);
         requestAnimationFrame(() => path.style.setProperty('--branch-length', `${Math.ceil(path.getTotalLength())}`));
+        const reveal = card.parentElement;
+        if (reveal) reveal.style.setProperty('--branch-delay', `${cardIndex * 120 + 220}ms`);
       });
     });
 

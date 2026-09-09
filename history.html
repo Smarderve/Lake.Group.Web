@@ -55,12 +55,17 @@
 .history-year { color:#FFF200; font-family:var(--font-display); font-size:var(--history-year-size); font-weight:700; line-height:1; opacity:1; visibility:visible; transform:none; transition:color 260ms ease; }
 .history-events { display:grid; gap:14px; padding-left:32px; min-width:0; position:relative; z-index:2; }
 .history-event-reveal { min-width:0; opacity:0; transform:translateX(62px); transition:opacity 620ms cubic-bezier(.22,1,.36,1),transform 620ms cubic-bezier(.22,1,.36,1); perspective:1000px; }
-.history-event { --card-tilt-x:0deg; --card-tilt-y:0deg; position:relative; min-width:0; box-sizing:border-box; padding:20px 22px; border:0; border-left:2px solid rgba(1,129,187,.5); border-radius:4px 12px 12px 4px; background:#fffdfa; box-shadow:0 12px 26px rgba(1,26,40,.11), inset 0 1px 0 rgba(255,255,255,.9); transform:rotateX(var(--card-tilt-x)) rotateY(var(--card-tilt-y)); transform-style:preserve-3d; overflow-wrap:anywhere; transition:transform 120ms ease-out, border-color 240ms ease, box-shadow 240ms ease; will-change:transform; }
+.history-event { --card-tilt-x:0deg; --card-tilt-y:0deg; position:relative; min-width:0; box-sizing:border-box; padding:20px 22px; border:1px solid rgba(255,255,255,.2); border-left:4px solid var(--yellow); border-radius:4px 12px 12px 4px; background:#0181BB; color:#fff; box-shadow:0 12px 26px rgba(1,26,40,.18); transform:rotateX(var(--card-tilt-x)) rotateY(var(--card-tilt-y)); transform-style:preserve-3d; overflow-wrap:anywhere; transition:transform 120ms ease-out, border-color 240ms ease, box-shadow 240ms ease; will-change:transform; }
+.history-event-reveal:nth-child(even) .history-event { background:#dff3fa; border-color:rgba(1,129,187,.32); border-left-color:#0181BB; color:#013f5c; }
+.history-event:has(.history-status) { background:#FFF200; border-color:#e1d600; color:#013f5c; }
+.history-event h4 { color:inherit; }
+.history-event p { color:rgba(255,255,255,.86); }
+.history-event-reveal:nth-child(even) .history-event p, .history-event:has(.history-status) p { color:#164e66; }
 .history-event:hover { border-color:rgba(1,129,187,.38); box-shadow:0 16px 32px rgba(1,26,40,.14); }
 .history-branches { position:absolute; z-index:1; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; }
-.history-branch { fill:none; stroke:#4a9fbe; stroke-width:1.7; stroke-linecap:round; opacity:0; stroke-dasharray:var(--branch-length,600); stroke-dashoffset:var(--branch-length,600); transition:opacity 260ms ease,stroke-dashoffset 680ms cubic-bezier(.22,1,.36,1); }
+.history-branch { fill:none; stroke:#72d0ee; stroke-width:2.2; stroke-linecap:round; opacity:0; stroke-dasharray:var(--branch-length,600); stroke-dashoffset:var(--branch-length,600); transition:opacity 220ms ease var(--branch-delay,0ms),stroke-dashoffset 760ms cubic-bezier(.22,1,.36,1) var(--branch-delay,0ms); }
 .history-branch--primary { stroke:#2d87aa; stroke-width:2.5; }
-.history-branch--twig { stroke:#72b7ce; stroke-width:1.55; }
+.history-branch--twig { stroke:#9be5f8; stroke-width:2; }
 .history-year-group.is-active .history-branch,.history-year-group.is-complete .history-branch { opacity:.82; stroke-dashoffset:0; }
 .history-event h4,
 .history-country,
@@ -71,7 +76,7 @@
 .history-year-group.is-complete .history-country,
 .history-year-group.is-complete .history-event p,
  .history-year-group.is-complete .history-status { opacity:.78; visibility:visible; transition-delay:0s; }
-.history-year-group.is-complete .history-event-reveal { opacity:.82; transform:none; transition-delay:0s; }
+.history-year-group.is-complete .history-event-reveal { opacity:.82; transform:none; transition-delay:var(--branch-delay,0ms); }
 .history-year-group.is-active .history-year { color:#0181BB; }
 .history-year-group.is-active .history-event h4,
 .history-year-group.is-active .history-country,
@@ -81,7 +86,7 @@
 .history-year-group.is-active .history-country { transition-delay:140ms; }
 .history-year-group.is-active .history-event p,
 .history-year-group.is-active .history-status { transition-delay:220ms; }
-.history-year-group.is-active .history-event-reveal { opacity:1; transform:none; }
+.history-year-group.is-active .history-event-reveal { opacity:1; transform:none; transition-delay:var(--branch-delay,0ms); }
 .history-year-group.is-active .history-event { border-color:rgba(1,129,187,.52); box-shadow:0 16px 34px rgba(1,26,40,.15), inset 0 1px 0 rgba(255,255,255,.9); }
 .history-year-group.is-active .history-event:nth-child(2) h4 { transition-delay:250ms; }
 .history-year-group.is-active .history-event:nth-child(2) .history-country { transition-delay:310ms; }
