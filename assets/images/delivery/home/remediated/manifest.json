@@ -1,0 +1,107 @@
+[
+  {
+    "id": "automotive",
+    "source": "assets/images/home/verticals/automotive-truck-lineup.webp",
+    "output": "assets/images/delivery/home/remediated/automotive-truck-lineup-clean.webp",
+    "width": 1515,
+    "height": 848,
+    "bytes": 115596,
+    "quality": 86
+  },
+  {
+    "id": "automotive-960",
+    "output": "assets/images/delivery/home/remediated/automotive-truck-lineup-clean-960.webp",
+    "width": 960,
+    "height": 537,
+    "bytes": 61274,
+    "quality": 86
+  },
+  {
+    "id": "automotive-thumb",
+    "output": "assets/images/delivery/home/remediated/automotive-truck-lineup-clean-thumb.webp",
+    "width": 240,
+    "height": 140,
+    "bytes": 7584,
+    "quality": 86
+  },
+  {
+    "id": "aill",
+    "source": "assets/images/aill/aill-hero.webp",
+    "output": "assets/images/delivery/home/remediated/aill-hero-clean.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 171468,
+    "quality": 86
+  },
+  {
+    "id": "aviation",
+    "source": "assets/images/delivery/lake-aviation/ops/lake-aviation-hero-apron.webp",
+    "output": "assets/images/delivery/home/remediated/lake-aviation-hero-apron-clean.webp",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 251050,
+    "quality": 86
+  },
+  {
+    "id": "laketrans",
+    "source": "assets/images/laketrans/hero/lake-trans-fleet-hero.webp",
+    "output": "assets/images/delivery/home/remediated/lake-trans-fleet-hero-clean.webp",
+    "width": 1854,
+    "height": 848,
+    "bytes": 143350,
+    "quality": 86
+  },
+  {
+    "id": "agrinova",
+    "source": "assets/images/agrinova/combine.webp",
+    "output": "assets/images/delivery/home/remediated/agrinova-combine-clean.webp",
+    "width": 800,
+    "height": 600,
+    "bytes": 138234,
+    "quality": 86
+  },
+  {
+    "id": "atl",
+    "source": "assets/images/atl/content/atl-flatbed-red.webp",
+    "output": "assets/images/delivery/home/remediated/atl-flatbed-red-clean.webp",
+    "width": 1086,
+    "height": 1448,
+    "bytes": 127822,
+    "quality": 86
+  },
+  {
+    "id": "nexdrive",
+    "source": "assets/images/nexdrive/products/sany-heavy-commercial-truck.webp",
+    "output": "assets/images/delivery/home/remediated/nexdrive-heavy-commercial-truck-clean.webp",
+    "width": 1122,
+    "height": 1402,
+    "bytes": 66658,
+    "quality": 86
+  },
+  {
+    "id": "agro",
+    "source": "assets/images/delivery/lake-agro/lake-agro-hero-desktop.webp",
+    "output": "assets/images/delivery/home/remediated/lake-agro-hero-desktop-clean.webp",
+    "width": 1672,
+    "height": 941,
+    "bytes": 305914,
+    "quality": 86
+  },
+  {
+    "id": "agro-thumb",
+    "output": "assets/images/delivery/home/remediated/lake-agro-hero-clean-thumb.webp",
+    "width": 240,
+    "height": 140,
+    "bytes": 13398,
+    "quality": 86
+  },
+  {
+    "id": "tanks",
+    "source": "assets/images/lake-pipes/new/tanks.webp",
+    "output": "assets/images/delivery/home/remediated/lake-tanks-clean.webp",
+    "width": 1535,
+    "height": 1025,
+    "bytes": 260248,
+    "quality": 86
+  }
+]

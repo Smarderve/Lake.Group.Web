@@ -1,0 +1,362 @@
+[
+  {
+    "viewport": "home-1440",
+    "status": 200,
+    "failures": [],
+    "consoleErrors": [
+      "Executing inline event handler violates the following Content Security Policy directive 'script-src-attr 'none''. Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution. Note that hashes do not apply to event handlers, style attributes and javascript: navigations unless the 'unsafe-hashes' keyword is present. The action has been blocked.",
+      "Executing inline event handler violates the following Content Security Policy directive 'script-src-attr 'none''. Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution. Note that hashes do not apply to event handlers, style attributes and javascript: navigations unless the 'unsafe-hashes' keyword is present. The action has been blocked.",
+      "Lake I18n: window.__LAKE_I18N_CONTENT__ is not defined. Make sure assets/i18n-content.js is loaded with a <script> tag BEFORE assets/i18n.js on this page."
+    ],
+    "broken": [],
+    "remediated": [
+      {
+        "src": "assets/images/delivery/home/remediated/automotive-truck-lineup-clean-thumb.webp",
+        "naturalWidth": 240,
+        "naturalHeight": 140,
+        "renderedWidth": 240,
+        "renderedHeight": 140,
+        "complete": true
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/lake-agro-hero-clean-thumb.webp",
+        "naturalWidth": 240,
+        "naturalHeight": 140,
+        "renderedWidth": 240,
+        "renderedHeight": 140,
+        "complete": true
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/lake-trans-fleet-hero-clean.webp",
+        "naturalWidth": 1854,
+        "naturalHeight": 848,
+        "renderedWidth": 273,
+        "renderedHeight": 330,
+        "complete": true
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/lake-aviation-hero-apron-clean.webp",
+        "naturalWidth": 1448,
+        "naturalHeight": 1086,
+        "renderedWidth": 164,
+        "renderedHeight": 246,
+        "complete": true
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/lake-tanks-clean.webp",
+        "naturalWidth": 1535,
+        "naturalHeight": 1025,
+        "renderedWidth": 124,
+        "renderedHeight": 186,
+        "complete": true
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/lake-trans-fleet-hero-clean.webp",
+        "naturalWidth": 1854,
+        "naturalHeight": 848,
+        "renderedWidth": 124,
+        "renderedHeight": 186,
+        "complete": true
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/aill-hero-clean.webp",
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "renderedWidth": 124,
+        "renderedHeight": 186,
+        "complete": true
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/agrinova-combine-clean.webp",
+        "naturalWidth": 800,
+        "naturalHeight": 600,
+        "renderedWidth": 144,
+        "renderedHeight": 216,
+        "complete": true
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/atl-flatbed-red-clean.webp",
+        "naturalWidth": 1086,
+        "naturalHeight": 1448,
+        "renderedWidth": 164,
+        "renderedHeight": 246,
+        "complete": true
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/nexdrive-heavy-commercial-truck-clean.webp",
+        "naturalWidth": 1122,
+        "naturalHeight": 1402,
+        "renderedWidth": 193,
+        "renderedHeight": 290,
+        "complete": true
+      }
+    ],
+    "actionSlides": [
+      {
+        "src": "assets/images/delivery/lakeoil/current/storage-facilities-terminal.webp",
+        "naturalWidth": 1672,
+        "naturalHeight": 940
+      },
+      {
+        "src": "assets/images/delivery/lakegas/ops/filling-plant-opt.webp",
+        "naturalWidth": 800,
+        "naturalHeight": 500
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/lake-aviation-hero-apron-clean.webp",
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      {
+        "src": "assets/images/delivery/lakelubes/ops/plant-opt.webp",
+        "naturalWidth": 800,
+        "naturalHeight": 500
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/lake-tanks-clean.webp",
+        "naturalWidth": 1535,
+        "naturalHeight": 1025
+      },
+      {
+        "src": "assets/images/delivery/lakesteel/ops/hot-rolling-opt.webp",
+        "naturalWidth": 800,
+        "naturalHeight": 500
+      },
+      {
+        "src": "assets/images/lake-cylinders/gallery/team-photo.webp",
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      {
+        "src": "assets/images/gccp/lake-premix-batching-plant.webp",
+        "naturalWidth": 1541,
+        "naturalHeight": 1021
+      },
+      {
+        "src": "assets/images/gulf-aggregates/services/quarry-aerial.webp",
+        "naturalWidth": 1536,
+        "naturalHeight": 1024
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/lake-trans-fleet-hero-clean.webp",
+        "naturalWidth": 1854,
+        "naturalHeight": 848
+      },
+      {
+        "src": "assets/images/delivery/home/verticals/logistics-960.webp",
+        "naturalWidth": 960,
+        "naturalHeight": 640
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/aill-hero-clean.webp",
+        "naturalWidth": 1536,
+        "naturalHeight": 1024
+      },
+      {
+        "src": "assets/images/cross-country/cross-country-hero.webp",
+        "naturalWidth": 1672,
+        "naturalHeight": 940
+      },
+      {
+        "src": "assets/images/delivery/lake-agro/la-tanzania-factory.webp",
+        "naturalWidth": 1600,
+        "naturalHeight": 900
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/agrinova-combine-clean.webp",
+        "naturalWidth": 800,
+        "naturalHeight": 600
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/atl-flatbed-red-clean.webp",
+        "naturalWidth": 1086,
+        "naturalHeight": 1448
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/nexdrive-heavy-commercial-truck-clean.webp",
+        "naturalWidth": 1122,
+        "naturalHeight": 1402
+      }
+    ]
+  },
+  {
+    "viewport": "home-390",
+    "status": 200,
+    "failures": [],
+    "consoleErrors": [
+      "Executing inline event handler violates the following Content Security Policy directive 'script-src-attr 'none''. Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution. Note that hashes do not apply to event handlers, style attributes and javascript: navigations unless the 'unsafe-hashes' keyword is present. The action has been blocked.",
+      "Executing inline event handler violates the following Content Security Policy directive 'script-src-attr 'none''. Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution. Note that hashes do not apply to event handlers, style attributes and javascript: navigations unless the 'unsafe-hashes' keyword is present. The action has been blocked.",
+      "Lake I18n: window.__LAKE_I18N_CONTENT__ is not defined. Make sure assets/i18n-content.js is loaded with a <script> tag BEFORE assets/i18n.js on this page."
+    ],
+    "broken": [],
+    "remediated": [
+      {
+        "src": "assets/images/delivery/home/remediated/automotive-truck-lineup-clean-thumb.webp",
+        "naturalWidth": 0,
+        "naturalHeight": 0,
+        "renderedWidth": 0,
+        "renderedHeight": 0,
+        "complete": false
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/lake-agro-hero-clean-thumb.webp",
+        "naturalWidth": 0,
+        "naturalHeight": 0,
+        "renderedWidth": 0,
+        "renderedHeight": 0,
+        "complete": false
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/lake-trans-fleet-hero-clean.webp",
+        "naturalWidth": 1854,
+        "naturalHeight": 848,
+        "renderedWidth": 358,
+        "renderedHeight": 330,
+        "complete": true
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/lake-aviation-hero-apron-clean.webp",
+        "naturalWidth": 1448,
+        "naturalHeight": 1086,
+        "renderedWidth": 139,
+        "renderedHeight": 208,
+        "complete": true
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/lake-tanks-clean.webp",
+        "naturalWidth": 1535,
+        "naturalHeight": 1025,
+        "renderedWidth": 105,
+        "renderedHeight": 158,
+        "complete": true
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/lake-trans-fleet-hero-clean.webp",
+        "naturalWidth": 1854,
+        "naturalHeight": 848,
+        "renderedWidth": 105,
+        "renderedHeight": 158,
+        "complete": true
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/aill-hero-clean.webp",
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "renderedWidth": 105,
+        "renderedHeight": 158,
+        "complete": true
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/agrinova-combine-clean.webp",
+        "naturalWidth": 800,
+        "naturalHeight": 600,
+        "renderedWidth": 122,
+        "renderedHeight": 183,
+        "complete": true
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/atl-flatbed-red-clean.webp",
+        "naturalWidth": 1086,
+        "naturalHeight": 1448,
+        "renderedWidth": 139,
+        "renderedHeight": 208,
+        "complete": true
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/nexdrive-heavy-commercial-truck-clean.webp",
+        "naturalWidth": 1122,
+        "naturalHeight": 1402,
+        "renderedWidth": 164,
+        "renderedHeight": 246,
+        "complete": true
+      }
+    ],
+    "actionSlides": [
+      {
+        "src": "assets/images/delivery/lakeoil/current/storage-facilities-terminal.webp",
+        "naturalWidth": 1672,
+        "naturalHeight": 940
+      },
+      {
+        "src": "assets/images/delivery/lakegas/ops/filling-plant-opt.webp",
+        "naturalWidth": 800,
+        "naturalHeight": 500
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/lake-aviation-hero-apron-clean.webp",
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      {
+        "src": "assets/images/delivery/lakelubes/ops/plant-opt.webp",
+        "naturalWidth": 800,
+        "naturalHeight": 500
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/lake-tanks-clean.webp",
+        "naturalWidth": 1535,
+        "naturalHeight": 1025
+      },
+      {
+        "src": "assets/images/delivery/lakesteel/ops/hot-rolling-opt.webp",
+        "naturalWidth": 800,
+        "naturalHeight": 500
+      },
+      {
+        "src": "assets/images/lake-cylinders/gallery/team-photo.webp",
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      {
+        "src": "assets/images/gccp/lake-premix-batching-plant.webp",
+        "naturalWidth": 1541,
+        "naturalHeight": 1021
+      },
+      {
+        "src": "assets/images/gulf-aggregates/services/quarry-aerial.webp",
+        "naturalWidth": 1536,
+        "naturalHeight": 1024
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/lake-trans-fleet-hero-clean.webp",
+        "naturalWidth": 1854,
+        "naturalHeight": 848
+      },
+      {
+        "src": "assets/images/delivery/home/verticals/logistics-960.webp",
+        "naturalWidth": 960,
+        "naturalHeight": 640
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/aill-hero-clean.webp",
+        "naturalWidth": 1536,
+        "naturalHeight": 1024
+      },
+      {
+        "src": "assets/images/cross-country/cross-country-hero.webp",
+        "naturalWidth": 1672,
+        "naturalHeight": 940
+      },
+      {
+        "src": "assets/images/delivery/lake-agro/la-tanzania-factory.webp",
+        "naturalWidth": 1600,
+        "naturalHeight": 900
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/agrinova-combine-clean.webp",
+        "naturalWidth": 800,
+        "naturalHeight": 600
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/atl-flatbed-red-clean.webp",
+        "naturalWidth": 1086,
+        "naturalHeight": 1448
+      },
+      {
+        "src": "assets/images/delivery/home/remediated/nexdrive-heavy-commercial-truck-clean.webp",
+        "naturalWidth": 1122,
+        "naturalHeight": 1402
+      }
+    ]
+  }
+]
