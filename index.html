@@ -1406,82 +1406,123 @@
       z-index: 0;
       width: 100%;
       height: 100%;
-      overflow: hidden;
+      overflow: visible;
       background: transparent;
-      cursor: grab;
-    }
-    #hero-globe-root.is-dragging {
-      cursor: grabbing;
     }
 
-    #hero-globe-root > div {
+    #hero-globe-root > .experience {
+      position: relative;
+      width: 100% !important;
+      height: 100% !important;
+      min-height: 100%;
+      overflow: visible;
+      isolation: isolate;
+      background: radial-gradient(circle at 50% 46%, #0a2131 0, #04121e 43%, #020911 74%, #01070d 100%);
+    }
+
+    #hero-globe-root > .experience::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .32;
+      background-image: radial-gradient(circle, rgba(255,255,255,.38) 0 1px, transparent 1.2px);
+      background-size: 147px 139px;
+      background-position: 31px 19px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.6), transparent 72%);
+    }
+
+    #hero-globe-root .planet-halo {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: min(78vh, 72vw);
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(36,107,145,.12), rgba(8,38,58,.08) 56%, transparent 72%);
+      filter: blur(24px);
+      pointer-events: none;
+    }
+
+    #hero-globe-root canvas {
+      display: block;
+      position: absolute !important;
+      inset: 0;
       width: 100% !important;
       height: 100% !important;
     }
 
-    .experience-3d-panel canvas {
-      display: block;
+    #hero-globe-root .leaders,
+    #hero-globe-root .labels {
       position: absolute;
-      top: 0;
-      left: 0;
+      inset: 0;
       width: 100%;
       height: 100%;
-      z-index: 0;
-      transform: scale(1);
-      transform-origin: center;
-      filter: saturate(1.04) contrast(1.02);
+      pointer-events: none;
+      overflow: visible;
     }
 
-    /* Projected labels stay anchored to their actual lat/lng point. Their
-       semantic side keeps the cluster readable as the globe resizes. */
-    .hero-globe-marker__label {
-      top: -0.5em;
-      left: calc(var(--label-distance) + 4px);
-      padding: 4px 6px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 3px;
-      background: rgba(1, 26, 40, 0.72);
-      transform: translate(var(--label-shift-x, 0px), var(--label-shift-y, 0px));
-      transition: opacity 180ms ease, transform 220ms cubic-bezier(.22,1,.36,1);
+    #hero-globe-root .leaders line {
+      stroke: rgba(222,235,240,.48);
+      stroke-width: .65;
+      vector-effect: non-scaling-stroke;
+      transition: opacity .18s linear;
+      opacity: 0;
     }
 
-    .hero-globe-marker__leader {
+    #hero-globe-root .map-label {
       position: absolute;
-      top: 0;
       left: 0;
-      width: var(--label-distance);
-      height: 1px;
-      background: rgba(255, 242, 0, 0.62);
+      top: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: rgba(246,249,250,.94);
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: .095em;
+      white-space: nowrap;
+      text-shadow: 0 2px 12px #01070d, 0 1px 3px #01070d;
       transform-origin: left center;
-      transition: opacity 180ms ease, width 220ms ease, transform 220ms cubic-bezier(.22,1,.36,1);
-    }
-
-    .hero-globe-marker__label--west {
-      left: auto;
-      right: calc(var(--label-distance) + 4px);
-    }
-
-    .hero-globe-marker__leader--west {
-      left: auto;
-      right: 0;
-      transform-origin: right center;
-    }
-
-    .hero-globe-marker.is-behind-globe,
-    .hero-globe-marker__label.is-behind-globe,
-    .hero-globe-marker__label.is-collision-hidden {
+      transition: opacity .18s linear;
       opacity: 0;
     }
 
-    .hero-globe-marker__leader.is-collision-hidden {
-      opacity: 0;
+    #hero-globe-root .map-label img {
+      width: 17px;
+      height: 12px;
+      object-fit: cover;
+      box-shadow: 0 0 0 1px rgba(255,255,255,.28);
+    }
+
+    #hero-globe-root .map-label.origin {
+      color: #fff200;
+      font-size: 12px;
+    }
+
+    #hero-globe-root .map-label.origin img {
+      width: 19px;
+      height: 13px;
     }
 
     @media (max-width: 600px) {
-      .hero-globe-marker__label {
-        padding: 3px 4px;
-        letter-spacing: 0.04em;
+      #hero-globe-root { overflow: hidden; }
+      #hero-globe-root > .experience {
+        overflow: hidden;
+        background: radial-gradient(circle at 50% 46%, #0a2131 0, #04121e 44%, #01070d 82%);
       }
+      #hero-globe-root .planet-halo { width: 112vw; }
+      #hero-globe-root .map-label {
+        font-size: 9px;
+        gap: 5px;
+        letter-spacing: .065em;
+      }
+      #hero-globe-root .map-label img { width: 14px; height: 10px; }
+      #hero-globe-root .map-label.origin { font-size: 10px; }
+      #hero-globe-root .map-label.origin img { width: 16px; height: 11px; }
     }
 
     .experience-3d-panel.is-loading {
@@ -2534,12 +2575,7 @@
             </div>
           </div>
           <div class="experience-3d-viewport experience-3d-panel" id="experience-3d-panel">
-            <div class="experience-3d-finale" aria-hidden="true">
-              <img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group" class="experience-3d-finale-logo" width="180" height="48" decoding="async" loading="lazy">
-              <h3 data-i18n="index.29" data-i18n-html="">
-                Company <span data-i18n="index.30">Network</span>
-              </h3>
-            </div>
+            <div id="hero-globe-root"></div>
           </div>
     </div>
   </section>
@@ -2852,7 +2888,7 @@
     })();
   </script>
   <script>
-    // Keep the react-globe.gl island off the critical path. It is fetched
+    // Keep the approved globe lab island off the critical path. It is fetched
     // after the page load has gone idle, or when the experience section
     // actually approaches the viewport.
     (function () {
@@ -2862,7 +2898,7 @@
         if (loaded) return;
         loaded = true;
         var s = document.createElement("script");
-        s.src = "assets/hero-globe.bundle.js?v=20260909-03";
+        s.src = "assets/globe-lab.bundle.js?v=20260909-03";
         document.body.appendChild(s);
       }
       function loadAfterPageLoad() {

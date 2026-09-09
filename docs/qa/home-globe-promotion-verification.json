@@ -1,0 +1,275 @@
+{
+  "generatedAt": "2026-09-09T19:15:16.185Z",
+  "assertions": {
+    "allBreakpointsPass": true,
+    "oneCanvasEverywhere": true,
+    "oneWebglContextEverywhere": true,
+    "oldBundleNeverLoaded": true,
+    "approvedBundleLoadedOnce": true,
+    "exactTenLabelsEverywhere": true,
+    "visibilityPausePresent": true,
+    "dprCapPreserved": true,
+    "coordinatesPreserved": true
+  },
+  "results": [
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvases": 1,
+      "webglContextCanvases": 1,
+      "labels": [
+        "tz",
+        "ke",
+        "ug",
+        "rw",
+        "bi",
+        "cd",
+        "zm",
+        "mz",
+        "et",
+        "ae"
+      ],
+      "exactLabels": true,
+      "rootWidth": 358,
+      "rootHeight": 280,
+      "heroVisible": false,
+      "navVisible": true,
+      "labLoads": 1,
+      "oldLoads": 0,
+      "failedRequests": []
+    },
+    {
+      "viewport": {
+        "width": 430,
+        "height": 900
+      },
+      "canvases": 1,
+      "webglContextCanvases": 1,
+      "labels": [
+        "tz",
+        "ke",
+        "ug",
+        "rw",
+        "bi",
+        "cd",
+        "zm",
+        "mz",
+        "et",
+        "ae"
+      ],
+      "exactLabels": true,
+      "rootWidth": 398,
+      "rootHeight": 280,
+      "heroVisible": false,
+      "navVisible": true,
+      "labLoads": 1,
+      "oldLoads": 0,
+      "failedRequests": []
+    },
+    {
+      "viewport": {
+        "width": 768,
+        "height": 900
+      },
+      "canvases": 1,
+      "webglContextCanvases": 1,
+      "labels": [
+        "tz",
+        "ke",
+        "ug",
+        "rw",
+        "bi",
+        "cd",
+        "zm",
+        "mz",
+        "et",
+        "ae"
+      ],
+      "exactLabels": true,
+      "rootWidth": 720,
+      "rootHeight": 320,
+      "heroVisible": false,
+      "navVisible": true,
+      "labLoads": 1,
+      "oldLoads": 0,
+      "failedRequests": []
+    },
+    {
+      "viewport": {
+        "width": 1024,
+        "height": 900
+      },
+      "canvases": 1,
+      "webglContextCanvases": 1,
+      "labels": [
+        "tz",
+        "ke",
+        "ug",
+        "rw",
+        "bi",
+        "cd",
+        "zm",
+        "mz",
+        "et",
+        "ae"
+      ],
+      "exactLabels": true,
+      "rootWidth": 522,
+      "rootHeight": 640,
+      "heroVisible": false,
+      "navVisible": true,
+      "labLoads": 1,
+      "oldLoads": 0,
+      "failedRequests": []
+    },
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "canvases": 1,
+      "webglContextCanvases": 1,
+      "labels": [
+        "tz",
+        "ke",
+        "ug",
+        "rw",
+        "bi",
+        "cd",
+        "zm",
+        "mz",
+        "et",
+        "ae"
+      ],
+      "exactLabels": true,
+      "rootWidth": 616,
+      "rootHeight": 640,
+      "heroVisible": false,
+      "navVisible": true,
+      "labLoads": 1,
+      "oldLoads": 0,
+      "failedRequests": []
+    },
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 900
+      },
+      "canvases": 1,
+      "webglContextCanvases": 1,
+      "labels": [
+        "tz",
+        "ke",
+        "ug",
+        "rw",
+        "bi",
+        "cd",
+        "zm",
+        "mz",
+        "et",
+        "ae"
+      ],
+      "exactLabels": true,
+      "rootWidth": 616,
+      "rootHeight": 640,
+      "heroVisible": false,
+      "navVisible": true,
+      "labLoads": 1,
+      "oldLoads": 0,
+      "failedRequests": []
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "canvases": 1,
+      "webglContextCanvases": 1,
+      "labels": [
+        "tz",
+        "ke",
+        "ug",
+        "rw",
+        "bi",
+        "cd",
+        "zm",
+        "mz",
+        "et",
+        "ae"
+      ],
+      "exactLabels": true,
+      "rootWidth": 616,
+      "rootHeight": 640,
+      "heroVisible": false,
+      "navVisible": true,
+      "labLoads": 1,
+      "oldLoads": 0,
+      "failedRequests": []
+    },
+    {
+      "viewport": {
+        "width": 1536,
+        "height": 1000
+      },
+      "canvases": 1,
+      "webglContextCanvases": 1,
+      "labels": [
+        "tz",
+        "ke",
+        "ug",
+        "rw",
+        "bi",
+        "cd",
+        "zm",
+        "mz",
+        "et",
+        "ae"
+      ],
+      "exactLabels": true,
+      "rootWidth": 616,
+      "rootHeight": 640,
+      "heroVisible": false,
+      "navVisible": true,
+      "labLoads": 1,
+      "oldLoads": 0,
+      "failedRequests": []
+    },
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "canvases": 1,
+      "webglContextCanvases": 1,
+      "labels": [
+        "tz",
+        "ke",
+        "ug",
+        "rw",
+        "bi",
+        "cd",
+        "zm",
+        "mz",
+        "et",
+        "ae"
+      ],
+      "exactLabels": true,
+      "rootWidth": 616,
+      "rootHeight": 640,
+      "heroVisible": false,
+      "navVisible": true,
+      "labLoads": 1,
+      "oldLoads": 0,
+      "failedRequests": []
+    }
+  ],
+  "screenshots": [
+    "docs/qa/globe-lab-approved-1440.png",
+    "docs/qa/home-globe-promoted-1440.png",
+    "docs/qa/home-globe-promoted-1920.png",
+    "docs/qa/home-globe-promoted-390.png"
+  ],
+  "recording": "docs/qa/home-globe-promoted-sequence.mp4"
+}

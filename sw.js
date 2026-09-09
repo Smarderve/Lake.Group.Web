@@ -23,12 +23,15 @@
  * reload an already-visible client, preventing stale-first update flashes.
  *
  * v71: News tiles get the rounded dashboard-card look (radius + soft shadows).
- *      Version bump forces a full cache purge on the next visit so the new
+ *      Version bump forces a full cache purge on the next visit.
+ *
+ * v84: Promote the approved globe-lab bundle to Home and retire the previous
+ *      production globe bundle from the network-first route.
  */
 
 'use strict';
 
-const VERSION = 'v83-20260909-01';
+const VERSION = 'v84-20260828-01';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -426,7 +429,7 @@ function classify(request, url) {
     return 'network-first-design';
   }
 
-  if (path.endsWith('/assets/hero-globe.bundle.js')) {
+  if (path.endsWith('/assets/globe-lab.bundle.js')) {
     return 'network-first-asset';
   }
 
