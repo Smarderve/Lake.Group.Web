@@ -95,6 +95,26 @@
 .cr-intro .divider-yellow { width: 84px; margin-bottom: var(--sp-7); }
 .cr-work-grid .cr-benefits { margin-top: clamp(52px, 6vw, 72px); }
 .cr-work-grid .cr-hire { margin-top: 0; }
+.cr-network { padding: clamp(72px, 8vw, 112px) 0; background: var(--ink); color: #fff; }
+.cr-network-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(320px, .8fr); gap: clamp(42px, 8vw, 112px); align-items: center; }
+.cr-network-copy { max-width: 680px; }
+.cr-network-copy h2 { max-width: 12ch; color: #fff; font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 5rem); line-height: .95; letter-spacing: -.035em; text-transform: uppercase; }
+.cr-network-copy > p { max-width: 58ch; margin-top: 24px; color: var(--ink-mute); font-size: 1.05rem; line-height: 1.65; }
+.cr-network-benefits { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 34px; }
+.cr-network-benefit { padding-top: 16px; border-top: 1px solid var(--ink-line-2); }
+.cr-network-benefit h3 { color: #fff; font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; }
+.cr-network-benefit p { margin-top: 7px; color: var(--ink-mute); font-size: .82rem; line-height: 1.5; }
+.cr-network-panel { padding: clamp(28px, 4vw, 46px); background: var(--paper-2); color: var(--ink); }
+.cr-network-brand { display: flex; align-items: center; gap: 14px; }
+.cr-linkedin-mark { display: grid; width: 42px; height: 42px; place-items: center; border-radius: 4px; background: #0a66c2; color: #fff; font-size: 1.45rem; font-weight: 800; }
+.cr-network-panel h3 { margin-top: 26px; color: var(--ink); font-family: var(--font-display); font-size: clamp(1.5rem, 2.5vw, 2.25rem); line-height: 1; text-transform: uppercase; }
+.cr-network-panel p { margin-top: 14px; color: var(--muted); line-height: 1.6; }
+.cr-network-panel .btn { margin-top: 26px; }
+.cr-network-bridge { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: clamp(56px, 7vw, 88px); padding-top: 24px; border-top: 1px solid var(--ink-line-2); }
+.cr-network-bridge p { margin: 0; color: var(--ink-mute); }
+.cr-network-bridge strong { display: block; margin-bottom: 5px; color: #fff; font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; }
+@media (max-width: 900px) { .cr-network-grid { grid-template-columns: 1fr; } .cr-network-copy h2 { max-width: 16ch; } }
+@media (max-width: 600px) { .cr-network-benefits { grid-template-columns: 1fr; gap: 22px; } .cr-network-bridge { align-items: flex-start; flex-direction: column; } .cr-network-panel { padding: 28px 24px; } }
 .cr-benefit-media { aspect-ratio: 16 / 9; }
 .cr-benefit-copy { padding: 22px 24px 26px; }
 .cr-benefit h4 { font-size: 1rem; }
@@ -284,6 +304,31 @@
             <div class="cr-benefit-copy"><h4 data-i18n="careers.15">Safety First</h4><p data-i18n="careers.16">Industry-leading safety standards in all operations</p></div>
           </article>
       </div>
+    </div>
+  </div>
+</section>
+<section id="career-network" class="cr-network" aria-labelledby="career-network-title">
+  <div class="container">
+    <div class="cr-network-grid">
+      <div class="cr-network-copy">
+        <h2 id="career-network-title">Stay connected to opportunity.</h2>
+        <p>Follow Lake Group’s professional presence to discover career updates, understand our growing businesses, and stay connected to future opportunities across Africa.</p>
+        <div class="cr-network-benefits">
+          <div class="cr-network-benefit"><h3>Discover opportunities</h3><p>Keep up with future career announcements.</p></div>
+          <div class="cr-network-benefit"><h3>Know our business</h3><p>See the work and markets shaping Lake Group.</p></div>
+          <div class="cr-network-benefit"><h3>Build the connection</h3><p>Join our professional community before you apply.</p></div>
+        </div>
+      </div>
+      <aside class="cr-network-panel" aria-label="Lake Group LinkedIn professional network">
+        <div class="cr-network-brand"><span class="cr-linkedin-mark" aria-hidden="true">in</span><strong>Lake Group</strong></div>
+        <h3>Explore the Lake Group professional network.</h3>
+        <p>Connect with Lake Group on LinkedIn for company developments and career-related updates.</p>
+        <a class="btn btn-blue" href="https://www.linkedin.com/company/lake-energies-group/" target="_blank" rel="noopener noreferrer" aria-label="Explore Lake Group careers on LinkedIn, opens in a new tab">Explore careers on LinkedIn <span aria-hidden="true">↗</span></a>
+      </aside>
+    </div>
+    <div class="cr-network-bridge">
+      <p><strong>Ready to apply now?</strong>Continue below and submit your CV directly to the Lake Group team.</p>
+      <a class="btn btn-primary btn-sm" href="#apply">Apply directly <span aria-hidden="true">↓</span></a>
     </div>
   </div>
 </section>
