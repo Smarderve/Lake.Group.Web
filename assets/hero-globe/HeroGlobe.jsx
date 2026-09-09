@@ -9,6 +9,11 @@ import {
   LABEL_PRIORITY,
   prefersReducedMotion,
 } from './locations.js';
+import {
+  ACETERNITY_GLOBE_CONFIG,
+  ACETERNITY_3D_CONFIG,
+  normalizeAceternityArc,
+} from './aceternity-foundation.js';
 
 const MARKER_ICON = 'assets/icons/location-marker.svg';
 const AFRICA_POV = { lat: -4, lng: 33, altitude: 1.85 };
@@ -209,9 +214,9 @@ export default function HeroGlobe({ panelEl, locations }) {
 
   /* ── Combined arc data for the Globe component ── */
   const arcsData = useMemo(() => {
-    const arcs = completedArcs.map((a) => ({ ...a, dashLength: 1 }));
+    const arcs = completedArcs.map((a) => ({ ...normalizeAceternityArc(a, a.order), dashLength: 1 }));
     if (activeArc) {
-      arcs.push({ ...activeArc, dashLength: activeDashRef.current });
+      arcs.push({ ...normalizeAceternityArc(activeArc, activeArc.order), dashLength: activeDashRef.current });
     }
     return arcs;
   }, [completedArcs, activeArc]);
@@ -557,6 +562,15 @@ export default function HeroGlobe({ panelEl, locations }) {
     controls.minPolarAngle = Math.PI * 0.25;
     controls.maxPolarAngle = Math.PI * 0.75;
     globe.renderer?.().setPixelRatio(Math.min(1.5, window.devicePixelRatio));
+    // Aceternity globe-demo material recipe: dark emissive body with a crisp
+    // blue Fresnel atmosphere supplied by the 3d-globe implementation.
+    const material = globe.globeMaterial?.();
+    if (material) {
+      material.color?.set(ACETERNITY_GLOBE_CONFIG.globeColor);
+      material.emissive?.set(ACETERNITY_GLOBE_CONFIG.emissive);
+      material.emissiveIntensity = ACETERNITY_GLOBE_CONFIG.emissiveIntensity;
+      material.shininess = ACETERNITY_GLOBE_CONFIG.shininess;
+    }
     setGlobeReady(true);
   }, [reduced]);
 
@@ -582,14 +596,16 @@ export default function HeroGlobe({ panelEl, locations }) {
       backgroundColor="rgba(0,0,0,0)"
       globeImageUrl={TEX.day}
       bumpImageUrl={TEX.bump}
-      atmosphereColor="#4db8e8"
-      atmosphereAltitude={0.14}
+      globeColor={ACETERNITY_GLOBE_CONFIG.globeColor}
+      atmosphereColor={ACETERNITY_GLOBE_CONFIG.atmosphereColor}
+      atmosphereAltitude={ACETERNITY_GLOBE_CONFIG.atmosphereAltitude}
+      atmosphereGlowPower={ACETERNITY_3D_CONFIG.atmosphereIntensity}
       animateIn={false}
       onGlobeReady={onGlobeReady}
       arcsData={arcsData}
       arcColor={() => ROUTE_YELLOW}
       arcAltitude="altitude"
-      arcStroke={0.52}
+      arcStroke={0.36}
       arcDashLength="dashLength"
       arcDashGap={0}
       arcDashAnimateTime={0}
@@ -609,7 +625,7 @@ export default function HeroGlobe({ panelEl, locations }) {
       ringColor={() => ROUTE_YELLOW}
       ringAltitude={MARKER_ALTITUDE + 0.008}
       ringMaxRadius={isMobile ? 1.8 : 2.5}
-      ringPropagationSpeed={1.8}
+      ringPropagationSpeed={ACETERNITY_3D_CONFIG.autoRotateSpeed * 6}
       ringRepeatPeriod={1600}
       ringResolution={32}
       // Pointer raycasting performs synchronous GPU ReadPixels work on every
