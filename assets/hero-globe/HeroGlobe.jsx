@@ -564,7 +564,10 @@ export default function HeroGlobe({ panelEl, locations }) {
       ringPropagationSpeed={1.8}
       ringRepeatPeriod={1600}
       ringResolution={32}
-      enablePointerInteraction={!reduced}
+      // Pointer raycasting performs synchronous GPU ReadPixels work on every
+      // frame. The globe's controls remain available, but data-point picking
+      // is not used by this presentation and can stall the GPU on Chrome.
+      enablePointerInteraction={false}
     />
   );
 }

@@ -98,3 +98,49 @@ Chrome/Firefox DevTools traces, five-minute stability testing, heap snapshots, a
 # Regression Prevention
 
 Use the guardrails document and add CI checks for one navbar include per page, route-scoped heavy scripts, RAF lifecycle ownership, and asset dimension budgets.
+
+# INCIDENT STILL REPRODUCIBLE AFTER 6c7ac96
+
+The sustained Chromium probe reproduced the remaining issue in the pre-fix build. A 181-second Home run produced repeated `[.WebGL] GPU stall due to ReadPixels` warnings, maintained 13 active RAFs and 11 intervals, and reached approximately 221 MB of decoded image memory while scrolling.
+
+# FEATURE ISOLATION MATRIX
+
+| Feature state | Result |
+|---|---|
+| Normal, pre-fix | GPU stalls reproduced during sustained run |
+| Globe bundle blocked | No GPU stall warnings; active RAFs fell to 1–4 |
+| Globe pointer raycasting disabled | No GPU stall warnings in 60-second post-fix run |
+| GSAP/ScrollTrigger disabled | Not separately measured |
+| Timeline disabled | Not separately measured |
+| Assistant disabled | Not separately measured |
+| Service worker disabled | Not separately measured |
+| CSS animation/filter disabled | Not separately measured |
+| JavaScript disabled | Not separately measured |
+
+# CPU FINDINGS
+
+The probe recorded long tasks in the 50–968 ms range during the pre-fix run. The instrumentation cannot attribute those tasks to named DevTools functions, so the durations are reported without invented attribution.
+
+# GPU FINDINGS
+
+The differential isolates the globe's pointer-interaction/raycast path as the high-confidence offender: removing the globe removed GPU stalls; disabling `enablePointerInteraction` removed them while retaining the globe rendering path. The exact source was `assets/hero-globe/HeroGlobe.jsx`, where `enablePointerInteraction={!reduced}` enabled synchronous pixel reads.
+
+# MEMORY FINDINGS
+
+Decoded image memory was approximately 216–221 MB early in the pre-fix run and rose toward 299 MB in the 70-second no-globe comparison as below-fold images were loaded. This is image decode pressure, separate from the GPU stall root cause, and needs responsive delivery follow-up.
+
+# DOM GROWTH
+
+Pre-fix Home DOM grew from 809 to approximately 845 nodes during the sustained scroll probe; no unbounded multi-thousand-node growth was observed.
+
+# NETWORK-IDLE FINDINGS
+
+The request count settled after initial loading except for duplicate image requests from carousel/hero hydration. No repeating JSON/API request loop was identified.
+
+# CONSOLE FLOOD FINDINGS
+
+The pre-fix run included repeated WebGL GPU stall warnings plus two CSP inline-handler warnings and an i18n-content load warning. The post-fix 60-second run did not emit the WebGL ReadPixels stall warning.
+
+# FIX APPLIED
+
+`enablePointerInteraction` is now `false` for the presentation globe. Controls, tours, labels, lazy loading, offscreen pausing, and renderer lifecycle remain intact. The bundle was rebuilt and the Home query version was bumped to `20260909-01`.
