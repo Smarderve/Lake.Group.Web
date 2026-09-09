@@ -2,7 +2,7 @@
  * Phase 8 — Public Website Migration: static content seed data.
  *
  * These records onboard the *existing* live-site truth (services.html,
- * leadership.html, projects.html, history.html, contact.html, csr.html,
+ * leadership.html, history.html, contact.html, csr.html,
  * careers.html, station-locator.html, assets/africa-network-map.js and
  * docs/lake_group_verified_data.json) directly as PUBLISHED — the same
  * convention as seed-metrics.js: the workflow exists for future *changes*,
@@ -250,7 +250,7 @@ export const CONTENT_SEED = {
   contacts: [
     { key: 'hq', name: 'Lake Group Head Office', type: 'CORPORATE', countryIso: 'TZ', companySlug: null,
       phone: '+255 222 780 510', email: 'admin@lakeoilgroup.com',
-      address: 'Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055, Dar es Salaam',
+      address: 'Plots 72 & 73, Vijibweni Area, Kigamboni, P.O. Box 5055, Dar es Salaam',
       verificationStatus: 'VERIFIED', order: 0 },
     { key: 'lake-oil-hq', name: 'Lake Oil — HQ', type: 'COMPANY_SPECIFIC', countryIso: 'TZ', companySlug: 'lake-oil',
       phone: '+255 222 780 510', email: 'admin@lakeoilgroup.com',

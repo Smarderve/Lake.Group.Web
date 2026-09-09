@@ -82,6 +82,61 @@
     state.frame = window.requestAnimationFrame(render);
   };
 
+  // Cards use one shared pointer frame instead of a loop per card. Touch and
+  // reduced-motion users keep the calm static presentation.
+  const cardCleanup = [];
+  let cardFrame = 0;
+  let activeCard = null;
+  let cardRect = null;
+  let pointerX = 0;
+  let pointerY = 0;
+  const canTiltCards = !reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (canTiltCards) {
+    const cards = [...timeline.querySelectorAll('.history-event')];
+    const resetCard = () => {
+      if (activeCard) activeCard.style.transform = '';
+      activeCard = null;
+      cardRect = null;
+    };
+    const renderCard = () => {
+      cardFrame = 0;
+      if (!activeCard || !cardRect) return;
+      const x = (pointerX - cardRect.left) / Math.max(1, cardRect.width) - 0.5;
+      const y = (pointerY - cardRect.top) / Math.max(1, cardRect.height) - 0.5;
+      activeCard.style.transform = `translate3d(0,0,0) rotateX(${(-y * 2).toFixed(2)}deg) rotateY(${(x * 2).toFixed(2)}deg)`;
+    };
+    const scheduleCardFrame = () => {
+      if (!cardFrame) cardFrame = window.requestAnimationFrame(renderCard);
+    };
+    cards.forEach((card) => {
+      const onEnter = (event) => {
+        activeCard = card;
+        cardRect = card.getBoundingClientRect();
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+        scheduleCardFrame();
+      };
+      const onMove = (event) => {
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+        scheduleCardFrame();
+      };
+      const onLeave = () => {
+        if (cardFrame) cancelAnimationFrame(cardFrame);
+        cardFrame = 0;
+        resetCard();
+      };
+      card.addEventListener('pointerenter', onEnter, { passive: true });
+      card.addEventListener('pointermove', onMove, { passive: true });
+      card.addEventListener('pointerleave', onLeave, { passive: true });
+      cardCleanup.push(() => {
+        card.removeEventListener('pointerenter', onEnter);
+        card.removeEventListener('pointermove', onMove);
+        card.removeEventListener('pointerleave', onLeave);
+      });
+    });
+  }
+
   const measureGeometry = () => {
     const timelineBounds = timeline.getBoundingClientRect();
     const timelineDocumentTop = timelineBounds.top + window.scrollY;
@@ -130,4 +185,8 @@
   window.addEventListener('load', measureGeometry, { once: true });
   measureGeometry();
   if (document.fonts?.ready) document.fonts.ready.then(measureGeometry);
+  window.addEventListener('pagehide', () => {
+    if (cardFrame) cancelAnimationFrame(cardFrame);
+    cardCleanup.forEach((cleanup) => cleanup());
+  }, { once: true });
 })();
