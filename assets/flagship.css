@@ -1255,6 +1255,17 @@ body[data-company-logo] .page-hero h1 {
 .section-label.dark { color: var(--blue-deep); }
 .section-label.dark::before { background: var(--gold); }
 .section-dark .section-label, .fs-on-dark .section-label { color: var(--gold); }
+
+/* Visual cleanup: section metadata remains available as text, while the
+   repeated tick, square, rule, and numeric ornaments are removed. */
+.fs-eyebrow::before,
+.section-label::before,
+.page-hero .eyebrow::before { display: none; content: none; }
+.fs-eyebrow, .section-label { gap: 0; }
+.fs-marker-no { display: none; }
+.fs-marker { gap: 0; }
+.fs-rule, .divider-yellow { display: none !important; height: 0; margin: 0 !important; }
+.page-hero .eyebrow, .hero-eyebrow { display: none !important; }
 .section-title {
   font-family: var(--font-display); font-weight: 700;
   font-size: var(--fs-display); line-height: var(--display-line-height, 1.05);

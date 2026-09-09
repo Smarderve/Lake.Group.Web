@@ -564,6 +564,10 @@
       height: 2px;
       background: var(--yellow);
     }
+    /* Keep section hierarchy clean without decorative square/rule ornaments. */
+    .section-label::before, .hero-eyebrow::before, .divider-yellow { display: none !important; content: none; }
+    .section-label { gap: 0; }
+    .hero-eyebrow { display: none !important; }
 
     .section-label.dark {
       color: var(--blue);
