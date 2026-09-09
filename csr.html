@@ -37,27 +37,42 @@
 .csr-card p { font-size: 0.88rem; margin-top: 8px; }
 .csr-hero h1 { max-width: 760px; }
 .csr-hero p { max-width: 640px; }
-.csr-source-note { align-self: center; padding: clamp(28px, 4vw, 48px); border-left: 3px solid var(--gold); background: var(--paper-2); }
-.csr-source-note p { font-size: clamp(1.1rem, 1.6vw, 1.35rem); line-height: 1.55; }
-.csr-section-heading { margin-bottom: 42px; }
-.csr-focus-grid { gap: 18px; }
-.csr-focus-card { min-height: 190px; padding: 28px 24px; border-top: 3px solid var(--blue); background: var(--surface); box-shadow: var(--shadow-1); }
-.csr-focus-card h3 { color: var(--blue); font-size: 1.2rem; }
-.csr-focus-card p { margin-top: 12px; line-height: 1.55; }
-.csr-case-study { background: var(--blue); color: #fff; }
-.csr-case-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); gap: clamp(42px, 8vw, 112px); align-items: center; }
-.csr-case-study .section-title, .csr-case-study .eyebrow { color: #fff; }
-.csr-case-study .divider-yellow { background: var(--yellow); }
-.csr-case-study p { color: rgba(255,255,255,.9); font-size: 1.05rem; line-height: 1.65; }
-.csr-case-study strong { color: #fff; }
-.csr-case-facts { display: grid; gap: 14px; }
-.csr-case-facts p { display: grid; gap: 4px; padding: 18px 20px; border: 1px solid rgba(255,255,255,.3); background: rgba(0,0,0,.12); }
-.csr-case-facts p strong { font-size: 1.2rem; }
-.csr-case-facts p span { color: rgba(255,255,255,.82); font-size: .9rem; }
-.csr-operations-copy { max-width: 760px; }
-.csr-operations-copy p { font-size: 1.05rem; line-height: 1.7; }
-@media (max-width: 800px) { .csr-case-grid { grid-template-columns: 1fr; } }
-@media (max-width: 600px) { .csr-source-note { margin-top: 28px; } .csr-focus-card { min-height: auto; } .csr-case-study p, .csr-operations-copy p { font-size: 1rem; } }
+.csr-introduction { background: var(--surface); }
+.csr-intro-grid { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr); gap:clamp(34px,6vw,92px); align-items:center; }
+.csr-intro-media { min-height:360px; overflow:hidden; }
+.csr-intro-media img { width:100%; height:100%; min-height:360px; object-fit:cover; display:block; }
+.csr-intro-copy { max-width:680px; }
+.csr-intro-copy p { font-size:1.08rem; line-height:1.7; }
+.csr-focus { background:#f4f6f8; }
+.csr-focus-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+.csr-focus-card { position:relative; min-height:270px; overflow:hidden; display:flex; align-items:flex-end; padding:0; background:#071b36; color:#fff; }
+.csr-focus-card img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.82; transition:transform .45s ease; }
+.csr-focus-card:hover img { transform:scale(1.04); }
+.csr-focus-card::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 20%,rgba(3,20,42,.88) 100%); }
+.csr-focus-card-content { position:relative; z-index:1; padding:28px; max-width:450px; }
+.csr-focus-card h3 { color:#fff; font-size:1.45rem; margin:0 0 8px; }
+.csr-focus-card p { margin:0; color:rgba(255,255,255,.9); line-height:1.55; }
+.csr-case-study { background:var(--blue); color:#fff; }
+.csr-case-grid { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); gap:clamp(36px,7vw,100px); align-items:center; }
+.csr-case-media { min-height:430px; overflow:hidden; }
+.csr-case-media img { width:100%; height:100%; min-height:430px; object-fit:cover; display:block; }
+.csr-case-study .section-title,.csr-case-study .eyebrow { color:#fff; }
+.csr-case-study .divider-yellow { background:var(--yellow); }
+.csr-case-study p { color:rgba(255,255,255,.9); font-size:1.06rem; line-height:1.7; }
+.csr-case-study strong { color:#fff; }
+.csr-case-kicker { display:inline-flex; align-items:baseline; gap:10px; margin-top:28px; padding-top:18px; border-top:1px solid rgba(255,255,255,.35); }
+.csr-case-kicker strong { font-size:clamp(2.4rem,5vw,4.5rem); line-height:1; }
+.csr-case-kicker span { color:rgba(255,255,255,.82); }
+.csr-operations { background:var(--surface); }
+.csr-operations-grid { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:clamp(34px,6vw,92px); align-items:center; }
+.csr-operations-media img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
+.csr-operations-copy { max-width:700px; }
+.csr-operations-copy p { font-size:1.06rem; line-height:1.7; }
+.page-wrapper .page-hero.csr-hero { min-height:clamp(520px,68vh,700px); justify-content:center; padding:72px 0 68px; }
+.csr-hero .hero-media { background-position:center 38%; background-size:cover; }
+.csr-hero .hero-overlay { background:linear-gradient(90deg,rgba(0,0,0,.58) 0%,rgba(0,0,0,.38) 36%,rgba(0,0,0,.16) 64%,rgba(0,0,0,.04) 82%,transparent 100%); }
+@media (max-width:800px){.csr-intro-grid,.csr-case-grid,.csr-operations-grid{grid-template-columns:1fr}.csr-intro-media,.csr-case-media{min-height:300px}.csr-intro-media img,.csr-case-media img{min-height:300px}}
+@media (max-width:600px){.csr-focus-grid{grid-template-columns:1fr}.csr-focus-card{min-height:230px}.csr-case-study p,.csr-operations-copy p{font-size:1rem}}
 </style>
 <link rel="stylesheet" href="assets/tokens.css?v=20260828-01">
   <link rel="preload" href="assets/fonts/files/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
@@ -75,13 +90,13 @@
   <!-- SEO:START (generated by scripts/build-seo-foundation.mjs) -->
   <meta name="description" content="Lake Group CSR and sustainability: responsible growth, community development and clean energy access across Africa and the Middle East.">
   <meta name="robots" content="index,follow">
-  <meta property="og:title" content="CSR & Sustainability | Lake Group">
+  <meta property="og:title" content="CSR and Sustainability at Lake Group">
   <meta property="og:description" content="Lake Group CSR and sustainability: responsible growth, community development and clean energy access across Africa and the Middle East.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Lake Group">
   <meta property="og:locale" content="en_TZ">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="CSR & Sustainability | Lake Group">
+  <meta name="twitter:title" content="CSR and Sustainability at Lake Group">
   <meta name="twitter:description" content="Lake Group CSR and sustainability: responsible growth, community development and clean energy access across Africa and the Middle East.">
   <!-- SEO:END -->
 </head><body data-shared-footer="true">
@@ -163,7 +178,7 @@
 
 <div class="page-wrapper">
 <section class="page-hero csr-hero">
-  <div class="hero-media" style="background-image:url('assets/images/delivery/n-slider/8.webp')" role="img" aria-label="Lake Group operations supporting communities"></div>
+  <div class="hero-media" style="background-image:url('assets/images/lakegas/ops/worker-silas.webp')" role="img" aria-label="Lake Group operations supporting communities"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container" style="position:relative;z-index:2">
     <nav class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>CSR &amp; Sustainability</span></nav>
@@ -174,43 +189,29 @@
 </section>
 
 <section class="section csr-introduction">
-  <div class="container">
-    <div class="fs-split-even">
-      <div class="reveal">
-        <h2 class="section-title">Responsible growth, shared value.</h2>
-        <div class="divider-yellow"></div>
-        <p>Our commitment is to create positive economic, social, moral and environmental impact within the communities we serve.</p>
-        <p style="margin-top:14px">We believe responsible growth is sustainable, accountable and transparent, creating shared value for all stakeholders.</p>
-      </div>
-      <div class="csr-source-note reveal"><p>Through our CSR initiatives, we support practical programmes that help improve livelihoods and contribute to long-term progress.</p></div>
+  <div class="container"><div class="csr-intro-grid">
+    <div class="csr-intro-media reveal"><img src="assets/images/lakegas/ops/worker-silas.webp" alt="Lake Gas team member among LPG cylinders" loading="lazy"></div>
+    <div class="csr-intro-copy reveal"><h2 class="section-title">Responsible growth, shared value.</h2><div class="divider-yellow"></div><p>At Lake Group, sustainability and corporate social responsibility are embedded in our business philosophy across every market where we operate in Africa and the Middle East.</p><p style="margin-top:14px">Our commitment is to create a positive economic, social, moral and environmental impact within the communities we serve. We believe responsible growth is built on sustainable, accountable and transparent practices that create shared value for all stakeholders.</p></div>
+  </div></div>
+</section>
+
+<section class="section csr-focus">
+  <div class="container"><div class="csr-section-heading"><div class="eyebrow">Where we focus</div><h2 class="section-title">Practical support for long-term progress.</h2></div>
+    <div class="csr-focus-grid">
+      <article class="csr-focus-card reveal"><img src="assets/images/lakegas/ops/lake-gas-lpg-filling-line.webp" alt="Lake Gas filling line" loading="lazy"><div class="csr-focus-card-content"><h3>Education</h3><p>Through our CSR initiatives, we actively support education to help improve livelihoods and foster long-term progress.</p></div></article>
+      <article class="csr-focus-card reveal"><img src="assets/images/lakegas/ops/cylinder-warehouse.webp" alt="Lake Gas cylinder warehouse" loading="lazy"><div class="csr-focus-card-content"><h3>Health</h3><p>We support health and community wellbeing as part of our commitment to the communities we serve.</p></div></article>
+      <article class="csr-focus-card reveal"><img src="assets/images/lakegas/TA/photo_1.webp" alt="Lake Gas distribution fleet" loading="lazy"><div class="csr-focus-card-content"><h3>Community development</h3><p>Our work supports community development and stronger local livelihoods across our markets.</p></div></article>
+      <article class="csr-focus-card reveal"><img src="assets/images/lakegas/ops/filling-plant.webp" alt="Lake Gas operations team at work" loading="lazy"><div class="csr-focus-card-content"><h3>Employment creation</h3><p>We support employment creation, helping to improve livelihoods while contributing to sustainable development.</p></div></article>
     </div>
   </div>
 </section>
 
-<section class="section section-light csr-focus">
-  <div class="container">
-    <div class="text-center csr-section-heading"><h2 class="section-title">CSR focus areas</h2></div>
-    <div class="grid-4 csr-focus-grid">
-      <article class="csr-focus-card reveal"><h3>Education</h3><p>Support for education that helps communities build opportunity.</p></article>
-      <article class="csr-focus-card reveal"><h3>Health</h3><p>Support for health and wellbeing in the communities we serve.</p></article>
-      <article class="csr-focus-card reveal"><h3>Community development</h3><p>Practical support for stronger, more resilient communities.</p></article>
-      <article class="csr-focus-card reveal"><h3>Employment creation</h3><p>Creating opportunities that help improve livelihoods.</p></article>
-    </div>
-  </div>
-</section>
+<section class="section csr-case-study"><div class="container"><div class="csr-case-grid">
+  <div class="csr-case-media reveal"><img src="assets/images/lakegas/TA/photo_1.webp" alt="Lake Gas trucks ready for clean energy distribution" loading="lazy"></div>
+  <div class="reveal"><div class="eyebrow">Featured impact</div><h2 class="section-title">Lake Gas clean energy access programme</h2><div class="divider-yellow"></div><p>Through strategic collaboration with the Rural Energy Agency (REA) and local governments, Lake Gas has enabled more than <strong>150,000 rural residents</strong> to adopt clean cooking energy.</p><p style="margin-top:14px">The initiative includes local dealerships and community training on the safe use of LPG, creating social and economic benefits while advancing sustainable energy adoption.</p><div class="csr-case-kicker"><strong>150,000+</strong><span>rural residents enabled to adopt clean cooking energy</span></div></div>
+</div></div></section>
 
-<section class="section csr-case-study">
-  <div class="container">
-    <div class="csr-case-grid">
-      <div class="reveal"><div class="eyebrow">Featured impact</div><h2 class="section-title">Lake Gas clean energy access programme</h2><div class="divider-yellow"></div><p>Through collaboration with the Rural Energy Agency (REA) and local governments, Lake Gas has enabled more than <strong>150,000 rural residents</strong> to adopt clean cooking energy.</p></div>
-      <div class="csr-case-facts reveal"><p><strong>150,000+</strong><span>rural residents reached</span></p><p><strong>REA + local governments</strong><span>collaboration that supports access</span></p><p><strong>Local dealerships</strong><span>and community training on safe LPG use</span></p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-light csr-operations">
-  <div class="container"><div class="csr-operations-copy reveal"><h2 class="section-title">Sustainability in our operations</h2><div class="divider-yellow"></div><p>We voluntarily integrate social and environmental responsibility into our business operations, continuously seeking ways to address community needs while contributing to sustainable development.</p><p style="margin-top:14px">By combining business success with meaningful impact, we strive to build stronger communities and a more sustainable future.</p></div></div>
-</section>
+<section class="section csr-operations"><div class="container"><div class="csr-operations-grid"><div class="csr-operations-copy reveal"><div class="eyebrow">Beyond formal programmes</div><h2 class="section-title">Sustainability in our operations.</h2><div class="divider-yellow"></div><p>We voluntarily integrate social and environmental responsibility into our business operations, continuously seeking ways to address community needs while contributing to sustainable development.</p><p style="margin-top:14px">By combining business success with meaningful impact, we strive to build stronger communities and a more sustainable future for generations to come.</p></div><div class="csr-operations-media reveal"><img src="assets/images/lakegas/ops/cylinders-yard.webp" alt="Lake Gas cylinders prepared for distribution" loading="lazy"></div></div></div></section>
 </div>
 
 <div id="chat-widget" class="la-widget">
