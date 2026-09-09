@@ -10,69 +10,86 @@
   <title>CSR and Sustainability at Lake Group</title>
   <meta name="theme-color" content="#0181BB">
   <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preload" as="image" href="assets/images/news/4/photo_1.webp" fetchpriority="high">
 <style>
-/* CSR  Meridian page composition (leans on assets/flagship.css?v=20260828-01) */
-.csr-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); }
-@media (max-width: 520px) { .csr-tiles { grid-template-columns: 1fr; } }
-.csr-tile { position: relative; padding: var(--sp-6); text-align: center; border: 1px solid var(--line-2); background: var(--surface); }
-.csr-tile::before { content: ''; position: absolute; top: 0; left: 0; width: 26px; height: 2px; background: var(--gold); }
-.csr-tile h4 { margin-bottom: 6px; }
-.csr-tile p { font-size: 0.84rem; }
-.csr-tile-ink { background: var(--ink); border-color: transparent; }
-.csr-tile-ink h4 { color: #fff; }
-.csr-tile-ink p { color: var(--ink-mute); }
-.csr-tile-gold { background: var(--gold); border-color: transparent; }
-.csr-tile-gold h4 { color: var(--ink); }
-.csr-tile-gold p { color: rgba(1,63,92,0.68); }
-.csr-icon { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; margin: 0 auto 12px; border: 1px solid var(--line); }
-.csr-icon .msi { width: 26px; height: 26px; line-height: 1; }
-.csr-icon--on-dark { border-color: var(--ink-line); }
-.csr-icon--on-dark .msi { color: var(--gold); }
-.csr-icon--on-amber { border-color: rgba(1,63,92,0.35); }
-.csr-icon--on-amber .msi { color: var(--ink); }
-.csr-icon--on-light { border-color: var(--line); }
-.csr-icon--on-light .msi { color: var(--blue); }
-.csr-icon--card { margin: 0 0 14px; }
-.csr-card { padding: var(--sp-8); }
-.csr-card p { font-size: 0.88rem; margin-top: 8px; }
-.csr-hero h1 { max-width: 760px; }
-.csr-hero p { max-width: 640px; }
-.csr-introduction { background: var(--surface); }
-.csr-intro-grid { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr); gap:clamp(34px,6vw,92px); align-items:center; }
-.csr-intro-media { min-height:360px; overflow:hidden; }
-.csr-intro-media img { width:100%; height:100%; min-height:360px; object-fit:cover; display:block; }
-.csr-intro-copy { max-width:680px; }
-.csr-intro-copy p { font-size:1.08rem; line-height:1.7; }
-.csr-focus { background:#f4f6f8; }
-.csr-focus-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
-.csr-focus-card { position:relative; min-height:270px; overflow:hidden; display:flex; align-items:flex-end; padding:0; background:#071b36; color:#fff; }
-.csr-focus-card img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.82; transition:transform .45s ease; }
-.csr-focus-card:hover img { transform:scale(1.04); }
-.csr-focus-card::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 20%,rgba(3,20,42,.88) 100%); }
-.csr-focus-card-content { position:relative; z-index:1; padding:28px; max-width:450px; }
-.csr-focus-card h3 { color:#fff; font-size:1.45rem; margin:0 0 8px; }
-.csr-focus-card p { margin:0; color:rgba(255,255,255,.9); line-height:1.55; }
-.csr-case-study { background:var(--blue); color:#fff; }
-.csr-case-grid { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); gap:clamp(36px,7vw,100px); align-items:center; }
-.csr-case-media { min-height:430px; overflow:hidden; }
-.csr-case-media img { width:100%; height:100%; min-height:430px; object-fit:cover; display:block; }
-.csr-case-study .section-title,.csr-case-study .eyebrow { color:#fff; }
-.csr-case-study .divider-yellow { background:var(--yellow); }
-.csr-case-study p { color:rgba(255,255,255,.9); font-size:1.06rem; line-height:1.7; }
-.csr-case-study strong { color:#fff; }
-.csr-case-kicker { display:inline-flex; align-items:baseline; gap:10px; margin-top:28px; padding-top:18px; border-top:1px solid rgba(255,255,255,.35); }
-.csr-case-kicker strong { font-size:clamp(2.4rem,5vw,4.5rem); line-height:1; }
-.csr-case-kicker span { color:rgba(255,255,255,.82); }
-.csr-operations { background:var(--surface); }
-.csr-operations-grid { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:clamp(34px,6vw,92px); align-items:center; }
-.csr-operations-media img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
-.csr-operations-copy { max-width:700px; }
-.csr-operations-copy p { font-size:1.06rem; line-height:1.7; }
+/* CSR editorial rebuild using the Careers hero proportions and Lake Group image system. */
+.csr-page { --csr-gap:clamp(28px,4vw,60px); --csr-section:clamp(76px,9vw,128px); background:var(--paper-2,#f6f5f1); }
+.csr-page .section-title { max-width:14ch; margin:0; font-size:clamp(2rem,3.4vw,3rem); line-height:1.02; letter-spacing:-.025em; }
+.csr-page p { color:#415866; }
 .page-wrapper .page-hero.csr-hero { min-height:clamp(520px,68vh,700px); justify-content:center; padding:72px 0 68px; }
-.csr-hero .hero-media { background-position:center 38%; background-size:cover; }
-.csr-hero .hero-overlay { background:linear-gradient(90deg,rgba(0,0,0,.58) 0%,rgba(0,0,0,.38) 36%,rgba(0,0,0,.16) 64%,rgba(0,0,0,.04) 82%,transparent 100%); }
-@media (max-width:800px){.csr-intro-grid,.csr-case-grid,.csr-operations-grid{grid-template-columns:1fr}.csr-intro-media,.csr-case-media{min-height:300px}.csr-intro-media img,.csr-case-media img{min-height:300px}}
-@media (max-width:600px){.csr-focus-grid{grid-template-columns:1fr}.csr-focus-card{min-height:230px}.csr-case-study p,.csr-operations-copy p{font-size:1rem}}
+.page-wrapper .page-hero.csr-hero .hero-media { background:none; filter:none; }
+.page-wrapper .page-hero.csr-hero .hero-media img { display:block; width:100%; height:100%; object-fit:cover; object-position:52% 48%; }
+.page-wrapper .page-hero.csr-hero .hero-overlay { background:linear-gradient(90deg,rgba(0,0,0,.54) 0%,rgba(0,0,0,.35) 34%,rgba(0,0,0,.2) 58%,rgba(0,0,0,.07) 78%,rgba(0,0,0,0) 100%); }
+.csr-hero-content { max-width:620px; padding-top:var(--sp-6); }
+.page-wrapper .page-hero.csr-hero h1 { max-width:620px; margin:0 0 var(--sp-6); color:#fff; font-size:clamp(2.5rem,4vw,4rem); line-height:1; letter-spacing:-.035em; }
+.page-wrapper .page-hero.csr-hero h1 strong { color:var(--yellow); font-weight:700; }
+.page-wrapper .page-hero.csr-hero h1 > .split-word,.page-wrapper .page-hero.csr-hero h1 > .split-word .split-char { color:#fff!important; }
+.page-wrapper .page-hero.csr-hero h1 > strong,.page-wrapper .page-hero.csr-hero h1 > strong .split-word,.page-wrapper .page-hero.csr-hero h1 > strong .split-char { color:var(--yellow)!important; }
+.csr-hero p { max-width:580px; margin:0; color:rgba(255,255,255,.94); font-size:clamp(1rem,1.45vw,1.25rem); line-height:1.55; }
+.csr-hero::after { content:""; position:absolute; z-index:2; right:0; bottom:-1px; left:0; height:38px; background:var(--paper-2); clip-path:polygon(0 100%,0 72%,18% 72%,20% 46%,58% 46%,60% 25%,100% 25%,100% 100%); }
+
+.csr-purpose { padding:var(--csr-section) 0; background:var(--paper-2); }
+.csr-purpose-grid { display:grid; grid-template-columns:minmax(300px,.82fr) minmax(0,1.18fr); gap:clamp(50px,8vw,118px); align-items:center; }
+.csr-purpose-copy { max-width:620px; }
+.csr-purpose-copy .divider-yellow { width:84px; margin:24px 0 28px; }
+.csr-purpose-copy p { font-size:clamp(1rem,1.15vw,1.1rem); line-height:1.72; }
+.csr-purpose-copy p+p { margin-top:16px; }
+.csr-purpose-media { position:relative; min-height:clamp(420px,46vw,610px); overflow:hidden; }
+.csr-purpose-media img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; transition:transform 650ms cubic-bezier(.22,1,.36,1); }
+.csr-purpose-media:hover img { transform:scale(1.025); }
+
+.csr-focus { padding:var(--csr-section) 0; background:#edf3f5; }
+.csr-focus-heading { max-width:760px; margin-bottom:clamp(38px,5vw,64px); }
+.csr-focus-heading .divider-yellow { width:84px; margin:24px 0 0; }
+.csr-focus-grid { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); grid-auto-rows:minmax(330px,auto); gap:18px; }
+.csr-focus-feature { position:relative; min-height:330px; overflow:hidden; display:flex; align-items:flex-end; background:#012f47; color:#fff; isolation:isolate; }
+.csr-focus-feature:nth-child(1),.csr-focus-feature:nth-child(4) { grid-column:span 7; }
+.csr-focus-feature:nth-child(2),.csr-focus-feature:nth-child(3) { grid-column:span 5; }
+.csr-focus-feature img { position:absolute; inset:0; z-index:-2; width:100%; height:100%; object-fit:cover; transition:transform 650ms cubic-bezier(.22,1,.36,1); }
+.csr-focus-feature::after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(180deg,rgba(1,30,47,.02) 12%,rgba(1,30,47,.22) 48%,rgba(1,30,47,.94) 100%); }
+.csr-focus-feature:hover img { transform:scale(1.04); }
+.csr-focus-feature-content { max-width:600px; padding:clamp(24px,3vw,38px); }
+.csr-focus-feature h3 { margin:0 0 9px; color:#fff; font-family:var(--font-display); font-size:clamp(1.45rem,2.2vw,2rem); line-height:1.05; text-transform:uppercase; }
+.csr-focus-feature p { max-width:52ch; margin:0; color:rgba(255,255,255,.9); font-size:clamp(.92rem,1.05vw,1.02rem); line-height:1.58; }
+.csr-focus-feature:nth-child(1) img { object-position:center 46%; }
+.csr-focus-feature:nth-child(2) img { object-position:center 42%; }
+.csr-focus-feature:nth-child(3) img { object-position:center 42%; }
+.csr-focus-feature:nth-child(4) img { object-position:center 48%; }
+
+.csr-case-study { padding:var(--csr-section) 0; background:#fff; }
+.csr-case-layout { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(340px,.85fr); gap:clamp(44px,7vw,108px); align-items:center; }
+.csr-case-visual { display:grid; grid-template-columns:minmax(0,1.45fr) minmax(170px,.55fr); gap:14px; min-height:clamp(520px,48vw,680px); }
+.csr-case-visual figure { min-width:0; margin:0; overflow:hidden; }
+.csr-case-primary img,.csr-case-secondary img { width:100%; height:100%; object-fit:cover; display:block; }
+.csr-case-primary img { object-position:45% center; }
+.csr-case-secondary { align-self:end; height:68%; }
+.csr-case-secondary img { object-position:center; }
+.csr-case-copy { max-width:590px; }
+.csr-case-copy .divider-yellow { width:84px; margin:24px 0 28px; }
+.csr-case-copy p { font-size:clamp(1rem,1.1vw,1.08rem); line-height:1.7; }
+.csr-case-copy p+p { margin-top:16px; }
+.csr-impact-number { display:grid; grid-template-columns:auto minmax(140px,1fr); gap:18px; align-items:end; margin-top:34px; padding-top:24px; border-top:4px solid var(--yellow); }
+.csr-impact-number strong { color:var(--blue); font-family:var(--font-display); font-size:clamp(3.6rem,6vw,6.5rem); line-height:.82; letter-spacing:-.055em; }
+.csr-impact-number span { max-width:18ch; color:#163f52; font-size:.82rem; font-weight:700; line-height:1.35; letter-spacing:.08em; text-transform:uppercase; }
+
+.csr-operations { padding:var(--csr-section) 0; background:var(--paper-2); }
+.csr-operations-layout { display:grid; grid-template-columns:minmax(300px,.72fr) minmax(0,1.28fr); gap:clamp(48px,8vw,116px); align-items:center; }
+.csr-operations-copy { max-width:610px; }
+.csr-operations-copy .divider-yellow { width:84px; margin:24px 0 28px; }
+.csr-operations-copy p { font-size:clamp(1rem,1.12vw,1.08rem); line-height:1.72; }
+.csr-operations-copy p+p { margin-top:16px; }
+.csr-operations-gallery { display:grid; grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr); gap:16px; height:clamp(500px,48vw,650px); }
+.csr-operations-gallery figure { min-width:0; margin:0; overflow:hidden; }
+.csr-operations-gallery img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 650ms cubic-bezier(.22,1,.36,1); }
+.csr-operations-gallery figure:hover img { transform:scale(1.025); }
+.csr-operations-gallery figure:first-child { height:78%; align-self:end; }
+.csr-operations-gallery figure:first-child img { object-position:center 42%; }
+.csr-operations-gallery figure:last-child img { object-position:center 45%; }
+
+@media(max-width:1000px){.csr-purpose-grid,.csr-case-layout,.csr-operations-layout{grid-template-columns:1fr}.csr-purpose-copy,.csr-case-copy,.csr-operations-copy{max-width:760px}.csr-purpose-media{min-height:500px}.csr-focus-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(320px,auto)}.csr-focus-feature:nth-child(n){grid-column:auto}.csr-case-visual{min-height:600px}.csr-operations-gallery{height:600px}}
+@media(max-width:760px){.page-wrapper .page-hero.csr-hero{min-height:540px;padding:64px 0 70px;justify-content:flex-end}.page-wrapper .page-hero.csr-hero .hero-media img{object-position:58% 50%}.page-wrapper .page-hero.csr-hero .hero-overlay{background:linear-gradient(90deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,.24) 68%,rgba(0,0,0,.06) 100%),linear-gradient(0deg,rgba(0,0,0,.38),transparent 65%)}.csr-hero-content{padding-top:var(--sp-12)}.page-wrapper .page-hero.csr-hero h1{font-size:clamp(2rem,9.5vw,2.7rem)}.csr-purpose-media{min-height:420px}.csr-case-visual{grid-template-columns:minmax(0,1.2fr) minmax(130px,.8fr);min-height:500px}.csr-operations-gallery{height:520px}}
+@media(max-width:600px){.csr-page{--csr-section:72px}.csr-focus-grid{grid-template-columns:1fr;grid-auto-rows:auto;gap:14px}.csr-focus-feature{min-height:330px}.csr-focus-feature:nth-child(n){grid-column:auto}.csr-purpose-media{min-height:360px}.csr-case-layout{gap:40px}.csr-case-visual{grid-template-columns:1fr 42%;gap:10px;min-height:420px}.csr-case-secondary{height:64%}.csr-impact-number{grid-template-columns:1fr;gap:12px}.csr-impact-number strong{font-size:clamp(3.5rem,19vw,5rem)}.csr-operations-layout{gap:40px}.csr-operations-gallery{grid-template-columns:42% 1fr;gap:10px;height:420px}}
+@media(prefers-reduced-motion:reduce){.csr-purpose-media img,.csr-focus-feature img,.csr-operations-gallery img{transition:none}}
 </style>
 <link rel="stylesheet" href="assets/tokens.css?v=20260828-01">
   <link rel="preload" href="assets/fonts/files/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
@@ -176,42 +193,42 @@
 
 
 
-<div class="page-wrapper">
+<div class="page-wrapper csr-page">
 <section class="page-hero csr-hero">
-  <div class="hero-media" style="background-image:url('assets/images/lakegas/ops/worker-silas.webp')" role="img" aria-label="Lake Group operations supporting communities"></div>
+  <div class="hero-media" role="img" aria-label="Lake Group community outreach in Kigamboni"><img src="assets/images/news/4/photo_1.webp" alt="" width="1600" height="1067" fetchpriority="high" decoding="async"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
-  <div class="container" style="position:relative;z-index:2">
-    <nav class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>CSR &amp; Sustainability</span></nav>
-    <div class="eyebrow">CSR &amp; Sustainability</div>
-    <h1>Growing Communities, Sustaining Futures.</h1>
-    <p>Lake Group embeds sustainability and corporate social responsibility in its business philosophy across Africa and the Middle East.</p>
-  </div>
-</section>
-
-<section class="section csr-introduction">
-  <div class="container"><div class="csr-intro-grid">
-    <div class="csr-intro-media reveal"><img src="assets/images/lakegas/ops/worker-silas.webp" alt="Lake Gas team member among LPG cylinders" loading="lazy"></div>
-    <div class="csr-intro-copy reveal"><h2 class="section-title">Responsible growth, shared value.</h2><div class="divider-yellow"></div><p>At Lake Group, sustainability and corporate social responsibility are embedded in our business philosophy across every market where we operate in Africa and the Middle East.</p><p style="margin-top:14px">Our commitment is to create a positive economic, social, moral and environmental impact within the communities we serve. We believe responsible growth is built on sustainable, accountable and transparent practices that create shared value for all stakeholders.</p></div>
-  </div></div>
-</section>
-
-<section class="section csr-focus">
-  <div class="container"><div class="csr-section-heading"><div class="eyebrow">Where we focus</div><h2 class="section-title">Practical support for long-term progress.</h2></div>
-    <div class="csr-focus-grid">
-      <article class="csr-focus-card reveal"><img src="assets/images/lakegas/ops/lake-gas-lpg-filling-line.webp" alt="Lake Gas filling line" loading="lazy"><div class="csr-focus-card-content"><h3>Education</h3><p>Through our CSR initiatives, we actively support education to help improve livelihoods and foster long-term progress.</p></div></article>
-      <article class="csr-focus-card reveal"><img src="assets/images/lakegas/ops/cylinder-warehouse.webp" alt="Lake Gas cylinder warehouse" loading="lazy"><div class="csr-focus-card-content"><h3>Health</h3><p>We support health and community wellbeing as part of our commitment to the communities we serve.</p></div></article>
-      <article class="csr-focus-card reveal"><img src="assets/images/lakegas/TA/photo_1.webp" alt="Lake Gas distribution fleet" loading="lazy"><div class="csr-focus-card-content"><h3>Community development</h3><p>Our work supports community development and stronger local livelihoods across our markets.</p></div></article>
-      <article class="csr-focus-card reveal"><img src="assets/images/lakegas/ops/filling-plant.webp" alt="Lake Gas operations team at work" loading="lazy"><div class="csr-focus-card-content"><h3>Employment creation</h3><p>We support employment creation, helping to improve livelihoods while contributing to sustainable development.</p></div></article>
+  <div class="container" style="position:relative;z-index:3">
+    <div class="csr-hero-content">
+      <h1 aria-label="Growing Communities, Sustaining Futures."><span aria-hidden="true">Growing Communities,<br><strong>Sustaining Futures.</strong></span></h1>
+      <p>Sustainability and corporate social responsibility are embedded in our business philosophy across Africa and the Middle East.</p>
     </div>
   </div>
 </section>
 
-<section class="section csr-case-study"><div class="container"><div class="csr-case-grid">
-  <div class="csr-case-media reveal"><img src="assets/images/lakegas/TA/photo_1.webp" alt="Lake Gas trucks ready for clean energy distribution" loading="lazy"></div>
-  <div class="reveal"><div class="eyebrow">Featured impact</div><h2 class="section-title">Lake Gas clean energy access programme</h2><div class="divider-yellow"></div><p>Through strategic collaboration with the Rural Energy Agency (REA) and local governments, Lake Gas has enabled more than <strong>150,000 rural residents</strong> to adopt clean cooking energy.</p><p style="margin-top:14px">The initiative includes local dealerships and community training on the safe use of LPG, creating social and economic benefits while advancing sustainable energy adoption.</p><div class="csr-case-kicker"><strong>150,000+</strong><span>rural residents enabled to adopt clean cooking energy</span></div></div>
+<section class="csr-purpose">
+  <div class="container"><div class="csr-purpose-grid">
+    <div class="csr-purpose-copy reveal"><h2 class="section-title">Responsible growth, shared value.</h2><div class="divider-yellow"></div><p>At Lake Group, sustainability and corporate social responsibility are embedded in our business philosophy across every market where we operate in Africa and the Middle East.</p><p>Our commitment is to create a positive economic, social, moral, and environmental impact within the communities we serve. We believe responsible growth is built on sustainable, accountable, and transparent practices that create shared value for all stakeholders.</p></div>
+    <div class="csr-purpose-media reveal"><img src="assets/images/lake-agro/la-irrigation-green.webp" alt="Lake Agro irrigation system supporting agricultural operations" width="1448" height="1086" loading="lazy" decoding="async"></div>
+  </div></div>
+</section>
+
+<section class="csr-focus">
+  <div class="container"><div class="csr-focus-heading reveal"><h2 class="section-title">Practical support for long-term progress.</h2><div class="divider-yellow"></div></div>
+    <div class="csr-focus-grid">
+      <article class="csr-focus-feature reveal"><img src="assets/images/news/4/photo_3.webp" alt="Children and Lake Group representatives at a Kigamboni community gathering" width="1600" height="1067" loading="lazy" decoding="async"><div class="csr-focus-feature-content"><h3>Education</h3><p>Through our CSR initiatives, we actively support education to help improve livelihoods and foster long-term progress.</p></div></article>
+      <article class="csr-focus-feature reveal"><img src="assets/images/news/5/photo_1.webp" alt="Lake Group mattress donation at Temeke Hospital" width="855" height="640" loading="lazy" decoding="async"><div class="csr-focus-feature-content"><h3>Health</h3><p>We support health and community wellbeing as part of our commitment to the communities we serve.</p></div></article>
+      <article class="csr-focus-feature reveal"><img src="assets/images/news/4/photo_2.webp" alt="Lake Group representatives at a Kigamboni community event" width="1600" height="1067" loading="lazy" decoding="async"><div class="csr-focus-feature-content"><h3>Community development</h3><p>Our work supports community development and stronger local livelihoods across our markets.</p></div></article>
+      <article class="csr-focus-feature reveal"><img src="assets/images/lake-pipes/new/team-coiling.webp" alt="Lake Pipes production team at work" width="1535" height="1025" loading="lazy" decoding="async"><div class="csr-focus-feature-content"><h3>Employment creation</h3><p>We support employment creation, helping to improve livelihoods while contributing to sustainable development.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="csr-case-study"><div class="container"><div class="csr-case-layout">
+  <div class="csr-case-visual reveal"><figure class="csr-case-primary"><img src="assets/images/lakegas/ops/cylinder-stacks.webp" alt="Lake Gas team members working on the LPG cylinder filling line" width="2048" height="1365" loading="lazy" decoding="async"></figure><figure class="csr-case-secondary"><img src="assets/images/news/10/photo_1.webp" alt="Lake Group women during a community visit" width="1024" height="768" loading="lazy" decoding="async"></figure></div>
+  <div class="csr-case-copy reveal"><h2 class="section-title">Lake Gas clean energy access programme</h2><div class="divider-yellow"></div><p>Through strategic collaboration with the Rural Energy Agency (REA) and local governments, Lake Gas has enabled more than <strong>150,000 rural residents</strong> to adopt clean cooking energy.</p><p>The initiative includes the establishment of local dealerships and community training on the safe use of LPG, creating both social and economic benefits while advancing sustainable energy adoption.</p><div class="csr-impact-number"><strong>150,000+</strong><span>rural residents enabled to adopt clean cooking energy</span></div></div>
 </div></div></section>
 
-<section class="section csr-operations"><div class="container"><div class="csr-operations-grid"><div class="csr-operations-copy reveal"><div class="eyebrow">Beyond formal programmes</div><h2 class="section-title">Sustainability in our operations.</h2><div class="divider-yellow"></div><p>We voluntarily integrate social and environmental responsibility into our business operations, continuously seeking ways to address community needs while contributing to sustainable development.</p><p style="margin-top:14px">By combining business success with meaningful impact, we strive to build stronger communities and a more sustainable future for generations to come.</p></div><div class="csr-operations-media reveal"><img src="assets/images/lakegas/ops/cylinders-yard.webp" alt="Lake Gas cylinders prepared for distribution" loading="lazy"></div></div></div></section>
+<section class="csr-operations"><div class="container"><div class="csr-operations-layout"><div class="csr-operations-copy reveal"><h2 class="section-title">Sustainability in our operations.</h2><div class="divider-yellow"></div><p>Beyond our formal programmes, we voluntarily integrate social and environmental responsibility into our business operations, continuously seeking ways to address community needs while contributing to sustainable development.</p><p>By combining business success with meaningful impact, we strive to build stronger communities and a more sustainable future for generations to come.</p></div><div class="csr-operations-gallery reveal"><figure><img src="assets/images/lake-aviation/gallery/aviation-worker-underwing.webp" alt="Lake Aviation team member carrying out aircraft fueling operations" width="1086" height="1448" loading="lazy" decoding="async"></figure><figure><img src="assets/images/lake-cylinders/gallery/team-photo.webp" alt="Lake Cylinders production team" width="1448" height="1086" loading="lazy" decoding="async"></figure></div></div></div></section>
 </div>
 
 <div id="chat-widget" class="la-widget">
@@ -252,7 +269,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="footer-logo" href="/" aria-label="Lake Group — Home">
+        <a class="footer-logo" href="/" aria-label="Lake Group home">
           <img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group" loading="lazy" decoding="async">
         </a>
         <p class="footer-motto" style="color:var(--yellow);font-weight:600;font-size:0.95rem;letter-spacing:0.04em" data-i18n="footer.motto">Quality, Service, Safety, Professionalism</p>
