@@ -5,6 +5,18 @@
   const groups = [...timeline.querySelectorAll('.history-year-group')];
   if (!groups.length) return;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Separate reveal motion from the rigid Aceternity card surface so the
+  // timeline translation can never overwrite pointer tilt.
+  groups.forEach((group) => {
+    group.querySelectorAll('.history-event').forEach((card) => {
+      if (card.parentElement?.classList.contains('history-event-reveal')) return;
+      const reveal = document.createElement('div');
+      reveal.className = 'history-event-reveal';
+      card.replaceWith(reveal);
+      reveal.append(card);
+    });
+  });
   const focusRatio = 0.42;
   const smoothing = reduceMotion ? 1 : 0.09;
   const state = {
@@ -172,15 +184,25 @@
       if (!nodeRect || !cards.length) return;
       const sx = nodeRect.left + nodeRect.width / 2 - groupRect.left;
       const sy = nodeRect.top + nodeRect.height / 2 - groupRect.top;
+      if (cards.length > 1) {
+        const spineX = Math.max(sx + 34, Math.min(...cards.map((card) => card.getBoundingClientRect().left - groupRect.left)) - 20);
+        const ys = cards.map((card) => { const r = card.getBoundingClientRect(); return r.top + r.height / 2 - groupRect.top; });
+        const spine = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        spine.setAttribute('d', `M ${sx.toFixed(1)} ${sy.toFixed(1)} C ${(sx + 18).toFixed(1)} ${sy.toFixed(1)}, ${(spineX - 18).toFixed(1)} ${sy.toFixed(1)}, ${spineX.toFixed(1)} ${ys[0].toFixed(1)} M ${spineX.toFixed(1)} ${Math.min(...ys).toFixed(1)} C ${(spineX + 2).toFixed(1)} ${((Math.min(...ys)+Math.max(...ys))/2).toFixed(1)}, ${(spineX + 2).toFixed(1)} ${((Math.min(...ys)+Math.max(...ys))/2).toFixed(1)}, ${spineX.toFixed(1)} ${Math.max(...ys).toFixed(1)}`);
+        spine.classList.add('history-branch', 'history-branch--primary');
+        svg.append(spine);
+      }
       cards.forEach((card, cardIndex) => {
         const cardRect = card.getBoundingClientRect();
         const ex = cardRect.left - groupRect.left;
         const ey = cardRect.top + cardRect.height / 2 - groupRect.top;
-        const spread = cards.length > 1 ? (cardIndex - (cards.length - 1) / 2) * 16 : 0;
+        const spineX = cards.length > 1 ? Math.max(sx + 34, Math.min(...cards.map((item) => item.getBoundingClientRect().left - groupRect.left)) - 20) : sx;
         const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        const bend = Math.max(24, (ex - sx) * .3);
-        path.setAttribute('d', `M ${sx.toFixed(1)} ${sy.toFixed(1)} C ${(sx + bend).toFixed(1)} ${(sy + spread).toFixed(1)}, ${(ex - bend).toFixed(1)} ${(ey - spread).toFixed(1)}, ${ex.toFixed(1)} ${ey.toFixed(1)}`);
-        path.classList.add('history-branch');
+        const bend = Math.max(18, (ex - spineX) * .34);
+        path.setAttribute('d', cards.length > 1
+          ? `M ${spineX.toFixed(1)} ${ey.toFixed(1)} C ${(spineX + bend).toFixed(1)} ${ey.toFixed(1)}, ${(ex - bend).toFixed(1)} ${ey.toFixed(1)}, ${ex.toFixed(1)} ${ey.toFixed(1)}`
+          : `M ${sx.toFixed(1)} ${sy.toFixed(1)} C ${(sx + Math.max(24, (ex - sx) * .3)).toFixed(1)} ${sy.toFixed(1)}, ${(ex - Math.max(24, (ex - sx) * .3)).toFixed(1)} ${ey.toFixed(1)}, ${ex.toFixed(1)} ${ey.toFixed(1)}`);
+        path.classList.add('history-branch', cards.length > 1 ? 'history-branch--twig' : 'history-branch--primary');
         svg.append(path);
         requestAnimationFrame(() => path.style.setProperty('--branch-length', `${Math.ceil(path.getTotalLength())}`));
       });

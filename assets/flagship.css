@@ -1664,10 +1664,10 @@ body[data-company-logo] .page-hero h1 {
 .footer-bottom-links { display: flex; gap: var(--sp-5); }
 .footer-bottom-links a { font-size: var(--fs-micro); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); transition: color var(--dur-1) ease; }
 .footer-bottom-links a:hover { color: var(--gold); }
-.footer-social { margin-top: var(--sp-5); display: flex; flex-wrap: wrap; gap: 12px; }
+.footer-social { margin-top: var(--sp-5); display: flex; flex-wrap: nowrap; gap: 8px; }
 .site-footer .social-link {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 42px; height: 42px; padding: 0;
+  width: 36px; height: 36px; padding: 0; flex: 0 0 36px;
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 50%;
   background: transparent;
@@ -3121,6 +3121,10 @@ body[data-company-logo] .page-hero .page-hero-overlay {
 .aviation-credential__eyebrow::before, .info-panel::before,
 .info-panel::after, .nd-hero .hero-title::after {
   content: none !important; display: none !important;
+}
+@media (max-width:600px) {
+  .footer-social { gap: 6px; }
+  .site-footer .social-link { width: 32px; height: 32px; flex-basis: 32px; }
 }
 @media (max-width: 600px) { .lake-back-to-top { right:max(16px,calc(env(safe-area-inset-right) + 12px)); bottom:max(76px,calc(env(safe-area-inset-bottom) + 62px)); width:44px; height:44px; } }
 @media (prefers-reduced-motion: reduce) { .lake-back-to-top { transition: opacity .18s ease; } .lake-back-to-top span { transition:none; } .lake-back-to-top.is-react-down,.lake-back-to-top.is-react-up { --btt-nudge:0px; } }

@@ -187,8 +187,8 @@ body[data-shared-footer="true"] footer.site-footer .footer-contact-ico * {
 
 body[data-shared-footer="true"] footer.site-footer .footer-social {
   display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 14px !important;
+  flex-wrap: nowrap !important;
+  gap: 4px !important;
   margin: 20px 0 0 !important;
   padding: 0 !important;
 }
