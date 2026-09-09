@@ -8,7 +8,7 @@ body.phase03-page .page-hero .hero-media { filter: saturate(1.02) contrast(1.02)
 body.about.phase03-page .our-story-embed { height: auto !important; min-height: 0 !important; }
 body.about.phase03-page .ose-stage { height: 100vh !important; height: 100dvh !important; min-height: 620px; position: relative !important; }
 body.about.phase03-page .value-icon { display: none !important; }
-body.about.phase03-page .val-tile { min-height: 0; padding-top: 24px; border-top: 2px solid var(--yellow); }
+body.about.phase03-page .val-tile { min-height: 0; padding-top: 24px; border-top: 0; }
 
 .ct-dir-wordmark { width: 100%; color: var(--color-brand-blue-deep, #0181bb); font: 700 .78rem/1.25 var(--font-display); letter-spacing: .08em; text-align: center; text-transform: uppercase; }
 body.contact-page.phase03-page .ct-dir-logo:has(.ct-dir-wordmark) { background: transparent; border: 1px solid rgba(1,129,187,.24); }

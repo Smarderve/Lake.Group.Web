@@ -119,6 +119,17 @@ body[data-shared-footer="true"] footer.site-footer .footer-col h5::before {
   width: 8px !important;
 }
 
+/* Footer headings and the footer rail carry content only; remove decorative
+   yellow squares/lines while keeping links and headings intact. */
+body[data-shared-footer="true"] footer.site-footer::before,
+body[data-shared-footer="true"] footer.site-footer .footer-col h5::before {
+  content: none !important;
+  display: none !important;
+}
+body[data-shared-footer="true"] footer.site-footer {
+  border-top-color: transparent !important;
+}
+
 body[data-shared-footer="true"] footer.site-footer .footer-col ul {
   display: block !important;
   list-style: none !important;

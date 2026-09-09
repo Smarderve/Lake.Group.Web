@@ -1266,6 +1266,27 @@ body[data-company-logo] .page-hero h1 {
 .fs-marker { gap: 0; }
 .fs-rule, .divider-yellow { display: none !important; height: 0; margin: 0 !important; }
 .page-hero .eyebrow, .hero-eyebrow { display: none !important; }
+
+/* Page-specific card templates historically repeated the same ornament under
+   different class names. Normalize those selectors here so every public page
+   inherits the same clean card treatment. */
+.stat-tile2::before, .val-mini-tile::before,
+.cr-benefit::before, .csr-tile::before, .sus-item::before,
+.veh-card::before, .veh-plate::after, .svc-legend h4::before,
+.dash-head::after, .kpi::before, .acct-cell::before, .cms-modal-card::before,
+.nd-product-eyebrow::before, .aviation-credential__eyebrow::before,
+.info-panel::before, .info-panel::after,
+.nd-hero .hero-title::after { content: none !important; display: none !important; }
+
+/* Remove the remaining rejected ornament generators from cards, media
+   frames, metadata rails, and stat tiles. */
+.card::before, .card::after,
+.fs-card::before, .fs-card::after,
+.fs-corners::before, .fs-corners::after,
+.fs-hero-meta::before,
+.fs-media-caption::before,
+.fs-stat::before, .fs-stat::after { content: none !important; display: none !important; }
+.fs-card, .card, .fs-corners { border-top-color: transparent !important; }
 .section-title {
   font-family: var(--font-display); font-weight: 700;
   font-size: var(--fs-display); line-height: var(--display-line-height, 1.05);
@@ -3097,5 +3118,24 @@ body[data-company-logo] .page-hero .page-hero-overlay {
 .lake-back-to-top:hover span { transform: translateY(-2px); }
 .lake-back-to-top:active { transform: translate3d(0,var(--btt-nudge),0) scale(.95); }
 .lake-back-to-top:focus-visible { outline: 3px solid #fff200; outline-offset: 3px; }
+
+/* Final override: these legacy rules are defined in multiple rollout blocks;
+   keep the rejected decorative language disabled regardless of load order. */
+.card::before, .card::after, .fs-card::before, .fs-card::after,
+.fs-corners::before, .fs-corners::after, .fs-hero-meta::before,
+.fs-media-caption::before, .fs-stat::before, .fs-stat::after,
+.fs-eyebrow::before, .section-label::before, .page-hero .eyebrow::before,
+.footer-col h5::before, .site-footer::before { content: none !important; display: none !important; }
+.fs-marker .fs-marker-no::after { content: none !important; display: none !important; }
+.fs-rule, .divider-yellow { display: none !important; height: 0 !important; margin: 0 !important; }
+.page-hero .eyebrow, .hero-eyebrow { display: none !important; }
+.stat-tile2::before, .val-tile::before, .val-mini-tile::before, .cr-benefit::before,
+.csr-tile::before, .sus-item::before, .veh-card::before, .veh-plate::after,
+.svc-legend h4::before, .dash-head::after, .kpi::before, .acct-cell::before,
+.cms-modal-card::before, .nd-product-eyebrow::before,
+.aviation-credential__eyebrow::before, .info-panel::before,
+.info-panel::after, .nd-hero .hero-title::after {
+  content: none !important; display: none !important;
+}
 @media (max-width: 600px) { .lake-back-to-top { right:max(16px,calc(env(safe-area-inset-right) + 12px)); bottom:max(76px,calc(env(safe-area-inset-bottom) + 62px)); width:44px; height:44px; } }
 @media (prefers-reduced-motion: reduce) { .lake-back-to-top { transition: opacity .18s ease; } .lake-back-to-top span { transition:none; } .lake-back-to-top.is-react-down,.lake-back-to-top.is-react-up { --btt-nudge:0px; } }
