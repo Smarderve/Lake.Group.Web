@@ -56,6 +56,22 @@
   });
 
   const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+  const getLayoutBox = (element, ancestor) => {
+    let left = 0;
+    let top = 0;
+    let current = element;
+    while (current && current !== ancestor) {
+      left += current.offsetLeft || 0;
+      top += current.offsetTop || 0;
+      current = current.offsetParent;
+    }
+    return {
+      left,
+      top,
+      width: element.offsetWidth,
+      height: element.offsetHeight,
+    };
+  };
 
   const readTargetProgress = () => {
     if (!state.geometryReady) return 0;
@@ -184,32 +200,30 @@
       if (!nodeRect || !cards.length) return;
       const sx = nodeRect.left + nodeRect.width / 2 - groupRect.left;
       const sy = nodeRect.top + nodeRect.height / 2 - groupRect.top;
-      if (cards.length > 1) {
-        const spineX = Math.max(sx + 34, Math.min(...cards.map((card) => card.getBoundingClientRect().left - groupRect.left)) - 20);
-        const ys = cards.map((card) => { const r = card.getBoundingClientRect(); return r.top + r.height / 2 - groupRect.top; });
-        const spine = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        spine.setAttribute('d', `M ${sx.toFixed(1)} ${sy.toFixed(1)} C ${(sx + 18).toFixed(1)} ${sy.toFixed(1)}, ${(spineX - 18).toFixed(1)} ${sy.toFixed(1)}, ${spineX.toFixed(1)} ${ys[0].toFixed(1)} M ${spineX.toFixed(1)} ${Math.min(...ys).toFixed(1)} C ${(spineX + 2).toFixed(1)} ${((Math.min(...ys)+Math.max(...ys))/2).toFixed(1)}, ${(spineX + 2).toFixed(1)} ${((Math.min(...ys)+Math.max(...ys))/2).toFixed(1)}, ${spineX.toFixed(1)} ${Math.max(...ys).toFixed(1)}`);
-        spine.classList.add('history-branch', 'history-branch--primary');
-        svg.append(spine);
-      }
       cards.forEach((card, cardIndex) => {
-        const cardRect = card.getBoundingClientRect();
-        const ex = cardRect.left - groupRect.left;
-        const ey = cardRect.top + cardRect.height / 2 - groupRect.top;
-        const spineX = cards.length > 1 ? Math.max(sx + 34, Math.min(...cards.map((item) => item.getBoundingClientRect().left - groupRect.left)) - 20) : sx;
+        const cardBox = getLayoutBox(card, group);
+        const ex = cardBox.left;
+        const ey = cardBox.top + cardBox.height / 2;
         const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        const bend = Math.max(18, (ex - spineX) * .34);
-        const twigBend = Math.max(24, (ex - spineX) * .34);
-        const twigBow = Math.max(28, Math.min(64, Math.abs(ey - sy) * .22 + 28));
-        path.setAttribute('d', cards.length > 1
-          ? `M ${spineX.toFixed(1)} ${ey.toFixed(1)} C ${(spineX + twigBend * .42).toFixed(1)} ${(ey - twigBow).toFixed(1)}, ${(ex - twigBend * .42).toFixed(1)} ${(ey + twigBow).toFixed(1)}, ${ex.toFixed(1)} ${ey.toFixed(1)}`
-          : `M ${sx.toFixed(1)} ${sy.toFixed(1)} C ${(sx + Math.max(28, (ex - sx) * .28)).toFixed(1)} ${(sy - twigBow).toFixed(1)}, ${(ex - Math.max(28, (ex - sx) * .28)).toFixed(1)} ${(ey + twigBow).toFixed(1)}, ${ex.toFixed(1)} ${ey.toFixed(1)}`);
-        path.classList.add('history-branch', cards.length > 1 ? 'history-branch--twig' : 'history-branch--primary');
-        path.style.setProperty('--branch-delay', `${cardIndex * 120}ms`);
+        const dx = Math.max(1, ex - sx);
+        const dy = ey - sy;
+        const rank = cards.length === 1 ? 0.5 : cardIndex / (cards.length - 1);
+        const departure = cards.length === 1
+          ? (dy >= 0 ? -34 : 34)
+          : -24 + rank * 92;
+        const arrivalLift = Math.sign(dy || 1) * Math.min(108, 34 + Math.abs(dy) * .14);
+        const controlOneX = sx + Math.max(28, dx * .32);
+        const controlTwoX = ex - Math.max(24, dx * .3);
+        const controlOneY = sy + departure;
+        const controlTwoY = ey - arrivalLift;
+        path.setAttribute('d', `M ${sx.toFixed(1)} ${sy.toFixed(1)} C ${controlOneX.toFixed(1)} ${controlOneY.toFixed(1)}, ${controlTwoX.toFixed(1)} ${controlTwoY.toFixed(1)}, ${ex.toFixed(1)} ${ey.toFixed(1)}`);
+        path.classList.add('history-branch');
+        const branchDelay = cardIndex * 130;
+        path.style.setProperty('--branch-delay', `${branchDelay}ms`);
         svg.append(path);
         requestAnimationFrame(() => path.style.setProperty('--branch-length', `${Math.ceil(path.getTotalLength())}`));
         const reveal = card.parentElement;
-        if (reveal) reveal.style.setProperty('--branch-delay', `${cardIndex * 120 + 220}ms`);
+        if (reveal) reveal.style.setProperty('--card-reveal-delay', `${branchDelay + 740}ms`);
       });
     });
 
@@ -244,13 +258,25 @@
     scheduleRender();
   };
 
+  let measureFrame = 0;
+  const scheduleMeasure = () => {
+    if (measureFrame) return;
+    measureFrame = window.requestAnimationFrame(() => {
+      measureFrame = 0;
+      measureGeometry();
+    });
+  };
+  const resizeObserver = 'ResizeObserver' in window ? new ResizeObserver(scheduleMeasure) : null;
+  if (resizeObserver) resizeObserver.observe(timeline);
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', measureGeometry, { passive: true });
+  window.addEventListener('resize', scheduleMeasure, { passive: true });
   window.addEventListener('load', measureGeometry, { once: true });
   measureGeometry();
   if (document.fonts?.ready) document.fonts.ready.then(measureGeometry);
   window.addEventListener('pagehide', () => {
     if (cardFrame) cancelAnimationFrame(cardFrame);
+    if (measureFrame) cancelAnimationFrame(measureFrame);
+    resizeObserver?.disconnect();
     cardCleanup.forEach((cleanup) => cleanup());
   }, { once: true });
 })();
