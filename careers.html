@@ -98,23 +98,25 @@
 .cr-network { padding: clamp(72px, 8vw, 112px) 0; background: var(--ink); color: #fff; }
 .cr-network-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(320px, .8fr); gap: clamp(42px, 8vw, 112px); align-items: center; }
 .cr-network-copy { max-width: 680px; }
-.cr-network-copy h2 { max-width: 12ch; color: #fff; font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 5rem); line-height: .95; letter-spacing: -.035em; text-transform: uppercase; }
-.cr-network-copy > p { max-width: 58ch; margin-top: 24px; color: var(--ink-mute); font-size: 1.05rem; line-height: 1.65; }
+.cr-network-copy h2 { max-width: 12ch; color: #fff; font-family: var(--font-display); font-size: clamp(42px, 4.5vw, 68px); line-height: .98; letter-spacing: -.035em; text-transform: uppercase; }
+.cr-network-copy > p { max-width: 58ch; margin-top: 24px; color: rgba(255,255,255,.9); font-size: clamp(1rem, 1.2vw, 1.125rem); line-height: 1.65; }
 .cr-network-benefits { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 34px; }
 .cr-network-benefit { padding-top: 16px; border-top: 1px solid var(--ink-line-2); }
 .cr-network-benefit h3 { color: #fff; font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; }
-.cr-network-benefit p { margin-top: 7px; color: var(--ink-mute); font-size: .82rem; line-height: 1.5; }
+.cr-network-benefit p { margin-top: 7px; color: rgba(255,255,255,.82); font-size: clamp(.9rem, 1vw, 1rem); line-height: 1.5; }
 .cr-network-panel { padding: clamp(28px, 4vw, 46px); background: var(--paper-2); color: var(--ink); }
 .cr-network-brand { display: flex; align-items: center; gap: 14px; }
 .cr-linkedin-mark { display: grid; width: 42px; height: 42px; place-items: center; border-radius: 4px; background: #0a66c2; color: #fff; font-size: 1.45rem; font-weight: 800; }
-.cr-network-panel h3 { margin-top: 26px; color: var(--ink); font-family: var(--font-display); font-size: clamp(1.5rem, 2.5vw, 2.25rem); line-height: 1; text-transform: uppercase; }
-.cr-network-panel p { margin-top: 14px; color: var(--muted); line-height: 1.6; }
+.cr-network-panel h3 { margin-top: 26px; color: var(--blue); font-family: var(--font-display); font-size: clamp(32px, 2.5vw, 44px); line-height: 1.02; text-transform: uppercase; }
+.cr-network-panel p { margin-top: 14px; color: #344b59; font-size: clamp(.95rem, 1.1vw, 1.05rem); line-height: 1.6; }
 .cr-network-panel .btn { margin-top: 26px; }
 .cr-network-bridge { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: clamp(56px, 7vw, 88px); padding-top: 24px; border-top: 1px solid var(--ink-line-2); }
-.cr-network-bridge p { margin: 0; color: var(--ink-mute); }
+.cr-network-bridge p { margin: 0; color: rgba(255,255,255,.9); font-size: clamp(.95rem, 1.1vw, 1.05rem); line-height: 1.55; }
 .cr-network-bridge strong { display: block; margin-bottom: 5px; color: #fff; font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; }
 @media (max-width: 900px) { .cr-network-grid { grid-template-columns: 1fr; } .cr-network-copy h2 { max-width: 16ch; } }
+@media (max-width: 900px) { .cr-network-copy h2 { font-size: clamp(38px, 6vw, 52px); } }
 @media (max-width: 600px) { .cr-network-benefits { grid-template-columns: 1fr; gap: 22px; } .cr-network-bridge { align-items: flex-start; flex-direction: column; } .cr-network-panel { padding: 28px 24px; } }
+@media (max-width: 600px) { .cr-network-copy h2 { font-size: clamp(32px, 10vw, 42px); } .cr-network-panel h3 { font-size: clamp(26px, 8vw, 32px); } }
 .cr-benefit-media { aspect-ratio: 16 / 9; }
 .cr-benefit-copy { padding: 22px 24px 26px; }
 .cr-benefit h4 { font-size: 1rem; }
@@ -382,13 +384,6 @@
             <span id="career-cv-help" class="cr-upload-meta">PDF, DOC or DOCX · maximum 10 MB · one file</span>
           </div>
           <span id="career-cv-error" class="cr-upload-error" aria-live="polite"></span>
-        </div>
-        <div class="cr-field cr-field-full cr-consent">
-          <div class="cr-consent-control">
-            <input id="career-consent" name="consent" type="checkbox" required aria-describedby="career-consent-error">
-            <label for="career-consent">I consent to Lake Group using these details to review this career enquiry. <span aria-hidden="true">*</span></label>
-          </div>
-          <span id="career-consent-error" class="cr-error" aria-live="polite"></span>
         </div>
       </div>
       <div class="cr-form-actions">

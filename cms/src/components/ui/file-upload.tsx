@@ -127,8 +127,10 @@ export const FileUpload = ({
           "application/vnd.openxmlformats-officedocument.wordprocessingml.document": [".docx"],
         }
       : undefined,
-    onDropRejected: (error) => {
-      console.log(error);
+    onDropRejected: (errors) => {
+      const code = errors[0]?.errors?.[0]?.code;
+      const message = code === "file-too-large" ? "Your CV is larger than the 10 MB limit." : code === "too-many-files" ? "Only one CV can be uploaded." : "This CV format is not supported.";
+      window.dispatchEvent(new CustomEvent("career-cv-error", { detail: message }));
     },
   });
 
