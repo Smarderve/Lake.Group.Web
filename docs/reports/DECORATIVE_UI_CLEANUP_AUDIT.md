@@ -1,49 +1,60 @@
-# Decorative UI cleanup audit
+# Decorative UI Cleanup Audit
 
-Shared CSS was audited for all public pages. The same cleanup rules are inherited by each page: card/corner pseudo-elements are disabled, footer heading markers are removed, hero eyebrows are hidden, and marker numbers/rules are removed. Functional timeline dots, controls, icons, links, and meaningful yellow states remain.
+Date: 2026-09-09
+Scope: all 42 root public HTML pages
 
-| Page | Hero | Sections | Cards | Footer | Yellow squares | Decorative lines | Eyebrows | Status |
-|---|---|---|---|---|---:|---:|---:|---|
-| 404.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| about.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| acfs.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| aficd.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| agrinova-tech.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| aill.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| assembly-tech.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| atl.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| careers.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| contact.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| cross-country.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| csr.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| dashboard.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| fleet.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| gallery.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| gulf-aggregates.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| history.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| la-home.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| la-projects.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| lake-agro.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| lake-aviation.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| lake-buildings.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| lake-cylinders.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| lake-gas.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| lake-group-financial-dashboard.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| lake-group-org-chart.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| lake-lubes.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| lake-oil.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| lake-pipes.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| lake-premix-cement.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| lake-steel.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| lake-trans.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| leadership-ally-edha-awadh.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| leadership.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| media-center.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| nextdrive-motors.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| ocean-galleria.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| offline.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| our-story.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| station-locator.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
-| sustainability.html | checked | checked | checked | checked | 0 | 0 | 0 | PASS |
+Redundant numbered section-marker rows and standalone eyebrow/kicker/section-label outputs were removed at source. The shared stylesheet no longer generates the paired yellow tick and gray rule from section-stat and divider pseudo-elements. Real checklist content remains, including AFICD certification and capability lists.
 
-The audit covers all 42 root public HTML routes. CSS pseudo-element inspection and browser smoke checks were run on Home, About, History, Careers, Contact, Gallery, Lake Oil, and ATL at 390px; no horizontal overflow was observed.
+| Page | Redundant pre-headings found | Removed | Leftover spacing fixed | Status |
+|---|---:|---:|---|---|
+| 404.html | 0 | 0 | Yes | PASS |
+| about.html | 4 | 4 | Yes | PASS |
+| acfs.html | 6 | 6 | Yes | PASS |
+| aficd.html | 9 | 9 | Yes | PASS |
+| agrinova-tech.html | 14 | 14 | Yes | PASS |
+| aill.html | 5 | 5 | Yes | PASS |
+| assembly-tech.html | 10 | 10 | Yes | PASS |
+| atl.html | 9 | 9 | Yes | PASS |
+| careers.html | 3 | 3 | Yes | PASS |
+| contact.html | 4 | 4 | Yes | PASS |
+| cross-country.html | 7 | 7 | Yes | PASS |
+| csr.html | 3 | 3 | Yes | PASS |
+| dashboard.html | 1 | 1 | Yes | PASS |
+| fleet.html | 3 | 3 | Yes | PASS |
+| gallery.html | 1 | 1 | Yes | PASS |
+| gulf-aggregates.html | 4 | 4 | Yes | PASS |
+| history.html | 2 | 2 | Yes | PASS |
+| index.html | 5 | 5 | Yes | PASS |
+| la-home.html | 0 | 0 | Yes | PASS |
+| la-projects.html | 0 | 0 | Yes | PASS |
+| lake-agro.html | 8 | 8 | Yes | PASS |
+| lake-aviation.html | 5 | 5 | Yes | PASS |
+| lake-buildings.html | 5 | 5 | Yes | PASS |
+| lake-cylinders.html | 6 | 6 | Yes | PASS |
+| lake-gas.html | 4 | 4 | Yes | PASS |
+| lake-group-financial-dashboard.html | 0 | 0 | Yes | PASS |
+| lake-group-org-chart.html | 0 | 0 | Yes | PASS |
+| lake-lubes.html | 5 | 5 | Yes | PASS |
+| lake-oil.html | 5 | 5 | Yes | PASS |
+| lake-pipes.html | 5 | 5 | Yes | PASS |
+| lake-premix-cement.html | 8 | 8 | Yes | PASS |
+| lake-steel.html | 5 | 5 | Yes | PASS |
+| lake-trans.html | 6 | 6 | Yes | PASS |
+| leadership-ally-edha-awadh.html | 0 | 0 | Yes | PASS |
+| leadership.html | 1 | 1 | Yes | PASS |
+| media-center.html | 2 | 2 | Yes | PASS |
+| nextdrive-motors.html | 7 | 7 | Yes | PASS |
+| ocean-galleria.html | 6 | 6 | Yes | PASS |
+| offline.html | 0 | 0 | Yes | PASS |
+| our-story.html | 5 | 5 | Yes | PASS |
+| station-locator.html | 2 | 2 | Yes | PASS |
+| sustainability.html | 3 | 3 | Yes | PASS |
+
+## Totals
+
+- Public pages checked: **42**
+- Redundant pre-heading outputs removed: **178** (105 marker rows and 73 standalone labels)
+- Decorative tick/rule generators removed from shared source: **`fs-stat` and `divider-yellow` pseudo-elements**
+- Shared source changed: `assets/flagship.css`
+- Responsive rendered checks: representative pages at **390, 768, 1024, 1440, and 1920 px**
+- Render checks confirmed zero `.fs-marker`, `.fs-eyebrow`, `.section-label`, `.ag-kicker`, or page-hero eyebrow nodes on the representative pages.

@@ -1251,17 +1251,11 @@ body[data-company-logo] .page-hero h1 {
   font-size: var(--eyebrow-size, var(--fs-micro)); letter-spacing: var(--eyebrow-letter-spacing, 0.16em); text-transform: uppercase;
   font-weight: 700; color: var(--blue-deep); margin-bottom: var(--sp-4);
 }
-.section-label::before { content: ''; width: 8px; height: 8px; background: var(--gold); }
 .section-label.dark { color: var(--blue-deep); }
-.section-label.dark::before { background: var(--gold); }
 .section-dark .section-label, .fs-on-dark .section-label { color: var(--gold); }
 
 /* Visual cleanup: section metadata remains available as text, while the
    repeated tick, square, rule, and numeric ornaments are removed. */
-.fs-eyebrow::before,
-.section-label::before,
-.page-hero .eyebrow::before { display: none; content: none; }
-.fs-eyebrow, .section-label { gap: 0; }
 .fs-marker-no { display: none; }
 .fs-marker { gap: 0; }
 .fs-rule, .divider-yellow { display: none !important; height: 0; margin: 0 !important; }
@@ -1296,7 +1290,6 @@ body[data-company-logo] .page-hero h1 {
 .section-dark .section-title { color: #fff; }
 .section-subtitle { font-size: var(--fs-lede); font-weight: 300; color: var(--mute); max-width: 58ch; line-height: 1.7; }
 .divider-yellow { position: relative; width: 100%; max-width: 220px; height: 1px; background: var(--line); margin: var(--sp-5) 0; border-radius: 0; }
-.divider-yellow::before { content: ''; position: absolute; left: 0; top: -3.5px; width: 8px; height: 8px; background: var(--gold); }
 .section-dark .divider-yellow, .fs-on-dark .divider-yellow { background: var(--ink-line); }
 
 /* --------------------------------------------------------------------------
@@ -1399,14 +1392,6 @@ body[data-company-logo] .page-hero h1 {
   letter-spacing: 0.01em; color: var(--text); display: block;
 }
 .fs-stat .fs-stat-no em { font-style: normal; color: var(--blue-deep); }
-.fs-stat::after { /* baseline hairline + tick */
-  content: ''; position: absolute; left: 0; right: 0; bottom: 0;
-  height: 1px; background: var(--line);
-}
-.fs-stat::before {
-  content: ''; position: absolute; left: 0; bottom: -3.5px;
-  width: 8px; height: 8px; background: var(--gold); z-index: 1;
-}
 .fs-stat .fs-stat-label, .stat-label {
   display: block; margin-top: var(--sp-2);
   font-size: var(--fs-micro); font-weight: 600;
