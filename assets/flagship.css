@@ -1251,10 +1251,36 @@ body[data-company-logo] .page-hero h1 {
   font-size: var(--eyebrow-size, var(--fs-micro)); letter-spacing: var(--eyebrow-letter-spacing, 0.16em); text-transform: uppercase;
   font-weight: 700; color: var(--blue-deep); margin-bottom: var(--sp-4);
 }
-.section-label::before { content: ''; width: 8px; height: 8px; background: var(--gold); }
 .section-label.dark { color: var(--blue-deep); }
-.section-label.dark::before { background: var(--gold); }
 .section-dark .section-label, .fs-on-dark .section-label { color: var(--gold); }
+
+/* Visual cleanup: section metadata remains available as text, while the
+   repeated tick, square, rule, and numeric ornaments are removed. */
+.fs-marker-no { display: none; }
+.fs-marker { gap: 0; }
+.fs-rule, .divider-yellow { display: none !important; height: 0; margin: 0 !important; }
+.page-hero .eyebrow, .hero-eyebrow { display: none !important; }
+
+/* Page-specific card templates historically repeated the same ornament under
+   different class names. Normalize those selectors here so every public page
+   inherits the same clean card treatment. */
+.stat-tile2::before, .val-mini-tile::before,
+.cr-benefit::before, .csr-tile::before, .sus-item::before,
+.veh-card::before, .veh-plate::after, .svc-legend h4::before,
+.dash-head::after, .kpi::before, .acct-cell::before, .cms-modal-card::before,
+.nd-product-eyebrow::before, .aviation-credential__eyebrow::before,
+.info-panel::before, .info-panel::after,
+.nd-hero .hero-title::after { content: none !important; display: none !important; }
+
+/* Remove the remaining rejected ornament generators from cards, media
+   frames, metadata rails, and stat tiles. */
+.card::before, .card::after,
+.fs-card::before, .fs-card::after,
+.fs-corners::before, .fs-corners::after,
+.fs-hero-meta::before,
+.fs-media-caption::before,
+.fs-stat::before, .fs-stat::after { content: none !important; display: none !important; }
+.fs-card, .card, .fs-corners { border-top-color: transparent !important; }
 .section-title {
   font-family: var(--font-display); font-weight: 700;
   font-size: var(--fs-display); line-height: var(--display-line-height, 1.05);
@@ -1264,7 +1290,6 @@ body[data-company-logo] .page-hero h1 {
 .section-dark .section-title { color: #fff; }
 .section-subtitle { font-size: var(--fs-lede); font-weight: 300; color: var(--mute); max-width: 58ch; line-height: 1.7; }
 .divider-yellow { position: relative; width: 100%; max-width: 220px; height: 1px; background: var(--line); margin: var(--sp-5) 0; border-radius: 0; }
-.divider-yellow::before { content: ''; position: absolute; left: 0; top: -3.5px; width: 8px; height: 8px; background: var(--gold); }
 .section-dark .divider-yellow, .fs-on-dark .divider-yellow { background: var(--ink-line); }
 
 /* --------------------------------------------------------------------------
@@ -1367,14 +1392,6 @@ body[data-company-logo] .page-hero h1 {
   letter-spacing: 0.01em; color: var(--text); display: block;
 }
 .fs-stat .fs-stat-no em { font-style: normal; color: var(--blue-deep); }
-.fs-stat::after { /* baseline hairline + tick */
-  content: ''; position: absolute; left: 0; right: 0; bottom: 0;
-  height: 1px; background: var(--line);
-}
-.fs-stat::before {
-  content: ''; position: absolute; left: 0; bottom: -3.5px;
-  width: 8px; height: 8px; background: var(--gold); z-index: 1;
-}
 .fs-stat .fs-stat-label, .stat-label {
   display: block; margin-top: var(--sp-2);
   font-size: var(--fs-micro); font-weight: 600;
@@ -1647,10 +1664,10 @@ body[data-company-logo] .page-hero h1 {
 .footer-bottom-links { display: flex; gap: var(--sp-5); }
 .footer-bottom-links a { font-size: var(--fs-micro); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); transition: color var(--dur-1) ease; }
 .footer-bottom-links a:hover { color: var(--gold); }
-.footer-social { margin-top: var(--sp-5); display: flex; flex-wrap: wrap; gap: 12px; }
+.footer-social { margin-top: var(--sp-5); display: flex; flex-wrap: nowrap; gap: 8px; }
 .site-footer .social-link {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 42px; height: 42px; padding: 0;
+  width: 36px; height: 36px; padding: 0; flex: 0 0 36px;
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 50%;
   background: transparent;
@@ -3086,5 +3103,28 @@ body[data-company-logo] .page-hero .page-hero-overlay {
 .lake-back-to-top:hover span { transform: translateY(-2px); }
 .lake-back-to-top:active { transform: translate3d(0,var(--btt-nudge),0) scale(.95); }
 .lake-back-to-top:focus-visible { outline: 3px solid #fff200; outline-offset: 3px; }
+
+/* Final override: these legacy rules are defined in multiple rollout blocks;
+   keep the rejected decorative language disabled regardless of load order. */
+.card::before, .card::after, .fs-card::before, .fs-card::after,
+.fs-corners::before, .fs-corners::after, .fs-hero-meta::before,
+.fs-media-caption::before, .fs-stat::before, .fs-stat::after,
+.fs-eyebrow::before, .section-label::before, .page-hero .eyebrow::before,
+.footer-col h5::before, .site-footer::before { content: none !important; display: none !important; }
+.fs-marker .fs-marker-no::after { content: none !important; display: none !important; }
+.fs-rule, .divider-yellow { display: none !important; height: 0 !important; margin: 0 !important; }
+.page-hero .eyebrow, .hero-eyebrow { display: none !important; }
+.stat-tile2::before, .val-tile::before, .val-mini-tile::before, .cr-benefit::before,
+.csr-tile::before, .sus-item::before, .veh-card::before, .veh-plate::after,
+.svc-legend h4::before, .dash-head::after, .kpi::before, .acct-cell::before,
+.cms-modal-card::before, .nd-product-eyebrow::before,
+.aviation-credential__eyebrow::before, .info-panel::before,
+.info-panel::after, .nd-hero .hero-title::after {
+  content: none !important; display: none !important;
+}
+@media (max-width:600px) {
+  .footer-social { gap: 6px; }
+  .site-footer .social-link { width: 32px; height: 32px; flex-basis: 32px; }
+}
 @media (max-width: 600px) { .lake-back-to-top { right:max(16px,calc(env(safe-area-inset-right) + 12px)); bottom:max(76px,calc(env(safe-area-inset-bottom) + 62px)); width:44px; height:44px; } }
 @media (prefers-reduced-motion: reduce) { .lake-back-to-top { transition: opacity .18s ease; } .lake-back-to-top span { transition:none; } .lake-back-to-top.is-react-down,.lake-back-to-top.is-react-up { --btt-nudge:0px; } }

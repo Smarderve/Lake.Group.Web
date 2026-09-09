@@ -28,7 +28,7 @@
 
 'use strict';
 
-const VERSION = 'v80-20260902-02';
+const VERSION = 'v81-20260828-01';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -56,7 +56,7 @@ const PRECACHE_URLS = [
   './lake-steel.html',
   './lake-trans.html',
   './manifest.webmanifest',
-  './assets/pwa.js?v=20260829-01',
+  './assets/pwa.js?v=20260828-01',
   './assets/build-version.js?v=20260828-01',
   './assets/site.js?v=20260828-01',
   './assets/tokens.css?v=20260828-01',
@@ -81,10 +81,10 @@ const PRECACHE_URLS = [
   './assets/assistant-kb.js',
   './assets/vendor/flexsearch/flexsearch.bundle.min.js',
   './assets/images/logos/LAKE_GROUP_LOGO.png',
-  './assets/images/banner/LakeOil1.jpg?v=20260828-01',
+  './assets/images/banner/LakeOil1.webp?v=20260828-01',
   './assets/images/lakeoil/current/lake-energies-station-approved.webp?v=20260828-01',
-  './assets/images/group/ops/depot-aerial.jpg?v=20260828-01',
-  './assets/images/lakegas/ops/cylinders-yard.jpg?v=20260828-01',
+  './assets/images/group/ops/depot-aerial.webp?v=20260828-01',
+  './assets/images/lakegas/ops/cylinders-yard.webp?v=20260828-01',
   './assets/icons/pwa/icon-192.png',
   './assets/icons/pwa/icon-512.png',
   './assets/fonts/fonts.css?v=20260828-01',

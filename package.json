@@ -21,7 +21,9 @@
     "public:snapshot": "node scripts/public-snapshot.js",
     "secret:scan": "node scripts/check-secrets.mjs",
     "test:cache-consistency": "node scripts/check-cache-consistency.mjs",
+    "test:footer-consistency": "node --test tests/footer-consistency.test.js",
     "test:performance-sanity": "node tests/performance-sanity.test.js",
+    "test:performance-guardrails": "node scripts/check-performance-guardrails.mjs",
     "test:cache-lifecycle": "node tests/cache-lifecycle.test.js",
     "test:reload-stability": "node tests/reload-stability.test.js",
     "test:chairman-title": "node --test tests/chairman-title-consistency.test.js",
@@ -36,6 +38,8 @@
   "dependencies": {
     "@lordicon/element": "^2.3.1",
     "@lottiefiles/dotlottie-web": "^0.80.0",
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.17.10",
     "animejs": "^4.5.0",
     "docx": "^9.7.1",
     "react": "^18.3.1",

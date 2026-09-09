@@ -1,0 +1,1 @@
+New isolated embedded Lake Group globe. Built from the supplied Aceternity Globe World/ThreeGlobe arc pipeline and 3D Globe projection/material/atmosphere contracts. Homepage mounts this component only after QA; assets/hero-globe-recovered remains the fallback source.

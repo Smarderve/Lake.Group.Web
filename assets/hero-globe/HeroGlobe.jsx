@@ -6,8 +6,14 @@ import {
   ROUTE_YELLOW,
   buildMarkers,
   buildArcs,
+  LABEL_PRIORITY,
   prefersReducedMotion,
 } from './locations.js';
+import {
+  ACETERNITY_GLOBE_CONFIG,
+  ACETERNITY_3D_CONFIG,
+  normalizeAceternityArc,
+} from './aceternity-foundation.js';
 
 const MARKER_ICON = 'assets/icons/location-marker.svg';
 const AFRICA_POV = { lat: -4, lng: 33, altitude: 1.85 };
@@ -65,6 +71,8 @@ function getCachedMarkerEl(marker, isMobile) {
 
   const root = document.createElement('div');
   root.className = 'hero-globe-marker';
+  root.dataset.markerId = marker.id;
+  root.dataset.labelDistance = String(marker.labelDistance || 22);
   root.style.cssText = 'position:relative;width:0;height:0;pointer-events:none;';
   root.style.setProperty('--label-distance', `${marker.labelDistance || 22}px`);
 
@@ -128,7 +136,6 @@ function getCachedMarkerEl(marker, isMobile) {
   label.append(flag, countryName);
   root.append(pin, leader, label);
   leader.style.width = '0';
-  requestAnimationFrame(() => { leader.style.width = 'var(--label-distance)'; });
   markerCache.set(key, root);
   return root;
 }
@@ -207,9 +214,9 @@ export default function HeroGlobe({ panelEl, locations }) {
 
   /* ── Combined arc data for the Globe component ── */
   const arcsData = useMemo(() => {
-    const arcs = completedArcs.map((a) => ({ ...a, dashLength: 1 }));
+    const arcs = completedArcs.map((a) => ({ ...normalizeAceternityArc(a, a.order), dashLength: 1 }));
     if (activeArc) {
-      arcs.push({ ...activeArc, dashLength: activeDashRef.current });
+      arcs.push({ ...normalizeAceternityArc(activeArc, activeArc.order), dashLength: activeDashRef.current });
     }
     return arcs;
   }, [completedArcs, activeArc]);
@@ -253,37 +260,83 @@ export default function HeroGlobe({ panelEl, locations }) {
     [isMobile],
   );
 
-  /* Resolve projected label collisions after the globe has positioned HTML
-     markers. This runs at a modest cadence so it improves legibility without
-     adding a layout read to the render loop. */
+  /* Resolve projected label collisions without hiding lower-priority labels.
+     Marker coordinates move as the camera settles or a user drags, so the
+     lightweight layout pass runs off the WebGL render loop at a modest rate.
+     Dimensions are cached and only refreshed when a label's content changes. */
   useEffect(() => {
     if (!panelEl) return undefined;
+    const preferredOffsets = new Map(allMarkers.map((marker) => [
+      marker.id,
+      marker.labelOffset || [0, 0],
+    ]));
+    const lastOffsets = new Map();
+    const metrics = new Map();
+    const priority = new Map(LABEL_PRIORITY
+      .map((id, index) => [id, index]));
+    const candidatesFor = (id) => {
+      const preferred = preferredOffsets.get(id) || [0, 0];
+      const current = lastOffsets.get(id);
+      const offsets = [
+        ...(current ? [current] : []), preferred,
+        [preferred[0], preferred[1] - 28], [preferred[0], preferred[1] + 28],
+        [preferred[0] - 34, preferred[1]], [preferred[0] + 34, preferred[1]],
+        [preferred[0] - 28, preferred[1] - 24], [preferred[0] + 28, preferred[1] + 24],
+        [preferred[0] - 24, preferred[1] + 28], [preferred[0] + 24, preferred[1] - 28],
+      ];
+      return offsets.filter((offset, index) => offsets.findIndex((item) => item[0] === offset[0] && item[1] === offset[1]) === index);
+    };
+    const overlaps = (a, b) => !(a.right <= b.left + 2 || a.left >= b.right - 2 || a.bottom <= b.top + 2 || a.top >= b.bottom - 2);
     const resolveCollisions = () => {
-      const labels = [...panelEl.querySelectorAll('.hero-globe-marker__label')]
-        .filter((label) => !label.closest('.is-behind-globe'));
-      labels.forEach((label) => {
-        label.classList.remove('is-collision-hidden');
-        label.parentElement?.querySelector('.hero-globe-marker__leader')?.classList.remove('is-collision-hidden');
-      });
+      const panelRect = panelEl.getBoundingClientRect();
+      const labels = [...panelEl.querySelectorAll('.hero-globe-marker')]
+        .filter((marker) => !marker.classList.contains('is-behind-globe'))
+        .sort((a, b) => (priority.get(a.dataset.markerId) ?? 99) - (priority.get(b.dataset.markerId) ?? 99));
       const occupied = [];
-      labels.forEach((label) => {
-        const rect = label.getBoundingClientRect();
-        if (!rect.width || !rect.height) return;
-        const collides = occupied.some((other) => !(
-          rect.right < other.left - 3 || rect.left > other.right + 3 ||
-          rect.bottom < other.top - 3 || rect.top > other.bottom + 3
-        ));
-        if (collides) {
-          label.classList.add('is-collision-hidden');
-          label.parentElement?.querySelector('.hero-globe-marker__leader')?.classList.add('is-collision-hidden');
+      labels.forEach((markerEl) => {
+        const label = markerEl.querySelector('.hero-globe-marker__label');
+        const leader = markerEl.querySelector('.hero-globe-marker__leader');
+        if (!label || !leader) return;
+        const markerRect = markerEl.getBoundingClientRect();
+        let size = metrics.get(markerEl.dataset.markerId);
+        if (!size || size.text !== label.textContent) {
+          size = { width: label.offsetWidth, height: label.offsetHeight, text: label.textContent };
+          metrics.set(markerEl.dataset.markerId, size);
         }
-        else occupied.push(rect);
+        if (!size.width || !size.height) return;
+        const east = label.classList.contains('hero-globe-marker__label--east');
+        const distance = Number(markerEl.dataset.labelDistance) || 22;
+        const baseX = east ? distance + 4 : -distance - 4 - size.width;
+        const baseY = -size.height / 2;
+        let best = null;
+        candidatesFor(markerEl.dataset.markerId).forEach((offset) => {
+          const rect = {
+            left: markerRect.left + baseX + offset[0],
+            top: markerRect.top + baseY + offset[1],
+            right: markerRect.left + baseX + offset[0] + size.width,
+            bottom: markerRect.top + baseY + offset[1] + size.height,
+          };
+          const edgePenalty = Math.max(0, panelRect.left + 8 - rect.left) + Math.max(0, rect.right - panelRect.right + 8) + Math.max(0, panelRect.top + 8 - rect.top) + Math.max(0, rect.bottom - panelRect.bottom + 8);
+          const collisionPenalty = occupied.reduce((score, other) => score + (overlaps(rect, other) ? 10000 : 0), 0);
+          const displacementPenalty = Math.hypot(offset[0] - (preferredOffsets.get(markerEl.dataset.markerId)?.[0] || 0), offset[1] - (preferredOffsets.get(markerEl.dataset.markerId)?.[1] || 0));
+          const score = collisionPenalty + edgePenalty * 30 + displacementPenalty;
+          if (!best || score < best.score) best = { rect, offset, score };
+        });
+        const chosen = best || { rect: { left: markerRect.left + baseX, top: markerRect.top + baseY, right: markerRect.left + baseX + size.width, bottom: markerRect.top + baseY + size.height }, offset: [0, 0] };
+        lastOffsets.set(markerEl.dataset.markerId, chosen.offset);
+        occupied.push(chosen.rect);
+        label.style.setProperty('--label-shift-x', `${chosen.offset[0]}px`);
+        label.style.setProperty('--label-shift-y', `${chosen.offset[1]}px`);
+        const endX = east ? baseX + chosen.offset[0] : baseX + chosen.offset[0] + size.width;
+        const endY = baseY + chosen.offset[1] + size.height / 2;
+        leader.style.width = `${Math.max(8, Math.hypot(endX, endY))}px`;
+        leader.style.transform = `rotate(${Math.atan2(endY, endX)}rad)`;
       });
     };
-    const timer = window.setInterval(resolveCollisions, 240);
+    const timer = window.setInterval(resolveCollisions, 180);
     resolveCollisions();
     return () => window.clearInterval(timer);
-  }, [panelEl, markersData, isMobile]);
+  }, [panelEl, markersData, allMarkers, isMobile]);
 
   /* ══════════════════════════════════════════════════════════════════
    *  SEQUENCE ENGINE — progressive route draw + infinite loop
@@ -509,6 +562,15 @@ export default function HeroGlobe({ panelEl, locations }) {
     controls.minPolarAngle = Math.PI * 0.25;
     controls.maxPolarAngle = Math.PI * 0.75;
     globe.renderer?.().setPixelRatio(Math.min(1.5, window.devicePixelRatio));
+    // Aceternity globe-demo material recipe: dark emissive body with a crisp
+    // blue Fresnel atmosphere supplied by the 3d-globe implementation.
+    const material = globe.globeMaterial?.();
+    if (material) {
+      material.color?.set(ACETERNITY_GLOBE_CONFIG.globeColor);
+      material.emissive?.set(ACETERNITY_GLOBE_CONFIG.emissive);
+      material.emissiveIntensity = ACETERNITY_GLOBE_CONFIG.emissiveIntensity;
+      material.shininess = ACETERNITY_GLOBE_CONFIG.shininess;
+    }
     setGlobeReady(true);
   }, [reduced]);
 
@@ -534,14 +596,16 @@ export default function HeroGlobe({ panelEl, locations }) {
       backgroundColor="rgba(0,0,0,0)"
       globeImageUrl={TEX.day}
       bumpImageUrl={TEX.bump}
-      atmosphereColor="#4db8e8"
-      atmosphereAltitude={0.14}
+      globeColor={ACETERNITY_GLOBE_CONFIG.globeColor}
+      atmosphereColor={ACETERNITY_GLOBE_CONFIG.atmosphereColor}
+      atmosphereAltitude={ACETERNITY_GLOBE_CONFIG.atmosphereAltitude}
+      atmosphereGlowPower={ACETERNITY_3D_CONFIG.atmosphereIntensity}
       animateIn={false}
       onGlobeReady={onGlobeReady}
       arcsData={arcsData}
       arcColor={() => ROUTE_YELLOW}
       arcAltitude="altitude"
-      arcStroke={0.52}
+      arcStroke={0.36}
       arcDashLength="dashLength"
       arcDashGap={0}
       arcDashAnimateTime={0}
@@ -561,10 +625,13 @@ export default function HeroGlobe({ panelEl, locations }) {
       ringColor={() => ROUTE_YELLOW}
       ringAltitude={MARKER_ALTITUDE + 0.008}
       ringMaxRadius={isMobile ? 1.8 : 2.5}
-      ringPropagationSpeed={1.8}
+      ringPropagationSpeed={ACETERNITY_3D_CONFIG.autoRotateSpeed * 6}
       ringRepeatPeriod={1600}
       ringResolution={32}
-      enablePointerInteraction={!reduced}
+      // Pointer raycasting performs synchronous GPU ReadPixels work on every
+      // frame. The globe's controls remain available, but data-point picking
+      // is not used by this presentation and can stall the GPU on Chrome.
+      enablePointerInteraction={false}
     />
   );
 }

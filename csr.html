@@ -7,7 +7,7 @@
   <link rel="icon" href="favicon.ico?v=20260828-01" sizes="32x32">
   <link rel="icon" href="assets/icons/pwa/icon-192.png?v=20260828-01" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="assets/icons/pwa/apple-touch-icon.png?v=20260828-01">
-  <title>CSR &amp; Sustainability | Lake Group</title>
+  <title>CSR and Sustainability at Lake Group</title>
   <meta name="theme-color" content="#0181BB">
   <link rel="manifest" href="manifest.webmanifest">
 <style>
@@ -35,6 +35,44 @@
 .csr-icon--card { margin: 0 0 14px; }
 .csr-card { padding: var(--sp-8); }
 .csr-card p { font-size: 0.88rem; margin-top: 8px; }
+.csr-hero h1 { max-width: 760px; }
+.csr-hero p { max-width: 640px; }
+.csr-introduction { background: var(--surface); }
+.csr-intro-grid { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr); gap:clamp(34px,6vw,92px); align-items:center; }
+.csr-intro-media { min-height:360px; overflow:hidden; }
+.csr-intro-media img { width:100%; height:100%; min-height:360px; object-fit:cover; display:block; }
+.csr-intro-copy { max-width:680px; }
+.csr-intro-copy p { font-size:1.08rem; line-height:1.7; }
+.csr-focus { background:#f4f6f8; }
+.csr-focus-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+.csr-focus-card { position:relative; min-height:270px; overflow:hidden; display:flex; align-items:flex-end; padding:0; background:#071b36; color:#fff; }
+.csr-focus-card img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.82; transition:transform .45s ease; }
+.csr-focus-card:hover img { transform:scale(1.04); }
+.csr-focus-card::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 20%,rgba(3,20,42,.88) 100%); }
+.csr-focus-card-content { position:relative; z-index:1; padding:28px; max-width:450px; }
+.csr-focus-card h3 { color:#fff; font-size:1.45rem; margin:0 0 8px; }
+.csr-focus-card p { margin:0; color:rgba(255,255,255,.9); line-height:1.55; }
+.csr-case-study { background:var(--blue); color:#fff; }
+.csr-case-grid { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); gap:clamp(36px,7vw,100px); align-items:center; }
+.csr-case-media { min-height:430px; overflow:hidden; }
+.csr-case-media img { width:100%; height:100%; min-height:430px; object-fit:cover; display:block; }
+.csr-case-study .section-title,.csr-case-study .eyebrow { color:#fff; }
+.csr-case-study .divider-yellow { background:var(--yellow); }
+.csr-case-study p { color:rgba(255,255,255,.9); font-size:1.06rem; line-height:1.7; }
+.csr-case-study strong { color:#fff; }
+.csr-case-kicker { display:inline-flex; align-items:baseline; gap:10px; margin-top:28px; padding-top:18px; border-top:1px solid rgba(255,255,255,.35); }
+.csr-case-kicker strong { font-size:clamp(2.4rem,5vw,4.5rem); line-height:1; }
+.csr-case-kicker span { color:rgba(255,255,255,.82); }
+.csr-operations { background:var(--surface); }
+.csr-operations-grid { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:clamp(34px,6vw,92px); align-items:center; }
+.csr-operations-media img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
+.csr-operations-copy { max-width:700px; }
+.csr-operations-copy p { font-size:1.06rem; line-height:1.7; }
+.page-wrapper .page-hero.csr-hero { min-height:clamp(520px,68vh,700px); justify-content:center; padding:72px 0 68px; }
+.csr-hero .hero-media { background-position:center 38%; background-size:cover; }
+.csr-hero .hero-overlay { background:linear-gradient(90deg,rgba(0,0,0,.58) 0%,rgba(0,0,0,.38) 36%,rgba(0,0,0,.16) 64%,rgba(0,0,0,.04) 82%,transparent 100%); }
+@media (max-width:800px){.csr-intro-grid,.csr-case-grid,.csr-operations-grid{grid-template-columns:1fr}.csr-intro-media,.csr-case-media{min-height:300px}.csr-intro-media img,.csr-case-media img{min-height:300px}}
+@media (max-width:600px){.csr-focus-grid{grid-template-columns:1fr}.csr-focus-card{min-height:230px}.csr-case-study p,.csr-operations-copy p{font-size:1rem}}
 </style>
 <link rel="stylesheet" href="assets/tokens.css?v=20260828-01">
   <link rel="preload" href="assets/fonts/files/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
@@ -48,22 +86,20 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https://www.youtube.com https://www.youtube-nocookie.com; worker-src 'self'; manifest-src 'self'; media-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <link rel="stylesheet" href="assets/phase-01-navbar.css?v=20260828-01">
   <link rel="stylesheet" href="assets/phase-01-footer.css?v=20260828-01">
-  <link rel="stylesheet" href="assets/phase-01-under-construction.css?v=20260828-01">
-  <script src="assets/under-construction.js?v=20260828-01" defer></script>
-  <link rel="stylesheet" href="assets/phase-01-navbar.css">
+    <link rel="stylesheet" href="assets/phase-01-navbar.css?v=20260828-01">
   <!-- SEO:START (generated by scripts/build-seo-foundation.mjs) -->
-  <meta name="description" content="Lake Group's commitment to community development, environmental responsibility and sustainable business across Africa.">
-  <meta name="robots" content="noindex,nofollow">
-  <meta property="og:title" content="CSR & Sustainability | Lake Group">
-  <meta property="og:description" content="Lake Group's commitment to community development, environmental responsibility and sustainable business across Africa.">
+  <meta name="description" content="Lake Group CSR and sustainability: responsible growth, community development and clean energy access across Africa and the Middle East.">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="CSR and Sustainability at Lake Group">
+  <meta property="og:description" content="Lake Group CSR and sustainability: responsible growth, community development and clean energy access across Africa and the Middle East.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Lake Group">
   <meta property="og:locale" content="en_TZ">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="CSR & Sustainability | Lake Group">
-  <meta name="twitter:description" content="Lake Group's commitment to community development, environmental responsibility and sustainable business across Africa.">
+  <meta name="twitter:title" content="CSR and Sustainability at Lake Group">
+  <meta name="twitter:description" content="Lake Group CSR and sustainability: responsible growth, community development and clean energy access across Africa and the Middle East.">
   <!-- SEO:END -->
-</head><body data-phase-01-under-construction="true" data-shared-footer="true">
+</head><body data-shared-footer="true">
   <script src="assets/skeleton.js?v=20260830-02"></script>
 <nav class="site-nav" data-phase01-navbar dir="ltr">
   <div class="nav-inner">
@@ -141,98 +177,42 @@
 
 
 <div class="page-wrapper">
-<section class="page-hero">
-  <div class="hero-media" style="background-image:url('assets/images/delivery/n-slider/8.webp')" aria-hidden="true"></div>
+<section class="page-hero csr-hero">
+  <div class="hero-media" style="background-image:url('assets/images/lakegas/ops/worker-silas.webp')" role="img" aria-label="Lake Group operations supporting communities"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container" style="position:relative;z-index:2">
-<div data-i18n="csr.2" class="eyebrow">Corporate Responsibility</div><h1>CSR &amp; <a href="sustainability.html" style="color:inherit;text-decoration:none">Sustainability</a></h1><p data-i18n="csr.4">Lake Group is committed to giving back to the communities it serves and operating with minimal environmental impact.</p>
-</div></section>
-
-<section class="section">
-  <div class="container">
-    <div class="fs-split-even">
-      <div class="reveal">
-        <div data-i18n="csr.5" class="section-label">Our Commitment</div>
-        <h2 data-i18n="csr.6" class="section-title">Responsible Growth. Lasting Impact.</h2>
-        <div class="divider-yellow"></div>
-        <p data-i18n="csr.7">As one of East Africa's largest private employers, Lake Group takes its social and environmental responsibilities seriously. The Group regularly provides support to community development through many of its CSR activities and is one of the leaders among its peers.</p>
-        <p data-i18n="csr.8" style="margin-top:14px">We believe that business growth and community development go hand in hand, and that our success must translate into tangible benefits for the people and environments in which we operate.</p>
-      </div>
-      <div>
-        <div class="csr-tiles">
-          <div class="reveal csr-tile csr-tile-ink">
-            <div class="csr-icon csr-icon--on-dark" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M324-111.5Q251-143 197-197t-85.5-127Q80-397 80-480t31.5-156Q143-709 197-763t127-85.5Q397-880 480-880t156 31.5Q709-817 763-763t85.5 127Q880-563 880-480t-31.5 156Q817-251 763-197t-127 85.5Q563-80 480-80t-156-31.5ZM437-141v-82q-35 0-59-26t-24-61v-44L149-559q-5 20-7 39.5t-2 39.5q0 130 84.5 227T437-141Zm294-108q44-48 66.5-107.5T820-480q0-106-58-192.5T607-799v18q0 35-24 61t-59 26h-87v87q0 17-13.5 28T393-568h-83v88h258q17 0 28 13t11 30v127h43q29 0 51 17t30 44Z"/></svg></div>
-            <h4 data-i18n="csr.9">10 Countries</h4>
-            <p data-i18n="csr.10">Local CSR programmes active</p>
-          </div>
-          <div class="reveal csr-tile csr-tile-gold">
-            <div class="csr-icon csr-icon--on-amber" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M0-240v-53q0-38.57 41.5-62.78Q83-380 150.38-380q12.16 0 23.39.5t22.23 2.15q-8 17.35-12 35.17-4 17.81-4 37.18v65H0Zm240 0v-65q0-32 17.5-58.5T307-410q32-20 76.5-30t96.5-10q53 0 97.5 10t76.5 30q32 20 49 46.5t17 58.5v65H240Zm540 0v-65q0-19.86-3.5-37.43T765-377.27q11-1.73 22.17-2.23 11.17-.5 22.83-.5 67.5 0 108.75 23.77T960-293v53H780Zm-480-60h360v-6q0-37-50.5-60.5T480-390q-79 0-129.5 23.5T300-305v5ZM149.57-410q-28.57 0-49.07-20.56Q80-451.13 80-480q0-29 20.56-49.5Q121.13-550 150-550q29 0 49.5 20.5t20.5 49.93q0 28.57-20.5 49.07T149.57-410Zm660 0q-28.57 0-49.07-20.56Q740-451.13 740-480q0-29 20.56-49.5Q781.13-550 810-550q29 0 49.5 20.5t20.5 49.93q0 28.57-20.5 49.07T809.57-410ZM480-480q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T600-600q0 50-34.5 85T480-480Zm.35-60Q506-540 523-557.35t17-43Q540-626 522.85-643t-42.5-17q-25.35 0-42.85 17.15t-17.5 42.5q0 25.35 17.35 42.85t43 17.5ZM480-300Zm0-300Z"/></svg></div>
-            <h4>30,000+</h4>
-            <p data-i18n="csr.11">Local jobs created</p>
-          </div>
-          <div class="reveal csr-tile">
-            <div class="csr-icon csr-icon--on-light" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M213-175q-43.59-45-68.3-104Q120-338 120-400q0-73 25.5-133.5T222-645q35-35 87-59t122.5-37.5Q502-755 591-758.5t198 3.5q8 108 5.5 197.5t-16 160.75q-13.5 71.25-38 124.56Q716-218.87 680-183q-51 51-110 77T444-80q-69 0-126.5-23.5T213-175Zm103 0q25 17 58 26t69.92 9Q497-140 547-162t91-64q27-27 46-70.5t31-103Q727-459 731-534t0-165q-94-2-168.5 2.5T431-680q-57 12-98 30.5T266-604q-42 43-64 91t-22 98q0 48 20.5 100.5T251-230q53-98 127-176t157-123q-87 75-141 162.5T316-175Zm0 0Zm0 0Z"/></svg></div>
-            <h4 data-i18n="csr.12">Environment</h4>
-            <p data-i18n="csr.13">Responsible environmental practices</p>
-          </div>
-          <div class="reveal csr-tile csr-tile-ink">
-            <div class="csr-icon csr-icon--on-dark" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M479-120 189-279v-240L40-600l439-240 441 240v317h-60v-282l-91 46v240L479-120Zm0-308 315-172-315-169-313 169 313 172Zm0 240 230-127v-168L479-360 249-485v170l230 127Zm1-240Zm-1 74Zm0 0Z"/></svg></div>
-            <h4 data-i18n="csr.14">Community</h4>
-            <p data-i18n="csr.15">Health, orphan care and relief donations</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="section section-light">
-  <div class="container">
-    <div class="text-center" style="margin-bottom:48px">
-      <div data-i18n="csr.16" class="section-label" style="justify-content:center">Our Pillars</div>
-      <h2 data-i18n="csr.17" class="section-title">How We Give Back</h2>
-    </div>
-    <div class="grid-3" data-hydrate="csr-entries" data-hydrate-match="title">
-      <div class="card reveal csr-card" data-entity-key="Healthcare Support">
-        <div class="csr-icon csr-icon--card csr-icon--on-light" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M560-574v-48q33-14 67.5-21t72.5-7q26 0 51 4t49 10v44q-24-9-48.5-13.5T700-610q-38 0-73 9.5T560-574Zm0 220v-49q33-13.5 67.5-20.25T700-430q26 0 51 4t49 10v44q-24-9-48.5-13.5T700-390q-38 0-73 9t-67 27Zm0-110v-48q33-14 67.5-21t72.5-7q26 0 51 4t49 10v44q-24-9-48.5-13.5T700-500q-38 0-73 9.5T560-464ZM248-300q53.57 0 104.28 12.5Q403-275 452-250v-427q-45-30-97.62-46.5Q301.76-740 248-740q-38 0-74.5 9.5T100-707v434q31-14 70.5-20.5T248-300Zm264 50q50-25 98-37.5T712-300q38 0 78.5 6t69.5 16v-429q-34-17-71.82-25-37.82-8-76.18-8-54 0-104.5 16.5T512-677v427Zm-30 90q-51-38-111-58.5T248-239q-36.54 0-71.77 9T106-208q-23.1 11-44.55-3Q40-225 40-251v-463q0-15 7-27.5T68-761q42-20 87.39-29.5 45.4-9.5 92.61-9.5 63 0 122.5 17T482-731q51-35 109.5-52T712-800q46.87 0 91.93 9.5Q849-781 891-761q14 7 21.5 19.5T920-714v463q0 27.89-22.5 42.45Q875-194 853-208q-34-14-69.23-22.5Q748.54-239 712-239q-63 0-121 21t-109 58ZM276-489Z"/></svg></div>
-        <h3 data-i18n="csr.18" data-entity-field="title">Healthcare Support</h3>
-        <p data-i18n="csr.19" data-entity-field="description">Donating medical equipment to maternal wards in Dar es Salaam's municipal hospitals  delivery beds, delivery kits, wheelchairs, stretchers and BP machines  and supporting referral hospitals such as Temeke.</p>
-      </div>
-      <div class="card reveal csr-card" data-entity-key="Children &amp; Community Welfare">
-        <div class="csr-icon csr-icon--card csr-icon--on-light" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M80-120v-720h390v165h410v555H80Zm60-60h105v-105H140v105Zm0-165h105v-105H140v105Zm0-165h105v-105H140v105Zm0-165h105v-105H140v105Zm165 495h105v-105H305v105Zm0-165h105v-105H305v105Zm0-165h105v-105H305v105Zm0-165h105v-105H305v105Zm165 495h350v-435H470v105h80v60h-80v105h80v60h-80v105Zm185-270v-60h60v60h-60Zm0 165v-60h60v60h-60Z"/></svg></div>
-        <h3 data-i18n="csr.20" data-entity-field="title">Children & Community Welfare</h3>
-        <p data-i18n="csr.21" data-entity-field="description">Assisting needy children and orphanage centres, supporting places of worship, and providing emergency relief  including food and LPG cooking sets for flood-affected families in Rufiji.</p>
-      </div>
-      <div class="card reveal csr-card" data-entity-key="Environmental Stewardship">
-        <div class="csr-icon csr-icon--card csr-icon--on-light" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M303-80v-149H0l189-274H94l266-377 120 170 120-170 266 377h-94l188 274H658v149H543v-149H418v149H303Zm377-209h165L656-563h89L600-769l-80 115 106 151h-94l148 214Zm-564 0h489L416-563h89L360-769 215-563h90L116-289Zm0 0h189-90 290-89 189-489Zm564 0H532h94-106 225-89 189-165Zm-137 60h115-115Zm178 0Z"/></svg></div>
-        <h3 data-i18n="csr.22" data-entity-field="title">Environmental Stewardship</h3>
-        <p data-i18n="csr.23" data-entity-field="description">Responsible handling, storage and transport of petroleum products across the supply chain, with continuous investment in modern equipment and cleaner operations.</p>
-      </div>
-      <div class="card reveal csr-card" data-entity-key="Local Employment">
-        <div class="csr-icon csr-icon--card csr-icon--on-light" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M140-80q-24 0-42-18t-18-42v-480q0-24 18-42t42-18h250v-140q0-24 18-42t42-18h60q24 0 42 18t18 42v140h250q24 0 42 18t18 42v480q0 24-18 42t-42 18H140Zm0-60h680v-480H570v30q0 28-18 44t-42 16h-60q-24 0-42-16t-18-44v-30H140v480Zm92-107h239v-14q0-18-9-32t-23-19q-32-11-50-14.5t-35-3.5q-19 0-40.5 4.5T265-312q-15 5-24 19t-9 32v14Zm336-67h170v-50H568v50Zm-175.5-65.5Q408-395 408-418t-15.5-38.5Q377-472 354-472t-38.5 15.5Q300-441 300-418t15.5 38.5Q331-364 354-364t38.5-15.5ZM568-427h170v-50H568v50ZM450-590h60v-230h-60v230Zm30 210Z"/></svg></div>
-        <h3 data-i18n="csr.24" data-entity-field="title">Local Employment</h3>
-        <p data-i18n="csr.25" data-entity-field="description">30,000+ jobs across 10 countries, with a strong preference for hiring and developing local talent at every level of the organisation.</p>
-      </div>
-      <div class="card reveal csr-card" data-entity-key="Clean Cooking Access">
-        <div class="csr-icon csr-icon--card csr-icon--on-light" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M320-80q-66 0-113-47t-47-113v-320q0-57 34-99t86-56v-105q0-24.75 17.63-42.38Q315.25-880 340-880h280q24.75 0 42.38 17.62Q680-844.75 680-820v105q52 14 86 56t34 99v320q0 66-47 113T640-80H320ZM220-420h520v-140q0-42-29-71t-71-29H320q-42 0-71 29t-29 71v140Zm100 280h320q42 0 71-29t29-71v-120H220v120q0 42 29 71t71 29Zm160-280Zm0 60Zm0-30Zm40-330h100v-100H340v100h100q0-17 11.5-28.5T480-760q17 0 28.5 11.5T520-720Z"/></svg></div>
-        <h3 data-i18n="csr.26" data-entity-field="title">Clean Cooking Access</h3>
-        <p data-i18n="csr.27" data-entity-field="description">Expanding reliable LPG access for households across East Africa  reducing dependence on charcoal, improving indoor air quality and easing deforestation pressure.</p>
-      </div>
-      <div class="card reveal csr-card" data-entity-key="Health &amp;amp; Safety">
-        <div class="csr-icon csr-icon--card csr-icon--on-light" aria-hidden="true"><svg class="msi" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M440-360h80v-100h100v-80H520v-100h-80v100H340v80h100v100Zm40 279q-140-35-230-162.5T160-523v-238l320-120 320 120v238q0 152-90 279.5T480-81Zm0-62q115-38 187.5-143.5T740-523v-196l-260-98-260 98v196q0 131 72.5 236.5T480-143Zm0-337Z"/></svg></div>
-        <h3 data-i18n="csr.28" data-entity-field="title">Health &amp; Safety</h3>
-        <p data-i18n="csr.29" data-entity-field="description">Industry-leading safety standards across all divisions. Zero-harm ambition for employees, contractors and the communities we operate in.</p>
-      </div>
-      </div>
+    <nav class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>CSR &amp; Sustainability</span></nav>
+    <div class="eyebrow">CSR &amp; Sustainability</div>
+    <h1>Growing Communities, Sustaining Futures.</h1>
+    <p>Lake Group embeds sustainability and corporate social responsibility in its business philosophy across Africa and the Middle East.</p>
   </div>
 </section>
 
+<section class="section csr-introduction">
+  <div class="container"><div class="csr-intro-grid">
+    <div class="csr-intro-media reveal"><img src="assets/images/lakegas/ops/worker-silas.webp" alt="Lake Gas team member among LPG cylinders" loading="lazy"></div>
+    <div class="csr-intro-copy reveal"><h2 class="section-title">Responsible growth, shared value.</h2><div class="divider-yellow"></div><p>At Lake Group, sustainability and corporate social responsibility are embedded in our business philosophy across every market where we operate in Africa and the Middle East.</p><p style="margin-top:14px">Our commitment is to create a positive economic, social, moral and environmental impact within the communities we serve. We believe responsible growth is built on sustainable, accountable and transparent practices that create shared value for all stakeholders.</p></div>
+  </div></div>
+</section>
+
+<section class="section csr-focus">
+  <div class="container"><div class="csr-section-heading"><div class="eyebrow">Where we focus</div><h2 class="section-title">Practical support for long-term progress.</h2></div>
+    <div class="csr-focus-grid">
+      <article class="csr-focus-card reveal"><img src="assets/images/lakegas/ops/lake-gas-lpg-filling-line.webp" alt="Lake Gas filling line" loading="lazy"><div class="csr-focus-card-content"><h3>Education</h3><p>Through our CSR initiatives, we actively support education to help improve livelihoods and foster long-term progress.</p></div></article>
+      <article class="csr-focus-card reveal"><img src="assets/images/lakegas/ops/cylinder-warehouse.webp" alt="Lake Gas cylinder warehouse" loading="lazy"><div class="csr-focus-card-content"><h3>Health</h3><p>We support health and community wellbeing as part of our commitment to the communities we serve.</p></div></article>
+      <article class="csr-focus-card reveal"><img src="assets/images/lakegas/TA/photo_1.webp" alt="Lake Gas distribution fleet" loading="lazy"><div class="csr-focus-card-content"><h3>Community development</h3><p>Our work supports community development and stronger local livelihoods across our markets.</p></div></article>
+      <article class="csr-focus-card reveal"><img src="assets/images/lakegas/ops/filling-plant.webp" alt="Lake Gas operations team at work" loading="lazy"><div class="csr-focus-card-content"><h3>Employment creation</h3><p>We support employment creation, helping to improve livelihoods while contributing to sustainable development.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section csr-case-study"><div class="container"><div class="csr-case-grid">
+  <div class="csr-case-media reveal"><img src="assets/images/lakegas/TA/photo_1.webp" alt="Lake Gas trucks ready for clean energy distribution" loading="lazy"></div>
+  <div class="reveal"><div class="eyebrow">Featured impact</div><h2 class="section-title">Lake Gas clean energy access programme</h2><div class="divider-yellow"></div><p>Through strategic collaboration with the Rural Energy Agency (REA) and local governments, Lake Gas has enabled more than <strong>150,000 rural residents</strong> to adopt clean cooking energy.</p><p style="margin-top:14px">The initiative includes local dealerships and community training on the safe use of LPG, creating social and economic benefits while advancing sustainable energy adoption.</p><div class="csr-case-kicker"><strong>150,000+</strong><span>rural residents enabled to adopt clean cooking energy</span></div></div>
+</div></div></section>
+
+<section class="section csr-operations"><div class="container"><div class="csr-operations-grid"><div class="csr-operations-copy reveal"><div class="eyebrow">Beyond formal programmes</div><h2 class="section-title">Sustainability in our operations.</h2><div class="divider-yellow"></div><p>We voluntarily integrate social and environmental responsibility into our business operations, continuously seeking ways to address community needs while contributing to sustainable development.</p><p style="margin-top:14px">By combining business success with meaningful impact, we strive to build stronger communities and a more sustainable future for generations to come.</p></div><div class="csr-operations-media reveal"><img src="assets/images/lakegas/ops/cylinders-yard.webp" alt="Lake Gas cylinders prepared for distribution" loading="lazy"></div></div></div></section>
 </div>
-
-
-
-
-
-
 
 <div id="chat-widget" class="la-widget">
   <div id="chat-box">
@@ -263,26 +243,11 @@
   <script src="assets/assistant-kb.js" defer></script>
   <script src="assets/assistant.js?v=20260828-01" defer></script>
 <script src="assets/analytics.js?v=20260828-01" defer></script>
-<script src="assets/pwa.js?v=20260829-01" defer></script>
+<script src="assets/pwa.js?v=20260828-01" defer></script>
 <script src="assets/flagship-motion.js?v=20260828-01" defer></script>
 <script src="assets/split-text.js?v=20260828-01" defer></script>
   <script defer src="assets/phase-01-navbar.js?v=20260828-01"></script>
 
-<main class="phase-01-under-construction" aria-labelledby="under-construction-title">
-  <div class="phase-01-under-construction__inner">
-    <div class="phase-01-under-construction__copy">
-      <h2 id="under-construction-title">Something good is taking shape.</h2>
-      <p class="phase-01-under-construction__lede">We're currently preparing this section and will have it ready soon. In the meantime, our team is available if you need assistance.</p>
-      <div class="phase-01-under-construction__actions">
-        <a class="phase-01-under-construction__primary" href="contact.html">Contact Lake Group</a>
-        <a class="phase-01-under-construction__secondary" href="index.html">Return to Home</a>
-      </div>
-    </div>
-    <div class="phase-01-under-construction__visual" aria-hidden="true">
-      <canvas class="phase-01-under-construction__lottie" data-animation-src="assets/animations/web-designs.lottie" data-animation-id="Main Scene" aria-label="Lake Group animation"></canvas>
-    </div>
-  </div>
-</main>
 <footer class="site-footer" role="contentinfo">
   <div class="container">
     <div class="footer-grid">
@@ -331,7 +296,8 @@
           <a href="https://www.instagram.com/lakeenergiestanzania?igsi=cW5jZGVtbHU0eGFs" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.instagram" data-i18n-title="footer.instagram" aria-label="Instagram" title="Instagram"><svg class="footer-social-ico" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.03.084c-1.277.06-2.149.264-2.91.563a5.9 5.9 0 0 0-2.124 1.388a5.9 5.9 0 0 0-1.38 2.127C.321 4.926.12 5.8.064 7.076s-.069 1.688-.063 4.947s.021 3.667.083 4.947c.061 1.277.264 2.149.563 2.911c.308.789.72 1.457 1.388 2.123a5.9 5.9 0 0 0 2.129 1.38c.763.295 1.636.496 2.913.552c1.278.056 1.689.069 4.947.063s3.668-.021 4.947-.082c1.28-.06 2.147-.265 2.91-.563a5.9 5.9 0 0 0 2.123-1.388a5.9 5.9 0 0 0 1.38-2.129c.295-.763.496-1.636.551-2.912c.056-1.28.07-1.69.063-4.948c-.006-3.258-.02-3.667-.081-4.947c-.06-1.28-.264-2.148-.564-2.911a5.9 5.9 0 0 0-1.387-2.123a5.9 5.9 0 0 0-2.128-1.38c-.764-.294-1.636-.496-2.914-.55C15.647.009 15.236-.006 11.977 0S8.31.021 7.03.084m.14 21.693c-1.17-.05-1.805-.245-2.228-.408a3.7 3.7 0 0 1-1.382-.895a3.7 3.7 0 0 1-.9-1.378c-.165-.423-.363-1.058-.417-2.228c-.06-1.264-.072-1.644-.08-4.848c-.006-3.204.006-3.583.061-4.848c.05-1.169.246-1.805.408-2.228c.216-.561.477-.96.895-1.382a3.7 3.7 0 0 1 1.379-.9c.423-.165 1.057-.361 2.227-.417c1.265-.06 1.644-.072 4.848-.08c3.203-.006 3.583.006 4.85.062c1.168.05 1.804.244 2.227.408c.56.216.96.475 1.382.895s.681.817.9 1.378c.165.422.362 1.056.417 2.227c.06 1.265.074 1.645.08 4.848c.005 3.203-.006 3.583-.061 4.848c-.051 1.17-.245 1.805-.408 2.23c-.216.56-.477.96-.896 1.38a3.7 3.7 0 0 1-1.378.9c-.422.165-1.058.362-2.226.418c-1.266.06-1.645.072-4.85.079s-3.582-.006-4.848-.06m9.783-16.192a1.44 1.44 0 1 0 1.437-1.442a1.44 1.44 0 0 0-1.437 1.442M5.839 12.012a6.161 6.161 0 1 0 12.323-.024a6.162 6.162 0 0 0-12.323.024M8 12.008A4 4 0 1 1 12.008 16A4 4 0 0 1 8 12.008"/></svg></a>
           <a href="https://wa.me/255673961597" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.whatsapp" data-i18n-title="footer.whatsapp" aria-label="WhatsApp" title="WhatsApp"><svg class="footer-social-ico" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967c-.273-.099-.471-.148-.67.15c-.197.297-.767.966-.94 1.164c-.173.199-.347.223-.644.075c-.297-.15-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.018-.458.13-.606c.134-.133.298-.347.446-.52s.198-.298.298-.497c.099-.198.05-.371-.025-.52s-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51a13 13 0 0 0-.57-.01c-.198 0-.52.074-.792.372c-.272.297-1.04 1.016-1.04 2.479c0 1.462 1.065 2.875 1.213 3.074s2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.625c.712.227 1.36.195 1.871.118c.571-.085 1.758-.719 2.006-1.413s.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214l-3.741.982l.998-3.648l-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884c2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.82 11.82 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.9 11.9 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 0 0-3.48-8.413"/></svg></a>
           <a href="https://www.facebook.com/lakeoilgroup" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.facebook" data-i18n-title="footer.facebook" aria-label="Facebook" title="Facebook"><svg class="footer-social-ico" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978c.401 0 .955.042 1.468.103a9 9 0 0 1 1.141.195v3.325a9 9 0 0 0-.653-.036a27 27 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.7 1.7 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103l-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647"/></svg></a>
-        </div>
+        
+          <a href="https://www.linkedin.com/company/lake-energies-group/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Lake Group on LinkedIn" title="Lake Group on LinkedIn"><iconify-icon class="footer-social-ico" icon="simple-icons:linkedin" width="18" height="18" aria-hidden="true"></iconify-icon></a></div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -341,5 +307,5 @@
 </footer>
 
 
-  <script defer src="assets/phase-01-navbar.js"></script>
+  
 </body></html>

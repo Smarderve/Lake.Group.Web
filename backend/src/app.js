@@ -29,6 +29,7 @@ import { csrfGuard } from './middleware/csrf-guard.js';
 import { cmsCors } from './middleware/cms-cors.js';
 import { requireMfaEnrollment } from './middleware/auth.js';
 import { DEFAULT_SESSION_TTL_MS, DEFAULT_RECENT_AUTH_WINDOW_MS } from './config.js';
+import { careersRouter } from './routes/careers.js';
 
 /**
  * Express app factory.
@@ -78,6 +79,10 @@ export function createApp({
   mediaUploadMaxBytes = 10 * 1024 * 1024,
   // SECURITY_ROADMAP Phase 1 — dev endpoints never mount in production.
   devEndpointsEnabled = true,
+  careersRecipientEmail = '',
+  careersAllowedOrigins = [],
+  careersMailer = null,
+  careersLimiter = undefined,
 } = {}) {
   const app = express();
 
@@ -199,6 +204,13 @@ export function createApp({
   app.use('/admin/settings', settingsRouter({ db, prefsStore }));
   app.use('/admin', adminRouter({ db, recentAuthWindowMs }));
   app.use('/api/public', publicRouter({ db }, publicWriteLimiter));
+  // Narrow transactional endpoint. This does not hydrate or publish any site content.
+  app.use('/api/careers', careersRouter({
+    recipientEmail: careersRecipientEmail,
+    allowedOrigins: careersAllowedOrigins,
+    mailer: careersMailer,
+    limiter: careersLimiter,
+  }));
 
   app.use(notFoundHandler);
   app.use(errorHandler({ logger }));

@@ -1,5 +1,5 @@
 /**
- * Bundles assets/hero-globe → assets/hero-globe.bundle.js (classic IIFE).
+ * Bundles the isolated Aceternity embed → assets/hero-globe.bundle.js (classic IIFE).
  * Usage: node scripts/build_hero_globe.js
  */
 const esbuild = require('esbuild');
@@ -11,7 +11,7 @@ const outfile = path.join(root, 'assets', 'hero-globe.bundle.js');
 
 esbuild
   .build({
-    entryPoints: [path.join(root, 'assets', 'hero-globe', 'mount.jsx')],
+    entryPoints: [path.join(root, 'assets', 'hero-globe-aceternity', 'mount.jsx')],
     bundle: true,
     minify: true,
     format: 'iife',
