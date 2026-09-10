@@ -45,3 +45,11 @@ prior tasks were left untouched.
 - Skeleton test (`npm run test:skeleton`) PASS.
 - Secret scan (`npm run secret:scan`) PASS.
 - Backend suite, CMS typecheck: unaffected (no backend/CMS paths touched).
+
+## 2026-09-10 — Globe lab archived off the public root
+
+| Old path | New path | Reason | References updated | Public URL affected | Tested |
+|---|---|---|---|---|---|
+| `globe-lab.html` | `docs/labs/globe-lab.html` | finished development/review lab; blocked SEO route classification (`npm run build:seo` threw `Route classification missing`) and was never an approved public page | `scripts/verify-promoted-home-globe.mjs` (lab-page screenshot URL) | yes — URL retired intentionally; homepage loads the production bundle `assets/globe-lab.bundle.js` directly, not this page | `npm run build`, build:seo, cache-consistency, performance-guardrails, secret:scan, homepage Playwright check |
+
+Production globe preserved: `globe-lab/` source, `assets/globe-lab.bundle.js`, `scripts/build-globe-lab.mjs`, `index.html` loader, `sw.js` network-first rule all unchanged.

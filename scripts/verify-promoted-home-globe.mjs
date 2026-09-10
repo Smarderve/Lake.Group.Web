@@ -81,9 +81,11 @@ for (const viewport of viewports) {
 
 const labContext = await initContext({ width:1440,height:1000 }, false);
 const labPage = await labContext.newPage();
-await labPage.goto('http://127.0.0.1:4175/globe-lab.html?final', { waitUntil: 'networkidle', timeout: 20000 });
+// The lab page was archived out of the public root (docs/labs/); the script
+// server serves docs/labs paths relative to the repo root, so request it there.
+await labPage.goto('http://127.0.0.1:4175/docs/labs/globe-lab.html?final', { waitUntil: 'networkidle', timeout: 20000 });
 await labPage.waitForSelector('#root canvas', { timeout: 20000 });
-await labPage.screenshot({ path: path.join(qaDir, 'globe-lab-approved-1440.png') });
+await labPage.screenshot({ path: path.join(qaDir, 'globe-lab-approved-1440.png') }); // archived lab page (docs/labs/)
 await labContext.close();
 
 const videoContext = await initContext({ width:1440,height:900 }, true);
