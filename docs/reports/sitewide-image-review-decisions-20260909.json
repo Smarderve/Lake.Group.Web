@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-10T02:22:34.773Z",
+  "generatedAt": "2026-09-10T02:46:51.922Z",
   "basis": "Manual visual inspection of the 13 accepted unique-included contact sheets; filenames are identifiers, not review evidence.",
   "classificationLegend": {
     "A": "CLEAN / READY",
@@ -17,11 +17,11 @@
   "total": 204,
   "counts": {
     "A": 10,
-    "C": 6,
+    "C": 5,
     "G": 3,
     "H": 30,
-    "I": 33,
-    "K": 122
+    "I": 27,
+    "K": 129
   },
   "decisions": [
     {
@@ -2819,14 +2819,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-07.png",
       "initialClassification": "I",
-      "currentClassification": "I",
-      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph.",
+      "currentClassification": "K",
+      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph. Lake Trans page uses `assets/images/delivery/laketrans/remediated/lake-trans-fleet-hero-clean-800.webp`.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
-      "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
-      "deliveryWebp": "assets/images/delivery/laketrans/hero/lake-trans-fleet-hero-800.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "masterStatus": "LOCALIZED_EDIT_DERIVATIVE; ORIGINAL_SOURCE_RETAINED",
+      "deliveryWebp": "assets/images/delivery/laketrans/remediated/lake-trans-fleet-hero-clean-800.webp",
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_LAKE_TRANS"
     },
     {
       "asset": "assets/images/delivery/laketrans/hero/lake-trans-fleet-hero.webp",
@@ -2843,14 +2843,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-08.png",
       "initialClassification": "C",
-      "currentClassification": "C",
-      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph.",
+      "currentClassification": "K",
+      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph. Lake Trans page uses `assets/images/delivery/laketrans/remediated/lake-trans-fleet-hero-clean.webp`.",
       "qualityDecision": "Current source is adequate for its rendered use.",
-      "masterStatus": "ORIGINAL_SOURCE_RETAINED",
-      "deliveryWebp": "assets/images/delivery/laketrans/hero/lake-trans-fleet-hero.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "masterStatus": "LOCALIZED_EDIT_DERIVATIVE; ORIGINAL_SOURCE_RETAINED",
+      "deliveryWebp": "assets/images/delivery/laketrans/remediated/lake-trans-fleet-hero-clean.webp",
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_LAKE_TRANS"
     },
     {
       "asset": "assets/images/delivery/laketrans/ops/fleet-inspection.webp",
@@ -4251,14 +4251,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-11.png",
       "initialClassification": "I",
-      "currentClassification": "I",
-      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph.",
+      "currentClassification": "K",
+      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph. Lake Trans page uses `assets/images/delivery/laketrans/remediated/blue-truck-lineup-clean.webp`.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
-      "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
-      "deliveryWebp": "assets/images/laketrans/profile/blue-truck-lineup.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "masterStatus": "LOCALIZED_EDIT_DERIVATIVE; ORIGINAL_SOURCE_RETAINED",
+      "deliveryWebp": "assets/images/delivery/laketrans/remediated/blue-truck-lineup-clean.webp",
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_LAKE_TRANS"
     },
     {
       "asset": "assets/images/laketrans/profile/fleet-lineup.webp",
@@ -4275,14 +4275,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-11.png",
       "initialClassification": "I",
-      "currentClassification": "I",
-      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph.",
+      "currentClassification": "K",
+      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph. Lake Trans page uses `assets/images/delivery/laketrans/remediated/fleet-lineup-clean.webp`.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
-      "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
-      "deliveryWebp": "assets/images/laketrans/profile/fleet-lineup.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "masterStatus": "LOCALIZED_EDIT_DERIVATIVE; ORIGINAL_SOURCE_RETAINED",
+      "deliveryWebp": "assets/images/delivery/laketrans/remediated/fleet-lineup-clean.webp",
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_LAKE_TRANS"
     },
     {
       "asset": "assets/images/laketrans/profile/fleet-tankers.webp",
@@ -4299,14 +4299,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-11.png",
       "initialClassification": "I",
-      "currentClassification": "I",
-      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph.",
+      "currentClassification": "K",
+      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph. Lake Trans page uses `assets/images/delivery/laketrans/remediated/fleet-tankers-clean.webp`.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
-      "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
-      "deliveryWebp": "assets/images/laketrans/profile/fleet-tankers.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "masterStatus": "LOCALIZED_EDIT_DERIVATIVE; ORIGINAL_SOURCE_RETAINED",
+      "deliveryWebp": "assets/images/delivery/laketrans/remediated/fleet-tankers-clean.webp",
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_LAKE_TRANS"
     },
     {
       "asset": "assets/images/laketrans/profile/lake-trans-truck-fleet.webp",
@@ -4347,14 +4347,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-11.png",
       "initialClassification": "I",
-      "currentClassification": "I",
-      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph.",
+      "currentClassification": "K",
+      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph. Lake Trans page uses `assets/images/delivery/laketrans/remediated/petroleum-tanker-clean.webp`.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
-      "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
-      "deliveryWebp": "assets/images/laketrans/profile/petroleum-tanker.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "masterStatus": "LOCALIZED_EDIT_DERIVATIVE; ORIGINAL_SOURCE_RETAINED",
+      "deliveryWebp": "assets/images/delivery/laketrans/remediated/petroleum-tanker-clean.webp",
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_LAKE_TRANS"
     },
     {
       "asset": "assets/images/laketrans/profile/road-fuel-tanker.webp",
@@ -4371,14 +4371,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-11.png",
       "initialClassification": "I",
-      "currentClassification": "I",
-      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph.",
+      "currentClassification": "K",
+      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph. Lake Trans page uses `assets/images/delivery/laketrans/remediated/road-fuel-tanker-clean.webp`.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
-      "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
-      "deliveryWebp": "assets/images/laketrans/profile/road-fuel-tanker.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "masterStatus": "LOCALIZED_EDIT_DERIVATIVE; ORIGINAL_SOURCE_RETAINED",
+      "deliveryWebp": "assets/images/delivery/laketrans/remediated/road-fuel-tanker-clean.webp",
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_LAKE_TRANS"
     },
     {
       "asset": "assets/images/leadership/leadership-group-meeting.webp",

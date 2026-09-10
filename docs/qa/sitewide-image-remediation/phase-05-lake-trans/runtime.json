@@ -1,0 +1,500 @@
+[
+  {
+    "viewport": "1440",
+    "page": "lake-trans.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "images": [
+      {
+        "src": "assets/images/logos/companies/lake-trans.png",
+        "complete": true,
+        "naturalWidth": 1373,
+        "naturalHeight": 530
+      },
+      {
+        "src": "assets/images/logos/companies/lake-oil.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 547
+      },
+      {
+        "src": "assets/images/logos/companies/lake-aviation.png",
+        "complete": true,
+        "naturalWidth": 1374,
+        "naturalHeight": 536
+      },
+      {
+        "src": "assets/images/logos/companies/lake-gas.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 548
+      },
+      {
+        "src": "assets/images/logos/companies/lake-lubes.png",
+        "complete": true,
+        "naturalWidth": 1375,
+        "naturalHeight": 532
+      },
+      {
+        "src": "assets/images/logos/companies/lake-buildings.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-pipes-dropdown-yellow.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-steel.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-cylinders.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-premix-cement.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/gulf-aggregates.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aficd-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aill-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-trans.png",
+        "complete": false,
+        "naturalWidth": 1373,
+        "naturalHeight": 530
+      },
+      {
+        "src": "assets/images/logos/companies/cross-country-developer-limited-logo.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-agro-new.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/agrinova-tech.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/atl-icon.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/nexdrive-motors.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/delivery/laketrans/remediated/lake-trans-fleet-hero-clean.webp",
+        "complete": true,
+        "naturalWidth": 1854,
+        "naturalHeight": 848
+      },
+      {
+        "src": "assets/images/delivery/laketrans/remediated/petroleum-tanker-clean.webp",
+        "complete": true,
+        "naturalWidth": 813,
+        "naturalHeight": 300
+      },
+      {
+        "src": "assets/images/delivery/laketrans/remediated/fleet-lineup-clean.webp",
+        "complete": true,
+        "naturalWidth": 960,
+        "naturalHeight": 540
+      },
+      {
+        "src": "assets/images/delivery/laketrans/remediated/blue-truck-lineup-clean.webp",
+        "complete": true,
+        "naturalWidth": 624,
+        "naturalHeight": 540
+      },
+      {
+        "src": "assets/images/delivery/laketrans/ops/fleet-inspection.webp",
+        "complete": true,
+        "naturalWidth": 1280,
+        "naturalHeight": 958
+      },
+      {
+        "src": "assets/images/delivery/laketrans/remediated/fleet-lineup-clean.webp",
+        "complete": true,
+        "naturalWidth": 960,
+        "naturalHeight": 540
+      },
+      {
+        "src": "assets/images/delivery/laketrans/remediated/fleet-tankers-clean.webp",
+        "complete": true,
+        "naturalWidth": 475,
+        "naturalHeight": 400
+      },
+      {
+        "src": "assets/images/delivery/laketrans/remediated/blue-truck-lineup-clean.webp",
+        "complete": true,
+        "naturalWidth": 624,
+        "naturalHeight": 540
+      },
+      {
+        "src": "assets/images/delivery/laketrans/remediated/petroleum-tanker-clean.webp",
+        "complete": true,
+        "naturalWidth": 813,
+        "naturalHeight": 300
+      },
+      {
+        "src": "assets/images/delivery/laketrans/remediated/road-fuel-tanker-clean.webp",
+        "complete": true,
+        "naturalWidth": 731,
+        "naturalHeight": 404
+      },
+      {
+        "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+        "complete": true,
+        "naturalWidth": 1383,
+        "naturalHeight": 527
+      },
+      {
+        "src": "assets/images/flags/tz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ke.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/zm.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/rw.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/bi.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/cd.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/et.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/mz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ug.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ae.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      }
+    ]
+  },
+  {
+    "viewport": "390",
+    "page": "lake-trans.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "images": [
+      {
+        "src": "assets/images/logos/companies/lake-trans.png",
+        "complete": true,
+        "naturalWidth": 1373,
+        "naturalHeight": 530
+      },
+      {
+        "src": "assets/images/logos/companies/lake-oil.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 547
+      },
+      {
+        "src": "assets/images/logos/companies/lake-aviation.png",
+        "complete": true,
+        "naturalWidth": 1374,
+        "naturalHeight": 536
+      },
+      {
+        "src": "assets/images/logos/companies/lake-gas.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 548
+      },
+      {
+        "src": "assets/images/logos/companies/lake-lubes.png",
+        "complete": true,
+        "naturalWidth": 1375,
+        "naturalHeight": 532
+      },
+      {
+        "src": "assets/images/logos/companies/lake-buildings.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-pipes-dropdown-yellow.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-steel.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-cylinders.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-premix-cement.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/gulf-aggregates.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aficd-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aill-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-trans.png",
+        "complete": false,
+        "naturalWidth": 1373,
+        "naturalHeight": 530
+      },
+      {
+        "src": "assets/images/logos/companies/cross-country-developer-limited-logo.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-agro-new.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/agrinova-tech.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/atl-icon.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/nexdrive-motors.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/delivery/laketrans/remediated/lake-trans-fleet-hero-clean-800.webp",
+        "complete": true,
+        "naturalWidth": 800,
+        "naturalHeight": 366
+      },
+      {
+        "src": "assets/images/delivery/laketrans/remediated/petroleum-tanker-clean.webp",
+        "complete": true,
+        "naturalWidth": 813,
+        "naturalHeight": 300
+      },
+      {
+        "src": "assets/images/delivery/laketrans/remediated/fleet-lineup-clean.webp",
+        "complete": true,
+        "naturalWidth": 960,
+        "naturalHeight": 540
+      },
+      {
+        "src": "assets/images/delivery/laketrans/remediated/blue-truck-lineup-clean.webp",
+        "complete": true,
+        "naturalWidth": 624,
+        "naturalHeight": 540
+      },
+      {
+        "src": "assets/images/delivery/laketrans/ops/fleet-inspection.webp",
+        "complete": true,
+        "naturalWidth": 1280,
+        "naturalHeight": 958
+      },
+      {
+        "src": "assets/images/delivery/laketrans/remediated/fleet-lineup-clean.webp",
+        "complete": true,
+        "naturalWidth": 960,
+        "naturalHeight": 540
+      },
+      {
+        "src": "assets/images/delivery/laketrans/remediated/fleet-tankers-clean.webp",
+        "complete": true,
+        "naturalWidth": 475,
+        "naturalHeight": 400
+      },
+      {
+        "src": "assets/images/delivery/laketrans/remediated/blue-truck-lineup-clean.webp",
+        "complete": true,
+        "naturalWidth": 624,
+        "naturalHeight": 540
+      },
+      {
+        "src": "assets/images/delivery/laketrans/remediated/petroleum-tanker-clean.webp",
+        "complete": true,
+        "naturalWidth": 813,
+        "naturalHeight": 300
+      },
+      {
+        "src": "assets/images/delivery/laketrans/remediated/road-fuel-tanker-clean.webp",
+        "complete": true,
+        "naturalWidth": 731,
+        "naturalHeight": 404
+      },
+      {
+        "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+        "complete": true,
+        "naturalWidth": 1383,
+        "naturalHeight": 527
+      },
+      {
+        "src": "assets/images/flags/tz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ke.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/zm.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/rw.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/bi.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/cd.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/et.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/mz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ug.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ae.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      }
+    ]
+  }
+]

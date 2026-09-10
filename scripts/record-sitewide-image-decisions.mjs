@@ -9,6 +9,7 @@ const inventory = JSON.parse(await fs.readFile(inventoryPath, 'utf8'));
 const homeQaPath = path.join(root, 'docs', 'qa', 'sitewide-image-remediation', 'phase-01-home', 'runtime.json');
 const corporateQaPath = path.join(root, 'docs', 'qa', 'sitewide-image-remediation', 'phase-02-corporate', 'runtime.json');
 const coreCompanyQaPath = path.join(root, 'docs', 'qa', 'sitewide-image-remediation', 'phase-04-core-companies', 'runtime.json');
+const lakeTransQaPath = path.join(root, 'docs', 'qa', 'sitewide-image-remediation', 'phase-05-lake-trans', 'runtime.json');
 
 const ownershipReview = new Set([
   'assets/images/news/4/photo_1.webp',
@@ -48,6 +49,16 @@ const corporateDerivatives = new Map([
   ['assets/images/delivery/gccp/photo_5.webp', 'assets/images/delivery/corporate/remediated/gccp-yard-clean.webp'],
   ['assets/images/delivery/laketrans/TA/photo_1.webp', 'assets/images/delivery/corporate/remediated/lake-trans-story-fleet-clean.webp'],
   ['assets/images/lake-aviation/gallery/aviation-worker-underwing.webp', 'assets/images/delivery/corporate/remediated/aviation-worker-underwing-clean.webp'],
+]);
+
+const lakeTransDerivatives = new Map([
+  ['assets/images/delivery/laketrans/hero/lake-trans-fleet-hero-800.webp', 'assets/images/delivery/laketrans/remediated/lake-trans-fleet-hero-clean-800.webp'],
+  ['assets/images/delivery/laketrans/hero/lake-trans-fleet-hero.webp', 'assets/images/delivery/laketrans/remediated/lake-trans-fleet-hero-clean.webp'],
+  ['assets/images/laketrans/profile/blue-truck-lineup.webp', 'assets/images/delivery/laketrans/remediated/blue-truck-lineup-clean.webp'],
+  ['assets/images/laketrans/profile/fleet-lineup.webp', 'assets/images/delivery/laketrans/remediated/fleet-lineup-clean.webp'],
+  ['assets/images/laketrans/profile/fleet-tankers.webp', 'assets/images/delivery/laketrans/remediated/fleet-tankers-clean.webp'],
+  ['assets/images/laketrans/profile/petroleum-tanker.webp', 'assets/images/delivery/laketrans/remediated/petroleum-tanker-clean.webp'],
+  ['assets/images/laketrans/profile/road-fuel-tanker.webp', 'assets/images/delivery/laketrans/remediated/road-fuel-tanker-clean.webp'],
 ]);
 
 const editRequired = new Set([
@@ -157,15 +168,21 @@ try {
   const qa = JSON.parse(await fs.readFile(coreCompanyQaPath, 'utf8'));
   coreCompanyQaPassed = qa.length === 10 && qa.every((result) => result.status === 200 && result.failures.length === 0 && result.broken.length === 0);
 } catch { /* Phase 4 QA has not run yet. */ }
+let lakeTransQaPassed = false;
+try {
+  const qa = JSON.parse(await fs.readFile(lakeTransQaPath, 'utf8'));
+  lakeTransQaPassed = qa.length === 2 && qa.every((result) => result.status === 200 && result.failures.length === 0 && result.broken.length === 0);
+} catch { /* Lake Trans QA has not run yet. */ }
 const decisions = included.map((asset) => {
   const classification = classify(asset);
   const homeComplete = homeQaPassed && homeAssets.has(asset.path);
   const corporateUsed = asset.includedUsage.some((page) => corporatePages.has(page));
   const corporateComplete = corporateQaPassed && corporateUsed && classification !== 'G';
   const coreCompanyComplete = coreCompanyQaPassed && asset.includedUsage.some((page) => coreCompanyPages.has(page));
+  const lakeTransComplete = lakeTransQaPassed && asset.includedUsage.includes('lake-trans.html');
   const pendingAviationUsage = asset.path === 'assets/images/lake-aviation/gallery/aviation-worker-underwing.webp';
-  const complete = homeComplete || (corporateComplete && !pendingAviationUsage) || coreCompanyComplete;
-  const derivative = homeDerivatives.get(asset.path) || corporateDerivatives.get(asset.path);
+  const complete = homeComplete || (corporateComplete && !pendingAviationUsage) || coreCompanyComplete || lakeTransComplete;
+  const derivative = homeDerivatives.get(asset.path) || corporateDerivatives.get(asset.path) || lakeTransDerivatives.get(asset.path);
   const nonPhotographicLogo = asset.path.includes('/logos/') && asset.format === 'png';
   return {
     asset: asset.path,
@@ -178,13 +195,13 @@ const decisions = included.map((asset) => {
     visualEvidence: sheetByAsset.get(asset.path),
     initialClassification: classification,
     currentClassification: complete ? 'K' : classification,
-    brandingDecision: derivative ? `${brandingDecision(classification)} ${homeDerivatives.has(asset.path) ? 'Homepage' : 'Corporate phase'} uses \`${derivative}\`.` : brandingDecision(classification),
+    brandingDecision: derivative ? `${brandingDecision(classification)} ${homeDerivatives.has(asset.path) ? 'Homepage' : (lakeTransDerivatives.has(asset.path) ? 'Lake Trans page' : 'Corporate phase')} uses \`${derivative}\`.` : brandingDecision(classification),
     qualityDecision: qualityDecision(asset, classification),
     masterStatus: derivative ? (protectedDerivative.has(asset.path) ? 'PROTECTED_ORIGINAL_UNCHANGED; HOMEPAGE_DERIVATIVE' : 'LOCALIZED_EDIT_DERIVATIVE; ORIGINAL_SOURCE_RETAINED') : (asset.sourceLimited ? 'SOURCE_LIMITED_NO_UPSCALE' : 'ORIGINAL_SOURCE_RETAINED'),
     deliveryWebp: derivative || (nonPhotographicLogo ? 'NOT_APPLICABLE_NON_PHOTOGRAPHIC_PNG' : (asset.genuineWebp ? asset.path : null)),
-    frontendUpdated: homeComplete || corporateComplete || coreCompanyComplete,
-    renderedQa: homeComplete || corporateComplete || coreCompanyComplete,
-    finalStatus: homeComplete ? 'COMPLETED_AND_VERIFIED_HOME' : (pendingAviationUsage && corporateComplete ? 'CSR_DERIVATIVE_VERIFIED; LAKE_AVIATION_USAGE_PENDING' : (corporateComplete ? 'COMPLETED_AND_VERIFIED_CORPORATE' : (coreCompanyComplete ? 'COMPLETED_AND_VERIFIED_CORE_COMPANIES' : (classification === 'G' ? 'OWNERSHIP_REVIEW' : 'CLASSIFIED_PENDING_PAGE_PHASE')))),
+    frontendUpdated: homeComplete || corporateComplete || coreCompanyComplete || lakeTransComplete,
+    renderedQa: homeComplete || corporateComplete || coreCompanyComplete || lakeTransComplete,
+    finalStatus: homeComplete ? 'COMPLETED_AND_VERIFIED_HOME' : (pendingAviationUsage && corporateComplete ? 'CSR_DERIVATIVE_VERIFIED; LAKE_AVIATION_USAGE_PENDING' : (corporateComplete ? 'COMPLETED_AND_VERIFIED_CORPORATE' : (coreCompanyComplete ? 'COMPLETED_AND_VERIFIED_CORE_COMPANIES' : (lakeTransComplete ? 'COMPLETED_AND_VERIFIED_LAKE_TRANS' : (classification === 'G' ? 'OWNERSHIP_REVIEW' : 'CLASSIFIED_PENDING_PAGE_PHASE'))))),
   };
 });
 

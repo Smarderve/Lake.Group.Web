@@ -1,0 +1,63 @@
+[
+  {
+    "id": "hero",
+    "output": "assets/images/delivery/laketrans/remediated/lake-trans-fleet-hero-clean.webp",
+    "width": 1854,
+    "height": 848,
+    "bytes": 137368,
+    "quality": 86
+  },
+  {
+    "id": "hero-800",
+    "output": "assets/images/delivery/laketrans/remediated/lake-trans-fleet-hero-clean-800.webp",
+    "width": 800,
+    "height": 366,
+    "bytes": 38836,
+    "quality": 86
+  },
+  {
+    "id": "blue-lineup",
+    "source": "assets/images/laketrans/profile/blue-truck-lineup.webp",
+    "output": "assets/images/delivery/laketrans/remediated/blue-truck-lineup-clean.webp",
+    "width": 624,
+    "height": 540,
+    "bytes": 53544,
+    "quality": 86
+  },
+  {
+    "id": "fleet-lineup",
+    "source": "assets/images/laketrans/profile/fleet-lineup.webp",
+    "output": "assets/images/delivery/laketrans/remediated/fleet-lineup-clean.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 67520,
+    "quality": 86
+  },
+  {
+    "id": "fleet-tankers",
+    "source": "assets/images/laketrans/profile/fleet-tankers.webp",
+    "output": "assets/images/delivery/laketrans/remediated/fleet-tankers-clean.webp",
+    "width": 475,
+    "height": 400,
+    "bytes": 27388,
+    "quality": 86
+  },
+  {
+    "id": "petroleum-tanker",
+    "source": "assets/images/laketrans/profile/petroleum-tanker.webp",
+    "output": "assets/images/delivery/laketrans/remediated/petroleum-tanker-clean.webp",
+    "width": 813,
+    "height": 300,
+    "bytes": 42548,
+    "quality": 86
+  },
+  {
+    "id": "road-tanker",
+    "source": "assets/images/laketrans/profile/road-fuel-tanker.webp",
+    "output": "assets/images/delivery/laketrans/remediated/road-fuel-tanker-clean.webp",
+    "width": 731,
+    "height": 404,
+    "bytes": 50928,
+    "quality": 86
+  }
+]
