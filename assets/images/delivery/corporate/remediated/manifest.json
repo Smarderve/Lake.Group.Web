@@ -1,0 +1,47 @@
+[
+  {
+    "id": "aficd-gallery",
+    "source": "assets/images/aficd/operations/aficd-hero-reach-stacker.webp",
+    "output": "assets/images/delivery/corporate/remediated/aficd-reach-stacker-clean.webp",
+    "width": 1200,
+    "height": 800,
+    "bytes": 141362,
+    "quality": 86
+  },
+  {
+    "id": "gccp-gallery-3",
+    "source": "assets/images/delivery/gccp/photo_3.webp",
+    "output": "assets/images/delivery/corporate/remediated/gccp-truck-lineup-clean.webp",
+    "width": 2061,
+    "height": 1380,
+    "bytes": 287420,
+    "quality": 86
+  },
+  {
+    "id": "gccp-gallery-5",
+    "source": "assets/images/delivery/gccp/photo_5.webp",
+    "output": "assets/images/delivery/corporate/remediated/gccp-yard-clean.webp",
+    "width": 1280,
+    "height": 720,
+    "bytes": 148576,
+    "quality": 86
+  },
+  {
+    "id": "laketrans-story",
+    "source": "assets/images/delivery/laketrans/TA/photo_1.webp",
+    "output": "assets/images/delivery/corporate/remediated/lake-trans-story-fleet-clean.webp",
+    "width": 2048,
+    "height": 1080,
+    "bytes": 315022,
+    "quality": 86
+  },
+  {
+    "id": "aviation-csr",
+    "source": "assets/images/lake-aviation/gallery/aviation-worker-underwing.webp",
+    "output": "assets/images/delivery/corporate/remediated/aviation-worker-underwing-clean.webp",
+    "width": 1086,
+    "height": 1448,
+    "bytes": 183624,
+    "quality": 86
+  }
+]

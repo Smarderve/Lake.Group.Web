@@ -7,6 +7,7 @@ const decisionsPath = path.join(root, 'docs', 'reports', 'sitewide-image-review-
 const auditPath = path.join(root, 'docs', 'reports', 'ASSET_IMAGE_CLEANUP_AUDIT.md');
 const inventory = JSON.parse(await fs.readFile(inventoryPath, 'utf8'));
 const homeQaPath = path.join(root, 'docs', 'qa', 'sitewide-image-remediation', 'phase-01-home', 'runtime.json');
+const corporateQaPath = path.join(root, 'docs', 'qa', 'sitewide-image-remediation', 'phase-02-corporate', 'runtime.json');
 
 const ownershipReview = new Set([
   'assets/images/news/4/photo_1.webp',
@@ -40,14 +41,20 @@ const homeDerivatives = new Map([
   ['assets/images/nexdrive/products/sany-heavy-commercial-truck.webp', 'assets/images/delivery/home/remediated/nexdrive-heavy-commercial-truck-clean.webp'],
 ]);
 
+const corporateDerivatives = new Map([
+  ['assets/images/aficd/operations/aficd-hero-reach-stacker.webp', 'assets/images/delivery/corporate/remediated/aficd-reach-stacker-clean.webp'],
+  ['assets/images/delivery/gccp/photo_3.webp', 'assets/images/delivery/corporate/remediated/gccp-truck-lineup-clean.webp'],
+  ['assets/images/delivery/gccp/photo_5.webp', 'assets/images/delivery/corporate/remediated/gccp-yard-clean.webp'],
+  ['assets/images/delivery/laketrans/TA/photo_1.webp', 'assets/images/delivery/corporate/remediated/lake-trans-story-fleet-clean.webp'],
+  ['assets/images/lake-aviation/gallery/aviation-worker-underwing.webp', 'assets/images/delivery/corporate/remediated/aviation-worker-underwing-clean.webp'],
+]);
+
 const editRequired = new Set([
   'assets/images/aill/aill-hero.webp',
   'assets/images/delivery/aill/aill-hero-960.webp',
   'assets/images/delivery/aill/aill-hero.webp',
   'assets/images/delivery/gccp/photo_3.webp',
   'assets/images/delivery/gccp/photo_5.webp',
-  'assets/images/delivery/gccp/photo_6.webp',
-  'assets/images/delivery/gccp/photo_8.webp',
   'assets/images/delivery/gulf-aggregates/services/quarry-excavator.webp',
   'assets/images/delivery/home/verticals/automotive-truck-lineup-960.webp',
   'assets/images/delivery/home/verticals/automotive-truck-lineup-thumb.webp',
@@ -56,13 +63,11 @@ const editRequired = new Set([
   'assets/images/delivery/lake-aviation/ops/lake-aviation-hero-apron.webp',
   'assets/images/delivery/laketrans/hero/lake-trans-fleet-hero-800.webp',
   'assets/images/delivery/laketrans/hero/lake-trans-fleet-hero.webp',
-  'assets/images/delivery/laketrans/ops/fleet-inspection.webp',
   'assets/images/delivery/laketrans/TA/photo_1.webp',
   'assets/images/lake-agro/la-combine-harvester.webp',
   'assets/images/lake-agro/la-excavators.webp',
   'assets/images/lake-agro/la-machinery-shed.webp',
   'assets/images/lake-agro/la-quadtrac-equipment.webp',
-  'assets/images/lake-agro/la-tractors-duo.webp',
   'assets/images/lake-aviation/gallery/aviation-fueling-coastal.webp',
   'assets/images/lake-aviation/gallery/aviation-nyerere-tanker.webp',
   'assets/images/lake-aviation/gallery/aviation-oman-air-cargo.webp',
@@ -134,15 +139,25 @@ function qualityDecision(asset, code) {
 
 const included = inventory.assets.filter((asset) => asset.inventoryStatus === 'ACTIVE_INCLUDED');
 const homeAssets = new Set(inventory.pages.find((page) => page.page === 'index.html').imageReferences.map((reference) => reference.asset));
+const corporatePages = new Set(['about.html', 'history.html', 'leadership.html', 'leadership-ally-edha-awadh.html', 'csr.html', 'sustainability.html', 'careers.html', 'contact.html', 'gallery.html', 'media-center.html', 'our-story.html']);
 let homeQaPassed = false;
 try {
   const qa = JSON.parse(await fs.readFile(homeQaPath, 'utf8'));
   homeQaPassed = qa.length === 2 && qa.every((result) => result.status === 200 && result.failures.length === 0 && result.broken.length === 0 && result.actionSlides.length === 17 && result.actionSlides.every((slide) => slide.naturalWidth > 0));
 } catch { /* Phase 1 QA has not run yet. */ }
+let corporateQaPassed = false;
+try {
+  const qa = JSON.parse(await fs.readFile(corporateQaPath, 'utf8'));
+  corporateQaPassed = qa.length === 22 && qa.every((result) => result.status === 200 && result.failures.length === 0 && result.broken.length === 0);
+} catch { /* Phase 2 QA has not run yet. */ }
 const decisions = included.map((asset) => {
   const classification = classify(asset);
   const homeComplete = homeQaPassed && homeAssets.has(asset.path);
-  const derivative = homeDerivatives.get(asset.path);
+  const corporateUsed = asset.includedUsage.some((page) => corporatePages.has(page));
+  const corporateComplete = corporateQaPassed && corporateUsed && classification !== 'G';
+  const pendingAviationUsage = asset.path === 'assets/images/lake-aviation/gallery/aviation-worker-underwing.webp';
+  const complete = homeComplete || (corporateComplete && !pendingAviationUsage);
+  const derivative = homeDerivatives.get(asset.path) || corporateDerivatives.get(asset.path);
   const nonPhotographicLogo = asset.path.includes('/logos/') && asset.format === 'png';
   return {
     asset: asset.path,
@@ -154,14 +169,14 @@ const decisions = included.map((asset) => {
     sharedWithProtectedPage: asset.sharedWithProtectedPage || protectedDerivative.has(asset.path),
     visualEvidence: sheetByAsset.get(asset.path),
     initialClassification: classification,
-    currentClassification: homeComplete ? 'K' : classification,
-    brandingDecision: derivative ? `${brandingDecision(classification)} Homepage uses \`${derivative}\`.` : brandingDecision(classification),
+    currentClassification: complete ? 'K' : classification,
+    brandingDecision: derivative ? `${brandingDecision(classification)} ${homeDerivatives.has(asset.path) ? 'Homepage' : 'Corporate phase'} uses \`${derivative}\`.` : brandingDecision(classification),
     qualityDecision: qualityDecision(asset, classification),
     masterStatus: derivative ? (protectedDerivative.has(asset.path) ? 'PROTECTED_ORIGINAL_UNCHANGED; HOMEPAGE_DERIVATIVE' : 'LOCALIZED_EDIT_DERIVATIVE; ORIGINAL_SOURCE_RETAINED') : (asset.sourceLimited ? 'SOURCE_LIMITED_NO_UPSCALE' : 'ORIGINAL_SOURCE_RETAINED'),
     deliveryWebp: derivative || (nonPhotographicLogo ? 'NOT_APPLICABLE_NON_PHOTOGRAPHIC_PNG' : (asset.genuineWebp ? asset.path : null)),
-    frontendUpdated: homeComplete,
-    renderedQa: homeComplete,
-    finalStatus: homeComplete ? 'COMPLETED_AND_VERIFIED_HOME' : (classification === 'G' ? 'OWNERSHIP_REVIEW' : 'CLASSIFIED_PENDING_PAGE_PHASE'),
+    frontendUpdated: homeComplete || corporateComplete,
+    renderedQa: homeComplete || corporateComplete,
+    finalStatus: homeComplete ? 'COMPLETED_AND_VERIFIED_HOME' : (pendingAviationUsage && corporateComplete ? 'CSR_DERIVATIVE_VERIFIED; LAKE_AVIATION_USAGE_PENDING' : (corporateComplete ? 'COMPLETED_AND_VERIFIED_CORPORATE' : (classification === 'G' ? 'OWNERSHIP_REVIEW' : 'CLASSIFIED_PENDING_PAGE_PHASE'))),
   };
 });
 

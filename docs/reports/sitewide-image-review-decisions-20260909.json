@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-09T20:01:24.510Z",
+  "generatedAt": "2026-09-09T20:31:12.148Z",
   "basis": "Manual visual inspection of the 13 accepted unique-included contact sheets; filenames are identifiers, not review evidence.",
   "classificationLegend": {
     "A": "CLEAN / READY",
@@ -16,12 +16,12 @@
   },
   "total": 204,
   "counts": {
-    "A": 33,
-    "C": 10,
+    "A": 13,
+    "C": 6,
     "G": 3,
-    "H": 63,
-    "I": 37,
-    "K": 58
+    "H": 43,
+    "I": 33,
+    "K": 106
   },
   "decisions": [
     {
@@ -87,14 +87,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-01.png",
       "initialClassification": "I",
-      "currentClassification": "I",
-      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph.",
+      "currentClassification": "K",
+      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph. Corporate phase uses `assets/images/delivery/corporate/remediated/aficd-reach-stacker-clean.webp`.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
-      "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
-      "deliveryWebp": "assets/images/aficd/operations/aficd-hero-reach-stacker.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "masterStatus": "LOCALIZED_EDIT_DERIVATIVE; ORIGINAL_SOURCE_RETAINED",
+      "deliveryWebp": "assets/images/delivery/corporate/remediated/aficd-reach-stacker-clean.webp",
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/aficd/operations/aficd-sany-reach-stacker.webp",
@@ -331,14 +331,14 @@
       "sharedWithProtectedPage": true,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-01.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/atl/content/atl-worker-fabricating.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/careers/lake-steels-factory.webp",
@@ -355,14 +355,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-01.png",
       "initialClassification": "A",
-      "currentClassification": "A",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/careers/lake-steels-factory.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/cross-country/cross-country-hero.webp",
@@ -403,14 +403,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-01.png",
       "initialClassification": "A",
-      "currentClassification": "A",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/delivery/about/about-hero-03.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/about/about-hero-04.webp",
@@ -427,14 +427,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-02.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/about/about-hero-04.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/about/about-hero-05.webp",
@@ -451,14 +451,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-02.png",
       "initialClassification": "A",
-      "currentClassification": "A",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/delivery/about/about-hero-05.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/about/about-hero-06.webp",
@@ -475,14 +475,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-02.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/about/about-hero-06.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/about/about-hero-07.webp",
@@ -499,14 +499,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-02.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/about/about-hero-07.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/about/about-hero-09.webp",
@@ -523,14 +523,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-02.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/about/about-hero-09.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/about/about-hero-12.webp",
@@ -547,14 +547,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-02.png",
       "initialClassification": "A",
-      "currentClassification": "A",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/delivery/about/about-hero-12.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/about/about-story-terminal-enhanced.webp",
@@ -571,14 +571,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-02.png",
       "initialClassification": "A",
-      "currentClassification": "A",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/delivery/about/about-story-terminal-enhanced.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/aill/aill-hero-960.webp",
@@ -979,14 +979,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-03.png",
       "initialClassification": "A",
-      "currentClassification": "A",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/delivery/contact/contact-hero-lake-energies.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/contact/kigamboni-hq.webp",
@@ -1003,14 +1003,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-03.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/contact/kigamboni-hq.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/cross-country/cross-country-hero-960.webp",
@@ -1131,14 +1131,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-03.png",
       "initialClassification": "C",
-      "currentClassification": "C",
-      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph.",
+      "currentClassification": "K",
+      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph. Corporate phase uses `assets/images/delivery/corporate/remediated/gccp-truck-lineup-clean.webp`.",
       "qualityDecision": "Current source is adequate for its rendered use.",
-      "masterStatus": "ORIGINAL_SOURCE_RETAINED",
-      "deliveryWebp": "assets/images/delivery/gccp/photo_3.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "masterStatus": "LOCALIZED_EDIT_DERIVATIVE; ORIGINAL_SOURCE_RETAINED",
+      "deliveryWebp": "assets/images/delivery/corporate/remediated/gccp-truck-lineup-clean.webp",
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/gccp/photo_5.webp",
@@ -1155,14 +1155,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-03.png",
       "initialClassification": "I",
-      "currentClassification": "I",
-      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph.",
+      "currentClassification": "K",
+      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph. Corporate phase uses `assets/images/delivery/corporate/remediated/gccp-yard-clean.webp`.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
-      "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
-      "deliveryWebp": "assets/images/delivery/gccp/photo_5.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "masterStatus": "LOCALIZED_EDIT_DERIVATIVE; ORIGINAL_SOURCE_RETAINED",
+      "deliveryWebp": "assets/images/delivery/corporate/remediated/gccp-yard-clean.webp",
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/gccp/photo_6.webp",
@@ -1178,15 +1178,15 @@
       "sourceLimited": false,
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-03.png",
-      "initialClassification": "C",
-      "currentClassification": "C",
-      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph.",
+      "initialClassification": "A",
+      "currentClassification": "K",
+      "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/delivery/gccp/photo_6.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/gccp/photo_8.webp",
@@ -1202,15 +1202,15 @@
       "sourceLimited": true,
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-04.png",
-      "initialClassification": "I",
-      "currentClassification": "I",
-      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph.",
+      "initialClassification": "H",
+      "currentClassification": "K",
+      "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/gccp/photo_8.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/group/ops/depot-aerial.webp",
@@ -1231,14 +1231,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-04.png",
       "initialClassification": "A",
-      "currentClassification": "A",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/delivery/group/ops/depot-aerial.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/group/ops/tanker-loading.webp",
@@ -1255,14 +1255,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-04.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/group/ops/tanker-loading.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/gulf-aggregates/hero/gulf-aggregates-hero-960.webp",
@@ -1307,14 +1307,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-04.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/gulf-aggregates/hero/gulf-aggregates-hero.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/gulf-aggregates/services/lake-concrete-plant.webp",
@@ -1403,14 +1403,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-04.png",
       "initialClassification": "A",
-      "currentClassification": "A",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/delivery/history/hero/history-hero.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/home/verticals/automotive-truck-lineup-960.webp",
@@ -1987,14 +1987,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-05.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/lake-pipes/ops/blue-pipes-opt.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/lakegas/ops/cylinder-hero-800.webp",
@@ -2039,14 +2039,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-06.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/lakegas/ops/cylinder-hero.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/lakegas/ops/cylinders-yard.webp",
@@ -2067,14 +2067,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-06.png",
       "initialClassification": "A",
-      "currentClassification": "A",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/delivery/lakegas/ops/cylinders-yard.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/lakegas/ops/filling-plant-opt.webp",
@@ -2175,14 +2175,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-06.png",
       "initialClassification": "A",
-      "currentClassification": "A",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/delivery/lakegas/ops/worker-silas.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/lakelubes/ops/plant-800.webp",
@@ -2379,14 +2379,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-06.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/lakelubes/products/optimized/lake-lubes-drums.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/lakelubes/products/optimized/power-supreme-1l.webp",
@@ -2543,14 +2543,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-07.png",
       "initialClassification": "A",
-      "currentClassification": "A",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/delivery/lakeoil/current/lake-energies-tanker-network.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/lakeoil/current/storage-facilities-terminal.webp",
@@ -2599,14 +2599,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-07.png",
       "initialClassification": "A",
-      "currentClassification": "A",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/delivery/lakeoil/current/tanker-lake-energies.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/lakeoil/hero/lake-oil-hero-800.webp",
@@ -2878,15 +2878,15 @@
       "sourceLimited": true,
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-08.png",
-      "initialClassification": "I",
-      "currentClassification": "I",
-      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph.",
+      "initialClassification": "H",
+      "currentClassification": "K",
+      "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/laketrans/ops/fleet-inspection.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/laketrans/TA/photo_1.webp",
@@ -2903,14 +2903,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-08.png",
       "initialClassification": "C",
-      "currentClassification": "C",
-      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph.",
+      "currentClassification": "K",
+      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph. Corporate phase uses `assets/images/delivery/corporate/remediated/lake-trans-story-fleet-clean.webp`.",
       "qualityDecision": "Current source is adequate for its rendered use.",
-      "masterStatus": "ORIGINAL_SOURCE_RETAINED",
-      "deliveryWebp": "assets/images/delivery/laketrans/TA/photo_1.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "masterStatus": "LOCALIZED_EDIT_DERIVATIVE; ORIGINAL_SOURCE_RETAINED",
+      "deliveryWebp": "assets/images/delivery/corporate/remediated/lake-trans-story-fleet-clean.webp",
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/leadership/ally-edha-awadh.webp",
@@ -2931,14 +2931,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-08.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/leadership/ally-edha-awadh.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/leadership/biji-lapat.webp",
@@ -2955,14 +2955,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-08.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/leadership/biji-lapat.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/leadership/juma-nuru.webp",
@@ -2979,14 +2979,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-08.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/leadership/juma-nuru.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/leadership/leadership-group-meeting.webp",
@@ -3003,14 +3003,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-08.png",
       "initialClassification": "A",
-      "currentClassification": "A",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/delivery/leadership/leadership-group-meeting.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/merm/photo_3.webp",
@@ -3027,14 +3027,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-08.png",
       "initialClassification": "A",
-      "currentClassification": "A",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/delivery/merm/photo_3.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/n-slider/8.webp",
@@ -3051,14 +3051,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-08.png",
       "initialClassification": "A",
-      "currentClassification": "A",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/delivery/n-slider/8.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/delivery/n-slider/9.webp",
@@ -3075,14 +3075,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-08.png",
       "initialClassification": "A",
-      "currentClassification": "A",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/delivery/n-slider/9.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/gccp/lake-premix-batching-plant.webp",
@@ -3123,14 +3123,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-08.png",
       "initialClassification": "A",
-      "currentClassification": "A",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/group/ops/depot-aerial.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/gulf-aggregates/services/quarry-aerial.webp",
@@ -3243,14 +3243,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-09.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/lake-agro/la-irrigation-green.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/lake-agro/la-machinery-shed.webp",
@@ -3318,15 +3318,15 @@
       "sourceLimited": false,
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-09.png",
-      "initialClassification": "C",
-      "currentClassification": "C",
-      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph.",
+      "initialClassification": "A",
+      "currentClassification": "K",
+      "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/lake-agro/la-tractors-duo.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/lake-aviation/gallery/aviation-flysafair-refuel-clean.webp",
@@ -3492,13 +3492,13 @@
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-09.png",
       "initialClassification": "I",
       "currentClassification": "I",
-      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph.",
+      "brandingDecision": "Remove visually confirmed third-party branding; preserve Lake-owned marks and the photograph. Corporate phase uses `assets/images/delivery/corporate/remediated/aviation-worker-underwing-clean.webp`.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
-      "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
-      "deliveryWebp": "assets/images/lake-aviation/gallery/aviation-worker-underwing.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "masterStatus": "LOCALIZED_EDIT_DERIVATIVE; ORIGINAL_SOURCE_RETAINED",
+      "deliveryWebp": "assets/images/delivery/corporate/remediated/aviation-worker-underwing-clean.webp",
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "CSR_DERIVATIVE_VERIFIED; LAKE_AVIATION_USAGE_PENDING"
     },
     {
       "asset": "assets/images/lake-aviation/ops/aviation-10.webp",
@@ -4031,14 +4031,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-11.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/lake-pipes/new/team-coiling.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/lakebuilding/hero/building-factory-hero-800.webp",
@@ -4083,14 +4083,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-11.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/lakebuilding/hero/building-factory-hero.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/lakebuilding/products/gypsum-board-opt.webp",
@@ -4155,14 +4155,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-11.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/lakebuildings/ops/lake-tanks-opt.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/lakegas/ops/cylinder-stacks.webp",
@@ -4179,14 +4179,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-11.png",
       "initialClassification": "A",
-      "currentClassification": "A",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/lakegas/ops/cylinder-stacks.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/lakegas/ops/worker-silas.webp",
@@ -4203,14 +4203,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-11.png",
       "initialClassification": "A",
-      "currentClassification": "A",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/lakegas/ops/worker-silas.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/laketrans/hero/lake-trans-fleet-hero.webp",
@@ -4395,14 +4395,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-11.png",
       "initialClassification": "A",
-      "currentClassification": "A",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/leadership/leadership-group-meeting.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/logos/companies/aficd-white-logo.png",
@@ -7131,14 +7131,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-13.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/news/10/photo_1.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/news/4/photo_1.webp",
@@ -7227,14 +7227,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-13.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/news/5/photo_1.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORPORATE"
     },
     {
       "asset": "assets/images/nexdrive/products/sany-heavy-commercial-truck.webp",

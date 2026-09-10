@@ -1,0 +1,264 @@
+[
+  {
+    "viewport": "1440",
+    "page": "about.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "remediated": []
+  },
+  {
+    "viewport": "1440",
+    "page": "history.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "remediated": []
+  },
+  {
+    "viewport": "1440",
+    "page": "leadership.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "remediated": []
+  },
+  {
+    "viewport": "1440",
+    "page": "leadership-ally-edha-awadh.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "remediated": []
+  },
+  {
+    "viewport": "1440",
+    "page": "csr.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "remediated": [
+      {
+        "src": "assets/images/delivery/corporate/remediated/aviation-worker-underwing-clean.webp",
+        "complete": true,
+        "naturalWidth": 1086,
+        "naturalHeight": 1448,
+        "renderedWidth": 239,
+        "renderedHeight": 507
+      }
+    ]
+  },
+  {
+    "viewport": "1440",
+    "page": "sustainability.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "remediated": []
+  },
+  {
+    "viewport": "1440",
+    "page": "careers.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "remediated": []
+  },
+  {
+    "viewport": "1440",
+    "page": "contact.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "remediated": []
+  },
+  {
+    "viewport": "1440",
+    "page": "gallery.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "remediated": [
+      {
+        "src": "assets/images/delivery/corporate/remediated/gccp-truck-lineup-clean.webp",
+        "complete": true,
+        "naturalWidth": 2061,
+        "naturalHeight": 1380,
+        "renderedWidth": 306,
+        "renderedHeight": 250
+      },
+      {
+        "src": "assets/images/delivery/corporate/remediated/gccp-yard-clean.webp",
+        "complete": true,
+        "naturalWidth": 1280,
+        "naturalHeight": 720,
+        "renderedWidth": 306,
+        "renderedHeight": 250
+      },
+      {
+        "src": "assets/images/delivery/corporate/remediated/aficd-reach-stacker-clean.webp",
+        "complete": true,
+        "naturalWidth": 1200,
+        "naturalHeight": 800,
+        "renderedWidth": 306,
+        "renderedHeight": 250
+      }
+    ]
+  },
+  {
+    "viewport": "1440",
+    "page": "media-center.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "remediated": []
+  },
+  {
+    "viewport": "1440",
+    "page": "our-story.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "remediated": [
+      {
+        "src": "assets/images/delivery/corporate/remediated/lake-trans-story-fleet-clean.webp",
+        "complete": true,
+        "naturalWidth": 2048,
+        "naturalHeight": 1080,
+        "renderedWidth": 1440,
+        "renderedHeight": 1000
+      }
+    ]
+  },
+  {
+    "viewport": "390",
+    "page": "about.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "remediated": []
+  },
+  {
+    "viewport": "390",
+    "page": "history.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "remediated": []
+  },
+  {
+    "viewport": "390",
+    "page": "leadership.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "remediated": []
+  },
+  {
+    "viewport": "390",
+    "page": "leadership-ally-edha-awadh.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "remediated": []
+  },
+  {
+    "viewport": "390",
+    "page": "csr.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "remediated": [
+      {
+        "src": "assets/images/delivery/corporate/remediated/aviation-worker-underwing-clean.webp",
+        "complete": true,
+        "naturalWidth": 1086,
+        "naturalHeight": 1448,
+        "renderedWidth": 150,
+        "renderedHeight": 328
+      }
+    ]
+  },
+  {
+    "viewport": "390",
+    "page": "sustainability.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "remediated": []
+  },
+  {
+    "viewport": "390",
+    "page": "careers.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "remediated": []
+  },
+  {
+    "viewport": "390",
+    "page": "contact.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "remediated": []
+  },
+  {
+    "viewport": "390",
+    "page": "gallery.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "remediated": [
+      {
+        "src": "assets/images/delivery/corporate/remediated/gccp-truck-lineup-clean.webp",
+        "complete": true,
+        "naturalWidth": 2061,
+        "naturalHeight": 1380,
+        "renderedWidth": 189,
+        "renderedHeight": 240
+      },
+      {
+        "src": "assets/images/delivery/corporate/remediated/gccp-yard-clean.webp",
+        "complete": true,
+        "naturalWidth": 1280,
+        "naturalHeight": 720,
+        "renderedWidth": 189,
+        "renderedHeight": 240
+      },
+      {
+        "src": "assets/images/delivery/corporate/remediated/aficd-reach-stacker-clean.webp",
+        "complete": true,
+        "naturalWidth": 1200,
+        "naturalHeight": 800,
+        "renderedWidth": 189,
+        "renderedHeight": 240
+      }
+    ]
+  },
+  {
+    "viewport": "390",
+    "page": "media-center.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "remediated": []
+  },
+  {
+    "viewport": "390",
+    "page": "our-story.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "remediated": [
+      {
+        "src": "assets/images/delivery/corporate/remediated/lake-trans-story-fleet-clean.webp",
+        "complete": true,
+        "naturalWidth": 2048,
+        "naturalHeight": 1080,
+        "renderedWidth": 390,
+        "renderedHeight": 844
+      }
+    ]
+  }
+]
