@@ -1,0 +1,2396 @@
+[
+  {
+    "viewport": "1440",
+    "page": "lake-oil.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "images": [
+      {
+        "src": "assets/images/logos/companies/lake-oil.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 547
+      },
+      {
+        "src": "assets/images/logos/companies/lake-oil.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 547
+      },
+      {
+        "src": "assets/images/logos/companies/lake-aviation.png",
+        "complete": true,
+        "naturalWidth": 1374,
+        "naturalHeight": 536
+      },
+      {
+        "src": "assets/images/logos/companies/lake-gas.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 548
+      },
+      {
+        "src": "assets/images/logos/companies/lake-lubes.png",
+        "complete": true,
+        "naturalWidth": 1375,
+        "naturalHeight": 532
+      },
+      {
+        "src": "assets/images/logos/companies/lake-buildings.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-pipes-dropdown-yellow.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-steel.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-cylinders.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-premix-cement.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/gulf-aggregates.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aficd-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aill-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-trans.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/cross-country-developer-limited-logo.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-agro-new.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/agrinova-tech.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/atl-icon.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/nexdrive-motors.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/delivery/lakeoil/hero/lake-oil-hero.webp",
+        "complete": true,
+        "naturalWidth": 1489,
+        "naturalHeight": 1056
+      },
+      {
+        "src": "assets/images/flags/tz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/logos/LAKE_LOGO_LAKE_ONLY.png",
+        "complete": true,
+        "naturalWidth": 1379,
+        "naturalHeight": 370
+      },
+      {
+        "src": "assets/images/flags/zm.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/logos/LAKE_LOGO_LAKE_ONLY.png",
+        "complete": true,
+        "naturalWidth": 1379,
+        "naturalHeight": 370
+      },
+      {
+        "src": "assets/images/flags/cd.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/logos/LAKE_LOGO_LAKE_ONLY.png",
+        "complete": true,
+        "naturalWidth": 1379,
+        "naturalHeight": 370
+      },
+      {
+        "src": "assets/images/logos/LAKE_LOGO_LAKE_ONLY.png",
+        "complete": true,
+        "naturalWidth": 1379,
+        "naturalHeight": 370
+      },
+      {
+        "src": "assets/images/flags/bi.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/logos/LAKE_LOGO_LAKE_ONLY.png",
+        "complete": true,
+        "naturalWidth": 1379,
+        "naturalHeight": 370
+      },
+      {
+        "src": "assets/images/flags/ke.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/logos/LAKE_LOGO_LAKE_ONLY.png",
+        "complete": true,
+        "naturalWidth": 1379,
+        "naturalHeight": 370
+      },
+      {
+        "src": "assets/images/flags/mz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/logos/LAKE_LOGO_LAKE_ONLY.png",
+        "complete": true,
+        "naturalWidth": 1379,
+        "naturalHeight": 370
+      },
+      {
+        "src": "assets/images/delivery/lakeoil/current/lake-energies-station-approved.webp",
+        "complete": true,
+        "naturalWidth": 1489,
+        "naturalHeight": 1056
+      },
+      {
+        "src": "assets/images/delivery/group/ops/depot-aerial.webp",
+        "complete": true,
+        "naturalWidth": 2400,
+        "naturalHeight": 1600
+      },
+      {
+        "src": "assets/images/delivery/lakeoil/current/storage-facilities-terminal.webp",
+        "complete": true,
+        "naturalWidth": 1672,
+        "naturalHeight": 940
+      },
+      {
+        "src": "assets/images/delivery/lakeoil/current/lake-energies-tanker-network.webp",
+        "complete": true,
+        "naturalWidth": 1672,
+        "naturalHeight": 941
+      },
+      {
+        "src": "assets/images/delivery/group/ops/depot-aerial.webp",
+        "complete": true,
+        "naturalWidth": 2400,
+        "naturalHeight": 1600
+      },
+      {
+        "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+        "complete": true,
+        "naturalWidth": 1383,
+        "naturalHeight": 527
+      },
+      {
+        "src": "assets/images/flags/tz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ke.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/zm.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/rw.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/bi.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/cd.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/et.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/mz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ug.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ae.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      }
+    ]
+  },
+  {
+    "viewport": "1440",
+    "page": "lake-gas.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "images": [
+      {
+        "src": "assets/images/logos/companies/lake-gas.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 548
+      },
+      {
+        "src": "assets/images/logos/companies/lake-oil.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 547
+      },
+      {
+        "src": "assets/images/logos/companies/lake-aviation.png",
+        "complete": true,
+        "naturalWidth": 1374,
+        "naturalHeight": 536
+      },
+      {
+        "src": "assets/images/logos/companies/lake-gas.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 548
+      },
+      {
+        "src": "assets/images/logos/companies/lake-lubes.png",
+        "complete": true,
+        "naturalWidth": 1375,
+        "naturalHeight": 532
+      },
+      {
+        "src": "assets/images/logos/companies/lake-buildings.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-pipes-dropdown-yellow.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-steel.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-cylinders.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-premix-cement.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/gulf-aggregates.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aficd-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aill-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-trans.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/cross-country-developer-limited-logo.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-agro-new.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/agrinova-tech.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/atl-icon.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/nexdrive-motors.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/delivery/lakegas/ops/lake-gas-lpg-filling-line.webp",
+        "complete": true,
+        "naturalWidth": 1573,
+        "naturalHeight": 1000
+      },
+      {
+        "src": "assets/images/delivery/lakegas/ops/cylinders-yard.webp",
+        "complete": true,
+        "naturalWidth": 2048,
+        "naturalHeight": 1447
+      },
+      {
+        "src": "assets/images/delivery/lakegas/ops/lake-gas-lpg-filling-line.webp",
+        "complete": true,
+        "naturalWidth": 1573,
+        "naturalHeight": 1000
+      },
+      {
+        "src": "assets/images/delivery/lakegas/ops/cylinders-yard.webp",
+        "complete": true,
+        "naturalWidth": 2048,
+        "naturalHeight": 1447
+      },
+      {
+        "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+        "complete": true,
+        "naturalWidth": 1383,
+        "naturalHeight": 527
+      },
+      {
+        "src": "assets/images/flags/tz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ke.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/zm.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/rw.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/bi.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/cd.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/et.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/mz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ug.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ae.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      }
+    ]
+  },
+  {
+    "viewport": "1440",
+    "page": "lake-lubes.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "images": [
+      {
+        "src": "assets/images/logos/companies/lake-lubes.png",
+        "complete": true,
+        "naturalWidth": 1375,
+        "naturalHeight": 532
+      },
+      {
+        "src": "assets/images/logos/companies/lake-oil.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 547
+      },
+      {
+        "src": "assets/images/logos/companies/lake-aviation.png",
+        "complete": true,
+        "naturalWidth": 1374,
+        "naturalHeight": 536
+      },
+      {
+        "src": "assets/images/logos/companies/lake-gas.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 548
+      },
+      {
+        "src": "assets/images/logos/companies/lake-lubes.png",
+        "complete": true,
+        "naturalWidth": 1375,
+        "naturalHeight": 532
+      },
+      {
+        "src": "assets/images/logos/companies/lake-buildings.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-pipes-dropdown-yellow.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-steel.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-cylinders.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-premix-cement.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/gulf-aggregates.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aficd-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aill-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-trans.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/cross-country-developer-limited-logo.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-agro-new.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/agrinova-tech.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/atl-icon.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/nexdrive-motors.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/delivery/lakelubes/ops/plant.webp",
+        "complete": true,
+        "naturalWidth": 2070,
+        "naturalHeight": 1379
+      },
+      {
+        "src": "assets/images/delivery/lakelubes/products/optimized/power-supreme-1l.webp",
+        "complete": true,
+        "naturalWidth": 900,
+        "naturalHeight": 1354
+      },
+      {
+        "src": "assets/images/delivery/lakelubes/products/optimized/hd-supreme-700-20l.webp",
+        "complete": true,
+        "naturalWidth": 900,
+        "naturalHeight": 1352
+      },
+      {
+        "src": "assets/images/delivery/lakelubes/products/optimized/grease-mp2-1kg.webp",
+        "complete": true,
+        "naturalWidth": 900,
+        "naturalHeight": 1354
+      },
+      {
+        "src": "assets/images/delivery/lakelubes/products/optimized/super-cool-5l.webp",
+        "complete": true,
+        "naturalWidth": 900,
+        "naturalHeight": 1352
+      },
+      {
+        "src": "assets/images/delivery/lakelubes/products/optimized/lake-lubes-drums.webp",
+        "complete": true,
+        "naturalWidth": 900,
+        "naturalHeight": 1354
+      },
+      {
+        "src": "assets/images/delivery/lakelubes/products/optimized/super-cool-20l.webp",
+        "complete": true,
+        "naturalWidth": 900,
+        "naturalHeight": 1354
+      },
+      {
+        "src": "assets/images/delivery/lakelubes/products/optimized/power-supreme-4l.webp",
+        "complete": true,
+        "naturalWidth": 900,
+        "naturalHeight": 1354
+      },
+      {
+        "src": "assets/images/delivery/lakelubes/products/optimized/gl5-85w140-5l.webp",
+        "complete": true,
+        "naturalWidth": 900,
+        "naturalHeight": 1354
+      },
+      {
+        "src": "assets/images/delivery/lakelubes/products/lake-lubes-power-eco-range.webp",
+        "complete": true,
+        "naturalWidth": 1541,
+        "naturalHeight": 1020
+      },
+      {
+        "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+        "complete": true,
+        "naturalWidth": 1383,
+        "naturalHeight": 527
+      },
+      {
+        "src": "assets/images/flags/tz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ke.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/zm.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/rw.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/bi.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/cd.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/et.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/mz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ug.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ae.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      }
+    ]
+  },
+  {
+    "viewport": "1440",
+    "page": "lake-steel.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "images": [
+      {
+        "src": "assets/images/logos/companies/lake-steel.png",
+        "complete": true,
+        "naturalWidth": 1372,
+        "naturalHeight": 537
+      },
+      {
+        "src": "assets/images/logos/companies/lake-oil.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 547
+      },
+      {
+        "src": "assets/images/logos/companies/lake-aviation.png",
+        "complete": true,
+        "naturalWidth": 1374,
+        "naturalHeight": 536
+      },
+      {
+        "src": "assets/images/logos/companies/lake-gas.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 548
+      },
+      {
+        "src": "assets/images/logos/companies/lake-lubes.png",
+        "complete": true,
+        "naturalWidth": 1375,
+        "naturalHeight": 532
+      },
+      {
+        "src": "assets/images/logos/companies/lake-buildings.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-pipes-dropdown-yellow.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-steel.png",
+        "complete": false,
+        "naturalWidth": 1372,
+        "naturalHeight": 537
+      },
+      {
+        "src": "assets/images/logos/companies/lake-cylinders.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-premix-cement.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/gulf-aggregates.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aficd-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aill-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-trans.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/cross-country-developer-limited-logo.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-agro-new.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/agrinova-tech.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/atl-icon.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/nexdrive-motors.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/delivery/home/verticals/manufacturing.webp",
+        "complete": true,
+        "naturalWidth": 1672,
+        "naturalHeight": 941
+      },
+      {
+        "src": "assets/images/delivery/lakesteel/TA/photo_13.webp",
+        "complete": true,
+        "naturalWidth": 800,
+        "naturalHeight": 533
+      },
+      {
+        "src": "assets/images/delivery/lakesteel/TA/photo_1.webp",
+        "complete": true,
+        "naturalWidth": 2070,
+        "naturalHeight": 1380
+      },
+      {
+        "src": "assets/images/delivery/lakesteel/ops/hot-rolling.webp",
+        "complete": true,
+        "naturalWidth": 1920,
+        "naturalHeight": 1080
+      },
+      {
+        "src": "assets/images/delivery/home/verticals/manufacturing.webp",
+        "complete": true,
+        "naturalWidth": 1672,
+        "naturalHeight": 941
+      },
+      {
+        "src": "assets/images/delivery/lakesteel/ops/hot-rolling.webp",
+        "complete": true,
+        "naturalWidth": 1920,
+        "naturalHeight": 1080
+      },
+      {
+        "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+        "complete": true,
+        "naturalWidth": 1383,
+        "naturalHeight": 527
+      },
+      {
+        "src": "assets/images/flags/tz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ke.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/zm.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/rw.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/bi.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/cd.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/et.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/mz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ug.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ae.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      }
+    ]
+  },
+  {
+    "viewport": "1440",
+    "page": "lake-premix-cement.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "images": [
+      {
+        "src": "assets/images/logos/companies/lake-premix-cement.png",
+        "complete": true,
+        "naturalWidth": 1372,
+        "naturalHeight": 536
+      },
+      {
+        "src": "assets/images/logos/companies/lake-oil.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 547
+      },
+      {
+        "src": "assets/images/logos/companies/lake-aviation.png",
+        "complete": true,
+        "naturalWidth": 1374,
+        "naturalHeight": 536
+      },
+      {
+        "src": "assets/images/logos/companies/lake-gas.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 548
+      },
+      {
+        "src": "assets/images/logos/companies/lake-lubes.png",
+        "complete": true,
+        "naturalWidth": 1375,
+        "naturalHeight": 532
+      },
+      {
+        "src": "assets/images/logos/companies/lake-buildings.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-pipes-dropdown-yellow.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-steel.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-cylinders.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-premix-cement.png",
+        "complete": false,
+        "naturalWidth": 1372,
+        "naturalHeight": 536
+      },
+      {
+        "src": "assets/images/logos/companies/gulf-aggregates.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aficd-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aill-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-trans.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/cross-country-developer-limited-logo.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-agro-new.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/agrinova-tech.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/atl-icon.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/nexdrive-motors.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/lakebuilding/hero/building-factory-hero.webp",
+        "complete": true,
+        "naturalWidth": 1537,
+        "naturalHeight": 1023
+      },
+      {
+        "src": "assets/images/flags/tz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ke.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+        "complete": true,
+        "naturalWidth": 1383,
+        "naturalHeight": 527
+      },
+      {
+        "src": "assets/images/flags/tz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ke.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/zm.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/rw.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/bi.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/cd.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/et.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/mz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ug.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ae.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      }
+    ]
+  },
+  {
+    "viewport": "390",
+    "page": "lake-oil.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "images": [
+      {
+        "src": "assets/images/logos/companies/lake-oil.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 547
+      },
+      {
+        "src": "assets/images/logos/companies/lake-oil.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 547
+      },
+      {
+        "src": "assets/images/logos/companies/lake-aviation.png",
+        "complete": true,
+        "naturalWidth": 1374,
+        "naturalHeight": 536
+      },
+      {
+        "src": "assets/images/logos/companies/lake-gas.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 548
+      },
+      {
+        "src": "assets/images/logos/companies/lake-lubes.png",
+        "complete": true,
+        "naturalWidth": 1375,
+        "naturalHeight": 532
+      },
+      {
+        "src": "assets/images/logos/companies/lake-buildings.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-pipes-dropdown-yellow.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-steel.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-cylinders.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-premix-cement.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/gulf-aggregates.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aficd-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aill-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-trans.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/cross-country-developer-limited-logo.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-agro-new.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/agrinova-tech.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/atl-icon.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/nexdrive-motors.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/delivery/lakeoil/hero/lake-oil-hero-800.webp",
+        "complete": true,
+        "naturalWidth": 800,
+        "naturalHeight": 567
+      },
+      {
+        "src": "assets/images/flags/tz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/logos/LAKE_LOGO_LAKE_ONLY.png",
+        "complete": true,
+        "naturalWidth": 1379,
+        "naturalHeight": 370
+      },
+      {
+        "src": "assets/images/flags/zm.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/logos/LAKE_LOGO_LAKE_ONLY.png",
+        "complete": true,
+        "naturalWidth": 1379,
+        "naturalHeight": 370
+      },
+      {
+        "src": "assets/images/flags/cd.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/logos/LAKE_LOGO_LAKE_ONLY.png",
+        "complete": true,
+        "naturalWidth": 1379,
+        "naturalHeight": 370
+      },
+      {
+        "src": "assets/images/logos/LAKE_LOGO_LAKE_ONLY.png",
+        "complete": true,
+        "naturalWidth": 1379,
+        "naturalHeight": 370
+      },
+      {
+        "src": "assets/images/flags/bi.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/logos/LAKE_LOGO_LAKE_ONLY.png",
+        "complete": true,
+        "naturalWidth": 1379,
+        "naturalHeight": 370
+      },
+      {
+        "src": "assets/images/flags/ke.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/logos/LAKE_LOGO_LAKE_ONLY.png",
+        "complete": true,
+        "naturalWidth": 1379,
+        "naturalHeight": 370
+      },
+      {
+        "src": "assets/images/flags/mz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/logos/LAKE_LOGO_LAKE_ONLY.png",
+        "complete": true,
+        "naturalWidth": 1379,
+        "naturalHeight": 370
+      },
+      {
+        "src": "assets/images/delivery/lakeoil/current/lake-energies-station-approved.webp",
+        "complete": true,
+        "naturalWidth": 1489,
+        "naturalHeight": 1056
+      },
+      {
+        "src": "assets/images/delivery/group/ops/depot-aerial.webp",
+        "complete": true,
+        "naturalWidth": 2400,
+        "naturalHeight": 1600
+      },
+      {
+        "src": "assets/images/delivery/lakeoil/current/storage-facilities-terminal.webp",
+        "complete": true,
+        "naturalWidth": 1672,
+        "naturalHeight": 940
+      },
+      {
+        "src": "assets/images/delivery/lakeoil/current/lake-energies-tanker-network.webp",
+        "complete": true,
+        "naturalWidth": 1672,
+        "naturalHeight": 941
+      },
+      {
+        "src": "assets/images/delivery/group/ops/depot-aerial.webp",
+        "complete": true,
+        "naturalWidth": 2400,
+        "naturalHeight": 1600
+      },
+      {
+        "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+        "complete": true,
+        "naturalWidth": 1383,
+        "naturalHeight": 527
+      },
+      {
+        "src": "assets/images/flags/tz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ke.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/zm.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/rw.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/bi.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/cd.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/et.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/mz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ug.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ae.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      }
+    ]
+  },
+  {
+    "viewport": "390",
+    "page": "lake-gas.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "images": [
+      {
+        "src": "assets/images/logos/companies/lake-gas.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 548
+      },
+      {
+        "src": "assets/images/logos/companies/lake-oil.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 547
+      },
+      {
+        "src": "assets/images/logos/companies/lake-aviation.png",
+        "complete": true,
+        "naturalWidth": 1374,
+        "naturalHeight": 536
+      },
+      {
+        "src": "assets/images/logos/companies/lake-gas.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 548
+      },
+      {
+        "src": "assets/images/logos/companies/lake-lubes.png",
+        "complete": true,
+        "naturalWidth": 1375,
+        "naturalHeight": 532
+      },
+      {
+        "src": "assets/images/logos/companies/lake-buildings.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-pipes-dropdown-yellow.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-steel.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-cylinders.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-premix-cement.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/gulf-aggregates.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aficd-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aill-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-trans.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/cross-country-developer-limited-logo.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-agro-new.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/agrinova-tech.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/atl-icon.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/nexdrive-motors.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/delivery/lakegas/ops/lake-gas-lpg-filling-line-800.webp",
+        "complete": true,
+        "naturalWidth": 800,
+        "naturalHeight": 508
+      },
+      {
+        "src": "assets/images/delivery/lakegas/ops/cylinders-yard.webp",
+        "complete": true,
+        "naturalWidth": 2048,
+        "naturalHeight": 1447
+      },
+      {
+        "src": "assets/images/delivery/lakegas/ops/lake-gas-lpg-filling-line.webp",
+        "complete": true,
+        "naturalWidth": 1573,
+        "naturalHeight": 1000
+      },
+      {
+        "src": "assets/images/delivery/lakegas/ops/cylinders-yard.webp",
+        "complete": true,
+        "naturalWidth": 2048,
+        "naturalHeight": 1447
+      },
+      {
+        "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+        "complete": true,
+        "naturalWidth": 1383,
+        "naturalHeight": 527
+      },
+      {
+        "src": "assets/images/flags/tz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ke.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/zm.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/rw.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/bi.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/cd.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/et.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/mz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ug.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ae.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      }
+    ]
+  },
+  {
+    "viewport": "390",
+    "page": "lake-lubes.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "images": [
+      {
+        "src": "assets/images/logos/companies/lake-lubes.png",
+        "complete": true,
+        "naturalWidth": 1375,
+        "naturalHeight": 532
+      },
+      {
+        "src": "assets/images/logos/companies/lake-oil.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 547
+      },
+      {
+        "src": "assets/images/logos/companies/lake-aviation.png",
+        "complete": true,
+        "naturalWidth": 1374,
+        "naturalHeight": 536
+      },
+      {
+        "src": "assets/images/logos/companies/lake-gas.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 548
+      },
+      {
+        "src": "assets/images/logos/companies/lake-lubes.png",
+        "complete": true,
+        "naturalWidth": 1375,
+        "naturalHeight": 532
+      },
+      {
+        "src": "assets/images/logos/companies/lake-buildings.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-pipes-dropdown-yellow.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-steel.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-cylinders.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-premix-cement.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/gulf-aggregates.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aficd-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aill-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-trans.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/cross-country-developer-limited-logo.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-agro-new.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/agrinova-tech.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/atl-icon.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/nexdrive-motors.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/delivery/lakelubes/ops/plant-800.webp",
+        "complete": true,
+        "naturalWidth": 800,
+        "naturalHeight": 532
+      },
+      {
+        "src": "assets/images/delivery/lakelubes/products/optimized/power-supreme-1l.webp",
+        "complete": true,
+        "naturalWidth": 900,
+        "naturalHeight": 1354
+      },
+      {
+        "src": "assets/images/delivery/lakelubes/products/optimized/hd-supreme-700-20l.webp",
+        "complete": true,
+        "naturalWidth": 900,
+        "naturalHeight": 1352
+      },
+      {
+        "src": "assets/images/delivery/lakelubes/products/optimized/grease-mp2-1kg.webp",
+        "complete": true,
+        "naturalWidth": 900,
+        "naturalHeight": 1354
+      },
+      {
+        "src": "assets/images/delivery/lakelubes/products/optimized/super-cool-5l.webp",
+        "complete": true,
+        "naturalWidth": 900,
+        "naturalHeight": 1352
+      },
+      {
+        "src": "assets/images/delivery/lakelubes/products/optimized/lake-lubes-drums.webp",
+        "complete": true,
+        "naturalWidth": 900,
+        "naturalHeight": 1354
+      },
+      {
+        "src": "assets/images/delivery/lakelubes/products/optimized/super-cool-20l.webp",
+        "complete": true,
+        "naturalWidth": 900,
+        "naturalHeight": 1354
+      },
+      {
+        "src": "assets/images/delivery/lakelubes/products/optimized/power-supreme-4l.webp",
+        "complete": true,
+        "naturalWidth": 900,
+        "naturalHeight": 1354
+      },
+      {
+        "src": "assets/images/delivery/lakelubes/products/optimized/gl5-85w140-5l.webp",
+        "complete": true,
+        "naturalWidth": 900,
+        "naturalHeight": 1354
+      },
+      {
+        "src": "assets/images/delivery/lakelubes/products/lake-lubes-power-eco-range.webp",
+        "complete": true,
+        "naturalWidth": 1541,
+        "naturalHeight": 1020
+      },
+      {
+        "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+        "complete": true,
+        "naturalWidth": 1383,
+        "naturalHeight": 527
+      },
+      {
+        "src": "assets/images/flags/tz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ke.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/zm.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/rw.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/bi.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/cd.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/et.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/mz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ug.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ae.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      }
+    ]
+  },
+  {
+    "viewport": "390",
+    "page": "lake-steel.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "images": [
+      {
+        "src": "assets/images/logos/companies/lake-steel.png",
+        "complete": true,
+        "naturalWidth": 1372,
+        "naturalHeight": 537
+      },
+      {
+        "src": "assets/images/logos/companies/lake-oil.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 547
+      },
+      {
+        "src": "assets/images/logos/companies/lake-aviation.png",
+        "complete": true,
+        "naturalWidth": 1374,
+        "naturalHeight": 536
+      },
+      {
+        "src": "assets/images/logos/companies/lake-gas.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 548
+      },
+      {
+        "src": "assets/images/logos/companies/lake-lubes.png",
+        "complete": true,
+        "naturalWidth": 1375,
+        "naturalHeight": 532
+      },
+      {
+        "src": "assets/images/logos/companies/lake-buildings.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-pipes-dropdown-yellow.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-steel.png",
+        "complete": false,
+        "naturalWidth": 1372,
+        "naturalHeight": 537
+      },
+      {
+        "src": "assets/images/logos/companies/lake-cylinders.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-premix-cement.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/gulf-aggregates.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aficd-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aill-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-trans.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/cross-country-developer-limited-logo.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-agro-new.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/agrinova-tech.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/atl-icon.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/nexdrive-motors.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/delivery/home/verticals/manufacturing-960.webp",
+        "complete": true,
+        "naturalWidth": 960,
+        "naturalHeight": 540
+      },
+      {
+        "src": "assets/images/delivery/lakesteel/TA/photo_13.webp",
+        "complete": true,
+        "naturalWidth": 800,
+        "naturalHeight": 533
+      },
+      {
+        "src": "assets/images/delivery/lakesteel/TA/photo_1.webp",
+        "complete": true,
+        "naturalWidth": 2070,
+        "naturalHeight": 1380
+      },
+      {
+        "src": "assets/images/delivery/lakesteel/ops/hot-rolling.webp",
+        "complete": true,
+        "naturalWidth": 1920,
+        "naturalHeight": 1080
+      },
+      {
+        "src": "assets/images/delivery/home/verticals/manufacturing.webp",
+        "complete": true,
+        "naturalWidth": 1672,
+        "naturalHeight": 941
+      },
+      {
+        "src": "assets/images/delivery/lakesteel/ops/hot-rolling.webp",
+        "complete": true,
+        "naturalWidth": 1920,
+        "naturalHeight": 1080
+      },
+      {
+        "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+        "complete": true,
+        "naturalWidth": 1383,
+        "naturalHeight": 527
+      },
+      {
+        "src": "assets/images/flags/tz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ke.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/zm.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/rw.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/bi.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/cd.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/et.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/mz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ug.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ae.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      }
+    ]
+  },
+  {
+    "viewport": "390",
+    "page": "lake-premix-cement.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "images": [
+      {
+        "src": "assets/images/logos/companies/lake-premix-cement.png",
+        "complete": true,
+        "naturalWidth": 1372,
+        "naturalHeight": 536
+      },
+      {
+        "src": "assets/images/logos/companies/lake-oil.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 547
+      },
+      {
+        "src": "assets/images/logos/companies/lake-aviation.png",
+        "complete": true,
+        "naturalWidth": 1374,
+        "naturalHeight": 536
+      },
+      {
+        "src": "assets/images/logos/companies/lake-gas.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 548
+      },
+      {
+        "src": "assets/images/logos/companies/lake-lubes.png",
+        "complete": true,
+        "naturalWidth": 1375,
+        "naturalHeight": 532
+      },
+      {
+        "src": "assets/images/logos/companies/lake-buildings.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-pipes-dropdown-yellow.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-steel.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-cylinders.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-premix-cement.png",
+        "complete": false,
+        "naturalWidth": 1372,
+        "naturalHeight": 536
+      },
+      {
+        "src": "assets/images/logos/companies/gulf-aggregates.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aficd-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aill-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-trans.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/cross-country-developer-limited-logo.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-agro-new.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/agrinova-tech.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/atl-icon.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/nexdrive-motors.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/lakebuilding/hero/building-factory-hero-800.webp",
+        "complete": true,
+        "naturalWidth": 800,
+        "naturalHeight": 532
+      },
+      {
+        "src": "assets/images/flags/tz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ke.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+        "complete": true,
+        "naturalWidth": 1383,
+        "naturalHeight": 527
+      },
+      {
+        "src": "assets/images/flags/tz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ke.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/zm.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/rw.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/bi.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/cd.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/et.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/mz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ug.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ae.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      }
+    ]
+  }
+]

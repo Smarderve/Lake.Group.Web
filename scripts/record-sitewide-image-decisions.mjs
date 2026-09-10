@@ -8,6 +8,7 @@ const auditPath = path.join(root, 'docs', 'reports', 'ASSET_IMAGE_CLEANUP_AUDIT.
 const inventory = JSON.parse(await fs.readFile(inventoryPath, 'utf8'));
 const homeQaPath = path.join(root, 'docs', 'qa', 'sitewide-image-remediation', 'phase-01-home', 'runtime.json');
 const corporateQaPath = path.join(root, 'docs', 'qa', 'sitewide-image-remediation', 'phase-02-corporate', 'runtime.json');
+const coreCompanyQaPath = path.join(root, 'docs', 'qa', 'sitewide-image-remediation', 'phase-04-core-companies', 'runtime.json');
 
 const ownershipReview = new Set([
   'assets/images/news/4/photo_1.webp',
@@ -150,13 +151,20 @@ try {
   const qa = JSON.parse(await fs.readFile(corporateQaPath, 'utf8'));
   corporateQaPassed = qa.length === 22 && qa.every((result) => result.status === 200 && result.failures.length === 0 && result.broken.length === 0);
 } catch { /* Phase 2 QA has not run yet. */ }
+const coreCompanyPages = new Set(['lake-oil.html', 'lake-gas.html', 'lake-lubes.html', 'lake-steel.html', 'lake-premix-cement.html']);
+let coreCompanyQaPassed = false;
+try {
+  const qa = JSON.parse(await fs.readFile(coreCompanyQaPath, 'utf8'));
+  coreCompanyQaPassed = qa.length === 10 && qa.every((result) => result.status === 200 && result.failures.length === 0 && result.broken.length === 0);
+} catch { /* Phase 4 QA has not run yet. */ }
 const decisions = included.map((asset) => {
   const classification = classify(asset);
   const homeComplete = homeQaPassed && homeAssets.has(asset.path);
   const corporateUsed = asset.includedUsage.some((page) => corporatePages.has(page));
   const corporateComplete = corporateQaPassed && corporateUsed && classification !== 'G';
+  const coreCompanyComplete = coreCompanyQaPassed && asset.includedUsage.some((page) => coreCompanyPages.has(page));
   const pendingAviationUsage = asset.path === 'assets/images/lake-aviation/gallery/aviation-worker-underwing.webp';
-  const complete = homeComplete || (corporateComplete && !pendingAviationUsage);
+  const complete = homeComplete || (corporateComplete && !pendingAviationUsage) || coreCompanyComplete;
   const derivative = homeDerivatives.get(asset.path) || corporateDerivatives.get(asset.path);
   const nonPhotographicLogo = asset.path.includes('/logos/') && asset.format === 'png';
   return {
@@ -174,9 +182,9 @@ const decisions = included.map((asset) => {
     qualityDecision: qualityDecision(asset, classification),
     masterStatus: derivative ? (protectedDerivative.has(asset.path) ? 'PROTECTED_ORIGINAL_UNCHANGED; HOMEPAGE_DERIVATIVE' : 'LOCALIZED_EDIT_DERIVATIVE; ORIGINAL_SOURCE_RETAINED') : (asset.sourceLimited ? 'SOURCE_LIMITED_NO_UPSCALE' : 'ORIGINAL_SOURCE_RETAINED'),
     deliveryWebp: derivative || (nonPhotographicLogo ? 'NOT_APPLICABLE_NON_PHOTOGRAPHIC_PNG' : (asset.genuineWebp ? asset.path : null)),
-    frontendUpdated: homeComplete || corporateComplete,
-    renderedQa: homeComplete || corporateComplete,
-    finalStatus: homeComplete ? 'COMPLETED_AND_VERIFIED_HOME' : (pendingAviationUsage && corporateComplete ? 'CSR_DERIVATIVE_VERIFIED; LAKE_AVIATION_USAGE_PENDING' : (corporateComplete ? 'COMPLETED_AND_VERIFIED_CORPORATE' : (classification === 'G' ? 'OWNERSHIP_REVIEW' : 'CLASSIFIED_PENDING_PAGE_PHASE'))),
+    frontendUpdated: homeComplete || corporateComplete || coreCompanyComplete,
+    renderedQa: homeComplete || corporateComplete || coreCompanyComplete,
+    finalStatus: homeComplete ? 'COMPLETED_AND_VERIFIED_HOME' : (pendingAviationUsage && corporateComplete ? 'CSR_DERIVATIVE_VERIFIED; LAKE_AVIATION_USAGE_PENDING' : (corporateComplete ? 'COMPLETED_AND_VERIFIED_CORPORATE' : (coreCompanyComplete ? 'COMPLETED_AND_VERIFIED_CORE_COMPANIES' : (classification === 'G' ? 'OWNERSHIP_REVIEW' : 'CLASSIFIED_PENDING_PAGE_PHASE')))),
   };
 });
 

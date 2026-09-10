@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-09T20:31:12.148Z",
+  "generatedAt": "2026-09-10T02:22:34.773Z",
   "basis": "Manual visual inspection of the 13 accepted unique-included contact sheets; filenames are identifiers, not review evidence.",
   "classificationLegend": {
     "A": "CLEAN / READY",
@@ -16,12 +16,12 @@
   },
   "total": 204,
   "counts": {
-    "A": 13,
+    "A": 10,
     "C": 6,
     "G": 3,
-    "H": 43,
+    "H": 30,
     "I": 33,
-    "K": 106
+    "K": 122
   },
   "decisions": [
     {
@@ -2119,14 +2119,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-06.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/lakegas/ops/lake-gas-lpg-filling-line-800.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORE_COMPANIES"
     },
     {
       "asset": "assets/images/delivery/lakegas/ops/lake-gas-lpg-filling-line.webp",
@@ -2199,14 +2199,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-06.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/lakelubes/ops/plant-800.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORE_COMPANIES"
     },
     {
       "asset": "assets/images/delivery/lakelubes/ops/plant-opt.webp",
@@ -2251,14 +2251,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-06.png",
       "initialClassification": "A",
-      "currentClassification": "A",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/delivery/lakelubes/ops/plant.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORE_COMPANIES"
     },
     {
       "asset": "assets/images/delivery/lakelubes/products/lake-lubes-power-eco-range.webp",
@@ -2303,14 +2303,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-06.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/lakelubes/products/optimized/gl5-85w140-5l.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORE_COMPANIES"
     },
     {
       "asset": "assets/images/delivery/lakelubes/products/optimized/grease-mp2-1kg.webp",
@@ -2327,14 +2327,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-06.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/lakelubes/products/optimized/grease-mp2-1kg.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORE_COMPANIES"
     },
     {
       "asset": "assets/images/delivery/lakelubes/products/optimized/hd-supreme-700-20l.webp",
@@ -2351,14 +2351,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-06.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/lakelubes/products/optimized/hd-supreme-700-20l.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORE_COMPANIES"
     },
     {
       "asset": "assets/images/delivery/lakelubes/products/optimized/lake-lubes-drums.webp",
@@ -2403,14 +2403,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-06.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/lakelubes/products/optimized/power-supreme-1l.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORE_COMPANIES"
     },
     {
       "asset": "assets/images/delivery/lakelubes/products/optimized/power-supreme-4l.webp",
@@ -2427,14 +2427,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-07.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/lakelubes/products/optimized/power-supreme-4l.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORE_COMPANIES"
     },
     {
       "asset": "assets/images/delivery/lakelubes/products/optimized/super-cool-20l.webp",
@@ -2451,14 +2451,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-07.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/lakelubes/products/optimized/super-cool-20l.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORE_COMPANIES"
     },
     {
       "asset": "assets/images/delivery/lakelubes/products/optimized/super-cool-5l.webp",
@@ -2475,14 +2475,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-07.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/lakelubes/products/optimized/super-cool-5l.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORE_COMPANIES"
     },
     {
       "asset": "assets/images/delivery/lakeoil/current/lake-energies-station-approved.webp",
@@ -2623,14 +2623,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-07.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/lakeoil/hero/lake-oil-hero-800.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORE_COMPANIES"
     },
     {
       "asset": "assets/images/delivery/lakeoil/hero/lake-oil-hero.webp",
@@ -2647,14 +2647,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-07.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/lakeoil/hero/lake-oil-hero.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORE_COMPANIES"
     },
     {
       "asset": "assets/images/delivery/lakepremix/hero/premix-trucks-hero-800.webp",
@@ -2747,14 +2747,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-07.png",
       "initialClassification": "A",
-      "currentClassification": "A",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/delivery/lakesteel/ops/hot-rolling.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORE_COMPANIES"
     },
     {
       "asset": "assets/images/delivery/lakesteel/TA/photo_1.webp",
@@ -2771,14 +2771,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-07.png",
       "initialClassification": "A",
-      "currentClassification": "A",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Current source is adequate for its rendered use.",
       "masterStatus": "ORIGINAL_SOURCE_RETAINED",
       "deliveryWebp": "assets/images/delivery/lakesteel/TA/photo_1.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORE_COMPANIES"
     },
     {
       "asset": "assets/images/delivery/lakesteel/TA/photo_13.webp",
@@ -2795,14 +2795,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-07.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/delivery/lakesteel/TA/photo_13.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORE_COMPANIES"
     },
     {
       "asset": "assets/images/delivery/laketrans/hero/lake-trans-fleet-hero-800.webp",
@@ -4055,14 +4055,14 @@
       "sharedWithProtectedPage": false,
       "visualEvidence": "docs/qa/sitewide-image-remediation/phase-00-inventory/unique-included-sheet-11.png",
       "initialClassification": "H",
-      "currentClassification": "H",
+      "currentClassification": "K",
       "brandingDecision": "No third-party brand removal required after contact-sheet review.",
       "qualityDecision": "Source-limited; retain native detail and avoid artificial enlargement.",
       "masterStatus": "SOURCE_LIMITED_NO_UPSCALE",
       "deliveryWebp": "assets/images/lakebuilding/hero/building-factory-hero-800.webp",
-      "frontendUpdated": false,
-      "renderedQa": false,
-      "finalStatus": "CLASSIFIED_PENDING_PAGE_PHASE"
+      "frontendUpdated": true,
+      "renderedQa": true,
+      "finalStatus": "COMPLETED_AND_VERIFIED_CORE_COMPANIES"
     },
     {
       "asset": "assets/images/lakebuilding/hero/building-factory-hero.webp",
