@@ -18,15 +18,19 @@
     });
   });
   const focusRatio = 0.42;
-  const smoothing = reduceMotion ? 1 : 0.09;
+  const gradientAngles = {
+    2006: 135, 2008: 72, 2010: 45, 2011: 155, 2013: 105,
+    2014: 30, 2016: 165, 2017: 25, 2018: 92, 2019: 120,
+    2020: 60, 2021: 145, 2023: 38, 2025: 112, 2026: 68,
+  };
   const state = {
     anchors: [],
+    groups: [],
     lineStart: 0,
     lineEnd: 0,
     finalNodeOffset: 0,
     nodeProgress: [],
-    targetProgress: 0,
-    renderedProgress: 0,
+    progress: 0,
     activeIndex: null,
     frame: 0,
     geometryReady: false,
@@ -34,6 +38,8 @@
   };
 
   groups.forEach((group) => {
+    const year = Number.parseInt(group.querySelector('.history-year')?.textContent || '', 10);
+    group.style.setProperty('--history-gradient-angle', `${gradientAngles[year] ?? 135}deg`);
     if (group.querySelector('.history-node')) return;
     const node = document.createElement('span');
     node.className = 'history-node';
@@ -99,19 +105,27 @@
 
   const render = () => {
     state.frame = 0;
-    const distance = state.targetProgress - state.renderedProgress;
-    state.renderedProgress = reduceMotion || Math.abs(distance) < 0.0005
-      ? state.targetProgress
-      : state.renderedProgress + distance * smoothing;
-    timeline.style.setProperty('--timeline-progress', state.renderedProgress.toFixed(5));
-    const travelled = state.renderedProgress * Math.max(1, state.lineEnd - state.lineStart);
+    const progress = readTargetProgress();
+    state.progress = progress;
+    timeline.style.setProperty('--timeline-progress', progress.toFixed(5));
+    const travelled = progress * Math.max(1, state.lineEnd - state.lineStart);
     timeline.style.setProperty('--timeline-line-height', `${Math.min(travelled, state.finalNodeOffset).toFixed(2)}px`);
     tail.style.setProperty('--timeline-tail-height', `${Math.max(0, travelled - state.finalNodeOffset).toFixed(2)}px`);
-    applyGroupState(getActiveIndex(state.renderedProgress));
+    applyGroupState(getActiveIndex(progress));
 
-    if (!reduceMotion && Math.abs(state.targetProgress - state.renderedProgress) >= 0.0005) {
-      state.frame = window.requestAnimationFrame(render);
-    }
+    state.groups.forEach(({ nodeOffset, branches }) => {
+      branches.forEach(({ path, length, reveal, startOffset, distance }) => {
+        const rawBranchProgress = clamp((travelled - nodeOffset - startOffset) / distance, 0, 1);
+        const branchProgress = reduceMotion ? (rawBranchProgress > 0 ? 1 : 0) : rawBranchProgress;
+        const revealProgressRaw = clamp((rawBranchProgress - 0.78) / 0.22, 0, 1);
+        const revealProgress = reduceMotion ? (revealProgressRaw > 0 ? 1 : 0) : revealProgressRaw;
+        path.style.setProperty('--branch-offset', `${(length * (1 - branchProgress)).toFixed(2)}`);
+        path.style.setProperty('--branch-opacity', `${(branchProgress * 0.9).toFixed(3)}`);
+        reveal.style.setProperty('--card-reveal-opacity', revealProgress.toFixed(3));
+        reveal.style.setProperty('--card-reveal-x', `${(24 * (1 - revealProgress)).toFixed(2)}px`);
+        reveal.style.setProperty('--card-reveal-scale', (0.985 + revealProgress * 0.015).toFixed(4));
+      });
+    });
   };
 
   const scheduleRender = () => {
@@ -190,6 +204,7 @@
       return anchor + window.scrollY;
     });
 
+    const groupGeometry = [];
     groups.forEach((group, index) => {
       const svg = branchSvgs[index];
       const groupRect = group.getBoundingClientRect();
@@ -200,6 +215,7 @@
       if (!nodeRect || !cards.length) return;
       const sx = nodeRect.left + nodeRect.width / 2 - groupRect.left;
       const sy = nodeRect.top + nodeRect.height / 2 - groupRect.top;
+      const branches = [];
       cards.forEach((card, cardIndex) => {
         const cardBox = getLayoutBox(card, group);
         const ex = cardBox.left;
@@ -218,13 +234,21 @@
         const controlTwoY = ey - arrivalLift;
         path.setAttribute('d', `M ${sx.toFixed(1)} ${sy.toFixed(1)} C ${controlOneX.toFixed(1)} ${controlOneY.toFixed(1)}, ${controlTwoX.toFixed(1)} ${controlTwoY.toFixed(1)}, ${ex.toFixed(1)} ${ey.toFixed(1)}`);
         path.classList.add('history-branch');
-        const branchDelay = cardIndex * 130;
-        path.style.setProperty('--branch-delay', `${branchDelay}ms`);
         svg.append(path);
-        requestAnimationFrame(() => path.style.setProperty('--branch-length', `${Math.ceil(path.getTotalLength())}`));
         const reveal = card.parentElement;
-        if (reveal) reveal.style.setProperty('--card-reveal-delay', `${branchDelay + 740}ms`);
+        if (!reveal) return;
+        const length = Math.ceil(path.getTotalLength());
+        path.style.setProperty('--branch-length', `${length}`);
+        path.style.setProperty('--branch-offset', `${length}`);
+        branches.push({
+          path,
+          length,
+          reveal,
+          startOffset: cardIndex * 14,
+          distance: clamp(86 + Math.abs(dy) * 0.06, 86, 124),
+        });
       });
+      groupGeometry[index] = { nodeOffset: anchors[index] - timelineDocumentTop - Math.max(0, anchors[0] - timelineDocumentTop - 72), branches };
     });
 
     const tailLength = Math.max(96, Math.min(160, window.innerHeight * 0.16));
@@ -244,17 +268,13 @@
     state.lineEnd = end;
     state.finalNodeOffset = finalAnchor - start;
     state.nodeProgress = anchors.map((anchor) => clamp((anchor - state.lineStart) / Math.max(1, state.lineEnd - state.lineStart), 0, 1));
+    state.groups = groupGeometry.filter(Boolean);
     state.geometryReady = true;
-    state.targetProgress = readTargetProgress();
-    if (!state.initialized) {
-      state.renderedProgress = state.targetProgress;
-      state.initialized = true;
-    }
+    state.initialized = true;
     scheduleRender();
   };
 
   const onScroll = () => {
-    state.targetProgress = readTargetProgress();
     scheduleRender();
   };
 

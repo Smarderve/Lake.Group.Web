@@ -1,0 +1,495 @@
+{
+  "generatedAt": "2026-09-11T04:46:57.816Z",
+  "assertions": {
+    "allBreakpoints": true,
+    "gradients": true,
+    "direct2019Branches": true,
+    "slowProgressive": true,
+    "fastImmediate": true,
+    "reverseWorks": true,
+    "noCatchUpAfterStop": true,
+    "noCardScrollListeners": true,
+    "reducedMotion": true,
+    "sourceArchitecture": true
+  },
+  "sourceArchitecture": {
+    "oneScrollListener": true,
+    "noTimersOrObservers": true,
+    "noLaggingTargetState": true,
+    "noTimedRevealCss": true
+  },
+  "reducedMotionState": {
+    "revealTransform": "none",
+    "branchTransition": "0.001s"
+  },
+  "expectedAngles": {
+    "2006": 135,
+    "2008": 72,
+    "2010": 45,
+    "2011": 155,
+    "2013": 105,
+    "2014": 30,
+    "2016": 165,
+    "2017": 25,
+    "2018": 92,
+    "2019": 120,
+    "2020": 60,
+    "2021": 145,
+    "2023": 38,
+    "2025": 112,
+    "2026": 68
+  },
+  "beforeSlow": {
+    "scrollY": 3692,
+    "lineError": 0.003125000000181899,
+    "nodeReached": false,
+    "classes": "history-year-group is-future",
+    "branchProgress": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cardProgress": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "slowSamples": [
+    {
+      "scrollY": 3711,
+      "lineError": 0.003125000000181899,
+      "nodeReached": true,
+      "classes": "history-year-group is-active",
+      "branchProgress": [
+        0.197,
+        0.037,
+        0,
+        0,
+        0
+      ],
+      "cardProgress": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "scrollY": 3729,
+      "lineError": 0.003125000000181899,
+      "nodeReached": true,
+      "classes": "history-year-group is-active",
+      "branchProgress": [
+        0.399,
+        0.22,
+        0.071,
+        0,
+        0
+      ],
+      "cardProgress": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "scrollY": 3747,
+      "lineError": 0.003125000000181899,
+      "nodeReached": true,
+      "classes": "history-year-group is-active",
+      "branchProgress": [
+        0.601,
+        0.404,
+        0.239,
+        0.1,
+        0
+      ],
+      "cardProgress": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "scrollY": 3765,
+      "lineError": 0.003125000000181899,
+      "nodeReached": true,
+      "classes": "history-year-group is-active",
+      "branchProgress": [
+        0.802,
+        0.587,
+        0.408,
+        0.256,
+        0.126
+      ],
+      "cardProgress": [
+        0.102,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "scrollY": 3783,
+      "lineError": 0.003125000000181899,
+      "nodeReached": true,
+      "classes": "history-year-group is-active",
+      "branchProgress": [
+        1,
+        0.771,
+        0.576,
+        0.411,
+        0.271
+      ],
+      "cardProgress": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "scrollY": 3801,
+      "lineError": 0.003125000000181899,
+      "nodeReached": true,
+      "classes": "history-year-group is-active",
+      "branchProgress": [
+        1,
+        0.954,
+        0.744,
+        0.566,
+        0.417
+      ],
+      "cardProgress": [
+        1,
+        0.791,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "scrollY": 3819,
+      "lineError": 0.003125000000181899,
+      "nodeReached": true,
+      "classes": "history-year-group is-active",
+      "branchProgress": [
+        1,
+        1,
+        0.913,
+        0.722,
+        0.562
+      ],
+      "cardProgress": [
+        1,
+        1,
+        0.604,
+        0,
+        0
+      ]
+    },
+    {
+      "scrollY": 3837,
+      "lineError": 0.003125000000181899,
+      "nodeReached": true,
+      "classes": "history-year-group is-active",
+      "branchProgress": [
+        1,
+        1,
+        1,
+        0.877,
+        0.707
+      ],
+      "cardProgress": [
+        1,
+        1,
+        1,
+        0.442,
+        0
+      ]
+    },
+    {
+      "scrollY": 3855,
+      "lineError": 0.003125000000181899,
+      "nodeReached": true,
+      "classes": "history-year-group is-active",
+      "branchProgress": [
+        1,
+        1,
+        1,
+        1,
+        0.853
+      ],
+      "cardProgress": [
+        1,
+        1,
+        1,
+        1,
+        0.33
+      ]
+    },
+    {
+      "scrollY": 3873,
+      "lineError": 0.003125000000181899,
+      "nodeReached": true,
+      "classes": "history-year-group is-active",
+      "branchProgress": [
+        1,
+        1,
+        1,
+        1,
+        0.998
+      ],
+      "cardProgress": [
+        1,
+        1,
+        1,
+        1,
+        0.991
+      ]
+    }
+  ],
+  "fastStop": {
+    "scrollY": 4510,
+    "lineError": 0.003125000000181899,
+    "nodeReached": false,
+    "classes": "history-year-group is-future",
+    "branchProgress": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "cardProgress": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "reverseBefore": {
+    "scrollY": 4674,
+    "lineError": 0.003125000000181899,
+    "nodeReached": true,
+    "classes": "history-year-group is-active",
+    "branchProgress": [
+      1,
+      1,
+      1
+    ],
+    "cardProgress": [
+      1,
+      1,
+      1
+    ]
+  },
+  "reverseAfter": {
+    "scrollY": 4517,
+    "lineError": 0.003125000000181899,
+    "nodeReached": false,
+    "classes": "history-year-group is-future",
+    "branchProgress": [
+      0,
+      0,
+      0
+    ],
+    "cardProgress": [
+      0,
+      0,
+      0
+    ]
+  },
+  "stopState": {
+    "first": {
+      "scrollY": 3795,
+      "lineError": 0.003125000000181899,
+      "nodeReached": true,
+      "classes": "history-year-group is-active",
+      "branchProgress": [
+        1,
+        0.893,
+        0.688,
+        0.515,
+        0.368
+      ],
+      "cardProgress": [
+        1,
+        0.513,
+        0,
+        0,
+        0
+      ]
+    },
+    "second": {
+      "scrollY": 3795,
+      "lineError": 0.003125000000181899,
+      "nodeReached": true,
+      "classes": "history-year-group is-active",
+      "branchProgress": [
+        1,
+        0.893,
+        0.688,
+        0.515,
+        0.368
+      ],
+      "cardProgress": [
+        1,
+        0.513,
+        0,
+        0,
+        0
+      ]
+    },
+    "unchanged": true
+  },
+  "breakpointResults": [
+    {
+      "width": 390,
+      "height": 844,
+      "errors": [],
+      "groupCount": 15,
+      "branchCount": 35,
+      "wrapperCount": 35,
+      "cardCount": 35,
+      "yearAnglesMatch": true,
+      "historicalGradientColorsValid": true,
+      "upcomingPreserved": true,
+      "direct2019Branches": true,
+      "five2019Branches": true,
+      "scrollListenersPerCard": true
+    },
+    {
+      "width": 430,
+      "height": 900,
+      "errors": [],
+      "groupCount": 15,
+      "branchCount": 35,
+      "wrapperCount": 35,
+      "cardCount": 35,
+      "yearAnglesMatch": true,
+      "historicalGradientColorsValid": true,
+      "upcomingPreserved": true,
+      "direct2019Branches": true,
+      "five2019Branches": true,
+      "scrollListenersPerCard": true
+    },
+    {
+      "width": 768,
+      "height": 950,
+      "errors": [],
+      "groupCount": 15,
+      "branchCount": 35,
+      "wrapperCount": 35,
+      "cardCount": 35,
+      "yearAnglesMatch": true,
+      "historicalGradientColorsValid": true,
+      "upcomingPreserved": true,
+      "direct2019Branches": true,
+      "five2019Branches": true,
+      "scrollListenersPerCard": true
+    },
+    {
+      "width": 1024,
+      "height": 1000,
+      "errors": [],
+      "groupCount": 15,
+      "branchCount": 35,
+      "wrapperCount": 35,
+      "cardCount": 35,
+      "yearAnglesMatch": true,
+      "historicalGradientColorsValid": true,
+      "upcomingPreserved": true,
+      "direct2019Branches": true,
+      "five2019Branches": true,
+      "scrollListenersPerCard": true
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "errors": [],
+      "groupCount": 15,
+      "branchCount": 35,
+      "wrapperCount": 35,
+      "cardCount": 35,
+      "yearAnglesMatch": true,
+      "historicalGradientColorsValid": true,
+      "upcomingPreserved": true,
+      "direct2019Branches": true,
+      "five2019Branches": true,
+      "scrollListenersPerCard": true
+    },
+    {
+      "width": 1366,
+      "height": 900,
+      "errors": [],
+      "groupCount": 15,
+      "branchCount": 35,
+      "wrapperCount": 35,
+      "cardCount": 35,
+      "yearAnglesMatch": true,
+      "historicalGradientColorsValid": true,
+      "upcomingPreserved": true,
+      "direct2019Branches": true,
+      "five2019Branches": true,
+      "scrollListenersPerCard": true
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "errors": [],
+      "groupCount": 15,
+      "branchCount": 35,
+      "wrapperCount": 35,
+      "cardCount": 35,
+      "yearAnglesMatch": true,
+      "historicalGradientColorsValid": true,
+      "upcomingPreserved": true,
+      "direct2019Branches": true,
+      "five2019Branches": true,
+      "scrollListenersPerCard": true
+    },
+    {
+      "width": 1536,
+      "height": 960,
+      "errors": [],
+      "groupCount": 15,
+      "branchCount": 35,
+      "wrapperCount": 35,
+      "cardCount": 35,
+      "yearAnglesMatch": true,
+      "historicalGradientColorsValid": true,
+      "upcomingPreserved": true,
+      "direct2019Branches": true,
+      "five2019Branches": true,
+      "scrollListenersPerCard": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "errors": [],
+      "groupCount": 15,
+      "branchCount": 35,
+      "wrapperCount": 35,
+      "cardCount": 35,
+      "yearAnglesMatch": true,
+      "historicalGradientColorsValid": true,
+      "upcomingPreserved": true,
+      "direct2019Branches": true,
+      "five2019Branches": true,
+      "scrollListenersPerCard": true
+    }
+  ],
+  "recordingBytes": 1248546
+}
