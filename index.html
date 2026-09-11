@@ -1371,8 +1371,8 @@
       height: 640px;
       min-height: 640px;
       align-self: stretch;
-      background: var(--blue3);
-      border-radius: var(--radius-lg);
+      background: transparent;
+      border-radius: 0;
       overflow: visible;
       box-shadow: none;
     }
@@ -1388,7 +1388,7 @@
         border-radius: 0;
         margin: 0;
         width: 100%;
-        background: var(--blue3);
+        background: transparent;
         box-shadow: none;
         border: none;
         overflow: hidden;
@@ -1417,33 +1417,11 @@
       min-height: 100%;
       overflow: visible;
       isolation: isolate;
-      background: radial-gradient(circle at 50% 46%, #0a2131 0, #04121e 43%, #020911 74%, #01070d 100%);
+      background: transparent;
     }
 
     #hero-globe-root > .experience::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      opacity: .32;
-      background-image: radial-gradient(circle, rgba(255,255,255,.38) 0 1px, transparent 1.2px);
-      background-size: 147px 139px;
-      background-position: 31px 19px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,.6), transparent 72%);
-    }
-
-    #hero-globe-root .planet-halo {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: min(78vh, 72vw);
-      aspect-ratio: 1;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(36,107,145,.12), rgba(8,38,58,.08) 56%, transparent 72%);
-      filter: blur(24px);
-      pointer-events: none;
+      content: none;
     }
 
     #hero-globe-root canvas {
@@ -1452,6 +1430,13 @@
       inset: 0;
       width: 100% !important;
       height: 100% !important;
+      background: transparent !important;
+      cursor: grab;
+      touch-action: pan-y;
+    }
+
+    #hero-globe-root canvas.is-dragging {
+      cursor: grabbing;
     }
 
     #hero-globe-root .leaders,
@@ -1512,9 +1497,8 @@
       #hero-globe-root { overflow: hidden; }
       #hero-globe-root > .experience {
         overflow: hidden;
-        background: radial-gradient(circle at 50% 46%, #0a2131 0, #04121e 44%, #01070d 82%);
+        background: transparent;
       }
-      #hero-globe-root .planet-halo { width: 112vw; }
       #hero-globe-root .map-label {
         font-size: 9px;
         gap: 5px;
@@ -2220,14 +2204,22 @@
       }
 
       .cta-band {
-        padding: 44px 0;
+        padding: 48px 0;
       }
 
-      .cta-inner {
-        flex-direction: column;
-        align-items: stretch;
-        text-align: center;
-        gap: 16px;
+      .cta-band .cta-inner {
+        display: grid;
+        grid-template-columns: 1fr;
+        text-align: left;
+        gap: 20px;
+      }
+
+      .cta-band .cta-inner h2 {
+        max-width: none;
+      }
+
+      .cta-band .cta-inner > div:last-child {
+        justify-self: start;
       }
     }
 
@@ -2255,28 +2247,29 @@
     /* CTA BAND */
     .cta-band {
       background: var(--yellow);
-      padding: 60px 0;
+      padding: 70px 0;
     }
 
     .cta-inner {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr auto;
       align-items: center;
-      justify-content: space-between;
-      gap: 28px;
-      flex-wrap: wrap;
+      gap: 32px;
     }
 
     .cta-inner h2 {
       font-family: var(--font-display);
-      font-size: var(--fs-display);
+      font-size: clamp(32px, 3.2vw, 52px);
       color: var(--blue);
       letter-spacing: var(--display-letter-spacing, -0.01em);
-      line-height: var(--display-line-height, 1.05);
+      line-height: var(--display-line-height, 1.1);
+      max-width: 700px;
     }
 
     .cta-inner p {
       color: rgba(1, 63, 92, 0.6);
-      margin-top: 4px;
+      margin-top: 12px;
+      max-width: 560px;
     }
 
     .has-dropdown {
@@ -2789,7 +2782,7 @@
     <div class="container">
       <div class="cta-inner">
         <div>
-          <h2 data-i18n="index.76">Partnership begins with a conversation. Get in touch</h2>
+          <h2 data-i18n="index.76">Partnership begins with a conversation. <span style="white-space:nowrap">Get in touch</span></h2>
           <p data-i18n="index.77">
             Talk to our team about fuel supply, logistics, or any of our
             services across East Africa.
@@ -2921,7 +2914,7 @@
             load();
           }
         },
-        { rootMargin: window.innerWidth < 600 ? "0px 0px 480px 0px" : "0px" },
+        { rootMargin: window.innerWidth < 600 ? "0px 0px 520px 0px" : "640px 0px" },
       );
       io.observe(section);
     })();
