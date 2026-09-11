@@ -206,12 +206,8 @@ img { max-width: 100%; }
 }
 .fs-on-dark .fs-eyebrow, .fs-eyebrow.on-dark { color: var(--gold); }
 
-.fs-rule { /* full hairline with seated tick */
+.fs-rule { /* full hairline; decorative seated tick removed */
   position: relative; height: 1px; background: var(--line); border: 0;
-}
-.fs-rule::before {
-  content: ''; position: absolute; left: 0; top: -3.5px;
-  width: 8px; height: 8px; background: var(--gold);
 }
 .fs-on-dark .fs-rule, .fs-rule.on-dark { background: var(--ink-line); }
 

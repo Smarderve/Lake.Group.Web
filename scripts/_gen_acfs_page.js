@@ -52,9 +52,7 @@ const page = `<!DOCTYPE html>
    composes generic company-profile widgets reused across all /company pages.
    ========================================================================== */
 .fs-check{list-style:none;display:flex;flex-direction:column;margin-top:var(--sp-6)}
-.fs-check li{display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line-2);font-size:.95rem;color:var(--mute);line-height:1.65}
-.fs-check li:first-child{border-top:1px solid var(--line-2)}
-.fs-check li span:first-child{color:var(--gold-deep);font-weight:700;flex:none}
+.fs-check li{position:relative;padding:9px 0 9px 18px;font-size:.95rem;color:var(--mute);line-height:1.65}
 
 .co-logo-row{display:flex;align-items:center;gap:var(--sp-5);margin-bottom:var(--sp-6);flex-wrap:wrap}
 .co-logo-row img{height:48px;width:auto;max-width:160px;object-fit:contain;background:transparent;border:none;padding:0;border-radius:0}
@@ -222,7 +220,7 @@ ${nav}
 
 <div class="page-wrapper">
 <section class="page-hero">
-  <div class="hero-media" style="background-image:url('assets/images/acfs/TA/photo_1.jpg')" aria-hidden="true"></div>
+  <div class="hero-media" style="background-image:url('assets/images/acfs/TA/photo_1.webp')" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container">
     <nav class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span>/</span><span>Logistics</span><span>/</span><span>ACFS</span></nav>
@@ -243,11 +241,11 @@ ${nav}
         <p class="fs-lede">ACFS (African Cargo Freight Station) is Lake Group's container freight station and empty container depot, providing CFS and Empty Container Depot services at Tazara, Pugu Road — one of the fastest growing companies of the Lake Group in Tanzania.</p>
         <p style="margin-top:14px">Located on the main Pugu Road highway in Dar es Salaam, ACFS combines location, rail link and its own transport facility to offer storage, stacking and transportation of empty containers to the port, other ICDs, CFS and client premises — serving shipping lines including COSCO, RAIS Shipping Line and Coral Shipping Line.</p>
         <ul class="fs-check">
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Container Freight Station (CFS) services</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Empty container depot storage and stacking</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Transportation of empty containers to port and client premises</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Rail-linked operations on the Tazara corridor</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Round-the-clock security and container inspection</li>
+          <li>Container Freight Station (CFS) services</li>
+          <li>Empty container depot storage and stacking</li>
+          <li>Transportation of empty containers to port and client premises</li>
+          <li>Rail-linked operations on the Tazara corridor</li>
+          <li>Round-the-clock security and container inspection</li>
         </ul>
       </div>
       <div>
@@ -359,11 +357,11 @@ ${nav}
     <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Gallery</h2>
     <div class="co-gal" aria-label="ACFS operations gallery">
       <figure class="co-gal__item co-gal__item--feat">
-        <img src="assets/images/acfs/TA/photo_1.jpg" alt="ACFS container freight station" loading="lazy" decoding="async">
+        <img src="assets/images/acfs/TA/photo_1.webp" alt="ACFS container freight station" loading="lazy" decoding="async">
         <figcaption class="co-gal__cap">container freight station</figcaption>
       </figure>
       <figure class="co-gal__item">
-        <img src="assets/images/acfs/TA/photo_2.jpg" alt="ACFS empty container depot" loading="lazy" decoding="async">
+        <img src="assets/images/acfs/TA/photo_2.webp" alt="ACFS empty container depot" loading="lazy" decoding="async">
         <figcaption class="co-gal__cap">empty container depot</figcaption>
       </figure>
       <figure class="co-gal__item">
@@ -383,7 +381,7 @@ ${nav}
         <figcaption class="co-gal__cap">rail-linked terminal</figcaption>
       </figure>
       <figure class="co-gal__item">
-        <img src="assets/images/acfs/TA/photo_8.jpg" alt="ACFS yard at Tazara, Pugu Road" loading="lazy" decoding="async">
+        <img src="assets/images/acfs/TA/photo_8.webp" alt="ACFS yard at Tazara, Pugu Road" loading="lazy" decoding="async">
         <figcaption class="co-gal__cap">yard at Tazara</figcaption>
       </figure>
     </div>

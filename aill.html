@@ -17,9 +17,7 @@
    composes generic company-profile widgets reused across all /company pages.
    ========================================================================== */
 .fs-check{list-style:none;display:flex;flex-direction:column;margin-top:var(--sp-6)}
-.fs-check li{display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line-2);font-size:.95rem;color:var(--mute);line-height:1.65}
-.fs-check li:first-child{border-top:1px solid var(--line-2)}
-.fs-check li span:first-child{color:var(--gold-deep);font-weight:700;flex:none}
+.fs-check li{position:relative;padding:9px 0 9px 18px;font-size:.95rem;color:var(--mute);line-height:1.65}
 
 .co-logo-row{display:flex;align-items:center;gap:var(--sp-5);margin-bottom:var(--sp-6);flex-wrap:wrap}
 .co-logo-row img{height:48px;width:auto;max-width:160px;object-fit:contain;background:transparent;border:none;padding:0;border-radius:0}
@@ -213,13 +211,13 @@
         <p style="margin-top:14px">AILL coordinates the cargo journey from vessel discharge and port handling through clearance, transport, storage, processing and final border or port delivery. Strategically located facilities, dedicated equipment, rail capability and experienced teams support the safe, efficient movement of high-volume cargo across the region.</p>
         <p style="margin-top:14px"><strong style="color:var(--text)">Integrated Logistics. Operational Excellence. Regional Connectivity.</strong> AILL and its Group company's ICD/CFS operations extend across Tanzania, Zambia and Mozambique, supported by Lake Group's wider regional network.</p>
         <ul class="fs-check">
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Port handling and vessel-to-inland coordination</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Warehousing and secure open-yard storage</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Bagging, stuffing and de-stuffing operations</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Customs clearance and compliance support</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Road and rail transportation</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Bulk, break-bulk and containerized cargo (stuffing &amp; de-stuffing)</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Sulphur, copper, lithium and other bulk &amp; bagged products</li>
+          <li>Port handling and vessel-to-inland coordination</li>
+          <li>Warehousing and secure open-yard storage</li>
+          <li>Bagging, stuffing and de-stuffing operations</li>
+          <li>Customs clearance and compliance support</li>
+          <li>Road and rail transportation</li>
+          <li>Bulk, break-bulk and containerized cargo (stuffing &amp; de-stuffing)</li>
+          <li>Sulphur, copper, lithium and other bulk &amp; bagged products</li>
         </ul>
       </div>
       <div class="aill-intro-media" style="margin:0;overflow:hidden;background:var(--ink)"><img src="assets/images/delivery/home/verticals/logistics.webp" alt="Cargo logistics operations supporting regional movement" loading="lazy" decoding="async" style="display:block;width:100%;height:100%;object-fit:cover"></div>

@@ -17,9 +17,7 @@
    composes generic company-profile widgets reused across all /company pages.
    ========================================================================== */
 .fs-check{list-style:none;display:flex;flex-direction:column;margin-top:var(--sp-6)}
-.fs-check li{display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line-2);font-size:.95rem;color:var(--mute);line-height:1.65}
-.fs-check li:first-child{border-top:1px solid var(--line-2)}
-.fs-check li span:first-child{color:var(--gold-deep);font-weight:700;flex:none}
+.fs-check li{position:relative;padding:9px 0 9px 18px;font-size:.95rem;color:var(--mute);line-height:1.65}
 
 .co-logo-row{display:flex;align-items:center;gap:var(--sp-5);margin-bottom:var(--sp-6);flex-wrap:wrap}
 .co-logo-row img{height:48px;width:auto;max-width:160px;object-fit:contain;background:transparent;border:none;padding:0;border-radius:0}
@@ -132,8 +130,7 @@
 .aficd-cap h3{font-family:var(--font-display);font-size:1.05rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text);margin-bottom:8px}
 .aficd-cap p{font-size:.9rem;line-height:1.65;color:var(--muted)}
 .aficd-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 30px;list-style:none;margin:var(--sp-6) 0 0;padding:0}
-.aficd-list li{padding:13px 0;border-bottom:1px solid var(--line-2);color:var(--muted);line-height:1.55;position:relative;padding-left:20px}
-.aficd-list li::before{content:'✓';position:absolute;left:0;color:var(--gold-deep);font-weight:800}
+.aficd-list li{position:relative;padding:9px 0 9px 18px;color:var(--muted);line-height:1.55}
 .aficd-portfolio{display:flex;flex-wrap:wrap;gap:9px;margin-top:var(--sp-5)}
 .aficd-portfolio span{padding:8px 11px;border:1px solid var(--ink-line-2);color:var(--ink-mute);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
 .aficd-values{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--sp-4);margin-top:var(--sp-8)}
@@ -330,11 +327,11 @@
         <p style="margin-top:14px">Strategically positioned along key trade corridors and port gateways, AFICD delivers Inland Container Depot (ICD), Container Freight Station (CFS), Empty Container Depot (ECD), bonded warehousing and cargo-handling services that support the seamless movement of import and export cargo.</p>
         <p style="margin-top:14px">Backed by Lake Group's extensive logistics network, AFICD continues to invest in infrastructure, technology and capacity expansion to meet the evolving needs of customers and the growing demands of regional and international trade.</p>
         <ul class="fs-check">
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Inland Container Depot (ICD), Container Freight Station (CFS) and Empty Container Depot (ECD)</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Bonded warehousing and cargo-handling services</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Serving shipping lines, manufacturers, traders and logistics partners</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Improving cargo flow and optimizing supply-chain performance</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Enhancing regional trade connectivity</li>
+          <li>Inland Container Depot (ICD), Container Freight Station (CFS) and Empty Container Depot (ECD)</li>
+          <li>Bonded warehousing and cargo-handling services</li>
+          <li>Serving shipping lines, manufacturers, traders and logistics partners</li>
+          <li>Improving cargo flow and optimizing supply-chain performance</li>
+          <li>Enhancing regional trade connectivity</li>
         </ul>
       </div>
       <div>

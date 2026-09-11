@@ -17,9 +17,7 @@
    composes generic company-profile widgets reused across all /company pages.
    ========================================================================== */
 .fs-check{list-style:none;display:flex;flex-direction:column;margin-top:var(--sp-6)}
-.fs-check li{display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line-2);font-size:.95rem;color:var(--mute);line-height:1.65}
-.fs-check li:first-child{border-top:1px solid var(--line-2)}
-.fs-check li span:first-child{color:var(--gold-deep);font-weight:700;flex:none}
+.fs-check li{position:relative;padding:9px 0 9px 18px;font-size:.95rem;color:var(--mute);line-height:1.65}
 
 .co-logo-row{display:flex;align-items:center;gap:var(--sp-5);margin-bottom:var(--sp-6);flex-wrap:wrap}
 .co-logo-row img{height:48px;width:auto;max-width:160px;object-fit:contain;background:transparent;border:none;padding:0;border-radius:0}
@@ -94,12 +92,6 @@ body[data-company-logo*="lake-cylinders"] .page-hero .hero-media{
 }
 .fs-on-dark .val-mini-tile p {
   color: rgba(255,255,255,0.7) !important;
-}
-.fs-on-dark .fs-check li {
-  border-bottom-color: rgba(255,255,255,0.15) !important;
-}
-.fs-on-dark .fs-check li:first-child {
-  border-top-color: rgba(255,255,255,0.15) !important;
 }
 .fs-on-dark .val-mini-tile {
   border-color: rgba(255,255,255,0.15) !important;
@@ -287,11 +279,11 @@ body[data-company-logo*="lake-cylinders"] .page-hero .hero-media{
         <p class="fs-lede">Lake Cylinders Limited is a specialized LPG cylinder manufacturing company and part of the Lake Group, established to support the growing demand for safe, reliable and high-quality LPG solutions in Tanzania and the wider East African market.</p>
         <p style="margin-top:14px">Based in Tanzania, Lake Cylinders operates a dedicated manufacturing facility for the production of LPG cylinders, supported by modern manufacturing processes, quality control systems and experienced technical personnel. The company focuses on producing durable cylinders that meet applicable safety and quality requirements while maintaining consistent manufacturing standards.</p>
         <ul class="fs-check">
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>LPG cylinder manufacturing for domestic, commercial and industrial use</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Production meeting applicable safety and quality standards</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Strengthening the local LPG value chain with locally manufactured cylinders</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Manufacturing excellence with quality testing protocols</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Supporting the expansion of clean and accessible LPG energy solutions</li>
+          <li>LPG cylinder manufacturing for domestic, commercial and industrial use</li>
+          <li>Production meeting applicable safety and quality standards</li>
+          <li>Strengthening the local LPG value chain with locally manufactured cylinders</li>
+          <li>Manufacturing excellence with quality testing protocols</li>
+          <li>Supporting the expansion of clean and accessible LPG energy solutions</li>
         </ul>
       </div>
       <div>
@@ -340,18 +332,18 @@ body[data-company-logo*="lake-cylinders"] .page-hero .hero-media{
       <h3 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Company Objectives</h3>
       <div class="fs-split-even" style="align-items:start">
         <ul class="fs-check" style="margin-top:0">
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Increase LPG adoption through safe and reliable cylinder availability</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Expand manufacturing capacity for Tanzania and East Africa</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Maintain high quality and safety standards throughout production</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Improve customer satisfaction through reliable products and responsive service</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Improve production efficiency and reduce material waste</li>
+          <li>Increase LPG adoption through safe and reliable cylinder availability</li>
+          <li>Expand manufacturing capacity for Tanzania and East Africa</li>
+          <li>Maintain high quality and safety standards throughout production</li>
+          <li>Improve customer satisfaction through reliable products and responsive service</li>
+          <li>Improve production efficiency and reduce material waste</li>
         </ul>
         <ul class="fs-check" style="margin-top:0">
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Develop technical skills and a strong safety culture</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Strengthen local manufacturing and reduce dependence on imports where locally produced alternatives meet requirements</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Expand the product portfolio for different LPG applications</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Build a trusted regional presence across East Africa</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Support sustainable energy solutions and Tanzania's industrial development</li>
+          <li>Develop technical skills and a strong safety culture</li>
+          <li>Strengthen local manufacturing and reduce dependence on imports where locally produced alternatives meet requirements</li>
+          <li>Expand the product portfolio for different LPG applications</li>
+          <li>Build a trusted regional presence across East Africa</li>
+          <li>Support sustainable energy solutions and Tanzania's industrial development</li>
         </ul>
       </div>
     </div>
@@ -377,12 +369,12 @@ body[data-company-logo*="lake-cylinders"] .page-hero .hero-media{
       <div>
         <h3 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.15rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:12px">Ongoing &amp; Future Projects</h3>
         <ul class="fs-check" style="margin-top:0">
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Expansion of LPG cylinder production capacity to meet growing demand</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Entry into 38 kg cylinder manufacturing with dedicated equipment</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Expansion of 15 kg cylinder production alongside 6 kg capability</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Growth of cylinder revalidation and refurbishment operations</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Development of a highly automated manufacturing facility, with automation introduced progressively across production processes</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Regional market expansion across East and Central Africa</li>
+          <li>Expansion of LPG cylinder production capacity to meet growing demand</li>
+          <li>Entry into 38 kg cylinder manufacturing with dedicated equipment</li>
+          <li>Expansion of 15 kg cylinder production alongside 6 kg capability</li>
+          <li>Growth of cylinder revalidation and refurbishment operations</li>
+          <li>Development of a highly automated manufacturing facility, with automation introduced progressively across production processes</li>
+          <li>Regional market expansion across East and Central Africa</li>
         </ul>
       </div>
     </div>

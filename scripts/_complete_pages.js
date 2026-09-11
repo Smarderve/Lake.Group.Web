@@ -39,7 +39,7 @@ const companies = {
     operations: [
       { country: 'Tanzania', entity: 'Lake Aviation' }
     ],
-    heroImg: "assets/images/banner/LakeOil1.jpg?v=81"
+    heroImg: "assets/images/banner/LakeOil1.webp?v=81"
   },
 
   'lake-buildings.html': {
@@ -203,7 +203,7 @@ const companies = {
     operations: [
       { country: 'Tanzania', entity: 'Cross Country' }
     ],
-    heroImg: "assets/images/merm/photo_1.jpg"
+    heroImg: "assets/images/merm/photo_1.webp"
   },
 
   'ocean-galleria.html': {
@@ -244,13 +244,13 @@ const companies = {
     operations: [
       { country: 'Tanzania', entity: 'Ocean Galleria' }
     ],
-    heroImg: "assets/images/merm/photo_2.jpg"
+    heroImg: "assets/images/merm/photo_2.webp"
   }
 };
 
 // Build page-wrapper content
 function build(co) {
-  const chk = co.introChecks.map(c => `<li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>${c}</li>`).join(EOL + '          ');
+  const chk = co.introChecks.map(c => `<li>${c}</li>`).join(EOL + '          ');
   const ops = co.operations.map(o => {
     const cc = o.country.toLowerCase() === 'tanzania' ? 'tz' : o.country.toLowerCase() === 'kenya' ? 'ke' : o.country.toLowerCase() === 'zambia' ? 'zm' : o.country.toLowerCase() === 'burundi' ? 'bi' : 'cd';
     return `<div class="info-row"><span><img src="assets/images/flags/${cc}.svg" alt="" class="flag-icon" width="20" height="15" loading="lazy" decoding="async"> ${o.country}</span><span class="badge badge-yellow">${o.entity}</span></div>`;

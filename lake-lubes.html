@@ -17,9 +17,7 @@
    composes generic company-profile widgets reused across all /company pages.
    ========================================================================== */
 .fs-check{list-style:none;display:flex;flex-direction:column;margin-top:var(--sp-6)}
-.fs-check li{display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line-2);font-size:.95rem;color:var(--mute);line-height:1.65}
-.fs-check li:first-child{border-top:1px solid var(--line-2)}
-.fs-check li span:first-child{color:var(--gold-deep);font-weight:700;flex:none}
+.fs-check li{position:relative;padding:9px 0 9px 18px;font-size:.95rem;color:var(--mute);line-height:1.65}
 
 .co-logo-row{display:flex;align-items:center;gap:var(--sp-5);margin-bottom:var(--sp-6);flex-wrap:wrap}
 .co-logo-row img{height:48px;width:auto;max-width:160px;object-fit:contain;background:transparent;border:none;padding:0;border-radius:0}
@@ -68,8 +66,7 @@ body[data-company-logo] .page-hero.lubes-hero .hero-overlay{background:linear-gr
 .lubes-intro-panel .stat-grid2{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px}
 .lubes-intro-panel .stat-tile2{min-width:0}
 .lubes-objectives{color:rgba(255,255,255,.92)}
-.lubes-objectives .fs-check li{color:rgba(255,255,255,.92);border-color:rgba(255,255,255,.16)}
-.lubes-objectives .fs-check li span:first-child{color:var(--gold)}
+
 .lubes-objectives .fs-check{margin-top:0}
 .lubes-intro-section .fs-split-even>div:first-child{text-align:left}
 .lubes-intro-section .fs-split-even>div:first-child .fs-display,
@@ -226,11 +223,11 @@ body[data-company-logo] .page-hero.lubes-hero .hero-overlay{background:linear-gr
         <p class="fs-lede">Lake Lubes Ltd is a specialized lubricant and grease manufacturing company and part of the Lake Group, established in 2016 to support the growing demand for high-quality automotive, industrial and specialty lubricants in Tanzania and the wider East African market.</p>
         <p style="margin-top:14px">Lake Lubes operates a fully integrated Lube Oil Blending Plant (LOBP), supported by modern blending technology, strict quality control systems and experienced technical personnel.</p>
         <ul class="fs-check">
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>4.2 million litres of base-oil storage capacity</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>10 blenders with combined capacity of 54,000 litres per day</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Dedicated blender for coolant manufacturing</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>In-house jerry cans from 250 ml to 20 litres</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>In-house laboratory quality control across blending, filling and packaging</li>
+          <li>4.2 million litres of base-oil storage capacity</li>
+          <li>10 blenders with combined capacity of 54,000 litres per day</li>
+          <li>Dedicated blender for coolant manufacturing</li>
+          <li>In-house jerry cans from 250 ml to 20 litres</li>
+          <li>In-house laboratory quality control across blending, filling and packaging</li>
         </ul>
       </div>
       <div>
@@ -273,12 +270,12 @@ body[data-company-logo] .page-hero.lubes-hero .hero-overlay{background:linear-gr
       <h3 style="color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px">Company Objectives</h3>
       <div class="grid-2" style="gap:var(--sp-5)">
         <ul class="fs-check">
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Maintain high quality and safety standards throughout blending, filling and packaging, backed by our in-house laboratory</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Strengthen self-reliant packaging, supplying jerry cans from 250 ml to 20 litres without third-party dependence</li>
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Build a strong regional presence across East Africa, leveraging the Lake Group network</li>
+          <li>Maintain high quality and safety standards throughout blending, filling and packaging, backed by our in-house laboratory</li>
+          <li>Strengthen self-reliant packaging, supplying jerry cans from 250 ml to 20 litres without third-party dependence</li>
+          <li>Build a strong regional presence across East Africa, leveraging the Lake Group network</li>
         </ul>
         <ul class="fs-check">
-          <li><span><iconify-icon icon="mdi:check" width="16" height="16" aria-hidden="true"></iconify-icon></span>Develop our workforce through technical training, skills development and a strong quality and safety culture</li>
+          <li>Develop our workforce through technical training, skills development and a strong quality and safety culture</li>
         </ul>
       </div>
     </div>
