@@ -1,0 +1,133 @@
+{
+  "generatedAt": "2026-09-11T04:10:29.734Z",
+  "assertions": {
+    "allBreakpoints": true,
+    "integratedTransparency": true,
+    "mobilePanY": true,
+    "desktopMotion": true,
+    "mobileMotion": true,
+    "dragWorks": true,
+    "scrollWorks": true
+  },
+  "results": [
+    {
+      "width": 390,
+      "height": 844,
+      "failed": [],
+      "errors": [],
+      "canvasCount": 1,
+      "contextCount": 1,
+      "exactLabels": true,
+      "rootBackground": "rgba(0, 0, 0, 0)",
+      "rootImage": "none",
+      "viewportBackground": "rgba(0, 0, 0, 0)",
+      "canvasBackground": "rgba(0, 0, 0, 0)",
+      "touchAction": "pan-y",
+      "pseudo": "none",
+      "haloCount": 0,
+      "clearAlpha": 0
+    },
+    {
+      "width": 430,
+      "height": 900,
+      "failed": [],
+      "errors": [],
+      "canvasCount": 1,
+      "contextCount": 1,
+      "exactLabels": true,
+      "rootBackground": "rgba(0, 0, 0, 0)",
+      "rootImage": "none",
+      "viewportBackground": "rgba(0, 0, 0, 0)",
+      "canvasBackground": "rgba(0, 0, 0, 0)",
+      "touchAction": "pan-y",
+      "pseudo": "none",
+      "haloCount": 0,
+      "clearAlpha": 0
+    },
+    {
+      "width": 768,
+      "height": 950,
+      "failed": [],
+      "errors": [],
+      "canvasCount": 1,
+      "contextCount": 1,
+      "exactLabels": true,
+      "rootBackground": "rgba(0, 0, 0, 0)",
+      "rootImage": "none",
+      "viewportBackground": "rgba(0, 0, 0, 0)",
+      "canvasBackground": "rgba(0, 0, 0, 0)",
+      "touchAction": "pan-y",
+      "pseudo": "none",
+      "haloCount": 0,
+      "clearAlpha": 0
+    },
+    {
+      "width": 1024,
+      "height": 1000,
+      "failed": [],
+      "errors": [],
+      "canvasCount": 1,
+      "contextCount": 1,
+      "exactLabels": true,
+      "rootBackground": "rgba(0, 0, 0, 0)",
+      "rootImage": "none",
+      "viewportBackground": "rgba(0, 0, 0, 0)",
+      "canvasBackground": "rgba(0, 0, 0, 0)",
+      "touchAction": "pan-y",
+      "pseudo": "none",
+      "haloCount": 0,
+      "clearAlpha": 0
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "failed": [],
+      "errors": [],
+      "canvasCount": 1,
+      "contextCount": 1,
+      "exactLabels": true,
+      "rootBackground": "rgba(0, 0, 0, 0)",
+      "rootImage": "none",
+      "viewportBackground": "rgba(0, 0, 0, 0)",
+      "canvasBackground": "rgba(0, 0, 0, 0)",
+      "touchAction": "pan-y",
+      "pseudo": "none",
+      "haloCount": 0,
+      "clearAlpha": 0
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "failed": [],
+      "errors": [],
+      "canvasCount": 1,
+      "contextCount": 1,
+      "exactLabels": true,
+      "rootBackground": "rgba(0, 0, 0, 0)",
+      "rootImage": "none",
+      "viewportBackground": "rgba(0, 0, 0, 0)",
+      "canvasBackground": "rgba(0, 0, 0, 0)",
+      "touchAction": "pan-y",
+      "pseudo": "none",
+      "haloCount": 0,
+      "clearAlpha": 0
+    }
+  ],
+  "desktop": {
+    "early": "translate3d(35.9294px, 361.576px, 0px)",
+    "settled": "translate3d(367.439px, 351.941px, 0px)",
+    "moved": true
+  },
+  "mobile": {
+    "early": "translate3d(127.708px, 155.583px, 0px)",
+    "settled": "translate3d(211.348px, 153.233px, 0px)",
+    "moved": true
+  },
+  "interaction": {
+    "beforeDrag": "translate3d(367.439px, 351.941px, 0px)",
+    "afterDrag": "translate3d(248.815px, 317.754px, 0px)",
+    "scrollBefore": 893,
+    "scrollAfter": 1413
+  },
+  "recordingBytes": 3265871
+}
