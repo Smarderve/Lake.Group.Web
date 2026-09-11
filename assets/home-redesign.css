@@ -919,8 +919,12 @@ body.home .site-footer .footer-bottom {
 }
 
 @media (max-width: 720px) {
-  body.home .divisions-grid .aramco-card {
-    width: 100%;
+  body.home .divisions-grid {
+    grid-template-columns: 1fr;
+  }
+  body.home .divisions-grid .aramco-card:nth-child(-n+4),
+  body.home .divisions-grid .aramco-card:nth-child(n+5) {
+    grid-column: span 1;
   }
   body.home .footer-grid {
     grid-template-columns: 1fr;
