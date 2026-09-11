@@ -613,9 +613,15 @@ body.home .keyfact-label {
    heading, circular arrow icon. All links + i18n keys preserved.
    -------------------------------------------------------------------------- */
 body.home .divisions-grid {
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 1fr;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
   gap: 20px;
+}
+body.home .divisions-grid .aramco-card:nth-child(-n+4) {
+  grid-column: span 3;
+}
+body.home .divisions-grid .aramco-card:nth-child(n+5) {
+  grid-column: span 4;
 }
 body.home .aramco-card {
   position: relative;
@@ -657,7 +663,7 @@ body.home a[href="lake-lubes.html"] .aramco-card-media img { object-position: 52
 body.home .aramco-card-shade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(1, 129, 187, 0.08) 22%, rgba(1, 129, 187, 0.42) 55%, rgba(1, 129, 187, 0.95) 100%);
+  background: linear-gradient(180deg, rgba(1, 129, 187, 0.04) 22%, rgba(1, 129, 187, 0.22) 55%, rgba(1, 129, 187, 0.72) 100%);
 }
 body.home .aramco-card-ico {
   position: absolute;
@@ -876,6 +882,10 @@ body.home .site-footer .footer-bottom {
   body.home .divisions-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  body.home .divisions-grid .aramco-card:nth-child(-n+4),
+  body.home .divisions-grid .aramco-card:nth-child(n+5) {
+    grid-column: span 1;
+  }
   body.home .keyfacts-inner {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -909,8 +919,8 @@ body.home .site-footer .footer-bottom {
 }
 
 @media (max-width: 720px) {
-  body.home .divisions-grid {
-    grid-template-columns: 1fr;
+  body.home .divisions-grid .aramco-card {
+    width: 100%;
   }
   body.home .footer-grid {
     grid-template-columns: 1fr;

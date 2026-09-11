@@ -1774,19 +1774,33 @@
     /* DIVISIONS */
     .divisions-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(12, 1fr);
       gap: 18px;
+    }
+    .divisions-grid .aramco-card:nth-child(-n+4) {
+      grid-column: span 3;
+    }
+    .divisions-grid .aramco-card:nth-child(n+5) {
+      grid-column: span 4;
     }
 
     @media (max-width: 1024px) {
       .divisions-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+      .divisions-grid .aramco-card:nth-child(-n+4),
+      .divisions-grid .aramco-card:nth-child(n+5) {
+        grid-column: span 1;
+      }
     }
 
     @media (max-width: 600px) {
       .divisions-grid {
         grid-template-columns: 1fr;
+      }
+      .divisions-grid .aramco-card:nth-child(-n+4),
+      .divisions-grid .aramco-card:nth-child(n+5) {
+        grid-column: span 1;
       }
     }
 
