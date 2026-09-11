@@ -288,6 +288,9 @@
     document.addEventListener('keydown', (event) => { if (event.key === 'Escape') { closeAll(); if (drawer.classList.contains('open')) closeMobile(); } });
     const activateCategory = (button, interaction = 'open') => { const id = button.dataset.mmCat; const menu = button.closest('.nav-megamenu'); menu.querySelectorAll('.mm-cat').forEach((b) => { const active = b === button; b.classList.toggle('is-active', active); b.setAttribute('aria-selected', String(active)); }); menu.querySelectorAll('.mm-pane').forEach((pane) => { const active = pane.dataset.mmPane === id; pane.classList.toggle('is-active', active); pane.hidden = !active; }); playSectorIcon(button, interaction === 'open' ? 'in-reveal' : 'hover'); };
     nav.querySelectorAll('.mm-cat').forEach((button) => { button.addEventListener('click', () => activateCategory(button, 'interaction')); button.addEventListener('mouseenter', () => { if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) activateCategory(button, 'interaction'); }); button.addEventListener('focus', () => activateCategory(button, 'interaction')); });
+    // Materialize every critical sector icon during navbar initialization so
+    // opening the menu never becomes the first request/render opportunity.
+    ensureLordicon().then(() => { initSectorIcons(); initMobileSectorIcons(); }).catch(() => {});
     nav.querySelectorAll('.has-dropdown.has-megamenu').forEach((item) => item.addEventListener('mouseenter', () => { revealSectorIcons(); const first = item.querySelector('.mm-cat.is-active') || item.querySelector('.mm-cat'); if (first) activateCategory(first, 'open'); }));
     const subsidiariesPanel = drawer.querySelector('#mob-subsidiaries');
     if (mobilePrimary && subsidiariesPanel) mobilePrimary.addEventListener('click', () => {
