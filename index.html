@@ -2237,12 +2237,18 @@
     /* CTA BAND — homepage-only two-column horizontal layout */
     .cta-band {
       background: var(--yellow);
-      padding: 80px 0;
+      padding: clamp(70px, 6vw, 90px) 0;
+    }
+
+    .cta-band > .container {
+      width: min(100%, 1440px);
+      margin-inline: auto;
+      padding-inline: clamp(20px, 4vw, 48px);
     }
 
     .cta-band .cta-inner {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-columns: minmax(0, 74fr) minmax(220px, 26fr);
       align-items: center;
       gap: clamp(32px, 4vw, 64px);
       text-align: left;
@@ -2255,6 +2261,7 @@
     .cta-band .cta-inner h2 {
       font-family: var(--font-display);
       font-size: clamp(42px, 3.5vw, 60px);
+      max-width: 800px;
       color: var(--blue);
       letter-spacing: var(--display-letter-spacing, -0.01em);
       line-height: var(--display-line-height, 1.1);
@@ -2264,23 +2271,22 @@
       color: rgba(1, 63, 92, 0.6);
       margin-top: 14px;
       max-width: 560px;
+      font-size: clamp(0.98rem, 1.3vw, 1.08rem);
     }
 
     .cta-band .cta-action {
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
       align-self: center;
     }
 
-    @media (min-width: 961px) {
-      .cta-band .cta-inner {
-        grid-template-columns: minmax(0, 72fr) minmax(0, 28fr);
-      }
-    }
-
-    @media (max-width: 960px) {
+    @media (max-width: 720px) {
       .cta-band {
         padding: 56px 0;
+      }
+
+      .cta-band > .container {
+        padding-inline: clamp(20px, 5vw, 40px);
       }
 
       .cta-band .cta-inner {
