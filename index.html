@@ -2234,60 +2234,61 @@
       }
     }
 
-    /* CTA BAND */
+    /* CTA BAND — homepage-only two-column horizontal layout */
     .cta-band {
       background: var(--yellow);
-      padding: clamp(64px, 7vw, 88px) 0;
+      padding: 80px 0;
     }
 
-    .cta-inner {
+    .cta-band .cta-inner {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
       align-items: center;
-      gap: clamp(28px, 4vw, 56px);
+      gap: clamp(32px, 4vw, 64px);
+      text-align: left;
     }
 
-    .cta-copy {
+    .cta-band .cta-copy {
       min-width: 0;
     }
 
-    .cta-inner h2 {
+    .cta-band .cta-inner h2 {
       font-family: var(--font-display);
-      font-size: clamp(42px, 3.5vw, 56px);
+      font-size: clamp(42px, 3.5vw, 60px);
       color: var(--blue);
       letter-spacing: var(--display-letter-spacing, -0.01em);
       line-height: var(--display-line-height, 1.1);
-      max-width: 700px;
     }
 
-    .cta-inner p {
+    .cta-band .cta-inner p {
       color: rgba(1, 63, 92, 0.6);
       margin-top: 14px;
       max-width: 560px;
     }
 
-    .cta-action {
+    .cta-band .cta-action {
       display: flex;
       justify-content: flex-end;
+      align-self: center;
     }
 
     @media (min-width: 961px) {
-      .cta-inner {
+      .cta-band .cta-inner {
         grid-template-columns: minmax(0, 72fr) minmax(0, 28fr);
       }
     }
 
     @media (max-width: 960px) {
-      .cta-inner {
+      .cta-band {
+        padding: 56px 0;
+      }
+
+      .cta-band .cta-inner {
         grid-template-columns: 1fr;
         gap: 24px;
       }
 
-      .cta-band .cta-inner {
-        text-align: left;
-      }
-
-      .cta-action {
+      .cta-band .cta-action {
         justify-content: flex-start;
       }
     }
@@ -2481,7 +2482,7 @@
 <h1 class="hero-sub" data-i18n="hero.sub">Fueling East Africa for two decades</h1>
       <div class="hero-keyfacts" aria-hidden="true">
         <div class="hero-kf">
-          <span class="hero-kf-num">30,000+</span>
+          <span class="hero-kf-num">10,000+</span>
           <span class="hero-kf-label" data-i18n="stat.employees">People</span>
         </div>
         <div class="hero-kf">
@@ -2548,7 +2549,7 @@
               One Network. <span data-i18n="index.19">Ten Countries.</span>
             </h2>
             <p data-i18n="index.20">
-              Operating from the headquarters at Dar Es Salaam, our network spans across 10 global markets; Tanzania, Kenya, Zambia, Rwanda, Burundi, DR Congo, Ethiopia, Mozambique, Uganda and an expanding hub in UAE.
+              Operating from the headquarters at Dar Es Salaam, our network spans across 10 global markets; Tanzania, Kenya, Zambia, Rwanda, Burundi, DR Congo, Ethiopia, Mozambique, Uganda and UAE.
             </p>
             <ul class="experience-steps">
               <li>
