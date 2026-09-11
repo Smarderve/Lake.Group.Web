@@ -2234,10 +2234,10 @@
       }
     }
 
-    /* CTA BAND — homepage-only two-column horizontal layout */
+    /* CTA BAND — compact closing strip */
     .cta-band {
       background: var(--yellow);
-      padding: clamp(70px, 6vw, 90px) 0;
+      padding: 48px 0;
     }
 
     .cta-band > .container {
@@ -2248,9 +2248,9 @@
 
     .cta-band .cta-inner {
       display: grid;
-      grid-template-columns: minmax(0, 74fr) minmax(220px, 26fr);
+      grid-template-columns: minmax(0, 1fr) auto;
       align-items: center;
-      gap: clamp(32px, 4vw, 64px);
+      gap: 40px;
       text-align: left;
     }
 
@@ -2260,38 +2260,51 @@
 
     .cta-band .cta-inner h2 {
       font-family: var(--font-display);
-      font-size: clamp(42px, 3.5vw, 60px);
-      max-width: 800px;
+      font-size: clamp(30px, 2.6vw, 44px);
       color: var(--blue);
       letter-spacing: var(--display-letter-spacing, -0.01em);
-      line-height: var(--display-line-height, 1.1);
+      line-height: 1.2;
+    }
+
+    .cta-band .cta-inner h2 .cta-headline-first {
+      display: block;
+    }
+
+    .cta-band .cta-inner h2 .cta-headline-second {
+      display: block;
     }
 
     .cta-band .cta-inner p {
       color: rgba(1, 63, 92, 0.6);
-      margin-top: 14px;
-      max-width: 560px;
-      font-size: clamp(0.98rem, 1.3vw, 1.08rem);
+      margin-top: 10px;
+      font-size: clamp(15px, 1.2vw, 18px);
+      line-height: 1.45;
+      max-width: 520px;
     }
 
     .cta-band .cta-action {
-      display: flex;
-      justify-content: center;
+      justify-self: end;
       align-self: center;
+    }
+
+    .cta-band .btn {
+      height: 48px;
+      padding: 0 26px;
+      font-size: 0.88rem;
     }
 
     @media (max-width: 720px) {
       .cta-band {
-        padding: 56px 0;
-      }
-
-      .cta-band > .container {
-        padding-inline: clamp(20px, 5vw, 40px);
+        padding: 36px 0;
       }
 
       .cta-band .cta-inner {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 20px;
+      }
+
+      .cta-band .cta-action {
+        justify-self: start;
       }
 
       .cta-band .cta-action {
@@ -2809,14 +2822,14 @@
     <div class="container">
       <div class="cta-inner">
         <div class="cta-copy">
-          <h2 data-i18n="index.76">Partnership begins with a conversation. <span style="white-space:nowrap">Get in touch</span></h2>
+          <h2 data-i18n="index.76"><span class="cta-headline-first">Partnership begins with a conversation.</span><span class="cta-headline-second">Get in touch.</span></h2>
           <p data-i18n="index.77">
             Talk to our team about fuel supply, logistics, or any of our
             services across East Africa.
           </p>
         </div>
         <div class="cta-action">
-          <a data-i18n="index.78" href="contact.html" class="btn btn-blue btn-lg">Contact Us</a>
+          <a data-i18n="index.78" href="contact.html" class="btn btn-blue">Contact Us</a>
         </div>
       </div>
     </div>
