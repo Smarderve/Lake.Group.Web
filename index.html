@@ -2208,18 +2208,8 @@
       }
 
       .cta-band .cta-inner {
-        display: grid;
         grid-template-columns: 1fr;
-        text-align: left;
         gap: 20px;
-      }
-
-      .cta-band .cta-inner h2 {
-        max-width: none;
-      }
-
-      .cta-band .cta-inner > div:last-child {
-        justify-self: start;
       }
     }
 
@@ -2247,19 +2237,23 @@
     /* CTA BAND */
     .cta-band {
       background: var(--yellow);
-      padding: 70px 0;
+      padding: clamp(64px, 7vw, 88px) 0;
     }
 
     .cta-inner {
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: minmax(0, 1fr) auto;
       align-items: center;
-      gap: 32px;
+      gap: clamp(28px, 4vw, 56px);
+    }
+
+    .cta-copy {
+      min-width: 0;
     }
 
     .cta-inner h2 {
       font-family: var(--font-display);
-      font-size: clamp(32px, 3.2vw, 52px);
+      font-size: clamp(42px, 3.5vw, 56px);
       color: var(--blue);
       letter-spacing: var(--display-letter-spacing, -0.01em);
       line-height: var(--display-line-height, 1.1);
@@ -2268,8 +2262,34 @@
 
     .cta-inner p {
       color: rgba(1, 63, 92, 0.6);
-      margin-top: 12px;
+      margin-top: 14px;
       max-width: 560px;
+    }
+
+    .cta-action {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    @media (min-width: 961px) {
+      .cta-inner {
+        grid-template-columns: minmax(0, 72fr) minmax(0, 28fr);
+      }
+    }
+
+    @media (max-width: 960px) {
+      .cta-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .cta-band .cta-inner {
+        text-align: left;
+      }
+
+      .cta-action {
+        justify-content: flex-start;
+      }
     }
 
     .has-dropdown {
@@ -2781,14 +2801,14 @@
   <div class="cta-band">
     <div class="container">
       <div class="cta-inner">
-        <div>
+        <div class="cta-copy">
           <h2 data-i18n="index.76">Partnership begins with a conversation. <span style="white-space:nowrap">Get in touch</span></h2>
           <p data-i18n="index.77">
             Talk to our team about fuel supply, logistics, or any of our
             services across East Africa.
           </p>
         </div>
-        <div style="display: flex; gap: 12px; flex-wrap: wrap">
+        <div class="cta-action">
           <a data-i18n="index.78" href="contact.html" class="btn btn-blue btn-lg">Contact Us</a>
         </div>
       </div>
