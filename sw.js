@@ -25,13 +25,15 @@
  * v71: News tiles get the rounded dashboard-card look (radius + soft shadows).
  *      Version bump forces a full cache purge on the next visit.
  *
+ * v86: Refresh the precached standalone offline experience.
+ *
  * v84: Promote the approved globe-lab bundle to Home and retire the previous
  *      production globe bundle from the network-first route.
  */
 
 'use strict';
 
-const VERSION = 'v85-20260828-01';
+const VERSION = 'v86-20260828-01';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;

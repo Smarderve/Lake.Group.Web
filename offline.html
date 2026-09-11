@@ -2,194 +2,51 @@
 <html lang="en">
 <head>
   <script src="assets/build-version.js?v=20260828-01" defer></script>
-  <style id="lg-skel-critical">.nav-logo img,.site-nav .nav-logo img{height:var(--nav-logo-height,48px)!important;width:auto!important;max-width:min(220px,55vw)!important;max-height:var(--nav-logo-height,48px)!important;object-fit:contain}</style>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <meta name="theme-color" content="#0181BB">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#012f49">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
   <link rel="manifest" href="manifest.webmanifest">
-  <title>You're Offline | Lake Group</title>
   <link rel="icon" href="favicon.ico?v=20260828-01" sizes="32x32">
   <link rel="icon" href="assets/icons/pwa/icon-192.png?v=20260828-01" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="assets/icons/pwa/apple-touch-icon.png?v=20260828-01">
-  <!-- flagship.css is precached by the service worker, but this page must
-       render with zero external dependencies: the inline block below is a
-       complete standalone Meridian layer and intentionally loads after it. -->
-  <link rel="stylesheet" href="assets/tokens.css?v=20260828-01">
-  <link rel="preload" href="assets/fonts/files/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="assets/fonts/files/jost-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="assets/fonts/files/jost-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="assets/fonts/files/jost-latin-ext-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="assets/flagship.css?v=20260828-01">
-  <link rel="stylesheet" href="assets/assistant.css?v=20260828-01">
+  <title>You're Offline | Lake Group</title>
   <style>
-    /* ======================================================================
-       MERIDIAN UTILITY PAGE  offline fallback. Fully self-contained.
-       ====================================================================== */
-    @import url("assets/tokens.css?v=20260828-01");
-    @import url('assets/fonts/fonts.css?v=20260828-01');
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --ink:   var(--color-brand-blue-darkest);
-      --ink-2: var(--color-brand-blue-deep);
-      --gold:  var(--color-yellow-accent);
-      --line:  rgba(255,255,255,0.14);
-      --line2: rgba(255,255,255,0.07);
-      --txt:   rgba(233,237,248,0.78);
-    }
-    html, body { min-height: 100%; }
-    body {
-      font-family: var(--font-body);
-      background: var(--color-hero-bg);
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 32px 24px;
-      line-height: 1.7;
-      position: relative;
-      overflow-x: clip;
-    }
-    /* Meridian survey grid */
-    body::before {
-      content: ''; position: fixed; inset: 0; pointer-events: none;
-      background-image:
-        linear-gradient(to right, var(--line2) 1px, transparent 1px),
-        linear-gradient(to bottom, var(--line2) 1px, transparent 1px);
-      background-size: 120px 120px;
-    }
-    /* Gold meridian line descending from the top edge */
-    body::after {
-      content: ''; position: fixed; top: 0; left: 32px;
-      width: 1px; height: 42vh;
-      background: linear-gradient(var(--gold), transparent);
-      opacity: 0.55; pointer-events: none;
-    }
-    .card {
-      max-width: 640px;
-      width: 100%;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-      /* Refined dark panel . replaces the default white .card surface to sit
-         naturally in the Meridian navy aesthetic. */
-      background: linear-gradient(180deg, rgba(3,64,94,0.94), rgba(1,43,66,0.96));
-      border: 1px solid rgba(255,242,0,0.16);
-      border-top: 2px solid var(--gold);
-      padding: 56px 48px 46px;
-      box-shadow: 0 30px 90px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.05);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-    }
-    .logo-wrap {
-      display: inline-block;
-      background: transparent;
-      border-radius: 0;
-      padding: 0;
-      margin-bottom: 40px;
-      box-shadow: none;
-    }
-    .logo-wrap img { height: 44px; width: auto; display: block; }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--gold);
-      font-size: 0.7rem;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      font-weight: 700;
-      margin-bottom: 22px;
-    }
-    .badge::before, .badge::after { content: ''; width: 8px; height: 8px; background: var(--gold); }
-    h1 {
-      font-family: var(--font-display); font-weight: 700;
-      font-size: clamp(2.6rem, 9vw, 4.6rem);
-      line-height: 0.95;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-    h1 em { color: var(--gold); font-style: normal; }
-    @supports (-webkit-text-stroke: 1px black) {
-      h1 em { color: transparent; -webkit-text-stroke: 1.5px rgba(255,242,0,0.65); }
-    }
-    p.lead { color: var(--txt); margin: 0 auto 32px; font-size: 1rem; font-weight: 300; max-width: 48ch; }
-    /* Cached destinations register */
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0;
-      justify-content: center;
-      margin: 0 auto 36px;
-      border: 1px solid var(--line);
-      width: fit-content;
-      max-width: 100%;
-    }
-    .links a {
-      color: var(--txt);
-      text-decoration: none;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      padding: 12px 18px;
-      border-right: 1px solid var(--line);
-      transition: color 0.2s, background 0.2s;
-    }
-    .links a:last-child { border-right: none; }
-    .links a:hover { color: var(--gold); background: rgba(255,255,255,0.04); }
-    .retry {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--ink);
-      font-family: inherit;
-      font-weight: 700;
-      font-size: 0.78rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 17px 40px;
-      border: none;
-      cursor: pointer;
-      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
-      transition: background 0.2s, color 0.2s;
-    }
-    .retry:hover { background: #fff; color: var(--ink); }
-    .status {
-      margin: 26px auto 0;
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(233,237,248,0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: fit-content;
-      padding-top: 14px;
-      border-top: 1px solid var(--line2);
-      position: relative;
-    }
-    .status::before { content: ''; position: absolute; left: 0; top: -4px; width: 8px; height: 8px; background: var(--gold); }
-    .status .dot {
-      display: inline-block;
-      width: 8px; height: 8px;
-      background: #0599D3; /* no red in the brand palette: offline state uses Light Blue */
-      flex: none;
-    }
-    .status.online .dot { background: #2ECC71; }
-    a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-    @media (max-width: 560px) {
-      .card { padding: 44px 22px 36px; }
-      .logo-wrap { margin-bottom: 28px; }
-      .links { border: none; gap: 8px; }
-      .links a { border: 1px solid var(--line); }
-    }
+    @font-face{font-family:"Jost";src:url("assets/fonts/files/jost-latin-400-normal.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
+    @font-face{font-family:"Jost";src:url("assets/fonts/files/jost-latin-700-normal.woff2") format("woff2");font-style:normal;font-weight:700;font-display:swap}
+    :root{color-scheme:dark;--lake-blue:#0181bb;--lake-deep:#012f49;--lake-ink:#001b2a;--lake-yellow:#fff200;--text:#f5fbff;--muted:rgba(229,242,249,.7);--line:rgba(213,238,249,.16)}
+    *,*::before,*::after{box-sizing:border-box}
+    html{min-height:100%;background:var(--lake-deep)}
+    body{min-height:100vh;min-height:100dvh;margin:0;display:flex;align-items:center;justify-content:center;padding:max(24px,env(safe-area-inset-top)) max(20px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(20px,env(safe-area-inset-left));overflow-x:hidden;font-family:"Jost",Arial,sans-serif;color:var(--text);background:radial-gradient(circle at 50% 34%,rgba(1,129,187,.32),transparent 42%),radial-gradient(circle at 12% 88%,rgba(0,83,122,.26),transparent 34%),linear-gradient(150deg,#013653 0%,#01273d 54%,#001a29 100%)}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 20%,rgba(255,255,255,.025) 48%,transparent 72%);opacity:.7}
+    .offline-stage{width:min(100%,720px);perspective:1200px;position:relative;z-index:1;animation:card-arrive 700ms cubic-bezier(.2,.75,.2,1) both}
+    .card{--pointer-x:50%;--pointer-y:50%;--tilt-x:0deg;--tilt-y:0deg;width:100%;position:relative;overflow:hidden;isolation:isolate;text-align:center;padding:clamp(42px,6vw,64px) clamp(24px,6vw,64px) clamp(36px,5vw,54px);border:1px solid rgba(218,240,249,.18);border-top-color:rgba(255,242,0,.68);border-radius:4px 4px 24px 4px;background:linear-gradient(145deg,rgba(3,72,104,.98),rgba(1,37,57,.985) 68%),var(--lake-deep);box-shadow:0 42px 110px rgba(0,15,25,.58),0 12px 30px rgba(0,35,53,.42),inset 0 1px 0 rgba(255,255,255,.08);transform-style:preserve-3d;transform:rotateX(var(--tilt-x)) rotateY(var(--tilt-y));will-change:transform}
+    .card::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle 230px at var(--pointer-x) var(--pointer-y),rgba(255,255,255,.14),rgba(255,255,255,.035) 42%,transparent 72%);opacity:0;transition:opacity 260ms ease}
+    .card.is-lit::before{opacity:1}
+    .card::after{content:"";position:absolute;inset:14px;z-index:-1;pointer-events:none;border:1px solid rgba(255,255,255,.035);border-radius:2px 2px 17px 2px}
+    .logo-wrap,.badge,.headline-line,.lead,.links,.retry,.status{opacity:0;animation:content-rise 520ms cubic-bezier(.2,.75,.2,1) forwards}
+    .logo-wrap{margin:0 auto 28px;animation-delay:150ms}.logo-wrap img{display:block;width:auto;height:42px;margin:auto}
+    .badge{display:inline-flex;align-items:center;justify-content:center;min-height:30px;margin-bottom:18px;padding:7px 14px 6px 17px;border:1px solid rgba(255,242,0,.32);color:var(--lake-yellow);font-size:.68rem;font-weight:700;letter-spacing:.3em;line-height:1;text-transform:uppercase;animation-name:signal-resolve;animation-duration:650ms;animation-delay:300ms}
+    h1{margin:0 0 22px;font-size:clamp(2.8rem,8vw,5.2rem);font-weight:700;line-height:.84;letter-spacing:-.055em;text-transform:uppercase;text-wrap:balance}
+    .headline-line{display:block}.headline-line:nth-child(1){animation-delay:450ms}.headline-line:nth-child(2){animation-delay:550ms}
+    .offline-mask{display:block;position:relative;width:fit-content;margin:0 auto;padding:.09em .05em .11em;overflow:hidden;color:transparent;-webkit-text-stroke:1.6px rgba(255,242,0,.84);letter-spacing:.015em;clip-path:inset(0 100% 0 0);opacity:1;animation:outline-reveal 620ms cubic-bezier(.2,.75,.2,1) 700ms forwards}
+    .offline-mask::after{content:"";position:absolute;inset:0 auto 0 -36%;width:28%;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(255,255,255,.42),transparent);transform:skewX(-12deg);animation:outline-scan 620ms ease-out 820ms both}
+    .lead{max-width:51ch;margin:0 auto 28px;color:var(--muted);font-size:clamp(.94rem,1.6vw,1.04rem);line-height:1.65;text-wrap:pretty;animation-delay:950ms}
+    .links{width:fit-content;max-width:100%;margin:0 auto 28px;display:flex;justify-content:center;flex-wrap:wrap;border:1px solid var(--line);animation-delay:1080ms}
+    .links a{min-height:42px;display:inline-flex;align-items:center;justify-content:center;padding:11px 17px 10px;border-right:1px solid var(--line);color:rgba(235,247,252,.78);font-size:.69rem;font-weight:700;letter-spacing:.16em;text-decoration:none;text-transform:uppercase;transition:color 200ms ease,background-color 200ms ease}.links a:last-child{border-right:0}.links a:hover{color:var(--lake-yellow);background:rgba(255,255,255,.055)}
+    .retry{min-height:52px;display:inline-flex;align-items:center;justify-content:center;padding:15px 34px 14px;border:0;border-radius:2px 2px 12px 2px;background:var(--lake-yellow);box-shadow:0 12px 30px rgba(0,16,25,.28);color:var(--lake-ink);cursor:pointer;font:700 .75rem/1 "Jost",Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;transition:transform 200ms ease,filter 200ms ease,box-shadow 200ms ease;animation-delay:1180ms}.retry:hover{transform:translateY(-2px);filter:brightness(1.06);box-shadow:0 16px 34px rgba(0,16,25,.34)}.retry:active{transform:translateY(0)}.retry:disabled{cursor:wait;opacity:.78}
+    .status{width:fit-content;margin:22px auto 0;display:flex;align-items:center;justify-content:center;gap:9px;color:rgba(229,242,249,.52);font-size:.67rem;font-weight:700;letter-spacing:.13em;line-height:1.35;text-transform:uppercase;animation-delay:1280ms}.status .dot{width:7px;height:7px;flex:0 0 auto;border-radius:50%;background:rgba(126,199,230,.72);transition:background-color 220ms ease,box-shadow 220ms ease}.status.online{color:rgba(229,249,238,.82)}.status.online .dot{background:#4ed28b;box-shadow:0 0 0 5px rgba(78,210,139,.12)}
+    a:focus-visible,button:focus-visible{outline:2px solid var(--lake-yellow);outline-offset:4px}
+    @keyframes card-arrive{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+    @keyframes content-rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes signal-resolve{from{opacity:0;transform:translateY(10px);letter-spacing:.42em}to{opacity:1;transform:translateY(0);letter-spacing:.3em}}
+    @keyframes outline-reveal{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+    @keyframes outline-scan{from{transform:translateX(0) skewX(-12deg);opacity:0}22%{opacity:1}to{transform:translateX(490%) skewX(-12deg);opacity:0}}
+    @media(max-width:560px){body{align-items:center;padding-inline:16px}.offline-stage{width:min(100%,430px)}.card{padding:38px 20px 34px;border-radius:3px 3px 18px 3px}.logo-wrap{margin-bottom:24px}.logo-wrap img{height:36px}h1{font-size:clamp(2.75rem,15vw,4.2rem);margin-bottom:18px}.lead{margin-bottom:24px;font-size:.92rem}.links{border:0;gap:7px;margin-bottom:24px}.links a{min-height:38px;padding:9px 12px 8px;border:1px solid var(--line)}.links a:last-child{border-right:1px solid var(--line)}.retry{width:min(100%,290px)}.status{max-width:28ch}}
+    @media(max-height:720px){body{align-items:flex-start}.card{padding-top:34px;padding-bottom:30px}.logo-wrap{margin-bottom:20px}.badge{margin-bottom:14px}h1{margin-bottom:16px}.lead,.links{margin-bottom:20px}.status{margin-top:16px}}
+    @media(hover:none),(pointer:coarse){.card{transform:none!important}.card::before{display:none}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:1ms!important;animation-delay:0ms!important;transition-duration:1ms!important}.card{transform:none!important;will-change:auto}.card::before,.offline-mask::after{display:none}.logo-wrap,.badge,.headline-line,.lead,.links,.retry,.status{opacity:1;transform:none}.offline-mask{clip-path:none}}
   </style>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https://www.youtube.com https://www.youtube-nocookie.com; worker-src 'self'; manifest-src 'self'; media-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
-  <link rel="stylesheet" href="assets/phase-01-navbar.css?v=20260828-01">
-  <link rel="stylesheet" href="assets/phase-01-footer.css?v=20260828-01">
-  <link rel="stylesheet" href="assets/phase-01-navbar.css?v=20260828-01">
   <!-- SEO:START (generated by scripts/build-seo-foundation.mjs) -->
   <meta name="description" content="You're offline — check your connection and retry. Lake Group: energy, logistics, manufacturing and agro across Africa.">
   <meta name="robots" content="noindex,nofollow">
@@ -203,182 +60,32 @@
   <meta name="twitter:description" content="You're offline — check your connection and retry. Lake Group: energy, logistics, manufacturing and agro across Africa.">
   <!-- SEO:END -->
 </head>
-<body data-shared-footer="true">
-<nav class="site-nav" data-phase01-navbar dir="ltr">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="Lake home"><img src="assets/images/logos/LAKE_LOGO_LAKE_ONLY.png" alt="Lake" width="108" height="48" decoding="async"></a>
-    <ul class="nav-links">
-      <li><a href="index.html" data-i18n="nav.home">Home</a></li><li><a href="about.html" data-i18n="nav.about">About</a></li>
-      <li class="has-dropdown has-megamenu"><a href="index.html" id="nav-companies-trigger" data-nav-section="subsidiaries" data-i18n="nav.companies" aria-haspopup="true" aria-expanded="false" aria-controls="nav-companies-menu">Business Verticals<span class="nav-dd-arrow"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></span></a>
-        <div class="nav-dropdown nav-megamenu" id="nav-companies-menu" role="menu" aria-label="Business Verticals"><div class="mm-layout"><div class="mm-cats" role="tablist" aria-orientation="vertical" aria-label="Business verticals">
-          <button type="button" class="mm-cat is-active" role="tab" id="mm-tab-energies" data-mm-cat="energies" aria-controls="mm-pane-energies" aria-selected="true" tabindex="0">Energies Sector</button><button type="button" class="mm-cat" role="tab" id="mm-tab-manufacturing" data-mm-cat="manufacturing" aria-controls="mm-pane-manufacturing" aria-selected="false" tabindex="-1">Manufacturing Sector</button><button type="button" class="mm-cat" role="tab" id="mm-tab-logistics" data-mm-cat="logistics" aria-controls="mm-pane-logistics" aria-selected="false" tabindex="-1">Logistics Sector</button><button type="button" class="mm-cat" role="tab" id="mm-tab-realestate" data-mm-cat="realestate" aria-controls="mm-pane-realestate" aria-selected="false" tabindex="-1">Real Estate Sector</button><button type="button" class="mm-cat" role="tab" id="mm-tab-agro" data-mm-cat="agro" aria-controls="mm-pane-agro" aria-selected="false" tabindex="-1">Agro Processing Sector</button><button type="button" class="mm-cat" role="tab" id="mm-tab-automotive" data-mm-cat="automotive" aria-controls="mm-pane-automotive" aria-selected="false" tabindex="-1">Automotive Sector</button>
-        </div><div class="mm-panes">
-          <div class="mm-pane is-active" role="tabpanel" id="mm-pane-energies" data-mm-pane="energies"><div class="mm-companies"><a href="lake-oil.html" class="mm-company"><img src="assets/images/logos/companies/lake-oil.png" alt="Lake Oil" loading="eager"></a><a href="lake-aviation.html" class="mm-company"><img src="assets/images/logos/companies/lake-aviation.png" alt="Lake Aviation" loading="eager"></a><a href="lake-gas.html" class="mm-company"><img src="assets/images/logos/companies/lake-gas.png" alt="Lake Gas" loading="eager"></a><a href="lake-lubes.html" class="mm-company"><img src="assets/images/logos/companies/lake-lubes.png" alt="Lake Lubes" loading="eager"></a></div></div>
-          <div class="mm-pane" role="tabpanel" id="mm-pane-manufacturing" data-mm-pane="manufacturing" hidden><div class="mm-companies"><a href="lake-buildings.html" class="mm-company"><img src="assets/images/logos/companies/lake-buildings.png" alt="Lake Building Solution" loading="lazy"></a><a href="lake-pipes.html" class="mm-company"><img src="assets/images/logos/companies/lake-pipes-dropdown-yellow.png" alt="Lake Pipes" loading="lazy"></a><a href="lake-steel.html" class="mm-company"><img src="assets/images/logos/companies/lake-steel.png" alt="Lake Steel" loading="lazy"></a><a href="lake-cylinders.html" class="mm-company"><img src="assets/images/logos/companies/lake-cylinders.png" alt="Lake Cylinders" loading="lazy"></a><a href="lake-premix-cement.html" class="mm-company"><img src="assets/images/logos/companies/lake-premix-cement.png" alt="Lake Premix" loading="lazy"></a><a href="gulf-aggregates.html" class="mm-company"><img src="assets/images/logos/companies/gulf-aggregates.png" alt="Gulf Aggregates" loading="lazy"></a></div></div>
-          <div class="mm-pane" role="tabpanel" id="mm-pane-logistics" data-mm-pane="logistics" hidden><div class="mm-companies"><a href="aficd.html" class="mm-company"><img src="assets/images/logos/companies/aficd-white-logo.png" alt="AFICD" loading="lazy"></a><a href="aill.html" class="mm-company"><img src="assets/images/logos/companies/aill-white-logo.png" alt="AILL" loading="lazy"></a><a href="lake-trans.html" class="mm-company"><img src="assets/images/logos/companies/lake-trans.png" alt="Lake Trans" loading="lazy"></a></div></div>
-          <div class="mm-pane" role="tabpanel" id="mm-pane-realestate" data-mm-pane="realestate" hidden><div class="mm-companies"><a href="cross-country.html" class="mm-company"><img src="assets/images/logos/companies/cross-country-developer-limited-logo.webp" alt="Cross Country" loading="lazy"></a></div></div>
-          <div class="mm-pane" role="tabpanel" id="mm-pane-agro" data-mm-pane="agro" hidden><div class="mm-companies"><a href="lake-agro.html" class="mm-company"><img src="assets/images/logos/companies/lake-agro-new.webp" alt="Lake Agro" loading="lazy"></a></div></div>
-          <div class="mm-pane" role="tabpanel" id="mm-pane-automotive" data-mm-pane="automotive" hidden><div class="mm-companies"><a href="agrinova-tech.html" class="mm-company"><img src="assets/images/logos/companies/agrinova-tech.png" alt="Agrinova Tech Limited" loading="lazy"></a><a href="assembly-tech.html" class="mm-company"><img src="assets/images/logos/companies/atl-icon.webp" alt="ATL" loading="lazy"></a><a href="nextdrive-motors.html" class="mm-company"><img src="assets/images/logos/companies/nexdrive-motors.webp" alt="NexDrive Motors" loading="lazy"></a></div></div>
-        </div></div></div>
-      </li><li><a href="leadership.html" data-i18n="nav.leadership">Leadership</a></li><li class="has-dropdown"><a href="history.html" data-nav-section="corporate" data-i18n="nav.company" aria-haspopup="true" aria-expanded="false" aria-controls="nav-corporate-menu">Corporate<span class="nav-dd-arrow"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></span></a><div class="nav-dropdown" id="nav-corporate-menu"><a href="history.html">Our History</a><a href="csr.html">CSR &amp; Sustainability</a><a href="gallery.html">Gallery</a></div></li><li><a href="careers.html" data-i18n="nav.careers">Careers</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact Us</a></li>
-    </ul><div class="nav-actions"><div class="lang-switcher" aria-label="Language"><button type="button" class="lang-trigger" aria-label="Language: English" disabled><svg class="lang-globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3 12h18M12 3c2.5 2.5 3.7 5.5 3.7 9S14.5 18.5 12 21M12 3C9.5 5.5 8.3 8.5 8.3 12s1.2 6.5 3.7 9" fill="none" stroke="currentColor" stroke-width="1.7"/></svg><span>English</span></button></div><button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-controls="nav-mobile" aria-expanded="false"><span></span><span></span><span></span></button></div>
+<body>
+  <div class="offline-stage">
+    <main class="card" id="offline-card">
+      <div class="logo-wrap"><img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group" width="180" height="42"></div>
+      <div class="badge">Connection Lost</div>
+      <h1 aria-label="You're currently offline"><span class="headline-line">You're</span><span class="headline-line">currently</span><span class="offline-mask" aria-hidden="true">offline</span></h1>
+      <p class="lead">This page isn't available without an internet connection. Pages you've visited before are saved and may still work. Try one of these, or reconnect and retry.</p>
+      <nav class="links" aria-label="Cached pages"><a href="index.html">Home</a><a href="about.html">About</a><a href="index.html">Services</a><a href="contact.html">Contact</a></nav>
+      <button class="retry" type="button" id="retry-btn">Retry Connection</button>
+      <p class="status" id="net-status" role="status" aria-live="polite"><span class="dot" aria-hidden="true"></span><span id="net-text">Offline · waiting for connection</span></p>
+    </main>
   </div>
-</nav>
-
-
-
-
-
-
-
-
-
-
-
-<div class="nav-mobile" id="nav-mobile" data-phase01-navbar-mobile>
-  <div class="mob-drawer-head"><button type="button" class="mob-close" aria-label="Close menu">&times;</button></div>
-  <a href="index.html">Home</a><a href="about.html">About</a>
-  <button type="button" class="mob-acc-btn mob-primary" aria-expanded="false" aria-controls="mob-subsidiaries">Business Verticals</button>
-  <div class="mob-acc-panel mob-subsidiaries-panel" id="mob-subsidiaries" hidden><div class="mob-sector-list">
-    <section class="mob-sector-group"><div class="mob-sector-heading" data-mm-cat="energies">Energies Sector</div><div class="mob-sector-companies"><a href="lake-oil.html">Lake Oil</a><a href="lake-aviation.html">Lake Aviation</a><a href="lake-gas.html">Lake Gas</a><a href="lake-lubes.html">Lake Lubes</a></div></section>
-    <section class="mob-sector-group"><div class="mob-sector-heading" data-mm-cat="manufacturing">Manufacturing Sector</div><div class="mob-sector-companies"><a href="lake-buildings.html">Lake Building Solution</a><a href="lake-pipes.html">Lake Pipes</a><a href="lake-steel.html">Lake Steel</a><a href="lake-cylinders.html">Lake Cylinders</a><a href="lake-premix-cement.html">Lake Premix</a><a href="gulf-aggregates.html">Gulf Aggregates</a></div></section>
-    <section class="mob-sector-group"><div class="mob-sector-heading" data-mm-cat="logistics">Logistics Sector</div><div class="mob-sector-companies"><a href="aficd.html">AFICD</a><a href="aill.html">AILL</a><a href="lake-trans.html">Lake Trans</a></div></section>
-    <section class="mob-sector-group"><div class="mob-sector-heading" data-mm-cat="realestate">Real Estate Sector</div><div class="mob-sector-companies"><a href="cross-country.html">Cross Country</a></div></section>
-    <section class="mob-sector-group"><div class="mob-sector-heading" data-mm-cat="agro">Agro Processing Sector</div><div class="mob-sector-companies"><a href="lake-agro.html">Lake Agro</a></div></section>
-    <section class="mob-sector-group"><div class="mob-sector-heading" data-mm-cat="automotive">Automotive Sector</div><div class="mob-sector-companies"><a href="agrinova-tech.html">Agrinova Tech Limited</a><a href="assembly-tech.html">ATL</a></div></section>
-  </div></div>
-  <a href="leadership.html">Leadership</a>
-  <button type="button" class="mob-acc-btn mob-corporate-trigger" aria-expanded="false" aria-controls="mob-corporate-panel">Corporate</button><div class="mob-acc-panel mob-corporate-panel" id="mob-corporate-panel" hidden><a href="history.html">Our History</a><a href="csr.html">CSR &amp; Sustainability</a><a href="gallery.html">Gallery</a></div>
-  <a href="careers.html">Careers</a><a href="contact.html">Contact Us</a>
-  <span class="mob-lang-static" style="display:flex;align-items:center;gap:8px;padding:14px 20px;color:rgba(255,255,255,.88);font-size:.82rem;font-weight:600;letter-spacing:.04em"><svg class="mob-language-globe" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;flex-shrink:0"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3 12h18M12 3c2.5 2.5 3.7 5.5 3.7 9S14.5 18.5 12 21M12 3C9.5 5.5 8.3 8.5 8.3 12s1.2 6.5 3.7 9" fill="none" stroke="currentColor" stroke-width="1.7"/></svg><span data-lang-label>English</span></span>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <main class="card">
-    <div class="logo-wrap"><img src="assets/images/logos/LAKE_LOGO_LAKE_ONLY.png" alt="Lake Group" width="180" height="44"></div>
-    <div class="badge">Connection Lost</div>
-    <h1>You're currently <em>offline</em></h1>
-    <p class="lead">This page isn't available without an internet connection. Pages you've visited before are saved and still work . try one of these, or reconnect and retry.</p>
-    <nav class="links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="index.html">Services</a>
-
-      <a href="contact.html">Contact</a>
-    </nav>
-    <button class="retry" type="button" id="retry-btn">Retry Connection</button>
-    <p class="status" id="net-status"><span class="dot"></span><span id="net-text">Offline . waiting for connection</span></p>
-  </main>
   <script>
-    (function () {
-      var statusEl = document.getElementById('net-status');
-      var textEl = document.getElementById('net-text');
-      var retryBtn = document.getElementById('retry-btn');
-      function onOnline() {
-        statusEl.classList.add('online');
-        textEl.textContent = 'Back online . reloading…';
-        setTimeout(function () {
-          if (/offline\.html$/.test(location.pathname)) {
-            location.replace('index.html');
-          } else {
-            location.reload();
-          }
-        }, 800);
-      }
-      retryBtn.addEventListener('click', function () {
-        retryBtn.disabled = true;
-        retryBtn.textContent = 'Checking…';
-        if (navigator.onLine) onOnline();
-        else {
-          retryBtn.disabled = false;
-          retryBtn.textContent = 'Retry Connection';
-          textEl.textContent = 'Still offline . check your connection';
-        }
-      });
-      window.addEventListener('online', onOnline);
-      if (navigator.onLine) onOnline();
+    (function(){
+      var card=document.getElementById('offline-card'),statusEl=document.getElementById('net-status'),textEl=document.getElementById('net-text'),retryBtn=document.getElementById('retry-btn');
+      var finePointer=window.matchMedia('(hover: hover) and (pointer: fine)').matches,reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches,bounds,frame=0,targetX=0,targetY=0,currentX=0,currentY=0,pointerX=50,pointerY=50;
+      function measure(){bounds=card.getBoundingClientRect()}
+      function renderTilt(){frame=0;currentX+=(targetX-currentX)*.14;currentY+=(targetY-currentY)*.14;card.style.setProperty('--tilt-x',currentX.toFixed(2)+'deg');card.style.setProperty('--tilt-y',currentY.toFixed(2)+'deg');card.style.setProperty('--pointer-x',pointerX.toFixed(1)+'%');card.style.setProperty('--pointer-y',pointerY.toFixed(1)+'%');if(Math.abs(targetX-currentX)>.02||Math.abs(targetY-currentY)>.02)frame=requestAnimationFrame(renderTilt)}
+      function requestTiltFrame(){if(!frame)frame=requestAnimationFrame(renderTilt)}
+      function onPointerMove(event){if(!finePointer||reducedMotion||!bounds)return;var inside=event.clientX>=bounds.left&&event.clientX<=bounds.right&&event.clientY>=bounds.top&&event.clientY<=bounds.bottom;if(!inside){targetX=0;targetY=0;card.classList.remove('is-lit');requestTiltFrame();return}var nx=(event.clientX-bounds.left)/bounds.width,ny=(event.clientY-bounds.top)/bounds.height;pointerX=nx*100;pointerY=ny*100;targetX=(.5-ny)*11;targetY=(nx-.5)*15;card.classList.add('is-lit');requestTiltFrame()}
+      function onOnline(){statusEl.classList.add('online');textEl.textContent='Back online · reloading…';setTimeout(function(){if(/offline\.html$/.test(location.pathname))location.replace('index.html');else location.reload()},800)}
+      retryBtn.addEventListener('click',function(){retryBtn.disabled=true;retryBtn.textContent='Checking…';if(navigator.onLine)onOnline();else{retryBtn.disabled=false;retryBtn.textContent='Retry Connection';textEl.textContent='Still offline · check your connection'}});
+      window.addEventListener('online',onOnline);
+      if(finePointer&&!reducedMotion){measure();window.addEventListener('resize',measure,{passive:true});document.addEventListener('pointermove',onPointerMove,{passive:true})}
+      if(navigator.onLine&&/offline\.html$/.test(location.pathname))onOnline();
     })();
   </script>
-<script src="assets/pwa.js?v=20260828-01" defer></script>
-<script src="assets/flagship-motion.js?v=20260828-01" defer></script>
-  <script src="assets/vendor/flexsearch/flexsearch.bundle.min.js" defer></script>
-  <script src="assets/assistant-kb.js" defer></script>
-  <script src="assets/assistant.js?v=20260828-01" defer></script>
-<script src="assets/analytics.js?v=20260828-01" defer></script>
-  <script defer src="assets/site.js?v=20260828-01"></script>
-  <script defer src="assets/phase-01-navbar.js?v=20260828-01"></script>
-
-<footer class="site-footer" role="contentinfo">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a class="footer-logo" href="/" aria-label="Lake Group — Home">
-          <img src="assets/images/logos/LAKE_GROUP_LOGO.png" alt="Lake Group">
-        </a>
-        <p class="footer-motto" style="color:var(--yellow);font-weight:600;font-size:0.95rem;letter-spacing:0.04em" data-i18n="footer.motto">Quality, Service, Safety, Professionalism</p>
-        <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:5px">
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/tz.svg" alt="Tanzania flag" class="flag-icon" width="20" height="15"> Tanzania</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/ke.svg" alt="Kenya flag" class="flag-icon" width="20" height="15"> Kenya</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/zm.svg" alt="Zambia flag" class="flag-icon" width="20" height="15"> Zambia</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/rw.svg" alt="Rwanda flag" class="flag-icon" width="20" height="15"> Rwanda</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/bi.svg" alt="Burundi flag" class="flag-icon" width="20" height="15"> Burundi</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/cd.svg" alt="DR Congo flag" class="flag-icon" width="20" height="15"> DR Congo</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/et.svg" alt="Ethiopia flag" class="flag-icon" width="20" height="15"> Ethiopia</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/mz.svg" alt="Mozambique flag" class="flag-icon" width="20" height="15"> Mozambique</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/ug.svg" alt="Uganda flag" class="flag-icon" width="20" height="15"> Uganda</span>
-        <span class="country-tag" style="background:rgba(255,242,0,0.12);color:var(--yellow)"><img src="assets/images/flags/ae.svg" alt="UAE flag" class="flag-icon" width="20" height="15"> UAE</span>
-        </div>
-
-        <div style="margin-top:22px"><a href="contact.html" class="btn btn-outline btn-sm" data-i18n="footer.contact">Contact Us</a></div>
-      </div>
-      <div class="footer-col"><h5 data-i18n="footer.services">Business Verticals</h5><ul>
-        <li><a href="lake-oil.html" data-i18n="nav.co.lakeOil">Lake Oil</a></li><li><a href="lake-gas.html" data-i18n="nav.co.lakeGas">Lake Gas</a></li>
-        <li><a href="lake-lubes.html" data-i18n="nav.co.lakeLubes">Lake Lubes</a></li><li><a href="lake-steel.html" data-i18n="nav.co.lakeSteel">Lake Steel</a></li>
-        <li><a href="lake-premix-cement.html" data-i18n="nav.co.lakePremixCement">Lake Premix</a></li><li><a href="lake-trans.html" data-i18n="nav.co.lakeTrans">Lake Trans</a></li>
-        <li><a href="aficd.html" data-i18n="nav.co.aficd">AFICD</a></li><li><a href="agrinova-tech.html">Agrinova Tech Limited</a></li><li><a href="index.html" data-i18n="footer.viewAllCompanies">View All Business Verticals</a></li>
-      </ul></div>
-      <div class="footer-col"><h5 data-i18n="footer.company">Corporate</h5><ul>
-        <li><a href="about.html" data-i18n="nav.aboutUs">About Us</a></li><li><a href="history.html" data-i18n="nav.historyShort">History</a></li>
-        <li><a href="leadership.html" data-i18n="nav.leadership">Leadership</a></li><li><a href="csr.html" data-i18n="nav.csrShort">CSR</a></li>
-        
-        <li><a href="careers.html" data-i18n="nav.careers">Careers</a></li>
-      </ul></div>
-      <div class="footer-col"><h5 data-i18n="footer.question">Got a Question?</h5><ul>
-        <li><a href="contact.html" class="footer-contact-link"><svg class="footer-contact-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg><span data-i18n="footer.address">Plots 72 & 73, Vijibweni Area, Kigamboni, Dar es Salaam</span></a></li>
-        <li><a href="tel:+255222780510" class="footer-contact-link"><svg class="footer-contact-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4.5 8.4 4l1.5 4.2-2 1.6a16 16 0 0 0 6.4 6.4l1.6-2L20 15.6l-.5 3.4a2 2 0 0 1-2.2 1.7C9.8 19.8 4.2 14.2 3.3 6.7A2 2 0 0 1 5 4.5Z"/></svg><span>+255 222 780 510</span></a></li>
-        <li><a href="tel:+255222780479" class="footer-contact-link"><svg class="footer-contact-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4.5 8.4 4l1.5 4.2-2 1.6a16 16 0 0 0 6.4 6.4l1.6-2L20 15.6l-.5 3.4a2 2 0 0 1-2.2 1.7C9.8 19.8 4.2 14.2 3.3 6.7A2 2 0 0 1 5 4.5Z"/></svg><span>+255 222 780 479</span></a></li>
-        <li><a href="mailto:admin@lakeoilgroup.com" class="footer-contact-link"><svg class="footer-contact-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg><span>admin@lakeoilgroup.com</span></a></li>
-        <li><a href="contact.html" data-i18n="footer.contact">Contact Us</a></li>
-      </ul></div>
-      <div class="footer-col"><h5 data-i18n="footer.connect">Connect With Us</h5>
-        <div class="footer-social">
-          <a href="https://youtube.com/@lakegroup6790?si=Qb1aF3ghYIRdCM8J" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.youtube" data-i18n-title="footer.youtube" aria-label="YouTube" title="YouTube"><svg class="footer-social-ico" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z"/></svg></a>
-          <a href="https://www.instagram.com/lakeenergiestanzania?igsi=cW5jZGVtbHU0eGFs" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.instagram" data-i18n-title="footer.instagram" aria-label="Instagram" title="Instagram"><svg class="footer-social-ico" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.03.084c-1.277.06-2.149.264-2.91.563a5.9 5.9 0 0 0-2.124 1.388a5.9 5.9 0 0 0-1.38 2.127C.321 4.926.12 5.8.064 7.076s-.069 1.688-.063 4.947s.021 3.667.083 4.947c.061 1.277.264 2.149.563 2.911c.308.789.72 1.457 1.388 2.123a5.9 5.9 0 0 0 2.129 1.38c.763.295 1.636.496 2.913.552c1.278.056 1.689.069 4.947.063s3.668-.021 4.947-.082c1.28-.06 2.147-.265 2.91-.563a5.9 5.9 0 0 0 2.123-1.388a5.9 5.9 0 0 0 1.38-2.129c.295-.763.496-1.636.551-2.912c.056-1.28.07-1.69.063-4.948c-.006-3.258-.02-3.667-.081-4.947c-.06-1.28-.264-2.148-.564-2.911a5.9 5.9 0 0 0-1.387-2.123a5.9 5.9 0 0 0-2.128-1.38c-.764-.294-1.636-.496-2.914-.55C15.647.009 15.236-.006 11.977 0S8.31.021 7.03.084m.14 21.693c-1.17-.05-1.805-.245-2.228-.408a3.7 3.7 0 0 1-1.382-.895a3.7 3.7 0 0 1-.9-1.378c-.165-.423-.363-1.058-.417-2.228c-.06-1.264-.072-1.644-.08-4.848c-.006-3.204.006-3.583.061-4.848c.05-1.169.246-1.805.408-2.228c.216-.561.477-.96.895-1.382a3.7 3.7 0 0 1 1.379-.9c.423-.165 1.057-.361 2.227-.417c1.265-.06 1.644-.072 4.848-.08c3.203-.006 3.583.006 4.85.062c1.168.05 1.804.244 2.227.408c.56.216.96.475 1.382.895s.681.817.9 1.378c.165.422.362 1.056.417 2.227c.06 1.265.074 1.645.08 4.848c.005 3.203-.006 3.583-.061 4.848c-.051 1.17-.245 1.805-.408 2.23c-.216.56-.477.96-.896 1.38a3.7 3.7 0 0 1-1.378.9c-.422.165-1.058.362-2.226.418c-1.266.06-1.645.072-4.85.079s-3.582-.006-4.848-.06m9.783-16.192a1.44 1.44 0 1 0 1.437-1.442a1.44 1.44 0 0 0-1.437 1.442M5.839 12.012a6.161 6.161 0 1 0 12.323-.024a6.162 6.162 0 0 0-12.323.024M8 12.008A4 4 0 1 1 12.008 16A4 4 0 0 1 8 12.008"/></svg></a>
-          <a href="https://wa.me/255673961597" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.whatsapp" data-i18n-title="footer.whatsapp" aria-label="WhatsApp" title="WhatsApp"><svg class="footer-social-ico" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967c-.273-.099-.471-.148-.67.15c-.197.297-.767.966-.94 1.164c-.173.199-.347.223-.644.075c-.297-.15-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.018-.458.13-.606c.134-.133.298-.347.446-.52s.198-.298.298-.497c.099-.198.05-.371-.025-.52s-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51a13 13 0 0 0-.57-.01c-.198 0-.52.074-.792.372c-.272.297-1.04 1.016-1.04 2.479c0 1.462 1.065 2.875 1.213 3.074s2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.625c.712.227 1.36.195 1.871.118c.571-.085 1.758-.719 2.006-1.413s.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214l-3.741.982l.998-3.648l-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884c2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.82 11.82 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.9 11.9 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 0 0-3.48-8.413"/></svg></a>
-          <a href="https://www.facebook.com/lakeoilgroup" class="social-link" target="_blank" rel="noopener" data-i18n-aria="footer.facebook" data-i18n-title="footer.facebook" aria-label="Facebook" title="Facebook"><svg class="footer-social-ico" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978c.401 0 .955.042 1.468.103a9 9 0 0 1 1.141.195v3.325a9 9 0 0 0-.653-.036a27 27 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.7 1.7 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103l-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647"/></svg></a>
-        
-          <a href="https://www.linkedin.com/company/lake-energies-group/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Lake Group on LinkedIn" title="Lake Group on LinkedIn"><iconify-icon class="footer-social-ico" icon="simple-icons:linkedin" width="18" height="18" aria-hidden="true"></iconify-icon></a></div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Lake Group. <span data-i18n="footer.rights">All rights reserved.</span></p>
-    </div>
-  </div>
-</footer>
-
-
-
-  
 </body>
 </html>
