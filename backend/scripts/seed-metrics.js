@@ -25,19 +25,19 @@ import { writeAudit } from '../src/lib/audit.js';
  * Canonical corporate metrics. Exported so tests can assert the facts
  * dataset without a database (see tests/seed-data.test.js).
  *
- * NOTE (Task 8.1): the Employees value is 30,000+ â€” the official about-page
+ * NOTE (Task 8.1): the Employees value is 10,000+ â€” the official about-page
  * figure used across the live site. The earlier seed value 4,600+ came from
  * the stale assets/i18n-content.js.bak (audit Task 0.1 marks it OLD); the
- * Phase 0 audit and verified-facts dataset both use 30,000+.
+ * Phase 0 audit and verified-facts dataset both use 10,000+.
  */
 export const SEEDS = [
   {
     key: 'employees',
     label: 'Employees',
-    value: '30,000+',
+    value: '10,000+',
     unit: 'employees',
     source:
-      'Official about page (lakeoilgroup.com) â€” "Workforce 30,000+ employees, 10+ nationalities" (scripts/_verified_lake_facts.md); used sitewide on index, about, our-story, careers, africa-network.',
+      'Official about page (lakeoilgroup.com) â€” "Workforce 10,000+ employees, 10+ nationalities" (scripts/_verified_lake_facts.md); used sitewide on index, about, our-story, careers, africa-network.',
     verificationStatus: 'VERIFIED',
     verificationDate: new Date(),
     verificationNote:

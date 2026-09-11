@@ -343,7 +343,7 @@ export const CONTENT_SEED = {
     { year: 2022, title: 'Recognition & LPG Expansion',
       description: 'The Tanga LPG terminal is expanded to 3,000 MT, and founder Ally Edha Awadh is named Young Business Leader of the Year by the African Leadership Magazine.',
       companySlug: 'lake-gas', order: 8 },
-    { year: 2026, title: '30,000+ employees. 10 Countries. Still Growing.', isToday: true,
+    { year: 2026, title: '10,000+ employees. 10 Countries. Still Growing.', isToday: true,
       description: 'Lake Group continues to expand, deepening its regional footprint, investing in new technologies, and driving economic development across East and Central Africa.',
       companySlug: null, order: 9 },
   ],
