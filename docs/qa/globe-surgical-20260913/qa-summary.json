@@ -1,0 +1,123 @@
+{
+  "generatedAt": "2026-09-13T01:29:57.763Z",
+  "sampleCount": 726,
+  "dragsExecuted": 5,
+  "dragTimingsMs": [
+    900,
+    5600,
+    9500,
+    13000,
+    16000
+  ],
+  "dragPhases": [
+    "rotate",
+    "reveal",
+    "hold",
+    "retract",
+    "clean"
+  ],
+  "pageErrors": [],
+  "loopRestartsAfterDrag": 0,
+  "revealCollapseAfterDrag": true,
+  "firstCollapse": {
+    "t": 5936,
+    "phase": "reveal"
+  },
+  "bundleStructure": {
+    "oldHadTwoTweenSweep": true,
+    "newHasTwoTweenSweep": false,
+    "newHasFullRevolutionSweep": true,
+    "newHasDragTimelineReset": false
+  },
+  "approach": {
+    "before": {
+      "markers": {
+        "servedOldLight": true,
+        "servedNewLight": false,
+        "servedOldReset": false
+      },
+      "approach": {
+        "frames": 42,
+        "durationMs": 4023,
+        "anchorMovementPx": 81.4,
+        "movingFrames": 38,
+        "stalledWindowSharePct": 2.6,
+        "largestStallCluster": {
+          "frames": 1
+        }
+      }
+    },
+    "after": {
+      "markers": {
+        "servedOldLight": false,
+        "servedNewLight": true,
+        "servedOldReset": false
+      },
+      "approach": {
+        "frames": 41,
+        "durationMs": 3960,
+        "anchorMovementPx": 372.9,
+        "movingFrames": 38,
+        "stalledWindowSharePct": 0,
+        "largestStallCluster": {
+          "frames": 0
+        }
+      }
+    }
+  },
+  "lighting": {
+    "stats": {
+      "before": {
+        "wholeMean": 30.05,
+        "westLimb": {
+          "mean": 17.6,
+          "stdev": 20.28
+        },
+        "westAfrica": {
+          "mean": 69.26,
+          "stdev": 44.22
+        },
+        "eastLimb": {
+          "mean": 41.53,
+          "stdev": 35.57
+        },
+        "center": {
+          "mean": 46.25,
+          "stdev": 42.68
+        },
+        "north": {
+          "mean": 116.11,
+          "stdev": 47.14
+        }
+      },
+      "after": {
+        "wholeMean": 30.28,
+        "westLimb": {
+          "mean": 18.35,
+          "stdev": 20.23
+        },
+        "westAfrica": {
+          "mean": 70.55,
+          "stdev": 44.83
+        },
+        "eastLimb": {
+          "mean": 41.69,
+          "stdev": 35.68
+        },
+        "center": {
+          "mean": 46.54,
+          "stdev": 42.64
+        },
+        "north": {
+          "mean": 117.08,
+          "stdev": 47.44
+        }
+      }
+    },
+    "westAfricaMeanDelta": 1.29,
+    "westAfricaStdevDelta": 0.61,
+    "eastLimbMeanDelta": 0.16,
+    "centerMeanDelta": 0.29,
+    "wholeMeanDelta": 0.23
+  }
+}
