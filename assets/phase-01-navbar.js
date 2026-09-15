@@ -261,6 +261,14 @@
       if (!trigger) return;
       trigger.addEventListener('click', (event) => {
         event.preventDefault();
+        // A pointer click necessarily enters the trigger first. Keep the
+        // hover-open menu open for that first click so a mouse user gets the
+        // same result as a touch user: click opens, a subsequent click closes.
+        if (item._navOpenedByHover) {
+          item._navOpenedByHover = false;
+          trigger.setAttribute('aria-expanded', 'true');
+          return;
+        }
         const open = !item.classList.contains('is-open');
         closeAll(open ? item : null);
         item.classList.toggle('is-open', open);
@@ -271,12 +279,14 @@
         if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
         closeAll(item);
         item.classList.add('is-open');
+        item._navOpenedByHover = true;
         trigger.setAttribute('aria-expanded', 'true');
         if (item.querySelector('.nav-megamenu')) revealSectorIcons();
       });
       item.addEventListener('mouseleave', () => {
         if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
         item.classList.remove('is-open');
+        item._navOpenedByHover = false;
         trigger.setAttribute('aria-expanded', 'false');
       });
     });
