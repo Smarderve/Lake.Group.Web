@@ -39,6 +39,20 @@ test('Lake Aviation gallery uses an editorial responsive grid of genuine operati
   assert.doesNotMatch(page, /JIG Member 2026|jig-member-2026\.webp/);
 });
 
+test('Lake Aviation uses neutral aircraft imagery where livery-bearing planes are visible', () => {
+  for (const asset of [
+    'aviation-fueling-neutral.webp',
+    'aviation-skyward-neutral.webp',
+    'aviation-team-truck-neutral.webp',
+    'aviation-4-neutral.webp',
+    'aviation-6-neutral.webp',
+    'aviation-11-neutral.webp',
+    'aviation-15-neutral.webp',
+  ]) assert.match(page, new RegExp(`remediated/${asset.replace('.', '\\.')}`));
+
+  assert.doesNotMatch(page, /aviation-(?:fueling|skyward|team-truck|4|6|11|15)-clean\.webp/);
+});
+
 test('Lake Aviation uses the approved apron hero across desktop and mobile', () => {
   assert.match(page, /assets\/images\/delivery\/lake-aviation\/remediated\/lake-aviation-hero-apron-clean\.webp/);
   assert.doesNotMatch(page, /lake-aviation-hero(?:-800)?\.webp/);
