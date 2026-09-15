@@ -1124,14 +1124,16 @@ body.co-theme-agro .nav-mobile[data-phase01-navbar-mobile].open {
 
 /* Final Business Verticals contract: the rail and company pane share one
    shell, while the rail keeps stable icon/label/chevron columns. */
-.site-nav[data-phase01-navbar] .nav-megamenu {
+.site-nav[data-phase01-navbar] .nav-megamenu,
+body.co-theme-agro .site-nav[data-phase01-navbar] .nav-megamenu {
   width: min(1120px, calc(100vw - 48px)) !important;
   max-width: min(1120px, calc(100vw - 48px)) !important;
   left: 50% !important;
   transform: translate(-50%, -6px) !important;
   padding: 0 !important;
   /* Keep the shell transparent so the pane's alpha reveals the page behind
-     it instead of revealing another opaque blue layer underneath. */
+     it instead of creating a second, inset dropdown surface. The Agro
+     selector is included here to match the earlier themed dropdown rule. */
   background: transparent !important;
   background-color: transparent !important;
   border: 1px solid var(--nav-dropdown-border) !important;
