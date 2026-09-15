@@ -1,0 +1,155 @@
+[
+  {
+    "id": "fueling",
+    "source": "assets/images/lake-aviation/gallery/aviation-fueling-coastal.webp",
+    "output": "assets/images/delivery/lake-aviation/remediated/aviation-fueling-clean.webp",
+    "width": 1672,
+    "height": 941,
+    "bytes": 193122,
+    "quality": 86
+  },
+  {
+    "id": "nyerere",
+    "source": "assets/images/lake-aviation/gallery/aviation-nyerere-tanker.webp",
+    "output": "assets/images/delivery/lake-aviation/remediated/aviation-nyerere-clean.webp",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 239486,
+    "quality": 86
+  },
+  {
+    "id": "skyward",
+    "source": "assets/images/lake-aviation/gallery/aviation-skyward-apron.webp",
+    "output": "assets/images/delivery/lake-aviation/remediated/aviation-skyward-clean.webp",
+    "width": 1445,
+    "height": 1088,
+    "bytes": 153600,
+    "quality": 86
+  },
+  {
+    "id": "team-truck",
+    "source": "assets/images/lake-aviation/gallery/aviation-team-truck.webp",
+    "output": "assets/images/delivery/lake-aviation/remediated/aviation-team-truck-clean.webp",
+    "width": 1444,
+    "height": 1089,
+    "bytes": 144844,
+    "quality": 86
+  },
+  {
+    "id": "ops-10",
+    "source": "assets/images/lake-aviation/ops/aviation-10.webp",
+    "output": "assets/images/delivery/lake-aviation/remediated/aviation-10-clean.webp",
+    "width": 1080,
+    "height": 810,
+    "bytes": 132240,
+    "quality": 86
+  },
+  {
+    "id": "ops-11",
+    "source": "assets/images/lake-aviation/ops/aviation-11.webp",
+    "output": "assets/images/delivery/lake-aviation/remediated/aviation-11-clean.webp",
+    "width": 1020,
+    "height": 768,
+    "bytes": 73410,
+    "quality": 86
+  },
+  {
+    "id": "ops-12",
+    "source": "assets/images/lake-aviation/ops/aviation-12.webp",
+    "output": "assets/images/delivery/lake-aviation/remediated/aviation-12-clean.webp",
+    "width": 1000,
+    "height": 750,
+    "bytes": 42108,
+    "quality": 86
+  },
+  {
+    "id": "ops-13",
+    "source": "assets/images/lake-aviation/ops/aviation-13.webp",
+    "output": "assets/images/delivery/lake-aviation/remediated/aviation-13-clean.webp",
+    "width": 1020,
+    "height": 768,
+    "bytes": 80708,
+    "quality": 86
+  },
+  {
+    "id": "ops-14",
+    "source": "assets/images/lake-aviation/ops/aviation-14.webp",
+    "output": "assets/images/delivery/lake-aviation/remediated/aviation-14-clean.webp",
+    "width": 810,
+    "height": 1080,
+    "bytes": 124224,
+    "quality": 86
+  },
+  {
+    "id": "ops-15",
+    "source": "assets/images/lake-aviation/ops/aviation-15.webp",
+    "output": "assets/images/delivery/lake-aviation/remediated/aviation-15-clean.webp",
+    "width": 1020,
+    "height": 768,
+    "bytes": 87710,
+    "quality": 86
+  },
+  {
+    "id": "ops-2",
+    "source": "assets/images/lake-aviation/ops/aviation-2.webp",
+    "output": "assets/images/delivery/lake-aviation/remediated/aviation-2-clean.webp",
+    "width": 1080,
+    "height": 810,
+    "bytes": 138176,
+    "quality": 86
+  },
+  {
+    "id": "ops-4",
+    "source": "assets/images/lake-aviation/ops/aviation-4.webp",
+    "output": "assets/images/delivery/lake-aviation/remediated/aviation-4-clean.webp",
+    "width": 1080,
+    "height": 810,
+    "bytes": 171174,
+    "quality": 86
+  },
+  {
+    "id": "ops-6",
+    "source": "assets/images/lake-aviation/ops/aviation-6.webp",
+    "output": "assets/images/delivery/lake-aviation/remediated/aviation-6-clean.webp",
+    "width": 1080,
+    "height": 607,
+    "bytes": 87452,
+    "quality": 86
+  },
+  {
+    "id": "ops-8",
+    "source": "assets/images/lake-aviation/ops/aviation-8.webp",
+    "output": "assets/images/delivery/lake-aviation/remediated/aviation-8-clean.webp",
+    "width": 1000,
+    "height": 563,
+    "bytes": 50848,
+    "quality": 86
+  },
+  {
+    "id": "ops-9",
+    "source": "assets/images/lake-aviation/ops/aviation-9.webp",
+    "output": "assets/images/delivery/lake-aviation/remediated/aviation-9-clean.webp",
+    "width": 1080,
+    "height": 810,
+    "bytes": 146956,
+    "quality": 86
+  },
+  {
+    "id": "hero",
+    "source": "assets/images/lake-aviation/ops/lake-aviation-hero-apron.webp",
+    "output": "assets/images/delivery/lake-aviation/remediated/lake-aviation-hero-apron-clean.webp",
+    "width": 1448,
+    "height": 1086,
+    "bytes": 264838,
+    "quality": 86
+  },
+  {
+    "id": "worker",
+    "source": "assets/images/lake-aviation/gallery/aviation-worker-underwing.webp",
+    "output": "assets/images/delivery/lake-aviation/remediated/aviation-worker-underwing-clean.webp",
+    "width": 1086,
+    "height": 1448,
+    "bytes": 174012,
+    "quality": 86
+  }
+]
