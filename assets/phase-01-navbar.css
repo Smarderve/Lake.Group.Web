@@ -628,7 +628,9 @@ body.co-theme-agro .nav-mobile[data-phase01-navbar-mobile] {
 body.co-theme-agro {
   --nav-dropdown-bg: rgba(0, 75, 30, .93);
   --nav-dropdown-sidebar-bg: #004b1e;
-  --nav-dropdown-pane-bg: rgba(218, 242, 221, .075);
+  /* The company pane uses a rich green glass layer: enough opacity for the
+     Lake marks to lead, with only restrained hero depth behind it. */
+  --nav-dropdown-pane-bg: rgba(0, 105, 42, .82);
   --nav-dropdown-border: rgba(230, 126, 34, .34);
   --nav-dropdown-divider: rgba(255, 253, 245, .18);
   --nav-dropdown-shadow: 0 18px 48px rgba(0, 43, 17, .28);
