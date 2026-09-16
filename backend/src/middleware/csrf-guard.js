@@ -16,6 +16,7 @@
  * HEAD and OPTIONS (preflight) pass through. Mounted on /admin and /auth.
  */
 import { securityLog } from '../lib/security-log.js';
+import { isCmsAuthBypass } from './cms-auth-bypass.js';
 
 const SAFE_METHODS = new Set(['GET', 'HEAD', 'OPTIONS']);
 
@@ -60,6 +61,7 @@ export function csrfGuard({ allowedOrigins = [], trustProxy = 0 } = {}) {
 
   return function csrfGuardMiddleware(req, res, next) {
     if (SAFE_METHODS.has(req.method)) return next();
+    if (isCmsAuthBypass(req)) return next();
 
     // Forwarded host/protocol are used only when Express's compiled trust
     // function trusts the direct network peer. A merely non-zero setting is

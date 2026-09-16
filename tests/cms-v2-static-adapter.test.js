@@ -12,5 +12,7 @@ test('Lake Aviation CMS V2 adapter stays disabled and cannot fetch without expli
   assert.match(page, /cms-content-v2-config\.js/);
   assert.match(config, /enabled:\s*false/);
   assert.match(adapter, /if \(config\.enabled !== true\) return/);
+  assert.match(adapter, /releases\\\/\[a-zA-Z0-9_-\]\+\\\/content\\\.json/);
+  assert.match(adapter, /snapshot\.schemaVersion !== 1/);
   assert.match(page, /data-cms-field="hero\.heading"/);
 });

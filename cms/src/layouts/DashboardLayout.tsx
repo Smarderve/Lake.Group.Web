@@ -8,6 +8,7 @@ import { useSettings } from '../features/settings/SettingsProvider';
 import { useAuth } from '../features/auth/AuthProvider';
 import { cn } from '../utils/cn';
 import { canReview } from '../utils/permissions';
+import { cmsAuthBypassEnabled } from '../lib/cms-auth-bypass';
 
 export function DashboardLayout() {
   const { user } = useAuth();
@@ -110,6 +111,11 @@ export function DashboardLayout() {
       )}
 
       <div className="flex min-w-0 flex-1 flex-col">
+        {cmsAuthBypassEnabled && (
+          <div role="status" className="bg-amber-100 px-4 py-1 text-center text-xs font-semibold tracking-wide text-amber-950">
+            AUTH BYPASS — LOCAL TESTING
+          </div>
+        )}
         <TopBar onMenuClick={() => setMobileNavOpen(true)} />
         <main id="main-content" tabIndex={-1} className="cms-shell-main mx-auto w-full max-w-[1440px] flex-1 px-4 py-6 sm:px-6 lg:px-8">
           <Outlet />

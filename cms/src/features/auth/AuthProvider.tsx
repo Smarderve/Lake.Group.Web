@@ -11,6 +11,7 @@ import {
 import { setSessionExpiredHandler } from '../../services/api';
 import type { User } from '../../types/api';
 import { authApi } from './api';
+import { cmsAuthBypassEnabled, cmsAuthBypassUser } from '../../lib/cms-auth-bypass';
 
 export type AuthStatus = 'loading' | 'authenticated' | 'unauthenticated';
 
@@ -37,9 +38,9 @@ const AuthContext = createContext<AuthContextValue | null>(null);
  * remains authoritative – this only mirrors GET /auth/me state.
  */
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [status, setStatus] = useState<AuthStatus>('loading');
-  const [user, setUser] = useState<User | null>(null);
-  const [isRestoring, setIsRestoring] = useState(true);
+  const [status, setStatus] = useState<AuthStatus>(cmsAuthBypassEnabled ? 'authenticated' : 'loading');
+  const [user, setUser] = useState<User | null>(cmsAuthBypassEnabled ? cmsAuthBypassUser : null);
+  const [isRestoring, setIsRestoring] = useState(!cmsAuthBypassEnabled);
   // Guards against the expiry callback firing during our own restore request.
   const restoringRef = useRef(true);
 
@@ -50,6 +51,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   // Session restore on mount.
   useEffect(() => {
+    if (cmsAuthBypassEnabled) return undefined;
     let cancelled = false;
     async function restore() {
       try {
@@ -82,6 +84,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const login = useCallback(
     async (email: string, password: string): Promise<'mfa-required' | 'authenticated'> => {
+      if (cmsAuthBypassEnabled) return 'authenticated';
       const result = await authApi.login(email, password);
       if (result.mfaRequired) return 'mfa-required';
       if (result.user) {
@@ -95,6 +98,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   );
 
   const verifyMfa = useCallback(async (code: string): Promise<User> => {
+    if (cmsAuthBypassEnabled) return cmsAuthBypassUser;
     const { user: current } = await authApi.verifyMfa(code);
     setUser(current);
     setStatus('authenticated');
@@ -102,6 +106,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const logout = useCallback(async (): Promise<void> => {
+    if (cmsAuthBypassEnabled) return;
     try {
       await authApi.logout();
     } finally {

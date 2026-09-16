@@ -28,8 +28,10 @@ import { privateNoStore, securityHeaders } from './middleware/security-headers.j
 import { csrfGuard } from './middleware/csrf-guard.js';
 import { cmsCors } from './middleware/cms-cors.js';
 import { requireMfaEnrollment } from './middleware/auth.js';
+import { cmsAuthBypass } from './middleware/cms-auth-bypass.js';
 import { DEFAULT_SESSION_TTL_MS, DEFAULT_RECENT_AUTH_WINDOW_MS } from './config.js';
 import { careersRouter } from './routes/careers.js';
+import { cmsV2Router } from './routes/cms-v2.js';
 
 /**
  * Express app factory.
@@ -83,8 +85,13 @@ export function createApp({
   careersAllowedOrigins = [],
   careersMailer = null,
   careersLimiter = undefined,
+  cmsV2Service = null,
+  // Explicit local/test-only CMS access. It is forcibly disabled whenever
+  // isProduction is true, including callers that pass this option directly.
+  cmsAuthBypassEnabled = false,
 } = {}) {
   const app = express();
+  const localCmsAuthBypass = cmsAuthBypassEnabled === true && isProduction !== true;
 
   app.disable('x-powered-by');
   // Read real client IPs when behind a reverse proxy (rate limiting + audit).
@@ -148,11 +155,14 @@ export function createApp({
   }
   // Phase 15 — X-Forwarded-* (host/proto) feed the Origin match ONLY when
   // a reverse proxy is configured; direct clients cannot spoof them.
+  if (localCmsAuthBypass) app.use('/admin', cmsAuthBypass({ enabled: true, db }));
   const csrf = csrfGuard({ allowedOrigins: csrfAllowedOrigins, trustProxy });
   app.use('/auth', csrf);
   app.use('/admin', csrf);
   app.use('/auth', adminLimiter);
-  app.use('/admin', adminLimiter);
+  // Local bypass mode is intentionally a functional-test harness. All normal
+  // environments retain the authenticated admin rate limiter.
+  if (!localCmsAuthBypass) app.use('/admin', adminLimiter);
   app.use('/auth', authRouter({
     db,
     loginLimiter,
@@ -163,6 +173,7 @@ export function createApp({
     isProduction,
   }));
   app.use('/admin', requireMfaEnrollment(db, mfaRequiredRoles));
+  if (cmsV2Service) app.use('/admin/v2', cmsV2Router({ db, service: cmsV2Service, recentAuthWindowMs }));
   // /admin/* workflow routers mount before /admin so their routes win over
   // the generic admin router (Phases 3-4).
   app.use('/admin/preview', previewRouter({ db }));

@@ -102,6 +102,11 @@ export function resolveConfig(env) {
   return {
     env: appEnv,
     isProduction: appEnv === 'production',
+    // A development/testing convenience only. The production check is
+    // intentionally part of configuration as well as the app factory, so a
+    // mistakenly-set environment variable cannot activate the bypass.
+    cmsAuthBypass: appEnv !== 'production' && env.CMS_AUTH_BYPASS === 'true',
+    cmsAuthBypassRequested: env.CMS_AUTH_BYPASS === 'true',
     // Development-only validation-pattern routes (/example) mount only outside
     // production — a dev endpoint must never ship live.
     devEndpointsEnabled: appEnv !== 'production',
@@ -193,6 +198,9 @@ export const config = resolveConfig(process.env);
 export function productionConfigProblems(cfg = config) {
   const problems = [];
   if (!cfg.isProduction) return problems;
+  if (cfg.cmsAuthBypassRequested) {
+    problems.push('CMS_AUTH_BYPASS must not be set in production');
+  }
   const cmsAllowedOrigins = cfg.cmsAllowedOrigins || [];
   const csrfAllowedOrigins = cfg.csrfAllowedOrigins || [];
   if (!cfg.databaseUrl) problems.push('DATABASE_URL is required in production');

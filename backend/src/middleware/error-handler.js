@@ -127,7 +127,10 @@ export function errorHandler({ logger } = {}) {
       });
     }
 
-    const status = Number(err.status || err.statusCode) || 500;
+    const cmsV2Status = err?.code === 'REVISION_CONFLICT' ? 409
+      : ['INVALID_CONTENT_DOCUMENT', 'INVALID_CONTENT_PAYLOAD'].includes(err?.code) ? 400
+        : ['REVISION_NOT_FOUND', 'RELEASE_NOT_FOUND'].includes(err?.code) ? 404 : 0;
+    const status = Number(err.status || err.statusCode) || cmsV2Status || 500;
     // Never leak internals for server errors; keep 4xx messages as-is.
     const message = status >= 500 ? 'Internal server error' : err.message;
 

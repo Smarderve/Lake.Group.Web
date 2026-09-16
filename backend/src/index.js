@@ -8,6 +8,9 @@ import { createObjectStorage } from './lib/object-storage.js';
 import { startPublicReleaseWorker } from './lib/public-release.js';
 import { createSecretBox, inspectMfaKey } from './lib/secret-box.js';
 import { createResendMailer } from './routes/careers.js';
+import { createCmsV2ReleaseStorage } from './lib/cms-v2-release-storage.js';
+import { createCmsV2RuntimeService } from './lib/cms-v2-runtime-service.js';
+import { resolve } from 'node:path';
 
 const logger = createLogger(config.logLevel);
 // Phase 6 — the runtime connects with the least-privilege role when the
@@ -22,6 +25,8 @@ const rateLimitPool = createRateLimitPool(config.databaseUrlRuntime);
 // 0014), falling back to an in-memory store when there is no database.
 const prefsStore = createUserPrefsStore(config.databaseUrlRuntime) ?? createMemoryPrefsStore();
 const mediaStorage = createObjectStorage(config);
+const cmsV2Storage = createCmsV2ReleaseStorage({ root: resolve(process.env.CMS_V2_RELEASE_DIR || '../public-content') });
+const cmsV2Service = db ? createCmsV2RuntimeService({ db, storage: cmsV2Storage, logger }) : null;
 
 if (!db) {
   logger.warn(
@@ -90,6 +95,8 @@ const app = createApp({
   careersRecipientEmail: config.careersRecipientEmail,
   careersAllowedOrigins: config.careersAllowedOrigins,
   careersMailer: createResendMailer({ apiKey: config.careersMailApiKey, from: config.careersMailFrom }),
+  cmsV2Service,
+  cmsAuthBypassEnabled: config.cmsAuthBypass,
 });
 
 const server = app.listen(config.port, () => {
