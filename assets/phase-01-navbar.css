@@ -646,7 +646,7 @@ body.co-theme-agro {
 body.co-theme-agro[data-company-alt="Agrinova Tech Limited"] {
   --nav-dropdown-bg: rgba(18, 61, 44, .94);
   --nav-dropdown-sidebar-bg: #123d2c;
-  --nav-dropdown-pane-bg: rgba(232, 240, 223, .075);
+  --nav-dropdown-pane-bg: rgba(29, 96, 69, .84);
   --nav-dropdown-border: rgba(216, 168, 60, .34);
   --nav-dropdown-divider: rgba(255, 253, 245, .18);
   --nav-dropdown-shadow: 0 18px 48px rgba(8, 36, 24, .32);
