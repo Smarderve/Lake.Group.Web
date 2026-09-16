@@ -27,12 +27,20 @@ enum Role {
   VIEWER
 }
 
+/// Additive authorization gate for the immutable CMS V2 release pipeline.
+/// Legacy editorial Role remains intact and grants no V2 access by itself.
+enum CmsAccessLevel {
+  NONE
+  IT_ADMIN
+}
+
 /// A backend user. Created manually (seed/script) — no public signup.
 model User {
   id           String    @id @default(uuid())
   email        String    @unique
   passwordHash String
   role         Role      @default(VIEWER)
+  cmsAccessLevel CmsAccessLevel @default(NONE)
   mfaSecret    String? // TOTP secret — never returned after setup completes
   mfaEnabled   Boolean   @default(false)
   active       Boolean   @default(true)
@@ -43,6 +51,66 @@ model User {
   media        Media[]
   newsItems    News[]    @relation("NewsAuthor")
   notifications Notification[]
+  cmsV2Revisions ContentRevision[] @relation("CmsV2RevisionAuthor")
+  cmsV2Releases  CmsRelease[] @relation("CmsV2ReleasePublisher")
+}
+
+/// CMS V2 documents are deliberately a closed registry during the pilot.
+/// Pointer fields only move after an immutable revision/release has persisted.
+model ContentDocument {
+  id                       String            @id @default(uuid())
+  key                      String            @unique
+  schemaVersion            Int
+  currentDraftRevisionId   String?
+  currentPublishedRevisionId String?
+  createdAt                DateTime          @default(now())
+  updatedAt                DateTime          @updatedAt
+  revisions                ContentRevision[]
+  releaseDocuments         CmsReleaseDocument[]
+}
+
+/// Never updated in application code: corrections create another revision.
+model ContentRevision {
+  id           String          @id @default(uuid())
+  documentId   String
+  document     ContentDocument @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  authorId     String?
+  author       User?           @relation("CmsV2RevisionAuthor", fields: [authorId], references: [id], onDelete: SetNull)
+  schemaVersion Int
+  data         Json
+  createdAt    DateTime        @default(now())
+  releaseDocuments CmsReleaseDocument[]
+
+  @@index([documentId, createdAt])
+}
+
+/// A content-addressed, immutable public snapshot. The current pointer is
+/// external/static so readers never observe a partially written release.
+model CmsRelease {
+  id                    String               @id @default(uuid())
+  integrity             String               @unique
+  manifest              Json
+  publishedById         String?
+  publishedBy           User?                @relation("CmsV2ReleasePublisher", fields: [publishedById], references: [id], onDelete: SetNull)
+  restoredFromReleaseId String?
+  restoredFromRelease   CmsRelease?          @relation("CmsV2Restore", fields: [restoredFromReleaseId], references: [id], onDelete: SetNull)
+  restoredReleases      CmsRelease[]         @relation("CmsV2Restore")
+  publishedAt           DateTime             @default(now())
+  documents             CmsReleaseDocument[]
+
+  @@index([publishedAt])
+}
+
+model CmsReleaseDocument {
+  releaseId       String
+  release         CmsRelease      @relation(fields: [releaseId], references: [id], onDelete: Cascade)
+  documentId      String
+  document        ContentDocument @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  documentRevisionId String
+  documentRevision ContentRevision @relation(fields: [documentRevisionId], references: [id], onDelete: Restrict)
+
+  @@id([releaseId, documentId])
+  @@index([documentRevisionId])
 }
 
 /// Server-side audit trail. `actorId` is always set from the authenticated

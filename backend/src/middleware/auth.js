@@ -97,6 +97,24 @@ export function requireRole(...roles) {
 }
 
 /**
+ * CMS V2 is intentionally gated separately from the legacy editorial Role.
+ * A legacy administrator receives no V2 publishing authority until an IT
+ * administrator explicitly grants the additive access level.
+ */
+export function requireCmsAdmin() {
+  return function requireCmsAdminMiddleware(req, res, next) {
+    if (req.user?.cmsAccessLevel !== 'IT_ADMIN') {
+      return deny(req, res, {
+        code: 'CMS_V2_FORBIDDEN',
+        message: 'CMS V2 administrator access is required',
+        detail: { reason: 'CMS_V2_ACCESS' },
+      });
+    }
+    next();
+  };
+}
+
+/**
  * Privileged-action guard (Task 2.9): the session must have completed
  * authentication within the last `maxAgeMs` (default 15 minutes). Future
  * approvals/publishing flows reuse this pattern.

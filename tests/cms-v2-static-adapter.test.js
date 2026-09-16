@@ -1,0 +1,16 @@
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+
+const root = path.resolve(__dirname, '..');
+
+test('Lake Aviation CMS V2 adapter stays disabled and cannot fetch without explicit enablement', () => {
+  const page = fs.readFileSync(path.join(root, 'lake-aviation.html'), 'utf8');
+  const config = fs.readFileSync(path.join(root, 'assets', 'cms-content-v2-config.js'), 'utf8');
+  const adapter = fs.readFileSync(path.join(root, 'assets', 'cms-content-v2.js'), 'utf8');
+  assert.match(page, /cms-content-v2-config\.js/);
+  assert.match(config, /enabled:\s*false/);
+  assert.match(adapter, /if \(config\.enabled !== true\) return/);
+  assert.match(page, /data-cms-field="hero\.heading"/);
+});
