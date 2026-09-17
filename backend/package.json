@@ -27,6 +27,7 @@
     "create-user": "node scripts/create-user.js",
     "seed:metrics": "node scripts/seed-metrics.js",
     "seed:content": "node scripts/seed-content.js",
+    "cms:v2:seed": "node scripts/seed-cms-v2.js",
     "seed:all": "node scripts/seed-metrics.js && node scripts/seed-content.js",
     "health:report": "node scripts/content-health-report.js",
     "security:audit": "npm audit --audit-level=high",
