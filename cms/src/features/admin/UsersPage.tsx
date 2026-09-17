@@ -2,14 +2,12 @@ import { useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useAuth } from '../auth/AuthProvider';
 import { adminApi, type AdminUser } from './api';
-import type { Role } from '../../types/api';
 import { apiErrorMessage } from '../../services/api';
 import { formatDate } from '../../utils/format';
 import { PageHeader } from '../../components/ui/PageHeader';
 import { Card } from '../../components/ui/Card';
 import { Badge } from '../../components/ui/Badge';
 import { Button } from '../../components/ui/Button';
-import { Select } from '../../components/ui/Select';
 import { Input } from '../../components/ui/Input';
 import { Field } from '../../components/ui/Field';
 import { Dialog } from '../../components/ui/Dialog';
@@ -19,13 +17,10 @@ import { Skeleton } from '../../components/ui/Skeleton';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../components/ui/Table';
 import { useToast } from '../../components/ui/toast';
 
-const ROLES: Role[] = ['SUPER_ADMIN', 'EDITOR', 'REVIEWER', 'CONTACT_MANAGER', 'VIEWER'];
-
 export function UsersPage() {
   const { user: currentUser } = useAuth();
   const queryClient = useQueryClient();
   const { toast } = useToast();
-  const [roleChange, setRoleChange] = useState<{ user: AdminUser; role: Role } | null>(null);
   const [passwordUser, setPasswordUser] = useState<AdminUser | null>(null);
   const [password, setPassword] = useState('');
   const [revokeUser, setRevokeUser] = useState<AdminUser | null>(null);
@@ -33,8 +28,7 @@ export function UsersPage() {
   const users = useQuery({ queryKey: ['admin', 'users'], queryFn: adminApi.users });
   const refresh = () => queryClient.invalidateQueries({ queryKey: ['admin', 'users'] });
   const mutation = useMutation({
-    mutationFn: async (operation: 'role' | 'password' | 'revoke') => {
-      if (operation === 'role' && roleChange) return adminApi.changeRole(roleChange.user.id, roleChange.role);
+    mutationFn: async (operation: 'password' | 'revoke') => {
       if (operation === 'password' && passwordUser) return adminApi.resetPassword(passwordUser.id, password);
       if (operation === 'revoke' && revokeUser) return adminApi.revokeSessions(revokeUser.id);
       throw new Error('No user operation selected');
@@ -43,13 +37,10 @@ export function UsersPage() {
       toast({
         variant: 'success',
         title:
-          operation === 'role'
-            ? 'Role updated'
-            : operation === 'password'
+          operation === 'password'
               ? 'Password reset'
               : 'Sessions revoked',
       });
-      setRoleChange(null);
       setPasswordUser(null);
       setPassword('');
       setRevokeUser(null);
@@ -61,8 +52,8 @@ export function UsersPage() {
   return (
     <>
       <PageHeader
-        title="Users & Roles"
-        description="Manage authorization, reset credentials, and invalidate active sessions. Every action is recorded in the audit trail."
+        title="CMS Users"
+        description="Manage IT Administrator access, account security, and active sessions. Legacy editorial roles are not used by CMS V2."
       />
 
       {users.isPending ? (
@@ -93,22 +84,7 @@ export function UsersPage() {
                       <Badge tone={row.mfaEnabled ? 'blue' : 'amber'}>{row.mfaEnabled ? 'MFA enabled' : 'MFA off'}</Badge>
                     </div>
                   </div>
-                  <Field id={`mobile-role-${row.id}`} label="Role">
-                    <Select
-                      id={`mobile-role-${row.id}`}
-                      aria-label={`Mobile role for ${row.email}`}
-                      name={`mobile-role-${row.id}`}
-                      value={row.role}
-                      disabled={isSelf}
-                      onChange={(event) => setRoleChange({ user: row, role: event.target.value as Role })}
-                    >
-                      {ROLES.map((role) => (
-                        <option key={role} value={role}>
-                          {role.replace(/_/g, ' ')}
-                        </option>
-                      ))}
-                    </Select>
-                  </Field>
+                  <p className="text-sm text-ink-muted">CMS access: <span className="font-medium text-ink">{row.cmsAccessLevel === 'IT_ADMIN' ? 'IT Administrator' : 'Disabled'}</span></p>
                   <div className="grid grid-cols-2 gap-2">
                     <Button
                       variant="outline"
@@ -138,7 +114,7 @@ export function UsersPage() {
             <TableHeader>
               <TableRow>
                 <TableHead>User</TableHead>
-                <TableHead>Role</TableHead>
+                <TableHead>CMS access</TableHead>
                 <TableHead>Security</TableHead>
                 <TableHead>Joined</TableHead>
                 <TableHead className="text-right">Actions</TableHead>
@@ -154,20 +130,7 @@ export function UsersPage() {
                       {isSelf && <p className="text-xs text-ink-muted">Current account</p>}
                     </TableCell>
                     <TableCell>
-                      <Select
-                        aria-label={`Role for ${row.email}`}
-                        name={`role-${row.id}`}
-                        value={row.role}
-                        disabled={isSelf}
-                        onChange={(event) => setRoleChange({ user: row, role: event.target.value as Role })}
-                        className="min-w-44"
-                      >
-                        {ROLES.map((role) => (
-                          <option key={role} value={role}>
-                            {role.replace(/_/g, ' ')}
-                          </option>
-                        ))}
-                      </Select>
+                      <Badge tone={row.cmsAccessLevel === 'IT_ADMIN' ? 'green' : 'neutral'}>{row.cmsAccessLevel === 'IT_ADMIN' ? 'IT Administrator' : 'Disabled'}</Badge>
                     </TableCell>
                     <TableCell>
                       <div className="flex flex-wrap gap-1.5">
@@ -194,20 +157,6 @@ export function UsersPage() {
         </Card>
         </>
       )}
-
-      <ConfirmDialog
-        open={Boolean(roleChange)}
-        title="Change user role"
-        description={
-          roleChange
-            ? `${roleChange.user.email} will receive ${roleChange.role.replace(/_/g, ' ')} permissions immediately.`
-            : ''
-        }
-        confirmLabel="Change role"
-        loading={mutation.isPending}
-        onCancel={() => setRoleChange(null)}
-        onConfirm={() => mutation.mutate('role')}
-      />
 
       <Dialog
         open={Boolean(passwordUser)}

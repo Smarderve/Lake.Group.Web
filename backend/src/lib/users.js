@@ -8,6 +8,9 @@ export function publicUser(user) {
     id: user.id,
     email: user.email,
     role: user.role,
+    // Legacy editorial role remains for migration compatibility. CMS V2
+    // authorization is exclusively determined by this additive capability.
+    cmsAccessLevel: user.cmsAccessLevel ?? 'NONE',
     mfaEnabled: user.mfaEnabled,
     active: user.active,
     createdAt: user.createdAt,

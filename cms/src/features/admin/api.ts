@@ -5,6 +5,7 @@ export interface AdminUser {
   id: string;
   email: string;
   role: Role;
+  cmsAccessLevel?: 'NONE' | 'IT_ADMIN';
   active: boolean;
   mfaEnabled: boolean;
   createdAt: string;
