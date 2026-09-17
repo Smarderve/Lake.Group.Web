@@ -1,17 +1,40 @@
 import { createHash } from 'node:crypto';
 import { z } from 'zod';
 
+const text = (maximum) => z.string().trim().min(1).max(maximum);
+const url = text(1000);
+const seo = z.object({ title: text(160), description: text(320), canonical: z.string().max(1000).optional(), socialImage: z.string().max(1000).optional(), index: z.boolean().default(true) }).strict();
+const pageSchema = z.object({
+  hero: z.object({ heading: text(160), description: text(1000), image: url, alt: z.string().max(250).optional() }).strict(),
+  introduction: z.object({ heading: text(200), body: text(8000) }).strict(),
+  cta: z.object({ label: text(80), href: url }).strict(),
+  media: z.array(z.object({ src: url, alt: z.string().max(250), role: z.enum(['hero', 'gallery', 'inline']).default('inline') }).strict()).max(40).default([]),
+  sections: z.array(z.object({ key: text(80), heading: text(200), body: text(8000) }).strict()).max(30).default([]),
+  seo,
+}).strict();
+const globalSchema = z.object({
+  organization: z.object({ name: text(120), description: text(1000), headquarters: text(500), email: text(250), phone: text(100) }).strict(),
+  statistics: z.array(z.object({ label: text(100), value: text(100), scope: text(120) }).strict()).min(1).max(20),
+  socialLinks: z.array(z.object({ label: text(80), href: url }).strict()).max(12).default([]),
+}).strict();
+const companiesSchema = z.object({ companies: z.array(z.object({ name: text(140), shortName: text(80), vertical: text(100), route: text(300), logo: z.string().max(1000).optional(), description: text(1000), country: z.string().max(120).optional(), active: z.boolean() }).strict()).min(1).max(60) }).strict();
+const verticalsSchema = z.object({ verticals: z.array(z.object({ name: text(100), description: text(1000), companies: z.array(text(140)).max(30) }).strict()).min(1).max(12) }).strict();
+
+const PAGE_DEFINITIONS = [
+  ['home', 'index.html', 'Home'], ['about', 'about.html', 'About'], ['leadership', 'leadership.html', 'Leadership'], ['contact', 'contact.html', 'Contact'], ['careers', 'careers.html', 'Careers'], ['csr', 'csr.html', 'CSR'], ['gallery', 'gallery.html', 'Gallery'], ['history', 'history.html', 'History'], ['media-center', 'media-center.html', 'Media Center'], ['sustainability', 'sustainability.html', 'Sustainability'],
+  ['lake-oil', 'lake-oil.html', 'Lake Oil'], ['lake-aviation', 'lake-aviation.html', 'Lake Aviation'], ['lake-gas', 'lake-gas.html', 'Lake Gas'], ['lake-lubes', 'lake-lubes.html', 'Lake Lubes'], ['lake-steel', 'lake-steel.html', 'Lake Steel'], ['lake-trans', 'lake-trans.html', 'Lake Trans'], ['atl', 'atl.html', 'ATL'], ['aficd', 'aficd.html', 'AFICD'], ['aill', 'aill.html', 'AILL'], ['acfs', 'acfs.html', 'ACFS'], ['assembly-tech', 'assembly-tech.html', 'Assembly Tech'], ['cross-country', 'cross-country.html', 'Cross Country'], ['gulf-aggregates', 'gulf-aggregates.html', 'Gulf Aggregates'], ['lake-agro', 'lake-agro.html', 'Lake Agro'], ['agrinova-tech', 'agrinova-tech.html', 'Agrinova Tech'], ['nextdrive-motors', 'nextdrive-motors.html', 'NextDrive Motors'], ['lake-buildings', 'lake-buildings.html', 'Lake Buildings'], ['lake-cylinders', 'lake-cylinders.html', 'Lake Cylinders'], ['lake-pipes', 'lake-pipes.html', 'Lake Pipes'], ['lake-premix-cement', 'lake-premix-cement.html', 'Lake Premix'], ['ocean-galleria', 'ocean-galleria.html', 'Ocean Galleria'], ['la-home', 'la-home.html', 'Lake Agro Home'], ['la-projects', 'la-projects.html', 'Lake Agro Projects'], ['fleet', 'fleet.html', 'Lake Trans Fleet'], ['station-locator', 'station-locator.html', 'Station Locator'],
+];
+
+/** Developer-owned registry. It deliberately contains content models only; no
+ * DOM selectors, CSS, markup, or visual controls are CMS editable. */
 export const CMS_V2_DOCUMENTS = Object.freeze({
-  'lake-aviation': {
-    schemaVersion: 1,
-    schema: z.object({
-      hero: z.object({ heading: z.string().min(1).max(160), description: z.string().min(1).max(500), image: z.string().min(1).max(1000), alt: z.string().max(250).optional() }),
-      introduction: z.object({ heading: z.string().min(1).max(200), body: z.string().min(1).max(4000) }),
-      cta: z.object({ label: z.string().min(1).max(80), href: z.string().min(1).max(500) }),
-      seo: z.object({ title: z.string().min(1).max(160), description: z.string().min(1).max(320) }),
-    }).strict(),
-  },
+  ...Object.fromEntries(PAGE_DEFINITIONS.map(([key, route, label]) => [key, { schemaVersion: 1, kind: 'page', label, route, schema: pageSchema }])),
+  global: { schemaVersion: 1, kind: 'global', label: 'Global Content', schema: globalSchema },
+  companies: { schemaVersion: 1, kind: 'companies', label: 'Companies', schema: companiesSchema },
+  'business-verticals': { schemaVersion: 1, kind: 'verticals', label: 'Business Verticals', schema: verticalsSchema },
 });
+
+export const CMS_V2_PAGE_DEFINITIONS = Object.freeze(PAGE_DEFINITIONS.map(([key, route, label]) => Object.freeze({ key, route, label })));
 
 function fault(code, message) {
   return Object.assign(new Error(message), { code });

@@ -40,7 +40,7 @@ export function LakeAviationV2Page() {
   const update = (path: EditablePath, value: string) => {
     if (!data) return;
     const [group, field] = path.split('.') as [keyof LakeAviationData, string];
-    setData({ ...data, [group]: { ...data[group], [field]: value } } as LakeAviationData); setStatus('Unsaved changes'); setError(null);
+    setData({ ...data, [group]: { ...(data[group] as Record<string, string>), [field]: value } } as LakeAviationData); setStatus('Unsaved changes'); setError(null);
   };
   const save = async () => {
     if (!data) return;

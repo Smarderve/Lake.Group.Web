@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { createContentReleaseService } from '../src/lib/cms-v2-content.js';
+import { CMS_V2_DOCUMENTS, CMS_V2_PAGE_DEFINITIONS, createContentReleaseService } from '../src/lib/cms-v2-content.js';
 
 const content = (heading = 'Lake Aviation') => ({
   hero: { heading, description: 'Fuel supply', image: '/hero.webp', alt: 'Aircraft' },
@@ -22,6 +22,14 @@ function memoryRepository() {
 }
 
 describe('CMS V2 Lake Aviation pilot service', () => {
+  it('registers the active public page inventory plus shared content documents', () => {
+    expect(CMS_V2_PAGE_DEFINITIONS).toHaveLength(35);
+    expect(CMS_V2_DOCUMENTS.home.kind).toBe('page');
+    expect(CMS_V2_DOCUMENTS['lake-agro'].kind).toBe('page');
+    expect(CMS_V2_DOCUMENTS.global.kind).toBe('global');
+    expect(CMS_V2_DOCUMENTS.companies.kind).toBe('companies');
+    expect(CMS_V2_DOCUMENTS['business-verticals'].kind).toBe('verticals');
+  });
   it('creates immutable drafts and rejects a stale save', async () => {
     const service = createContentReleaseService({ repository: memoryRepository(), writePointer: async () => {}, id: (() => { let i = 0; return (prefix) => `${prefix}-${++i}`; })() });
     const first = await service.saveDraft({ key: 'lake-aviation', actorId: 'it', data: content('First') });

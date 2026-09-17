@@ -49,7 +49,22 @@ export const NAV_SECTIONS: NavSection[] = [
   },
   {
     label: 'Website Pages',
-    items: [{ label: 'Lake Aviation', to: '/app/cms-v2/lake-aviation', icon: fileDocumentOutline }],
+    items: [
+      { label: 'Home', to: '/app/cms-v2/home', icon: fileDocumentOutline },
+      { label: 'About & Leadership', to: '/app/cms-v2/about', icon: fileDocumentOutline },
+      { label: 'Business Verticals', to: '/app/cms-v2/business-verticals', icon: viewGridOutline },
+      { label: 'Companies', to: '/app/cms-v2/companies', icon: officeBuildingOutline },
+      { label: 'Global Content', to: '/app/cms-v2/global', icon: globeModel },
+      { label: 'Careers', to: '/app/cms-v2/careers', icon: briefcaseOutline },
+      { label: 'CSR & Sustainability', to: '/app/cms-v2/csr', icon: handshakeOutline },
+      { label: 'Contact', to: '/app/cms-v2/contact', icon: emailOutline },
+      { label: 'History & Gallery', to: '/app/cms-v2/history', icon: fileDocumentOutline },
+      { label: 'Lake Aviation', to: '/app/cms-v2/lake-aviation', icon: fileDocumentOutline },
+      { label: 'Lake Oil', to: '/app/cms-v2/lake-oil', icon: fileDocumentOutline },
+      { label: 'Lake Gas', to: '/app/cms-v2/lake-gas', icon: fileDocumentOutline },
+      { label: 'Lake Trans', to: '/app/cms-v2/lake-trans', icon: fileDocumentOutline },
+      { label: 'More Companies', to: '/app/cms-v2/atl', icon: officeBuildingOutline },
+    ],
   },
   {
     label: 'Corporate',

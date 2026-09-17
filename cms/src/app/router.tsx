@@ -154,6 +154,7 @@ export const router = createBrowserRouter([
         ...lazyRoute(() => import('../features/settings/SettingsPage'), 'SettingsPage'),
       },
       { path: 'cms-v2/lake-aviation', ...lazyRoute(() => import('../features/cms-v2/LakeAviationV2Page'), 'LakeAviationV2Page') },
+      { path: 'cms-v2/:documentKey', ...lazyRoute(() => import('../features/cms-v2/WebsiteContentPage'), 'WebsiteContentPage') },
       { path: ':slug', element: <PlaceholderPage /> },
       { path: '*', element: <NotFoundPage /> },
     ],
