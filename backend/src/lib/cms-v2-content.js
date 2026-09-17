@@ -36,7 +36,7 @@ export function createContentReleaseService({ repository, writePointer, now = ()
     const parsed = definition.schema.safeParse(data);
     if (!parsed.success) throw fault('INVALID_CONTENT_PAYLOAD', 'Content does not satisfy the approved document schema.');
     const document = (await repository.getDocument(key)) ?? { key, schemaVersion: definition.schemaVersion, currentDraftRevisionId: null, currentPublishedRevisionId: null };
-    if (baseRevisionId && document.currentDraftRevisionId && baseRevisionId !== document.currentDraftRevisionId) {
+    if ((baseRevisionId ?? null) !== (document.currentDraftRevisionId ?? null)) {
       throw fault('REVISION_CONFLICT', 'The content draft changed before this update.');
     }
     await repository.saveDocument(document);
@@ -75,11 +75,22 @@ export function createContentReleaseService({ repository, writePointer, now = ()
     return publish({ key, revisionId: draft.id, actorId, restoredFromReleaseId: releaseId });
   }
 
+  async function restoreRevision({ key, revisionId, actorId }) {
+    const definition = CMS_V2_DOCUMENTS[key];
+    if (!definition) throw fault('INVALID_CONTENT_DOCUMENT', 'This content document is not approved for CMS V2.');
+    const revision = await repository.getRevision(revisionId);
+    if (!revision || revision.key !== key) throw fault('REVISION_NOT_FOUND', 'The selected content revision does not exist.');
+    // A restore is deliberately a new draft revision. Neither the selected
+    // historical revision nor any immutable public release is mutated.
+    const document = await repository.getDocument(key);
+    return saveDraft({ key, actorId, baseRevisionId: document?.currentDraftRevisionId ?? null, data: structuredClone(revision.data) });
+  }
+
   async function readDocument(key) {
     if (!CMS_V2_DOCUMENTS[key]) throw fault('INVALID_CONTENT_DOCUMENT', 'This content document is not approved for CMS V2.');
     const document = await repository.getDocument(key);
     if (!document) return { key, schemaVersion: CMS_V2_DOCUMENTS[key].schemaVersion, currentDraftRevision: null, currentPublishedRevision: null };
     return document;
   }
-  return { saveDraft, publish, restore, readDocument, listRevisions: (key) => repository.listRevisions?.(key) ?? [], listReleases: () => repository.listReleases() };
+  return { saveDraft, publish, restore, restoreRevision, readDocument, listRevisions: (key) => repository.listRevisions?.(key) ?? [], listReleases: () => repository.listReleases() };
 }

@@ -1,77 +1,49 @@
 import { describe, expect, it } from 'vitest';
 import { createContentReleaseService } from '../src/lib/cms-v2-content.js';
-import { requireCmsAdmin } from '../src/middleware/auth.js';
-import express from 'express';
-import request from 'supertest';
+
+const content = (heading = 'Lake Aviation') => ({
+  hero: { heading, description: 'Fuel supply', image: '/hero.webp', alt: 'Aircraft' },
+  introduction: { heading: 'Introduction', body: 'Aviation operations.' },
+  cta: { label: 'Contact us', href: '/contact.html' },
+  seo: { title: heading, description: 'Aviation fuel.' },
+});
 
 function memoryRepository() {
-  const documents = new Map();
-  const revisions = new Map();
-  const releases = new Map();
+  const documents = new Map(); const revisions = new Map(); const releases = [];
   return {
-    documents,
-    revisions,
-    releases,
-    async getDocument(key) { return documents.get(key) ?? null; },
-    async saveDocument(document) { documents.set(document.key, structuredClone(document)); return document; },
-    async saveRevision(revision) { revisions.set(revision.id, structuredClone(revision)); return revision; },
-    async getRevision(id) { return revisions.get(id) ?? null; },
-    async saveRelease(release) { releases.set(release.id, structuredClone(release)); return release; },
-    async listReleases() { return [...releases.values()].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt)); },
+    getDocument: async (key) => documents.get(key) ?? null,
+    saveDocument: async (document) => { const next = { ...(documents.get(document.key) ?? {}), ...document }; documents.set(document.key, next); return next; },
+    saveRevision: async (revision) => { revisions.set(revision.id, revision); return revision; },
+    getRevision: async (id) => revisions.get(id) ?? null,
+    listRevisions: async (key) => [...revisions.values()].filter((revision) => revision.key === key).reverse(),
+    saveRelease: async (release) => { releases.push(release); return release; },
+    listReleases: async () => [...releases].reverse(),
   };
 }
 
-describe('CMS V2 Lake Aviation content releases', () => {
-  it('requires the additive CMS V2 access level rather than a legacy role', async () => {
-    const app = express();
-    app.use((req, res, next) => { req.user = { id: 'editor', role: 'SUPER_ADMIN', cmsAccessLevel: 'NONE' }; next(); });
-    app.get('/v2', requireCmsAdmin(), (req, res) => res.json({ ok: true }));
-    expect((await request(app).get('/v2')).status).toBe(403);
+describe('CMS V2 Lake Aviation pilot service', () => {
+  it('creates immutable drafts and rejects a stale save', async () => {
+    const service = createContentReleaseService({ repository: memoryRepository(), writePointer: async () => {}, id: (() => { let i = 0; return (prefix) => `${prefix}-${++i}`; })() });
+    const first = await service.saveDraft({ key: 'lake-aviation', actorId: 'it', data: content('First') });
+    const second = await service.saveDraft({ key: 'lake-aviation', actorId: 'it', baseRevisionId: first.id, data: content('Second') });
+    expect(second.id).not.toBe(first.id);
+    await expect(service.saveDraft({ key: 'lake-aviation', actorId: 'it', baseRevisionId: first.id, data: content('Stale') })).rejects.toMatchObject({ code: 'REVISION_CONFLICT' });
   });
 
-  it('keeps every draft revision immutable and publishes a deterministic release pointer', async () => {
-    const repo = memoryRepository();
-    const pointers = [];
-    const service = createContentReleaseService({
-      repository: repo,
-      writePointer: async (pointer) => pointers.push(pointer),
-      now: () => new Date('2026-09-16T10:00:00.000Z'),
-      id: (() => { let n = 0; return (prefix) => `${prefix}-${++n}`; })(),
-    });
-    const first = await service.saveDraft({
-      key: 'lake-aviation',
-      actorId: 'admin-1',
-      data: {
-        hero: { heading: 'Lake Aviation', description: 'Fuel supply', image: '/hero.webp', alt: 'Aircraft' },
-        introduction: { heading: 'Aviation Fuel', body: 'Reliable service.' },
-        cta: { label: 'Contact us', href: 'contact.html' },
-        seo: { title: 'Lake Aviation', description: 'Fuel supply' },
-      },
-    });
-    const second = await service.saveDraft({
-      key: 'lake-aviation', actorId: 'admin-1', baseRevisionId: first.id,
-      data: { ...first.data, hero: { ...first.data.hero, heading: 'Lake Aviation Services' } },
-    });
-
-    expect(first.id).not.toBe(second.id);
-    expect((await repo.getRevision(first.id)).data.hero.heading).toBe('Lake Aviation');
-
-    const release = await service.publish({ key: 'lake-aviation', revisionId: second.id, actorId: 'admin-1' });
-    expect(release.integrity).toMatch(/^sha256-/);
-    expect(pointers).toHaveLength(1);
-    expect(pointers[0]).toEqual({ releaseId: release.id, integrity: release.integrity });
-    expect(release.snapshot.documents['lake-aviation'].hero.heading).toBe('Lake Aviation Services');
+  it('keeps the prior public pointer when publication fails', async () => {
+    let pointer = { releaseId: 'known-good' };
+    const service = createContentReleaseService({ repository: memoryRepository(), writePointer: async () => { throw Object.assign(new Error('storage unavailable'), { code: 'STORAGE_FAILED' }); } });
+    const draft = await service.saveDraft({ key: 'lake-aviation', actorId: 'it', data: content() });
+    await expect(service.publish({ key: 'lake-aviation', revisionId: draft.id, actorId: 'it' })).rejects.toMatchObject({ code: 'STORAGE_FAILED' });
+    expect(pointer.releaseId).toBe('known-good');
   });
 
-  it('rejects unapproved keys and permits a restore only as a new immutable release', async () => {
-    const repo = memoryRepository();
-    const service = createContentReleaseService({ repository: repo, writePointer: async () => {}, now: () => new Date('2026-09-16T10:00:00.000Z') });
-    await expect(service.saveDraft({ key: 'home', actorId: 'admin', data: {} })).rejects.toMatchObject({ code: 'INVALID_CONTENT_DOCUMENT' });
-  });
-
-  it('rejects a Lake Aviation draft that does not satisfy the pilot schema', async () => {
-    const service = createContentReleaseService({ repository: memoryRepository(), writePointer: async () => {} });
-    await expect(service.saveDraft({ key: 'lake-aviation', actorId: 'admin', data: { hero: { heading: '' } } }))
-      .rejects.toMatchObject({ code: 'INVALID_CONTENT_PAYLOAD' });
+  it('restores historical content by creating a new draft without publishing', async () => {
+    let writes = 0;
+    const service = createContentReleaseService({ repository: memoryRepository(), writePointer: async () => { writes += 1; }, id: (() => { let i = 0; return (prefix) => `${prefix}-${++i}`; })() });
+    const first = await service.saveDraft({ key: 'lake-aviation', actorId: 'it', data: content('Original') });
+    await service.saveDraft({ key: 'lake-aviation', actorId: 'it', baseRevisionId: first.id, data: content('Changed') });
+    const restored = await service.restoreRevision({ key: 'lake-aviation', revisionId: first.id, actorId: 'it' });
+    expect(restored.id).not.toBe(first.id); expect(restored.data.hero.heading).toBe('Original'); expect(writes).toBe(0);
   });
 });

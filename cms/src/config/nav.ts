@@ -48,6 +48,10 @@ export const NAV_SECTIONS: NavSection[] = [
     items: [{ label: 'Dashboard', to: '/app', icon: viewDashboardOutline }],
   },
   {
+    label: 'Website Pages',
+    items: [{ label: 'Lake Aviation', to: '/app/cms-v2/lake-aviation', icon: fileDocumentOutline }],
+  },
+  {
     label: 'Corporate',
     items: [
       { label: 'Companies', to: '/app/companies', icon: officeBuildingOutline },

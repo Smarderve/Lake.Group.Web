@@ -22,5 +22,6 @@ export function createCmsV2RuntimeService({ db, storage, logger }) {
     ...service,
     async saveDraft(input) { const revision = await service.saveDraft(input); await writeAudit(db, { actorId: input.actorId, action: 'CMS_V2_DRAFT_SAVED', resource: `admin/v2/content/${input.key}`, metadata: { revisionId: revision.id } }, logger); return revision; },
     async publish(input) { const release = await service.publish(input); await writeAudit(db, { actorId: input.actorId, action: 'CMS_V2_PUBLISHED', resource: 'admin/v2/releases', metadata: { releaseId: release.id, integrity: release.integrity } }, logger); return release; },
+    async restoreRevision(input) { const revision = await service.restoreRevision(input); await writeAudit(db, { actorId: input.actorId, action: 'CMS_V2_REVISION_RESTORED', resource: `admin/v2/content/${input.key}`, metadata: { revisionId: revision.id, restoredRevisionId: input.revisionId } }, logger); return revision; },
   };
 }
