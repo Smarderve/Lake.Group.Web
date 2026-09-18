@@ -8,6 +8,7 @@ import { PlaceholderPage } from '../pages/PlaceholderPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
 import { RouteErrorPage } from '../pages/RouteErrorPage';
 import { UnauthorizedPage } from '../pages/UnauthorizedPage';
+import { ControlLayout } from '../features/control-center/ControlLayout';
 
 function lazyRoute<K extends string>(
   loader: () => Promise<Record<K, ComponentType>>,
@@ -31,6 +32,18 @@ export const router = createBrowserRouter([
     // raw "Unexpected Application Error" screen.
     errorElement: <RouteErrorPage />,
     children: [
+  {
+    path: '/control',
+    element: <ProtectedRoute><ControlLayout /></ProtectedRoute>,
+    children: [
+      { index: true, ...lazyRoute(() => import('../features/control-center/OverviewPage'), 'OverviewPage') },
+      { path: 'pages', ...lazyRoute(() => import('../features/control-center/PagesPage'), 'PagesPage') },
+      { path: 'pages/:key', ...lazyRoute(() => import('../features/control-center/EditorPage'), 'EditorPage') },
+      { path: 'navigation', ...lazyRoute(() => import('../features/control-center/WorkspacePage'), 'NavigationWorkspace') },
+      { path: 'global-data', ...lazyRoute(() => import('../features/control-center/WorkspacePage'), 'GlobalDataWorkspace') },
+      { path: 'history', ...lazyRoute(() => import('../features/control-center/WorkspacePage'), 'HistoryWorkspace') },
+    ],
+  },
   {
     path: '/login',
     element: <AuthLayout />,

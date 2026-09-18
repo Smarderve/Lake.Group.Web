@@ -1,9 +1,25 @@
 import { Router } from 'express';
 import { requireAuth, requireCmsAdmin, requireRecentAuth } from '../middleware/auth.js';
+import { CMS_V2_PAGE_DEFINITIONS } from '../lib/cms-v2-content.js';
 
 export function cmsV2Router({ db, service, recentAuthWindowMs } = {}) {
   const router = Router();
   const guard = [requireAuth(db), requireCmsAdmin()];
+  router.get('/pages', ...guard, async (_req, res, next) => {
+    try {
+      const pages = await Promise.all(CMS_V2_PAGE_DEFINITIONS.map(async (page) => {
+        const document = await service.readDocument(page.key);
+        return {
+          ...page,
+          draftRevisionId: document.currentDraftRevisionId ?? null,
+          publishedRevisionId: document.currentPublishedRevisionId ?? null,
+          updatedAt: document.updatedAt ?? null,
+          title: document.currentDraftRevision?.data?.seo?.title ?? page.label,
+        };
+      }));
+      res.json({ pages });
+    } catch (error) { next(error); }
+  });
   router.get('/content/:documentKey', ...guard, async (req, res, next) => {
     try { res.json({ document: await service.readDocument(req.params.documentKey) }); } catch (error) { next(error); }
   });

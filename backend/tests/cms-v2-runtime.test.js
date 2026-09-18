@@ -22,6 +22,26 @@ describe('CMS V2 release storage', () => {
     expect(response.body.document.key).toBe('lake-aviation');
   });
 
+  it('lists registered pages with real revision state for the control center', async () => {
+    const user = await makeUser({ email: 'catalog@lakegroup.test', password: 'correct-horse', role: 'VIEWER' });
+    user.cmsAccessLevel = 'IT_ADMIN';
+    const service = { readDocument: async (key) => ({
+      key,
+      currentDraftRevisionId: key === 'home' ? 'draft-2' : null,
+      currentPublishedRevisionId: key === 'home' ? 'draft-1' : null,
+      currentDraftRevision: key === 'home' ? { data: { seo: { title: 'Lake Group home' } } } : null,
+    }) };
+    const ctx = makeApp({ users: [user], options: { cmsV2Service: service } });
+    expect((await request(ctx.app).get('/admin/v2/pages')).status).toBe(401);
+    const agent = request.agent(ctx.app);
+    await agent.post('/auth/login').send({ email: user.email, password: 'correct-horse' });
+    const response = await agent.get('/admin/v2/pages');
+    expect(response.status).toBe(200);
+    expect(response.body.pages.find((page) => page.key === 'home')).toMatchObject({
+      route: 'index.html', title: 'Lake Group home', draftRevisionId: 'draft-2', publishedRevisionId: 'draft-1',
+    });
+  });
+
   it('writes an immutable snapshot before atomically replacing the current pointer', async () => {
     const root = await mkdtemp(join(tmpdir(), 'lake-cms-v2-'));
     const storage = createCmsV2ReleaseStorage({ root });

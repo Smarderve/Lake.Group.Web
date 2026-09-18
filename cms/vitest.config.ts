@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  define: { __CMS_AUTH_BYPASS__: JSON.stringify(false) },
   test: {
     environment: 'jsdom',
     setupFiles: ['./test/setup.ts'],
