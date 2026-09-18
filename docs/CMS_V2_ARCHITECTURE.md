@@ -6,7 +6,7 @@
 
 The V2 frontend reads `/admin/v2/pages`, `/admin/v2/content/:documentKey`, and `/admin/v2/releases`. The backend catalog derives its rows from the developer owned `CMS_V2_PAGE_DEFINITIONS` registry and reads each document's actual draft and published revision pointers. The UI contains no sample metrics or invented page records.
 
-The current editor displays the real public page in an iframe and edits the approved structured content document in a separate inspector. It supports autosave, manual save, undo and redo for the current session, SEO fields, a revision list, revision restore, and content release creation. The iframe currently shows the public version. It does **not** render draft content or offer canvas selection or resize. This is visible in the editor itself.
+The editor fetches registered public page HTML through the authenticated `/admin/v2/page-source/:documentKey` endpoint and renders it as a script-free `srcdoc` canvas. This avoids the public site's frame restrictions while retaining its real HTML, CSS, and assets. It supports autosave, manual save, undo and redo for the current session, SEO fields, a revision list, revision restore, and content release creation. Lake Aviation has an initial explicit field-to-DOM mapping: hero and introduction text and hero image edits render in the canvas, and clicking a mapped field selects the inspector property. Other pages display the current public version and are labelled as awaiting field mapping. Section composition, canvas resize, and responsive property overrides remain incomplete.
 
 The backend's existing CMS V2 service stores immutable content revisions in PostgreSQL and writes release artifacts under `public-content/`. The current public hydration adapter is a disabled Lake Aviation pilot. Creating a CMS content release is **not yet equivalent to updating the deployed public site**. Public deployment and preview delivery must be connected before the new route replaces `/app` as the default landing page.
 
@@ -20,7 +20,7 @@ The backend's existing CMS V2 service stores immutable content revisions in Post
 
 ## Next implementation gates
 
-1. Draft capable actual website preview and safe field to DOM mapping on all registered pages.
+1. Extend draft field mapping and safe canvas selection to all registered pages.
 2. Structured section and component composition with layout schema, responsive overrides, and real public rendering.
 3. First class navigation, global data reference graph, and media workspaces.
 4. Durable public release storage and deployment invalidation, followed by migration and visual parity checks.

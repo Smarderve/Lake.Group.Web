@@ -1,13 +1,14 @@
 import assert from 'node:assert/strict';
 import { createServer as createHttpServer } from 'node:http';
 import { createReadStream } from 'node:fs';
-import { mkdir, stat } from 'node:fs/promises';
+import { mkdir, readFile, stat } from 'node:fs/promises';
 import { extname, join, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createServer as createViteServer } from 'vite';
 import { chromium } from 'playwright';
 import { makeApp, makeUser } from '../../backend/tests/helpers.js';
 import { buildCmsV2SeedDataset } from '../../backend/src/lib/cms-v2-seed.js';
+import { CMS_V2_PAGE_DEFINITIONS } from '../../backend/src/lib/cms-v2-content.js';
 
 const root = resolve(fileURLToPath(new URL('../../', import.meta.url)));
 const cmsRoot = fileURLToPath(new URL('../', import.meta.url));
@@ -21,19 +22,24 @@ process.env.VITE_PUBLIC_SITE_URL = `http://127.0.0.1:${sitePort}`;
 
 const dataset = await buildCmsV2SeedDataset({ root });
 const revision = { id: 'seed-home', data: dataset.home, createdAt: '2026-09-18T12:00:00.000Z' };
-let current = revision;
+const state = { home: revision, 'lake-aviation': { id: 'seed-aviation', data: dataset['lake-aviation'], createdAt: revision.createdAt } };
 const service = {
   readDocument: async (key) => ({
     key,
-    currentDraftRevisionId: key === 'home' ? current.id : null,
-    currentPublishedRevisionId: key === 'home' ? revision.id : null,
-    currentDraftRevision: key === 'home' ? current : null,
-    currentPublishedRevision: key === 'home' ? revision : null,
-    updatedAt: key === 'home' ? new Date(current.createdAt) : null,
+    currentDraftRevisionId: state[key]?.id ?? null,
+    currentPublishedRevisionId: key === 'home' ? revision.id : key === 'lake-aviation' ? 'seed-aviation' : null,
+    currentDraftRevision: state[key] ?? null,
+    currentPublishedRevision: state[key] ?? null,
+    updatedAt: state[key] ? new Date(state[key].createdAt) : null,
   }),
-  listRevisions: async (key) => key === 'home' ? [current] : [],
+  readPageSource: async (key) => {
+    const route = CMS_V2_PAGE_DEFINITIONS.find((page) => page.key === key)?.route;
+    if (!route) throw new Error('Unknown page');
+    return { sourceUrl: `http://127.0.0.1:${sitePort}/${route}`, html: await readFile(join(root, route), 'utf8') };
+  },
+  listRevisions: async (key) => state[key] ? [state[key]] : [],
   listReleases: async () => [],
-  saveDraft: async ({ data }) => { current = { id: `revision-${Date.now()}`, data, createdAt: new Date().toISOString() }; return current; },
+  saveDraft: async ({ key, data }) => { state[key] = { id: `revision-${Date.now()}`, data, createdAt: new Date().toISOString() }; return state[key]; },
   publish: async ({ revisionId }) => ({ id: `release-${Date.now()}`, revisionId, publishedAt: new Date().toISOString(), integrity: 'sha256-test' }),
 };
 const user = await makeUser({ email: 'control-qa@lakegroup.test', password: 'control-qa-password', role: 'SUPER_ADMIN' });
@@ -74,12 +80,22 @@ try {
   await page.getByRole('link', { name: 'Home', exact: true }).click();
   await page.getByRole('heading', { name: 'Home', exact: true }).waitFor();
   await page.getByRole('button', { name: 'Mobile preview' }).click();
-  assert.equal(await page.locator('iframe').getAttribute('src'), `http://127.0.0.1:${sitePort}/index.html`);
+  assert.ok((await page.locator('iframe').getAttribute('srcdoc'))?.includes('<html'));
   await page.frameLocator('iframe').locator('body').waitFor();
   await page.locator('.control-inspector textarea').first().fill('Lake Group revised heading');
   await page.getByText('Saved draft', { exact: true }).waitFor({ timeout: 10_000 });
-  assert.equal(current.data.hero.heading, 'Lake Group revised heading');
+  assert.equal(state.home.data.hero.heading, 'Lake Group revised heading');
   await page.screenshot({ path: join(screenshotRoot, 'editor-1440.png'), fullPage: true });
+  await page.goto(`${cmsOrigin}/control/pages/lake-aviation`);
+  await page.getByRole('heading', { name: 'Lake Aviation', exact: true }).waitFor();
+  await page.frameLocator('iframe').locator('[data-cms-field="hero.heading"]').waitFor();
+  await page.locator('.control-inspector textarea').first().fill('Lake Aviation draft preview');
+  assert.equal(await page.frameLocator('iframe').locator('[data-cms-field="hero.heading"]').textContent(), 'Lake Aviation draft preview');
+  const heroImage = page.frameLocator('iframe').locator('[data-cms-field="hero.image"]');
+  assert.ok(await heroImage.evaluate(async (image) => { await image.decode(); return image.naturalWidth; }), 'Real website hero image must load in the preview');
+  await page.frameLocator('iframe').locator('[data-cms-field="introduction.heading"]').click();
+  assert.equal(await page.locator('.control-inspector h2').textContent(), 'Introduction heading');
+  await page.screenshot({ path: join(screenshotRoot, 'aviation-editor-1440.png'), fullPage: true });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(`${cmsOrigin}/control`);
   await page.getByRole('heading', { name: 'Website control center' }).waitFor();

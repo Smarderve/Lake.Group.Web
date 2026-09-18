@@ -1,8 +1,9 @@
 import { createCmsV2PrismaRepository } from './cms-v2-prisma-repository.js';
 import { createContentReleaseService } from './cms-v2-content.js';
 import { writeAudit } from './audit.js';
+import { createPageSourceReader } from './cms-v2-page-source.js';
 
-export function createCmsV2RuntimeService({ db, storage, logger }) {
+export function createCmsV2RuntimeService({ db, storage, logger, publicSiteOrigin }) {
   const repository = createCmsV2PrismaRepository(db);
   const service = createContentReleaseService({
     repository,
@@ -20,6 +21,7 @@ export function createCmsV2RuntimeService({ db, storage, logger }) {
   });
   return {
     ...service,
+    readPageSource: createPageSourceReader({ siteOrigin: publicSiteOrigin }),
     async saveDraft(input) { const revision = await service.saveDraft(input); await writeAudit(db, { actorId: input.actorId, action: 'CMS_V2_DRAFT_SAVED', resource: `admin/v2/content/${input.key}`, metadata: { revisionId: revision.id } }, logger); return revision; },
     async publish(input) { const release = await service.publish(input); await writeAudit(db, { actorId: input.actorId, action: 'CMS_V2_PUBLISHED', resource: 'admin/v2/releases', metadata: { releaseId: release.id, integrity: release.integrity } }, logger); return release; },
     async restoreRevision(input) { const revision = await service.restoreRevision(input); await writeAudit(db, { actorId: input.actorId, action: 'CMS_V2_REVISION_RESTORED', resource: `admin/v2/content/${input.key}`, metadata: { revisionId: revision.id, restoredRevisionId: input.revisionId } }, logger); return revision; },

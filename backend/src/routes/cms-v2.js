@@ -5,6 +5,9 @@ import { CMS_V2_PAGE_DEFINITIONS } from '../lib/cms-v2-content.js';
 export function cmsV2Router({ db, service, recentAuthWindowMs } = {}) {
   const router = Router();
   const guard = [requireAuth(db), requireCmsAdmin()];
+  router.get('/page-source/:documentKey', ...guard, async (req, res, next) => {
+    try { res.json(await service.readPageSource(req.params.documentKey)); } catch (error) { next(error); }
+  });
   router.get('/pages', ...guard, async (_req, res, next) => {
     try {
       const pages = await Promise.all(CMS_V2_PAGE_DEFINITIONS.map(async (page) => {

@@ -30,6 +30,7 @@ export type Release = { id: string; publishedAt: string; integrity: string; mani
 
 export const controlApi = {
   pages: () => api.get<{ pages: ControlPage[] }>('/admin/v2/pages'),
+  pageSource: (key: string) => api.get<{ sourceUrl: string; html: string }>(`/admin/v2/page-source/${encodeURIComponent(key)}`),
   document: (key: string) => api.get<DocumentResponse>(`/admin/v2/content/${encodeURIComponent(key)}`),
   versions: (key: string) => api.get<{ revisions: Revision[] }>(`/admin/v2/content/${encodeURIComponent(key)}/versions`),
   releases: () => api.get<{ releases: Release[] }>('/admin/v2/releases'),

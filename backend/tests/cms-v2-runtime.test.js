@@ -42,6 +42,19 @@ describe('CMS V2 release storage', () => {
     });
   });
 
+  it('requires CMS administrator access for the actual page preview source', async () => {
+    const user = await makeUser({ email: 'preview@lakegroup.test', password: 'correct-horse', role: 'VIEWER' });
+    user.cmsAccessLevel = 'IT_ADMIN';
+    const service = { readPageSource: async () => ({ sourceUrl: 'https://lake-group.vercel.app/index.html', html: '<!doctype html><html></html>' }) };
+    const ctx = makeApp({ users: [user], options: { cmsV2Service: service } });
+    expect((await request(ctx.app).get('/admin/v2/page-source/home')).status).toBe(401);
+    const agent = request.agent(ctx.app);
+    await agent.post('/auth/login').send({ email: user.email, password: 'correct-horse' });
+    const preview = await agent.get('/admin/v2/page-source/home');
+    expect(preview.status).toBe(200);
+    expect(preview.body.sourceUrl).toBe('https://lake-group.vercel.app/index.html');
+  });
+
   it('writes an immutable snapshot before atomically replacing the current pointer', async () => {
     const root = await mkdtemp(join(tmpdir(), 'lake-cms-v2-'));
     const storage = createCmsV2ReleaseStorage({ root });

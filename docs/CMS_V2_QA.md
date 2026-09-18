@@ -5,7 +5,7 @@
 - CMS and backend builds pass.
 - Backend V2 route tests cover authentication and page catalog revision state.
 - The CMS authentication guard tests pass with the test runner's explicit disabled bypass value.
-- Browser test covers sign in, overview, page search, editor, autosave, and actual public iframe at 1440px.
+- Browser test covers sign in, overview, page search, editor, autosave, and the actual public page source in a script-free canvas at 1440px. It checks Lake Aviation draft text, canvas-to-inspector selection, and hero image loading.
 - Browser test covers the overview at 390px and checks horizontal overflow.
 - Screenshots are saved under `docs/qa/cms-v2-control-center/`.
 

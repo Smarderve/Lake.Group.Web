@@ -25,7 +25,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; base-uri 'self'; connect-src 'self' https:; font-src 'self'; form-action 'self'; frame-ancestors 'none'; img-src 'self' data: blob: https:; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; upgrade-insecure-requests"
+          "value": "default-src 'self'; base-uri 'self' https://lake-group.vercel.app https://www.lakegroup.co.tz; connect-src 'self' https:; font-src 'self' https://lake-group.vercel.app https://www.lakegroup.co.tz; form-action 'self'; frame-ancestors 'none'; frame-src 'self' about:; img-src 'self' data: blob: https:; media-src 'self' https:; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://lake-group.vercel.app https://www.lakegroup.co.tz; upgrade-insecure-requests"
         },
         {
           "key": "Permissions-Policy",
