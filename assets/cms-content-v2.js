@@ -18,8 +18,8 @@
     const url = String(value || '').replace(/^\/+/, '');
     // Runtime pointers are intentionally relative to their public-content
     // root; retain support for a fully rooted deployment pointer as well.
-    if (/^releases\/[a-zA-Z0-9_-]+\/content\.json$/.test(url)) return `/public-content/${url}`;
-    if (/^public-content\/releases\/[a-zA-Z0-9_-]+\/content\.json$/.test(url)) return `/${url}`;
+    if (/^releases\/[a-zA-Z0-9_-]+\/content\.json$/.test(url)) return `/public-content/cms-v2/${url}`;
+    if (/^public-content\/cms-v2\/releases\/[a-zA-Z0-9_-]+\/content\.json$/.test(url)) return `/${url}`;
     throw new Error('CMS V2 snapshot URL rejected');
   };
   const canonical = (value) => Array.isArray(value) ? value.map(canonical) : value && typeof value === 'object'

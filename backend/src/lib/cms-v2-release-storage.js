@@ -25,6 +25,10 @@ export function createCmsV2ReleaseStorage({ root }) {
     async readCurrent() { return JSON.parse(await readFile(join(root, 'current.json'), 'utf8')); },
     async replaceCurrent(pointer) {
       const target = join(root, 'current.json');
+      if (await exists(target)) {
+        const current = JSON.parse(await readFile(target, 'utf8'));
+        if (current.schemaVersion !== 2) throw storageError('RELEASE_NAMESPACE_CONFLICT', 'CMS V2 release storage overlaps another public snapshot namespace.');
+      }
       const temporary = `${target}.tmp-${process.pid}-${Date.now()}`;
       await mkdir(root, { recursive: true });
       try {

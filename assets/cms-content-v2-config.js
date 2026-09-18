@@ -3,5 +3,5 @@
 window.LAKE_CMS_CONTENT_V2 = window.LAKE_CMS_CONTENT_V2 || {
   enabled: false,
   page: 'lake-aviation',
-  pointerUrl: '',
+  pointerUrl: '/public-content/cms-v2/current.json',
 };

@@ -25,7 +25,7 @@ const rateLimitPool = createRateLimitPool(config.databaseUrlRuntime);
 // 0014), falling back to an in-memory store when there is no database.
 const prefsStore = createUserPrefsStore(config.databaseUrlRuntime) ?? createMemoryPrefsStore();
 const mediaStorage = createObjectStorage(config);
-const cmsV2Storage = createCmsV2ReleaseStorage({ root: resolve(process.env.CMS_V2_RELEASE_DIR || '../public-content') });
+const cmsV2Storage = createCmsV2ReleaseStorage({ root: resolve(process.env.CMS_V2_RELEASE_DIR || '../public-content/cms-v2') });
 const cmsV2Service = db ? createCmsV2RuntimeService({ db, storage: cmsV2Storage, logger, publicSiteOrigin: process.env.CMS_V2_PUBLIC_SITE_ORIGIN }) : null;
 
 if (!db) {

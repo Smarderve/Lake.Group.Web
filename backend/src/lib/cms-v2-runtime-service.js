@@ -11,19 +11,16 @@ export function createCmsV2RuntimeService({ db, storage, logger, publicSiteOrigi
       let pointer;
       try { pointer = await storage.readCurrent(); }
       catch (error) { if (error?.code === 'ENOENT') return null; throw error; }
+      if (pointer.schemaVersion !== 2) throw Object.assign(new Error('CMS V2 release storage overlaps another public snapshot namespace'), { code: 'RELEASE_NAMESPACE_CONFLICT' });
       const stored = await storage.readRelease(pointer.releaseId);
-      if (stored.schemaVersion !== 1 || !stored.documents || typeof stored.documents !== 'object') return null;
+      if (stored.schemaVersion !== 1 || !stored.documents || typeof stored.documents !== 'object') throw Object.assign(new Error('Current CMS V2 release is invalid'), { code: 'INTEGRITY_MISMATCH' });
       const snapshot = { schemaVersion: stored.schemaVersion, documents: stored.documents };
       if (contentIntegrity(snapshot) !== pointer.integrity) throw Object.assign(new Error('Current release integrity verification failed'), { code: 'INTEGRITY_MISMATCH' });
       return snapshot;
     },
     writePointer: async (pointer, snapshot) => {
       const id = pointer.releaseId;
-      // Preserve the existing static public snapshot when present: CMS V2
-      // adds its approved document rather than erasing legacy public data.
-      let previous = {};
-      try { const current = await storage.readCurrent(); previous = await storage.readRelease(current.releaseId); } catch { /* first V2 artifact */ }
-      await storage.writeRelease(id, { ...previous, releaseId: id, integrity: pointer.integrity, ...snapshot, documents: snapshot.documents });
+      await storage.writeRelease(id, { releaseId: id, integrity: pointer.integrity, ...snapshot });
       const written = await storage.readRelease(id);
       if (written.integrity !== pointer.integrity) throw Object.assign(new Error('Release integrity verification failed'), { code: 'INTEGRITY_MISMATCH' });
       await storage.replaceCurrent({ schemaVersion: 2, ...pointer, publishedAt: new Date().toISOString(), snapshotUrl: `releases/${id}/content.json` });
