@@ -1,5 +1,5 @@
 import { createCmsV2PrismaRepository } from './cms-v2-prisma-repository.js';
-import { createContentReleaseService } from './cms-v2-content.js';
+import { contentIntegrity, createContentReleaseService } from './cms-v2-content.js';
 import { writeAudit } from './audit.js';
 import { createPageSourceReader } from './cms-v2-page-source.js';
 
@@ -7,6 +7,16 @@ export function createCmsV2RuntimeService({ db, storage, logger, publicSiteOrigi
   const repository = createCmsV2PrismaRepository(db);
   const service = createContentReleaseService({
     repository,
+    readPublishedSnapshot: async () => {
+      let pointer;
+      try { pointer = await storage.readCurrent(); }
+      catch (error) { if (error?.code === 'ENOENT') return null; throw error; }
+      const stored = await storage.readRelease(pointer.releaseId);
+      if (stored.schemaVersion !== 1 || !stored.documents || typeof stored.documents !== 'object') return null;
+      const snapshot = { schemaVersion: stored.schemaVersion, documents: stored.documents };
+      if (contentIntegrity(snapshot) !== pointer.integrity) throw Object.assign(new Error('Current release integrity verification failed'), { code: 'INTEGRITY_MISMATCH' });
+      return snapshot;
+    },
     writePointer: async (pointer, snapshot) => {
       const id = pointer.releaseId;
       // Preserve the existing static public snapshot when present: CMS V2

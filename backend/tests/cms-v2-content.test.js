@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { CMS_V2_DOCUMENTS, CMS_V2_PAGE_DEFINITIONS, createContentReleaseService } from '../src/lib/cms-v2-content.js';
+import { CMS_V2_DOCUMENTS, CMS_V2_PAGE_DEFINITIONS, contentIntegrity, createContentReleaseService } from '../src/lib/cms-v2-content.js';
 
 const content = (heading = 'Lake Aviation') => ({
   hero: { heading, description: 'Fuel supply', image: '/hero.webp', alt: 'Aircraft' },
@@ -53,5 +53,30 @@ describe('CMS V2 Lake Aviation pilot service', () => {
     await service.saveDraft({ key: 'lake-aviation', actorId: 'it', baseRevisionId: first.id, data: content('Changed') });
     const restored = await service.restoreRevision({ key: 'lake-aviation', revisionId: first.id, actorId: 'it' });
     expect(restored.id).not.toBe(first.id); expect(restored.data.hero.heading).toBe('Original'); expect(writes).toBe(0);
+  });
+
+  it('preserves other published pages and restores an older release over an existing draft', async () => {
+    const repository = memoryRepository();
+    let published = null;
+    let pointer = null;
+    const service = createContentReleaseService({
+      repository,
+      readPublishedSnapshot: async () => published,
+      writePointer: async (next, snapshot) => { pointer = next; published = structuredClone(snapshot); },
+      id: (() => { let i = 0; return (prefix) => `${prefix}-${++i}`; })(),
+    });
+    const aviation = await service.saveDraft({ key: 'lake-aviation', actorId: 'it', data: content('Aviation first') });
+    const firstRelease = await service.publish({ key: 'lake-aviation', revisionId: aviation.id, actorId: 'it' });
+    const home = await service.saveDraft({ key: 'home', actorId: 'it', data: content('Home first') });
+    await service.publish({ key: 'home', revisionId: home.id, actorId: 'it' });
+    expect(Object.keys(published.documents).sort()).toEqual(['home', 'lake-aviation']);
+    expect(contentIntegrity(published)).toBe(pointer.integrity);
+    const newerDraft = await service.saveDraft({ key: 'lake-aviation', actorId: 'it', baseRevisionId: aviation.id, data: content('Aviation draft') });
+    const restored = await service.restore({ releaseId: firstRelease.id, actorId: 'it' });
+    expect(restored.restoredFromReleaseId).toBe(firstRelease.id);
+    expect((await service.readDocument('lake-aviation')).currentDraftRevisionId).not.toBe(newerDraft.id);
+    expect(published.documents['lake-aviation'].hero.heading).toBe('Aviation first');
+    expect(published.documents.home.hero.heading).toBe('Home first');
+    expect(contentIntegrity(published)).toBe(pointer.integrity);
   });
 });

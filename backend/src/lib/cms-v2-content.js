@@ -50,7 +50,7 @@ export function contentIntegrity(snapshot) {
   return `sha256-${createHash('sha256').update(JSON.stringify(canonical(snapshot))).digest('base64')}`;
 }
 
-export function createContentReleaseService({ repository, writePointer, now = () => new Date(), id = (prefix) => `${prefix}_${crypto.randomUUID()}` } = {}) {
+export function createContentReleaseService({ repository, writePointer, readPublishedSnapshot = async () => null, now = () => new Date(), id = (prefix) => `${prefix}_${crypto.randomUUID()}` } = {}) {
   if (!repository || !writePointer) throw new TypeError('repository and writePointer are required');
 
   async function saveDraft({ key, actorId, baseRevisionId = null, data }) {
@@ -77,7 +77,8 @@ export function createContentReleaseService({ repository, writePointer, now = ()
     if (!definition) throw fault('INVALID_CONTENT_DOCUMENT', 'This content document is not approved for CMS V2.');
     const revision = await repository.getRevision(revisionId);
     if (!revision || revision.key !== key) throw fault('REVISION_NOT_FOUND', 'The selected content revision does not exist.');
-    const snapshot = { schemaVersion: definition.schemaVersion, documents: { [key]: structuredClone(revision.data) } };
+    const previous = await readPublishedSnapshot();
+    const snapshot = { schemaVersion: definition.schemaVersion, documents: { ...(previous?.documents ?? {}), [key]: structuredClone(revision.data) } };
     const integrity = contentIntegrity(snapshot);
     const release = { id: id('release'), key, revisionId, actorId, restoredFromReleaseId, snapshot, integrity, publishedAt: now().toISOString() };
     await repository.saveRelease(release);
@@ -94,7 +95,8 @@ export function createContentReleaseService({ repository, writePointer, now = ()
     const prior = releases.find((release) => release.id === releaseId);
     if (!prior) throw fault('RELEASE_NOT_FOUND', 'The selected release does not exist.');
     const key = prior.key;
-    const draft = await saveDraft({ key, actorId, data: prior.snapshot.documents[key] });
+    const current = await repository.getDocument(key);
+    const draft = await saveDraft({ key, actorId, baseRevisionId: current?.currentDraftRevisionId ?? null, data: prior.snapshot.documents[key] });
     return publish({ key, revisionId: draft.id, actorId, restoredFromReleaseId: releaseId });
   }
 
