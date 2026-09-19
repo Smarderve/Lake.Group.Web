@@ -9,7 +9,7 @@ const groups = [
   { label: 'Overview', links: [{ label: 'Overview', path: '/control', icon: IconDashboard }] },
   { label: 'Website', links: [{ label: 'Pages', path: '/control/pages', icon: IconFileText }, { label: 'Navigation', path: '/control/navigation', icon: IconSitemap }] },
   { label: 'Content', links: [{ label: 'Global data', path: '/control/global-data', icon: IconDatabase }] },
-  { label: 'Assets', links: [{ label: 'Media library', path: '/app/media', icon: IconPhoto }] },
+  { label: 'Assets', links: [{ label: 'Media library', path: '/control/media', icon: IconPhoto }] },
   { label: 'System', links: [{ label: 'Version history', path: '/control/history', icon: IconHistory }, { label: 'Settings', path: '/app/settings', icon: IconSettings }] },
 ];
 

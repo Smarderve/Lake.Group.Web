@@ -1,3 +1,5 @@
-# CMS V2 media — current milestone
+# CMS V2 media
 
-The previous CMS media manager and backend media services remain available. The V2 shell currently links to that manager. There is no independent V2 media picker, upload, metadata inspector, or replace by reference operation yet. No media files were migrated or deleted.
+`/control/media` reuses the governed backend media inventory and secure upload/metadata records. It provides search, thumbnails, dimensions, size, format, alt text, V2 composition usage, editor deep links and deletion guidance. The visual inspector can choose imported page media, edit alt text, fit and focal point.
+
+Replace everywhere scans explicit V2 `src` fields, validates each affected document, and saves them in one atomic transaction. A failure leaves every draft pointer unchanged. Governed media deletion remains protected by the existing usage endpoint and the V2 workspace reports composition usages before linking to the governed record.

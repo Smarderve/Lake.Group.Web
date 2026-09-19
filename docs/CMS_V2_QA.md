@@ -1,4 +1,4 @@
-# CMS V2 QA — foundation milestone
+# CMS V2 QA — composition milestone
 
 ## Completed
 
@@ -12,7 +12,9 @@
 - Browser test covers sign in, overview, page search, editor, autosave, and the actual public page source in a script-free canvas at 1440px. It checks Lake Aviation draft text, canvas-to-inspector selection, and hero image loading.
 - Browser test covers the overview at 390px and checks horizontal overflow.
 - Screenshots are saved under `docs/qa/cms-v2-control-center/`.
+- Focused composition tests cover registry migration, CRUD, protected deletion, invalid nesting, reorder, responsive inheritance, 12 column span validation and structured differences.
+- Backend component tests cover server schema validation, protected nodes, global/navigation schemas, and validate-before-write behavior for atomic transactions.
 
 ## Not yet verified
 
-The full requested browser matrix, responsive editor interaction, layout resizing, media operations, global reference updates, live public publishing, and production rollback cannot pass because those systems are not yet implemented. The root repository's skeleton test currently fails two public media placeholder checks, and its secret scan reports six Google API key findings under `old lake group website/`. Those files were not changed by this milestone. The root structure checker exits successfully while reporting preexisting review items.
+Browser QA for the composition milestone must cover the real canvas at 1440, 1366, 1536, 1920 and 390, plus desktop/tablet/mobile iframe widths. Production rollback continues to use immutable release restore. The root repository's two preexisting media placeholder failures and old mirror secret findings are tracked separately and are unrelated to CMS V2.

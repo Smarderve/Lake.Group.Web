@@ -41,6 +41,7 @@ export const router = createBrowserRouter([
       { path: 'pages/:key', ...lazyRoute(() => import('../features/control-center/EditorPage'), 'EditorPage') },
       { path: 'navigation', ...lazyRoute(() => import('../features/control-center/WorkspacePage'), 'NavigationWorkspace') },
       { path: 'global-data', ...lazyRoute(() => import('../features/control-center/WorkspacePage'), 'GlobalDataWorkspace') },
+      { path: 'media', ...lazyRoute(() => import('../features/control-center/WorkspacePage'), 'MediaWorkspace') },
       { path: 'history', ...lazyRoute(() => import('../features/control-center/WorkspacePage'), 'HistoryWorkspace') },
     ],
   },
