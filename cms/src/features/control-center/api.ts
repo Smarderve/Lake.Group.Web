@@ -1,4 +1,5 @@
 import { api } from '../../services/api';
+import type { Composition } from './composition';
 
 export type ControlPage = {
   key: string;
@@ -16,6 +17,7 @@ export type ContentData = {
   cta: { label: string; href: string };
   media: Array<{ src: string; alt: string; role: string }>;
   sections: Array<{ key: string; heading: string; body: string }>;
+  composition?: Composition;
   seo: { title: string; description: string; canonical?: string; socialImage?: string; index: boolean };
 };
 
@@ -36,12 +38,14 @@ export const controlApi = {
   versions: (key: string) => api.get<{ revisions: Revision[] }>(`/admin/v2/content/${encodeURIComponent(key)}/versions`),
   review: (key: string, revisionId: string) => api.get<{ review: ReleaseReview }>(`/admin/v2/content/${encodeURIComponent(key)}/revisions/${encodeURIComponent(revisionId)}/review`),
   releases: () => api.get<{ releases: Release[] }>('/admin/v2/releases'),
-  save: (key: string, data: ContentData, baseRevisionId: string | null) =>
+  save: (key: string, data: unknown, baseRevisionId: string | null) =>
     api.put<{ revision: Revision }>(`/admin/v2/content/${encodeURIComponent(key)}/draft`, { data, baseRevisionId }),
   restore: (key: string, revisionId: string) =>
     api.post<{ revision: Revision }>(`/admin/v2/content/${encodeURIComponent(key)}/revisions/${encodeURIComponent(revisionId)}/restore`),
   publish: (key: string, revisionId: string) =>
     api.post<{ release: Release }>('/admin/v2/releases', { key, revisionId }),
+  saveTransaction: (documents: Array<{ key: string; baseRevisionId: string | null; data: unknown }>) =>
+    api.post<{ revisions: Array<{ id: string; key: string }> }>('/admin/v2/global-data/transaction', { documents }),
 };
 
 export const publicSiteBase = (import.meta.env.VITE_PUBLIC_SITE_URL || 'https://lake-group.vercel.app').replace(/\/$/, '');

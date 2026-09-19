@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import { z } from 'zod';
 import { reviewContentRelease } from './cms-v2-release-review.js';
+import { cmsV2ComponentSchema, cmsV2CompositionSchema } from './cms-v2-components.js';
 
 const text = (maximum) => z.string().trim().min(1).max(maximum);
 const url = text(1000);
@@ -11,12 +12,17 @@ const pageSchema = z.object({
   cta: z.object({ label: text(80), href: url }).strict(),
   media: z.array(z.object({ src: url, alt: z.string().max(250), role: z.enum(['hero', 'gallery', 'inline']).default('inline') }).strict()).max(40).default([]),
   sections: z.array(z.object({ key: text(80), heading: text(200), body: text(8000) }).strict()).max(30).default([]),
+  composition: cmsV2CompositionSchema.optional(),
   seo,
 }).strict();
+const navigationItemSchema = z.lazy(() => z.object({ id: text(120), label: text(160), destination: z.string().max(1000), type: z.enum(['internal', 'external', 'parent']), visible: z.boolean(), desktop: z.boolean(), mobile: z.boolean(), children: z.array(navigationItemSchema).max(20).default([]) }).strict());
 const globalSchema = z.object({
   organization: z.object({ name: text(120), description: text(1000), headquarters: text(500), email: text(250), phone: text(100) }).strict(),
   statistics: z.array(z.object({ label: text(100), value: text(100), scope: text(120) }).strict()).min(1).max(20),
   socialLinks: z.array(z.object({ label: text(80), href: url }).strict()).max(12).default([]),
+  dataFields: z.array(z.object({ key: text(160), label: text(160), value: text(1000), type: z.enum(['text', 'number', 'url', 'email', 'telephone', 'address']) }).strict()).max(100).optional(),
+  navigation: z.array(navigationItemSchema).max(30).optional(),
+  reusableComponents: z.array(cmsV2ComponentSchema).max(50).optional(),
 }).strict();
 const companiesSchema = z.object({ companies: z.array(z.object({ name: text(140), shortName: text(80), vertical: text(100), route: text(300), logo: z.string().max(1000).optional(), description: text(1000), country: z.string().max(120).optional(), active: z.boolean() }).strict()).min(1).max(60) }).strict();
 const verticalsSchema = z.object({ verticals: z.array(z.object({ name: text(100), description: text(1000), companies: z.array(text(140)).max(30) }).strict()).min(1).max(12) }).strict();
@@ -131,5 +137,18 @@ export function createContentReleaseService({ repository, writePointer, readPubl
     if (!document) return { key, schemaVersion: CMS_V2_DOCUMENTS[key].schemaVersion, currentDraftRevision: null, currentPublishedRevision: null };
     return document;
   }
-  return { saveDraft, publish, restore, restoreRevision, reviewRelease, readDocument, listRevisions: (key) => repository.listRevisions?.(key) ?? [], listReleases: () => repository.listReleases() };
+  async function saveDraftBatch({ actorId, documents }) {
+    if (!repository.saveDraftBatch) throw fault('TRANSACTION_UNAVAILABLE', 'Atomic content transactions are unavailable.');
+    const createdAt = now().toISOString();
+    const entries = documents.map((document) => {
+      const definition = CMS_V2_DOCUMENTS[document.key];
+      if (!definition) throw fault('INVALID_CONTENT_DOCUMENT', `Document ${document.key} is not registered.`);
+      const parsed = definition.schema.safeParse(document.data);
+      if (!parsed.success) throw fault('INVALID_CONTENT_PAYLOAD', `Document ${document.key} failed validation.`);
+      return { key: document.key, baseRevisionId: document.baseRevisionId ?? null, schemaVersion: definition.schemaVersion, actorId, data: structuredClone(parsed.data), createdAt, id: id('revision') };
+    });
+    if (new Set(entries.map((entry) => entry.key)).size !== entries.length) throw fault('INVALID_CONTENT_PAYLOAD', 'A transaction cannot update a document more than once.');
+    return repository.saveDraftBatch(entries);
+  }
+  return { saveDraft, saveDraftBatch, publish, restore, restoreRevision, reviewRelease, readDocument, listRevisions: (key) => repository.listRevisions?.(key) ?? [], listReleases: () => repository.listReleases() };
 }

@@ -1,150 +1,69 @@
-import { useEffect, useRef, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { IconArrowLeft, IconDeviceDesktop, IconDeviceMobile, IconDeviceTablet, IconExternalLink, IconRefresh, IconDeviceFloppy } from '@tabler/icons-react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
+import { IconArrowLeft, IconChevronDown, IconChevronRight, IconCopy, IconDeviceDesktop, IconDeviceMobile, IconDeviceTablet, IconDeviceFloppy, IconEye, IconEyeOff, IconLock, IconPlus, IconRefresh, IconSearch, IconTrash } from '@tabler/icons-react';
 import { apiErrorMessage, isApiError } from '../../services/api';
-import { controlApi, publicSiteBase, type ContentData, type ControlPage, type ReleaseReview, type Revision } from './api';
+import { controlApi, type ContentData, type ControlPage, type ReleaseReview, type Revision } from './api';
+import { componentRegistry, compositionDiff, compositionFromLegacy, duplicateNode, effectiveLayout, findNode, insertNode, makeNode, moveNode, parentList, removeNode, renderComposition, resetResponsive, setResponsiveLayout, updateNode, type ComponentType, type Composition, type CompositionNode, type NodeLayout, type Viewport } from './composition';
 
-const copy = <T,>(value: T): T => structuredClone(value);
-type Field = { label: string; path: string; multiline?: boolean };
-const fields: Field[] = [
-  { label: 'Heading', path: 'hero.heading', multiline: true },
-  { label: 'Description', path: 'hero.description', multiline: true },
-  { label: 'Hero image', path: 'hero.image' },
-  { label: 'Image alt text', path: 'hero.alt' },
-  { label: 'Introduction heading', path: 'introduction.heading' },
-  { label: 'Introduction body', path: 'introduction.body', multiline: true },
-  { label: 'Button label', path: 'cta.label' },
-  { label: 'Button destination', path: 'cta.href' },
-];
-function getField(data: ContentData, path: string): string { const [group, key] = path.split('.'); return String((data[group as 'hero' | 'introduction' | 'cta'] as unknown as Record<string, unknown>)[key] ?? ''); }
-function updateField(data: ContentData, path: string, value: string): ContentData { const next = copy(data); const [group, key] = path.split('.'); (next[group as 'hero' | 'introduction' | 'cta'] as unknown as Record<string, string>)[key] = value; return next; }
+const copy=<T,>(value:T):T=>structuredClone(value);
+const safeLink=(value:string,action='internal')=>{if(!value||value.startsWith('//')||/[\u0000-\u001f\\]/.test(value))return false;try{const url=new URL(value,'https://lakegroup.invalid/');return ['http:','https:'].includes(url.protocol)||(action==='email'&&url.protocol==='mailto:')||(action==='telephone'&&url.protocol==='tel:')||(action==='anchor'&&value.startsWith('#'));}catch{return false;}};
+function reorder(composition:Composition,sourceId:string,targetId:string){const next=copy(composition),source=parentList(next,sourceId),target=parentList(next,targetId);if(source!==target)return next;const from=source.findIndex(n=>n.id===sourceId),to=target.findIndex(n=>n.id===targetId);if(from<0||to<0)return next;const [node]=source.splice(from,1);source.splice(to,0,node);return next;}
 
-export function EditorPage() {
-  const { key = '' } = useParams();
-  const [page, setPage] = useState<ControlPage | null>(null);
-  const [data, setData] = useState<ContentData | null>(null);
-  const [saved, setSaved] = useState<ContentData | null>(null);
-  const [revisionId, setRevisionId] = useState<string | null>(null);
-  const [versions, setVersions] = useState<Revision[]>([]);
-  const [selected, setSelected] = useState('hero.heading');
-  const [tab, setTab] = useState<'content' | 'seo' | 'history'>('content');
-  const [viewport, setViewport] = useState<'desktop' | 'tablet' | 'mobile'>('desktop');
-  const [status, setStatus] = useState('Loading page…');
-  const [error, setError] = useState('');
-  const [saving, setSaving] = useState(false);
-  const [publishing, setPublishing] = useState(false);
-  const [reviewing, setReviewing] = useState(false);
-  const [releaseReview, setReleaseReview] = useState<ReleaseReview | null>(null);
-  const [autosave, setAutosave] = useState(true);
-  const [past, setPast] = useState<ContentData[]>([]);
-  const [future, setFuture] = useState<ContentData[]>([]);
-  const inspectorRef = useRef<HTMLDivElement>(null);
-  const frameRef = useRef<HTMLIFrameElement>(null);
-  const [source, setSource] = useState<{ sourceUrl: string; html: string } | null>(null);
-  const [previewError, setPreviewError] = useState('');
-  const [frameReady, setFrameReady] = useState(0);
-  const dirty = Boolean(data && saved && JSON.stringify(data) !== JSON.stringify(saved));
-
-  useEffect(() => {
-    let live = true;
-    setData(null); setError(''); setStatus('Loading page…');
-    void Promise.all([controlApi.pages(), controlApi.document(key), controlApi.versions(key)]).then(([catalog, result, history]) => {
-      if (!live) return;
-      setPage(catalog.pages.find((item) => item.key === key) ?? null);
-      const draft = result.document.currentDraftRevision;
-      setData(draft?.data ? copy(draft.data) : null);
-      setSaved(draft?.data ? copy(draft.data) : null);
-      setRevisionId(draft?.id ?? null);
-      setVersions(history.revisions);
-      setStatus(draft ? 'Saved draft' : 'No imported draft');
-    }).catch((cause) => { if (live) { setError(apiErrorMessage(cause)); setStatus('Unable to load page'); } });
-    return () => { live = false; };
-  }, [key]);
-
-  useEffect(() => {
-    let live = true;
-    setSource(null); setPreviewError('');
-    void controlApi.pageSource(key).then((result) => { if (live) setSource(result); })
-      .catch((cause) => { if (live) setPreviewError(apiErrorMessage(cause)); });
-    return () => { live = false; };
-  }, [key]);
-
-  const previewHtml = source?.html
-    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '')
-    .replace(/<meta\b(?=[^>]*http-equiv\s*=\s*["'](?:Content-Security-Policy|refresh)["'])[^>]*>/gi, '')
-    .replace(/<head([^>]*)>/i, `<head$1><base href="${source.sourceUrl.replace(/"/g, '&quot;')}">`);
-  useEffect(() => {
-    const document = frameRef.current?.contentDocument;
-    if (!document || !data || !source || key !== 'lake-aviation') return;
-    const replacements: Record<string, string> = {
-      'hero.heading': data.hero.heading,
-      'hero.description': data.hero.description,
-      'introduction.heading': data.introduction.heading,
-      'introduction.body': data.introduction.body,
-    };
-    for (const [field, value] of Object.entries(replacements)) {
-      document.querySelectorAll(`[data-cms-field="${field}"]`).forEach((node) => { node.textContent = value; });
-    }
-    document.querySelectorAll<HTMLImageElement>('[data-cms-field="hero.image"]').forEach((image) => {
-      image.src = new URL(data.hero.image, source.sourceUrl).toString();
-      image.alt = data.hero.alt ?? '';
-    });
-    document.querySelectorAll<HTMLElement>('[data-cms-field]').forEach((node) => {
-      node.style.outline = node.getAttribute('data-cms-field') === selected ? '2px solid #0181bb' : '';
-      node.style.outlineOffset = node.getAttribute('data-cms-field') === selected ? '3px' : '';
-      node.style.cursor = 'pointer';
-    });
-    const onClick = (event: MouseEvent) => {
-      event.preventDefault();
-      const target = (event.target as Element)?.closest?.('[data-cms-field]');
-      if (target) select(target.getAttribute('data-cms-field') || 'hero.heading');
-    };
-    document.addEventListener('click', onClick, true);
-    return () => document.removeEventListener('click', onClick, true);
-  }, [data, source, frameReady, selected, key]);
-
-  const edit = (path: string, value: string) => { if (!data) return; setPast((items) => [...items.slice(-29), copy(data)]); setFuture([]); setData(updateField(data, path, value)); setSelected(path); setStatus('Unsaved changes'); };
-  const editSeo = (name: keyof ContentData['seo'], value: string | boolean) => { if (!data) return; setPast((items) => [...items.slice(-29), copy(data)]); setFuture([]); setData({ ...data, seo: { ...data.seo, [name]: value } }); setStatus('Unsaved changes'); };
-  const editSection = (index: number, field: 'heading' | 'body', value: string) => {
-    if (!data) return;
-    const next = copy(data);
-    next.sections[index][field] = value;
-    setPast((items) => [...items.slice(-29), copy(data)]);
-    setFuture([]);
-    setData(next);
-    setStatus('Unsaved changes');
-  };
-  const undo = () => { if (!data || !past.length) return; setFuture((items) => [copy(data), ...items]); setData(past[past.length - 1]); setPast(past.slice(0, -1)); };
-  const redo = () => { if (!data || !future.length) return; setPast((items) => [...items, copy(data)]); setData(future[0]); setFuture(future.slice(1)); };
-
-  const save = async () => {
-    if (!data || !dirty || saving) return;
-    const snapshot = copy(data);
-    setSaving(true); setError(''); setStatus('Saving…');
-    try {
-      const { revision } = await controlApi.save(key, snapshot, revisionId);
-      setRevisionId(revision.id); setSaved(snapshot); setStatus('Saved draft');
-      const { revisions } = await controlApi.versions(key); setVersions(revisions);
-    } catch (cause) { setError(isApiError(cause) && cause.code === 'REVISION_CONFLICT' ? 'This draft changed elsewhere. Reload to review the latest revision.' : apiErrorMessage(cause)); setStatus('Save failed'); }
-    finally { setSaving(false); }
-  };
-  useEffect(() => { if (!autosave || !dirty || saving) return; const timer = window.setTimeout(() => void save(), 1800); return () => window.clearTimeout(timer); }, [data, saved, autosave, saving]);
-  useEffect(() => { const warn = (event: BeforeUnloadEvent) => { if (dirty) { event.preventDefault(); event.returnValue = ''; } }; window.addEventListener('beforeunload', warn); return () => window.removeEventListener('beforeunload', warn); }, [dirty]);
-  const openReview = async () => { if (!revisionId || dirty) { setError('Save the current draft before reviewing a release.'); return; } setReviewing(true); setError(''); try { const result = await controlApi.review(key, revisionId); setReleaseReview(result.review); } catch (cause) { setError(apiErrorMessage(cause)); } finally { setReviewing(false); } };
-  const publish = async () => { if (!revisionId || dirty || !releaseReview?.valid) { setError('Resolve blocking issues and save the current draft before creating a release.'); return; } setPublishing(true); setError(''); try { await controlApi.publish(key, revisionId); setStatus('Release queued for website deployment'); setReleaseReview(null); } catch (cause) { setError(apiErrorMessage(cause)); setStatus('Release failed'); } finally { setPublishing(false); } };
-  useEffect(() => { if (!releaseReview) return; const close = (event: KeyboardEvent) => { if (event.key === 'Escape') setReleaseReview(null); }; window.addEventListener('keydown', close); return () => window.removeEventListener('keydown', close); }, [releaseReview]);
-  const restore = async (id: string) => { setError(''); try { const { revision } = await controlApi.restore(key, id); setData(copy(revision.data)); setSaved(copy(revision.data)); setRevisionId(revision.id); setVersions((await controlApi.versions(key)).revisions); setStatus('Historical revision restored as a draft'); } catch (cause) { setError(apiErrorMessage(cause)); } };
-  const select = (path: string) => { setSelected(path); setTab('content'); inspectorRef.current?.scrollTo({ top: 0, behavior: 'smooth' }); };
-
-  if (!page && !error) return <div className="control-loading" role="status">{status}</div>;
-  if (!page) return <div className="control-error" role="alert">{error || 'Page not found'} <Link to="/control/pages">Back to pages</Link></div>;
-  return <div className="control-editor"><div className="control-editor-top"><div><Link to="/control/pages" className="control-back"><IconArrowLeft size={16} /> Pages</Link><h1>{page.label}</h1><span className={`control-save-state${dirty ? ' is-dirty' : ''}`}>{status}</span></div><div className="control-editor-actions"><label className="control-autosave"><input type="checkbox" checked={autosave} onChange={(event) => setAutosave(event.target.checked)} /> Autosave</label><button className="control-button" onClick={undo} disabled={!past.length} title="Undo">↶</button><button className="control-button" onClick={redo} disabled={!future.length} title="Redo">↷</button><button className="control-button" onClick={() => void save()} disabled={!dirty || saving}><IconDeviceFloppy size={17} /> Save draft</button><button className="control-button primary" onClick={() => void openReview()} disabled={!revisionId || dirty || reviewing}>{reviewing ? 'Checking release…' : 'Review release'}</button></div></div>
-    {error && <div className="control-error" role="alert">{error}</div>}
-    {!data ? <div className="control-panel control-empty">This page has no imported CMS draft. Run the CMS V2 content import before editing. <a href={`${publicSiteBase}/${page.route}`} target="_blank" rel="noreferrer">View public page</a></div> : <div className="control-editor-grid">
-      <aside className="control-editor-layers"><h2>Page structure</h2><p>Approved content fields</p><div className="control-layer-group"><strong>Hero</strong>{fields.slice(0, 4).map((field) => <button key={field.path} className={selected === field.path ? 'is-selected' : ''} onClick={() => select(field.path)}>{field.label}</button>)}</div><div className="control-layer-group"><strong>Introduction</strong>{fields.slice(4, 6).map((field) => <button key={field.path} className={selected === field.path ? 'is-selected' : ''} onClick={() => select(field.path)}>{field.label}</button>)}</div><div className="control-layer-group"><strong>Call to action</strong>{fields.slice(6).map((field) => <button key={field.path} className={selected === field.path ? 'is-selected' : ''} onClick={() => select(field.path)}>{field.label}</button>)}</div><div className="control-layer-group"><strong>Sections</strong>{data.sections.map((section, index) => <button key={section.key} onClick={() => { setSelected(`sections.${index}`); setTab('content'); }} className={selected === `sections.${index}` ? 'is-selected' : ''}>{section.heading}</button>)}</div></aside>
-      <section className="control-canvas"><div className="control-canvas-toolbar"><div><strong>Website canvas</strong><span>{key === 'lake-aviation' ? 'Actual page with approved draft fields' : 'Actual static page · field mapping pending'}</span></div><div className="control-viewport"><button aria-label="Desktop preview" aria-pressed={viewport === 'desktop'} onClick={() => setViewport('desktop')}><IconDeviceDesktop size={18} /></button><button aria-label="Tablet preview" aria-pressed={viewport === 'tablet'} onClick={() => setViewport('tablet')}><IconDeviceTablet size={18} /></button><button aria-label="Mobile preview" aria-pressed={viewport === 'mobile'} onClick={() => setViewport('mobile')}><IconDeviceMobile size={18} /></button></div><a href={`${publicSiteBase}/${page.route}`} target="_blank" rel="noreferrer" aria-label="Open public page"><IconExternalLink size={17} /></a></div><div className="control-canvas-stage">{previewHtml ? <iframe ref={frameRef} title={`${page.label} actual website preview`} srcDoc={previewHtml} sandbox="allow-same-origin" onLoad={() => setFrameReady((value) => value + 1)} className={`control-site-frame ${viewport}`} /> : <div className="control-empty">{previewError || 'Loading actual website preview…'}</div>}<div className="control-canvas-note">Editing <strong>{selected.startsWith('sections.') ? data.sections[Number(selected.split('.')[1])]?.heading : fields.find((item) => item.path === selected)?.label ?? 'content'}</strong> in the inspector. {key === 'lake-aviation' ? 'Mapped fields update on the page.' : 'Draft mapping for this page is pending.'}</div></div></section>
-      <aside ref={inspectorRef} className="control-inspector"><div className="control-inspector-tabs"><button className={tab === 'content' ? 'is-active' : ''} onClick={() => setTab('content')}>Content</button><button className={tab === 'seo' ? 'is-active' : ''} onClick={() => setTab('seo')}>SEO</button><button className={tab === 'history' ? 'is-active' : ''} onClick={() => setTab('history')}>History</button></div>{tab === 'content' && <div className="control-inspector-content"><h2>{selected.startsWith('sections.') ? 'Section' : fields.find((item) => item.path === selected)?.label}</h2>{selected.startsWith('sections.') ? (() => { const index = Number(selected.split('.')[1]); const section = data.sections[index]; if (!section) return null; return <><label>Heading<input value={section.heading} onChange={(event) => editSection(index, 'heading', event.target.value)} /></label><label>Body<textarea rows={8} value={section.body} onChange={(event) => editSection(index, 'body', event.target.value)} /></label></>; })() : (() => { const field = fields.find((item) => item.path === selected); if (!field) return null; return <label>{field.label}{field.multiline ? <textarea rows={field.path === 'introduction.body' ? 9 : 5} value={getField(data, field.path)} onChange={(event) => edit(field.path, event.target.value)} /> : <input value={getField(data, field.path)} onChange={(event) => edit(field.path, event.target.value)} />}</label>; })()}<p className="control-inspector-hint">Changes are saved as a structured revision and do not change the public page until delivery is connected.</p></div>}{tab === 'seo' && <div className="control-inspector-content"><h2>Search appearance</h2><label>Page title<input value={data.seo.title} onChange={(event) => editSeo('title', event.target.value)} /></label><label>Description<textarea rows={5} value={data.seo.description} onChange={(event) => editSeo('description', event.target.value)} /></label><label>Canonical URL<input value={data.seo.canonical ?? ''} onChange={(event) => editSeo('canonical', event.target.value)} /></label><label className="control-check"><input type="checkbox" checked={data.seo.index} onChange={(event) => editSeo('index', event.target.checked)} /> Allow search indexing</label></div>}{tab === 'history' && <div className="control-inspector-content"><h2>Draft history</h2>{versions.length ? versions.map((version) => <div className="control-version" key={version.id}><strong>{new Date(version.createdAt).toLocaleString()}</strong><small>{version.id.slice(0, 14)}</small>{version.id !== revisionId && <button onClick={() => void restore(version.id)}><IconRefresh size={15} /> Restore as draft</button>}</div>) : <p>No saved revisions yet.</p>}</div>}</aside>
-    </div>}
-    {releaseReview && <div className="control-review-backdrop"><section role="dialog" aria-modal="true" aria-labelledby="control-release-review-title" className="control-review-dialog"><div className="control-review-header"><div><small>Release review</small><h2 id="control-release-review-title">Review {page.label} changes</h2><p>{releaseReview.changedFields} changed fields · {releaseReview.issues.filter((issue) => issue.severity === 'error').length} blocking issues · {releaseReview.issues.filter((issue) => issue.severity === 'warning').length} warnings</p></div><button className="control-button" onClick={() => setReleaseReview(null)} autoFocus>Close</button></div>{releaseReview.issues.length > 0 && <div className="control-review-issues">{releaseReview.issues.map((issue, index) => <p className={issue.severity} key={`${issue.field}-${index}`}><strong>{issue.severity === 'error' ? 'Blocker' : 'Warning'}</strong> {issue.field && <code>{issue.field}</code>} {issue.message}</p>)}</div>}<div className="control-review-changes">{releaseReview.changes.map((change) => <div className="control-review-change" key={change.field}><strong>{change.field}</strong><div><span>Before: {change.before}</span><span>After: {change.after}</span></div></div>)}{releaseReview.truncated && <p>Additional fields changed. Review the full revision history for details.</p>}</div><div className="control-review-footer"><span>A verified release is queued for the protected website deployment workflow.</span><button className="control-button primary" onClick={() => void publish()} disabled={!releaseReview.valid || publishing}>{publishing ? 'Creating release…' : 'Create release'}</button></div></section></div>}
-  </div>;
+function Layer({node,selected,expanded,toggle,select,action,drop}:{node:CompositionNode;selected:string;expanded:Set<string>;toggle:(id:string)=>void;select:(id:string)=>void;action:(name:string,id:string)=>void;drop:(source:string,target:string)=>void}){
+ const open=expanded.has(node.id),hasChildren=node.children.length>0;
+ return <div className="composer-layer"><div className={`composer-layer-row${selected===node.id?' is-selected':''}`} draggable={!node.locked} onDragStart={e=>e.dataTransfer.setData('text/cms-node',node.id)} onDragOver={e=>e.preventDefault()} onDrop={e=>{e.preventDefault();drop(e.dataTransfer.getData('text/cms-node'),node.id)}}>
+  <button className="composer-layer-expand" disabled={!hasChildren} onClick={()=>toggle(node.id)}>{hasChildren?(open?<IconChevronDown size={14}/>:<IconChevronRight size={14}/>):<span/>}</button>
+  <button className="composer-layer-name" onClick={()=>select(node.id)}>{node.locked&&<IconLock size={13}/>}<span>{node.name}</span><small>{node.type}</small></button>
+  <button title={node.visible?'Hide':'Show'} onClick={()=>action('visibility',node.id)}>{node.visible?<IconEye size={14}/>:<IconEyeOff size={14}/>}</button><button title="Duplicate" onClick={()=>action('duplicate',node.id)}><IconCopy size={14}/></button><button title="Delete" disabled={node.locked} onClick={()=>action('delete',node.id)}><IconTrash size={14}/></button>
+ </div>{open&&<div className="composer-layer-children">{node.children.map(child=><Layer key={child.id} {...{node:child,selected,expanded,toggle,select,action,drop}}/>)}</div>}</div>;
 }
+
+export function EditorPage(){
+ const {key=''}=useParams();
+ const [searchParams]=useSearchParams();
+ const [page,setPage]=useState<ControlPage|null>(null),[data,setData]=useState<ContentData|null>(null),[saved,setSaved]=useState<ContentData|null>(null);
+ const [revisionId,setRevisionId]=useState<string|null>(null),[versions,setVersions]=useState<Revision[]>([]),[selected,setSelected]=useState('hero');
+ const [tab,setTab]=useState<'content'|'layout'|'style'|'advanced'|'seo'|'history'>('content'),[viewport,setViewport]=useState<Viewport>('desktop');
+ const [status,setStatus]=useState('Loading page…'),[error,setError]=useState(''),[saving,setSaving]=useState(false),[review,setReview]=useState<ReleaseReview|null>(null);
+ const [source,setSource]=useState<{sourceUrl:string;html:string}|null>(null),[frameReady,setFrameReady]=useState(0),[past,setPast]=useState<ContentData[]>([]),[future,setFuture]=useState<ContentData[]>([]);
+ const [expanded,setExpanded]=useState(new Set(['hero','introduction'])),[layerSearch,setLayerSearch]=useState(''),[insertOpen,setInsertOpen]=useState(false),[insertSearch,setInsertSearch]=useState('');
+ const frameRef=useRef<HTMLIFrameElement>(null),dirty=Boolean(data&&saved&&JSON.stringify(data)!==JSON.stringify(saved));
+ const composition=data?.composition??(data&&page?compositionFromLegacy(page.label,data):undefined),selectedNode=composition?findNode(composition,selected):undefined;
+ const previewHtml=source?.html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'').replace(/<meta\b(?=[^>]*http-equiv\s*=\s*["'](?:Content-Security-Policy|refresh)["'])[^>]*>/gi,'').replace(/<head([^>]*)>/i,`<head$1><base href="${source.sourceUrl.replace(/"/g,'&quot;')}">`);
+ const commit=(next:Composition,message='Unsaved composition changes')=>{if(!data)return;setPast(items=>[...items.slice(-39),copy(data)]);setFuture([]);setData({...data,composition:next});setStatus(message)};
+ const mutate=(id:string,fn:(node:CompositionNode)=>void)=>composition&&commit(updateNode(composition,id,fn));
+
+ useEffect(()=>{let live=true;setData(null);setError('');void Promise.all([controlApi.pages(),controlApi.document(key),controlApi.versions(key),controlApi.pageSource(key)]).then(([catalog,result,history,pageSource])=>{if(!live)return;const found=catalog.pages.find(item=>item.key===key)??null,draft=result.document.currentDraftRevision;setPage(found);if(draft?.data&&found){const original=copy(draft.data),next=copy(draft.data);next.composition??=compositionFromLegacy(found.label,next);setData(next);setSaved(original);setRevisionId(draft.id);const requested=searchParams.get('select');setSelected(requested&&findNode(next.composition,requested)?requested:next.composition.root.children[0]?.id??'');setStatus(original.composition?'Saved draft':'Migrating page composition…')}setVersions(history.revisions);setSource(pageSource);if(!draft)setStatus('No imported draft')}).catch(cause=>live&&setError(apiErrorMessage(cause)));return()=>{live=false}},[key,searchParams]);
+ useEffect(()=>{const doc=frameRef.current?.contentDocument;if(!doc||!composition)return;renderComposition(doc,composition,viewport,setSelected,(id,field,value)=>mutate(id,node=>{node.content[field]=value}),selected,(id,change)=>mutate(id,node=>{if(change.span!==undefined)setResponsiveLayout(node,viewport,'span',change.span);if(change.minHeight!==undefined){setResponsiveLayout(node,viewport,'height','custom');setResponsiveLayout(node,viewport,'minHeight',change.minHeight)}}),(sourceId,targetId)=>commit(reorder(composition,sourceId,targetId),'Reordered on canvas'))},[composition,viewport,selected,frameReady]);
+ useEffect(()=>{if(!dirty||saving)return;const timer=window.setTimeout(()=>void save(),1800);return()=>clearTimeout(timer)},[data,saved,saving]);
+ const save=async()=>{if(!data||!dirty||saving)return;const snapshot=copy(data);setSaving(true);setError('');setStatus('Saving…');try{const result=await controlApi.save(key,snapshot,revisionId);setRevisionId(result.revision.id);setSaved(snapshot);setVersions((await controlApi.versions(key)).revisions);setStatus('Saved draft')}catch(cause){setError(isApiError(cause)&&cause.code==='REVISION_CONFLICT'?'This draft changed elsewhere. Reload before saving.':apiErrorMessage(cause));setStatus('Save failed')}finally{setSaving(false)}};
+ const undo=()=>{if(!data||!past.length)return;setFuture(items=>[copy(data),...items]);setData(past.at(-1)!);setPast(past.slice(0,-1));setStatus('Undo applied')},redo=()=>{if(!data||!future.length)return;setPast(items=>[...items,copy(data)]);setData(future[0]);setFuture(future.slice(1));setStatus('Redo applied')};
+ const action=(name:string,id:string)=>{if(!composition)return;try{if(name==='visibility')commit(updateNode(composition,id,n=>{n.visible=!n.visible}));if(name==='duplicate')commit(duplicateNode(composition,id));if(name==='delete'){commit(removeNode(composition,id));setSelected(composition.root.children[0]?.id??'')}if(name==='up')commit(moveNode(composition,id,-1));if(name==='down')commit(moveNode(composition,id,1))}catch(cause){setError(cause instanceof Error?cause.message:'Composition change failed')}};
+ const insert=(type:ComponentType)=>{if(!composition)return;const node=makeNode(type);try{const parent=selectedNode&&componentRegistry[selectedNode.type].children.includes(type)?selectedNode.id:undefined;commit(insertNode(composition,node,parent));setSelected(node.id);if(parent)setExpanded(items=>new Set([...items,parent]));setInsertOpen(false)}catch(cause){setError(cause instanceof Error?cause.message:'Invalid nesting')}};
+ const openReview=async()=>{if(!revisionId||dirty){setError('Save the draft before review.');return}try{setReview((await controlApi.review(key,revisionId)).review)}catch(cause){setError(apiErrorMessage(cause))}},publish=async()=>{if(!revisionId||!review?.valid)return;try{await controlApi.publish(key,revisionId);setReview(null);setStatus('Release queued for website deployment')}catch(cause){setError(apiErrorMessage(cause))}};
+ const restore=async(id:string)=>{try{const result=await controlApi.restore(key,id),next=copy(result.revision.data);if(page)next.composition??=compositionFromLegacy(page.label,next);setData(next);setSaved(copy(next));setRevisionId(result.revision.id);setVersions((await controlApi.versions(key)).revisions);setStatus('Revision restored as a new draft')}catch(cause){setError(apiErrorMessage(cause))}};
+ const toggle=(id:string)=>setExpanded(items=>{const next=new Set(items);next.has(id)?next.delete(id):next.add(id);return next}),roots=useMemo(()=>composition?.root.children.filter(node=>!layerSearch||JSON.stringify(node).toLowerCase().includes(layerSearch.toLowerCase()))??[],[composition,layerSearch]);
+ if(!page&&!error)return <div className="control-loading">Loading visual editor…</div>;if(!page)return <div className="control-error">{error||'Page not found'} <Link to="/control/pages">Back to pages</Link></div>;
+ return <div className="control-editor composer"><header className="control-editor-top"><div><Link className="control-back" to="/control/pages"><IconArrowLeft size={16}/>Pages</Link><h1>{page.label}</h1><span className={`control-save-state${dirty?' is-dirty':''}`}>{status}</span></div><div className="control-editor-actions"><button className="control-button" disabled={!past.length} onClick={undo}>↶</button><button className="control-button" disabled={!future.length} onClick={redo}>↷</button><button className="control-button" disabled={!dirty||saving} onClick={()=>void save()}><IconDeviceFloppy size={16}/>Save draft</button><button className="control-button primary" disabled={dirty||!revisionId} onClick={()=>void openReview()}>Review release</button></div></header>
+ {error&&<div className="control-error" role="alert">{error}<button onClick={()=>setError('')}>Dismiss</button></div>}
+ {!data||!composition?<div className="control-empty">No imported draft is available.</div>:<div className="control-editor-grid composer-grid">
+  <aside className="control-editor-layers composer-layers"><div className="composer-pane-title"><div><h2>Layers</h2><p>{composition.root.children.length} page sections</p></div><button title="Insert component" onClick={()=>setInsertOpen(true)}><IconPlus size={18}/></button></div><label className="composer-search"><IconSearch size={15}/><input value={layerSearch} onChange={e=>setLayerSearch(e.target.value)} placeholder="Search layers"/></label><div className="composer-page-root"><strong>Page · {page.label}</strong>{roots.map(node=><Layer key={node.id} node={node} selected={selected} expanded={expanded} toggle={toggle} select={setSelected} action={action} drop={(sourceId,targetId)=>commit(reorder(composition,sourceId,targetId))}/>)}</div><button className="composer-add-section" onClick={()=>setInsertOpen(true)}><IconPlus size={16}/> Add section</button></aside>
+  <section className="control-canvas"><div className="control-canvas-toolbar"><div><strong>Live website canvas</strong><span>Click to select · double click text to edit · drag sections to reorder</span></div><div className="control-viewport">{([['desktop',IconDeviceDesktop],['tablet',IconDeviceTablet],['mobile',IconDeviceMobile]] as const).map(([value,Icon])=><button key={value} aria-label={`${value} preview`} aria-pressed={viewport===value} onClick={()=>setViewport(value)}><Icon size={18}/></button>)}</div></div><div className="control-canvas-stage composer-stage">{previewHtml?<iframe ref={frameRef} title={`${page.label} website composition`} srcDoc={previewHtml} sandbox="allow-same-origin" onLoad={()=>setFrameReady(value=>value+1)} className={`control-site-frame ${viewport}`}/>:<div className="control-empty">Loading actual website…</div>}<div className="composer-canvas-actions"><button onClick={()=>action('up',selected)}>Move up</button><button onClick={()=>action('down',selected)}>Move down</button><button onClick={()=>action('duplicate',selected)}>Duplicate</button><button onClick={()=>action('visibility',selected)}>{selectedNode?.visible?'Hide':'Show'}</button><button disabled={selectedNode?.locked} onClick={()=>action('delete',selected)}>Delete</button></div></div></section>
+  <aside className="control-inspector composer-inspector"><div className="control-inspector-tabs composer-tabs">{(['content','layout','style','advanced','seo','history'] as const).map(value=><button key={value} className={tab===value?'is-active':''} onClick={()=>setTab(value)}>{value}</button>)}</div>{selectedNode&&tab!=='seo'&&tab!=='history'&&<Inspector node={selectedNode} viewport={viewport} tab={tab} data={data} mutate={fn=>mutate(selectedNode.id,fn)}/>} {tab==='seo'&&<Seo data={data} setData={next=>{setPast(items=>[...items,copy(data)]);setData(next)}}/>}{tab==='history'&&<History versions={versions} current={revisionId} data={data} restore={restore}/>}</aside>
+ </div>}{insertOpen&&<InsertPanel query={insertSearch} setQuery={setInsertSearch} insert={insert} close={()=>setInsertOpen(false)}/>} {review&&<Review review={review} close={()=>setReview(null)} publish={publish}/>}</div>;
+}
+
+function Inspector({node,viewport,tab,data,mutate}:{node:CompositionNode;viewport:Viewport;tab:'content'|'layout'|'style'|'advanced';data:ContentData;mutate:(fn:(node:CompositionNode)=>void)=>void}){
+ const layout=effectiveLayout(node,viewport),override=viewport!=='desktop'&&Boolean(node.responsive[viewport]?.layout);
+ const field=(label:string,name:keyof CompositionNode['content'],multiline=false)=><label>{label}{multiline?<textarea rows={5} value={String(node.content[name]??'')} onChange={e=>mutate(n=>{(n.content as Record<string,unknown>)[name]=e.target.value})}/>:<input value={String(node.content[name]??'')} onChange={e=>mutate(n=>{(n.content as Record<string,unknown>)[name]=e.target.value})}/>}</label>;
+ return <div className="control-inspector-content"><div className="composer-inspector-heading"><div><small>{node.type}</small><h2>{node.name}</h2></div>{node.locked&&<IconLock size={17}/>}</div>
+ {tab==='content'&&<>{field('Heading','heading')}{field('Body','body',true)}{field('Text','text',true)}{(node.content.src!==undefined||['image','video','image-card','service-card'].includes(node.type))&&<>{field('Media URL','src')}{field('Alternative text','alt')}</>}{(node.content.label!==undefined||['button','link','cta'].includes(node.type))&&<><h3>Button / link</h3>{field('Label','label')}<label>Action<select value={node.content.action??'internal'} onChange={e=>mutate(n=>{n.content.action=e.target.value as NonNullable<typeof n.content.action>})}>{['internal','external','email','telephone','anchor','file'].map(v=><option key={v}>{v}</option>)}</select></label>{field('Destination','href')}{node.content.href&&!safeLink(node.content.href,node.content.action)&&<p className="composer-validation">Enter a safe destination for this action.</p>}<label>Open<select value={node.content.target??'same'} onChange={e=>mutate(n=>{n.content.target=e.target.value as 'same'|'new'})}><option value="same">Same tab</option><option value="new">New tab</option></select></label></>}{data.media.length>0&&<label>Choose page media<select value="" onChange={e=>mutate(n=>{n.content.src=e.target.value})}><option value="">Select media…</option>{data.media.map((media,index)=><option key={`${media.src}-${index}`} value={media.src}>{media.alt||media.src}</option>)}</select></label>}</>}
+ {tab==='layout'&&<><div className="composer-inheritance"><span>{viewport==='desktop'?'Base layout':override?'Override':'Inherited from desktop'}</span>{viewport!=='desktop'&&override&&<button onClick={()=>mutate(n=>resetResponsive(n,viewport))}>Reset to inherited</button>}</div><label>Grid span<select value={layout.span??12} onChange={e=>mutate(n=>setResponsiveLayout(n,viewport,'span',Number(e.target.value)))}>{[3,4,6,8,12].map(v=><option value={v} key={v}>{v} / 12 · {Math.round(v/12*100)}%</option>)}</select></label><label>Columns<input type="number" min="1" max="12" value={layout.columns??1} onChange={e=>mutate(n=>setResponsiveLayout(n,viewport,'columns',Number(e.target.value)))}/></label><label>Height<select value={layout.height??'fit'} onChange={e=>mutate(n=>setResponsiveLayout(n,viewport,'height',e.target.value as NodeLayout['height']))}>{['fit','small','medium','large','viewport','custom'].map(v=><option key={v}>{v}</option>)}</select></label>{layout.height==='custom'&&<label>Minimum height<input type="number" min="0" max="2000" value={layout.minHeight??0} onChange={e=>mutate(n=>setResponsiveLayout(n,viewport,'minHeight',Number(e.target.value)))}/></label>}<label>Gap<select value={layout.gap??'md'} onChange={e=>mutate(n=>setResponsiveLayout(n,viewport,'gap',e.target.value as NodeLayout['gap']))}>{['none','xs','sm','md','lg','xl'].map(v=><option key={v}>{v}</option>)}</select></label></>}
+ {tab==='style'&&<><label>Approved background<select value={node.style.background} onChange={e=>mutate(n=>{n.style.background=e.target.value as typeof n.style.background})}>{['none','white','light','deep-blue','light-blue','yellow','brand-gradient','image'].map(v=><option key={v}>{v}</option>)}</select></label>{node.style.background==='image'&&<>{field('Background image','src')}<label>Overlay {Math.round((node.style.overlay??0)*100)}%<input type="range" min="0" max="1" step=".05" value={node.style.overlay??0} onChange={e=>mutate(n=>{n.style.overlay=Number(e.target.value)})}/></label></>}<label>Radius<select value={node.style.radius} onChange={e=>mutate(n=>{n.style.radius=e.target.value as typeof n.style.radius})}>{['none','sm','md','lg'].map(v=><option key={v}>{v}</option>)}</select></label><label>Media fit<select value={node.style.fit??'cover'} onChange={e=>mutate(n=>{n.style.fit=e.target.value as 'cover'|'contain'})}><option>cover</option><option>contain</option></select></label><label>Focal point X<input type="range" min="0" max="100" value={node.style.focalX??50} onChange={e=>mutate(n=>{n.style.focalX=Number(e.target.value)})}/></label></>}
+ {tab==='advanced'&&<><label>Layer name<input value={node.name} onChange={e=>mutate(n=>{n.name=e.target.value})}/></label><label>Element key<input value={node.key} onChange={e=>mutate(n=>{n.key=e.target.value})}/></label><label className="control-check"><input type="checkbox" checked={node.visible} onChange={()=>mutate(n=>{n.visible=!n.visible})}/> Visible</label><label>Reusable instance key<input value={node.reusableKey??''} onChange={e=>mutate(n=>{n.reusableKey=e.target.value||undefined})} placeholder="Optional shared component key"/></label><h3>Global data reference</h3><label>Canonical key<input value={node.content.reference?.key??''} onChange={e=>mutate(n=>{n.content.reference=e.target.value?{key:e.target.value,state:'linked',snapshot:n.content.reference?.snapshot}:undefined})} placeholder="group.employee_count"/></label>{node.content.reference&&<label>Reference state<select value={node.content.reference.state} onChange={e=>mutate(n=>{if(n.content.reference)n.content.reference.state=e.target.value as typeof n.content.reference.state})}>{['linked','override','detached','broken'].map(value=><option key={value}>{value}</option>)}</select></label>}<p className="control-inspector-hint">{node.locked?'This production component is protected from deletion.':'Stored in the structured composition revision.'}</p></>}</div>;
+}
+
+function InsertPanel({query,setQuery,insert,close}:{query:string;setQuery:(v:string)=>void;insert:(type:ComponentType)=>void;close:()=>void}){const entries=(Object.entries(componentRegistry) as [ComponentType,(typeof componentRegistry)[ComponentType]][]).filter(([,v])=>v.label.toLowerCase().includes(query.toLowerCase()));return <div className="control-review-backdrop" onMouseDown={close}><section className="composer-insert" role="dialog" aria-modal="true" onMouseDown={e=>e.stopPropagation()}><header><div><small>Component library</small><h2>Add to page</h2></div><button onClick={close}>Close</button></header><label className="composer-search"><IconSearch size={17}/><input autoFocus value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search components"/></label>{['Layout','Content','Lake components','Media','Advanced'].map(category=><div className="composer-library" key={category}><h3>{category}</h3><div>{entries.filter(([,v])=>v.category===category).map(([type,v])=><button key={type} onClick={()=>insert(type)}><span className="composer-thumbnail">{v.label[0]}</span><strong>{v.label}</strong><small>{type}</small></button>)}</div></div>)}</section></div>}
+function Seo({data,setData}:{data:ContentData;setData:(d:ContentData)=>void}){return <div className="control-inspector-content"><h2>Search appearance</h2><label>Page title<input value={data.seo.title} onChange={e=>setData({...data,seo:{...data.seo,title:e.target.value}})}/></label><label>Description<textarea rows={5} value={data.seo.description} onChange={e=>setData({...data,seo:{...data.seo,description:e.target.value}})}/></label><label>Canonical URL<input value={data.seo.canonical??''} onChange={e=>setData({...data,seo:{...data.seo,canonical:e.target.value}})}/></label></div>}
+function History({versions,current,data,restore}:{versions:Revision[];current:string|null;data:ContentData;restore:(id:string)=>Promise<void>}){return <div className="control-inspector-content"><h2>Composition history</h2>{versions.map(version=>{const changes=compositionDiff(version.data.composition,data.composition);return <div className="control-version" key={version.id}><strong>{new Date(version.createdAt).toLocaleString()}</strong><small>{changes.length?`${changes.length} structured changes`:'Legacy content revision'}</small>{changes.slice(0,3).map((c,i)=><small key={i}>{c.kind}: {c.label}</small>)}{version.id!==current&&<button onClick={()=>void restore(version.id)}><IconRefresh size={14}/> Restore as draft</button>}</div>})}</div>}
+function Review({review,close,publish}:{review:ReleaseReview;close:()=>void;publish:()=>Promise<void>}){return <div className="control-review-backdrop"><section className="control-review-dialog" role="dialog" aria-modal="true" aria-label="Review structured changes"><div className="control-review-header"><div><small>Release review</small><h2>Review structured changes</h2><p>{review.changedFields} changed fields</p></div><button onClick={close}>Close</button></div><div className="control-review-issues">{review.issues.map((issue,i)=><p className={issue.severity} key={i}><strong>{issue.severity}</strong> {issue.message}</p>)}</div><div className="control-review-changes">{review.changes.slice(0,30).map(change=><div className="control-review-change" key={change.field}><strong>{change.field}</strong><div><span>{change.before}</span><span>{change.after}</span></div></div>)}</div><div className="control-review-footer"><span>Creates an immutable, verified release.</span><button className="control-button primary" disabled={!review.valid} onClick={()=>void publish()}>Create release</button></div></section></div>}

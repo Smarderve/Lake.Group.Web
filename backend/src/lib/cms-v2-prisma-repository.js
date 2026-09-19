@@ -38,5 +38,24 @@ export function createCmsV2PrismaRepository(db) {
       } });
     },
     async listReleases() { return db.cmsRelease.findMany({ orderBy: { publishedAt: 'desc' } }); },
+    async saveDraftBatch(entries) {
+      return db.$transaction(async (tx) => {
+        const prepared = [];
+        for (const entry of entries) {
+          const document = await tx.contentDocument.findUnique({ where: { key: entry.key } });
+          if (!document || (document.currentDraftRevisionId ?? null) !== (entry.baseRevisionId ?? null)) {
+            throw Object.assign(new Error(`Draft ${entry.key} changed before this transaction.`), { code: 'REVISION_CONFLICT' });
+          }
+          prepared.push({ entry, document });
+        }
+        const revisions = [];
+        for (const { entry, document } of prepared) {
+          const revision = await tx.contentRevision.create({ data: { id: entry.id, documentId: document.id, authorId: entry.actorId, schemaVersion: entry.schemaVersion, data: entry.data, createdAt: new Date(entry.createdAt) } });
+          await tx.contentDocument.update({ where: { id: document.id }, data: { currentDraftRevisionId: revision.id } });
+          revisions.push({ ...revision, key: entry.key });
+        }
+        return revisions;
+      });
+    },
   };
 }

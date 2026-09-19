@@ -26,6 +26,9 @@ export function cmsV2Router({ db, service, recentAuthWindowMs } = {}) {
   router.get('/content/:documentKey', ...guard, async (req, res, next) => {
     try { res.json({ document: await service.readDocument(req.params.documentKey) }); } catch (error) { next(error); }
   });
+  router.post('/global-data/transaction', ...guard, async (req, res, next) => {
+    try { res.status(201).json({ revisions: await service.saveDraftBatch({ actorId: req.user.id, documents: req.body.documents }) }); } catch (error) { next(error); }
+  });
   router.put('/content/:documentKey/draft', ...guard, async (req, res, next) => {
     try { res.status(201).json({ revision: await service.saveDraft({ key: req.params.documentKey, actorId: req.user.id, ...req.body }) }); } catch (error) { next(error); }
   });

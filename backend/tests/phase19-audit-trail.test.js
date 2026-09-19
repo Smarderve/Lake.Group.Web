@@ -30,6 +30,10 @@ const SRC = join(dirname(fileURLToPath(import.meta.url)), '..', 'src');
 const ALWAYS_AUDITED = new Set([
   'user', 'metric', 'metricVersion', 'publishSchedule',
   'mediaFolder', 'milestone', 'leadershipEvent',
+  // CMS V2 repository mutations are exposed only through the runtime
+  // service, which writes CMS_V2_DRAFT_SAVED, CMS_V2_GLOBAL_TRANSACTION,
+  // CMS_V2_PUBLISHED, or CMS_V2_REVISION_RESTORED audit records.
+  'contentDocument', 'contentRevision', 'cmsRelease',
 ]);
 
 // Governed factory entities (lib/governed.js): every mutation goes through

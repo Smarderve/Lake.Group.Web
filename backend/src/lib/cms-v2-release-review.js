@@ -43,6 +43,22 @@ export function reviewContentRelease({ definition, draft, published }) {
       if (!safeDestination(item.src)) issues.push({ severity: 'error', field: `media.${index}.src`, message: 'Media source must use an internal path or HTTPS URL.' });
       if (!item.alt.trim()) issues.push({ severity: 'warning', field: `media.${index}.alt`, message: 'Media item has no alternative text.' });
     });
+    const inspectComponents = (nodes = [], path = 'composition.root.children') => nodes.forEach((node, index) => {
+      const field = `${path}.${index}`;
+      if (node.content?.href && !safeDestination(node.content.href, { allowContact: true })) issues.push({ severity: 'error', field: `${field}.content.href`, message: 'Component destination is unsafe.' });
+      if (node.content?.src && !safeDestination(node.content.src)) issues.push({ severity: 'error', field: `${field}.content.src`, message: 'Component media source is unsafe.' });
+      if (node.style?.backgroundImage && !safeDestination(node.style.backgroundImage)) issues.push({ severity: 'error', field: `${field}.style.backgroundImage`, message: 'Component background image is unsafe.' });
+      inspectComponents(node.children, `${field}.children`);
+    });
+    inspectComponents(draft.composition?.root?.children);
+  }
+  if (definition.kind === 'global') {
+    const inspectNavigation = (items = [], path = 'navigation') => items.forEach((item, index) => {
+      if (item.type !== 'parent' && !safeDestination(item.destination)) issues.push({ severity: 'error', field: `${path}.${index}.destination`, message: 'Navigation destination must use an internal path or HTTPS URL.' });
+      inspectNavigation(item.children, `${path}.${index}.children`);
+    });
+    inspectNavigation(draft.navigation);
+    draft.dataFields?.forEach((item, index) => { if (item.type === 'url' && !safeDestination(item.value)) issues.push({ severity: 'error', field: `dataFields.${index}.value`, message: 'Global URL is unsafe.' }); });
   }
   if (!changed.length) issues.push({ severity: 'warning', field: '', message: 'This revision has no changes from the currently published content.' });
   return {
