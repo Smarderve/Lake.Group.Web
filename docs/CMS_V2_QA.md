@@ -6,6 +6,7 @@
 - Backend V2 route tests cover authentication and page catalog revision state.
 - Content service tests cover multi-page snapshot preservation, integrity, and restoring an older release over an existing draft.
 - The V2 storage test proves a legacy public snapshot pointer cannot be replaced; the disabled Lake Aviation adapter and existing public delivery tests pass after namespace separation.
+- Release review tests cover field diffs, safe internal destinations, warnings, blocking URLs, duplicate section keys, and backend enforcement. Browser QA opens the release review and creates a validated release.
 - The CMS authentication guard tests pass with the test runner's explicit disabled bypass value.
 - Browser test covers sign in, overview, page search, editor, autosave, and the actual public page source in a script-free canvas at 1440px. It checks Lake Aviation draft text, canvas-to-inspector selection, and hero image loading.
 - Browser test covers the overview at 390px and checks horizontal overflow.

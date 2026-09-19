@@ -79,4 +79,13 @@ describe('CMS V2 Lake Aviation pilot service', () => {
     expect(published.documents.home.hero.heading).toBe('Home first');
     expect(contentIntegrity(published)).toBe(pointer.integrity);
   });
+
+  it('blocks a release with an unsafe public destination', async () => {
+    let writes = 0;
+    const service = createContentReleaseService({ repository: memoryRepository(), writePointer: async () => { writes += 1; } });
+    const unsafe = content('Unsafe'); unsafe.cta.href = 'javascript:alert(1)';
+    const draft = await service.saveDraft({ key: 'lake-aviation', actorId: 'it', data: unsafe });
+    await expect(service.publish({ key: 'lake-aviation', revisionId: draft.id, actorId: 'it' })).rejects.toMatchObject({ code: 'PREPUBLISH_VALIDATION_FAILED' });
+    expect(writes).toBe(0);
+  });
 });

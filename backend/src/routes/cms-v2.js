@@ -32,6 +32,9 @@ export function cmsV2Router({ db, service, recentAuthWindowMs } = {}) {
   router.get('/content/:documentKey/versions', ...guard, async (req, res, next) => {
     try { res.json({ revisions: await service.listRevisions(req.params.documentKey) }); } catch (error) { next(error); }
   });
+  router.get('/content/:documentKey/revisions/:revisionId/review', ...guard, async (req, res, next) => {
+    try { res.json({ review: await service.reviewRelease({ key: req.params.documentKey, revisionId: req.params.revisionId }) }); } catch (error) { next(error); }
+  });
   router.post('/content/:documentKey/revisions/:revisionId/restore', ...guard, requireRecentAuth(recentAuthWindowMs), async (req, res, next) => {
     try { res.status(201).json({ revision: await service.restoreRevision({ key: req.params.documentKey, revisionId: req.params.revisionId, actorId: req.user.id }) }); } catch (error) { next(error); }
   });

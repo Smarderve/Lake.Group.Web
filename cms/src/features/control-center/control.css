@@ -158,6 +158,22 @@
 .control-version{display:flex;flex-direction:column;gap:4px;border-top:1px solid var(--cc-line);padding:12px 0;font-size:11px}
 .control-version small{color:var(--cc-muted)}
 .control-version button{display:flex;align-items:center;gap:5px;width:max-content;background:none;border:0;color:#056d9d;font-size:11px;padding:4px 0}
+.control-review-backdrop{position:fixed;inset:0;z-index:90;background:#0c2b41a8;display:grid;place-items:center;padding:20px}
+.control-review-dialog{width:min(760px,100%);max-height:min(780px,calc(100vh - 40px));overflow:auto;background:#fff;border:1px solid #bcd0dc;border-radius:11px;box-shadow:0 28px 80px #09283d66;display:flex;flex-direction:column}
+.control-review-header,.control-review-footer{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:20px 24px;border-bottom:1px solid var(--cc-line)}
+.control-review-header small{color:#0576a9;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.control-review-header h2{margin:4px 0;font-size:21px}
+.control-review-header p,.control-review-footer span{margin:0;color:var(--cc-muted);font-size:12px}
+.control-review-issues{padding:12px 24px;border-bottom:1px solid var(--cc-line)}
+.control-review-issues p{margin:6px 0;padding:10px 12px;border-radius:6px;font-size:12px;line-height:1.5}
+.control-review-issues p.error{color:#9d2e17;background:#fff2ed}
+.control-review-issues p.warning{color:#7b5a00;background:#fff9dc}
+.control-review-issues code{font-size:11px;margin:0 4px}
+.control-review-changes{overflow:auto;padding:4px 24px;min-height:100px}
+.control-review-change{padding:11px 0;border-bottom:1px solid var(--cc-line);font-size:12px}
+.control-review-change>strong{color:#075a83}
+.control-review-change>div{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px;color:#536d7f;overflow-wrap:anywhere}
+.control-review-footer{border-top:1px solid var(--cc-line);border-bottom:0}
 .control-scrim{display:none}
 
 @media(max-width:1200px){.control-editor-grid{grid-template-columns:170px minmax(0,1fr) 245px}
@@ -205,4 +221,7 @@
 .control-site-frame{min-height:470px}
 .control-canvas-note{white-space:normal;text-align:center}
 .control-canvas-toolbar span{display:none}
+.control-review-header,.control-review-footer{align-items:flex-start;flex-direction:column;padding:16px}
+.control-review-changes,.control-review-issues{padding-left:16px;padding-right:16px}
+.control-review-change>div{grid-template-columns:1fr}
 }

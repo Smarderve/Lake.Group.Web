@@ -27,12 +27,14 @@ export type DocumentResponse = {
   };
 };
 export type Release = { id: string; publishedAt: string; integrity: string; manifest?: { documents?: Record<string, ContentData> } };
+export type ReleaseReview = { valid: boolean; changedFields: number; changes: Array<{ field: string; before: string; after: string }>; truncated: boolean; issues: Array<{ severity: 'error' | 'warning'; field: string; message: string }> };
 
 export const controlApi = {
   pages: () => api.get<{ pages: ControlPage[] }>('/admin/v2/pages'),
   pageSource: (key: string) => api.get<{ sourceUrl: string; html: string }>(`/admin/v2/page-source/${encodeURIComponent(key)}`),
   document: (key: string) => api.get<DocumentResponse>(`/admin/v2/content/${encodeURIComponent(key)}`),
   versions: (key: string) => api.get<{ revisions: Revision[] }>(`/admin/v2/content/${encodeURIComponent(key)}/versions`),
+  review: (key: string, revisionId: string) => api.get<{ review: ReleaseReview }>(`/admin/v2/content/${encodeURIComponent(key)}/revisions/${encodeURIComponent(revisionId)}/review`),
   releases: () => api.get<{ releases: Release[] }>('/admin/v2/releases'),
   save: (key: string, data: ContentData, baseRevisionId: string | null) =>
     api.put<{ revision: Revision }>(`/admin/v2/content/${encodeURIComponent(key)}/draft`, { data, baseRevisionId }),

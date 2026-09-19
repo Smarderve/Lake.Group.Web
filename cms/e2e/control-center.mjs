@@ -8,7 +8,8 @@ import { createServer as createViteServer } from 'vite';
 import { chromium } from 'playwright';
 import { makeApp, makeUser } from '../../backend/tests/helpers.js';
 import { buildCmsV2SeedDataset } from '../../backend/src/lib/cms-v2-seed.js';
-import { CMS_V2_PAGE_DEFINITIONS } from '../../backend/src/lib/cms-v2-content.js';
+import { CMS_V2_DOCUMENTS, CMS_V2_PAGE_DEFINITIONS } from '../../backend/src/lib/cms-v2-content.js';
+import { reviewContentRelease } from '../../backend/src/lib/cms-v2-release-review.js';
 
 const root = resolve(fileURLToPath(new URL('../../', import.meta.url)));
 const cmsRoot = fileURLToPath(new URL('../', import.meta.url));
@@ -39,6 +40,7 @@ const service = {
   },
   listRevisions: async (key) => state[key] ? [state[key]] : [],
   listReleases: async () => [],
+  reviewRelease: async ({ key }) => reviewContentRelease({ definition: CMS_V2_DOCUMENTS[key], draft: state[key].data, published: revision.data }),
   saveDraft: async ({ key, data }) => { state[key] = { id: `revision-${Date.now()}`, data, createdAt: new Date().toISOString() }; return state[key]; },
   publish: async ({ revisionId }) => ({ id: `release-${Date.now()}`, revisionId, publishedAt: new Date().toISOString(), integrity: 'sha256-test' }),
 };
@@ -85,6 +87,12 @@ try {
   await page.locator('.control-inspector textarea').first().fill('Lake Group revised heading');
   await page.getByText('Saved draft', { exact: true }).waitFor({ timeout: 10_000 });
   assert.equal(state.home.data.hero.heading, 'Lake Group revised heading');
+  await page.getByRole('button', { name: 'Review release' }).click();
+  await page.getByRole('dialog', { name: 'Review Home changes' }).waitFor();
+  assert.ok((await page.getByRole('dialog').textContent())?.includes('hero.heading'));
+  await page.screenshot({ path: join(screenshotRoot, 'release-review-1440.png'), fullPage: true });
+  await page.getByRole('dialog').getByRole('button', { name: 'Create release' }).click();
+  await page.getByText('Content release created', { exact: true }).waitFor();
   await page.screenshot({ path: join(screenshotRoot, 'editor-1440.png'), fullPage: true });
   await page.goto(`${cmsOrigin}/control/pages/lake-aviation`);
   await page.getByRole('heading', { name: 'Lake Aviation', exact: true }).waitFor();

@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import { z } from 'zod';
+import { reviewContentRelease } from './cms-v2-release-review.js';
 
 const text = (maximum) => z.string().trim().min(1).max(maximum);
 const url = text(1000);
@@ -77,6 +78,10 @@ export function createContentReleaseService({ repository, writePointer, readPubl
     if (!definition) throw fault('INVALID_CONTENT_DOCUMENT', 'This content document is not approved for CMS V2.');
     const revision = await repository.getRevision(revisionId);
     if (!revision || revision.key !== key) throw fault('REVISION_NOT_FOUND', 'The selected content revision does not exist.');
+    const currentDocument = await repository.getDocument(key);
+    if (currentDocument?.currentDraftRevisionId !== revisionId) throw fault('REVISION_CONFLICT', 'Review and save the current draft before releasing it.');
+    const review = await reviewRelease({ key, revisionId });
+    if (!review.valid) throw fault('PREPUBLISH_VALIDATION_FAILED', 'Resolve the blocking release issues before publishing.');
     const previous = await readPublishedSnapshot();
     const snapshot = { schemaVersion: definition.schemaVersion, documents: { ...(previous?.documents ?? {}), [key]: structuredClone(revision.data) } };
     const integrity = contentIntegrity(snapshot);
@@ -111,11 +116,20 @@ export function createContentReleaseService({ repository, writePointer, readPubl
     return saveDraft({ key, actorId, baseRevisionId: document?.currentDraftRevisionId ?? null, data: structuredClone(revision.data) });
   }
 
+  async function reviewRelease({ key, revisionId }) {
+    const definition = CMS_V2_DOCUMENTS[key];
+    if (!definition) throw fault('INVALID_CONTENT_DOCUMENT', 'This content document is not approved for CMS V2.');
+    const revision = await repository.getRevision(revisionId);
+    if (!revision || revision.key !== key) throw fault('REVISION_NOT_FOUND', 'The selected content revision does not exist.');
+    const document = await repository.getDocument(key);
+    return reviewContentRelease({ definition, draft: revision.data, published: document?.currentPublishedRevision?.data ?? null });
+  }
+
   async function readDocument(key) {
     if (!CMS_V2_DOCUMENTS[key]) throw fault('INVALID_CONTENT_DOCUMENT', 'This content document is not approved for CMS V2.');
     const document = await repository.getDocument(key);
     if (!document) return { key, schemaVersion: CMS_V2_DOCUMENTS[key].schemaVersion, currentDraftRevision: null, currentPublishedRevision: null };
     return document;
   }
-  return { saveDraft, publish, restore, restoreRevision, readDocument, listRevisions: (key) => repository.listRevisions?.(key) ?? [], listReleases: () => repository.listReleases() };
+  return { saveDraft, publish, restore, restoreRevision, reviewRelease, readDocument, listRevisions: (key) => repository.listRevisions?.(key) ?? [], listReleases: () => repository.listReleases() };
 }
