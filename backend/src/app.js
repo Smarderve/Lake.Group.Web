@@ -32,6 +32,7 @@ import { cmsAuthBypass } from './middleware/cms-auth-bypass.js';
 import { DEFAULT_SESSION_TTL_MS, DEFAULT_RECENT_AUTH_WINDOW_MS } from './config.js';
 import { careersRouter } from './routes/careers.js';
 import { cmsV2Router } from './routes/cms-v2.js';
+import { cmsV2DeploymentRouter } from './routes/cms-v2-deployment.js';
 
 /**
  * Express app factory.
@@ -86,6 +87,7 @@ export function createApp({
   careersMailer = null,
   careersLimiter = undefined,
   cmsV2Service = null,
+  cmsV2DeploymentToken = '',
   // Explicit local/test-only CMS access. It is forcibly disabled whenever
   // isProduction is true, including callers that pass this option directly.
   cmsAuthBypassEnabled = false,
@@ -149,6 +151,7 @@ export function createApp({
   }
 
   app.use('/health', healthRouter({ db }));
+  if (cmsV2Service) app.use('/api/cms-v2-release', privateNoStore, cmsV2DeploymentRouter({ service: cmsV2Service, token: cmsV2DeploymentToken }));
   // Validation-pattern demo (Task 1.4) — development/testing/staging only.
   if (devEndpointsEnabled) {
     app.use('/example', exampleRouter());

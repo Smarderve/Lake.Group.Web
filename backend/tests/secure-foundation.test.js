@@ -85,6 +85,7 @@ describe('SECURITY_ROADMAP Phase 1 — production configuration', () => {
       publicReleaseGithubRepository: 'lake-group/public-website',
       publicReleaseGithubToken: 'github_pat_' + 'x'.repeat(64),
       publicReleaseApiBaseUrl: 'https://api.example.com',
+      cmsV2DeploymentToken: 'cms-v2-deployment-token-with-forty-characters-12345',
     });
     expect(problems).toEqual([]);
   });

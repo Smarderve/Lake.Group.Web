@@ -7,3 +7,5 @@ The page source endpoint accepts only keys in the closed page registry and fetch
 CMS V2 release files use their own namespace. Replacing a pointer belonging to the older public snapshot format fails closed with `RELEASE_NAMESPACE_CONFLICT`.
 
 Release validation runs on the backend even after the editor review. It blocks unsafe or ambiguous public destinations and refuses a stale revision, so client-side UI state cannot bypass the release gate.
+
+The deployment workflow reads CMS V2 content through a dedicated bearer-protected endpoint. Production boot requires a strong export token. The workflow verifies release identity, path, and SHA-256 integrity before writing files, and immutable release files cannot be replaced with different bytes.

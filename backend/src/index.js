@@ -96,6 +96,7 @@ const app = createApp({
   careersAllowedOrigins: config.careersAllowedOrigins,
   careersMailer: createResendMailer({ apiKey: config.careersMailApiKey, from: config.careersMailFrom }),
   cmsV2Service,
+  cmsV2DeploymentToken: config.cmsV2DeploymentToken,
   cmsAuthBypassEnabled: config.cmsAuthBypass,
 });
 

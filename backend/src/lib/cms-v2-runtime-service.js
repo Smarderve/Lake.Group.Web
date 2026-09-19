@@ -29,8 +29,16 @@ export function createCmsV2RuntimeService({ db, storage, logger, publicSiteOrigi
   return {
     ...service,
     readPageSource: createPageSourceReader({ siteOrigin: publicSiteOrigin }),
+    async readDeploymentBundle() {
+      const pointer = await storage.readCurrent();
+      if (pointer.schemaVersion !== 2) throw Object.assign(new Error('Current CMS V2 pointer is invalid'), { code: 'INTEGRITY_MISMATCH' });
+      const snapshot = await storage.readRelease(pointer.releaseId);
+      const content = { schemaVersion: snapshot.schemaVersion, documents: snapshot.documents };
+      if (pointer.integrity !== snapshot.integrity || contentIntegrity(content) !== pointer.integrity) throw Object.assign(new Error('Current CMS V2 release integrity verification failed'), { code: 'INTEGRITY_MISMATCH' });
+      return { pointer, snapshot };
+    },
     async saveDraft(input) { const revision = await service.saveDraft(input); await writeAudit(db, { actorId: input.actorId, action: 'CMS_V2_DRAFT_SAVED', resource: `admin/v2/content/${input.key}`, metadata: { revisionId: revision.id } }, logger); return revision; },
-    async publish(input) { const release = await service.publish(input); await writeAudit(db, { actorId: input.actorId, action: 'CMS_V2_PUBLISHED', resource: 'admin/v2/releases', metadata: { releaseId: release.id, integrity: release.integrity } }, logger); return release; },
+    async publish(input) { const release = await service.publish(input); await db.publicationEvent.create({ data: { entityType: 'CMS_V2_DOCUMENT', entityId: input.key, action: 'PUBLISHED', actorId: input.actorId, metadata: { cmsV2ReleaseId: release.id } } }); await writeAudit(db, { actorId: input.actorId, action: 'CMS_V2_PUBLISHED', resource: 'admin/v2/releases', metadata: { releaseId: release.id, integrity: release.integrity } }, logger); return release; },
     async restoreRevision(input) { const revision = await service.restoreRevision(input); await writeAudit(db, { actorId: input.actorId, action: 'CMS_V2_REVISION_RESTORED', resource: `admin/v2/content/${input.key}`, metadata: { revisionId: revision.id, restoredRevisionId: input.revisionId } }, logger); return revision; },
   };
 }

@@ -92,7 +92,7 @@ try {
   assert.ok((await page.getByRole('dialog').textContent())?.includes('hero.heading'));
   await page.screenshot({ path: join(screenshotRoot, 'release-review-1440.png'), fullPage: true });
   await page.getByRole('dialog').getByRole('button', { name: 'Create release' }).click();
-  await page.getByText('Content release created', { exact: true }).waitFor();
+  await page.getByText('Release queued for website deployment', { exact: true }).waitFor();
   await page.screenshot({ path: join(screenshotRoot, 'editor-1440.png'), fullPage: true });
   await page.goto(`${cmsOrigin}/control/pages/lake-aviation`);
   await page.getByRole('heading', { name: 'Lake Aviation', exact: true }).waitFor();

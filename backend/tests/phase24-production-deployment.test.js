@@ -71,6 +71,7 @@ describe('production deployment configuration', () => {
     PUBLIC_RELEASE_GITHUB_REPOSITORY: 'lake-group/public-website',
     PUBLIC_RELEASE_GITHUB_TOKEN: 'github_pat_' + 'x'.repeat(64),
     PUBLIC_RELEASE_API_BASE_URL: 'https://api.lakegroup.example',
+    CMS_V2_DEPLOYMENT_TOKEN: 'cms-v2-deployment-token-with-forty-characters-12345',
   };
 
   it('requires an explicit HTTPS CMS allowlist covered by CSRF protection', () => {

@@ -19,6 +19,7 @@
     "test:correction01-03": "node --test tests/phase-01-03-correction.test.js",
     "test:public-delivery": "node --test tests/public-snapshot.test.js",
     "public:snapshot": "node scripts/public-snapshot.js",
+    "cms-v2:snapshot": "node scripts/cms-v2-deployment-snapshot.js",
     "secret:scan": "node scripts/check-secrets.mjs",
     "test:cache-consistency": "node scripts/check-cache-consistency.mjs",
     "test:footer-consistency": "node --test tests/footer-consistency.test.js",

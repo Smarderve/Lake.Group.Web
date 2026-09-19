@@ -180,6 +180,7 @@ export function resolveConfig(env) {
     publicReleaseApiBaseUrl: (env.PUBLIC_RELEASE_API_BASE_URL || '').replace(/\/+$/, ''),
     publicReleasePollMs: finiteNumber(env.PUBLIC_RELEASE_POLL_MS, 15_000),
     publicReleaseMaxAttempts: finiteNumber(env.PUBLIC_RELEASE_MAX_ATTEMPTS, 8),
+    cmsV2DeploymentToken: env.CMS_V2_DEPLOYMENT_TOKEN || '',
     careersRecipientEmail: env.CAREERS_RECIPIENT_EMAIL || 'projectdevemail001@gmail.com',
     careersAllowedOrigins: commaSeparated(env.CAREERS_ALLOWED_ORIGINS),
     careersMailApiKey: env.CAREERS_MAIL_API_KEY || '',
@@ -276,6 +277,9 @@ export function productionConfigProblems(cfg = config) {
   }
   if (!isExactHttpsOrigin(cfg.publicReleaseApiBaseUrl)) {
     problems.push('PUBLIC_RELEASE_API_BASE_URL must be an HTTPS origin in production');
+  }
+  if (!cfg.cmsV2DeploymentToken || cfg.cmsV2DeploymentToken.length < 40) {
+    problems.push('CMS_V2_DEPLOYMENT_TOKEN must be a strong value (>= 40 chars) in production');
   }
   return problems;
 }

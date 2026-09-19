@@ -19,6 +19,7 @@ jobs:
     environment: production
     env:
       PUBLIC_API_BASE_URL: ${{ secrets.PUBLIC_API_BASE_URL }}
+      CMS_V2_DEPLOYMENT_TOKEN: ${{ secrets.CMS_V2_DEPLOYMENT_TOKEN }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
       VERCEL_CLI_VERSION: "54.17.3"
@@ -37,7 +38,7 @@ jobs:
             for (const name of ["publication_event_id", "entity_type", "entity_id"]) {
               if (typeof payload[name] !== "string" || !/^[A-Za-z0-9_.:-]{1,128}$/.test(payload[name])) throw new Error(`Invalid ${name}`);
             }
-            for (const name of ["PUBLIC_API_BASE_URL", "VERCEL_ORG_ID", "VERCEL_PROJECT_ID", "VERCEL_TOKEN"]) {
+            for (const name of ["PUBLIC_API_BASE_URL", "CMS_V2_DEPLOYMENT_TOKEN", "VERCEL_ORG_ID", "VERCEL_PROJECT_ID", "VERCEL_TOKEN"]) {
               if (!process.env[name]) throw new Error(`${name} is required`);
             }
             const api = new URL(process.env.PUBLIC_API_BASE_URL);
@@ -65,6 +66,9 @@ jobs:
 
       - name: Generate atomic public snapshot
         run: npm run public:snapshot -- --api-base "$PUBLIC_API_BASE_URL"
+
+      - name: Export verified CMS V2 release
+        run: npm run cms-v2:snapshot -- "$PUBLIC_API_BASE_URL"
 
       - name: Verify snapshot resilience
         run: npm run test:public-delivery
