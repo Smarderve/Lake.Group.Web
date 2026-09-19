@@ -85,6 +85,11 @@ body.home .hero-slide img {
   object-fit: cover;
   display: block;
 }
+body.home .hero-slide picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 /* The real-estate slide keeps the approved Cross Country building in frame,
    including the narrower crop used by the mobile hero. */
 body.home .hero-slide img[src*="cross-country-hero.webp"] {
@@ -366,6 +371,14 @@ body.home .hero-tab:hover {
 
 /* Mobile: simpler tabs */
 @media (max-width: 720px) {
+  /* A layered, neutral mobile-only readability field. It protects copy over
+     bright sky, tanks and machinery without editing or blackening photography. */
+  body.home .hero-scrim {
+    bottom: 0;
+    background:
+      linear-gradient(180deg, rgba(0, 12, 24, .28) 0%, rgba(0, 12, 24, .04) 30%, rgba(0, 12, 24, .14) 55%, rgba(0, 12, 24, .48) 100%),
+      radial-gradient(ellipse 115% 68% at 18% 57%, rgba(0, 0, 0, .52) 0%, rgba(0, 0, 0, .28) 48%, rgba(0, 0, 0, 0) 78%);
+  }
   body.home .hero-slide img[src*="cross-country-hero.webp"] {
     object-position: 58% center;
   }
@@ -396,8 +409,11 @@ body.home .hero-tab:hover {
   }
   body.home .hero-sub {
     max-width: 100% !important;
-    font-size: 1rem !important;
-    line-height: 1.4 !important;
+    font-size: 1.08rem !important;
+    font-weight: 600 !important;
+    color: #fff !important;
+    line-height: 1.36 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .52);
     margin-bottom: 14px !important;
     letter-spacing: -0.01em !important;
   }
@@ -413,19 +429,28 @@ body.home .hero-tab:hover {
     font-size: 1.1rem;
   }
   body.home .hero-kf-label {
-    font-size: 0.5rem;
-    letter-spacing: 0.08em;
+    font-size: 0.56rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, .96);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .58);
   }
   body.home .hero-cta {
     margin-top: 4px;
   }
   body.home .hero-link {
-    font-size: 0.72rem;
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .58);
     gap: 12px;
   }
   body.home .hero-link-ico {
     width: 40px;
     height: 40px;
+    border-color: rgba(255, 255, 255, .96);
+    background: rgba(0, 0, 0, .16);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .32);
   }
   body.home .hero-link-ico svg {
     width: 18px;

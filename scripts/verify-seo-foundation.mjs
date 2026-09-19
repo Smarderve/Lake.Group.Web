@@ -8,6 +8,7 @@ const errors = [];
 const all = [...INDEXABLE_ROUTES, ...NON_INDEXABLE_ROUTES];
 const titles = new Map();
 const descriptions = new Map();
+const retiredSignals = /(?:uhosting\.co\.tz|lakegroup\.vercel\.app|localhost(?::\d+)?|\/index\.php\/|Fastest growing company in Africa|Highest service standards|Largest distributors in Tanzania|©\s*2019\s*All Right Reserved|Provide You The Highest Quality Work)/i;
 Object.keys(COMPANY_ENTITIES).forEach((file) => {
   const intent = SEARCH_INTENTS[file];
   if (!intent?.entity || !intent?.primary || !intent?.vertical || !intent?.questions?.length) {
@@ -41,6 +42,7 @@ for (const file of all) {
   if (indexable && (html.match(/<h1\b/gi) || []).length !== 1) errors.push(`${file}: indexable page must contain exactly one H1`);
   if (file === 'index.html' && /<h1\b[^>]*\b(?:visually-hidden|sr-only)\b/i.test(html)) errors.push(`${file}: must not use a hidden SEO-only H1`);
   if (/lakegroup\.vercel\.app/i.test(html)) errors.push(`${file}: contains a Vercel preview-domain URL`);
+  if (retiredSignals.test(html)) errors.push(`${file}: contains an obsolete public-search signal`);
   const pageTitle = html.match(/<title>([\s\S]*?)<\/title>/i)?.[1]?.trim();
   const pageDescription = html.match(/<meta name="description" content="([\s\S]*?)">/i)?.[1]?.trim();
   const expectedTitle = PAGE_METADATA[file]?.title;
@@ -51,6 +53,17 @@ for (const file of all) {
     else titles.set(pageTitle, file);
     if (descriptions.has(pageDescription)) errors.push(`${file}: description duplicates ${descriptions.get(pageDescription)}`);
     else descriptions.set(pageDescription, file);
+  }
+  if (publishable) {
+    const ogImage = html.match(/<meta property="og:image" content="([^"]+)">/i)?.[1];
+    const twitterImage = html.match(/<meta name="twitter:image" content="([^"]+)">/i)?.[1];
+    const ogUrl = html.match(/<meta property="og:url" content="([^"]+)">/i)?.[1];
+    if (ogUrl !== url) errors.push(`${file}: Open Graph URL must equal canonical URL`);
+    for (const [label, value] of [['og:image', ogImage], ['twitter:image', twitterImage]]) {
+      if (!value?.startsWith(SITE.origin)) { errors.push(`${file}: ${label} must use the canonical host`); continue; }
+      const localImage = path.join(root, decodeURIComponent(new URL(value).pathname).replace(/^\//, ''));
+      if (!fs.existsSync(localImage)) errors.push(`${file}: ${label} does not resolve to a public image`);
+    }
   }
   if (!SEARCH_ENGINE_VERIFICATION.google && /name="google-site-verification"/i.test(html)) errors.push(`${file}: contains an unconfigured Google verification token`);
   if (!SEARCH_ENGINE_VERIFICATION.bing && /name="msvalidate\.01"/i.test(html)) errors.push(`${file}: contains an unconfigured Bing verification token`);
@@ -70,6 +83,7 @@ for (const file of all) {
       if (SITE.isConfigured && file === 'index.html') {
         const organization = graph.find((node) => node['@id'] === SITE.organizationId);
         if (organization?.areaServed?.length !== GROUP_MARKETS.length || !organization?.knowsAbout?.length) errors.push(`${file}: incomplete parent organization geography or verticals`);
+        if (!organization?.logo || !graph.some((node) => node['@type'] === 'WebSite')) errors.push(`${file}: missing current Organization logo or WebSite entity`);
       }
     } catch { errors.push(`${file}: malformed JSON-LD`); }
   });

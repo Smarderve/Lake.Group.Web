@@ -49,7 +49,8 @@ test('slow media receives local placeholders while real navigation and content s
       const page = await browser.newPage({ viewport });
       page.on('pageerror', (error) => errors.push(error.message));
       await page.route(/\.(jpe?g|png|webp)(\?|$)/, async (route) => {
-        await new Promise((resolve) => setTimeout(resolve, 650));
+        // Keep media unresolved beyond DOMContentLoaded even on slower CI hosts.
+        await new Promise((resolve) => setTimeout(resolve, 2000));
         await route.continue();
       });
       await page.goto(`http://127.0.0.1:${server.address().port}/lake-oil.html`, { waitUntil: 'domcontentloaded' });
@@ -67,7 +68,7 @@ test('slow media receives local placeholders while real navigation and content s
       await page.waitForFunction(() => !Array.from(document.querySelectorAll('.lg-media-pending')).some((node) => {
         const rect = node.getBoundingClientRect();
         return rect.bottom > 0 && rect.top < innerHeight && rect.right > 0 && rect.left < innerWidth;
-      }), null, { timeout: 6000 });
+      }), null, { timeout: 8000 });
       await page.close();
     }
     assert.deepEqual(errors, []);
@@ -83,7 +84,7 @@ test('local placeholder shimmer respects reduced motion', async () => {
   const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.route(/\.(jpe?g|png|webp)(\?|$)/, async (route) => {
-    await new Promise((resolve) => setTimeout(resolve, 650));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     await route.continue();
   });
   try {

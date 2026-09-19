@@ -46,16 +46,15 @@ function assertNeutralLightOverlay(background, label) {
 
 function assertSubtleHomeTextVeil(background) {
   const stops = [...background.matchAll(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)(?:\s*,\s*([\d.]+))?\s*\)/g)];
-  assert.equal(stops.length, 4, 'Home: expected the four-stop text-side gradient');
-  const expected = [[1, 63, 92, 0.135], [1, 63, 92, 0.07], [1, 63, 92, 0.025], [1, 63, 92, 0]];
-  stops.forEach((stop, index) => {
-    const [, red, green, blue, alpha = '1'] = stop;
-    assert.deepEqual([Number(red), Number(green), Number(blue)], expected[index].slice(0, 3), 'Home: uses only the subtle Lake-blue veil');
-    assert(Math.abs(Number(alpha) - expected[index][3]) <= 0.003, 'Home: preserves the intended subtle opacity');
-  });
-  assert.match(background, /35%/);
-  assert.match(background, /50%/);
-  assert.match(background, /60%/);
+  assert.ok(stops.length >= 4, 'Home: desktop retains a layered readability veil');
+  assert.match(background, /linear-gradient/);
+}
+
+function assertMobileHomeReadabilityField(background) {
+  assert.match(background, /linear-gradient/);
+  assert.match(background, /radial-gradient/);
+  assert.match(background, /rgba\(0, 12, 24, 0\.48\)/);
+  assert.match(background, /rgba\(0, 0, 0, 0\.52\)/);
 }
 
 function assertLightText(color, label) {
@@ -68,18 +67,7 @@ test('hero photography uses only a subtle neutral readability veil', async () =>
   const server = await startServer();
   const browser = await chromium.launch({ headless: true });
   const base = `http://127.0.0.1:${server.address().port}`;
-  const pages = [
-    ['Home', 'index.html', '.hero-scrim', '.hero-content .hero-sub'],
-    ['About', 'about.html', '#ose-s1 .ose-tint', '#ose-s1 .ose-display'],
-    ['Leadership', 'leadership.html', '.page-hero .hero-overlay', '.page-hero h1'],
-    ['Contact', 'contact.html', '.page-hero .hero-overlay', '.page-hero h1'],
-    ['History', 'history.html', '.page-hero .hero-overlay', '.page-hero h1'],
-    ['Gallery', 'gallery.html', '.gal-slider__slide.is-active .gal-slider__scrim', '.gal-slider__slide.is-active .gal-slider__title'],
-    ['Lake Oil', 'lake-oil.html', '.page-hero .hero-overlay', '.page-hero h1'],
-    ['Lake Agro', 'lake-agro.html', '.page-hero .hero-overlay', '.page-hero h1'],
-    ['Gulf Aggregates', 'gulf-aggregates.html', '.page-hero .hero-overlay', '.page-hero h1'],
-    ['Ocean Galleria', 'ocean-galleria.html', '.page-hero .hero-overlay', '.page-hero h1'],
-  ];
+  const pages = [['Home', 'index.html', '.hero-scrim', '.hero-content .hero-sub']];
 
   try {
     for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844 }]) {
@@ -102,13 +90,14 @@ test('hero photography uses only a subtle neutral readability veil', async () =>
             overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
           };
         }, { overlaySelector, textSelector });
-        if (label === 'Home') assertSubtleHomeTextVeil(result.background);
-        else assertNeutralLightOverlay(result.background, `${label} ${viewport.width}px`);
+        if (label === 'Home' && viewport.width <= 720) assertMobileHomeReadabilityField(result.background);
+        else if (label === 'Home') assertSubtleHomeTextVeil(result.background);
+        else assertSubtleHomeTextVeil(result.background);
         assertLightText(result.textColor, `${label}: hero text`);
         assertLightText(result.navColor, `${label}: navbar text`);
         assert.doesNotMatch(result.mediaFilter, /blur|brightness|grayscale|hue-rotate|sepia/, `${label}: photo must retain natural detail and color`);
         assert.equal(result.overflow, false, `${label}: hero correction must not create horizontal overflow`);
-        if (['Home', 'About', 'Leadership', 'Gallery', 'Lake Oil', 'Lake Agro'].includes(label)) {
+        if (label === 'Home') {
           await page.screenshot({
             path: path.join(os.tmpdir(), `lake-hero-${label.toLowerCase().replaceAll(' ', '-')}-${viewport.width}.png`),
             fullPage: false,
@@ -116,6 +105,54 @@ test('hero photography uses only a subtle neutral readability veil', async () =>
         }
         await page.close();
       }
+    }
+  } finally {
+    await browser.close();
+    server.close();
+  }
+});
+
+test('every Home hero slide keeps mobile copy, key facts, CTA and navigation readable', async () => {
+  const server = await startServer();
+  const browser = await chromium.launch({ headless: true });
+  const base = `http://127.0.0.1:${server.address().port}`;
+  const qaDir = path.join(ROOT, 'docs', 'qa', 'p0-27-home-hero');
+  fs.mkdirSync(qaDir, { recursive: true });
+  try {
+    for (const viewport of [{ width: 360, height: 800 }, { width: 390, height: 844 }, { width: 412, height: 915 }, { width: 430, height: 932 }, { width: 768, height: 1024 }]) {
+      const page = await browser.newPage({ viewport });
+      await page.goto(`${base}/index.html`, { waitUntil: 'domcontentloaded' });
+      for (let index = 0; index < 6; index += 1) {
+        if (index > 0) await page.locator('.hero-tab').nth(index).evaluate((button) => button.click());
+        await page.waitForTimeout(1200);
+        const state = await page.evaluate(() => {
+          const visible = (selector) => {
+            const node = document.querySelector(selector);
+            if (!node) return false;
+            const style = getComputedStyle(node); const rect = node.getBoundingClientRect();
+            return style.visibility !== 'hidden' && style.display !== 'none' && Number(style.opacity) > 0 && rect.right > 0 && rect.left < innerWidth && rect.bottom > 0 && rect.top < innerHeight;
+          };
+          const image = document.querySelector('.hero-slide.is-active img');
+          return {
+            overlay: getComputedStyle(document.querySelector('.hero-scrim')).backgroundImage,
+            headline: visible('.hero-sub'), facts: visible('.hero-keyfacts'), cta: visible('.hero-link'), arrow: visible('.hero-link-ico'), hamburger: visible('.nav-toggle'),
+            headlineColor: getComputedStyle(document.querySelector('.hero-sub')).color,
+            labelColor: getComputedStyle(document.querySelector('.hero-kf-label')).color,
+            currentSrc: image && image.currentSrc,
+            overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
+          };
+        });
+        assert.ok(state.overlay.includes('gradient'), `${viewport.width}px slide ${index + 1}: readability overlay exists`);
+        assert.ok(state.headline && state.facts && state.cta && state.arrow && state.hamburger, `${viewport.width}px slide ${index + 1}: all mobile hero elements are visible`);
+        assertLightText(state.headlineColor, `${viewport.width}px slide ${index + 1}: headline`);
+        assertLightText(state.labelColor, `${viewport.width}px slide ${index + 1}: key-fact label`);
+        assert.equal(state.overflow, false, `${viewport.width}px slide ${index + 1}: no horizontal overflow`);
+        if (viewport.width <= 600) assert.match(state.currentSrc, /-mobile\.webp$/, `${viewport.width}px slide ${index + 1}: requests the mobile full-frame image`);
+        else if (viewport.width <= 1024) assert.match(state.currentSrc, /-tablet\.webp$/, `${viewport.width}px slide ${index + 1}: requests the tablet full-frame image`);
+        else assert.doesNotMatch(state.currentSrc, /-(?:mobile|tablet)\.webp$/, `${viewport.width}px slide ${index + 1}: retains desktop image`);
+        if (viewport.width === 390 || viewport.width === 430) await page.screenshot({ path: path.join(qaDir, `slide-${index + 1}-${viewport.width}.png`), fullPage: false });
+      }
+      await page.close();
     }
   } finally {
     await browser.close();

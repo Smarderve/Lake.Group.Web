@@ -21,7 +21,12 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const SKIP_DIRS = new Set(['node_modules', '.git', 'generated', 'backups', '.freebuff', 'coverage', 'playwright-report', 'test-results']);
+const SKIP_DIRS = new Set([
+  'node_modules', '.git', 'generated', 'backups', '.freebuff', 'coverage',
+  'playwright-report', 'test-results', 'dist',
+  // Read-only historic mirror retained for reference; it is never published.
+  'old lake group website',
+]);
 const SKIP_FILES = new Set(['.env', 'package-lock.json', 'package-lock.json.old']);
 
 // Credential-shaped patterns (deliberately specific to avoid false positives).

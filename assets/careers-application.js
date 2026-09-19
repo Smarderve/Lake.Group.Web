@@ -105,41 +105,34 @@
     submitting = true;
     submitButton.disabled = true;
     submitButton.dataset.defaultLabel = submitButton.textContent;
-    submitButton.textContent = 'Submitting…';
+    submitButton.textContent = 'Preparing email…';
     submitButton.setAttribute('aria-busy', 'true');
-    status.textContent = 'Submitting your application…';
+    status.textContent = 'Preparing your application email…';
     status.dataset.state = 'pending';
     status.hidden = false;
     status.focus();
-    try {
-      const apiBase = (window.LAKE_API_BASE || '').replace(/\/+$/, '');
-      const controller = new AbortController();
-      const timeout = window.setTimeout(() => controller.abort(), 30000);
-      let response;
-      try {
-        response = await fetch(`${apiBase}/api/careers/applications`, { method: 'POST', body: new FormData(form), credentials: 'omit', signal: controller.signal });
-      } finally {
-        window.clearTimeout(timeout);
-      }
-      const body = await response.json().catch(() => ({}));
-      if (!response.ok) {
-        const messages = { 400: 'Please check the highlighted fields.', 413: 'Your CV is larger than the 10 MB limit.', 415: 'This CV format is not supported.', 429: 'Too many attempts. Please wait a moment and try again.' };
-        throw new Error(messages[response.status] || body?.error?.message || 'We could not submit your application right now. Please try again.');
-      }
-      status.textContent = 'APPLICATION RECEIVED. Thank you for your interest in Lake Group.';
-      status.dataset.state = 'success';
-      form.reset();
-      document.querySelector('.cr-ac-upload-remove')?.click();
-      if (startedAt) startedAt.value = String(Date.now());
-    } catch (error) {
-      status.textContent = error.name === 'AbortError' ? 'The application service took too long to respond. Please try again.' : (error.message || 'We could not reach the application service. Check your connection and try again.');
-      status.dataset.state = 'error';
-    } finally {
-      submitting = false;
-      submitButton.disabled = false;
-      submitButton.textContent = submitButton.dataset.defaultLabel || 'Submit application';
-      submitButton.removeAttribute('aria-busy');
-      status.focus();
-    }
+    const data = new FormData(form);
+    const subject = `Career application: ${data.get('opportunity') || 'General application'}`;
+    const body = [
+      `Name: ${data.get('name') || ''}`,
+      `Email: ${data.get('email') || ''}`,
+      `Phone: ${data.get('phone') || ''}`,
+      `Nationality: ${data.get('nationality') || ''}`,
+      `Opportunity: ${data.get('opportunity') || 'General application'}`,
+      '',
+      'Cover letter:',
+      String(data.get('coverLetter') || ''),
+      '',
+      'Please attach the selected CV before sending this email.',
+    ].join('\n');
+    const mailto = `mailto:admin@lakeoilgroup.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    status.textContent = 'Your email app is opening. Attach your selected CV, then send the message to complete your application.';
+    status.dataset.state = 'success';
+    window.location.href = mailto;
+    submitting = false;
+    submitButton.disabled = false;
+    submitButton.textContent = submitButton.dataset.defaultLabel || 'Submit application';
+    submitButton.removeAttribute('aria-busy');
+    status.focus();
   });
 })();

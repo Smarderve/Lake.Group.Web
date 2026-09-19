@@ -229,12 +229,21 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .nav-logo--company img {
   display: none !important;
   place-items: center !important;
   justify-self: end !important;
-  width: 44px !important;
-  height: 44px !important;
+  width: 46px !important;
+  height: 46px !important;
   margin: 0 !important;
   padding: 10px !important;
-  background: none !important;
-  border: 0 !important;
+  background: rgba(3, 45, 77, .88) !important;
+  border: 1px solid rgba(255, 255, 255, .42) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 6px 20px rgba(1, 19, 33, .28) !important;
+  color: #fff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
 }
 
 .site-nav[data-phase01-navbar] .nav-toggle span {
@@ -243,6 +252,11 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .nav-logo--company img {
   height: 2px !important;
   margin: 0 0 5px !important;
   background: #fff !important;
+  color: #fff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
 }
 
 .site-nav[data-phase01-navbar] .nav-toggle span:last-child {

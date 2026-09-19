@@ -1,0 +1,155 @@
+{
+  "generatedAt": "2026-09-19T14:17:44.078Z",
+  "groups": [
+    {
+      "section": "Home / Energies",
+      "variants": {
+        "desktop": {
+          "path": "assets/images/delivery/home/verticals/energies.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 123576
+        },
+        "tablet": {
+          "path": "assets/images/delivery/home/verticals/energies-tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "bytes": 79854
+        },
+        "mobile": {
+          "path": "assets/images/delivery/home/verticals/energies-mobile.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 59136
+        }
+      },
+      "status": "ready"
+    },
+    {
+      "section": "Home / Manufacturing",
+      "variants": {
+        "desktop": {
+          "path": "assets/images/delivery/home/verticals/manufacturing.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 307950
+        },
+        "tablet": {
+          "path": "assets/images/delivery/home/verticals/manufacturing-tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "bytes": 200472
+        },
+        "mobile": {
+          "path": "assets/images/delivery/home/verticals/manufacturing-mobile.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 145822
+        }
+      },
+      "status": "ready"
+    },
+    {
+      "section": "Home / Automotive",
+      "variants": {
+        "desktop": {
+          "path": "assets/images/delivery/home/remediated/automotive-truck-lineup-clean.webp",
+          "width": 1515,
+          "height": 848,
+          "bytes": 115596
+        },
+        "tablet": {
+          "path": "assets/images/delivery/home/remediated/automotive-truck-lineup-clean-tablet.webp",
+          "width": 1200,
+          "height": 672,
+          "bytes": 66070
+        },
+        "mobile": {
+          "path": "assets/images/delivery/home/remediated/automotive-truck-lineup-clean-mobile.webp",
+          "width": 960,
+          "height": 537,
+          "bytes": 50946
+        }
+      },
+      "status": "ready"
+    },
+    {
+      "section": "Home / Real estate",
+      "variants": {
+        "desktop": {
+          "path": "assets/images/delivery/cross-country/cross-country-hero.webp",
+          "width": 1672,
+          "height": 940,
+          "bytes": 113206
+        },
+        "tablet": {
+          "path": "assets/images/delivery/cross-country/cross-country-hero-tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "bytes": 69574
+        },
+        "mobile": {
+          "path": "assets/images/delivery/cross-country/cross-country-hero-mobile.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 50856
+        }
+      },
+      "status": "ready"
+    },
+    {
+      "section": "Home / Agro",
+      "variants": {
+        "desktop": {
+          "path": "assets/images/delivery/home/remediated/lake-agro-hero-desktop-clean.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 305914
+        },
+        "tablet": {
+          "path": "assets/images/delivery/home/remediated/lake-agro-hero-desktop-clean-tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "bytes": 162296
+        },
+        "mobile": {
+          "path": "assets/images/delivery/home/remediated/lake-agro-hero-desktop-clean-mobile.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 118324
+        }
+      },
+      "status": "ready"
+    },
+    {
+      "section": "Home / Logistics",
+      "variants": {
+        "desktop": {
+          "path": "assets/images/delivery/home/verticals/logistics.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 210524
+        },
+        "tablet": {
+          "path": "assets/images/delivery/home/verticals/logistics-tablet.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 143528
+        },
+        "mobile": {
+          "path": "assets/images/delivery/home/verticals/logistics-mobile.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 103864
+        }
+      },
+      "status": "ready"
+    }
+  ],
+  "totals": {
+    "groups": 6,
+    "mobileDerivatives": 6,
+    "tabletDerivatives": 6,
+    "retainedDesktopOriginals": 6
+  }
+}

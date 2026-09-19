@@ -59,8 +59,14 @@
     if (preloaded[nextIndex]) return;
     var image = slides[nextIndex].querySelector("img");
     if (!image) return;
-    var src = image.dataset.src || image.currentSrc || image.src;
-    var srcset = image.dataset.srcset || image.srcset;
+    var source = image.parentElement && image.parentElement.querySelector("source");
+    if (image.parentElement && image.parentElement.tagName === "PICTURE") {
+      source = Array.prototype.find.call(image.parentElement.querySelectorAll("source"), function (candidate) {
+        return !candidate.media || !window.matchMedia || window.matchMedia(candidate.media).matches;
+      }) || source;
+    }
+    var src = (source && source.srcset) || image.dataset.src || image.currentSrc || image.src;
+    var srcset = source ? "" : (image.dataset.srcset || image.srcset);
     var sizes = image.dataset.sizes || image.sizes;
     if (!src) return;
     var preload = new Image();

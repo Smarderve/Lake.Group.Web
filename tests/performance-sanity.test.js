@@ -10,7 +10,7 @@ const read = (file) => fs.readFileSync(path.join(ROOT, file), 'utf8');
 const home = read('index.html');
 const gallery = read('gallery.html');
 
-assert.match(home, /assets\/images\/home\/verticals\/energies\.webp[^>]+fetchpriority="high"[^>]+loading="eager"/);
+assert.match(home, /assets\/images\/delivery\/home\/verticals\/energies\.webp[^>]+srcset="[^"]*energies-960\.webp[^>]+fetchpriority="high"[^>]+loading="eager"/);
 assert.doesNotMatch(home, /automotive-truck-lineup\.png/);
 assert.ok(fs.statSync(path.join(ROOT, 'assets/images/home/verticals/automotive-truck-lineup.webp')).size < 250000);
 
