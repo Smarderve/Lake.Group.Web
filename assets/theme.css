@@ -1268,10 +1268,50 @@ canvas {
   height: auto;
 }
 
+@media (min-width: 721px) and (max-width: 1024px) {
+  .page-hero .hero-media {
+    background-color: var(--blue2, #012f49);
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+  }
+  .page-hero .hero-media img,
+  .page-hero .hero-media picture > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+    object-position: center !important;
+    background: var(--blue2, #012f49);
+  }
+  html.lg-motion .page-hero .hero-media,
+  html.lg-motion .page-hero .page-hero-photo { animation: lg-hero-media-in .7s var(--ease-out) both; }
+}
+
 @media (max-width: 720px) {
   html,
   body {
     overflow-x: clip;
+  }
+
+  /* Preserve the complete approved frame on small screens. Landscape heroes
+     are letterboxed against the existing Lake navy rather than zoom-cropped. */
+  .page-hero .hero-media {
+    background-color: var(--blue2, #012f49);
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+  }
+  .page-hero .hero-media img,
+  .page-hero .hero-media picture > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+    object-position: center !important;
+    background: var(--blue2, #012f49);
+  }
+  html.lg-motion .page-hero .hero-media,
+  html.lg-motion .page-hero .page-hero-photo {
+    animation: lg-hero-media-in .7s var(--ease-out) both;
   }
 
   /* Kill staggered hero fade-up on phones (conflicts with split-text / feels laggy) */
