@@ -29,18 +29,36 @@ function routePoints(destination:Place){const start=geoVector(PLACES[0].lat,PLAC
 function Atmosphere(){const material=useMemo(()=>new THREE.ShaderMaterial({transparent:true,side:THREE.BackSide,depthWrite:false,blending:THREE.AdditiveBlending,uniforms:{color:{value:new THREE.Color('#7cc7e6')}},vertexShader:`varying vec3 n;varying vec3 p;void main(){n=normalize(normalMatrix*normal);p=(modelViewMatrix*vec4(position,1.)).xyz;gl_Position=projectionMatrix*vec4(p,1.);}`,fragmentShader:`uniform vec3 color;varying vec3 n;varying vec3 p;void main(){float f=pow(1.-abs(dot(n,normalize(-p))),3.6);gl_FragColor=vec4(color,f*.19);}`}),[]);useEffect(()=>()=>material.dispose(),[material]);return <mesh scale={1.045}><sphereGeometry args={[RADIUS,96,64]}/><primitive object={material} attach="material"/></mesh>}
 
 type DomRefs = React.MutableRefObject<Record<string, HTMLElement | SVGPolylineElement | null>>;
+type LabelSlot = { side: 'left' | 'right'; y: number; lane: number };
 
-const MOBILE_SLOTS: Record<string, { side: 'left' | 'right'; y: number }> = {
-  ae: { side: 'right', y: .08 },
-  ug: { side: 'left', y: .18 },
-  et: { side: 'right', y: .23 },
-  rw: { side: 'left', y: .34 },
-  ke: { side: 'right', y: .38 },
-  cd: { side: 'left', y: .49 },
-  bi: { side: 'left', y: .64 },
-  tz: { side: 'right', y: .56 },
-  zm: { side: 'left', y: .79 },
-  mz: { side: 'right', y: .77 },
+/* Deliberate outside-perimeter label stacks. Each entry has a dedicated lane:
+   marker → horizontal exit → vertical lane → short label approach. Keeping the
+   per-side order aligned with the projected geography avoids route crossings. */
+const DESKTOP_SLOTS: Record<string, LabelSlot> = {
+  ae: { side: 'right', y: .10, lane: 0 },
+  et: { side: 'right', y: .23, lane: 1 },
+  ke: { side: 'right', y: .39, lane: 2 },
+  tz: { side: 'right', y: .58, lane: 3 },
+  mz: { side: 'right', y: .82, lane: 4 },
+  ug: { side: 'left', y: .20, lane: 0 },
+  rw: { side: 'left', y: .34, lane: 1 },
+  bi: { side: 'left', y: .50, lane: 2 },
+  cd: { side: 'left', y: .66, lane: 3 },
+  zm: { side: 'left', y: .82, lane: 4 },
+};
+
+/* Mobile uses its own wider vertical rhythm; it is not a scaled desktop map. */
+const MOBILE_SLOTS: Record<string, LabelSlot> = {
+  ae: { side: 'right', y: .07, lane: 0 },
+  et: { side: 'right', y: .21, lane: 1 },
+  ke: { side: 'right', y: .36, lane: 2 },
+  tz: { side: 'right', y: .57, lane: 3 },
+  mz: { side: 'right', y: .82, lane: 4 },
+  ug: { side: 'left', y: .16, lane: 0 },
+  rw: { side: 'left', y: .32, lane: 1 },
+  bi: { side: 'left', y: .49, lane: 2 },
+  cd: { side: 'left', y: .65, lane: 3 },
+  zm: { side: 'left', y: .82, lane: 4 },
 };
 
 function RuntimePause(){const setFrameloop=useThree(state=>state.setFrameloop),gl=useThree(state=>state.gl);useEffect(()=>{let onscreen=true;const sync=()=>setFrameloop(document.hidden||!onscreen?'never':'always'),target=gl.domElement.closest('.experience');const observer=target&&'IntersectionObserver'in window?new IntersectionObserver(entries=>{onscreen=entries[0]?.isIntersecting??true;sync()},{rootMargin:'120px'}):null;observer?.observe(target!);document.addEventListener('visibilitychange',sync);sync();return()=>{observer?.disconnect();document.removeEventListener('visibilitychange',sync)}},[gl,setFrameloop]);return null}
@@ -65,8 +83,8 @@ function Scene({reduced,labelRefs,leaderRefs}:{reduced:boolean;labelRefs:DomRefs
     else{offset.x=0;offset.y=0;group.current.rotation.y=automatedRotation.current.y;group.current.rotation.x=automatedRotation.current.x}
     const originOn=THREE.MathUtils.smoothstep(elapsed,7.9,8.25)*retract;markerRefs.current.forEach((mesh,index)=>{if(!mesh)return;const start=8.2+(index-1)*.41,active=index===0?originOn:THREE.MathUtils.smoothstep(elapsed,start,start+.28)*retract;mesh.scale.setScalar(active*(index===0?1.18:1))});
     routeRefs.current.forEach((line,index)=>{if(!line)return;const start=8.15+index*.41,progress=THREE.MathUtils.smoothstep(elapsed,start,start+.38)*retract;line.geometry.setDrawRange(0,Math.max(0,Math.floor(progress*96)))});
-    const occupied:{left:number;right:number;top:number;bottom:number}[]=[];
     PLACES.forEach((place,index)=>{const label=labelRefs.current[place.id] as HTMLElement|null,leader=leaderRefs.current[place.id] as SVGPolylineElement|null;if(!label||!leader)return;const world=geoVector(place.lat,place.lng,RADIUS*1.018).applyEuler(group.current!.rotation),visible=world.clone().normalize().dot(camera.position.clone().normalize())>.08,reveal=index===0?originOn:THREE.MathUtils.smoothstep(elapsed,8.3+(index-1)*.41,8.58+(index-1)*.41)*retract,projected=world.clone().project(camera),x=(projected.x*.5+.5)*size.width,y=(-projected.y*.5+.5)*size.height,width=label.offsetWidth,height=label.offsetHeight,isMobile=size.width<600;let chosenRect:{left:number;right:number;top:number;bottom:number};let onRight:boolean;if(isMobile){const slot=MOBILE_SLOTS[place.id];const left=slot.side==='left'?8:Math.max(8,size.width-width-8),top=THREE.MathUtils.clamp(size.height*slot.y-height/2,8,size.height-height-8);chosenRect={left,right:left+width,top,bottom:top+height};onRight=slot.side==='right'}else{const offset=place.desktop,candidates=[offset,[offset[0],offset[1]-18],[offset[0],offset[1]+18]] as [number,number][],overlap=(a:{left:number;right:number;top:number;bottom:number},b:{left:number;right:number;top:number;bottom:number})=>!(a.right+5<=b.left||a.left>=b.right+5||a.bottom+5<=b.top||a.top>=b.bottom+5);let best=Infinity;chosenRect={left:0,right:0,top:0,bottom:0};candidates.forEach(candidate=>{const left=THREE.MathUtils.clamp(x+candidate[0],8,Math.max(8,size.width-width-8)),top=THREE.MathUtils.clamp(y+candidate[1],8,Math.max(8,size.height-height-8)),rect={left,right:left+width,top,bottom:top+height},score=occupied.reduce((total,other)=>total+(overlap(rect,other)?10000:0),0)+Math.abs(candidate[1]-offset[1]);if(score<best){best=score;chosenRect=rect}});occupied.push(chosenRect);onRight=chosenRect.left>=x}const lx=chosenRect.left,ly=chosenRect.top,endX=onRight?lx-6:lx+width+6,endY=ly+height/2,elbowX=isMobile?(onRight?Math.max(x+12,endX-22):Math.min(x-12,endX+22)):endX;label.style.transform=`translate3d(${lx}px,${ly}px,0)`;label.style.opacity=visible?String(reveal):'0';leader.setAttribute('points',`${x},${y} ${elbowX},${y} ${elbowX},${endY} ${endX},${endY}`);leader.style.opacity=visible?String(reveal*(place.id==='tz'?1:.72)):'0'})
+    PLACES.forEach((place,index)=>{const label=labelRefs.current[place.id] as HTMLElement|null,leader=leaderRefs.current[place.id] as SVGPolylineElement|null;if(!label||!leader)return;const world=geoVector(place.lat,place.lng,RADIUS*1.018).applyEuler(group.current!.rotation),visible=world.clone().normalize().dot(camera.position.clone().normalize())>.08,reveal=index===0?originOn:THREE.MathUtils.smoothstep(elapsed,8.3+(index-1)*.41,8.58+(index-1)*.41)*retract,projected=world.clone().project(camera),x=(projected.x*.5+.5)*size.width,y=(-projected.y*.5+.5)*size.height,width=label.offsetWidth,height=label.offsetHeight,isMobile=size.width<600,slot=(isMobile?MOBILE_SLOTS:DESKTOP_SLOTS)[place.id];const left=slot.side==='left'?8:Math.max(8,size.width-width-8),top=THREE.MathUtils.clamp(size.height*slot.y-height/2,8,size.height-height-8),chosenRect={left,right:left+width,top,bottom:top+height},onRight=slot.side==='right',lx=chosenRect.left,ly=chosenRect.top,endX=onRight?lx-6:lx+width+6,endY=ly+height/2,laneInset=(isMobile?18:28)+slot.lane*(isMobile?7:11),laneX=onRight?THREE.MathUtils.clamp(endX-laneInset,x+12,endX-8):THREE.MathUtils.clamp(endX+laneInset,endX+8,x-12);label.style.transform=`translate3d(${lx}px,${ly}px,0)`;label.style.opacity=visible?String(reveal):'0';leader.setAttribute('points',`${x},${y} ${laneX},${y} ${laneX},${endY} ${endX},${endY}`);leader.style.opacity=visible?String(reveal*(place.id==='tz'?1:.72)):'0'})
   });
   return <><RuntimePause/><ambientLight intensity={.78} color="#cbe5f2"/><hemisphereLight args={['#b7dff1','#06111d',.42]}/><directionalLight position={[4.8,2.4,5.6]} intensity={2.3} color="#fff7df"/><directionalLight position={[-4.6,-.4,1.6]} intensity={.74} color="#5c9bc4"/><group ref={group} rotation={[0,FINAL_ROTATION,0]}><mesh><sphereGeometry args={[RADIUS,128,96]}/><meshStandardMaterial map={day} bumpMap={bump} bumpScale={.035} color="#c4d2d8" emissive="#0a2234" emissiveIntensity={.42} roughness={.88} metalness={0}/></mesh>{routeObjects.map((line,index)=><primitive key={PLACES[index+1].id} object={line} ref={(value:THREE.Line|null)=>{routeRefs.current[index]=value}}/>)}{PLACES.map((place,index)=><mesh key={place.id} position={geoVector(place.lat,place.lng,RADIUS*1.012)} ref={(value)=>{markerRefs.current[index]=value}} scale={reduced?(index===0?1.12:1):0}><sphereGeometry args={[index===0?.022:.016,16,16]}/><meshBasicMaterial color="#fff200" toneMapped={false}/></mesh>)}</group><Atmosphere/></>
 }
