@@ -28,17 +28,19 @@ for (const [section, desktop] of groups) {
     } catch { errors.push(`${section}: missing ${kind} image ${file}`); }
   }
   if (metadata.desktop && metadata.tablet && metadata.mobile) {
-    const ratio = metadata.desktop.width / metadata.desktop.height;
+    if (metadata.desktop.width <= metadata.desktop.height) errors.push(`${section}: desktop original must remain landscape`);
     for (const kind of ['tablet', 'mobile']) {
       const candidate = metadata[kind];
-      if (Math.abs(candidate.width / candidate.height - ratio) > 0.002) errors.push(`${section}: ${kind} changed the original aspect ratio`);
+      if (candidate.height <= candidate.width) errors.push(`${section}: ${kind} must be a portrait full-photo canvas`);
     }
+    if (metadata.mobile.width < 1080 || metadata.mobile.height < 1920) errors.push(`${section}: mobile canvas must be at least 1080x1920`);
+    if (metadata.tablet.width < 1440 || metadata.tablet.height < 1800) errors.push(`${section}: tablet canvas must be at least 1440x1800`);
     if (metadata.tablet.width < metadata.mobile.width) errors.push(`${section}: tablet must be at least as wide as mobile`);
     if (!index.includes(variants.tablet) || !index.includes(variants.mobile)) errors.push(`${section}: responsive picture sources are not registered in Home`);
   }
-  report.push({ section, variants: metadata, status: Object.keys(metadata).length === 3 ? 'ready' : 'missing' });
+  report.push({ section, variants: metadata, composition: 'Complete desktop photograph proportionally contained on a solid Lake navy portrait canvas; no crop or stretch.', status: Object.keys(metadata).length === 3 ? 'ready' : 'missing' });
 }
 
 await fs.writeFile(path.join(root, 'docs', 'reports', 'responsive-hero-image-audit.json'), `${JSON.stringify({ generatedAt: new Date().toISOString(), groups: report, totals: { groups: groups.length, mobileDerivatives: groups.length, tabletDerivatives: groups.length, retainedDesktopOriginals: groups.length } }, null, 2)}\n`);
 if (errors.length) { console.error(errors.join('\n')); process.exit(1); }
-console.log(`Responsive hero images passed: ${groups.length} full-frame groups, ${groups.length} mobile and ${groups.length} tablet derivatives.`);
+console.log(`Responsive hero images passed: ${groups.length} complete-photo portrait canvas groups, ${groups.length} mobile and ${groups.length} tablet derivatives.`);

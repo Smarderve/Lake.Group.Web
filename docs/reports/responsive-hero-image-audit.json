@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T14:17:44.078Z",
+  "generatedAt": "2026-09-20T14:26:41.491Z",
   "groups": [
     {
       "section": "Home / Energies",
@@ -12,17 +12,18 @@
         },
         "tablet": {
           "path": "assets/images/delivery/home/verticals/energies-tablet.webp",
-          "width": 1200,
-          "height": 675,
-          "bytes": 79854
+          "width": 1440,
+          "height": 1800,
+          "bytes": 115134
         },
         "mobile": {
           "path": "assets/images/delivery/home/verticals/energies-mobile.webp",
-          "width": 960,
-          "height": 540,
-          "bytes": 59136
+          "width": 1080,
+          "height": 1920,
+          "bytes": 84596
         }
       },
+      "composition": "Complete desktop photograph proportionally contained on a solid Lake navy portrait canvas; no crop or stretch.",
       "status": "ready"
     },
     {
@@ -36,17 +37,18 @@
         },
         "tablet": {
           "path": "assets/images/delivery/home/verticals/manufacturing-tablet.webp",
-          "width": 1200,
-          "height": 675,
-          "bytes": 200472
+          "width": 1440,
+          "height": 1800,
+          "bytes": 278074
         },
         "mobile": {
           "path": "assets/images/delivery/home/verticals/manufacturing-mobile.webp",
-          "width": 960,
-          "height": 540,
-          "bytes": 145822
+          "width": 1080,
+          "height": 1920,
+          "bytes": 191804
         }
       },
+      "composition": "Complete desktop photograph proportionally contained on a solid Lake navy portrait canvas; no crop or stretch.",
       "status": "ready"
     },
     {
@@ -60,17 +62,18 @@
         },
         "tablet": {
           "path": "assets/images/delivery/home/remediated/automotive-truck-lineup-clean-tablet.webp",
-          "width": 1200,
-          "height": 672,
-          "bytes": 66070
+          "width": 1440,
+          "height": 1800,
+          "bytes": 97454
         },
         "mobile": {
           "path": "assets/images/delivery/home/remediated/automotive-truck-lineup-clean-mobile.webp",
-          "width": 960,
-          "height": 537,
-          "bytes": 50946
+          "width": 1080,
+          "height": 1920,
+          "bytes": 69586
         }
       },
+      "composition": "Complete desktop photograph proportionally contained on a solid Lake navy portrait canvas; no crop or stretch.",
       "status": "ready"
     },
     {
@@ -84,17 +87,18 @@
         },
         "tablet": {
           "path": "assets/images/delivery/cross-country/cross-country-hero-tablet.webp",
-          "width": 1200,
-          "height": 675,
-          "bytes": 69574
+          "width": 1440,
+          "height": 1800,
+          "bytes": 100536
         },
         "mobile": {
           "path": "assets/images/delivery/cross-country/cross-country-hero-mobile.webp",
-          "width": 960,
-          "height": 540,
-          "bytes": 50856
+          "width": 1080,
+          "height": 1920,
+          "bytes": 71432
         }
       },
+      "composition": "Complete desktop photograph proportionally contained on a solid Lake navy portrait canvas; no crop or stretch.",
       "status": "ready"
     },
     {
@@ -108,17 +112,18 @@
         },
         "tablet": {
           "path": "assets/images/delivery/home/remediated/lake-agro-hero-desktop-clean-tablet.webp",
-          "width": 1200,
-          "height": 675,
-          "bytes": 162296
+          "width": 1440,
+          "height": 1800,
+          "bytes": 229350
         },
         "mobile": {
           "path": "assets/images/delivery/home/remediated/lake-agro-hero-desktop-clean-mobile.webp",
-          "width": 960,
-          "height": 540,
-          "bytes": 118324
+          "width": 1080,
+          "height": 1920,
+          "bytes": 159876
         }
       },
+      "composition": "Complete desktop photograph proportionally contained on a solid Lake navy portrait canvas; no crop or stretch.",
       "status": "ready"
     },
     {
@@ -132,17 +137,18 @@
         },
         "tablet": {
           "path": "assets/images/delivery/home/verticals/logistics-tablet.webp",
-          "width": 1200,
-          "height": 800,
-          "bytes": 143528
+          "width": 1440,
+          "height": 1800,
+          "bytes": 220500
         },
         "mobile": {
           "path": "assets/images/delivery/home/verticals/logistics-mobile.webp",
-          "width": 960,
-          "height": 640,
-          "bytes": 103864
+          "width": 1080,
+          "height": 1920,
+          "bytes": 147454
         }
       },
+      "composition": "Complete desktop photograph proportionally contained on a solid Lake navy portrait canvas; no crop or stretch.",
       "status": "ready"
     }
   ],

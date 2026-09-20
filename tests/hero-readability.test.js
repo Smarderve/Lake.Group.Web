@@ -50,11 +50,9 @@ function assertSubtleHomeTextVeil(background) {
   assert.match(background, /linear-gradient/);
 }
 
-function assertMobileHomeReadabilityField(background) {
-  assert.match(background, /linear-gradient/);
-  assert.match(background, /radial-gradient/);
-  assert.match(background, /rgba\(0, 12, 24, 0\.48\)/);
-  assert.match(background, /rgba\(0, 0, 0, 0\.52\)/);
+function assertNoMobileDarkeningTreatment(background) {
+  assert.doesNotMatch(background, /rgba\(0, 12, 24,/);
+  assert.doesNotMatch(background, /rgba\(0, 0, 0,/);
 }
 
 function assertLightText(color, label) {
@@ -90,7 +88,7 @@ test('hero photography uses only a subtle neutral readability veil', async () =>
             overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
           };
         }, { overlaySelector, textSelector });
-        if (label === 'Home' && viewport.width <= 720) assertMobileHomeReadabilityField(result.background);
+        if (label === 'Home' && viewport.width <= 720) assertNoMobileDarkeningTreatment(result.background);
         else if (label === 'Home') assertSubtleHomeTextVeil(result.background);
         else assertSubtleHomeTextVeil(result.background);
         assertLightText(result.textColor, `${label}: hero text`);
@@ -119,7 +117,7 @@ test('every Home hero slide keeps mobile copy, key facts, CTA and navigation rea
   const qaDir = path.join(ROOT, 'docs', 'qa', 'p0-27-home-hero');
   fs.mkdirSync(qaDir, { recursive: true });
   try {
-    for (const viewport of [{ width: 360, height: 800 }, { width: 390, height: 844 }, { width: 412, height: 915 }, { width: 430, height: 932 }, { width: 768, height: 1024 }]) {
+    for (const viewport of [{ width: 360, height: 800 }, { width: 390, height: 844 }, { width: 412, height: 915 }, { width: 430, height: 932 }, { width: 768, height: 1024 }, { width: 820, height: 1180 }, { width: 1024, height: 1366 }]) {
       const page = await browser.newPage({ viewport });
       await page.goto(`${base}/index.html`, { waitUntil: 'domcontentloaded' });
       for (let index = 0; index < 6; index += 1) {
@@ -133,11 +131,18 @@ test('every Home hero slide keeps mobile copy, key facts, CTA and navigation rea
             return style.visibility !== 'hidden' && style.display !== 'none' && Number(style.opacity) > 0 && rect.right > 0 && rect.left < innerWidth && rect.bottom > 0 && rect.top < innerHeight;
           };
           const image = document.querySelector('.hero-slide.is-active img');
+          const toggle = document.querySelector('.nav-toggle');
+          const toggleBar = document.querySelector('.nav-toggle span');
           return {
             overlay: getComputedStyle(document.querySelector('.hero-scrim')).backgroundImage,
             headline: visible('.hero-sub'), facts: visible('.hero-keyfacts'), cta: visible('.hero-link'), arrow: visible('.hero-link-ico'), hamburger: visible('.nav-toggle'),
             headlineColor: getComputedStyle(document.querySelector('.hero-sub')).color,
             labelColor: getComputedStyle(document.querySelector('.hero-kf-label')).color,
+            headlineWeight: Number(getComputedStyle(document.querySelector('.hero-sub')).fontWeight),
+            toggleBackground: toggle ? getComputedStyle(toggle).backgroundColor : '',
+            toggleBorder: toggle ? getComputedStyle(toggle).borderTopWidth : '',
+            toggleShadow: toggle ? getComputedStyle(toggle).boxShadow : '',
+            toggleBarColor: toggleBar ? getComputedStyle(toggleBar).backgroundColor : '',
             currentSrc: image && image.currentSrc,
             overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
           };
@@ -146,6 +151,11 @@ test('every Home hero slide keeps mobile copy, key facts, CTA and navigation rea
         assert.ok(state.headline && state.facts && state.cta && state.arrow && state.hamburger, `${viewport.width}px slide ${index + 1}: all mobile hero elements are visible`);
         assertLightText(state.headlineColor, `${viewport.width}px slide ${index + 1}: headline`);
         assertLightText(state.labelColor, `${viewport.width}px slide ${index + 1}: key-fact label`);
+        assert.ok(state.headlineWeight >= 600, `${viewport.width}px slide ${index + 1}: headline uses the stronger mobile weight`);
+        assert.match(state.toggleBackground, /rgba\(0, 0, 0, 0\)|transparent/, `${viewport.width}px slide ${index + 1}: hamburger stays transparent`);
+        assert.equal(state.toggleBorder, '0px', `${viewport.width}px slide ${index + 1}: hamburger has no border`);
+        assert.equal(state.toggleShadow, 'none', `${viewport.width}px slide ${index + 1}: hamburger has no shadow`);
+        assert.match(state.toggleBarColor, /rgb\(255, 255, 255\)/, `${viewport.width}px slide ${index + 1}: hamburger bars remain solid white`);
         assert.equal(state.overflow, false, `${viewport.width}px slide ${index + 1}: no horizontal overflow`);
         if (viewport.width <= 600) assert.match(state.currentSrc, /-mobile\.webp$/, `${viewport.width}px slide ${index + 1}: requests the mobile full-frame image`);
         else if (viewport.width <= 1024) assert.match(state.currentSrc, /-tablet\.webp$/, `${viewport.width}px slide ${index + 1}: requests the tablet full-frame image`);
