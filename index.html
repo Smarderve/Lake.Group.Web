@@ -14,9 +14,9 @@
   <link rel="apple-touch-icon" href="assets/icons/pwa/apple-touch-icon.png?v=20260828-01" />
   <link rel="preload" href="assets/fonts/files/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" as="image" href="assets/images/delivery/home/verticals/energies-mobile.webp" media="(max-width: 600px)" fetchpriority="high" />
-  <link rel="preload" as="image" href="assets/images/delivery/home/verticals/energies-tablet.webp" media="(min-width: 601px) and (max-width: 1024px)" fetchpriority="high" />
-  <link rel="preload" as="image" href="assets/images/delivery/home/verticals/energies.webp" media="(min-width: 1025px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/images/delivery/home/verticals/energies-mobile.webp" media="(max-width: 600px) and (orientation: portrait)" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/images/delivery/home/verticals/energies-tablet.webp" media="(min-width: 601px) and (max-width: 1024px) and (orientation: portrait)" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/images/delivery/home/verticals/energies.webp" media="(min-width: 1025px), (orientation: landscape)" fetchpriority="high" />
   <link rel="stylesheet" href="assets/components/LogoLoop.css?v=20260831-01" />
   <link rel="preconnect" href="https://www.youtube-nocookie.com" crossorigin>
   <style>
@@ -2508,23 +2508,23 @@
   <div class="hero-zone">
   <main id="main-content"><section class="hero" data-hero-carousel>
     <div class="hero-carousel" aria-hidden="true">
-      <div class="hero-slide is-active">
-        <picture><source media="(max-width: 600px)" srcset="assets/images/delivery/home/verticals/energies-mobile.webp"><source media="(max-width: 1024px)" srcset="assets/images/delivery/home/verticals/energies-tablet.webp"><img src="assets/images/delivery/home/verticals/energies.webp" alt="" width="1672" height="941" fetchpriority="high" decoding="async" loading="eager"></picture>
+      <div class="hero-slide is-active" data-hero-slide="energies">
+        <picture><source media="(max-width: 600px) and (orientation: portrait)" srcset="assets/images/delivery/home/verticals/energies-mobile.webp"><source media="(min-width: 601px) and (max-width: 1024px) and (orientation: portrait)" srcset="assets/images/delivery/home/verticals/energies-tablet.webp"><img src="assets/images/delivery/home/verticals/energies.webp" alt="" width="1672" height="941" fetchpriority="high" decoding="async" loading="eager"></picture>
       </div>
-      <div class="hero-slide">
-        <picture><source media="(max-width: 600px)" srcset="assets/images/delivery/home/verticals/manufacturing-mobile.webp"><source media="(max-width: 1024px)" srcset="assets/images/delivery/home/verticals/manufacturing-tablet.webp"><img data-src="assets/images/delivery/home/verticals/manufacturing.webp" alt="" width="1672" height="941" decoding="async" loading="lazy"></picture>
+      <div class="hero-slide" data-hero-slide="manufacturing">
+        <picture><source media="(max-width: 600px) and (orientation: portrait)" srcset="assets/images/delivery/home/verticals/manufacturing-mobile.webp"><source media="(min-width: 601px) and (max-width: 1024px) and (orientation: portrait)" srcset="assets/images/delivery/home/verticals/manufacturing-tablet.webp"><img data-src="assets/images/delivery/home/verticals/manufacturing.webp" alt="" width="1672" height="941" decoding="async" loading="lazy"></picture>
       </div>
-      <div class="hero-slide">
-        <picture><source media="(max-width: 600px)" srcset="assets/images/delivery/home/remediated/automotive-truck-lineup-clean-mobile.webp"><source media="(max-width: 1024px)" srcset="assets/images/delivery/home/remediated/automotive-truck-lineup-clean-tablet.webp"><img data-src="assets/images/delivery/home/remediated/automotive-truck-lineup-clean.webp" alt="" width="1515" height="848" decoding="async" loading="lazy"></picture>
+      <div class="hero-slide" data-hero-slide="automotive">
+        <picture><source media="(max-width: 600px) and (orientation: portrait)" srcset="assets/images/delivery/home/remediated/automotive-truck-lineup-clean-mobile.webp"><source media="(min-width: 601px) and (max-width: 1024px) and (orientation: portrait)" srcset="assets/images/delivery/home/remediated/automotive-truck-lineup-clean-tablet.webp"><img data-src="assets/images/delivery/home/remediated/automotive-truck-lineup-clean.webp" alt="" width="1515" height="848" decoding="async" loading="lazy"></picture>
       </div>
-      <div class="hero-slide">
-        <picture><source media="(max-width: 600px)" srcset="assets/images/delivery/cross-country/cross-country-hero-mobile.webp"><source media="(max-width: 1024px)" srcset="assets/images/delivery/cross-country/cross-country-hero-tablet.webp"><img data-src="assets/images/delivery/cross-country/cross-country-hero.webp" alt="" width="1672" height="940" decoding="async" loading="lazy"></picture>
+      <div class="hero-slide" data-hero-slide="real-estate">
+        <picture><source media="(max-width: 600px) and (orientation: portrait)" srcset="assets/images/delivery/cross-country/cross-country-hero-mobile.webp"><source media="(min-width: 601px) and (max-width: 1024px) and (orientation: portrait)" srcset="assets/images/delivery/cross-country/cross-country-hero-tablet.webp"><img data-src="assets/images/delivery/cross-country/cross-country-hero.webp" alt="" width="1672" height="940" decoding="async" loading="lazy"></picture>
       </div>
-      <div class="hero-slide">
-        <picture><source media="(max-width: 600px)" srcset="assets/images/delivery/home/remediated/lake-agro-hero-desktop-clean-mobile.webp"><source media="(max-width: 1024px)" srcset="assets/images/delivery/home/remediated/lake-agro-hero-desktop-clean-tablet.webp"><img data-src="assets/images/delivery/home/remediated/lake-agro-hero-desktop-clean.webp" alt="" width="1672" height="941" decoding="async" loading="lazy"></picture>
+      <div class="hero-slide" data-hero-slide="agro">
+        <picture><source media="(max-width: 600px) and (orientation: portrait)" srcset="assets/images/delivery/home/remediated/lake-agro-hero-desktop-clean-mobile.webp"><source media="(min-width: 601px) and (max-width: 1024px) and (orientation: portrait)" srcset="assets/images/delivery/home/remediated/lake-agro-hero-desktop-clean-tablet.webp"><img data-src="assets/images/delivery/home/remediated/lake-agro-hero-desktop-clean.webp" alt="" width="1672" height="941" decoding="async" loading="lazy"></picture>
       </div>
-      <div class="hero-slide">
-        <picture><source media="(max-width: 600px)" srcset="assets/images/delivery/home/verticals/logistics-mobile.webp"><source media="(max-width: 1024px)" srcset="assets/images/delivery/home/verticals/logistics-tablet.webp"><img data-src="assets/images/delivery/home/verticals/logistics.webp" alt="" width="1536" height="1024" decoding="async" loading="lazy"></picture>
+      <div class="hero-slide" data-hero-slide="logistics">
+        <picture><source media="(max-width: 600px) and (orientation: portrait)" srcset="assets/images/delivery/home/verticals/logistics-mobile.webp"><source media="(min-width: 601px) and (max-width: 1024px) and (orientation: portrait)" srcset="assets/images/delivery/home/verticals/logistics-tablet.webp"><img data-src="assets/images/delivery/home/verticals/logistics.webp" alt="" width="1536" height="1024" decoding="async" loading="lazy"></picture>
       </div>
     </div>
     <div class="hero-scrim" aria-hidden="true"></div>

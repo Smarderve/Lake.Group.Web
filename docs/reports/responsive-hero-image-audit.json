@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T14:26:41.491Z",
+  "generatedAt": "2026-09-20T14:59:17.203Z",
   "groups": [
     {
       "section": "Home / Energies",
@@ -12,18 +12,18 @@
         },
         "tablet": {
           "path": "assets/images/delivery/home/verticals/energies-tablet.webp",
-          "width": 1440,
-          "height": 1800,
-          "bytes": 115134
+          "width": 1672,
+          "height": 941,
+          "bytes": 144596
         },
         "mobile": {
           "path": "assets/images/delivery/home/verticals/energies-mobile.webp",
-          "width": 1080,
-          "height": 1920,
-          "bytes": 84596
+          "width": 1600,
+          "height": 900,
+          "bytes": 151218
         }
       },
-      "composition": "Complete desktop photograph proportionally contained on a solid Lake navy portrait canvas; no crop or stretch.",
+      "composition": "Landscape high-quality delivery copies from the approved original. Full-bleed framing is applied by CSS with a per-slide object position.",
       "status": "ready"
     },
     {
@@ -37,18 +37,18 @@
         },
         "tablet": {
           "path": "assets/images/delivery/home/verticals/manufacturing-tablet.webp",
-          "width": 1440,
-          "height": 1800,
-          "bytes": 278074
+          "width": 1672,
+          "height": 941,
+          "bytes": 344256
         },
         "mobile": {
           "path": "assets/images/delivery/home/verticals/manufacturing-mobile.webp",
-          "width": 1080,
-          "height": 1920,
-          "bytes": 191804
+          "width": 1600,
+          "height": 900,
+          "bytes": 368874
         }
       },
-      "composition": "Complete desktop photograph proportionally contained on a solid Lake navy portrait canvas; no crop or stretch.",
+      "composition": "Landscape high-quality delivery copies from the approved original. Full-bleed framing is applied by CSS with a per-slide object position.",
       "status": "ready"
     },
     {
@@ -62,18 +62,18 @@
         },
         "tablet": {
           "path": "assets/images/delivery/home/remediated/automotive-truck-lineup-clean-tablet.webp",
-          "width": 1440,
-          "height": 1800,
-          "bytes": 97454
+          "width": 1515,
+          "height": 848,
+          "bytes": 122918
         },
         "mobile": {
           "path": "assets/images/delivery/home/remediated/automotive-truck-lineup-clean-mobile.webp",
-          "width": 1080,
-          "height": 1920,
-          "bytes": 69586
+          "width": 1515,
+          "height": 848,
+          "bytes": 122918
         }
       },
-      "composition": "Complete desktop photograph proportionally contained on a solid Lake navy portrait canvas; no crop or stretch.",
+      "composition": "Landscape high-quality delivery copies from the approved original. Full-bleed framing is applied by CSS with a per-slide object position.",
       "status": "ready"
     },
     {
@@ -87,18 +87,18 @@
         },
         "tablet": {
           "path": "assets/images/delivery/cross-country/cross-country-hero-tablet.webp",
-          "width": 1440,
-          "height": 1800,
-          "bytes": 100536
+          "width": 1672,
+          "height": 940,
+          "bytes": 131634
         },
         "mobile": {
           "path": "assets/images/delivery/cross-country/cross-country-hero-mobile.webp",
-          "width": 1080,
-          "height": 1920,
-          "bytes": 71432
+          "width": 1600,
+          "height": 900,
+          "bytes": 134364
         }
       },
-      "composition": "Complete desktop photograph proportionally contained on a solid Lake navy portrait canvas; no crop or stretch.",
+      "composition": "Landscape high-quality delivery copies from the approved original. Full-bleed framing is applied by CSS with a per-slide object position.",
       "status": "ready"
     },
     {
@@ -112,18 +112,18 @@
         },
         "tablet": {
           "path": "assets/images/delivery/home/remediated/lake-agro-hero-desktop-clean-tablet.webp",
-          "width": 1440,
-          "height": 1800,
-          "bytes": 229350
+          "width": 1672,
+          "height": 941,
+          "bytes": 325338
         },
         "mobile": {
           "path": "assets/images/delivery/home/remediated/lake-agro-hero-desktop-clean-mobile.webp",
-          "width": 1080,
-          "height": 1920,
-          "bytes": 159876
+          "width": 1600,
+          "height": 900,
+          "bytes": 298528
         }
       },
-      "composition": "Complete desktop photograph proportionally contained on a solid Lake navy portrait canvas; no crop or stretch.",
+      "composition": "Landscape high-quality delivery copies from the approved original. Full-bleed framing is applied by CSS with a per-slide object position.",
       "status": "ready"
     },
     {
@@ -137,18 +137,18 @@
         },
         "tablet": {
           "path": "assets/images/delivery/home/verticals/logistics-tablet.webp",
-          "width": 1440,
-          "height": 1800,
-          "bytes": 220500
+          "width": 1536,
+          "height": 1024,
+          "bytes": 242136
         },
         "mobile": {
           "path": "assets/images/delivery/home/verticals/logistics-mobile.webp",
-          "width": 1080,
-          "height": 1920,
-          "bytes": 147454
+          "width": 1536,
+          "height": 1024,
+          "bytes": 242136
         }
       },
-      "composition": "Complete desktop photograph proportionally contained on a solid Lake navy portrait canvas; no crop or stretch.",
+      "composition": "Landscape high-quality delivery copies from the approved original. Full-bleed framing is applied by CSS with a per-slide object position.",
       "status": "ready"
     }
   ],

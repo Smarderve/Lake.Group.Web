@@ -90,24 +90,14 @@ body.home .hero-slide picture {
   width: 100%;
   height: 100%;
 }
-/* Responsive hero files are portrait canvases containing the complete approved
-   photograph. Contain them at phone/tablet widths so the canvas is never cropped. */
-@media (max-width: 1024px) {
-  body.home .hero-slide,
-  body.home .hero-slide picture,
-  body.home .hero-slide img {
-    background: #012f49;
-  }
-  body.home .hero-slide img {
-    object-fit: contain;
-    object-position: center;
-  }
-}
-/* The real-estate slide keeps the approved Cross Country building in frame,
-   including the narrower crop used by the mobile hero. */
-body.home .hero-slide img[src*="cross-country-hero.webp"] {
-  object-position: 55% center;
-}
+/* Portrait delivery files remain landscape photographs. The browser crops only
+   at presentation time, preserving a cinematic, full-bleed hero. */
+body.home .hero-slide[data-hero-slide="energies"] img { object-position: 56% center; }
+body.home .hero-slide[data-hero-slide="manufacturing"] img { object-position: 51% center; }
+body.home .hero-slide[data-hero-slide="automotive"] img { object-position: 59% center; }
+body.home .hero-slide[data-hero-slide="real-estate"] img { object-position: 56% center; }
+body.home .hero-slide[data-hero-slide="agro"] img { object-position: 61% center; }
+body.home .hero-slide[data-hero-slide="logistics"] img { object-position: 48% center; }
 /* Left-side scrim only — right side shows the photo */
 body.home .hero-scrim {
   position: absolute;
@@ -384,9 +374,14 @@ body.home .hero-tab:hover {
 
 /* Mobile: simpler tabs */
 @media (max-width: 720px) {
-  body.home .hero-slide img[src*="cross-country-hero.webp"] {
-    object-position: 58% center;
-  }
+  body.home .hero,
+  body.home .hero-content { min-height: 92svh; }
+  body.home .hero-slide[data-hero-slide="energies"] img { object-position: 58% center; }
+  body.home .hero-slide[data-hero-slide="manufacturing"] img { object-position: 53% center; }
+  body.home .hero-slide[data-hero-slide="automotive"] img { object-position: 62% center; }
+  body.home .hero-slide[data-hero-slide="real-estate"] img { object-position: 59% center; }
+  body.home .hero-slide[data-hero-slide="agro"] img { object-position: 64% center; }
+  body.home .hero-slide[data-hero-slide="logistics"] img { object-position: 52% center; }
   body.home .hero-tab-thumb {
     display: none;
   }

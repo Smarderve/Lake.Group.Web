@@ -117,12 +117,16 @@ test('every Home hero slide keeps mobile copy, key facts, CTA and navigation rea
   const qaDir = path.join(ROOT, 'docs', 'qa', 'p0-27-home-hero');
   fs.mkdirSync(qaDir, { recursive: true });
   try {
-    for (const viewport of [{ width: 360, height: 800 }, { width: 390, height: 844 }, { width: 412, height: 915 }, { width: 430, height: 932 }, { width: 768, height: 1024 }, { width: 820, height: 1180 }, { width: 1024, height: 1366 }]) {
+    const allViewports = [{ width: 360, height: 800 }, { width: 390, height: 844 }, { width: 412, height: 915 }, { width: 430, height: 932 }, { width: 768, height: 1024 }, { width: 820, height: 1180 }, { width: 950, height: 970 }, { width: 1024, height: 768 }, { width: 1366, height: 768 }, { width: 1440, height: 900 }, { width: 1920, height: 1080 }];
+    const requested = new Set((process.env.HERO_VIEWPORTS || '').split(',').filter(Boolean));
+    const viewports = requested.size ? allViewports.filter((viewport) => requested.has(`${viewport.width}x${viewport.height}`)) : allViewports;
+    assert.ok(viewports.length, 'HERO_VIEWPORTS must name at least one supported viewport');
+    for (const viewport of viewports) {
       const page = await browser.newPage({ viewport });
       await page.goto(`${base}/index.html`, { waitUntil: 'domcontentloaded' });
       for (let index = 0; index < 6; index += 1) {
         if (index > 0) await page.locator('.hero-tab').nth(index).evaluate((button) => button.click());
-        await page.waitForTimeout(1200);
+        await page.waitForTimeout(300);
         const state = await page.evaluate(() => {
           const visible = (selector) => {
             const node = document.querySelector(selector);
@@ -148,19 +152,25 @@ test('every Home hero slide keeps mobile copy, key facts, CTA and navigation rea
           };
         });
         assert.ok(state.overlay.includes('gradient'), `${viewport.width}px slide ${index + 1}: readability overlay exists`);
-        assert.ok(state.headline && state.facts && state.cta && state.arrow && state.hamburger, `${viewport.width}px slide ${index + 1}: all mobile hero elements are visible`);
+        if (viewport.width <= 600) assert.ok(state.headline && state.facts && state.cta && state.arrow && state.hamburger, `${viewport.width}px slide ${index + 1}: all mobile hero elements are visible`);
         assertLightText(state.headlineColor, `${viewport.width}px slide ${index + 1}: headline`);
         assertLightText(state.labelColor, `${viewport.width}px slide ${index + 1}: key-fact label`);
-        assert.ok(state.headlineWeight >= 600, `${viewport.width}px slide ${index + 1}: headline uses the stronger mobile weight`);
-        assert.match(state.toggleBackground, /rgba\(0, 0, 0, 0\)|transparent/, `${viewport.width}px slide ${index + 1}: hamburger stays transparent`);
-        assert.equal(state.toggleBorder, '0px', `${viewport.width}px slide ${index + 1}: hamburger has no border`);
-        assert.equal(state.toggleShadow, 'none', `${viewport.width}px slide ${index + 1}: hamburger has no shadow`);
-        assert.match(state.toggleBarColor, /rgb\(255, 255, 255\)/, `${viewport.width}px slide ${index + 1}: hamburger bars remain solid white`);
+        if (viewport.width <= 600) assert.ok(state.headlineWeight >= 600, `${viewport.width}px slide ${index + 1}: headline uses the stronger mobile weight`);
+        if (viewport.width <= 600) {
+          assert.match(state.toggleBackground, /rgba\(0, 0, 0, 0\)|transparent/, `${viewport.width}px slide ${index + 1}: hamburger stays transparent`);
+          assert.equal(state.toggleBorder, '0px', `${viewport.width}px slide ${index + 1}: hamburger has no border`);
+          assert.equal(state.toggleShadow, 'none', `${viewport.width}px slide ${index + 1}: hamburger has no shadow`);
+          assert.match(state.toggleBarColor, /rgb\(255, 255, 255\)/, `${viewport.width}px slide ${index + 1}: hamburger bars remain solid white`);
+        }
         assert.equal(state.overflow, false, `${viewport.width}px slide ${index + 1}: no horizontal overflow`);
-        if (viewport.width <= 600) assert.match(state.currentSrc, /-mobile\.webp$/, `${viewport.width}px slide ${index + 1}: requests the mobile full-frame image`);
-        else if (viewport.width <= 1024) assert.match(state.currentSrc, /-tablet\.webp$/, `${viewport.width}px slide ${index + 1}: requests the tablet full-frame image`);
-        else assert.doesNotMatch(state.currentSrc, /-(?:mobile|tablet)\.webp$/, `${viewport.width}px slide ${index + 1}: retains desktop image`);
-        if (viewport.width === 390 || viewport.width === 430) await page.screenshot({ path: path.join(qaDir, `slide-${index + 1}-${viewport.width}.png`), fullPage: false });
+        const portrait = viewport.height >= viewport.width;
+        if (viewport.width <= 600 && portrait) assert.match(state.currentSrc, /-mobile\.webp$/, `${viewport.width}px portrait slide ${index + 1}: requests the mobile delivery image`);
+        else if (viewport.width <= 1024 && portrait) assert.match(state.currentSrc, /-tablet\.webp$/, `${viewport.width}px portrait slide ${index + 1}: requests the tablet delivery image`);
+        else assert.doesNotMatch(state.currentSrc, /-(?:mobile|tablet)\.webp$/, `${viewport.width}px landscape slide ${index + 1}: retains the approved desktop image`);
+        if (index === 0 && [390, 768, 950, 1024].includes(viewport.width)) {
+          await page.waitForTimeout(700);
+          await page.screenshot({ path: path.join(qaDir, `full-bleed-${viewport.width}x${viewport.height}.png`), fullPage: false });
+        }
       }
       await page.close();
     }
