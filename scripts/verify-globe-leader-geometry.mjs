@@ -61,12 +61,18 @@ try {
         const rect = node.getBoundingClientRect();
         return [node.getAttribute('data-label'), { left: rect.left - rootRect.left, right: rect.right - rootRect.left, top: rect.top - rootRect.top, bottom: rect.bottom - rootRect.top }];
       }));
-      return { leaders, labels };
+      const sample = document.querySelector('#hero-globe-root polyline[data-leader]');
+      return { leaders, labels, center: { x: Number(sample?.dataset.centerX), y: Number(sample?.dataset.centerY) }, radius: Number(sample?.dataset.globeRadius) };
     });
     const crossingPairs = [], collisionPairs = [];
     for (let i = 0; i < state.leaders.length; i += 1) for (let j = i + 1; j < state.leaders.length; j += 1) for (let a = 0; a < state.leaders[i].points.length - 1; a += 1) for (let b = 0; b < state.leaders[j].points.length - 1; b += 1) if (intersects(state.leaders[i].points[a], state.leaders[i].points[a + 1], state.leaders[j].points[b], state.leaders[j].points[b + 1])) crossingPairs.push([state.leaders[i].id, state.leaders[j].id, a, b]);
     for (const leader of state.leaders) for (const [id, rect] of Object.entries(state.labels)) if (id !== leader.id) for (let i = 0; i < leader.points.length - 1; i += 1) if (intersectsRect(leader.points[i], leader.points[i + 1], rect)) { collisionPairs.push([leader.id, id]); break; }
-    results.push({ viewport, crossings: crossingPairs.length, collisions: collisionPairs.length, crossingPairs, collisionPairs, leaders: state.leaders.length, ...(process.env.GLOBE_DEBUG_POINTS ? { leaderPoints: state.leaders } : {}) });
+    const distance = (point) => Math.hypot(point.x - state.center.x, point.y - state.center.y);
+    const lengths = state.leaders.map((leader) => ({ id: leader.id, length: leader.points.slice(1).reduce((sum, point, index) => sum + Math.hypot(point.x - leader.points[index].x, point.y - leader.points[index].y), 0) }));
+    const inwardRoutes = state.leaders.filter((leader) => leader.points.some((point, index) => index > 0 && distance(point) <= distance(leader.points[index - 1]) + .01)).map((leader) => leader.id);
+    const centralZoneRoutes = state.leaders.filter((leader) => leader.points.slice(1).some((point) => distance(point) < state.radius * .55)).map((leader) => leader.id);
+    const longRoutes = lengths.filter((leader) => leader.length > state.radius * 1.1).map((leader) => leader.id);
+    results.push({ viewport, crossings: crossingPairs.length, collisions: collisionPairs.length, inwardViolations: inwardRoutes.length, centralZoneViolations: centralZoneRoutes.length, longLeaderViolations: longRoutes.length, maximumLeaderLength: Math.max(...lengths.map((leader) => leader.length)), lengthLimit: state.radius * 1.1, crossingPairs, collisionPairs, inwardRoutes, centralZoneRoutes, longRoutes, leaders: state.leaders.length, ...(process.env.GLOBE_DEBUG_POINTS ? { leaderPoints: state.leaders, labelRects: state.labels, center: state.center } : {}) });
     if ([1366, 1440, 1920, 390, 430].includes(viewport.width)) await page.locator('#fuel-experience').screenshot({ path: path.join(qaDir, `globe-${viewport.width}x${viewport.height}.png`) });
     await page.close();
   }
@@ -76,4 +82,4 @@ try {
 }
 
 console.log(JSON.stringify(results, null, 2));
-if (results.some((result) => result.crossings !== 0 || result.collisions !== 0 || result.leaders !== 10)) process.exitCode = 1;
+if (results.some((result) => result.crossings !== 0 || result.collisions !== 0 || result.inwardViolations !== 0 || result.centralZoneViolations !== 0 || result.longLeaderViolations !== 0 || result.leaders !== 10)) process.exitCode = 1;
