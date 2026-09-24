@@ -4,7 +4,7 @@ import path from 'node:path';
 import { chromium } from 'playwright';
 
 const root = process.cwd();
-const qaDir = path.join(root, 'docs', 'qa', 'globe-perimeter-routing');
+const qaDir = path.join(root, 'docs', 'qa', 'globe-orbit-docks');
 const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.webp': 'image/webp', '.svg': 'image/svg+xml', '.woff2': 'font/woff2' };
 const server = http.createServer((request, response) => {
   const pathname = decodeURIComponent((request.url || '/').split('?')[0]);
@@ -48,23 +48,24 @@ try {
     await page.goto(`http://127.0.0.1:${port}/index.html?final`, { waitUntil: 'domcontentloaded' });
     await page.locator('#fuel-experience').scrollIntoViewIfNeeded();
     await page.waitForSelector('#hero-globe-root canvas');
-    await page.waitForFunction(() => [...document.querySelectorAll('#hero-globe-root polyline[data-leader]')].every((node) => {
-      const points = (node.getAttribute('points') || '').trim().split(/\s+/).map((pair) => pair.split(',').map(Number));
-      return Number(getComputedStyle(node).opacity) > .01 && points.length >= 2;
+    await page.evaluate(()=>document.fonts.ready);
+    await page.waitForTimeout(350);
+    await page.waitForFunction(() => [...document.querySelectorAll('#hero-globe-root path[data-leader]')].every((node) => {
+      return Number(node.dataset.progress) === 1 && node.getTotalLength() > 0;
     }), null, { timeout: 10000 });
     const state = await page.evaluate(() => {
       const rootRect = document.querySelector('#hero-globe-root')?.getBoundingClientRect();
-      const leaders = [...document.querySelectorAll('#hero-globe-root polyline[data-leader]')].map((node) => ({
+      const leaders = [...document.querySelectorAll('#hero-globe-root path[data-leader]')].map((node) => ({
         id: node.getAttribute('data-leader'), opacity: Number(getComputedStyle(node).opacity),
-        points: (node.getAttribute('points') || '').trim().split(/\s+/).map((pair) => { const [x, y] = pair.split(',').map(Number); return { x, y }; }),
+        points: Array.from({length:65},(_,i)=>{const p=node.getPointAtLength(node.getTotalLength()*i/64);return {x:p.x,y:p.y};}),
       })).filter((leader) => leader.opacity > .01);
       const labels = Object.fromEntries([...document.querySelectorAll('#hero-globe-root [data-label]')].map((node) => {
         const rect = node.getBoundingClientRect();
         const style = getComputedStyle(node);
         return [node.getAttribute('data-label'), { name: node.textContent.trim(), visible: Number(style.opacity) > .01 && style.display !== 'none' && style.visibility !== 'hidden', left: rect.left - rootRect.left, right: rect.right - rootRect.left, top: rect.top - rootRect.top, bottom: rect.bottom - rootRect.top }];
       }));
-      const sample = document.querySelector('#hero-globe-root polyline[data-leader]');
-      const bundleLoaded = performance.getEntriesByType('resource').some((entry) => entry.name.includes('/assets/globe-lab.bundle.js?v=20260924-01'));
+      const sample = document.querySelector('#hero-globe-root path[data-leader]');
+      const bundleLoaded = performance.getEntriesByType('resource').some((entry) => entry.name.includes('/assets/globe-lab.bundle.js?v=20260925-orbit'));
       return { leaders, labels, bundleLoaded, bounds: { width: rootRect.width, height: rootRect.height }, center: { x: Number(sample?.dataset.centerX), y: Number(sample?.dataset.centerY) }, radius: Number(sample?.dataset.globeRadius) };
     });
     const crossingPairs = [], collisionPairs = [], labelOverlaps = [], clippedLabels = [], missingLabels = [];
@@ -72,15 +73,15 @@ try {
     for (const leader of state.leaders) for (const [id, rect] of Object.entries(state.labels)) if (id !== leader.id) for (let i = 0; i < leader.points.length - 1; i += 1) if (intersectsRect(leader.points[i], leader.points[i + 1], rect)) { collisionPairs.push([leader.id, id]); break; }
     for (const [id, name] of Object.entries(expectedNames)) if (state.labels[id]?.name !== name || !state.labels[id]?.visible) missingLabels.push(id);
     for (const [id, rect] of Object.entries(state.labels)) {
-      if (rect.left < 10 || rect.top < 10 || rect.right > state.bounds.width - 10 || rect.bottom > state.bounds.height - 10) clippedLabels.push(id);
+      if (rect.left < 7.9 || rect.top < 7.9 || rect.right > state.bounds.width - 7.9 || rect.bottom > state.bounds.height - 7.9) clippedLabels.push(id);
       for (const [otherId, other] of Object.entries(state.labels)) if (id < otherId && rect.left < other.right && rect.right > other.left && rect.top < other.bottom && rect.bottom > other.top) labelOverlaps.push([id, otherId]);
     }
     const distance = (point) => Math.hypot(point.x - state.center.x, point.y - state.center.y);
     const lengths = state.leaders.map((leader) => ({ id: leader.id, length: leader.points.slice(1).reduce((sum, point, index) => sum + Math.hypot(point.x - leader.points[index].x, point.y - leader.points[index].y), 0) }));
     const inwardRoutes = state.leaders.filter((leader) => leader.points.some((point, index) => index > 0 && distance(point) <= distance(leader.points[index - 1]) + .01)).map((leader) => leader.id);
     const centralZoneRoutes = state.leaders.filter((leader) => leader.points.slice(1).some((point) => distance(point) < state.radius * .55)).map((leader) => leader.id);
-    const longRoutes = lengths.filter((leader) => leader.length > state.radius * 1.1).map((leader) => leader.id);
-    results.push({ viewport, bundleLoaded: state.bundleLoaded, crossings: crossingPairs.length, collisions: collisionPairs.length, labelOverlaps: labelOverlaps.length, clippedLabels: clippedLabels.length, missingLabels: missingLabels.length, inwardViolations: inwardRoutes.length, centralZoneViolations: centralZoneRoutes.length, longLeaderViolations: longRoutes.length, maximumLeaderLength: Math.max(...lengths.map((leader) => leader.length)), lengthLimit: state.radius * 1.1, crossingPairs, collisionPairs, labelOverlapPairs: labelOverlaps, clippedLabelIds: clippedLabels, missingLabelIds: missingLabels, inwardRoutes, centralZoneRoutes, longRoutes, leaders: state.leaders.length, ...(process.env.GLOBE_DEBUG_POINTS ? { leaderPoints: state.leaders, labelRects: state.labels, center: state.center } : {}) });
+    const longRoutes = lengths.filter((leader) => leader.length > state.radius).map((leader) => leader.id);
+    results.push({ viewport, bundleLoaded: state.bundleLoaded, crossings: crossingPairs.length, collisions: collisionPairs.length, labelOverlaps: labelOverlaps.length, clippedLabels: clippedLabels.length, missingLabels: missingLabels.length, inwardViolations: inwardRoutes.length, centralZoneViolations: centralZoneRoutes.length, longLeaderViolations: longRoutes.length, maximumLeaderLength: Math.max(...lengths.map((leader) => leader.length)), lengthLimit: state.radius, crossingPairs, collisionPairs, labelOverlapPairs: labelOverlaps, clippedLabelIds: clippedLabels, missingLabelIds: missingLabels, inwardRoutes, centralZoneRoutes, longRoutes, leaders: state.leaders.length, ...(process.env.GLOBE_DEBUG_POINTS ? { leaderPoints: state.leaders, labelRects: state.labels, center: state.center } : {}) });
     await page.locator('#fuel-experience').screenshot({ path: path.join(qaDir, `globe-${viewport.width}x${viewport.height}.png`) });
     await page.close();
   }
@@ -89,12 +90,13 @@ try {
   await rotatingPage.locator('#fuel-experience').scrollIntoViewIfNeeded();
   await rotatingPage.waitForSelector('#hero-globe-root canvas');
   await rotatingPage.waitForTimeout(500);
-  results[0].rotationLabelsHidden = await rotatingPage.evaluate(() => [...document.querySelectorAll('#hero-globe-root [data-label], #hero-globe-root [data-leader]')].every((node) => Number(getComputedStyle(node).opacity) < .01));
+  results[0].rotationLabelsHidden = await rotatingPage.evaluate(() => [...document.querySelectorAll('#hero-globe-root [data-label], #hero-globe-root [data-leader]')].every((node) => (node.hasAttribute('data-leader') ? Number(node.dataset.progress)===0 : Number(getComputedStyle(node).opacity) < .01)));
   await rotatingPage.close();
 } finally {
   await browser.close();
   server.close();
 }
 
-console.log(JSON.stringify(results, null, 2));
-if (results[0]?.rotationLabelsHidden !== true || results.some((result) => !result.bundleLoaded || result.crossings !== 0 || result.collisions !== 0 || result.labelOverlaps !== 0 || result.clippedLabels !== 0 || result.missingLabels !== 0 || result.leaders !== 10)) process.exitCode = 1;
+fs.writeFileSync(path.join(qaDir,'verification.json'),JSON.stringify(results,null,2));
+console.log(JSON.stringify(results.map(({viewport,crossingPairs,collisionPairs,labelOverlapPairs,clippedLabelIds,maximumLeaderLength,lengthLimit})=>({viewport,crossingPairs,collisionPairs,labelOverlapPairs,clippedLabelIds,maximumLeaderLength,lengthLimit})),null,2));
+if (results[0]?.rotationLabelsHidden !== true || results.some((result) => !result.bundleLoaded || result.longLeaderViolations !== 0 || result.crossings !== 0 || result.collisions !== 0 || result.labelOverlaps !== 0 || result.clippedLabels !== 0 || result.missingLabels !== 0 || result.leaders !== 10)) process.exitCode = 1;

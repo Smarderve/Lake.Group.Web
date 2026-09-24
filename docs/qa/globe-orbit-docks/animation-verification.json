@@ -1,0 +1,65 @@
+{
+  "actualDashDrawing": true,
+  "paths": {
+    "tz": {
+      "hidden": true,
+      "partial": true,
+      "full": true,
+      "retract": true
+    },
+    "ke": {
+      "hidden": true,
+      "partial": true,
+      "full": true,
+      "retract": true
+    },
+    "ug": {
+      "hidden": true,
+      "partial": true,
+      "full": true,
+      "retract": true
+    },
+    "rw": {
+      "hidden": true,
+      "partial": true,
+      "full": true,
+      "retract": true
+    },
+    "bi": {
+      "hidden": true,
+      "partial": true,
+      "full": true,
+      "retract": true
+    },
+    "cd": {
+      "hidden": true,
+      "partial": true,
+      "full": true,
+      "retract": true
+    },
+    "zm": {
+      "hidden": true,
+      "partial": true,
+      "full": true,
+      "retract": true
+    },
+    "mz": {
+      "hidden": true,
+      "partial": true,
+      "full": true,
+      "retract": true
+    },
+    "et": {
+      "hidden": true,
+      "partial": true,
+      "full": true,
+      "retract": true
+    },
+    "ae": {
+      "hidden": true,
+      "partial": true,
+      "full": true,
+      "retract": true
+    }
+  }
+}

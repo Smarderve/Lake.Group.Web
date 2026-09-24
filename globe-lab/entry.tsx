@@ -28,14 +28,15 @@ function routePoints(destination:Place){const start=geoVector(PLACES[0].lat,PLAC
 
 function Atmosphere(){const material=useMemo(()=>new THREE.ShaderMaterial({transparent:true,side:THREE.BackSide,depthWrite:false,blending:THREE.AdditiveBlending,uniforms:{color:{value:new THREE.Color('#7cc7e6')}},vertexShader:`varying vec3 n;varying vec3 p;void main(){n=normalize(normalMatrix*normal);p=(modelViewMatrix*vec4(position,1.)).xyz;gl_Position=projectionMatrix*vec4(p,1.);}`,fragmentShader:`uniform vec3 color;varying vec3 n;varying vec3 p;void main(){float f=pow(1.-abs(dot(n,normalize(-p))),3.6);gl_FragColor=vec4(color,f*.19);}`}),[]);useEffect(()=>()=>material.dispose(),[material]);return <mesh scale={1.045}><sphereGeometry args={[RADIUS,96,64]}/><primitive object={material} attach="material"/></mesh>}
 
-type DomRefs = React.MutableRefObject<Record<string, HTMLElement | SVGPolylineElement | null>>;
-type LabelPosition = { x:number; y:number };
-type LabelLayout = Record<string, LabelPosition>;
-const DESKTOP_LABEL_LAYOUT:LabelLayout={ae:{x:.78,y:.16},et:{x:.81,y:.34},ke:{x:.82,y:.42},tz:{x:.82,y:.58},mz:{x:.78,y:.83},zm:{x:.03,y:.84},cd:{x:.01,y:.73},bi:{x:.02,y:.55},rw:{x:.02,y:.46},ug:{x:.03,y:.38}};
-const TABLET_PORTRAIT_LABEL_LAYOUT:LabelLayout={ae:{x:.82,y:.10},et:{x:.85,y:.29},ke:{x:.87,y:.37},tz:{x:.87,y:.55},mz:{x:.82,y:.81},zm:{x:.02,y:.83},cd:{x:.01,y:.71},bi:{x:.02,y:.54},rw:{x:.02,y:.43},ug:{x:.02,y:.32}};
-const TABLET_LANDSCAPE_LABEL_LAYOUT:LabelLayout={ae:{x:.78,y:.14},et:{x:.68,y:.35},ke:{x:.83,y:.41},tz:{x:.83,y:.57},mz:{x:.78,y:.83},zm:{x:.02,y:.84},cd:{x:.01,y:.72},bi:{x:.02,y:.54},rw:{x:.02,y:.45},ug:{x:.02,y:.34}};
-const MOBILE_LABEL_LAYOUT:LabelLayout={ae:{x:.99,y:.04},et:{x:.99,y:.23},ke:{x:.99,y:.29},tz:{x:.99,y:.49},mz:{x:.99,y:.84},zm:{x:0,y:.85},cd:{x:0,y:.67},bi:{x:0,y:.52},rw:{x:0,y:.39},ug:{x:0,y:.25}};
-function labelLayout(width:number,height:number){return width<600?MOBILE_LABEL_LAYOUT:width<960?TABLET_PORTRAIT_LABEL_LAYOUT:width<1100&&height<850?TABLET_LANDSCAPE_LABEL_LAYOUT:DESKTOP_LABEL_LAYOUT}
+type DomRefs = React.MutableRefObject<Record<string, HTMLElement | SVGPathElement | null>>;
+type Dock = { angle:number; ring:'inner'|'outer' };
+type Docks = Record<string,Dock>;
+// Clockwise degrees from the right-hand horizon. These are authored slots,
+// not a runtime sorting or collision system. The two halo bands are invisible.
+const DESKTOP_DOCKS:Docks={ae:{angle:-52,ring:'outer'},et:{angle:-32,ring:'inner'},ug:{angle:-14,ring:'outer'},ke:{angle:2,ring:'inner'},rw:{angle:18,ring:'outer'},tz:{angle:34,ring:'inner'},bi:{angle:49,ring:'outer'},mz:{angle:65,ring:'inner'},zm:{angle:87,ring:'outer'},cd:{angle:151,ring:'inner'}};
+const TABLET_PORTRAIT_DOCKS:Docks={ae:{angle:-52,ring:'outer'},et:{angle:-33,ring:'inner'},ug:{angle:-15,ring:'outer'},ke:{angle:2,ring:'inner'},rw:{angle:19,ring:'outer'},tz:{angle:35,ring:'inner'},bi:{angle:51,ring:'outer'},mz:{angle:68,ring:'inner'},zm:{angle:91,ring:'outer'},cd:{angle:151,ring:'inner'}};
+const MOBILE_DOCKS:Docks={ae:{angle:-57,ring:'outer'},et:{angle:-35,ring:'inner'},ug:{angle:-17,ring:'outer'},ke:{angle:1,ring:'inner'},rw:{angle:19,ring:'outer'},tz:{angle:37,ring:'inner'},bi:{angle:54,ring:'outer'},mz:{angle:73,ring:'inner'},zm:{angle:101,ring:'outer'},cd:{angle:151,ring:'inner'}};
+function dockLayout(width:number){return width<600?MOBILE_DOCKS:width<960?TABLET_PORTRAIT_DOCKS:DESKTOP_DOCKS}
 
 function RuntimePause(){const setFrameloop=useThree(state=>state.setFrameloop),gl=useThree(state=>state.gl);useEffect(()=>{let onscreen=true;const sync=()=>setFrameloop(document.hidden||!onscreen?'never':'always'),target=gl.domElement.closest('.experience');const observer=target&&'IntersectionObserver'in window?new IntersectionObserver(entries=>{onscreen=entries[0]?.isIntersecting??true;sync()},{rootMargin:'120px'}):null;observer?.observe(target!);document.addEventListener('visibilitychange',sync);sync();return()=>{observer?.disconnect();document.removeEventListener('visibilitychange',sync)}},[gl,setFrameloop]);return null}
 
@@ -60,12 +61,42 @@ function Scene({reduced,labelRefs,leaderRefs}:{reduced:boolean;labelRefs:DomRefs
     const originOn=THREE.MathUtils.smoothstep(elapsed,7.9,8.25)*retract;markerRefs.current.forEach((mesh,index)=>{if(!mesh)return;const start=8.2+(index-1)*.41,active=index===0?originOn:THREE.MathUtils.smoothstep(elapsed,start,start+.28)*retract;mesh.scale.setScalar(active*(index===0?1.18:1))});
     routeRefs.current.forEach((line,index)=>{if(!line)return;const start=8.15+index*.41,progress=THREE.MathUtils.smoothstep(elapsed,start,start+.38)*retract;line.geometry.setDrawRange(0,Math.max(0,Math.floor(progress*96)))});
     const center=new THREE.Vector3(0,0,0).project(camera),rim=new THREE.Vector3(RADIUS,0,0).project(camera),centerX=(center.x*.5+.5)*size.width,centerY=(-center.y*.5+.5)*size.height,radiusX=Math.max(1,Math.abs((rim.x-center.x)*.5*size.width)),radiusY=radiusX;
-    const layout=labelLayout(window.innerWidth,window.innerHeight);
-    PLACES.forEach((place,index)=>{const label=labelRefs.current[place.id] as HTMLElement|null,leader=leaderRefs.current[place.id] as SVGPolylineElement|null;if(!label||!leader)return;const world=geoVector(place.lat,place.lng,RADIUS*1.018).applyEuler(group.current!.rotation),projected=world.clone().project(camera),x=(projected.x*.5+.5)*size.width,y=(-projected.y*.5+.5)*size.height,width=label.offsetWidth,height=label.offsetHeight,position=layout[place.id],left=10+position.x*Math.max(0,size.width-20-width),top=10+position.y*Math.max(0,size.height-20-height),onRight=position.x>.5,endX=onRight?left-6:left+width+6,endY=top+height/2,sideInset=Math.max(18,Math.min(56,size.width*.035)),laneX=onRight?Math.max(endX-sideInset,x+14):Math.min(endX+sideInset,x-14),exitX=onRight?Math.max(x-radiusX*.72,x-42):Math.min(x+radiusX*.72,x+42),start=8.15+index*.11,draw=reduced?1:THREE.MathUtils.smoothstep(elapsed,start,start+.46)*retract,labelReveal=reduced?1:THREE.MathUtils.smoothstep(elapsed,start+.22,start+.54)*retract;label.style.transform=`translate3d(${left}px,${top}px,0)`;label.style.opacity=String(labelReveal);leader.setAttribute('points',`${x},${y} ${exitX},${y} ${laneX},${y} ${laneX},${endY} ${endX},${endY}`);leader.dataset.centerX=String(centerX);leader.dataset.centerY=String(centerY);leader.dataset.globeRadius=String(radiusX);leader.style.opacity=String(draw*(place.id==='tz'?.72:.62));leader.style.strokeDasharray='1000';leader.style.strokeDashoffset=String(1000*(1-draw))})
+    const docks=dockLayout(window.innerWidth);
+    PLACES.forEach((place,index)=>{
+      const label=labelRefs.current[place.id] as HTMLElement|null;
+      const leader=leaderRefs.current[place.id] as SVGPathElement|null;
+      if(!label||!leader)return;
+      const dockNode=leader.nextElementSibling as SVGCircleElement;
+      const world=geoVector(place.lat,place.lng,RADIUS*1.018).applyEuler(group.current!.rotation);
+      const projected=world.clone().project(camera),x=(projected.x*.5+.5)*size.width,y=(-projected.y*.5+.5)*size.height;
+      const slot=docks[place.id],angle=THREE.MathUtils.degToRad(slot.angle),band=slot.ring==='inner'?1.10:1.16;
+      const dx=centerX+Math.cos(angle)*radiusX*band,dy=centerY+Math.sin(angle)*radiusY*band;
+      const width=label.offsetWidth,height=label.offsetHeight;
+      const left=THREE.MathUtils.clamp(dx+(Math.cos(angle)>=0?9:-width-9),12,size.width-width-12);
+      const top=THREE.MathUtils.clamp(dy-height/2,12,size.height-height-12);
+      // A small perpendicular bias gives a restrained curve; both endpoints
+      // and control point remain in the country's outward corridor.
+      const vx=dx-x,vy=dy-y,cx=x+vx*.54-vy*.025,cy=y+vy*.54+vx*.025;
+      leader.setAttribute('d',`M ${x} ${y} Q ${cx} ${cy} ${dx} ${dy}`);
+      leader.setAttribute('pathLength','1');
+      const markerStart=index===0?7.9:8.2+(index-1)*.41;
+      const start=markerStart+.10,draw=reduced?1:THREE.MathUtils.smoothstep(elapsed,start,start+.40)*retract;
+      const labelReveal=reduced?1:THREE.MathUtils.smoothstep(elapsed,start+.32,start+.55)*retract;
+      const attached=world.clone().normalize().dot(camera.position.clone().normalize())>.08&&!offset.active&&offset.decay===0;
+      label.style.transform=`translate3d(${left}px,${top+(1-labelReveal)*5}px,0)`;
+      label.style.opacity=String(attached?labelReveal:0);
+      leader.style.strokeDasharray='1';
+      leader.style.strokeDashoffset=String(1-draw);
+      leader.style.opacity=String(attached?(window.innerWidth<600?.72:.65)*retract:0);
+      leader.dataset.centerX=String(centerX);leader.dataset.centerY=String(centerY);leader.dataset.globeRadius=String(radiusX);
+      leader.dataset.progress=String(draw);
+      dockNode.setAttribute('cx',String(dx));dockNode.setAttribute('cy',String(dy));
+      dockNode.style.opacity=String(attached?labelReveal:0);
+    });
   });
   return <><RuntimePause/><ambientLight intensity={.78} color="#cbe5f2"/><hemisphereLight args={['#b7dff1','#06111d',.42]}/><directionalLight position={[4.8,2.4,5.6]} intensity={2.3} color="#fff7df"/><directionalLight position={[-4.6,-.4,1.6]} intensity={.74} color="#5c9bc4"/><group ref={group} rotation={[0,FINAL_ROTATION,0]}><mesh><sphereGeometry args={[RADIUS,128,96]}/><meshStandardMaterial map={day} bumpMap={bump} bumpScale={.035} color="#c4d2d8" emissive="#0a2234" emissiveIntensity={.42} roughness={.88} metalness={0}/></mesh>{routeObjects.map((line,index)=><primitive key={PLACES[index+1].id} object={line} ref={(value:THREE.Line|null)=>{routeRefs.current[index]=value}}/>)}{PLACES.map((place,index)=><mesh key={place.id} position={geoVector(place.lat,place.lng,RADIUS*1.012)} ref={(value)=>{markerRefs.current[index]=value}} scale={reduced?(index===0?1.12:1):0}><sphereGeometry args={[index===0?.022:.016,16,16]}/><meshBasicMaterial color="#fff200" toneMapped={false}/></mesh>)}</group><Atmosphere/></>
 }
 
-function GlobeMaster(){const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches||new URLSearchParams(location.search).has('final'),labelRefs=useRef<Record<string,HTMLElement|null>>({}),leaderRefs=useRef<Record<string,SVGPolylineElement|null>>({});return <main className="experience" aria-label="Lake Group global network centered on Tanzania"><Canvas dpr={[1,1.5]} camera={{fov:43,near:.1,far:100}} gl={{antialias:true,alpha:true,powerPreference:'high-performance'}} onCreated={({gl})=>{gl.setClearColor(0x000000,0)}}><Suspense fallback={null}><Scene reduced={reduced} labelRefs={labelRefs as DomRefs} leaderRefs={leaderRefs as DomRefs}/></Suspense></Canvas><svg className="leaders" aria-hidden="true">{PLACES.map(place=><polyline key={place.id} data-leader={place.id} ref={node=>{leaderRefs.current[place.id]=node}}/>)}</svg><div className="labels" aria-hidden="true">{PLACES.map(place=><div className={`map-label ${place.id==='tz'?'origin':''}`} data-label={place.id} key={place.id} ref={node=>{labelRefs.current[place.id]=node}}><img src={`assets/images/flags/${place.flag}.svg`} alt=""/><span>{place.name}</span></div>)}</div><div className="sr-only">Lake Group locations: {PLACES.map(place=>place.name).join(', ')}. Every route begins in Dar es Salaam, Tanzania.</div></main>}
+function GlobeMaster(){const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches||new URLSearchParams(location.search).has('final'),labelRefs=useRef<Record<string,HTMLElement|null>>({}),leaderRefs=useRef<Record<string,SVGPathElement|null>>({});return <main className="experience" aria-label="Lake Group global network centered on Tanzania"><Canvas dpr={[1,1.5]} camera={{fov:43,near:.1,far:100}} gl={{antialias:true,alpha:true,powerPreference:'high-performance'}} onCreated={({gl})=>{gl.setClearColor(0x000000,0)}}><Suspense fallback={null}><Scene reduced={reduced} labelRefs={labelRefs as DomRefs} leaderRefs={leaderRefs as DomRefs}/></Suspense></Canvas><svg className="leaders" aria-hidden="true">{PLACES.map(place=><g key={place.id}><path data-leader={place.id} ref={node=>{leaderRefs.current[place.id]=node}}/><circle data-dock={place.id} r="1.5" fill={place.id==='tz'?'#fff200':'#eaf3f7'}/></g>)}</svg><div className="labels" aria-hidden="true">{PLACES.map(place=><div className={`map-label ${place.id==='tz'?'origin':''}`} data-label={place.id} key={place.id} ref={node=>{labelRefs.current[place.id]=node}}><img src={`assets/images/flags/${place.flag}.svg`} alt=""/><span>{place.name}</span></div>)}</div><div className="sr-only">Lake Group locations: {PLACES.map(place=>place.name).join(', ')}. Every route begins in Dar es Salaam, Tanzania.</div></main>}
 const mountNode=document.getElementById('root')??document.getElementById('hero-globe-root');
 if(mountNode){const reactRoot=createRoot(mountNode);reactRoot.render(<GlobeMaster/>);window.addEventListener('pagehide',()=>reactRoot.unmount(),{once:true})}

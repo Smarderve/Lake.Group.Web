@@ -1452,19 +1452,19 @@
       overflow: visible;
     }
 
-    #hero-globe-root .leaders polyline {
+    #hero-globe-root .leaders path {
       stroke: #eaf3f7;
       stroke-width: 1;
       fill: none;
       stroke-linecap: round;
       stroke-linejoin: round;
-      stroke-dasharray: 1000;
-      stroke-dashoffset: 1000;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
       vector-effect: non-scaling-stroke;
-      filter: drop-shadow(0 1px 1px rgba(1,7,13,.42));
-      transition: opacity .18s linear;
       opacity: 0;
     }
+
+    #hero-globe-root .leaders circle { opacity: 0; }
 
     #hero-globe-root .map-label {
       position: absolute;
@@ -1510,14 +1510,14 @@
         background: transparent;
       }
       #hero-globe-root .map-label {
-        font-size: 8px;
+        font-size: 9px;
         gap: 3px;
         letter-spacing: .03em;
       }
       #hero-globe-root .map-label img { width: 14px; height: 10.5px; }
       #hero-globe-root .map-label.origin { font-size: 8.5px; }
       #hero-globe-root .map-label.origin img { width: 15px; height: 11px; }
-      #hero-globe-root .leaders polyline { stroke-opacity: .72; }
+      #hero-globe-root .leaders circle { opacity: 0; }
     }
 
     .experience-3d-panel.is-loading {
@@ -2960,7 +2960,7 @@
       var section = document.getElementById("experience-3d-panel");
       var loaded = false;
       var warmed = false;
-      var bundleUrl = "assets/globe-lab.bundle.js?v=20260924-01";
+      var bundleUrl = "assets/globe-lab.bundle.js?v=20260925-orbit";
       function warm() {
         if (warmed) return;
         warmed = true;
