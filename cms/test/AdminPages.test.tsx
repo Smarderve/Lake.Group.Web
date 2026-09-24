@@ -160,7 +160,7 @@ afterEach(() => {
 });
 
 describe('Administration screens', () => {
-  it('changes another user role only after confirmation', async () => {
+  it('shows account actions without legacy role editing', async () => {
     const requests = renderAdminPage(<UsersPage />);
     const table = await screen.findByRole('table', { name: 'CMS users' });
     const row = within(table).getByText('editor@lakegroup.test').closest('tr');
@@ -168,14 +168,9 @@ describe('Administration screens', () => {
     const mobileList = screen.getByRole('list', { name: 'CMS users mobile' });
     expect(within(mobileList).getByText('editor@lakegroup.test')).toBeVisible();
     expect(within(mobileList).getByRole('button', { name: 'Reset password for editor@lakegroup.test' })).toBeVisible();
-    await userEvent.selectOptions(within(row!).getByLabelText('Role for editor@lakegroup.test'), 'REVIEWER');
-    expect(screen.getByRole('dialog', { name: 'Change user role' })).toBeVisible();
-    await userEvent.click(screen.getByRole('button', { name: 'Change role' }));
-    expect(requests).toContainEqual({
-      method: 'PATCH',
-      path: '/admin/users/editor-1/role',
-      body: { role: 'REVIEWER' },
-    });
+    expect(within(row!).queryByLabelText('Role for editor@lakegroup.test')).not.toBeInTheDocument();
+    expect(screen.queryByRole('dialog', { name: 'Change user role' })).not.toBeInTheDocument();
+    expect(requests.some(({ path }) => path.endsWith('/role'))).toBe(false);
   });
 
   it('marks notifications read and exposes truthful unread state', async () => {

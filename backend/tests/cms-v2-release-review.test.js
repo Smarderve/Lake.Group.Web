@@ -27,4 +27,14 @@ describe('CMS V2 release review', () => {
     expect(review.issues.filter((issue) => issue.severity === 'error')).toHaveLength(3);
     expect(review.issues).toContainEqual(expect.objectContaining({ severity: 'warning', field: 'hero.alt' }));
   });
+
+  it('blocks a noindex Home release and unsafe social images', () => {
+    const draft = page();
+    draft.seo.index = false;
+    draft.seo.socialImage = 'javascript:alert(1)';
+    const review = reviewContentRelease({ definition: CMS_V2_DOCUMENTS.home, draft, published: page() });
+    expect(review.valid).toBe(false);
+    expect(review.issues).toContainEqual(expect.objectContaining({ severity: 'error', field: 'seo.index' }));
+    expect(review.issues).toContainEqual(expect.objectContaining({ severity: 'error', field: 'seo.socialImage' }));
+  });
 });

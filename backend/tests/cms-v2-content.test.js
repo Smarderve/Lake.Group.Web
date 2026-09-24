@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
 import { CMS_V2_DOCUMENTS, CMS_V2_PAGE_DEFINITIONS, contentIntegrity, createContentReleaseService } from '../src/lib/cms-v2-content.js';
 
 const content = (heading = 'Lake Aviation') => ({
@@ -23,7 +24,9 @@ function memoryRepository() {
 
 describe('CMS V2 Lake Aviation pilot service', () => {
   it('registers the active public page inventory plus shared content documents', () => {
-    expect(CMS_V2_PAGE_DEFINITIONS).toHaveLength(35);
+    const sitemap = readFileSync(new URL('../../sitemap.xml', import.meta.url), 'utf8');
+    const activeRoutes = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => new URL(match[1]).pathname.replace(/^\/$/, '/index.html').slice(1));
+    expect(CMS_V2_PAGE_DEFINITIONS.map((page) => page.route)).toEqual(expect.arrayContaining(activeRoutes));
     expect(CMS_V2_DOCUMENTS.home.kind).toBe('page');
     expect(CMS_V2_DOCUMENTS['lake-agro'].kind).toBe('page');
     expect(CMS_V2_DOCUMENTS.global.kind).toBe('global');

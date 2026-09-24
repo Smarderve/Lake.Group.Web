@@ -5,7 +5,7 @@ import { cmsV2ComponentSchema, cmsV2CompositionSchema } from './cms-v2-component
 
 const text = (maximum) => z.string().trim().min(1).max(maximum);
 const url = text(1000);
-const seo = z.object({ title: text(160), description: text(320), canonical: z.string().max(1000).optional(), socialImage: z.string().max(1000).optional(), index: z.boolean().default(true) }).strict();
+const seo = z.object({ title: text(160), description: text(320), canonical: z.string().max(1000).optional(), ogTitle: z.string().max(160).optional(), ogDescription: z.string().max(320).optional(), socialImage: z.string().max(1000).optional(), index: z.boolean().default(true) }).strict();
 const pageSchema = z.object({
   hero: z.object({ heading: text(160), description: text(1000), image: url, alt: z.string().max(250).optional() }).strict(),
   introduction: z.object({ heading: text(200), body: text(8000) }).strict(),
@@ -28,7 +28,7 @@ const companiesSchema = z.object({ companies: z.array(z.object({ name: text(140)
 const verticalsSchema = z.object({ verticals: z.array(z.object({ name: text(100), description: text(1000), companies: z.array(text(140)).max(30) }).strict()).min(1).max(12) }).strict();
 
 const PAGE_DEFINITIONS = [
-  ['home', 'index.html', 'Home'], ['about', 'about.html', 'About'], ['leadership', 'leadership.html', 'Leadership'], ['contact', 'contact.html', 'Contact'], ['careers', 'careers.html', 'Careers'], ['csr', 'csr.html', 'CSR'], ['gallery', 'gallery.html', 'Gallery'], ['history', 'history.html', 'History'], ['media-center', 'media-center.html', 'Media Center'], ['sustainability', 'sustainability.html', 'Sustainability'],
+  ['home', 'index.html', 'Home'], ['about', 'about.html', 'About'], ['leadership', 'leadership.html', 'Leadership'], ['leadership-ally-edha-awadh', 'leadership-ally-edha-awadh.html', 'Ally Edha Awadh'], ['our-story', 'our-story.html', 'Our Story'], ['contact', 'contact.html', 'Contact'], ['careers', 'careers.html', 'Careers'], ['csr', 'csr.html', 'CSR'], ['gallery', 'gallery.html', 'Gallery'], ['history', 'history.html', 'History'], ['media-center', 'media-center.html', 'Media Center'], ['sustainability', 'sustainability.html', 'Sustainability'],
   ['lake-oil', 'lake-oil.html', 'Lake Oil'], ['lake-aviation', 'lake-aviation.html', 'Lake Aviation'], ['lake-gas', 'lake-gas.html', 'Lake Gas'], ['lake-lubes', 'lake-lubes.html', 'Lake Lubes'], ['lake-steel', 'lake-steel.html', 'Lake Steel'], ['lake-trans', 'lake-trans.html', 'Lake Trans'], ['atl', 'atl.html', 'ATL'], ['aficd', 'aficd.html', 'AFICD'], ['aill', 'aill.html', 'AILL'], ['acfs', 'acfs.html', 'ACFS'], ['assembly-tech', 'assembly-tech.html', 'Assembly Tech'], ['cross-country', 'cross-country.html', 'Cross Country'], ['gulf-aggregates', 'gulf-aggregates.html', 'Gulf Aggregates'], ['lake-agro', 'lake-agro.html', 'Lake Agro'], ['agrinova-tech', 'agrinova-tech.html', 'Agrinova Tech'], ['nextdrive-motors', 'nextdrive-motors.html', 'NextDrive Motors'], ['lake-buildings', 'lake-buildings.html', 'Lake Buildings'], ['lake-cylinders', 'lake-cylinders.html', 'Lake Cylinders'], ['lake-pipes', 'lake-pipes.html', 'Lake Pipes'], ['lake-premix-cement', 'lake-premix-cement.html', 'Lake Premix'], ['ocean-galleria', 'ocean-galleria.html', 'Ocean Galleria'], ['la-home', 'la-home.html', 'Lake Agro Home'], ['la-projects', 'la-projects.html', 'Lake Agro Projects'], ['fleet', 'fleet.html', 'Lake Trans Fleet'], ['station-locator', 'station-locator.html', 'Station Locator'],
 ];
 

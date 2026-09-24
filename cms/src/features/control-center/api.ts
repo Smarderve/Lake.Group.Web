@@ -18,7 +18,7 @@ export type ContentData = {
   media: Array<{ src: string; alt: string; role: string }>;
   sections: Array<{ key: string; heading: string; body: string }>;
   composition?: Composition;
-  seo: { title: string; description: string; canonical?: string; socialImage?: string; index: boolean };
+  seo: { title: string; description: string; canonical?: string; ogTitle?: string; ogDescription?: string; socialImage?: string; index: boolean };
 };
 
 export type Revision = { id: string; data: ContentData; createdAt: string; authorId?: string | null };
@@ -28,7 +28,7 @@ export type DocumentResponse = {
     currentPublishedRevision: Revision | null;
   };
 };
-export type Release = { id: string; publishedAt: string; integrity: string; manifest?: { documents?: Record<string, ContentData> } };
+export type Release = { id: string; publishedAt: string; integrity: string; key?: string; snapshot?: { schemaVersion: number; documents: Record<string, unknown> }; manifest?: { documents?: Record<string, ContentData> } };
 export type ReleaseReview = { valid: boolean; changedFields: number; changes: Array<{ field: string; before: string; after: string }>; truncated: boolean; issues: Array<{ severity: 'error' | 'warning'; field: string; message: string }> };
 
 export const controlApi = {
@@ -38,6 +38,7 @@ export const controlApi = {
   versions: (key: string) => api.get<{ revisions: Revision[] }>(`/admin/v2/content/${encodeURIComponent(key)}/versions`),
   review: (key: string, revisionId: string) => api.get<{ review: ReleaseReview }>(`/admin/v2/content/${encodeURIComponent(key)}/revisions/${encodeURIComponent(revisionId)}/review`),
   releases: () => api.get<{ releases: Release[] }>('/admin/v2/releases'),
+  restoreRelease: (releaseId: string) => api.post<{ release: Release }>(`/admin/v2/releases/${encodeURIComponent(releaseId)}/restore`),
   save: (key: string, data: unknown, baseRevisionId: string | null) =>
     api.put<{ revision: Revision }>(`/admin/v2/content/${encodeURIComponent(key)}/draft`, { data, baseRevisionId }),
   restore: (key: string, revisionId: string) =>

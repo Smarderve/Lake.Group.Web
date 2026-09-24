@@ -2,7 +2,7 @@ import { createDefaultComposition } from './cms-v2-components.js';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
-const CORPORATE = new Set(['home','about','leadership','contact','careers','csr','gallery','history','media-center','sustainability']);
+const CORPORATE = new Set(['home','about','leadership','leadership-ally-edha-awadh','our-story','contact','careers','csr','gallery','history','media-center','sustainability']);
 const AGRO = new Set(['la-home','la-projects']);
 const SPECIAL = new Map([['home','custom-globe'],['history','history-timeline'],['gallery','interactive-gallery'],['station-locator','station-map'],['fleet','fleet-directory']]);
 

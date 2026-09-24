@@ -1,0 +1,817 @@
+{
+  "generatedAt": "2026-09-24T17:44:20.587Z",
+  "viewports": [
+    390,
+    1440
+  ],
+  "passed": 31,
+  "total": 31,
+  "pages": [
+    {
+      "key": "home",
+      "route": "index.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Lake Group | Diversified Business Group in East & Central Africa",
+          "text": 3508,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Lake Group | Diversified Business Group in East & Central Africa",
+          "text": 3222,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "about",
+      "route": "about.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "About Lake Group | Diversified Business Group in East & Central Africa",
+          "text": 2444,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "About Lake Group | Diversified Business Group in East & Central Africa",
+          "text": 2219,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "leadership",
+      "route": "leadership.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Leadership | Lake Group",
+          "text": 2900,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Leadership | Lake Group",
+          "text": 2675,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "leadership-ally-edha-awadh",
+      "route": "leadership-ally-edha-awadh.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Ally Edha Awadh - Founder & Chairman | Lake Group",
+          "text": 3281,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Ally Edha Awadh - Founder & Chairman | Lake Group",
+          "text": 3056,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "our-story",
+      "route": "our-story.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Lake Group: Our Story",
+          "text": 2005,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Lake Group: Our Story",
+          "text": 1780,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "contact",
+      "route": "contact.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Contact Us | Lake Group",
+          "text": 2193,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Contact Us | Lake Group",
+          "text": 1968,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "careers",
+      "route": "careers.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Careers at Lake Group | Jobs in East Africa",
+          "text": 3197,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Careers at Lake Group | Jobs in East Africa",
+          "text": 2972,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "csr",
+      "route": "csr.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "CSR & Sustainability | Lake Group",
+          "text": 2838,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "CSR & Sustainability | Lake Group",
+          "text": 2613,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "gallery",
+      "route": "gallery.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Gallery | Lake Group",
+          "text": 2832,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Gallery | Lake Group",
+          "text": 2606,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "history",
+      "route": "history.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Our History | Lake Group Since 2006",
+          "text": 4877,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Our History | Lake Group Since 2006",
+          "text": 4652,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "sustainability",
+      "route": "sustainability.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Sustainability | Lake Group",
+          "text": 423,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": false,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Sustainability | Lake Group",
+          "text": 198,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": false,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "lake-oil",
+      "route": "lake-oil.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Lake Oil | Fuel Distribution & Retail Stations | Lake Group",
+          "text": 3732,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Lake Oil | Fuel Distribution & Retail Stations | Lake Group",
+          "text": 3507,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "lake-aviation",
+      "route": "lake-aviation.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Lake Aviation | Aviation Fuel & Into-Plane Fueling | Lake Group",
+          "text": 2836,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Lake Aviation | Aviation Fuel & Into-Plane Fueling | Lake Group",
+          "text": 2611,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "lake-gas",
+      "route": "lake-gas.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Lake Gas | LPG Supply & Distribution | Lake Group",
+          "text": 2635,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Lake Gas | LPG Supply & Distribution | Lake Group",
+          "text": 2410,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "lake-lubes",
+      "route": "lake-lubes.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Lake Lubes | Lubricant & Grease Manufacturing | Lake Group",
+          "text": 4138,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Lake Lubes | Lubricant & Grease Manufacturing | Lake Group",
+          "text": 3913,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "lake-steel",
+      "route": "lake-steel.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Lake Steel | Reinforcement Steel Manufacturing | Lake Group",
+          "text": 2637,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Lake Steel | Reinforcement Steel Manufacturing | Lake Group",
+          "text": 2412,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "lake-trans",
+      "route": "lake-trans.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Lake Trans | Petroleum Transport & Logistics | Lake Group",
+          "text": 3640,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Lake Trans | Petroleum Transport & Logistics | Lake Group",
+          "text": 3415,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "aficd",
+      "route": "aficd.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "AFICD | Inland Container Depot & Logistics Services | Lake Group",
+          "text": 6161,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "AFICD | Inland Container Depot & Logistics Services | Lake Group",
+          "text": 5936,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "aill",
+      "route": "aill.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "AILL | Inland Logistics & Container Freight Services | Lake Group",
+          "text": 5522,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "AILL | Inland Logistics & Container Freight Services | Lake Group",
+          "text": 5297,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "assembly-tech",
+      "route": "assembly-tech.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Assembly Tech Limited | Aluminium Trailer Manufacturing | Lake Group",
+          "text": 5050,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Assembly Tech Limited | Aluminium Trailer Manufacturing | Lake Group",
+          "text": 4825,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "cross-country",
+      "route": "cross-country.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Cross Country Developer Limited | Real Estate Development | Lake Group",
+          "text": 3437,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Cross Country Developer Limited | Real Estate Development | Lake Group",
+          "text": 3212,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "gulf-aggregates",
+      "route": "gulf-aggregates.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Gulf Aggregates | Quarry & Aggregate Processing | Lake Group",
+          "text": 2915,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Gulf Aggregates | Quarry & Aggregate Processing | Lake Group",
+          "text": 2690,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "lake-agro",
+      "route": "lake-agro.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Lake Agro | Agricultural Company | Lake Group",
+          "text": 3718,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Lake Agro | Agricultural Company | Lake Group",
+          "text": 3493,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "agrinova-tech",
+      "route": "agrinova-tech.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Agrinova Tech Limited | Agricultural Machinery Solutions | Lake Group",
+          "text": 3611,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Agrinova Tech Limited | Agricultural Machinery Solutions | Lake Group",
+          "text": 3386,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "nextdrive-motors",
+      "route": "nextdrive-motors.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "NextDrive Motors Limited | Commercial Vehicle Solutions | Lake Group",
+          "text": 4082,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "NextDrive Motors Limited | Commercial Vehicle Solutions | Lake Group",
+          "text": 3857,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "lake-buildings",
+      "route": "lake-buildings.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Lake Building Solution | Gypsum & Marine Board Manufacturing | Lake Group",
+          "text": 3290,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Lake Building Solution | Gypsum & Marine Board Manufacturing | Lake Group",
+          "text": 3065,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "lake-cylinders",
+      "route": "lake-cylinders.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Lake Cylinders | LPG Cylinder Manufacturing | Lake Group",
+          "text": 5249,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Lake Cylinders | LPG Cylinder Manufacturing | Lake Group",
+          "text": 5024,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "lake-pipes",
+      "route": "lake-pipes.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Lake Pipes | PVC & HDPE Pipe Manufacturing | Lake Group",
+          "text": 3263,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Lake Pipes | PVC & HDPE Pipe Manufacturing | Lake Group",
+          "text": 3038,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "lake-premix-cement",
+      "route": "lake-premix-cement.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Lake Premix | Ready-Mix Concrete Solutions | Lake Group",
+          "text": 3431,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Lake Premix | Ready-Mix Concrete Solutions | Lake Group",
+          "text": 3206,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "fleet",
+      "route": "fleet.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Lake Trans Fleet | Transport & Logistics | Lake Group",
+          "text": 2101,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Lake Trans Fleet | Transport & Logistics | Lake Group",
+          "text": 1876,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    },
+    {
+      "key": "station-locator",
+      "route": "station-locator.html",
+      "ok": true,
+      "checks": {
+        "desktop": {
+          "title": "Station Locator | Lake Oil | Lake Group",
+          "text": 1779,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        },
+        "mobile": {
+          "title": "Station Locator | Lake Oil | Lake Group",
+          "text": 1554,
+          "cmsScripts": 0,
+          "nav": true,
+          "footer": true,
+          "overflow": 0,
+          "http": 200
+        }
+      },
+      "errors": []
+    }
+  ]
+}

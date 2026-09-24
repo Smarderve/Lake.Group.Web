@@ -33,6 +33,8 @@ export function reviewContentRelease({ definition, draft, published }) {
     if (!safeDestination(draft.hero.image)) issues.push({ severity: 'error', field: 'hero.image', message: 'Hero image must use an internal path or HTTPS URL.' });
     if (!safeDestination(draft.cta.href, { allowContact: true })) issues.push({ severity: 'error', field: 'cta.href', message: 'Button destination must use an internal path, HTTPS, mailto, or tel URL.' });
     if (draft.seo.canonical && !safeDestination(draft.seo.canonical)) issues.push({ severity: 'error', field: 'seo.canonical', message: 'Canonical URL must use an internal path or HTTPS URL.' });
+    if (draft.seo.socialImage && !safeDestination(draft.seo.socialImage)) issues.push({ severity: 'error', field: 'seo.socialImage', message: 'Social image must use an internal path or HTTPS URL.' });
+    if (draft.seo.index === false) issues.push({ severity: definition.route === 'index.html' ? 'error' : 'warning', field: 'seo.index', message: definition.route === 'index.html' ? 'The Home page must remain indexable.' : 'This page will be excluded from search engines.' });
     if (!draft.hero.alt?.trim()) issues.push({ severity: 'warning', field: 'hero.alt', message: 'Hero image has no alternative text.' });
     const keys = new Set();
     draft.sections.forEach((section, index) => {
