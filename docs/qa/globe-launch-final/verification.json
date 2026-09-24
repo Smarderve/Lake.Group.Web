@@ -1,0 +1,866 @@
+{
+  "generatedAt": "2026-09-11T10:04:28.310Z",
+  "assertions": {
+    "fixedCamera": true,
+    "openingDiffersFromFinal": true,
+    "finalAfricaRotation": true,
+    "labelsCollisionFree": true,
+    "oneCanvas": true,
+    "mobilePanY": true,
+    "clockwiseOver360": true,
+    "counterClockwiseOver360": true,
+    "verticalScroll": true,
+    "noPageErrors": true
+  },
+  "timedStates": [
+    {
+      "second": 0,
+      "cameraDistance": 6.300198409574098,
+      "rotationX": -0.065,
+      "rotationY": 2.2115926535897925,
+      "timeline": 1.243699999988079,
+      "manual": false,
+      "errors": []
+    },
+    {
+      "second": 2,
+      "cameraDistance": 6.300198409574098,
+      "rotationX": -0.065,
+      "rotationY": 2.2543806141323786,
+      "timeline": 2.3654000000059607,
+      "manual": false,
+      "errors": []
+    },
+    {
+      "second": 4,
+      "cameraDistance": 6.300198409574098,
+      "rotationX": -0.065,
+      "rotationY": 3.3764400135120596,
+      "timeline": 4.37790000000596,
+      "manual": false,
+      "errors": []
+    },
+    {
+      "second": 6,
+      "cameraDistance": 6.300198409574098,
+      "rotationX": -0.065,
+      "rotationY": 4.031592653589793,
+      "timeline": 6.679699999973178,
+      "manual": false,
+      "errors": []
+    },
+    {
+      "second": 9,
+      "cameraDistance": 6.300198409574098,
+      "rotationX": -0.065,
+      "rotationY": 4.031592653589793,
+      "timeline": 9.976900000005958,
+      "manual": false,
+      "errors": []
+    },
+    {
+      "second": 12,
+      "cameraDistance": 6.300198409574098,
+      "rotationX": -0.065,
+      "rotationY": 4.031592653589793,
+      "timeline": 13.071499999985098,
+      "manual": false,
+      "errors": []
+    }
+  ],
+  "labelChecks": [
+    {
+      "width": 390,
+      "errors": [],
+      "labels": [
+        {
+          "id": "tz",
+          "left": 247.3477325439453,
+          "top": 806.2905883789062,
+          "right": 325.48834228515625,
+          "bottom": 817.2905883789062,
+          "width": 78.14060974121094,
+          "height": 11,
+          "opacity": 1
+        },
+        {
+          "id": "ke",
+          "left": 247.2042999267578,
+          "top": 686.7403564453125,
+          "right": 299.65740966796875,
+          "bottom": 696.7403564453125,
+          "width": 52.45310974121094,
+          "height": 10,
+          "opacity": 1
+        },
+        {
+          "id": "ug",
+          "left": 75.87842559814453,
+          "top": 669.9393310546875,
+          "right": 138.45654296875,
+          "bottom": 679.9393310546875,
+          "width": 62.57811737060547,
+          "height": 10,
+          "opacity": 1
+        },
+        {
+          "id": "rw",
+          "left": 247.5727996826172,
+          "top": 727.9486694335938,
+          "right": 311.30718994140625,
+          "bottom": 737.9486694335938,
+          "width": 63.73439025878906,
+          "height": 10,
+          "opacity": 1
+        },
+        {
+          "id": "bi",
+          "left": 244.4006805419922,
+          "top": 766.4158935546875,
+          "right": 308.54132080078125,
+          "bottom": 776.4158935546875,
+          "width": 64.14064025878906,
+          "height": 10,
+          "opacity": 1
+        },
+        {
+          "id": "cd",
+          "left": 43.94048309326172,
+          "top": 728.6585693359375,
+          "right": 118.29985809326172,
+          "bottom": 738.6585693359375,
+          "width": 74.359375,
+          "height": 10,
+          "opacity": 1
+        },
+        {
+          "id": "zm",
+          "left": 79.3921127319336,
+          "top": 824.9588623046875,
+          "right": 137.59524536132812,
+          "bottom": 834.9588623046875,
+          "width": 58.20313262939453,
+          "height": 10,
+          "opacity": 1
+        },
+        {
+          "id": "mz",
+          "left": 231.19937133789062,
+          "top": 863.484375,
+          "right": 319.7618713378906,
+          "bottom": 873.484375,
+          "width": 88.5625,
+          "height": 10,
+          "opacity": 1
+        },
+        {
+          "id": "et",
+          "left": 242.54470825195312,
+          "top": 625.0860595703125,
+          "right": 309.1540832519531,
+          "bottom": 635.0860595703125,
+          "width": 66.609375,
+          "height": 10,
+          "opacity": 1
+        },
+        {
+          "id": "ae",
+          "left": 266.10076904296875,
+          "top": 655.8553466796875,
+          "right": 305.21014404296875,
+          "bottom": 665.8553466796875,
+          "width": 39.109375,
+          "height": 10,
+          "opacity": 1
+        }
+      ],
+      "visible": [
+        "tz",
+        "ke",
+        "ug",
+        "rw",
+        "bi",
+        "cd",
+        "zm",
+        "mz",
+        "et",
+        "ae"
+      ],
+      "collisions": [],
+      "clipped": [],
+      "canvasCount": 1,
+      "touchAction": "pan-y",
+      "globe": {
+        "cameraDistance": 9.300134407630892,
+        "rotationX": -0.065,
+        "rotationY": 4.031592653589793,
+        "timeline": 14,
+        "manual": false
+      }
+    },
+    {
+      "width": 430,
+      "errors": [],
+      "labels": [
+        {
+          "id": "tz",
+          "left": 267.34771728515625,
+          "top": 790.5874633789062,
+          "right": 345.48834228515625,
+          "bottom": 801.5874633789062,
+          "width": 78.140625,
+          "height": 11,
+          "opacity": 1
+        },
+        {
+          "id": "ke",
+          "left": 267.20428466796875,
+          "top": 671.0372314453125,
+          "right": 319.65740966796875,
+          "bottom": 681.0372314453125,
+          "width": 52.453125,
+          "height": 10,
+          "opacity": 1
+        },
+        {
+          "id": "ug",
+          "left": 95.87842559814453,
+          "top": 654.2362060546875,
+          "right": 158.45654296875,
+          "bottom": 664.2362060546875,
+          "width": 62.57811737060547,
+          "height": 10,
+          "opacity": 1
+        },
+        {
+          "id": "rw",
+          "left": 267.57281494140625,
+          "top": 712.2455444335938,
+          "right": 331.30718994140625,
+          "bottom": 722.2455444335938,
+          "width": 63.734375,
+          "height": 10,
+          "opacity": 1
+        },
+        {
+          "id": "bi",
+          "left": 264.40069580078125,
+          "top": 750.7127685546875,
+          "right": 328.54132080078125,
+          "bottom": 760.7127685546875,
+          "width": 64.140625,
+          "height": 10,
+          "opacity": 1
+        },
+        {
+          "id": "cd",
+          "left": 63.94048309326172,
+          "top": 712.9554443359375,
+          "right": 138.29986572265625,
+          "bottom": 722.9554443359375,
+          "width": 74.35938262939453,
+          "height": 10,
+          "opacity": 1
+        },
+        {
+          "id": "zm",
+          "left": 99.3921127319336,
+          "top": 809.2557373046875,
+          "right": 157.59524536132812,
+          "bottom": 819.2557373046875,
+          "width": 58.20313262939453,
+          "height": 10,
+          "opacity": 1
+        },
+        {
+          "id": "mz",
+          "left": 251.19937133789062,
+          "top": 847.78125,
+          "right": 339.7618713378906,
+          "bottom": 857.78125,
+          "width": 88.5625,
+          "height": 10,
+          "opacity": 1
+        },
+        {
+          "id": "et",
+          "left": 262.5447082519531,
+          "top": 609.3829345703125,
+          "right": 329.1540832519531,
+          "bottom": 619.3829345703125,
+          "width": 66.609375,
+          "height": 10,
+          "opacity": 1
+        },
+        {
+          "id": "ae",
+          "left": 286.10076904296875,
+          "top": 640.1522216796875,
+          "right": 325.21014404296875,
+          "bottom": 650.1522216796875,
+          "width": 39.109375,
+          "height": 10,
+          "opacity": 1
+        }
+      ],
+      "visible": [
+        "tz",
+        "ke",
+        "ug",
+        "rw",
+        "bi",
+        "cd",
+        "zm",
+        "mz",
+        "et",
+        "ae"
+      ],
+      "collisions": [],
+      "clipped": [],
+      "canvasCount": 1,
+      "touchAction": "pan-y",
+      "globe": {
+        "cameraDistance": 9.300134407630892,
+        "rotationX": -0.065,
+        "rotationY": 4.031592653589793,
+        "timeline": 14,
+        "manual": false
+      }
+    },
+    {
+      "width": 768,
+      "errors": [],
+      "labels": [
+        {
+          "id": "tz",
+          "left": 476.6766052246094,
+          "top": 786.0748291015625,
+          "right": 574.1297607421875,
+          "bottom": 799.0748291015625,
+          "width": 97.45315551757812,
+          "height": 13,
+          "opacity": 1
+        },
+        {
+          "id": "ke",
+          "left": 468.61077880859375,
+          "top": 657.4889526367188,
+          "right": 535.1420288085938,
+          "bottom": 669.4889526367188,
+          "width": 66.53125,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "ug",
+          "left": 220.37606811523438,
+          "top": 632.0465087890625,
+          "right": 299.6260681152344,
+          "bottom": 644.0465087890625,
+          "width": 79.25,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "rw",
+          "left": 470.0340881347656,
+          "top": 697.8439331054688,
+          "right": 550.6746826171875,
+          "bottom": 709.8439331054688,
+          "width": 80.64059448242188,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "bi",
+          "left": 463.771484375,
+          "top": 740.6351928710938,
+          "right": 545.255859375,
+          "bottom": 752.6351928710938,
+          "width": 81.484375,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "cd",
+          "left": 155.177978515625,
+          "top": 704.8824462890625,
+          "right": 249.490478515625,
+          "bottom": 716.8824462890625,
+          "width": 94.3125,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "zm",
+          "left": 214.00753784179688,
+          "top": 818.277587890625,
+          "right": 287.8981628417969,
+          "bottom": 830.277587890625,
+          "width": 73.890625,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "mz",
+          "left": 447.2496643066406,
+          "top": 857.328125,
+          "right": 559.5777587890625,
+          "bottom": 869.328125,
+          "width": 112.32809448242188,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "et",
+          "left": 461.1167297363281,
+          "top": 571.247314453125,
+          "right": 545.94482421875,
+          "bottom": 583.247314453125,
+          "width": 84.82809448242188,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "ae",
+          "left": 509.8376770019531,
+          "top": 591.9808349609375,
+          "right": 559.415771484375,
+          "bottom": 603.9808349609375,
+          "width": 49.578094482421875,
+          "height": 12,
+          "opacity": 1
+        }
+      ],
+      "visible": [
+        "tz",
+        "ke",
+        "ug",
+        "rw",
+        "bi",
+        "cd",
+        "zm",
+        "mz",
+        "et",
+        "ae"
+      ],
+      "collisions": [],
+      "clipped": [],
+      "canvasCount": 1,
+      "touchAction": "pan-y",
+      "globe": {
+        "cameraDistance": 6.300198409574098,
+        "rotationX": -0.065,
+        "rotationY": 4.031592653589793,
+        "timeline": 14,
+        "manual": false
+      }
+    },
+    {
+      "width": 1024,
+      "errors": [],
+      "labels": [
+        {
+          "id": "tz",
+          "left": 791.7635498046875,
+          "top": 533.0548095703125,
+          "right": 889.2166748046875,
+          "bottom": 546.0548095703125,
+          "width": 97.453125,
+          "height": 13,
+          "opacity": 1
+        },
+        {
+          "id": "ke",
+          "left": 786.2928466796875,
+          "top": 401.22576904296875,
+          "right": 852.8240966796875,
+          "bottom": 413.22576904296875,
+          "width": 66.53125,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "ug",
+          "left": 605.5480346679688,
+          "top": 380.82342529296875,
+          "right": 684.7979736328125,
+          "bottom": 392.82342529296875,
+          "width": 79.24993896484375,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "rw",
+          "left": 771.70654296875,
+          "top": 443.98760986328125,
+          "right": 852.34716796875,
+          "bottom": 455.98760986328125,
+          "width": 80.640625,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "bi",
+          "left": 767.0274658203125,
+          "top": 485.626953125,
+          "right": 848.5118408203125,
+          "bottom": 497.626953125,
+          "width": 81.484375,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "cd",
+          "left": 537.6898193359375,
+          "top": 450.7531433105469,
+          "right": 632.0023193359375,
+          "bottom": 462.7531433105469,
+          "width": 94.3125,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "zm",
+          "left": 600.72216796875,
+          "top": 570.5823974609375,
+          "right": 674.61279296875,
+          "bottom": 582.5823974609375,
+          "width": 73.890625,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "mz",
+          "left": 762.5673217773438,
+          "top": 643.0205688476562,
+          "right": 874.8954467773438,
+          "bottom": 655.0205688476562,
+          "width": 112.328125,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "et",
+          "left": 785.9281005859375,
+          "top": 316.873046875,
+          "right": 870.7562255859375,
+          "bottom": 328.873046875,
+          "width": 84.828125,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "ae",
+          "left": 839.7705078125,
+          "top": 293.7742919921875,
+          "right": 889.3486328125,
+          "bottom": 305.7742919921875,
+          "width": 49.578125,
+          "height": 12,
+          "opacity": 1
+        }
+      ],
+      "visible": [
+        "tz",
+        "ke",
+        "ug",
+        "rw",
+        "bi",
+        "cd",
+        "zm",
+        "mz",
+        "et",
+        "ae"
+      ],
+      "collisions": [],
+      "clipped": [],
+      "canvasCount": 1,
+      "touchAction": "pan-y",
+      "globe": {
+        "cameraDistance": 9.300134407630892,
+        "rotationX": -0.065,
+        "rotationY": 4.031592653589793,
+        "timeline": 14,
+        "manual": false
+      }
+    },
+    {
+      "width": 1440,
+      "errors": [],
+      "labels": [
+        {
+          "id": "tz",
+          "left": 1081.2515869140625,
+          "top": 615.134033203125,
+          "right": 1178.7047119140625,
+          "bottom": 628.134033203125,
+          "width": 97.453125,
+          "height": 13,
+          "opacity": 1
+        },
+        {
+          "id": "ke",
+          "left": 1065.1199951171875,
+          "top": 467.9622802734375,
+          "right": 1131.6512451171875,
+          "bottom": 479.9622802734375,
+          "width": 66.53125,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "ug",
+          "left": 802.6505737304688,
+          "top": 437.07745361328125,
+          "right": 881.9005737304688,
+          "bottom": 449.07745361328125,
+          "width": 79.25,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "rw",
+          "left": 1043.966552734375,
+          "top": 510.6722717285156,
+          "right": 1124.607177734375,
+          "bottom": 522.6722412109375,
+          "width": 80.640625,
+          "height": 11.999969482421875,
+          "opacity": 1
+        },
+        {
+          "id": "bi",
+          "left": 1035.44140625,
+          "top": 558.2547607421875,
+          "right": 1116.92578125,
+          "bottom": 570.2547607421875,
+          "width": 81.484375,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "cd",
+          "left": 687.8125,
+          "top": 526.7493286132812,
+          "right": 782.125,
+          "bottom": 538.7493286132812,
+          "width": 94.3125,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "zm",
+          "left": 783.9135131835938,
+          "top": 675.53955078125,
+          "right": 857.8041381835938,
+          "bottom": 687.53955078125,
+          "width": 73.890625,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "mz",
+          "left": 1032.397705078125,
+          "top": 781.1150512695312,
+          "right": 1144.725830078125,
+          "bottom": 793.1150512695312,
+          "width": 112.328125,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "et",
+          "left": 1064.1318359375,
+          "top": 347.47906494140625,
+          "right": 1148.9599609375,
+          "bottom": 359.47906494140625,
+          "width": 84.828125,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "ae",
+          "left": 1157.57373046875,
+          "top": 324.9460754394531,
+          "right": 1207.15185546875,
+          "bottom": 336.9460754394531,
+          "width": 49.578125,
+          "height": 12,
+          "opacity": 1
+        }
+      ],
+      "visible": [
+        "tz",
+        "ke",
+        "ug",
+        "rw",
+        "bi",
+        "cd",
+        "zm",
+        "mz",
+        "et",
+        "ae"
+      ],
+      "collisions": [],
+      "clipped": [],
+      "canvasCount": 1,
+      "touchAction": "pan-y",
+      "globe": {
+        "cameraDistance": 6.300198409574098,
+        "rotationX": -0.065,
+        "rotationY": 4.031592653589793,
+        "timeline": 14,
+        "manual": false
+      }
+    },
+    {
+      "width": 1920,
+      "errors": [],
+      "labels": [
+        {
+          "id": "tz",
+          "left": 1321.2515869140625,
+          "top": 615.134033203125,
+          "right": 1418.7047119140625,
+          "bottom": 628.134033203125,
+          "width": 97.453125,
+          "height": 13,
+          "opacity": 1
+        },
+        {
+          "id": "ke",
+          "left": 1305.1199951171875,
+          "top": 467.9622802734375,
+          "right": 1371.6512451171875,
+          "bottom": 479.9622802734375,
+          "width": 66.53125,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "ug",
+          "left": 1042.650634765625,
+          "top": 437.07745361328125,
+          "right": 1121.900634765625,
+          "bottom": 449.07745361328125,
+          "width": 79.25,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "rw",
+          "left": 1283.966552734375,
+          "top": 510.6722717285156,
+          "right": 1364.607177734375,
+          "bottom": 522.6722412109375,
+          "width": 80.640625,
+          "height": 11.999969482421875,
+          "opacity": 1
+        },
+        {
+          "id": "bi",
+          "left": 1275.44140625,
+          "top": 558.2547607421875,
+          "right": 1356.92578125,
+          "bottom": 570.2547607421875,
+          "width": 81.484375,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "cd",
+          "left": 927.8125,
+          "top": 526.7493286132812,
+          "right": 1022.125,
+          "bottom": 538.7493286132812,
+          "width": 94.3125,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "zm",
+          "left": 1023.9135131835938,
+          "top": 675.53955078125,
+          "right": 1097.80419921875,
+          "bottom": 687.53955078125,
+          "width": 73.89068603515625,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "mz",
+          "left": 1272.397705078125,
+          "top": 781.1150512695312,
+          "right": 1384.725830078125,
+          "bottom": 793.1150512695312,
+          "width": 112.328125,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "et",
+          "left": 1304.1318359375,
+          "top": 347.47906494140625,
+          "right": 1388.9599609375,
+          "bottom": 359.47906494140625,
+          "width": 84.828125,
+          "height": 12,
+          "opacity": 1
+        },
+        {
+          "id": "ae",
+          "left": 1397.57373046875,
+          "top": 324.9460754394531,
+          "right": 1447.15185546875,
+          "bottom": 336.9460754394531,
+          "width": 49.578125,
+          "height": 12,
+          "opacity": 1
+        }
+      ],
+      "visible": [
+        "tz",
+        "ke",
+        "ug",
+        "rw",
+        "bi",
+        "cd",
+        "zm",
+        "mz",
+        "et",
+        "ae"
+      ],
+      "collisions": [],
+      "clipped": [],
+      "canvasCount": 1,
+      "touchAction": "pan-y",
+      "globe": {
+        "cameraDistance": 6.300198409574098,
+        "rotationX": -0.065,
+        "rotationY": 4.031592653589793,
+        "timeline": 14,
+        "manual": false
+      }
+    }
+  ],
+  "interaction": {
+    "beforeClockwise": 4.031592653589793,
+    "afterClockwise": 12.830527284937451,
+    "afterCounterClockwise": 4.031592653589793,
+    "clockwiseDelta": 8.79893463134766,
+    "counterClockwiseDelta": -8.79893463134766,
+    "scrollBefore": 893,
+    "scrollAfter": 1493
+  },
+  "screenshots": [
+    "C:\\Users\\USER\\Documents\\lake.group.web\\docs\\qa\\globe-launch-final\\home-globe-1440-t0.png",
+    "C:\\Users\\USER\\Documents\\lake.group.web\\docs\\qa\\globe-launch-final\\home-globe-1440-t2.png",
+    "C:\\Users\\USER\\Documents\\lake.group.web\\docs\\qa\\globe-launch-final\\home-globe-1440-t4.png",
+    "C:\\Users\\USER\\Documents\\lake.group.web\\docs\\qa\\globe-launch-final\\home-globe-1440-t6.png",
+    "C:\\Users\\USER\\Documents\\lake.group.web\\docs\\qa\\globe-launch-final\\home-globe-1440-t9.png",
+    "C:\\Users\\USER\\Documents\\lake.group.web\\docs\\qa\\globe-launch-final\\home-globe-1440-t12.png"
+  ],
+  "mobileScreenshot": "C:\\Users\\USER\\Documents\\lake.group.web\\docs\\qa\\globe-launch-final\\home-globe-390-final.png",
+  "video": "C:\\Users\\USER\\Documents\\lake.group.web\\docs\\qa\\globe-launch-final\\home-globe-launch-qa.mp4"
+}

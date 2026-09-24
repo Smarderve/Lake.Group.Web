@@ -1,0 +1,47 @@
+[
+  {
+    "id": "container-handling",
+    "source": "assets/images/aficd/operations/aficd-container-handling.webp",
+    "output": "assets/images/delivery/aficd/remediated/aficd-container-handling-clean.webp",
+    "width": 1200,
+    "height": 800,
+    "bytes": 142758,
+    "quality": 86
+  },
+  {
+    "id": "reach-stacker",
+    "source": "assets/images/aficd/operations/aficd-sany-reach-stacker.webp",
+    "output": "assets/images/delivery/aficd/remediated/aficd-reach-stacker-clean.webp",
+    "width": 1552,
+    "height": 1013,
+    "bytes": 176296,
+    "quality": 86
+  },
+  {
+    "id": "truck-loading",
+    "source": "assets/images/aficd/operations/aficd-truck-loading.webp",
+    "output": "assets/images/delivery/aficd/remediated/aficd-truck-loading-clean.webp",
+    "width": 1200,
+    "height": 800,
+    "bytes": 154374,
+    "quality": 86
+  },
+  {
+    "id": "yard-lift",
+    "source": "assets/images/aficd/operations/aficd-yard-lift.webp",
+    "output": "assets/images/delivery/aficd/remediated/aficd-yard-lift-clean.webp",
+    "width": 1200,
+    "height": 800,
+    "bytes": 131658,
+    "quality": 86
+  },
+  {
+    "id": "yard",
+    "source": "assets/images/aficd/operations/aficd-yard.webp",
+    "output": "assets/images/delivery/aficd/remediated/aficd-yard-clean.webp",
+    "width": 1200,
+    "height": 800,
+    "bytes": 135348,
+    "quality": 86
+  }
+]

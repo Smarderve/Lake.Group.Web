@@ -1,0 +1,206 @@
+{
+  "generatedAt": "2026-09-11T10:19:27.771Z",
+  "assertions": {
+    "noChrome": true,
+    "centered": true,
+    "responsive": true,
+    "noExternalDependencies": true,
+    "noPageErrors": true,
+    "connectionSquaresRemoved": true,
+    "offlineMaskAnimation": true,
+    "torchNonBlocking": true,
+    "tiltWorks": true,
+    "torchWorks": true,
+    "returnsNeutral": true,
+    "retryWorks": true,
+    "reducedMotion": true,
+    "onlineRedirect": true,
+    "actualOfflineFallback": true
+  },
+  "layouts": [
+    {
+      "width": 390,
+      "height": 844,
+      "errors": [],
+      "external": [],
+      "nav": 0,
+      "footer": 0,
+      "card": {
+        "left": 16,
+        "top": 76.9375,
+        "right": 374,
+        "bottom": 767.046875,
+        "width": 358,
+        "height": 690.109375
+      },
+      "centerDeltaX": 0,
+      "centerDeltaY": 0.0078125,
+      "overflowX": false,
+      "verticalFits": true,
+      "badgeBefore": "none",
+      "offlineAnimation": "outline-reveal",
+      "torchPointerEvents": "none",
+      "bodyMinHeight": "844px"
+    },
+    {
+      "width": 430,
+      "height": 844,
+      "errors": [],
+      "external": [],
+      "nav": 0,
+      "footer": 0,
+      "card": {
+        "left": 16,
+        "top": 103.40625,
+        "right": 414,
+        "bottom": 740.59375,
+        "width": 398,
+        "height": 637.1875
+      },
+      "centerDeltaX": 0,
+      "centerDeltaY": 0,
+      "overflowX": false,
+      "verticalFits": true,
+      "badgeBefore": "none",
+      "offlineAnimation": "outline-reveal",
+      "torchPointerEvents": "none",
+      "bodyMinHeight": "844px"
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "errors": [],
+      "external": [],
+      "nav": 0,
+      "footer": 0,
+      "card": {
+        "left": 24,
+        "top": 121.78125,
+        "right": 744,
+        "bottom": 778.203125,
+        "width": 720,
+        "height": 656.421875
+      },
+      "centerDeltaX": 0,
+      "centerDeltaY": 0.0078125,
+      "overflowX": false,
+      "verticalFits": true,
+      "badgeBefore": "none",
+      "offlineAnimation": "outline-reveal",
+      "torchPointerEvents": "none",
+      "bodyMinHeight": "900px"
+    },
+    {
+      "width": 1024,
+      "height": 900,
+      "errors": [],
+      "external": [],
+      "nav": 0,
+      "footer": 0,
+      "card": {
+        "left": 152,
+        "top": 76.5,
+        "right": 872,
+        "bottom": 823.484375,
+        "width": 720,
+        "height": 746.984375
+      },
+      "centerDeltaX": 0,
+      "centerDeltaY": 0.0078125,
+      "overflowX": false,
+      "verticalFits": true,
+      "badgeBefore": "none",
+      "offlineAnimation": "outline-reveal",
+      "torchPointerEvents": "none",
+      "bodyMinHeight": "900px"
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "errors": [],
+      "external": [],
+      "nav": 0,
+      "footer": 0,
+      "card": {
+        "left": 360,
+        "top": 121.4375,
+        "right": 1080,
+        "bottom": 878.5625,
+        "width": 720,
+        "height": 757.125
+      },
+      "centerDeltaX": 0,
+      "centerDeltaY": 0,
+      "overflowX": false,
+      "verticalFits": true,
+      "badgeBefore": "none",
+      "offlineAnimation": "outline-reveal",
+      "torchPointerEvents": "none",
+      "bodyMinHeight": "1000px"
+    },
+    {
+      "width": 1920,
+      "height": 1000,
+      "errors": [],
+      "external": [],
+      "nav": 0,
+      "footer": 0,
+      "card": {
+        "left": 600,
+        "top": 121.4375,
+        "right": 1320,
+        "bottom": 878.5625,
+        "width": 720,
+        "height": 757.125
+      },
+      "centerDeltaX": 0,
+      "centerDeltaY": 0,
+      "overflowX": false,
+      "verticalFits": true,
+      "badgeBefore": "none",
+      "offlineAnimation": "outline-reveal",
+      "torchPointerEvents": "none",
+      "bodyMinHeight": "1000px"
+    }
+  ],
+  "interaction": {
+    "neutral": "matrix(1, 0, 0, 1, 0, 0)",
+    "tilted": {
+      "transform": "matrix3d(0.996637, 0.0050736, -0.0817813, 0, 0, 0.998081, 0.0619196, 0, 0.0819385, -0.0617113, 0.994725, 0, 0, 0, 0, 1)",
+      "lit": true,
+      "px": "82.5%",
+      "py": "17.1%"
+    },
+    "returned": {
+      "transform": "matrix3d(1, 6.09235e-08, -0.000174533, 0, 0, 1, 0.000349066, 0, 0.000174533, -0.000349066, 1, 0, 0, 0, 0, 1)",
+      "x": 0.02,
+      "y": 0.01
+    },
+    "retry": {
+      "text": "Retry Connection",
+      "status": "Still offline · check your connection",
+      "disabled": false
+    }
+  },
+  "reduced": {
+    "cardTransform": "none",
+    "torchDisplay": "none",
+    "offlineClip": "inset(0px 0% 0px 0px)",
+    "logoOpacity": "1"
+  },
+  "onlineUrl": "http://127.0.0.1:4182/index.html",
+  "actualOffline": {
+    "card": true,
+    "nav": false,
+    "footer": false,
+    "onLine": true,
+    "title": "You're Offline | Lake Group",
+    "retry": "Retry Connection",
+    "path": "/definitely-not-cached-offline-check"
+  },
+  "screenshots": [
+    "C:\\Users\\USER\\Documents\\lake.group.web\\docs\\qa\\offline-redesign-1440.png",
+    "C:\\Users\\USER\\Documents\\lake.group.web\\docs\\qa\\offline-redesign-390.png"
+  ],
+  "video": "C:\\Users\\USER\\Documents\\lake.group.web\\docs\\qa\\offline-redesign-interaction.mp4"
+}

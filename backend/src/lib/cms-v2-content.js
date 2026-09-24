@@ -10,7 +10,7 @@ const pageSchema = z.object({
   hero: z.object({ heading: text(160), description: text(1000), image: url, alt: z.string().max(250).optional() }).strict(),
   introduction: z.object({ heading: text(200), body: text(8000) }).strict(),
   cta: z.object({ label: text(80), href: url }).strict(),
-  media: z.array(z.object({ src: url, alt: z.string().max(250), role: z.enum(['hero', 'gallery', 'inline']).default('inline') }).strict()).max(40).default([]),
+  media: z.array(z.object({ src: url, alt: z.string().max(250), role: z.enum(['hero', 'gallery', 'inline', 'background', 'download']).default('inline'), kind: z.enum(['image','video','file']).default('image') }).strict()).max(80).default([]),
   sections: z.array(z.object({ key: text(80), heading: text(200), body: text(8000) }).strict()).max(30).default([]),
   composition: cmsV2CompositionSchema.optional(),
   seo,

@@ -35,7 +35,9 @@ export async function buildCmsV2SeedDataset({ root = resolve(process.cwd(), '..'
   return documents;
 }
 
-export async function seedCmsV2Documents({ service, dataset, actorId = 'CMS_V2_SEED' }) {
+// Initial imports predate a human CMS user. A null author is the established
+// system-import representation and avoids creating a synthetic FK-only user.
+export async function seedCmsV2Documents({ service, dataset, actorId = null }) {
   const result = { imported: 0, unchanged: 0, failed: 0 };
   for (const [key, data] of Object.entries(dataset)) {
     try { const document = await service.readDocument(key); if (document.currentDraftRevision) { result.unchanged += 1; continue; } await service.saveDraft({ key, actorId, data }); result.imported += 1; } catch (error) { result.failed += 1; throw Object.assign(error, { seedResult: result, documentKey: key }); }

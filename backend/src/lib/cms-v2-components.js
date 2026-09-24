@@ -6,10 +6,12 @@ const componentTypes = [
   'corporate-hero', 'company-hero', 'image-text', 'text-image', 'stat-grid', 'stat-card',
   'company-card', 'service-card', 'image-card', 'cta', 'gallery', 'logo-group',
   'timeline-item', 'contact-block', 'business-vertical-card',
+  'custom-globe', 'history-timeline', 'interactive-gallery', 'station-map', 'fleet-directory',
 ];
 
 const layoutChildren = componentTypes.filter((type) => !['corporate-hero', 'company-hero'].includes(type));
 const leaf = [];
+const specialTypes = ['custom-globe', 'history-timeline', 'interactive-gallery', 'station-map', 'fleet-directory'];
 export const CMS_V2_COMPONENT_REGISTRY = Object.freeze({
   section: { category: 'layout', children: layoutChildren, protected: false },
   container: { category: 'layout', children: layoutChildren, protected: false },
@@ -20,16 +22,21 @@ export const CMS_V2_COMPONENT_REGISTRY = Object.freeze({
   'rich-text': { category: 'content', children: leaf }, image: { category: 'media', children: leaf },
   video: { category: 'media', children: leaf }, button: { category: 'content', children: leaf },
   link: { category: 'content', children: leaf }, icon: { category: 'content', children: leaf }, list: { category: 'content', children: leaf },
-  'corporate-hero': { category: 'lake', children: ['heading', 'paragraph', 'button'], protected: true },
-  'company-hero': { category: 'lake', children: ['heading', 'paragraph', 'button'], protected: true },
-  'image-text': { category: 'lake', children: ['heading', 'paragraph', 'image', 'button'] },
-  'text-image': { category: 'lake', children: ['heading', 'paragraph', 'image', 'button'] },
+  'corporate-hero': { category: 'lake', children: ['heading', 'paragraph', 'button', ...specialTypes], protected: true },
+  'company-hero': { category: 'lake', children: ['heading', 'paragraph', 'button', ...specialTypes], protected: true },
+  'image-text': { category: 'lake', children: ['heading', 'paragraph', 'image', 'video', 'button'] },
+  'text-image': { category: 'lake', children: ['heading', 'paragraph', 'image', 'video', 'button'] },
   'stat-grid': { category: 'lake', children: ['stat-card'] }, 'stat-card': { category: 'lake', children: leaf },
   'company-card': { category: 'lake', children: leaf }, 'service-card': { category: 'lake', children: leaf },
   'image-card': { category: 'lake', children: leaf }, cta: { category: 'lake', children: ['heading', 'paragraph', 'button'] },
   gallery: { category: 'lake', children: ['image'] }, 'logo-group': { category: 'lake', children: ['image', 'link'] },
   'timeline-item': { category: 'lake', children: leaf }, 'contact-block': { category: 'lake', children: leaf },
   'business-vertical-card': { category: 'lake', children: leaf },
+  'custom-globe': { category: 'protected', children: leaf, protected: true },
+  'history-timeline': { category: 'protected', children: leaf, protected: true },
+  'interactive-gallery': { category: 'protected', children: leaf, protected: true },
+  'station-map': { category: 'protected', children: leaf, protected: true },
+  'fleet-directory': { category: 'protected', children: leaf, protected: true },
 });
 
 const span = z.number().int().min(1).max(12);
@@ -55,8 +62,8 @@ const content = z.object({
   href: z.string().max(1000).optional(), action: z.enum(['internal', 'external', 'email', 'telephone', 'anchor', 'file']).optional(),
   target: z.enum(['same', 'new']).optional(), variant: z.enum(['primary', 'secondary', 'outline', 'text']).optional(),
   size: z.enum(['small', 'medium', 'large']).optional(), icon: z.string().max(120).optional(),
-  items: z.array(z.string().max(1000)).max(100).optional(), value: z.string().max(200).optional(), prefix: z.string().max(100).optional(), suffix: z.string().max(100).optional(),
-  reference: z.object({ key: z.string().max(160), state: z.enum(['linked', 'override', 'detached', 'broken']), snapshot: z.string().max(1000).optional() }).strict().optional(),
+  items: z.array(z.string().max(1000)).max(100).optional(), value: z.string().max(200).optional(), prefix: z.string().max(20000).optional(), suffix: z.string().max(20000).optional(),
+  reference: z.object({ key: z.string().max(160), state: z.enum(['linked', 'override', 'detached', 'broken']), snapshot: z.string().max(1000).optional(), field: z.enum(['heading','body','text','value','label']).optional() }).strict().optional(),
 }).strict();
 
 export const cmsV2ComponentSchema = z.lazy(() => z.object({

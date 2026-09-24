@@ -1,0 +1,1178 @@
+[
+  {
+    "viewport": "1440",
+    "page": "lake-aviation.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "images": [
+      {
+        "src": "assets/images/logos/companies/lake-aviation.png",
+        "complete": true,
+        "naturalWidth": 1374,
+        "naturalHeight": 536
+      },
+      {
+        "src": "assets/images/logos/companies/lake-oil.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 547
+      },
+      {
+        "src": "assets/images/logos/companies/lake-aviation.png",
+        "complete": true,
+        "naturalWidth": 1374,
+        "naturalHeight": 536
+      },
+      {
+        "src": "assets/images/logos/companies/lake-gas.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 548
+      },
+      {
+        "src": "assets/images/logos/companies/lake-lubes.png",
+        "complete": true,
+        "naturalWidth": 1375,
+        "naturalHeight": 532
+      },
+      {
+        "src": "assets/images/logos/companies/lake-buildings.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-pipes-dropdown-yellow.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-steel.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-cylinders.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-premix-cement.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/gulf-aggregates.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aficd-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aill-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-trans.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/cross-country-developer-limited-logo.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-agro-new.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/agrinova-tech.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/atl-icon.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/nexdrive-motors.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/lake-aviation-hero-apron-clean.webp",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/credentials/jig-member-2026.webp",
+        "complete": true,
+        "naturalWidth": 1254,
+        "naturalHeight": 1254
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-2-clean.webp",
+        "complete": true,
+        "naturalWidth": 1080,
+        "naturalHeight": 810
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-4-clean.webp",
+        "complete": true,
+        "naturalWidth": 1080,
+        "naturalHeight": 810
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-6-clean.webp",
+        "complete": true,
+        "naturalWidth": 1080,
+        "naturalHeight": 607
+      },
+      {
+        "src": "assets/images/lake-aviation/ops/bulk-storage-lake-energies.webp",
+        "complete": true,
+        "naturalWidth": 1672,
+        "naturalHeight": 940
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-fueling-clean.webp",
+        "complete": true,
+        "naturalWidth": 1672,
+        "naturalHeight": 941
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-skyward-clean.webp",
+        "complete": true,
+        "naturalWidth": 1445,
+        "naturalHeight": 1088
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-nyerere-clean.webp",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-worker-underwing-clean.webp",
+        "complete": true,
+        "naturalWidth": 1086,
+        "naturalHeight": 1448
+      },
+      {
+        "src": "assets/images/lake-aviation/gallery/aviation-oman-air-cargo.webp",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      {
+        "src": "assets/images/lake-aviation/gallery/aviation-flysafair-refuel-clean.webp",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-team-truck-clean.webp",
+        "complete": true,
+        "naturalWidth": 1444,
+        "naturalHeight": 1089
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-8-clean.webp",
+        "complete": true,
+        "naturalWidth": 1000,
+        "naturalHeight": 563
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-9-clean.webp",
+        "complete": true,
+        "naturalWidth": 1080,
+        "naturalHeight": 810
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-10-clean.webp",
+        "complete": true,
+        "naturalWidth": 1080,
+        "naturalHeight": 810
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-11-clean.webp",
+        "complete": true,
+        "naturalWidth": 1020,
+        "naturalHeight": 768
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-12-clean.webp",
+        "complete": true,
+        "naturalWidth": 1000,
+        "naturalHeight": 750
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-13-clean.webp",
+        "complete": true,
+        "naturalWidth": 1020,
+        "naturalHeight": 768
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-14-clean.webp",
+        "complete": true,
+        "naturalWidth": 810,
+        "naturalHeight": 1080
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-15-clean.webp",
+        "complete": true,
+        "naturalWidth": 1020,
+        "naturalHeight": 768
+      },
+      {
+        "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+        "complete": true,
+        "naturalWidth": 1383,
+        "naturalHeight": 527
+      },
+      {
+        "src": "assets/images/flags/tz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ke.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/zm.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/rw.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/bi.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/cd.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/et.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/mz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ug.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ae.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      }
+    ]
+  },
+  {
+    "viewport": "1440",
+    "page": "aficd.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "images": [
+      {
+        "src": "assets/images/logos/companies/aficd-white-logo.png",
+        "complete": true,
+        "naturalWidth": 2172,
+        "naturalHeight": 724
+      },
+      {
+        "src": "assets/images/logos/companies/lake-oil.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 547
+      },
+      {
+        "src": "assets/images/logos/companies/lake-aviation.png",
+        "complete": true,
+        "naturalWidth": 1374,
+        "naturalHeight": 536
+      },
+      {
+        "src": "assets/images/logos/companies/lake-gas.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 548
+      },
+      {
+        "src": "assets/images/logos/companies/lake-lubes.png",
+        "complete": true,
+        "naturalWidth": 1375,
+        "naturalHeight": 532
+      },
+      {
+        "src": "assets/images/logos/companies/lake-buildings.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-pipes-dropdown-yellow.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-steel.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-cylinders.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-premix-cement.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/gulf-aggregates.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aficd-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aill-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-trans.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/cross-country-developer-limited-logo.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-agro-new.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/agrinova-tech.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/atl-icon.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/nexdrive-motors.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/delivery/aficd/remediated/aficd-truck-loading-clean.webp",
+        "complete": true,
+        "naturalWidth": 1200,
+        "naturalHeight": 800
+      },
+      {
+        "src": "assets/images/delivery/aficd/remediated/aficd-reach-stacker-clean.webp",
+        "complete": true,
+        "naturalWidth": 1552,
+        "naturalHeight": 1013
+      },
+      {
+        "src": "assets/images/aficd/operations/aficd-wide-yard.webp",
+        "complete": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024
+      },
+      {
+        "src": "assets/images/aficd/operations/aficd-branded-container.webp",
+        "complete": false,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024
+      },
+      {
+        "src": "assets/images/delivery/aficd/remediated/aficd-yard-lift-clean.webp",
+        "complete": true,
+        "naturalWidth": 1200,
+        "naturalHeight": 800
+      },
+      {
+        "src": "assets/images/delivery/aficd/remediated/aficd-truck-loading-clean.webp",
+        "complete": true,
+        "naturalWidth": 1200,
+        "naturalHeight": 800
+      },
+      {
+        "src": "assets/images/delivery/aficd/remediated/aficd-yard-clean.webp",
+        "complete": true,
+        "naturalWidth": 1200,
+        "naturalHeight": 800
+      },
+      {
+        "src": "assets/images/delivery/aficd/remediated/aficd-container-handling-clean.webp",
+        "complete": true,
+        "naturalWidth": 1200,
+        "naturalHeight": 800
+      },
+      {
+        "src": "assets/images/aficd/operations/aficd-wide-yard.webp",
+        "complete": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024
+      },
+      {
+        "src": "assets/images/delivery/aficd/remediated/aficd-yard-lift-clean.webp",
+        "complete": true,
+        "naturalWidth": 1200,
+        "naturalHeight": 800
+      },
+      {
+        "src": "assets/images/delivery/aficd/remediated/aficd-truck-loading-clean.webp",
+        "complete": true,
+        "naturalWidth": 1200,
+        "naturalHeight": 800
+      },
+      {
+        "src": "assets/images/aficd/operations/aficd-branded-container.webp",
+        "complete": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024
+      },
+      {
+        "src": "assets/images/delivery/aficd/remediated/aficd-container-handling-clean.webp",
+        "complete": true,
+        "naturalWidth": 1200,
+        "naturalHeight": 800
+      },
+      {
+        "src": "assets/images/aficd/operations/aficd-branded-container.webp",
+        "complete": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024
+      },
+      {
+        "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+        "complete": true,
+        "naturalWidth": 1383,
+        "naturalHeight": 527
+      },
+      {
+        "src": "assets/images/flags/tz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ke.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/zm.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/rw.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/bi.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/cd.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/et.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/mz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ug.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ae.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      }
+    ]
+  },
+  {
+    "viewport": "390",
+    "page": "lake-aviation.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "images": [
+      {
+        "src": "assets/images/logos/companies/lake-aviation.png",
+        "complete": true,
+        "naturalWidth": 1374,
+        "naturalHeight": 536
+      },
+      {
+        "src": "assets/images/logos/companies/lake-oil.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 547
+      },
+      {
+        "src": "assets/images/logos/companies/lake-aviation.png",
+        "complete": true,
+        "naturalWidth": 1374,
+        "naturalHeight": 536
+      },
+      {
+        "src": "assets/images/logos/companies/lake-gas.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 548
+      },
+      {
+        "src": "assets/images/logos/companies/lake-lubes.png",
+        "complete": true,
+        "naturalWidth": 1375,
+        "naturalHeight": 532
+      },
+      {
+        "src": "assets/images/logos/companies/lake-buildings.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-pipes-dropdown-yellow.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-steel.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-cylinders.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-premix-cement.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/gulf-aggregates.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aficd-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aill-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-trans.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/cross-country-developer-limited-logo.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-agro-new.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/agrinova-tech.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/atl-icon.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/nexdrive-motors.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/lake-aviation-hero-apron-clean.webp",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/credentials/jig-member-2026.webp",
+        "complete": true,
+        "naturalWidth": 1254,
+        "naturalHeight": 1254
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-2-clean.webp",
+        "complete": true,
+        "naturalWidth": 1080,
+        "naturalHeight": 810
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-4-clean.webp",
+        "complete": true,
+        "naturalWidth": 1080,
+        "naturalHeight": 810
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-6-clean.webp",
+        "complete": true,
+        "naturalWidth": 1080,
+        "naturalHeight": 607
+      },
+      {
+        "src": "assets/images/lake-aviation/ops/bulk-storage-lake-energies.webp",
+        "complete": true,
+        "naturalWidth": 1672,
+        "naturalHeight": 940
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-fueling-clean.webp",
+        "complete": true,
+        "naturalWidth": 1672,
+        "naturalHeight": 941
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-skyward-clean.webp",
+        "complete": true,
+        "naturalWidth": 1445,
+        "naturalHeight": 1088
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-nyerere-clean.webp",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-worker-underwing-clean.webp",
+        "complete": true,
+        "naturalWidth": 1086,
+        "naturalHeight": 1448
+      },
+      {
+        "src": "assets/images/lake-aviation/gallery/aviation-oman-air-cargo.webp",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      {
+        "src": "assets/images/lake-aviation/gallery/aviation-flysafair-refuel-clean.webp",
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-team-truck-clean.webp",
+        "complete": true,
+        "naturalWidth": 1444,
+        "naturalHeight": 1089
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-8-clean.webp",
+        "complete": true,
+        "naturalWidth": 1000,
+        "naturalHeight": 563
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-9-clean.webp",
+        "complete": true,
+        "naturalWidth": 1080,
+        "naturalHeight": 810
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-10-clean.webp",
+        "complete": true,
+        "naturalWidth": 1080,
+        "naturalHeight": 810
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-11-clean.webp",
+        "complete": true,
+        "naturalWidth": 1020,
+        "naturalHeight": 768
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-12-clean.webp",
+        "complete": true,
+        "naturalWidth": 1000,
+        "naturalHeight": 750
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-13-clean.webp",
+        "complete": true,
+        "naturalWidth": 1020,
+        "naturalHeight": 768
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-14-clean.webp",
+        "complete": true,
+        "naturalWidth": 810,
+        "naturalHeight": 1080
+      },
+      {
+        "src": "assets/images/delivery/lake-aviation/remediated/aviation-15-clean.webp",
+        "complete": true,
+        "naturalWidth": 1020,
+        "naturalHeight": 768
+      },
+      {
+        "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+        "complete": true,
+        "naturalWidth": 1383,
+        "naturalHeight": 527
+      },
+      {
+        "src": "assets/images/flags/tz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ke.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/zm.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/rw.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/bi.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/cd.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/et.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/mz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ug.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ae.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      }
+    ]
+  },
+  {
+    "viewport": "390",
+    "page": "aficd.html",
+    "status": 200,
+    "failures": [],
+    "broken": [],
+    "images": [
+      {
+        "src": "assets/images/logos/companies/aficd-white-logo.png",
+        "complete": true,
+        "naturalWidth": 2172,
+        "naturalHeight": 724
+      },
+      {
+        "src": "assets/images/logos/companies/lake-oil.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 547
+      },
+      {
+        "src": "assets/images/logos/companies/lake-aviation.png",
+        "complete": true,
+        "naturalWidth": 1374,
+        "naturalHeight": 536
+      },
+      {
+        "src": "assets/images/logos/companies/lake-gas.png",
+        "complete": true,
+        "naturalWidth": 1403,
+        "naturalHeight": 548
+      },
+      {
+        "src": "assets/images/logos/companies/lake-lubes.png",
+        "complete": true,
+        "naturalWidth": 1375,
+        "naturalHeight": 532
+      },
+      {
+        "src": "assets/images/logos/companies/lake-buildings.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-pipes-dropdown-yellow.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-steel.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-cylinders.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-premix-cement.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/gulf-aggregates.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aficd-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/aill-white-logo.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-trans.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/cross-country-developer-limited-logo.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/lake-agro-new.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/agrinova-tech.png",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/atl-icon.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/logos/companies/nexdrive-motors.webp",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "src": "assets/images/delivery/aficd/remediated/aficd-truck-loading-clean.webp",
+        "complete": true,
+        "naturalWidth": 1200,
+        "naturalHeight": 800
+      },
+      {
+        "src": "assets/images/delivery/aficd/remediated/aficd-reach-stacker-clean.webp",
+        "complete": true,
+        "naturalWidth": 1552,
+        "naturalHeight": 1013
+      },
+      {
+        "src": "assets/images/aficd/operations/aficd-wide-yard.webp",
+        "complete": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024
+      },
+      {
+        "src": "assets/images/aficd/operations/aficd-branded-container.webp",
+        "complete": false,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024
+      },
+      {
+        "src": "assets/images/delivery/aficd/remediated/aficd-yard-lift-clean.webp",
+        "complete": true,
+        "naturalWidth": 1200,
+        "naturalHeight": 800
+      },
+      {
+        "src": "assets/images/delivery/aficd/remediated/aficd-truck-loading-clean.webp",
+        "complete": true,
+        "naturalWidth": 1200,
+        "naturalHeight": 800
+      },
+      {
+        "src": "assets/images/delivery/aficd/remediated/aficd-yard-clean.webp",
+        "complete": true,
+        "naturalWidth": 1200,
+        "naturalHeight": 800
+      },
+      {
+        "src": "assets/images/delivery/aficd/remediated/aficd-container-handling-clean.webp",
+        "complete": true,
+        "naturalWidth": 1200,
+        "naturalHeight": 800
+      },
+      {
+        "src": "assets/images/aficd/operations/aficd-wide-yard.webp",
+        "complete": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024
+      },
+      {
+        "src": "assets/images/delivery/aficd/remediated/aficd-yard-lift-clean.webp",
+        "complete": true,
+        "naturalWidth": 1200,
+        "naturalHeight": 800
+      },
+      {
+        "src": "assets/images/delivery/aficd/remediated/aficd-truck-loading-clean.webp",
+        "complete": true,
+        "naturalWidth": 1200,
+        "naturalHeight": 800
+      },
+      {
+        "src": "assets/images/aficd/operations/aficd-branded-container.webp",
+        "complete": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024
+      },
+      {
+        "src": "assets/images/delivery/aficd/remediated/aficd-container-handling-clean.webp",
+        "complete": true,
+        "naturalWidth": 1200,
+        "naturalHeight": 800
+      },
+      {
+        "src": "assets/images/aficd/operations/aficd-branded-container.webp",
+        "complete": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024
+      },
+      {
+        "src": "assets/images/logos/LAKE_GROUP_LOGO.png",
+        "complete": true,
+        "naturalWidth": 1383,
+        "naturalHeight": 527
+      },
+      {
+        "src": "assets/images/flags/tz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ke.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/zm.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/rw.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/bi.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/cd.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/et.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/mz.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ug.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      },
+      {
+        "src": "assets/images/flags/ae.svg",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 150
+      }
+    ]
+  }
+]

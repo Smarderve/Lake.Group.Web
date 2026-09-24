@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-11T04:10:29.734Z",
+  "generatedAt": "2026-09-13T01:34:01.326Z",
   "assertions": {
     "allBreakpoints": true,
     "integratedTransparency": true,
@@ -114,20 +114,20 @@
     }
   ],
   "desktop": {
-    "early": "translate3d(35.9294px, 361.576px, 0px)",
-    "settled": "translate3d(367.439px, 351.941px, 0px)",
+    "early": "translate3d(511.172px, 361.059px, 0px)",
+    "settled": "translate3d(497.894px, 375.016px, 0px)",
     "moved": true
   },
   "mobile": {
-    "early": "translate3d(127.708px, 155.583px, 0px)",
-    "settled": "translate3d(211.348px, 153.233px, 0px)",
+    "early": "translate3d(248.715px, 169.343px, 0px)",
+    "settled": "translate3d(248.676px, 173.015px, 0px)",
     "moved": true
   },
   "interaction": {
-    "beforeDrag": "translate3d(367.439px, 351.941px, 0px)",
-    "afterDrag": "translate3d(248.815px, 317.754px, 0px)",
+    "beforeDrag": "translate3d(497.894px, 375.016px, 0px)",
+    "afterDrag": "translate3d(295.122px, 341.081px, 0px)",
     "scrollBefore": 893,
     "scrollAfter": 1413
   },
-  "recordingBytes": 3265871
+  "recordingBytes": 3533716
 }

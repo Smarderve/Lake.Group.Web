@@ -56,7 +56,7 @@
     const backgrounds = { none: '', white: '#fff', light: '#f4f8fb', 'deep-blue': '#032d4d', 'light-blue': '#0181bb', yellow: '#fff200', 'brand-gradient': 'linear-gradient(135deg,#032d4d,#0181bb)' };
     composition.root.children.forEach((component, index) => {
       const content = { ...(component.content || {}) };
-      if (content.reference?.state === 'linked' && globalFields.has(content.reference.key)) content.value = `${content.prefix || ''}${globalFields.get(content.reference.key)}${content.suffix || ''}`;
+      if (content.reference?.state === 'linked' && globalFields.has(content.reference.key)) content[content.reference.field || 'value'] = `${content.prefix || ''}${globalFields.get(content.reference.key)}${content.suffix || ''}`;
       let section = sections[index];
       if (!section) {
         section = document.createElement('section'); section.className = 'fs-section section-light';
