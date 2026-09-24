@@ -1,10 +1,22 @@
 # Contact and Careers test delivery
 
-The static Vercel site proxies only four form routes to the existing Render backend: the two token routes and the two POST routes. CMS content delivery and admin routes are not part of these rewrites.
+This document covers controlled testing only. Render and Vercel are optional development/staging environments. Final production is `https://www.lakeoilgroup.com` on Lake Group-owned infrastructure: IIS at the public HTTPS edge, a private persistent Node forms service, private ClamAV, and same-origin `/api` routes. Lake Group production does not depend on Render or Vercel.
+
+## Local development
+
+Use local Node, database, mail/scanner test doubles, and development-only secrets. Keep all credentials out of browser code and Git.
+
+## Temporary development/staging
+
+A Vercel static deployment may proxy the four form routes to a Render backend for controlled testing. This is optional staging topology only; its provider URLs and rewrites must never be copied into the Lake Group production architecture. CMS content delivery and admin routes are not part of these form rewrites.
+
+## Final Lake Group production
+
+IIS/ARR proxies `/api/contact/*` and `/api/careers/*` to the private Node service over loopback or a private server address. The service reads the production environment variables below, sends mail through its server-side adapter, and scans Careers uploads through private ClamAV. The browser continues to call same-origin `/api/contact/*` and `/api/careers/*` routes.
 
 ## Required backend environment
 
-Set the following in the Render backend service before testing. Do not put mail credentials or the signing secret in Vercel public variables or browser code.
+For staging, set the following in the backend service environment. For final production, set the same names in the Lake Group Node service environment. Never put mail credentials or the signing secret in Vercel public variables or browser code.
 
 ```dotenv
 CONTACT_RECIPIENT_EMAIL=projectdevemail001@gmail.com

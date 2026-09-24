@@ -1,4 +1,6 @@
-# CMS Production Deployment Architecture
+# CMS Deployment Architecture Reference
+
+> Provider-specific Vercel instructions in this document describe the former or temporary staging workflow. Lake Group final production is hosted on Lake Group-owned infrastructure at `https://www.lakeoilgroup.com`; IIS serves the static site and private services run the CMS/forms stack. Vercel is not a production dependency.
 
 ## Status and boundary
 
@@ -11,10 +13,10 @@ credentials, and secret values remain operator-owned external inputs.
 
 | Component | Target | Public address pattern | Artifact |
 | --- | --- | --- | --- |
-| Public website | Existing Vercel project | `https://www.<domain>` | Existing static site |
-| CMS | Separate Vercel project rooted at `cms/` | `https://cms.<domain>` | `cms/dist` |
-| API | Container platform behind managed TLS | `https://api.<domain>` | `backend/Dockerfile` |
-| PostgreSQL | Private managed/server database | No public browser route | Prisma schema/migrations |
+| Public website | Lake Group IIS server | `https://www.lakeoilgroup.com` | Existing static site |
+| CMS | Private Lake Group service | Private/admin origin | `cms/dist` |
+| API | Private Lake Group Node service behind IIS | Same-origin `/api` routes | `backend/Dockerfile` |
+| PostgreSQL | Private Lake Group server database | No public browser route | Prisma schema/migrations |
 
 Use CMS and API custom subdomains under the same registrable domain. They are
 different origins (so CORS applies) but remain same-site for the API's
@@ -74,7 +76,10 @@ strong session/MFA/backup secrets, all-role MFA policy, production object
 storage, recognized GitHub token format, safe proxy trust, protected release
 trigger, or exact HTTPS CMS/CSRF origin contract is missing.
 
-## CMS on Vercel
+## Optional staging CMS on Vercel
+
+The following Vercel steps are retained only for temporary staging and preview
+work. They are not used by Lake Group IIS production.
 
 1. Create a project with repository root `cms`.
 2. Select Vite; `cms/vercel.json` defines build, output, SPA rewrites, immutable

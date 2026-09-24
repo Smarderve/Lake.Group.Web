@@ -1,4 +1,6 @@
-# Simple Setup: Lake Group CMS on Vercel + Backend on Render
+# Temporary staging setup: Lake Group CMS on Vercel + Backend on Render
+
+> This guide is for optional development/staging only. It is not the Lake Group production architecture. Final production runs at `https://www.lakeoilgroup.com` on Lake Group-owned IIS and private Node infrastructure. Do not direct Lake Group IT to create Render or Vercel production accounts.
 
 This guide is for people who don't work with servers. It tells you exactly what
 to click, copy, and paste. You only need to set **6 values** on Render and
