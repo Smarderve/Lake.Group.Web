@@ -78,9 +78,10 @@ export const DEFAULT_METRIC_STALE_DAYS = 180; // Phase 3 — stale-data window
  */
 export function resolveConfig(env) {
   const appEnv = APP_ENVS.includes(env.NODE_ENV) ? env.NODE_ENV : 'development';
-  // Staging is a deployed tier that runs behind a single TLS ingress (Render/
-  // Vercel-style), so it defaults to the same proxy/HTTPS posture as
-  // production. Development/testing keep direct-connection defaults.
+  // Staging runs behind a single TLS ingress, so it defaults to the same
+  // proxy/HTTPS posture as production. Development/testing keep direct
+  // connection defaults. The ingress may be IIS, a temporary platform, or
+  // another approved Lake Group edge; provider identity is not security logic.
   const trustProxy = parseTrustProxy(
     env.TRUST_PROXY === undefined || env.TRUST_PROXY === ''
       ? (appEnv === 'staging' ? '1' : '')
