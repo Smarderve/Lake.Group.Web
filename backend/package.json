@@ -54,6 +54,7 @@
     "pino-http": "^11.0.0",
     "qrcode": "^1.5.4",
     "sharp": "^0.35.3",
+    "yauzl": "^3.4.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {
@@ -62,6 +63,7 @@
     "globals": "^16.5.0",
     "prisma": "^7.9.1",
     "supertest": "^7.2.2",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.10",
+    "yazl": "^3.3.1"
   }
 }

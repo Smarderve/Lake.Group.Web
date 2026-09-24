@@ -6,11 +6,17 @@
   const selectedOpportunity = document.querySelector('#career-selected-opportunity');
   const status = document.querySelector('#career-form-status');
   const cvInput = document.querySelector('#career-cv');
-  const maxCvBytes = 10 * 1024 * 1024;
-  const acceptedExtensions = new Set(['pdf', 'doc', 'docx']);
+  const maxCvBytes = 5 * 1024 * 1024;
+  const acceptedExtensions = new Set(['pdf', 'docx']);
   const startedAt = document.querySelector('#career-started-at');
   let submitting = false;
-  if (startedAt) startedAt.value = String(Date.now());
+  let token = null;
+  let idempotencyKey = crypto.randomUUID();
+  const loadToken = () => fetch('/api/careers/token', { credentials: 'omit', cache: 'no-store' })
+    .then(async (response) => response.ok ? response.json() : null)
+    .then((value) => { token = value; if (startedAt && value) startedAt.value = String(value.startedAt); })
+    .catch(() => { token = null; });
+  let tokenReady = loadToken();
 
   function setError(field, message) {
     const error = document.querySelector(`#${field.id}-error`);
@@ -20,12 +26,13 @@
   }
 
   function validateField(field) {
+    if (field.id === 'career-consent') return setError(field, field.checked ? '' : 'Please agree before submitting.');
     if (field.id === 'career-cv') {
       const file = field.files?.[0];
       if (!file) return setError(field, 'Please choose a CV or resume.');
       const extension = file.name.toLowerCase().split('.').pop();
-      if (!acceptedExtensions.has(extension)) return setError(field, 'Use a PDF, DOC or DOCX file.');
-      if (file.size > maxCvBytes) return setError(field, 'Your file must be 10 MB or smaller.');
+      if (!acceptedExtensions.has(extension)) return setError(field, 'Please upload your CV as a PDF or DOCX file.');
+      if (file.size > maxCvBytes) return setError(field, 'Your CV is larger than the 5 MB limit.');
       return setError(field, '');
     }
     if (field.required && !field.value.trim()) return setError(field, 'This field is required.');
@@ -105,34 +112,46 @@
     submitting = true;
     submitButton.disabled = true;
     submitButton.dataset.defaultLabel = submitButton.textContent;
-    submitButton.textContent = 'Preparing email…';
+    submitButton.textContent = 'Submitting application securely…';
     submitButton.setAttribute('aria-busy', 'true');
-    status.textContent = 'Preparing your application email…';
+    status.textContent = 'Submitting application securely…';
     status.dataset.state = 'pending';
     status.hidden = false;
     status.focus();
-    const data = new FormData(form);
-    const subject = `Career application: ${data.get('opportunity') || 'General application'}`;
-    const body = [
-      `Name: ${data.get('name') || ''}`,
-      `Email: ${data.get('email') || ''}`,
-      `Phone: ${data.get('phone') || ''}`,
-      `Nationality: ${data.get('nationality') || ''}`,
-      `Opportunity: ${data.get('opportunity') || 'General application'}`,
-      '',
-      'Cover letter:',
-      String(data.get('coverLetter') || ''),
-      '',
-      'Please attach the selected CV before sending this email.',
-    ].join('\n');
-    const mailto = `mailto:admin@lakeoilgroup.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    status.textContent = 'Your email app is opening. Attach your selected CV, then send the message to complete your application.';
-    status.dataset.state = 'success';
-    window.location.href = mailto;
-    submitting = false;
-    submitButton.disabled = false;
-    submitButton.textContent = submitButton.dataset.defaultLabel || 'Submit application';
-    submitButton.removeAttribute('aria-busy');
-    status.focus();
+    try {
+      await tokenReady;
+      if (!token?.token) throw new Error('service');
+      const data = new FormData(form);
+      data.set('submissionToken', token.token);
+      data.set('startedAt', String(token.startedAt));
+      data.set('idempotencyKey', idempotencyKey);
+      data.set('consent', 'true');
+      const response = await fetch('/api/careers/applications', { method: 'POST', body: data, credentials: 'omit', cache: 'no-store' });
+      if (!response.ok) {
+        const code = (await response.json().catch(() => null))?.error?.code;
+        status.textContent = response.status === 429 ? 'Too many submission attempts have been made from this connection. Please wait before trying again.'
+          : code === 'UNSUPPORTED_FILE_TYPE' || code === 'MALWARE_DETECTED' ? "We couldn't accept this document. Please export your CV as a new PDF or DOCX file and try again."
+            : 'The application service is temporarily unavailable. Your details have not been cleared. Please try again later.';
+        status.dataset.state = 'error';
+        return;
+      }
+      status.textContent = 'Application submitted successfully. Thank you for your interest in Lake Group. Our recruitment team has received your application.';
+      status.dataset.state = 'success';
+      form.reset();
+      token = null;
+      idempotencyKey = crypto.randomUUID();
+      tokenReady = loadToken();
+    } catch (error) {
+      status.textContent = error.message === 'service'
+        ? 'The application service is temporarily unavailable. Your details have not been cleared. Please try again later.'
+        : "We couldn't submit your application because the connection was interrupted. Your details have not been cleared. Check your connection and try again.";
+      status.dataset.state = 'error';
+    } finally {
+      submitting = false;
+      submitButton.disabled = false;
+      submitButton.textContent = submitButton.dataset.defaultLabel || 'Submit application';
+      submitButton.removeAttribute('aria-busy');
+      status.focus();
+    }
   });
 })();

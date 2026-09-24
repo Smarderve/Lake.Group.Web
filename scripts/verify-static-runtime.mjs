@@ -14,6 +14,7 @@ const mime = new Map([
   ['.woff2', 'font/woff2'], ['.ico', 'image/x-icon'], ['.webmanifest', 'application/manifest+json'],
 ]);
 const forbidden = /\/(?:api|admin|control)(?:\/|\?|$)|cms[^/]*release|content\/public/i;
+const formTokens = new Set(['/api/contact/token', '/api/careers/token']);
 
 const sitemap = await fs.readFile(path.join(root, 'sitemap.xml'), 'utf8');
 const pages = [...sitemap.matchAll(/<loc>https?:\/\/[^/]+\/?([^<]*)<\/loc>/g)]
@@ -42,13 +43,15 @@ try {
   for (const pageName of pages) {
     const context = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: 'block' });
     const page = await context.newPage();
+    await page.route(/\/api\/(?:contact|careers)\/token$/, (route) => route.fulfill({ status: 503, contentType: 'application/json', body: '{}' }));
     page.on('pageerror', (error) => errors.push(`${pageName}: ${error.message}`));
     page.on('request', (request) => {
-      if (forbidden.test(new URL(request.url()).pathname)) forbiddenRequests.add(request.url());
+      const pathname = new URL(request.url()).pathname;
+      if (forbidden.test(pathname) && !formTokens.has(pathname)) forbiddenRequests.add(request.url());
     });
     page.on('response', (response) => {
       const url = new URL(response.url());
-      if (url.hostname === '127.0.0.1' && response.status() >= 400) failedAssets.add(`${response.status()} ${url.pathname}`);
+      if (url.hostname === '127.0.0.1' && response.status() >= 400 && !formTokens.has(url.pathname)) failedAssets.add(`${response.status()} ${url.pathname}`);
     });
     const response = await page.goto(`http://127.0.0.1:${server.address().port}/${pageName}`, { waitUntil: 'domcontentloaded', timeout: 30000 });
     if (!response || response.status() >= 400) failedAssets.add(`${response?.status() || 'ERR'} /${pageName}`);
@@ -77,4 +80,4 @@ if (errors.length || forbiddenRequests.size || failedAssets.size) {
   console.error(JSON.stringify({ errors, forbiddenRequests: [...forbiddenRequests], failedAssets: [...failedAssets] }, null, 2));
   process.exit(1);
 }
-console.log(`Static runtime passed: ${pages.length} sitemap pages, zero required asset 404s, zero backend/CMS requests, one Home globe canvas.`);
+console.log(`Static runtime passed: ${pages.length} sitemap pages, zero required asset 404s, no CMS/content requests, form token service offline, one Home globe canvas.`);

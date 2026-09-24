@@ -23,6 +23,7 @@
 .ct-map { border:1px solid var(--line-2); background:var(--surface); overflow:hidden; }.ct-map-head { background:var(--ink-3); padding:var(--sp-4) var(--sp-5); }.ct-map-head span { color:rgba(233,237,248,.92); font-size:.85rem; font-weight:600; }.ct-map-body { display:block; background:var(--paper-2); }.ct-map-link{display:block;color:inherit;text-decoration:none}.ct-map-body img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;object-position:center}.ct-map-caption{padding:var(--sp-4) var(--sp-5) var(--sp-5);color:var(--text-body,var(--mute))}.ct-map-caption p{margin:0 0 var(--sp-3);font-size:.86rem}
 html.fs-motion .ct-dir-item { opacity:0; } html.fs-motion .ct-dir-item.ct-in { opacity:1; animation:ctCardIn var(--dur-3) var(--ease-out) backwards; animation-delay:var(--cd-d,0s); } html.fs-motion .ct-dir.fx, html.fs-motion .ct-dir.fx.in { opacity:1!important; transform:none!important; transition:none!important; } @keyframes ctCardIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } } .ct-dir-item:nth-child(1){--cd-d:0s}.ct-dir-item:nth-child(2){--cd-d:.05s}.ct-dir-item:nth-child(3){--cd-d:.1s}.ct-dir-item:nth-child(4){--cd-d:.15s}.ct-dir-item:nth-child(5){--cd-d:.2s}.ct-dir-item:nth-child(6){--cd-d:.25s}</style>
 <link rel="stylesheet" href="assets/tokens.css?v=20260828-01">
+<link rel="stylesheet" href="assets/form-submission.css?v=20260924-01">
   <link rel="preload" href="assets/fonts/files/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin />
@@ -158,16 +159,19 @@ html.fs-motion .ct-dir-item { opacity:0; } html.fs-motion .ct-dir-item.ct-in { o
       <div>
 <h2 data-i18n="contact.6" class="section-title">We're Happy to Hear From You</h2>
         <div class="divider-yellow"></div>
-        <form data-mock style="margin-top:32px">
+        <form id="contact-message-form" style="margin-top:32px" novalidate>
+          <div id="contact-form-status" role="status" aria-live="polite" tabindex="-1"></div>
+          <input name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;opacity:0">
           <div class="form-row">
-            <div class="form-group"><label data-i18n="contact.7" for="contact-name">Full Name *</label><input type="text" id="contact-name" placeholder="Your name" data-i18n-placeholder="contact.32" required></div>
-            <div class="form-group"><label data-i18n="contact.8" for="contact-email">Email *</label><input type="email" id="contact-email" placeholder="your@email.com" data-i18n-placeholder="contact.33" required></div>
+            <div class="form-group"><label data-i18n="contact.7" for="contact-name">Full Name *</label><input type="text" id="contact-name" name="name" maxlength="120" placeholder="Your name" data-i18n-placeholder="contact.32" required aria-describedby="contact-name-error"><small id="contact-name-error" aria-live="polite"></small></div>
+            <div class="form-group"><label data-i18n="contact.8" for="contact-email">Email *</label><input type="email" id="contact-email" name="email" maxlength="254" placeholder="your@email.com" data-i18n-placeholder="contact.33" required aria-describedby="contact-email-error"><small id="contact-email-error" aria-live="polite"></small></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label data-i18n="contact.9" for="contact-phone">Phone</label><input type="tel" id="contact-phone" placeholder="+255 700 000 000"></div>
-            <div class="form-group"><label data-i18n="contact.10" for="contact-subject">Subject</label><input type="text" id="contact-subject" placeholder="How can we help?" data-i18n-placeholder="contact.34"></div>
+            <div class="form-group"><label data-i18n="contact.9" for="contact-phone">Phone</label><input type="tel" id="contact-phone" name="phone" maxlength="40" placeholder="+255 700 000 000"></div>
+            <div class="form-group"><label data-i18n="contact.10" for="contact-subject">Subject *</label><input type="text" id="contact-subject" name="subject" maxlength="160" placeholder="How can we help?" data-i18n-placeholder="contact.34" required aria-describedby="contact-subject-error"><small id="contact-subject-error" aria-live="polite"></small></div>
           </div>
-          <div class="form-group"><label data-i18n="contact.11" for="contact-message">Message *</label><textarea rows="6" id="contact-message" placeholder="Tell us what you need..." data-i18n-placeholder="contact.35" required></textarea></div>
+          <div class="form-group"><label data-i18n="contact.11" for="contact-message">Message *</label><textarea rows="6" id="contact-message" name="message" maxlength="5000" placeholder="Tell us what you need..." data-i18n-placeholder="contact.35" required aria-describedby="contact-message-error"></textarea><small id="contact-message-error" aria-live="polite"></small></div>
+          <label class="contact-consent"><input id="contact-consent" type="checkbox" name="consent" required> <span>I agree that Lake Group may use these details to respond to my enquiry.</span></label>
           <button data-i18n="contact.12" type="submit" class="btn btn-primary btn-lg" style="width:100%">Send Message &rarr;</button>
         </form>
       </div>
@@ -244,6 +248,7 @@ html.fs-motion .ct-dir-item { opacity:0; } html.fs-motion .ct-dir-item.ct-in { o
 <script src="assets/i18n-content.js?v=20260828-01" defer></script>
 <script src="assets/i18n.js?v=20260828-01" defer></script>
 <script src="assets/site.js?v=20260828-01" defer></script>
+<script src="assets/contact-form.js?v=20260924-01" defer></script>
 <script src="assets/vendor/flexsearch/flexsearch.bundle.min.js" defer></script>
   <script src="assets/assistant-kb.js" defer></script>
   <script src="assets/assistant.js?v=20260828-01" defer></script>

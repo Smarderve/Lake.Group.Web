@@ -31,6 +31,7 @@ import { requireMfaEnrollment } from './middleware/auth.js';
 import { cmsAuthBypass } from './middleware/cms-auth-bypass.js';
 import { DEFAULT_SESSION_TTL_MS, DEFAULT_RECENT_AUTH_WINDOW_MS } from './config.js';
 import { careersRouter } from './routes/careers.js';
+import { contactRouter } from './routes/contact.js';
 import { cmsV2Router } from './routes/cms-v2.js';
 import { cmsV2DeploymentRouter } from './routes/cms-v2-deployment.js';
 
@@ -85,7 +86,12 @@ export function createApp({
   careersRecipientEmail = '',
   careersAllowedOrigins = [],
   careersMailer = null,
-  careersLimiter = undefined,
+  careersScanner = null,
+  contactRecipientEmail = '',
+  contactAllowedOrigins = [],
+  contactMailer = null,
+  formTokenSecret = '',
+  formRateLimitPool = null,
   cmsV2Service = null,
   cmsV2DeploymentToken = '',
   // Explicit local/test-only CMS access. It is forcibly disabled whenever
@@ -101,7 +107,6 @@ export function createApp({
   // Explicit body-size cap (SECURITY_ROADMAP Phase 5/10) — rejects oversized
   // payloads with 413 before any handler runs. Public write endpoints are
   // rate limited separately.
-  app.use(express.json({ limit: '100kb' }));
   // Phase 11 — security headers on every response (HSTS only over HTTPS).
   app.use(securityHeaders({ hsts: cookieSecure }));
 
@@ -110,6 +115,13 @@ export function createApp({
     // NEVER logged (pino-http's default copied every header).
     app.use(pinoHttp(pinoHttpOptions(logger)));
   }
+
+  // The two isolated public form routes parse their own bounded bodies.
+  app.use('/api/contact', contactRouter({ recipientEmail: contactRecipientEmail, allowedOrigins: contactAllowedOrigins,
+    mailer: contactMailer, tokenSecret: formTokenSecret, pool: formRateLimitPool }));
+  app.use('/api/careers', careersRouter({ recipientEmail: careersRecipientEmail, allowedOrigins: careersAllowedOrigins,
+    mailer: careersMailer, scanner: careersScanner, tokenSecret: formTokenSecret, pool: formRateLimitPool }));
+  app.use(express.json({ limit: '100kb' }));
 
   if (mediaStorage?.provider === 'local' && mediaStorage.publicDirectory) {
     app.use('/media/files', express.static(mediaStorage.publicDirectory, {
@@ -218,13 +230,6 @@ export function createApp({
   app.use('/admin/settings', settingsRouter({ db, prefsStore }));
   app.use('/admin', adminRouter({ db, recentAuthWindowMs }));
   app.use('/api/public', publicRouter({ db }, publicWriteLimiter));
-  // Narrow transactional endpoint. This does not hydrate or publish any site content.
-  app.use('/api/careers', careersRouter({
-    recipientEmail: careersRecipientEmail,
-    allowedOrigins: careersAllowedOrigins,
-    mailer: careersMailer,
-    limiter: careersLimiter,
-  }));
 
   app.use(notFoundHandler);
   app.use(errorHandler({ logger }));

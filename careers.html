@@ -137,6 +137,7 @@
 @media (prefers-reduced-motion: reduce) { .cr-hero-actions .btn, .cr-hero-primary .cr-arrow, .cr-benefit, .cr-benefit::before, .cr-benefit::after, .cr-benefit-media img, .cr-benefit h4 { transition: none; } }
 </style>
 <link rel="stylesheet" href="assets/tokens.css?v=20260828-01">
+<link rel="stylesheet" href="assets/form-submission.css?v=20260924-01">
   <link rel="preload" href="assets/fonts/files/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin />
@@ -389,11 +390,12 @@
           <label for="career-cv">Upload CV <span aria-hidden="true">*</span></label>
           <div id="career-cv-dropzone" class="cr-upload-dropzone" aria-describedby="career-cv-help career-cv-error">
             <div id="career-cv-upload-root"></div>
-            <span id="career-cv-help" class="cr-upload-meta">PDF, DOC or DOCX · maximum 10 MB · one file</span>
+            <span id="career-cv-help" class="cr-upload-meta">PDF or DOCX · maximum 5 MB · one file</span>
           </div>
           <span id="career-cv-error" class="cr-upload-error" aria-live="polite"></span>
         </div>
       </div>
+      <label class="cr-help"><input id="career-consent" type="checkbox" name="consent" required aria-describedby="career-consent-error"> I agree that Lake Group may use my details and CV to review this application.</label><span id="career-consent-error" class="cr-error" aria-live="polite"></span>
       <div class="cr-form-actions">
         <span class="cr-help">Required fields are marked with an asterisk.</span>
         <button type="submit" class="btn btn-primary btn-lg">Submit application</button>
@@ -441,8 +443,8 @@
 <script src="assets/flagship-motion.js?v=20260828-01" defer></script>
 <script src="assets/split-text.js?v=20260828-01" defer></script>
   <script defer src="assets/phase-01-navbar.js?v=20260828-01"></script>
-<script defer src="assets/careers-file-upload.js?v=20260908-03"></script>
-  <script defer src="assets/careers-application.js?v=20260908-01"></script>
+<script defer src="assets/careers-file-upload.js?v=20260924-01"></script>
+  <script defer src="assets/careers-application.js?v=20260924-01"></script>
 
 <footer class="site-footer" role="contentinfo">
   <div class="container">

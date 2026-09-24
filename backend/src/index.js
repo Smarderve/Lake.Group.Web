@@ -8,6 +8,8 @@ import { createObjectStorage } from './lib/object-storage.js';
 import { startPublicReleaseWorker } from './lib/public-release.js';
 import { createSecretBox, inspectMfaKey } from './lib/secret-box.js';
 import { createResendMailer } from './routes/careers.js';
+import { createFormMailer } from './lib/form-mailer.js';
+import { createClamdScanner } from './lib/clamd-scanner.js';
 import { createCmsV2ReleaseStorage } from './lib/cms-v2-release-storage.js';
 import { createCmsV2RuntimeService } from './lib/cms-v2-runtime-service.js';
 import { resolve } from 'node:path';
@@ -95,6 +97,12 @@ const app = createApp({
   careersRecipientEmail: config.careersRecipientEmail,
   careersAllowedOrigins: config.careersAllowedOrigins,
   careersMailer: createResendMailer({ apiKey: config.careersMailApiKey, from: config.careersMailFrom }),
+  careersScanner: createClamdScanner({ host: config.careersClamdHost, port: config.careersClamdPort }),
+  contactRecipientEmail: config.contactRecipientEmail,
+  contactAllowedOrigins: config.contactAllowedOrigins,
+  contactMailer: createFormMailer({ apiKey: config.contactMailApiKey, from: config.contactMailFrom }),
+  formTokenSecret: config.publicFormTokenSecret,
+  formRateLimitPool: rateLimitPool,
   cmsV2Service,
   cmsV2DeploymentToken: config.cmsV2DeploymentToken,
   cmsAuthBypassEnabled: config.cmsAuthBypass,

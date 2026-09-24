@@ -1,6 +1,12 @@
 {
   "cleanUrls": false,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/api/contact/token", "destination": "https://lake-group-web-backend.onrender.com/api/contact/token" },
+    { "source": "/api/contact/messages", "destination": "https://lake-group-web-backend.onrender.com/api/contact/messages" },
+    { "source": "/api/careers/token", "destination": "https://lake-group-web-backend.onrender.com/api/careers/token" },
+    { "source": "/api/careers/applications", "destination": "https://lake-group-web-backend.onrender.com/api/careers/applications" }
+  ],
   "redirects": [
     {
       "source": "/acfs.html",

@@ -181,10 +181,17 @@ export function resolveConfig(env) {
     publicReleasePollMs: finiteNumber(env.PUBLIC_RELEASE_POLL_MS, 15_000),
     publicReleaseMaxAttempts: finiteNumber(env.PUBLIC_RELEASE_MAX_ATTEMPTS, 8),
     cmsV2DeploymentToken: env.CMS_V2_DEPLOYMENT_TOKEN || '',
-    careersRecipientEmail: env.CAREERS_RECIPIENT_EMAIL || 'projectdevemail001@gmail.com',
+    careersRecipientEmail: env.CAREERS_RECIPIENT_EMAIL || '',
     careersAllowedOrigins: commaSeparated(env.CAREERS_ALLOWED_ORIGINS),
     careersMailApiKey: env.CAREERS_MAIL_API_KEY || '',
     careersMailFrom: env.CAREERS_MAIL_FROM || '',
+    careersClamdHost: env.CAREERS_CLAMD_HOST || '',
+    careersClamdPort: finiteNumber(env.CAREERS_CLAMD_PORT, 3310),
+    contactRecipientEmail: env.CONTACT_RECIPIENT_EMAIL || '',
+    contactAllowedOrigins: commaSeparated(env.CONTACT_ALLOWED_ORIGINS),
+    contactMailApiKey: env.CONTACT_MAIL_API_KEY || '',
+    contactMailFrom: env.CONTACT_MAIL_FROM || '',
+    publicFormTokenSecret: env.PUBLIC_FORM_TOKEN_SECRET || '',
   };
 }
 

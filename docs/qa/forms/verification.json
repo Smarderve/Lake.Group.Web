@@ -1,0 +1,50 @@
+[
+  {
+    "name": "contact",
+    "width": 360,
+    "overflow": false,
+    "fontSize": 16
+  },
+  {
+    "name": "careers",
+    "width": 360,
+    "overflow": false,
+    "fontSize": 16
+  },
+  {
+    "name": "contact",
+    "width": 390,
+    "overflow": false,
+    "fontSize": 16
+  },
+  {
+    "name": "careers",
+    "width": 390,
+    "overflow": false,
+    "fontSize": 16
+  },
+  {
+    "name": "contact",
+    "width": 412,
+    "overflow": false,
+    "fontSize": 16
+  },
+  {
+    "name": "careers",
+    "width": 412,
+    "overflow": false,
+    "fontSize": 16
+  },
+  {
+    "name": "contact",
+    "width": 430,
+    "overflow": false,
+    "fontSize": 16
+  },
+  {
+    "name": "careers",
+    "width": 430,
+    "overflow": false,
+    "fontSize": 16
+  }
+]

@@ -1,0 +1,13 @@
+#contact-message-form input:not([type="checkbox"]),
+#contact-message-form textarea,
+#career-application-form input:not([type="checkbox"]):not([type="file"]),
+#career-application-form textarea { font-size: max(16px, 1rem); }
+#contact-message-form [aria-invalid="true"],
+#career-application-form [aria-invalid="true"] { outline: 2px solid #aa3434; outline-offset: 2px; }
+#contact-message-form small[id$="-error"],
+#career-application-form [id$="-error"] { display: block; color: #9b2525; font-size: .85rem; margin-top: 4px; }
+#contact-form-status:not(:empty) { margin: 0 0 16px; padding: 12px 14px; border-left: 3px solid #0181bb; background: #ecf7fc; color: #122d40; line-height: 1.5; }
+#contact-message-form button[disabled],
+#career-application-form button[disabled] { opacity: .65; cursor: wait; }
+.contact-consent { display: flex; align-items: flex-start; gap: 10px; margin: 16px 0; padding-right: 48px; font-size: .9rem; line-height: 1.5; color: #173e51; }
+.contact-consent input { flex: 0 0 auto; width: 18px; height: 18px; margin: 2px 0 0; }
