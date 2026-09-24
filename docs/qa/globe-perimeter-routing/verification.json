@@ -1,0 +1,396 @@
+[
+  {
+    "viewport": {
+      "width": 1280,
+      "height": 720
+    },
+    "bundleLoaded": true,
+    "crossings": 0,
+    "collisions": 0,
+    "labelOverlaps": 0,
+    "clippedLabels": 0,
+    "missingLabels": 0,
+    "inwardViolations": 1,
+    "centralZoneViolations": 3,
+    "longLeaderViolations": 1,
+    "maximumLeaderLength": 286.96452489494186,
+    "lengthLimit": 283.6977572350169,
+    "crossingPairs": [],
+    "collisionPairs": [],
+    "labelOverlapPairs": [],
+    "clippedLabelIds": [],
+    "missingLabelIds": [],
+    "inwardRoutes": [
+      "tz"
+    ],
+    "centralZoneRoutes": [
+      "tz",
+      "ke",
+      "et"
+    ],
+    "longRoutes": [
+      "ug"
+    ],
+    "leaders": 10,
+    "rotationLabelsHidden": true
+  },
+  {
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "bundleLoaded": true,
+    "crossings": 0,
+    "collisions": 0,
+    "labelOverlaps": 0,
+    "clippedLabels": 0,
+    "missingLabels": 0,
+    "inwardViolations": 1,
+    "centralZoneViolations": 3,
+    "longLeaderViolations": 1,
+    "maximumLeaderLength": 286.96452489494186,
+    "lengthLimit": 283.6977572350169,
+    "crossingPairs": [],
+    "collisionPairs": [],
+    "labelOverlapPairs": [],
+    "clippedLabelIds": [],
+    "missingLabelIds": [],
+    "inwardRoutes": [
+      "tz"
+    ],
+    "centralZoneRoutes": [
+      "tz",
+      "ke",
+      "et"
+    ],
+    "longRoutes": [
+      "ug"
+    ],
+    "leaders": 10
+  },
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "bundleLoaded": true,
+    "crossings": 0,
+    "collisions": 0,
+    "labelOverlaps": 0,
+    "clippedLabels": 0,
+    "missingLabels": 0,
+    "inwardViolations": 1,
+    "centralZoneViolations": 3,
+    "longLeaderViolations": 1,
+    "maximumLeaderLength": 286.96452489494186,
+    "lengthLimit": 283.6977572350169,
+    "crossingPairs": [],
+    "collisionPairs": [],
+    "labelOverlapPairs": [],
+    "clippedLabelIds": [],
+    "missingLabelIds": [],
+    "inwardRoutes": [
+      "tz"
+    ],
+    "centralZoneRoutes": [
+      "tz",
+      "ke",
+      "et"
+    ],
+    "longRoutes": [
+      "ug"
+    ],
+    "leaders": 10
+  },
+  {
+    "viewport": {
+      "width": 1536,
+      "height": 864
+    },
+    "bundleLoaded": true,
+    "crossings": 0,
+    "collisions": 0,
+    "labelOverlaps": 0,
+    "clippedLabels": 0,
+    "missingLabels": 0,
+    "inwardViolations": 1,
+    "centralZoneViolations": 3,
+    "longLeaderViolations": 1,
+    "maximumLeaderLength": 286.96452489494186,
+    "lengthLimit": 283.6977572350169,
+    "crossingPairs": [],
+    "collisionPairs": [],
+    "labelOverlapPairs": [],
+    "clippedLabelIds": [],
+    "missingLabelIds": [],
+    "inwardRoutes": [
+      "tz"
+    ],
+    "centralZoneRoutes": [
+      "tz",
+      "ke",
+      "et"
+    ],
+    "longRoutes": [
+      "ug"
+    ],
+    "leaders": 10
+  },
+  {
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    },
+    "bundleLoaded": true,
+    "crossings": 0,
+    "collisions": 0,
+    "labelOverlaps": 0,
+    "clippedLabels": 0,
+    "missingLabels": 0,
+    "inwardViolations": 1,
+    "centralZoneViolations": 3,
+    "longLeaderViolations": 1,
+    "maximumLeaderLength": 286.96452489494186,
+    "lengthLimit": 283.6977572350169,
+    "crossingPairs": [],
+    "collisionPairs": [],
+    "labelOverlapPairs": [],
+    "clippedLabelIds": [],
+    "missingLabelIds": [],
+    "inwardRoutes": [
+      "tz"
+    ],
+    "centralZoneRoutes": [
+      "tz",
+      "ke",
+      "et"
+    ],
+    "longRoutes": [
+      "ug"
+    ],
+    "leaders": 10
+  },
+  {
+    "viewport": {
+      "width": 360,
+      "height": 800
+    },
+    "bundleLoaded": true,
+    "crossings": 0,
+    "collisions": 0,
+    "labelOverlaps": 0,
+    "clippedLabels": 0,
+    "missingLabels": 0,
+    "inwardViolations": 0,
+    "centralZoneViolations": 0,
+    "longLeaderViolations": 3,
+    "maximumLeaderLength": 145.93342053000458,
+    "lengthLimit": 121.72881176926705,
+    "crossingPairs": [],
+    "collisionPairs": [],
+    "labelOverlapPairs": [],
+    "clippedLabelIds": [],
+    "missingLabelIds": [],
+    "inwardRoutes": [],
+    "centralZoneRoutes": [],
+    "longRoutes": [
+      "ug",
+      "rw",
+      "zm"
+    ],
+    "leaders": 10
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "bundleLoaded": true,
+    "crossings": 0,
+    "collisions": 0,
+    "labelOverlaps": 0,
+    "clippedLabels": 0,
+    "missingLabels": 0,
+    "inwardViolations": 0,
+    "centralZoneViolations": 0,
+    "longLeaderViolations": 4,
+    "maximumLeaderLength": 162.77230452147006,
+    "lengthLimit": 128.45858017728307,
+    "crossingPairs": [],
+    "collisionPairs": [],
+    "labelOverlapPairs": [],
+    "clippedLabelIds": [],
+    "missingLabelIds": [],
+    "inwardRoutes": [],
+    "centralZoneRoutes": [],
+    "longRoutes": [
+      "ug",
+      "rw",
+      "bi",
+      "zm"
+    ],
+    "leaders": 10
+  },
+  {
+    "viewport": {
+      "width": 412,
+      "height": 915
+    },
+    "bundleLoaded": true,
+    "crossings": 0,
+    "collisions": 0,
+    "labelOverlaps": 0,
+    "clippedLabels": 0,
+    "missingLabels": 0,
+    "inwardViolations": 0,
+    "centralZoneViolations": 0,
+    "longLeaderViolations": 4,
+    "maximumLeaderLength": 176.44052758664978,
+    "lengthLimit": 135.7030108409412,
+    "crossingPairs": [],
+    "collisionPairs": [],
+    "labelOverlapPairs": [],
+    "clippedLabelIds": [],
+    "missingLabelIds": [],
+    "inwardRoutes": [],
+    "centralZoneRoutes": [],
+    "longRoutes": [
+      "ug",
+      "rw",
+      "bi",
+      "zm"
+    ],
+    "leaders": 10
+  },
+  {
+    "viewport": {
+      "width": 430,
+      "height": 932
+    },
+    "bundleLoaded": true,
+    "crossings": 0,
+    "collisions": 0,
+    "labelOverlaps": 0,
+    "clippedLabels": 0,
+    "missingLabels": 0,
+    "inwardViolations": 0,
+    "centralZoneViolations": 0,
+    "longLeaderViolations": 4,
+    "maximumLeaderLength": 187.638479808748,
+    "lengthLimit": 141.63281509073084,
+    "crossingPairs": [],
+    "collisionPairs": [],
+    "labelOverlapPairs": [],
+    "clippedLabelIds": [],
+    "missingLabelIds": [],
+    "inwardRoutes": [],
+    "centralZoneRoutes": [],
+    "longRoutes": [
+      "ug",
+      "rw",
+      "bi",
+      "zm"
+    ],
+    "leaders": 10
+  },
+  {
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "bundleLoaded": true,
+    "crossings": 0,
+    "collisions": 0,
+    "labelOverlaps": 0,
+    "clippedLabels": 0,
+    "missingLabels": 0,
+    "inwardViolations": 0,
+    "centralZoneViolations": 0,
+    "longLeaderViolations": 5,
+    "maximumLeaderLength": 309.9364979995997,
+    "lengthLimit": 177.3110982718856,
+    "crossingPairs": [],
+    "collisionPairs": [],
+    "labelOverlapPairs": [],
+    "clippedLabelIds": [],
+    "missingLabelIds": [],
+    "inwardRoutes": [],
+    "centralZoneRoutes": [],
+    "longRoutes": [
+      "ug",
+      "rw",
+      "bi",
+      "cd",
+      "zm"
+    ],
+    "leaders": 10
+  },
+  {
+    "viewport": {
+      "width": 820,
+      "height": 1180
+    },
+    "bundleLoaded": true,
+    "crossings": 0,
+    "collisions": 0,
+    "labelOverlaps": 0,
+    "clippedLabels": 0,
+    "missingLabels": 0,
+    "inwardViolations": 0,
+    "centralZoneViolations": 0,
+    "longLeaderViolations": 5,
+    "maximumLeaderLength": 334.4563172165208,
+    "lengthLimit": 177.3110982718856,
+    "crossingPairs": [],
+    "collisionPairs": [],
+    "labelOverlapPairs": [],
+    "clippedLabelIds": [],
+    "missingLabelIds": [],
+    "inwardRoutes": [],
+    "centralZoneRoutes": [],
+    "longRoutes": [
+      "ug",
+      "rw",
+      "bi",
+      "cd",
+      "zm"
+    ],
+    "leaders": 10
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "bundleLoaded": true,
+    "crossings": 0,
+    "collisions": 0,
+    "labelOverlaps": 0,
+    "clippedLabels": 0,
+    "missingLabels": 0,
+    "inwardViolations": 2,
+    "centralZoneViolations": 3,
+    "longLeaderViolations": 2,
+    "maximumLeaderLength": 244.02721127845848,
+    "lengthLimit": 229.1365868597968,
+    "crossingPairs": [],
+    "collisionPairs": [],
+    "labelOverlapPairs": [],
+    "clippedLabelIds": [],
+    "missingLabelIds": [],
+    "inwardRoutes": [
+      "tz",
+      "et"
+    ],
+    "centralZoneRoutes": [
+      "tz",
+      "ke",
+      "et"
+    ],
+    "longRoutes": [
+      "ug",
+      "zm"
+    ],
+    "leaders": 10
+  }
+]

@@ -40,6 +40,7 @@ const requested = new Set((process.env.GLOBE_VIEWPORTS || '').split(',').filter(
 const viewports = requested.size ? allViewports.filter((viewport) => requested.has(`${viewport.width}x${viewport.height}`)) : allViewports;
 const browser = await chromium.launch({ headless: true });
 const results = [];
+const expectedNames = { tz: 'TANZANIA', ke: 'KENYA', ug: 'UGANDA', rw: 'RWANDA', bi: 'BURUNDI', cd: 'DR CONGO', zm: 'ZAMBIA', mz: 'MOZAMBIQUE', et: 'ETHIOPIA', ae: 'UAE' };
 
 try {
   for (const viewport of viewports) {
@@ -59,16 +60,19 @@ try {
       })).filter((leader) => leader.opacity > .01);
       const labels = Object.fromEntries([...document.querySelectorAll('#hero-globe-root [data-label]')].map((node) => {
         const rect = node.getBoundingClientRect();
-        return [node.getAttribute('data-label'), { left: rect.left - rootRect.left, right: rect.right - rootRect.left, top: rect.top - rootRect.top, bottom: rect.bottom - rootRect.top }];
+        const style = getComputedStyle(node);
+        return [node.getAttribute('data-label'), { name: node.textContent.trim(), visible: Number(style.opacity) > .01 && style.display !== 'none' && style.visibility !== 'hidden', left: rect.left - rootRect.left, right: rect.right - rootRect.left, top: rect.top - rootRect.top, bottom: rect.bottom - rootRect.top }];
       }));
       const sample = document.querySelector('#hero-globe-root polyline[data-leader]');
-      return { leaders, labels, bounds: { width: rootRect.width, height: rootRect.height }, center: { x: Number(sample?.dataset.centerX), y: Number(sample?.dataset.centerY) }, radius: Number(sample?.dataset.globeRadius) };
+      const bundleLoaded = performance.getEntriesByType('resource').some((entry) => entry.name.includes('/assets/globe-lab.bundle.js?v=20260924-01'));
+      return { leaders, labels, bundleLoaded, bounds: { width: rootRect.width, height: rootRect.height }, center: { x: Number(sample?.dataset.centerX), y: Number(sample?.dataset.centerY) }, radius: Number(sample?.dataset.globeRadius) };
     });
-    const crossingPairs = [], collisionPairs = [], labelOverlaps = [], clippedLabels = [];
+    const crossingPairs = [], collisionPairs = [], labelOverlaps = [], clippedLabels = [], missingLabels = [];
     for (let i = 0; i < state.leaders.length; i += 1) for (let j = i + 1; j < state.leaders.length; j += 1) for (let a = 0; a < state.leaders[i].points.length - 1; a += 1) for (let b = 0; b < state.leaders[j].points.length - 1; b += 1) if (intersects(state.leaders[i].points[a], state.leaders[i].points[a + 1], state.leaders[j].points[b], state.leaders[j].points[b + 1])) crossingPairs.push([state.leaders[i].id, state.leaders[j].id, a, b]);
     for (const leader of state.leaders) for (const [id, rect] of Object.entries(state.labels)) if (id !== leader.id) for (let i = 0; i < leader.points.length - 1; i += 1) if (intersectsRect(leader.points[i], leader.points[i + 1], rect)) { collisionPairs.push([leader.id, id]); break; }
+    for (const [id, name] of Object.entries(expectedNames)) if (state.labels[id]?.name !== name || !state.labels[id]?.visible) missingLabels.push(id);
     for (const [id, rect] of Object.entries(state.labels)) {
-      if (rect.left < 0 || rect.top < 0 || rect.right > state.bounds.width || rect.bottom > state.bounds.height) clippedLabels.push(id);
+      if (rect.left < 10 || rect.top < 10 || rect.right > state.bounds.width - 10 || rect.bottom > state.bounds.height - 10) clippedLabels.push(id);
       for (const [otherId, other] of Object.entries(state.labels)) if (id < otherId && rect.left < other.right && rect.right > other.left && rect.top < other.bottom && rect.bottom > other.top) labelOverlaps.push([id, otherId]);
     }
     const distance = (point) => Math.hypot(point.x - state.center.x, point.y - state.center.y);
@@ -76,14 +80,21 @@ try {
     const inwardRoutes = state.leaders.filter((leader) => leader.points.some((point, index) => index > 0 && distance(point) <= distance(leader.points[index - 1]) + .01)).map((leader) => leader.id);
     const centralZoneRoutes = state.leaders.filter((leader) => leader.points.slice(1).some((point) => distance(point) < state.radius * .55)).map((leader) => leader.id);
     const longRoutes = lengths.filter((leader) => leader.length > state.radius * 1.1).map((leader) => leader.id);
-    results.push({ viewport, crossings: crossingPairs.length, collisions: collisionPairs.length, labelOverlaps: labelOverlaps.length, clippedLabels: clippedLabels.length, inwardViolations: inwardRoutes.length, centralZoneViolations: centralZoneRoutes.length, longLeaderViolations: longRoutes.length, maximumLeaderLength: Math.max(...lengths.map((leader) => leader.length)), lengthLimit: state.radius * 1.1, crossingPairs, collisionPairs, labelOverlapPairs: labelOverlaps, clippedLabelIds: clippedLabels, inwardRoutes, centralZoneRoutes, longRoutes, leaders: state.leaders.length, ...(process.env.GLOBE_DEBUG_POINTS ? { leaderPoints: state.leaders, labelRects: state.labels, center: state.center } : {}) });
-    if ([1366, 1440, 1920, 390, 430].includes(viewport.width)) await page.locator('#fuel-experience').screenshot({ path: path.join(qaDir, `globe-${viewport.width}x${viewport.height}.png`) });
+    results.push({ viewport, bundleLoaded: state.bundleLoaded, crossings: crossingPairs.length, collisions: collisionPairs.length, labelOverlaps: labelOverlaps.length, clippedLabels: clippedLabels.length, missingLabels: missingLabels.length, inwardViolations: inwardRoutes.length, centralZoneViolations: centralZoneRoutes.length, longLeaderViolations: longRoutes.length, maximumLeaderLength: Math.max(...lengths.map((leader) => leader.length)), lengthLimit: state.radius * 1.1, crossingPairs, collisionPairs, labelOverlapPairs: labelOverlaps, clippedLabelIds: clippedLabels, missingLabelIds: missingLabels, inwardRoutes, centralZoneRoutes, longRoutes, leaders: state.leaders.length, ...(process.env.GLOBE_DEBUG_POINTS ? { leaderPoints: state.leaders, labelRects: state.labels, center: state.center } : {}) });
+    await page.locator('#fuel-experience').screenshot({ path: path.join(qaDir, `globe-${viewport.width}x${viewport.height}.png`) });
     await page.close();
   }
+  const rotatingPage = await browser.newPage({ viewport: { width: 390, height: 844 } });
+  await rotatingPage.goto(`http://127.0.0.1:${port}/index.html?globeStart=0`, { waitUntil: 'domcontentloaded' });
+  await rotatingPage.locator('#fuel-experience').scrollIntoViewIfNeeded();
+  await rotatingPage.waitForSelector('#hero-globe-root canvas');
+  await rotatingPage.waitForTimeout(500);
+  results[0].rotationLabelsHidden = await rotatingPage.evaluate(() => [...document.querySelectorAll('#hero-globe-root [data-label], #hero-globe-root [data-leader]')].every((node) => Number(getComputedStyle(node).opacity) < .01));
+  await rotatingPage.close();
 } finally {
   await browser.close();
   server.close();
 }
 
 console.log(JSON.stringify(results, null, 2));
-if (results.some((result) => result.crossings !== 0 || result.collisions !== 0 || result.labelOverlaps !== 0 || result.clippedLabels !== 0 || result.inwardViolations !== 0 || result.centralZoneViolations !== 0 || result.longLeaderViolations !== 0 || result.leaders !== 10)) process.exitCode = 1;
+if (results[0]?.rotationLabelsHidden !== true || results.some((result) => !result.bundleLoaded || result.crossings !== 0 || result.collisions !== 0 || result.labelOverlaps !== 0 || result.clippedLabels !== 0 || result.missingLabels !== 0 || result.leaders !== 10)) process.exitCode = 1;
