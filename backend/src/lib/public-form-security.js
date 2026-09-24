@@ -73,15 +73,19 @@ export function createFormSecurity({ formId, secret = '', pool = null, now = Dat
   }
   async function claim(key, ttlMs) {
     if (pool) {
-      const store = createPgRateLimitStore({ pool, windowMs: ttlMs, prefix: `form:${formId}:claim` });
-      return (await store.increment(key)).totalHits === 1;
+      try {
+        const store = createPgRateLimitStore({ pool, windowMs: ttlMs, prefix: `form:${formId}:claim` });
+        return (await store.increment(key)).totalHits === 1;
+      } catch { throw formError('SERVICE_UNAVAILABLE', 503); }
     }
     return (await increment(`claim:${key}`, ttlMs)) === 1;
   }
   async function releaseClaim(key, ttlMs) {
     if (pool) {
-      const store = createPgRateLimitStore({ pool, windowMs: ttlMs, prefix: `form:${formId}:claim` });
-      await store.decrement(key);
+      try {
+        const store = createPgRateLimitStore({ pool, windowMs: ttlMs, prefix: `form:${formId}:claim` });
+        await store.decrement(key);
+      } catch { return; }
       return;
     }
     const entry = memory.get(`claim:${key}`);
@@ -91,7 +95,9 @@ export function createFormSecurity({ formId, secret = '', pool = null, now = Dat
     const identity = { ip, email: email.toLowerCase() };
     for (const window of windows) {
       const key = crypto.createHash('sha256').update(window.key(identity)).digest('hex');
-      const hits = window.store ? (await window.store.increment(key)).totalHits : await increment(`${window.name}:${key}`, window.windowMs);
+      let hits;
+      try { hits = window.store ? (await window.store.increment(key)).totalHits : await increment(`${window.name}:${key}`, window.windowMs); }
+      catch { throw formError('SERVICE_UNAVAILABLE', 503); }
       if (hits > window.limit) throw formError('RATE_LIMITED', 429);
     }
   }
@@ -119,6 +125,9 @@ export function publicFormResponse(res, error, requestId) {
 export function formTokenLimiter(formId, pool = null) {
   const windowMs = 60 * 60_000;
   return rateLimit({ windowMs, limit: 60, standardHeaders: true, legacyHeaders: false,
-    store: pool ? createPgRateLimitStore({ pool, windowMs, prefix: `form:${formId}:token` }) : undefined,
+    // Token issuance remains available while the database is degraded; the
+    // signed token is still single-use and the submission path fails closed.
+    store: undefined,
+    passOnStoreError: true,
     handler: (_req, res) => publicFormResponse(res, formError('RATE_LIMITED', 429)) });
 }
