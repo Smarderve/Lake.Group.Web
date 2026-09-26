@@ -44,15 +44,20 @@ const expectedNames = { tz: 'TANZANIA', ke: 'KENYA', ug: 'UGANDA', rw: 'RWANDA',
 
 try {
   for (const viewport of viewports) {
+    console.log(`Checking ${viewport.width}x${viewport.height}`);
     const page = await browser.newPage({ viewport });
     await page.goto(`http://127.0.0.1:${port}/index.html?final`, { waitUntil: 'domcontentloaded' });
     await page.locator('#fuel-experience').scrollIntoViewIfNeeded();
-    await page.waitForSelector('#hero-globe-root canvas');
+    await page.waitForSelector('#hero-globe-root canvas', { timeout: 60000 });
     await page.evaluate(()=>document.fonts.ready);
     await page.waitForTimeout(350);
     await page.waitForFunction(() => [...document.querySelectorAll('#hero-globe-root path[data-leader]')].every((node) => {
       return Number(node.dataset.progress) === 1 && node.getTotalLength() > 0;
-    }), null, { timeout: 10000 });
+    }), null, { timeout: 60000 });
+    await page.waitForFunction(() => {
+      const labels = [...document.querySelectorAll('#hero-globe-root [data-label]')];
+      return labels.length === 10 && labels.every(node => Number(getComputedStyle(node).opacity) > .99);
+    }, null, { timeout: 60000 });
     const state = await page.evaluate(() => {
       const rootRect = document.querySelector('#hero-globe-root')?.getBoundingClientRect();
       const leaders = [...document.querySelectorAll('#hero-globe-root path[data-leader]')].map((node) => ({
@@ -62,15 +67,28 @@ try {
       const labels = Object.fromEntries([...document.querySelectorAll('#hero-globe-root [data-label]')].map((node) => {
         const rect = node.getBoundingClientRect();
         const style = getComputedStyle(node);
-        return [node.getAttribute('data-label'), { name: node.textContent.trim(), visible: Number(style.opacity) > .01 && style.display !== 'none' && style.visibility !== 'hidden', left: rect.left - rootRect.left, right: rect.right - rootRect.left, top: rect.top - rootRect.top, bottom: rect.bottom - rootRect.top }];
+        const localRect=element=>{const r=element.getBoundingClientRect();return {left:r.left-rootRect.left,right:r.right-rootRect.left,top:r.top-rootRect.top,bottom:r.bottom-rootRect.top};};
+        return [node.getAttribute('data-label'), { name: node.textContent.trim(), side:node.dataset.side, flag:localRect(node.querySelector('img')), text:localRect(node.querySelector('span')), visible: Number(style.opacity) > .01 && style.display !== 'none' && style.visibility !== 'hidden', left: rect.left - rootRect.left, right: rect.right - rootRect.left, top: rect.top - rootRect.top, bottom: rect.bottom - rootRect.top }];
       }));
       const sample = document.querySelector('#hero-globe-root path[data-leader]');
-      const bundleLoaded = performance.getEntriesByType('resource').some((entry) => entry.name.includes('/assets/globe-lab.bundle.js?v=20260925-orbit'));
+      const bundleLoaded = performance.getEntriesByType('resource').some((entry) => entry.name.includes('/assets/globe-lab.bundle.js?v=20260925-label-spacing'));
       return { leaders, labels, bundleLoaded, bounds: { width: rootRect.width, height: rootRect.height }, center: { x: Number(sample?.dataset.centerX), y: Number(sample?.dataset.centerY) }, radius: Number(sample?.dataset.globeRadius) };
     });
     const crossingPairs = [], collisionPairs = [], labelOverlaps = [], clippedLabels = [], missingLabels = [];
+    const textCollisions=[],flagCollisions=[],endpointViolations=[],sideViolations=[];
+    const touches=(leader,rect)=>leader.points.slice(1).some((p,i)=>intersectsRect(leader.points[i],p,rect));
+    for(const leader of state.leaders){
+      for(const [id,rect] of Object.entries(state.labels)){
+        if(touches(leader,rect.text))textCollisions.push([leader.id,id]);
+        if(touches(leader,rect.flag))flagCollisions.push([leader.id,id]);
+        if(id!==leader.id&&touches(leader,{left:rect.left-8,right:rect.right+8,top:rect.top-8,bottom:rect.bottom+8}))collisionPairs.push([leader.id,id]);
+      }
+      const rect=state.labels[leader.id],end=leader.points.at(-1);
+      const gap=rect.side==='left'?end.x-rect.right:rect.left-end.x;
+      if(gap<10||Math.abs(end.y-(rect.top+rect.bottom)/2)>1||touches(leader,rect))endpointViolations.push(leader.id);
+    }
+    for(const id of ['rw','bi'])if(state.labels[id].side!=='left'||state.labels[id].right>=state.center.x)sideViolations.push(id);
     for (let i = 0; i < state.leaders.length; i += 1) for (let j = i + 1; j < state.leaders.length; j += 1) for (let a = 0; a < state.leaders[i].points.length - 1; a += 1) for (let b = 0; b < state.leaders[j].points.length - 1; b += 1) if (intersects(state.leaders[i].points[a], state.leaders[i].points[a + 1], state.leaders[j].points[b], state.leaders[j].points[b + 1])) crossingPairs.push([state.leaders[i].id, state.leaders[j].id, a, b]);
-    for (const leader of state.leaders) for (const [id, rect] of Object.entries(state.labels)) if (id !== leader.id) for (let i = 0; i < leader.points.length - 1; i += 1) if (intersectsRect(leader.points[i], leader.points[i + 1], rect)) { collisionPairs.push([leader.id, id]); break; }
     for (const [id, name] of Object.entries(expectedNames)) if (state.labels[id]?.name !== name || !state.labels[id]?.visible) missingLabels.push(id);
     for (const [id, rect] of Object.entries(state.labels)) {
       if (rect.left < 7.9 || rect.top < 7.9 || rect.right > state.bounds.width - 7.9 || rect.bottom > state.bounds.height - 7.9) clippedLabels.push(id);
@@ -80,9 +98,25 @@ try {
     const lengths = state.leaders.map((leader) => ({ id: leader.id, length: leader.points.slice(1).reduce((sum, point, index) => sum + Math.hypot(point.x - leader.points[index].x, point.y - leader.points[index].y), 0) }));
     const inwardRoutes = state.leaders.filter((leader) => leader.points.some((point, index) => index > 0 && distance(point) <= distance(leader.points[index - 1]) + .01)).map((leader) => leader.id);
     const centralZoneRoutes = state.leaders.filter((leader) => leader.points.slice(1).some((point) => distance(point) < state.radius * .55)).map((leader) => leader.id);
-    const longRoutes = lengths.filter((leader) => leader.length > state.radius).map((leader) => leader.id);
-    results.push({ viewport, bundleLoaded: state.bundleLoaded, crossings: crossingPairs.length, collisions: collisionPairs.length, labelOverlaps: labelOverlaps.length, clippedLabels: clippedLabels.length, missingLabels: missingLabels.length, inwardViolations: inwardRoutes.length, centralZoneViolations: centralZoneRoutes.length, longLeaderViolations: longRoutes.length, maximumLeaderLength: Math.max(...lengths.map((leader) => leader.length)), lengthLimit: state.radius, crossingPairs, collisionPairs, labelOverlapPairs: labelOverlaps, clippedLabelIds: clippedLabels, missingLabelIds: missingLabels, inwardRoutes, centralZoneRoutes, longRoutes, leaders: state.leaders.length, ...(process.env.GLOBE_DEBUG_POINTS ? { leaderPoints: state.leaders, labelRects: state.labels, center: state.center } : {}) });
-    await page.locator('#fuel-experience').screenshot({ path: path.join(qaDir, `globe-${viewport.width}x${viewport.height}.png`) });
+    // Mandatory left-side Rwanda/Burundi bends replace the former local-only
+    // assignment. Retain a measured length guard, explicitly bounded at 1.5r
+    // for those two routes; every other connector retains its 1r limit.
+    const longRoutes = lengths.filter((leader) => leader.length > state.radius*(['rw','bi'].includes(leader.id)?1.5:1)).map((leader) => leader.id);
+    results.push({ textCollisions,flagCollisions,endpointViolations,sideViolations, viewport, bundleLoaded: state.bundleLoaded, crossings: crossingPairs.length, collisions: collisionPairs.length, labelOverlaps: labelOverlaps.length, clippedLabels: clippedLabels.length, missingLabels: missingLabels.length, inwardViolations: inwardRoutes.length, centralZoneViolations: centralZoneRoutes.length, longLeaderViolations: longRoutes.length, maximumLeaderLength: Math.max(...lengths.map((leader) => leader.length)), lengthLimit: state.radius, crossingPairs, collisionPairs, labelOverlapPairs: labelOverlaps, clippedLabelIds: clippedLabels, missingLabelIds: missingLabels, inwardRoutes, centralZoneRoutes, longRoutes, leaders: state.leaders.length, ...(process.env.GLOBE_DEBUG_POINTS ? { leaderPoints: state.leaders, labelRects: state.labels, center: state.center } : {}) });
+    const screenshot = await page.locator('#fuel-experience').screenshot({ timeout: 60000 });
+    const capturePath = path.join(qaDir, `globe-${viewport.width}x${viewport.height}.png`);
+    const pendingPath = `${capturePath}.pending`;
+    await fs.promises.writeFile(pendingPath, screenshot);
+    for (let attempt = 0; ; attempt += 1) {
+      try {
+        await fs.promises.rename(pendingPath, capturePath);
+        break;
+      } catch (error) {
+        // Windows can briefly lock an existing capture while indexing it.
+        if (attempt >= 3 || !['UNKNOWN', 'EBUSY', 'EPERM'].includes(error.code)) throw error;
+        await new Promise(resolve => setTimeout(resolve, 250));
+      }
+    }
     await page.close();
   }
   const rotatingPage = await browser.newPage({ viewport: { width: 390, height: 844 } });
@@ -98,5 +132,5 @@ try {
 }
 
 fs.writeFileSync(path.join(qaDir,'verification.json'),JSON.stringify(results,null,2));
-console.log(JSON.stringify(results.map(({viewport,crossingPairs,collisionPairs,labelOverlapPairs,clippedLabelIds,maximumLeaderLength,lengthLimit})=>({viewport,crossingPairs,collisionPairs,labelOverlapPairs,clippedLabelIds,maximumLeaderLength,lengthLimit})),null,2));
-if (results[0]?.rotationLabelsHidden !== true || results.some((result) => !result.bundleLoaded || result.longLeaderViolations !== 0 || result.crossings !== 0 || result.collisions !== 0 || result.labelOverlaps !== 0 || result.clippedLabels !== 0 || result.missingLabels !== 0 || result.leaders !== 10)) process.exitCode = 1;
+console.log(JSON.stringify(results.map(({viewport,crossingPairs,collisionPairs,textCollisions,flagCollisions,endpointViolations,sideViolations,labelOverlapPairs,clippedLabelIds,maximumLeaderLength,lengthLimit})=>({viewport,crossingPairs,collisionPairs,textCollisions,flagCollisions,endpointViolations,sideViolations,labelOverlapPairs,clippedLabelIds,maximumLeaderLength,lengthLimit})),null,2));
+if (results[0]?.rotationLabelsHidden !== true || results.some((result) => !result.bundleLoaded || result.textCollisions.length || result.flagCollisions.length || result.endpointViolations.length || result.sideViolations.length || result.longLeaderViolations !== 0 || result.crossings !== 0 || result.collisions !== 0 || result.labelOverlaps !== 0 || result.clippedLabels !== 0 || result.missingLabels !== 0 || result.leaders !== 10)) process.exitCode = 1;

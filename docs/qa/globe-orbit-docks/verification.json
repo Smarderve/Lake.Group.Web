@@ -1,5 +1,9 @@
 [
   {
+    "textCollisions": [],
+    "flagCollisions": [],
+    "endpointViolations": [],
+    "sideViolations": [],
     "viewport": {
       "width": 1280,
       "height": 720
@@ -10,17 +14,20 @@
     "labelOverlaps": 0,
     "clippedLabels": 0,
     "missingLabels": 0,
-    "inwardViolations": 0,
+    "inwardViolations": 2,
     "centralZoneViolations": 8,
     "longLeaderViolations": 0,
-    "maximumLeaderLength": 241.58232935617468,
+    "maximumLeaderLength": 305.3045999429776,
     "lengthLimit": 257.90705203183353,
     "crossingPairs": [],
     "collisionPairs": [],
     "labelOverlapPairs": [],
     "clippedLabelIds": [],
     "missingLabelIds": [],
-    "inwardRoutes": [],
+    "inwardRoutes": [
+      "rw",
+      "bi"
+    ],
     "centralZoneRoutes": [
       "tz",
       "ke",
@@ -36,6 +43,10 @@
     "rotationLabelsHidden": true
   },
   {
+    "textCollisions": [],
+    "flagCollisions": [],
+    "endpointViolations": [],
+    "sideViolations": [],
     "viewport": {
       "width": 1366,
       "height": 768
@@ -46,17 +57,20 @@
     "labelOverlaps": 0,
     "clippedLabels": 0,
     "missingLabels": 0,
-    "inwardViolations": 0,
+    "inwardViolations": 2,
     "centralZoneViolations": 8,
     "longLeaderViolations": 0,
-    "maximumLeaderLength": 241.58232935617468,
+    "maximumLeaderLength": 305.3045999429776,
     "lengthLimit": 257.90705203183353,
     "crossingPairs": [],
     "collisionPairs": [],
     "labelOverlapPairs": [],
     "clippedLabelIds": [],
     "missingLabelIds": [],
-    "inwardRoutes": [],
+    "inwardRoutes": [
+      "rw",
+      "bi"
+    ],
     "centralZoneRoutes": [
       "tz",
       "ke",
@@ -71,6 +85,10 @@
     "leaders": 10
   },
   {
+    "textCollisions": [],
+    "flagCollisions": [],
+    "endpointViolations": [],
+    "sideViolations": [],
     "viewport": {
       "width": 1440,
       "height": 900
@@ -81,17 +99,20 @@
     "labelOverlaps": 0,
     "clippedLabels": 0,
     "missingLabels": 0,
-    "inwardViolations": 0,
+    "inwardViolations": 2,
     "centralZoneViolations": 8,
     "longLeaderViolations": 0,
-    "maximumLeaderLength": 241.58232935617468,
+    "maximumLeaderLength": 305.3045999429776,
     "lengthLimit": 257.90705203183353,
     "crossingPairs": [],
     "collisionPairs": [],
     "labelOverlapPairs": [],
     "clippedLabelIds": [],
     "missingLabelIds": [],
-    "inwardRoutes": [],
+    "inwardRoutes": [
+      "rw",
+      "bi"
+    ],
     "centralZoneRoutes": [
       "tz",
       "ke",
@@ -106,6 +127,10 @@
     "leaders": 10
   },
   {
+    "textCollisions": [],
+    "flagCollisions": [],
+    "endpointViolations": [],
+    "sideViolations": [],
     "viewport": {
       "width": 1536,
       "height": 864
@@ -116,17 +141,20 @@
     "labelOverlaps": 0,
     "clippedLabels": 0,
     "missingLabels": 0,
-    "inwardViolations": 0,
+    "inwardViolations": 2,
     "centralZoneViolations": 8,
     "longLeaderViolations": 0,
-    "maximumLeaderLength": 241.58232935617468,
+    "maximumLeaderLength": 305.3045999429776,
     "lengthLimit": 257.90705203183353,
     "crossingPairs": [],
     "collisionPairs": [],
     "labelOverlapPairs": [],
     "clippedLabelIds": [],
     "missingLabelIds": [],
-    "inwardRoutes": [],
+    "inwardRoutes": [
+      "rw",
+      "bi"
+    ],
     "centralZoneRoutes": [
       "tz",
       "ke",
@@ -141,6 +169,10 @@
     "leaders": 10
   },
   {
+    "textCollisions": [],
+    "flagCollisions": [],
+    "endpointViolations": [],
+    "sideViolations": [],
     "viewport": {
       "width": 1920,
       "height": 1080
@@ -151,17 +183,20 @@
     "labelOverlaps": 0,
     "clippedLabels": 0,
     "missingLabels": 0,
-    "inwardViolations": 0,
+    "inwardViolations": 2,
     "centralZoneViolations": 8,
     "longLeaderViolations": 0,
-    "maximumLeaderLength": 241.58232935617468,
+    "maximumLeaderLength": 305.3045999429776,
     "lengthLimit": 257.90705203183353,
     "crossingPairs": [],
     "collisionPairs": [],
     "labelOverlapPairs": [],
     "clippedLabelIds": [],
     "missingLabelIds": [],
-    "inwardRoutes": [],
+    "inwardRoutes": [
+      "rw",
+      "bi"
+    ],
     "centralZoneRoutes": [
       "tz",
       "ke",
@@ -176,6 +211,10 @@
     "leaders": 10
   },
   {
+    "textCollisions": [],
+    "flagCollisions": [],
+    "endpointViolations": [],
+    "sideViolations": [],
     "viewport": {
       "width": 360,
       "height": 800
@@ -186,17 +225,20 @@
     "labelOverlaps": 0,
     "clippedLabels": 0,
     "missingLabels": 0,
-    "inwardViolations": 0,
+    "inwardViolations": 2,
     "centralZoneViolations": 8,
     "longLeaderViolations": 0,
-    "maximumLeaderLength": 107.15240399974488,
+    "maximumLeaderLength": 124.14272897741613,
     "lengthLimit": 110.66255615387914,
     "crossingPairs": [],
     "collisionPairs": [],
     "labelOverlapPairs": [],
     "clippedLabelIds": [],
     "missingLabelIds": [],
-    "inwardRoutes": [],
+    "inwardRoutes": [
+      "rw",
+      "bi"
+    ],
     "centralZoneRoutes": [
       "tz",
       "ke",
@@ -211,6 +253,10 @@
     "leaders": 10
   },
   {
+    "textCollisions": [],
+    "flagCollisions": [],
+    "endpointViolations": [],
+    "sideViolations": [],
     "viewport": {
       "width": 390,
       "height": 844
@@ -221,17 +267,20 @@
     "labelOverlaps": 0,
     "clippedLabels": 0,
     "missingLabels": 0,
-    "inwardViolations": 0,
+    "inwardViolations": 2,
     "centralZoneViolations": 8,
     "longLeaderViolations": 0,
-    "maximumLeaderLength": 113.07632170517985,
-    "lengthLimit": 116.7805274338937,
+    "maximumLeaderLength": 141.15912071209348,
+    "lengthLimit": 116.78052743389368,
     "crossingPairs": [],
     "collisionPairs": [],
     "labelOverlapPairs": [],
     "clippedLabelIds": [],
     "missingLabelIds": [],
-    "inwardRoutes": [],
+    "inwardRoutes": [
+      "rw",
+      "bi"
+    ],
     "centralZoneRoutes": [
       "tz",
       "ke",
@@ -246,6 +295,10 @@
     "leaders": 10
   },
   {
+    "textCollisions": [],
+    "flagCollisions": [],
+    "endpointViolations": [],
+    "sideViolations": [],
     "viewport": {
       "width": 412,
       "height": 915
@@ -256,17 +309,20 @@
     "labelOverlaps": 0,
     "clippedLabels": 0,
     "missingLabels": 0,
-    "inwardViolations": 0,
+    "inwardViolations": 2,
     "centralZoneViolations": 8,
     "longLeaderViolations": 0,
-    "maximumLeaderLength": 119.45324814890645,
+    "maximumLeaderLength": 154.56494598506555,
     "lengthLimit": 123.36637349176472,
     "crossingPairs": [],
     "collisionPairs": [],
     "labelOverlapPairs": [],
     "clippedLabelIds": [],
     "missingLabelIds": [],
-    "inwardRoutes": [],
+    "inwardRoutes": [
+      "rw",
+      "bi"
+    ],
     "centralZoneRoutes": [
       "tz",
       "ke",
@@ -281,6 +337,10 @@
     "leaders": 10
   },
   {
+    "textCollisions": [],
+    "flagCollisions": [],
+    "endpointViolations": [],
+    "sideViolations": [],
     "viewport": {
       "width": 430,
       "height": 932
@@ -291,17 +351,20 @@
     "labelOverlaps": 0,
     "clippedLabels": 0,
     "missingLabels": 0,
-    "inwardViolations": 0,
+    "inwardViolations": 2,
     "centralZoneViolations": 8,
     "longLeaderViolations": 0,
-    "maximumLeaderLength": 124.67299344305732,
+    "maximumLeaderLength": 165.5440016220838,
     "lengthLimit": 128.7571046279371,
     "crossingPairs": [],
     "collisionPairs": [],
     "labelOverlapPairs": [],
     "clippedLabelIds": [],
     "missingLabelIds": [],
-    "inwardRoutes": [],
+    "inwardRoutes": [
+      "rw",
+      "bi"
+    ],
     "centralZoneRoutes": [
       "tz",
       "ke",
@@ -316,6 +379,10 @@
     "leaders": 10
   },
   {
+    "textCollisions": [],
+    "flagCollisions": [],
+    "endpointViolations": [],
+    "sideViolations": [],
     "viewport": {
       "width": 768,
       "height": 1024
@@ -326,17 +393,20 @@
     "labelOverlaps": 0,
     "clippedLabels": 0,
     "missingLabels": 0,
-    "inwardViolations": 0,
+    "inwardViolations": 2,
     "centralZoneViolations": 8,
     "longLeaderViolations": 0,
-    "maximumLeaderLength": 151.8106337546321,
+    "maximumLeaderLength": 233.82003066188935,
     "lengthLimit": 161.191907519896,
     "crossingPairs": [],
     "collisionPairs": [],
     "labelOverlapPairs": [],
     "clippedLabelIds": [],
     "missingLabelIds": [],
-    "inwardRoutes": [],
+    "inwardRoutes": [
+      "rw",
+      "bi"
+    ],
     "centralZoneRoutes": [
       "tz",
       "ke",
@@ -351,6 +421,10 @@
     "leaders": 10
   },
   {
+    "textCollisions": [],
+    "flagCollisions": [],
+    "endpointViolations": [],
+    "sideViolations": [],
     "viewport": {
       "width": 820,
       "height": 1180
@@ -361,17 +435,20 @@
     "labelOverlaps": 0,
     "clippedLabels": 0,
     "missingLabels": 0,
-    "inwardViolations": 0,
+    "inwardViolations": 2,
     "centralZoneViolations": 8,
     "longLeaderViolations": 0,
-    "maximumLeaderLength": 151.8106337546321,
+    "maximumLeaderLength": 233.81999943024593,
     "lengthLimit": 161.191907519896,
     "crossingPairs": [],
     "collisionPairs": [],
     "labelOverlapPairs": [],
     "clippedLabelIds": [],
     "missingLabelIds": [],
-    "inwardRoutes": [],
+    "inwardRoutes": [
+      "rw",
+      "bi"
+    ],
     "centralZoneRoutes": [
       "tz",
       "ke",
@@ -386,6 +463,10 @@
     "leaders": 10
   },
   {
+    "textCollisions": [],
+    "flagCollisions": [],
+    "endpointViolations": [],
+    "sideViolations": [],
     "viewport": {
       "width": 1024,
       "height": 768
@@ -396,17 +477,20 @@
     "labelOverlaps": 0,
     "clippedLabels": 0,
     "missingLabels": 0,
-    "inwardViolations": 0,
+    "inwardViolations": 2,
     "centralZoneViolations": 8,
     "longLeaderViolations": 0,
-    "maximumLeaderLength": 199.17338509825473,
+    "maximumLeaderLength": 234.0297796910712,
     "lengthLimit": 208.3059880543607,
     "crossingPairs": [],
     "collisionPairs": [],
     "labelOverlapPairs": [],
     "clippedLabelIds": [],
     "missingLabelIds": [],
-    "inwardRoutes": [],
+    "inwardRoutes": [
+      "rw",
+      "bi"
+    ],
     "centralZoneRoutes": [
       "tz",
       "ke",

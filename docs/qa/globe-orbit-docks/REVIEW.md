@@ -1,31 +1,54 @@
-# Orbit Dock callout review
+# Surgical nation-label review
 
-Starting HEAD: `19770620c01db5328a58d24a3be58a97453c8007`.
-Restore tag: `restore/pre-orbit-dock-20260925`.
+Starting HEAD: `ba4f19711ed76db149b6a65ebe49e515b1074ce6`.
+Restore tag: `restore/pre-nation-label-surgical-20260925`.
+Work performed directly on `main`.
 
-Only the annotation source, its homepage styles, rebuilt globe bundle and QA were changed. Globe model, camera, dimensions, lighting, texture, geographic coordinates, rotation, drag, markers and yellow route timing remain unchanged.
+## Scope
 
-The previous polylines are replaced with ten quadratic SVG paths and tiny docking dots. Fixed authored angles use two invisible bands at 1.10 and 1.16 times the projected radius. Each path uses normalized SVG pathLength=1 and stroke-dashoffset progression; flags/names fade and translate 5px after the line draws. Reduced motion shows the final state immediately. Reveal follows existing destination marker timing, rather than accelerating the locked yellow markers to match the suggested faster stagger.
+Changed `globe-lab/entry.tsx` annotation docks and leader geometry, rebuilt `assets/globe-lab.bundle.js`, updated its cache query in `index.html`, strengthened `scripts/verify-globe-leader-geometry.mjs`, and refreshed this QA directory.
 
-Clockwise angles from the right horizon; I = inner, O = outer:
+Source comparison against the starting commit confirms the model, geographic coordinates, camera, rotation/drag, yellow routes, reveal timing, materials and markup are unchanged. No globe dimensions, styles, flags, section content, forms, CMS or infrastructure were changed.
 
-| Country | Desktop / landscape tablet | Portrait tablet | Phone |
+## Authored positions
+
+Rwanda is upper-left, Burundi mid-left below Rwanda. Their explicit left assignments cannot be changed by an automatic side solver. DR Congo and Zambia complete the left side. UAE, Ethiopia, Uganda, Kenya, Tanzania and Mozambique occupy the right side.
+
+Clockwise angles from the right horizon; I = inner band (1.10 radius), O = outer band (1.16 radius). Desktop includes landscape tablet; portrait tablet applies from 600px through 959px; phone applies below 600px.
+
+| Country | Desktop | Portrait tablet | Phone |
 |---|---|---|---|
 | UAE | -52 O | -52 O | -57 O |
-| Ethiopia | -32 I | -33 I | -35 I |
+| Ethiopia | -32 I | -33 I | -29 I |
 | Uganda | -14 O | -15 O | -17 O |
-| Kenya | 2 I | 2 I | 1 I |
-| Rwanda | 18 O | 19 O | 19 O |
-| Tanzania | 34 I | 35 I | 37 I |
-| Burundi | 49 O | 51 O | 54 O |
+| Kenya | 2 I | 2 I | -7 I |
+| Rwanda | -166 I, left | -162 I, left | -160 I, left |
+| Tanzania | 34 I | 35 I | 37 I below 420px; 28 I from 420px |
+| Burundi | 177 I, left | 174 I, left | 174 I, left |
 | Mozambique | 65 I | 68 I | 73 I |
-| Zambia | 87 O | 91 O | 101 O |
-| DR Congo | 151 I | 151 I | 151 I |
+| Zambia | 110 O, left | 110 O, left | 110 O, left |
+| DR Congo | 151 I | 151 I | 145 I |
 
-The 12 requested viewport checks found ten visible labels and paths, zero path intersections, zero foreign-label collisions, zero label overlaps and zero clipped labels. Maximum connector length is about 242px desktop, 199px landscape tablet, 152px portrait tablet and 125px phone. The enforced limit is one projected globe radius. Central geographic markers necessarily require nearly a radius to reach the outer halo; these are outward connectors, not routes across the globe center.
+Leader endpoints are calculated from measured label boxes after boundary clamping, leaving a 12px gap at the designated edge. Foreign labels have an 8px protected margin. Rwanda and Burundi use two controlled quadratic bends with separate vertical exits. Their required left docks make these paths longer than the former right-side paths: the test explicitly permits up to 1.5 projected radii for these two countries, while retaining one radius for all others. They are not single straight diagonals or a many-segment lane maze.
 
-Screenshots for desktop, portrait/landscape tablet and phones were inspected. The full-cycle recording was captured and sampled frames across rotation, drawing, hold and retraction were visually reviewed. Animation instrumentation verified hidden, partial, full and retract states for every path. See `animation-verification.json` and `full-cycle.webm`.
+## Browser verification
 
-## Remaining visual limitation
+Final combined run on 2026-09-26: PASS (exit 0), all 12 viewports. Each has ten visible labels, zero text collisions, zero flag collisions, zero foreign-label collisions, zero leader crossings, zero label overlaps, zero clipped labels and zero endpoint or side violations. Rotation-hidden check passed. Desktop, tablet and phone captures were visually reviewed.
 
-The existing fixed back-to-top control can cover a mobile label at particular scroll positions. Moving all phone labels left to reserve its corridor caused foreign-label collisions, so that experiment was reverted. The global control was outside the permitted annotation scope. Final visual acceptance and freeze remain pending resolution of this overlap; geometry QA alone does not establish complete mobile visual acceptance.
+`node scripts/verify-globe-leader-geometry.mjs` checks the real rendered SVG paths and DOM label, text and flag rectangles. It samples each path into 64 segments, so intersection results are numerical approximations backed by screenshot review.
+
+Viewport coverage:
+
+- Desktop: 1280×720, 1366×768, 1440×900, 1536×864, 1920×1080.
+- Tablet: 768×1024, 820×1180, 1024×768.
+- Phone: 360×800, 390×844, 412×915, 430×932.
+
+See `verification.json` for per-viewport results and `globe-<width>x<height>.png` for captures. Tests require ten visible labels, Rwanda/Burundi entirely left, zero text/flag/foreign-label collisions, zero leader crossings, zero label overlaps, zero clipping and valid endpoints. The 360px Ethiopia/UAE crossing found during iteration was corrected by moving Ethiopia's phone dock. Kenya's phone dock was subsequently raised after visual inspection found the fixed back-to-top button obscuring it at the captured scroll position. That global control remains unchanged; these captures do not prove clearance at every possible scroll position.
+
+Tanzania's dock also moves upward on phones from 420px to clear the back-to-top control in the 430px capture. Final 360px and 430px captures were visually rechecked after these adjustments. Screenshot writes use a temporary file and rename, with retries for brief Windows file locks. Measurements wait for all ten labels to be fully visible; waiting for path progress alone could sample a frame before label attachment. Geometry assertions are unchanged by these harness corrections.
+
+## Animation and build
+
+The bundle was rebuilt with `node scripts/build-globe-lab.mjs`.
+
+`node scripts/verify-globe-orbit-animation.mjs` passed: all ten paths reached hidden, partial, full and retract states. Sampled frames spanning the 40-second browser recording were reviewed, including rotation, draw, hold, retract and clean phases. See `full-cycle.webm`, `cycle-review.jpg`, phase PNGs and `animation-verification.json`. The recording uses desktop geometry, which was unchanged by the subsequent phone-only dock corrections. White stroke style, normalized dash drawing and marker-to-label timing remain unchanged.

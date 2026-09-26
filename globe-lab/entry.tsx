@@ -29,14 +29,15 @@ function routePoints(destination:Place){const start=geoVector(PLACES[0].lat,PLAC
 function Atmosphere(){const material=useMemo(()=>new THREE.ShaderMaterial({transparent:true,side:THREE.BackSide,depthWrite:false,blending:THREE.AdditiveBlending,uniforms:{color:{value:new THREE.Color('#7cc7e6')}},vertexShader:`varying vec3 n;varying vec3 p;void main(){n=normalize(normalMatrix*normal);p=(modelViewMatrix*vec4(position,1.)).xyz;gl_Position=projectionMatrix*vec4(p,1.);}`,fragmentShader:`uniform vec3 color;varying vec3 n;varying vec3 p;void main(){float f=pow(1.-abs(dot(n,normalize(-p))),3.6);gl_FragColor=vec4(color,f*.19);}`}),[]);useEffect(()=>()=>material.dispose(),[material]);return <mesh scale={1.045}><sphereGeometry args={[RADIUS,96,64]}/><primitive object={material} attach="material"/></mesh>}
 
 type DomRefs = React.MutableRefObject<Record<string, HTMLElement | SVGPathElement | null>>;
-type Dock = { angle:number; ring:'inner'|'outer' };
+type Dock = { angle:number; ring:'inner'|'outer'; side?:'left'|'right' };
 type Docks = Record<string,Dock>;
 // Clockwise degrees from the right-hand horizon. These are authored slots,
 // not a runtime sorting or collision system. The two halo bands are invisible.
-const DESKTOP_DOCKS:Docks={ae:{angle:-52,ring:'outer'},et:{angle:-32,ring:'inner'},ug:{angle:-14,ring:'outer'},ke:{angle:2,ring:'inner'},rw:{angle:18,ring:'outer'},tz:{angle:34,ring:'inner'},bi:{angle:49,ring:'outer'},mz:{angle:65,ring:'inner'},zm:{angle:87,ring:'outer'},cd:{angle:151,ring:'inner'}};
-const TABLET_PORTRAIT_DOCKS:Docks={ae:{angle:-52,ring:'outer'},et:{angle:-33,ring:'inner'},ug:{angle:-15,ring:'outer'},ke:{angle:2,ring:'inner'},rw:{angle:19,ring:'outer'},tz:{angle:35,ring:'inner'},bi:{angle:51,ring:'outer'},mz:{angle:68,ring:'inner'},zm:{angle:91,ring:'outer'},cd:{angle:151,ring:'inner'}};
-const MOBILE_DOCKS:Docks={ae:{angle:-57,ring:'outer'},et:{angle:-35,ring:'inner'},ug:{angle:-17,ring:'outer'},ke:{angle:1,ring:'inner'},rw:{angle:19,ring:'outer'},tz:{angle:37,ring:'inner'},bi:{angle:54,ring:'outer'},mz:{angle:73,ring:'inner'},zm:{angle:101,ring:'outer'},cd:{angle:151,ring:'inner'}};
-function dockLayout(width:number){return width<600?MOBILE_DOCKS:width<960?TABLET_PORTRAIT_DOCKS:DESKTOP_DOCKS}
+const DESKTOP_DOCKS:Docks={ae:{angle:-52,ring:'outer'},et:{angle:-32,ring:'inner'},ug:{angle:-14,ring:'outer'},ke:{angle:2,ring:'inner'},rw:{angle:-166,ring:'inner',side:'left'},tz:{angle:34,ring:'inner'},bi:{angle:177,ring:'inner',side:'left'},mz:{angle:65,ring:'inner'},zm:{angle:110,ring:'outer',side:'left'},cd:{angle:151,ring:'inner'}};
+const TABLET_PORTRAIT_DOCKS:Docks={ae:{angle:-52,ring:'outer'},et:{angle:-33,ring:'inner'},ug:{angle:-15,ring:'outer'},ke:{angle:2,ring:'inner'},rw:{angle:-162,ring:'inner',side:'left'},tz:{angle:35,ring:'inner'},bi:{angle:174,ring:'inner',side:'left'},mz:{angle:68,ring:'inner'},zm:{angle:110,ring:'outer',side:'left'},cd:{angle:151,ring:'inner'}};
+const MOBILE_DOCKS:Docks={ae:{angle:-57,ring:'outer'},et:{angle:-29,ring:'inner'},ug:{angle:-17,ring:'outer'},ke:{angle:-7,ring:'inner'},rw:{angle:-160,ring:'inner',side:'left'},tz:{angle:37,ring:'inner'},bi:{angle:174,ring:'inner',side:'left'},mz:{angle:73,ring:'inner'},zm:{angle:110,ring:'outer',side:'left'},cd:{angle:145,ring:'inner'}};
+const WIDE_MOBILE_DOCKS:Docks={...MOBILE_DOCKS,tz:{angle:28,ring:'inner'}};
+function dockLayout(width:number){return width<420?MOBILE_DOCKS:width<600?WIDE_MOBILE_DOCKS:width<960?TABLET_PORTRAIT_DOCKS:DESKTOP_DOCKS}
 
 function RuntimePause(){const setFrameloop=useThree(state=>state.setFrameloop),gl=useThree(state=>state.gl);useEffect(()=>{let onscreen=true;const sync=()=>setFrameloop(document.hidden||!onscreen?'never':'always'),target=gl.domElement.closest('.experience');const observer=target&&'IntersectionObserver'in window?new IntersectionObserver(entries=>{onscreen=entries[0]?.isIntersecting??true;sync()},{rootMargin:'120px'}):null;observer?.observe(target!);document.addEventListener('visibilitychange',sync);sync();return()=>{observer?.disconnect();document.removeEventListener('visibilitychange',sync)}},[gl,setFrameloop]);return null}
 
@@ -72,12 +73,23 @@ function Scene({reduced,labelRefs,leaderRefs}:{reduced:boolean;labelRefs:DomRefs
       const slot=docks[place.id],angle=THREE.MathUtils.degToRad(slot.angle),band=slot.ring==='inner'?1.10:1.16;
       const dx=centerX+Math.cos(angle)*radiusX*band,dy=centerY+Math.sin(angle)*radiusY*band;
       const width=label.offsetWidth,height=label.offsetHeight;
-      const left=THREE.MathUtils.clamp(dx+(Math.cos(angle)>=0?9:-width-9),12,size.width-width-12);
+      const side=slot.side??(Math.cos(angle)>=0?'right':'left');
+      const left=THREE.MathUtils.clamp(dx+(side==='right'?12:-width-12),12,size.width-width-12);
       const top=THREE.MathUtils.clamp(dy-height/2,12,size.height-height-12);
-      // A small perpendicular bias gives a restrained curve; both endpoints
-      // and control point remain in the country's outward corridor.
-      const vx=dx-x,vy=dy-y,cx=x+vx*.54-vy*.025,cy=y+vy*.54+vx*.025;
-      leader.setAttribute('d',`M ${x} ${y} Q ${cx} ${cy} ${dx} ${dy}`);
+      // Dock against the measured content box AFTER safe-bound clamping.
+      // This leaves 12px of clear space before the flag/name on either side.
+      const endX=side==='right'?left-12:left+width+12,endY=top+height/2;
+      const vx=endX-x,vy=endY-y,cx=x+vx*.54-vy*.025,cy=y+vy*.54+vx*.025;
+      let path=`M ${x} ${y} Q ${cx} ${cy} ${endX} ${endY}`;
+      if(place.id==='rw'){
+        const exitX=centerX+radiusX*.08,exitY=centerY-radiusY*.16;
+        path=`M ${x} ${y} Q ${x-radiusX*.04} ${exitY} ${exitX} ${exitY} Q ${endX+24} ${endY} ${endX} ${endY}`;
+      } else if(place.id==='bi'){
+        const exitX=centerX+radiusX*.02,exitY=centerY+radiusY*.04;
+        path=`M ${x} ${y} Q ${x-radiusX*.05} ${exitY} ${exitX} ${exitY} Q ${endX+24} ${endY} ${endX} ${endY}`;
+      }
+      label.dataset.side=side;
+      leader.setAttribute('d',path);
       leader.setAttribute('pathLength','1');
       const markerStart=index===0?7.9:8.2+(index-1)*.41;
       const start=markerStart+.10,draw=reduced?1:THREE.MathUtils.smoothstep(elapsed,start,start+.40)*retract;
@@ -90,7 +102,7 @@ function Scene({reduced,labelRefs,leaderRefs}:{reduced:boolean;labelRefs:DomRefs
       leader.style.opacity=String(attached?(window.innerWidth<600?.72:.65)*retract:0);
       leader.dataset.centerX=String(centerX);leader.dataset.centerY=String(centerY);leader.dataset.globeRadius=String(radiusX);
       leader.dataset.progress=String(draw);
-      dockNode.setAttribute('cx',String(dx));dockNode.setAttribute('cy',String(dy));
+      dockNode.setAttribute('cx',String(endX));dockNode.setAttribute('cy',String(endY));
       dockNode.style.opacity=String(attached?labelReveal:0);
     });
   });
