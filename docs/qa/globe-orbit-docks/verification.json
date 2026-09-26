@@ -4,6 +4,7 @@
     "flagCollisions": [],
     "endpointViolations": [],
     "sideViolations": [],
+    "uaeEthiopiaLabelGap": 122.1900405883789,
     "viewport": {
       "width": 1280,
       "height": 720
@@ -47,6 +48,7 @@
     "flagCollisions": [],
     "endpointViolations": [],
     "sideViolations": [],
+    "uaeEthiopiaLabelGap": 122.1900405883789,
     "viewport": {
       "width": 1366,
       "height": 768
@@ -89,6 +91,7 @@
     "flagCollisions": [],
     "endpointViolations": [],
     "sideViolations": [],
+    "uaeEthiopiaLabelGap": 122.19003295898438,
     "viewport": {
       "width": 1440,
       "height": 900
@@ -131,6 +134,7 @@
     "flagCollisions": [],
     "endpointViolations": [],
     "sideViolations": [],
+    "uaeEthiopiaLabelGap": 122.19003295898438,
     "viewport": {
       "width": 1536,
       "height": 864
@@ -173,6 +177,7 @@
     "flagCollisions": [],
     "endpointViolations": [],
     "sideViolations": [],
+    "uaeEthiopiaLabelGap": 122.19003295898438,
     "viewport": {
       "width": 1920,
       "height": 1080
@@ -215,6 +220,7 @@
     "flagCollisions": [],
     "endpointViolations": [],
     "sideViolations": [],
+    "uaeEthiopiaLabelGap": 60.41790771484375,
     "viewport": {
       "width": 360,
       "height": 800
@@ -257,6 +263,7 @@
     "flagCollisions": [],
     "endpointViolations": [],
     "sideViolations": [],
+    "uaeEthiopiaLabelGap": 64.33856201171875,
     "viewport": {
       "width": 390,
       "height": 844
@@ -299,6 +306,7 @@
     "flagCollisions": [],
     "endpointViolations": [],
     "sideViolations": [],
+    "uaeEthiopiaLabelGap": 68.55908203125,
     "viewport": {
       "width": 412,
       "height": 915
@@ -341,6 +349,7 @@
     "flagCollisions": [],
     "endpointViolations": [],
     "sideViolations": [],
+    "uaeEthiopiaLabelGap": 72.0137939453125,
     "viewport": {
       "width": 430,
       "height": 932
@@ -383,6 +392,7 @@
     "flagCollisions": [],
     "endpointViolations": [],
     "sideViolations": [],
+    "uaeEthiopiaLabelGap": 66.983154296875,
     "viewport": {
       "width": 768,
       "height": 1024
@@ -425,6 +435,7 @@
     "flagCollisions": [],
     "endpointViolations": [],
     "sideViolations": [],
+    "uaeEthiopiaLabelGap": 66.983154296875,
     "viewport": {
       "width": 820,
       "height": 1180
@@ -467,6 +478,7 @@
     "flagCollisions": [],
     "endpointViolations": [],
     "sideViolations": [],
+    "uaeEthiopiaLabelGap": 96.38241577148438,
     "viewport": {
       "width": 1024,
       "height": 768

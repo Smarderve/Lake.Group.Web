@@ -70,7 +70,7 @@ function Scene({reduced,labelRefs,leaderRefs}:{reduced:boolean;labelRefs:DomRefs
       const dockNode=leader.nextElementSibling as SVGCircleElement;
       const world=geoVector(place.lat,place.lng,RADIUS*1.018).applyEuler(group.current!.rotation);
       const projected=world.clone().project(camera),x=(projected.x*.5+.5)*size.width,y=(-projected.y*.5+.5)*size.height;
-      const slot=docks[place.id],angle=THREE.MathUtils.degToRad(slot.angle),band=slot.ring==='inner'?1.10:1.16;
+      const slot=docks[place.id],angle=THREE.MathUtils.degToRad(slot.angle),band=place.id==='ae'?1.4:slot.ring==='inner'?1.10:1.16;
       const dx=centerX+Math.cos(angle)*radiusX*band,dy=centerY+Math.sin(angle)*radiusY*band;
       const width=label.offsetWidth,height=label.offsetHeight;
       const side=slot.side??(Math.cos(angle)>=0?'right':'left');

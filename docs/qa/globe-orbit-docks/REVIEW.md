@@ -33,6 +33,12 @@ Leader endpoints are calculated from measured label boxes after boundary clampin
 
 ## Browser verification
 
+### UAE/Ethiopia spacing polish (2026-09-26)
+
+The UAE label dock now uses a 1.40 projected-radius orbit band along its existing authored angle (desktop/landscape -52°, portrait tablet -52°, phone -57°). Previously it used the 1.16 outer band. This moves only the UAE dock and its measured leader endpoint up and right; Ethiopia stays at its prior dock and its geographic leader anchor is unchanged. The geographic UAE anchor, country markers, all other eight docks, and shared leader animation are unchanged. The existing curve automatically terminates at the new dock; no separate route timing or stroke change was made.
+
+The geometry verifier now reports the measured closest edge-to-edge gap between UAE and Ethiopia label boxes and requires at least 32px. The same existing path-vs-flag/text, protected foreign-label zone, crossing, clipping and endpoint checks continue to apply. The final run passed at all 12 viewports: UAE/Ethiopia label gap ranged from 60.4px (360×800) to 122.2px (desktop). Every viewport had zero text, flag, safe-zone, crossing, overlap, clipping or endpoint violations. Full results are in `verification.json`.
+
 Final combined run on 2026-09-26: PASS (exit 0), all 12 viewports. Each has ten visible labels, zero text collisions, zero flag collisions, zero foreign-label collisions, zero leader crossings, zero label overlaps, zero clipped labels and zero endpoint or side violations. Rotation-hidden check passed. Desktop, tablet and phone captures were visually reviewed.
 
 `node scripts/verify-globe-leader-geometry.mjs` checks the real rendered SVG paths and DOM label, text and flag rectangles. It samples each path into 64 segments, so intersection results are numerical approximations backed by screenshot review.
