@@ -1,0 +1,523 @@
+{
+  "checks": [
+    {
+      "workspace": "overview",
+      "width": 1920,
+      "height": 1080,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "pages",
+      "width": 1920,
+      "height": 1080,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "editor",
+      "width": 1920,
+      "height": 1080,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "navigation",
+      "width": 1920,
+      "height": 1080,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "global-data",
+      "width": 1920,
+      "height": 1080,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "media",
+      "width": 1920,
+      "height": 1080,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "history",
+      "width": 1920,
+      "height": 1080,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "settings",
+      "width": 1920,
+      "height": 1080,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "overview",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "pages",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "editor",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "navigation",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "global-data",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "media",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "history",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "settings",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "overview",
+      "width": 1366,
+      "height": 768,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "pages",
+      "width": 1366,
+      "height": 768,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "editor",
+      "width": 1366,
+      "height": 768,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "navigation",
+      "width": 1366,
+      "height": 768,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "global-data",
+      "width": 1366,
+      "height": 768,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "media",
+      "width": 1366,
+      "height": 768,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "history",
+      "width": 1366,
+      "height": 768,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "settings",
+      "width": 1366,
+      "height": 768,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "overview",
+      "width": 1280,
+      "height": 800,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "pages",
+      "width": 1280,
+      "height": 800,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "editor",
+      "width": 1280,
+      "height": 800,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "navigation",
+      "width": 1280,
+      "height": 800,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "global-data",
+      "width": 1280,
+      "height": 800,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "media",
+      "width": 1280,
+      "height": 800,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "history",
+      "width": 1280,
+      "height": 800,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "settings",
+      "width": 1280,
+      "height": 800,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "overview",
+      "width": 1024,
+      "height": 768,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "pages",
+      "width": 1024,
+      "height": 768,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "editor",
+      "width": 1024,
+      "height": 768,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "navigation",
+      "width": 1024,
+      "height": 768,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "global-data",
+      "width": 1024,
+      "height": 768,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "media",
+      "width": 1024,
+      "height": 768,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "history",
+      "width": 1024,
+      "height": 768,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "settings",
+      "width": 1024,
+      "height": 768,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "overview",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "pages",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "editor",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "navigation",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "global-data",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "media",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "history",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "settings",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "overview",
+      "width": 430,
+      "height": 932,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "pages",
+      "width": 430,
+      "height": 932,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "editor",
+      "width": 430,
+      "height": 932,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "navigation",
+      "width": 430,
+      "height": 932,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "global-data",
+      "width": 430,
+      "height": 932,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "media",
+      "width": 430,
+      "height": 932,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "history",
+      "width": 430,
+      "height": 932,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "settings",
+      "width": 430,
+      "height": 932,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "overview",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "pages",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "editor",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "navigation",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "global-data",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "media",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "history",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "settings",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "overview",
+      "width": 360,
+      "height": 800,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "pages",
+      "width": 360,
+      "height": 800,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "editor",
+      "width": 360,
+      "height": 800,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "navigation",
+      "width": 360,
+      "height": 800,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "global-data",
+      "width": 360,
+      "height": 800,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "media",
+      "width": 360,
+      "height": 800,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "history",
+      "width": 360,
+      "height": 800,
+      "overflow": false,
+      "accessibilityViolations": []
+    },
+    {
+      "workspace": "settings",
+      "width": 360,
+      "height": 800,
+      "overflow": false,
+      "accessibilityViolations": []
+    }
+  ],
+  "interactions": [
+    "page search",
+    "responsive span reset",
+    "undo redo",
+    "canvas zoom",
+    "command palette escape",
+    "local nested navigation",
+    "upload dialog focus",
+    "global impact review",
+    "release content comparison",
+    "protected globe inspector",
+    "media loading empty error states",
+    "mobile panel switching"
+  ],
+  "browserErrors": []
+}

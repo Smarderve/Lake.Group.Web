@@ -16,7 +16,7 @@ import { ErrorReference } from '../src/components/ui/ErrorReference';
 import { OfflineBanner } from '../src/components/ui/OfflineBanner';
 import { RouteErrorPage } from '../src/pages/RouteErrorPage';
 import { ApiError, apiErrorMessage } from '../src/services/api';
-import { classifyError, friendlyMessage, makeErrorReference, ErrorKind } from '../src/services/errors';
+import { classifyError, friendlyMessage, makeErrorReference, type ErrorKind } from '../src/services/errors';
 
 // Quiet the boundary's intentional console noise during tests.
 vi.spyOn(console, 'error').mockImplementation(() => {});
@@ -190,7 +190,7 @@ describe('ErrorReference', () => {
 describe('RouteErrorPage', () => {
   /** Renders RouteErrorPage against a real router with a throwing route. */
   function renderWithRouteError(status?: number) {
-    function ThrowingRoute() {
+    function ThrowingRoute(): never {
       throw new Error('loader exploded, dispatcher is null');
     }
     const router = createMemoryRouter(

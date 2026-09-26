@@ -13,6 +13,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "node e2e/critical-flow.mjs",
+    "test:control": "node e2e/control-frontend.mjs",
     "test:visual": "node e2e/visual-quality.mjs",
     "test:performance": "node scripts/check-performance.mjs"
   },

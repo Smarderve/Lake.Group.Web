@@ -1,57 +1,996 @@
-export type Viewport = 'desktop' | 'tablet' | 'mobile';
-export type ComponentType = 'section' | 'container' | 'stack' | 'grid' | 'columns' | 'heading' | 'paragraph' | 'rich-text' | 'image' | 'video' | 'button' | 'link' | 'icon' | 'list' | 'corporate-hero' | 'company-hero' | 'image-text' | 'text-image' | 'stat-grid' | 'stat-card' | 'company-card' | 'service-card' | 'image-card' | 'cta' | 'gallery' | 'logo-group' | 'timeline-item' | 'contact-block' | 'business-vertical-card' | 'custom-globe' | 'history-timeline' | 'interactive-gallery' | 'station-map' | 'fleet-directory';
-export type NodeLayout = { span?: number; columns?: number; gap?: 'none'|'xs'|'sm'|'md'|'lg'|'xl'; padding?: 'none'|'xs'|'sm'|'md'|'lg'|'xl'; height?: 'fit'|'small'|'medium'|'large'|'viewport'|'custom'; minHeight?: number; container?: 'narrow'|'standard'|'wide'|'full'; align?: 'start'|'center'|'end'|'stretch' };
-export type NodeContent = { text?: string; heading?: string; body?: string; label?: string; src?: string; alt?: string; href?: string; action?: 'internal'|'external'|'email'|'telephone'|'anchor'|'file'; target?: 'same'|'new'; variant?: 'primary'|'secondary'|'outline'|'text'; size?: 'small'|'medium'|'large'; icon?: string; items?: string[]; value?: string; prefix?: string; suffix?: string; reference?: { key: string; state: 'linked'|'override'|'detached'|'broken'; snapshot?: string; field?: 'heading'|'body'|'text'|'value'|'label' } };
-export type CompositionNode = { id: string; key: string; type: ComponentType; name: string; visible: boolean; locked: boolean; reusableKey?: string; content: NodeContent; layout: NodeLayout; style: { background: 'none'|'white'|'light'|'deep-blue'|'light-blue'|'yellow'|'brand-gradient'|'image'; backgroundImage?: string; overlay?: number; radius: 'none'|'sm'|'md'|'lg'; fit?: 'cover'|'contain'; focalX?: number; focalY?: number }; responsive: { tablet?: { layout?: NodeLayout; hidden?: boolean }; mobile?: { layout?: NodeLayout; hidden?: boolean } }; children: CompositionNode[] };
-export type Composition = { version: 1; root: { id: 'page'; key: 'page'; type: 'page'; name: string; children: CompositionNode[] } };
-
-export const componentRegistry: Record<ComponentType, { label: string; category: 'Layout'|'Content'|'Lake components'|'Media'|'Advanced'; children: ComponentType[]; defaults: Partial<CompositionNode> }> = {
-  section: entry('Section','Layout',all(),{}), container: entry('Container','Layout',all(),{}), stack: entry('Stack','Layout',all(),{}), grid: entry('Grid','Layout',all(),{layout:{span:12,columns:3,gap:'md'}}), columns: entry('Columns','Layout',all(),{layout:{span:12,columns:2,gap:'md'}}),
-  heading: entry('Heading','Content',[],{content:{text:'New heading'}}), paragraph: entry('Paragraph','Content',[],{content:{text:'Add your text here.'}}), 'rich-text': entry('Rich text','Content',[],{content:{body:'Add your content here.'}}), button: entry('Button','Content',[],{content:{label:'Learn more',href:'about.html',action:'internal',target:'same',variant:'primary',size:'medium'}}), link: entry('Link','Content',[],{content:{label:'Learn more',href:'about.html',action:'internal',target:'same'}}), icon: entry('Icon','Content',[],{content:{icon:'arrow-right'}}), list: entry('List','Content',[],{content:{items:['First item','Second item']}}),
-  image: entry('Image','Media',[],{content:{src:'assets/images/logos/LAKE_GROUP_LOGO.png',alt:'Lake Group'}}), video: entry('Video','Media',[],{content:{src:'',alt:''}}), gallery: entry('Gallery','Media',['image'],{}),
-  'corporate-hero': entry('Corporate hero','Lake components',['heading','paragraph','button','custom-globe','history-timeline','interactive-gallery','station-map','fleet-directory'],{locked:true,style:{background:'deep-blue',radius:'none'}}), 'company-hero': entry('Company hero','Lake components',['heading','paragraph','button','custom-globe','history-timeline','interactive-gallery','station-map','fleet-directory'],{locked:true,style:{background:'deep-blue',radius:'none'}}),
-  'image-text': entry('Image + text','Lake components',['heading','paragraph','image','video','button'],{}), 'text-image': entry('Text + image','Lake components',['heading','paragraph','image','video','button'],{}), 'stat-grid': entry('Stat grid','Lake components',['stat-card'],{layout:{span:12,columns:4,gap:'md'}}), 'stat-card': entry('Stat card','Lake components',[],{layout:{span:3},content:{value:'100+ ',label:'Projects'}}), 'company-card': entry('Company card','Lake components',[],{}), 'service-card': entry('Service card','Lake components',[],{layout:{span:4},content:{heading:'Service',body:'Describe this service.'}}), 'image-card': entry('Image card','Lake components',[],{layout:{span:4},content:{heading:'Card title',body:'Card description.'}}), cta: entry('Call to action','Lake components',['heading','paragraph','button'],{style:{background:'deep-blue',radius:'md'}}), 'logo-group': entry('Logo group','Lake components',['image','link'],{}), 'timeline-item': entry('Timeline item','Lake components',[],{}), 'contact-block': entry('Contact block','Lake components',[],{content:{heading:'Contact us',body:'We are ready to help.'}}), 'business-vertical-card': entry('Business vertical card','Lake components',[],{layout:{span:4}}),
-  'custom-globe': entry('Home globe','Advanced',[],{locked:true}), 'history-timeline': entry('History timeline','Advanced',[],{locked:true}), 'interactive-gallery': entry('Interactive gallery','Advanced',[],{locked:true}), 'station-map': entry('Station map','Advanced',[],{locked:true}), 'fleet-directory': entry('Fleet directory','Advanced',[],{locked:true}),
+export type Viewport = "desktop" | "tablet" | "mobile";
+export type ComponentType =
+  | "section"
+  | "container"
+  | "stack"
+  | "grid"
+  | "columns"
+  | "heading"
+  | "paragraph"
+  | "rich-text"
+  | "image"
+  | "video"
+  | "button"
+  | "link"
+  | "icon"
+  | "list"
+  | "corporate-hero"
+  | "company-hero"
+  | "image-text"
+  | "text-image"
+  | "stat-grid"
+  | "stat-card"
+  | "company-card"
+  | "service-card"
+  | "image-card"
+  | "cta"
+  | "gallery"
+  | "logo-group"
+  | "timeline-item"
+  | "contact-block"
+  | "business-vertical-card"
+  | "custom-globe"
+  | "history-timeline"
+  | "interactive-gallery"
+  | "station-map"
+  | "fleet-directory";
+export type NodeLayout = {
+  span?: number;
+  columns?: number;
+  gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl";
+  padding?: "none" | "xs" | "sm" | "md" | "lg" | "xl";
+  height?: "fit" | "small" | "medium" | "large" | "viewport" | "custom";
+  minHeight?: number;
+  container?: "narrow" | "standard" | "wide" | "full";
+  align?: "start" | "center" | "end" | "stretch";
 };
-function entry(label: string, category: 'Layout'|'Content'|'Lake components'|'Media'|'Advanced', children: ComponentType[], defaults: Partial<CompositionNode>) { return { label, category, children, defaults }; }
-function all(): ComponentType[] { return ['section','container','stack','grid','columns','heading','paragraph','rich-text','image','video','button','link','icon','list','image-text','text-image','stat-grid','stat-card','company-card','service-card','image-card','cta','gallery','logo-group','timeline-item','contact-block','business-vertical-card']; }
-const slug = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'') || 'component';
-export const makeNode = (type: ComponentType, name = componentRegistry[type].label): CompositionNode => ({ id: `${slug(type)}-${crypto.randomUUID().slice(0,8)}`, key: `${slug(type)}-${crypto.randomUUID().slice(0,8)}`, type, name, visible:true, locked:Boolean(componentRegistry[type].defaults.locked), content:{...(componentRegistry[type].defaults.content ?? {})}, layout:{span:12,...(componentRegistry[type].defaults.layout ?? {})}, style:{background:'none',radius:'none',...(componentRegistry[type].defaults.style ?? {})}, responsive:{}, children:[] });
-export function compositionFromLegacy(name: string, data: { hero:{heading:string;description:string;image:string;alt?:string}; introduction:{heading:string;body:string}; cta:{label:string;href:string}; sections:Array<{key:string;heading:string;body:string}> }): Composition {
-  const hero=makeNode('company-hero','Hero'); hero.id='hero'; hero.key='hero'; hero.content={heading:data.hero.heading,body:data.hero.description,src:data.hero.image,alt:data.hero.alt};
-  const intro=makeNode('image-text','Introduction'); intro.id='introduction'; intro.key='introduction'; intro.content={heading:data.introduction.heading,body:data.introduction.body};
-  const sections=data.sections.map((item,index)=>{const node=makeNode(index===0?'service-card':'section',item.heading);node.id=`section-${slug(item.key)}`;node.key=item.key;node.content={heading:item.heading,body:item.body};return node;});
-  const cta=makeNode('cta','Call to action'); cta.id='cta'; cta.key='cta'; cta.content={heading:'Ready to learn more?',label:data.cta.label,href:data.cta.href,action:'internal',target:'same',variant:'primary',size:'medium'};
-  return {version:1,root:{id:'page',key:'page',type:'page',name,children:[hero,intro,...sections,cta]}};
-}
-export function walk(nodes: CompositionNode[], visit:(node:CompositionNode,parent:CompositionNode|null,index:number)=>void,parent:CompositionNode|null=null){nodes.forEach((node,index)=>{visit(node,parent,index);walk(node.children,visit,node);});}
-export function findNode(composition:Composition,id:string){let found:CompositionNode|undefined;walk(composition.root.children,n=>{if(n.id===id)found=n;});return found;}
-export function parentList(composition:Composition,id:string):CompositionNode[]{if(composition.root.children.some(n=>n.id===id))return composition.root.children;let result:CompositionNode[]=[];walk(composition.root.children,n=>{if(n.children.some(c=>c.id===id))result=n.children;});return result;}
-export function updateNode(composition:Composition,id:string,mutate:(node:CompositionNode)=>void){const next=structuredClone(composition);const node=findNode(next,id);if(node)mutate(node);return next;}
-export function insertNode(composition:Composition,node:CompositionNode,parentId?:string,index?:number){const next=structuredClone(composition);const parent=parentId?findNode(next,parentId):undefined;if(parent&&!componentRegistry[parent.type].children.includes(node.type))throw new Error(`${node.type} cannot be inserted inside ${parent.type}`);const list=parent?parent.children:next.root.children;list.splice(index??list.length,0,node);return next;}
-export function removeNode(composition:Composition,id:string){const next=structuredClone(composition);const node=findNode(next,id);if(node?.locked)throw new Error('Protected components cannot be deleted.');const list=parentList(next,id);const index=list.findIndex(n=>n.id===id);if(index>=0)list.splice(index,1);return next;}
-export function duplicateNode(composition:Composition,id:string){const next=structuredClone(composition);const source=findNode(next,id);if(!source)return next;const clone=structuredClone(source);walk([clone],n=>{n.id=`${slug(n.type)}-${crypto.randomUUID().slice(0,8)}`;n.key=`${slug(n.key)}-copy-${crypto.randomUUID().slice(0,4)}`;n.locked=false;});clone.name=`${source.name} copy`;const list=parentList(next,id);list.splice(list.findIndex(n=>n.id===id)+1,0,clone);return next;}
-export function moveNode(composition:Composition,id:string,direction:-1|1){const next=structuredClone(composition);const list=parentList(next,id);const from=list.findIndex(n=>n.id===id),to=from+direction;if(from>=0&&to>=0&&to<list.length)[list[from],list[to]]=[list[to],list[from]];return next;}
-export function effectiveLayout(node:CompositionNode,viewport:Viewport):NodeLayout { return viewport==='desktop'?node.layout:{...node.layout,...node.responsive[viewport]?.layout}; }
-export function setResponsiveLayout(node:CompositionNode,viewport:Viewport,field:keyof NodeLayout,value:NodeLayout[keyof NodeLayout]){if(viewport==='desktop'){(node.layout as Record<string,unknown>)[field]=value;return;}const override=node.responsive[viewport]??{};override.layout={...(override.layout??{}),[field]:value};node.responsive[viewport]=override;}
-export function resetResponsive(node:CompositionNode,viewport:Exclude<Viewport,'desktop'>,field?:keyof NodeLayout){if(!field){delete node.responsive[viewport];return;}const layout={...(node.responsive[viewport]?.layout??{})};delete layout[field];if(Object.keys(layout).length)node.responsive[viewport]={...node.responsive[viewport],layout};else delete node.responsive[viewport];}
+export type NodeContent = {
+  text?: string;
+  heading?: string;
+  body?: string;
+  label?: string;
+  src?: string;
+  alt?: string;
+  href?: string;
+  action?: "internal" | "external" | "email" | "telephone" | "anchor" | "file";
+  target?: "same" | "new";
+  variant?: "primary" | "secondary" | "outline" | "text";
+  size?: "small" | "medium" | "large";
+  icon?: string;
+  items?: string[];
+  value?: string;
+  prefix?: string;
+  suffix?: string;
+  reference?: {
+    key: string;
+    state: "linked" | "override" | "detached" | "broken";
+    snapshot?: string;
+    field?: "heading" | "body" | "text" | "value" | "label";
+  };
+};
+export type CompositionNode = {
+  id: string;
+  key: string;
+  type: ComponentType;
+  name: string;
+  visible: boolean;
+  locked: boolean;
+  reusableKey?: string;
+  content: NodeContent;
+  layout: NodeLayout;
+  style: {
+    background:
+      | "none"
+      | "white"
+      | "light"
+      | "deep-blue"
+      | "light-blue"
+      | "yellow"
+      | "brand-gradient"
+      | "image";
+    backgroundImage?: string;
+    overlay?: number;
+    radius: "none" | "sm" | "md" | "lg";
+    fit?: "cover" | "contain";
+    focalX?: number;
+    focalY?: number;
+  };
+  responsive: {
+    tablet?: { layout?: NodeLayout; hidden?: boolean };
+    mobile?: { layout?: NodeLayout; hidden?: boolean };
+  };
+  children: CompositionNode[];
+};
+export type Composition = {
+  version: 1;
+  root: {
+    id: "page";
+    key: "page";
+    type: "page";
+    name: string;
+    children: CompositionNode[];
+  };
+};
 
-export function renderComposition(document:Document,composition:Composition,viewport:Viewport,onSelect:(id:string)=>void,onInline:(id:string,field:'heading'|'body'|'text',value:string)=>void,selectedId:string,onResize?:(id:string,change:{span?:number;minHeight?:number})=>void,onMove?:(id:string,targetId:string)=>void){
-  let style=document.getElementById('cms-v2-composer-style') as HTMLStyleElement|null;if(!style){style=document.createElement('style');style.id='cms-v2-composer-style';document.head.append(style);}style.textContent=`[data-cms-node-id]{position:relative;transition:outline .12s,opacity .12s}[data-cms-node-id]:hover{outline:2px solid rgba(1,129,187,.45)!important;outline-offset:2px}[data-cms-selected=true]{outline:3px solid #0181bb!important;outline-offset:3px}[data-cms-hidden=true]{opacity:.32}[data-cms-generated=true]{padding:clamp(2.5rem,6vw,6rem) clamp(1rem,5vw,5rem);font-family:Arial,sans-serif}[data-cms-generated=true] .cms-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:1.25rem}[data-cms-generated=true] .cms-card{padding:1.5rem;border:1px solid #d8e3eb;border-radius:12px;background:#fff}[data-cms-generated=true] .cms-button{display:inline-block;padding:.8rem 1.15rem;background:#fff200;color:#062d4d;text-decoration:none;font-weight:700;border-radius:5px}.cms-editor-label{position:absolute;z-index:99999;left:4px;top:4px;background:#0181bb;color:white;padding:3px 7px;font:600 11px Arial;border-radius:3px;pointer-events:none}`;
-  const existing=[...document.querySelectorAll<HTMLElement>('body > section, body > main > section, body > .page-wrap > section, body > div > section')].filter((element)=>!element.closest('footer,nav'));
-  document.querySelectorAll('[data-cms-generated=true]').forEach(n=>n.remove());
-  composition.root.children.forEach((node,index)=>{let element=existing[index];if(!element){element=generatedElement(document,node);const footer=document.querySelector('footer');(footer?.parentNode??document.body).insertBefore(element,footer??null);}decorate(element,node,viewport,selectedId,onSelect,onInline,onResize,onMove);decorateChildren(document,element,node,viewport,selectedId,onSelect,onInline,onResize,onMove);});
+export const componentRegistry: Record<
+  ComponentType,
+  {
+    label: string;
+    category: "Layout" | "Content" | "Lake components" | "Media" | "Advanced";
+    children: ComponentType[];
+    defaults: Partial<CompositionNode>;
+  }
+> = {
+  section: entry("Section", "Layout", all(), {}),
+  container: entry("Container", "Layout", all(), {}),
+  stack: entry("Stack", "Layout", all(), {}),
+  grid: entry("Grid", "Layout", all(), {
+    layout: { span: 12, columns: 3, gap: "md" },
+  }),
+  columns: entry("Columns", "Layout", all(), {
+    layout: { span: 12, columns: 2, gap: "md" },
+  }),
+  heading: entry("Heading", "Content", [], {
+    content: { text: "New heading" },
+  }),
+  paragraph: entry("Paragraph", "Content", [], {
+    content: { text: "Add your text here." },
+  }),
+  "rich-text": entry("Rich text", "Content", [], {
+    content: { body: "Add your content here." },
+  }),
+  button: entry("Button", "Content", [], {
+    content: {
+      label: "Learn more",
+      href: "about.html",
+      action: "internal",
+      target: "same",
+      variant: "primary",
+      size: "medium",
+    },
+  }),
+  link: entry("Link", "Content", [], {
+    content: {
+      label: "Learn more",
+      href: "about.html",
+      action: "internal",
+      target: "same",
+    },
+  }),
+  icon: entry("Icon", "Content", [], { content: { icon: "arrow-right" } }),
+  list: entry("List", "Content", [], {
+    content: { items: ["First item", "Second item"] },
+  }),
+  image: entry("Image", "Media", [], {
+    content: {
+      src: "assets/images/logos/LAKE_GROUP_LOGO.png",
+      alt: "Lake Group",
+    },
+  }),
+  video: entry("Video", "Media", [], { content: { src: "", alt: "" } }),
+  gallery: entry("Gallery", "Media", ["image"], {}),
+  "corporate-hero": entry(
+    "Corporate hero",
+    "Lake components",
+    [
+      "heading",
+      "paragraph",
+      "button",
+      "custom-globe",
+      "history-timeline",
+      "interactive-gallery",
+      "station-map",
+      "fleet-directory",
+    ],
+    { locked: true, style: { background: "deep-blue", radius: "none" } },
+  ),
+  "company-hero": entry(
+    "Company hero",
+    "Lake components",
+    [
+      "heading",
+      "paragraph",
+      "button",
+      "custom-globe",
+      "history-timeline",
+      "interactive-gallery",
+      "station-map",
+      "fleet-directory",
+    ],
+    { locked: true, style: { background: "deep-blue", radius: "none" } },
+  ),
+  "image-text": entry(
+    "Image + text",
+    "Lake components",
+    ["heading", "paragraph", "image", "video", "button"],
+    {},
+  ),
+  "text-image": entry(
+    "Text + image",
+    "Lake components",
+    ["heading", "paragraph", "image", "video", "button"],
+    {},
+  ),
+  "stat-grid": entry("Stat grid", "Lake components", ["stat-card"], {
+    layout: { span: 12, columns: 4, gap: "md" },
+  }),
+  "stat-card": entry("Stat card", "Lake components", [], {
+    layout: { span: 3 },
+    content: { value: "100+ ", label: "Projects" },
+  }),
+  "company-card": entry("Company card", "Lake components", [], {}),
+  "service-card": entry("Service card", "Lake components", [], {
+    layout: { span: 4 },
+    content: { heading: "Service", body: "Describe this service." },
+  }),
+  "image-card": entry("Image card", "Lake components", [], {
+    layout: { span: 4 },
+    content: { heading: "Card title", body: "Card description." },
+  }),
+  cta: entry(
+    "Call to action",
+    "Lake components",
+    ["heading", "paragraph", "button"],
+    { style: { background: "deep-blue", radius: "md" } },
+  ),
+  "logo-group": entry("Logo group", "Lake components", ["image", "link"], {}),
+  "timeline-item": entry("Timeline item", "Lake components", [], {}),
+  "contact-block": entry("Contact block", "Lake components", [], {
+    content: { heading: "Contact us", body: "We are ready to help." },
+  }),
+  "business-vertical-card": entry(
+    "Business vertical card",
+    "Lake components",
+    [],
+    { layout: { span: 4 } },
+  ),
+  "custom-globe": entry("Home globe", "Advanced", [], { locked: true }),
+  "history-timeline": entry("History timeline", "Advanced", [], {
+    locked: true,
+  }),
+  "interactive-gallery": entry("Interactive gallery", "Advanced", [], {
+    locked: true,
+  }),
+  "station-map": entry("Station map", "Advanced", [], { locked: true }),
+  "fleet-directory": entry("Fleet directory", "Advanced", [], { locked: true }),
+};
+function entry(
+  label: string,
+  category: "Layout" | "Content" | "Lake components" | "Media" | "Advanced",
+  children: ComponentType[],
+  defaults: Partial<CompositionNode>,
+) {
+  return { label, category, children, defaults };
 }
-function decorateChildren(document:Document,parent:HTMLElement,node:CompositionNode,viewport:Viewport,selectedId:string,onSelect:(id:string)=>void,onInline:(id:string,field:'heading'|'body'|'text',value:string)=>void,onResize?: (id:string,change:{span?:number;minHeight?:number})=>void,onMove?: (id:string,targetId:string)=>void){
- const claimed=new Set<Element>();
- for(const child of node.children){const selector=child.type==='heading'?'h1,h2,h3,h4':child.type==='paragraph'||child.type==='rich-text'?'p':child.type==='image'?'img':child.type==='button'||child.type==='link'?'a,button':'article,.card,[class*="card"],div';let element=[...parent.querySelectorAll<HTMLElement>(selector)].find(candidate=>!candidate.dataset.cmsNodeId&&!claimed.has(candidate));if(!element){element=generatedChild(document,child);parent.append(element);}claimed.add(element);decorate(element,child,viewport,selectedId,onSelect,onInline,onResize,onMove);decorateChildren(document,element,child,viewport,selectedId,onSelect,onInline,onResize,onMove);}
+function all(): ComponentType[] {
+  return [
+    "section",
+    "container",
+    "stack",
+    "grid",
+    "columns",
+    "heading",
+    "paragraph",
+    "rich-text",
+    "image",
+    "video",
+    "button",
+    "link",
+    "icon",
+    "list",
+    "image-text",
+    "text-image",
+    "stat-grid",
+    "stat-card",
+    "company-card",
+    "service-card",
+    "image-card",
+    "cta",
+    "gallery",
+    "logo-group",
+    "timeline-item",
+    "contact-block",
+    "business-vertical-card",
+  ];
 }
-function decorate(element:HTMLElement,node:CompositionNode,viewport:Viewport,selectedId:string,onSelect:(id:string)=>void,onInline:(id:string,field:'heading'|'body'|'text',value:string)=>void,onResize?: (id:string,change:{span?:number;minHeight?:number})=>void,onMove?: (id:string,targetId:string)=>void){element.querySelectorAll(':scope > .cms-editor-label,:scope > .cms-resize-handle,:scope > .cms-height-handle').forEach(n=>n.remove());element.dataset.cmsNodeId=node.id;element.dataset.cmsSelected=String(node.id===selectedId);element.dataset.cmsHidden=String(!node.visible);element.style.display=node.visible?'':'none';element.draggable=!node.locked;element.ondragstart=(event)=>{event.dataTransfer?.setData('text/cms-node',node.id);};element.ondragover=(event)=>event.preventDefault();element.ondrop=(event)=>{event.preventDefault();event.stopPropagation();const source=event.dataTransfer?.getData('text/cms-node');if(source&&source!==node.id)onMove?.(source,node.id);};const layout=effectiveLayout(node,viewport);element.style.gridColumn=`span ${Math.max(1,Math.min(12,layout.span??12))}`;if(node.type==='grid'||node.type==='columns'||node.type==='stat-grid'){element.style.display='grid';element.style.gridTemplateColumns=`repeat(${layout.columns??3},minmax(0,1fr))`;}const preset={fit:undefined,small:320,medium:480,large:640,viewport:720,custom:layout.minHeight}[layout.height??'fit'];element.style.minHeight=preset===undefined?'':`${preset}px`;const colors={none:'',white:'#fff',light:'#f4f8fb','deep-blue':'#032d4d','light-blue':'#0181bb',yellow:'#fff200','brand-gradient':'linear-gradient(135deg,#032d4d,#0181bb)',image:''};if(node.style.background!=='image')element.style.background=colors[node.style.background];if(node.style.backgroundImage)element.style.backgroundImage=`linear-gradient(rgba(3,35,61,${node.style.overlay??0}),rgba(3,35,61,${node.style.overlay??0})),url("${node.style.backgroundImage.replace(/["\\]/g,'')}")`;const heading=element.matches('h1,h2,h3,h4')?element:element.querySelector<HTMLElement>('h1,h2,h3,h4');const body=element.matches('p')?element:[...element.querySelectorAll<HTMLElement>('p')].find(p=>p.textContent?.trim());const image=element.matches('img')?element as HTMLImageElement:element.querySelector<HTMLImageElement>('img');const button=element.matches('a,button')?element as HTMLAnchorElement:element.querySelector<HTMLAnchorElement>('a.btn,button,.cms-button');if(heading&&node.content.heading!==undefined){heading.textContent=node.content.heading;editable(heading,node.id,'heading',onInline);}if(body&&node.content.body!==undefined){body.textContent=node.content.body;editable(body,node.id,'body',onInline);}if(element.matches('h1,h2,h3,h4,p')&&node.content.text!==undefined){element.textContent=node.content.text;editable(element,node.id,'text',onInline);}if(image&&node.content.src){image.src=node.content.src;image.alt=node.content.alt??'';image.style.objectPosition=`${node.style.focalX??50}% ${node.style.focalY??50}%`;image.style.objectFit=node.style.fit??'cover';}if(button&&node.content.label){button.textContent=node.content.label;if(node.content.href)button.setAttribute('href',node.content.href);if(node.content.target==='new')button.setAttribute('target','_blank');else button.removeAttribute('target');}element.onclick=(event)=>{event.preventDefault();event.stopPropagation();onSelect(node.id);};if(node.id===selectedId){const label=document.createElement('span');label.className='cms-editor-label';label.textContent=node.name;element.append(label);if(onResize){const widthHandle=document.createElement('button');widthHandle.className='cms-resize-handle';widthHandle.type='button';widthHandle.ariaLabel='Resize grid span';widthHandle.style.cssText='position:absolute;z-index:99999;right:-9px;top:50%;width:18px;height:42px;border:2px solid #fff;border-radius:8px;background:#0181bb;cursor:ew-resize';widthHandle.onpointerdown=(event)=>{event.preventDefault();event.stopPropagation();const start=event.clientX,initial=layout.span??12;const move=(pointer:PointerEvent)=>onResize(node.id,{span:Math.max(1,Math.min(12,initial+Math.round((pointer.clientX-start)/35)))});bindPointer(document,move);};element.append(widthHandle);const heightHandle=document.createElement('button');heightHandle.className='cms-height-handle';heightHandle.type='button';heightHandle.ariaLabel='Resize component height';heightHandle.style.cssText='position:absolute;z-index:99999;bottom:-9px;left:50%;width:42px;height:18px;border:2px solid #fff;border-radius:8px;background:#0181bb;cursor:ns-resize';heightHandle.onpointerdown=(event)=>{event.preventDefault();event.stopPropagation();const start=event.clientY,initial=element.getBoundingClientRect().height;const move=(pointer:PointerEvent)=>onResize(node.id,{minHeight:Math.max(80,Math.min(1600,Math.round(initial+pointer.clientY-start)))});bindPointer(document,move);};element.append(heightHandle);}element.scrollIntoView({block:'nearest'});} }
-function bindPointer(document:Document,move:(event:PointerEvent)=>void){const finish=()=>{document.removeEventListener('pointermove',move);document.removeEventListener('pointerup',finish);};document.addEventListener('pointermove',move);document.addEventListener('pointerup',finish);}
-function editable(element:HTMLElement,id:string,field:'heading'|'body'|'text',onInline:(id:string,field:'heading'|'body'|'text',value:string)=>void){element.ondblclick=(event)=>{event.preventDefault();event.stopPropagation();element.contentEditable='true';element.focus();const finish=()=>{element.contentEditable='false';onInline(id,field,element.textContent??'');};element.onblur=finish;element.onkeydown=(key)=>{if(key.key==='Escape'||(key.key==='Enter'&&field==='heading')){key.preventDefault();element.blur();}};};}
-function generatedElement(document:Document,node:CompositionNode){const section=document.createElement('section');section.dataset.cmsGenerated='true';section.innerHTML=`<div class="container"><div class="cms-card"><h2>${escape(node.content.heading??node.name)}</h2><p>${escape(node.content.body??'Add content in the inspector.')}</p>${node.content.src?`<img src="${escape(node.content.src)}" alt="${escape(node.content.alt??'')}" style="max-width:100%;height:auto">`:''}${node.content.label?`<a class="cms-button" href="${escape(node.content.href??'#')}">${escape(node.content.label)}</a>`:''}</div></div>`;return section;}
-function generatedChild(document:Document,node:CompositionNode){const tag=node.type==='heading'?'h3':node.type==='paragraph'||node.type==='rich-text'?'p':node.type==='image'?'img':node.type==='button'||node.type==='link'?'a':'article';const element=document.createElement(tag);element.dataset.cmsGenerated='true';element.className=node.type==='button'?'cms-button':'cms-card';if(tag==='img'){(element as HTMLImageElement).src=node.content.src??'';(element as HTMLImageElement).alt=node.content.alt??'';}else element.textContent=node.content.text??node.content.heading??node.content.body??node.content.label??node.name;return element;}
-const escape=(value:string)=>value.replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]??char));
+const slug = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "") || "component";
+export const makeNode = (
+  type: ComponentType,
+  name = componentRegistry[type].label,
+): CompositionNode => ({
+  id: `${slug(type)}-${crypto.randomUUID().slice(0, 8)}`,
+  key: `${slug(type)}-${crypto.randomUUID().slice(0, 8)}`,
+  type,
+  name,
+  visible: true,
+  locked: Boolean(componentRegistry[type].defaults.locked),
+  content: { ...(componentRegistry[type].defaults.content ?? {}) },
+  layout: { span: 12, ...(componentRegistry[type].defaults.layout ?? {}) },
+  style: {
+    background: "none",
+    radius: "none",
+    ...(componentRegistry[type].defaults.style ?? {}),
+  },
+  responsive: {},
+  children: [],
+});
+export function compositionFromLegacy(
+  name: string,
+  data: {
+    hero: { heading: string; description: string; image: string; alt?: string };
+    introduction: { heading: string; body: string };
+    cta: { label: string; href: string };
+    sections: Array<{ key: string; heading: string; body: string }>;
+  },
+): Composition {
+  const hero = makeNode("company-hero", "Hero");
+  hero.id = "hero";
+  hero.key = "hero";
+  hero.content = {
+    heading: data.hero.heading,
+    body: data.hero.description,
+    src: data.hero.image,
+    alt: data.hero.alt,
+  };
+  const intro = makeNode("image-text", "Introduction");
+  intro.id = "introduction";
+  intro.key = "introduction";
+  intro.content = {
+    heading: data.introduction.heading,
+    body: data.introduction.body,
+  };
+  const sections = data.sections.map((item, index) => {
+    const node = makeNode(
+      index === 0 ? "service-card" : "section",
+      item.heading,
+    );
+    node.id = `section-${slug(item.key)}`;
+    node.key = item.key;
+    node.content = { heading: item.heading, body: item.body };
+    return node;
+  });
+  const cta = makeNode("cta", "Call to action");
+  cta.id = "cta";
+  cta.key = "cta";
+  cta.content = {
+    heading: "Ready to learn more?",
+    label: data.cta.label,
+    href: data.cta.href,
+    action: "internal",
+    target: "same",
+    variant: "primary",
+    size: "medium",
+  };
+  return {
+    version: 1,
+    root: {
+      id: "page",
+      key: "page",
+      type: "page",
+      name,
+      children: [hero, intro, ...sections, cta],
+    },
+  };
+}
+export function walk(
+  nodes: CompositionNode[],
+  visit: (
+    node: CompositionNode,
+    parent: CompositionNode | null,
+    index: number,
+  ) => void,
+  parent: CompositionNode | null = null,
+) {
+  nodes.forEach((node, index) => {
+    visit(node, parent, index);
+    walk(node.children, visit, node);
+  });
+}
+export function findNode(composition: Composition, id: string) {
+  let found: CompositionNode | undefined;
+  walk(composition.root.children, (n) => {
+    if (n.id === id) found = n;
+  });
+  return found;
+}
+export function parentList(
+  composition: Composition,
+  id: string,
+): CompositionNode[] {
+  if (composition.root.children.some((n) => n.id === id))
+    return composition.root.children;
+  let result: CompositionNode[] = [];
+  walk(composition.root.children, (n) => {
+    if (n.children.some((c) => c.id === id)) result = n.children;
+  });
+  return result;
+}
+export function updateNode(
+  composition: Composition,
+  id: string,
+  mutate: (node: CompositionNode) => void,
+) {
+  const next = structuredClone(composition);
+  const node = findNode(next, id);
+  if (node) mutate(node);
+  return next;
+}
+export function insertNode(
+  composition: Composition,
+  node: CompositionNode,
+  parentId?: string,
+  index?: number,
+) {
+  const next = structuredClone(composition);
+  const parent = parentId ? findNode(next, parentId) : undefined;
+  if (parent && !componentRegistry[parent.type].children.includes(node.type))
+    throw new Error(`${node.type} cannot be inserted inside ${parent.type}`);
+  const list = parent ? parent.children : next.root.children;
+  list.splice(index ?? list.length, 0, node);
+  return next;
+}
+export function removeNode(composition: Composition, id: string) {
+  const next = structuredClone(composition);
+  const node = findNode(next, id);
+  let protectedTree = false;
+  if (node)
+    walk([node], (child) => {
+      if (child.locked) protectedTree = true;
+    });
+  if (protectedTree) throw new Error("Protected components cannot be deleted.");
+  const list = parentList(next, id);
+  const index = list.findIndex((n) => n.id === id);
+  if (index >= 0) list.splice(index, 1);
+  return next;
+}
+export function duplicateNode(composition: Composition, id: string) {
+  const next = structuredClone(composition);
+  const source = findNode(next, id);
+  if (!source) return next;
+  let protectedTree = false;
+  walk([source], (child) => {
+    if (child.locked) protectedTree = true;
+  });
+  if (protectedTree)
+    throw new Error("Protected components cannot be duplicated.");
+  const clone = structuredClone(source);
+  walk([clone], (n) => {
+    n.id = `${slug(n.type)}-${crypto.randomUUID().slice(0, 8)}`;
+    n.key = `${slug(n.key)}-copy-${crypto.randomUUID().slice(0, 4)}`;
+  });
+  clone.name = `${source.name} copy`;
+  const list = parentList(next, id);
+  list.splice(list.findIndex((n) => n.id === id) + 1, 0, clone);
+  return next;
+}
+export function moveNode(
+  composition: Composition,
+  id: string,
+  direction: -1 | 1,
+) {
+  const next = structuredClone(composition);
+  const list = parentList(next, id);
+  const from = list.findIndex((n) => n.id === id),
+    to = from + direction;
+  if (list[from]?.locked)
+    throw new Error("Protected components cannot be moved.");
+  if (from >= 0 && to >= 0 && to < list.length)
+    [list[from], list[to]] = [list[to], list[from]];
+  return next;
+}
+export function effectiveLayout(
+  node: CompositionNode,
+  viewport: Viewport,
+): NodeLayout {
+  return viewport === "desktop"
+    ? node.layout
+    : { ...node.layout, ...node.responsive[viewport]?.layout };
+}
+export function setResponsiveLayout(
+  node: CompositionNode,
+  viewport: Viewport,
+  field: keyof NodeLayout,
+  value: NodeLayout[keyof NodeLayout],
+) {
+  if (viewport === "desktop") {
+    (node.layout as Record<string, unknown>)[field] = value;
+    return;
+  }
+  const override = node.responsive[viewport] ?? {};
+  override.layout = { ...(override.layout ?? {}), [field]: value };
+  node.responsive[viewport] = override;
+}
+export function resetResponsive(
+  node: CompositionNode,
+  viewport: Exclude<Viewport, "desktop">,
+  field?: keyof NodeLayout,
+) {
+  if (!field) {
+    delete node.responsive[viewport];
+    return;
+  }
+  const layout = { ...(node.responsive[viewport]?.layout ?? {}) };
+  delete layout[field];
+  if (Object.keys(layout).length)
+    node.responsive[viewport] = { ...node.responsive[viewport], layout };
+  else delete node.responsive[viewport];
+}
 
-export type CompositionChange={kind:'inserted'|'deleted'|'moved'|'changed';nodeId:string;label:string;before?:string;after?:string};
-export function compositionDiff(before?:Composition,after?:Composition):CompositionChange[]{if(!before||!after)return[];const flatten=(value:Composition)=>{const map=new Map<string,{node:CompositionNode;order:number}>();walk(value.root.children,(node,_parent,index)=>map.set(node.id,{node,order:index}));return map;};const a=flatten(before),b=flatten(after),changes:CompositionChange[]=[];for(const [id,item] of b){const prior=a.get(id);if(!prior){changes.push({kind:'inserted',nodeId:id,label:item.node.name});continue;}if(prior.order!==item.order)changes.push({kind:'moved',nodeId:id,label:item.node.name,before:String(prior.order+1),after:String(item.order+1)});for(const field of ['visible','content','layout','style','responsive'] as const){const x=JSON.stringify(prior.node[field]),y=JSON.stringify(item.node[field]);if(x!==y)changes.push({kind:'changed',nodeId:id,label:`${item.node.name} · ${field}`,before:x,after:y});}}for(const [id,item] of a)if(!b.has(id))changes.push({kind:'deleted',nodeId:id,label:item.node.name});return changes;}
+export function renderComposition(
+  document: Document,
+  composition: Composition,
+  viewport: Viewport,
+  onSelect: (id: string) => void,
+  onInline: (
+    id: string,
+    field: "heading" | "body" | "text",
+    value: string,
+  ) => void,
+  selectedId: string,
+  onResize?: (
+    id: string,
+    change: { span?: number; minHeight?: number },
+  ) => void,
+  onMove?: (id: string, targetId: string) => void,
+) {
+  if (!document.documentElement.dataset.cmsPreviewGuard) {
+    document.documentElement.dataset.cmsPreviewGuard = "true";
+    document.addEventListener(
+      "click",
+      (event) => {
+        const target = event.target as Element | null;
+        if (target?.closest("a")) event.preventDefault();
+      },
+      true,
+    );
+    document.addEventListener(
+      "submit",
+      (event) => event.preventDefault(),
+      true,
+    );
+  }
+  let style = document.getElementById(
+    "cms-v2-composer-style",
+  ) as HTMLStyleElement | null;
+  if (!style) {
+    style = document.createElement("style");
+    style.id = "cms-v2-composer-style";
+    document.head.append(style);
+  }
+  style.textContent = `[data-cms-drop-target=true]{box-shadow:inset 0 3px #0181bb;outline:2px dashed #0181bb!important}[contenteditable=true]{outline:2px dashed #0181bb!important;outline-offset:4px;background:rgba(1,129,187,.08)}[data-cms-node-id]{position:relative;transition:outline .12s,opacity .12s}[data-cms-node-id]:hover{outline:2px solid rgba(1,129,187,.45)!important;outline-offset:2px}[data-cms-selected=true]{outline:3px solid #0181bb!important;outline-offset:3px}[data-cms-hidden=true]{opacity:.32}[data-cms-generated=true]{padding:clamp(2.5rem,6vw,6rem) clamp(1rem,5vw,5rem);font-family:Arial,sans-serif}[data-cms-generated=true] .cms-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:1.25rem}[data-cms-generated=true] .cms-card{padding:1.5rem;border:1px solid #d8e3eb;border-radius:12px;background:#fff}[data-cms-generated=true] .cms-button{display:inline-block;padding:.8rem 1.15rem;background:#fff200;color:#062d4d;text-decoration:none;font-weight:700;border-radius:5px}.cms-editor-label{position:absolute;z-index:99999;left:4px;top:4px;background:#0181bb;color:white;padding:3px 7px;font:600 11px Arial;border-radius:3px;pointer-events:none}`;
+  const existing = [
+    ...document.querySelectorAll<HTMLElement>(
+      "body > section, body > main > section, body > .page-wrap > section, body > div > section",
+    ),
+  ].filter((element) => !element.closest("footer,nav"));
+  document
+    .querySelectorAll("[data-cms-generated=true]")
+    .forEach((n) => n.remove());
+  composition.root.children.forEach((node, index) => {
+    let element = existing[index];
+    if (!element) {
+      element = generatedElement(document, node);
+      const footer = document.querySelector("footer");
+      (footer?.parentNode ?? document.body).insertBefore(
+        element,
+        footer ?? null,
+      );
+    }
+    decorate(
+      element,
+      node,
+      viewport,
+      selectedId,
+      onSelect,
+      onInline,
+      onResize,
+      onMove,
+    );
+    decorateChildren(
+      document,
+      element,
+      node,
+      viewport,
+      selectedId,
+      onSelect,
+      onInline,
+      onResize,
+      onMove,
+    );
+  });
+}
+function decorateChildren(
+  document: Document,
+  parent: HTMLElement,
+  node: CompositionNode,
+  viewport: Viewport,
+  selectedId: string,
+  onSelect: (id: string) => void,
+  onInline: (
+    id: string,
+    field: "heading" | "body" | "text",
+    value: string,
+  ) => void,
+  onResize?: (
+    id: string,
+    change: { span?: number; minHeight?: number },
+  ) => void,
+  onMove?: (id: string, targetId: string) => void,
+) {
+  const claimed = new Set<Element>();
+  for (const child of node.children) {
+    const selector =
+      child.type === "heading"
+        ? "h1,h2,h3,h4"
+        : child.type === "paragraph" || child.type === "rich-text"
+          ? "p"
+          : child.type === "image"
+            ? "img"
+            : child.type === "button" || child.type === "link"
+              ? "a,button"
+              : 'article,.card,[class*="card"],div';
+    let element = [...parent.querySelectorAll<HTMLElement>(selector)].find(
+      (candidate) =>
+        (!candidate.dataset.cmsNodeId ||
+          candidate.dataset.cmsNodeId === child.id) &&
+        !claimed.has(candidate),
+    );
+    if (!element) {
+      element = generatedChild(document, child);
+      parent.append(element);
+    }
+    claimed.add(element);
+    decorate(
+      element,
+      child,
+      viewport,
+      selectedId,
+      onSelect,
+      onInline,
+      onResize,
+      onMove,
+    );
+    decorateChildren(
+      document,
+      element,
+      child,
+      viewport,
+      selectedId,
+      onSelect,
+      onInline,
+      onResize,
+      onMove,
+    );
+  }
+}
+function decorate(
+  element: HTMLElement,
+  node: CompositionNode,
+  viewport: Viewport,
+  selectedId: string,
+  onSelect: (id: string) => void,
+  onInline: (
+    id: string,
+    field: "heading" | "body" | "text",
+    value: string,
+  ) => void,
+  onResize?: (
+    id: string,
+    change: { span?: number; minHeight?: number },
+  ) => void,
+  onMove?: (id: string, targetId: string) => void,
+) {
+  element
+    .querySelectorAll(
+      ":scope > .cms-editor-label,:scope > .cms-resize-handle,:scope > .cms-height-handle",
+    )
+    .forEach((n) => n.remove());
+  element.dataset.cmsNodeId = node.id;
+  element.dataset.cmsSelected = String(node.id === selectedId);
+  element.dataset.cmsHidden = String(!node.visible);
+  element.style.display =
+    node.visible && !node.responsive[viewport as "tablet" | "mobile"]?.hidden
+      ? ""
+      : "none";
+  element.draggable = !node.locked;
+  element.ondragstart = (event) => {
+    event.dataTransfer?.setData("text/cms-node", node.id);
+  };
+  element.ondragover = (event) => {
+    event.preventDefault();
+    if (!node.locked) element.dataset.cmsDropTarget = "true";
+  };
+  element.ondragleave = () => {
+    delete element.dataset.cmsDropTarget;
+  };
+  element.ondrop = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    delete element.dataset.cmsDropTarget;
+    const source = event.dataTransfer?.getData("text/cms-node");
+    if (source && source !== node.id && !node.locked) onMove?.(source, node.id);
+  };
+  const layout = effectiveLayout(node, viewport);
+  if (!node.locked) {
+    const spacing = { none: 0, xs: 4, sm: 8, md: 16, lg: 24, xl: 40 };
+    if (layout.padding) element.style.padding = `${spacing[layout.padding]}px`;
+    if (layout.gap) element.style.gap = `${spacing[layout.gap]}px`;
+    if (layout.align) element.style.alignItems = layout.align;
+  }
+  if (!node.locked)
+    element.style.gridColumn = `span ${Math.max(1, Math.min(12, layout.span ?? 12))}`;
+  if (
+    !node.locked &&
+    (node.type === "grid" ||
+      node.type === "columns" ||
+      node.type === "stat-grid")
+  ) {
+    element.style.display = "grid";
+    element.style.gridTemplateColumns = `repeat(${layout.columns ?? 3},minmax(0,1fr))`;
+  }
+  const preset = {
+    fit: undefined,
+    small: 320,
+    medium: 480,
+    large: 640,
+    viewport: 720,
+    custom: layout.minHeight,
+  }[layout.height ?? "fit"];
+  if (!node.locked)
+    element.style.minHeight = preset === undefined ? "" : `${preset}px`;
+  const colors = {
+    none: "",
+    white: "#fff",
+    light: "#f4f8fb",
+    "deep-blue": "#032d4d",
+    "light-blue": "#0181bb",
+    yellow: "#fff200",
+    "brand-gradient": "linear-gradient(135deg,#032d4d,#0181bb)",
+    image: "",
+  };
+  if (!node.locked && node.style.background !== "image")
+    element.style.background = colors[node.style.background];
+  if (!node.locked && node.style.backgroundImage)
+    element.style.backgroundImage = `linear-gradient(rgba(3,35,61,${node.style.overlay ?? 0}),rgba(3,35,61,${node.style.overlay ?? 0})),url("${node.style.backgroundImage.replace(/["\\]/g, "")}")`;
+  const heading = element.matches("h1,h2,h3,h4")
+    ? element
+    : element.querySelector<HTMLElement>("h1,h2,h3,h4");
+  const body = element.matches("p")
+    ? element
+    : [...element.querySelectorAll<HTMLElement>("p")].find((p) =>
+        p.textContent?.trim(),
+      );
+  const image = element.matches("img")
+    ? (element as HTMLImageElement)
+    : element.querySelector<HTMLImageElement>("img");
+  const button = element.matches("a,button")
+    ? (element as HTMLAnchorElement)
+    : element.querySelector<HTMLAnchorElement>("a.btn,button,.cms-button");
+  if (heading && node.content.heading !== undefined) {
+    heading.textContent = node.content.heading;
+    editable(heading, node.id, "heading", onInline);
+  }
+  if (body && node.content.body !== undefined) {
+    body.textContent = node.content.body;
+    editable(body, node.id, "body", onInline);
+  }
+  if (element.matches("h1,h2,h3,h4,p") && node.content.text !== undefined) {
+    element.textContent = node.content.text;
+    editable(element, node.id, "text", onInline);
+  }
+  if (!node.locked && image && node.content.src) {
+    image.src = node.content.src;
+    image.alt = node.content.alt ?? "";
+    image.style.objectPosition = `${node.style.focalX ?? 50}% ${node.style.focalY ?? 50}%`;
+    image.style.objectFit = node.style.fit ?? "cover";
+  }
+  if (button && node.content.label) {
+    button.textContent = node.content.label;
+    if (node.content.href) button.setAttribute("href", node.content.href);
+    if (node.content.target === "new") button.setAttribute("target", "_blank");
+    else button.removeAttribute("target");
+  }
+  element.onclick = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    onSelect(node.id);
+  };
+  if (node.id === selectedId) {
+    const label = document.createElement("span");
+    label.className = "cms-editor-label";
+    label.textContent = node.name;
+    element.append(label);
+    if (onResize && !node.locked) {
+      const widthHandle = document.createElement("button");
+      widthHandle.className = "cms-resize-handle";
+      widthHandle.type = "button";
+      widthHandle.ariaLabel = "Resize grid span";
+      widthHandle.style.cssText =
+        "position:absolute;z-index:99999;right:-9px;top:50%;width:18px;height:42px;border:2px solid #fff;border-radius:8px;background:#0181bb;cursor:ew-resize";
+      widthHandle.onpointerdown = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const start = event.clientX,
+          initial = layout.span ?? 12;
+        const move = (pointer: PointerEvent) =>
+          onResize(node.id, {
+            span: Math.max(
+              1,
+              Math.min(
+                12,
+                initial + Math.round((pointer.clientX - start) / 35),
+              ),
+            ),
+          });
+        bindPointer(document, move);
+      };
+      element.append(widthHandle);
+      const heightHandle = document.createElement("button");
+      heightHandle.className = "cms-height-handle";
+      heightHandle.type = "button";
+      heightHandle.ariaLabel = "Resize component height";
+      heightHandle.style.cssText =
+        "position:absolute;z-index:99999;bottom:-9px;left:50%;width:42px;height:18px;border:2px solid #fff;border-radius:8px;background:#0181bb;cursor:ns-resize";
+      heightHandle.onpointerdown = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const start = event.clientY,
+          initial = element.getBoundingClientRect().height;
+        const move = (pointer: PointerEvent) =>
+          onResize(node.id, {
+            minHeight: Math.max(
+              80,
+              Math.min(1600, Math.round(initial + pointer.clientY - start)),
+            ),
+          });
+        bindPointer(document, move);
+      };
+      element.append(heightHandle);
+    }
+    element.scrollIntoView({ block: "nearest" });
+  }
+}
+function bindPointer(document: Document, move: (event: PointerEvent) => void) {
+  const finish = () => {
+    document.removeEventListener("pointermove", move);
+    document.removeEventListener("pointerup", finish);
+  };
+  document.addEventListener("pointermove", move);
+  document.addEventListener("pointerup", finish);
+}
+function editable(
+  element: HTMLElement,
+  id: string,
+  field: "heading" | "body" | "text",
+  onInline: (
+    id: string,
+    field: "heading" | "body" | "text",
+    value: string,
+  ) => void,
+) {
+  element.ondblclick = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    element.contentEditable = "true";
+    element.focus();
+    const finish = () => {
+      element.contentEditable = "false";
+      onInline(id, field, element.textContent ?? "");
+    };
+    element.onblur = finish;
+    element.onkeydown = (key) => {
+      if (
+        key.key === "Escape" ||
+        (key.key === "Enter" && field === "heading")
+      ) {
+        key.preventDefault();
+        element.blur();
+      }
+    };
+  };
+}
+function generatedElement(document: Document, node: CompositionNode) {
+  const section = document.createElement("section");
+  section.dataset.cmsGenerated = "true";
+  section.innerHTML = `<div class="container"><div class="cms-card"><h2>${escape(node.content.heading ?? node.name)}</h2><p>${escape(node.content.body ?? "Add content in the inspector.")}</p>${node.content.src ? `<img src="${escape(node.content.src)}" alt="${escape(node.content.alt ?? "")}" style="max-width:100%;height:auto">` : ""}${node.content.label ? `<a class="cms-button" href="${escape(node.content.href ?? "#")}">${escape(node.content.label)}</a>` : ""}</div></div>`;
+  return section;
+}
+function generatedChild(document: Document, node: CompositionNode) {
+  const tag =
+    node.type === "heading"
+      ? "h3"
+      : node.type === "paragraph" || node.type === "rich-text"
+        ? "p"
+        : node.type === "image"
+          ? "img"
+          : node.type === "button" || node.type === "link"
+            ? "a"
+            : "article";
+  const element = document.createElement(tag);
+  element.dataset.cmsGenerated = "true";
+  element.className = node.type === "button" ? "cms-button" : "cms-card";
+  if (tag === "img") {
+    (element as HTMLImageElement).src = node.content.src ?? "";
+    (element as HTMLImageElement).alt = node.content.alt ?? "";
+  } else
+    element.textContent =
+      node.content.text ??
+      node.content.heading ??
+      node.content.body ??
+      node.content.label ??
+      node.name;
+  return element;
+}
+const escape = (value: string) =>
+  value.replace(
+    /[&<>"']/g,
+    (char) =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
+        char
+      ] ?? char,
+  );
+
+export type CompositionChange = {
+  kind: "inserted" | "deleted" | "moved" | "changed";
+  nodeId: string;
+  label: string;
+  before?: string;
+  after?: string;
+};
+export function compositionDiff(
+  before?: Composition,
+  after?: Composition,
+): CompositionChange[] {
+  if (!before || !after) return [];
+  const flatten = (value: Composition) => {
+    const map = new Map<string, { node: CompositionNode; order: number }>();
+    walk(value.root.children, (node, _parent, index) =>
+      map.set(node.id, { node, order: index }),
+    );
+    return map;
+  };
+  const a = flatten(before),
+    b = flatten(after),
+    changes: CompositionChange[] = [];
+  for (const [id, item] of b) {
+    const prior = a.get(id);
+    if (!prior) {
+      changes.push({ kind: "inserted", nodeId: id, label: item.node.name });
+      continue;
+    }
+    if (prior.order !== item.order)
+      changes.push({
+        kind: "moved",
+        nodeId: id,
+        label: item.node.name,
+        before: String(prior.order + 1),
+        after: String(item.order + 1),
+      });
+    for (const field of [
+      "visible",
+      "content",
+      "layout",
+      "style",
+      "responsive",
+    ] as const) {
+      const x = JSON.stringify(prior.node[field]),
+        y = JSON.stringify(item.node[field]);
+      if (x !== y)
+        changes.push({
+          kind: "changed",
+          nodeId: id,
+          label: `${item.node.name} · ${field}`,
+          before: x,
+          after: y,
+        });
+    }
+  }
+  for (const [id, item] of a)
+    if (!b.has(id))
+      changes.push({ kind: "deleted", nodeId: id, label: item.node.name });
+  return changes;
+}
