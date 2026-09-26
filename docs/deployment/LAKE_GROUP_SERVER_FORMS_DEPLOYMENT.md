@@ -1,93 +1,87 @@
 # Lake Group server forms deployment guide
 
-This guide deploys the static website and Node forms service on Lake Group infrastructure. Render and Vercel remain optional development or staging targets only.
+This is the zero-cost, forms-only production deployment for `https://www.lakeoilgroup.com`. The public website remains static IIS content. IIS reverse-proxies only the same-origin contact and careers API paths to a Node process bound to loopback; no Vercel, Render, paid email API, cloud scanner, Redis service, storage service, or new external account is used.
 
-## Components
+## Server prerequisites
 
-- IIS 10 with URL Rewrite and Application Request Routing (ARR)
-- Node.js 20 LTS or newer supported LTS
-- PostgreSQL on a private interface
-- ClamAV/clamd on the same server or a private Lake Group network address
-- Optional private Redis-compatible store when more than one forms instance runs
+- IIS with HTTPS for `www.lakeoilgroup.com`, URL Rewrite, and ARR reverse-proxy enabled.
+- Node.js 22 or later, local/private PostgreSQL with the existing `rate_limit` table migration applied, and the approved Windows service mechanism (NSSM is acceptable).
+- ClamAV official Windows build, with `clamd` and `freshclam` installed locally.
+- A Gmail App Password for `projectdevemail001@gmail.com`. Do not use the normal Gmail password or Less Secure Apps.
 
-Install dependencies in `backend/` with `npm ci --omit=dev`, then run the production start command defined by `backend/package.json`.
+Install the backend dependencies from `C:\LakeGroup\backend` with `npm ci --omit=dev`. Do not put the deployed `.env` file in source control.
 
-## Production environment
+## Forms service configuration
 
-Create the environment for the Node service on the Lake Group server. Never commit it, place it in frontend files, or expose it through IIS.
+Store these variables in the Windows service environment or approved local secret store. The value shown for the App Password is a placeholder, not a credential.
 
 ```env
 NODE_ENV=production
 PORT=4000
-PUBLIC_FORM_TOKEN_SECRET=<32+ byte cryptographically random secret>
-CAREERS_RECIPIENT_EMAIL=projectdevemail001@gmail.com
+DATABASE_URL_RUNTIME=postgresql://lake_app:<PASSWORD>@127.0.0.1:5432/lakegroup
+PUBLIC_FORM_TOKEN_SECRET=<32+_CHARACTER_RANDOM_SERVER_ONLY_SECRET>
+
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=projectdevemail001@gmail.com
+SMTP_PASS=<GOOGLE_APP_PASSWORD_SERVER_ONLY>
+MAIL_FROM="Lake Group Website Test <projectdevemail001@gmail.com>"
+
 CONTACT_RECIPIENT_EMAIL=projectdevemail001@gmail.com
-CAREERS_ALLOWED_ORIGINS=https://www.lakeoilgroup.com
+CAREERS_RECIPIENT_EMAIL=projectdevemail001@gmail.com
 CONTACT_ALLOWED_ORIGINS=https://www.lakeoilgroup.com
-CAREERS_MAIL_API_KEY=<secret>
-CAREERS_MAIL_FROM=<verified sender>
-CONTACT_MAIL_API_KEY=<secret>
-CONTACT_MAIL_FROM=<verified sender>
+CAREERS_ALLOWED_ORIGINS=https://www.lakeoilgroup.com
+
 CAREERS_CLAMD_HOST=127.0.0.1
 CAREERS_CLAMD_PORT=3310
-TRUST_PROXY=<exact IIS proxy IP or CIDR, or 0 for direct TLS>
+TRUST_PROXY=1
 ```
 
-Generate the token secret with `node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"`. Keep the current test recipient until controlled delivery tests pass; later change Careers to `maryam.mgeni@lakeoilgroup.com` and Contact to `admin@lakeoilgroup.com`.
+Port 587 uses STARTTLS (`SMTP_SECURE=false` with TLS upgrade required). Certificate validation remains enabled. The sender and both active recipients are intentionally the test Gmail account. The browser never receives SMTP configuration or credentials; submitted visitor email is used only as validated `Reply-To`.
 
-Production also requires the existing database, session, MFA, and storage variables documented in `backend/.env.example`.
+The forms process is deliberately separate from `src/index.js`. It mounts only `/api/contact/*`, `/api/careers/*`, and a loopback-only `/internal/forms-health`; it does not load CMS, admin, media, S3, release, or development routes. Its production gate requires local PostgreSQL-backed replay/rate-limit storage, exact production origins, SMTP configuration, and local ClamAV.
 
-## Persistent Node service
+## ClamAV local setup
 
-Run the backend as a persistent Windows service (NSSM, PM2 with a Windows service wrapper, or the approved Lake Group process manager). Bind it to loopback or a private interface only. Do not publish port 4000.
+Use the official Windows build and locate the installed binaries/configuration before running service commands. In `clamd.conf`, remove the example marker and bind the TCP socket only to `127.0.0.1:3310`; never bind it to `0.0.0.0`. In `freshclam.conf`, remove the example marker and configure automatic signature updates. Run `freshclam` before starting the scanner so its virus database exists.
+
+Install/start the scanner with the vendor-supported commands appropriate to the observed install path (commonly `clamd --install-service` followed by `net start clamd`). Before Careers testing, confirm that the service is running, signatures are present, port `127.0.0.1:3310` is reachable from the Node service account, and a harmless PDF scans cleanly. The application fails closed with `SCANNER_UNAVAILABLE` if any scanner operation cannot complete.
+
+## Windows service and IIS
+
+Example NSSM configuration (adapt paths only after checking the actual server installation):
 
 ```text
-nssm install LakeGroupForms "C:\Program Files\nodejs\node.exe" "C:\LakeGroup\backend\src\index.js"
+nssm install LakeGroupForms "C:\Program Files\nodejs\node.exe" "C:\LakeGroup\backend\src\forms-index.js"
 nssm set LakeGroupForms AppDirectory C:\LakeGroup\backend
 nssm set LakeGroupForms AppEnvironmentExtra NODE_ENV=production PORT=4000
+nssm set LakeGroupForms Start SERVICE_AUTO_START
 nssm start LakeGroupForms
 ```
 
-Use the server secret store/environment mechanism for all remaining variables. Configure automatic restart and private log rotation.
+Use a least-privilege service account, automatic restart, and non-interactive operation. The service listens only on `127.0.0.1:4000`. Run `npm run forms:verify-smtp` as an administrator-side diagnostic to validate SMTP authentication/connectivity; it sends no message and prints no credential.
 
-## IIS reverse proxy
+Keep the repository `web.config` rules that proxy:
 
-Install IIS URL Rewrite and ARR, enable proxy, and deploy the repository `web.config`. The rules proxy only `/api/contact/*`, `/api/careers/*`, and `/api/public-form-token` (when that compatibility endpoint is enabled) to `http://127.0.0.1:4000`. The raw Node port is never internet-facing.
+- `/api/contact/*` → `http://127.0.0.1:4000/api/contact/*`
+- `/api/careers/*` → `http://127.0.0.1:4000/api/careers/*`
 
-The current browser clients use same-origin `/api/contact/token`, `/api/careers/token`, `/api/contact/messages`, and `/api/careers/applications`; no provider hostname is embedded in frontend JavaScript.
+Confirm the real-domain token routes resolve through IIS:
 
-Keep `/admin`, CMS APIs, Prisma, database endpoints, and debug routes private. The public website remains static HTML at `https://www.lakeoilgroup.com`.
+```text
+https://www.lakeoilgroup.com/api/contact/token
+https://www.lakeoilgroup.com/api/careers/token
+```
 
-## HTTPS, origin, and proxy trust
+Public firewall access is TCP 80 only when redirecting HTTP and TCP 443 for IIS HTTPS. Node 4000, ClamAV 3310, PostgreSQL, and administration/CMS services remain local/private with no public firewall rule.
 
-Terminate TLS at Lake Group IIS, redirect HTTP to HTTPS, and keep HSTS enabled there. Allow only `https://www.lakeoilgroup.com` in production form origin variables. Set `TRUST_PROXY` to the exact IIS proxy address/CIDR; never use unrestricted `true`. This keeps `req.ip` reliable for rate limiting and audit logs.
+## Controlled acceptance and negative tests
 
-## ClamAV
+After deployment, submit once from `https://www.lakeoilgroup.com/contact.html` using `smarderve@gmail.com` and a unique `LAKE-CONTACT-TEST-<timestamp>` subject. Confirm one `[TEST] Lake Group Contact — Website Enquiry` message arrives at `projectdevemail001@gmail.com`, its `Reply-To` is the visitor email, and the response includes a reference ID.
 
-Install ClamAV locally and bind clamd to `127.0.0.1:3310`, or use a private Lake Group network address protected by firewall rules. Do not expose port 3310 publicly. Public responses must reveal only a generic unavailable status.
+Then submit once from `https://www.lakeoilgroup.com/careers.html` using the same applicant email and a small known-safe PDF. Confirm the scanner returns clean, one `[TEST] Lake Group Careers — New Application` message arrives at the test inbox, and its attachment opens correctly.
 
-## Mail and rate limits
+Perform controlled negative tests for unsupported/mismatched/oversized/missing/malformed CVs, bad origin, replayed token/idempotency key, honeypot, too-fast submission, scanner outage, and SMTP outage. Do not send malware or an EICAR signature to Gmail. Rejections must return no success and cause no delivery. Verify browser refresh/retry after a successful response does not produce duplicate mail.
 
-Mail is behind the backend mailer adapter. Configure the existing transactional HTTPS provider now; the adapter can later target Lake Group's approved SMTP relay without changing routes. Contact has no upload or ClamAV dependency.
-
-A single Node instance may use the existing local rate-limit store with persistent storage appropriate to Lake Group operations. Multiple instances require a shared private Redis-compatible store. Never use public Redis.
-
-## Firewall
-
-Public: TCP 80 (redirect only) and TCP 443 (IIS). Private only: Node port 4000, ClamAV 3310, Redis, PostgreSQL, CMS/admin services, and diagnostic ports. Restrict administration to the Lake Group management network.
-
-## Smoke test
-
-After configuring secrets, run one controlled Contact and one controlled Careers submission from `https://www.lakeoilgroup.com`, using `smarderve@gmail.com` as the visitor/applicant address and the temporary test recipient. Confirm acknowledgement, recipient delivery, logs without secrets, token replay rejection, origin rejection, rate limiting, and CV malware rejection. Do not bypass security checks when configuration is missing.
-
-## Health, restart, and rollback
-
-Use a private local health check for detailed diagnostics. Any public health response must not include API keys, scanner addresses, filesystem paths, database strings, or internal IPs.
-
-Restart with the service manager after environment changes. Roll back by restoring the previous backend artifact and environment version, restarting it, then verifying both public form endpoints. Static files can be restored from the previous approved website release.
-
-## Environment separation
-
-- **Local development:** localhost, test secrets, local mail/scanner mocks.
-- **Temporary staging:** Render/Vercel or another isolated test host; provider rewrites are staging-only.
-- **Lake Group production:** IIS plus a private persistent Node service and Lake Group mail, scanner, and rate-limit infrastructure at `https://www.lakeoilgroup.com`. No Render or Vercel account is required.
+Stop after successful test delivery. Do not change either recipient to a company/HR address in this deployment phase.

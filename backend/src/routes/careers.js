@@ -2,7 +2,6 @@ import crypto from 'node:crypto';
 import { Router } from 'express';
 import multer from 'multer';
 import { z } from 'zod';
-import { createFormMailer } from '../lib/form-mailer.js';
 import { createFormSecurity, escapeFormHtml, formError, formOriginAllowed, formTokenLimiter, publicFormResponse, safeFormText } from '../lib/public-form-security.js';
 import { inspectCv, MAX_CV_BYTES } from '../lib/cv-inspection.js';
 import { securityLog } from '../lib/security-log.js';
@@ -27,10 +26,6 @@ const schema = z.object({
 const upload = multer({ storage: multer.memoryStorage(), limits: {
   fileSize: MAX_CV_BYTES, files: 1, fields: 11, parts: 12, fieldSize: 7_000,
 } }).single('cv');
-
-export function createResendMailer(options = {}) {
-  return createFormMailer(options);
-}
 
 export function careersRouter({ recipientEmail = '', allowedOrigins = [], mailer = null, scanner = null,
   tokenSecret = '', pool = null, security = null } = {}) {

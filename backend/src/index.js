@@ -7,8 +7,7 @@ import { loginRateLimiter } from './middleware/rate-limit.js';
 import { createObjectStorage } from './lib/object-storage.js';
 import { startPublicReleaseWorker } from './lib/public-release.js';
 import { createSecretBox, inspectMfaKey } from './lib/secret-box.js';
-import { createResendMailer } from './routes/careers.js';
-import { createFormMailer } from './lib/form-mailer.js';
+import { createSmtpMailer } from './lib/smtp-mailer.js';
 import { createClamdScanner } from './lib/clamd-scanner.js';
 import { createCmsV2ReleaseStorage } from './lib/cms-v2-release-storage.js';
 import { createCmsV2RuntimeService } from './lib/cms-v2-runtime-service.js';
@@ -96,11 +95,11 @@ const app = createApp({
   mediaUploadMaxBytes: config.mediaUploadMaxBytes,
   careersRecipientEmail: config.careersRecipientEmail,
   careersAllowedOrigins: config.careersAllowedOrigins,
-  careersMailer: createResendMailer({ apiKey: config.careersMailApiKey, from: config.careersMailFrom }),
+  careersMailer: createSmtpMailer(config.smtp),
   careersScanner: createClamdScanner({ host: config.careersClamdHost, port: config.careersClamdPort }),
   contactRecipientEmail: config.contactRecipientEmail,
   contactAllowedOrigins: config.contactAllowedOrigins,
-  contactMailer: createFormMailer({ apiKey: config.contactMailApiKey, from: config.contactMailFrom }),
+  contactMailer: createSmtpMailer(config.smtp),
   formTokenSecret: config.publicFormTokenSecret,
   formRateLimitPool: rateLimitPool,
   cmsV2Service,

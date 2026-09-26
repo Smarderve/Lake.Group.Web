@@ -29,6 +29,10 @@ function isExactHttpsOrigin(value) {
   }
 }
 
+function smtpSecure(value) {
+  return value === 'true';
+}
+
 function finiteNumber(value, fallback) {
   if (value === undefined || value === '') return fallback;
   const parsed = Number(value);
@@ -184,19 +188,42 @@ export function resolveConfig(env) {
     cmsV2DeploymentToken: env.CMS_V2_DEPLOYMENT_TOKEN || '',
     careersRecipientEmail: env.CAREERS_RECIPIENT_EMAIL || '',
     careersAllowedOrigins: commaSeparated(env.CAREERS_ALLOWED_ORIGINS),
-    careersMailApiKey: env.CAREERS_MAIL_API_KEY || '',
-    careersMailFrom: env.CAREERS_MAIL_FROM || '',
+    smtp: {
+      host: env.SMTP_HOST || '',
+      port: finiteNumber(env.SMTP_PORT, 587),
+      secure: smtpSecure(env.SMTP_SECURE),
+      user: env.SMTP_USER || '',
+      pass: env.SMTP_PASS || '',
+      from: env.MAIL_FROM || '',
+    },
     careersClamdHost: env.CAREERS_CLAMD_HOST || '',
     careersClamdPort: finiteNumber(env.CAREERS_CLAMD_PORT, 3310),
     contactRecipientEmail: env.CONTACT_RECIPIENT_EMAIL || '',
     contactAllowedOrigins: commaSeparated(env.CONTACT_ALLOWED_ORIGINS),
-    contactMailApiKey: env.CONTACT_MAIL_API_KEY || '',
-    contactMailFrom: env.CONTACT_MAIL_FROM || '',
     publicFormTokenSecret: env.PUBLIC_FORM_TOKEN_SECRET || '',
   };
 }
 
 export const config = resolveConfig(process.env);
+
+/** Forms-only production gate: intentionally independent of CMS/S3/release configuration. */
+export function formsProductionConfigProblems(cfg = config) {
+  const problems = [];
+  if (!cfg.isProduction) problems.push('NODE_ENV must be production for the forms service');
+  if (!cfg.databaseUrlRuntime) problems.push('DATABASE_URL_RUNTIME is required for persistent form replay and rate-limit storage');
+  if (!cfg.publicFormTokenSecret || cfg.publicFormTokenSecret.length < 32) problems.push('PUBLIC_FORM_TOKEN_SECRET must be at least 32 characters');
+  for (const [name, origins] of [['CONTACT_ALLOWED_ORIGINS', cfg.contactAllowedOrigins], ['CAREERS_ALLOWED_ORIGINS', cfg.careersAllowedOrigins]]) {
+    if (origins.length !== 1 || origins[0] !== 'https://www.lakeoilgroup.com') problems.push(`${name} must be exactly https://www.lakeoilgroup.com`);
+  }
+  for (const [name, recipient] of [['CONTACT_RECIPIENT_EMAIL', cfg.contactRecipientEmail], ['CAREERS_RECIPIENT_EMAIL', cfg.careersRecipientEmail]]) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/u.test(recipient)) problems.push(`${name} must be a valid server-selected email address`);
+  }
+  const smtp = cfg.smtp;
+  if (!smtp.host || !smtp.user || !smtp.pass || !smtp.from || !Number.isInteger(smtp.port) || smtp.port < 1 || smtp.port > 65535) problems.push('SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, and MAIL_FROM are required');
+  if (smtp.host !== 'smtp.gmail.com' || smtp.port !== 587 || smtp.secure !== false) problems.push('Gmail test SMTP must use smtp.gmail.com:587 with SMTP_SECURE=false');
+  if (cfg.careersClamdHost !== '127.0.0.1' || cfg.careersClamdPort !== 3310) problems.push('Careers ClamAV must use 127.0.0.1:3310');
+  return problems;
+}
 
 /**
  * SECURITY_ROADMAP Phase 1 — production fail-fast boot check. An insecure
