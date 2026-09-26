@@ -772,26 +772,71 @@
   }
 
   /**
-   * Early warm for native lazy images: start fetch ~800px before viewport
-   * so users rarely see empty/pop-in, without blocking initial load.
-   * Coverflow manages its own ±2 preload . skip those tiles.
+   * Warm images before they are visible. Native lazy-loading thresholds are
+   * browser-controlled and are not consistent enough for a long, image-heavy
+   * page, so the shared loader uses a deliberately early, section-aware
+   * boundary. It still leaves genuinely distant content lazy.
    */
   function initSmartLazyImages() {
-    const imgs = document.querySelectorAll('img[loading="lazy"]');
+    const imgs = Array.from(document.querySelectorAll('img[loading="lazy"], img[data-src], img[data-lazy-src]'));
     if (!imgs.length) return;
+
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    const constrained = !!(connection && (connection.saveData || /(^|-)2g$/.test(connection.effectiveType || '')));
+    const rootMargin = constrained ? '700px 0px' : (window.innerWidth < 700 ? '1000px 0px' : '1250px 0px');
+
+    function sourceFor(img) {
+      return img.dataset.lazySrc || img.dataset.src || img.currentSrc || img.getAttribute('src');
+    }
+
+    function decode(img) {
+      if (!img || !img.complete || !img.naturalWidth || typeof img.decode !== 'function') return;
+      img.decode().catch(function () { /* display the decoded-by-browser fallback */ });
+    }
 
     function warm(img) {
       if (!img || img.dataset.lgWarmed === '1') return;
-      if (img.closest('[data-action-track]')) return;
+      if (img.closest('[data-action-track], [data-hero-carousel]')) return;
       img.dataset.lgWarmed = '1';
-      const src = img.currentSrc || img.getAttribute('src');
+      const src = sourceFor(img);
       if (!src) return;
+      // Resolving the real image (rather than a separate probe) lets the
+      // browser cache the fetched bytes and decode the image that will render.
+      if (img.dataset.lazySrc) img.src = img.dataset.lazySrc;
+      else if (img.dataset.src) img.src = img.dataset.src;
+      img.removeAttribute('data-lazy-src');
+      img.removeAttribute('data-src');
       try { img.loading = 'eager'; } catch (_) { /* ignore */ }
-      if (img.complete && img.naturalWidth) return;
-      const probe = new Image();
-      probe.decoding = 'async';
-      probe.src = src;
+      img.decoding = 'async';
+      if (img.complete && img.naturalWidth) {
+        decode(img);
+        return;
+      }
+      img.addEventListener('load', function () { decode(img); }, { once: true });
     }
+
+    function sectionImages(img) {
+      const section = img.closest('section, article, [role="region"], .section, main > div');
+      if (!section) return [img];
+      return Array.from(section.querySelectorAll('img[loading="lazy"], img[data-src], img[data-lazy-src]'))
+        .filter(function (candidate) { return !candidate.closest('[data-action-track], [data-hero-carousel]'); });
+    }
+
+    // Visible images must not wait for an observer callback. Only the first
+    // truly critical hero candidate receives high fetch priority.
+    const visible = imgs.filter(function (img) {
+      const rect = img.getBoundingClientRect();
+      return rect.top < window.innerHeight && rect.bottom > 0;
+    });
+    visible.forEach(function (img, index) {
+      warm(img);
+      const rect = img.getBoundingClientRect();
+      const critical = img.closest('[class*="hero"], [data-hero], .ose-photo-bg, .hero-media')
+        || (index === 0 && rect.top < window.innerHeight * 0.5);
+      if (critical) {
+        try { img.fetchPriority = 'high'; } catch (_) { /* ignore */ }
+      }
+    });
 
     if (typeof IntersectionObserver === 'undefined') {
       imgs.forEach(warm);
@@ -801,13 +846,15 @@
     const io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
-        warm(e.target);
+        // Start the section's relevant imagery together so a card grid or
+        // business panel does not render as a mixture of ready and blank tiles.
+        sectionImages(e.target).forEach(warm);
         io.unobserve(e.target);
       });
-    }, { rootMargin: '800px 0px', threshold: 0.01 });
+    }, { rootMargin, threshold: 0 });
 
     imgs.forEach(function (img) {
-      if (img.closest('[data-action-track]')) return;
+      if (img.closest('[data-action-track], [data-hero-carousel]')) return;
       io.observe(img);
     });
   }

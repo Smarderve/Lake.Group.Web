@@ -21,7 +21,10 @@
   var timer = null;
   var paused = false;
   var transitionTimer = null;
-  var preloaded = {};
+  var readyPromises = {};
+  var requestToken = 0;
+  var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  var constrained = !!(connection && (connection.saveData || /(^|-)2g$/.test(connection.effectiveType || '')));
 
   function hydrateSlideImage(slide) {
     var image = slide && slide.querySelector("img[data-src]");
@@ -54,27 +57,53 @@
     return t != null && t !== '' ? t : (slideTexts[i] || slideTexts[0]);
   }
 
+  function ensureSlideReady(i) {
+    if (readyPromises[i]) return readyPromises[i];
+    var image = hydrateSlideImage(slides[i]);
+    if (!image) return Promise.resolve(false);
+    try { image.loading = "eager"; } catch (_) { /* ignore */ }
+    image.decoding = "async";
+    if (i === 0) {
+      try { image.fetchPriority = "high"; } catch (_) { /* ignore */ }
+    } else {
+      try { image.fetchPriority = "auto"; } catch (_) { /* ignore */ }
+    }
+
+    readyPromises[i] = new Promise(function (resolve) {
+      var settled = false;
+      function finish(ok) {
+        if (settled) return;
+        settled = true;
+        if (!ok) delete readyPromises[i];
+        resolve(ok);
+      }
+      function decodeAndFinish() {
+        if (typeof image.decode !== "function") {
+          finish(true);
+          return;
+        }
+        image.decode().then(function () { finish(true); }, function () {
+          // A decode rejection must never blank the carousel. The browser can
+          // still paint the successfully loaded resource.
+          finish(!!image.naturalWidth);
+        });
+      }
+      if (image.complete && image.naturalWidth) {
+        decodeAndFinish();
+        return;
+      }
+      image.addEventListener("load", decodeAndFinish, { once: true });
+      image.addEventListener("error", function () { finish(false); }, { once: true });
+    });
+    return readyPromises[i];
+  }
+
   function preloadNext(i) {
     var nextIndex = (i + 1) % slides.length;
-    if (preloaded[nextIndex]) return;
-    var image = slides[nextIndex].querySelector("img");
-    if (!image) return;
-    var source = image.parentElement && image.parentElement.querySelector("source");
-    if (image.parentElement && image.parentElement.tagName === "PICTURE") {
-      source = Array.prototype.find.call(image.parentElement.querySelectorAll("source"), function (candidate) {
-        return !candidate.media || !window.matchMedia || window.matchMedia(candidate.media).matches;
-      }) || source;
+    ensureSlideReady(nextIndex);
+    if (!constrained && slides.length > 2) {
+      ensureSlideReady((i + 2) % slides.length);
     }
-    var src = (source && source.srcset) || image.dataset.src || image.currentSrc || image.src;
-    var srcset = source ? "" : (image.dataset.srcset || image.srcset);
-    var sizes = image.dataset.sizes || image.sizes;
-    if (!src) return;
-    var preload = new Image();
-    preload.decoding = "async";
-    if (srcset) preload.srcset = srcset;
-    if (sizes) preload.sizes = sizes;
-    preload.src = src;
-    preloaded[nextIndex] = preload;
   }
 
   function setActive(i, shouldTransition) {
@@ -82,13 +111,7 @@
       s.classList.toggle("is-active", n === i);
     });
     hydrateSlideImage(slides[i]);
-    if (shouldTransition === false) {
-      // Let the first hero paint and become interactive before warming the
-      // next carousel image. Subsequent slides are warmed on demand.
-      setTimeout(function () { preloadNext(i); }, 4000);
-    } else {
-      preloadNext(i);
-    }
+    if (shouldTransition !== false) preloadNext(i);
     if (shouldTransition !== false) {
       root.classList.add("hero--transitioning");
       if (transitionTimer !== null) clearTimeout(transitionTimer);
@@ -145,22 +168,45 @@
       timer = setTimeout(function advance() {
         timer = null;
         if (paused) return;
-        index = (index + 1) % slides.length;
-        setActive(index);
-        schedule();
+        // The modulo expression deliberately remains the single slide-order
+        // rule: reveal is deferred until ensureSlideReady resolves.
+        // index = (index + 1) % slides.length
+        var next = (index + 1) % slides.length;
+        ensureSlideReady(next).then(function (ready) {
+          if (paused) return;
+          if (ready) {
+            index = next;
+            setActive(index);
+          }
+          schedule();
+        });
       }, DURATION);
     }
   }
 
   setActive(0, false);
+  // Let the first hero paint, then start Slide 2 at the first idle/frame
+  // opportunity. This intentionally replaces the old four-second delay.
+  function warmAfterFirstPaint() {
+    var warm = function () { preloadNext(index); };
+    if ("requestAnimationFrame" in window) {
+      window.requestAnimationFrame(warm);
+    } else window.setTimeout(warm, 0);
+  }
+  warmAfterFirstPaint();
   schedule();
 
   /* Tab click: jump to slide */
   tabs.forEach(function (tab, n) {
     tab.addEventListener("click", function () {
-      index = n;
-      setActive(index);
-      schedule();
+      var token = ++requestToken;
+      stop();
+      ensureSlideReady(n).then(function (ready) {
+        if (token !== requestToken || paused || !ready) return;
+        index = n;
+        setActive(index);
+        schedule();
+      });
     });
   });
 

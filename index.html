@@ -3056,6 +3056,8 @@
       var index = 0;
       var tiles = [];
       var autoTimer = null;
+      var tileReady = {};
+      var moveToken = 0;
       var inView = false;
       var hovered = false;
       var reduceMq = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
@@ -3117,6 +3119,10 @@
         }
         if (img.getAttribute("src") !== src) img.src = src;
         img.dataset.lgReady = "1";
+        if (typeof img.decode === "function") {
+          if (img.complete && img.naturalWidth) img.decode().catch(function () {});
+          else img.addEventListener("load", function () { img.decode().catch(function () {}); }, { once: true });
+        }
       }
 
       function preloadAround(center) {
@@ -3124,13 +3130,38 @@
         if (!n) return;
         // Keep the initial action strip to the active tile and its next
         // neighbor. Remaining cards are warmed progressively after paint.
-        for (var off = 0; off <= 1; off++) {
+        for (var off = 0; off <= 2; off++) {
           var i = ((center + off) % n + n) % n;
           var btn = tiles[i];
           if (!btn || !btn._item) continue;
-          var img = btn.querySelector("img");
-          ensureSrc(img, btn._item.src, off === 0 ? "high" : "near");
+          ensureTileReady(btn, off === 0 ? "high" : (off === 1 ? "near" : "idle"));
         }
+      }
+
+      function ensureTileReady(btn, priority) {
+        if (!btn || !btn._item) return Promise.resolve(false);
+        var key = tiles.indexOf(btn);
+        if (tileReady[key]) return tileReady[key];
+        var img = btn.querySelector("img");
+        ensureSrc(img, btn._item.src, priority);
+        tileReady[key] = new Promise(function (resolve) {
+          var settled = false;
+          function finish(ok) {
+            if (settled) return;
+            settled = true;
+            if (!ok) delete tileReady[key];
+            resolve(ok);
+          }
+          function decodeAndFinish() {
+            if (!img || typeof img.decode !== "function") return finish(true);
+            img.decode().then(function () { finish(true); }, function () { finish(!!img.naturalWidth); });
+          }
+          if (img && img.complete && img.naturalWidth) return decodeAndFinish();
+          if (!img) return finish(false);
+          img.addEventListener("load", decodeAndFinish, { once: true });
+          img.addEventListener("error", function () { finish(false); }, { once: true });
+        });
+        return tileReady[key];
       }
 
       function idlePrefetchRest() {
@@ -3323,7 +3354,6 @@
           waitNearbyThenHide();
           pulseFocus();
           restartAuto();
-          idlePrefetchRest();
         } else {
           stopAuto();
         }
@@ -3332,12 +3362,18 @@
       function go(to) {
         var n = tiles.length;
         if (!n) return;
+        var target = ((to % n) + n) % n;
+        var token = ++moveToken;
+        stopAuto();
         drag.offset = 0;
-        index = ((to % n) + n) % n;
-        preloadAround(index);
-        layout(0);
-        pulseFocus();
-        restartAuto();
+        ensureTileReady(tiles[target], "high").then(function (ready) {
+          if (!ready || token !== moveToken) return;
+          index = target;
+          preloadAround(index);
+          layout(0);
+          pulseFocus();
+          restartAuto();
+        });
       }
 
       function applyCaptions() {
@@ -3358,6 +3394,8 @@
         track.innerHTML = "";
         if (dotsEl) dotsEl.innerHTML = "";
         tiles = [];
+        tileReady = {};
+        moveToken += 1;
         index = 0;
         drag.offset = 0;
         if (skel) skel.classList.remove("is-done");
@@ -3390,7 +3428,6 @@
         waitNearbyThenHide();
         if (inView) {
           pulseFocus();
-          idlePrefetchRest();
         }
         restartAuto();
       }
@@ -3402,8 +3439,7 @@
           if (!entries[0] || !entries[0].isIntersecting) return;
           io.disconnect();
           preloadAround(index);
-          idlePrefetchRest();
-        }, { rootMargin: "800px 0px", threshold: 0 });
+        }, { rootMargin: window.innerWidth < 700 ? "900px 0px" : "1200px 0px", threshold: 0 });
         io.observe(stageEl);
       })();
 
@@ -3610,31 +3646,6 @@
 
       /* Immediate post-build sync in case the section is already on screen. */
       if (isStageNearViewport()) setInView(true);
-    })();
-  </script>
-  <script>
-    // Keep Chrome's generous native lazy threshold from pulling every Home
-    // card photo into the first navigation. Load only as the cards approach.
-    (function () {
-      var images = document.querySelectorAll('img[data-lazy-src]');
-      if (!images.length) return;
-      function load(img) {
-        if (img.src) return;
-        img.src = img.dataset.lazySrc;
-        img.removeAttribute('data-lazy-src');
-      }
-      if (!('IntersectionObserver' in window)) {
-        images.forEach(load);
-        return;
-      }
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          observer.unobserve(entry.target);
-          load(entry.target);
-        });
-      }, { rootMargin: '320px 0px' });
-      images.forEach(function (img) { observer.observe(img); });
     })();
   </script>
   <script src="assets/pwa.js?v=20260828-01" defer></script>
