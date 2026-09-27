@@ -129,7 +129,7 @@ jobs:
         run: npm run test:audit
 
       - name: Root toolchain audit gate (monitored baseline)
-        run: node backend/scripts/audit-gate.js . --baseline docs/security/audit-baseline.json --scope root
+        run: node scripts/audit-gate.js .. --baseline ../docs/security/audit-baseline.json --scope root
 
   secret-scan:
     name: Secret scan (full tree)

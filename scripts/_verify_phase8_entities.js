@@ -43,7 +43,6 @@ async function buildStub() {
   );
   const co = CONTENT_SEED.companies[0];
   const ld = CONTENT_SEED.leadership[0];
-  const pr = CONTENT_SEED.projects[0];
   const he = CONTENT_SEED.historyEvents[0];
   const csr = CONTENT_SEED.csrEntries[0];
   const cl = CONTENT_SEED.careerListings[0];
@@ -52,7 +51,6 @@ async function buildStub() {
   return {
     companies: [{ slug: co.slug, name: co.name, description: co.description, logo: co.logo }],
     leadership: [{ name: ld.name, position: ld.position, bio: ld.bio, photo: ld.photo }],
-    projects: [{ title: pr.title, description: pr.description }],
     'history-events': [{ title: he.title, description: he.description }],
     media: [md],
     'csr-entries': [{ title: csr.title, description: csr.description }],
@@ -136,7 +134,6 @@ function stopServer() {
 const CASES = [
   ['services.html', null, 'description', (s) => s.companies[0].description],
   ['leadership.html', null, 'name', (s) => s.leadership[0].name],
-  ['projects.html', null, 'title', (s) => s.projects[0].title],
   ['history.html', null, 'title', (s) => s['history-events'][0].title],
   ['contact.html', 'lake-oil', 'name', (s) => s.companies[0].name],
   ['gallery.html', 'assets/images/n-slider/1.jpg', 'caption', (s) => s.media[0].caption],
