@@ -132,7 +132,9 @@ async function screenshotPage(context, baseUrl, pageName, vp, outputDir) {
     const PORT = server.address().port;
     const BASE_URL = 'http://127.0.0.1:' + PORT;
 
-    browser = await chromium.launch({ headless: true, executablePath: CHROME });
+    const launchOptions = { headless: true };
+    if (fs.existsSync(CHROME)) launchOptions.executablePath = CHROME;
+    browser = await chromium.launch(launchOptions);
     const context = await browser.newContext();
 
     if (UPDATE) {
