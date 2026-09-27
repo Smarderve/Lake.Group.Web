@@ -12,8 +12,8 @@
  * isoCode, location key, ...) that seed-content.js resolves against the
  * tables.
  *
- * News (assets/news-data.js, 41 articles) and gallery media (gallery.html,
- * 44 tiles) are NOT duplicated here — seed-content.js ingests those bundles
+ * News (assets/news-data.js) and gallery media (gallery.html) are NOT
+ * duplicated here — seed-content.js ingests those bundles
  * directly from the frontend so the two sources can never drift.
  *
  * Exported so tests can assert the dataset without a database
@@ -29,7 +29,8 @@ export const CONTENT_SEED = {
     { slug: 'automotive', name: 'Automotive', description: 'Automotive assembly, components and mobility ventures.' },
   ],
 
-  // 21 operating companies — names/slugs/descriptions mirror services.html
+  // 20 operating companies — names/slugs/descriptions mirror the current
+  // public-company registry
   // (the live directory) and the verified-facts dataset.
   companies: [
     { slug: 'lake-oil', name: 'Lake Oil', categorySlug: 'energies', foundedYear: 2006,
@@ -220,11 +221,11 @@ export const CONTENT_SEED = {
       markerLabel: 'Vipingo Terminal', operationalStatus: 'OPERATIONAL', coordinates: '-3.7900,39.8600', address: 'Vipingo, Kilifi County, Kenya', desc: '$60M LPG import terminal — 10,000 MT storage, offshore CBM offloading.' },
   ],
 
-  // The former Major Projects public page and its page-specific seed records
-  // have been removed. Keep the collection shape for generic project tooling.
+  // The Major Projects public page was retired; keep this intentionally empty
+  // collection for generic registry tooling without creating phantom projects.
   projects: [],
 
-  // 7 leaders — names, roles, photos and bios mirror leadership.html.
+  // 6 leaders — names, roles, photos and bios mirror the current registry.
   leadership: [
     { name: 'Ally Edha Awadh', position: 'Founder & Chairman', order: 0,
       photo: 'assets/images/leadership/ally-edha-awadh.webp', companySlug: 'lake-oil',

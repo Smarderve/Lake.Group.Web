@@ -10,11 +10,10 @@
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const BACKEND_DIR = path.resolve(__dirname, '..');
-const REPO_ROOT = path.resolve(BACKEND_DIR, '..');
 const PGBIN = process.env.PGBIN || 'C:/Program Files/PostgreSQL/18/bin';
 const bin = (n) => path.join(PGBIN, process.platform === 'win32' ? `${n}.exe` : n);
 
@@ -62,11 +61,6 @@ function run(cmd, args, env = {}) {
     child.on('error', reject);
     child.on('close', (code) => resolve({ code, out, ms: Date.now() }));
   });
-}
-
-function redact(s) {
-  // Never let a password/URL leak into output even if a tool echoes it.
-  return s;
 }
 
 function pickDump(dir) {
@@ -237,7 +231,7 @@ async function compare() {
 }
 
 async function boottest() {
-  const r = requireRender();
+  requireRender();
   if (!MFA_KEY) {
     console.error('BLOCKED: MFA_ENCRYPTION_KEY not found in backend/.env.');
     return 2;

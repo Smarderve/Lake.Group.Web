@@ -20,6 +20,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const FRONTEND_ROOT = path.resolve(__dirname, '..', '..');
 
 let failures = 0;
+const OPTIONAL_EMPTY_DOMAINS = new Set(['projects']);
 function check(label, ok, detail = '') {
   if (ok) {
     console.log(`  ✓ ${label}`);
@@ -32,7 +33,9 @@ function check(label, ok, detail = '') {
 console.log('seed-verify: CONTENT_SEED domains');
 for (const key of Object.keys(CONTENT_SEED)) {
   const value = CONTENT_SEED[key];
-  check(`CONTENT_SEED.${key} is a populated array`, Array.isArray(value) && value.length > 0,
+  const intentionallyEmpty = OPTIONAL_EMPTY_DOMAINS.has(key);
+  check(`CONTENT_SEED.${key} is ${intentionallyEmpty ? 'an intentionally empty or populated' : 'a populated'} array`,
+    Array.isArray(value) && (intentionallyEmpty || value.length > 0),
     Array.isArray(value) ? `length ${value.length}` : `typeof ${typeof value}`);
 }
 

@@ -1,7 +1,15 @@
 const PREVIEW_BASE = 'https://lakegroup.invalid/';
 
+function hasControlCharacter(value) {
+  for (const character of value) {
+    const code = character.codePointAt(0);
+    if (code < 0x20 || code === 0x7f) return true;
+  }
+  return false;
+}
+
 function safeDestination(value, { allowContact = false } = {}) {
-  if (typeof value !== 'string' || !value.trim() || value.startsWith('//') || value.includes('\\') || /[\u0000-\u001f\u007f]/.test(value)) return false;
+  if (typeof value !== 'string' || !value.trim() || value.startsWith('//') || value.includes('\\') || hasControlCharacter(value)) return false;
   try {
     const url = new URL(value, PREVIEW_BASE);
     return url.protocol === 'https:' || (allowContact && (url.protocol === 'mailto:' || url.protocol === 'tel:'));

@@ -11,7 +11,7 @@
  */
 const BASE = process.argv[2] || process.env.DAST_BASE_URL || 'http://127.0.0.1:4000';
 const CHECK_TIMEOUT_MS = 8000;
-const LOGIN_RATE_LIMIT_ATTEMPTS = 8; // Phase 10: burst should 429 well before this
+const LOGIN_RATE_LIMIT_ATTEMPTS = 11; // The 11th failed attempt exceeds the 10-per-IP limit.
 
 let failures = 0;
 const results = [];
@@ -130,7 +130,9 @@ async function main() {
         const res = await fetch(BASE + '/auth/login', {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({ email: `dast-${i}@probe.invalid`, password: 'wrong-password-for-probe' }),
+          // Keep the source identity stable: this verifies the configured
+          // per-IP limiter threshold, not an accidental per-account limit.
+          body: JSON.stringify({ email: 'dast-rate-limit@probe.invalid', password: 'wrong-password-for-probe' }),
           signal: ctl.signal,
         });
         lastStatus = res.status;

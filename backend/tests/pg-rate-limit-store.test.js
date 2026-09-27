@@ -159,7 +159,7 @@ describe('loginRateLimiter with a PostgreSQL pool', () => {
     // Simulate a store that counts up: the 11th failed attempt must 429.
     let hits = 0;
     const countingPool = {
-      async query(text, params) {
+      async query(text) {
         if (text.includes('INSERT')) {
           hits += 1;
           return { rows: [{ hits, reset_at: new Date(Date.now() + 86_400_000) }] };

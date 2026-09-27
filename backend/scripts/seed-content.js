@@ -9,8 +9,8 @@
  *   - backend/scripts/content-seed-data.js  — companies, countries, regions,
  *     locations, facilities, projects, leadership, contacts, history, CSR,
  *     careers, map categories (mirrors the live pages + verified dataset)
- *   - assets/news-data.js                    — 41 news articles (canonical bundle)
- *   - assets/gallery.html                    — 44 gallery tiles (canonical markup)
+ *   - assets/news-data.js                    — canonical news bundle
+ *   - gallery.html                           — canonical gallery markup
  *
  * News and gallery media are ingested from the frontend bundles directly so
  * the backend copy can never drift from the site's current source of truth.

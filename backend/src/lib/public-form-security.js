@@ -6,10 +6,19 @@ export function formError(code, status = 400) {
   return Object.assign(new Error(code), { code, status });
 }
 
+function hasForbiddenFormCharacter(value) {
+  for (const character of value) {
+    const code = character.codePointAt(0);
+    if (code <= 0x08 || code === 0x0b || code === 0x0c || (code >= 0x0e && code <= 0x1f)
+      || code === 0x7f || (code >= 0x202a && code <= 0x202e) || (code >= 0x2066 && code <= 0x2069)) return true;
+  }
+  return false;
+}
+
 export function safeFormText(value, { multiline = false } = {}) {
   if (typeof value !== 'string') return value;
   const normalized = value.normalize('NFC').trim();
-  if (/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u.test(normalized)
+  if (hasForbiddenFormCharacter(normalized)
     || (!multiline && /[\r\n]/u.test(normalized))) throw formError('VALIDATION_ERROR');
   return normalized;
 }
@@ -122,7 +131,7 @@ export function publicFormResponse(res, error, requestId) {
   return res.set('Cache-Control', 'no-store').status(status).json({ error: { code }, requestId });
 }
 
-export function formTokenLimiter(formId, pool = null) {
+export function formTokenLimiter(formId, _pool = null) {
   const windowMs = 60 * 60_000;
   return rateLimit({ windowMs, limit: 60, standardHeaders: true, legacyHeaders: false,
     // Token issuance remains available while the database is degraded; the
