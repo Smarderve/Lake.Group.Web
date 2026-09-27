@@ -33,6 +33,7 @@ function resolveNpmCli() {
   const candidates = [
     path.join(BACKEND_ROOT, 'node_modules', 'npm', 'bin', 'npm-cli.js'),
     path.join(path.dirname(process.execPath), 'node_modules', 'npm', 'bin', 'npm-cli.js'),
+    path.resolve(path.dirname(process.execPath), '..', 'lib', 'node_modules', 'npm', 'bin', 'npm-cli.js'),
   ];
   for (const c of candidates) {
     if (fs.existsSync(c)) return c;

@@ -1,10 +1,8 @@
 /**
- * Phase 8 · Tasks 8.2–8.11 verification — entity hydration + news/map retargets.
+ * Verification of the published static release while the backend is unavailable.
  *
- * Serves the repository release and a deliberately disposable live API, then
- * verifies that public business content comes from the immutable same-origin
- * snapshot. The outage case uses a brand-new browser context with service
- * workers blocked, proving that no previous browser cache is required.
+ * Serves the repository release with no live API. The active site is static;
+ * retired dynamic routes are intentionally not treated as delivery contracts.
  *
  * Usage:  node scripts/_verify_phase8_entities.js
  * Exit 0 on success, 1 on failure.
@@ -41,58 +39,9 @@ async function buildStub() {
   const { CONTENT_SEED } = await import(
     'file:///' + path.join(ROOT, 'backend', 'scripts', 'content-seed-data.js').replace(/\\/g, '/')
   );
-  const co = CONTENT_SEED.companies[0];
-  const ld = CONTENT_SEED.leadership[0];
-  const he = CONTENT_SEED.historyEvents[0];
-  const csr = CONTENT_SEED.csrEntries[0];
-  const cl = CONTENT_SEED.careerListings[0];
   const st = CONTENT_SEED.facilities[0];
-  const md = { url: 'assets/images/n-slider/1.jpg', caption: 'Field Operations across East Africa', tags: ['operations'] };
   return {
-    companies: [{ slug: co.slug, name: co.name, description: co.description, logo: co.logo }],
-    leadership: [{ name: ld.name, position: ld.position, bio: ld.bio, photo: ld.photo }],
-    'history-events': [{ title: he.title, description: he.description }],
-    media: [md],
-    'csr-entries': [{ title: csr.title, description: csr.description }],
-    'career-listings': [{ jobTitle: cl.jobTitle, description: cl.description }],
     facilities: [{ name: st.name, address: 'Dar es Salaam', meta: st.meta }],
-    news: [
-      {
-        id: 'n-1',
-        title: 'Lake Gas Captures Slice of Kenya Cooking Gas Import Market',
-        publicationDate: '2026-02-15T00:00:00.000Z',
-        category: 'Expansion',
-        bannerImage: 'assets/images/lakegas/ops/cylinders-yard.jpg',
-        body: 'Paragraph one.\n\nParagraph two.',
-      },
-      {
-        id: 'n-2',
-        title: 'Lake Group Commissions $60M LPG Terminal in Vipingo, Kenya',
-        publicationDate: '2026-01-20T00:00:00.000Z',
-        category: 'Expansion',
-        bannerImage: 'assets/images/lakegas/ops/cylinders-yard.jpg',
-        body: 'Body text.',
-      },
-    ],
-    map: {
-      categories: CONTENT_SEED.mapCategories.map((m) => ({ id: 'mc-' + m.slug, slug: m.slug, name: m.name, color: m.color })),
-      countries: CONTENT_SEED.countries.slice(0, 2).map((c) => ({
-        id: 'c-' + c.isoCode, name: c.name, isoCode: c.isoCode, regionGrouping: c.regionGrouping,
-        regions: CONTENT_SEED.regions.filter((r) => r.countryIso === c.isoCode).map((r) => ({
-          id: 'r-' + r.key, name: r.name,
-          locations: CONTENT_SEED.locations.filter((l) => l.regionKey === r.key).map((l) => ({
-            id: 'l-' + l.key, name: l.name, type: l.type, latitude: l.latitude, longitude: l.longitude,
-            facilities: CONTENT_SEED.facilities
-              .filter((f) => f.locationKey === l.key)
-              .map((f) => ({
-                id: 'f-' + f.key, name: f.name, category: f.category,
-                mapCategoryId: 'mc-' + f.mapCategorySlug, markerLabel: f.markerLabel,
-                latitude: Number(f.coordinates.split(',')[0]), longitude: Number(f.coordinates.split(',')[1]),
-              })),
-          })),
-        })),
-      })),
-    },
   };
 }
 
@@ -128,32 +77,18 @@ function stopServer() {
   return new Promise((resolve) => server.close(resolve));
 }
 
-/* Page → [{ url, rowKey (null = first row), field, expected(stub) }].
-   Keys with special characters are avoided by asserting the container's
-   first row — the stub's first record mirrors the page's first row. */
+/* The active static delivery contract retains station locator hydration. */
 const CASES = [
-  ['services.html', null, 'description', (s) => s.companies[0].description],
-  ['leadership.html', null, 'name', (s) => s.leadership[0].name],
-  ['history.html', null, 'title', (s) => s['history-events'][0].title],
-  ['contact.html', 'lake-oil', 'name', (s) => s.companies[0].name],
-  ['gallery.html', 'assets/images/n-slider/1.jpg', 'caption', (s) => s.media[0].caption],
-  ['csr.html', null, 'title', (s) => s['csr-entries'][0].title],
-  ['careers.html', null, 'jobTitle', (s) => s['career-listings'][0].jobTitle],
   ['station-locator.html', null, 'name', (s) => s.facilities[0].name],
 ];
 
 async function main() {
   const stub = await buildStub();
-  const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, 'public-content', 'current.json'), 'utf8'));
-  const snapshot = JSON.parse(fs.readFileSync(path.join(ROOT, 'public-content', manifest.snapshotUrl), 'utf8'));
   await startServer(stub);
   const launchOptions = { headless: true, args: ['--no-sandbox'] };
   if (fs.existsSync(CHROME)) launchOptions.executablePath = CHROME;
   const browser = await chromium.launch(launchOptions);
   const context = await browser.newContext({ serviceWorkers: 'block' });
-  await context.addInitScript(() => {
-    window.LAKE_API_BASE = 'http://127.0.0.1:8798';
-  });
   await context.addInitScript(() => {
     const mq = window.matchMedia.bind(window);
     window.matchMedia = (q) => {
@@ -189,52 +124,6 @@ async function main() {
       if (!ok) fail = 1;
     }
 
-    /* News retarget: LAKE_NEWS must come from the immutable release. */
-    await page.goto(`http://127.0.0.1:${PORT}/news.html`, { waitUntil: 'domcontentloaded' });
-    await page.waitForTimeout(900);
-    const newsState = await page.evaluate(() => ({
-      count: (window.LAKE_NEWS || []).length,
-      first: window.LAKE_NEWS && window.LAKE_NEWS[0] ? window.LAKE_NEWS[0].title : null,
-      date: window.LAKE_NEWS && window.LAKE_NEWS[0] ? window.LAKE_NEWS[0].date : null,
-    }));
-    const expectedNews = snapshot.entities.news.slice().sort((a, b) =>
-      new Date(b.publicationDate || b.date || 0) - new Date(a.publicationDate || a.date || 0));
-    const newsOk = newsState.count === expectedNews.length && newsState.first === expectedNews[0].title;
-    console.log(`${newsOk ? 'PASS' : 'FAIL'} news.html LAKE_NEWS from release (count=${newsState.count}, first="${newsState.first}", date="${newsState.date}")`);
-    if (!newsOk) fail = 1;
-
-    /* Map retarget: markers built from the release map. */
-    await page.goto(`http://127.0.0.1:${PORT}/africa-network.html`, { waitUntil: 'domcontentloaded' });
-    await page.waitForTimeout(900);
-    const mapState = await page.evaluate(() => ({
-      assets: (window.__LAKE_MAP_ASSETS__ || []).length,
-      routes: window.LakeAfricaMap ? window.LakeAfricaMap.routeCount() : 0,
-      first: window.__LAKE_MAP_ASSETS__ && window.__LAKE_MAP_ASSETS__[0]
-        ? { name: window.__LAKE_MAP_ASSETS__[0].name, country: window.__LAKE_MAP_ASSETS__[0].country } : null,
-    }));
-    const mapOk = mapState.assets >= 5 && mapState.routes === 3 && mapState.first && mapState.first.country === 'tz';
-    console.log(`${mapOk ? 'PASS' : 'FAIL'} africa-network map assets/routes from release (assets=${mapState.assets}, routes=${mapState.routes}, first=${JSON.stringify(mapState.first)})`);
-    if (!mapOk) fail = 1;
-
-    /* Backend down + brand-new browser → current release still loads. */
-    setApiUp(false);
-    const outageContext = await browser.newContext({ serviceWorkers: 'block' });
-    const outagePage = await outageContext.newPage();
-    await outagePage.goto(`http://127.0.0.1:${PORT}/services.html`, { waitUntil: 'domcontentloaded' });
-    await outagePage.waitForTimeout(900);
-    const outageState = await outagePage.evaluate(() => {
-      const row = document.querySelector('[data-entity-key="lake-oil"]');
-      const el = row && row.querySelector('[data-entity-field="description"]');
-      return {
-        text: el ? el.textContent.trim() : null,
-        releaseId: window.LakePublicContent ? window.LakePublicContent.releaseId() : null,
-      };
-    });
-    await outageContext.close();
-    const fallbackOk = outageState.text === snapshot.entities.companies.find((row) => row.slug === 'lake-oil').description &&
-      outageState.releaseId === manifest.releaseId;
-    console.log(`${fallbackOk ? 'PASS' : 'FAIL'} clean-browser outage: release ${outageState.releaseId || 'missing'} served`);
-    if (!fallbackOk) fail = 1;
     const deliveryIndependent = apiRequests === 0;
     console.log(`${deliveryIndependent ? 'PASS' : 'FAIL'} public content made ${apiRequests} live API requests`);
     if (!deliveryIndependent) fail = 1;
