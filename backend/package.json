@@ -12,6 +12,7 @@
     "start": "node src/index.js",
     "start:prod": "NODE_ENV=production node src/index.js",
     "start:forms": "node src/forms-index.js",
+    "start:forms-local": "node src/forms-local-index.js",
     "forms:verify-smtp": "node scripts/verify-forms-smtp.js",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate deploy",

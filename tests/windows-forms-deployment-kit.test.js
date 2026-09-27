@@ -14,13 +14,12 @@ test('Windows forms deployment kit has all operator entrypoints', () => {
   }
 });
 
-test('deployment kit protects secrets and locks both test recipients', () => {
-  assert.match(moduleSource, /Read-Host 'Gmail App Password' -AsSecureString/);
-  assert.match(moduleSource, /ZeroFreeBSTR/);
+test('production deployment kit protects secrets and locks both production recipients', () => {
   assert.match(moduleSource, /SetAccessRuleProtection\(\$true, \$false\)/);
-  assert.match(moduleSource, /CONTACT_RECIPIENT_EMAIL=\$script:TestRecipient/);
-  assert.match(moduleSource, /CAREERS_RECIPIENT_EMAIL=\$script:TestRecipient/);
+  assert.match(moduleSource, /CONTACT_RECIPIENT_EMAIL=\$script:ProductionRecipient/);
+  assert.match(moduleSource, /CAREERS_RECIPIENT_EMAIL=\$script:ProductionRecipient/);
   assert.match(moduleSource, /Test-FormsRecipientLock/);
+  assert.match(read('forms.production.env.template'), /FORMS_MODE=production/);
 });
 
 test('deployment kit is rollbackable, idempotent, and loopback-only', () => {

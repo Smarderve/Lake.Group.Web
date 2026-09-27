@@ -5,7 +5,7 @@ $script:FormsEnvPath = Join-Path $script:FormsDataRoot 'forms.env'
 $script:FormsLogDirectory = Join-Path $script:FormsDataRoot 'logs'
 $script:FormsBackupDirectory = Join-Path $script:FormsDataRoot 'backups'
 $script:TaskName = 'LakeGroupForms'
-$script:TestRecipient = 'projectdevemail001@gmail.com'
+$script:ProductionRecipient = 'admin@lakeoilgroup.com'
 $script:ExpectedOrigin = 'https://www.lakeoilgroup.com'
 
 function Write-FormsStatus {
@@ -124,16 +124,18 @@ function New-FormsSnapshot {
 }
 
 function Set-FormsConfiguration {
-  param([string]$DatabaseUrlRuntime, [Security.SecureString]$SmtpPassword)
+  param([string]$DatabaseUrlRuntime)
   $current = Get-FormsEnvValues
+  if ($current.FORMS_MODE -eq 'local-test') { throw 'Local-test configuration is not permitted in the Lake production deployment kit.' }
   $secret = $current.PUBLIC_FORM_TOKEN_SECRET
   if (-not $secret -or $secret.Length -lt 43) { $secret = New-FormsSecret }
-  $password = if ($SmtpPassword) { ConvertTo-Plaintext $SmtpPassword } elseif ($current.SMTP_PASS) { $current.SMTP_PASS } else { '' }
-  if (-not $password -and -not $WhatIfPreference) { throw 'Gmail App Password is required.' }
+  foreach ($key in @('SMTP_HOST', 'SMTP_PORT', 'SMTP_SECURE', 'SMTP_USER', 'SMTP_PASS', 'MAIL_FROM')) {
+    if (-not $current[$key] -and -not $WhatIfPreference) { throw "Production SMTP configuration is incomplete: $key is required." }
+  }
   $lines = @(
-    'NODE_ENV=production', 'PORT=4000', "DATABASE_URL_RUNTIME=$DatabaseUrlRuntime", "PUBLIC_FORM_TOKEN_SECRET=$secret",
-    'SMTP_HOST=smtp.gmail.com', 'SMTP_PORT=587', 'SMTP_SECURE=false', "SMTP_USER=$script:TestRecipient", "SMTP_PASS=$password",
-    "MAIL_FROM=Lake Group Website Test <$script:TestRecipient>", "CONTACT_RECIPIENT_EMAIL=$script:TestRecipient", "CAREERS_RECIPIENT_EMAIL=$script:TestRecipient",
+    'FORMS_MODE=production', 'NODE_ENV=production', 'PORT=4000', "DATABASE_URL_RUNTIME=$DatabaseUrlRuntime", "PUBLIC_FORM_TOKEN_SECRET=$secret",
+    "SMTP_HOST=$($current.SMTP_HOST)", "SMTP_PORT=$($current.SMTP_PORT)", "SMTP_SECURE=$($current.SMTP_SECURE)", "SMTP_USER=$($current.SMTP_USER)", "SMTP_PASS=$($current.SMTP_PASS)", "MAIL_FROM=$($current.MAIL_FROM)",
+    "CONTACT_RECIPIENT_EMAIL=$script:ProductionRecipient", "CAREERS_RECIPIENT_EMAIL=$script:ProductionRecipient",
     "CONTACT_ALLOWED_ORIGINS=$script:ExpectedOrigin", "CAREERS_ALLOWED_ORIGINS=$script:ExpectedOrigin", 'CAREERS_CLAMD_HOST=127.0.0.1', 'CAREERS_CLAMD_PORT=3310', 'TRUST_PROXY=1'
   )
   if ($WhatIfPreference) { Write-FormsStatus INFO 'Forms configuration' "Would write protected $script:FormsEnvPath"; return }
@@ -150,7 +152,7 @@ function Set-FormsConfiguration {
 
 function Test-FormsRecipientLock {
   $env = Get-FormsEnvValues
-  return $env.CONTACT_RECIPIENT_EMAIL -eq $script:TestRecipient -and $env.CAREERS_RECIPIENT_EMAIL -eq $script:TestRecipient
+  return $env.FORMS_MODE -eq 'production' -and $env.CONTACT_RECIPIENT_EMAIL -eq $script:ProductionRecipient -and $env.CAREERS_RECIPIENT_EMAIL -eq $script:ProductionRecipient
 }
 
 function Get-LakeIisSite {
@@ -295,17 +297,14 @@ function Start-LakeFormsDeployment {
   $db = Find-FormsDatabaseUrl -ProjectRoot $root -ProvidedValue $DatabaseUrlRuntime
   if (-not $db) { $db = Read-Host 'Private local DATABASE_URL_RUNTIME' }
   if (-not $db) { throw 'DATABASE_URL_RUNTIME is required; replay and rate-limit security cannot be weakened.' }
-  $current = Get-FormsEnvValues
-  $appPassword = $null
-  if (-not $current.SMTP_PASS -and -not $WhatIfPreference) { $appPassword = Read-Host 'Gmail App Password' -AsSecureString }
-  Set-FormsConfiguration -DatabaseUrlRuntime $db -SmtpPassword $appPassword
-  if (-not (Test-FormsRecipientLock)) { throw 'Recipient lock failed. Both forms must use the temporary test recipient.' }; Write-FormsStatus PASS 'Forms configuration'
+  Set-FormsConfiguration -DatabaseUrlRuntime $db
+  if (-not (Test-FormsRecipientLock)) { throw 'Production recipient lock failed.' }; Write-FormsStatus PASS 'Forms configuration'
   Invoke-FormsDependencies -ProjectRoot $root; Write-FormsStatus PASS 'Backend dependencies'
   $clam = Test-FormsClamAv; Update-FormsClamAv -State $clam; Write-FormsStatus PASS 'ClamAV and signatures'
   $iis = Test-FormsIisComponents
   if (-not $iis.IIS -or -not $iis.Rewrite -or -not $iis.ARR -or -not $iis.Proxy) { throw 'IIS URL Rewrite and ARR Proxy must be installed and enabled.' }
   if (-not (Test-FormsWebConfigRoutes -ProjectRoot $root)) { throw 'Approved web.config does not contain both loopback forms proxy routes.' }; Write-FormsStatus PASS 'IIS, URL Rewrite, ARR Proxy'
-  if (-not (Invoke-FormsSmtpVerification -ProjectRoot $root)) { throw 'SMTP authentication failed. Check the Gmail App Password.' }; Write-FormsStatus PASS 'SMTP'
+  if (-not (Invoke-FormsSmtpVerification -ProjectRoot $root)) { throw 'SMTP authentication failed. Check the server-side SMTP configuration.' }; Write-FormsStatus PASS 'SMTP'
   Register-LakeFormsTask -ProjectRoot $root -NodePath $node.NodePath; Start-Sleep -Seconds 3; Write-FormsStatus PASS 'Node startup task'
   Invoke-LakeFormsVerification -ScriptRoot $ScriptRoot -ProjectRoot $root -SiteName $iisSite.Name
 }

@@ -11,11 +11,11 @@ const isLoopback = (req) => ['127.0.0.1', '::1', '::ffff:127.0.0.1'].includes(re
 /** Minimal public-forms service: no CMS, admin, sessions, media, or dev API. */
 export function createFormsApp({ logger, contactRecipientEmail = '', contactAllowedOrigins = [], contactMailer = null,
   careersRecipientEmail = '', careersAllowedOrigins = [], careersMailer = null, careersScanner = null,
-  formTokenSecret = '', formRateLimitPool = null } = {}) {
+  formTokenSecret = '', formRateLimitPool = null, trustProxy = 1, hsts = true } = {}) {
   const app = express();
   app.disable('x-powered-by');
-  app.set('trust proxy', 1);
-  app.use(securityHeaders({ hsts: true }));
+  app.set('trust proxy', trustProxy);
+  app.use(securityHeaders({ hsts }));
   if (logger) app.use(pinoHttp(pinoHttpOptions(logger)));
   app.use('/api/contact', contactRouter({ recipientEmail: contactRecipientEmail, allowedOrigins: contactAllowedOrigins,
     mailer: contactMailer, tokenSecret: formTokenSecret, pool: formRateLimitPool }));

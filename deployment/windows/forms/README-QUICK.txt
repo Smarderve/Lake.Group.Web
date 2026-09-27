@@ -6,7 +6,8 @@ LAKE GROUP WEBSITE FORMS
 
    .\deploy-forms.ps1
 
-4. Enter the Gmail App Password when requested.
+4. Ensure the protected production SMTP values have been supplied from
+   forms.production.env.template.
 5. Wait for "READY FOR CONTROLLED EMAIL TESTING".
 
 To preview changes only:
