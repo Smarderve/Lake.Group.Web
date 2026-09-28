@@ -2,7 +2,7 @@ import { config, formsProductionConfigProblems } from './config.js';
 import { createLogger } from './logger.js';
 import { createRateLimitPool } from './db.js';
 import { createSmtpMailer } from './lib/smtp-mailer.js';
-import { createClamdScanner } from './lib/clamd-scanner.js';
+import { createFileScanner } from './lib/file-scanner.js';
 import { createFormsApp } from './forms-app.js';
 
 const logger = createLogger(config.logLevel);
@@ -13,10 +13,12 @@ if (problems.length) {
 }
 const rateLimitPool = createRateLimitPool(config.databaseUrlRuntime);
 const mailer = createSmtpMailer(config.smtp);
+const careersScanner = createFileScanner({ provider: config.careersScannerProvider, clamdHost: config.careersClamdHost, clamdPort: config.careersClamdPort });
+if (typeof careersScanner.ready === 'function') await careersScanner.ready();
 const app = createFormsApp({
   logger, contactRecipientEmail: config.contactRecipientEmail, contactAllowedOrigins: config.contactAllowedOrigins,
   contactMailer: mailer, careersRecipientEmail: config.careersRecipientEmail, careersAllowedOrigins: config.careersAllowedOrigins,
-  careersMailer: mailer, careersScanner: createClamdScanner({ host: config.careersClamdHost, port: config.careersClamdPort }),
+  careersMailer: mailer, careersScanner,
   formTokenSecret: config.publicFormTokenSecret, formRateLimitPool: rateLimitPool,
 });
 const server = app.listen(config.port, '127.0.0.1', () => logger.info({ port: config.port }, 'Lake Group forms service listening on loopback'));

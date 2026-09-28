@@ -26,7 +26,9 @@ const schema = z.object({
 }).strict();
 
 const upload = multer({ storage: multer.memoryStorage(), limits: {
-  fileSize: MAX_CV_BYTES, files: 1, fields: 11, parts: 12, fieldSize: 7_000,
+  // Multer/Busboy limits are exclusive at the boundary. The real browser form
+  // sends 11 text fields (including token/idempotency metadata) and one CV.
+  fileSize: MAX_CV_BYTES, files: 1, fields: 12, parts: 13, fieldSize: 7_000,
 } }).single('cv');
 
 export function careersRouter({ recipientEmail = '', allowedOrigins = [], mailer = null, scanner = null,
@@ -69,7 +71,7 @@ export function careersRouter({ recipientEmail = '', allowedOrigins = [], mailer
       const reservation = await guard.reserve({ token: applicant.submissionToken, startedAt: applicant.startedAt,
         idempotencyKey: applicant.idempotencyKey, ip: req.ip, email: applicant.email });
       try {
-        const verdict = await scanner(cv.buffer);
+        const verdict = await scanner({ buffer: cv.buffer, filename: cv.filename, mimeType: cv.mimeType });
         if (!verdict?.clean) throw formError('SCANNER_UNAVAILABLE', 503);
       } catch (error) {
         await reservation.release();

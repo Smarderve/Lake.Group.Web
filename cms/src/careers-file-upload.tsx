@@ -23,6 +23,7 @@ if (mount && !window.__LAKE_CAREERS_UPLOAD_MOUNTED__) {
     createRoot(mount).render(
       <FileUpload
         inputId="career-cv"
+        inputName="cv"
         accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
       />,
     );

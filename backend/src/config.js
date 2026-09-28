@@ -84,7 +84,7 @@ export const DEFAULT_METRIC_STALE_DAYS = 180; // Phase 3 — stale-data window
  * Compute the full configuration from an environment object. Pure and
  * deterministic — unit-testable without mutating process.env (Phase 1).
  */
-export function resolveConfig(env) {
+export function resolveConfig(env, { platform = process.platform } = {}) {
   const appEnv = APP_ENVS.includes(env.NODE_ENV) ? env.NODE_ENV : 'development';
   // Staging runs behind a single TLS ingress, so it defaults to the same
   // proxy/HTTPS posture as production. Development/testing keep direct
@@ -202,8 +202,10 @@ export function resolveConfig(env) {
       pass: env.SMTP_PASS || '',
       from: env.MAIL_FROM || '',
     },
+    careersScannerProvider: (env.CAREERS_SCANNER_PROVIDER || '').trim().toLowerCase(),
     careersClamdHost: env.CAREERS_CLAMD_HOST || '',
     careersClamdPort: finiteNumber(env.CAREERS_CLAMD_PORT, 3310),
+    runtimePlatform: platform,
     contactRecipientEmail: env.CONTACT_RECIPIENT_EMAIL || '',
     contactAllowedOrigins: commaSeparated(env.CONTACT_ALLOWED_ORIGINS),
     publicFormTokenSecret: env.PUBLIC_FORM_TOKEN_SECRET || '',
@@ -227,7 +229,13 @@ function formCommonConfigProblems(cfg) {
   if (!smtp.host || !smtp.user || !smtp.pass || !smtp.from || !smtp.secureConfigured || !Number.isInteger(smtp.port) || smtp.port < 1 || smtp.port > 65535) {
     problems.push('SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS, and MAIL_FROM are required');
   }
-  if (cfg.careersClamdHost !== '127.0.0.1' || cfg.careersClamdPort !== 3310) problems.push('Careers ClamAV must use 127.0.0.1:3310');
+  if (cfg.careersScannerProvider === 'clamd') {
+    if (cfg.careersClamdHost !== '127.0.0.1' || cfg.careersClamdPort !== 3310) problems.push('Careers ClamAV must use 127.0.0.1:3310');
+  } else if (cfg.careersScannerProvider === 'defender') {
+    if (cfg.runtimePlatform !== 'win32') problems.push('Microsoft Defender Careers scanning requires Windows');
+  } else {
+    problems.push('CAREERS_SCANNER_PROVIDER must be defender or clamd');
+  }
   return problems;
 }
 

@@ -25,7 +25,7 @@ function setup({ scanner = vi.fn(async () => ({ clean: true })), recipientEmail 
 async function valid(app, extra = {}) {
   const token = (await request(app).get('/api/careers/token')).body;
   const fields = { name: 'Careers System Test', email: 'test@example.com', phone: '+255700000000',
-    nationality: 'Tanzanian', coverLetter: 'Controlled delivery test.', consent: 'true', website: '',
+    nationality: 'Tanzanian', opportunity: 'Engineering & Operations', coverLetter: 'Controlled delivery test.', consent: 'true', website: '',
     startedAt: String(token.startedAt), submissionToken: token.token,
     idempotencyKey: extra.idempotencyKey ?? crypto.randomUUID(), ...extra.fields };
   let req = request(app).post('/api/careers/applications').set('Origin', origin);
@@ -40,6 +40,7 @@ describe('Careers applications', () => {
     expect(response.status).toBe(201);
     expect(response.body.requestId).toBeTruthy();
     expect(scanner).toHaveBeenCalledOnce();
+    expect(scanner).toHaveBeenCalledWith(expect.objectContaining({ buffer: pdf, filename: 'resume.pdf', mimeType: 'application/pdf' }));
     expect(mailer).toHaveBeenCalledWith(expect.objectContaining({ recipient: 'projectdevemail001@gmail.com', replyTo: 'test@example.com', subject: expect.stringContaining('[TEST]') }));
     expect(mailer.mock.calls[0][0].attachments[0].content).toBe(pdf.toString('base64'));
   });

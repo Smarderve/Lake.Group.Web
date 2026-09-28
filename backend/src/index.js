@@ -8,7 +8,7 @@ import { createObjectStorage } from './lib/object-storage.js';
 import { startPublicReleaseWorker } from './lib/public-release.js';
 import { createSecretBox, inspectMfaKey } from './lib/secret-box.js';
 import { createSmtpMailer } from './lib/smtp-mailer.js';
-import { createClamdScanner } from './lib/clamd-scanner.js';
+import { createFileScanner } from './lib/file-scanner.js';
 import { createCmsV2ReleaseStorage } from './lib/cms-v2-release-storage.js';
 import { createCmsV2RuntimeService } from './lib/cms-v2-runtime-service.js';
 import { resolve } from 'node:path';
@@ -96,7 +96,7 @@ const app = createApp({
   careersRecipientEmail: config.careersRecipientEmail,
   careersAllowedOrigins: config.careersAllowedOrigins,
   careersMailer: createSmtpMailer(config.smtp),
-  careersScanner: createClamdScanner({ host: config.careersClamdHost, port: config.careersClamdPort }),
+  careersScanner: createFileScanner({ provider: config.careersScannerProvider, clamdHost: config.careersClamdHost, clamdPort: config.careersClamdPort }),
   contactRecipientEmail: config.contactRecipientEmail,
   contactAllowedOrigins: config.contactAllowedOrigins,
   contactMailer: createSmtpMailer(config.smtp),

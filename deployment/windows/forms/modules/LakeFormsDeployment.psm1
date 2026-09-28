@@ -128,6 +128,8 @@ function Set-FormsConfiguration {
   $current = Get-FormsEnvValues
   if ($current.FORMS_MODE -eq 'local-test') { throw 'Local-test configuration is not permitted in the Lake production deployment kit.' }
   $secret = $current.PUBLIC_FORM_TOKEN_SECRET
+  $scannerProvider = if ($current.CAREERS_SCANNER_PROVIDER) { $current.CAREERS_SCANNER_PROVIDER.ToLowerInvariant() } else { 'defender' }
+  if ($scannerProvider -notin @('defender', 'clamd')) { throw 'CAREERS_SCANNER_PROVIDER must be defender or clamd.' }
   if (-not $secret -or $secret.Length -lt 43) { $secret = New-FormsSecret }
   foreach ($key in @('SMTP_HOST', 'SMTP_PORT', 'SMTP_SECURE', 'SMTP_USER', 'SMTP_PASS', 'MAIL_FROM')) {
     if (-not $current[$key] -and -not $WhatIfPreference) { throw "Production SMTP configuration is incomplete: $key is required." }
@@ -136,8 +138,9 @@ function Set-FormsConfiguration {
     'FORMS_MODE=production', 'NODE_ENV=production', 'PORT=4000', "DATABASE_URL_RUNTIME=$DatabaseUrlRuntime", "PUBLIC_FORM_TOKEN_SECRET=$secret",
     "SMTP_HOST=$($current.SMTP_HOST)", "SMTP_PORT=$($current.SMTP_PORT)", "SMTP_SECURE=$($current.SMTP_SECURE)", "SMTP_USER=$($current.SMTP_USER)", "SMTP_PASS=$($current.SMTP_PASS)", "MAIL_FROM=$($current.MAIL_FROM)",
     "CONTACT_RECIPIENT_EMAIL=$script:ProductionRecipient", "CAREERS_RECIPIENT_EMAIL=$script:ProductionRecipient",
-    "CONTACT_ALLOWED_ORIGINS=$script:ExpectedOrigin", "CAREERS_ALLOWED_ORIGINS=$script:ExpectedOrigin", 'CAREERS_CLAMD_HOST=127.0.0.1', 'CAREERS_CLAMD_PORT=3310', 'TRUST_PROXY=1'
+    "CONTACT_ALLOWED_ORIGINS=$script:ExpectedOrigin", "CAREERS_ALLOWED_ORIGINS=$script:ExpectedOrigin", "CAREERS_SCANNER_PROVIDER=$scannerProvider", 'TRUST_PROXY=1'
   )
+  if ($scannerProvider -eq 'clamd') { $lines += @('CAREERS_CLAMD_HOST=127.0.0.1', 'CAREERS_CLAMD_PORT=3310') }
   if ($WhatIfPreference) { Write-FormsStatus INFO 'Forms configuration' "Would write protected $script:FormsEnvPath"; return }
   [IO.File]::WriteAllLines($script:FormsEnvPath, $lines, [Text.UTF8Encoding]::new($false))
   $acl = Get-Acl $script:FormsEnvPath
@@ -197,6 +200,32 @@ function Test-FormsClamAv {
   $clamdConfig = if ($clamdPath) { Get-ChildItem (Split-Path $clamdPath -Parent) -Filter clamd.conf -Recurse -ErrorAction SilentlyContinue | Select-Object -First 1 -ExpandProperty FullName } else { '' }
   $freshclamConfig = if ($freshclamPath) { Get-ChildItem (Split-Path $freshclamPath -Parent) -Filter freshclam.conf -Recurse -ErrorAction SilentlyContinue | Select-Object -First 1 -ExpandProperty FullName } else { '' }
   return @{ Installed = $null -ne $clamd -and $null -ne $freshclam; Listening = $null -ne $listener; Loopback = $listener -and $listener.LocalAddress -in @('127.0.0.1', '::1'); Signatures = @($dbFiles).Count -gt 0; Clamd = $clamd; Freshclam = $freshclam; ClamdPath = $clamdPath; FreshclamPath = $freshclamPath; ClamdConfig = $clamdConfig; FreshclamConfig = $freshclamConfig }
+}
+
+function Test-FormsDefender {
+  try {
+    $status = Get-MpComputerStatus -ErrorAction Stop
+    $available = $status.AMServiceEnabled -eq $true -and $status.AntivirusEnabled -eq $true -and $status.AMRunningMode -eq 'Normal' -and $status.AMEngineVersion -and $status.AntivirusSignatureVersion -and $status.AntivirusSignatureLastUpdated -gt (Get-Date).AddDays(-14)
+    return @{ Available = $available; Engine = $status.AMEngineVersion; Signature = $status.AntivirusSignatureVersion; SignatureUpdated = $status.AntivirusSignatureLastUpdated }
+  } catch { return @{ Available = $false; Detail = $_.Exception.Message } }
+}
+
+function Test-FormsDefenderScanner {
+  $state = Test-FormsDefender
+  if (-not $state.Available) { return @{ Clean = $false; Eicar = $false; Detail = 'Microsoft Defender is not ready.' } }
+  $directory = Join-Path $env:TEMP ('lakegroup-forms-defender-' + [Guid]::NewGuid().ToString('N'))
+  $clean = Join-Path $directory 'clean.txt'; $eicar = Join-Path $directory 'eicar.txt'
+  try {
+    New-Item -ItemType Directory -Path $directory -Force | Out-Null
+    [IO.File]::WriteAllText($clean, 'Lake Group scanner verification')
+    Start-MpScan -ScanType CustomScan -ScanPath $clean -ErrorAction Stop
+    $cleanPass = Test-Path $clean
+    [IO.File]::WriteAllBytes($eicar, [Convert]::FromBase64String('WDVPIVAlQEFQWzRcUFpYNTQoUF4pN0NDKTd9JEVJQ0FSLVNUQU5EQVJELUFOVElWSVJVUy1URVNULUZJTEUhJEgrSCo='))
+    Start-MpScan -ScanType CustomScan -ScanPath $eicar -ErrorAction Stop
+    $detected = @(Get-MpThreatDetection | Where-Object { @($_.Resources) -match [regex]::Escape($eicar) }).Count -gt 0
+    return @{ Clean = $cleanPass; Eicar = $detected }
+  } catch { return @{ Clean = $false; Eicar = $false; Detail = $_.Exception.Message } }
+  finally { Remove-Item -LiteralPath $directory -Recurse -Force -ErrorAction SilentlyContinue }
 }
 
 function Set-FormsClamConfigValue {
@@ -300,7 +329,9 @@ function Start-LakeFormsDeployment {
   Set-FormsConfiguration -DatabaseUrlRuntime $db
   if (-not (Test-FormsRecipientLock)) { throw 'Production recipient lock failed.' }; Write-FormsStatus PASS 'Forms configuration'
   Invoke-FormsDependencies -ProjectRoot $root; Write-FormsStatus PASS 'Backend dependencies'
-  $clam = Test-FormsClamAv; Update-FormsClamAv -State $clam; Write-FormsStatus PASS 'ClamAV and signatures'
+  $configured = Get-FormsEnvValues
+  if ($configured.CAREERS_SCANNER_PROVIDER -eq 'clamd') { $clam = Test-FormsClamAv; Update-FormsClamAv -State $clam; Write-FormsStatus PASS 'ClamAV and signatures' }
+  else { $defender = Test-FormsDefenderScanner; if (-not ($defender.Clean -and $defender.Eicar)) { throw 'Microsoft Defender clean/EICAR scanner verification failed.' }; Write-FormsStatus PASS 'Microsoft Defender clean/EICAR verification' }
   $iis = Test-FormsIisComponents
   if (-not $iis.IIS -or -not $iis.Rewrite -or -not $iis.ARR -or -not $iis.Proxy) { throw 'IIS URL Rewrite and ARR Proxy must be installed and enabled.' }
   if (-not (Test-FormsWebConfigRoutes -ProjectRoot $root)) { throw 'Approved web.config does not contain both loopback forms proxy routes.' }; Write-FormsStatus PASS 'IIS, URL Rewrite, ARR Proxy'
@@ -318,7 +349,10 @@ function Invoke-LakeFormsVerification {
   $task = Get-ScheduledTask -TaskName $script:TaskName -ErrorAction SilentlyContinue; Write-FormsStatus $(if ($task) { 'PASS' } else { 'FAIL' }) 'Forms process'
   $contact = Test-FormsEndpoint 'http://127.0.0.1:4000/api/contact/token'; Write-FormsStatus $(if ($contact.Pass) { 'PASS' } else { 'FAIL' }) 'Contact localhost' ([string]$contact.Status)
   $careers = Test-FormsEndpoint 'http://127.0.0.1:4000/api/careers/token'; Write-FormsStatus $(if ($careers.Pass) { 'PASS' } else { 'FAIL' }) 'Careers localhost' ([string]$careers.Status)
-  $clam = Test-FormsClamAv; Write-FormsStatus $(if ($clam.Listening -and $clam.Loopback) { 'PASS' } else { 'FAIL' }) 'ClamAV'; Write-FormsStatus $(if ($clam.Signatures) { 'PASS' } else { 'FAIL' }) 'ClamAV signatures'
+  $configured = Get-FormsEnvValues
+  if ($configured.CAREERS_SCANNER_PROVIDER -eq 'clamd') { $clam = Test-FormsClamAv; Write-FormsStatus $(if ($clam.Listening -and $clam.Loopback) { 'PASS' } else { 'FAIL' }) 'ClamAV'; Write-FormsStatus $(if ($clam.Signatures) { 'PASS' } else { 'FAIL' }) 'ClamAV signatures' }
+  elseif ($configured.CAREERS_SCANNER_PROVIDER -eq 'defender') { $defender = Test-FormsDefenderScanner; Write-FormsStatus $(if ($defender.Clean -and $defender.Eicar) { 'PASS' } else { 'FAIL' }) 'Microsoft Defender clean/EICAR scan' }
+  else { Write-FormsStatus FAIL 'Scanner provider' 'CAREERS_SCANNER_PROVIDER must be defender or clamd.' }
   $iis = Test-FormsIisComponents; Write-FormsStatus $(if ($iis.IIS) { 'PASS' } else { 'FAIL' }) 'IIS'; Write-FormsStatus $(if ($iis.Rewrite) { 'PASS' } else { 'FAIL' }) 'URL Rewrite'; Write-FormsStatus $(if ($iis.ARR -and $iis.Proxy) { 'PASS' } else { 'FAIL' }) 'ARR Proxy'
   $publicContact = Test-FormsEndpoint "$script:ExpectedOrigin/api/contact/token"; Write-FormsStatus $(if ($publicContact.Pass) { 'PASS' } else { 'FAIL' }) 'Contact public API' ([string]$publicContact.Status)
   $publicCareers = Test-FormsEndpoint "$script:ExpectedOrigin/api/careers/token"; Write-FormsStatus $(if ($publicCareers.Pass) { 'PASS' } else { 'FAIL' }) 'Careers public API' ([string]$publicCareers.Status)

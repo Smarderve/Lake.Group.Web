@@ -35,10 +35,12 @@ export const FileUpload = ({
   onChange,
   accept,
   inputId = "file-upload-handle",
+  inputName,
 }: {
   onChange?: (files: File[]) => void;
   accept?: string;
   inputId?: string;
+  inputName?: string;
 }) => {
   const [files, setFiles] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -146,6 +148,7 @@ export const FileUpload = ({
         <input
           ref={fileInputRef}
           id={inputId}
+          name={inputName}
           type="file"
           accept={accept}
           onChange={(e) => handleFileChange(Array.from(e.target.files || []), false)}

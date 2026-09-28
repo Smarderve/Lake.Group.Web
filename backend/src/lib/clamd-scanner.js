@@ -3,8 +3,8 @@ import { formError } from './public-form-security.js';
 
 export function createClamdScanner({ host = '', port = 3310, timeoutMs = 8000, maxConcurrent = 3 } = {}) {
   let active = 0;
-  return async (buffer) => {
-    if (!host || active >= maxConcurrent) throw formError('SCANNER_UNAVAILABLE', 503);
+  return async ({ buffer } = {}) => {
+    if (!Buffer.isBuffer(buffer) || !host || active >= maxConcurrent) throw formError('SCANNER_UNAVAILABLE', 503);
     active += 1;
     try {
       const result = await new Promise((resolve, reject) => {
@@ -23,7 +23,7 @@ export function createClamdScanner({ host = '', port = 3310, timeoutMs = 8000, m
       });
       if (/\bFOUND\b/u.test(result)) throw formError('MALWARE_DETECTED');
       if (!/\bOK\b/u.test(result)) throw formError('SCANNER_UNAVAILABLE', 503);
-      return { clean: true };
+      return { clean: true, provider: 'clamd' };
     } catch (error) {
       if (error.code === 'MALWARE_DETECTED') throw error;
       throw formError('SCANNER_UNAVAILABLE', 503);

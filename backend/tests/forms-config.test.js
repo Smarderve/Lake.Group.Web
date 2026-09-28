@@ -7,7 +7,7 @@ const base = {
   CAREERS_RECIPIENT_EMAIL: 'admin@lakeoilgroup.com', CONTACT_ALLOWED_ORIGINS: 'https://www.lakeoilgroup.com',
   CAREERS_ALLOWED_ORIGINS: 'https://www.lakeoilgroup.com', SMTP_HOST: 'smtp.lakeoilgroup.com', SMTP_PORT: '587',
   SMTP_SECURE: 'false', SMTP_USER: 'forms-service', SMTP_PASS: 'app-password',
-  MAIL_FROM: 'Lake Forms <forms@lakeoilgroup.com>', CAREERS_CLAMD_HOST: '127.0.0.1', CAREERS_CLAMD_PORT: '3310',
+  MAIL_FROM: 'Lake Forms <forms@lakeoilgroup.com>', CAREERS_SCANNER_PROVIDER: 'clamd', CAREERS_CLAMD_HOST: '127.0.0.1', CAREERS_CLAMD_PORT: '3310',
 };
 
 describe('forms-only production configuration', () => {
@@ -19,13 +19,21 @@ describe('forms-only production configuration', () => {
     expect(formsProductionConfigProblems(productionSmtp)).toEqual([]);
   });
   it('fails closed when SMTP, scanner, persistence, or exact origin is missing', () => {
-    for (const partial of [{ SMTP_PASS: '' }, { CAREERS_CLAMD_HOST: '' }, { DATABASE_URL_RUNTIME: '' }, { CONTACT_ALLOWED_ORIGINS: 'https://evil.example' }]) {
+    for (const partial of [{ SMTP_PASS: '' }, { CAREERS_SCANNER_PROVIDER: '' }, { CAREERS_CLAMD_HOST: '' }, { DATABASE_URL_RUNTIME: '' }, { CONTACT_ALLOWED_ORIGINS: 'https://evil.example' }]) {
       expect(formsProductionConfigProblems(resolveConfig({ ...base, ...partial }))).not.toEqual([]);
     }
   });
   it('rejects the local-test Gmail recipient in production', () => {
     expect(formsProductionConfigProblems(resolveConfig({ ...base, CONTACT_RECIPIENT_EMAIL: 'projectdevemail001@gmail.com' }))).not.toEqual([]);
     expect(formsProductionConfigProblems(resolveConfig({ ...base, CAREERS_RECIPIENT_EMAIL: 'projectdevemail001@gmail.com' }))).not.toEqual([]);
+  });
+  it('accepts Defender on Windows and rejects it on non-Windows', () => {
+    expect(formsProductionConfigProblems(resolveConfig({ ...base, CAREERS_SCANNER_PROVIDER: 'defender' }, { platform: 'win32' }))).toEqual([]);
+    expect(formsProductionConfigProblems(resolveConfig({ ...base, CAREERS_SCANNER_PROVIDER: 'defender' }, { platform: 'linux' }))).not.toEqual([]);
+  });
+  it('rejects public ClamAV hosts and unsupported providers', () => {
+    expect(formsProductionConfigProblems(resolveConfig({ ...base, CAREERS_CLAMD_HOST: '10.0.0.8' }))).not.toEqual([]);
+    expect(formsProductionConfigProblems(resolveConfig({ ...base, CAREERS_SCANNER_PROVIDER: 'skip' }))).not.toEqual([]);
   });
 });
 
@@ -34,10 +42,10 @@ describe('local forms lab configuration', () => {
     NODE_ENV: 'development', FORMS_MODE: 'local-test', DATABASE_URL_RUNTIME: 'postgresql://lake_app:secret@127.0.0.1:5432/lakegroup_forms_test',
     PUBLIC_FORM_TOKEN_SECRET: 'x'.repeat(32), CONTACT_RECIPIENT_EMAIL: 'projectdevemail001@gmail.com', CAREERS_RECIPIENT_EMAIL: 'projectdevemail001@gmail.com',
     CONTACT_ALLOWED_ORIGINS: 'http://127.0.0.1:8080', CAREERS_ALLOWED_ORIGINS: 'http://127.0.0.1:8080', SMTP_HOST: 'smtp.gmail.com', SMTP_PORT: '587', SMTP_SECURE: 'false',
-    SMTP_USER: 'projectdevemail001@gmail.com', SMTP_PASS: 'app-password', MAIL_FROM: 'Lake Group Website Test <projectdevemail001@gmail.com>', CAREERS_CLAMD_HOST: '127.0.0.1', CAREERS_CLAMD_PORT: '3310',
+    SMTP_USER: 'projectdevemail001@gmail.com', SMTP_PASS: 'app-password', MAIL_FROM: 'Lake Group Website Test <projectdevemail001@gmail.com>', CAREERS_SCANNER_PROVIDER: 'defender',
   };
   it('accepts only the isolated Gmail localhost profile', () => {
-    expect(formsLocalTestConfigProblems(resolveConfig(local))).toEqual([]);
+    expect(formsLocalTestConfigProblems(resolveConfig(local, { platform: 'win32' }))).toEqual([]);
   });
   it.each([{ CONTACT_RECIPIENT_EMAIL: 'admin@lakeoilgroup.com' }, { CONTACT_ALLOWED_ORIGINS: 'https://www.lakeoilgroup.com' }, { FORMS_MODE: 'production' }])('rejects local profile crossover', (override) => {
     expect(formsLocalTestConfigProblems(resolveConfig({ ...local, ...override }))).not.toEqual([]);

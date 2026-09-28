@@ -4,7 +4,7 @@ import { config, formsLocalTestConfigProblems } from './config.js';
 import { createLogger } from './logger.js';
 import { createRateLimitPool } from './db.js';
 import { createSmtpMailer } from './lib/smtp-mailer.js';
-import { createClamdScanner } from './lib/clamd-scanner.js';
+import { createFileScanner } from './lib/file-scanner.js';
 import { createLocalFormsApp } from './forms-local-app.js';
 
 const logger = createLogger(config.logLevel);
@@ -16,10 +16,12 @@ if (problems.length) {
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const rateLimitPool = createRateLimitPool(config.databaseUrlRuntime);
 const mailer = createSmtpMailer(config.smtp);
+const careersScanner = createFileScanner({ provider: config.careersScannerProvider, clamdHost: config.careersClamdHost, clamdPort: config.careersClamdPort });
+if (typeof careersScanner.ready === 'function') await careersScanner.ready();
 const app = createLocalFormsApp({ root, logger,
   contactRecipientEmail: config.contactRecipientEmail, contactAllowedOrigins: config.contactAllowedOrigins,
   contactMailer: mailer, careersRecipientEmail: config.careersRecipientEmail, careersAllowedOrigins: config.careersAllowedOrigins,
-  careersMailer: mailer, careersScanner: createClamdScanner({ host: config.careersClamdHost, port: config.careersClamdPort }),
+  careersMailer: mailer, careersScanner,
   formTokenSecret: config.publicFormTokenSecret, formRateLimitPool: rateLimitPool,
 });
 const server = app.listen(8080, '127.0.0.1', () => logger.info({ port: 8080 }, 'Lake Group local forms lab listening on loopback'));

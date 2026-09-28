@@ -1,0 +1,25 @@
+[Unit]
+Description=Lake Group public forms service
+After=network-online.target postgresql.service clamav-daemon.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=lakeforms
+Group=lakeforms
+WorkingDirectory=/opt/lakegroup/backend
+EnvironmentFile=/etc/lakegroup/forms.production.env
+ExecStart=/usr/bin/node /opt/lakegroup/backend/src/forms-index.js
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/tmp
+CapabilityBoundingSet=
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target
