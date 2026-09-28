@@ -1,4 +1,3 @@
-import express from 'express';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { config, formsLocalTestConfigProblems } from './config.js';
@@ -6,7 +5,7 @@ import { createLogger } from './logger.js';
 import { createRateLimitPool } from './db.js';
 import { createSmtpMailer } from './lib/smtp-mailer.js';
 import { createClamdScanner } from './lib/clamd-scanner.js';
-import { createFormsApp } from './forms-app.js';
+import { createLocalFormsApp } from './forms-local-app.js';
 
 const logger = createLogger(config.logLevel);
 const problems = formsLocalTestConfigProblems(config);
@@ -17,14 +16,12 @@ if (problems.length) {
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const rateLimitPool = createRateLimitPool(config.databaseUrlRuntime);
 const mailer = createSmtpMailer(config.smtp);
-const app = createFormsApp({
-  logger, contactRecipientEmail: config.contactRecipientEmail, contactAllowedOrigins: config.contactAllowedOrigins,
+const app = createLocalFormsApp({ root, logger,
+  contactRecipientEmail: config.contactRecipientEmail, contactAllowedOrigins: config.contactAllowedOrigins,
   contactMailer: mailer, careersRecipientEmail: config.careersRecipientEmail, careersAllowedOrigins: config.careersAllowedOrigins,
   careersMailer: mailer, careersScanner: createClamdScanner({ host: config.careersClamdHost, port: config.careersClamdPort }),
-  formTokenSecret: config.publicFormTokenSecret, formRateLimitPool: rateLimitPool, trustProxy: 0, hsts: false,
+  formTokenSecret: config.publicFormTokenSecret, formRateLimitPool: rateLimitPool,
 });
-app.use(['/backend', '/cms', '/docs', '/scripts', '/tests', '/deployment'], (_req, res) => res.status(404).end());
-app.use(express.static(root, { dotfiles: 'deny', index: 'index.html' }));
 const server = app.listen(8080, '127.0.0.1', () => logger.info({ port: 8080 }, 'Lake Group local forms lab listening on loopback'));
 function shutdown(signal) {
   logger.info({ signal }, 'shutting down local forms lab');

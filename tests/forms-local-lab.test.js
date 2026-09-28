@@ -8,11 +8,13 @@ const read = (path) => readFileSync(resolve(root, path), 'utf8');
 
 test('local forms lab uses the real local entrypoint and same-origin routes', () => {
   const source = read('backend/src/forms-local-index.js');
+  const localApp = read('backend/src/forms-local-app.js');
   assert.match(source, /formsLocalTestConfigProblems/);
-  assert.match(source, /createFormsApp/);
+  assert.match(source, /createLocalFormsApp/);
   assert.match(source, /createSmtpMailer/);
   assert.match(source, /createClamdScanner/);
-  assert.match(source, /express\.static/);
+  assert.match(localApp, /express\.static/);
+  assert.match(localApp, /mountFormsTerminalHandlers/);
   assert.match(source, /8080/);
   assert.match(source, /127\.0\.0\.1/);
 });

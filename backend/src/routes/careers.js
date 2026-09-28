@@ -2,7 +2,9 @@ import crypto from 'node:crypto';
 import { Router } from 'express';
 import multer from 'multer';
 import { z } from 'zod';
-import { createFormSecurity, escapeFormHtml, formError, formOriginAllowed, formTokenLimiter, publicFormResponse, safeFormText } from '../lib/public-form-security.js';
+import { createFormSecurity, formError, formOriginAllowed, formTokenLimiter, publicFormResponse, safeFormText } from '../lib/public-form-security.js';
+import { normalizeFormEmail, normalizeFormPhone } from '../lib/form-contact-details.js';
+import { renderFormEmail } from '../lib/form-email-template.js';
 import { inspectCv, MAX_CV_BYTES } from '../lib/cv-inspection.js';
 import { securityLog } from '../lib/security-log.js';
 
@@ -11,8 +13,8 @@ export const CAREERS_MAX_REQUEST_BYTES = 6 * 1024 * 1024;
 const single = (max, min = 0, multiline = false) => z.string().max(max).transform((value) => safeFormText(value, { multiline })).pipe(z.string().min(min).max(max));
 const schema = z.object({
   name: single(120, 1),
-  email: z.email().max(254).transform((value) => safeFormText(value).toLowerCase()),
-  phone: single(40, 3),
+  email: z.string().max(254).transform(normalizeFormEmail),
+  phone: z.string().max(40).transform((value) => normalizeFormPhone(value, { required: true })),
   nationality: single(80, 1),
   opportunity: single(160).optional().default(''),
   coverLetter: single(6000, 1, true),
@@ -73,10 +75,7 @@ export function careersRouter({ recipientEmail = '', allowedOrigins = [], mailer
         await reservation.release();
         throw error;
       }
-      const text = ['NEW CAREERS APPLICATION', `Reference: ${requestId}`, `Name: ${applicant.name}`, `Email: ${applicant.email}`,
-        `Phone: ${applicant.phone}`, `Nationality: ${applicant.nationality}`, `Opportunity: ${applicant.opportunity || 'General application'}`,
-        '', 'COVER LETTER', applicant.coverLetter, '', `CV: ${cv.filename}`].join('\n');
-      const html = `<h1>New Careers Application</h1><p>Reference: ${requestId}</p><dl><dt>Name</dt><dd>${escapeFormHtml(applicant.name)}</dd><dt>Email</dt><dd>${escapeFormHtml(applicant.email)}</dd><dt>Phone</dt><dd>${escapeFormHtml(applicant.phone)}</dd><dt>Nationality</dt><dd>${escapeFormHtml(applicant.nationality)}</dd><dt>Opportunity</dt><dd>${escapeFormHtml(applicant.opportunity || 'General application')}</dd></dl><h2>Cover Letter</h2><p>${escapeFormHtml(applicant.coverLetter).replace(/\n/gu, '<br>')}</p>`;
+      const { text, html } = renderFormEmail({ title: 'Lake Group Careers Application', requestId, details: [{ label: 'Name', value: applicant.name }, { label: 'Email', value: applicant.email, type: 'email' }, { label: 'Phone', value: applicant.phone, type: 'phone' }, { label: 'Nationality', value: applicant.nationality }, { label: 'Opportunity', value: applicant.opportunity || 'General application' }], sectionTitle: 'Cover letter', body: applicant.coverLetter, attachment: cv.filename });
       await mailer({ recipient: recipientEmail, replyTo: applicant.email, subject: `${recipientEmail === 'projectdevemail001@gmail.com' ? '[TEST] ' : ''}Lake Group Careers — New Application`,
         text, html, attachments: [{ filename: cv.filename, content: cv.buffer.toString('base64') }] });
       securityLog(req.log, { action: 'CAREERS_APPLICATION_DELIVERED', req, detail: { requestId, provider: 'transactional' } });

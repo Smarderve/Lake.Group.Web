@@ -11,7 +11,7 @@ const isLoopback = (req) => ['127.0.0.1', '::1', '::ffff:127.0.0.1'].includes(re
 /** Minimal public-forms service: no CMS, admin, sessions, media, or dev API. */
 export function createFormsApp({ logger, contactRecipientEmail = '', contactAllowedOrigins = [], contactMailer = null,
   careersRecipientEmail = '', careersAllowedOrigins = [], careersMailer = null, careersScanner = null,
-  formTokenSecret = '', formRateLimitPool = null, trustProxy = 1, hsts = true } = {}) {
+  formTokenSecret = '', formRateLimitPool = null, trustProxy = 1, hsts = true, terminalHandlers = true } = {}) {
   const app = express();
   app.disable('x-powered-by');
   app.set('trust proxy', trustProxy);
@@ -25,6 +25,12 @@ export function createFormsApp({ logger, contactRecipientEmail = '', contactAllo
     if (!isLoopback(req)) return res.status(404).end();
     return res.set('Cache-Control', 'no-store').json({ status: 'ok', service: 'lake-group-forms' });
   });
+  if (terminalHandlers) mountFormsTerminalHandlers(app, { logger });
+  return app;
+}
+
+/** Mount the forms service's final 404 and error handlers after optional local-only middleware. */
+export function mountFormsTerminalHandlers(app, { logger } = {}) {
   app.use(notFoundHandler);
   app.use(errorHandler({ logger }));
   return app;

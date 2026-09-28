@@ -1,14 +1,16 @@
 import crypto from 'node:crypto';
 import express, { Router } from 'express';
 import { z } from 'zod';
-import { createFormSecurity, escapeFormHtml, formError, formOriginAllowed, formTokenLimiter, publicFormResponse, safeFormText } from '../lib/public-form-security.js';
+import { createFormSecurity, formError, formOriginAllowed, formTokenLimiter, publicFormResponse, safeFormText } from '../lib/public-form-security.js';
+import { normalizeFormEmail, normalizeFormPhone } from '../lib/form-contact-details.js';
+import { renderFormEmail } from '../lib/form-email-template.js';
 import { securityLog } from '../lib/security-log.js';
 
 const single = (max, min = 0, multiline = false) => z.string().max(max).transform((value) => safeFormText(value, { multiline })).pipe(z.string().min(min).max(max));
 const schema = z.object({
   name: single(120, 1),
-  email: z.email().max(254).transform((value) => safeFormText(value).toLowerCase()),
-  phone: single(40).optional().default(''),
+  email: z.string().max(254).transform(normalizeFormEmail),
+  phone: z.string().max(40).optional().default('').transform((value) => normalizeFormPhone(value)),
   subject: single(160, 1),
   message: single(5000, 10, true),
   consent: z.literal(true),
@@ -38,8 +40,7 @@ export function contactRouter({ recipientEmail = '', allowedOrigins = [], mailer
       if ((data.message.match(/https?:\/\//giu) || []).length > 8 || /(.)\1{100}/u.test(data.message)) throw formError('VALIDATION_ERROR');
       if (!recipientEmail || typeof mailer !== 'function') throw formError('DELIVERY_TEMPORARILY_UNAVAILABLE', 503);
       await guard.reserve({ token: data.submissionToken, startedAt: data.startedAt, idempotencyKey: data.idempotencyKey, ip: req.ip, email: data.email });
-      const text = ['NEW WEBSITE ENQUIRY', `Reference: ${requestId}`, `Name: ${data.name}`, `Email: ${data.email}`, `Phone: ${data.phone}`, `Subject: ${data.subject}`, '', data.message].join('\n');
-      const html = `<h1>Website enquiry</h1><p>Reference: ${requestId}</p><dl><dt>Name</dt><dd>${escapeFormHtml(data.name)}</dd><dt>Email</dt><dd>${escapeFormHtml(data.email)}</dd><dt>Phone</dt><dd>${escapeFormHtml(data.phone)}</dd><dt>Subject</dt><dd>${escapeFormHtml(data.subject)}</dd></dl><p>${escapeFormHtml(data.message).replace(/\n/gu, '<br>')}</p>`;
+      const { text, html } = renderFormEmail({ title: 'Lake Group Website Enquiry', requestId, details: [{ label: 'Name', value: data.name }, { label: 'Email', value: data.email, type: 'email' }, { label: 'Phone', value: data.phone, type: 'phone' }, { label: 'Subject', value: data.subject }], sectionTitle: 'Message', body: data.message });
       const subject = `${recipientEmail === 'projectdevemail001@gmail.com' ? '[TEST] ' : ''}Lake Group Contact — Website Enquiry`;
       await mailer({ recipient: recipientEmail, replyTo: data.email, subject, text, html });
       securityLog(req.log, { action: 'CONTACT_MESSAGE_DELIVERED', req, detail: { requestId, provider: 'transactional' } });

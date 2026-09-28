@@ -1,7 +1,9 @@
-import { config, formsProductionConfigProblems } from '../src/config.js';
+import { config, formsLocalTestConfigProblems, formsProductionConfigProblems } from '../src/config.js';
 import { verifySmtpTransport } from '../src/lib/smtp-mailer.js';
 
-const problems = formsProductionConfigProblems(config);
+const problems = config.formsMode === 'local-test'
+  ? formsLocalTestConfigProblems(config)
+  : formsProductionConfigProblems(config);
 if (problems.length) {
   console.error('Forms SMTP verification unavailable: required forms configuration is incomplete.');
   process.exit(1);

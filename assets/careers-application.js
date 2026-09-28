@@ -5,6 +5,7 @@
   const opportunity = document.querySelector('#career-opportunity');
   const selectedOpportunity = document.querySelector('#career-selected-opportunity');
   const status = document.querySelector('#career-form-status');
+  const notice = window.LakeFormNotification.create();
   const cvInput = document.querySelector('#career-cv');
   const maxCvBytes = 5 * 1024 * 1024;
   const acceptedExtensions = new Set(['pdf', 'docx']);
@@ -36,7 +37,8 @@
       return setError(field, '');
     }
     if (field.required && !field.value.trim()) return setError(field, 'This field is required.');
-    if (field.type === 'email' && field.value && !field.validity.valid) return setError(field, 'Enter a valid email address.');
+    if (field.type === 'email' && field.value && !field.validity.valid) return setError(field, 'Please enter a valid email address.');
+    if (field.type === 'tel' && field.value) { const digits = field.value.replace(/\D/g, ''); if (/[^0-9+().\s-]/.test(field.value) || digits.length < 7 || digits.length > 15) return setError(field, 'Please enter a valid phone number, including country code where applicable.'); }
     return setError(field, '');
   }
 
@@ -108,12 +110,14 @@
       fields.find((field) => field.getAttribute('aria-invalid') === 'true')?.focus();
       return;
     }
+    const email = form.querySelector('input[type="email"]'); if (email) email.value = email.value.trim().toLowerCase();
     const submitButton = form.querySelector('button[type="submit"]');
     submitting = true;
     submitButton.disabled = true;
     submitButton.dataset.defaultLabel = submitButton.textContent;
     submitButton.textContent = 'Submitting application securely…';
     submitButton.setAttribute('aria-busy', 'true');
+    notice.show({ state: 'sending', title: 'Submitting application securely…', text: 'Please wait while we securely submit your application.' });
     status.textContent = 'Submitting application securely…';
     status.dataset.state = 'pending';
     status.hidden = false;
@@ -129,12 +133,15 @@
       const response = await fetch('/api/careers/applications', { method: 'POST', body: data, credentials: 'omit', cache: 'no-store' });
       if (!response.ok) {
         const code = (await response.json().catch(() => null))?.error?.code;
-        status.textContent = response.status === 429 ? 'Too many submission attempts have been made from this connection. Please wait before trying again.'
+        const errorText = response.status === 429 ? 'Too many submission attempts have been made from this connection. Please wait before trying again.'
           : code === 'UNSUPPORTED_FILE_TYPE' || code === 'MALWARE_DETECTED' ? "We couldn't accept this document. Please export your CV as a new PDF or DOCX file and try again."
             : 'The application service is temporarily unavailable. Your details have not been cleared. Please try again later.';
+        notice.show({ state: 'error', title: "We couldn't submit your application", text: errorText });
+        status.textContent = errorText;
         status.dataset.state = 'error';
         return;
       }
+      notice.show({ state: 'success', title: 'Application submitted successfully', text: 'Thank you for your interest in Lake Group. Our recruitment team has received your application.', requestId: (await response.clone().json().catch(() => ({}))).requestId, autoDismiss: true });
       status.textContent = 'Application submitted successfully. Thank you for your interest in Lake Group. Our recruitment team has received your application.';
       status.dataset.state = 'success';
       form.reset();
@@ -142,9 +149,11 @@
       idempotencyKey = crypto.randomUUID();
       tokenReady = loadToken();
     } catch (error) {
-      status.textContent = error.message === 'service'
+      const errorText = error.message === 'service'
         ? 'The application service is temporarily unavailable. Your details have not been cleared. Please try again later.'
         : "We couldn't submit your application because the connection was interrupted. Your details have not been cleared. Check your connection and try again.";
+      notice.show({ state: 'error', title: "We couldn't submit your application", text: errorText });
+      status.textContent = errorText;
       status.dataset.state = 'error';
     } finally {
       submitting = false;

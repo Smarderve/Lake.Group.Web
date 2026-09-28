@@ -213,6 +213,7 @@ export function resolveConfig(env) {
 export const config = resolveConfig(process.env);
 
 const TEST_FORM_RECIPIENT = 'projectdevemail001@gmail.com';
+const PRODUCTION_FORM_RECIPIENT = 'admin@lakeoilgroup.com';
 const LOCAL_FORM_ORIGIN = 'http://127.0.0.1:8080';
 
 function formCommonConfigProblems(cfg) {
@@ -234,6 +235,9 @@ function formCommonConfigProblems(cfg) {
 export function formsProductionConfigProblems(cfg = config) {
   const problems = formCommonConfigProblems(cfg);
   if (!cfg.isProduction || cfg.formsMode !== 'production') problems.push('FORMS_MODE=production and NODE_ENV=production are required for the forms service');
+  for (const [name, recipient] of [['CONTACT_RECIPIENT_EMAIL', cfg.contactRecipientEmail], ['CAREERS_RECIPIENT_EMAIL', cfg.careersRecipientEmail]]) {
+    if (recipient !== PRODUCTION_FORM_RECIPIENT) problems.push(`${name} must exactly equal ${PRODUCTION_FORM_RECIPIENT} in production`);
+  }
   for (const [name, origins] of [['CONTACT_ALLOWED_ORIGINS', cfg.contactAllowedOrigins], ['CAREERS_ALLOWED_ORIGINS', cfg.careersAllowedOrigins]]) {
     if (origins.length !== 1 || origins[0] !== 'https://www.lakeoilgroup.com') problems.push(`${name} must be exactly https://www.lakeoilgroup.com`);
   }
