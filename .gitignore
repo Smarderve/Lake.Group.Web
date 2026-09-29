@@ -7,9 +7,31 @@ backend/.env
 backend/.next/
 backend/.pgdata/
 scripts/_chrome_profile*
+scripts/_qa_screens/
+scripts/_scraped/
+scripts/_lp_bodies/
 backend/backups/
 .env.local
 .vercel/
+test-results/
+playwright-report/
+coverage/
+docs/qa/**/screenshots/
+docs/qa/**/generated-*.png
+docs/qa/
+docs/reports/media-contact-sheets/
+docs/reports/media-contact-sheets-current/
+docs/reports/media-processed-sheets/
+*.sqlite
+*.sqlite3
+*.db
+*.cv.pdf
+*EICAR*
+*.cvd
+*.cld
+clamd.conf
+freshclam.conf
+*.zip.part
 
 # Local curl cookie jar (contains live session cookies - never commit)
 ck.txt
