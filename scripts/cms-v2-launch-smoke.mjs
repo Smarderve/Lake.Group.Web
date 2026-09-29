@@ -60,8 +60,8 @@ try {
   await new Promise((done) => server.close(done));
 }
 
-await mkdir(resolve(root, 'docs/reports'), { recursive: true });
-await writeFile(resolve(root, 'docs/reports/cms-v2-launch-smoke.json'), JSON.stringify({ generatedAt: new Date().toISOString(), viewports: [390, 1440], passed: results.filter((result) => result.ok).length, total: results.length, pages: results }, null, 2) + '\n');
+await mkdir(resolve(root, 'test-results'), { recursive: true });
+await writeFile(resolve(root, 'test-results/cms-v2-launch-smoke.json'), JSON.stringify({ generatedAt: new Date().toISOString(), viewports: [390, 1440], passed: results.filter((result) => result.ok).length, total: results.length, pages: results }, null, 2) + '\n');
 console.log(`CMS V2 static public smoke: ${results.filter((result) => result.ok).length}/${results.length} active pages passed at 390 and 1440.`);
 for (const result of results.filter((result) => !result.ok)) console.log(`FAIL ${result.route}: ${result.errors.join('; ') || JSON.stringify(result.checks)}`);
 if (results.some((result) => !result.ok)) process.exitCode = 1;
