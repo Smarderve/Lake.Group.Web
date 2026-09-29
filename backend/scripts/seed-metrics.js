@@ -27,7 +27,7 @@ import { writeAudit } from '../src/lib/audit.js';
  *
  * NOTE (Task 8.1): the Employees value is 10,000+ â€” the official about-page
  * figure used across the live site. The earlier seed value 4,600+ came from
- * the stale assets/i18n-content.js.bak (audit Task 0.1 marks it OLD); the
+ * a stale generated translation backup (removed from the handoff tree); the
  * Phase 0 audit and verified-facts dataset both use 10,000+.
  */
 export const SEEDS = [
@@ -41,7 +41,7 @@ export const SEEDS = [
     verificationStatus: 'VERIFIED',
     verificationDate: new Date(),
     verificationNote:
-      'Canonical figure per the Phase 0 audit (Task 0.1) and _verified_lake_facts.md. The old 4,600+ only existed in assets/i18n-content.js.bak (stale backup).',
+      'Canonical figure per the verified facts source. The old 4,600+ value existed only in a stale translation backup.',
     effectiveDate: new Date(),
     consumers: [
       'index.html Â· hero keyfacts (#metric-employees), hero sub, about section',

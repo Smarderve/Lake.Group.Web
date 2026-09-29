@@ -14,7 +14,7 @@ from pptx.oxml.ns import qn
 from pptx.util import Inches, Pt
 
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "LAKE_GROUP_PRESENTATION.pptx"
+OUT = ROOT / "docs" / "reference" / "company" / "LAKE_GROUP_PRESENTATION.pptx"
 GUIDE = ROOT / "docs" / "developer-guide.html"
 
 # Brand palette

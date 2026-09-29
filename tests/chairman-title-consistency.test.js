@@ -12,7 +12,6 @@ const publicSources = [
   ...fs.readdirSync(root).filter((name) => name.endsWith('.html')),
   'assets/i18n-content.json',
   'assets/i18n-content.js',
-  'assets/i18n-content.js.bak',
   'assets/news-data.js',
   'assets/assistant-kb.js',
   'backend/scripts/content-seed-data.js',
@@ -38,15 +37,6 @@ test('canonical source and public mirrors use the approved Ally title', () => {
     assert.equal(dictionary['leadership.8'], canonicalTitle, `${locale} leadership title`);
     assert.equal(dictionary['about.40'], canonicalTitle, `${locale} about title`);
     assert.equal(dictionary['index.73'].split(', Lake Group')[0], canonicalTitle, `${locale} index title`);
-  }
-
-  const legacyTranslations = JSON.parse(read('assets/i18n-content.js.bak')
-    .replace(/^window\.__LAKE_I18N_CONTENT__\s*=\s*/, '')
-    .replace(/;\s*$/, ''));
-  for (const [locale, dictionary] of Object.entries(legacyTranslations)) {
-    assert.equal(dictionary['leadership.8'], canonicalTitle, `${locale} legacy leadership title`);
-    assert.equal(dictionary['about.40'], canonicalTitle, `${locale} legacy about title`);
-    assert.equal(dictionary['index.73'].split(', Lake Group')[0], canonicalTitle, `${locale} legacy index title`);
   }
 
   const failures = [];
