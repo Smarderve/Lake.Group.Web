@@ -1,0 +1,1608 @@
+{
+  "generatedAt": "2026-09-08T08:26:44.523Z",
+  "start": 80,
+  "batchSize": 80,
+  "candidates": 337,
+  "results": [
+    {
+      "source": "assets/images/gulf-aggregates/hero/gulf-aggregates-hero.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/gulf-aggregates/hero/gulf-aggregates-hero.master.webp",
+      "delivery": "assets/images/delivery/gulf-aggregates/hero/gulf-aggregates-hero.webp",
+      "masterInfo": {
+        "bytes": 643060,
+        "width": 1541,
+        "height": 1020,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 460430,
+        "width": 1541,
+        "quality": 84
+      },
+      "referencesUpdated": 2,
+      "masterHash": "23ce72ab5217fde2409c6ee5cf413fd02493aae86083fd862549dc4abda7ba04",
+      "deliveryHash": "29040d4c356f76a720598f8d4c358167a8e9257c048ffe773c3b8c9babca0628"
+    },
+    {
+      "source": "assets/images/gulf-aggregates/services/lake-concrete-plant.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/gulf-aggregates/services/lake-concrete-plant.master.webp",
+      "delivery": "assets/images/delivery/gulf-aggregates/services/lake-concrete-plant.webp",
+      "masterInfo": {
+        "bytes": 328974,
+        "width": 1541,
+        "height": 1021,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 193810,
+        "width": 1541,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "2c9cb10a4fbb697ad08da3e29c9d88dda462c9850c426de9b406518412c12ed9",
+      "deliveryHash": "fb5f5eb1b2e76db31457a07776b3065af932128acf7cb0206ac551722ae67768"
+    },
+    {
+      "source": "assets/images/gulf-aggregates/services/quarry-excavator.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/gulf-aggregates/services/quarry-excavator.master.webp",
+      "delivery": "assets/images/delivery/gulf-aggregates/services/quarry-excavator.webp",
+      "masterInfo": {
+        "bytes": 729754,
+        "width": 1541,
+        "height": 1020,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 490590,
+        "width": 1541,
+        "quality": 80
+      },
+      "referencesUpdated": 1,
+      "masterHash": "b3be7b535ea4e92f3732445b75237b887d1ed91fec3d0924de864aa755117e3a",
+      "deliveryHash": "e5f3fe3794fbadd44f7a8197fa5f3020227dfedd930e5b7366c930f6a585832a"
+    },
+    {
+      "source": "assets/images/gulf-aggregates/services/quarry-processing.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/gulf-aggregates/services/quarry-processing.master.webp",
+      "delivery": "assets/images/delivery/gulf-aggregates/services/quarry-processing.webp",
+      "masterInfo": {
+        "bytes": 643060,
+        "width": 1541,
+        "height": 1020,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 460430,
+        "width": 1541,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "23ce72ab5217fde2409c6ee5cf413fd02493aae86083fd862549dc4abda7ba04",
+      "deliveryHash": "29040d4c356f76a720598f8d4c358167a8e9257c048ffe773c3b8c9babca0628"
+    },
+    {
+      "source": "assets/images/history/hero/history-hero.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/history/hero/history-hero.master.webp",
+      "delivery": "assets/images/delivery/history/hero/history-hero.webp",
+      "masterInfo": {
+        "bytes": 262780,
+        "width": 1672,
+        "height": 940,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 148892,
+        "width": 1672,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "315cf4465e37e38d9b7d141383d0b49f77c502f3a6e99f21c36fb83dfe300b01",
+      "deliveryHash": "f04e7caef88ea631ffc83ab1fb765ad75cfa2b9f084e680ad8c3500bb8c01ce8"
+    },
+    {
+      "source": "assets/images/home/verticals/automotive-truck-lineup-960.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/home/verticals/automotive-truck-lineup-960.master.webp",
+      "delivery": "assets/images/delivery/home/verticals/automotive-truck-lineup-960.webp",
+      "masterInfo": {
+        "bytes": 81340,
+        "width": 960,
+        "height": 537,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 53594,
+        "width": 960,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "c088d17bcca51b6691f02f84821ebc411fa950fef0c83015a4afdc054ddef230",
+      "deliveryHash": "44e052a2b12dc0dc85ca0e418b1d0935073d2782ff0d5a369a7f2e4798fd1998"
+    },
+    {
+      "source": "assets/images/home/verticals/automotive-truck-lineup-thumb.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/home/verticals/automotive-truck-lineup-thumb.master.webp",
+      "delivery": "assets/images/delivery/home/verticals/automotive-truck-lineup-thumb.webp",
+      "masterInfo": {
+        "bytes": 9388,
+        "width": 240,
+        "height": 140,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 6292,
+        "width": 240,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "9005fdeec19b23e7b838a98655e711b33ac0a66ea1eae8bfc33d4d60c01c586f",
+      "deliveryHash": "e7a3482d6f348fd49032923309167e32eb4fb98aecdd4e0ec7146b767c41879a"
+    },
+    {
+      "source": "assets/images/home/verticals/energies-960.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/home/verticals/energies-960.master.webp",
+      "delivery": "assets/images/delivery/home/verticals/energies-960.webp",
+      "masterInfo": {
+        "bytes": 92902,
+        "width": 960,
+        "height": 540,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 59060,
+        "width": 960,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "6cf1d9b6a0595a9d39b2116b05232a4de115d973601c4c55040a6ea1733684d1",
+      "deliveryHash": "87fa1944a89ecb13d57ef5104d50b9b1c173abd9dacceb41e35b5501d682e6e6"
+    },
+    {
+      "source": "assets/images/home/verticals/energies-thumb.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/home/verticals/energies-thumb.master.webp",
+      "delivery": "assets/images/delivery/home/verticals/energies-thumb.webp",
+      "masterInfo": {
+        "bytes": 10304,
+        "width": 240,
+        "height": 140,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 6880,
+        "width": 240,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "5d5437ac1a8dd3d4d22fc3babd6536094033a5f7f6b652e642128aca9c75c5c1",
+      "deliveryHash": "91c437180a5c1a6fe6fb5af017862fd9a48276fa29db600a0e66104e2d4c2f22"
+    },
+    {
+      "source": "assets/images/home/verticals/energies.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/home/verticals/energies.master.webp",
+      "delivery": "assets/images/delivery/home/verticals/energies.webp",
+      "masterInfo": {
+        "bytes": 216416,
+        "width": 1672,
+        "height": 941,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 123576,
+        "width": 1672,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "700e8258dc3727bbc626f5a244ba24f582c0e37f5a8c66f069cd74d39fa44108",
+      "deliveryHash": "7ce188f07753788073a14ba12ac61ae02cda9652cbfff69922ffc6f975812c17"
+    },
+    {
+      "source": "assets/images/home/verticals/logistics-960.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/home/verticals/logistics-960.master.webp",
+      "delivery": "assets/images/delivery/home/verticals/logistics-960.webp",
+      "masterInfo": {
+        "bytes": 160252,
+        "width": 960,
+        "height": 640,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 109270,
+        "width": 960,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "62c55c0c8f0ddef85af38189ac12a5f8da908261b198a6094b8f2effef57f1d3",
+      "deliveryHash": "e06dcc5d82b15c4ebb3ad035d74512ef1342ec054207aedd4342f505fb85d955"
+    },
+    {
+      "source": "assets/images/home/verticals/logistics-thumb.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/home/verticals/logistics-thumb.master.webp",
+      "delivery": "assets/images/delivery/home/verticals/logistics-thumb.webp",
+      "masterInfo": {
+        "bytes": 10484,
+        "width": 240,
+        "height": 140,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 7154,
+        "width": 240,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "15891c06a4b3b0fa5c60173ed0224c91fc61834276df8f532fd2371c69c3f3d8",
+      "deliveryHash": "2aa8afbca88bfee873ac9cb3fcd98601bbc8ba4c05711c76a2cde35ed0990eda"
+    },
+    {
+      "source": "assets/images/home/verticals/logistics.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/home/verticals/logistics.master.webp",
+      "delivery": "assets/images/delivery/home/verticals/logistics.webp",
+      "masterInfo": {
+        "bytes": 347878,
+        "width": 1536,
+        "height": 1024,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 210524,
+        "width": 1536,
+        "quality": 84
+      },
+      "referencesUpdated": 3,
+      "masterHash": "4a84d9688ff81927a04caa5a6416a2ed1ae79798c86d6c1a89d6de97480004ee",
+      "deliveryHash": "1a3758ca8b2fee95dedf5e91ee7a0643d65f63d0452271fcc9af7769822899f3"
+    },
+    {
+      "source": "assets/images/home/verticals/manufacturing-960.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/home/verticals/manufacturing-960.master.webp",
+      "delivery": "assets/images/delivery/home/verticals/manufacturing-960.webp",
+      "masterInfo": {
+        "bytes": 218144,
+        "width": 960,
+        "height": 540,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 154720,
+        "width": 960,
+        "quality": 84
+      },
+      "referencesUpdated": 2,
+      "masterHash": "57a332bf7a3ff65fb7c621a7619a67e2e5f097829043fa425553b2e77550de6c",
+      "deliveryHash": "4e2d9f06ca064df9e776b88c39bb9d1d24e70d33d8362a15e410655e658aee8a"
+    },
+    {
+      "source": "assets/images/home/verticals/manufacturing-thumb.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/home/verticals/manufacturing-thumb.master.webp",
+      "delivery": "assets/images/delivery/home/verticals/manufacturing-thumb.webp",
+      "masterInfo": {
+        "bytes": 18758,
+        "width": 240,
+        "height": 140,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 13642,
+        "width": 240,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "56bb8c3442095dc3cd8b8d9fb239476c2995f8cf1756560134ff4da399d45c35",
+      "deliveryHash": "cfbc4b50644bdbc28dc53b1c8723e32057accaddad9449510b4356b5065ea4bc"
+    },
+    {
+      "source": "assets/images/home/verticals/manufacturing.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/home/verticals/manufacturing.master.webp",
+      "delivery": "assets/images/delivery/home/verticals/manufacturing.webp",
+      "masterInfo": {
+        "bytes": 452326,
+        "width": 1672,
+        "height": 941,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 307950,
+        "width": 1672,
+        "quality": 84
+      },
+      "referencesUpdated": 3,
+      "masterHash": "a3071f323d3dcd71bf0c836e0e9b70773224a78597f0b6d8cc87c36421b0175c",
+      "deliveryHash": "b11ee595eb113f373c554a9a0fa83e6037ccd23ff233b4dfce67e2fd7bd1da69"
+    },
+    {
+      "source": "assets/images/lake-agro/la-combine-harvester.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-agro/la-combine-harvester.master.webp",
+      "delivery": "assets/images/delivery/lake-agro/la-combine-harvester.webp",
+      "masterInfo": {
+        "bytes": 543964,
+        "width": 1086,
+        "height": 1448,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 405966,
+        "width": 1086,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "592522b48b737ddfa326d35cf18f00ffd48d6eddf2e848d82bc68d0e291f22cc",
+      "deliveryHash": "1189eff382358039f4deeeca76f4763ab9efc72e191019c719618cb8561b4950"
+    },
+    {
+      "source": "assets/images/lake-agro/la-excavators.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-agro/la-excavators.master.webp",
+      "delivery": "assets/images/delivery/lake-agro/la-excavators.webp",
+      "masterInfo": {
+        "bytes": 299454,
+        "width": 1870,
+        "height": 841,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 200308,
+        "width": 1870,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "e3e02910c397b12577bb4afe3bd7a7573a42321610b78f74852c60b5c0c3735c",
+      "deliveryHash": "9f716d53e7cf213db99f0bc9c6bed093be5505c4172632ef54fa2c262d38fae8"
+    },
+    {
+      "source": "assets/images/lake-agro/la-irrigation-bareland.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lake-agro/la-irrigation-bareland.master.webp",
+      "delivery": "assets/images/delivery/lake-agro/la-irrigation-bareland.webp",
+      "masterInfo": {
+        "bytes": 448232,
+        "width": 1448,
+        "height": 1086,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 293260,
+        "width": 1448,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "24791ae65a3b46130665f236c097035cac13d46ecc0fb8be05d49c625f97f1d5",
+      "deliveryHash": "5e04d46a40c42880dc8af790a2c2c1e0eb1eb28a6ef9261b412957de406a9387"
+    },
+    {
+      "source": "assets/images/lake-agro/la-irrigation-green.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lake-agro/la-irrigation-green.master.webp",
+      "delivery": "assets/images/delivery/lake-agro/la-irrigation-green.webp",
+      "masterInfo": {
+        "bytes": 426516,
+        "width": 1448,
+        "height": 1086,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 289618,
+        "width": 1448,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "c3d6fef8277576f3c540f703be706428094aa94e937eaf05b504f314ee67a0c4",
+      "deliveryHash": "a9ea4290e8688001ef91e4bd8d85230b1d9fa563ac7406cf9871174402e07097"
+    },
+    {
+      "source": "assets/images/lake-agro/la-machinery-shed.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-agro/la-machinery-shed.master.webp",
+      "delivery": "assets/images/delivery/lake-agro/la-machinery-shed.webp",
+      "masterInfo": {
+        "bytes": 616138,
+        "width": 948,
+        "height": 1660,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 454766,
+        "width": 948,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "7173af74226dd0a82fb030ff650f1ff07eba347ee13ecc9b0b07aa9c7dfed5db",
+      "deliveryHash": "a6b0e7f011f3dfbadb5072a8c585687e3214e106a6f1366fd9c09cbe39f0aeb0"
+    },
+    {
+      "source": "assets/images/lake-agro/la-tanzania-factory.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lake-agro/la-tanzania-factory.master.webp",
+      "delivery": "assets/images/delivery/lake-agro/la-tanzania-factory.webp",
+      "masterInfo": {
+        "bytes": 439878,
+        "width": 1600,
+        "height": 900,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 301970,
+        "width": 1600,
+        "quality": 84
+      },
+      "referencesUpdated": 2,
+      "masterHash": "00c8d1cc010cdaf342347acdb4245447675c68b00b72948485ba7ee487ba35d2",
+      "deliveryHash": "c4a105151cdc88c6864180633ad6507dcb51673b46dd205116b512ce6c3cf933"
+    },
+    {
+      "source": "assets/images/lake-agro/la-tanzania-sugarcane.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lake-agro/la-tanzania-sugarcane.master.webp",
+      "delivery": "assets/images/delivery/lake-agro/la-tanzania-sugarcane.webp",
+      "masterInfo": {
+        "bytes": 372676,
+        "width": 1086,
+        "height": 1448,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 253870,
+        "width": 1086,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "b76a300e6dba90acaa241c893134d4e6dc6aba9326b35a91f0b4546a9163171d",
+      "deliveryHash": "0d808d5857b47a24b0b3931c60dec28b3c897a716a2234990a02e3b597fc325a"
+    },
+    {
+      "source": "assets/images/lake-agro/la-tractors-duo.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-agro/la-tractors-duo.master.webp",
+      "delivery": "assets/images/delivery/lake-agro/la-tractors-duo.webp",
+      "masterInfo": {
+        "bytes": 537328,
+        "width": 968,
+        "height": 1625,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 401540,
+        "width": 968,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "1c8dc2459f03c7094ed61ca5f636a0959347b8206fc79a815e948390d018f035",
+      "deliveryHash": "df474a9cfbd79068b14fccd72072ce8879b3bc2798dc9f5c40c5831969dfdb5e"
+    },
+    {
+      "source": "assets/images/lake-agro/lake-agro-hero-desktop.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lake-agro/lake-agro-hero-desktop.master.webp",
+      "delivery": "assets/images/delivery/lake-agro/lake-agro-hero-desktop.webp",
+      "masterInfo": {
+        "bytes": 441304,
+        "width": 1672,
+        "height": 941,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 291620,
+        "width": 1672,
+        "quality": 84
+      },
+      "referencesUpdated": 3,
+      "masterHash": "93d9dfe4a851e5aa1b04c68ac47232e37c04009043c2ffedab3b2cf81d164f78",
+      "deliveryHash": "5740c57acef3e50cdf3db567e77c3beae9615728808eaebd7dda20425ea0533d"
+    },
+    {
+      "source": "assets/images/lake-agro/lake-agro-hero-mobile.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lake-agro/lake-agro-hero-mobile.master.webp",
+      "delivery": "assets/images/delivery/lake-agro/lake-agro-hero-mobile.webp",
+      "masterInfo": {
+        "bytes": 629358,
+        "width": 948,
+        "height": 1660,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 455260,
+        "width": 948,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "7995e52965c857b8e298d09b9cadfef3798e9d725452a1397a737c38495c61ff",
+      "deliveryHash": "fd352708eca1d39753d75dc8bc0378ffb00395961c7305b9de91df8881101a39"
+    },
+    {
+      "source": "assets/images/lake-agro/lake-agro-livestock.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lake-agro/lake-agro-livestock.master.webp",
+      "delivery": "assets/images/delivery/lake-agro/lake-agro-livestock.webp",
+      "masterInfo": {
+        "bytes": 397458,
+        "width": 1086,
+        "height": 1448,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 247270,
+        "width": 1086,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "df0a92a352acafc7887138c78dc04fe9e07e3b5c66e634ea6d94172d32c32617",
+      "deliveryHash": "ca9c7a2d4b6d75eacde3dfeddf3cee96d9edfdf5990760d8efe163cce1d69076"
+    },
+    {
+      "source": "assets/images/lake-agro/lake-agro-maize.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lake-agro/lake-agro-maize.master.webp",
+      "delivery": "assets/images/delivery/lake-agro/lake-agro-maize.webp",
+      "masterInfo": {
+        "bytes": 468944,
+        "width": 1086,
+        "height": 1448,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 319858,
+        "width": 1086,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "214ce6d9727cdb3f247d1624c9ac24be75d97f2ad578b5237aa8aa353806a387",
+      "deliveryHash": "3b5ddc064cd5ed153aa16c1f788774d361d9fca98e49c331f7406053ac28b82d"
+    },
+    {
+      "source": "assets/images/lake-agro/lake-agro-soya.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lake-agro/lake-agro-soya.master.webp",
+      "delivery": "assets/images/delivery/lake-agro/lake-agro-soya.webp",
+      "masterInfo": {
+        "bytes": 552620,
+        "width": 1086,
+        "height": 1448,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 383762,
+        "width": 1086,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "d4d30f8be3abb7e130925926bee4d77ff05ece2042110e9e8331c5e8235a9059",
+      "deliveryHash": "66d139921b27fcb4206a7e4316d0367c06f11eeb0b1a1d099dac46e37fa5674e"
+    },
+    {
+      "source": "assets/images/lake-agro/slid1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lake-agro/slid1.master.webp",
+      "delivery": "assets/images/delivery/lake-agro/slid1.webp",
+      "masterInfo": {
+        "bytes": 325606,
+        "width": 1280,
+        "height": 746,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 236832,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "3f1d9848cce11d87e66bfbdaef931285a2ef12878c346be2f8350475ee8ddd5e",
+      "deliveryHash": "c1e9ec0a1b5b4cd204fbc1d6629ec5d97713292cc62ea1122627bc63b819669a"
+    },
+    {
+      "source": "assets/images/lake-agro/slid2.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lake-agro/slid2.master.webp",
+      "delivery": "assets/images/delivery/lake-agro/slid2.webp",
+      "masterInfo": {
+        "bytes": 116504,
+        "width": 800,
+        "height": 390,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 85134,
+        "width": 800,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "1e0990ae504d9a413230404f6c08abceee74b513b25361e4453c970fbe542d36",
+      "deliveryHash": "b80e04a15ae0227f2fc70624a303010647b1c48a4cb2992033c535f729e40b0a"
+    },
+    {
+      "source": "assets/images/lake-agro/tanzania-opt.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lake-agro/tanzania-opt.master.webp",
+      "delivery": "assets/images/delivery/lake-agro/tanzania-opt.webp",
+      "masterInfo": {
+        "bytes": 192310,
+        "width": 800,
+        "height": 500,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 137720,
+        "width": 800,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "594e0bc14cbb1cd8a1729037dfe7d6020e20263da211cb51e8ebd7a8e66ed957",
+      "deliveryHash": "560b92d3a155347fe1179b7c55132b36367a4b307db53b7efaa59f9c2f8420a2"
+    },
+    {
+      "source": "assets/images/lake-agro/tanzania.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lake-agro/tanzania.master.webp",
+      "delivery": "assets/images/delivery/lake-agro/tanzania.webp",
+      "masterInfo": {
+        "bytes": 375804,
+        "width": 1200,
+        "height": 630,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 273306,
+        "width": 1200,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "1afb19de0661e42ef306cad62fe2d99cb05298f7d1f4b8857627d59405bc7969",
+      "deliveryHash": "1f8a5200a526d573c40e739edba141a65c1d24ffed5688834567e0307f9024f3"
+    },
+    {
+      "source": "assets/images/lake-aviation/credentials/jig-member-2026.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lake-aviation/credentials/jig-member-2026.master.webp",
+      "delivery": "assets/images/delivery/lake-aviation/credentials/jig-member-2026.webp",
+      "masterInfo": {
+        "bytes": 57060,
+        "width": 1254,
+        "height": 1254,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 31212,
+        "width": 1254,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "d9bea54f244fe04ffaf1e733d795a55b2b6249e43b17f11b782799ff17f3d8b7",
+      "deliveryHash": "836f24e435a9c9806a0bb767681c351684ee1383b72302bdeb0306c868e6ebf1"
+    },
+    {
+      "source": "assets/images/lake-aviation/gallery/aviation-flysafair-refuel.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-aviation/gallery/aviation-flysafair-refuel.master.webp",
+      "delivery": "assets/images/delivery/lake-aviation/gallery/aviation-flysafair-refuel.webp",
+      "masterInfo": {
+        "bytes": 356410,
+        "width": 1448,
+        "height": 1086,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 240116,
+        "width": 1448,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "f881dfb13fc7d67560acb425f7d8152b23b3150fef249e6b2185875c5e1aa754",
+      "deliveryHash": "0f2a73409a11584d906bf57098514c3b13c4d359d2a15f334c37d48b6aa793e9"
+    },
+    {
+      "source": "assets/images/lake-aviation/gallery/aviation-fueling-coastal.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-aviation/gallery/aviation-fueling-coastal.master.webp",
+      "delivery": "assets/images/delivery/lake-aviation/gallery/aviation-fueling-coastal.webp",
+      "masterInfo": {
+        "bytes": 310098,
+        "width": 1672,
+        "height": 941,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 190000,
+        "width": 1672,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "72cce8116b2ac4bd7b3986f8ac03dd3dd6180d86702130a05a7b2b8bb9cf8a5f",
+      "deliveryHash": "7f44bc5cd6d724769da297a1afd0b71b1ac128aaaea65fd647c99305d31f6c43"
+    },
+    {
+      "source": "assets/images/lake-aviation/gallery/aviation-nyerere-tanker.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-aviation/gallery/aviation-nyerere-tanker.master.webp",
+      "delivery": "assets/images/delivery/lake-aviation/gallery/aviation-nyerere-tanker.webp",
+      "masterInfo": {
+        "bytes": 391990,
+        "width": 1448,
+        "height": 1086,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 239948,
+        "width": 1448,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "8cc6a70bed3ce5043f8250f6f05e1cdc6286e570f1b3e7531c81ccdbc696312b",
+      "deliveryHash": "f0a3d1083e2085d83200b4d8ca9bca9c5397bb6af5aa27cad6752521318ba2c0"
+    },
+    {
+      "source": "assets/images/lake-aviation/gallery/aviation-oman-air-cargo.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-aviation/gallery/aviation-oman-air-cargo.master.webp",
+      "delivery": "assets/images/delivery/lake-aviation/gallery/aviation-oman-air-cargo.webp",
+      "masterInfo": {
+        "bytes": 389932,
+        "width": 1448,
+        "height": 1086,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 244828,
+        "width": 1448,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "4d4fb7b9e0bc526173229003b86d4c5ed3a74eaaf4d4391239a4343f30140146",
+      "deliveryHash": "5b817e86e2fa411f6ca26cab840512c1a6a1bd6617d6b3b4c854d2a49fadd864"
+    },
+    {
+      "source": "assets/images/lake-aviation/gallery/aviation-skyward-apron.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-aviation/gallery/aviation-skyward-apron.master.webp",
+      "delivery": "assets/images/delivery/lake-aviation/gallery/aviation-skyward-apron.webp",
+      "masterInfo": {
+        "bytes": 233036,
+        "width": 1445,
+        "height": 1088,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 138978,
+        "width": 1445,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "06b6048cc9adb4a71335cc6ae1cd873aa3567f366f1074688a8bf64be26dc9aa",
+      "deliveryHash": "3d337a070f7928d510722f79456aecd26e8d0b79ddcb61b511b944207718a668"
+    },
+    {
+      "source": "assets/images/lake-aviation/gallery/aviation-team-truck.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-aviation/gallery/aviation-team-truck.master.webp",
+      "delivery": "assets/images/delivery/lake-aviation/gallery/aviation-team-truck.webp",
+      "masterInfo": {
+        "bytes": 251230,
+        "width": 1444,
+        "height": 1089,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 141418,
+        "width": 1444,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "7d481883c3082689e27c47514c50a2050ef79d86987cf2b78378fc6990ec71af",
+      "deliveryHash": "a33b4d043f2c0a560d52233c38ffe610da6e952d6e68c28ab503e1a26253e357"
+    },
+    {
+      "source": "assets/images/lake-aviation/gallery/aviation-worker-underwing.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-aviation/gallery/aviation-worker-underwing.master.webp",
+      "delivery": "assets/images/delivery/lake-aviation/gallery/aviation-worker-underwing.webp",
+      "masterInfo": {
+        "bytes": 277218,
+        "width": 1086,
+        "height": 1448,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 170178,
+        "width": 1086,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "e23773574c43d6f467398b029a04bc766f632c6883c12249a1eb588589fb68b4",
+      "deliveryHash": "8658ec4b7b1f4d2ede61441351800a330c5ab5f511856dd4d679b525c47b6481"
+    },
+    {
+      "source": "assets/images/lake-aviation/ops/aviation-10.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-aviation/ops/aviation-10.master.webp",
+      "delivery": "assets/images/delivery/lake-aviation/ops/aviation-10.webp",
+      "masterInfo": {
+        "bytes": 226334,
+        "width": 1080,
+        "height": 810,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 160388,
+        "width": 1080,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "688f646ed323f0b7746472fdd8a7cb1b9e169e22c8d978a0f584ab77f3d9a4f3",
+      "deliveryHash": "87d07b160917f8e5100c58777b7bf5ae3c96012afdbe6d673f33b28fd01f5d57"
+    },
+    {
+      "source": "assets/images/lake-aviation/ops/aviation-11.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-aviation/ops/aviation-11.master.webp",
+      "delivery": "assets/images/delivery/lake-aviation/ops/aviation-11.webp",
+      "masterInfo": {
+        "bytes": 117184,
+        "width": 1020,
+        "height": 768,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 75628,
+        "width": 1020,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "8e308c443306db236218adf4f4b8f449ec65cfd550fb630f10b960110a0098eb",
+      "deliveryHash": "6ac78d264ca685f33b8b8292c7285e1063d0c5d321aef6463267ddc21a5ab2bb"
+    },
+    {
+      "source": "assets/images/lake-aviation/ops/aviation-12.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-aviation/ops/aviation-12.master.webp",
+      "delivery": "assets/images/delivery/lake-aviation/ops/aviation-12.webp",
+      "masterInfo": {
+        "bytes": 75088,
+        "width": 1000,
+        "height": 750,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 43416,
+        "width": 1000,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "2d04ccdbce41cb262facd2d04c92aba8a44befe5fcca3dce9a8dc1c0d4524a71",
+      "deliveryHash": "1432a23ff056af22b59c02cf3a16901574e5715d1b6be1b230dfa990b8f6341e"
+    },
+    {
+      "source": "assets/images/lake-aviation/ops/aviation-13.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-aviation/ops/aviation-13.master.webp",
+      "delivery": "assets/images/delivery/lake-aviation/ops/aviation-13.webp",
+      "masterInfo": {
+        "bytes": 89968,
+        "width": 1020,
+        "height": 768,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 61322,
+        "width": 1020,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "611969556be2c255855a53884c30c4a0607a07127ced1a5aa0039035cb83c44b",
+      "deliveryHash": "8ed45fb5c6b1b62dc8e3465d0aa533a205ce73ea0ac1ab10002788c5ac2cd57b"
+    },
+    {
+      "source": "assets/images/lake-aviation/ops/aviation-14.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-aviation/ops/aviation-14.master.webp",
+      "delivery": "assets/images/delivery/lake-aviation/ops/aviation-14.webp",
+      "masterInfo": {
+        "bytes": 168240,
+        "width": 810,
+        "height": 1080,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 117440,
+        "width": 810,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "008234682e7787ef56524fc2c96916c2dfeb6e58b54fed7c86c6891db15337a2",
+      "deliveryHash": "2be56c550f0099912119695f010b6158d75df02603f83f3d1dc9524d306c1e04"
+    },
+    {
+      "source": "assets/images/lake-aviation/ops/aviation-15.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-aviation/ops/aviation-15.master.webp",
+      "delivery": "assets/images/delivery/lake-aviation/ops/aviation-15.webp",
+      "masterInfo": {
+        "bytes": 117488,
+        "width": 1020,
+        "height": 768,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 81128,
+        "width": 1020,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "4322626b16834a7e632b9f8c9cc32ebff1889e235f12f04343ba2d67414f574a",
+      "deliveryHash": "f0a7350c04c1b7934d6ef9f3ca247c4d2498c0da932e4e15fcf4c47a73761533"
+    },
+    {
+      "source": "assets/images/lake-aviation/ops/aviation-2.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-aviation/ops/aviation-2.master.webp",
+      "delivery": "assets/images/delivery/lake-aviation/ops/aviation-2.webp",
+      "masterInfo": {
+        "bytes": 205142,
+        "width": 1080,
+        "height": 810,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 146380,
+        "width": 1080,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "98fc05acf1bed74745b6b9d40a69c73c1f4ad80824ad21ee5415edf76f0a021a",
+      "deliveryHash": "ed33da9cd49345dfe5f3ac93c5667fe03ad6a99d5dab7df44320added4740bc1"
+    },
+    {
+      "source": "assets/images/lake-aviation/ops/aviation-4.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-aviation/ops/aviation-4.master.webp",
+      "delivery": "assets/images/delivery/lake-aviation/ops/aviation-4.webp",
+      "masterInfo": {
+        "bytes": 260668,
+        "width": 1080,
+        "height": 810,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 189916,
+        "width": 1080,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "fab433cfd41933743186ce96f028fee10acbb26d423832d82f73f6e90ce883fe",
+      "deliveryHash": "223e63dae1eb2ac6210df6fa39136928d1df62e15ec3c7293e0dc7dba772edcf"
+    },
+    {
+      "source": "assets/images/lake-aviation/ops/aviation-6.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-aviation/ops/aviation-6.master.webp",
+      "delivery": "assets/images/delivery/lake-aviation/ops/aviation-6.webp",
+      "masterInfo": {
+        "bytes": 116136,
+        "width": 1080,
+        "height": 607,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 73206,
+        "width": 1080,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "4291ee616ed7d90e5aaa3b46362b316eeb5840e4cf4ba201ee9bf2ca672363e5",
+      "deliveryHash": "90c88f8bd3665a75f783571e0d1b818882f0207148803b242b8b63dc49eaba55"
+    },
+    {
+      "source": "assets/images/lake-aviation/ops/aviation-8.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-aviation/ops/aviation-8.master.webp",
+      "delivery": "assets/images/delivery/lake-aviation/ops/aviation-8.webp",
+      "masterInfo": {
+        "bytes": 90994,
+        "width": 1000,
+        "height": 563,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 58968,
+        "width": 1000,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "851d69aac30b85715f9f1a1ea30d6c165fec0b31b36e29470dba32df76333fff",
+      "deliveryHash": "506dbf9eef8b7ede0b1034542d8ab53f49c8015d417483d1d6c55888d7167dd3"
+    },
+    {
+      "source": "assets/images/lake-aviation/ops/aviation-9.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-aviation/ops/aviation-9.master.webp",
+      "delivery": "assets/images/delivery/lake-aviation/ops/aviation-9.webp",
+      "masterInfo": {
+        "bytes": 216510,
+        "width": 1080,
+        "height": 810,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 145240,
+        "width": 1080,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "1b56b799aefe291bfa00827f1952467d75459745662c4dee22711b91a087046c",
+      "deliveryHash": "050786a076614023c27410f9a4450f0566afdbbb61a697a2e0a0c89bfbe783f8"
+    },
+    {
+      "source": "assets/images/lake-aviation/ops/bulk-storage-lake-energies.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-aviation/ops/bulk-storage-lake-energies.master.webp",
+      "delivery": "assets/images/delivery/lake-aviation/ops/bulk-storage-lake-energies.webp",
+      "masterInfo": {
+        "bytes": 262780,
+        "width": 1672,
+        "height": 940,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 148892,
+        "width": 1672,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "315cf4465e37e38d9b7d141383d0b49f77c502f3a6e99f21c36fb83dfe300b01",
+      "deliveryHash": "f04e7caef88ea631ffc83ab1fb765ad75cfa2b9f084e680ad8c3500bb8c01ce8"
+    },
+    {
+      "source": "assets/images/lake-aviation/ops/lake-aviation-hero-apron.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/lake-aviation/ops/lake-aviation-hero-apron.master.webp",
+      "delivery": "assets/images/delivery/lake-aviation/ops/lake-aviation-hero-apron.webp",
+      "masterInfo": {
+        "bytes": 389346,
+        "width": 1448,
+        "height": 1086,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 250092,
+        "width": 1448,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "c77d611ade57e09ad6f23dbc049395a8778b4c8f110ad2784fd4e7540cde722b",
+      "deliveryHash": "3bf539f9195eba71c1d5f744b594a58baf87af7070e1c435ca7979d4a96c2d9a"
+    },
+    {
+      "source": "assets/images/lake-pipes/hero/lake-pipes-hero.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lake-pipes/hero/lake-pipes-hero.master.webp",
+      "delivery": "assets/images/delivery/lake-pipes/hero/lake-pipes-hero.webp",
+      "masterInfo": {
+        "bytes": 238868,
+        "width": 1629,
+        "height": 965,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 143886,
+        "width": 1629,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "58e2865ee671d319614cdc4c4d5fff79c6be60e8f611d2c7ccb3498420110899",
+      "deliveryHash": "83a09d82056f2f21b672425737afab83eeda48c885215af595842ef0def435a4"
+    },
+    {
+      "source": "assets/images/lake-pipes/ops/blue-pipes-opt.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lake-pipes/ops/blue-pipes-opt.master.webp",
+      "delivery": "assets/images/delivery/lake-pipes/ops/blue-pipes-opt.webp",
+      "masterInfo": {
+        "bytes": 49670,
+        "width": 800,
+        "height": 500,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 28506,
+        "width": 800,
+        "quality": 84
+      },
+      "referencesUpdated": 2,
+      "masterHash": "f7f6d69be96e5b762f71cef1fd2c574b3bd093c27c93c61bd4e0df0f6cfe3285",
+      "deliveryHash": "7c5aaf0bcf05ab1e0c7045861222de44c9caf65eccf47b65fc843aeb6166b619"
+    },
+    {
+      "source": "assets/images/lake-pipes/ops/blue-pipes.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lake-pipes/ops/blue-pipes.master.webp",
+      "delivery": "assets/images/delivery/lake-pipes/ops/blue-pipes.webp",
+      "masterInfo": {
+        "bytes": 89012,
+        "width": 1136,
+        "height": 757,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 53172,
+        "width": 1136,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "06d7418dfc3e256270146303c4572c6c369ffadd5b58444198fa6b47b05c7236",
+      "deliveryHash": "756c849ebe70de00cb1e93cff1ae47557dc065d92e8ba34cb629e6537283e4a2"
+    },
+    {
+      "source": "assets/images/lakegas/ops/cylinder-hero-800.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakegas/ops/cylinder-hero-800.master.webp",
+      "delivery": "assets/images/delivery/lakegas/ops/cylinder-hero-800.webp",
+      "masterInfo": {
+        "bytes": 137240,
+        "width": 800,
+        "height": 532,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 99334,
+        "width": 800,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "236d7f072df30343c874481e134719faec962572638f393bb020de7638186f29",
+      "deliveryHash": "fd09dccbc24f5097bff7eb272b523d2a877267e1abcf7a60fed129e6f74bedb6"
+    },
+    {
+      "source": "assets/images/lakegas/ops/cylinder-hero.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakegas/ops/cylinder-hero.master.webp",
+      "delivery": "assets/images/delivery/lakegas/ops/cylinder-hero.webp",
+      "masterInfo": {
+        "bytes": 390338,
+        "width": 1538,
+        "height": 1023,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 244630,
+        "width": 1538,
+        "quality": 84
+      },
+      "referencesUpdated": 2,
+      "masterHash": "2fe8f0f4076ffda29b447dad1a11030a7779f9a2cf20cad09a3b92203d0f6b4c",
+      "deliveryHash": "ebf50c0780dd137df59717e3172570ee24726ddda6834fbeae78dc58a0830752"
+    },
+    {
+      "source": "assets/images/lakegas/ops/cylinder-stacks.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakegas/ops/cylinder-stacks.master.webp",
+      "delivery": "assets/images/delivery/lakegas/ops/cylinder-stacks.webp",
+      "masterInfo": {
+        "bytes": 573828,
+        "width": 2048,
+        "height": 1365,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 389156,
+        "width": 2048,
+        "quality": 84
+      },
+      "referencesUpdated": 2,
+      "masterHash": "7a28904092acf294a3684787dc3387d850d8f8a164ea298feb817a646654a1ab",
+      "deliveryHash": "10701e7104674a80706ee3ebb3cb883c14446a637ef28aa2a50a750686f72ea3"
+    },
+    {
+      "source": "assets/images/lakegas/ops/cylinder-stacks.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakegas/ops/cylinder-stacks.master.webp",
+      "delivery": "assets/images/delivery/lakegas/ops/cylinder-stacks.webp",
+      "masterInfo": {
+        "bytes": 573828,
+        "width": 2048,
+        "height": 1365,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 389156,
+        "width": 2048,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "7a28904092acf294a3684787dc3387d850d8f8a164ea298feb817a646654a1ab",
+      "deliveryHash": "10701e7104674a80706ee3ebb3cb883c14446a637ef28aa2a50a750686f72ea3"
+    },
+    {
+      "source": "assets/images/lakegas/ops/cylinder-warehouse.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakegas/ops/cylinder-warehouse.master.webp",
+      "delivery": "assets/images/delivery/lakegas/ops/cylinder-warehouse.webp",
+      "masterInfo": {
+        "bytes": 350366,
+        "width": 2048,
+        "height": 1447,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 191292,
+        "width": 2048,
+        "quality": 84
+      },
+      "referencesUpdated": 2,
+      "masterHash": "7d17a98e987d515604954f8154e9857dee405977f1f33a552ee48053eaac6bc8",
+      "deliveryHash": "075b257072319afe0bd987c9858279249825497e0de3bf5cc8d05c61d1f05fc1"
+    },
+    {
+      "source": "assets/images/lakegas/ops/cylinders-yard.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakegas/ops/cylinders-yard.master.webp",
+      "delivery": "assets/images/delivery/lakegas/ops/cylinders-yard.webp",
+      "masterInfo": {
+        "bytes": 317134,
+        "width": 2048,
+        "height": 1447,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 194352,
+        "width": 2048,
+        "quality": 84
+      },
+      "referencesUpdated": 4,
+      "masterHash": "b9139d943e89e6e7475eafd3d5833ff707f20946ac8db6fefd5d950462c3b179",
+      "deliveryHash": "04076ba749eff18cb63ad7eaee8da25cdcce32ad666b03eba79de4ef529a6734"
+    },
+    {
+      "source": "assets/images/lakegas/ops/filling-plant-opt.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakegas/ops/filling-plant-opt.master.webp",
+      "delivery": "assets/images/delivery/lakegas/ops/filling-plant-opt.webp",
+      "masterInfo": {
+        "bytes": 93056,
+        "width": 800,
+        "height": 500,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 61068,
+        "width": 800,
+        "quality": 84
+      },
+      "referencesUpdated": 2,
+      "masterHash": "9f4f061e123d2688aef1b116434b946645fdec4fc5b19679e97dc930149268a3",
+      "deliveryHash": "d9baa7a126b469c97001d5c7e4971bea2f986c0fbf16c4cc333ef48a7784ebfe"
+    },
+    {
+      "source": "assets/images/lakegas/ops/filling-plant.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakegas/ops/filling-plant.master.webp",
+      "delivery": "assets/images/delivery/lakegas/ops/filling-plant.webp",
+      "masterInfo": {
+        "bytes": 410502,
+        "width": 2048,
+        "height": 1365,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 267040,
+        "width": 2048,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "5260644564acf3145cbf32319d8daf67ba011b78944f38b03873e300f14cdf85",
+      "deliveryHash": "03eec6e235643310d8458b5f954f31dd1e8dfe6f578d7d17b50eef9e2e701ff9"
+    },
+    {
+      "source": "assets/images/lakegas/ops/lake-gas-lpg-filling-line-800.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakegas/ops/lake-gas-lpg-filling-line-800.master.webp",
+      "delivery": "assets/images/delivery/lakegas/ops/lake-gas-lpg-filling-line-800.webp",
+      "masterInfo": {
+        "bytes": 130070,
+        "width": 800,
+        "height": 508,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 94246,
+        "width": 800,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "780c3de4e60cb654996c126f1d5d897ea5fb190a5e08b2a593bef9b530629fdd",
+      "deliveryHash": "69ce5bdf3c3982e58ff25156420a0ad32ec8ccb389b8b26e5c974afb02d5a2ea"
+    },
+    {
+      "source": "assets/images/lakegas/ops/lake-gas-lpg-filling-line.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakegas/ops/lake-gas-lpg-filling-line.master.webp",
+      "delivery": "assets/images/delivery/lakegas/ops/lake-gas-lpg-filling-line.webp",
+      "masterInfo": {
+        "bytes": 336220,
+        "width": 1573,
+        "height": 1000,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 214438,
+        "width": 1573,
+        "quality": 84
+      },
+      "referencesUpdated": 3,
+      "masterHash": "47eef99fa4a5644aa4c2b8822a737c3ee8aadd2b3fea248492b66afc41eeaa76",
+      "deliveryHash": "83dbe95cf754cec8726e06a8e2876b0a5416efcfff1dbe47630450f338e02660"
+    },
+    {
+      "source": "assets/images/lakegas/ops/worker-silas.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakegas/ops/worker-silas.master.webp",
+      "delivery": "assets/images/delivery/lakegas/ops/worker-silas.webp",
+      "masterInfo": {
+        "bytes": 326206,
+        "width": 1920,
+        "height": 1080,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 187654,
+        "width": 1920,
+        "quality": 84
+      },
+      "referencesUpdated": 3,
+      "masterHash": "afff571bba92ed0aab84662351bad45b75eac351304c84cb33b59bdb81a046eb",
+      "deliveryHash": "caab947d281fdc1f5279397615b3e016d3b012657543873ed4819cf9d08d3532"
+    },
+    {
+      "source": "assets/images/lakegas/TA/photo_1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakegas/TA/photo_1.master.webp",
+      "delivery": "assets/images/delivery/lakegas/TA/photo_1.webp",
+      "masterInfo": {
+        "bytes": 110696,
+        "width": 1032,
+        "height": 489,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 76980,
+        "width": 1032,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "091eff0f6bc3991cd154491586518a423be26161d08efc95565a4815255fa712",
+      "deliveryHash": "c54ba5148d5da741543654ae5d1f5a0d2648f95bf4ef83ba232875cada77796d"
+    },
+    {
+      "source": "assets/images/lakelubes/ops/plant-800.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakelubes/ops/plant-800.master.webp",
+      "delivery": "assets/images/delivery/lakelubes/ops/plant-800.webp",
+      "masterInfo": {
+        "bytes": 108604,
+        "width": 800,
+        "height": 532,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 71688,
+        "width": 800,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "1be8070a815beee6cac66ae94ed433d9dac88995d6148f839e7c442e2b290afa",
+      "deliveryHash": "1071744b66d6c0c94cc222d22298cf2415ef413dd3edcae559dfb4080fb2be75"
+    },
+    {
+      "source": "assets/images/lakelubes/ops/plant-opt.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakelubes/ops/plant-opt.master.webp",
+      "delivery": "assets/images/delivery/lakelubes/ops/plant-opt.webp",
+      "masterInfo": {
+        "bytes": 93532,
+        "width": 800,
+        "height": 500,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 59692,
+        "width": 800,
+        "quality": 84
+      },
+      "referencesUpdated": 2,
+      "masterHash": "0ba3914c5d08d184ea0cbc7b18134921555e32e0eaca441829824b657a787b99",
+      "deliveryHash": "314296ae6bc3a301918b55d7f4aa0b6a4151effa6739bee81f74efacc0fdd9fc"
+    },
+    {
+      "source": "assets/images/lakelubes/ops/plant.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakelubes/ops/plant.master.webp",
+      "delivery": "assets/images/delivery/lakelubes/ops/plant.webp",
+      "masterInfo": {
+        "bytes": 450834,
+        "width": 2070,
+        "height": 1379,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 291620,
+        "width": 2070,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "daeb5d79e6619d89ee3e49fc66cf5d6b2f36c3a1d58f9933a4cd8c99212a9d63",
+      "deliveryHash": "9134b033460230bb642866c85e4d55ea70af99a4c2ea60d69609382ce2ec6d33"
+    },
+    {
+      "source": "assets/images/lakelubes/products/lake-lubes-power-eco-range.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakelubes/products/lake-lubes-power-eco-range.master.webp",
+      "delivery": "assets/images/delivery/lakelubes/products/lake-lubes-power-eco-range.webp",
+      "masterInfo": {
+        "bytes": 193622,
+        "width": 1541,
+        "height": 1020,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 112016,
+        "width": 1541,
+        "quality": 84
+      },
+      "referencesUpdated": 2,
+      "masterHash": "3b356a2ab885d68de14453a058eaf4be77769b8ae0364a7d13e7afad9755e213",
+      "deliveryHash": "85cc5015b8ca365f8a08e8f444ed9ea96e84f89c35b9dadbfcec0abfe5a1ee54"
+    },
+    {
+      "source": "assets/images/lakelubes/products/optimized/gl5-85w140-5l.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakelubes/products/optimized/gl5-85w140-5l.master.webp",
+      "delivery": "assets/images/delivery/lakelubes/products/optimized/gl5-85w140-5l.webp",
+      "masterInfo": {
+        "bytes": 169330,
+        "width": 900,
+        "height": 1354,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 100674,
+        "width": 900,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "bb6ccfcebf652d01fec9988d5ee2feca4644083a40665d26fb30a43ac0174493",
+      "deliveryHash": "f5d33c50d682431af16af50e896b0c6fd9a18d44bec03c6ea71b49a1ad672db0"
+    },
+    {
+      "source": "assets/images/lakelubes/products/optimized/grease-mp2-1kg.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakelubes/products/optimized/grease-mp2-1kg.master.webp",
+      "delivery": "assets/images/delivery/lakelubes/products/optimized/grease-mp2-1kg.webp",
+      "masterInfo": {
+        "bytes": 190912,
+        "width": 900,
+        "height": 1354,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 117412,
+        "width": 900,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "d85a1333e710f9c75ff11d048766bd92a4ac931506394a34d4ebfb28b2e310cf",
+      "deliveryHash": "f95ee8c245fc1bc96bd230621181e65706704d5c2ac4813979dc33053b2949e4"
+    },
+    {
+      "source": "assets/images/lakelubes/products/optimized/hd-supreme-700-20l.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakelubes/products/optimized/hd-supreme-700-20l.master.webp",
+      "delivery": "assets/images/delivery/lakelubes/products/optimized/hd-supreme-700-20l.webp",
+      "masterInfo": {
+        "bytes": 114350,
+        "width": 900,
+        "height": 1352,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 69658,
+        "width": 900,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "22284c28a9419e6ae9f414bec18ed0eb444eb55ab9651e9818800a2d1ce6a9c6",
+      "deliveryHash": "950e45d164b280d1cd8de39d0caf859a2e6a0c16efea6c44d182418719e676e4"
+    },
+    {
+      "source": "assets/images/lakelubes/products/optimized/lake-lubes-drums.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakelubes/products/optimized/lake-lubes-drums.master.webp",
+      "delivery": "assets/images/delivery/lakelubes/products/optimized/lake-lubes-drums.webp",
+      "masterInfo": {
+        "bytes": 234026,
+        "width": 900,
+        "height": 1354,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 143606,
+        "width": 900,
+        "quality": 84
+      },
+      "referencesUpdated": 2,
+      "masterHash": "5454de3aca3282843c51521384aaa892aae5e9a85cd80711d9b91845db3facd0",
+      "deliveryHash": "2b4e076da664e7d87c3f06633dfc5dffe9decf1286627af0f4de779eba85b0d3"
+    },
+    {
+      "source": "assets/images/lakelubes/products/optimized/power-supreme-1l.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakelubes/products/optimized/power-supreme-1l.master.webp",
+      "delivery": "assets/images/delivery/lakelubes/products/optimized/power-supreme-1l.webp",
+      "masterInfo": {
+        "bytes": 160770,
+        "width": 900,
+        "height": 1354,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 96000,
+        "width": 900,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "6a40010b34abb8bbfc72c0c6fa5753265da692ea42c48bf58615cabc57242261",
+      "deliveryHash": "c7c71d3cee2ee34cd9c94b74bc13ccab8b8e2c6a6c8f74b30806e1f47971b7b0"
+    },
+    {
+      "source": "assets/images/lakelubes/products/optimized/power-supreme-4l.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakelubes/products/optimized/power-supreme-4l.master.webp",
+      "delivery": "assets/images/delivery/lakelubes/products/optimized/power-supreme-4l.webp",
+      "masterInfo": {
+        "bytes": 142762,
+        "width": 900,
+        "height": 1354,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 89728,
+        "width": 900,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "80fc49a9d476f14feede4c6d618b897a778a490383546f22e4ab37550b49ce19",
+      "deliveryHash": "43704d2a7e2b3a700b3621dd724c8d7be87888e0a98b4ba3829b1c2c971c323f"
+    },
+    {
+      "source": "assets/images/lakelubes/products/optimized/super-cool-20l.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/lakelubes/products/optimized/super-cool-20l.master.webp",
+      "delivery": "assets/images/delivery/lakelubes/products/optimized/super-cool-20l.webp",
+      "masterInfo": {
+        "bytes": 123098,
+        "width": 900,
+        "height": 1354,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 69716,
+        "width": 900,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "5405d3ae255a9452dbc6bea93892f199cb71ffdff8d05bb45e0166e3a54dd5d4",
+      "deliveryHash": "8f7b3c63826e5830c244994f14e307f2212675e6d1dbf178bd7184114a5a7856"
+    }
+  ]
+}

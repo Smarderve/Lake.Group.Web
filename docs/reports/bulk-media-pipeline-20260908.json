@@ -1,0 +1,3169 @@
+{
+  "generatedAt": "2026-09-08T06:07:15.199Z",
+  "audit": "docs/reports/media-inventory-20260907.json",
+  "candidates": 337,
+  "processed": 337,
+  "webpCreated": 229,
+  "alreadyCompliant": 108,
+  "manualReviewRequired": 89,
+  "failures": [],
+  "oversize": [],
+  "referenceFilesUpdated": 31,
+  "protectedHashes": [],
+  "results": [
+    {
+      "path": "assets/images/about/about-hero-03.webp",
+      "delivery": "assets/images/about/about-hero-03.webp",
+      "status": "already-compliant",
+      "beforeBytes": 110514,
+      "afterBytes": 110514,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/about/about-hero-04.webp",
+      "delivery": "assets/images/about/about-hero-04.webp",
+      "status": "already-compliant",
+      "beforeBytes": 177912,
+      "afterBytes": 177912,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/about/about-hero-05.webp",
+      "delivery": "assets/images/about/about-hero-05.webp",
+      "status": "already-compliant",
+      "beforeBytes": 183440,
+      "afterBytes": 183440,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/about/about-hero-06.webp",
+      "delivery": "assets/images/about/about-hero-06.webp",
+      "status": "already-compliant",
+      "beforeBytes": 118688,
+      "afterBytes": 118688,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/about/about-hero-07.webp",
+      "delivery": "assets/images/about/about-hero-07.webp",
+      "status": "already-compliant",
+      "beforeBytes": 177958,
+      "afterBytes": 177958,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/about/about-hero-09.webp",
+      "delivery": "assets/images/about/about-hero-09.webp",
+      "status": "already-compliant",
+      "beforeBytes": 201544,
+      "afterBytes": 201544,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/about/about-hero-12.webp",
+      "delivery": "assets/images/about/about-hero-12.webp",
+      "status": "already-compliant",
+      "beforeBytes": 115590,
+      "afterBytes": 115590,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/about/about-story-terminal-enhanced.webp",
+      "delivery": "assets/images/about/about-story-terminal-enhanced.webp",
+      "status": "already-compliant",
+      "beforeBytes": 110514,
+      "afterBytes": 110514,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/acfs/TA/photo_1.jpg",
+      "delivery": "assets/images/acfs/TA/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 32105,
+      "afterBytes": 22448,
+      "width": 841,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/acfs/TA/photo_10.jpg",
+      "delivery": "assets/images/acfs/TA/photo_10.webp",
+      "status": "created",
+      "beforeBytes": 34987,
+      "afterBytes": 23250,
+      "width": 1080,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/acfs/TA/photo_11.jpg",
+      "delivery": "assets/images/acfs/TA/photo_11.webp",
+      "status": "created",
+      "beforeBytes": 75379,
+      "afterBytes": 50644,
+      "width": 2616,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/acfs/TA/photo_2.jpg",
+      "delivery": "assets/images/acfs/TA/photo_2.webp",
+      "status": "created",
+      "beforeBytes": 25616,
+      "afterBytes": 14438,
+      "width": 843,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/acfs/TA/photo_3.jpg",
+      "delivery": "assets/images/acfs/TA/photo_3.webp",
+      "status": "created",
+      "beforeBytes": 42645,
+      "afterBytes": 36460,
+      "width": 837,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/acfs/TA/photo_5.jpg",
+      "delivery": "assets/images/acfs/TA/photo_5.webp",
+      "status": "created",
+      "beforeBytes": 34137,
+      "afterBytes": 21362,
+      "width": 847,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/acfs/TA/photo_6.jpg",
+      "delivery": "assets/images/acfs/TA/photo_6.webp",
+      "status": "created",
+      "beforeBytes": 25146,
+      "afterBytes": 20626,
+      "width": 847,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/acfs/TA/photo_7.jpg",
+      "delivery": "assets/images/acfs/TA/photo_7.webp",
+      "status": "created",
+      "beforeBytes": 9932,
+      "afterBytes": 6278,
+      "width": 847,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/acfs/TA/photo_8.jpg",
+      "delivery": "assets/images/acfs/TA/photo_8.webp",
+      "status": "created",
+      "beforeBytes": 73053,
+      "afterBytes": 50842,
+      "width": 1400,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/acfs/TA/photo_9.jpg",
+      "delivery": "assets/images/acfs/TA/photo_9.webp",
+      "status": "created",
+      "beforeBytes": 34966,
+      "afterBytes": 24092,
+      "width": 1080,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/aficd/operations/aficd-branded-container.webp",
+      "delivery": "assets/images/aficd/operations/aficd-branded-container.webp",
+      "status": "already-compliant",
+      "beforeBytes": 136510,
+      "afterBytes": 136510,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/aficd/operations/aficd-container-handling.webp",
+      "delivery": "assets/images/aficd/operations/aficd-container-handling.webp",
+      "status": "already-compliant",
+      "beforeBytes": 128630,
+      "afterBytes": 128630,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/aficd/operations/aficd-sany-reach-stacker.webp",
+      "delivery": "assets/images/aficd/operations/aficd-sany-reach-stacker.webp",
+      "status": "already-compliant",
+      "beforeBytes": 147914,
+      "afterBytes": 147914,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/aficd/operations/aficd-truck-loading.webp",
+      "delivery": "assets/images/aficd/operations/aficd-truck-loading.webp",
+      "status": "already-compliant",
+      "beforeBytes": 136478,
+      "afterBytes": 136478,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/aficd/operations/aficd-wide-yard.webp",
+      "delivery": "assets/images/aficd/operations/aficd-wide-yard.webp",
+      "status": "already-compliant",
+      "beforeBytes": 66778,
+      "afterBytes": 66778,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/aficd/operations/aficd-yard-lift.webp",
+      "delivery": "assets/images/aficd/operations/aficd-yard-lift.webp",
+      "status": "already-compliant",
+      "beforeBytes": 113396,
+      "afterBytes": 113396,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/aficd/operations/aficd-yard.webp",
+      "delivery": "assets/images/aficd/operations/aficd-yard.webp",
+      "status": "already-compliant",
+      "beforeBytes": 113532,
+      "afterBytes": 113532,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/aficd/TA/photo_1.jpg",
+      "delivery": "assets/images/aficd/TA/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 776722,
+      "afterBytes": 505106,
+      "width": 2048,
+      "quality": 70,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/aficd/TA/photo_1.webp",
+      "delivery": "assets/images/aficd/TA/photo_1.webp",
+      "status": "already-compliant",
+      "beforeBytes": 148780,
+      "afterBytes": 148780,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/aill/aill-hero-960.webp",
+      "delivery": "assets/images/aill/aill-hero-960.webp",
+      "status": "already-compliant",
+      "beforeBytes": 81044,
+      "afterBytes": 81044,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/aill/aill-hero.webp",
+      "delivery": "assets/images/aill/aill-hero.webp",
+      "status": "already-compliant",
+      "beforeBytes": 136510,
+      "afterBytes": 136510,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/banner/LakeOil.jpg",
+      "delivery": "assets/images/banner/LakeOil.webp",
+      "status": "created",
+      "beforeBytes": 281584,
+      "afterBytes": 218030,
+      "width": 1376,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/banner/LakeOil1.jpg",
+      "delivery": "assets/images/banner/LakeOil1.webp",
+      "status": "created",
+      "beforeBytes": 185462,
+      "afterBytes": 147626,
+      "width": 1800,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/banner/LakeTrans-opt.webp",
+      "delivery": "assets/images/banner/LakeTrans-opt.webp",
+      "status": "already-compliant",
+      "beforeBytes": 60980,
+      "afterBytes": 60980,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/doc-comp-1.webp",
+      "delivery": "assets/images/ccp/doc-comp-1.webp",
+      "status": "already-compliant",
+      "beforeBytes": 95800,
+      "afterBytes": 95800,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/doc-comp-2.jpg",
+      "delivery": "assets/images/ccp/doc-comp-2.webp",
+      "status": "created",
+      "beforeBytes": 213236,
+      "afterBytes": 213682,
+      "width": 1024,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/doc-comp-3.jpg",
+      "delivery": "assets/images/ccp/doc-comp-3.webp",
+      "status": "created",
+      "beforeBytes": 52768,
+      "afterBytes": 50108,
+      "width": 540,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/doc-comp-4.jpg",
+      "delivery": "assets/images/ccp/doc-comp-4.webp",
+      "status": "created",
+      "beforeBytes": 58814,
+      "afterBytes": 59864,
+      "width": 405,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/doc-comp-5.jpg",
+      "delivery": "assets/images/ccp/doc-comp-5.webp",
+      "status": "created",
+      "beforeBytes": 45792,
+      "afterBytes": 47780,
+      "width": 432,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/doc-comp-6.jpg",
+      "delivery": "assets/images/ccp/doc-comp-6.webp",
+      "status": "created",
+      "beforeBytes": 34939,
+      "afterBytes": 34360,
+      "width": 432,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/doc-dev-3.jpg",
+      "delivery": "assets/images/ccp/doc-dev-3.webp",
+      "status": "created",
+      "beforeBytes": 333400,
+      "afterBytes": 313894,
+      "width": 1600,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/doc-future-1.jpg",
+      "delivery": "assets/images/ccp/doc-future-1.webp",
+      "status": "created",
+      "beforeBytes": 275764,
+      "afterBytes": 217542,
+      "width": 1600,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/doc-future-2.jpg",
+      "delivery": "assets/images/ccp/doc-future-2.webp",
+      "status": "created",
+      "beforeBytes": 240885,
+      "afterBytes": 179590,
+      "width": 1600,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/doc-hero.jpg",
+      "delivery": "assets/images/ccp/doc-hero.webp",
+      "status": "created",
+      "beforeBytes": 366546,
+      "afterBytes": 316968,
+      "width": 1600,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/doc-overview.jpg",
+      "delivery": "assets/images/ccp/doc-overview.webp",
+      "status": "created",
+      "beforeBytes": 200254,
+      "afterBytes": 154294,
+      "width": 1600,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/doc-values.jpg",
+      "delivery": "assets/images/ccp/doc-values.webp",
+      "status": "created",
+      "beforeBytes": 118337,
+      "afterBytes": 75446,
+      "width": 1600,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/doc-vision.jpg",
+      "delivery": "assets/images/ccp/doc-vision.webp",
+      "status": "created",
+      "beforeBytes": 244492,
+      "afterBytes": 187728,
+      "width": 1600,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/doc-wide.jpg",
+      "delivery": "assets/images/ccp/doc-wide.webp",
+      "status": "created",
+      "beforeBytes": 116396,
+      "afterBytes": 68712,
+      "width": 1599,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/photo_1.jpg",
+      "delivery": "assets/images/ccp/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 232881,
+      "afterBytes": 189762,
+      "width": 2061,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/photo_10.jpg",
+      "delivery": "assets/images/ccp/photo_10.webp",
+      "status": "created",
+      "beforeBytes": 84074,
+      "afterBytes": 94148,
+      "width": 780,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/photo_11.jpg",
+      "delivery": "assets/images/ccp/photo_11.webp",
+      "status": "created",
+      "beforeBytes": 106976,
+      "afterBytes": 117990,
+      "width": 1032,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/photo_12.jpg",
+      "delivery": "assets/images/ccp/photo_12.webp",
+      "status": "created",
+      "beforeBytes": 76893,
+      "afterBytes": 81456,
+      "width": 1032,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/photo_2.jpg",
+      "delivery": "assets/images/ccp/photo_2.webp",
+      "status": "created",
+      "beforeBytes": 242094,
+      "afterBytes": 206820,
+      "width": 2061,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/photo_3.jpg",
+      "delivery": "assets/images/ccp/photo_3.webp",
+      "status": "created",
+      "beforeBytes": 385260,
+      "afterBytes": 357210,
+      "width": 2061,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/photo_4.jpg",
+      "delivery": "assets/images/ccp/photo_4.webp",
+      "status": "created",
+      "beforeBytes": 99455,
+      "afterBytes": 100684,
+      "width": 1080,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/photo_5.jpg",
+      "delivery": "assets/images/ccp/photo_5.webp",
+      "status": "created",
+      "beforeBytes": 127681,
+      "afterBytes": 125176,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/photo_6.jpg",
+      "delivery": "assets/images/ccp/photo_6.webp",
+      "status": "created",
+      "beforeBytes": 374710,
+      "afterBytes": 387470,
+      "width": 2070,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/photo_7.jpg",
+      "delivery": "assets/images/ccp/photo_7.webp",
+      "status": "created",
+      "beforeBytes": 329991,
+      "afterBytes": 313388,
+      "width": 2070,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/photo_8.jpg",
+      "delivery": "assets/images/ccp/photo_8.webp",
+      "status": "created",
+      "beforeBytes": 105665,
+      "afterBytes": 114022,
+      "width": 1040,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ccp/photo_9.jpg",
+      "delivery": "assets/images/ccp/photo_9.webp",
+      "status": "created",
+      "beforeBytes": 99455,
+      "afterBytes": 100684,
+      "width": 1080,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/contact/contact-hero-lake-energies.webp",
+      "delivery": "assets/images/contact/contact-hero-lake-energies.webp",
+      "status": "already-compliant",
+      "beforeBytes": 110514,
+      "afterBytes": 110514,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/contact/kigamboni-hq.webp",
+      "delivery": "assets/images/contact/kigamboni-hq.webp",
+      "status": "already-compliant",
+      "beforeBytes": 110670,
+      "afterBytes": 110670,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/cross-country/cross-country-hero-960.webp",
+      "delivery": "assets/images/cross-country/cross-country-hero-960.webp",
+      "status": "already-compliant",
+      "beforeBytes": 48016,
+      "afterBytes": 48016,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/cross-country/cross-country-hero-thumb.webp",
+      "delivery": "assets/images/cross-country/cross-country-hero-thumb.webp",
+      "status": "already-compliant",
+      "beforeBytes": 3756,
+      "afterBytes": 3756,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/cross-country/cross-country-hero.webp",
+      "delivery": "assets/images/cross-country/cross-country-hero.webp",
+      "status": "already-compliant",
+      "beforeBytes": 95800,
+      "afterBytes": 95800,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/ficd/TA/photo_1.jpg",
+      "delivery": "assets/images/ficd/TA/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 776722,
+      "afterBytes": 505106,
+      "width": 2048,
+      "quality": 70,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/gccp/lake-premix-batching-plant.webp",
+      "delivery": "assets/images/gccp/lake-premix-batching-plant.webp",
+      "status": "already-compliant",
+      "beforeBytes": 160206,
+      "afterBytes": 160206,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/gccp/photo_1.jpg",
+      "delivery": "assets/images/gccp/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 232881,
+      "afterBytes": 189762,
+      "width": 2061,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/gccp/photo_10.jpg",
+      "delivery": "assets/images/gccp/photo_10.webp",
+      "status": "created",
+      "beforeBytes": 84074,
+      "afterBytes": 94148,
+      "width": 780,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/gccp/photo_11.jpg",
+      "delivery": "assets/images/gccp/photo_11.webp",
+      "status": "created",
+      "beforeBytes": 106976,
+      "afterBytes": 117990,
+      "width": 1032,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/gccp/photo_12.jpg",
+      "delivery": "assets/images/gccp/photo_12.webp",
+      "status": "created",
+      "beforeBytes": 76893,
+      "afterBytes": 81456,
+      "width": 1032,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/gccp/photo_2.jpg",
+      "delivery": "assets/images/gccp/photo_2.webp",
+      "status": "created",
+      "beforeBytes": 242094,
+      "afterBytes": 206820,
+      "width": 2061,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/gccp/photo_3.jpg",
+      "delivery": "assets/images/gccp/photo_3.webp",
+      "status": "created",
+      "beforeBytes": 385260,
+      "afterBytes": 357210,
+      "width": 2061,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/gccp/photo_4.jpg",
+      "delivery": "assets/images/gccp/photo_4.webp",
+      "status": "created",
+      "beforeBytes": 99455,
+      "afterBytes": 100684,
+      "width": 1080,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/gccp/photo_5.jpg",
+      "delivery": "assets/images/gccp/photo_5.webp",
+      "status": "created",
+      "beforeBytes": 127681,
+      "afterBytes": 125176,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/gccp/photo_6.jpg",
+      "delivery": "assets/images/gccp/photo_6.webp",
+      "status": "created",
+      "beforeBytes": 374710,
+      "afterBytes": 387470,
+      "width": 2070,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/gccp/photo_7.jpg",
+      "delivery": "assets/images/gccp/photo_7.webp",
+      "status": "created",
+      "beforeBytes": 329991,
+      "afterBytes": 313388,
+      "width": 2070,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/gccp/photo_8.jpg",
+      "delivery": "assets/images/gccp/photo_8.webp",
+      "status": "created",
+      "beforeBytes": 105665,
+      "afterBytes": 114022,
+      "width": 1040,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/gccp/photo_9.jpg",
+      "delivery": "assets/images/gccp/photo_9.webp",
+      "status": "created",
+      "beforeBytes": 99455,
+      "afterBytes": 100684,
+      "width": 1080,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/group/ops/depot-aerial.jpg",
+      "delivery": "assets/images/group/ops/depot-aerial.webp",
+      "status": "created",
+      "beforeBytes": 503460,
+      "afterBytes": 456374,
+      "width": 2400,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/group/ops/tanker-loading.jpg",
+      "delivery": "assets/images/group/ops/tanker-loading.webp",
+      "status": "created",
+      "beforeBytes": 212808,
+      "afterBytes": 215790,
+      "width": 1136,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/gulf-aggregates/hero/gulf-aggregates-hero-960.webp",
+      "delivery": "assets/images/gulf-aggregates/hero/gulf-aggregates-hero-960.webp",
+      "status": "already-compliant",
+      "beforeBytes": 202292,
+      "afterBytes": 202292,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/gulf-aggregates/hero/gulf-aggregates-hero.webp",
+      "delivery": "assets/images/gulf-aggregates/hero/gulf-aggregates-hero.webp",
+      "status": "already-compliant",
+      "beforeBytes": 385584,
+      "afterBytes": 385584,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/gulf-aggregates/services/lake-concrete-plant.webp",
+      "delivery": "assets/images/gulf-aggregates/services/lake-concrete-plant.webp",
+      "status": "already-compliant",
+      "beforeBytes": 160206,
+      "afterBytes": 160206,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/gulf-aggregates/services/quarry-excavator.webp",
+      "delivery": "assets/images/gulf-aggregates/services/quarry-excavator.webp",
+      "status": "already-compliant",
+      "beforeBytes": 424948,
+      "afterBytes": 424948,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/gulf-aggregates/services/quarry-processing.webp",
+      "delivery": "assets/images/gulf-aggregates/services/quarry-processing.webp",
+      "status": "already-compliant",
+      "beforeBytes": 385584,
+      "afterBytes": 385584,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/history/hero/history-hero.webp",
+      "delivery": "assets/images/history/hero/history-hero.webp",
+      "status": "already-compliant",
+      "beforeBytes": 110514,
+      "afterBytes": 110514,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/home/verticals/automotive-truck-lineup-960.webp",
+      "delivery": "assets/images/home/verticals/automotive-truck-lineup-960.webp",
+      "status": "already-compliant",
+      "beforeBytes": 49806,
+      "afterBytes": 49806,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/home/verticals/automotive-truck-lineup-thumb.webp",
+      "delivery": "assets/images/home/verticals/automotive-truck-lineup-thumb.webp",
+      "status": "already-compliant",
+      "beforeBytes": 4468,
+      "afterBytes": 4468,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/home/verticals/energies-960.webp",
+      "delivery": "assets/images/home/verticals/energies-960.webp",
+      "status": "already-compliant",
+      "beforeBytes": 55704,
+      "afterBytes": 55704,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/home/verticals/energies-thumb.webp",
+      "delivery": "assets/images/home/verticals/energies-thumb.webp",
+      "status": "already-compliant",
+      "beforeBytes": 5018,
+      "afterBytes": 5018,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/home/verticals/energies.webp",
+      "delivery": "assets/images/home/verticals/energies.webp",
+      "status": "already-compliant",
+      "beforeBytes": 96674,
+      "afterBytes": 96674,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/home/verticals/logistics-960.webp",
+      "delivery": "assets/images/home/verticals/logistics-960.webp",
+      "status": "already-compliant",
+      "beforeBytes": 98802,
+      "afterBytes": 98802,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/home/verticals/logistics-thumb.webp",
+      "delivery": "assets/images/home/verticals/logistics-thumb.webp",
+      "status": "already-compliant",
+      "beforeBytes": 5248,
+      "afterBytes": 5248,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/home/verticals/logistics.webp",
+      "delivery": "assets/images/home/verticals/logistics.webp",
+      "status": "already-compliant",
+      "beforeBytes": 168640,
+      "afterBytes": 168640,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/home/verticals/manufacturing-960.webp",
+      "delivery": "assets/images/home/verticals/manufacturing-960.webp",
+      "status": "already-compliant",
+      "beforeBytes": 135060,
+      "afterBytes": 135060,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/home/verticals/manufacturing-thumb.webp",
+      "delivery": "assets/images/home/verticals/manufacturing-thumb.webp",
+      "status": "already-compliant",
+      "beforeBytes": 9924,
+      "afterBytes": 9924,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/home/verticals/manufacturing.webp",
+      "delivery": "assets/images/home/verticals/manufacturing.webp",
+      "status": "already-compliant",
+      "beforeBytes": 255404,
+      "afterBytes": 255404,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lake-agro/la-combine-harvester.webp",
+      "delivery": "assets/images/lake-agro/la-combine-harvester.webp",
+      "status": "already-compliant",
+      "beforeBytes": 377346,
+      "afterBytes": 377346,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-agro/la-excavators.webp",
+      "delivery": "assets/images/lake-agro/la-excavators.webp",
+      "status": "already-compliant",
+      "beforeBytes": 183134,
+      "afterBytes": 183134,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-agro/la-irrigation-bareland.webp",
+      "delivery": "assets/images/lake-agro/la-irrigation-bareland.webp",
+      "status": "already-compliant",
+      "beforeBytes": 252068,
+      "afterBytes": 252068,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lake-agro/la-irrigation-green.webp",
+      "delivery": "assets/images/lake-agro/la-irrigation-green.webp",
+      "status": "already-compliant",
+      "beforeBytes": 249008,
+      "afterBytes": 249008,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lake-agro/la-machinery-shed.webp",
+      "delivery": "assets/images/lake-agro/la-machinery-shed.webp",
+      "status": "already-compliant",
+      "beforeBytes": 417328,
+      "afterBytes": 417328,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-agro/la-tanzania-factory.webp",
+      "delivery": "assets/images/lake-agro/la-tanzania-factory.webp",
+      "status": "already-compliant",
+      "beforeBytes": 266404,
+      "afterBytes": 266404,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lake-agro/la-tanzania-sugarcane.webp",
+      "delivery": "assets/images/lake-agro/la-tanzania-sugarcane.webp",
+      "status": "already-compliant",
+      "beforeBytes": 232230,
+      "afterBytes": 232230,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lake-agro/la-tractors-duo.webp",
+      "delivery": "assets/images/lake-agro/la-tractors-duo.webp",
+      "status": "already-compliant",
+      "beforeBytes": 372566,
+      "afterBytes": 372566,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-agro/lake-agro-hero-desktop.webp",
+      "delivery": "assets/images/lake-agro/lake-agro-hero-desktop.webp",
+      "status": "already-compliant",
+      "beforeBytes": 245794,
+      "afterBytes": 245794,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lake-agro/lake-agro-hero-mobile.png",
+      "delivery": "assets/images/lake-agro/lake-agro-hero-mobile.webp",
+      "status": "created",
+      "beforeBytes": 798333,
+      "afterBytes": 467448,
+      "width": 948,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lake-agro/lake-agro-livestock.webp",
+      "delivery": "assets/images/lake-agro/lake-agro-livestock.webp",
+      "status": "already-compliant",
+      "beforeBytes": 207622,
+      "afterBytes": 207622,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lake-agro/lake-agro-maize.webp",
+      "delivery": "assets/images/lake-agro/lake-agro-maize.webp",
+      "status": "already-compliant",
+      "beforeBytes": 261040,
+      "afterBytes": 261040,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lake-agro/lake-agro-soya.webp",
+      "delivery": "assets/images/lake-agro/lake-agro-soya.webp",
+      "status": "already-compliant",
+      "beforeBytes": 314882,
+      "afterBytes": 314882,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lake-agro/slid1.jpg",
+      "delivery": "assets/images/lake-agro/slid1.webp",
+      "status": "created",
+      "beforeBytes": 203560,
+      "afterBytes": 232328,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lake-agro/slid2.jpg",
+      "delivery": "assets/images/lake-agro/slid2.webp",
+      "status": "created",
+      "beforeBytes": 70469,
+      "afterBytes": 83588,
+      "width": 800,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lake-agro/tanzania-opt.webp",
+      "delivery": "assets/images/lake-agro/tanzania-opt.webp",
+      "status": "already-compliant",
+      "beforeBytes": 107836,
+      "afterBytes": 107836,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lake-agro/tanzania.jpg",
+      "delivery": "assets/images/lake-agro/tanzania.webp",
+      "status": "created",
+      "beforeBytes": 218501,
+      "afterBytes": 263968,
+      "width": 1200,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lake-aviation/credentials/jig-member-2026.webp",
+      "delivery": "assets/images/lake-aviation/credentials/jig-member-2026.webp",
+      "status": "already-compliant",
+      "beforeBytes": 23058,
+      "afterBytes": 23058,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lake-aviation/gallery/aviation-flysafair-refuel.webp",
+      "delivery": "assets/images/lake-aviation/gallery/aviation-flysafair-refuel.webp",
+      "status": "already-compliant",
+      "beforeBytes": 199514,
+      "afterBytes": 199514,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-aviation/gallery/aviation-fueling-coastal.webp",
+      "delivery": "assets/images/lake-aviation/gallery/aviation-fueling-coastal.webp",
+      "status": "already-compliant",
+      "beforeBytes": 155562,
+      "afterBytes": 155562,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-aviation/gallery/aviation-nyerere-tanker.webp",
+      "delivery": "assets/images/lake-aviation/gallery/aviation-nyerere-tanker.webp",
+      "status": "already-compliant",
+      "beforeBytes": 195628,
+      "afterBytes": 195628,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-aviation/gallery/aviation-oman-air-cargo.webp",
+      "delivery": "assets/images/lake-aviation/gallery/aviation-oman-air-cargo.webp",
+      "status": "already-compliant",
+      "beforeBytes": 206164,
+      "afterBytes": 206164,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-aviation/gallery/aviation-skyward-apron.webp",
+      "delivery": "assets/images/lake-aviation/gallery/aviation-skyward-apron.webp",
+      "status": "already-compliant",
+      "beforeBytes": 117468,
+      "afterBytes": 117468,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-aviation/gallery/aviation-team-truck.webp",
+      "delivery": "assets/images/lake-aviation/gallery/aviation-team-truck.webp",
+      "status": "already-compliant",
+      "beforeBytes": 116068,
+      "afterBytes": 116068,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-aviation/gallery/aviation-worker-underwing.webp",
+      "delivery": "assets/images/lake-aviation/gallery/aviation-worker-underwing.webp",
+      "status": "already-compliant",
+      "beforeBytes": 139610,
+      "afterBytes": 139610,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/aviation-10.jpg",
+      "delivery": "assets/images/lake-aviation/ops/aviation-10.webp",
+      "status": "created",
+      "beforeBytes": 123518,
+      "afterBytes": 153180,
+      "width": 1080,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/aviation-11.jpg",
+      "delivery": "assets/images/lake-aviation/ops/aviation-11.webp",
+      "status": "created",
+      "beforeBytes": 71704,
+      "afterBytes": 74720,
+      "width": 1020,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/aviation-12.jpg",
+      "delivery": "assets/images/lake-aviation/ops/aviation-12.webp",
+      "status": "created",
+      "beforeBytes": 45450,
+      "afterBytes": 45106,
+      "width": 1000,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/aviation-13.jpg",
+      "delivery": "assets/images/lake-aviation/ops/aviation-13.webp",
+      "status": "created",
+      "beforeBytes": 60080,
+      "afterBytes": 62878,
+      "width": 1020,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/aviation-14.jpg",
+      "delivery": "assets/images/lake-aviation/ops/aviation-14.webp",
+      "status": "created",
+      "beforeBytes": 121440,
+      "afterBytes": 119642,
+      "width": 810,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/aviation-15.jpg",
+      "delivery": "assets/images/lake-aviation/ops/aviation-15.webp",
+      "status": "created",
+      "beforeBytes": 72874,
+      "afterBytes": 81012,
+      "width": 1020,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/aviation-2.jpg",
+      "delivery": "assets/images/lake-aviation/ops/aviation-2.webp",
+      "status": "created",
+      "beforeBytes": 125178,
+      "afterBytes": 149008,
+      "width": 1080,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/aviation-4.jpg",
+      "delivery": "assets/images/lake-aviation/ops/aviation-4.webp",
+      "status": "created",
+      "beforeBytes": 147277,
+      "afterBytes": 182680,
+      "width": 1080,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/aviation-6.jpg",
+      "delivery": "assets/images/lake-aviation/ops/aviation-6.webp",
+      "status": "created",
+      "beforeBytes": 70058,
+      "afterBytes": 74978,
+      "width": 1080,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/aviation-8.jpg",
+      "delivery": "assets/images/lake-aviation/ops/aviation-8.webp",
+      "status": "created",
+      "beforeBytes": 52821,
+      "afterBytes": 59650,
+      "width": 1000,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/aviation-9.jpg",
+      "delivery": "assets/images/lake-aviation/ops/aviation-9.webp",
+      "status": "created",
+      "beforeBytes": 124803,
+      "afterBytes": 146952,
+      "width": 1080,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/bulk-storage-lake-energies.webp",
+      "delivery": "assets/images/lake-aviation/ops/bulk-storage-lake-energies.webp",
+      "status": "already-compliant",
+      "beforeBytes": 110514,
+      "afterBytes": 110514,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-aviation/ops/lake-aviation-hero-apron.webp",
+      "delivery": "assets/images/lake-aviation/ops/lake-aviation-hero-apron.webp",
+      "status": "already-compliant",
+      "beforeBytes": 200970,
+      "afterBytes": 200970,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/lake-pipes/hero/lake-pipes-hero.webp",
+      "delivery": "assets/images/lake-pipes/hero/lake-pipes-hero.webp",
+      "status": "already-compliant",
+      "beforeBytes": 115876,
+      "afterBytes": 115876,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lake-pipes/ops/blue-pipes-opt.webp",
+      "delivery": "assets/images/lake-pipes/ops/blue-pipes-opt.webp",
+      "status": "already-compliant",
+      "beforeBytes": 22846,
+      "afterBytes": 22846,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lake-pipes/ops/blue-pipes.jpg",
+      "delivery": "assets/images/lake-pipes/ops/blue-pipes.webp",
+      "status": "created",
+      "beforeBytes": 81543,
+      "afterBytes": 61254,
+      "width": 1136,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakegas/ops/cylinder-hero-800.webp",
+      "delivery": "assets/images/lakegas/ops/cylinder-hero-800.webp",
+      "status": "already-compliant",
+      "beforeBytes": 88126,
+      "afterBytes": 88126,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakegas/ops/cylinder-hero.webp",
+      "delivery": "assets/images/lakegas/ops/cylinder-hero.webp",
+      "status": "already-compliant",
+      "beforeBytes": 201544,
+      "afterBytes": 201544,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakegas/ops/cylinder-stacks.jpg",
+      "delivery": "assets/images/lakegas/ops/cylinder-stacks.webp",
+      "status": "created",
+      "beforeBytes": 565242,
+      "afterBytes": 413454,
+      "width": 2048,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakegas/ops/cylinder-stacks.webp",
+      "delivery": "assets/images/lakegas/ops/cylinder-stacks.webp",
+      "status": "already-compliant",
+      "beforeBytes": 141270,
+      "afterBytes": 141270,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakegas/ops/cylinder-warehouse.jpg",
+      "delivery": "assets/images/lakegas/ops/cylinder-warehouse.webp",
+      "status": "created",
+      "beforeBytes": 357434,
+      "afterBytes": 215988,
+      "width": 2048,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakegas/ops/cylinders-yard.jpg",
+      "delivery": "assets/images/lakegas/ops/cylinders-yard.webp",
+      "status": "created",
+      "beforeBytes": 334589,
+      "afterBytes": 209404,
+      "width": 2048,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakegas/ops/filling-plant-opt.webp",
+      "delivery": "assets/images/lakegas/ops/filling-plant-opt.webp",
+      "status": "already-compliant",
+      "beforeBytes": 50252,
+      "afterBytes": 50252,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakegas/ops/filling-plant.jpg",
+      "delivery": "assets/images/lakegas/ops/filling-plant.webp",
+      "status": "created",
+      "beforeBytes": 446836,
+      "afterBytes": 294470,
+      "width": 2048,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakegas/ops/lake-gas-lpg-filling-line-800.webp",
+      "delivery": "assets/images/lakegas/ops/lake-gas-lpg-filling-line-800.webp",
+      "status": "already-compliant",
+      "beforeBytes": 83242,
+      "afterBytes": 83242,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakegas/ops/lake-gas-lpg-filling-line.webp",
+      "delivery": "assets/images/lakegas/ops/lake-gas-lpg-filling-line.webp",
+      "status": "already-compliant",
+      "beforeBytes": 177912,
+      "afterBytes": 177912,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakegas/ops/worker-silas.jpg",
+      "delivery": "assets/images/lakegas/ops/worker-silas.webp",
+      "status": "created",
+      "beforeBytes": 175683,
+      "afterBytes": 216712,
+      "width": 1920,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakegas/TA/photo_1.jpg",
+      "delivery": "assets/images/lakegas/TA/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 60377,
+      "afterBytes": 76830,
+      "width": 1032,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakelubes/ops/plant-800.webp",
+      "delivery": "assets/images/lakelubes/ops/plant-800.webp",
+      "status": "already-compliant",
+      "beforeBytes": 62928,
+      "afterBytes": 62928,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakelubes/ops/plant-opt.webp",
+      "delivery": "assets/images/lakelubes/ops/plant-opt.webp",
+      "status": "already-compliant",
+      "beforeBytes": 48276,
+      "afterBytes": 48276,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakelubes/ops/plant.jpg",
+      "delivery": "assets/images/lakelubes/ops/plant.webp",
+      "status": "created",
+      "beforeBytes": 350291,
+      "afterBytes": 308398,
+      "width": 2070,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakelubes/products/lake-lubes-power-eco-range.webp",
+      "delivery": "assets/images/lakelubes/products/lake-lubes-power-eco-range.webp",
+      "status": "already-compliant",
+      "beforeBytes": 89520,
+      "afterBytes": 89520,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakelubes/products/optimized/gl5-85w140-5l.webp",
+      "delivery": "assets/images/lakelubes/products/optimized/gl5-85w140-5l.webp",
+      "status": "already-compliant",
+      "beforeBytes": 88578,
+      "afterBytes": 88578,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakelubes/products/optimized/grease-mp2-1kg.webp",
+      "delivery": "assets/images/lakelubes/products/optimized/grease-mp2-1kg.webp",
+      "status": "already-compliant",
+      "beforeBytes": 99192,
+      "afterBytes": 99192,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakelubes/products/optimized/hd-supreme-700-20l.webp",
+      "delivery": "assets/images/lakelubes/products/optimized/hd-supreme-700-20l.webp",
+      "status": "already-compliant",
+      "beforeBytes": 60596,
+      "afterBytes": 60596,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakelubes/products/optimized/lake-lubes-drums.webp",
+      "delivery": "assets/images/lakelubes/products/optimized/lake-lubes-drums.webp",
+      "status": "already-compliant",
+      "beforeBytes": 125398,
+      "afterBytes": 125398,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakelubes/products/optimized/power-supreme-1l.webp",
+      "delivery": "assets/images/lakelubes/products/optimized/power-supreme-1l.webp",
+      "status": "already-compliant",
+      "beforeBytes": 82928,
+      "afterBytes": 82928,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakelubes/products/optimized/power-supreme-4l.webp",
+      "delivery": "assets/images/lakelubes/products/optimized/power-supreme-4l.webp",
+      "status": "already-compliant",
+      "beforeBytes": 77720,
+      "afterBytes": 77720,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakelubes/products/optimized/super-cool-20l.webp",
+      "delivery": "assets/images/lakelubes/products/optimized/super-cool-20l.webp",
+      "status": "already-compliant",
+      "beforeBytes": 59434,
+      "afterBytes": 59434,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakelubes/products/optimized/super-cool-5l.webp",
+      "delivery": "assets/images/lakelubes/products/optimized/super-cool-5l.webp",
+      "status": "already-compliant",
+      "beforeBytes": 63432,
+      "afterBytes": 63432,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakelubes/TA/photo_1.jpg",
+      "delivery": "assets/images/lakelubes/TA/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 141569,
+      "afterBytes": 91050,
+      "width": 2070,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakelubes/TA/photo_2.jpg",
+      "delivery": "assets/images/lakelubes/TA/photo_2.webp",
+      "status": "created",
+      "beforeBytes": 44739,
+      "afterBytes": 31052,
+      "width": 800,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakelubes/TA/photo_3.jpg",
+      "delivery": "assets/images/lakelubes/TA/photo_3.webp",
+      "status": "created",
+      "beforeBytes": 213122,
+      "afterBytes": 150148,
+      "width": 2070,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakelubes/TA/photo_4.jpg",
+      "delivery": "assets/images/lakelubes/TA/photo_4.webp",
+      "status": "created",
+      "beforeBytes": 77787,
+      "afterBytes": 44828,
+      "width": 2070,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakeoil/current/lake-energies-station-approved.webp",
+      "delivery": "assets/images/lakeoil/current/lake-energies-station-approved.webp",
+      "status": "already-compliant",
+      "beforeBytes": 131178,
+      "afterBytes": 131178,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakeoil/current/lake-energies-tanker-network.webp",
+      "delivery": "assets/images/lakeoil/current/lake-energies-tanker-network.webp",
+      "status": "already-compliant",
+      "beforeBytes": 96674,
+      "afterBytes": 96674,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakeoil/current/storage-facilities-terminal.webp",
+      "delivery": "assets/images/lakeoil/current/storage-facilities-terminal.webp",
+      "status": "already-compliant",
+      "beforeBytes": 110514,
+      "afterBytes": 110514,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakeoil/current/tanker-lake-energies-opt.webp",
+      "delivery": "assets/images/lakeoil/current/tanker-lake-energies-opt.webp",
+      "status": "already-compliant",
+      "beforeBytes": 96114,
+      "afterBytes": 96114,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakeoil/current/tanker-lake-energies.jpg",
+      "delivery": "assets/images/lakeoil/current/tanker-lake-energies.webp",
+      "status": "created",
+      "beforeBytes": 478396,
+      "afterBytes": 469490,
+      "width": 1800,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakeoil/current/tanker-lake-energies.webp",
+      "delivery": "assets/images/lakeoil/current/tanker-lake-energies.webp",
+      "status": "already-compliant",
+      "beforeBytes": 415360,
+      "afterBytes": 415360,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakeoil/hero/lake-oil-hero-800.webp",
+      "delivery": "assets/images/lakeoil/hero/lake-oil-hero-800.webp",
+      "status": "already-compliant",
+      "beforeBytes": 56478,
+      "afterBytes": 56478,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakeoil/hero/lake-oil-hero.webp",
+      "delivery": "assets/images/lakeoil/hero/lake-oil-hero.webp",
+      "status": "already-compliant",
+      "beforeBytes": 131178,
+      "afterBytes": 131178,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakepipes/hero/lake-pipes-hero-800.webp",
+      "delivery": "assets/images/lakepipes/hero/lake-pipes-hero-800.webp",
+      "status": "already-compliant",
+      "beforeBytes": 54724,
+      "afterBytes": 54724,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakepipes/hero/lake-pipes-hero.webp",
+      "delivery": "assets/images/lakepipes/hero/lake-pipes-hero.webp",
+      "status": "already-compliant",
+      "beforeBytes": 61540,
+      "afterBytes": 61540,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakepremix/hero/premix-trucks-hero-800.webp",
+      "delivery": "assets/images/lakepremix/hero/premix-trucks-hero-800.webp",
+      "status": "already-compliant",
+      "beforeBytes": 76480,
+      "afterBytes": 76480,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakepremix/hero/premix-trucks-hero.webp",
+      "delivery": "assets/images/lakepremix/hero/premix-trucks-hero.webp",
+      "status": "already-compliant",
+      "beforeBytes": 177958,
+      "afterBytes": 177958,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakesteel/ops/hot-rolling-opt.webp",
+      "delivery": "assets/images/lakesteel/ops/hot-rolling-opt.webp",
+      "status": "already-compliant",
+      "beforeBytes": 66390,
+      "afterBytes": 66390,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakesteel/ops/hot-rolling.jpg",
+      "delivery": "assets/images/lakesteel/ops/hot-rolling.webp",
+      "status": "created",
+      "beforeBytes": 154462,
+      "afterBytes": 282464,
+      "width": 1920,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakesteel/ops/rebar-yard.jpg",
+      "delivery": "assets/images/lakesteel/ops/rebar-yard.webp",
+      "status": "created",
+      "beforeBytes": 137858,
+      "afterBytes": 241492,
+      "width": 1920,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakesteel/TA/photo_1.jpg",
+      "delivery": "assets/images/lakesteel/TA/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 387703,
+      "afterBytes": 357284,
+      "width": 2070,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakesteel/TA/photo_13.jpg",
+      "delivery": "assets/images/lakesteel/TA/photo_13.webp",
+      "status": "created",
+      "beforeBytes": 85510,
+      "afterBytes": 64238,
+      "width": 800,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/lakesteel/TA/photo_14.jpg",
+      "delivery": "assets/images/lakesteel/TA/photo_14.webp",
+      "status": "created",
+      "beforeBytes": 73245,
+      "afterBytes": 44102,
+      "width": 2070,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/laketrans/hero/lake-trans-fleet-hero-800.webp",
+      "delivery": "assets/images/laketrans/hero/lake-trans-fleet-hero-800.webp",
+      "status": "already-compliant",
+      "beforeBytes": 34312,
+      "afterBytes": 34312,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/laketrans/hero/lake-trans-fleet-hero.webp",
+      "delivery": "assets/images/laketrans/hero/lake-trans-fleet-hero.webp",
+      "status": "already-compliant",
+      "beforeBytes": 109568,
+      "afterBytes": 109568,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/laketrans/ops/fleet-inspection.jpg",
+      "delivery": "assets/images/laketrans/ops/fleet-inspection.webp",
+      "status": "created",
+      "beforeBytes": 183857,
+      "afterBytes": 174232,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/laketrans/profile/blue-truck-lineup.jpg",
+      "delivery": "assets/images/laketrans/profile/blue-truck-lineup.webp",
+      "status": "created",
+      "beforeBytes": 62032,
+      "afterBytes": 51062,
+      "width": 624,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/laketrans/profile/fleet-lineup.jpg",
+      "delivery": "assets/images/laketrans/profile/fleet-lineup.webp",
+      "status": "created",
+      "beforeBytes": 78178,
+      "afterBytes": 63028,
+      "width": 960,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/laketrans/profile/fleet-tankers.jpg",
+      "delivery": "assets/images/laketrans/profile/fleet-tankers.webp",
+      "status": "created",
+      "beforeBytes": 33895,
+      "afterBytes": 28052,
+      "width": 475,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/laketrans/profile/lake-trans-truck-fleet.webp",
+      "delivery": "assets/images/laketrans/profile/lake-trans-truck-fleet.webp",
+      "status": "already-compliant",
+      "beforeBytes": 109568,
+      "afterBytes": 109568,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/laketrans/profile/petroleum-tanker.jpg",
+      "delivery": "assets/images/laketrans/profile/petroleum-tanker.webp",
+      "status": "created",
+      "beforeBytes": 44079,
+      "afterBytes": 33936,
+      "width": 813,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/laketrans/profile/road-fuel-tanker.jpg",
+      "delivery": "assets/images/laketrans/profile/road-fuel-tanker.webp",
+      "status": "created",
+      "beforeBytes": 51163,
+      "afterBytes": 43658,
+      "width": 731,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/laketrans/TA/photo_1.jpg",
+      "delivery": "assets/images/laketrans/TA/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 506593,
+      "afterBytes": 424940,
+      "width": 2048,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/laketrans/TA/photo_1.webp",
+      "delivery": "assets/images/laketrans/TA/photo_1.webp",
+      "status": "already-compliant",
+      "beforeBytes": 85204,
+      "afterBytes": 85204,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/leadership/ally-edha-awadh-16x9.jpg",
+      "delivery": "assets/images/leadership/ally-edha-awadh-16x9.webp",
+      "status": "created",
+      "beforeBytes": 59990,
+      "afterBytes": 31520,
+      "width": 819,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/leadership/ally-edha-awadh.png",
+      "delivery": "assets/images/leadership/ally-edha-awadh.webp",
+      "status": "created",
+      "beforeBytes": 137618,
+      "afterBytes": 66328,
+      "width": 819,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/leadership/ally-morocco-mou.jpg",
+      "delivery": "assets/images/leadership/ally-morocco-mou.webp",
+      "status": "created",
+      "beforeBytes": 57999,
+      "afterBytes": 55232,
+      "width": 960,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/leadership/ally-sino-trucks.jpg",
+      "delivery": "assets/images/leadership/ally-sino-trucks.webp",
+      "status": "created",
+      "beforeBytes": 84666,
+      "afterBytes": 63504,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/leadership/annual-event.jpg",
+      "delivery": "assets/images/leadership/annual-event.webp",
+      "status": "created",
+      "beforeBytes": 136680,
+      "afterBytes": 122028,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/leadership/bhaskar-shetty.png",
+      "delivery": "assets/images/leadership/bhaskar-shetty.webp",
+      "status": "created",
+      "beforeBytes": 68855,
+      "afterBytes": 25508,
+      "width": 731,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/leadership/biji-lapat.png",
+      "delivery": "assets/images/leadership/biji-lapat.webp",
+      "status": "created",
+      "beforeBytes": 118846,
+      "afterBytes": 58486,
+      "width": 1024,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/leadership/juma-nuru.png",
+      "delivery": "assets/images/leadership/juma-nuru.webp",
+      "status": "created",
+      "beforeBytes": 133828,
+      "afterBytes": 66684,
+      "width": 1024,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/leadership/leadership-group-meeting.webp",
+      "delivery": "assets/images/leadership/leadership-group-meeting.webp",
+      "status": "already-compliant",
+      "beforeBytes": 140574,
+      "afterBytes": 140574,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/leadership/pankaj-kumar.png",
+      "delivery": "assets/images/leadership/pankaj-kumar.webp",
+      "status": "created",
+      "beforeBytes": 113543,
+      "afterBytes": 52358,
+      "width": 768,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/leadership/sibtian-ansari.png",
+      "delivery": "assets/images/leadership/sibtian-ansari.webp",
+      "status": "created",
+      "beforeBytes": 115531,
+      "afterBytes": 55930,
+      "width": 1024,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/leadership/vivek-choudhary.png",
+      "delivery": "assets/images/leadership/vivek-choudhary.webp",
+      "status": "created",
+      "beforeBytes": 94311,
+      "afterBytes": 40382,
+      "width": 1024,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/main-slider/8.jpg",
+      "delivery": "assets/images/main-slider/8.webp",
+      "status": "created",
+      "beforeBytes": 244336,
+      "afterBytes": 206434,
+      "width": 2070,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/merm/photo_1.jpg",
+      "delivery": "assets/images/merm/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 51557,
+      "afterBytes": 50134,
+      "width": 800,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/merm/photo_10.jpg",
+      "delivery": "assets/images/merm/photo_10.webp",
+      "status": "created",
+      "beforeBytes": 82767,
+      "afterBytes": 84220,
+      "width": 810,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/merm/photo_2.jpg",
+      "delivery": "assets/images/merm/photo_2.webp",
+      "status": "created",
+      "beforeBytes": 102030,
+      "afterBytes": 120418,
+      "width": 1114,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/merm/photo_3.jpg",
+      "delivery": "assets/images/merm/photo_3.webp",
+      "status": "created",
+      "beforeBytes": 254113,
+      "afterBytes": 248794,
+      "width": 1600,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/merm/photo_4.jpg",
+      "delivery": "assets/images/merm/photo_4.webp",
+      "status": "created",
+      "beforeBytes": 16670,
+      "afterBytes": 17392,
+      "width": 332,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/merm/photo_5.jpg",
+      "delivery": "assets/images/merm/photo_5.webp",
+      "status": "created",
+      "beforeBytes": 50824,
+      "afterBytes": 46474,
+      "width": 1080,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/merm/photo_6.jpg",
+      "delivery": "assets/images/merm/photo_6.webp",
+      "status": "created",
+      "beforeBytes": 101249,
+      "afterBytes": 115744,
+      "width": 810,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/merm/photo_7.jpg",
+      "delivery": "assets/images/merm/photo_7.webp",
+      "status": "created",
+      "beforeBytes": 72128,
+      "afterBytes": 82966,
+      "width": 1080,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/merm/photo_8.jpg",
+      "delivery": "assets/images/merm/photo_8.webp",
+      "status": "created",
+      "beforeBytes": 84525,
+      "afterBytes": 89598,
+      "width": 1080,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/merm/photo_9.jpg",
+      "delivery": "assets/images/merm/photo_9.webp",
+      "status": "created",
+      "beforeBytes": 68648,
+      "afterBytes": 72512,
+      "width": 1080,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/n-slider/2.webp",
+      "delivery": "assets/images/n-slider/2.webp",
+      "status": "already-compliant",
+      "beforeBytes": 82798,
+      "afterBytes": 82798,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/n-slider/3.jpg",
+      "delivery": "assets/images/n-slider/3.webp",
+      "status": "created",
+      "beforeBytes": 344764,
+      "afterBytes": 332212,
+      "width": 2070,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/n-slider/3.webp",
+      "delivery": "assets/images/n-slider/3.webp",
+      "status": "already-compliant",
+      "beforeBytes": 283508,
+      "afterBytes": 283508,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/n-slider/4.jpg",
+      "delivery": "assets/images/n-slider/4.webp",
+      "status": "created",
+      "beforeBytes": 297473,
+      "afterBytes": 234062,
+      "width": 2070,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/n-slider/4.webp",
+      "delivery": "assets/images/n-slider/4.webp",
+      "status": "already-compliant",
+      "beforeBytes": 190186,
+      "afterBytes": 190186,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/n-slider/5.jpg",
+      "delivery": "assets/images/n-slider/5.webp",
+      "status": "created",
+      "beforeBytes": 113299,
+      "afterBytes": 87534,
+      "width": 2070,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/n-slider/5.webp",
+      "delivery": "assets/images/n-slider/5.webp",
+      "status": "already-compliant",
+      "beforeBytes": 68870,
+      "afterBytes": 68870,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/n-slider/6.jpg",
+      "delivery": "assets/images/n-slider/6.webp",
+      "status": "created",
+      "beforeBytes": 364149,
+      "afterBytes": 331888,
+      "width": 2453,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/n-slider/6.webp",
+      "delivery": "assets/images/n-slider/6.webp",
+      "status": "already-compliant",
+      "beforeBytes": 269314,
+      "afterBytes": 269314,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/n-slider/8.jpg",
+      "delivery": "assets/images/n-slider/8.webp",
+      "status": "created",
+      "beforeBytes": 244336,
+      "afterBytes": 206434,
+      "width": 2070,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/n-slider/9.jpg",
+      "delivery": "assets/images/n-slider/9.webp",
+      "status": "created",
+      "beforeBytes": 388998,
+      "afterBytes": 300188,
+      "width": 2048,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/n-slider/9.webp",
+      "delivery": "assets/images/n-slider/9.webp",
+      "status": "already-compliant",
+      "beforeBytes": 403132,
+      "afterBytes": 403132,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/1/photo_1.jpg",
+      "delivery": "assets/images/news/1/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 84666,
+      "afterBytes": 63504,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/10/photo_1.jpg",
+      "delivery": "assets/images/news/10/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 158548,
+      "afterBytes": 162968,
+      "width": 1024,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/11/photo_1.jpg",
+      "delivery": "assets/images/news/11/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 154805,
+      "afterBytes": 161068,
+      "width": 1024,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/12/photo_1.jpg",
+      "delivery": "assets/images/news/12/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 42377,
+      "afterBytes": 36890,
+      "width": 640,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/14/photo_1.jpg",
+      "delivery": "assets/images/news/14/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 193541,
+      "afterBytes": 211744,
+      "width": 1024,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/15/photo_1.jpg",
+      "delivery": "assets/images/news/15/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 124702,
+      "afterBytes": 126788,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/15/photo_2.jpg",
+      "delivery": "assets/images/news/15/photo_2.webp",
+      "status": "created",
+      "beforeBytes": 122014,
+      "afterBytes": 128496,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/15/photo_3.jpg",
+      "delivery": "assets/images/news/15/photo_3.webp",
+      "status": "created",
+      "beforeBytes": 130069,
+      "afterBytes": 132076,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/15/photo_4.jpg",
+      "delivery": "assets/images/news/15/photo_4.webp",
+      "status": "created",
+      "beforeBytes": 73818,
+      "afterBytes": 65062,
+      "width": 945,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/15/photo_5.jpg",
+      "delivery": "assets/images/news/15/photo_5.webp",
+      "status": "created",
+      "beforeBytes": 112865,
+      "afterBytes": 109400,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/15/photo_6.jpg",
+      "delivery": "assets/images/news/15/photo_6.webp",
+      "status": "created",
+      "beforeBytes": 124702,
+      "afterBytes": 126788,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/15/photo_7.jpg",
+      "delivery": "assets/images/news/15/photo_7.webp",
+      "status": "created",
+      "beforeBytes": 116834,
+      "afterBytes": 115810,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/16/photo_1.jpg",
+      "delivery": "assets/images/news/16/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 233959,
+      "afterBytes": 213070,
+      "width": 915,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/16/photo_2.jpg",
+      "delivery": "assets/images/news/16/photo_2.webp",
+      "status": "created",
+      "beforeBytes": 84514,
+      "afterBytes": 71794,
+      "width": 1171,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/16/photo_3.jpg",
+      "delivery": "assets/images/news/16/photo_3.webp",
+      "status": "created",
+      "beforeBytes": 225569,
+      "afterBytes": 250590,
+      "width": 905,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_1.jpg",
+      "delivery": "assets/images/news/17/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 107124,
+      "afterBytes": 115586,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_10.jpg",
+      "delivery": "assets/images/news/17/photo_10.webp",
+      "status": "created",
+      "beforeBytes": 80024,
+      "afterBytes": 93982,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_11.jpg",
+      "delivery": "assets/images/news/17/photo_11.webp",
+      "status": "created",
+      "beforeBytes": 138445,
+      "afterBytes": 145386,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_12.jpg",
+      "delivery": "assets/images/news/17/photo_12.webp",
+      "status": "created",
+      "beforeBytes": 120088,
+      "afterBytes": 103352,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_13.jpg",
+      "delivery": "assets/images/news/17/photo_13.webp",
+      "status": "created",
+      "beforeBytes": 167381,
+      "afterBytes": 156018,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_14.jpg",
+      "delivery": "assets/images/news/17/photo_14.webp",
+      "status": "created",
+      "beforeBytes": 128826,
+      "afterBytes": 120250,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_15.jpg",
+      "delivery": "assets/images/news/17/photo_15.webp",
+      "status": "created",
+      "beforeBytes": 161882,
+      "afterBytes": 148542,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_16.jpg",
+      "delivery": "assets/images/news/17/photo_16.webp",
+      "status": "created",
+      "beforeBytes": 107396,
+      "afterBytes": 99864,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_17.jpg",
+      "delivery": "assets/images/news/17/photo_17.webp",
+      "status": "created",
+      "beforeBytes": 133104,
+      "afterBytes": 169078,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_18.jpg",
+      "delivery": "assets/images/news/17/photo_18.webp",
+      "status": "created",
+      "beforeBytes": 149833,
+      "afterBytes": 166998,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_19.jpg",
+      "delivery": "assets/images/news/17/photo_19.webp",
+      "status": "created",
+      "beforeBytes": 116324,
+      "afterBytes": 138820,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_2.jpg",
+      "delivery": "assets/images/news/17/photo_2.webp",
+      "status": "created",
+      "beforeBytes": 119557,
+      "afterBytes": 112742,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_20.jpg",
+      "delivery": "assets/images/news/17/photo_20.webp",
+      "status": "created",
+      "beforeBytes": 116324,
+      "afterBytes": 138820,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_21.jpg",
+      "delivery": "assets/images/news/17/photo_21.webp",
+      "status": "created",
+      "beforeBytes": 128042,
+      "afterBytes": 120648,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_22.jpg",
+      "delivery": "assets/images/news/17/photo_22.webp",
+      "status": "created",
+      "beforeBytes": 146158,
+      "afterBytes": 140410,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_23.jpg",
+      "delivery": "assets/images/news/17/photo_23.webp",
+      "status": "created",
+      "beforeBytes": 85944,
+      "afterBytes": 79120,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_24.jpg",
+      "delivery": "assets/images/news/17/photo_24.webp",
+      "status": "created",
+      "beforeBytes": 107800,
+      "afterBytes": 123488,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_3.jpg",
+      "delivery": "assets/images/news/17/photo_3.webp",
+      "status": "created",
+      "beforeBytes": 162656,
+      "afterBytes": 197124,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_4.jpg",
+      "delivery": "assets/images/news/17/photo_4.webp",
+      "status": "created",
+      "beforeBytes": 91459,
+      "afterBytes": 68552,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_5.jpg",
+      "delivery": "assets/images/news/17/photo_5.webp",
+      "status": "created",
+      "beforeBytes": 118745,
+      "afterBytes": 117794,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_6.jpg",
+      "delivery": "assets/images/news/17/photo_6.webp",
+      "status": "created",
+      "beforeBytes": 112403,
+      "afterBytes": 134576,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_7.jpg",
+      "delivery": "assets/images/news/17/photo_7.webp",
+      "status": "created",
+      "beforeBytes": 159148,
+      "afterBytes": 150870,
+      "width": 909,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_8.jpg",
+      "delivery": "assets/images/news/17/photo_8.webp",
+      "status": "created",
+      "beforeBytes": 73327,
+      "afterBytes": 58472,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/17/photo_9.jpg",
+      "delivery": "assets/images/news/17/photo_9.webp",
+      "status": "created",
+      "beforeBytes": 99265,
+      "afterBytes": 113292,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/18/photo_1.jpg",
+      "delivery": "assets/images/news/18/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 136680,
+      "afterBytes": 122028,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/18/photo_10.jpg",
+      "delivery": "assets/images/news/18/photo_10.webp",
+      "status": "created",
+      "beforeBytes": 177592,
+      "afterBytes": 148602,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/18/photo_2.jpg",
+      "delivery": "assets/images/news/18/photo_2.webp",
+      "status": "created",
+      "beforeBytes": 121498,
+      "afterBytes": 97272,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/18/photo_3.jpg",
+      "delivery": "assets/images/news/18/photo_3.webp",
+      "status": "created",
+      "beforeBytes": 105204,
+      "afterBytes": 86958,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/18/photo_4.jpg",
+      "delivery": "assets/images/news/18/photo_4.webp",
+      "status": "created",
+      "beforeBytes": 140010,
+      "afterBytes": 119726,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/18/photo_5.jpg",
+      "delivery": "assets/images/news/18/photo_5.webp",
+      "status": "created",
+      "beforeBytes": 95407,
+      "afterBytes": 88890,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/18/photo_6.jpg",
+      "delivery": "assets/images/news/18/photo_6.webp",
+      "status": "created",
+      "beforeBytes": 128068,
+      "afterBytes": 102452,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/18/photo_7.jpg",
+      "delivery": "assets/images/news/18/photo_7.webp",
+      "status": "created",
+      "beforeBytes": 87093,
+      "afterBytes": 73812,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/18/photo_8.jpg",
+      "delivery": "assets/images/news/18/photo_8.webp",
+      "status": "created",
+      "beforeBytes": 110659,
+      "afterBytes": 86090,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/18/photo_9.jpg",
+      "delivery": "assets/images/news/18/photo_9.webp",
+      "status": "created",
+      "beforeBytes": 100317,
+      "afterBytes": 79550,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/19/photo_1.jpg",
+      "delivery": "assets/images/news/19/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 315967,
+      "afterBytes": 399186,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/19/photo_10.jpg",
+      "delivery": "assets/images/news/19/photo_10.webp",
+      "status": "created",
+      "beforeBytes": 80605,
+      "afterBytes": 67618,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/19/photo_11.jpg",
+      "delivery": "assets/images/news/19/photo_11.webp",
+      "status": "created",
+      "beforeBytes": 217927,
+      "afterBytes": 229856,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/19/photo_12.jpg",
+      "delivery": "assets/images/news/19/photo_12.webp",
+      "status": "created",
+      "beforeBytes": 264351,
+      "afterBytes": 305460,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/19/photo_13.jpg",
+      "delivery": "assets/images/news/19/photo_13.webp",
+      "status": "created",
+      "beforeBytes": 238022,
+      "afterBytes": 269650,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/19/photo_14.jpg",
+      "delivery": "assets/images/news/19/photo_14.webp",
+      "status": "created",
+      "beforeBytes": 320262,
+      "afterBytes": 389136,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/19/photo_15.jpg",
+      "delivery": "assets/images/news/19/photo_15.webp",
+      "status": "created",
+      "beforeBytes": 312186,
+      "afterBytes": 384680,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/19/photo_16.jpg",
+      "delivery": "assets/images/news/19/photo_16.webp",
+      "status": "created",
+      "beforeBytes": 307865,
+      "afterBytes": 374684,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/19/photo_17.jpg",
+      "delivery": "assets/images/news/19/photo_17.webp",
+      "status": "created",
+      "beforeBytes": 226948,
+      "afterBytes": 262322,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/19/photo_18.jpg",
+      "delivery": "assets/images/news/19/photo_18.webp",
+      "status": "created",
+      "beforeBytes": 199778,
+      "afterBytes": 198920,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/19/photo_19.jpg",
+      "delivery": "assets/images/news/19/photo_19.webp",
+      "status": "created",
+      "beforeBytes": 127289,
+      "afterBytes": 113262,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/19/photo_2.jpg",
+      "delivery": "assets/images/news/19/photo_2.webp",
+      "status": "created",
+      "beforeBytes": 187913,
+      "afterBytes": 188360,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/19/photo_20.jpg",
+      "delivery": "assets/images/news/19/photo_20.webp",
+      "status": "created",
+      "beforeBytes": 278425,
+      "afterBytes": 318980,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/19/photo_3.jpg",
+      "delivery": "assets/images/news/19/photo_3.webp",
+      "status": "created",
+      "beforeBytes": 205501,
+      "afterBytes": 217802,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/19/photo_4.jpg",
+      "delivery": "assets/images/news/19/photo_4.webp",
+      "status": "created",
+      "beforeBytes": 132383,
+      "afterBytes": 119546,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/19/photo_5.jpg",
+      "delivery": "assets/images/news/19/photo_5.webp",
+      "status": "created",
+      "beforeBytes": 184938,
+      "afterBytes": 195420,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/19/photo_6.jpg",
+      "delivery": "assets/images/news/19/photo_6.webp",
+      "status": "created",
+      "beforeBytes": 162295,
+      "afterBytes": 150110,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/19/photo_7.jpg",
+      "delivery": "assets/images/news/19/photo_7.webp",
+      "status": "created",
+      "beforeBytes": 106391,
+      "afterBytes": 91348,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/19/photo_8.jpg",
+      "delivery": "assets/images/news/19/photo_8.webp",
+      "status": "created",
+      "beforeBytes": 225268,
+      "afterBytes": 248310,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/19/photo_9.jpg",
+      "delivery": "assets/images/news/19/photo_9.webp",
+      "status": "created",
+      "beforeBytes": 106529,
+      "afterBytes": 93796,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/2/photo_1.jpg",
+      "delivery": "assets/images/news/2/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 57257,
+      "afterBytes": 53600,
+      "width": 960,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/20/photo_1.jpg",
+      "delivery": "assets/images/news/20/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 129515,
+      "afterBytes": 116930,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/20/photo_10.jpg",
+      "delivery": "assets/images/news/20/photo_10.webp",
+      "status": "created",
+      "beforeBytes": 169273,
+      "afterBytes": 150478,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/20/photo_11.jpg",
+      "delivery": "assets/images/news/20/photo_11.webp",
+      "status": "created",
+      "beforeBytes": 188768,
+      "afterBytes": 179332,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/20/photo_2.jpg",
+      "delivery": "assets/images/news/20/photo_2.webp",
+      "status": "created",
+      "beforeBytes": 121959,
+      "afterBytes": 100752,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/20/photo_3.jpg",
+      "delivery": "assets/images/news/20/photo_3.webp",
+      "status": "created",
+      "beforeBytes": 139810,
+      "afterBytes": 116716,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/20/photo_4.jpg",
+      "delivery": "assets/images/news/20/photo_4.webp",
+      "status": "created",
+      "beforeBytes": 189331,
+      "afterBytes": 177362,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/20/photo_5.jpg",
+      "delivery": "assets/images/news/20/photo_5.webp",
+      "status": "created",
+      "beforeBytes": 160124,
+      "afterBytes": 140770,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/20/photo_6.jpg",
+      "delivery": "assets/images/news/20/photo_6.webp",
+      "status": "created",
+      "beforeBytes": 173775,
+      "afterBytes": 159722,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/20/photo_7.jpg",
+      "delivery": "assets/images/news/20/photo_7.webp",
+      "status": "created",
+      "beforeBytes": 161674,
+      "afterBytes": 140480,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/20/photo_8.jpg",
+      "delivery": "assets/images/news/20/photo_8.webp",
+      "status": "created",
+      "beforeBytes": 177588,
+      "afterBytes": 162236,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/20/photo_9.jpg",
+      "delivery": "assets/images/news/20/photo_9.webp",
+      "status": "created",
+      "beforeBytes": 190138,
+      "afterBytes": 178098,
+      "width": 1280,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/3/photo_1.jpg",
+      "delivery": "assets/images/news/3/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 57999,
+      "afterBytes": 55232,
+      "width": 960,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/4/photo_1.jpg",
+      "delivery": "assets/images/news/4/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 215685,
+      "afterBytes": 201138,
+      "width": 1600,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/4/photo_2.jpg",
+      "delivery": "assets/images/news/4/photo_2.webp",
+      "status": "created",
+      "beforeBytes": 165258,
+      "afterBytes": 140772,
+      "width": 1600,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/4/photo_3.jpg",
+      "delivery": "assets/images/news/4/photo_3.webp",
+      "status": "created",
+      "beforeBytes": 251849,
+      "afterBytes": 229950,
+      "width": 1600,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/4/photo_4.jpg",
+      "delivery": "assets/images/news/4/photo_4.webp",
+      "status": "created",
+      "beforeBytes": 332773,
+      "afterBytes": 363482,
+      "width": 900,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/42/photo_1.jpg",
+      "delivery": "assets/images/news/42/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 293423,
+      "afterBytes": 302924,
+      "width": 1600,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/42/photo_2.jpg",
+      "delivery": "assets/images/news/42/photo_2.webp",
+      "status": "created",
+      "beforeBytes": 76681,
+      "afterBytes": 71164,
+      "width": 800,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/5/photo_1.jpg",
+      "delivery": "assets/images/news/5/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 89256,
+      "afterBytes": 87070,
+      "width": 855,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/5/photo_2.jpg",
+      "delivery": "assets/images/news/5/photo_2.webp",
+      "status": "created",
+      "beforeBytes": 12456,
+      "afterBytes": 13994,
+      "width": 200,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/6/photo_1.jpg",
+      "delivery": "assets/images/news/6/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 43864,
+      "afterBytes": 37606,
+      "width": 628,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/6/photo_2.jpg",
+      "delivery": "assets/images/news/6/photo_2.webp",
+      "status": "created",
+      "beforeBytes": 25301,
+      "afterBytes": 23650,
+      "width": 628,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/6/photo_3.jpg",
+      "delivery": "assets/images/news/6/photo_3.webp",
+      "status": "created",
+      "beforeBytes": 28718,
+      "afterBytes": 22892,
+      "width": 628,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/6/photo_4.jpg",
+      "delivery": "assets/images/news/6/photo_4.webp",
+      "status": "created",
+      "beforeBytes": 56048,
+      "afterBytes": 64638,
+      "width": 389,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/8/photo_1.jpg",
+      "delivery": "assets/images/news/8/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 30301,
+      "afterBytes": 31800,
+      "width": 640,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/news/9/photo_1.jpg",
+      "delivery": "assets/images/news/9/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 44264,
+      "afterBytes": 37800,
+      "width": 640,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/9/photo_2.jpg",
+      "delivery": "assets/images/news/9/photo_2.webp",
+      "status": "created",
+      "beforeBytes": 59874,
+      "afterBytes": 49402,
+      "width": 800,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/news/9/photo_3.jpg",
+      "delivery": "assets/images/news/9/photo_3.webp",
+      "status": "created",
+      "beforeBytes": 76541,
+      "afterBytes": 70198,
+      "width": 600,
+      "quality": 86,
+      "manualReview": true
+    },
+    {
+      "path": "assets/images/rm/photo_1.jpg",
+      "delivery": "assets/images/rm/photo_1.webp",
+      "status": "created",
+      "beforeBytes": 51557,
+      "afterBytes": 50134,
+      "width": 800,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/rm/photo_10.jpg",
+      "delivery": "assets/images/rm/photo_10.webp",
+      "status": "created",
+      "beforeBytes": 82767,
+      "afterBytes": 84220,
+      "width": 810,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/rm/photo_2.jpg",
+      "delivery": "assets/images/rm/photo_2.webp",
+      "status": "created",
+      "beforeBytes": 102030,
+      "afterBytes": 120418,
+      "width": 1114,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/rm/photo_3.jpg",
+      "delivery": "assets/images/rm/photo_3.webp",
+      "status": "created",
+      "beforeBytes": 254113,
+      "afterBytes": 248794,
+      "width": 1600,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/rm/photo_4.jpg",
+      "delivery": "assets/images/rm/photo_4.webp",
+      "status": "created",
+      "beforeBytes": 16670,
+      "afterBytes": 17392,
+      "width": 332,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/rm/photo_5.jpg",
+      "delivery": "assets/images/rm/photo_5.webp",
+      "status": "created",
+      "beforeBytes": 50824,
+      "afterBytes": 46474,
+      "width": 1080,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/rm/photo_6.jpg",
+      "delivery": "assets/images/rm/photo_6.webp",
+      "status": "created",
+      "beforeBytes": 101249,
+      "afterBytes": 115744,
+      "width": 810,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/rm/photo_7.jpg",
+      "delivery": "assets/images/rm/photo_7.webp",
+      "status": "created",
+      "beforeBytes": 72128,
+      "afterBytes": 82966,
+      "width": 1080,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/rm/photo_8.jpg",
+      "delivery": "assets/images/rm/photo_8.webp",
+      "status": "created",
+      "beforeBytes": 84525,
+      "afterBytes": 89598,
+      "width": 1080,
+      "quality": 86,
+      "manualReview": false
+    },
+    {
+      "path": "assets/images/rm/photo_9.jpg",
+      "delivery": "assets/images/rm/photo_9.webp",
+      "status": "created",
+      "beforeBytes": 68648,
+      "afterBytes": 72512,
+      "width": 1080,
+      "quality": 86,
+      "manualReview": false
+    }
+  ]
+}

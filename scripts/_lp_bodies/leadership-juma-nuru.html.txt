@@ -1,0 +1,49 @@
+
+        <div class="lp-unit">Operations</div>
+        <h1 class="lp-name">Juma Nuru</h1>
+        <p class="lp-role">Director of Operations · Lake Group</p>
+        <p class="lp-lede">Leads Group-wide operations across Lake Group’s energy, logistics and industrial units — coordinating day-to-day execution and operational performance.</p>
+                <p>As Director of Operations, Juma Nuru is responsible for aligning day-to-day execution across Lake Group's operating companies so energy, logistics and industrial units deliver reliably against Group standards.</p>
+        <p>As the Director of Operations, one of his key responsibilities is to ensure that all operations are executed efficiently and without disruption. This includes maintaining strong coordination between the operations team and management, so that everything runs seamlessly and in alignment with Lake Group goals.</p>
+        <blockquote class="lp-quote">As the Director of Operations, one of my key responsibilities is to ensure that all operations are executed efficiently and without disruption. This includes maintaining strong coordination between the operations team and management, so that everything runs seamlessly and in alignment with our goals.</blockquote>
+<p>The role spans operational performance, coordination between business units, and continuous improvement of processes that keep depots, fleets, plants and commercial teams running as one organisation.</p>
+        <p>Working through Group HQ in Dar es Salaam, the operations desk supports country and unit leadership with clear priorities, escalation paths and performance visibility.</p>
+        
+        <ul class="lp-mandate">
+          <li><span>01</span><span>Group-wide operational coordination</span></li>
+          <li><span>02</span><span>Execution discipline across business units</span></li>
+          <li><span>03</span><span>Performance monitoring and continuous improvement</span></li>
+        </ul>
+        <div class="lp-meta">
+        <div><strong>Focus</strong><span>Operations</span></div>
+        <div><strong>Scope</strong><span>Group-wide</span></div>
+        <div><strong>HQ</strong><span>Dar es Salaam</span></div>
+        </div>
+
+        <div class="lp-links">
+          <a href="about.html" class="btn btn-outline-dark btn-sm">About Lake Group</a>
+          <a href="services.html" class="btn btn-outline-dark btn-sm">Our companies</a>
+        </div>
+        <nav class="lp-nav" aria-label="Related leadership profiles">
+          <a class="ld-person-card" href="leadership-bibhuti-singh.html">
+          <div class="ld-person-photo"><img src="assets/images/leadership/pankaj-kumar.png" alt="Bibhuti Singh" data-i18n-alt="leadership.26" loading="lazy" decoding="async"></div>
+          <div class="ld-person-body">
+            <h3><span data-i18n="leadership.26">Bibhuti Singh</span></h3>
+            <p class="ld-person-role"><span data-i18n="leadership.27">CFO · AFICD</span></p>
+            <p class="ld-person-sum"><span data-i18n="leadership.108">Oversees financial planning, risk analysis and corporate governance for African Inland Container Depot (AFICD) - Lake Group’s dry-port platform in Dar es Salaam.</span></p>
+            <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>
+          </div>
+        </a>
+          <a class="ld-person-card" href="leadership-ally-edha-awadh.html">
+          <div class="ld-person-photo"><img src="assets/images/leadership/ally-edha-awadh.png" alt="Ally Edha Awadh" data-i18n-alt="leadership.9" loading="lazy" decoding="async"></div>
+          <div class="ld-person-body">
+            <h3><span data-i18n="leadership.9">Ally Edha Awadh</span></h3>
+            <p class="ld-person-role"><span data-i18n="leadership.8">Founder &amp; Chairman</span></p>
+            <p class="ld-person-sum"><span data-i18n="leadership.104">Forbes-featured entrepreneur who founded Lake Oil in 2006 and built Lake Group into one of East and Central Africa’s leading energy, logistics and industrial conglomerates.</span></p>
+            <span class="ld-person-more"><span data-i18n="leadership.57">Read more</span></span>
+          </div>
+        </a>
+          <div class="lp-nav-all">
+            <a href="leadership.html" class="btn btn-outline-dark btn-sm" data-i18n="leadership.58">All leadership</a>
+          </div>
+        </nav>

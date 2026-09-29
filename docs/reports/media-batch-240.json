@@ -1,0 +1,1608 @@
+{
+  "generatedAt": "2026-09-08T08:31:46.990Z",
+  "start": 240,
+  "batchSize": 80,
+  "candidates": 337,
+  "results": [
+    {
+      "source": "assets/images/news/15/photo_7.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/15/photo_7.master.webp",
+      "delivery": "assets/images/delivery/news/15/photo_7.webp",
+      "masterInfo": {
+        "bytes": 172716,
+        "width": 1280,
+        "height": 852,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 115180,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "0d3230c294c8019a1a692b3d1869867f53430e92ea10072449caed8837315ad7",
+      "deliveryHash": "7dccb712843f6fd75f94de48297e28b96e66a19b339f5ce08c4e5a2fd21e7e4a"
+    },
+    {
+      "source": "assets/images/news/16/photo_1.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/16/photo_1.master.webp",
+      "delivery": "assets/images/delivery/news/16/photo_1.webp",
+      "masterInfo": {
+        "bytes": 289692,
+        "width": 915,
+        "height": 1280,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 207322,
+        "width": 915,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "cfeb8f48ad33aa481811501fdb1f5a62b6c94e9281da9bca1c16bb7898d51e77",
+      "deliveryHash": "6b9b434a21470739dd5f4bd4d33e73e02fc605a71765e2dddd566fff7fe30017"
+    },
+    {
+      "source": "assets/images/news/16/photo_2.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/16/photo_2.master.webp",
+      "delivery": "assets/images/delivery/news/16/photo_2.webp",
+      "masterInfo": {
+        "bytes": 120836,
+        "width": 1171,
+        "height": 1280,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 81106,
+        "width": 1171,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "079244c47d24f40abb375347f5106b3cc9b4306b6dc10350792a3a72593b3ed3",
+      "deliveryHash": "51770775c60d7cb11046025c31b0d14395d09e5c517b4a0344e6b9119135d626"
+    },
+    {
+      "source": "assets/images/news/16/photo_3.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/16/photo_3.master.webp",
+      "delivery": "assets/images/delivery/news/16/photo_3.webp",
+      "masterInfo": {
+        "bytes": 332826,
+        "width": 905,
+        "height": 1280,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 239074,
+        "width": 905,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "06b6c65db84c05bc0fdf507812953f86d3de0b35c1c0342d3ee7fd86200af1f4",
+      "deliveryHash": "158088f7eae1194e3d9e3a3e898fb1354f3d2d0237cbab842aade8f6429664b5"
+    },
+    {
+      "source": "assets/images/news/17/photo_1.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_1.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_1.webp",
+      "masterInfo": {
+        "bytes": 165094,
+        "width": 1280,
+        "height": 786,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 113268,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "99c5bf5928fa7ce124fd2f588665b0f3bc7c1da7b94a8b753789cd81484592e3",
+      "deliveryHash": "fdab2bbf2c9d7d2f85da0fc178811f4b25f33688c07945b542af1de25f2c8a8e"
+    },
+    {
+      "source": "assets/images/news/17/photo_10.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_10.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_10.webp",
+      "masterInfo": {
+        "bytes": 143244,
+        "width": 1280,
+        "height": 512,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 94452,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "3f01ab0da76c8b646e01d0969541de66caaf023c41983b3389d20b35852f1de0",
+      "deliveryHash": "b24dc9f6350b1e5539001d76cc7ba1e482dc15654ecb4ceac8ef46d72ca6f13f"
+    },
+    {
+      "source": "assets/images/news/17/photo_11.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_11.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_11.webp",
+      "masterInfo": {
+        "bytes": 203420,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 141424,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "4125477886755579c5ee9efc2e441cd2e8c411c17e07998ff3a1bbe3e61e1494",
+      "deliveryHash": "6f77a50933237ed07313607efc53ec21bb86869a141cb2cb357b9a7d9f7b569e"
+    },
+    {
+      "source": "assets/images/news/17/photo_12.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_12.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_12.webp",
+      "masterInfo": {
+        "bytes": 154706,
+        "width": 1280,
+        "height": 1280,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 94650,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "107c99d29d79397107e233ad93bef591837415bedceac9e06c8f7be9eb6d066d",
+      "deliveryHash": "48e599bb2a63ebceacae8d146a246d8cb04710cf6f1ea3e2425d63cb64b2544d"
+    },
+    {
+      "source": "assets/images/news/17/photo_13.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_13.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_13.webp",
+      "masterInfo": {
+        "bytes": 245682,
+        "width": 1280,
+        "height": 1280,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 148110,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "a431866a0c353a272f4353bdc590ddccb91c31eb74b359d8341e880c1dca75cf",
+      "deliveryHash": "7dcb7b3300b408bdf334a055e4e6b282f2d05dce2d7538956507b8587c10e3a4"
+    },
+    {
+      "source": "assets/images/news/17/photo_14.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_14.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_14.webp",
+      "masterInfo": {
+        "bytes": 174042,
+        "width": 1280,
+        "height": 733,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 118488,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "994e5423309631669f7281d18e478190a9681f8c772e7cc298240d263b6735f0",
+      "deliveryHash": "688d61a7a8c34b0117efb60a0bfd00bd6b5282f68048576a844d09c602b4f986"
+    },
+    {
+      "source": "assets/images/news/17/photo_15.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_15.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_15.webp",
+      "masterInfo": {
+        "bytes": 202562,
+        "width": 1280,
+        "height": 956,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 141286,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "3b7616c6aa551916480ba4066ef760178e2b1a57078e51236cfb7fb86405e9f0",
+      "deliveryHash": "82be9d752a338556be51aba5b7c35cbb4fc2201f9cfbce27c21aa93487808ebb"
+    },
+    {
+      "source": "assets/images/news/17/photo_16.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_16.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_16.webp",
+      "masterInfo": {
+        "bytes": 147424,
+        "width": 1280,
+        "height": 679,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 98756,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "7ca478261793192ec2c5cfae76ed2b7320b2fbc9e45f61981c0811ca521c99b5",
+      "deliveryHash": "57e232380e4fa05cd79aecdf9172c009b6fcd282e7e58e2a6ca225226034753e"
+    },
+    {
+      "source": "assets/images/news/17/photo_17.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_17.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_17.webp",
+      "masterInfo": {
+        "bytes": 226172,
+        "width": 1280,
+        "height": 622,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 165090,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "6d01eb60c26548a69e3697099c4fb19c11f59f7b5751ca782dd201cb7d364d4a",
+      "deliveryHash": "618673073ff0e5ac72b24e48040a8e93a7268032db56c4c9849fed9fb369e65d"
+    },
+    {
+      "source": "assets/images/news/17/photo_18.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_18.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_18.webp",
+      "masterInfo": {
+        "bytes": 226918,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 159980,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "f2d7e2c44de149e005091334d18f4392590098a24919553d0bc97c1c4f5064c7",
+      "deliveryHash": "3a21c1c9cc20f4fe39c7ac6f72241054768b9e706f57d06378e44a0d5216d4b9"
+    },
+    {
+      "source": "assets/images/news/17/photo_19.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_19.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_19.webp",
+      "masterInfo": {
+        "bytes": 190566,
+        "width": 1280,
+        "height": 622,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 135746,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "a1c49dc9a4303cfcc2116ab98c4d58945012e2ed19bf96d1a99328fa69368bc8",
+      "deliveryHash": "52b9d63c3a0525e465761c54ec1efd392a4790be57c13c681e40f3faa3dc7a3c"
+    },
+    {
+      "source": "assets/images/news/17/photo_2.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_2.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_2.webp",
+      "masterInfo": {
+        "bytes": 154284,
+        "width": 1280,
+        "height": 959,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 105838,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "d01a763596b1a5ca25b14a4531a097b3ed1eafc26b36a6bf8465bb8aa3718d3a",
+      "deliveryHash": "ccd81d24eaa03bf9dcf2e9d821c594091ee52ba77701e0720537f3c72a91676f"
+    },
+    {
+      "source": "assets/images/news/17/photo_20.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_20.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_20.webp",
+      "masterInfo": {
+        "bytes": 190566,
+        "width": 1280,
+        "height": 622,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 135746,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "a1c49dc9a4303cfcc2116ab98c4d58945012e2ed19bf96d1a99328fa69368bc8",
+      "deliveryHash": "52b9d63c3a0525e465761c54ec1efd392a4790be57c13c681e40f3faa3dc7a3c"
+    },
+    {
+      "source": "assets/images/news/17/photo_21.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_21.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_21.webp",
+      "masterInfo": {
+        "bytes": 167098,
+        "width": 1280,
+        "height": 622,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 119476,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "9efb3c45b2a244b3ef609c05af747067074a0d66fcb3dd0d6dad5d1ce43f5d75",
+      "deliveryHash": "f2c06581a9f6e04caf0216778886d31f77b50a40041b1d8a23307989e10222ae"
+    },
+    {
+      "source": "assets/images/news/17/photo_22.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_22.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_22.webp",
+      "masterInfo": {
+        "bytes": 198950,
+        "width": 1280,
+        "height": 622,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 138036,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "bff1c7eb435ea2904cd5e9eaa146224cf76d142b7c614a2b0ba4efa6b8c3c94e",
+      "deliveryHash": "30bcfa3ea9ebf4374c5e46495b3186166cdb55e5913407561e3695b148bfaa22"
+    },
+    {
+      "source": "assets/images/news/17/photo_23.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_23.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_23.webp",
+      "masterInfo": {
+        "bytes": 136532,
+        "width": 1280,
+        "height": 852,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 78176,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "2c1079e8c0813efc44334cca44fbf5ccd77cec6e5af1801fbfd4f83f3b212068",
+      "deliveryHash": "8d466cbc6d68dc0c99ae682820ab50a8b3f15dc51bf38b30c938382ddc1c9d39"
+    },
+    {
+      "source": "assets/images/news/17/photo_24.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_24.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_24.webp",
+      "masterInfo": {
+        "bytes": 172786,
+        "width": 1280,
+        "height": 719,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 118034,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "516dcae6384b885578b274e1e1ad9b75e9d8c2254635d87e44c2e9a1437b0ebf",
+      "deliveryHash": "cc72418a53d4fef26ffafce2ac415b8988050b3d25a2aaa3bae09a6482b4b6a2"
+    },
+    {
+      "source": "assets/images/news/17/photo_3.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_3.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_3.webp",
+      "masterInfo": {
+        "bytes": 265620,
+        "width": 1280,
+        "height": 853,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 191992,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "742859d6e51fcecd6a1f3a5e975f2424038327a613b8c8f55aa84a7eea71c2ba",
+      "deliveryHash": "4b2592e986b31ce5d11c1d3d7e2aeb3e8e0a3cbae5cbc83e5102cf23791dabbd"
+    },
+    {
+      "source": "assets/images/news/17/photo_4.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_4.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_4.webp",
+      "masterInfo": {
+        "bytes": 115418,
+        "width": 1280,
+        "height": 968,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 65554,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "7237f35c66791d2a4090fd922433363db9066010f1ed4301025b957a3c75ffb1",
+      "deliveryHash": "3499fffda87c3a5d761d11d5532e881ef266a16ae92eb06db93a22e9cbb8ffdb"
+    },
+    {
+      "source": "assets/images/news/17/photo_5.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_5.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_5.webp",
+      "masterInfo": {
+        "bytes": 179004,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 109522,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "d2bffb0944f1e7a7585b214ae9b39b7e723a12293a8f429761370a0a8399c93f",
+      "deliveryHash": "fbfc040afe7b8d232392382eb8dc84317b1249826ab6bf6637fa914805460a76"
+    },
+    {
+      "source": "assets/images/news/17/photo_6.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_6.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_6.webp",
+      "masterInfo": {
+        "bytes": 176876,
+        "width": 1280,
+        "height": 576,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 128856,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "c0644a0f013be5550d64557bba61336551f9f0ed723529d9150eb28bb925313b",
+      "deliveryHash": "e1ed90d1e4149aaffe203e3a265499fd328f65239db1a7246f2f13e04d7d84af"
+    },
+    {
+      "source": "assets/images/news/17/photo_7.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_7.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_7.webp",
+      "masterInfo": {
+        "bytes": 199594,
+        "width": 909,
+        "height": 1280,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 145466,
+        "width": 909,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "0a8d028265e94c182523c97c14e3e9d4f4296f4c4ab8a4df291885bf2b46c1cc",
+      "deliveryHash": "5e5ebb32e8cb5d644a3e087a16c0ed22c8c2e288a275d361fae555a27543d402"
+    },
+    {
+      "source": "assets/images/news/17/photo_8.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_8.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_8.webp",
+      "masterInfo": {
+        "bytes": 87052,
+        "width": 1280,
+        "height": 715,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 54644,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "36c1a5a458265d13adaa7cedf80fb471d421f00d432a8120cc2baf2ecad701bb",
+      "deliveryHash": "acf753bbddb8270325377a94a50434cfa0b3a84858e72c83fc0b7f2ce8f60bc2"
+    },
+    {
+      "source": "assets/images/news/17/photo_9.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/17/photo_9.master.webp",
+      "delivery": "assets/images/delivery/news/17/photo_9.webp",
+      "masterInfo": {
+        "bytes": 152954,
+        "width": 1280,
+        "height": 622,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 109460,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "bbd1758a7a4e69cd037ca9a0b4fc596eb2a6334c8ab764037aefc98c7616f550",
+      "deliveryHash": "3b9c5c5ea6c25430f5241a92724dd8c744fe5cc92a185aecac8b8443cdedc3dd"
+    },
+    {
+      "source": "assets/images/news/18/photo_1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/18/photo_1.master.webp",
+      "delivery": "assets/images/delivery/news/18/photo_1.webp",
+      "masterInfo": {
+        "bytes": 180964,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 121800,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "658dc83adca653728b55f7ef08ed31f08b8d11d4d9c72f166092db11f4f24c54",
+      "deliveryHash": "da2f9be50a80ca74eb20bc4b19afa27870a6044ccd888dc7a467c6b9709fc9ef"
+    },
+    {
+      "source": "assets/images/news/18/photo_10.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/18/photo_10.master.webp",
+      "delivery": "assets/images/delivery/news/18/photo_10.webp",
+      "masterInfo": {
+        "bytes": 227466,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 148180,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "6ae2b54d5bc6c4bcfbc6fdfaf1cc30794a6d6b3a57356ba9a0d196343279368f",
+      "deliveryHash": "817f0a79db904f8a3cc9218e4aa804d6bd686ed08ca4214b0ca4349a160e7399"
+    },
+    {
+      "source": "assets/images/news/18/photo_2.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/18/photo_2.master.webp",
+      "delivery": "assets/images/delivery/news/18/photo_2.webp",
+      "masterInfo": {
+        "bytes": 149204,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 94248,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "8ebedbb0bc8e6861ca124142173aa6a5e03108fc406102dbce9225e5663f89c7",
+      "deliveryHash": "94d578431a869b249efec7d177866c1e04c1091a526ef88203e58400bceacb98"
+    },
+    {
+      "source": "assets/images/news/18/photo_3.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/18/photo_3.master.webp",
+      "delivery": "assets/images/delivery/news/18/photo_3.webp",
+      "masterInfo": {
+        "bytes": 123074,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 79934,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "bb3ea8900e23291713b967448a53b6cd4da67858cc5e9c972e4e2f08cfeb805d",
+      "deliveryHash": "e3c44de4a2cf12438d9b5a79b8ce8224e960dda855e47dc3b6c3e7033941fcc9"
+    },
+    {
+      "source": "assets/images/news/18/photo_4.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/18/photo_4.master.webp",
+      "delivery": "assets/images/delivery/news/18/photo_4.webp",
+      "masterInfo": {
+        "bytes": 180162,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 112374,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "93f01cdc247cc97fead9342dd30f4d8d1f8719896cd9e253b8913af062e2f55f",
+      "deliveryHash": "6a84cec7e5d94e76781a91cafbc34d2fc184bb379aa305052000f6731d939c9c"
+    },
+    {
+      "source": "assets/images/news/18/photo_5.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/18/photo_5.master.webp",
+      "delivery": "assets/images/delivery/news/18/photo_5.webp",
+      "masterInfo": {
+        "bytes": 134876,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 90920,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "44790f367cdc86da72bb7914c17549a0db9b45f1bbe9202c9d8800f685ac60d1",
+      "deliveryHash": "81d06b2d48817b437610830ac3404ffc822d81865ef444023f8819b790fb3a07"
+    },
+    {
+      "source": "assets/images/news/18/photo_6.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/18/photo_6.master.webp",
+      "delivery": "assets/images/delivery/news/18/photo_6.webp",
+      "masterInfo": {
+        "bytes": 170616,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 98184,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "99c086d11dca9f8813bc22a040f324811c4de44c031877ecb6f95ce90c05c841",
+      "deliveryHash": "faa363c93ffc46e6d3a7ac18337b7c765219543542e65775e214ad9d63add975"
+    },
+    {
+      "source": "assets/images/news/18/photo_7.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/18/photo_7.master.webp",
+      "delivery": "assets/images/delivery/news/18/photo_7.webp",
+      "masterInfo": {
+        "bytes": 115252,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 68174,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "593009e1faa4445ece78f6cee8085caea1aedd2ea6d8fafc1fe2afc15e8e1c4e",
+      "deliveryHash": "343b225b96781d42aefb2afe8536248669c30aef15b57fa2ab456115a6ea00bb"
+    },
+    {
+      "source": "assets/images/news/18/photo_8.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/18/photo_8.master.webp",
+      "delivery": "assets/images/delivery/news/18/photo_8.webp",
+      "masterInfo": {
+        "bytes": 135778,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 80700,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "da75371965331d26b9297480763ae2167ddafd0068a0c4e70f99e21788ccda30",
+      "deliveryHash": "65f0ca43dbb18a4addf2769c721aa25767b7b14425a735118639fa3a7e0217f7"
+    },
+    {
+      "source": "assets/images/news/18/photo_9.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/18/photo_9.master.webp",
+      "delivery": "assets/images/delivery/news/18/photo_9.webp",
+      "masterInfo": {
+        "bytes": 122656,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 72974,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "43323b72dc9848eb56865fcdb514ae40f0834da95ac9ed7801a25eb25a34283d",
+      "deliveryHash": "45b8f76e1377a87779a64c61396769e18ca6a0409c33449a5d36cce492e468d1"
+    },
+    {
+      "source": "assets/images/news/19/photo_1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/19/photo_1.master.webp",
+      "delivery": "assets/images/delivery/news/19/photo_1.webp",
+      "masterInfo": {
+        "bytes": 550354,
+        "width": 1280,
+        "height": 853,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 398470,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "c0b80976fae1e22890b091fce95de0336c1aa966c89da4ba7a78371ad43f9bc0",
+      "deliveryHash": "13db96c9cbdeef23e985ddf1b4445f9de0d9a6a0529977682479be0dc3b88781"
+    },
+    {
+      "source": "assets/images/news/19/photo_10.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/19/photo_10.master.webp",
+      "delivery": "assets/images/delivery/news/19/photo_10.webp",
+      "masterInfo": {
+        "bytes": 112560,
+        "width": 1280,
+        "height": 853,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 60520,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "d4276287f0abbc94875b91995f771c899373cd3eb0818b21ca9842e905c40386",
+      "deliveryHash": "22064468848f350cdd3e14045e0e40b1295352c0cc45e68694d8926d5d587d3c"
+    },
+    {
+      "source": "assets/images/news/19/photo_11.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/19/photo_11.master.webp",
+      "delivery": "assets/images/delivery/news/19/photo_11.webp",
+      "masterInfo": {
+        "bytes": 314882,
+        "width": 1280,
+        "height": 853,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 229050,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "3358df23e2ddfc2c7f004847a7c1a73efa37dbddebd082349095a00374fa6dc2",
+      "deliveryHash": "d12b3feaf15c294d7f89711cbe32108db5d0aa96c9a61c10cf1caea9923261bf"
+    },
+    {
+      "source": "assets/images/news/19/photo_12.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/19/photo_12.master.webp",
+      "delivery": "assets/images/delivery/news/19/photo_12.webp",
+      "masterInfo": {
+        "bytes": 416332,
+        "width": 1280,
+        "height": 853,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 306828,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "55e701d14666233e00da04e1a55a2070c35e55ed2be90b5f78bdf075ad5e47d8",
+      "deliveryHash": "002a05f01419474245bb654b8b300c062bb6168c34caa6bd189d77e5e3c1d39f"
+    },
+    {
+      "source": "assets/images/news/19/photo_13.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/19/photo_13.master.webp",
+      "delivery": "assets/images/delivery/news/19/photo_13.webp",
+      "masterInfo": {
+        "bytes": 371004,
+        "width": 1280,
+        "height": 853,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 272688,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "96331877efa42d1bd04a5e5d6fae46a1ab0c44eef7647fd3970aa6e6cd8c6205",
+      "deliveryHash": "588012d8093ee6be0ae6adafcd5f8f8ade7e9ae7bf766c8632483979283fbb16"
+    },
+    {
+      "source": "assets/images/news/19/photo_14.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/19/photo_14.master.webp",
+      "delivery": "assets/images/delivery/news/19/photo_14.webp",
+      "masterInfo": {
+        "bytes": 548880,
+        "width": 1280,
+        "height": 853,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 400210,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "fb89286075625275598173c106eb231d0a31a215179df06218db048ea3bed431",
+      "deliveryHash": "413709507f586ef167741d74dff693a9e8b57df31d1dcdcc952f03980b81b58c"
+    },
+    {
+      "source": "assets/images/news/19/photo_15.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/19/photo_15.master.webp",
+      "delivery": "assets/images/delivery/news/19/photo_15.webp",
+      "masterInfo": {
+        "bytes": 539126,
+        "width": 1280,
+        "height": 853,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 388940,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "aca624f0d5d8248e1056f0db55725287b68e83508f9766be3766e01662fcaeb8",
+      "deliveryHash": "f2fdaa5ced1ff93e361b6e5cd67b69eae8f14fd0824f63c09443cf015738a1da"
+    },
+    {
+      "source": "assets/images/news/19/photo_16.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/19/photo_16.master.webp",
+      "delivery": "assets/images/delivery/news/19/photo_16.webp",
+      "masterInfo": {
+        "bytes": 531378,
+        "width": 1280,
+        "height": 853,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 379070,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "14e2b34e00d958e488567d1b22134d4da2ce83e7891c4d0001d5bf3cb801d0aa",
+      "deliveryHash": "7e0c7bf7b863c3fa2b764de72f0b3eb3866a7db1c8eb26a3f6ff692516d5de3a"
+    },
+    {
+      "source": "assets/images/news/19/photo_17.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/19/photo_17.master.webp",
+      "delivery": "assets/images/delivery/news/19/photo_17.webp",
+      "masterInfo": {
+        "bytes": 357528,
+        "width": 1280,
+        "height": 853,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 261772,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "601a539fbe9d98a1b4e2ab146481b100fffe3ea30c512472769b30ac0956065c",
+      "deliveryHash": "2d4d7fa98edb2659cda69770b644e28ebcf3754ea6cf0412dbf61d0e363b4c94"
+    },
+    {
+      "source": "assets/images/news/19/photo_18.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/19/photo_18.master.webp",
+      "delivery": "assets/images/delivery/news/19/photo_18.webp",
+      "masterInfo": {
+        "bytes": 262850,
+        "width": 1280,
+        "height": 853,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 191460,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "a2c579e97c0715da54785bf6320fa20316181cf87e2220d3a3df792b37f9f217",
+      "deliveryHash": "7ec8b68be3d6cd5c584cb800e79f99d771d1056ce6738aca7d1922ccac760320"
+    },
+    {
+      "source": "assets/images/news/19/photo_19.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/19/photo_19.master.webp",
+      "delivery": "assets/images/delivery/news/19/photo_19.webp",
+      "masterInfo": {
+        "bytes": 163216,
+        "width": 1280,
+        "height": 853,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 107156,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "c6d04e710f0947342a90d4ed10a9e2e2d8ef047ce60993b24183fad58e7b3621",
+      "deliveryHash": "dfdd410b3aa5a98d0558ebd5539f3a4d606e00a702f3472615beb3138af5e585"
+    },
+    {
+      "source": "assets/images/news/19/photo_2.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/19/photo_2.master.webp",
+      "delivery": "assets/images/delivery/news/19/photo_2.webp",
+      "masterInfo": {
+        "bytes": 250806,
+        "width": 1280,
+        "height": 853,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 182636,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "be6172ca34d1ed1a10031c2ca774f2f2b28e6d0b8c3833ae32110ccdd7e1f25d",
+      "deliveryHash": "4316decd4aac0d08b241010233caf3c632183935af0d39e1d2af3e96773449d1"
+    },
+    {
+      "source": "assets/images/news/19/photo_20.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/19/photo_20.master.webp",
+      "delivery": "assets/images/delivery/news/19/photo_20.webp",
+      "masterInfo": {
+        "bytes": 433768,
+        "width": 1280,
+        "height": 853,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 319668,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "fe9d21957db53dccceb551074ba5db85ef8f7eccf121fbecf1ef593e7f2bbced",
+      "deliveryHash": "b37e398d573ba9bb1057f9d2d3d2cf7f02aaaf878271f52360c7d90b5a47a0c4"
+    },
+    {
+      "source": "assets/images/news/19/photo_3.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/19/photo_3.master.webp",
+      "delivery": "assets/images/delivery/news/19/photo_3.webp",
+      "masterInfo": {
+        "bytes": 290230,
+        "width": 1280,
+        "height": 853,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 213724,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "7399c9bb84a90fdbe469108293336f2a0b5f79f03da0988efc36b496b81dae78",
+      "deliveryHash": "5ea7ed2b1d1cf85fb0ee89bb7cf199908dc4bc5f4a3b67b4acfafca8c0d67bb0"
+    },
+    {
+      "source": "assets/images/news/19/photo_4.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/19/photo_4.master.webp",
+      "delivery": "assets/images/delivery/news/19/photo_4.webp",
+      "masterInfo": {
+        "bytes": 170536,
+        "width": 1280,
+        "height": 853,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 111684,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "759b249e04a837cb114303ffdf4b243cae7e18252450bd29c39617bbc65a0c7d",
+      "deliveryHash": "df627804e5eac4015d90ba5dbd4819c16dd69e83145e1d3bd6944da68321003c"
+    },
+    {
+      "source": "assets/images/news/19/photo_5.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/19/photo_5.master.webp",
+      "delivery": "assets/images/delivery/news/19/photo_5.webp",
+      "masterInfo": {
+        "bytes": 268060,
+        "width": 1280,
+        "height": 853,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 192714,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "da76dcc6a585dc05b78234c84bdec1a8301de2b6fca6f7de2f6bfdd3a0679314",
+      "deliveryHash": "a5f765363bd11dde34222f9b202673ac77eff96d363c0490c9c46ad7375affcd"
+    },
+    {
+      "source": "assets/images/news/19/photo_6.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/19/photo_6.master.webp",
+      "delivery": "assets/images/delivery/news/19/photo_6.webp",
+      "masterInfo": {
+        "bytes": 203238,
+        "width": 1280,
+        "height": 853,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 144934,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "fd8bd1ba23bd1abd6297274581942070dc43777909a92ac6d1c0f25de75c3a4d",
+      "deliveryHash": "497ea8eede4c465f6a2b0d6b37ba62c2532535df4705c6128687afc5f71527ce"
+    },
+    {
+      "source": "assets/images/news/19/photo_7.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/19/photo_7.master.webp",
+      "delivery": "assets/images/delivery/news/19/photo_7.webp",
+      "masterInfo": {
+        "bytes": 145198,
+        "width": 1280,
+        "height": 853,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 88036,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "b8dea7d8fb1bfcb17f2789d6b7f0321ee4f3fb0130db1f260c147f12ab305719",
+      "deliveryHash": "231fe1c47af41792dcad58454acb481cf6da050101d142ca81d1322104ec863b"
+    },
+    {
+      "source": "assets/images/news/19/photo_8.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/19/photo_8.master.webp",
+      "delivery": "assets/images/delivery/news/19/photo_8.webp",
+      "masterInfo": {
+        "bytes": 341212,
+        "width": 1280,
+        "height": 853,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 245842,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "52e52277ce048b218f576e7985a3adb6f8b4257fe79b45ac7df6b7f6c0a3d1da",
+      "deliveryHash": "2692da2688ebcd93d3020f83ea541ab66a23cdc67744e80c406b4478dc0245d9"
+    },
+    {
+      "source": "assets/images/news/19/photo_9.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/19/photo_9.master.webp",
+      "delivery": "assets/images/delivery/news/19/photo_9.webp",
+      "masterInfo": {
+        "bytes": 138988,
+        "width": 1280,
+        "height": 853,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 87634,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "15ba0bd09822f633c5dc370944b09b5eabfcaf4d437294465131e7c8793e20bb",
+      "deliveryHash": "78a8a0d462f5b8cdb6b460f71a168e7510904e471c492bc2322695ed40faa47c"
+    },
+    {
+      "source": "assets/images/news/2/photo_1.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/2/photo_1.master.webp",
+      "delivery": "assets/images/delivery/news/2/photo_1.webp",
+      "masterInfo": {
+        "bytes": 74658,
+        "width": 960,
+        "height": 586,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 52610,
+        "width": 960,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "7c2a05b3abc1bb3a54e1acf7e6d0e49de7c99f8a8a31382b233701a58ae6564b",
+      "deliveryHash": "8186836fbf6c5e97c9aaa87e7cce0d259d6355ac04e6e5e1941d941e542ada61"
+    },
+    {
+      "source": "assets/images/news/20/photo_1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/20/photo_1.master.webp",
+      "delivery": "assets/images/delivery/news/20/photo_1.webp",
+      "masterInfo": {
+        "bytes": 174602,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 115812,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "5c15cc4ee0105ea456ccf632bdc1e92f143c773285e946cf27916e0fa235fe25",
+      "deliveryHash": "d95d64f590cf84f4d715d21aa5761c06bcb5d5028cbb825f4a1de79befee76ef"
+    },
+    {
+      "source": "assets/images/news/20/photo_10.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/20/photo_10.master.webp",
+      "delivery": "assets/images/delivery/news/20/photo_10.webp",
+      "masterInfo": {
+        "bytes": 212644,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 149698,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "279eaa422003cd233f4199d492af3e8b365ad8d91697652748890ccf2b2b26b8",
+      "deliveryHash": "d22a8eaa6bdaaf557a932f44fcd525590597d7fa520f82db25221ae3800cc5c6"
+    },
+    {
+      "source": "assets/images/news/20/photo_11.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/20/photo_11.master.webp",
+      "delivery": "assets/images/delivery/news/20/photo_11.webp",
+      "masterInfo": {
+        "bytes": 251754,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 173994,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "b89cffb8aff604dc261685510c58c9a0383aed3becdb3fd92b3ccb2e4fa65d9e",
+      "deliveryHash": "44e11b0ea9ce7120ab6a2937d7da2e449d2dac12cbfcaaf4352a6c6124a23f83"
+    },
+    {
+      "source": "assets/images/news/20/photo_2.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/20/photo_2.master.webp",
+      "delivery": "assets/images/delivery/news/20/photo_2.webp",
+      "masterInfo": {
+        "bytes": 146130,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 93950,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "35040134f5debd7a1ba8b74abeed128162eaf5f7a13a8eff5c1a10192e89b10a",
+      "deliveryHash": "c3711baec1296f64011aef727f2bd5dbf8216909cc69c862ab38c117c3c79051"
+    },
+    {
+      "source": "assets/images/news/20/photo_3.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/20/photo_3.master.webp",
+      "delivery": "assets/images/delivery/news/20/photo_3.webp",
+      "masterInfo": {
+        "bytes": 179944,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 111998,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "a5557a978db368730597d3544ed3e953798540ce2e23ea14dd9d093899bde1e0",
+      "deliveryHash": "d97c1176deaf3ca7320eeb039e4d8409bbd2fd35d37ad3361988e69c833c6df9"
+    },
+    {
+      "source": "assets/images/news/20/photo_4.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/20/photo_4.master.webp",
+      "delivery": "assets/images/delivery/news/20/photo_4.webp",
+      "masterInfo": {
+        "bytes": 255538,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 177204,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "c13b90c5207d8874bacbdb1d93281f559bceff711b4433855592cfa95475a43f",
+      "deliveryHash": "4e345fc2180468779ef025bfbe24ef216c692b5048b419a91657b11c9bd9145e"
+    },
+    {
+      "source": "assets/images/news/20/photo_5.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/20/photo_5.master.webp",
+      "delivery": "assets/images/delivery/news/20/photo_5.webp",
+      "masterInfo": {
+        "bytes": 200136,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 134936,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "6a362eb23afe1951f1f6ba3623e015d5c2a8386ff13651f8b82c984eaac29d85",
+      "deliveryHash": "96353049d4f682e4bbc22a95fc338c801a027906e07eef72560be86e086418a0"
+    },
+    {
+      "source": "assets/images/news/20/photo_6.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/20/photo_6.master.webp",
+      "delivery": "assets/images/delivery/news/20/photo_6.webp",
+      "masterInfo": {
+        "bytes": 221924,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 157728,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "632a0c3c721a4bec813371ef2a07c71991c3efb6f65f50fce72d0b2b084c4125",
+      "deliveryHash": "d1c163b4bb054f1a323656bc5ebecb99e97303d1bbe75e5884cb631ec46fbaaf"
+    },
+    {
+      "source": "assets/images/news/20/photo_7.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/20/photo_7.master.webp",
+      "delivery": "assets/images/delivery/news/20/photo_7.webp",
+      "masterInfo": {
+        "bytes": 202890,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 134882,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "7cb3cf77d69326e24a76ee558664c095264d8893dbc230de2795ced4a9a656ba",
+      "deliveryHash": "f73f84a20ce2e9008e83b1992cfa8456bc529a71b668dbd10ea3b971f41afdeb"
+    },
+    {
+      "source": "assets/images/news/20/photo_8.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/20/photo_8.master.webp",
+      "delivery": "assets/images/delivery/news/20/photo_8.webp",
+      "masterInfo": {
+        "bytes": 227254,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 160028,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "918cc41f578bc7f633daa31efe2f4ed26f88260ad3357f2755e6965af9a3da26",
+      "deliveryHash": "61587e765c88ddd0d1bb981d2dd09250b2c17be14dbdfdbe50c3b581ef213f69"
+    },
+    {
+      "source": "assets/images/news/20/photo_9.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/20/photo_9.master.webp",
+      "delivery": "assets/images/delivery/news/20/photo_9.webp",
+      "masterInfo": {
+        "bytes": 246788,
+        "width": 1280,
+        "height": 960,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 175824,
+        "width": 1280,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "3fa1e116fe11b39c3abe17cb8a8d82f3ca914c23665fabe957c0bb479395eb99",
+      "deliveryHash": "a615c6c8125a51850c7be6ac067d9e189e6f665166d672130357bb05b04f2deb"
+    },
+    {
+      "source": "assets/images/news/3/photo_1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/3/photo_1.master.webp",
+      "delivery": "assets/images/delivery/news/3/photo_1.webp",
+      "masterInfo": {
+        "bytes": 79574,
+        "width": 960,
+        "height": 640,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 51806,
+        "width": 960,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "0fefa2b7d81d030cd2c7bbbe7afd21a64baeb8b4111f8861371bd33db60d8c61",
+      "deliveryHash": "0eeea8ad480b795b31084eab8e3a53ebd172c4611ed8075f4508581538a49f55"
+    },
+    {
+      "source": "assets/images/news/4/photo_1.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/4/photo_1.master.webp",
+      "delivery": "assets/images/delivery/news/4/photo_1.webp",
+      "masterInfo": {
+        "bytes": 313180,
+        "width": 1600,
+        "height": 1067,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 193880,
+        "width": 1600,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "ea299949afe69f62a987ef30e8a249bbec41c15b12f8a5ef2780d2bb06f63b4e",
+      "deliveryHash": "be6a61aef76d601d33f2a5a2ffd577fc763b8f65457e148bc03a513d1797e1e1"
+    },
+    {
+      "source": "assets/images/news/4/photo_2.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/4/photo_2.master.webp",
+      "delivery": "assets/images/delivery/news/4/photo_2.webp",
+      "masterInfo": {
+        "bytes": 202550,
+        "width": 1600,
+        "height": 1067,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 132046,
+        "width": 1600,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "a23b919ad03073dea9be3842f4bf00de63224a0d8bc56dd5c371d9e05ab2846c",
+      "deliveryHash": "b7bd828411a0ad5f6f6acb8d6c0e981ddec51c62c5fe683adf96bb042f627684"
+    },
+    {
+      "source": "assets/images/news/4/photo_3.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/4/photo_3.master.webp",
+      "delivery": "assets/images/delivery/news/4/photo_3.webp",
+      "masterInfo": {
+        "bytes": 321492,
+        "width": 1600,
+        "height": 1067,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 224864,
+        "width": 1600,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "f1547293dfc8cd6a07cd792548f369bc672079aafd10d1ab2d2406d43ac17934",
+      "deliveryHash": "8c2f0152cd4b2a4fa88bb77038a99febc8ddf6f0ab22e5ca8c5b101cdb7cd747"
+    },
+    {
+      "source": "assets/images/news/4/photo_4.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/4/photo_4.master.webp",
+      "delivery": "assets/images/delivery/news/4/photo_4.webp",
+      "masterInfo": {
+        "bytes": 600084,
+        "width": 900,
+        "height": 1772,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 432170,
+        "width": 900,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "ef8e7db9d95da308b43575c18e724f59059478931d5101b4ea28b1d1b7f56cef",
+      "deliveryHash": "15718cbdf899df7c8948e443e114f7bf2814263b8b6e3ea37f66a4384f481083"
+    },
+    {
+      "source": "assets/images/news/42/photo_1.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/42/photo_1.master.webp",
+      "delivery": "assets/images/delivery/news/42/photo_1.webp",
+      "masterInfo": {
+        "bytes": 402234,
+        "width": 1600,
+        "height": 1067,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 294174,
+        "width": 1600,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "f249ad503f061fd1b08a0c6b98a6fc8d8e7a2c3435bed1bb59c95d31a2ebc884",
+      "deliveryHash": "7334b4f5bd12ae20506b6bfc46da61e3a0c5898e88273bb1c3c07e0a6ce5b215"
+    },
+    {
+      "source": "assets/images/news/42/photo_2.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/42/photo_2.master.webp",
+      "delivery": "assets/images/delivery/news/42/photo_2.webp",
+      "masterInfo": {
+        "bytes": 92116,
+        "width": 800,
+        "height": 533,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 68254,
+        "width": 800,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "db54000c6f1b35528e77d33a717514a79b6d60ed9f747e3e1d87ed7aea7b40d0",
+      "deliveryHash": "405869d7e71f5d677a6ffd65b4bd7a9aa088ed4e6d53855274f42d534fde1d51"
+    },
+    {
+      "source": "assets/images/news/5/photo_1.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/5/photo_1.master.webp",
+      "delivery": "assets/images/delivery/news/5/photo_1.webp",
+      "masterInfo": {
+        "bytes": 135932,
+        "width": 855,
+        "height": 640,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 91046,
+        "width": 855,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "57daa85376e9b1a0e7bdc2b102169a89a8e0d05dde4d7a73c861630d922117ba",
+      "deliveryHash": "19092022bc439db05ae9c98e86ab2905bd676acee52d9bb4b7ad44162ba419c8"
+    },
+    {
+      "source": "assets/images/news/5/photo_2.webp",
+      "manualReview": true,
+      "master": "assets/images/masters/news/5/photo_2.master.webp",
+      "delivery": "assets/images/delivery/news/5/photo_2.webp",
+      "masterInfo": {
+        "bytes": 20180,
+        "width": 200,
+        "height": 251,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 14328,
+        "width": 200,
+        "quality": 84
+      },
+      "referencesUpdated": 0,
+      "masterHash": "12e4e1405bf1d311f56e54aae57bcb002c22c0eee42098fbc79f5f69c8ad59c9",
+      "deliveryHash": "75a6238e9e5a776d6061e5234c8f8dca57977220f585885362fa4923a224a3db"
+    },
+    {
+      "source": "assets/images/news/6/photo_1.webp",
+      "manualReview": false,
+      "master": "assets/images/masters/news/6/photo_1.master.webp",
+      "delivery": "assets/images/delivery/news/6/photo_1.webp",
+      "masterInfo": {
+        "bytes": 53214,
+        "width": 628,
+        "height": 472,
+        "fourKClass": false
+      },
+      "deliveryInfo": {
+        "bytes": 36656,
+        "width": 628,
+        "quality": 84
+      },
+      "referencesUpdated": 1,
+      "masterHash": "69e7997834c55e470183a4d5ba6a234d1a9129d922a27086c29619be8ddca8a2",
+      "deliveryHash": "19563660645b26ce01dccf41505d1a47afd78fe36e2541c07f7ebaf668c311ba"
+    }
+  ]
+}

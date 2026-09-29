@@ -1,0 +1,92 @@
+{
+  "scanned": 302,
+  "optimized": 54,
+  "noGain": 212,
+  "skippedTiny": 8,
+  "failed": 28,
+  "beforeBytes": 48341067,
+  "afterBytes": 44031541,
+  "savedBytes": 4309526,
+  "jpegQuality": 82,
+  "webpQuality": 82,
+  "notable": [
+    {
+      "rel": "assets\\images\\logos\\companies\\_pretrim\\cross-country-pre-v68.png",
+      "before": 1225017,
+      "after": 298002,
+      "saved": 927015
+    },
+    {
+      "rel": "assets\\images\\acfs\\TA\\photo_3.jpg",
+      "before": 602558,
+      "after": 42645,
+      "saved": 559913
+    },
+    {
+      "rel": "assets\\images\\acfs\\TA\\photo_5.jpg",
+      "before": 458539,
+      "after": 26934,
+      "saved": 431605
+    },
+    {
+      "rel": "assets\\images\\acfs\\TA\\photo_6.jpg",
+      "before": 406294,
+      "after": 25146,
+      "saved": 381148
+    },
+    {
+      "rel": "assets\\images\\acfs\\TA\\photo_2.jpg",
+      "before": 385778,
+      "after": 27354,
+      "saved": 358424
+    },
+    {
+      "rel": "assets\\images\\acfs\\TA\\photo_1.jpg",
+      "before": 360235,
+      "after": 28966,
+      "saved": 331269
+    },
+    {
+      "rel": "assets\\images\\logos\\companies\\_pretrim\\ocean-galleria-pre-v68.png",
+      "before": 384817,
+      "after": 86432,
+      "saved": 298385
+    },
+    {
+      "rel": "assets\\images\\logos\\companies\\atl.png",
+      "before": 284781,
+      "after": 42264,
+      "saved": 242517
+    },
+    {
+      "rel": "assets\\images\\acfs\\TA\\photo_7.jpg",
+      "before": 114475,
+      "after": 9932,
+      "saved": 104543
+    },
+    {
+      "rel": "assets\\images\\logos\\companies\\cross-country.png",
+      "before": 126405,
+      "after": 28303,
+      "saved": 98102
+    },
+    {
+      "rel": "assets\\images\\logos\\companies\\gulf-aggregates.png",
+      "before": 131586,
+      "after": 35835,
+      "saved": 95751
+    },
+    {
+      "rel": "assets\\images\\logos\\companies\\aficd.png",
+      "before": 86041,
+      "after": 18136,
+      "saved": 67905
+    },
+    {
+      "rel": "assets\\images\\logos\\companies\\ocean-galleria.png",
+      "before": 75627,
+      "after": 18018,
+      "saved": 57609
+    }
+  ]
+}

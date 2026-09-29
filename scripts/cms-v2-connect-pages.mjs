@@ -35,11 +35,11 @@ for (const page of CMS_V2_PAGE_DEFINITIONS) {
   rows.push({ ...page, family: cmsV2PageFamily(page.key), active, excludedReason: active ? null : redirectedRoutes.has(page.route) ? 'Permanent redirect' : 'Outside sitemap', sections: (html.match(/<section\b/gi) ?? []).length, images: (html.match(/<img\b/gi) ?? []).length, links: (html.match(/<a\b/gi) ?? []).length, special: /hero-globe|timeline|station-map|webgl|three\.min|gallery-grid/i.test(html), brokenAssets, staticIndependent, seoReady: Boolean(title && description && !noindex) });
 }
 
-await mkdir(resolve(root, 'test-results'), { recursive: true });
+await mkdir(resolve(root, 'docs/reports'), { recursive: true });
 const header = '# CMS V2 full-site launch matrix\n\nGenerated from the CMS registry, sitemap, redirects, and static production HTML. This audit never writes public pages.\n\n| Page | Route | Family | Status | Sections | Media | Links | Protected | CMS | SEO | Static independence | Assets |\n|---|---|---|---|---:|---:|---:|---|---|---|---|---|\n';
 const lines = rows.map((row) => `| ${row.label} | ${row.route} | ${row.family} | ${row.active ? 'Active' : `Excluded: ${row.excludedReason}`} | ${row.sections} | ${row.images} | ${row.links} | ${row.special ? 'Yes' : 'No'} | ${row.active ? 'Mapped' : '—'} | ${row.active ? row.seoReady ? 'PASS' : 'FAIL' : '—'} | ${row.staticIndependent ? 'PASS' : 'FAIL'} | ${row.active ? row.brokenAssets.length ? 'FAIL' : 'PASS' : '—'} |`).join('\n');
-await writeFile(resolve(root, 'test-results/CMS_V2_LAUNCH_MATRIX.md'), header + lines + '\n');
-await writeFile(resolve(root, 'test-results/cms-v2-launch-matrix.json'), JSON.stringify({ generatedAt: new Date().toISOString(), activeRoutes: activeRoutes.size, missingRoutes, pages: rows }, null, 2) + '\n');
+await writeFile(resolve(root, 'docs/reports/CMS_V2_LAUNCH_MATRIX.md'), header + lines + '\n');
+await writeFile(resolve(root, 'docs/reports/cms-v2-launch-matrix.json'), JSON.stringify({ generatedAt: new Date().toISOString(), activeRoutes: activeRoutes.size, missingRoutes, pages: rows }, null, 2) + '\n');
 const failures = rows.filter((row) => row.active && (!row.staticIndependent || !row.seoReady || row.brokenAssets.length));
 for (const row of failures) console.log(`FAIL ${row.route}: static=${row.staticIndependent}; seo=${row.seoReady}; broken assets=${row.brokenAssets.join(', ') || 'none'}`);
 for (const route of missingRoutes) console.log(`FAIL unregistered sitemap route: ${route}`);

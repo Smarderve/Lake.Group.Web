@@ -1,0 +1,1530 @@
+{
+  "generatedAt": "2026-09-07T18:39:29.721Z",
+  "restoreTag": "restore-before-sitewide-media-cleanup-20260907-2026",
+  "manifest": "docs/reports/media-inventory-20260907.json",
+  "applicable": 337,
+  "safeProcessed": 257,
+  "manualReviewRequired": 83,
+  "changed": [
+    {
+      "original": "assets/images/ccp/doc-comp-2.jpg",
+      "webp": "assets\\images\\ccp\\doc-comp-2.webp",
+      "originalBytes": 213236,
+      "finalBytes": 196898
+    },
+    {
+      "original": "assets/images/ccp/doc-comp-3.jpg",
+      "webp": "assets\\images\\ccp\\doc-comp-3.webp",
+      "originalBytes": 52768,
+      "finalBytes": 45624
+    },
+    {
+      "original": "assets/images/ccp/doc-comp-4.jpg",
+      "webp": "assets\\images\\ccp\\doc-comp-4.webp",
+      "originalBytes": 58814,
+      "finalBytes": 55644
+    },
+    {
+      "original": "assets/images/ccp/doc-comp-5.jpg",
+      "webp": "assets\\images\\ccp\\doc-comp-5.webp",
+      "originalBytes": 45792,
+      "finalBytes": 43624
+    },
+    {
+      "original": "assets/images/ccp/doc-comp-6.jpg",
+      "webp": "assets\\images\\ccp\\doc-comp-6.webp",
+      "originalBytes": 34939,
+      "finalBytes": 31564
+    },
+    {
+      "original": "assets/images/ccp/doc-dev-3.jpg",
+      "webp": "assets\\images\\ccp\\doc-dev-3.webp",
+      "originalBytes": 333400,
+      "finalBytes": 288094
+    },
+    {
+      "original": "assets/images/ccp/doc-future-1.jpg",
+      "webp": "assets\\images\\ccp\\doc-future-1.webp",
+      "originalBytes": 275764,
+      "finalBytes": 197684
+    },
+    {
+      "original": "assets/images/ccp/doc-future-2.jpg",
+      "webp": "assets\\images\\ccp\\doc-future-2.webp",
+      "originalBytes": 240885,
+      "finalBytes": 155804
+    },
+    {
+      "original": "assets/images/ccp/doc-hero.jpg",
+      "webp": "assets\\images\\ccp\\doc-hero.webp",
+      "originalBytes": 366546,
+      "finalBytes": 284466
+    },
+    {
+      "original": "assets/images/ccp/doc-overview.jpg",
+      "webp": "assets\\images\\ccp\\doc-overview.webp",
+      "originalBytes": 200254,
+      "finalBytes": 135114
+    },
+    {
+      "original": "assets/images/ccp/doc-values.jpg",
+      "webp": "assets\\images\\ccp\\doc-values.webp",
+      "originalBytes": 118337,
+      "finalBytes": 67490
+    },
+    {
+      "original": "assets/images/ccp/doc-vision.jpg",
+      "webp": "assets\\images\\ccp\\doc-vision.webp",
+      "originalBytes": 244492,
+      "finalBytes": 164516
+    },
+    {
+      "original": "assets/images/ccp/doc-wide.jpg",
+      "webp": "assets\\images\\ccp\\doc-wide.webp",
+      "originalBytes": 116396,
+      "finalBytes": 59640
+    },
+    {
+      "original": "assets/images/ccp/photo_1.jpg",
+      "webp": "assets\\images\\ccp\\photo_1.webp",
+      "originalBytes": 232881,
+      "finalBytes": 164786
+    },
+    {
+      "original": "assets/images/ccp/photo_10.jpg",
+      "webp": "assets\\images\\ccp\\photo_10.webp",
+      "originalBytes": 84074,
+      "finalBytes": 85010
+    },
+    {
+      "original": "assets/images/ccp/photo_11.jpg",
+      "webp": "assets\\images\\ccp\\photo_11.webp",
+      "originalBytes": 106976,
+      "finalBytes": 108972
+    },
+    {
+      "original": "assets/images/ccp/photo_12.jpg",
+      "webp": "assets\\images\\ccp\\photo_12.webp",
+      "originalBytes": 76893,
+      "finalBytes": 74164
+    },
+    {
+      "original": "assets/images/ccp/photo_2.jpg",
+      "webp": "assets\\images\\ccp\\photo_2.webp",
+      "originalBytes": 242094,
+      "finalBytes": 181908
+    },
+    {
+      "original": "assets/images/ccp/photo_3.jpg",
+      "webp": "assets\\images\\ccp\\photo_3.webp",
+      "originalBytes": 385260,
+      "finalBytes": 320930
+    },
+    {
+      "original": "assets/images/ccp/photo_4.jpg",
+      "webp": "assets\\images\\ccp\\photo_4.webp",
+      "originalBytes": 99455,
+      "finalBytes": 92790
+    },
+    {
+      "original": "assets/images/ccp/photo_5.jpg",
+      "webp": "assets\\images\\ccp\\photo_5.webp",
+      "originalBytes": 127681,
+      "finalBytes": 111714
+    },
+    {
+      "original": "assets/images/ccp/photo_6.jpg",
+      "webp": "assets\\images\\ccp\\photo_6.webp",
+      "originalBytes": 374710,
+      "finalBytes": 350190
+    },
+    {
+      "original": "assets/images/ccp/photo_7.jpg",
+      "webp": "assets\\images\\ccp\\photo_7.webp",
+      "originalBytes": 329991,
+      "finalBytes": 279974
+    },
+    {
+      "original": "assets/images/ccp/photo_8.jpg",
+      "webp": "assets\\images\\ccp\\photo_8.webp",
+      "originalBytes": 105665,
+      "finalBytes": 104102
+    },
+    {
+      "original": "assets/images/ccp/photo_9.jpg",
+      "webp": "assets\\images\\ccp\\photo_9.webp",
+      "originalBytes": 99455,
+      "finalBytes": 92790
+    },
+    {
+      "original": "assets/images/gccp/photo_1.jpg",
+      "webp": "assets\\images\\gccp\\photo_1.webp",
+      "originalBytes": 232881,
+      "finalBytes": 164786
+    },
+    {
+      "original": "assets/images/gccp/photo_10.jpg",
+      "webp": "assets\\images\\gccp\\photo_10.webp",
+      "originalBytes": 84074,
+      "finalBytes": 85010
+    },
+    {
+      "original": "assets/images/gccp/photo_11.jpg",
+      "webp": "assets\\images\\gccp\\photo_11.webp",
+      "originalBytes": 106976,
+      "finalBytes": 108972
+    },
+    {
+      "original": "assets/images/gccp/photo_12.jpg",
+      "webp": "assets\\images\\gccp\\photo_12.webp",
+      "originalBytes": 76893,
+      "finalBytes": 74164
+    },
+    {
+      "original": "assets/images/gccp/photo_2.jpg",
+      "webp": "assets\\images\\gccp\\photo_2.webp",
+      "originalBytes": 242094,
+      "finalBytes": 181908
+    },
+    {
+      "original": "assets/images/gccp/photo_3.jpg",
+      "webp": "assets\\images\\gccp\\photo_3.webp",
+      "originalBytes": 385260,
+      "finalBytes": 320930
+    },
+    {
+      "original": "assets/images/gccp/photo_4.jpg",
+      "webp": "assets\\images\\gccp\\photo_4.webp",
+      "originalBytes": 99455,
+      "finalBytes": 92790
+    },
+    {
+      "original": "assets/images/gccp/photo_5.jpg",
+      "webp": "assets\\images\\gccp\\photo_5.webp",
+      "originalBytes": 127681,
+      "finalBytes": 111714
+    },
+    {
+      "original": "assets/images/gccp/photo_6.jpg",
+      "webp": "assets\\images\\gccp\\photo_6.webp",
+      "originalBytes": 374710,
+      "finalBytes": 350190
+    },
+    {
+      "original": "assets/images/gccp/photo_7.jpg",
+      "webp": "assets\\images\\gccp\\photo_7.webp",
+      "originalBytes": 329991,
+      "finalBytes": 279974
+    },
+    {
+      "original": "assets/images/gccp/photo_8.jpg",
+      "webp": "assets\\images\\gccp\\photo_8.webp",
+      "originalBytes": 105665,
+      "finalBytes": 104102
+    },
+    {
+      "original": "assets/images/gccp/photo_9.jpg",
+      "webp": "assets\\images\\gccp\\photo_9.webp",
+      "originalBytes": 99455,
+      "finalBytes": 92790
+    },
+    {
+      "original": "assets/images/group/ops/tanker-loading.jpg",
+      "webp": "assets\\images\\group\\ops\\tanker-loading.webp",
+      "originalBytes": 212808,
+      "finalBytes": 198286
+    },
+    {
+      "original": "assets/images/lake-agro/lake-agro-hero-mobile.png",
+      "webp": "assets\\images\\lake-agro\\lake-agro-hero-mobile.webp",
+      "originalBytes": 798333,
+      "finalBytes": 433626
+    },
+    {
+      "original": "assets/images/lake-agro/slid2.jpg",
+      "webp": "assets\\images\\lake-agro\\slid2.webp",
+      "originalBytes": 70469,
+      "finalBytes": 76224
+    },
+    {
+      "original": "assets/images/lake-agro/tanzania.jpg",
+      "webp": "assets\\images\\lake-agro\\tanzania.webp",
+      "originalBytes": 218501,
+      "finalBytes": 245088
+    },
+    {
+      "original": "assets/images/lake-pipes/ops/blue-pipes.jpg",
+      "webp": "assets\\images\\lake-pipes\\ops\\blue-pipes.webp",
+      "originalBytes": 81543,
+      "finalBytes": 53654
+    },
+    {
+      "original": "assets/images/lakegas/ops/cylinder-warehouse.jpg",
+      "webp": "assets\\images\\lakegas\\ops\\cylinder-warehouse.webp",
+      "originalBytes": 357434,
+      "finalBytes": 192290
+    },
+    {
+      "original": "assets/images/lakegas/ops/filling-plant.jpg",
+      "webp": "assets\\images\\lakegas\\ops\\filling-plant.webp",
+      "originalBytes": 446836,
+      "finalBytes": 263434
+    },
+    {
+      "original": "assets/images/lakegas/ops/worker-silas.jpg",
+      "webp": "assets\\images\\lakegas\\ops\\worker-silas.webp",
+      "originalBytes": 175683,
+      "finalBytes": 192898
+    },
+    {
+      "original": "assets/images/lakegas/TA/photo_1.jpg",
+      "webp": "assets\\images\\lakegas\\TA\\photo_1.webp",
+      "originalBytes": 60377,
+      "finalBytes": 69972
+    },
+    {
+      "original": "assets/images/lakelubes/ops/plant.jpg",
+      "webp": "assets\\images\\lakelubes\\ops\\plant.webp",
+      "originalBytes": 350291,
+      "finalBytes": 271504
+    },
+    {
+      "original": "assets/images/lakelubes/TA/photo_1.jpg",
+      "webp": "assets\\images\\lakelubes\\TA\\photo_1.webp",
+      "originalBytes": 141569,
+      "finalBytes": 81926
+    },
+    {
+      "original": "assets/images/lakelubes/TA/photo_2.jpg",
+      "webp": "assets\\images\\lakelubes\\TA\\photo_2.webp",
+      "originalBytes": 44739,
+      "finalBytes": 28084
+    },
+    {
+      "original": "assets/images/lakelubes/TA/photo_3.jpg",
+      "webp": "assets\\images\\lakelubes\\TA\\photo_3.webp",
+      "originalBytes": 213122,
+      "finalBytes": 133480
+    },
+    {
+      "original": "assets/images/lakelubes/TA/photo_4.jpg",
+      "webp": "assets\\images\\lakelubes\\TA\\photo_4.webp",
+      "originalBytes": 77787,
+      "finalBytes": 40458
+    },
+    {
+      "original": "assets/images/lakesteel/ops/hot-rolling.jpg",
+      "webp": "assets\\images\\lakesteel\\ops\\hot-rolling.webp",
+      "originalBytes": 154462,
+      "finalBytes": 258216
+    },
+    {
+      "original": "assets/images/lakesteel/ops/rebar-yard.jpg",
+      "webp": "assets\\images\\lakesteel\\ops\\rebar-yard.webp",
+      "originalBytes": 137858,
+      "finalBytes": 218290
+    },
+    {
+      "original": "assets/images/lakesteel/TA/photo_1.jpg",
+      "webp": "assets\\images\\lakesteel\\TA\\photo_1.webp",
+      "originalBytes": 387703,
+      "finalBytes": 317284
+    },
+    {
+      "original": "assets/images/lakesteel/TA/photo_13.jpg",
+      "webp": "assets\\images\\lakesteel\\TA\\photo_13.webp",
+      "originalBytes": 85510,
+      "finalBytes": 58072
+    },
+    {
+      "original": "assets/images/lakesteel/TA/photo_14.jpg",
+      "webp": "assets\\images\\lakesteel\\TA\\photo_14.webp",
+      "originalBytes": 73245,
+      "finalBytes": 40238
+    },
+    {
+      "original": "assets/images/laketrans/ops/fleet-inspection.jpg",
+      "webp": "assets\\images\\laketrans\\ops\\fleet-inspection.webp",
+      "originalBytes": 183857,
+      "finalBytes": 153936
+    },
+    {
+      "original": "assets/images/leadership/ally-edha-awadh-16x9.jpg",
+      "webp": "assets\\images\\leadership\\ally-edha-awadh-16x9.webp",
+      "originalBytes": 59990,
+      "finalBytes": 27574
+    },
+    {
+      "original": "assets/images/leadership/ally-edha-awadh.png",
+      "webp": "assets\\images\\leadership\\ally-edha-awadh.webp",
+      "originalBytes": 137618,
+      "finalBytes": 57546
+    },
+    {
+      "original": "assets/images/leadership/ally-morocco-mou.jpg",
+      "webp": "assets\\images\\leadership\\ally-morocco-mou.webp",
+      "originalBytes": 57999,
+      "finalBytes": 49770
+    },
+    {
+      "original": "assets/images/leadership/ally-sino-trucks.jpg",
+      "webp": "assets\\images\\leadership\\ally-sino-trucks.webp",
+      "originalBytes": 84666,
+      "finalBytes": 56334
+    },
+    {
+      "original": "assets/images/leadership/annual-event.jpg",
+      "webp": "assets\\images\\leadership\\annual-event.webp",
+      "originalBytes": 136680,
+      "finalBytes": 111062
+    },
+    {
+      "original": "assets/images/leadership/bhaskar-shetty.png",
+      "webp": "assets\\images\\leadership\\bhaskar-shetty.webp",
+      "originalBytes": 68855,
+      "finalBytes": 22282
+    },
+    {
+      "original": "assets/images/leadership/biji-lapat.png",
+      "webp": "assets\\images\\leadership\\biji-lapat.webp",
+      "originalBytes": 118846,
+      "finalBytes": 51458
+    },
+    {
+      "original": "assets/images/leadership/juma-nuru.png",
+      "webp": "assets\\images\\leadership\\juma-nuru.webp",
+      "originalBytes": 133828,
+      "finalBytes": 59900
+    },
+    {
+      "original": "assets/images/leadership/pankaj-kumar.png",
+      "webp": "assets\\images\\leadership\\pankaj-kumar.webp",
+      "originalBytes": 113543,
+      "finalBytes": 44400
+    },
+    {
+      "original": "assets/images/leadership/sibtian-ansari.png",
+      "webp": "assets\\images\\leadership\\sibtian-ansari.webp",
+      "originalBytes": 115531,
+      "finalBytes": 48988
+    },
+    {
+      "original": "assets/images/leadership/vivek-choudhary.png",
+      "webp": "assets\\images\\leadership\\vivek-choudhary.webp",
+      "originalBytes": 94311,
+      "finalBytes": 34954
+    },
+    {
+      "original": "assets/images/main-slider/8.jpg",
+      "webp": "assets\\images\\main-slider\\8.webp",
+      "originalBytes": 244336,
+      "finalBytes": 182116
+    },
+    {
+      "original": "assets/images/merm/photo_1.jpg",
+      "webp": "assets\\images\\merm\\photo_1.webp",
+      "originalBytes": 51557,
+      "finalBytes": 44710
+    },
+    {
+      "original": "assets/images/merm/photo_10.jpg",
+      "webp": "assets\\images\\merm\\photo_10.webp",
+      "originalBytes": 82767,
+      "finalBytes": 77382
+    },
+    {
+      "original": "assets/images/merm/photo_2.jpg",
+      "webp": "assets\\images\\merm\\photo_2.webp",
+      "originalBytes": 102030,
+      "finalBytes": 112464
+    },
+    {
+      "original": "assets/images/merm/photo_3.jpg",
+      "webp": "assets\\images\\merm\\photo_3.webp",
+      "originalBytes": 254113,
+      "finalBytes": 222176
+    },
+    {
+      "original": "assets/images/merm/photo_4.jpg",
+      "webp": "assets\\images\\merm\\photo_4.webp",
+      "originalBytes": 16670,
+      "finalBytes": 16152
+    },
+    {
+      "original": "assets/images/merm/photo_5.jpg",
+      "webp": "assets\\images\\merm\\photo_5.webp",
+      "originalBytes": 50824,
+      "finalBytes": 41502
+    },
+    {
+      "original": "assets/images/merm/photo_6.jpg",
+      "webp": "assets\\images\\merm\\photo_6.webp",
+      "originalBytes": 101249,
+      "finalBytes": 106570
+    },
+    {
+      "original": "assets/images/merm/photo_7.jpg",
+      "webp": "assets\\images\\merm\\photo_7.webp",
+      "originalBytes": 72128,
+      "finalBytes": 74778
+    },
+    {
+      "original": "assets/images/merm/photo_8.jpg",
+      "webp": "assets\\images\\merm\\photo_8.webp",
+      "originalBytes": 84525,
+      "finalBytes": 79802
+    },
+    {
+      "original": "assets/images/merm/photo_9.jpg",
+      "webp": "assets\\images\\merm\\photo_9.webp",
+      "originalBytes": 68648,
+      "finalBytes": 65482
+    },
+    {
+      "original": "assets/images/news/1/photo_1.jpg",
+      "webp": "assets\\images\\news\\1\\photo_1.webp",
+      "originalBytes": 84666,
+      "finalBytes": 56334
+    },
+    {
+      "original": "assets/images/news/10/photo_1.jpg",
+      "webp": "assets\\images\\news\\10\\photo_1.webp",
+      "originalBytes": 158548,
+      "finalBytes": 149174
+    },
+    {
+      "original": "assets/images/news/11/photo_1.jpg",
+      "webp": "assets\\images\\news\\11\\photo_1.webp",
+      "originalBytes": 154805,
+      "finalBytes": 145652
+    },
+    {
+      "original": "assets/images/news/12/photo_1.jpg",
+      "webp": "assets\\images\\news\\12\\photo_1.webp",
+      "originalBytes": 42377,
+      "finalBytes": 33612
+    },
+    {
+      "original": "assets/images/news/14/photo_1.jpg",
+      "webp": "assets\\images\\news\\14\\photo_1.webp",
+      "originalBytes": 193541,
+      "finalBytes": 197422
+    },
+    {
+      "original": "assets/images/news/15/photo_1.jpg",
+      "webp": "assets\\images\\news\\15\\photo_1.webp",
+      "originalBytes": 124702,
+      "finalBytes": 116478
+    },
+    {
+      "original": "assets/images/news/15/photo_2.jpg",
+      "webp": "assets\\images\\news\\15\\photo_2.webp",
+      "originalBytes": 122014,
+      "finalBytes": 116164
+    },
+    {
+      "original": "assets/images/news/15/photo_3.jpg",
+      "webp": "assets\\images\\news\\15\\photo_3.webp",
+      "originalBytes": 130069,
+      "finalBytes": 120254
+    },
+    {
+      "original": "assets/images/news/15/photo_4.jpg",
+      "webp": "assets\\images\\news\\15\\photo_4.webp",
+      "originalBytes": 73818,
+      "finalBytes": 58150
+    },
+    {
+      "original": "assets/images/news/15/photo_5.jpg",
+      "webp": "assets\\images\\news\\15\\photo_5.webp",
+      "originalBytes": 112865,
+      "finalBytes": 100474
+    },
+    {
+      "original": "assets/images/news/15/photo_6.jpg",
+      "webp": "assets\\images\\news\\15\\photo_6.webp",
+      "originalBytes": 124702,
+      "finalBytes": 116478
+    },
+    {
+      "original": "assets/images/news/15/photo_7.jpg",
+      "webp": "assets\\images\\news\\15\\photo_7.webp",
+      "originalBytes": 116834,
+      "finalBytes": 106538
+    },
+    {
+      "original": "assets/images/news/18/photo_1.jpg",
+      "webp": "assets\\images\\news\\18\\photo_1.webp",
+      "originalBytes": 136680,
+      "finalBytes": 111062
+    },
+    {
+      "original": "assets/images/news/18/photo_10.jpg",
+      "webp": "assets\\images\\news\\18\\photo_10.webp",
+      "originalBytes": 177592,
+      "finalBytes": 130390
+    },
+    {
+      "original": "assets/images/news/18/photo_2.jpg",
+      "webp": "assets\\images\\news\\18\\photo_2.webp",
+      "originalBytes": 121498,
+      "finalBytes": 87046
+    },
+    {
+      "original": "assets/images/news/18/photo_3.jpg",
+      "webp": "assets\\images\\news\\18\\photo_3.webp",
+      "originalBytes": 105204,
+      "finalBytes": 76394
+    },
+    {
+      "original": "assets/images/news/18/photo_4.jpg",
+      "webp": "assets\\images\\news\\18\\photo_4.webp",
+      "originalBytes": 140010,
+      "finalBytes": 106084
+    },
+    {
+      "original": "assets/images/news/18/photo_5.jpg",
+      "webp": "assets\\images\\news\\18\\photo_5.webp",
+      "originalBytes": 95407,
+      "finalBytes": 79212
+    },
+    {
+      "original": "assets/images/news/18/photo_6.jpg",
+      "webp": "assets\\images\\news\\18\\photo_6.webp",
+      "originalBytes": 128068,
+      "finalBytes": 91498
+    },
+    {
+      "original": "assets/images/news/18/photo_7.jpg",
+      "webp": "assets\\images\\news\\18\\photo_7.webp",
+      "originalBytes": 87093,
+      "finalBytes": 66152
+    },
+    {
+      "original": "assets/images/news/18/photo_8.jpg",
+      "webp": "assets\\images\\news\\18\\photo_8.webp",
+      "originalBytes": 110659,
+      "finalBytes": 74842
+    },
+    {
+      "original": "assets/images/news/18/photo_9.jpg",
+      "webp": "assets\\images\\news\\18\\photo_9.webp",
+      "originalBytes": 100317,
+      "finalBytes": 69628
+    },
+    {
+      "original": "assets/images/news/19/photo_1.jpg",
+      "webp": "assets\\images\\news\\19\\photo_1.webp",
+      "originalBytes": 315967,
+      "finalBytes": 366354
+    },
+    {
+      "original": "assets/images/news/19/photo_10.jpg",
+      "webp": "assets\\images\\news\\19\\photo_10.webp",
+      "originalBytes": 80605,
+      "finalBytes": 59208
+    },
+    {
+      "original": "assets/images/news/19/photo_11.jpg",
+      "webp": "assets\\images\\news\\19\\photo_11.webp",
+      "originalBytes": 217927,
+      "finalBytes": 211216
+    },
+    {
+      "original": "assets/images/news/19/photo_12.jpg",
+      "webp": "assets\\images\\news\\19\\photo_12.webp",
+      "originalBytes": 264351,
+      "finalBytes": 279700
+    },
+    {
+      "original": "assets/images/news/19/photo_13.jpg",
+      "webp": "assets\\images\\news\\19\\photo_13.webp",
+      "originalBytes": 238022,
+      "finalBytes": 243944
+    },
+    {
+      "original": "assets/images/news/19/photo_14.jpg",
+      "webp": "assets\\images\\news\\19\\photo_14.webp",
+      "originalBytes": 320262,
+      "finalBytes": 362986
+    },
+    {
+      "original": "assets/images/news/19/photo_15.jpg",
+      "webp": "assets\\images\\news\\19\\photo_15.webp",
+      "originalBytes": 312186,
+      "finalBytes": 355866
+    },
+    {
+      "original": "assets/images/news/19/photo_16.jpg",
+      "webp": "assets\\images\\news\\19\\photo_16.webp",
+      "originalBytes": 307865,
+      "finalBytes": 351516
+    },
+    {
+      "original": "assets/images/news/19/photo_17.jpg",
+      "webp": "assets\\images\\news\\19\\photo_17.webp",
+      "originalBytes": 226948,
+      "finalBytes": 238676
+    },
+    {
+      "original": "assets/images/news/19/photo_18.jpg",
+      "webp": "assets\\images\\news\\19\\photo_18.webp",
+      "originalBytes": 199778,
+      "finalBytes": 181932
+    },
+    {
+      "original": "assets/images/news/19/photo_19.jpg",
+      "webp": "assets\\images\\news\\19\\photo_19.webp",
+      "originalBytes": 127289,
+      "finalBytes": 102114
+    },
+    {
+      "original": "assets/images/news/19/photo_2.jpg",
+      "webp": "assets\\images\\news\\19\\photo_2.webp",
+      "originalBytes": 187913,
+      "finalBytes": 166776
+    },
+    {
+      "original": "assets/images/news/19/photo_20.jpg",
+      "webp": "assets\\images\\news\\19\\photo_20.webp",
+      "originalBytes": 278425,
+      "finalBytes": 295888
+    },
+    {
+      "original": "assets/images/news/19/photo_3.jpg",
+      "webp": "assets\\images\\news\\19\\photo_3.webp",
+      "originalBytes": 205501,
+      "finalBytes": 198492
+    },
+    {
+      "original": "assets/images/news/19/photo_4.jpg",
+      "webp": "assets\\images\\news\\19\\photo_4.webp",
+      "originalBytes": 132383,
+      "finalBytes": 105758
+    },
+    {
+      "original": "assets/images/news/19/photo_5.jpg",
+      "webp": "assets\\images\\news\\19\\photo_5.webp",
+      "originalBytes": 184938,
+      "finalBytes": 173558
+    },
+    {
+      "original": "assets/images/news/19/photo_6.jpg",
+      "webp": "assets\\images\\news\\19\\photo_6.webp",
+      "originalBytes": 162295,
+      "finalBytes": 136434
+    },
+    {
+      "original": "assets/images/news/19/photo_7.jpg",
+      "webp": "assets\\images\\news\\19\\photo_7.webp",
+      "originalBytes": 106391,
+      "finalBytes": 82734
+    },
+    {
+      "original": "assets/images/news/19/photo_8.jpg",
+      "webp": "assets\\images\\news\\19\\photo_8.webp",
+      "originalBytes": 225268,
+      "finalBytes": 223744
+    },
+    {
+      "original": "assets/images/news/19/photo_9.jpg",
+      "webp": "assets\\images\\news\\19\\photo_9.webp",
+      "originalBytes": 106529,
+      "finalBytes": 80380
+    },
+    {
+      "original": "assets/images/news/20/photo_1.jpg",
+      "webp": "assets\\images\\news\\20\\photo_1.webp",
+      "originalBytes": 129515,
+      "finalBytes": 104514
+    },
+    {
+      "original": "assets/images/news/20/photo_10.jpg",
+      "webp": "assets\\images\\news\\20\\photo_10.webp",
+      "originalBytes": 169273,
+      "finalBytes": 134444
+    },
+    {
+      "original": "assets/images/news/20/photo_11.jpg",
+      "webp": "assets\\images\\news\\20\\photo_11.webp",
+      "originalBytes": 188768,
+      "finalBytes": 160494
+    },
+    {
+      "original": "assets/images/news/20/photo_2.jpg",
+      "webp": "assets\\images\\news\\20\\photo_2.webp",
+      "originalBytes": 121959,
+      "finalBytes": 88314
+    },
+    {
+      "original": "assets/images/news/20/photo_3.jpg",
+      "webp": "assets\\images\\news\\20\\photo_3.webp",
+      "originalBytes": 139810,
+      "finalBytes": 102162
+    },
+    {
+      "original": "assets/images/news/20/photo_4.jpg",
+      "webp": "assets\\images\\news\\20\\photo_4.webp",
+      "originalBytes": 189331,
+      "finalBytes": 154998
+    },
+    {
+      "original": "assets/images/news/20/photo_5.jpg",
+      "webp": "assets\\images\\news\\20\\photo_5.webp",
+      "originalBytes": 160124,
+      "finalBytes": 127904
+    },
+    {
+      "original": "assets/images/news/20/photo_6.jpg",
+      "webp": "assets\\images\\news\\20\\photo_6.webp",
+      "originalBytes": 173775,
+      "finalBytes": 143396
+    },
+    {
+      "original": "assets/images/news/20/photo_7.jpg",
+      "webp": "assets\\images\\news\\20\\photo_7.webp",
+      "originalBytes": 161674,
+      "finalBytes": 128818
+    },
+    {
+      "original": "assets/images/news/20/photo_8.jpg",
+      "webp": "assets\\images\\news\\20\\photo_8.webp",
+      "originalBytes": 177588,
+      "finalBytes": 145740
+    },
+    {
+      "original": "assets/images/news/20/photo_9.jpg",
+      "webp": "assets\\images\\news\\20\\photo_9.webp",
+      "originalBytes": 190138,
+      "finalBytes": 161324
+    },
+    {
+      "original": "assets/images/news/3/photo_1.jpg",
+      "webp": "assets\\images\\news\\3\\photo_1.webp",
+      "originalBytes": 57999,
+      "finalBytes": 49770
+    },
+    {
+      "original": "assets/images/news/6/photo_1.jpg",
+      "webp": "assets\\images\\news\\6\\photo_1.webp",
+      "originalBytes": 43864,
+      "finalBytes": 33426
+    },
+    {
+      "original": "assets/images/news/6/photo_2.jpg",
+      "webp": "assets\\images\\news\\6\\photo_2.webp",
+      "originalBytes": 25301,
+      "finalBytes": 21574
+    },
+    {
+      "original": "assets/images/news/6/photo_3.jpg",
+      "webp": "assets\\images\\news\\6\\photo_3.webp",
+      "originalBytes": 28718,
+      "finalBytes": 20530
+    },
+    {
+      "original": "assets/images/news/8/photo_1.jpg",
+      "webp": "assets\\images\\news\\8\\photo_1.webp",
+      "originalBytes": 30301,
+      "finalBytes": 29054
+    },
+    {
+      "original": "assets/images/rm/photo_1.jpg",
+      "webp": "assets\\images\\rm\\photo_1.webp",
+      "originalBytes": 51557,
+      "finalBytes": 44710
+    },
+    {
+      "original": "assets/images/rm/photo_10.jpg",
+      "webp": "assets\\images\\rm\\photo_10.webp",
+      "originalBytes": 82767,
+      "finalBytes": 77382
+    },
+    {
+      "original": "assets/images/rm/photo_2.jpg",
+      "webp": "assets\\images\\rm\\photo_2.webp",
+      "originalBytes": 102030,
+      "finalBytes": 112464
+    },
+    {
+      "original": "assets/images/rm/photo_3.jpg",
+      "webp": "assets\\images\\rm\\photo_3.webp",
+      "originalBytes": 254113,
+      "finalBytes": 222176
+    },
+    {
+      "original": "assets/images/rm/photo_4.jpg",
+      "webp": "assets\\images\\rm\\photo_4.webp",
+      "originalBytes": 16670,
+      "finalBytes": 16152
+    },
+    {
+      "original": "assets/images/rm/photo_5.jpg",
+      "webp": "assets\\images\\rm\\photo_5.webp",
+      "originalBytes": 50824,
+      "finalBytes": 41502
+    },
+    {
+      "original": "assets/images/rm/photo_6.jpg",
+      "webp": "assets\\images\\rm\\photo_6.webp",
+      "originalBytes": 101249,
+      "finalBytes": 106570
+    },
+    {
+      "original": "assets/images/rm/photo_7.jpg",
+      "webp": "assets\\images\\rm\\photo_7.webp",
+      "originalBytes": 72128,
+      "finalBytes": 74778
+    },
+    {
+      "original": "assets/images/rm/photo_8.jpg",
+      "webp": "assets\\images\\rm\\photo_8.webp",
+      "originalBytes": 84525,
+      "finalBytes": 79802
+    },
+    {
+      "original": "assets/images/rm/photo_9.jpg",
+      "webp": "assets\\images\\rm\\photo_9.webp",
+      "originalBytes": 68648,
+      "finalBytes": 65482
+    }
+  ],
+  "noEdit": [
+    {
+      "original": "assets/images/about/about-hero-03.webp",
+      "webp": "assets\\images\\about\\about-hero-03.webp",
+      "finalBytes": 110514
+    },
+    {
+      "original": "assets/images/about/about-hero-04.webp",
+      "webp": "assets\\images\\about\\about-hero-04.webp",
+      "finalBytes": 177912
+    },
+    {
+      "original": "assets/images/about/about-hero-05.webp",
+      "webp": "assets\\images\\about\\about-hero-05.webp",
+      "finalBytes": 183440
+    },
+    {
+      "original": "assets/images/about/about-hero-06.webp",
+      "webp": "assets\\images\\about\\about-hero-06.webp",
+      "finalBytes": 118688
+    },
+    {
+      "original": "assets/images/about/about-hero-07.webp",
+      "webp": "assets\\images\\about\\about-hero-07.webp",
+      "finalBytes": 177958
+    },
+    {
+      "original": "assets/images/about/about-hero-09.webp",
+      "webp": "assets\\images\\about\\about-hero-09.webp",
+      "finalBytes": 201544
+    },
+    {
+      "original": "assets/images/about/about-hero-12.webp",
+      "webp": "assets\\images\\about\\about-hero-12.webp",
+      "finalBytes": 115590
+    },
+    {
+      "original": "assets/images/about/about-story-terminal-enhanced.webp",
+      "webp": "assets\\images\\about\\about-story-terminal-enhanced.webp",
+      "finalBytes": 110514
+    },
+    {
+      "original": "assets/images/aill/aill-hero-960.webp",
+      "webp": "assets\\images\\aill\\aill-hero-960.webp",
+      "finalBytes": 81044
+    },
+    {
+      "original": "assets/images/aill/aill-hero.webp",
+      "webp": "assets\\images\\aill\\aill-hero.webp",
+      "finalBytes": 136510
+    },
+    {
+      "original": "assets/images/banner/LakeOil.jpg",
+      "webp": "assets\\images\\banner\\LakeOil.webp",
+      "finalBytes": 114916
+    },
+    {
+      "original": "assets/images/banner/LakeOil1.jpg",
+      "webp": "assets\\images\\banner\\LakeOil1.webp",
+      "finalBytes": 56344
+    },
+    {
+      "original": "assets/images/banner/LakeTrans-opt.webp",
+      "webp": "assets\\images\\banner\\LakeTrans-opt.webp",
+      "finalBytes": 60980
+    },
+    {
+      "original": "assets/images/ccp/doc-comp-1.webp",
+      "webp": "assets\\images\\ccp\\doc-comp-1.webp",
+      "finalBytes": 95800
+    },
+    {
+      "original": "assets/images/contact/contact-hero-lake-energies.webp",
+      "webp": "assets\\images\\contact\\contact-hero-lake-energies.webp",
+      "finalBytes": 110514
+    },
+    {
+      "original": "assets/images/contact/kigamboni-hq.webp",
+      "webp": "assets\\images\\contact\\kigamboni-hq.webp",
+      "finalBytes": 110670
+    },
+    {
+      "original": "assets/images/cross-country/cross-country-hero-960.webp",
+      "webp": "assets\\images\\cross-country\\cross-country-hero-960.webp",
+      "finalBytes": 48016
+    },
+    {
+      "original": "assets/images/cross-country/cross-country-hero-thumb.webp",
+      "webp": "assets\\images\\cross-country\\cross-country-hero-thumb.webp",
+      "finalBytes": 3756
+    },
+    {
+      "original": "assets/images/cross-country/cross-country-hero.webp",
+      "webp": "assets\\images\\cross-country\\cross-country-hero.webp",
+      "finalBytes": 95800
+    },
+    {
+      "original": "assets/images/gccp/lake-premix-batching-plant.webp",
+      "webp": "assets\\images\\gccp\\lake-premix-batching-plant.webp",
+      "finalBytes": 160206
+    },
+    {
+      "original": "assets/images/group/ops/depot-aerial.jpg",
+      "webp": "assets\\images\\group\\ops\\depot-aerial.webp",
+      "finalBytes": 138236
+    },
+    {
+      "original": "assets/images/gulf-aggregates/hero/gulf-aggregates-hero-960.webp",
+      "webp": "assets\\images\\gulf-aggregates\\hero\\gulf-aggregates-hero-960.webp",
+      "finalBytes": 202292
+    },
+    {
+      "original": "assets/images/gulf-aggregates/hero/gulf-aggregates-hero.webp",
+      "webp": "assets\\images\\gulf-aggregates\\hero\\gulf-aggregates-hero.webp",
+      "finalBytes": 385584
+    },
+    {
+      "original": "assets/images/gulf-aggregates/services/lake-concrete-plant.webp",
+      "webp": "assets\\images\\gulf-aggregates\\services\\lake-concrete-plant.webp",
+      "finalBytes": 160206
+    },
+    {
+      "original": "assets/images/gulf-aggregates/services/quarry-excavator.webp",
+      "webp": "assets\\images\\gulf-aggregates\\services\\quarry-excavator.webp",
+      "finalBytes": 424948
+    },
+    {
+      "original": "assets/images/gulf-aggregates/services/quarry-processing.webp",
+      "webp": "assets\\images\\gulf-aggregates\\services\\quarry-processing.webp",
+      "finalBytes": 385584
+    },
+    {
+      "original": "assets/images/history/hero/history-hero.webp",
+      "webp": "assets\\images\\history\\hero\\history-hero.webp",
+      "finalBytes": 110514
+    },
+    {
+      "original": "assets/images/home/verticals/automotive-truck-lineup-960.webp",
+      "webp": "assets\\images\\home\\verticals\\automotive-truck-lineup-960.webp",
+      "finalBytes": 49806
+    },
+    {
+      "original": "assets/images/home/verticals/automotive-truck-lineup-thumb.webp",
+      "webp": "assets\\images\\home\\verticals\\automotive-truck-lineup-thumb.webp",
+      "finalBytes": 4468
+    },
+    {
+      "original": "assets/images/home/verticals/energies-960.webp",
+      "webp": "assets\\images\\home\\verticals\\energies-960.webp",
+      "finalBytes": 55704
+    },
+    {
+      "original": "assets/images/home/verticals/energies-thumb.webp",
+      "webp": "assets\\images\\home\\verticals\\energies-thumb.webp",
+      "finalBytes": 5018
+    },
+    {
+      "original": "assets/images/home/verticals/energies.webp",
+      "webp": "assets\\images\\home\\verticals\\energies.webp",
+      "finalBytes": 96674
+    },
+    {
+      "original": "assets/images/home/verticals/logistics-960.webp",
+      "webp": "assets\\images\\home\\verticals\\logistics-960.webp",
+      "finalBytes": 98802
+    },
+    {
+      "original": "assets/images/home/verticals/logistics-thumb.webp",
+      "webp": "assets\\images\\home\\verticals\\logistics-thumb.webp",
+      "finalBytes": 5248
+    },
+    {
+      "original": "assets/images/home/verticals/logistics.webp",
+      "webp": "assets\\images\\home\\verticals\\logistics.webp",
+      "finalBytes": 168640
+    },
+    {
+      "original": "assets/images/home/verticals/manufacturing-960.webp",
+      "webp": "assets\\images\\home\\verticals\\manufacturing-960.webp",
+      "finalBytes": 135060
+    },
+    {
+      "original": "assets/images/home/verticals/manufacturing-thumb.webp",
+      "webp": "assets\\images\\home\\verticals\\manufacturing-thumb.webp",
+      "finalBytes": 9924
+    },
+    {
+      "original": "assets/images/home/verticals/manufacturing.webp",
+      "webp": "assets\\images\\home\\verticals\\manufacturing.webp",
+      "finalBytes": 255404
+    },
+    {
+      "original": "assets/images/lake-agro/la-irrigation-bareland.webp",
+      "webp": "assets\\images\\lake-agro\\la-irrigation-bareland.webp",
+      "finalBytes": 252068
+    },
+    {
+      "original": "assets/images/lake-agro/la-irrigation-green.webp",
+      "webp": "assets\\images\\lake-agro\\la-irrigation-green.webp",
+      "finalBytes": 249008
+    },
+    {
+      "original": "assets/images/lake-agro/la-tanzania-factory.webp",
+      "webp": "assets\\images\\lake-agro\\la-tanzania-factory.webp",
+      "finalBytes": 266404
+    },
+    {
+      "original": "assets/images/lake-agro/la-tanzania-sugarcane.webp",
+      "webp": "assets\\images\\lake-agro\\la-tanzania-sugarcane.webp",
+      "finalBytes": 232230
+    },
+    {
+      "original": "assets/images/lake-agro/lake-agro-hero-desktop.webp",
+      "webp": "assets\\images\\lake-agro\\lake-agro-hero-desktop.webp",
+      "finalBytes": 245794
+    },
+    {
+      "original": "assets/images/lake-agro/lake-agro-livestock.webp",
+      "webp": "assets\\images\\lake-agro\\lake-agro-livestock.webp",
+      "finalBytes": 207622
+    },
+    {
+      "original": "assets/images/lake-agro/lake-agro-maize.webp",
+      "webp": "assets\\images\\lake-agro\\lake-agro-maize.webp",
+      "finalBytes": 261040
+    },
+    {
+      "original": "assets/images/lake-agro/lake-agro-soya.webp",
+      "webp": "assets\\images\\lake-agro\\lake-agro-soya.webp",
+      "finalBytes": 314882
+    },
+    {
+      "original": "assets/images/lake-agro/slid1.jpg",
+      "webp": "assets\\images\\lake-agro\\slid1.webp",
+      "finalBytes": 204348
+    },
+    {
+      "original": "assets/images/lake-agro/tanzania-opt.webp",
+      "webp": "assets\\images\\lake-agro\\tanzania-opt.webp",
+      "finalBytes": 107836
+    },
+    {
+      "original": "assets/images/lake-aviation/credentials/jig-member-2026.webp",
+      "webp": "assets\\images\\lake-aviation\\credentials\\jig-member-2026.webp",
+      "finalBytes": 23058
+    },
+    {
+      "original": "assets/images/lake-pipes/hero/lake-pipes-hero.webp",
+      "webp": "assets\\images\\lake-pipes\\hero\\lake-pipes-hero.webp",
+      "finalBytes": 115876
+    },
+    {
+      "original": "assets/images/lake-pipes/ops/blue-pipes-opt.webp",
+      "webp": "assets\\images\\lake-pipes\\ops\\blue-pipes-opt.webp",
+      "finalBytes": 22846
+    },
+    {
+      "original": "assets/images/lakegas/ops/cylinder-hero-800.webp",
+      "webp": "assets\\images\\lakegas\\ops\\cylinder-hero-800.webp",
+      "finalBytes": 88126
+    },
+    {
+      "original": "assets/images/lakegas/ops/cylinder-hero.webp",
+      "webp": "assets\\images\\lakegas\\ops\\cylinder-hero.webp",
+      "finalBytes": 201544
+    },
+    {
+      "original": "assets/images/lakegas/ops/cylinder-stacks.jpg",
+      "webp": "assets\\images\\lakegas\\ops\\cylinder-stacks.webp",
+      "finalBytes": 141270
+    },
+    {
+      "original": "assets/images/lakegas/ops/cylinder-stacks.webp",
+      "webp": "assets\\images\\lakegas\\ops\\cylinder-stacks.webp",
+      "finalBytes": 141270
+    },
+    {
+      "original": "assets/images/lakegas/ops/cylinders-yard.jpg",
+      "webp": "assets\\images\\lakegas\\ops\\cylinders-yard.webp",
+      "finalBytes": 178492
+    },
+    {
+      "original": "assets/images/lakegas/ops/filling-plant-opt.webp",
+      "webp": "assets\\images\\lakegas\\ops\\filling-plant-opt.webp",
+      "finalBytes": 50252
+    },
+    {
+      "original": "assets/images/lakegas/ops/lake-gas-lpg-filling-line-800.webp",
+      "webp": "assets\\images\\lakegas\\ops\\lake-gas-lpg-filling-line-800.webp",
+      "finalBytes": 83242
+    },
+    {
+      "original": "assets/images/lakegas/ops/lake-gas-lpg-filling-line.webp",
+      "webp": "assets\\images\\lakegas\\ops\\lake-gas-lpg-filling-line.webp",
+      "finalBytes": 177912
+    },
+    {
+      "original": "assets/images/lakelubes/ops/plant-800.webp",
+      "webp": "assets\\images\\lakelubes\\ops\\plant-800.webp",
+      "finalBytes": 62928
+    },
+    {
+      "original": "assets/images/lakelubes/ops/plant-opt.webp",
+      "webp": "assets\\images\\lakelubes\\ops\\plant-opt.webp",
+      "finalBytes": 48276
+    },
+    {
+      "original": "assets/images/lakelubes/products/lake-lubes-power-eco-range.webp",
+      "webp": "assets\\images\\lakelubes\\products\\lake-lubes-power-eco-range.webp",
+      "finalBytes": 89520
+    },
+    {
+      "original": "assets/images/lakelubes/products/optimized/gl5-85w140-5l.webp",
+      "webp": "assets\\images\\lakelubes\\products\\optimized\\gl5-85w140-5l.webp",
+      "finalBytes": 88578
+    },
+    {
+      "original": "assets/images/lakelubes/products/optimized/grease-mp2-1kg.webp",
+      "webp": "assets\\images\\lakelubes\\products\\optimized\\grease-mp2-1kg.webp",
+      "finalBytes": 99192
+    },
+    {
+      "original": "assets/images/lakelubes/products/optimized/hd-supreme-700-20l.webp",
+      "webp": "assets\\images\\lakelubes\\products\\optimized\\hd-supreme-700-20l.webp",
+      "finalBytes": 60596
+    },
+    {
+      "original": "assets/images/lakelubes/products/optimized/lake-lubes-drums.webp",
+      "webp": "assets\\images\\lakelubes\\products\\optimized\\lake-lubes-drums.webp",
+      "finalBytes": 125398
+    },
+    {
+      "original": "assets/images/lakelubes/products/optimized/power-supreme-1l.webp",
+      "webp": "assets\\images\\lakelubes\\products\\optimized\\power-supreme-1l.webp",
+      "finalBytes": 82928
+    },
+    {
+      "original": "assets/images/lakelubes/products/optimized/power-supreme-4l.webp",
+      "webp": "assets\\images\\lakelubes\\products\\optimized\\power-supreme-4l.webp",
+      "finalBytes": 77720
+    },
+    {
+      "original": "assets/images/lakelubes/products/optimized/super-cool-20l.webp",
+      "webp": "assets\\images\\lakelubes\\products\\optimized\\super-cool-20l.webp",
+      "finalBytes": 59434
+    },
+    {
+      "original": "assets/images/lakelubes/products/optimized/super-cool-5l.webp",
+      "webp": "assets\\images\\lakelubes\\products\\optimized\\super-cool-5l.webp",
+      "finalBytes": 63432
+    },
+    {
+      "original": "assets/images/lakeoil/current/lake-energies-station-approved.webp",
+      "webp": "assets\\images\\lakeoil\\current\\lake-energies-station-approved.webp",
+      "finalBytes": 131178
+    },
+    {
+      "original": "assets/images/lakeoil/current/lake-energies-tanker-network.webp",
+      "webp": "assets\\images\\lakeoil\\current\\lake-energies-tanker-network.webp",
+      "finalBytes": 96674
+    },
+    {
+      "original": "assets/images/lakeoil/current/storage-facilities-terminal.webp",
+      "webp": "assets\\images\\lakeoil\\current\\storage-facilities-terminal.webp",
+      "finalBytes": 110514
+    },
+    {
+      "original": "assets/images/lakeoil/current/tanker-lake-energies-opt.webp",
+      "webp": "assets\\images\\lakeoil\\current\\tanker-lake-energies-opt.webp",
+      "finalBytes": 96114
+    },
+    {
+      "original": "assets/images/lakeoil/current/tanker-lake-energies.jpg",
+      "webp": "assets\\images\\lakeoil\\current\\tanker-lake-energies.webp",
+      "finalBytes": 415360
+    },
+    {
+      "original": "assets/images/lakeoil/current/tanker-lake-energies.webp",
+      "webp": "assets\\images\\lakeoil\\current\\tanker-lake-energies.webp",
+      "finalBytes": 415360
+    },
+    {
+      "original": "assets/images/lakeoil/hero/lake-oil-hero-800.webp",
+      "webp": "assets\\images\\lakeoil\\hero\\lake-oil-hero-800.webp",
+      "finalBytes": 56478
+    },
+    {
+      "original": "assets/images/lakeoil/hero/lake-oil-hero.webp",
+      "webp": "assets\\images\\lakeoil\\hero\\lake-oil-hero.webp",
+      "finalBytes": 131178
+    },
+    {
+      "original": "assets/images/lakepipes/hero/lake-pipes-hero-800.webp",
+      "webp": "assets\\images\\lakepipes\\hero\\lake-pipes-hero-800.webp",
+      "finalBytes": 54724
+    },
+    {
+      "original": "assets/images/lakepipes/hero/lake-pipes-hero.webp",
+      "webp": "assets\\images\\lakepipes\\hero\\lake-pipes-hero.webp",
+      "finalBytes": 61540
+    },
+    {
+      "original": "assets/images/lakepremix/hero/premix-trucks-hero-800.webp",
+      "webp": "assets\\images\\lakepremix\\hero\\premix-trucks-hero-800.webp",
+      "finalBytes": 76480
+    },
+    {
+      "original": "assets/images/lakepremix/hero/premix-trucks-hero.webp",
+      "webp": "assets\\images\\lakepremix\\hero\\premix-trucks-hero.webp",
+      "finalBytes": 177958
+    },
+    {
+      "original": "assets/images/lakesteel/ops/hot-rolling-opt.webp",
+      "webp": "assets\\images\\lakesteel\\ops\\hot-rolling-opt.webp",
+      "finalBytes": 66390
+    },
+    {
+      "original": "assets/images/laketrans/hero/lake-trans-fleet-hero-800.webp",
+      "webp": "assets\\images\\laketrans\\hero\\lake-trans-fleet-hero-800.webp",
+      "finalBytes": 34312
+    },
+    {
+      "original": "assets/images/laketrans/hero/lake-trans-fleet-hero.webp",
+      "webp": "assets\\images\\laketrans\\hero\\lake-trans-fleet-hero.webp",
+      "finalBytes": 109568
+    },
+    {
+      "original": "assets/images/laketrans/TA/photo_1.jpg",
+      "webp": "assets\\images\\laketrans\\TA\\photo_1.webp",
+      "finalBytes": 85204
+    },
+    {
+      "original": "assets/images/laketrans/TA/photo_1.webp",
+      "webp": "assets\\images\\laketrans\\TA\\photo_1.webp",
+      "finalBytes": 85204
+    },
+    {
+      "original": "assets/images/leadership/leadership-group-meeting.webp",
+      "webp": "assets\\images\\leadership\\leadership-group-meeting.webp",
+      "finalBytes": 140574
+    },
+    {
+      "original": "assets/images/n-slider/2.webp",
+      "webp": "assets\\images\\n-slider\\2.webp",
+      "finalBytes": 82798
+    },
+    {
+      "original": "assets/images/n-slider/3.jpg",
+      "webp": "assets\\images\\n-slider\\3.webp",
+      "finalBytes": 283508
+    },
+    {
+      "original": "assets/images/n-slider/3.webp",
+      "webp": "assets\\images\\n-slider\\3.webp",
+      "finalBytes": 283508
+    },
+    {
+      "original": "assets/images/n-slider/4.jpg",
+      "webp": "assets\\images\\n-slider\\4.webp",
+      "finalBytes": 190186
+    },
+    {
+      "original": "assets/images/n-slider/4.webp",
+      "webp": "assets\\images\\n-slider\\4.webp",
+      "finalBytes": 190186
+    },
+    {
+      "original": "assets/images/n-slider/5.jpg",
+      "webp": "assets\\images\\n-slider\\5.webp",
+      "finalBytes": 68870
+    },
+    {
+      "original": "assets/images/n-slider/5.webp",
+      "webp": "assets\\images\\n-slider\\5.webp",
+      "finalBytes": 68870
+    },
+    {
+      "original": "assets/images/n-slider/6.jpg",
+      "webp": "assets\\images\\n-slider\\6.webp",
+      "finalBytes": 269314
+    },
+    {
+      "original": "assets/images/n-slider/6.webp",
+      "webp": "assets\\images\\n-slider\\6.webp",
+      "finalBytes": 269314
+    },
+    {
+      "original": "assets/images/n-slider/8.jpg",
+      "webp": "assets\\images\\n-slider\\8.webp",
+      "finalBytes": 162430
+    },
+    {
+      "original": "assets/images/n-slider/9.jpg",
+      "webp": "assets\\images\\n-slider\\9.webp",
+      "finalBytes": 403132
+    },
+    {
+      "original": "assets/images/n-slider/9.webp",
+      "webp": "assets\\images\\n-slider\\9.webp",
+      "finalBytes": 403132
+    },
+    {
+      "original": "assets/images/acfs/TA/photo_3.jpg",
+      "webp": "assets/images/acfs/TA/photo_3.webp",
+      "finalBytes": 32752
+    },
+    {
+      "original": "assets/images/acfs/TA/photo_5.jpg",
+      "webp": "assets/images/acfs/TA/photo_5.webp",
+      "finalBytes": 18902
+    },
+    {
+      "original": "assets/images/acfs/TA/photo_6.jpg",
+      "webp": "assets/images/acfs/TA/photo_6.webp",
+      "finalBytes": 18112
+    },
+    {
+      "original": "assets/images/acfs/TA/photo_7.jpg",
+      "webp": "assets/images/acfs/TA/photo_7.webp",
+      "finalBytes": 5676
+    },
+    {
+      "original": "assets/images/news/4/photo_1.jpg",
+      "webp": "assets/images/news/4/photo_1.webp",
+      "finalBytes": 183946
+    },
+    {
+      "original": "assets/images/news/4/photo_2.jpg",
+      "webp": "assets/images/news/4/photo_2.webp",
+      "finalBytes": 122190
+    },
+    {
+      "original": "assets/images/news/4/photo_3.jpg",
+      "webp": "assets/images/news/4/photo_3.webp",
+      "finalBytes": 207872
+    },
+    {
+      "original": "assets/images/news/6/photo_1.jpg",
+      "webp": "assets/images/news/6/photo_1.webp",
+      "finalBytes": 33426
+    },
+    {
+      "original": "assets/images/news/6/photo_2.jpg",
+      "webp": "assets/images/news/6/photo_2.webp",
+      "finalBytes": 21574
+    },
+    {
+      "original": "assets/images/news/6/photo_3.jpg",
+      "webp": "assets/images/news/6/photo_3.webp",
+      "finalBytes": 20530
+    }
+  ],
+  "failures": [],
+  "manualReviewPaths": [
+    "assets/images/acfs/TA/photo_1.jpg",
+    "assets/images/acfs/TA/photo_10.jpg",
+    "assets/images/acfs/TA/photo_11.jpg",
+    "assets/images/acfs/TA/photo_2.jpg",
+    "assets/images/acfs/TA/photo_8.jpg",
+    "assets/images/acfs/TA/photo_9.jpg",
+    "assets/images/aficd/operations/aficd-branded-container.webp",
+    "assets/images/aficd/operations/aficd-container-handling.webp",
+    "assets/images/aficd/operations/aficd-sany-reach-stacker.webp",
+    "assets/images/aficd/operations/aficd-truck-loading.webp",
+    "assets/images/aficd/operations/aficd-wide-yard.webp",
+    "assets/images/aficd/operations/aficd-yard-lift.webp",
+    "assets/images/aficd/operations/aficd-yard.webp",
+    "assets/images/aficd/TA/photo_1.jpg",
+    "assets/images/aficd/TA/photo_1.webp",
+    "assets/images/ficd/TA/photo_1.jpg",
+    "assets/images/lake-agro/la-combine-harvester.webp",
+    "assets/images/lake-agro/la-excavators.webp",
+    "assets/images/lake-agro/la-machinery-shed.webp",
+    "assets/images/lake-agro/la-tractors-duo.webp",
+    "assets/images/lake-aviation/gallery/aviation-flysafair-refuel.webp",
+    "assets/images/lake-aviation/gallery/aviation-fueling-coastal.webp",
+    "assets/images/lake-aviation/gallery/aviation-nyerere-tanker.webp",
+    "assets/images/lake-aviation/gallery/aviation-oman-air-cargo.webp",
+    "assets/images/lake-aviation/gallery/aviation-skyward-apron.webp",
+    "assets/images/lake-aviation/gallery/aviation-team-truck.webp",
+    "assets/images/lake-aviation/gallery/aviation-worker-underwing.webp",
+    "assets/images/lake-aviation/ops/aviation-10.jpg",
+    "assets/images/lake-aviation/ops/aviation-11.jpg",
+    "assets/images/lake-aviation/ops/aviation-12.jpg",
+    "assets/images/lake-aviation/ops/aviation-13.jpg",
+    "assets/images/lake-aviation/ops/aviation-14.jpg",
+    "assets/images/lake-aviation/ops/aviation-15.jpg",
+    "assets/images/lake-aviation/ops/aviation-2.jpg",
+    "assets/images/lake-aviation/ops/aviation-4.jpg",
+    "assets/images/lake-aviation/ops/aviation-6.jpg",
+    "assets/images/lake-aviation/ops/aviation-8.jpg",
+    "assets/images/lake-aviation/ops/aviation-9.jpg",
+    "assets/images/lake-aviation/ops/bulk-storage-lake-energies.webp",
+    "assets/images/lake-aviation/ops/lake-aviation-hero-apron.webp",
+    "assets/images/laketrans/profile/blue-truck-lineup.jpg",
+    "assets/images/laketrans/profile/fleet-lineup.jpg",
+    "assets/images/laketrans/profile/fleet-tankers.jpg",
+    "assets/images/laketrans/profile/lake-trans-truck-fleet.webp",
+    "assets/images/laketrans/profile/petroleum-tanker.jpg",
+    "assets/images/laketrans/profile/road-fuel-tanker.jpg",
+    "assets/images/news/16/photo_1.jpg",
+    "assets/images/news/16/photo_2.jpg",
+    "assets/images/news/16/photo_3.jpg",
+    "assets/images/news/17/photo_1.jpg",
+    "assets/images/news/17/photo_10.jpg",
+    "assets/images/news/17/photo_11.jpg",
+    "assets/images/news/17/photo_12.jpg",
+    "assets/images/news/17/photo_13.jpg",
+    "assets/images/news/17/photo_14.jpg",
+    "assets/images/news/17/photo_15.jpg",
+    "assets/images/news/17/photo_16.jpg",
+    "assets/images/news/17/photo_17.jpg",
+    "assets/images/news/17/photo_18.jpg",
+    "assets/images/news/17/photo_19.jpg",
+    "assets/images/news/17/photo_2.jpg",
+    "assets/images/news/17/photo_20.jpg",
+    "assets/images/news/17/photo_21.jpg",
+    "assets/images/news/17/photo_22.jpg",
+    "assets/images/news/17/photo_23.jpg",
+    "assets/images/news/17/photo_24.jpg",
+    "assets/images/news/17/photo_3.jpg",
+    "assets/images/news/17/photo_4.jpg",
+    "assets/images/news/17/photo_5.jpg",
+    "assets/images/news/17/photo_6.jpg",
+    "assets/images/news/17/photo_7.jpg",
+    "assets/images/news/17/photo_8.jpg",
+    "assets/images/news/17/photo_9.jpg",
+    "assets/images/news/2/photo_1.jpg",
+    "assets/images/news/4/photo_4.jpg",
+    "assets/images/news/42/photo_1.jpg",
+    "assets/images/news/42/photo_2.jpg",
+    "assets/images/news/5/photo_1.jpg",
+    "assets/images/news/5/photo_2.jpg",
+    "assets/images/news/9/photo_1.jpg",
+    "assets/images/news/9/photo_2.jpg",
+    "assets/images/news/9/photo_3.jpg",
+    "assets/images/news/6/photo_4.jpg"
+  ]
+}
