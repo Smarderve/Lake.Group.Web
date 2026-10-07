@@ -21,7 +21,6 @@ body.company-standard .fs-display {
   max-width: 18ch;
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
 }
 
 body.company-standard .fs-lede,
@@ -30,37 +29,68 @@ body.company-standard .fs-section p:not(.footer-motto) {
   line-height: 1.65;
 }
 
-/* Editorial copy is centred at the section level; split-layout content,
-   lists, data panels and forms retain their purposeful reading alignment. */
-body.company-standard .fs-section > .container > .fs-marker,
-body.company-standard .fs-section > .container > .fs-eyebrow,
-body.company-standard .fs-section > .container > .fs-lede {
+/* Business sections declare their text treatment by purpose, not by heading
+   class, page order or background. These rules change text only; grids,
+   widths, spacing and their child layout primitives remain untouched. */
+body[data-company-logo] .fs-section.company-section--editorial
+  :is(.fs-display, .fs-marker, .fs-eyebrow, .fs-lede, h2, h3, h4, p, li, .section-subtitle) {
+  text-align: left;
+}
+
+body[data-company-logo] .fs-section.company-section--editorial
+  :is(.fs-display, .fs-marker, .fs-eyebrow, .fs-lede, h2, h3, h4, p, li, .section-subtitle) {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+body[data-company-logo] .fs-section.company-section--editorial .fs-marker,
+body[data-company-logo] .fs-section.company-section--editorial .fs-eyebrow {
+  justify-content: flex-start;
+}
+
+body[data-company-logo] .fs-section.company-section--presentation
+  :is(.fs-display, .fs-marker, .fs-eyebrow, .fs-lede, h2, h3, h4, p, li, .section-subtitle) {
   text-align: center;
+}
+
+body[data-company-logo] .fs-section.company-section--presentation
+  :is(.fs-display, .fs-marker, .fs-eyebrow, .fs-lede, .section-subtitle) {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body[data-company-logo] .fs-section.company-section--presentation .fs-marker,
+body[data-company-logo] .fs-section.company-section--presentation .fs-eyebrow {
   justify-content: center;
-  margin-inline: auto;
 }
 
-body.company-standard .fs-section > .container > h2,
-body.company-standard .fs-section > .container > p:not(.footer-motto),
-body.co-theme-automotive .fs-section > .container > h2,
-body.co-theme-automotive .fs-section > .container > p:not(.footer-motto) {
+/* Stat panels retain their pre-existing left reading alignment in either
+   archetype; section text rules are not applied to figures or data labels. */
+body[data-company-logo] .fs-section.company-section--editorial .stat-panel2,
+body[data-company-logo] .fs-section.company-section--editorial .stat-panel2 :is(h2, h3, h4, p, li),
+body[data-company-logo] .fs-section.company-section--editorial .stat-tile2,
+body[data-company-logo] .fs-section.company-section--editorial .stat-tile2 :is(h2, h3, h4, p, li),
+body[data-company-logo] .fs-section.company-section--presentation .stat-panel2,
+body[data-company-logo] .fs-section.company-section--presentation .stat-panel2 :is(h2, h3, h4, p, li),
+body[data-company-logo] .fs-section.company-section--presentation .stat-tile2,
+body[data-company-logo] .fs-section.company-section--presentation .stat-tile2 :is(h2, h3, h4, p, li) {
+  text-align: left;
+  margin-left: initial;
+  margin-right: initial;
+}
+
+/* Agrinova uses its own section and card system, but follows the same explicit
+   editorial/presentation semantics without changing its component geometry. */
+body[data-company-logo] .ag-section.ag-section--editorial
+  :is(h2, h3, h4, p, li) {
+  text-align: left;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+body[data-company-logo] .ag-section.ag-section--presentation
+  :is(h2, h3, h4, p, li) {
   text-align: center;
-  margin-inline: auto;
-}
-
-body.company-standard .fs-section > .container > p:not(.footer-motto),
-body.co-theme-automotive .fs-section > .container > p:not(.footer-motto) {
-  max-width: 72ch;
-}
-
-/* Automotive profiles use the same flagship section primitives but predate
-   the company-standard body marker. Keep their editorial headers consistent. */
-body.co-theme-automotive .fs-section > .container > .fs-marker,
-body.co-theme-automotive .fs-section > .container > .fs-eyebrow,
-body.co-theme-automotive .fs-section > .container > .fs-lede {
-  text-align: center;
-  justify-content: center;
-  margin-inline: auto;
 }
 
 .lg-company-faq { padding-block: var(--company-section-space, clamp(64px, 8vw, 112px)); background: var(--surface, #fff); }

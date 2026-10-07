@@ -109,7 +109,7 @@ test('all business vertical FAQs render in the content root and work as disclosu
   }
 });
 
-test('company pages preserve editorial centering and fit desktop, wide, and mobile viewports', async () => {
+test('company pages use explicit editorial/presentation alignment and fit responsive viewports', async () => {
   const server = await startServer();
   let browser;
   try {
@@ -129,22 +129,36 @@ test('company pages preserve editorial centering and fit desktop, wide, and mobi
         await page.setViewportSize(viewport);
         await page.goto(`${base}${pageName}`, { waitUntil: 'domcontentloaded' });
         const layout = await page.evaluate(() => {
-          const editorial = Array.from(document.querySelectorAll(
-            '.fs-section > .container > h2, .fs-section > .container > p:not(.footer-motto)'
+          const sections = Array.from(document.querySelectorAll(
+            '.company-section--editorial, .company-section--presentation, .ag-section--editorial, .ag-section--presentation'
           ));
+          const text = sections.flatMap((section) => {
+            const expected = section.matches('.company-section--editorial, .ag-section--editorial') ? 'left' : 'center';
+            return Array.from(section.querySelectorAll('h2, h3, h4, p, li'))
+              .filter((element) => !element.closest('.stat-panel2, .stat-tile2, .info-rows, .aficd-glance-list, .aficd-ops-stats, .lg-company-faq, .ag-faq, table, form'))
+              .map((element) => {
+                const style = getComputedStyle(element);
+                return { expected, actual: style.textAlign, marginLeft: style.marginLeft };
+              });
+          });
           return {
             viewport: innerWidth,
             documentWidth: document.documentElement.scrollWidth,
             overflow: document.documentElement.scrollWidth > innerWidth,
-            editorialCount: editorial.length,
-            misaligned: editorial.filter((element) => getComputedStyle(element).textAlign !== 'center').length,
+            sectionCount: sections.length,
+            editorialCount: sections.filter((section) => section.matches('.company-section--editorial, .ag-section--editorial')).length,
+            presentationCount: sections.filter((section) => section.matches('.company-section--presentation, .ag-section--presentation')).length,
+            misaligned: text.filter((element) => element.actual !== element.expected
+              || (element.expected === 'left' && element.marginLeft !== '0px')).length,
             faqCount: document.querySelectorAll('.lg-company-faq').length,
           };
         });
         assert.equal(layout.overflow, false, `${pageName} at ${viewport.width}px: no horizontal overflow`);
         if (pageName !== 'agrinova-tech.html') {
-          assert.ok(layout.editorialCount > 0, `${pageName}: editorial headings or introductions were inspected`);
-          assert.equal(layout.misaligned, 0, `${pageName} at ${viewport.width}px: section headings and intro prose are centered`);
+          assert.ok(layout.sectionCount > 0, `${pageName}: semantic text sections were inspected`);
+          assert.ok(layout.editorialCount > 0, `${pageName}: at least one Type A editorial section is marked`);
+          assert.ok(layout.presentationCount > 0, `${pageName}: at least one Type B presentation section is marked`);
+          assert.equal(layout.misaligned, 0, `${pageName} at ${viewport.width}px: marked text aligns by type and editorial copy shares its left reading edge`);
           assert.equal(layout.faqCount, 1, `${pageName} at ${viewport.width}px: FAQ remains mounted`);
         } else {
           assert.equal(layout.faqCount, 0, `${pageName} at ${viewport.width}px: existing custom FAQ remains the only FAQ`);
