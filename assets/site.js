@@ -977,6 +977,37 @@
     });
   }
 
+  function initCompanyFaqs() {
+    const faqs = {
+      'lake-oil.html': ['When was Lake Oil established?|Lake Oil was established in 2006 as the flagship company of Lake Group.','What does Lake Oil provide?|Lake Oil operates retail fuel stations and provides bulk petroleum distribution.','Which markets are named on the page?|The page names operations in Tanzania, Zambia, DR Congo, Burundi, Kenya and Mozambique.','Does Lake Oil operate its own storage facilities?|Yes. The page describes oil storage facilities in Tanzania, Kenya, Burundi and DR Congo.'],
+      'lake-aviation.html': ['What services does Lake Aviation provide?|Lake Aviation provides aviation fuel supply and into-plane fueling services.','When was Lake Aviation established?|Lake Aviation was established in 2020 as part of Lake Energies.','Which airports are listed?|The page lists JRO, DAR, ZNZ and EBB airport operations.','What supports its fuel supply?|Operations began at JRO with support from Lake Oil’s bulk fuel depot in Dar es Salaam.'],
+      'lake-gas.html': ['What does Lake Gas provide?|Lake Gas provides retail and bulk LPG, bottled cylinders and commercial LPG services.','When was Lake Gas established?|Lake Gas was established in 2011.','Where are its Tanzania locations?|The page lists locations including Dar es Salaam, Mwanza, Arusha, Dodoma, Morogoro, Iringa, Mbeya, Tanga and Zanzibar.','When did Kenya operations begin?|The page states that Kenya operations have run since 2014.'],
+      'lake-lubes.html': ['What does Lake Lubes manufacture?|Lake Lubes manufactures automotive, industrial and specialty lubricants and greases.','When was Lake Lubes established?|Lake Lubes was established in 2016.','What is the stated blending capacity?|The page states ten blenders with a combined capacity of 54,000 litres per day.','How is quality controlled?|The company describes in-house laboratory quality control across blending, filling and packaging.'],
+      'lake-buildings.html': ['What does Lake Building Solution manufacture?|It manufactures gypsum boards and marine boards for construction applications.','Where is the facility located?|The page identifies Kibaha Visiga in Tanzania’s Coast Region.','What is marine board intended for?|The page describes marine board for moisture-exposed applications.','What guides its operations?|The page highlights quality, efficiency and environmental responsibility.'],
+      'lake-pipes.html': ['What does Lake Pipes manufacture?|Lake Pipes manufactures PVC and HDPE pipes, water tanks and fittings.','When was Lake Pipes established?|Lake Pipes was established in 2019.','Where is the manufacturing plant?|The plant is in Visiga, Kibaha, Tanzania.','How are products checked?|The page states that products are quality tested at every production stage.'],
+      'lake-steel.html': ['What does Lake Steel manufacture?|Lake Steel manufactures TBS-certified TMT reinforcement steel bars conforming to BS 500.','When was Lake Steel established?|Lake Steel was established in 2017.','What was commissioned in 2023?|A Steel Melting Shop and Continuous Casting Machine were commissioned in 2023.','What billet capacity is stated?|The page states 60,000 metric tons of annual billet production capacity.'],
+      'lake-cylinders.html': ['What does Lake Cylinders manufacture?|Lake Cylinders manufactures LPG cylinders for domestic, commercial and industrial use.','Where is the manufacturing base?|The company is based in Tanzania.','What is its quality focus?|The page describes modern processes, quality-control systems and applicable safety and quality requirements.','Which regional markets are named?|The page names Tanzania, DR Congo, Rwanda and Zambia.'],
+      'lake-premix-cement.html': ['What does Lake Premix provide?|Lake Premix provides ready-mix concrete for construction applications.','When was Lake Premix established?|Lake Premix was established in 2010.','Which concrete grades are listed?|The page lists grades from C10 to C55.','Where does Gulf Premix operate?|The page says Gulf Premix provides ready-mix concrete to Nairobi and other regions of Kenya.'],
+      'gulf-aggregates.html': ['What does Gulf Aggregates do?|It develops and operates quarry resources, crushing, screening and aggregate handling.','Where is the quarry located?|The page identifies Lugoba, Tanzania.','Who does it supply?|It supplies Lake Group’s own consumption and third-party construction customers.','What is its operating model?|The page describes an integrated resource-to-market model with in-house production capability.'],
+      'aficd.html': ['What does AFICD provide?|AFICD provides ICD, CFS, ECD, bonded warehousing and cargo-handling services.','When did AFICD commence operations?|AFICD commenced operations in 2010.','Who does AFICD serve?|The page names shipping lines, manufacturers, traders and logistics partners.','What regions does it serve?|It serves East, Central and Southern Africa.'],
+      'aill.html': ['What cargo does AILL handle?|AILL handles bulk, break-bulk and containerized cargo.','What services does AILL provide?|Services include port handling, warehousing, bagging, customs clearance, and road and rail transport.','How does AILL support cargo movement?|The page describes coordination from vessel discharge through clearance, transport, storage, processing and final delivery.','Which countries are named in its network?|The page names Tanzania, Zambia and Mozambique.'],
+      'lake-trans.html': ['What does Lake Trans specialize in?|Lake Trans specializes in secure and efficient petroleum-product transportation.','When did Lake Trans join Lake Group?|Lake Trans has been part of Lake Group since 2011.','What fleet size is stated?|The page states a fleet of more than 1,500 trucks.','What monitoring is used?|The page describes GPS monitoring across all routes.'],
+      'cross-country.html': ['What does Cross Country Developer Limited do?|It develops and manages commercial, retail, hospitality and mixed-use properties.','When was the company established?|The page states that it was established in 2021.','Where does it operate?|The company operates in Tanzania.','Which development locations are named?|The page names Lake Avenue, Kingsway, Waterfront Mall and UN Road in Dar es Salaam.'],
+      'lake-agro.html': ['What does Lake Agro do?|Lake Agro combines commercial farming, crop and livestock production, technology and agricultural infrastructure.','When was Lake Agro established?|Lake Agro was established in Zambia in 2017.','What crops are listed?|The page lists maize, soya beans, wheat and sugarcane.','What Tanzania project is described?|The page describes an integrated sugarcane plantation and sugar manufacturing project initiated in 2021.'],
+      'assembly-tech.html': ['What does Assembly Tech provide?|Assembly Tech assembles commercial vehicles and trailers for transport, logistics and specialized requirements.','When was ATL established?|The page states that ATL was established in 2019.','What trailer types are named?|The page names aluminium fuel tankers, flatbed trailers and curtain-side trailers.','What market does it serve?|The page describes East and Central Africa as its target market.'],
+      'nextdrive-motors.html': ['What does NexDrive Motors provide?|NexDrive provides sales, distribution and support for commercial vehicle solutions.','Which vehicle brands are listed?|The portfolio includes JAC pick-ups, Ashok Leyland trucks and SANY heavy commercial trucks.','What applications are described for JAC pick-ups?|The page lists personal use, small businesses, deliveries, agriculture and field operations.','What trailer support is included?|The page identifies ATL / Assembly Tech Limited trailer solutions for cargo, equipment, fuel transport and specialized transport requirements.']
+    };
+    const entries = faqs[location.pathname.split('/').pop()];
+    const main = document.querySelector('main');
+    if (!entries || !main || document.querySelector('.lg-company-faq')) return;
+    const section = document.createElement('section');
+    section.className = 'lg-company-faq';
+    section.setAttribute('aria-labelledby', 'company-faq-title');
+    const items = entries.map(function (entry) { const parts = entry.split('|'); return '<details><summary>' + parts[0] + '</summary><p>' + parts[1] + '</p></details>'; }).join('');
+    section.innerHTML = '<div class="lg-company-faq__inner"><h2 id="company-faq-title" class="lg-company-faq__title">Questions about this business</h2><p class="lg-company-faq__lead">Helpful answers based on the information presented on this page.</p><div class="lg-company-faq__list">' + items + '</div></div>';
+    main.appendChild(section);
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     initNav();
     initCompanyBranding();
@@ -989,6 +1020,7 @@
     initCurrency();
     initSmartLazyImages();
     initVideoFacades();
+    initCompanyFaqs();
     initBackToTop();
     document.addEventListener('lake-i18n-applied', refreshCountersForLang);
     if (window.LakeI18n) window.LakeI18n.init();

@@ -3129,13 +3129,15 @@
       function preloadAround(center) {
         var n = tiles.length;
         if (!n) return;
-        // Keep the initial action strip to the active tile and its next
-        // neighbor. Remaining cards are warmed progressively after paint.
-        for (var off = 0; off <= 2; off++) {
+        // The coverflow exposes three neighbours on each side of the active
+        // card. Warm that exact visual window before removing its placeholder;
+        // distant cards remain deferred so the hero keeps network priority.
+        for (var off = -3; off <= 3; off++) {
           var i = ((center + off) % n + n) % n;
           var btn = tiles[i];
           if (!btn || !btn._item) continue;
-          ensureTileReady(btn, off === 0 ? "high" : (off === 1 ? "near" : "idle"));
+          var distance = Math.abs(off);
+          ensureTileReady(btn, distance === 0 ? "high" : (distance <= 2 ? "near" : "idle"));
         }
       }
 
