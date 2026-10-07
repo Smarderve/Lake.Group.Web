@@ -9,10 +9,12 @@ import { PAGE_METADATA } from './seo-page-metadata.mjs';
  * generator reads that source copy and applies the standard search document.
  */
 
-// The canonical production URL is deliberately supplied at deploy time. Do
-// not add a fallback: until Lake Group confirms and connects its official
-// domain, preview deployments must not establish a competing search identity.
-const configuredSiteUrl = (process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || '').trim();
+// Lake Group has confirmed this as its one canonical production origin.
+// Preview deployments must emit these production signals too; otherwise a
+// build performed without an environment variable silently removes the
+// canonical/OG document from the static pages.
+const OFFICIAL_SITE_URL = 'https://www.lakeoilgroup.com';
+const configuredSiteUrl = (process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || OFFICIAL_SITE_URL).trim();
 
 function normalizeSiteUrl(value) {
   if (!value) return '';
@@ -24,6 +26,9 @@ function normalizeSiteUrl(value) {
   }
   if (parsed.protocol !== 'https:' || parsed.pathname !== '/' || parsed.search || parsed.hash) {
     throw new Error('SITE_URL must be an HTTPS origin without a path, query, or hash');
+  }
+  if (parsed.origin !== OFFICIAL_SITE_URL) {
+    throw new Error(`SITE_URL must remain Lake Group's official origin: ${OFFICIAL_SITE_URL}`);
   }
   return parsed.origin;
 }

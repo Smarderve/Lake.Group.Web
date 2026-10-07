@@ -56,6 +56,7 @@ for (const file of all) {
   }
   if (publishable) {
     const ogImage = html.match(/<meta property="og:image" content="([^"]+)">/i)?.[1];
+    const ogSecureImage = html.match(/<meta property="og:image:secure_url" content="([^"]+)">/i)?.[1];
     const twitterImage = html.match(/<meta name="twitter:image" content="([^"]+)">/i)?.[1];
     const ogUrl = html.match(/<meta property="og:url" content="([^"]+)">/i)?.[1];
     if (ogUrl !== url) errors.push(`${file}: Open Graph URL must equal canonical URL`);
@@ -64,6 +65,7 @@ for (const file of all) {
       const localImage = path.join(root, decodeURIComponent(new URL(value).pathname).replace(/^\//, ''));
       if (!fs.existsSync(localImage)) errors.push(`${file}: ${label} does not resolve to a public image`);
     }
+    if (file === 'index.html' && ogSecureImage !== ogImage) errors.push(`${file}: og:image:secure_url must equal og:image`);
   }
   if (!SEARCH_ENGINE_VERIFICATION.google && /name="google-site-verification"/i.test(html)) errors.push(`${file}: contains an unconfigured Google verification token`);
   if (!SEARCH_ENGINE_VERIFICATION.bing && /name="msvalidate\.01"/i.test(html)) errors.push(`${file}: contains an unconfigured Bing verification token`);

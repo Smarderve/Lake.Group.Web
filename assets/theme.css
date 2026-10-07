@@ -1033,7 +1033,7 @@ html.lg-motion .site-nav {
 html.lg-motion .hero .hero-photo,
 html.lg-motion .page-hero .hero-media,
 html.lg-motion .page-hero .page-hero-photo {
-  animation: lg-hero-media-in 0.7s var(--ease-out) both;
+  animation: lg-hero-media-in .35s var(--ease-out) both;
   transform-origin: center center;
   will-change: opacity;
   overflow: hidden;
@@ -1051,7 +1051,7 @@ html.lg-motion .hero .hero-photo img {
 html.lg-motion .page-hero .hero-media,
 html.lg-motion .page-hero .page-hero-photo {
   animation:
-    lg-hero-media-in 0.7s var(--ease-out) both,
+    lg-hero-media-in .35s var(--ease-out) both,
     lg-hero-ken 28s linear 0.7s infinite alternate;
   will-change: transform, opacity;
   backface-visibility: hidden;
@@ -1284,7 +1284,7 @@ canvas {
     background: var(--blue2, #012f49);
   }
   html.lg-motion .page-hero .hero-media,
-  html.lg-motion .page-hero .page-hero-photo { animation: lg-hero-media-in .7s var(--ease-out) both; }
+  html.lg-motion .page-hero .page-hero-photo { animation: lg-hero-media-in .35s var(--ease-out) both; }
 }
 
 @media (max-width: 720px) {
@@ -1311,7 +1311,7 @@ canvas {
   }
   html.lg-motion .page-hero .hero-media,
   html.lg-motion .page-hero .page-hero-photo {
-    animation: lg-hero-media-in .7s var(--ease-out) both;
+    animation: lg-hero-media-in .35s var(--ease-out) both;
   }
 
   /* Kill staggered hero fade-up on phones (conflicts with split-text / feels laggy) */

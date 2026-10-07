@@ -9,6 +9,7 @@
     "build:seo": "node scripts/build-seo-foundation.mjs && node scripts/build-sitemap.js && node scripts/build-llms.mjs",
     "audit:images": "node scripts/audit-public-images.mjs",
     "test:seo": "node scripts/verify-seo-foundation.mjs",
+    "test:seo-social-favicon": "node --test tests/seo-social-favicon.test.js",
     "test:crawl": "node scripts/verify-crawl-readiness.mjs",
     "test:static-runtime": "node scripts/verify-static-runtime.mjs",
     "test:responsive-hero-images": "node scripts/verify-responsive-hero-images.mjs",

@@ -794,9 +794,13 @@
       img.decode().catch(function () { /* display the decoded-by-browser fallback */ });
     }
 
-    function warm(img) {
+    function isDedicatedCarouselImage(img) {
+      return img.closest('[data-action-track], [data-hero-carousel], [aria-roledescription="carousel"]');
+    }
+
+    function warm(img, options) {
       if (!img || img.dataset.lgWarmed === '1') return;
-      if (img.closest('[data-action-track], [data-hero-carousel]')) return;
+      if (!options?.allowCarousel && isDedicatedCarouselImage(img)) return;
       img.dataset.lgWarmed = '1';
       const src = sourceFor(img);
       if (!src) return;
@@ -819,7 +823,7 @@
       const section = img.closest('section, article, [role="region"], .section, main > div');
       if (!section) return [img];
       return Array.from(section.querySelectorAll('img[loading="lazy"], img[data-src], img[data-lazy-src]'))
-        .filter(function (candidate) { return !candidate.closest('[data-action-track], [data-hero-carousel]'); });
+        .filter(function (candidate) { return !isDedicatedCarouselImage(candidate); });
     }
 
     // Visible images must not wait for an observer callback. Only the first
@@ -854,8 +858,27 @@
     }, { rootMargin, threshold: 0 });
 
     imgs.forEach(function (img) {
-      if (img.closest('[data-action-track], [data-hero-carousel]')) return;
+      if (isDedicatedCarouselImage(img)) return;
       io.observe(img);
+    });
+
+    // The Home carousel owns its own responsive preload policy. Other
+    // carousels get a bounded warm-up window: the active slide and its
+    // immediate successor, never the entire collection.
+    document.querySelectorAll('[aria-roledescription="carousel"]').forEach(function (carousel) {
+      if (carousel.matches('[data-hero-carousel]')) return;
+      const slides = Array.from(carousel.querySelectorAll('[role="tabpanel"]'));
+      if (!slides.length) return;
+      function warmVisiblePair() {
+        const active = Math.max(0, slides.findIndex(function (slide) { return slide.classList.contains('is-active'); }));
+        [slides[active], slides[(active + 1) % slides.length]].forEach(function (slide) {
+          slide?.querySelectorAll('img[loading="lazy"], img[data-src], img[data-lazy-src]').forEach(function (img) {
+            warm(img, { allowCarousel: true });
+          });
+        });
+      }
+      warmVisiblePair();
+      new MutationObserver(warmVisiblePair).observe(carousel, { subtree: true, attributes: true, attributeFilter: ['class'] });
     });
   }
 

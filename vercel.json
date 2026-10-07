@@ -10,22 +10,22 @@
   "redirects": [
     {
       "source": "/acfs.html",
-      "destination": "/index.html",
+      "destination": "/aficd.html",
       "permanent": true
     },
     {
       "source": "/ocean-galleria.html",
-      "destination": "/index.html",
+      "destination": "/cross-country.html",
       "permanent": true
     },
     {
       "source": "/services.html",
-      "destination": "/index.html",
+      "destination": "/aficd.html",
       "permanent": true
     },
     {
       "source": "/atl.html",
-      "destination": "/index.html",
+      "destination": "/assembly-tech.html",
       "permanent": true
     },
     {
@@ -146,6 +146,71 @@
     {
       "source": "/lake-plastics",
       "destination": "/lake-pipes.html",
+      "permanent": true
+    },
+    {
+      "source": "/lakeoil/:path*",
+      "destination": "/lake-oil.html",
+      "permanent": true
+    },
+    {
+      "source": "/lakegas/:path*",
+      "destination": "/lake-gas.html",
+      "permanent": true
+    },
+    {
+      "source": "/lakelubes/:path*",
+      "destination": "/lake-lubes.html",
+      "permanent": true
+    },
+    {
+      "source": "/lakesteel/:path*",
+      "destination": "/lake-steel.html",
+      "permanent": true
+    },
+    {
+      "source": "/laketrans/:path*",
+      "destination": "/lake-trans.html",
+      "permanent": true
+    },
+    {
+      "source": "/aficd/:path*",
+      "destination": "/aficd.html",
+      "permanent": true
+    },
+    {
+      "source": "/acfs/:path*",
+      "destination": "/aficd.html",
+      "permanent": true
+    },
+    {
+      "source": "/atl/:path*",
+      "destination": "/assembly-tech.html",
+      "permanent": true
+    },
+    {
+      "source": "/gccp/:path*",
+      "destination": "/lake-premix-cement.html",
+      "permanent": true
+    },
+    {
+      "source": "/gulfagr/:path*",
+      "destination": "/gulf-aggregates.html",
+      "permanent": true
+    },
+    {
+      "source": "/lakegroup/about.html",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/lakegroup/contact.html",
+      "destination": "/contact.html",
+      "permanent": true
+    },
+    {
+      "source": "/lakegroup/careers.html",
+      "destination": "/careers.html",
       "permanent": true
     }
   ],

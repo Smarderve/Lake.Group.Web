@@ -116,6 +116,7 @@ function managedHead(file, pageTitle, pageDescription) {
     lines.splice(3, 0, `<link rel="canonical" href="${url}">`);
     lines.splice(6, 0,
       `<meta property="og:image" content="${SITE.origin + SITE.socialImage}">`,
+      `<meta property="og:image:secure_url" content="${SITE.origin + SITE.socialImage}">`,
       '<meta property="og:image:width" content="1200">',
       '<meta property="og:image:height" content="630">',
       '<meta property="og:image:type" content="image/jpeg">',
