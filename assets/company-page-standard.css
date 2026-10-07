@@ -64,6 +64,48 @@ body[data-company-logo] .fs-section.company-section--presentation .fs-eyebrow {
   justify-content: center;
 }
 
+/* Capability and product sections with image-led cards center only their
+   textual presentation. Card and image layout remains owned by each page. */
+body[data-company-logo] .fs-section.company-section--cards-centered
+  > .container :is(.fs-display, h2, .section-subtitle) {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body[data-company-logo] .fs-section.company-section--cards-centered
+  :is(.svc-card, .prod-catalog-card, .agro-prj, .aficd-solution, .aficd-cap, .atl-product-card, .nd-product-card, .nd-portfolio-item, .agro-equipment-grid figure)
+  :is(h2, h3, h4, p, figcaption, strong) {
+  text-align: center;
+}
+
+body[data-company-logo] .fs-section.company-section--cards-centered .svc-card__body .svc-card__title {
+  align-self: stretch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body[data-company-logo] .fs-section.company-section--cards-centered .svc-card__body .svc-card__desc {
+  align-self: stretch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body[data-company-logo] .fs-section.company-section--cards-centered .nd-portfolio-item > span {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+body[data-company-logo] .fs-section.company-section--cards-centered
+  :is(.svc-card__title, .svc-card__desc, .prod-catalog-card h3, .prod-catalog-card p,
+      .agro-prj__title, .agro-prj__text, .aficd-solution h3, .aficd-solution p,
+      .atl-product-card-title, .nd-product-card h3, .nd-product-card p) {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Stat panels retain their pre-existing left reading alignment in either
    archetype; section text rules are not applied to figures or data labels. */
 body[data-company-logo] .fs-section.company-section--editorial .stat-panel2,
@@ -107,6 +149,14 @@ body[data-company-logo] .fs-section.company-section--aviation-centered
 }
 
 body[data-company-logo] .fs-section.company-section--aviation-centered .fs-check li {
+  padding-left: 0;
+  justify-content: center;
+  text-align: center;
+}
+
+body[data-company-logo] .fs-section.company-section--aviation-centered .fs-check {
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 0;
 }
 

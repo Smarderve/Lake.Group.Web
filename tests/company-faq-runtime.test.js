@@ -16,6 +16,22 @@ const FAQ_PAGES = [
   'nextdrive-motors.html',
 ];
 const COMPANY_PAGES = [...FAQ_PAGES, 'agrinova-tech.html'];
+const CARD_SECTION_HEADINGS = {
+  'lake-oil.html': ['Lake Oil Capabilities'],
+  'lake-aviation.html': ['Our Services'],
+  'lake-gas.html': ['Quality with Quantity.'],
+  'lake-lubes.html': ['Product Categories & Support'],
+  'lake-buildings.html': ['Gypsum Board & Marine Board'],
+  'lake-pipes.html': ['Product Range'],
+  'lake-steel.html': ['From tested materials to reinforcement bars.'],
+  'gulf-aggregates.html': ['Quarrying & Aggregate Supply'],
+  'aficd.html': ['Integrated Logistics Solutions'],
+  'lake-trans.html': ['Fleet Capabilities'],
+  'cross-country.html': ['Our Expertise'],
+  'lake-agro.html': ['Diversified commercial production.', 'Agricultural equipment and infrastructure.'],
+  'assembly-tech.html': ['Built For The Road. Engineered For The Job.'],
+  'nextdrive-motors.html': ['Commercial Mobility Portfolio', 'Vehicles for Every Commercial Journey.'],
+};
 const VIEWPORTS = [
   { width: 1440, height: 900 },
   { width: 1920, height: 1080 },
@@ -131,7 +147,7 @@ test('company pages use explicit editorial/presentation alignment and fit respon
         const layout = await page.evaluate(() => {
           const sections = Array.from(document.querySelectorAll(
             '.company-section--editorial, .company-section--presentation, .ag-section--editorial, .ag-section--presentation'
-          ));
+          )).filter((section) => !section.matches('.company-section--cards-centered'));
           const text = sections.flatMap((section) => {
             const defaultExpected = section.matches('.company-section--editorial, .ag-section--editorial') ? 'left' : 'center';
             return Array.from(section.querySelectorAll('h2, h3, h4, p, li'))
@@ -231,6 +247,11 @@ test('Lake Aviation alignment exceptions stay local and responsive', { timeout: 
             getComputedStyle(card.querySelector('.svc-card__title')).textAlign,
             getComputedStyle(card.querySelector('.svc-card__desc')).textAlign,
           ]),
+          cardTextBoxesCentered: cards.flatMap((card) => ['.svc-card__title', '.svc-card__desc'].map((selector) => {
+            const textRect = card.querySelector(selector).getBoundingClientRect();
+            const cardRect = card.getBoundingClientRect();
+            return Math.abs((textRect.left + textRect.right) / 2 - (cardRect.left + cardRect.right) / 2) <= 1;
+          })),
           cardWidths: cards.map((card) => Math.round(card.getBoundingClientRect().width)),
           imageState,
         };
@@ -243,6 +264,7 @@ test('Lake Aviation alignment exceptions stay local and responsive', { timeout: 
       assert.equal(aviation.servicesTitleAlignment, 'center', `Our Services title centers at ${viewport.width}px`);
       assert.equal(aviation.cardCount, 4, `four service cards remain at ${viewport.width}px`);
       assert.ok(aviation.cardTextAlignments.every((alignment) => alignment === 'center'), `service card text centers at ${viewport.width}px`);
+      assert.ok(aviation.cardTextBoxesCentered.every(Boolean), `service card text boxes center under their images at ${viewport.width}px`);
       assert.ok(aviation.cardWidths.every((width) => width > 0), `service cards remain laid out at ${viewport.width}px`);
       assert.deepEqual(aviation.imageState.map(({ src }) => src), [
         'assets/images/delivery/lake-aviation/remediated/aviation-2-clean.webp',
@@ -263,6 +285,87 @@ test('Lake Aviation alignment exceptions stay local and responsive', { timeout: 
         assert.equal(introAlignment.align, 'left', `${pageName} editorial intro remains left aligned at ${viewport.width}px`);
         if (pageName === 'lake-oil.html') {
           assert.match(introAlignment.text, /LAKE OIL, THE FLAGSHIP COMPANY OF LAKE GROUP/i, 'Lake Oil keeps its intended intro heading');
+        }
+      }
+    }
+  } finally {
+    await browser.close();
+    server.closeAllConnections();
+    await new Promise((resolve) => server.close(resolve));
+  }
+});
+
+test('image-led company capability and product cards center text without changing geometry', { timeout: 120000 }, async () => {
+  const server = await startServer();
+  let browser;
+  try {
+    const executablePath = installedChromium();
+    browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
+  } catch (error) {
+    server.closeAllConnections();
+    await new Promise((resolve) => server.close(resolve));
+    throw new Error(`Playwright Chromium is unavailable; card alignment assertions could not run: ${error.message}`);
+  }
+
+  try {
+    const page = await browser.newPage();
+    const base = `http://127.0.0.1:${server.address().port}/`;
+    const viewports = [
+      { width: 1920, height: 1080 }, { width: 1440, height: 900 },
+      { width: 1366, height: 768 }, { width: 768, height: 1024 },
+      { width: 390, height: 844 }, { width: 412, height: 915 },
+    ];
+
+    for (const pageName of COMPANY_PAGES) {
+      const expectedHeadings = CARD_SECTION_HEADINGS[pageName] || [];
+      for (const viewport of viewports) {
+        await page.setViewportSize(viewport);
+        await page.goto(`${base}${pageName}`, { waitUntil: 'domcontentloaded' });
+        const result = await page.evaluate(() => {
+          const sections = Array.from(document.querySelectorAll('.company-section--cards-centered'));
+          const cards = sections.flatMap((section) => Array.from(section.querySelectorAll(
+            '.svc-card, .prod-catalog-card, .agro-prj, .aficd-solution, .aficd-cap, .atl-product-card, .nd-product-card, .nd-portfolio-item, .agro-equipment-grid figure'
+          )).filter((card) => card.querySelector('img')));
+          const cardText = cards.flatMap((card) => Array.from(card.querySelectorAll('h2, h3, h4, p, figcaption, strong')).map((element) => {
+            const textRect = element.getBoundingClientRect();
+            const cardRect = card.getBoundingClientRect();
+            return {
+              align: getComputedStyle(element).textAlign,
+              measurableCard: cardRect.width >= 100,
+              centered: Math.abs((textRect.left + textRect.right) / 2 - (cardRect.left + cardRect.right) / 2) <= 1,
+            };
+          }));
+          const images = cards.flatMap((card) => Array.from(card.querySelectorAll('img')));
+          const geometries = [...cards, ...images].map((element) => {
+            const rect = element.getBoundingClientRect();
+            return { width: Math.round(rect.width), height: Math.round(rect.height) };
+          });
+          const headings = sections.map((section) => ({
+            text: (section.querySelector(':scope > .container h2, :scope > .container h3')?.textContent || '').trim(),
+            align: getComputedStyle(section.querySelector(':scope > .container h2, :scope > .container h3')).textAlign,
+          }));
+          return {
+            overflow: document.documentElement.scrollWidth > innerWidth,
+            headings,
+            cardCount: cards.length,
+            images: images.length,
+            alignments: cardText.map((element) => element.align),
+            centeredTextBoxes: cardText.map((element) => element.centered),
+            cardTextMeasurable: cardText.map((element) => element.measurableCard),
+            geometries,
+          };
+        });
+
+        assert.equal(result.overflow, false, `${pageName} at ${viewport.width}px: no horizontal overflow`);
+        assert.deepEqual(result.headings.map((heading) => heading.text), expectedHeadings,
+          `${pageName} at ${viewport.width}px: only its audited image-card sections are marked`);
+        if (expectedHeadings.length) {
+          assert.ok(result.headings.every((heading) => heading.align === 'center'), `${pageName} section titles center at ${viewport.width}px`);
+          assert.ok(result.cardCount > 0, `${pageName} image cards are present at ${viewport.width}px`);
+          assert.ok(result.images >= result.cardCount, `${pageName} image assets remain in cards at ${viewport.width}px`);
+          assert.ok(result.alignments.every((alignment) => alignment === 'center'), `${pageName} card text centers at ${viewport.width}px`);
+          assert.ok(result.centeredTextBoxes.every((centered, index) => !result.cardTextMeasurable[index] || centered), `${pageName} card text boxes are centered within visible card widths at ${viewport.width}px`);
+          assert.ok(result.geometries.slice(0, result.cardCount).every(({ width, height }) => width > 0 && height > 0), `${pageName} cards retain visible geometry at ${viewport.width}px`);
         }
       }
     }
