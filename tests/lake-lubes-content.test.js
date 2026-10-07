@@ -25,9 +25,10 @@ assert.doesNotMatch(html, /Mission, Vision &amp; History/);
 assert.doesNotMatch(html, />History<\/h3>/);
 assert.doesNotMatch(html, /Customer Satisfaction|People &amp; Teamwork/);
 assert.equal((html.match(/class="val-mini-tile"/g) || []).length, 4);
-assert.match(html, /youtube-nocookie\.com\/embed\/LjmQvb-jQJk\?rel=0/);
-assert.match(html, /class="fs-video lubes-video"/);
-assert.match(html, /target="_blank"[^>]*>watch Lake Lubes in Action on YouTube/);
+assert.doesNotMatch(html, /<iframe\b/i);
+assert.match(html, /class="fs-video lubes-video youtube-facade"/);
+assert.match(html, /data-youtube-id="LjmQvb-jQJk"/);
+assert.doesNotMatch(html, /If the player is unavailable/);
 assert.equal((html.match(/mdi:account-(?:tie|cash-outline)/g) || []).length, 0);
 
 console.log('Lake Lubes content and media checks passed');
