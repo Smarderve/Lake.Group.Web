@@ -21,7 +21,7 @@ on:
   workflow_dispatch:
     inputs:
       serve_base:
-        description: 'Override serve base URL (default: http://localhost:3000)'
+        description: 'Optional remote audit base URL; leave blank to serve this checkout locally'
         required: false
         default: ''
 
@@ -53,8 +53,11 @@ jobs:
 
       - name: Enumerate HTML pages
         id: pages
+        env:
+          SERVE_BASE: ${{ github.event.inputs.serve_base }}
         run: |
-          MATRIX=$(node scripts/_pages_list.js --matrix --dual-viewport)
+          SERVE_BASE="${SERVE_BASE:-http://127.0.0.1:3000}"
+          MATRIX=$(node scripts/_pages_list.js --serve-base "$SERVE_BASE" --matrix --dual-viewport)
           COUNT=$(echo "$MATRIX" | node -e "const d=require('fs').readFileSync('/dev/stdin','utf8');const m=JSON.parse(d);console.log(m.include.length/2)")
           if [ "$COUNT" -eq 0 ]; then
             echo "❌ No HTML pages found — aborting"
@@ -75,6 +78,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix: ${{ fromJSON(needs.discover-pages.outputs.matrix) }}
+    env:
+      SERVE_BASE: ${{ github.event.inputs.serve_base }}
 
     steps:
       - name: Checkout repository
@@ -94,25 +99,147 @@ jobs:
       - name: Install Lighthouse CI
         run: npm install -g @lhci/cli
 
-      - name: Run Lighthouse CI
+      - name: Start and verify local static site server
+        if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.serve_base == '' }}
         run: |
-          lhci autorun --collect.url="${{ matrix.url }}" --collect.preset="${{ matrix.preset }}" || {
+          LOG_FILE="$RUNNER_TEMP/lake-group-static-server.log"
+          PID_FILE="$RUNNER_TEMP/lake-group-static-server.pid"
+
+          python3 -m http.server 3000 --bind 127.0.0.1 --directory "$GITHUB_WORKSPACE" >"$LOG_FILE" 2>&1 &
+          SERVER_PID=$!
+          echo "$SERVER_PID" > "$PID_FILE"
+
+          for attempt in $(seq 1 20); do
+            HTTP_STATUS=$(curl --silent --max-time 3 --output /dev/null --write-out '%{http_code}' \
+              http://127.0.0.1:3000/index.html || true)
+            if [[ "$HTTP_STATUS" =~ ^2[0-9][0-9]$ ]] && kill -0 "$SERVER_PID" 2>/dev/null; then
+              echo "Static site server is ready at http://127.0.0.1:3000 (index.html returned HTTP $HTTP_STATUS)."
+              exit 0
+            fi
+
+            if ! kill -0 "$SERVER_PID" 2>/dev/null; then
+              echo "::error::The local static site server exited before becoming ready. Server log: $LOG_FILE"
+              cat "$LOG_FILE"
+              exit 1
+            fi
+            sleep 1
+          done
+
+          echo "::error::Timed out waiting for http://127.0.0.1:3000/index.html. Server log: $LOG_FILE"
+          cat "$LOG_FILE"
+          exit 1
+
+      - name: Verify remote audit base
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.serve_base != '' }}
+        env:
+          SERVE_BASE: ${{ github.event.inputs.serve_base }}
+        run: |
+          if [[ ! "$SERVE_BASE" =~ ^https?:// ]]; then
+            echo "::error::serve_base must be an http:// or https:// URL."
+            exit 1
+          fi
+
+          SERVE_BASE="${SERVE_BASE%/}"
+          INDEX_URL="$SERVE_BASE/index.html"
+          for attempt in $(seq 1 20); do
+            HTTP_STATUS=$(curl --location --max-redirs 5 --silent --max-time 3 --output /dev/null --write-out '%{http_code}' "$INDEX_URL" || true)
+            if [[ "$HTTP_STATUS" =~ ^2[0-9][0-9]$ ]]; then
+              echo "Remote audit base is ready: $INDEX_URL returned HTTP $HTTP_STATUS."
+              exit 0
+            fi
+            sleep 1
+          done
+
+          echo "::error::Remote audit base did not return HTTP success: $INDEX_URL (last status: ${HTTP_STATUS:-no response})."
+          exit 1
+
+      - name: Collect Lighthouse reports
+        id: collect
+        env:
+          LIGHTHOUSE_URL: ${{ matrix.url }}
+          LIGHTHOUSE_PRESET: ${{ matrix.preset }}
+        run: |
+          if [ "$LIGHTHOUSE_PRESET" = "desktop" ]; then
+            lhci collect --url="$LIGHTHOUSE_URL" --settings.preset=desktop
+          else
+            # Lighthouse's default form factor and throttling are its mobile preset.
+            lhci collect --url="$LIGHTHOUSE_URL"
+          fi
+
+      - name: Validate collected Lighthouse report
+        id: validation
+        if: success()
+        env:
+          LIGHTHOUSE_URL: ${{ matrix.url }}
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const path = require('node:path');
+          const reportDir = path.resolve('.lighthouseci');
+          const reports = fs.readdirSync(reportDir)
+            .filter((name) => /^lhr-.*\.json$/.test(name))
+            .map((name) => ({name, report: JSON.parse(fs.readFileSync(path.join(reportDir, name), 'utf8'))}));
+          const categories = ['performance', 'accessibility', 'best-practices', 'seo'];
+          let failed = false;
+
+          if (!reports.length) {
+            console.error('No Lighthouse result JSON was generated.');
+            process.exit(1);
+          }
+
+          for (const {name, report} of reports) {
+            const mainDocumentUrl = report.mainDocumentUrl || '';
+            const scores = Object.fromEntries(categories.map((category) => [category, report.categories?.[category]?.score ?? null]));
+            console.log(JSON.stringify({report: name, requestedUrl: report.requestedUrl, mainDocumentUrl, scores}));
+
+            if (report.requestedUrl !== process.env.LIGHTHOUSE_URL) {
+              console.error(`Unexpected requested URL in ${name}: ${report.requestedUrl}`);
+              failed = true;
+            }
+            if (!mainDocumentUrl || mainDocumentUrl.startsWith('chrome-error://') || report.runtimeError) {
+              console.error(`Lighthouse did not load the requested page cleanly in ${name}.`);
+              failed = true;
+            }
+            for (const category of categories) {
+              if (!Number.isFinite(scores[category])) {
+                console.error(`Missing ${category} score in ${name}; this is an incomplete audit, not a budget score.`);
+                failed = true;
+              }
+            }
+          }
+
+          if (failed) process.exit(1);
+          NODE
+
+      - name: Assert Lighthouse category thresholds
+        if: success()
+        id: assertions
+        run: |
+          lhci assert || {
             EXIT_CODE=$?
-            echo "## ❌ Lighthouse Failed for \`${{ matrix.file }}\` (${{ matrix.label }})" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "One or more categories scored below **90** on **${{ matrix.label }}**." >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "### Troubleshooting" >> $GITHUB_STEP_SUMMARY
-            echo "- Open the Lighthouse report link above for full details" >> $GITHUB_STEP_SUMMARY
-            echo "- Common fixes: compress images, defer non-critical JS, add aria labels" >> $GITHUB_STEP_SUMMARY
-            echo "- Run locally: \`npx lhci autorun --collect.url=<page> --collect.preset=<desktop|mobile>\`" >> $GITHUB_STEP_SUMMARY
+            echo "## ❌ Lighthouse assertions failed for \`${{ matrix.file }}\` (${{ matrix.label }})" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "Collection completed; inspect the assertion output above for the exact category threshold failure." >> "$GITHUB_STEP_SUMMARY"
             exit $EXIT_CODE
           }
+
+      - name: Upload Lighthouse reports
+        if: ${{ always() && steps.collect.outcome == 'success' }}
+        run: lhci upload
+
+      - name: Stop local static site server
+        if: ${{ always() && (github.event_name != 'workflow_dispatch' || github.event.inputs.serve_base == '') }}
+        run: |
+          PID_FILE="$RUNNER_TEMP/lake-group-static-server.pid"
+          if [ -f "$PID_FILE" ]; then
+            SERVER_PID=$(cat "$PID_FILE")
+            kill "$SERVER_PID" 2>/dev/null || true
+          fi
 
       - name: Success summary
         if: success()
         run: |
-          echo "## ✅ \`${{ matrix.file }}\` (${{ matrix.label }}) – All scores ≥ 90" >> $GITHUB_STEP_SUMMARY
+          echo "## ✅ \`${{ matrix.file }}\` (${{ matrix.label }}) – All category assertions passed" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload LHCI artifacts on failure
         if: failure()
@@ -121,6 +248,21 @@ jobs:
           name: lhci-results-${{ matrix.page }}-${{ matrix.viewport }}
           path: .lighthouseci/
           retention-days: 14
+
+      - name: Failure summary
+        if: failure()
+        run: |
+          echo "## ❌ Lighthouse CI failed for \`${{ matrix.file }}\` (${{ matrix.label }})" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          if [ "${{ steps.collect.outcome }}" != "success" ]; then
+            echo "Readiness or Lighthouse collection did not complete. This infrastructure/page-load failure is not evidence of scores below the configured threshold." >> "$GITHUB_STEP_SUMMARY"
+          elif [ "${{ steps.validation.outcome }}" != "success" ]; then
+            echo "A Lighthouse report was generated, but the requested page did not produce a valid report with all category scores. This is not evidence of scores below threshold." >> "$GITHUB_STEP_SUMMARY"
+          elif [ "${{ steps.assertions.outcome }}" = "failure" ]; then
+            echo "Lighthouse collection completed, but one or more configured category assertions failed. See the assertion output above for the exact score." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "A report upload or another post-collection step failed; this alone does not establish a category score failure." >> "$GITHUB_STEP_SUMMARY"
+          fi
 
   # -----------------------------------------------------------
   # Step 3 – Final gate (requires all pages to pass)
@@ -134,15 +276,15 @@ jobs:
     steps:
       - name: Evaluate results
         run: |
-          echo "## 📊 Lighthouse Performance Budget Report" >> $GITHUB_STEP_SUMMARY
+          echo "## 📊 Lighthouse CI Report" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Pages audited: **${{ needs.discover-pages.outputs.count }}** (× 2 viewports = ${{ needs.discover-pages.outputs.count }} desktop + ${{ needs.discover-pages.outputs.count }} mobile)" >> $GITHUB_STEP_SUMMARY
+          echo "Pages discovered: **${{ needs.discover-pages.outputs.count }}** (× 2 viewports = ${{ needs.discover-pages.outputs.count }} desktop + ${{ needs.discover-pages.outputs.count }} mobile)" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> $GITHUB_STEP_SUMMARY
           if [ "${{ needs.lighthouse-audit.result }}" = "success" ]; then
-            echo "✅ **All pages passed** – every category scored ≥ 90." >> $GITHUB_STEP_SUMMARY
+            echo "✅ **All pages passed** – every configured category assertion passed." >> "$GITHUB_STEP_SUMMARY"
           else
-            echo "❌ **One or more pages failed** the performance budget." >> $GITHUB_STEP_SUMMARY
+            echo "❌ **Lighthouse CI did not complete successfully.** This summary alone does not establish a score below threshold." >> "$GITHUB_STEP_SUMMARY"
             echo "" >> $GITHUB_STEP_SUMMARY
-            echo "Review the failed job artifacts for detailed Lighthouse reports." >> $GITHUB_STEP_SUMMARY
+            echo "Inspect each failed matrix job's readiness, collection, assertion, and upload steps to distinguish infrastructure failures from category assertion failures." >> "$GITHUB_STEP_SUMMARY"
             exit 1
           fi

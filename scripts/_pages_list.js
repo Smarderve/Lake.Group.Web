@@ -4,7 +4,7 @@
  *
  * Usage:
  *   node scripts/_pages_list.js              # prints JSON array of URLs
- *   node scripts/_pages_list.js --serve-base http://localhost:3000
+ *   node scripts/_pages_list.js --serve-base http://127.0.0.1:3000
  *   node scripts/_pages_list.js --matrix     # outputs GitHub Actions matrix JSON (desktop only)
  *   node scripts/_pages_list.js --matrix --dual-viewport  # outputs matrix with desktop + mobile
  *
@@ -60,7 +60,23 @@ function getPages() {
 const args = process.argv.slice(2);
 const serveBase = (() => {
   const idx = args.indexOf('--serve-base');
-  return idx !== -1 ? args[idx + 1] : 'http://localhost:3000';
+  const value = idx !== -1 ? args[idx + 1] : 'http://127.0.0.1:3000';
+  if (!value) {
+    throw new Error('--serve-base requires a URL value.');
+  }
+
+  let parsed;
+  try {
+    parsed = new URL(value);
+  } catch {
+    throw new Error('--serve-base must be a valid absolute http:// or https:// URL.');
+  }
+
+  if (!['http:', 'https:'].includes(parsed.protocol) || parsed.username || parsed.password || parsed.search || parsed.hash) {
+    throw new Error('--serve-base must be an http:// or https:// URL without credentials, query, or fragment.');
+  }
+
+  return parsed.toString().replace(/\/+$/, '');
 })();
 
 const matrixMode = args.includes('--matrix');
