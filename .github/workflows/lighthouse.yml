@@ -247,6 +247,7 @@ jobs:
         with:
           name: lhci-results-${{ matrix.page }}-${{ matrix.viewport }}
           path: .lighthouseci/
+          include-hidden-files: true
           retention-days: 14
 
       - name: Failure summary
