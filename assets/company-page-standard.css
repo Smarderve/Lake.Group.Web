@@ -93,6 +93,38 @@ body[data-company-logo] .ag-section.ag-section--presentation
   text-align: center;
 }
 
+/* Lake Aviation's intro and service cards are intentional, page-specific
+   exceptions to the shared left-aligned editorial treatment. */
+body[data-company-logo] .fs-section.company-section--aviation-centered
+  :is(.fs-display, .fs-marker, .fs-eyebrow, .fs-lede, h2, h3, h4, p, li, .section-subtitle) {
+  text-align: center;
+}
+
+body[data-company-logo] .fs-section.company-section--aviation-centered
+  :is(.fs-display, .fs-marker, .fs-eyebrow, .fs-lede, .section-subtitle) {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body[data-company-logo] .fs-section.company-section--aviation-centered .fs-check li {
+  padding-left: 0;
+}
+
+body[data-company-logo] .fs-section.company-section--aviation-centered .fs-marker,
+body[data-company-logo] .fs-section.company-section--aviation-centered .fs-eyebrow {
+  justify-content: center;
+}
+
+body[data-company-logo] .fs-section.company-section--aviation-services-centered > .container > .fs-display,
+body[data-company-logo] .fs-section.company-section--aviation-services-centered .svc-card__body :is(.svc-card__title, .svc-card__desc) {
+  text-align: center;
+}
+
+body[data-company-logo] .fs-section.company-section--aviation-services-centered > .container > .fs-display {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .lg-company-faq { padding-block: var(--company-section-space, clamp(64px, 8vw, 112px)); background: var(--surface, #fff); }
 .lg-company-faq__inner { width: min(900px, calc(100% - 40px)); margin: auto; text-align: center; }
 .lg-company-faq__title { margin: 0 auto 12px; font-family: var(--font-display); font-size: var(--company-heading-size, clamp(2rem, 3vw, 2.625rem)); line-height: 1.08; }

@@ -133,11 +133,15 @@ test('company pages use explicit editorial/presentation alignment and fit respon
             '.company-section--editorial, .company-section--presentation, .ag-section--editorial, .ag-section--presentation'
           ));
           const text = sections.flatMap((section) => {
-            const expected = section.matches('.company-section--editorial, .ag-section--editorial') ? 'left' : 'center';
+            const defaultExpected = section.matches('.company-section--editorial, .ag-section--editorial') ? 'left' : 'center';
             return Array.from(section.querySelectorAll('h2, h3, h4, p, li'))
               .filter((element) => !element.closest('.stat-panel2, .stat-tile2, .info-rows, .aficd-glance-list, .aficd-ops-stats, .lg-company-faq, .ag-faq, table, form'))
               .map((element) => {
                 const style = getComputedStyle(element);
+                const isAviationCentered = section.matches('.company-section--aviation-centered')
+                  || (section.matches('.company-section--aviation-services-centered')
+                    && (element.matches('.fs-display') || element.closest('.svc-card__body')));
+                const expected = isAviationCentered ? 'center' : defaultExpected;
                 return { expected, actual: style.textAlign, marginLeft: style.marginLeft };
               });
           });
@@ -162,6 +166,103 @@ test('company pages use explicit editorial/presentation alignment and fit respon
           assert.equal(layout.faqCount, 1, `${pageName} at ${viewport.width}px: FAQ remains mounted`);
         } else {
           assert.equal(layout.faqCount, 0, `${pageName} at ${viewport.width}px: existing custom FAQ remains the only FAQ`);
+        }
+      }
+    }
+  } finally {
+    await browser.close();
+    server.closeAllConnections();
+    await new Promise((resolve) => server.close(resolve));
+  }
+});
+
+test('Lake Aviation alignment exceptions stay local and responsive', { timeout: 120000 }, async () => {
+  const server = await startServer();
+  let browser;
+  try {
+    const executablePath = installedChromium();
+    browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
+  } catch (error) {
+    server.closeAllConnections();
+    await new Promise((resolve) => server.close(resolve));
+    throw new Error(`Playwright Chromium is unavailable; aviation alignment browser assertions could not run: ${error.message}`);
+  }
+
+  try {
+    const page = await browser.newPage();
+    const base = `http://127.0.0.1:${server.address().port}/`;
+    const viewports = [
+      { width: 1920, height: 1080 },
+      { width: 1440, height: 900 },
+      { width: 1366, height: 768 },
+      { width: 768, height: 1024 },
+      { width: 390, height: 844 },
+      { width: 412, height: 915 },
+    ];
+    const regressionPages = [
+      'lake-oil.html', 'lake-gas.html', 'lake-buildings.html', 'lake-trans.html', 'agrinova-tech.html',
+    ];
+
+    for (const viewport of viewports) {
+      await page.setViewportSize(viewport);
+      await page.goto(`${base}lake-aviation.html`, { waitUntil: 'domcontentloaded' });
+      const aviation = await page.evaluate(() => {
+        const intro = document.querySelector('.company-section--aviation-centered');
+        const services = document.querySelector('.company-section--aviation-services-centered');
+        const introText = Array.from(intro.querySelectorAll('.fs-display, .fs-lede, p, li'));
+        const cards = Array.from(services.querySelectorAll('.svc-card'));
+        const imageState = cards.map((card) => {
+          const image = card.querySelector('.svc-card__media img');
+          const media = card.querySelector('.svc-card__media');
+          return {
+            src: image.getAttribute('src'),
+            objectFit: getComputedStyle(image).objectFit,
+            aspectRatio: getComputedStyle(media).aspectRatio,
+          };
+        });
+        return {
+          overflow: document.documentElement.scrollWidth > innerWidth,
+          introAlignments: introText.map((element) => getComputedStyle(element).textAlign),
+          introWidth: intro.querySelector('.lake-aviation-intro').getBoundingClientRect().width,
+          introContainerWidth: intro.querySelector('.container').getBoundingClientRect().width,
+          servicesTitleAlignment: getComputedStyle(services.querySelector(':scope > .container > .fs-display')).textAlign,
+          cardCount: cards.length,
+          cardTextAlignments: cards.flatMap((card) => [
+            getComputedStyle(card.querySelector('.svc-card__title')).textAlign,
+            getComputedStyle(card.querySelector('.svc-card__desc')).textAlign,
+          ]),
+          cardWidths: cards.map((card) => Math.round(card.getBoundingClientRect().width)),
+          imageState,
+        };
+      });
+
+      assert.equal(aviation.overflow, false, `Lake Aviation at ${viewport.width}px: no horizontal overflow`);
+      assert.equal(aviation.introAlignments.length, 7, 'intro heading, paragraphs, and four capability lines are inspected');
+      assert.ok(aviation.introAlignments.every((alignment) => alignment === 'center'), `Lake Aviation intro text centers at ${viewport.width}px`);
+      assert.ok(aviation.introWidth <= aviation.introContainerWidth, `Lake Aviation intro block fits its container at ${viewport.width}px`);
+      assert.equal(aviation.servicesTitleAlignment, 'center', `Our Services title centers at ${viewport.width}px`);
+      assert.equal(aviation.cardCount, 4, `four service cards remain at ${viewport.width}px`);
+      assert.ok(aviation.cardTextAlignments.every((alignment) => alignment === 'center'), `service card text centers at ${viewport.width}px`);
+      assert.ok(aviation.cardWidths.every((width) => width > 0), `service cards remain laid out at ${viewport.width}px`);
+      assert.deepEqual(aviation.imageState.map(({ src }) => src), [
+        'assets/images/delivery/lake-aviation/remediated/aviation-2-clean.webp',
+        'assets/images/delivery/lake-aviation/remediated/aviation-4-neutral.webp',
+        'assets/images/delivery/lake-aviation/remediated/aviation-6-neutral.webp',
+        'assets/images/lake-aviation/ops/bulk-storage-lake-energies.webp',
+      ], 'service images and their source assets remain unchanged');
+      assert.ok(aviation.imageState.every((image) => image.objectFit === 'cover' && image.aspectRatio === '16 / 10'), 'service image treatment remains unchanged');
+
+      for (const pageName of regressionPages) {
+        await page.goto(`${base}${pageName}`, { waitUntil: 'domcontentloaded' });
+        const introAlignment = await page.evaluate(() => {
+          const section = document.querySelector('.company-section--editorial, .ag-section--editorial');
+          const heading = section?.querySelector('h2, h3');
+          return heading ? { text: heading.textContent.trim(), align: getComputedStyle(heading).textAlign } : null;
+        });
+        assert.ok(introAlignment, `${pageName} has an editorial intro heading at ${viewport.width}px`);
+        assert.equal(introAlignment.align, 'left', `${pageName} editorial intro remains left aligned at ${viewport.width}px`);
+        if (pageName === 'lake-oil.html') {
+          assert.match(introAlignment.text, /LAKE OIL, THE FLAGSHIP COMPANY OF LAKE GROUP/i, 'Lake Oil keeps its intended intro heading');
         }
       }
     }
