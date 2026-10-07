@@ -149,12 +149,17 @@ body[data-company-logo] .fs-section.company-section--aviation-centered
 }
 
 body[data-company-logo] .fs-section.company-section--aviation-centered .fs-check li {
+  width: 100%;
+  box-sizing: border-box;
   padding-left: 0;
   justify-content: center;
   text-align: center;
 }
 
 body[data-company-logo] .fs-section.company-section--aviation-centered .fs-check {
+  width: fit-content;
+  max-width: 100%;
+  align-items: center;
   margin-left: auto;
   margin-right: auto;
   padding-left: 0;

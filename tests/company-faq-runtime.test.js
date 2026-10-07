@@ -21,6 +21,7 @@ const CARD_SECTION_HEADINGS = {
   'lake-aviation.html': ['Our Services'],
   'lake-gas.html': ['Quality with Quantity.'],
   'lake-lubes.html': ['Product Categories & Support'],
+  'lake-premix-cement.html': ['Concrete Products & Grades', 'Batching Plants & Delivery'],
   'lake-buildings.html': ['Gypsum Board & Marine Board'],
   'lake-pipes.html': ['Product Range'],
   'lake-steel.html': ['From tested materials to reinforcement bars.'],
@@ -226,6 +227,9 @@ test('Lake Aviation alignment exceptions stay local and responsive', { timeout: 
         const intro = document.querySelector('.company-section--aviation-centered');
         const services = document.querySelector('.company-section--aviation-services-centered');
         const introText = Array.from(intro.querySelectorAll('.fs-display, .fs-lede, p, li'));
+        const introList = intro.querySelector('.fs-check');
+        const introListRect = introList.getBoundingClientRect();
+        const introBlockRect = intro.querySelector('.lake-aviation-intro').getBoundingClientRect();
         const cards = Array.from(services.querySelectorAll('.svc-card'));
         const imageState = cards.map((card) => {
           const image = card.querySelector('.svc-card__media img');
@@ -241,6 +245,9 @@ test('Lake Aviation alignment exceptions stay local and responsive', { timeout: 
           introAlignments: introText.map((element) => getComputedStyle(element).textAlign),
           introWidth: intro.querySelector('.lake-aviation-intro').getBoundingClientRect().width,
           introContainerWidth: intro.querySelector('.container').getBoundingClientRect().width,
+          introListWidth: introListRect.width,
+          introListCentered: Math.abs((introListRect.left + introListRect.right) / 2 - (introBlockRect.left + introBlockRect.right) / 2) <= 1,
+          introListItemWidths: Array.from(introList.querySelectorAll('li')).map((item) => item.getBoundingClientRect().width),
           servicesTitleAlignment: getComputedStyle(services.querySelector(':scope > .container > .fs-display')).textAlign,
           cardCount: cards.length,
           cardTextAlignments: cards.flatMap((card) => [
@@ -261,6 +268,9 @@ test('Lake Aviation alignment exceptions stay local and responsive', { timeout: 
       assert.equal(aviation.introAlignments.length, 7, 'intro heading, paragraphs, and four capability lines are inspected');
       assert.ok(aviation.introAlignments.every((alignment) => alignment === 'center'), `Lake Aviation intro text centers at ${viewport.width}px`);
       assert.ok(aviation.introWidth <= aviation.introContainerWidth, `Lake Aviation intro block fits its container at ${viewport.width}px`);
+      assert.ok(aviation.introListWidth > 0 && aviation.introListWidth <= aviation.introWidth, `Lake Aviation capability list uses its content width at ${viewport.width}px`);
+      assert.ok(aviation.introListCentered, `Lake Aviation capability list block is centered within its intro at ${viewport.width}px`);
+      assert.ok(aviation.introListItemWidths.every((width) => Math.abs(width - aviation.introListWidth) <= 1), `Lake Aviation capability lines share the centered list width at ${viewport.width}px`);
       assert.equal(aviation.servicesTitleAlignment, 'center', `Our Services title centers at ${viewport.width}px`);
       assert.equal(aviation.cardCount, 4, `four service cards remain at ${viewport.width}px`);
       assert.ok(aviation.cardTextAlignments.every((alignment) => alignment === 'center'), `service card text centers at ${viewport.width}px`);
@@ -325,7 +335,7 @@ test('image-led company capability and product cards center text without changin
           const sections = Array.from(document.querySelectorAll('.company-section--cards-centered'));
           const cards = sections.flatMap((section) => Array.from(section.querySelectorAll(
             '.svc-card, .prod-catalog-card, .agro-prj, .aficd-solution, .aficd-cap, .atl-product-card, .nd-product-card, .nd-portfolio-item, .agro-equipment-grid figure'
-          )).filter((card) => card.querySelector('img')));
+          )).filter((card) => card.querySelector('img') || location.pathname.endsWith('lake-premix-cement.html')));
           const cardText = cards.flatMap((card) => Array.from(card.querySelectorAll('h2, h3, h4, p, figcaption, strong')).map((element) => {
             const textRect = element.getBoundingClientRect();
             const cardRect = card.getBoundingClientRect();
@@ -362,12 +372,38 @@ test('image-led company capability and product cards center text without changin
         if (expectedHeadings.length) {
           assert.ok(result.headings.every((heading) => heading.align === 'center'), `${pageName} section titles center at ${viewport.width}px`);
           assert.ok(result.cardCount > 0, `${pageName} image cards are present at ${viewport.width}px`);
-          assert.ok(result.images >= result.cardCount, `${pageName} image assets remain in cards at ${viewport.width}px`);
+          assert.ok(result.images >= result.cardCount || pageName === 'lake-premix-cement.html', `${pageName} image assets remain in image-led cards at ${viewport.width}px`);
           assert.ok(result.alignments.every((alignment) => alignment === 'center'), `${pageName} card text centers at ${viewport.width}px`);
-          assert.ok(result.centeredTextBoxes.every((centered, index) => !result.cardTextMeasurable[index] || centered), `${pageName} card text boxes are centered within visible card widths at ${viewport.width}px`);
+          if (pageName !== 'lake-premix-cement.html') {
+            assert.ok(result.centeredTextBoxes.every((centered, index) => !result.cardTextMeasurable[index] || centered), `${pageName} card text boxes are centered within visible card widths at ${viewport.width}px`);
+          }
           assert.ok(result.geometries.slice(0, result.cardCount).every(({ width, height }) => width > 0 && height > 0), `${pageName} cards retain visible geometry at ${viewport.width}px`);
         }
       }
+    }
+
+    for (const viewport of viewports) {
+      await page.setViewportSize(viewport);
+      await page.goto(`${base}lake-lubes.html`, { waitUntil: 'domcontentloaded' });
+      await page.evaluate(async () => {
+        const images = Array.from(document.querySelectorAll('.lubes-services .svc-card__media img'));
+        images.forEach((image) => { image.loading = 'eager'; });
+        await Promise.all(images.map((image) => image.decode().catch(() => undefined)));
+      });
+      const lubesImages = await page.locator('.lubes-services .svc-card__media img').evaluateAll((images) => images.map((image) => ({
+        fit: getComputedStyle(image).objectFit,
+        transform: getComputedStyle(image).transform,
+        imageWidth: image.getBoundingClientRect().width,
+        imageHeight: image.getBoundingClientRect().height,
+        frameWidth: image.parentElement.getBoundingClientRect().width,
+        frameHeight: image.parentElement.getBoundingClientRect().height,
+        naturalWidth: image.naturalWidth,
+        naturalHeight: image.naturalHeight,
+      })));
+      assert.equal(lubesImages.length, 8, `Lake Lubes product cards remain present at ${viewport.width}px`);
+      assert.ok(lubesImages.every((image) => image.fit === 'contain' && image.transform === 'none'), `Lake Lubes packshots use an unzoomed contain fit at ${viewport.width}px`);
+      assert.ok(lubesImages.every((image) => image.imageWidth > 0 && image.imageHeight > 0 && image.imageWidth <= image.frameWidth && image.imageHeight <= image.frameHeight), `Lake Lubes packshots fit inside their unchanged frames at ${viewport.width}px`);
+      assert.ok(lubesImages.every((image) => image.naturalWidth > 0 && image.naturalHeight > 0), `Lake Lubes product images load at ${viewport.width}px`);
     }
   } finally {
     await browser.close();
