@@ -54,8 +54,8 @@
 .img-mosaic img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .4s ease}
 .img-mosaic .fs-media:hover img{transform:scale(1.03)}
 
-.lubes-services .svc-card__media{aspect-ratio:4/3;background:var(--paper-2);padding:14px;display:flex;align-items:center;justify-content:center}
-.lubes-services .svc-card__media img{width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;object-position:center;flex:0 1 auto}
+.lubes-services .svc-card__media{aspect-ratio:1/1;background:var(--paper-2);padding:12px;display:flex;align-items:center;justify-content:center}
+.lubes-services .svc-card__media img{width:100%;height:100%;max-width:none;max-height:none;object-fit:contain;object-position:center;flex:none}
 .lubes-services .svc-card:hover .svc-card__media img{transform:none}
 .lubes-hero{min-height:clamp(440px,42vw,560px)}
 body[data-company-logo] .page-hero.lubes-hero{min-height:clamp(480px,42vw,560px)}
@@ -66,8 +66,10 @@ body[data-company-logo] .page-hero.lubes-hero .hero-overlay{background:linear-gr
 .lubes-intro-panel .stat-grid2{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px}
 .lubes-intro-panel .stat-tile2{min-width:0}
 .lubes-objectives{color:rgba(255,255,255,.92)}
-
-.lubes-objectives .fs-check{margin-top:0}
+.lubes-objectives .grid-2{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-6);max-width:1180px;margin-left:auto;margin-right:auto;align-items:start}
+.lubes-objectives .fs-check{margin-top:0;gap:var(--sp-4);padding-left:0}
+.lubes-objectives .fs-check li{padding:0;color:rgba(255,255,255,.92);text-align:center;margin-left:auto;margin-right:auto;max-width:58ch}
+@media(max-width:720px){.lubes-objectives .grid-2{grid-template-columns:1fr;gap:var(--sp-4)}}
 .lubes-intro-section .fs-split-even>div:first-child{text-align:left}
 .lubes-intro-section .fs-split-even>div:first-child .fs-display,
 .lubes-intro-section .fs-split-even>div:first-child .fs-lede,
@@ -282,10 +284,10 @@ body[data-company-logo] .page-hero.lubes-hero .hero-overlay{background:linear-gr
         <ul class="fs-check">
           <li>Maintain high quality and safety standards throughout blending, filling and packaging, backed by our in-house laboratory</li>
           <li>Strengthen self-reliant packaging, supplying jerry cans from 250 ml to 20 litres without third-party dependence</li>
-          <li>Build a strong regional presence across East Africa, leveraging the Lake Group network</li>
         </ul>
         <ul class="fs-check">
           <li>Develop our workforce through technical training, skills development and a strong quality and safety culture</li>
+          <li>Build a strong regional presence across East Africa, leveraging the Lake Group network</li>
         </ul>
       </div>
     </div>
@@ -360,10 +362,9 @@ body[data-company-logo] .page-hero.lubes-hero .hero-overlay{background:linear-gr
   <div class="container">
 <h2 class="fs-display" style="margin-bottom:var(--sp-6)">Watch Lake Lubes in Action</h2>
           <div class="fs-video lubes-video youtube-facade" data-youtube-id="LjmQvb-jQJk" data-video-title="Watch Lake Lubes in Action">
-        <img src="assets/images/delivery/lakelubes/products/lake-lubes-power-eco-range.webp" alt="Lake Lubes product range" loading="lazy" decoding="async" width="1200" height="800">
+        <img src="assets/images/delivery/lakelubes/products/lake-lubes-power-eco-range.webp" alt="Lake Lubes product range" loading="eager" fetchpriority="high" decoding="async" width="1200" height="800">
         <button type="button" class="youtube-facade__play" data-video-play aria-label="Play Lake Lubes in Action"></button>
       </div>
-      <p class="video-fallback" style="margin-top:12px;font-size:.86rem">If the player is unavailable, <a href="https://www.youtube.com/watch?v=LjmQvb-jQJk" target="_blank" rel="noopener">watch Lake Lubes in Action on YouTube</a>.</p>
   </div>
 </section>
 
