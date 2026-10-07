@@ -25,6 +25,16 @@ function startServer() {
   });
 }
 
+function launchBrowser() {
+  const candidates = [
+    process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH,
+    process.env.ProgramFiles && path.join(process.env.ProgramFiles, 'Google', 'Chrome', 'Application', 'chrome.exe'),
+    process.env['ProgramFiles(x86)'] && path.join(process.env['ProgramFiles(x86)'], 'Microsoft', 'Edge', 'Application', 'msedge.exe'),
+  ].filter(Boolean);
+  const executablePath = candidates.find((candidate) => fs.existsSync(candidate));
+  return chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
+}
+
 test('public pages ship no page-level loading veil', () => {
   for (const pageName of PAGES) {
     const page = fs.readFileSync(path.join(ROOT, pageName), 'utf8');
@@ -42,7 +52,7 @@ test('public pages ship no page-level loading veil', () => {
 
 test('slow media receives local placeholders while real navigation and content stay usable', async () => {
   const server = await startServer();
-  const browser = await chromium.launch({ headless: true });
+  const browser = await launchBrowser();
   const errors = [];
   try {
     for (const viewport of [{ width: 430, height: 932 }, { width: 390, height: 844 }, { width: 375, height: 812 }, { width: 360, height: 800 }]) {
@@ -80,7 +90,7 @@ test('slow media receives local placeholders while real navigation and content s
 
 test('local placeholder shimmer respects reduced motion', async () => {
   const server = await startServer();
-  const browser = await chromium.launch({ headless: true });
+  const browser = await launchBrowser();
   const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.route(/\.(jpe?g|png|webp)(\?|$)/, async (route) => {
@@ -99,7 +109,7 @@ test('local placeholder shimmer respects reduced motion', async () => {
 
 test('warm media skips local placeholders', async () => {
   const server = await startServer();
-  const browser = await chromium.launch({ headless: true });
+  const browser = await launchBrowser();
   const page = await browser.newPage({ viewport: { width: 430, height: 932 } });
   try {
     const base = `http://127.0.0.1:${server.address().port}`;

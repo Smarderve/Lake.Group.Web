@@ -40,6 +40,19 @@ body.company-standard .fs-section > .container > .fs-lede {
   margin-inline: auto;
 }
 
+body.company-standard .fs-section > .container > h2,
+body.company-standard .fs-section > .container > p:not(.footer-motto),
+body.co-theme-automotive .fs-section > .container > h2,
+body.co-theme-automotive .fs-section > .container > p:not(.footer-motto) {
+  text-align: center;
+  margin-inline: auto;
+}
+
+body.company-standard .fs-section > .container > p:not(.footer-motto),
+body.co-theme-automotive .fs-section > .container > p:not(.footer-motto) {
+  max-width: 72ch;
+}
+
 /* Automotive profiles use the same flagship section primitives but predate
    the company-standard body marker. Keep their editorial headers consistent. */
 body.co-theme-automotive .fs-section > .container > .fs-marker,

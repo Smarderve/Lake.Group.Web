@@ -14,6 +14,7 @@
     "test:responsive-hero-images": "node scripts/verify-responsive-hero-images.mjs",
     "test:iis-static-security": "node --test tests/iis-static-security.test.js",
     "test:skeleton": "node tests/skeleton-loader.test.js",
+    "test:faq-runtime": "node tests/company-faq-runtime.test.js",
     "test:phase01-navbar": "node --test tests/phase-01-navbar.test.js",
     "test:phase01-footer": "node --test tests/phase-01-footer.test.js",
     "test:phase01-launch": "node --test tests/phase-01-launch-scope.test.js",

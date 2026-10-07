@@ -3107,7 +3107,6 @@
 
       function ensureSrc(img, src, priority) {
         if (!img || !src) return;
-        if (img.dataset.lgReady === "1" && img.getAttribute("src") === src) return;
         img.decoding = "async";
         if (priority === "high") {
           img.loading = "eager";
@@ -3117,8 +3116,10 @@
           try { img.fetchPriority = "low"; } catch (_) { /* ignore */ }
         } else {
           img.loading = "lazy";
+          try { img.fetchPriority = "low"; } catch (_) { /* ignore */ }
         }
-        if (img.getAttribute("src") !== src) img.src = src;
+        if (img.getAttribute("src") === src) return;
+        img.src = src;
         img.dataset.lgReady = "1";
         if (typeof img.decode === "function") {
           if (img.complete && img.naturalWidth) img.decode().catch(function () {});
@@ -3129,6 +3130,8 @@
       function preloadAround(center) {
         var n = tiles.length;
         if (!n) return;
+        var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        var dataConstrained = !!(connection && (connection.saveData || /(^|-)2g$/.test(connection.effectiveType || "")));
         // The coverflow exposes three neighbours on each side of the active
         // card. Warm that exact visual window before removing its placeholder;
         // distant cards remain deferred so the hero keeps network priority.
@@ -3137,16 +3140,24 @@
           var btn = tiles[i];
           if (!btn || !btn._item) continue;
           var distance = Math.abs(off);
-          ensureTileReady(btn, distance === 0 ? "high" : (distance <= 2 ? "near" : "idle"));
+          var priority = distance === 0 ? (dataConstrained ? "near" : "high") : (dataConstrained && distance > 1 ? "idle" : "near");
+          ensureTileReady(btn, priority);
         }
+        tiles.forEach(function (btn, i) {
+          var distance = Math.min((i - center + n) % n, (center - i + n) % n);
+          var img = btn && btn.querySelector("img");
+          if (distance > 3 && img && img.hasAttribute("src") && btn._item) {
+            ensureSrc(img, btn._item.src, "idle");
+          }
+        });
       }
 
       function ensureTileReady(btn, priority) {
         if (!btn || !btn._item) return Promise.resolve(false);
         var key = tiles.indexOf(btn);
-        if (tileReady[key]) return tileReady[key];
         var img = btn.querySelector("img");
         ensureSrc(img, btn._item.src, priority);
+        if (tileReady[key]) return tileReady[key];
         tileReady[key] = new Promise(function (resolve) {
           var settled = false;
           function finish(ok) {
@@ -3167,39 +3178,6 @@
         return tileReady[key];
       }
 
-      function idlePrefetchRest() {
-        var queue = tiles.slice();
-        var i = 0;
-        function step(deadline) {
-          var budget = deadline && typeof deadline.timeRemaining === "function"
-            ? deadline.timeRemaining()
-            : 16;
-          // One deferred card per idle turn prevents the whole below-fold
-          // strip from competing with the hero and first meaningful paint.
-          if (i < queue.length && budget > 2) {
-            var btn = queue[i++];
-            if (btn && btn._item) {
-              var img = btn.querySelector("img");
-              if (img && img.dataset.lgReady !== "1") {
-                ensureSrc(img, btn._item.src, "idle");
-              }
-            }
-          }
-          if (i < queue.length) {
-            if ("requestIdleCallback" in window) {
-              requestIdleCallback(step, { timeout: 1800 });
-            } else {
-              window.setTimeout(function () { step(null); }, 700);
-            }
-          }
-        }
-        if ("requestIdleCallback" in window) {
-          requestIdleCallback(step, { timeout: 1400 });
-        } else {
-          window.setTimeout(function () { step(null); }, 380);
-        }
-      }
-
       function waitNearbyThenHide() {
         var n = tiles.length;
         if (!n) {
@@ -3207,7 +3185,7 @@
           return;
         }
         var need = [];
-        for (var off = -2; off <= 2; off++) {
+        for (var off = -3; off <= 3; off++) {
           var i = ((index + off) % n + n) % n;
           var img = tiles[i] && tiles[i].querySelector("img");
           if (img && img.getAttribute("src") && !(img.complete && img.naturalWidth)) {
@@ -3362,6 +3340,8 @@
         }
       }
 
+      var warmStarted = false;
+
       function go(to) {
         var n = tiles.length;
         if (!n) return;
@@ -3369,6 +3349,8 @@
         var token = ++moveToken;
         stopAuto();
         drag.offset = 0;
+        if (!warmStarted && (inView || isStageNearViewport())) warmStarted = true;
+        if (warmStarted) preloadAround(target);
         ensureTileReady(tiles[target], "high").then(function (ready) {
           if (!ready || token !== moveToken) return;
           index = target;
@@ -3426,9 +3408,12 @@
           tiles.push(btn);
         });
 
-        preloadAround(0);
         layout(0);
-        waitNearbyThenHide();
+        if (warmStarted || isStageNearViewport()) {
+          warmStarted = true;
+          preloadAround(0);
+          waitNearbyThenHide();
+        }
         if (inView) {
           pulseFocus();
         }
@@ -3441,7 +3426,9 @@
         var io = new IntersectionObserver(function (entries) {
           if (!entries[0] || !entries[0].isIntersecting) return;
           io.disconnect();
+          warmStarted = true;
           preloadAround(index);
+          waitNearbyThenHide();
         }, { rootMargin: window.innerWidth < 700 ? "900px 0px" : "1200px 0px", threshold: 0 });
         io.observe(stageEl);
       })();

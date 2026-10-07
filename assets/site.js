@@ -999,13 +999,14 @@
     };
     const entries = faqs[location.pathname.split('/').pop()];
     const main = document.querySelector('main');
-    if (!entries || !main || document.querySelector('.lg-company-faq')) return;
+    const pageRoot = (main && main.querySelector('.page-wrapper')) || main || document.querySelector('.page-wrapper');
+    if (!entries || !pageRoot || document.querySelector('.lg-company-faq')) return;
     const section = document.createElement('section');
     section.className = 'lg-company-faq';
     section.setAttribute('aria-labelledby', 'company-faq-title');
     const items = entries.map(function (entry) { const parts = entry.split('|'); return '<details><summary>' + parts[0] + '</summary><p>' + parts[1] + '</p></details>'; }).join('');
     section.innerHTML = '<div class="lg-company-faq__inner"><h2 id="company-faq-title" class="lg-company-faq__title">Questions about this business</h2><p class="lg-company-faq__lead">Helpful answers based on the information presented on this page.</p><div class="lg-company-faq__list">' + items + '</div></div>';
-    main.appendChild(section);
+    pageRoot.appendChild(section);
   }
 
   document.addEventListener('DOMContentLoaded', () => {
