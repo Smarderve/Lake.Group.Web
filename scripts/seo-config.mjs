@@ -95,7 +95,7 @@ export const INDEXABLE_ROUTES = Object.freeze([
 // Redirect targets and tools must stay out of the index even when their static
 // source file is available locally.
 export const NON_INDEXABLE_ROUTES = Object.freeze([
-  '404.html', 'offline.html', 'dashboard.html', 'acfs.html', 'atl.html',
+  '404.html', 'offline.html', 'acfs.html', 'atl.html',
   'la-home.html', 'la-projects.html', 'ocean-galleria.html', 'media-center.html',
   'lake-group-financial-dashboard.html', 'lake-group-org-chart.html',
 ]);

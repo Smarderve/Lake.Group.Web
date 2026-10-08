@@ -21,7 +21,6 @@ const ROOT = path.resolve(__dirname, '..');
 const EXCLUDE = new Set([
   '404.html',
   'offline.html',
-  'dashboard.html',          // admin/dashboard page
   'lake-group-org-chart.html',
   'station-locator.html',    // heavy map interaction, not a content page
 ]);

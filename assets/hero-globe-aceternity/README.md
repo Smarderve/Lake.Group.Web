@@ -1,1 +1,0 @@
-New isolated embedded Lake Group globe. Built from the supplied Aceternity Globe World/ThreeGlobe arc pipeline and 3D Globe projection/material/atmosphere contracts. The active homepage globe source is `globe-lab/`, built to `assets/globe-lab.bundle.js`.

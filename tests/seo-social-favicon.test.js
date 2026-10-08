@@ -35,7 +35,7 @@ for (const asset of [
 ]) assert.ok(fs.existsSync(path.join(ROOT, asset)), `${asset} is present`);
 
 const redirectOnlyPages = new Set([
-  '404.html', 'acfs.html', 'atl.html', 'dashboard.html', 'lake-group-financial-dashboard.html',
+  '404.html', 'acfs.html', 'atl.html', 'lake-group-financial-dashboard.html',
   'lake-group-org-chart.html', 'la-home.html', 'la-projects.html', 'media-center.html',
   'ocean-galleria.html', 'offline.html',
 ]);

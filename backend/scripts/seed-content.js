@@ -80,7 +80,7 @@ export function loadGalleryTiles(file = GALLERY_HTML) {
 
 /** Extract publishable title/description metadata from root public pages. */
 export function loadPageMetadata(root = FRONTEND_ROOT) {
-  const excluded = new Set(['dashboard.html', 'offline.html']);
+  const excluded = new Set(['offline.html']);
   return fs.readdirSync(root)
     .filter((file) => file.endsWith('.html') && !excluded.has(file))
     .sort()

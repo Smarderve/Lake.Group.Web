@@ -6,21 +6,20 @@ const path = require('node:path');
 const test = require('node:test');
 
 const ROOT = path.resolve(__dirname, '..');
-const globe = fs.readFileSync(path.join(ROOT, 'assets', 'hero-globe', 'HeroGlobe.jsx'), 'utf8');
+const globe = fs.readFileSync(path.join(ROOT, 'globe-lab', 'entry.tsx'), 'utf8');
 const marquee = fs.readFileSync(path.join(ROOT, 'assets', 'components', 'logo-loop-mount.js'), 'utf8');
 const worker = fs.readFileSync(path.join(ROOT, 'sw.js'), 'utf8');
 
-test('globe rendering pauses outside the viewport and while the document is hidden', () => {
-  assert.match(globe, /\.pauseAnimation\(\)/, 'offscreen globe must stop its WebGL render loop');
-  assert.match(globe, /\.resumeAnimation\(\)/, 'visible globe must resume its WebGL render loop');
-  assert.match(globe, /document\.hidden/, 'hidden tabs must not keep the globe rendering');
-  assert.match(globe, /setPixelRatio\(Math\.min\(1\.5, window\.devicePixelRatio\)\)/, 'globe DPR must be capped for mobile GPU stability');
+test('current globe source pauses offscreen and respects reduced motion', () => {
+  assert.match(globe, /setFrameloop\(document\.hidden\|\|!onscreen\?'never':'always'\)/, 'offscreen/hidden globe stops its render loop');
+  assert.match(globe, /prefers-reduced-motion:\s*reduce/, 'globe respects reduced motion');
+  assert.match(globe, /dpr=\{\[1,1\.5\]\}/, 'globe DPR is capped for mobile GPU stability');
 });
 
-test('route animation batches React updates instead of updating state in every route RAF', () => {
-  assert.match(globe, /routeAnimationFrame/, 'route drawing uses one coordinated animation frame');
-  assert.match(globe, /ROUTE_FRAME_INTERVAL_MS/, 'route state commits are frame-rate limited');
-  assert.doesNotMatch(globe, /const drawRoute = \(\) => \{[\s\S]*?setArcsData\(/, 'individual route RAF loops must not trigger React renders');
+test('current globe runtime is served by the maintained globe-lab bundle', () => {
+  const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+  assert.match(html, /globe-lab\.bundle\.js/);
+  assert.doesNotMatch(html, /hero-globe\.bundle\.js|hero-3d\.bundle\.js/);
 });
 
 test('failed script and stylesheet fetches fall back to a cached asset instead of an empty 503 response', () => {

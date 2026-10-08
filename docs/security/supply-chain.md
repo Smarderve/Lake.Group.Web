@@ -23,7 +23,7 @@ or exercised by `src/`:
 firebase-tools (hosting deploy — currently unconfigured, no `firebase.json`),
 playwright (verification harnesses), sharp (image optimization);
 react / react-dom / react-globe.gl (bundled by esbuild into
-`assets/hero-globe.bundle.js` — build-time only), animejs (gallery tooling;
+`assets/globe-lab.bundle.js` — build-time only), animejs (gallery tooling;
 also vendored in `assets/vendor/`), docx (report generators).
 **`lake-3d/`** is a separate Next.js experiment with its own manifest.
 

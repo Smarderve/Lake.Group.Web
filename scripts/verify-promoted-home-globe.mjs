@@ -8,9 +8,12 @@ import { chromium } from 'playwright';
 const root = process.cwd();
 const qaDir = path.join(root, 'docs', 'qa');
 const videoDir = path.join(qaDir, '_home-globe-video');
+const recordVideo = process.argv.includes('--record-video');
 await fs.mkdir(qaDir, { recursive: true });
-await fs.rm(videoDir, { recursive: true, force: true });
-await fs.mkdir(videoDir, { recursive: true });
+if (recordVideo) {
+  await fs.rm(videoDir, { recursive: true, force: true });
+  await fs.mkdir(videoDir, { recursive: true });
+}
 
 const mime = { '.html':'text/html; charset=utf-8', '.css':'text/css', '.js':'text/javascript', '.mjs':'text/javascript', '.json':'application/json', '.png':'image/png', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.webp':'image/webp', '.svg':'image/svg+xml', '.woff2':'font/woff2' };
 const server = http.createServer((request, response) => {
@@ -51,7 +54,7 @@ for (const viewport of viewports) {
   const page = await context.newPage();
   const requests = [];
   const failedRequests = [];
-  page.on('request', (request) => requests.push(request.url()));
+  page.on('request', (request) => requests.push({ url: request.url(), type: request.resourceType() }));
   page.on('requestfailed', (request) => failedRequests.push({ url: request.url(), error: request.failure()?.errorText }));
   await page.goto('http://127.0.0.1:4175/index.html?final', { waitUntil: 'domcontentloaded', timeout: 20000 });
   await page.locator('#fuel-experience').scrollIntoViewIfNeeded();
@@ -71,8 +74,8 @@ for (const viewport of viewports) {
       navVisible: Boolean(document.querySelector('.site-nav')),
     };
   }, expectedLabels);
-  const labLoads = requests.filter((url) => url.includes('/assets/globe-lab.bundle.js')).length;
-  const oldLoads = requests.filter((url) => url.includes('/assets/hero-globe.bundle.js')).length;
+  const labLoads = requests.filter(({ url, type }) => type === 'script' && url.includes('/assets/globe-lab.bundle.js')).length;
+  const oldLoads = requests.filter(({ url, type }) => type === 'script' && url.includes('/assets/hero-globe.bundle.js')).length;
   results.push({ viewport, ...state, labLoads, oldLoads, failedRequests });
   const screenshot = viewport.width === 1440 ? 'home-globe-promoted-1440.png' : viewport.width === 1920 ? 'home-globe-promoted-1920.png' : viewport.width === 390 ? 'home-globe-promoted-390.png' : null;
   if (screenshot) await page.locator('#fuel-experience').screenshot({ path: path.join(qaDir, screenshot) });
@@ -88,21 +91,24 @@ await labPage.waitForSelector('#root canvas', { timeout: 20000 });
 await labPage.screenshot({ path: path.join(qaDir, 'globe-lab-approved-1440.png') }); // archived lab page (docs/labs/)
 await labContext.close();
 
-const videoContext = await initContext({ width:1440,height:900 }, true);
-const videoPage = await videoContext.newPage();
-await videoPage.goto('http://127.0.0.1:4175/index.html', { waitUntil: 'domcontentloaded', timeout: 20000 });
-await videoPage.locator('#fuel-experience').scrollIntoViewIfNeeded();
-await videoPage.waitForSelector('#hero-globe-root canvas', { timeout: 20000 });
-await videoPage.waitForTimeout(12500);
-const recorded = await videoPage.video().path();
-await videoContext.close();
+let recordingBytes = null;
+if (recordVideo) {
+  const videoContext = await initContext({ width:1440,height:900 }, true);
+  const videoPage = await videoContext.newPage();
+  await videoPage.goto('http://127.0.0.1:4175/index.html', { waitUntil: 'domcontentloaded', timeout: 20000 });
+  await videoPage.locator('#fuel-experience').scrollIntoViewIfNeeded();
+  await videoPage.waitForSelector('#hero-globe-root canvas', { timeout: 20000 });
+  await videoPage.waitForTimeout(12500);
+  const recorded = await videoPage.video().path();
+  await videoContext.close();
+  const mp4 = path.join(qaDir, 'home-globe-promoted-sequence.mp4');
+  const converted = spawnSync('ffmpeg', ['-y','-i',recorded,'-c:v','libx264','-preset','medium','-crf','22','-pix_fmt','yuv420p','-movflags','+faststart',mp4], { stdio:'pipe', encoding:'utf8' });
+  if (converted.status !== 0) throw new Error(`ffmpeg failed: ${converted.stderr}`);
+  await fs.rm(videoDir, { recursive: true, force: true });
+  recordingBytes = (await fs.stat(mp4)).size;
+}
 await browser.close();
 server.close();
-
-const mp4 = path.join(qaDir, 'home-globe-promoted-sequence.mp4');
-const converted = spawnSync('ffmpeg', ['-y','-i',recorded,'-c:v','libx264','-preset','medium','-crf','22','-pix_fmt','yuv420p','-movflags','+faststart',mp4], { stdio:'pipe', encoding:'utf8' });
-if (converted.status !== 0) throw new Error(`ffmpeg failed: ${converted.stderr}`);
-await fs.rm(videoDir, { recursive: true, force: true });
 
 const source = await fs.readFile(path.join(root, 'globe-lab', 'entry.tsx'), 'utf8');
 const assertions = {
@@ -113,10 +119,10 @@ const assertions = {
   approvedBundleLoadedOnce: results.every((item) => item.labLoads === 1),
   exactTenLabelsEverywhere: results.every((item) => item.exactLabels),
   visibilityPausePresent: source.includes("document.hidden||!onscreen?'never':'always'") && source.includes('IntersectionObserver'),
-  dprCapPreserved: source.includes('dpr={[1,1.65]}'),
+  dprCapPreserved: source.includes('dpr={[1,1.5]}'),
   coordinatesPreserved: expectedLabels.every((id) => source.includes(`id:'${id}'`)),
 };
-const output = { generatedAt:new Date().toISOString(), assertions, results, screenshots:['docs/qa/globe-lab-approved-1440.png','docs/qa/home-globe-promoted-1440.png','docs/qa/home-globe-promoted-1920.png','docs/qa/home-globe-promoted-390.png'], recording:'docs/qa/home-globe-promoted-sequence.mp4' };
+const output = { generatedAt:new Date().toISOString(), assertions, results, screenshots:['docs/qa/globe-lab-approved-1440.png','docs/qa/home-globe-promoted-1440.png','docs/qa/home-globe-promoted-1920.png','docs/qa/home-globe-promoted-390.png'], recording:recordVideo?'docs/qa/home-globe-promoted-sequence.mp4':null };
 await fs.writeFile(path.join(qaDir, 'home-globe-promotion-verification.json'), `${JSON.stringify(output,null,2)}\n`);
-console.log(JSON.stringify({ assertions, breakpoints:results.length, recordingBytes:(await fs.stat(mp4)).size }, null, 2));
+console.log(JSON.stringify({ assertions, breakpoints:results.length, recordingBytes }, null, 2));
 if (!Object.values(assertions).every(Boolean)) process.exitCode = 1;

@@ -368,17 +368,6 @@ function ensureFooterCss() {
   }
   console.log('remaining external HREFs', remaining);
 
-  // Re-run place/digit localization if residual
-  const j = JSON.parse(read('assets/i18n-content.json'));
-  const darAr = /\bDar es Salaam\b/.test(JSON.stringify(j.ar));
-  const darHi = /\bDar es Salaam\b/.test(JSON.stringify(j.hi));
-  if (darAr || darHi || !j.ar['about.badge']) {
-    execFileSync('node', [path.join(ROOT, 'scripts', '_fix_ar_hi_places_digits.js')], {
-      stdio: 'inherit',
-      cwd: ROOT
-    });
-  }
-  console.log('ar hero', j.ar['hero.eyebrow']);
   console.log('DONE finish_all');
 })().catch((e) => {
   console.error(e);

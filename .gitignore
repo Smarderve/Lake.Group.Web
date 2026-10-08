@@ -16,9 +16,11 @@ backend/backups/
 test-results/
 playwright-report/
 coverage/
+*.tsbuildinfo
 docs/qa/**/screenshots/
 docs/qa/**/generated-*.png
 docs/qa/
+docs/reports/responsive-hero-image-audit.json
 docs/reports/media-contact-sheets/
 docs/reports/media-contact-sheets-current/
 docs/reports/media-processed-sheets/

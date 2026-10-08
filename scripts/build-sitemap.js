@@ -32,7 +32,7 @@ async function main() {
   };
   const entries = [entry('/', 'index.html'), ...pages.map((file) => entry(`/${file}`, file))];
   fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries.join('\n')}\n</urlset>\n`);
-  fs.writeFileSync(path.join(ROOT, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /404.html\nDisallow: /offline.html\nDisallow: /dashboard.html\nDisallow: /cms/\nDisallow: /backend/\nDisallow: /docs/\n\nSitemap: ${DOMAIN}/sitemap.xml\n`);
+  fs.writeFileSync(path.join(ROOT, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /404.html\nDisallow: /offline.html\nDisallow: /cms/\nDisallow: /backend/\nDisallow: /docs/\n\nSitemap: ${DOMAIN}/sitemap.xml\n`);
   console.log(`sitemap.xml: ${entries.length} canonical indexable URLs → ${DOMAIN}`);
 }
 

@@ -48,10 +48,6 @@ export const PAGE_METADATA = Object.freeze({
     "title": "CSR &amp; Sustainability | Lake Group",
     "description": "Lake Group's commitment to community development, environmental responsibility and sustainable business across Africa."
   },
-  "dashboard.html": {
-    "title": "Content Management | Lake Group",
-    "description": "Lake Group content management console . sign in to manage news, leaders, companies, countries and media through the self-hosted CMS."
-  },
   "fleet.html": {
     "title": "Lake Trans Fleet | Transport &amp; Logistics | Lake Group",
     "description": "Explore the Lake Trans fleet supporting bulk liquid haulage and logistics operations across East and Central Africa."

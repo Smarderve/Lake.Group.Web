@@ -12,7 +12,7 @@ lake.group.web/
 ├── scripts/                Dev tooling & one-off migration/QA scripts
 ├── docs/                   Documentation, reports, and generated deliverables
 ├── backend/                Self-hosted Payload CMS (Postgres + API, docker-compose)
-├── archive/                Orphaned/retired projects & snapshots (lake-3d, _tmp)
+├── archive/                Orphaned/retired snapshots and temporary archives
 ├── vercel.json / lighthouserc.json / package.json / .gitignore / README.md
 └── .github/                CI workflows (Lighthouse, accessibility)
 ```
@@ -23,11 +23,11 @@ drive this site's data.
 
 ## Developer guides
 
-- **[Backend Developer Guide](docs/backend-guide.html)** — everything about
-  the Payload CMS backend: architecture, collections, REST API, Docker &
-  deployment, seeding, and wiring the static pages to it.
-- **[Website Developer Guide](docs/developer-guide.html)** — the static
-  site's architecture, systems, and page reference.
+- **[Backend quick start](backend/README.md)** — current backend setup and
+  development instructions. See the CMS operations and API maps under `docs/`
+  for deployment and system details.
+- **[Public delivery architecture](docs/PUBLIC-DELIVERY-ARCHITECTURE.md)** —
+  current static-site and published-content delivery design.
 
 
 ## For the content team — updating the website without touching code
@@ -131,13 +131,11 @@ HTTP. Two separate causes, both fixed:
    instead of fetching. Every page's `<head>`/`<body>` now loads
    `i18n-content.js` immediately before `i18n.js`.
 
-2. **The 3D hero** was loaded as an ES module. Module scripts are blocked
-   under `file://`. Fixed by bundling a React + `react-globe.gl` island into
-   a classic IIFE: `assets/hero-globe.bundle.js`, built via
-   `npm run build:hero-globe` (`scripts/build_hero_globe.js`). `index.html`
-   lazy-loads that bundle when `#fuel-experience` nears the viewport.
+2. **The 3D hero** is bundled as a classic IIFE at
+   `assets/globe-lab.bundle.js`, built from `globe-lab/entry.tsx` with
+   `npm run build:globe-lab`. `index.html` lazy-loads it near the viewport.
 
-**If you edit `assets/hero-globe/*`, re-run `npm run build:hero-globe`** —
+**If you edit `globe-lab/*`, re-run `npm run build:globe-lab`** —
 editing the source alone won't change what's loaded by `index.html`.
 Likewise, if you edit translations via `scripts/translation_dict.py`,
 re-run `build_master_en.py` then `build_i18n_content.py` — that second
@@ -172,13 +170,12 @@ auto-advances on a timer. Not yet linked from the main nav — open it
 directly as `our-story.html`, or add a link from `index.html` if you want
 it discoverable.
 
-## `archive/lake-3d/` — not currently part of the live site
+## `lake-3d/` — retired, not part of the live site
 
-`archive/lake-3d/` is a separate Next.js project (moved from the repo
-root when it was archived): a much more elaborate scroll-driven cinematic
+`lake-3d/` is a separate retired Next.js project: a more elaborate scroll-driven cinematic
 3D experience (see `archive/lake-3d/README.md`). It:
 
-- Runs as its own dev server on port 3001 (`npm run dev` inside `archive/lake-3d/`)
+- Runs as its own dev server on port 3001 (`npm run dev` inside `lake-3d/`)
 - Is **not linked from, embedded in, or referenced by** any of the live
   `.html` pages
 - Cannot be embedded inline without either an iframe (not recommended for
@@ -200,15 +197,14 @@ Two honest paths forward:
 What I did **not** do: silently leave it in place with no explanation,
 which is how it ended up orphaned in the first place.
 
-## 3D hero (`assets/hero-globe/`)
+## 3D hero (`globe-lab/`)
 
-Homepage globe in `#fuel-experience` / `#experience-3d-panel`. Source is a
-small React island using `react-globe.gl`, bundled to
-`assets/hero-globe.bundle.js`. Textures are local under
-`assets/images/globe/` (no CDN). Nine hub-spoke markers (Dar HQ → 8 sites)
-with brand-yellow arcs; respects `prefers-reduced-motion`.
+Homepage globe in `#fuel-experience` / `#experience-3d-panel`. Maintained
+Three.js/React Three Fiber source is bundled to `assets/globe-lab.bundle.js`.
+Textures are local under `assets/images/globe/` (no CDN); the runtime respects
+reduced motion and pauses while hidden or offscreen.
 
-Rebuild: `npm run build:hero-globe`
+Rebuild: `npm run build:globe-lab`
 
 ## Translations (EN / FR / PT)
 
