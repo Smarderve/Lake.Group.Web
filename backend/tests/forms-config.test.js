@@ -23,9 +23,9 @@ describe('forms-only production configuration', () => {
       expect(formsProductionConfigProblems(resolveConfig({ ...base, ...partial }))).not.toEqual([]);
     }
   });
-  it('rejects the local-test Gmail recipient in production', () => {
-    expect(formsProductionConfigProblems(resolveConfig({ ...base, CONTACT_RECIPIENT_EMAIL: 'projectdevemail001@gmail.com' }))).not.toEqual([]);
-    expect(formsProductionConfigProblems(resolveConfig({ ...base, CAREERS_RECIPIENT_EMAIL: 'projectdevemail001@gmail.com' }))).not.toEqual([]);
+  it.each(['projectdevemail001@gmail.com', 'projectdevemail1001@gmail.com'])('rejects the local-test address %s in production', (recipient) => {
+    expect(formsProductionConfigProblems(resolveConfig({ ...base, CONTACT_RECIPIENT_EMAIL: recipient }))).not.toEqual([]);
+    expect(formsProductionConfigProblems(resolveConfig({ ...base, CAREERS_RECIPIENT_EMAIL: recipient }))).not.toEqual([]);
   });
   it('accepts Defender on Windows and rejects it on non-Windows', () => {
     expect(formsProductionConfigProblems(resolveConfig({ ...base, CAREERS_SCANNER_PROVIDER: 'defender' }, { platform: 'win32' }))).toEqual([]);
@@ -47,7 +47,12 @@ describe('local forms lab configuration', () => {
   it('accepts only the isolated Gmail localhost profile', () => {
     expect(formsLocalTestConfigProblems(resolveConfig(local, { platform: 'win32' }))).toEqual([]);
   });
-  it.each([{ CONTACT_RECIPIENT_EMAIL: 'admin@lakeoilgroup.com' }, { CONTACT_ALLOWED_ORIGINS: 'https://www.lakeoilgroup.com' }, { FORMS_MODE: 'production' }])('rejects local profile crossover', (override) => {
+  it.each([
+    { CONTACT_RECIPIENT_EMAIL: 'admin@lakeoilgroup.com' },
+    { CAREERS_RECIPIENT_EMAIL: 'admin@lakeoilgroup.com' },
+    { CONTACT_ALLOWED_ORIGINS: 'https://www.lakeoilgroup.com' },
+    { FORMS_MODE: 'production' },
+  ])('rejects local profile crossover', (override) => {
     expect(formsLocalTestConfigProblems(resolveConfig({ ...local, ...override }))).not.toEqual([]);
   });
 });

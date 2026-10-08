@@ -16,9 +16,10 @@ IIS/ARR proxies `/api/contact/*` and `/api/careers/*` to the private Node servic
 
 ## Required backend environment
 
-For staging, set the following in the backend service environment. For final production, set the same names in the Lake Group Node service environment. Never put mail credentials or the signing secret in Vercel public variables or browser code.
+For staging, use only the isolated test recipient shown below. For final production, both form recipients must be `admin@lakeoilgroup.com` as shown in the production block. `SMTP_USER`/`MAIL_FROM` are sender settings, not recipient settings. Never put mail credentials or the signing secret in Vercel public variables or browser code.
 
 ```dotenv
+# STAGING TEST ONLY. Never use this recipient in production.
 CONTACT_RECIPIENT_EMAIL=projectdevemail001@gmail.com
 CONTACT_ALLOWED_ORIGINS=https://www.lakeoilgroup.com
 CONTACT_MAIL_API_KEY=<private Resend key>
@@ -30,6 +31,13 @@ CAREERS_MAIL_FROM=<verified Lake Group sender>
 CAREERS_CLAMD_HOST=<private ClamAV service hostname>
 CAREERS_CLAMD_PORT=3310
 PUBLIC_FORM_TOKEN_SECRET=<random secret of at least 32 characters>
+```
+
+For final Lake Group production, configure the following recipients in the private backend service environment:
+
+```dotenv
+CONTACT_RECIPIENT_EMAIL=admin@lakeoilgroup.com
+CAREERS_RECIPIENT_EMAIL=admin@lakeoilgroup.com
 ```
 
 For a separate test domain, append its **exact** origin to each explicit allowlist. Do not use `*`. The existing `TRUST_PROXY` value must match the actual one-hop/private-ingress topology; forwarded client IP headers from arbitrary clients must not be trusted. The PostgreSQL `rate_limit` migration must be deployed, because form budgets and replay claims use that shared table in production.
@@ -45,9 +53,9 @@ If any mail setting, recipient, signing secret, or scanner is missing, the corre
 3. Check the backend logs for the matching reference IDs and coarse delivered events; logs must not contain the message body, CV, or API key.
 4. Retry the same idempotency key only in a controlled test and confirm no second email is delivered.
 
-After this succeeds, the later production recipient change is **environment configuration only**:
+Production recipients are fixed by the production configuration gate and deployment templates:
 
-- Careers: `maryam.mgeni@lakeoilgroup.com`
+- Careers: `admin@lakeoilgroup.com`
 - Contact: `admin@lakeoilgroup.com`
 
-Neither final recipient is active in the test configuration above.
+The isolated local/test profile continues to use its test inbox and is rejected by the production configuration gate.
