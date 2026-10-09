@@ -551,114 +551,6 @@
     });
   }
 
-  function initChat() {
-    // CHATBOT_ENABLED guard: when false, both the new assistant and legacy
-    // chat are disabled. The assistant.js checks this flag first and bails
-    // before setting __LAKE_ASSISTANT_ACTIVE__, so this check catches the
-    // case where assistant.js did not load at all.
-    if (window.CHATBOT_ENABLED !== true) return;
-    // The offline knowledge assistant (assets/assistant.js) replaces this
-    // legacy canned-reply chat entirely. It sets this flag during script
-    // execution (all deferred scripts run before DOMContentLoaded), so when
-    // it is loaded on the page the old widget logic must not bind.
-    if (window.__LAKE_ASSISTANT_ACTIVE__) return;
-    const chatBtn = document.getElementById('chat-btn');
-    const chatBox = document.getElementById('chat-box');
-    if (!chatBtn || !chatBox) return;
-
-    const chatMessages = document.getElementById('chat-messages');
-    const chatInput = document.getElementById('chat-input');
-    const chatSend = document.getElementById('chat-send');
-
-    // Bot reply keys are looked up through LakeI18n so they respect the
-    // current language; chat.reply.* keys carry the actual sentences (see
-    // assets/i18n-content.json). If i18n hasn't loaded yet or a key is
-    // missing, the English fallback string is used so the chatbot never
-    // shows a raw key or stays blank.
-    const botReplyFallbacks = {
-      fuel: 'Lake Oil supplies petroleum products across Tanzania, Kenya, Zambia, DR Congo, Rwanda, Burundi & Ethiopia. Contact admin@lakeoilgroup.com for pricing.',
-      lpg: 'Lake Gas offers 6kg, 10kg, 15kg and 38kg cylinders for domestic and commercial use. Available in 6 countries across East & Central Africa.',
-      truck: 'Lake Trans operates a fleet of 1,600+ trucks across East & Central Africa for bulk liquid haulage and general cargo.',
-      contact: 'Our headquarters: Plots 72 & 73, Vijibweni Area, Kigamboni, Dar es Salaam. Tel: +255 222780510 | Email: admin@lakeoilgroup.com',
-      station: 'Visit our Station Locator page to find the nearest Lake Oil fuel station. Lake Group operates 500+ fuel stations across its network.',
-      careers: "We're always looking for talented people. Visit our Careers page to explore opportunities across our 20+ subsidiaries.",
-      steel: 'Lake Steel & Allied Products Limited manufactures TBS-certified TMT reinforcement steel bars conforming to BS 500. Its computerized rolling mill has 25T/hr capacity and its integrated SMS and CCM produces 60,000 metric tons of billets annually.',
-      concrete: "GCCP (Gulf Concrete & Cement Products) is Dar es Salaam's leading ready-mix concrete supplier, established 2010.",
-      hello: 'Hello! Welcome to Lake Group. How can I help you today?',
-      hi: "Hi there! I'm the Lake Group assistant. Ask me about our services, locations, or how to get in touch."
-    };
-    const defaultReplyFallback = 'Thank you for your message. Email admin@lakeoilgroup.com or call +255 222780510. Mon–Fri 9:00–18:00.';
-
-    function botReply(key) {
-      const i18nKey = 'chat.reply.' + key;
-      if (window.LakeI18n) {
-        const val = window.LakeI18n.t(i18nKey);
-        if (val !== null && val !== i18nKey) return val;
-      }
-      return botReplyFallbacks[key];
-    }
-
-    function defaultReply() {
-      if (window.LakeI18n) {
-        const val = window.LakeI18n.t('chat.reply.default');
-        if (val !== null) return val;
-      }
-      return defaultReplyFallback;
-    }
-
-    const botReplies = botReplyFallbacks;
-
-    function addMsg(text, type) {
-      const m = document.createElement('div');
-      m.className = 'msg msg-' + type;
-      m.textContent = text;
-      chatMessages.appendChild(m);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-
-    function sendMessage() {
-      const text = chatInput.value.trim();
-      if (!text) return;
-      addMsg(text, 'user');
-      chatInput.value = '';
-      setTimeout(() => {
-        const lower = text.toLowerCase();
-        let reply = defaultReply();
-        // Word-boundary matching: a naive lower.includes(key) check matches
-        // "hi" inside "this"/"history"/"shipping" and "fuel" inside
-        // "refuel", causing wrong replies for unrelated messages. \b keeps
-        // matches to whole words. When multiple keywords match, prefer the
-        // longest (most specific) one rather than whichever Object.keys()
-        // happens to iterate last.
-        let matchedLength = 0;
-        Object.keys(botReplies).forEach(key => {
-          const re = new RegExp('\\b' + key + '\\b', 'i');
-          if (re.test(lower) && key.length > matchedLength) {
-            reply = botReply(key);
-            matchedLength = key.length;
-          }
-        });
-        addMsg(reply, 'bot');
-      }, 600);
-    }
-
-    chatBtn.addEventListener('click', () => chatBox.classList.toggle('open'));
-    if (chatSend) chatSend.addEventListener('click', sendMessage);
-    if (chatInput) chatInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendMessage(); });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && chatBox.classList.contains('open')) {
-        chatBox.classList.remove('open');
-      }
-    });
-    document.addEventListener('pointerdown', (e) => {
-      if (!chatBox.classList.contains('open')) return;
-      const t = e.target;
-      if (chatBox.contains(t) || chatBtn.contains(t)) return;
-      chatBox.classList.remove('open');
-    }, true);
-  }
-
   function initAnchors() {
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
@@ -1038,7 +930,6 @@
     initReveal();
     initCounters();
     initTabs();
-    initChat();
     initAnchors();
     initForms();
     initCurrency();

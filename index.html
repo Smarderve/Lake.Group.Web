@@ -2926,9 +2926,8 @@
     })();
   </script>
   <script>
-    // The assistant is disabled in production by default. Keep its optional
-    // search bundle completely off the startup path, while preserving the
-    // feature for an explicitly enabled deployment.
+    // Assistant V2 renders its small launcher immediately. Its search engine
+    // and approved snapshot are loaded only after the visitor opens it.
     (function () {
       function append(src) {
         return new Promise(function (resolve) {
@@ -2941,10 +2940,7 @@
         });
       }
       function start() {
-        if (window.CHATBOT_ENABLED !== true) return;
-        append('assets/vendor/flexsearch/flexsearch.bundle.min.js')
-          .then(function () { return append('assets/assistant-kb.js'); })
-          .then(function () { return append('assets/assistant.js?v=20260828-01'); });
+        append('assets/assistant.js?v=20261009-01');
       }
       function schedule() {
         if ('requestIdleCallback' in window) window.requestIdleCallback(start, { timeout: 2500 });

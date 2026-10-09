@@ -58,6 +58,7 @@ const PAGES = {
   lubricants: { url: 'lake-lubes.html', titleKey: 'nav.co.lakeLubes', title: 'Lake Lubes' },
   steel: { url: 'lake-steel.html', titleKey: 'nav.co.lakeSteel', title: 'Lake Steel' },
   concrete: { url: 'lake-premix-cement.html', titleKey: 'nav.co.lakePremixCement', title: 'Lake Premix' },
+  pipes: { url: 'lake-pipes.html', titleKey: 'nav.co.lakePipes', title: 'Lake Pipes' },
   logistics: { url: 'lake-trans.html', titleKey: 'nav.co.lakeTrans', title: 'Lake Trans' },
   container_services: { url: 'aficd.html', titleKey: 'nav.co.aficd', title: 'AFICD' },
   station_locator: { url: 'station-locator.html', titleKey: 'nav.stations', title: 'Station Locator' },
@@ -428,6 +429,17 @@ function buildLang(lang) {
       u: fact.url,
       k: loc.k,
       f: 1,
+      entityType: 'fact',
+      entity: loc.t,
+      category: 'verified',
+      title: loc.t,
+      text: loc.s,
+      keywords: loc.k,
+      aliases: [],
+      page: fact.url,
+      source: 'approved-curated-fact',
+      priority: 100,
+      verification: 'VERIFIED',
     });
   }
 
@@ -466,6 +478,17 @@ function buildLang(lang) {
         t: title,
         s: buf.join(' '),
         u: page.url,
+        entityType: prefix === 'careers' ? 'career' : prefix === 'contact' ? 'contact' : prefix === 'sustainability' || prefix === 'csr' ? 'sustainability' : prefix === 'history' ? 'history' : prefix === 'leadership' ? 'leadership' : prefix === 'media_center' ? 'news' : prefix === 'station_locator' ? 'location' : 'company',
+        entity: page.title,
+        category: prefix,
+        title: title,
+        text: buf.join(' '),
+        keywords: title + ' ' + prefix.replace(/_/g, ' '),
+        aliases: [page.title, prefix.replace(/_/g, ' ')],
+        page: page.url,
+        source: 'approved-static-page-content',
+        priority: 30,
+        verification: 'PUBLISHED',
       });
       buf = [];
       bufLen = 0;
