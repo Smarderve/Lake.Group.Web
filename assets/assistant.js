@@ -112,6 +112,7 @@
     input.rows = 1;
     input.maxLength = 300;
     input.placeholder = 'Message Lake...';
+    input.setAttribute('enterkeyhint', 'send');
     input.setAttribute('aria-label', 'Message Lake');
     var submit = node('button', 'la-send');
     submit.type = 'submit';
@@ -126,6 +127,12 @@
     launcher.addEventListener('click', function () { panel.hidden ? open() : closePanel(true); });
     close.addEventListener('click', function () { closePanel(true); });
     form.addEventListener('submit', send);
+    input.addEventListener('keydown', function (event) {
+      if (event.key !== 'Enter' || event.shiftKey || event.isComposing || event.keyCode === 229) return;
+      event.preventDefault();
+      if (event.repeat || !input.value.trim()) return;
+      form.requestSubmit();
+    });
     input.addEventListener('input', growInput);
     panel.addEventListener('keydown', trapTab);
     document.addEventListener('keydown', function (event) {
