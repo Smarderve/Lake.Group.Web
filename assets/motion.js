@@ -44,7 +44,7 @@
     '.kpi, .marquee-item, .hero-stat, blockquote';
 
   var IMG_SKIP = '.site-nav, .nav-mobile, .nav-megamenu, .nav-dropdown, .mm-company, ' +
-    '.footer-logo, .site-footer, #chat-widget, .flag-icon, .flag-icon-lg';
+    '.footer-logo, .site-footer, #chat-widget, .hero-carousel, .flag-icon, .flag-icon-lg';
 
   function tagGridChildren(grid) {
     var children = grid.children;

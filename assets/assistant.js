@@ -60,6 +60,7 @@
     return svg;
   }
   function draw(message) {
+    if (message.role === 'user') refs.messages.classList.remove('is-welcome');
     var article = node('article', 'la-message la-' + message.role);
     article.appendChild(node('p', '', message.text));
     (message.links || []).forEach(function (link) {
@@ -93,7 +94,7 @@
     var header = node('header', 'la-head');
     var brand = node('div', 'la-brand');
     var logo = document.createElement('img');
-    logo.src = 'assets/images/logos/LAKE_LOGO_LAKE_ONLY.png';
+    logo.src = 'assets/images/logos/LAKE_LOGO_LAKE_ONLY_BLUE.png';
     logo.alt = 'Lake';
     var close = node('button', 'la-close');
     close.type = 'button';
@@ -102,7 +103,7 @@
     brand.appendChild(logo);
     header.append(brand, close);
 
-    var messages = node('div', 'la-messages');
+    var messages = node('div', 'la-messages is-welcome');
     messages.setAttribute('role', 'log');
     messages.setAttribute('aria-live', 'polite');
     messages.setAttribute('aria-relevant', 'additions text');
@@ -110,7 +111,7 @@
     var input = document.createElement('textarea');
     input.rows = 1;
     input.maxLength = 300;
-    input.placeholder = 'Message Lake…';
+    input.placeholder = 'Message Lake...';
     input.setAttribute('aria-label', 'Message Lake');
     var submit = node('button', 'la-send');
     submit.type = 'submit';
