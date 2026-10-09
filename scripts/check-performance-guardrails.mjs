@@ -17,8 +17,9 @@ if (!careersSource.includes('pointerRect') || /handlePointerMove[\s\S]*?getBound
   process.exit(1);
 }
 const sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8');
-const release = '20260828-01';
-if (!new RegExp(`v\\d+-${release}`).test(sw) || !sw.includes(`assets/pwa.js?v=${release}`)) {
+const assetRelease = '20260828-01';
+const serviceWorkerRelease = '20261009-01';
+if (!new RegExp(`v\\d+-${serviceWorkerRelease}`).test(sw) || !sw.includes(`assets/pwa.js?v=${assetRelease}`)) {
   console.error('Service-worker release and precache versions are inconsistent.');
   process.exit(1);
 }

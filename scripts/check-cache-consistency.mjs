@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = process.cwd();
-const release = '20260828-01';
+let release = '20260828-01';
 const htmlFiles = fs.readdirSync(root).filter((name) => name.endsWith('.html'));
 const critical = [
   'build-version.js',
@@ -47,12 +47,14 @@ for (const [asset, assetVersions] of versions) {
   }
 }
 
+const precacheRelease = release;
+release = '20261009-01';
 const sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8');
 if (!new RegExp('v\\d+-' + release.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\$&')).test(sw)) {
   errors.push('sw.js: release version is not current');
 }
 for (const asset of critical.filter((name) => name !== 'theme.css')) {
-  if (!sw.includes(asset + '?v=' + release)) errors.push('sw.js: missing current precache URL for ' + asset);
+  if (!sw.includes(asset + '?v=' + precacheRelease)) errors.push('sw.js: missing current precache URL for ' + asset);
 }
 
 const vercel = fs.readFileSync(path.join(root, 'vercel.json'), 'utf8');

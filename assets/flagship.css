@@ -3059,11 +3059,7 @@ body[data-company-logo] .page-hero .page-hero-overlay {
 /* Launch controls: retain the underlying features, but keep them absent from
    every public breakpoint until multilingual and assistant content is cleared. */
 .site-nav[data-phase01-navbar] .lang-switcher,
-.mob-lang-static,
-#chat-widget,
-#chat-widget.la-widget,
-#chat-btn,
-#chat-box { display: none !important; }
+.mob-lang-static { display: none !important; }
 
 /* Global back-to-top control: compact, transform-only motion and clear focus. */
 .lake-back-to-top {
