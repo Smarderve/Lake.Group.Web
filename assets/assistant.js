@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   if (window.LakeAssistantV2 || window.LAKE_ASSISTANT_ENABLED === false) return;
-  var refs = {}, index, assets, lastFocus;
+  var refs = {}, index, assets;
   var state = { currentEntity: null, currentIntent: null, previousQuery: '', previousResultIds: [], currentPage: page(), language: lang() };
   var companies = [
     ['Lake Oil','lake-oil.html',['lakeoil']],['Lake Aviation','lake-aviation.html',['aviation']],['Lake Gas','lake-gas.html',['lakegas']],['Lake Lubes','lake-lubes.html',['lakelubes']],['Lake Building Solutions','lake-buildings.html',['lake buildings']],['Lake Pipes','lake-pipes.html',['lakepipes']],['Lake Steel','lake-steel.html',['lakesteel']],['Lake Cylinders','lake-cylinders.html',['lakecylinders']],['Lake Premix','lake-premix-cement.html',['premix','gccp','gulf concrete']],['Gulf Aggregates','gulf-aggregates.html',['gulfaggregate']],['AFICD','aficd.html',['african inland container depot']],['AILL','aill.html',['african inland logistics limited']],['Lake Trans','lake-trans.html',['laketrans']],['Cross Country Developer','cross-country.html',['cross country']],['Lake Agro','lake-agro.html',['lakeagro']],['Agrinova Tech','agrinova-tech.html',['agrinova']],['Assembly Tech','assembly-tech.html',['assembly']],['NexDrive Motors','nextdrive-motors.html',['nexdrive']]
@@ -19,17 +19,186 @@
   function retrieve(q,i,e){if(!index)return null;var list=index.docs;if(index.flex&&words(q).length){var ids=index.flex.search(words(q).join(' '),{limit:18,suggest:true})||[];list=ids.map(function(x){return index.docs[x];}).filter(Boolean);}var best=list.map(function(d){return{d:d,s:score(d,q,i,e)};}).sort(function(a,b){return b.s-a.s;})[0];return best&&best.s>=(e?20:8)?best.d:null;}
   function quick(e){return e?[['About '+e[0],'tell me about '+e[0]],['Products & services','what services does '+e[0]+' provide'],['Contact','how do I contact '+e[0]],['Other companies','what companies are under lake group']]:[['Our Companies','what companies are under lake group'],['Careers','how can I apply for a job'],['Contact us','how do I contact lake group'],['Where we operate','where does lake group operate'],['Sustainability','what are your sustainability initiatives']];}
   function reply(q){var ex=entity(q),e=ex||(/\b(they|them|their|it|more|there)\b/i.test(q)?state.currentEntity:null),i=intent(q,e);if(i==='GREETING')return{text:'Hello. I can help with Lake Group companies, services, careers, locations and contact details.',actions:quick(e)};if(i==='THANKS')return{text:'You’re welcome. What would you like to know next?',actions:quick(e)};if(i==='HELP')return{text:'Ask about a Lake Group company, its products or services, locations, careers, sustainability, or how to contact us.',actions:quick(e)};var d=retrieve(q,i,e),route=e&&['COMPANY_INFO','PRODUCT_INFO','SERVICE_INFO','LOCATION','FOLLOW_UP'].indexOf(i)>-1?[e[1],e[0]]:routes[i];if(!d&&route)return{text:'The verified information is available on the relevant Lake Group page.',links:[{u:route[0],t:route[1]}]};if(!d)return{text:"I couldn't find a verified Lake Group answer for that.",nomatch:true,actions:quick(null)};return{text:d.text||d.s,links:[{u:d.page||d.u||'services.html',t:d.title||d.t||'View source'}],id:d.id};}
-  function node(t,c,x){var n=document.createElement(t);if(c)n.className=c;if(x!==undefined)n.textContent=x;return n;}
-  function draw(m){var box=node('article','la-message la-'+m.role),p=node('p','',m.text);box.appendChild(p);if(m.links){var ls=node('div','la-links');m.links.forEach(function(l){var a=node('a','',l.t+' →');a.href=l.u;ls.appendChild(a);});box.appendChild(ls);}refs.messages.appendChild(box);if(m.actions){refs.chips.replaceChildren();m.actions.slice(0,5).forEach(function(a){var b=node('button','la-chip',a[0]);b.type='button';b.addEventListener('click',function(){refs.input.value=a[1];send({preventDefault:function(){}});});refs.chips.appendChild(b);});}refs.messages.scrollTop=refs.messages.scrollHeight;}
-  function build(){document.querySelectorAll('link[data-deferred-stylesheet][href*="assistant.css"]').forEach(function(link){link.media='all';});var mount=document.getElementById('chat-widget')||document.body.appendChild(node('div'));mount.id='chat-widget';mount.className='la-widget';mount.replaceChildren();var launch=node('button','la-launcher','LG');launch.type='button';launch.setAttribute('aria-expanded','false');launch.setAttribute('aria-controls','lake-assistant-panel');launch.setAttribute('aria-label','Open Lake Group Assistant');var panel=node('section','la-panel');panel.id='lake-assistant-panel';panel.hidden=true;panel.setAttribute('role','dialog');panel.setAttribute('aria-modal','true');panel.setAttribute('aria-label','Lake Group Assistant');var head=node('header','la-head'),brand=node('div','la-brand'),logo=document.createElement('img'),titles=node('div'),close=node('button','la-close','Close');logo.src='assets/images/logos/LAKE_GROUP_LOGO.png';logo.alt='Lake Group';titles.append(node('strong','','Lake Group Assistant'),node('span','','Company information & support'));brand.append(logo,titles);close.type='button';close.setAttribute('aria-label','Close assistant');head.append(brand,close);var messages=node('div','la-messages'),chips=node('div','la-chips'),form=node('form','la-form'),input=document.createElement('input'),submit=node('button','la-send','Send');messages.setAttribute('role','log');messages.setAttribute('aria-live','polite');input.type='text';input.maxLength=300;input.placeholder='Ask about Lake Group...';input.setAttribute('aria-label','Ask about Lake Group');submit.type='submit';form.append(input,submit);panel.append(head,messages,chips,form);mount.append(panel,launch);refs={mount:mount,launcher:launch,panel:panel,close:close,messages:messages,chips:chips,form:form,input:input};draw({role:'bot',text:'How can I help with Lake Group today?',actions:quick(companies.find(function(c){return c[1]===state.currentPage;}))});launch.addEventListener('click',open);close.addEventListener('click',shut);form.addEventListener('submit',send);document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!panel.hidden)shut();});}
-  function open(){lastFocus=document.activeElement;refs.panel.hidden=false;refs.launcher.setAttribute('aria-expanded','true');refs.mount.classList.add('la-open');refs.input.focus();knowledge().catch(function(){});}
-  function shut(){refs.panel.hidden=true;refs.launcher.setAttribute('aria-expanded','false');refs.mount.classList.remove('la-open');(lastFocus||refs.launcher).focus();}
-  function uiIcon(kind){var svg=document.createElementNS('http://www.w3.org/2000/svg','svg'),paths=kind==='chat'?['M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719','M8 12h.01','M12 12h.01','M16 12h.01']:kind==='x'?['M18 6 6 18','m6 6 12 12']:['m5 12 7-7 7 7','M12 19V5'];svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('fill','none');svg.setAttribute('stroke','currentColor');svg.setAttribute('stroke-linecap','round');svg.setAttribute('stroke-linejoin','round');svg.setAttribute('aria-hidden','true');paths.forEach(function(d){var p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d',d);svg.appendChild(p);});return svg;}
-  function build(){document.querySelectorAll('link[data-deferred-stylesheet][href*="assistant.css"]').forEach(function(link){link.media='all';});var mount=document.getElementById('chat-widget')||document.body.appendChild(node('div'));mount.id='chat-widget';mount.className='la-widget';mount.replaceChildren();var launch=node('button','la-launcher');launch.type='button';launch.appendChild(uiIcon('chat'));launch.setAttribute('aria-expanded','false');launch.setAttribute('aria-controls','lake-assistant-panel');launch.setAttribute('aria-label','Open Lake Group Assistant');var panel=node('section','la-panel');panel.id='lake-assistant-panel';panel.hidden=true;panel.setAttribute('role','dialog');panel.setAttribute('aria-modal','true');panel.setAttribute('aria-label','Lake Group Assistant');var head=node('header','la-head'),brand=node('div','la-brand'),logo=document.createElement('img'),titles=node('div'),close=node('button','la-close');logo.src='assets/images/logos/LAKE_GROUP_LOGO.png';logo.alt='Lake Group';titles.append(node('strong','','Lake Group Assistant'),node('span','','Company information & support'));brand.append(logo,titles);close.type='button';close.appendChild(uiIcon('x'));close.setAttribute('aria-label','Close assistant');head.append(brand,close);var messages=node('div','la-messages'),chips=node('div','la-chips'),form=node('form','la-form'),input=document.createElement('input'),submit=node('button','la-send');messages.setAttribute('role','log');messages.setAttribute('aria-live','polite');input.type='text';input.maxLength=300;input.placeholder='Ask about Lake Group...';input.setAttribute('aria-label','Ask about Lake Group');submit.type='submit';submit.setAttribute('aria-label','Send message');submit.appendChild(uiIcon('send'));form.append(input,submit);panel.append(head,messages,chips,form);mount.append(panel,launch);refs={mount:mount,launcher:launch,panel:panel,close:close,messages:messages,chips:chips,form:form,input:input};draw({role:'bot',text:'Good to see you. How can I help with Lake Group today?',actions:quick(companies.find(function(c){return c[1]===state.currentPage;}))});launch.addEventListener('click',open);close.addEventListener('click',shut);form.addEventListener('submit',send);document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!panel.hidden)shut();});}
-  function send(e){e.preventDefault();var q=refs.input.value.trim();if(!q)return;refs.input.value='';draw({role:'user',text:q});knowledge().then(function(){var a=reply(q),found=entity(q)||state.currentEntity;state.currentEntity=found;state.currentIntent=intent(q,found);state.previousQuery=q;state.previousResultIds=a.id?[a.id]:[];draw(Object.assign({role:'bot'},a));if(window.LakeAnalytics&&window.LakeAnalytics.track)window.LakeAnalytics.track(a.nomatch?'CHAT_NO_MATCH':'CHAT_QUESTION',{page:location.pathname,language:lang(),query:q.slice(0,300)});if(a.nomatch&&window.LAKE_API_BASE)fetch(window.LAKE_API_BASE.replace(/\/$/,'')+'/api/public/assistant/unanswered',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q.slice(0,300),page:location.pathname,language:lang()}),keepalive:true}).catch(function(){});});}
-  function draw(m){var box=node('article','la-message la-'+m.role),p=node('p','',m.text);box.appendChild(p);if(m.links){var ls=node('div','la-links');m.links.forEach(function(l){var a=node('a','',l.t+' →');a.href=l.u;ls.appendChild(a);});box.appendChild(ls);}refs.messages.appendChild(box);refs.messages.scrollTop=refs.messages.scrollHeight;}
-  function build(){var mount=document.getElementById('chat-widget')||document.body.appendChild(node('div'));mount.id='chat-widget';mount.className='la-widget';mount.replaceChildren();var launch=node('button','la-launcher');launch.type='button';launch.appendChild(uiIcon('chat'));launch.setAttribute('aria-expanded','false');launch.setAttribute('aria-controls','lake-assistant-panel');launch.setAttribute('aria-label','Open Lake Assistant');var panel=node('section','la-panel');panel.id='lake-assistant-panel';panel.hidden=true;panel.setAttribute('role','dialog');panel.setAttribute('aria-modal','true');panel.setAttribute('aria-label','Lake Assistant');var head=node('header','la-head'),brand=node('div','la-brand'),logo=document.createElement('img'),close=node('button','la-close');logo.src='assets/images/logos/LAKE_LOGO_LAKE_ONLY.png';logo.alt='Lake';brand.appendChild(logo);close.type='button';close.appendChild(uiIcon('x'));close.setAttribute('aria-label','Close assistant');head.append(brand,close);var messages=node('div','la-messages'),chips=node('div','la-chips'),form=node('form','la-form'),input=document.createElement('input'),submit=node('button','la-send');messages.setAttribute('role','log');messages.setAttribute('aria-live','polite');input.type='text';input.maxLength=300;input.placeholder='Ask Lake...';input.setAttribute('aria-label','Ask Lake');submit.type='submit';submit.setAttribute('aria-label','Send message');submit.appendChild(uiIcon('send'));form.append(input,submit);panel.append(head,messages,chips,form);mount.append(panel,launch);refs={mount:mount,launcher:launch,panel:panel,close:close,messages:messages,chips:chips,form:form,input:input};draw({role:'bot',text:'How can I help you today?'});launch.addEventListener('click',open);close.addEventListener('click',shut);form.addEventListener('submit',send);document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!panel.hidden)shut();});}
-  function send(e){e.preventDefault();var q=refs.input.value.trim();if(!q)return;refs.input.value='';draw({role:'user',text:q});var typing=node('div','la-typing');var dots=node('span','');for(var dot=0;dot<3;dot++)dots.appendChild(node('i',''));typing.appendChild(dots);refs.messages.appendChild(typing);refs.messages.scrollTop=refs.messages.scrollHeight;knowledge().then(function(){var a=reply(q),found=entity(q)||state.currentEntity,delay=Math.max(600,Math.min(1100,(a.text||'').length*5));window.setTimeout(function(){typing.remove();state.currentEntity=found;state.currentIntent=intent(q,found);state.previousQuery=q;state.previousResultIds=a.id?[a.id]:[];draw(Object.assign({role:'bot'},a));if(window.LakeAnalytics&&window.LakeAnalytics.track)window.LakeAnalytics.track(a.nomatch?'CHAT_NO_MATCH':'CHAT_QUESTION',{page:location.pathname,language:lang(),query:q.slice(0,300)});if(a.nomatch&&window.LAKE_API_BASE)fetch(window.LAKE_API_BASE.replace(/\/$/,'')+'/api/public/assistant/unanswered',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q.slice(0,300),page:location.pathname,language:lang()}),keepalive:true}).catch(function(){});},delay);});}
+  function node(tag, className, text) {
+    var el = document.createElement(tag);
+    if (className) el.className = className;
+    if (text !== undefined) el.textContent = text;
+    return el;
+  }
+  function uiIcon(kind) {
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('fill', 'none');
+    svg.setAttribute('stroke', 'currentColor');
+    svg.setAttribute('stroke-width', '1.8');
+    svg.setAttribute('stroke-linecap', 'round');
+    svg.setAttribute('stroke-linejoin', 'round');
+    svg.setAttribute('aria-hidden', 'true');
+    if (kind === 'chat') {
+      var bubble = document.createElementNS(svg.namespaceURI, 'path');
+      bubble.setAttribute('d', 'M20 11.5a7.5 7.5 0 0 1-7.5 7.5H6l-3 2 .9-4.1A7.5 7.5 0 1 1 20 11.5Z');
+      svg.appendChild(bubble);
+      for (var i = 0; i < 3; i++) {
+        var dot = document.createElementNS(svg.namespaceURI, 'circle');
+        dot.setAttribute('class', 'la-launcher-dot la-launcher-dot-' + (i + 1));
+        dot.setAttribute('cx', 8 + i * 4);
+        dot.setAttribute('cy', '12');
+        dot.setAttribute('r', '0.7');
+        dot.setAttribute('fill', 'currentColor');
+        dot.setAttribute('stroke', 'none');
+        svg.appendChild(dot);
+      }
+    } else if (kind === 'close') {
+      var x = document.createElementNS(svg.namespaceURI, 'path');
+      x.setAttribute('d', 'm18 6-12 12M6 6l12 12');
+      svg.appendChild(x);
+    } else {
+      var arrow = document.createElementNS(svg.namespaceURI, 'path');
+      arrow.setAttribute('d', 'M12 19V5m-6 6 6-6 6 6');
+      svg.appendChild(arrow);
+    }
+    return svg;
+  }
+  function draw(message) {
+    var article = node('article', 'la-message la-' + message.role);
+    article.appendChild(node('p', '', message.text));
+    (message.links || []).forEach(function (link) {
+      var sources = node('div', 'la-links');
+      var anchor = node('a', '', link.t);
+      anchor.href = link.u;
+      sources.appendChild(anchor);
+      article.appendChild(sources);
+    });
+    refs.messages.appendChild(article);
+    refs.messages.scrollTop = refs.messages.scrollHeight;
+  }
+  function build() {
+    var mount = document.getElementById('chat-widget') || document.body.appendChild(node('div'));
+    mount.id = 'chat-widget';
+    mount.className = 'la-widget';
+    mount.replaceChildren();
+    var launcher = node('button', 'la-launcher');
+    launcher.type = 'button';
+    launcher.appendChild(uiIcon('chat'));
+    launcher.setAttribute('aria-expanded', 'false');
+    launcher.setAttribute('aria-controls', 'lake-assistant-panel');
+    launcher.setAttribute('aria-label', 'Open Lake Assistant');
+
+    var panel = node('section', 'la-panel');
+    panel.id = 'lake-assistant-panel';
+    panel.hidden = true;
+    panel.setAttribute('role', 'dialog');
+    panel.setAttribute('aria-modal', 'true');
+    panel.setAttribute('aria-label', 'Lake Assistant');
+    var header = node('header', 'la-head');
+    var brand = node('div', 'la-brand');
+    var logo = document.createElement('img');
+    logo.src = 'assets/images/logos/LAKE_LOGO_LAKE_ONLY.png';
+    logo.alt = 'Lake';
+    var close = node('button', 'la-close');
+    close.type = 'button';
+    close.appendChild(uiIcon('close'));
+    close.setAttribute('aria-label', 'Close Lake Assistant');
+    brand.appendChild(logo);
+    header.append(brand, close);
+
+    var messages = node('div', 'la-messages');
+    messages.setAttribute('role', 'log');
+    messages.setAttribute('aria-live', 'polite');
+    messages.setAttribute('aria-relevant', 'additions text');
+    var form = node('form', 'la-form');
+    var input = document.createElement('textarea');
+    input.rows = 1;
+    input.maxLength = 300;
+    input.placeholder = 'Message Lake…';
+    input.setAttribute('aria-label', 'Message Lake');
+    var submit = node('button', 'la-send');
+    submit.type = 'submit';
+    submit.setAttribute('aria-label', 'Send message');
+    submit.appendChild(uiIcon('send'));
+    form.append(input, submit);
+    panel.append(header, messages, form);
+    mount.append(panel, launcher);
+    refs = { mount: mount, launcher: launcher, panel: panel, close: close, messages: messages, form: form, input: input };
+    draw({ role: 'bot', text: 'Hello. What would you like to know about Lake Group?' });
+
+    launcher.addEventListener('click', function () { panel.hidden ? open() : closePanel(true); });
+    close.addEventListener('click', function () { closePanel(true); });
+    form.addEventListener('submit', send);
+    input.addEventListener('input', growInput);
+    panel.addEventListener('keydown', trapTab);
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && !panel.hidden) closePanel(true);
+    });
+    document.addEventListener('pointerdown', function (event) {
+      if (!panel.hidden && !mount.contains(event.target)) closePanel(false);
+    });
+    if (window.visualViewport) {
+      var syncViewport = function () { mount.style.setProperty('--la-viewport-height', window.visualViewport.height + 'px'); };
+      window.visualViewport.addEventListener('resize', syncViewport);
+      syncViewport();
+    }
+  }
+  function open() {
+    refs.panel.hidden = false;
+    refs.launcher.setAttribute('aria-expanded', 'true');
+    refs.mount.classList.add('la-open');
+    refs.input.focus({ preventScroll: true });
+    knowledge().catch(function () {});
+  }
+  function closePanel(restoreFocus) {
+    refs.panel.hidden = true;
+    refs.launcher.setAttribute('aria-expanded', 'false');
+    refs.mount.classList.remove('la-open');
+    if (restoreFocus) refs.launcher.focus({ preventScroll: true });
+  }
+  function growInput() {
+    refs.input.style.height = 'auto';
+    refs.input.style.height = Math.min(refs.input.scrollHeight, 120) + 'px';
+  }
+  function trapTab(event) {
+    if (event.key !== 'Tab') return;
+    var items = [refs.close, refs.input, refs.form.querySelector('button')];
+    var first = items[0], last = items[items.length - 1];
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+  }
+  function send(event) {
+    event.preventDefault();
+    var query = refs.input.value.trim();
+    if (!query) return;
+    refs.input.value = '';
+    growInput();
+    draw({ role: 'user', text: query });
+    var typing = node('div', 'la-typing');
+    typing.setAttribute('role', 'status');
+    typing.setAttribute('aria-label', 'Lake is typing');
+    var dots = node('span', 'la-typing-dots');
+    for (var i = 0; i < 3; i++) dots.appendChild(node('i'));
+    typing.appendChild(dots);
+    refs.messages.appendChild(typing);
+    refs.messages.scrollTop = refs.messages.scrollHeight;
+    var started = Date.now();
+    knowledge().then(function () {
+      var answer = reply(query);
+      var found = entity(query) || state.currentEntity;
+      var delay = Math.max(650, Math.min(1100, (answer.text || '').length * 5));
+      return new Promise(function (resolve) { window.setTimeout(resolve, Math.max(0, delay - (Date.now() - started))); }).then(function () {
+        typing.remove();
+        state.currentEntity = found;
+        state.currentIntent = intent(query, found);
+        state.previousQuery = query;
+        state.previousResultIds = answer.id ? [answer.id] : [];
+        draw(Object.assign({ role: 'bot' }, answer));
+        if (window.LakeAnalytics && window.LakeAnalytics.track) window.LakeAnalytics.track(answer.nomatch ? 'CHAT_NO_MATCH' : 'CHAT_QUESTION', { page: location.pathname, language: lang(), query: query.slice(0, 300) });
+        if (answer.nomatch && window.LAKE_API_BASE) fetch(window.LAKE_API_BASE.replace(/\/$/, '') + '/api/public/assistant/unanswered', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question: query.slice(0, 300), page: location.pathname, language: lang() }), keepalive: true }).catch(function () {});
+      });
+    }).catch(function () {
+      typing.remove();
+      draw({ role: 'bot', text: 'I couldn’t load verified information just now. Please try again.' });
+    });
+  }
   window.LakeAssistantV2={classify:intent,entityFor:entity,answer:function(q){return knowledge().then(function(){return reply(q);});}};
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
+  document.addEventListener('pointerdown',function(e){if(refs.panel&&!refs.panel.hidden&&!refs.panel.contains(e.target)&&!refs.launcher.contains(e.target)){refs.panel.hidden=true;refs.launcher.setAttribute('aria-expanded','false');refs.mount.classList.remove('la-open');}});
 })();
