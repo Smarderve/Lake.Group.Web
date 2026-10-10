@@ -9,8 +9,10 @@ import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const modelName = 'qwen3:4b-instruct-2507-q4_K_M';
-const websitePort = Number(process.env.LAKE_ASSISTANT_DEV_PORT || 8000);
-const backendPort = Number(process.env.LAKE_ASSISTANT_BACKEND_PORT || 4001);
+const explicitWebsitePort = Boolean(process.env.LAKE_ASSISTANT_DEV_PORT);
+const explicitBackendPort = Boolean(process.env.LAKE_ASSISTANT_BACKEND_PORT);
+let websitePort = Number(process.env.LAKE_ASSISTANT_DEV_PORT || 8000);
+let backendPort = Number(process.env.LAKE_ASSISTANT_BACKEND_PORT || 4001);
 const ollamaPort = Number(process.env.LAKE_ASSISTANT_OLLAMA_PORT || 11434);
 const nodePath = process.execPath;
 const ollamaPath = resolve(root, 'ai/runtime/ollama/ollama.exe');
@@ -30,6 +32,40 @@ async function isListening(port) {
     socket.once('error', () => done(false));
     socket.once('timeout', () => { socket.destroy(); done(false); });
   });
+}
+
+async function findFreePort(startPort, excludedPort) {
+  for (let offset = 0; offset < 200; offset += 1) {
+    const candidate = startPort + offset;
+    if (candidate > 65535) break;
+    if (candidate !== excludedPort && !(await isListening(candidate))) return candidate;
+  }
+  fail(`No free loopback port is available near ${startPort}.`);
+}
+
+async function selectDevelopmentPorts() {
+  if (await isListening(websitePort)) {
+    if (explicitWebsitePort) fail(`Website port ${websitePort} is already occupied; no listener was stopped.`);
+    const previous = websitePort;
+    websitePort = await findFreePort(websitePort + 1, backendPort);
+    console.warn(`Website port ${previous} is occupied; using ${websitePort} without stopping the existing service.`);
+  }
+  if (await isListening(backendPort)) {
+    let reusable = false;
+    try {
+      const { response, payload } = await getJson(`http://127.0.0.1:${backendPort}/api/assistant/health`);
+      if (response.ok && payload.status === 'ready') {
+        const voice = await getJson(`http://127.0.0.1:${backendPort}/api/assistant/voice-health`);
+        reusable = voice.response.ok && voice.payload.ready;
+      }
+    } catch { reusable = false; }
+    if (!reusable) {
+      if (explicitBackendPort) fail(`Backend port ${backendPort} is occupied by an API that is not ready for private voice transcription; no listener was stopped.`);
+      const previous = backendPort;
+      backendPort = await findFreePort(backendPort + 1, websitePort);
+      console.warn(`Backend port ${previous} does not expose a ready assistant and voice endpoint; using ${backendPort} without stopping the existing service.`);
+    }
+  }
 }
 
 async function getJson(url, timeoutMs = 3000) {
@@ -207,6 +243,7 @@ async function shutdown() {
 }
 
 await ensureSpeechPayload();
+await selectDevelopmentPorts();
 await ensureOllama();
 await ensureBackend();
 if (await isListening(websitePort)) fail(`Website port ${websitePort} is occupied; no listener was stopped. Set LAKE_ASSISTANT_DEV_PORT to a free port and run again.`);
