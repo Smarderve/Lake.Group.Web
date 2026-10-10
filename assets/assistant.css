@@ -27,8 +27,8 @@
 
 #chat-widget.la-widget .la-launcher {
   position: fixed;
-  right: max(26px, env(safe-area-inset-right));
-  bottom: max(26px, env(safe-area-inset-bottom));
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(24px, env(safe-area-inset-bottom));
   z-index: 10020;
   display: grid;
   width: 60px;
@@ -39,12 +39,16 @@
   border-radius: 50%;
   background: var(--la-blue);
   color: #fff;
-  box-shadow: 0 8px 22px rgba(1, 129, 187, .28), 0 2px 5px rgba(20, 47, 60, .12);
+  box-shadow: 0 4px 12px rgba(1, 129, 187, .2), 0 1px 3px rgba(20, 47, 60, .12);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
 
-#chat-widget.la-widget .la-launcher:hover { background: var(--la-blue); }
+#chat-widget.la-widget .la-launcher:hover {
+  background: var(--la-blue);
+  box-shadow: 0 4px 12px rgba(1, 129, 187, .2), 0 1px 3px rgba(20, 47, 60, .12);
+  transform: none;
+}
 #chat-widget.la-widget .la-launcher:focus-visible,
 #chat-widget.la-widget .la-close:focus-visible,
 #chat-widget.la-widget .la-send:focus-visible {
@@ -53,15 +57,15 @@
 }
 
 #chat-widget.la-widget .la-launcher > svg {
-  width: 33px;
-  height: 33px;
+  width: 34px;
+  height: 34px;
   overflow: visible;
   transform: translateY(0);
   transition: transform 280ms cubic-bezier(.22, 1, .36, 1);
 }
 
 #chat-widget.la-widget .la-launcher:hover > svg,
-#chat-widget.la-widget .la-launcher:focus-visible > svg { transform: translateY(-2.5px); }
+#chat-widget.la-widget .la-launcher:focus-visible > svg { transform: translateY(-2px); }
 #chat-widget.la-widget .la-launcher-dot { transform-box: fill-box; transform-origin: center; }
 #chat-widget.la-widget .la-launcher:hover .la-launcher-dot { animation: la-dot 1200ms cubic-bezier(.4, 0, .2, 1) infinite; }
 #chat-widget.la-widget .la-launcher:hover .la-launcher-dot-2 { animation-delay: 120ms; }
@@ -277,9 +281,9 @@
 }
 
 @media (min-width: 601px) and (max-width: 1024px) {
-  #chat-widget.la-widget .la-launcher {
-    right: max(26px, env(safe-area-inset-right));
-    bottom: max(148px, calc(env(safe-area-inset-bottom) + 132px));
+  body.home #chat-widget.la-widget .la-launcher {
+    right: max(20px, env(safe-area-inset-right));
+    bottom: max(96px, calc(env(safe-area-inset-bottom) + 96px));
   }
 
   #chat-widget.la-widget .la-panel {
@@ -293,9 +297,9 @@
 }
 
 @media (max-width: 600px) {
-  #chat-widget.la-widget .la-launcher {
+  body.home #chat-widget.la-widget .la-launcher {
     right: max(16px, env(safe-area-inset-right));
-    bottom: max(152px, calc(env(safe-area-inset-bottom) + 136px));
+    bottom: max(96px, calc(env(safe-area-inset-bottom) + 96px));
   }
 
   #chat-widget.la-widget .la-panel {

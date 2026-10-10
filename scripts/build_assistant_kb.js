@@ -127,6 +127,14 @@ function classify(heading, text, route, type = '') {
   return 'overview';
 }
 
+function factTypeFor(heading, text, route) {
+  const value = `${heading} ${text}`.toLowerCase();
+  const physicalAddress = /\b(plots?|road|street|avenue|po box)\b/.test(text.toLowerCase()) && /\b(dar es salaam|tanzania)\b/.test(text.toLowerCase());
+  if (route === 'contact.html' && physicalAddress && /\b(headquarters|group headquarters)\b/.test(value)) return 'headquarters';
+  if (route === 'about.html' && /established in \d{4}/.test(text.toLowerCase()) && /regional business group/.test(text.toLowerCase())) return 'group-overview';
+  return '';
+}
+
 function normalizeRoute(value) {
   let route = String(value || '');
   try { if (/^https?:\/\//i.test(route)) route = new URL(route).pathname; } catch { return ''; }
@@ -165,6 +173,8 @@ function publishedStaticPages(routes, companyRegistry, sitemapLastmod) {
         entityType: company ? 'company' : route === 'index.html' || route === 'about.html' ? 'group' : topic === 'careers' ? 'career' : topic === 'contact' ? 'contact' : topic === 'locations' || topic === 'stations' ? 'location' : topic,
         entity: company?.name || 'Lake Group',
         category: topic,
+        factType: factTypeFor(block.heading, block.text, route),
+        evidenceText: block.text,
         title: block.heading || meta.title,
         text: block.text,
         keywords: [meta.title, block.heading, topic, company?.sector || ''].filter(Boolean).join(' '),

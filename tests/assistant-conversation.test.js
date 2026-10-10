@@ -41,6 +41,8 @@ test('company context follows pronouns and switches entities explicitly', async 
   assert.match(products.links[0].u, /lake-steel\.html/);
   assert.ok(products.text.length < 450);
   assert.ok(switched.text.length > 0);
+  const more = await assistant.answer('more');
+  assert.match(more.links[0].u, /lake-steel\.html/);
 });
 
 test('repeated factual questions stay consistent while presentation varies', async () => {
@@ -60,6 +62,8 @@ test('company directory and group-level questions use group sources, not arbitra
   assistant.resetConversation();
   const about = await assistant.answer('What is Lake Group?');
   assert.equal(about.links[0].u, 'about.html');
+  assert.match(about.text, /established in 2006.*regional business group/i);
+  assert.doesNotMatch(about.text, /Embracing new ideas|evolving with the market/i);
   assistant.resetConversation();
   const stations = await assistant.answer('How many fuel stations does Lake Group have?');
   assert.equal(stations.links[0].u, 'station-locator.html');
@@ -139,6 +143,41 @@ test('short location keywords return headquarters evidence and relevant clarific
     assert.match(answer.text, /fuel stations|countries where we operate/i, query);
     assert.equal(answer.links[0].u, 'contact.html', query);
   }
+});
+
+test('bounded typo correction preserves company and topic intent while using published evidence', async () => {
+  const assistant = harness();
+  const kb = {};
+  vm.runInNewContext(kbCode.replace('window.__LAKE_ASSISTANT_KB__ = ', 'kb.value = '), { kb });
+  const headquarters = kb.value.langs.en.docs.find((doc) => doc.factType === 'headquarters');
+  assert.ok(headquarters);
+  assert.equal(headquarters.page, 'contact.html');
+  assert.match(headquarters.evidenceText, /Vijibweni.*Kigamboni.*Dar es Salaam/i);
+
+  for (const query of ['locatoin', 'headquaters', 'adrees']) {
+    assistant.resetConversation();
+    const answer = await assistant.answer(query);
+    assert.equal(answer.links[0].u, 'contact.html', query);
+    assert.match(answer.text, /Vijibweni|Kigamboni|Dar es Salaam/i, query);
+    assert.doesNotMatch(answer.text, /Embracing new ideas|evolving with the market/i, query);
+  }
+
+  for (const [query, route, phrase] of [
+    ['lak stel prodcuts', 'lake-steel.html', /TBS-certified TMT reinforcement steel bars/i],
+    ['lak avation', 'lake-aviation.html', /aviation fuel supply|into-plane fueling/i],
+    ['carrer', 'careers.html', /career paths/i],
+    ['fuel statons', 'station-locator.html', /fuel station/i],
+  ]) {
+    assistant.resetConversation();
+    const answer = await assistant.answer(query);
+    assert.equal(answer.links[0].u, route, query);
+    assert.match(answer.text, phrase, query);
+  }
+
+  assistant.resetConversation();
+  const ambiguousProducts = await assistant.answer('prodcuts');
+  assert.notEqual(ambiguousProducts.nomatch, true);
+  assert.match(ambiguousProducts.text, /which Lake Group company/i);
 });
 
 test('location retrieval distinguishes stations, operating countries and company location evidence', async () => {
