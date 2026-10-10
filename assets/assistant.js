@@ -76,7 +76,7 @@
     svg.setAttribute('aria-hidden', 'true');
     if (kind === 'chat') {
       var bubble = document.createElementNS(svg.namespaceURI, 'path');
-      bubble.setAttribute('d', 'M20 11.5a7.5 7.5 0 0 1-7.5 7.5H6l-3 2 .9-4.1A7.5 7.5 0 1 1 20 11.5Z');
+      bubble.setAttribute('d', 'M20 11.5a7.5 7.5 0 0 1-7.5 7.5H8l-6-2.2 4.2-3.1A7.5 7.5 0 1 1 20 11.5Z');
       svg.appendChild(bubble);
       for (var i = 0; i < 3; i++) {
         var dot = document.createElementNS(svg.namespaceURI, 'circle');

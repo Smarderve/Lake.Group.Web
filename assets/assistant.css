@@ -53,19 +53,19 @@
 }
 
 #chat-widget.la-widget .la-launcher > svg {
-  width: 29px;
-  height: 29px;
+  width: 33px;
+  height: 33px;
   overflow: visible;
   transform: translateY(0);
-  transition: transform 220ms cubic-bezier(.2, .75, .25, 1);
+  transition: transform 280ms cubic-bezier(.22, 1, .36, 1);
 }
 
 #chat-widget.la-widget .la-launcher:hover > svg,
-#chat-widget.la-widget .la-launcher:focus-visible > svg { transform: translateY(-2px); }
+#chat-widget.la-widget .la-launcher:focus-visible > svg { transform: translateY(-2.5px); }
 #chat-widget.la-widget .la-launcher-dot { transform-box: fill-box; transform-origin: center; }
-#chat-widget.la-widget .la-launcher:hover .la-launcher-dot { animation: la-dot 850ms ease-in-out infinite; }
-#chat-widget.la-widget .la-launcher:hover .la-launcher-dot-2 { animation-delay: 100ms; }
-#chat-widget.la-widget .la-launcher:hover .la-launcher-dot-3 { animation-delay: 200ms; }
+#chat-widget.la-widget .la-launcher:hover .la-launcher-dot { animation: la-dot 1200ms cubic-bezier(.4, 0, .2, 1) infinite; }
+#chat-widget.la-widget .la-launcher:hover .la-launcher-dot-2 { animation-delay: 120ms; }
+#chat-widget.la-widget .la-launcher:hover .la-launcher-dot-3 { animation-delay: 240ms; }
 
 #chat-widget.la-widget .la-panel {
   position: fixed;
@@ -272,11 +272,16 @@
 }
 
 @keyframes la-dot {
-  0%, 60%, 100% { opacity: .48; transform: translateY(0); }
-  30% { opacity: 1; transform: translateY(-2px); }
+  0%, 68%, 100% { opacity: .62; transform: translateY(0); }
+  34% { opacity: 1; transform: translateY(-1px); }
 }
 
 @media (min-width: 601px) and (max-width: 1024px) {
+  #chat-widget.la-widget .la-launcher {
+    right: max(26px, env(safe-area-inset-right));
+    bottom: max(148px, calc(env(safe-area-inset-bottom) + 132px));
+  }
+
   #chat-widget.la-widget .la-panel {
     right: max(20px, env(safe-area-inset-right));
     bottom: max(20px, env(safe-area-inset-bottom));
@@ -290,7 +295,7 @@
 @media (max-width: 600px) {
   #chat-widget.la-widget .la-launcher {
     right: max(16px, env(safe-area-inset-right));
-    bottom: max(16px, env(safe-area-inset-bottom));
+    bottom: max(152px, calc(env(safe-area-inset-bottom) + 136px));
   }
 
   #chat-widget.la-widget .la-panel {
