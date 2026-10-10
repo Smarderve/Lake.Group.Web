@@ -12,6 +12,7 @@ import { createFileScanner } from './lib/file-scanner.js';
 import { createCmsV2ReleaseStorage } from './lib/cms-v2-release-storage.js';
 import { createCmsV2RuntimeService } from './lib/cms-v2-runtime-service.js';
 import { createAssistantChatService } from './lib/assistant-rag.js';
+import { createAssistantTranscriptionService } from './lib/assistant-transcription.js';
 import { resolve } from 'node:path';
 
 const logger = createLogger(config.logLevel);
@@ -34,6 +35,7 @@ const cmsV2Service = db ? createCmsV2RuntimeService({ db, storage: cmsV2Storage,
 const assistantService = process.env.LAKE_ASSISTANT_ENABLED === 'true'
   ? createAssistantChatService()
   : null;
+const assistantTranscriptionService = assistantService ? createAssistantTranscriptionService() : null;
 
 if (!db) {
   logger.warn(
@@ -111,6 +113,7 @@ const app = createApp({
   cmsV2Service,
   cmsV2DeploymentToken: config.cmsV2DeploymentToken,
   assistantService,
+  assistantTranscriptionService,
   cmsAuthBypassEnabled: config.cmsAuthBypass,
 });
 

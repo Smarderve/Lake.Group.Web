@@ -1,5 +1,6 @@
 import express from 'express';
 import { createAssistantChatService } from './lib/assistant-rag.js';
+import { createAssistantTranscriptionService } from './lib/assistant-transcription.js';
 import { assistantRouter } from './routes/assistant.js';
 
 const port = Number.parseInt(process.env.PORT || '4001', 10);
@@ -22,6 +23,7 @@ app.disable('x-powered-by');
 app.set('trust proxy', 1);
 app.use('/api/assistant', assistantRouter({
   service: createAssistantChatService(),
+  transcriptionService: createAssistantTranscriptionService(),
   cookieSecure: !localDevelopment,
   allowedOrigins,
 }));

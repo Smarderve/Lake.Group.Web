@@ -96,6 +96,7 @@ export function createApp({
   cmsV2Service = null,
   cmsV2DeploymentToken = '',
   assistantService = null,
+  assistantTranscriptionService = null,
   assistantAllowedOrigins = String(process.env.LAKE_ASSISTANT_ALLOWED_ORIGINS || '').split(/[;,]/).map((origin) => origin.trim()).filter(Boolean),
   // Explicit local/test-only CMS access. It is forcibly disabled whenever
   // isProduction is true, including callers that pass this option directly.
@@ -128,6 +129,7 @@ export function createApp({
   // mounted before the general API parser. Ollama remains loopback-only.
   if (assistantService) app.use('/api/assistant', assistantRouter({
     service: assistantService,
+    transcriptionService: assistantTranscriptionService,
     cookieSecure,
     allowedOrigins: assistantAllowedOrigins,
   }));

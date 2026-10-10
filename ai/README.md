@@ -1,10 +1,10 @@
 # Lake Group self-hosted assistant payload
 
-This directory contains the prebuilt public-content knowledge index and, after acquisition completes, the private Ollama runtime and Qwen3 model store. It is a handoff payload, not website content.
+This directory contains the prebuilt public-content knowledge index and the private local inference payloads (Ollama/Qwen3 for answers and whisper.cpp/Whisper for voice). It is a handoff payload, not website content.
 
 ## IIS and packaging boundary
 
-Never expose `ai/runtime/`, `ai/models/`, or `ai/config/` from the IIS public web root. Install the runtime, model store, and knowledge index under an access-controlled application directory outside the public web root. The website may call only the authorized same-origin backend API; browsers must never connect to Ollama directly. Include ignored runtime/model folders when preparing the IT ZIP, but never add them to normal Git history.
+Never expose `ai/runtime/`, `ai/models/`, or `ai/config/` from the IIS public web root. Install the runtime, model store, and knowledge index under an access-controlled application directory outside the public web root. The website may call only the authorized same-origin backend API; browsers must never connect to Ollama or Whisper directly. Include ignored runtime/model folders when preparing the IT ZIP, but never add them to normal Git history. The voice path accepts at most 20 seconds of mono 16 kHz PCM, allows one inference at a time, requires 2 GiB free memory, writes recordings only to a short-lived OS temporary directory, and removes that directory after each job.
 
 The source knowledge index in `knowledge/lake-group-index.json` is generated from approved, published Lake Group website content by `node scripts/build_assistant_kb.js`. Review its provenance and run the generator after controlled website-content publication.
 
@@ -43,5 +43,7 @@ The backend uses the fixed approved model name, a 4,096-token context, bounded i
 ## Provenance and licensing
 
 See `config/runtime-manifest.json` for the pinned official Windows x64 Ollama release, archive SHA-256, exact model tag, layer digest, and expected model size. Keep upstream runtime notices in `runtime/ollama/lib/ollama/`. Preserve the Qwen model license and attribution supplied by the official model source alongside the downloaded model metadata.
+
+The offline voice path is pinned in `config/whisper-manifest.json`. Its CPU runtime is kept under the ignored `runtime/whisper/` handoff directory and its multilingual tiny model under ignored `models/whisper/`. The model and runtime are MIT-licensed; attribution is in `licenses/WHISPER-MODEL-LICENSE.txt` and `licenses/WHISPER-CPP-LICENSE.txt`. The compact multilingual model supports English and Kiswahili; language quality must be checked with recorded speech on the target Windows server before rollout.
 
 The bundled model is large and intentionally ignored by Git. It remains on disk for approved ZIP handoff and must not be removed as part of repository cleanup.
