@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   if (window.LakeAssistantV2 || window.LAKE_ASSISTANT_ENABLED === false) return;
-  var refs = {}, index, assets, companies = [], kbMetadata = null;
+  var refs = {}, index, assets, companies = [], kbMetadata = null, voiceState = { recognition: null, session: 0, active: false, finalText: '', interimText: '', baseText: '', submitted: false, locale: 'en-US' };
   var groupEntity = { name: 'Lake Group', route: 'about.html', aliases: ['Lake Group', 'Lake Oil Group'] };
   var routes = {
     CONTACT: ['contact.html', 'Contact Lake Group'], CAREERS: ['careers.html', 'Careers at Lake Group'],
@@ -95,6 +95,14 @@
       var x = document.createElementNS(svg.namespaceURI, 'path');
       x.setAttribute('d', 'm18 6-12 12M6 6l12 12');
       svg.appendChild(x);
+    } else if (kind === 'mic') {
+      var mic = document.createElementNS(svg.namespaceURI, 'path');
+      mic.setAttribute('d', 'M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0m5 5v3m-4 0h8');
+      svg.appendChild(mic);
+    } else if (kind === 'stop') {
+      var stop = document.createElementNS(svg.namespaceURI, 'rect');
+      stop.setAttribute('x', '7'); stop.setAttribute('y', '7'); stop.setAttribute('width', '10'); stop.setAttribute('height', '10'); stop.setAttribute('rx', '2');
+      svg.appendChild(stop);
     } else {
       var arrow = document.createElementNS(svg.namespaceURI, 'path');
       arrow.setAttribute('d', 'M12 19V5m-6 6 6-6 6 6');
@@ -161,15 +169,33 @@
     submit.type = 'submit';
     submit.setAttribute('aria-label', 'Send message');
     submit.appendChild(uiIcon('send'));
-    form.append(input, submit);
+    var voiceLanguage = document.createElement('select');
+    voiceLanguage.className = 'la-voice-language';
+    voiceLanguage.setAttribute('aria-label', 'Speech recognition language');
+    [['en-US', 'English'], ['sw-TZ', 'Kiswahili']].forEach(function (language) {
+      var option = document.createElement('option'); option.value = language[0]; option.textContent = language[1]; voiceLanguage.appendChild(option);
+    });
+    voiceLanguage.value = /^sw(?:-|$)/i.test(lang()) ? 'sw-TZ' : 'en-US';
+    var voiceButton = node('button', 'la-voice');
+    voiceButton.type = 'button'; voiceButton.setAttribute('aria-label', 'Start voice input'); voiceButton.setAttribute('title', 'Voice input'); voiceButton.appendChild(uiIcon('mic'));
+    var voiceStatus = node('div', 'la-voice-status'); voiceStatus.hidden = true; voiceStatus.setAttribute('role', 'status'); voiceStatus.setAttribute('aria-live', 'polite');
+    var voiceMessage = node('span', 'la-voice-message');
+    var voiceStop = node('button', 'la-voice-stop', 'Stop'); voiceStop.type = 'button';
+    var voiceCancel = node('button', 'la-voice-cancel', 'Cancel'); voiceCancel.type = 'button';
+    voiceStatus.append(voiceMessage, voiceStop, voiceCancel);
+    form.append(voiceStatus, input, voiceLanguage, voiceButton, submit);
     panel.append(header, messages, form);
     mount.append(panel, launcher);
-    refs = { mount: mount, launcher: launcher, panel: panel, close: close, messages: messages, form: form, input: input };
+    refs = { mount: mount, launcher: launcher, panel: panel, close: close, messages: messages, form: form, input: input, voiceLanguage: voiceLanguage, voiceButton: voiceButton, voiceStatus: voiceStatus, voiceMessage: voiceMessage, voiceStop: voiceStop, voiceCancel: voiceCancel };
     draw({ role: 'bot', text: 'Hello. What would you like to know about Lake Group?' });
 
     launcher.addEventListener('click', function () { panel.hidden ? open() : closePanel(true); });
     close.addEventListener('click', function () { closePanel(true); });
     form.addEventListener('submit', send);
+    if (!recognitionConstructor()) { voiceButton.hidden = true; voiceLanguage.hidden = true; }
+    voiceButton.addEventListener('click', startVoice);
+    voiceStop.addEventListener('click', stopVoice);
+    voiceCancel.addEventListener('click', cancelVoice);
     input.addEventListener('keydown', function (event) {
       if (event.key !== 'Enter' || event.shiftKey || event.isComposing || event.keyCode === 229) return;
       event.preventDefault();
@@ -189,6 +215,7 @@
       window.visualViewport.addEventListener('resize', syncViewport);
       syncViewport();
     }
+    window.addEventListener('pagehide', cancelVoice);
   }
   function open() {
     refs.panel.hidden = false;
@@ -198,6 +225,7 @@
     knowledge().catch(function () {});
   }
   function closePanel(restoreFocus) {
+    cancelVoice();
     refs.panel.hidden = true;
     refs.launcher.setAttribute('aria-expanded', 'false');
     refs.mount.classList.remove('la-open');
@@ -209,7 +237,11 @@
   }
   function trapTab(event) {
     if (event.key !== 'Tab') return;
-    var items = [refs.close, refs.input, refs.form.querySelector('button')];
+    var items = [refs.close, refs.input];
+    if (!refs.voiceLanguage.hidden && !refs.voiceLanguage.disabled) items.push(refs.voiceLanguage);
+    if (!refs.voiceButton.hidden && !refs.voiceButton.disabled) items.push(refs.voiceButton);
+    if (!refs.voiceStatus.hidden) items.push(refs.voiceStop, refs.voiceCancel);
+    items.push(refs.form.querySelector('.la-send'));
     var first = items[0], last = items[items.length - 1];
     if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
     else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
@@ -249,7 +281,91 @@
       draw({ role: 'bot', text: 'I couldn’t load verified information just now. Please try again.' });
     });
   }
+  function recognitionConstructor() { return window.SpeechRecognition || window.webkitSpeechRecognition || null; }
+  function voiceUi(message, active) {
+    refs.voiceStatus.hidden = !active;
+    refs.voiceMessage.textContent = message || '';
+    refs.voiceButton.classList.toggle('is-listening', !!(active && voiceState.active));
+    refs.voiceButton.setAttribute('aria-label', voiceState.active ? 'Listening. Start a new voice input after this one finishes.' : 'Start voice input');
+    refs.voiceButton.setAttribute('aria-pressed', voiceState.active ? 'true' : 'false');
+    refs.voiceStop.disabled = !voiceState.active;
+  }
+  function renderVoiceDraft(includeInterim) {
+    var recognized = voiceState.finalText + (includeInterim ? voiceState.interimText : '');
+    refs.input.value = voiceState.baseText + (voiceState.baseText && recognized ? ' ' : '') + recognized;
+    growInput();
+  }
+  function finishVoice(session, maySubmit) {
+    if (session !== voiceState.session || voiceState.submitted) return;
+    voiceState.submitted = true;
+    var finalText = voiceState.finalText.trim();
+    var hadDraft = !!voiceState.baseText.trim();
+    voiceState.active = false;
+    refs.input.readOnly = false; refs.voiceLanguage.disabled = false;
+    voiceState.recognition = null;
+    voiceState.interimText = '';
+    if (finalText) {
+      renderVoiceDraft(false);
+      if (maySubmit && !hadDraft) refs.form.requestSubmit();
+      else voiceUi('Transcription added to your draft. Review it before sending.', true);
+    } else {
+      refs.input.value = voiceState.baseText;
+      growInput();
+      voiceUi('No speech was recognized. You can try again or type your message.', true);
+    }
+    window.setTimeout(function () { if (session === voiceState.session && !voiceState.active) voiceUi('', false); }, finalText ? 1200 : 2500);
+  }
+  function startVoice() {
+    var Constructor = recognitionConstructor();
+    if (!Constructor || voiceState.active || voiceState.recognition) return;
+    var session = ++voiceState.session;
+    var recognition;
+    try { recognition = new Constructor(); } catch (_) { voiceUi('Voice input could not start in this browser. You can type your message instead.', true); return; }
+    voiceState.recognition = recognition; voiceState.active = false; voiceState.finalText = ''; voiceState.interimText = ''; voiceState.baseText = refs.input.value; voiceState.submitted = false; voiceState.locale = refs.voiceLanguage.value;
+    recognition.lang = voiceState.locale; recognition.continuous = false; recognition.interimResults = true; recognition.maxAlternatives = 1;
+    recognition.onstart = function () {
+      if (session !== voiceState.session) return;
+      voiceState.active = true; refs.input.readOnly = true; refs.voiceLanguage.disabled = true; voiceUi('Listening. Browser speech services may process audio; recognized text follows normal chat processing.', true);
+    };
+    recognition.onresult = function (event) {
+      if (session !== voiceState.session || voiceState.submitted) return;
+      var finalParts = [], interimParts = [];
+      for (var i = 0; i < event.results.length; i++) {
+        var result = event.results[i], text = result && result[0] && result[0].transcript || '';
+        if (result.isFinal) finalParts.push(text); else interimParts.push(text);
+      }
+      voiceState.finalText = finalParts.join(' ').trim(); voiceState.interimText = interimParts.join(' ').trim(); renderVoiceDraft(true);
+      if (voiceState.interimText) voiceUi('Transcribing… Browser speech services may process audio.', true);
+    };
+    recognition.onspeechend = function () { if (session === voiceState.session) voiceUi('Finishing transcription…', true); };
+    recognition.onerror = function (event) {
+      if (session !== voiceState.session) return;
+      voiceState.active = false; voiceState.recognition = null; voiceState.interimText = ''; voiceState.submitted = true; refs.input.readOnly = false; refs.voiceLanguage.disabled = false; renderVoiceDraft(false);
+      var messages = { 'not-allowed': 'Microphone permission was denied. Allow microphone access in your browser or type your message.', 'service-not-allowed': 'The browser speech-recognition service is unavailable. Try English, or type your message.', 'audio-capture': 'No microphone is available. Connect a microphone or type your message.', 'no-speech': 'No speech was detected. You can try again or type your message.', 'language-not-supported': 'This browser does not support that recognition language. Choose another language or type your message.', network: 'The browser speech service could not connect. Try again or type your message.' };
+      voiceUi(messages[event.error] || 'Voice input stopped unexpectedly. You can try again or type your message.', true);
+      window.setTimeout(function () { if (session === voiceState.session && !voiceState.active) voiceUi('', false); }, 4000);
+    };
+    recognition.onend = function () { if (session !== voiceState.session) return; if (voiceState.active) voiceState.active = false; finishVoice(session, true); };
+    voiceUi('Starting microphone…', true);
+    refs.input.readOnly = true; refs.voiceLanguage.disabled = true;
+    try { recognition.start(); } catch (_) { voiceState.active = false; voiceState.recognition = null; refs.input.readOnly = false; refs.voiceLanguage.disabled = false; voiceUi('Voice input could not start. You can type your message instead.', true); }
+  }
+  function stopVoice() {
+    if (!voiceState.recognition || !voiceState.active) return;
+    voiceState.active = false; voiceUi('Finishing transcription…', true);
+    try { voiceState.recognition.stop(); } catch (_) { finishVoice(voiceState.session, true); }
+  }
+  function cancelVoice() {
+    if (!refs.voiceStatus) return;
+    var recognition = voiceState.recognition;
+    var wasActive = !!recognition;
+    voiceState.session++; voiceState.active = false; voiceState.recognition = null; voiceState.finalText = ''; voiceState.interimText = ''; voiceState.submitted = true;
+    if (recognition) { recognition.onend = recognition.onerror = recognition.onresult = recognition.onspeechend = recognition.onstart = null; try { recognition.abort(); } catch (_) {} }
+    refs.input.readOnly = false; refs.voiceLanguage.disabled = false;
+    if (wasActive) refs.input.value = voiceState.baseText;
+    voiceState.baseText = ''; growInput(); voiceUi('', false);
+  }
   window.LakeAssistantV2={classify:intent,entityFor:entity,answer:function(q){return knowledge().then(function(){return reply(q);});},resetConversation:function(){state=newConversationState();},getConversationState:function(){return{currentEntity:state.currentEntity&&state.currentEntity.name||null,currentIntent:state.currentIntent,currentTopic:state.currentTopic,previousQuery:state.previousQuery,recentQuestionCount:state.recentQuestions.length};},getKnowledgeMetadata:function(){return kbMetadata&&kbMetadata.audit||null;}};
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
-  document.addEventListener('pointerdown',function(e){if(refs.panel&&!refs.panel.hidden&&!refs.panel.contains(e.target)&&!refs.launcher.contains(e.target)){refs.panel.hidden=true;refs.launcher.setAttribute('aria-expanded','false');refs.mount.classList.remove('la-open');}});
+  document.addEventListener('pointerdown',function(e){if(refs.panel&&!refs.panel.hidden&&!refs.mount.contains(e.target))closePanel(false);});
 })();
