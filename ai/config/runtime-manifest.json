@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "runtime": {
+    "name": "Ollama standalone CLI",
+    "version": "0.40.2",
+    "platform": "windows-amd64",
+    "source": "https://github.com/ollama/ollama/releases/download/v0.40.2/ollama-windows-amd64.zip",
+    "archiveBytes": 1468085195,
+    "archiveSha256": "e29ad1d5063dd4b54b2492d9b00adab2cff9621bfa654b6c92aa8d6f1fdfe7fc",
+    "archiveSha256Verified": true,
+    "installedPath": "ai/runtime/ollama/ollama.exe",
+    "modelStorePath": "ai/models"
+  },
+  "model": {
+    "name": "qwen3:4b-instruct-2507-q4_K_M",
+    "source": "https://ollama.com/library/qwen3:4b-instruct-2507-q4_K_M",
+    "parameterCount": "4.02B",
+    "quantization": "Q4_K_M",
+    "primaryLayerDigest": "sha256:85e4a5b7b8ef0e48af0e8658f5aaab9c2324c76c1641493f4d1e25fce54b18b9",
+    "primaryLayerBytes": 2497280480,
+    "primaryLayerSha256Verified": true,
+    "storeManifestDigest": "sha256:0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+    "license": "Apache-2.0",
+    "licenseFile": "ai/licenses/Qwen3-LICENSE.txt",
+    "contextTokens": 4096,
+    "modelPullComplete": true,
+    "modelPullVerifiedAt": "2026-10-10",
+    "modelLoadVerified": true,
+    "modelLoadVerifiedAt": "2026-10-10"
+  }
+}

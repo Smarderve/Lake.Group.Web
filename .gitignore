@@ -1,5 +1,10 @@
 node_modules
 
+# Self-hosted Lake Assistant payloads are shipped in the IT handoff ZIP, not Git.
+# Keep generated knowledge and source/deployment code trackable.
+/ai/runtime/ollama/
+/ai/models/
+
 # Local caches and workspace state
 .freebuff/
 archive/_tmp/

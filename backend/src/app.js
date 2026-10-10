@@ -34,6 +34,7 @@ import { careersRouter } from './routes/careers.js';
 import { contactRouter } from './routes/contact.js';
 import { cmsV2Router } from './routes/cms-v2.js';
 import { cmsV2DeploymentRouter } from './routes/cms-v2-deployment.js';
+import { assistantRouter } from './routes/assistant.js';
 
 /**
  * Express app factory.
@@ -94,6 +95,8 @@ export function createApp({
   formRateLimitPool = null,
   cmsV2Service = null,
   cmsV2DeploymentToken = '',
+  assistantService = null,
+  assistantAllowedOrigins = String(process.env.LAKE_ASSISTANT_ALLOWED_ORIGINS || '').split(/[;,]/).map((origin) => origin.trim()).filter(Boolean),
   // Explicit local/test-only CMS access. It is forcibly disabled whenever
   // isProduction is true, including callers that pass this option directly.
   cmsAuthBypassEnabled = false,
@@ -121,6 +124,13 @@ export function createApp({
     mailer: contactMailer, tokenSecret: formTokenSecret, pool: formRateLimitPool }));
   app.use('/api/careers', careersRouter({ recipientEmail: careersRecipientEmail, allowedOrigins: careersAllowedOrigins,
     mailer: careersMailer, scanner: careersScanner, tokenSecret: formTokenSecret, pool: formRateLimitPool }));
+  // The optional self-hosted assistant parses only a small JSON body and is
+  // mounted before the general API parser. Ollama remains loopback-only.
+  if (assistantService) app.use('/api/assistant', assistantRouter({
+    service: assistantService,
+    cookieSecure,
+    allowedOrigins: assistantAllowedOrigins,
+  }));
   app.use(express.json({ limit: '100kb' }));
 
   if (mediaStorage?.provider === 'local' && mediaStorage.publicDirectory) {

@@ -11,6 +11,7 @@ import { createSmtpMailer } from './lib/smtp-mailer.js';
 import { createFileScanner } from './lib/file-scanner.js';
 import { createCmsV2ReleaseStorage } from './lib/cms-v2-release-storage.js';
 import { createCmsV2RuntimeService } from './lib/cms-v2-runtime-service.js';
+import { createAssistantChatService } from './lib/assistant-rag.js';
 import { resolve } from 'node:path';
 
 const logger = createLogger(config.logLevel);
@@ -28,6 +29,11 @@ const prefsStore = createUserPrefsStore(config.databaseUrlRuntime) ?? createMemo
 const mediaStorage = createObjectStorage(config);
 const cmsV2Storage = createCmsV2ReleaseStorage({ root: resolve(process.env.CMS_V2_RELEASE_DIR || '../public-content/cms-v2') });
 const cmsV2Service = db ? createCmsV2RuntimeService({ db, storage: cmsV2Storage, logger, publicSiteOrigin: process.env.CMS_V2_PUBLIC_SITE_ORIGIN }) : null;
+// Explicit opt-in keeps existing deployments unchanged until IT has installed
+// the project-local Ollama runtime and model store.
+const assistantService = process.env.LAKE_ASSISTANT_ENABLED === 'true'
+  ? createAssistantChatService()
+  : null;
 
 if (!db) {
   logger.warn(
@@ -104,11 +110,13 @@ const app = createApp({
   formRateLimitPool: rateLimitPool,
   cmsV2Service,
   cmsV2DeploymentToken: config.cmsV2DeploymentToken,
+  assistantService,
   cmsAuthBypassEnabled: config.cmsAuthBypass,
 });
 
-const server = app.listen(config.port, () => {
-  logger.info({ env: config.env, port: config.port }, 'Lake Group backend listening');
+const assistantLoopback = process.env.LAKE_ASSISTANT_LOOPBACK === 'true';
+const server = app.listen(config.port, assistantLoopback ? '127.0.0.1' : undefined, () => {
+  logger.info({ env: config.env, port: config.port, host: assistantLoopback ? '127.0.0.1' : '0.0.0.0' }, 'Lake Group backend listening');
 });
 const publicReleaseWorker = startPublicReleaseWorker({ db, config, logger });
 

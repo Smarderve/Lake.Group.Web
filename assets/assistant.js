@@ -222,7 +222,6 @@
     refs.launcher.setAttribute('aria-expanded', 'true');
     refs.mount.classList.add('la-open');
     refs.input.focus({ preventScroll: true });
-    knowledge().catch(function () {});
   }
   function closePanel(restoreFocus) {
     cancelVoice();
@@ -262,23 +261,32 @@
     refs.messages.appendChild(typing);
     refs.messages.scrollTop = refs.messages.scrollHeight;
     var started = Date.now();
-    knowledge().then(function () {
-      var answer = reply(query);
-      var found = entity(query) || state.currentEntity;
-      var delay = Math.max(650, Math.min(1100, (answer.text || '').length * 5));
-      return new Promise(function (resolve) { window.setTimeout(resolve, Math.max(0, delay - (Date.now() - started))); }).then(function () {
+    var assistantApi = (window.LAKE_API_BASE ? window.LAKE_API_BASE.replace(/\/$/, '') : '') + '/api/assistant/chat';
+    fetch(assistantApi, {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: query, locale: /^sw(?:-|$)/i.test(lang()) ? 'sw' : 'en' })
+    }).then(function (response) {
+      if (!response.ok) throw new Error('Assistant request unavailable.');
+      return response.json();
+    }).then(function (payload) {
+      var answerText = String(payload && payload.answer || '').trim();
+      if (!answerText) throw new Error('Assistant returned an empty reply.');
+      var elapsed = Date.now() - started;
+      return new Promise(function (resolve) { window.setTimeout(resolve, Math.max(0, 320 - elapsed)); }).then(function () {
         typing.remove();
-        state.currentEntity = found;
-        state.currentIntent = intent(query, found);
-        state.previousQuery = query;
-        state.previousResultIds = answer.id ? [answer.id] : [];
-        draw(Object.assign({ role: 'bot' }, answer));
-        if (window.LakeAnalytics && window.LakeAnalytics.track) window.LakeAnalytics.track(answer.nomatch ? 'CHAT_NO_MATCH' : 'CHAT_QUESTION', { page: location.pathname, language: lang(), query: query.slice(0, 300) });
-        if (answer.nomatch && window.LAKE_API_BASE) fetch(window.LAKE_API_BASE.replace(/\/$/, '') + '/api/public/assistant/unanswered', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question: query.slice(0, 300), page: location.pathname, language: lang() }), keepalive: true }).catch(function () {});
+        var links = Array.isArray(payload.sources) ? payload.sources.filter(function (source) {
+          return source && typeof source.title === 'string' && /^https:\/\/www\.lakeoilgroup\.com\//i.test(source.url || '');
+        }).map(function (source) { return { t: source.title, u: source.url }; }) : [];
+        draw({ role: 'bot', text: answerText, links: links });
+        var noEvidence = payload.status === 'no_evidence' || payload.grounded === false;
+        if (window.LakeAnalytics && window.LakeAnalytics.track) window.LakeAnalytics.track(noEvidence ? 'CHAT_NO_MATCH' : 'CHAT_QUESTION', { page: location.pathname, language: lang(), query: query.slice(0, 300) });
+        if (noEvidence && window.LAKE_API_BASE) fetch(window.LAKE_API_BASE.replace(/\/$/, '') + '/api/public/assistant/unanswered', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question: query.slice(0, 300), page: location.pathname, language: lang() }), keepalive: true }).catch(function () {});
       });
     }).catch(function () {
       typing.remove();
-      draw({ role: 'bot', text: 'I couldn’t load verified information just now. Please try again.' });
+      draw({ role: 'bot', text: 'Lake Assistant is temporarily unavailable. Please try again shortly.' });
     });
   }
   function recognitionConstructor() { return window.SpeechRecognition || window.webkitSpeechRecognition || null; }
