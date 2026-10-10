@@ -4,7 +4,8 @@
   "scripts": {
     "serve": "npx firebase emulators:start --only hosting",
     "deploy": "npx firebase deploy --only hosting",
-    "build": "npm run build:seo",
+    "build": "npm run build:seo && npm run build:assistant-kb",
+    "build:assistant-kb": "node scripts/build_assistant_kb.js",
     "build:globe-lab": "node scripts/build-globe-lab.mjs",
     "build:seo": "node scripts/build-seo-foundation.mjs && node scripts/build-sitemap.js && node scripts/build-llms.mjs",
     "audit:images": "node scripts/audit-public-images.mjs",
@@ -42,6 +43,7 @@
   "devDependencies": {
     "esbuild": "^0.28.1",
     "firebase-tools": "^15.26.0",
+    "parse5": "^5.1.1",
     "playwright": "^1.62.0",
     "sharp": "^0.35.4"
   },

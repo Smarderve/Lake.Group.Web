@@ -1,528 +1,496 @@
 #!/usr/bin/env node
-/**
- * Builds assets/assistant-kb.js - the offline knowledge base consumed by
- * assets/assistant.js (the site's offline knowledge assistant).
- *
- * Output shape (same "global payload via plain <script>" pattern as
- * assets/i18n-content.js, so it works under file:// as well as http(s)://):
- *
- *   window.__LAKE_ASSISTANT_KB__ = {
- *     version: 1,
- *     langs: {
- *       en: { docs: [ { id, t, s, u, k, f } ] },   // t=title, s=text,
- *       fr: { ... },                                // u=page url, k=extra
- *       sw: { ... }                                 // keywords, f=1 curated
- *     }                                             //   fact (rank boost)
- *   }
- *
- * Sources:
- *   1. assets/i18n-content.json - every page's translated copy, grouped by
- *      key prefix (one prefix per page) and chunked into small documents so
- *      retrieval returns a focused passage, not a whole page.
- *   2. CURATED_FACTS below - hand-written from scripts/_verified_lake_facts.md
- *      (verified items only; conflicting official figures use the preferred
- *      "about page" number, e.g. 1,600+ trucks).
- *
- * Run from repo root:  node scripts/build_assistant_kb.js
- */
+/* Build the offline Assistant V2 index from current, publicly published sources. */
 'use strict';
 
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
+const crypto = require('node:crypto');
+const parse5 = require('parse5');
+const I18N_CONTENT = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'assets', 'i18n-content.json'), 'utf8'));
 
-const ROOT = path.join(__dirname, '..');
-const CONTENT = JSON.parse(
-  fs.readFileSync(path.join(ROOT, 'assets', 'i18n-content.json'), 'utf8')
-);
+const ROOT = path.resolve(__dirname, '..');
 const OUT = path.join(ROOT, 'assets', 'assistant-kb.js');
+const MIN_TEXT = 48;
+const SKIP_TAGS = new Set(['script', 'style', 'template', 'noscript', 'svg', 'nav', 'footer', 'header', 'button', 'input', 'select', 'textarea', 'iframe', 'canvas']);
+const BLOCK_TAGS = new Set(['p', 'li', 'blockquote', 'address', 'figcaption', 'dt', 'dd']);
+const HEADING_TAG = /^h[1-6]$/;
+const STOP_CONTENT = /\b(?:lorem ipsum|placeholder text|coming soon|under construction|currently preparing this section|sample text|demo content)\b/i;
 
-const LANGS = ['en', 'fr', 'sw', 'pt', 'es', 'ar'];
-
-/* ------------------------------------------------------------------ */
-/* Page map: i18n key prefix -> page url + title                       */
-/* ------------------------------------------------------------------ */
-// titleKey points into the i18n dictionary so page titles are translated
-// for free; `title` is the English fallback if the key is missing.
-const PAGES = {
-  index: { url: 'index.html', titleKey: 'nav.home', title: 'Home' },
-  hero: { url: 'index.html', titleKey: 'nav.home', title: 'Home' },
-  stat: { url: 'index.html', titleKey: 'nav.home', title: 'Home' },
-  about: { url: 'about.html', titleKey: 'nav.about', title: 'About Us' },
-  ose: { url: 'our-story.html', titleKey: 'nav.about', title: 'Our Story' },
-  history: { url: 'history.html', titleKey: 'nav.history', title: 'Our History' },
-  leadership: { url: 'leadership.html', titleKey: 'nav.leadership', title: 'Leadership' },
-  services: { url: 'services.html', titleKey: 'nav.companies', title: 'Subsidiaries' },
-  fuel: { url: 'lake-oil.html', titleKey: 'nav.co.lakeOil', title: 'Lake Oil' },
-  lpg: { url: 'lake-gas.html', titleKey: 'nav.co.lakeGas', title: 'Lake Gas' },
-  aviation: { url: 'lake-aviation.html', titleKey: 'nav.co.lakeAviation', title: 'Lake Aviation' },
-  lubricants: { url: 'lake-lubes.html', titleKey: 'nav.co.lakeLubes', title: 'Lake Lubes' },
-  steel: { url: 'lake-steel.html', titleKey: 'nav.co.lakeSteel', title: 'Lake Steel' },
-  concrete: { url: 'lake-premix-cement.html', titleKey: 'nav.co.lakePremixCement', title: 'Lake Premix' },
-  pipes: { url: 'lake-pipes.html', titleKey: 'nav.co.lakePipes', title: 'Lake Pipes' },
-  logistics: { url: 'lake-trans.html', titleKey: 'nav.co.lakeTrans', title: 'Lake Trans' },
-  container_services: { url: 'aficd.html', titleKey: 'nav.co.aficd', title: 'AFICD' },
-  station_locator: { url: 'station-locator.html', titleKey: 'nav.stations', title: 'Station Locator' },
-  fleet: { url: 'fleet.html', titleKey: 'nav.fleet', title: 'Our Fleet' },
-  careers: { url: 'careers.html', titleKey: 'nav.careers', title: 'Careers' },
-  csr: { url: 'csr.html', titleKey: 'nav.csr', title: 'CSR & Sustainability' },
-  sustainability: { url: 'sustainability.html', titleKey: 'nav.csr', title: 'Sustainability' },
-  gallery: { url: 'gallery.html', titleKey: 'nav.gallery', title: 'Gallery' },
-  media_center: { url: 'media-center.html', titleKey: 'nav.news', title: 'Media Center' },
-  contact: { url: 'contact.html', titleKey: 'footer.contact', title: 'Contact' },
-};
-// Skipped prefixes: nav/mob/footer/chat (page chrome), dashboard (demo
-// portal, excluded from search per robots.txt), news_article (empty template).
-
-const MIN_LEN = 30; // skip labels/buttons - too short to answer anything
-const CHUNK_TARGET = 340; // characters per document (keeps answers focused)
-
-function stripHtml(s) {
-  return String(s)
-    .replace(/<br\s*\/?>/gi, ' ')
-    .replace(/<[^>]+>/g, '')
-    .replace(/&amp;/g, '&')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&#\d+;/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
+function sha(value, length = 16) {
+  return crypto.createHash('sha256').update(value).digest('hex').slice(0, length);
 }
 
-/* ------------------------------------------------------------------ */
-/* Curated verified facts (from scripts/_verified_lake_facts.md)       */
-/* ------------------------------------------------------------------ */
-// Each fact: { id, url, [lang]: { t: topic, s: answer, k: keywords } }.
-// Answers are complete standalone sentences - the assistant serves them
-// verbatim. Only officially-verified figures are used.
-const CURATED_FACTS = [
-  {
-    id: 'lakeaviation',
-    url: 'lake-aviation.html',
-    en: {
-      t: 'Lake Aviation - aviation fuel',
-      s: 'Lake Aviation was established in 2020 as part of Lake Energies. It specializes in aviation fuel supply and into-plane fueling services, beginning at Kilimanjaro International Airport (JRO), expanding to Julius Nyerere International Airport (DAR) and Abeid Amani Karume International Airport (ZNZ), and serving Entebbe International Airport (EBB) in Uganda through sister company Lake Oil Uganda.',
-      k: 'lake aviation aviation fuel into-plane fueling JRO DAR ZNZ EBB Entebbe Kilimanjaro Julius Nyerere Abeid Amani Karume Uganda Lake Oil Uganda established 2020',
-    },
-  },
-  {
-    id: 'countries',
-    url: 'about.html',
-    en: {
-      t: 'Where we operate',
-      s: 'Lake Group operates across 10 countries - Tanzania (headquarters), Kenya, Zambia, DR Congo, Rwanda, Burundi, Ethiopia, Mozambique and Uganda - plus a presence in the UAE (Dubai) through MERM and SAFF.',
-      k: 'countries where operate operations locations presence africa which country region',
-    },
-    fr: {
-      t: 'OÃ¹ nous opÃ©rons',
-      s: 'Lake Group opÃ¨re dans 10 pays - la Tanzanie (siÃ¨ge), le Kenya, la Zambie, la RD Congo, le Rwanda, le Burundi, l\u2019Ã‰thiopie, le Mozambique et l\u2019Ouganda - avec aussi une prÃ©sence aux Ã‰mirats arabes unis (DubaÃ¯) via MERM et SAFF.',
-      k: 'pays oÃ¹ opÃ©rez opÃ©rations prÃ©sence afrique quels quelles rÃ©gions implantation',
-    },
-    sw: {
-      t: 'Tunakofanya kazi',
-      s: 'Lake Group inafanya kazi katika nchi 10 - Tanzania (makao makuu), Kenya, Zambia, DR Congo, Rwanda, Burundi, Ethiopia, Msumbiji na Uganda - pamoja na uwepo katika Falme za Kiarabu (Dubai) kupitia MERM na SAFF.',
-      k: 'nchi gani wapi mnafanya kazi shughuli uwepo afrika mataifa mnaofanya',
-    },
-  },
-  {
-    id: 'founding',
-    url: 'about.html',
-    en: {
-      t: 'Our founding',
-      s: 'Lake Group was founded in 2006 in Dar es Salaam, Tanzania, by Ally Edha Awadh, with Lake Oil as its flagship company. It has grown into one of East and Central Africa\u2019s fastest growing energy trading and transportation conglomerates.',
-      k: 'founded founding when started history year established who founder',
-    },
-    fr: {
-      t: 'Notre fondation',
-      s: 'Lake Group a Ã©tÃ© fondÃ© en 2006 Ã  Dar es Salaam, en Tanzanie, par Ally Edha Awadh, avec Lake Oil comme sociÃ©tÃ© phare. Le groupe est devenu l\u2019un des conglomÃ©rats d\u2019Ã©nergie et de transport Ã  la croissance la plus rapide d\u2019Afrique de l\u2019Est et centrale.',
-      k: 'fondÃ© fondation quand crÃ©Ã© histoire annÃ©e Ã©tabli fondateur',
-    },
-    sw: {
-      t: 'Kuanzishwa kwetu',
-      s: 'Lake Group ilianzishwa mwaka 2006 jijini Dar es Salaam, Tanzania, na Ally Edha Awadh, ikiwa na Lake Oil kama kampuni yake kuu. Imekua kuwa mojawapo ya makampuni ya biashara ya nishati na usafirishaji yanayokua kwa kasi zaidi Afrika Mashariki na Kati.',
-      k: 'ilianzishwa lini historia mwaka mwanzilishi nani alianzisha',
-    },
-  },
-  {
-    id: 'leadership',
-    url: 'leadership.html',
-    en: {
-      t: 'Leadership',
-      s: 'Ally Edha Awadh is the Founder & Chairman of Lake Group. Full leadership profiles are on the Leadership page. He founded the group in 2006 at age 27 with a single fuel outlet in Dar es Salaam.',
-      k: 'founder chairman leadership who leads boss awadh ally management director',
-    },
-    fr: {
-      t: 'Direction',
-      s: 'Ally Edha Awadh est le fondateur, prÃ©sident exÃ©cutif et propriÃ©taire de Lake Group. Les profils de direction sont sur la page Leadership. Il a fondÃ© le groupe en 2006, Ã  27 ans, avec une seule station-service Ã  Dar es Salaam.',
-      k: 'pdg prÃ©sident fondateur direction dirigeant qui dirige awadh directeur prÃ©sident exÃ©cutif',
-    },
-    sw: {
-      t: 'Uongozi',
-      s: 'Ally Edha Awadh ni mwanzilishi, Mwenyekiti Mtendaji na Mmiliki wa Lake Group. Wasifu kamili wa uongozi uko kwenye ukurasa wa Uongozi. Alianzisha kampuni hii mwaka 2006 akiwa na miaka 27, kwa kituo kimoja tu cha mafuta Dar es Salaam.',
-      k: 'mkurugenzi mtendaji mwenyekiti mwanzilishi uongozi nani anaongoza awadh kiongozi mmiliki',
-    },
-  },
-  {
-    id: 'contact',
-    url: 'contact.html',
-    en: {
-      t: 'Contact us',
-      s: 'Our headquarters: Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055, Dar es Salaam, Tanzania. Tel: (+255) 222 780 510 or (+255) 222 780 479. Email: admin@lakeoilgroup.com.',
-      k: 'contact phone email address headquarters office reach call telephone location hq',
-    },
-    fr: {
-      t: 'Nous contacter',
-      s: 'Notre siÃ¨ge : Plot 49, Mikocheni Light Industrial Area, P.O. Box 5055, Dar es Salaam, Tanzanie. TÃ©l : (+255) 222 780 510 ou (+255) 222 780 479. E-mail : admin@lakeoilgroup.com.',
-      k: 'contact tÃ©lÃ©phone email adresse siÃ¨ge bureau appeler joindre coordonnÃ©es',
-    },
-    sw: {
-      t: 'Wasiliana nasi',
-      s: 'Makao makuu yetu: Plot 49, Mikocheni Light Industrial Area, S.L.P. 5055, Dar es Salaam, Tanzania. Simu: (+255) 222 780 510 au (+255) 222 780 479. Barua pepe: admin@lakeoilgroup.com.',
-      k: 'wasiliana mawasiliano simu barua pepe anwani makao makuu ofisi piga',
-    },
-  },
-  {
-    id: 'workforce',
-    url: 'about.html',
-    en: {
-      t: 'Our people',
-      s: 'Lake Group employs more than 30,000 people of 10+ nationalities across its operations.',
-      k: 'employees staff workforce people how many jobs headcount team',
-    },
-    fr: {
-      t: 'Nos Ã©quipes',
-      s: 'Lake Group emploie plus de 30 000 personnes de 21 nationalitÃ©s dans l\u2019ensemble de ses opÃ©rations.',
-      k: 'employÃ©s effectif personnel combien salariÃ©s Ã©quipe',
-    },
-    sw: {
-      t: 'Watu wetu',
-      s: 'Lake Group inaajiri zaidi ya watu 30,000 wa mataifa 21 katika shughuli zake zote.',
-      k: 'wafanyakazi waajiriwa wangapi idadi timu ajira watu',
-    },
-  },
-  {
-    id: 'fleet',
-    url: 'fleet.html',
-    en: {
-      t: 'Our fleet',
-      s: 'Lake Trans, the group\u2019s logistics arm founded in 2008, operates a fleet of more than 1,600 trucks - every truck GPS-tracked - hauling bulk liquids and cargo to Zambia, Rwanda, DR Congo, Burundi, Malawi, Kenya and Uganda, with workshops in Kibaha, Kigamboni, Morogoro, Nairobi and Ndola.',
-      k: 'fleet trucks how many vehicles tankers transport haulage lake trans lorries',
-    },
-    fr: {
-      t: 'Notre flotte',
-      s: 'Lake Trans, la branche logistique du groupe fondÃ©e en 2008, exploite une flotte de plus de 1 600 camions - tous suivis par GPS - transportant liquides en vrac et marchandises vers la Zambie, le Rwanda, la RD Congo, le Burundi, le Malawi, le Kenya et l\u2019Ouganda, avec des ateliers Ã  Kibaha, Kigamboni, Morogoro, Nairobi et Ndola.',
-      k: 'flotte camions combien vÃ©hicules citernes transport lake trans',
-    },
-    sw: {
-      t: 'Meli yetu ya magari',
-      s: 'Lake Trans, tawi la usafirishaji la kampuni lililoanzishwa mwaka 2008, linaendesha zaidi ya malori 1,600 - kila lori likifuatiliwa kwa GPS - yakisafirisha mafuta na mizigo kwenda Zambia, Rwanda, DR Congo, Burundi, Malawi, Kenya na Uganda, yakiwa na karakana Kibaha, Kigamboni, Morogoro, Nairobi na Ndola.',
-      k: 'malori magari mangapi usafirishaji lake trans karakana matenki',
-    },
-  },
-  {
-    id: 'stations',
-    url: 'station-locator.html',
-    en: {
-      t: 'Fuel stations',
-      s: 'Lake Group operates 500+ fuel stations across its network. Use the Station Locator to find the nearest one.',
-      k: 'stations petrol gas station how many where locator filling nearest retail',
-    },
-    fr: {
-      t: 'Stations-service',
-      s: 'Lake Group exploite 500+ stations-service Ã  travers son rÃ©seau. Utilisez le localisateur de stations pour trouver la plus proche.',
-      k: 'stations essence combien oÃ¹ localisateur station-service rÃ©seau',
-    },
-    sw: {
-      t: 'Vituo vya mafuta',
-      s: 'Lake Group inaendesha vituo 500+ vya mafuta katika mtandao wake. Tumia ukurasa wa Kitafuta Vituo kupata kituo kilicho karibu nawe.',
-      k: 'vituo mafuta vingapi wapi kituo karibu petroli',
-    },
-  },
-  {
-    id: 'lakeoil',
-    url: 'lake-oil.html',
-    en: {
-      t: 'Lake Oil - fuel & petroleum',
-      s: 'Lake Oil, the group\u2019s flagship company, is one of the top 5 petroleum distributors in Tanzania. Its Kigamboni depot in Dar es Salaam holds 38 million litres of storage with direct pipeline access to the oil import jetty, supported by 85 owned retail stations and a fleet of 300 tankers.',
-      k: 'lake oil fuel petroleum diesel petrol depot storage kigamboni distributor bunkering',
-    },
-    fr: {
-      t: 'Lake Oil - carburants & pÃ©trole',
-      s: 'Lake Oil, la sociÃ©tÃ© phare du groupe, est l\u2019un des 5 premiers distributeurs de produits pÃ©troliers en Tanzanie. Son dÃ©pÃ´t de Kigamboni Ã  Dar es Salaam offre 38 millions de litres de stockage avec un accÃ¨s direct par pipeline Ã  la jetÃ©e d\u2019importation, appuyÃ© par 154 stations-service et une flotte de 300 camions-citernes.',
-      k: 'lake oil carburant pÃ©trole diesel essence dÃ©pÃ´t stockage distributeur',
-    },
-    sw: {
-      t: 'Lake Oil - mafuta na petroli',
-      s: 'Lake Oil, kampuni kuu ya kundi hili, ni miongoni mwa wasambazaji 5 bora wa bidhaa za petroli Tanzania. Ghala lake la Kigamboni, Dar es Salaam, lina uwezo wa kuhifadhi lita milioni 38 na bomba la moja kwa moja kutoka gati la kupokelea mafuta, likisaidiwa na vituo 500+ vya mafuta na matenki 300 ya usafirishaji.',
-      k: 'lake oil mafuta petroli dizeli ghala hifadhi kigamboni msambazaji',
-    },
-  },
-  {
-    id: 'lakegas',
-    url: 'lake-gas.html',
-    en: {
-      t: 'Lake Gas - LPG',
-      s: 'Lake Gas supplies retail and bulk LPG in Tanzania, Zambia, DR Congo, Kenya, Burundi and Rwanda, with 6 kg, 10 kg composite, 15 kg and 38 kg cylinders. It was the first to introduce composite LPG cylinders in Africa, and its Tanga terminal was built as East Africa\u2019s largest LPG storage facility.',
-      k: 'lpg gas cylinders lake gas cooking composite tanga bulk propane bottle',
-    },
-    fr: {
-      t: 'Lake Gas - GPL',
-      s: 'Lake Gas fournit du GPL au dÃ©tail et en vrac en Tanzanie, Zambie, RD Congo, au Kenya, au Burundi et au Rwanda, avec des bouteilles de 6 kg, 10 kg composite, 15 kg et 38 kg. Premier Ã  introduire les bouteilles GPL composites en Afrique, son terminal de Tanga a Ã©tÃ© construit comme la plus grande installation de stockage de GPL d\u2019Afrique de l\u2019Est.',
-      k: 'gpl gaz bouteilles lake gas cuisine composite tanga vrac',
-    },
-    sw: {
-      t: 'Lake Gas - gesi ya LPG',
-      s: 'Lake Gas inasambaza gesi ya LPG kwa rejareja na kwa wingi Tanzania, Zambia, DR Congo, Kenya, Burundi na Rwanda, kwa mitungi ya kilo 6, kilo 10 (composite), kilo 15 na kilo 38. Ilikuwa ya kwanza kuleta mitungi ya composite Afrika, na kituo chake cha Tanga kilijengwa kuwa ghala kubwa zaidi la kuhifadhi LPG Afrika Mashariki.',
-      k: 'gesi lpg mitungi lake gas kupikia tanga mtungi',
-    },
-  },
-  {
-    id: 'lakesteel',
-    url: 'lake-steel.html',
-    en: {
-      t: 'Lake Steel',
-      s: 'Lake Steel is the first company in Tanzania to introduce high-strength corrosion-resistant (HS-CR) reinforcement steel bars. Its fully computerized rolling mill in Kibaha produces up to 25 tonnes per hour - around 100,000 MT per year.',
-      k: 'steel rebar hs-cr bars lake steel mill rolling reinforcement iron',
-    },
-    fr: {
-      t: 'Lake Steel',
-      s: 'Lake Steel est la premiÃ¨re entreprise de Tanzanie Ã  introduire des barres d\u2019armature haute rÃ©sistance et anticorrosion (HS-CR). Son laminoir entiÃ¨rement informatisÃ© Ã  Kibaha produit jusqu\u2019Ã  25 tonnes par heure - environ 100 000 tonnes par an.',
-      k: 'acier armature hs-cr barres lake steel laminoir fer',
-    },
-    sw: {
-      t: 'Lake Steel',
-      s: 'Lake Steel ni kampuni ya kwanza Tanzania kuleta nondo imara zisizoshika kutu (HS-CR). Kiwanda chake cha kisasa kilichopo Kibaha kinazalisha hadi tani 25 kwa saa - takriban tani 100,000 kwa mwaka.',
-      k: 'chuma nondo hs-cr lake steel kiwanda vyuma',
-    },
-  },
-  {
-    id: 'concrete',
-    url: 'lake-premix-cement.html',
-    en: {
-      t: 'GCCP - concrete & aggregates',
-      s: 'GCCP (Gulf Concrete & Cement Products), established in 2010, is Dar es Salaam\u2019s leading ready-mix concrete supplier, with fully-automatic batching plants, its own quarry at Lugoba, boom pumps and 20 truck mixers of 12 m\u00b3 each. Gulf Aggregates runs the crushing plants.',
-      k: 'concrete gccp ready-mix cement aggregate quarry batching premix gulf',
-    },
-    fr: {
-      t: 'GCCP - bÃ©ton & granulats',
-      s: 'GCCP (Gulf Concrete & Cement Products), crÃ©Ã©e en 2010, est le premier fournisseur de bÃ©ton prÃªt Ã  l\u2019emploi de Dar es Salaam, avec des centrales Ã  bÃ©ton entiÃ¨rement automatiques, sa propre carriÃ¨re Ã  Lugoba, des pompes Ã  flÃ¨che et 20 camions-malaxeurs de 12 m\u00b3. Gulf Aggregates exploite les installations de concassage.',
-      k: 'bÃ©ton gccp prÃªt-Ã -l\u2019emploi ciment granulats carriÃ¨re gulf',
-    },
-    sw: {
-      t: 'GCCP - zege na kokoto',
-      s: 'GCCP (Gulf Concrete & Cement Products), iliyoanzishwa mwaka 2010, ndiyo msambazaji mkuu wa zege tayari (ready-mix) Dar es Salaam, ikiwa na mitambo ya kisasa ya kuchanganyia, machimbo yake ya Lugoba, pampu za kunyanyulia na malori 20 ya kuchanganyia zege ya mita za ujazo 12 kila moja. Gulf Aggregates inaendesha mitambo ya kusaga kokoto.',
-      k: 'zege gccp saruji kokoto machimbo gulf simiti',
-    },
-  },
-  {
-    id: 'lubricants',
-    url: 'lake-lubes.html',
-    en: {
-      t: 'Lake Lubes - lubricants',
-      s: 'Lake Lubes, incorporated in Dar es Salaam in 2014, manufactures and distributes lubricants and greases - including LAKE 4T, LAKE HD SUPREME, LAKE POWER, gear oils, ATF, coolants and greases - sold through the Lake Oil station network and across the group\u2019s countries, with 24/7 technical after-sales support.',
-      k: 'lubricants oil grease lake lubes engine motor coolant gear',
-    },
-    fr: {
-      t: 'Lake Lubes - lubrifiants',
-      s: 'Lake Lubes, immatriculÃ©e Ã  Dar es Salaam en 2014, fabrique et distribue lubrifiants et graisses - dont LAKE 4T, LAKE HD SUPREME, LAKE POWER, huiles pour engrenages, ATF, liquides de refroidissement et graisses - vendus via le rÃ©seau de stations Lake Oil et dans les pays du groupe, avec une assistance technique 24 h/24.',
-      k: 'lubrifiants huile graisse lake lubes moteur refroidissement',
-    },
-    sw: {
-      t: 'Lake Lubes - mafuta ya kulainisha',
-      s: 'Lake Lubes, iliyoandikishwa Dar es Salaam mwaka 2014, inatengeneza na kusambaza mafuta ya kulainisha na grisi - ikiwemo LAKE 4T, LAKE HD SUPREME, LAKE POWER, mafuta ya gia, ATF, vipoza-injini na grisi - yanayouzwa kupitia mtandao wa vituo vya Lake Oil na nchi zote za kundi, pamoja na huduma ya kiufundi saa 24.',
-      k: 'mafuta ya kulainisha grisi lake lubes injini oili',
-    },
-  },
-  {
-    id: 'containers',
-    url: 'aficd.html',
-    en: {
-      t: 'Container services',
-      s: 'AFICD (African Inland Container Depot) provides ICD, CFS and empty-container services at Tazara, Pugu Road, Dar es Salaam - a 14,000 m\u00b2 yard with 4,000 TEU capacity and a rail siding to the port - serving Rwanda, Burundi, Uganda, DR Congo, Zambia and Malawi. ACFS adds a 5,000 TEU cargo freight station.',
-      k: 'container icd cfs aficd acfs depot teu shipping freight port',
-    },
-    fr: {
-      t: 'Services de conteneurs',
-      s: 'AFICD (African Inland Container Depot) fournit des services ICD, CFS et de dÃ©pÃ´t de conteneurs vides Ã  Tazara, Pugu Road, Dar es Salaam - un parc de 14 000 m\u00b2 d\u2019une capacitÃ© de 4 000 EVP reliÃ© au port par voie ferrÃ©e - au service du Rwanda, du Burundi, de l\u2019Ouganda, de la RD Congo, de la Zambie et du Malawi. ACFS ajoute une gare de fret de 5 000 EVP.',
-      k: 'conteneurs icd cfs aficd acfs dÃ©pÃ´t evp fret port',
-    },
-    sw: {
-      t: 'Huduma za makontena',
-      s: 'AFICD (African Inland Container Depot) inatoa huduma za ICD, CFS na makontena matupu pale Tazara, Barabara ya Pugu, Dar es Salaam - yadi ya mita za mraba 14,000 yenye uwezo wa TEU 4,000 na reli inayounganisha bandarini - ikihudumia Rwanda, Burundi, Uganda, DR Congo, Zambia na Malawi. ACFS inaongeza kituo cha mizigo cha TEU 5,000.',
-      k: 'makontena kontena icd cfs aficd acfs bandari mizigo',
-    },
-  },
-  {
-    id: 'subsidiaries',
-    url: 'services.html',
-    en: {
-      t: 'Group companies',
-      s: 'Lake Group\u2019s main companies are Lake Oil (fuel & petroleum), Lake Gas (LPG), Lake Trans (logistics), Lake Lubes (lubricants), Lake Steel (HS-CR rebar), GCCP and Gulf Aggregates (concrete & aggregates), AFICD and ACFS (container services), plus MERM (ready-mix) and SAFF (freight forwarding) in Dubai.',
-      k: 'subsidiaries companies divisions group businesses sectors what do you do services brands',
-    },
-    fr: {
-      t: 'SociÃ©tÃ©s du groupe',
-      s: 'Les principales sociÃ©tÃ©s de Lake Group sont Lake Oil (carburants & pÃ©trole), Lake Gas (GPL), Lake Trans (logistique), Lake Lubes (lubrifiants), Lake Steel (armatures HS-CR), GCCP et Gulf Aggregates (bÃ©ton & granulats), AFICD et ACFS (services de conteneurs), plus MERM (bÃ©ton prÃªt Ã  l\u2019emploi) et SAFF (transit) Ã  DubaÃ¯.',
-      k: 'filiales sociÃ©tÃ©s divisions groupe activitÃ©s secteurs que faites-vous services',
-    },
-    sw: {
-      t: 'Kampuni za kundi',
-      s: 'Kampuni kuu za Lake Group ni Lake Oil (mafuta na petroli), Lake Gas (gesi ya LPG), Lake Trans (usafirishaji), Lake Lubes (mafuta ya kulainisha), Lake Steel (nondo za HS-CR), GCCP na Gulf Aggregates (zege na kokoto), AFICD na ACFS (huduma za makontena), pamoja na MERM (zege tayari) na SAFF (uwakala wa mizigo) huko Dubai.',
-      k: 'kampuni tanzu matawi kundi biashara sekta mnafanya nini huduma',
-    },
-  },
-  {
-    id: 'careers',
-    url: 'careers.html',
-    en: {
-      t: 'Careers',
-      s: 'We are always looking for talented people across our group companies in 10 countries. Visit the Careers page to explore current opportunities and apply.',
-      k: 'careers jobs vacancies hiring work employment apply recruitment opportunity',
-    },
-    fr: {
-      t: 'CarriÃ¨res',
-      s: 'Nous recherchons en permanence des talents pour les sociÃ©tÃ©s de notre groupe dans 10 pays. Consultez la page CarriÃ¨res pour dÃ©couvrir les opportunitÃ©s actuelles et postuler.',
-      k: 'carriÃ¨res emplois postes recrutement travailler candidature postuler',
-    },
-    sw: {
-      t: 'Ajira',
-      s: 'Daima tunatafuta watu wenye vipaji katika kampuni za kundi letu katika nchi 10. Tembelea ukurasa wa Ajira kuona nafasi zilizopo na kutuma maombi.',
-      k: 'ajira kazi nafasi kuajiriwa fursa maombi',
-    },
-  },
-  {
-    id: 'values',
-    url: 'about.html',
-    en: {
-      t: 'Values & culture',
-      s: 'Lake Group\u2019s About-page core values are Innovation, Sustainability, Safety and Collaboration. Its mission is to deliver trusted solutions that fuel progress, create opportunity, and generate lasting value for customers, employees, and communities; its vision is to be a world-class enterprise that advances industries, empowers communities, and inspires progress through innovation and excellence.',
-      k: 'values culture mission vision principles quality safety',
-    },
-    fr: {
-      t: 'Valeurs & culture',
-      s: 'Les valeurs fondamentales de Lake Group sont le travail d\u2019Ã©quipe, la fiabilitÃ©, l\u2019intÃ©gritÃ© et la satisfaction client, portÃ©es par une culture de qualitÃ©, de service, de sÃ©curitÃ© et de professionnalisme.',
-      k: 'valeurs culture mission vision principes qualitÃ© sÃ©curitÃ©',
-    },
-    sw: {
-      t: 'Maadili na utamaduni',
-      s: 'Maadili ya msingi ya Lake Group ni Ushirikiano, Kuaminika, Uadilifu na Kuridhika kwa Wateja, yakichagizwa na utamaduni wa Ubora, Huduma, Usalama na Weledi.',
-      k: 'maadili utamaduni dhamira maono kanuni ubora usalama',
-    },
-  },
-];
+function attrs(node) {
+  return Object.fromEntries((node.attrs || []).map(({ name, value }) => [name.toLowerCase(), value]));
+}
 
-/* ------------------------------------------------------------------ */
-/* Build per-language documents                                        */
-/* ------------------------------------------------------------------ */
-function buildLang(lang) {
-  const dict = CONTENT[lang];
+function isHiddenOrChrome(node) {
+  if (!node.tagName) return false;
+  const a = attrs(node);
+  const classes = String(a.class || '').toLowerCase();
+  const id = String(a.id || '').toLowerCase();
+  return SKIP_TAGS.has(node.tagName) || Object.hasOwn(a, 'hidden') || a['aria-hidden'] === 'true' ||
+    ['navigation', 'contentinfo'].includes(a.role) ||
+    /(?:^|\s)(?:site-nav|site-header|mobile-nav|nav-mobile|mobile-menu|nav-menu|main-nav|site-footer|cookie-banner|chat-widget|chatbot|modal-overlay)(?:\s|$)/.test(classes) ||
+    /(?:^|[-_])(?:site-header|site-nav|mobile-nav|mobile-menu|main-nav|site-footer|footer-nav)(?:$|[-_])/.test(id) ||
+    /display\s*:\s*none|visibility\s*:\s*hidden/i.test(a.style || '');
+}
+
+function cleanNodeText(node) {
+  if (!node) return '';
+  if (node.nodeName === '#text') return node.value || '';
+  if (isHiddenOrChrome(node)) return '';
+  return (node.childNodes || []).map(cleanNodeText).join(' ');
+}
+
+function cleanText(value) {
+  return String(value || '').replace(/\u00a0/g, ' ').replace(/[\u200b\u200e\u200f\ufeff]/g, '')
+    .replace(/\s+/g, ' ').trim();
+}
+
+function findNode(root, predicate) {
+  if (predicate(root)) return root;
+  for (const child of root.childNodes || []) {
+    const found = findNode(child, predicate);
+    if (found) return found;
+  }
+  return null;
+}
+
+function findNodes(root, predicate, result = []) {
+  if (predicate(root)) result.push(root);
+  for (const child of root.childNodes || []) findNodes(child, predicate, result);
+  return result;
+}
+
+function pageMetadata(route, html, tree) {
+  const titleNode = findNode(tree, (node) => node.tagName === 'title');
+  const title = cleanText(cleanNodeText(titleNode)) || path.basename(route, '.html');
+  const meta = findNodes(tree, (node) => node.tagName === 'meta').map(attrs);
+  const robots = meta.find((item) => item.name === 'robots')?.content || '';
+  const description = cleanText(meta.find((item) => item.name === 'description')?.content || '');
+  return { title, description, robots };
+}
+
+function contentBlocks(tree, metadata, route) {
+  const root = findNode(tree, (node) => node.tagName === 'main') || findNode(tree, (node) => node.tagName === 'body') || tree;
+  const blocks = [];
+  let activeHeading = metadata.title;
+  const seen = new Set();
+  function add(text, heading, kind) {
+    text = cleanText(text);
+    if (text.length < MIN_TEXT || STOP_CONTENT.test(text)) return;
+    const key = text.toLocaleLowerCase('en');
+    if (seen.has(key)) return;
+    seen.add(key);
+    blocks.push({ text, heading: cleanText(heading || metadata.title), kind });
+  }
+  function walk(node) {
+    if (!node || isHiddenOrChrome(node)) return;
+    if (node.tagName && HEADING_TAG.test(node.tagName)) {
+      const heading = cleanText(cleanNodeText(node));
+      if (heading) {
+        activeHeading = heading;
+        add(heading, heading, 'heading');
+      }
+      return;
+    }
+    if (node.tagName && BLOCK_TAGS.has(node.tagName)) {
+      add(cleanNodeText(node), activeHeading, node.tagName);
+      return;
+    }
+    // A number of the current pages use copy inside div/span groups rather
+    // than paragraphs. Capture direct inline text only, avoiding nested blocks.
+    if (node.tagName && ['div', 'section', 'article'].includes(node.tagName)) {
+      const inline = (node.childNodes || []).filter((child) => child.nodeName === '#text' ||
+        (child.tagName && ['span', 'strong', 'em', 'b', 'small', 'a'].includes(child.tagName)))
+        .map(cleanNodeText).join(' ');
+      add(inline, activeHeading, 'copy');
+    }
+    for (const child of node.childNodes || []) walk(child);
+  }
+  walk(root);
+  return blocks;
+}
+
+function classify(heading, text, route, type = '') {
+  const value = `${heading} ${text} ${type}`.toLowerCase();
+  if (/contact|telephone|phone|e-mail|email|headquarters|address/.test(value)) return 'contact';
+  if (/career|vacanc|job application|recruit|workforce opportunities/.test(value) || route === 'careers.html') return 'careers';
+  if (/sustainab|environment|community|csr|social responsibility/.test(value) || ['csr.html', 'sustainability.html'].includes(route)) return 'sustainability';
+  if (/leadership|chairman|director|management|executive|founder/.test(value) || route.startsWith('leadership')) return 'leadership';
+  if (/history|founded|founding|timeline|milestone|established/.test(value) || ['history.html', 'our-story.html'].includes(route)) return 'history';
+  if (/station|dealer|retail network/.test(value) || route === 'station-locator.html') return 'stations';
+  if (/location|located|based|headquarters|countries|markets|footprint|where we|airport|port|region|operate in/.test(value)) return 'locations';
+  if (/product|manufactur|produce|range|portfolio|model|cylinder|steel bar|pipe|vehicle|equipment/.test(value)) return 'products';
+  if (/service|services|provide|supply|offering|solution|capabilit|operation|logistics|transport|quarry|fleet/.test(value)) return 'services';
+  return 'overview';
+}
+
+function normalizeRoute(value) {
+  let route = String(value || '');
+  try { if (/^https?:\/\//i.test(route)) route = new URL(route).pathname; } catch { return ''; }
+  route = route.split(/[?#]/, 1)[0].replace(/^\/+/, '');
+  return route === '' ? 'index.html' : route;
+}
+
+function publishedStaticPages(routes, companyRegistry, sitemapLastmod) {
+  const pages = [];
   const docs = [];
+  const companyRoutes = new Set(Object.keys(companyRegistry));
+  for (const route of routes) {
+    const file = path.resolve(ROOT, route);
+    if (!file.startsWith(`${ROOT}${path.sep}`) || !fs.existsSync(file)) continue;
+    const html = fs.readFileSync(file, 'utf8');
+    const tree = parse5.parse(html);
+    const meta = pageMetadata(route, html, tree);
+    if (/noindex/i.test(meta.robots)) continue;
+    const company = companyRegistry[route] || null;
+    const blocks = contentBlocks(tree, meta, route);
+    const h1 = findNodes(tree, (node) => node.tagName === 'h1').map((node) => cleanText(cleanNodeText(node))).filter(Boolean);
+    const version = sha(html, 20);
+    const page = { route, title: meta.title, description: meta.description, lastmod: sitemapLastmod[route] || null, contentVersion: version, blockCount: blocks.length, company: company?.name || null };
+    pages.push(page);
+    const aliases = company ? [...new Set([company.name, path.basename(route, '.html').replace(/-/g, ' '), ...h1])].filter(Boolean) : [];
+    blocks.forEach((block, ordinal) => {
+      const topic = classify(block.heading, block.text, route);
+      const hash = sha(`${route}\n${block.heading}\n${block.text}`, 14);
+      docs.push({
+        id: `page:${path.basename(route, '.html')}:${hash}`,
+        t: block.heading || meta.title,
+        s: block.text,
+        u: route,
+        k: [meta.title, block.heading, company?.name || '', topic].filter(Boolean).join(' '),
+        f: 0,
+        entityType: company ? 'company' : route === 'index.html' || route === 'about.html' ? 'group' : topic === 'careers' ? 'career' : topic === 'contact' ? 'contact' : topic === 'locations' || topic === 'stations' ? 'location' : topic,
+        entity: company?.name || 'Lake Group',
+        category: topic,
+        title: block.heading || meta.title,
+        text: block.text,
+        keywords: [meta.title, block.heading, topic, company?.sector || ''].filter(Boolean).join(' '),
+        aliases,
+        page: route,
+        source: 'published-static-html',
+        priority: 100,
+        verification: 'PUBLISHED',
+        updatedAt: page.lastmod,
+        contentVersion: version,
+        ordinal,
+      });
+    });
+    if (route === 'index.html' && meta.description && !STOP_CONTENT.test(meta.description)) {
+      const text = cleanText(meta.description);
+      docs.push({
+        id: `page:index:description:${sha(text, 14)}`, t: meta.title, s: text, u: route,
+        k: `${meta.title} Lake Group corporate overview`, f: 0, entityType: 'group', entity: 'Lake Group',
+        category: 'overview', title: meta.title, text, keywords: `${meta.title} Lake Group corporate overview`,
+        aliases: ['Lake Group', 'Lake Oil Group'], page: route, source: 'published-static-html', priority: 100,
+        verification: 'PUBLISHED', updatedAt: page.lastmod, contentVersion: version, ordinal: -1,
+      });
+    }
+  }
+  return { pages, docs };
+}
 
-  // 1. Curated facts first (f:1 gives them a ranking boost at query time).
-  // Fall back to English when a locale pack (e.g. pt/es) has not yet been
-  // hand-authored for a fact - page chunks below still use the translated dict.
-  for (const fact of CURATED_FACTS) {
-    const loc = fact[lang] || fact.en;
-    if (!loc) continue;
+function metricClaims(text) {
+  const source = cleanText(text).toLowerCase();
+  const claims = [];
+  const patterns = [
+    ['stations', /(?:\b(\d[\d,]*)\s*(\+)??\s*(?:fuel\s+)?stations?\b|\bstations?\s*[:\-]\s*(\d[\d,]*)\s*(\+)?)/g],
+    ['trucks', /(?:\b(\d[\d,]*)\s*(\+)??\s*(?:purpose[- ]built\s+|heavy[- ]duty\s+|fleet\s+)?(?:trucks?|vehicles?)\b|\bfleet\D{0,24}(\d[\d,]*)\s*(\+)?)/g],
+    ['countries', /(?:\b(\d[\d,]*)\s*(\+)??\s+countries\b|\bcountries\D{0,20}(\d[\d,]*)\s*(\+)?)/g],
+    ['employees', /(?:\b(\d[\d,]*)\s*(\+)??\s+(?:employees|people|staff|workforce|professionals|colleagues)\b|\b(?:employees|people|staff|workforce|professionals|colleagues)\D{0,20}(\d[\d,]*)\s*(\+)?)/g],
+    ['nationalities', /(?:\b(\d[\d,]*)\s*(\+)??\s+nationalities\b|\bnationalities\D{0,20}(\d[\d,]*)\s*(\+)?)/g],
+    ['storage', /\b(\d[\d,.]*)\s*(million\s+)?(litres?|liters?|mt|teu|tonnes?|tons?|m³|m3)\b/g],
+  ];
+  for (const [kind, regex] of patterns) {
+    let match;
+    while ((match = regex.exec(source))) {
+      const number = match[1] || match[3];
+      if (!number) continue;
+      const plus = match[2] === '+' || match[4] === '+';
+      claims.push({ kind, value: Number(number.replace(/,/g, '')), raw: `${number}${plus ? '+' : ''}`, unit: kind === 'storage' ? `${match[2] || ''}${match[3]}`.trim() : kind });
+    }
+  }
+  return claims;
+}
+
+function readPublicSnapshot(routes) {
+  const base = path.join(ROOT, 'public-content');
+  const pointerFile = path.join(base, 'current.json');
+  if (!fs.existsSync(pointerFile)) return null;
+  try {
+    const pointer = JSON.parse(fs.readFileSync(pointerFile, 'utf8'));
+    const relative = String(pointer.snapshotUrl || '');
+    if (pointer.schemaVersion !== 1 || !relative || relative.includes('..') || path.isAbsolute(relative)) return null;
+    const file = path.resolve(base, relative);
+    if (!file.startsWith(`${base}${path.sep}`) || !fs.existsSync(file)) return null;
+    const snapshot = JSON.parse(fs.readFileSync(file, 'utf8'));
+    const payload = { schemaVersion: snapshot.schemaVersion, entities: snapshot.entities, map: snapshot.map, knowledge: snapshot.knowledge };
+    const { validatePayload } = require(path.join(ROOT, 'scripts', 'public-snapshot.js'));
+    validatePayload(payload);
+    const integrity = `sha256-${crypto.createHash('sha256').update(JSON.stringify(payload)).digest('hex')}`;
+    if (pointer.releaseId !== snapshot.releaseId || pointer.integrity !== snapshot.integrity || integrity !== pointer.integrity) {
+      console.warn(`Ignored public-content snapshot ${pointer.releaseId}: pointer/payload integrity mismatch; current static pages remain authoritative.`);
+      return null;
+    }
+    return { pointer, snapshot, eligibleRoutes: new Set(routes), source: `public-content/releases/${pointer.releaseId}/content.json` };
+  } catch (error) {
+    console.warn(`Ignored invalid public-content snapshot: ${error.message}`);
+    return null;
+  }
+}
+
+function currentStaticClaims(docs, cmsTimestamp) {
+  const claims = [];
+  for (const doc of docs) {
+    if (doc.source !== 'published-static-html') continue;
+    const date = doc.updatedAt ? Date.parse(doc.updatedAt) : 0;
+    if (date && cmsTimestamp && date < cmsTimestamp) continue;
+    for (const claim of metricClaims(doc.text)) claims.push({ ...claim, page: doc.page, entity: doc.entity });
+  }
+  return claims;
+}
+
+function publicSnapshotDocs(source, staticDocs, routes) {
+  if (!source) return { docs: [], conflicts: [] };
+  const snapshot = source.snapshot;
+  const timestamp = Date.parse(snapshot.generatedAt || '') || 0;
+  const claims = currentStaticClaims(staticDocs, timestamp);
+  const docs = [];
+  const conflicts = [];
+  const records = snapshot.knowledge?.facts || [];
+  for (const fact of records) {
+    const route = normalizeRoute(fact.url || '');
+    if (!routes.includes(route) || fact.verification !== 'VERIFIED' || !cleanText(fact.text)) continue;
+    const factClaims = metricClaims(fact.text);
+    const mismatch = factClaims.map((claim) => ({ claim, matches: claims.filter((current) => current.kind === claim.kind) }))
+      .find(({ claim, matches }) => matches.some((current) => current.value !== claim.value));
+    if (mismatch) {
+      conflicts.push({ metric: mismatch.claim.kind, olderValue: mismatch.claim.raw, olderSource: source.source, currentValues: [...new Set(mismatch.matches.map((item) => item.raw))], currentPages: [...new Set(mismatch.matches.map((item) => item.page))], resolution: 'Excluded the older snapshot claim; current indexable page copy is retained.' });
+      continue;
+    }
+    const text = cleanText(fact.text);
+    const pageCompany = (source.companyRegistry || {})[route];
+    const hash = sha(`${fact.id || fact.type}\n${route}\n${text}`, 14);
     docs.push({
-      id: 'fact:' + fact.id,
-      t: loc.t,
-      s: loc.s,
-      u: fact.url,
-      k: loc.k,
-      f: 1,
-      entityType: 'fact',
-      entity: loc.t,
-      category: 'verified',
-      title: loc.t,
-      text: loc.s,
-      keywords: loc.k,
-      aliases: [],
-      page: fact.url,
-      source: 'approved-curated-fact',
-      priority: 100,
-      verification: 'VERIFIED',
+      id: `snapshot:${hash}`, t: cleanText(fact.title || fact.type || 'Lake Group information'), s: text, u: route, f: 1,
+      entityType: pageCompany ? 'company' : route === 'index.html' || route === 'about.html' ? 'group' : classify(fact.title, text, route),
+      entity: pageCompany?.name || 'Lake Group', category: classify(fact.title, text, route, fact.type), title: cleanText(fact.title || fact.type || 'Lake Group information'),
+      text, keywords: `${fact.type || ''} ${fact.title || ''} ${text}`, aliases: pageCompany ? [pageCompany.name, path.basename(route, '.html').replace(/-/g, ' ')] : ['Lake Group'],
+      page: route, source: 'published-public-snapshot', priority: 55, verification: 'VERIFIED', updatedAt: snapshot.generatedAt || null, contentVersion: source.pointer.releaseId,
     });
   }
+  return { docs, conflicts };
+}
 
-  // 2. Page content chunks from the i18n dictionary.
-  const keys = Object.keys(CONTENT.en); // en ordering = stable ids across langs
-  const byPage = {};
-  for (const key of keys) {
-    const prefix = key.split('.')[0];
-    if (!PAGES[prefix]) continue;
-    const raw = dict[key] !== undefined ? dict[key] : CONTENT.en[key];
-    const text = stripHtml(raw);
-    if (text.length < MIN_LEN) continue;
-    if (/\bATL\b|Aluminium Trailers/i.test(text)) continue;
-    // Alt-text keys describe images, not answerable content.
-    if (/\.alt(\.|$)|\balt\d*$/.test(key)) continue;
-    const list = (byPage[prefix] = byPage[prefix] || []);
-    // Pages often repeat the same string (title + hero heading, card +
-    // detail); duplicates just bloat the chunk and read badly verbatim.
-    if (list.indexOf(text) !== -1) continue;
-    list.push(text);
+function publicSnapshotCompanies(source, companyRegistry) {
+  if (!source) return {};
+  const aliases = {};
+  for (const item of source.snapshot.entities?.companies || []) {
+    const route = normalizeRoute(item.website || item.route || `${item.slug || ''}.html`);
+    if (!companyRegistry[route]) continue;
+    aliases[route] = [item.name, item.shortName, item.slug].filter(Boolean).map((x) => String(x).replace(/-/g, ' '));
   }
+  return aliases;
+}
 
-  for (const prefix of Object.keys(byPage)) {
-    const page = PAGES[prefix];
-    const title =
-      (dict[page.titleKey] && stripHtml(dict[page.titleKey])) ||
-      (CONTENT.en[page.titleKey] && stripHtml(CONTENT.en[page.titleKey])) ||
-      page.title;
-    let buf = [];
-    let bufLen = 0;
-    let n = 0;
-    const flush = () => {
-      if (!buf.length) return;
-      docs.push({
-        id: 'pg:' + prefix + ':' + n++,
-        t: title,
-        s: buf.join(' '),
-        u: page.url,
-        entityType: prefix === 'careers' ? 'career' : prefix === 'contact' ? 'contact' : prefix === 'sustainability' || prefix === 'csr' ? 'sustainability' : prefix === 'history' ? 'history' : prefix === 'leadership' ? 'leadership' : prefix === 'media_center' ? 'news' : prefix === 'station_locator' ? 'location' : 'company',
-        entity: page.title,
-        category: prefix,
-        title: title,
-        text: buf.join(' '),
-        keywords: title + ' ' + prefix.replace(/_/g, ' '),
-        aliases: [page.title, prefix.replace(/_/g, ' ')],
-        page: page.url,
-        source: 'approved-static-page-content',
-        priority: 30,
-        verification: 'PUBLISHED',
-      });
-      buf = [];
-      bufLen = 0;
+function cmsV2Snapshot(routes, companyRegistry) {
+  const base = path.join(ROOT, 'public-content', 'cms-v2');
+  const pointerFile = path.join(base, 'current.json');
+  if (!fs.existsSync(pointerFile)) return { docs: [], releaseId: null };
+  try {
+    const pointer = JSON.parse(fs.readFileSync(pointerFile, 'utf8'));
+    const relative = String(pointer.snapshotUrl || '');
+    if (relative.includes('..') || path.isAbsolute(relative)) return { docs: [], releaseId: null };
+    const file = path.resolve(base, relative);
+    if (!file.startsWith(`${base}${path.sep}`) || !fs.existsSync(file)) return { docs: [], releaseId: null };
+    const snapshot = JSON.parse(fs.readFileSync(file, 'utf8'));
+    require(path.join(ROOT, 'scripts', 'cms-v2-deployment-snapshot.js')).verifyBundle({ pointer, snapshot });
+    const routesByKey = new Map(routes.map((route) => [path.basename(route, '.html'), route]));
+    routesByKey.set('home', 'index.html');
+    const docs = [];
+    const add = (id, title, text, route, category) => {
+      route = normalizeRoute(route);
+      text = cleanText(text);
+      if (!routes.includes(route) || text.length < MIN_TEXT || STOP_CONTENT.test(text)) return;
+      const company = companyRegistry[route];
+      docs.push({ id: `cms-v2:${sha(`${id}\n${text}`, 14)}`, t: title, s: text, u: route, f: 1,
+        entityType: company ? 'company' : 'group', entity: company?.name || 'Lake Group', category: category || classify(title, text, route),
+        title, text, keywords: `${title} ${text}`, aliases: company ? [company.name, path.basename(route, '.html').replace(/-/g, ' ')] : ['Lake Group'],
+        page: route, source: 'approved-cms-v2-release', priority: 110, verification: 'PUBLISHED', contentVersion: pointer.releaseId });
     };
-    for (const text of byPage[prefix]) {
-      buf.push(text);
-      bufLen += text.length;
-      if (bufLen >= CHUNK_TARGET) flush();
+    for (const [key, data] of Object.entries(snapshot.documents || {})) {
+      const route = routesByKey.get(key);
+      if (route && data && typeof data === 'object') {
+        add(`${key}:hero`, data.hero?.heading || key, data.hero?.description || '', route, 'overview');
+        add(`${key}:intro`, data.introduction?.heading || key, data.introduction?.body || '', route, 'overview');
+        for (const section of data.sections || []) add(`${key}:${section.key}`, section.heading, section.body, route);
+      } else if (key === 'global' && data.organization) {
+        const org = data.organization;
+        add('global:organization', org.name || 'Lake Group', [org.description, org.headquarters, org.email, org.phone].filter(Boolean).join(' '), 'about.html', 'overview');
+        for (const statistic of data.statistics || []) add(`global:stat:${statistic.label}`, statistic.label, `${statistic.label}: ${statistic.value} (${statistic.scope})`, 'about.html', classify(statistic.label, statistic.value, 'about.html'));
+      } else if (key === 'business-verticals') {
+        for (const vertical of data.verticals || []) add(`vertical:${vertical.name}`, vertical.name, `${vertical.description} Companies: ${(vertical.companies || []).join(', ')}.`, 'index.html', 'overview');
+      }
     }
-    flush();
+    return { docs, releaseId: pointer.releaseId };
+  } catch (error) {
+    console.warn(`Ignored unavailable or invalid CMS V2 snapshot: ${error.message}`);
+    return { docs: [], releaseId: null };
   }
-
-  return { docs };
 }
 
-const kb = { version: 1, langs: {} };
-for (const lang of LANGS) kb.langs[lang] = buildLang(lang);
-
-const payload =
-  '/* Generated by scripts/build_assistant_kb.js - DO NOT EDIT BY HAND.\n' +
-  ' * Offline knowledge base for assets/assistant.js (curated verified facts\n' +
-  ' * + page content chunks from assets/i18n-content.json, en/fr/sw/pt/es/ar). */\n' +
-  'window.__LAKE_ASSISTANT_KB__ = ' +
-  JSON.stringify(kb) +
-  ';\n';
-
-fs.writeFileSync(OUT, payload, 'utf8');
-
-for (const lang of LANGS) {
-  const d = kb.langs[lang].docs;
-  console.log(
-    `${lang}: ${d.length} docs (${d.filter((x) => x.f).length} curated facts)`
-  );
+function buildEntities(companyRegistry, staticPages, snapshotCompanyAliases) {
+  return Object.entries(companyRegistry).map(([route, company]) => {
+    const page = staticPages.find((item) => item.route === route);
+    const aliases = [...new Set([
+      company.name,
+      path.basename(route, '.html').replace(/-/g, ' '),
+      ...(page?.title ? [page.title] : []),
+      ...((snapshotCompanyAliases || {})[route] || []),
+    ].map(cleanText).filter(Boolean))];
+    return { name: company.name, route, sector: company.sector, aliases };
+  });
 }
-console.log(
-  `wrote assets/assistant-kb.js (${(payload.length / 1024).toFixed(1)} KB)`
-);
+
+function removeDuplicateRecords(records) {
+  const seen = new Set();
+  return records.filter((doc) => {
+    const key = `${doc.page}|${String(doc.entity).toLowerCase()}|${cleanText(doc.text).toLowerCase()}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+// The current static English page inventory remains authoritative for coverage.
+// This mapping only retains translations that the existing locale dictionary
+// actually supplies; it never decides which pages are public or searchable.
+const I18N_PAGE_PREFIXES = {
+  index: 'index.html', hero: 'index.html', stat: 'index.html', about: 'about.html',
+  ose: 'our-story.html', history: 'history.html', leadership: 'leadership.html',
+  fuel: 'lake-oil.html', lpg: 'lake-gas.html', aviation: 'lake-aviation.html',
+  lubricants: 'lake-lubes.html', steel: 'lake-steel.html', concrete: 'lake-premix-cement.html',
+  pipes: 'lake-pipes.html', logistics: 'lake-trans.html', container_services: 'aficd.html',
+  station_locator: 'station-locator.html', fleet: 'fleet.html', careers: 'careers.html',
+  csr: 'csr.html', sustainability: 'sustainability.html', gallery: 'gallery.html', contact: 'contact.html',
+};
+
+function localizedRecords(lang, routes, companyRegistry, staticDocs) {
+  const locale = I18N_CONTENT[lang];
+  if (!locale) return { docs: [], conflicts: [] };
+  const currentClaims = new Map();
+  for (const doc of staticDocs) {
+    if (!currentClaims.has(doc.page)) currentClaims.set(doc.page, []);
+    currentClaims.get(doc.page).push(...metricClaims(doc.text));
+  }
+  const docs = [];
+  const conflicts = [];
+  const seen = new Set();
+  for (const [key, raw] of Object.entries(locale)) {
+    const prefix = key.split('.')[0];
+    const route = I18N_PAGE_PREFIXES[prefix];
+    if (!route || !routes.includes(route) || /\.alt(?:\.|$)|\balt\d*$/i.test(key) || typeof raw !== 'string') continue;
+    const fragment = parse5.parseFragment(raw);
+    const text = cleanText(cleanNodeText(fragment));
+    if (text.length < MIN_TEXT || STOP_CONTENT.test(text)) continue;
+    const signature = `${route}|${text.toLocaleLowerCase(lang)}`;
+    if (seen.has(signature)) continue;
+    seen.add(signature);
+    const claims = metricClaims(text);
+    const groupMetrics = new Set(['employees', 'nationalities', 'stations', 'countries']);
+    const currentForRoute = currentClaims.get(route) || [];
+    const groupCurrent = [...currentClaims.entries()].filter(([currentRoute]) => ['index.html', 'about.html', 'our-story.html', 'station-locator.html'].includes(currentRoute)).flatMap(([, values]) => values);
+    const clash = claims.find((claim) => currentForRoute.concat(groupMetrics.has(claim.kind) ? groupCurrent : []).some((current) => current.kind === claim.kind && current.value !== claim.value));
+    if (clash) {
+      conflicts.push({ metric: clash.kind, locale: lang, page: route, olderValue: clash.raw, resolution: 'Excluded translated numeric claim that differs from the current English page.' });
+      continue;
+    }
+    const company = companyRegistry[route];
+    const heading = key.split('.').slice(1).join(' ') || path.basename(route, '.html');
+    const category = classify(heading, text, route);
+    docs.push({
+      id: `i18n:${lang}:${path.basename(route, '.html')}:${sha(`${key}\n${text}`, 12)}`,
+      t: heading, s: text, u: route, f: 0, entityType: company ? 'company' : route === 'index.html' || route === 'about.html' ? 'group' : category,
+      entity: company?.name || 'Lake Group', category, title: heading, text, keywords: `${heading} ${company?.name || ''} ${category}`,
+      aliases: company ? [company.name, path.basename(route, '.html').replace(/-/g, ' ')] : ['Lake Group'], page: route,
+      source: 'published-i18n-content', priority: 65, verification: 'PUBLISHED_LOCALE_COPY', locale: lang,
+      updatedAt: null, contentVersion: sha(`${route}\n${lang}\n${text}`, 16),
+    });
+  }
+  return { docs, conflicts };
+}
+
+async function main() {
+  const seo = await import(require('node:url').pathToFileURL(path.join(ROOT, 'scripts', 'seo-config.mjs')).href);
+  const routes = [...new Set(seo.INDEXABLE_ROUTES)].filter((route) => route.endsWith('.html')).sort();
+  const sitemapLastmod = {};
+  const sitemapFile = path.join(ROOT, 'sitemap.xml');
+  if (fs.existsSync(sitemapFile)) {
+    const xml = fs.readFileSync(sitemapFile, 'utf8');
+    for (const match of xml.matchAll(/<url>\s*<loc>[^<]*\/([^/<]*)<\/loc>\s*(?:<lastmod>([^<]*)<\/lastmod>)?/g)) {
+      sitemapLastmod[normalizeRoute(match[1])] = match[2] || null;
+    }
+  }
+  const companyRegistry = seo.COMPANY_ENTITIES;
+  const statics = publishedStaticPages(routes, companyRegistry, sitemapLastmod);
+  const groupMetrics = new Set(['employees', 'nationalities', 'stations', 'countries']);
+  const groupClaims = currentStaticClaims(statics.docs, 0).filter((claim) => ['index.html', 'about.html', 'our-story.html', 'station-locator.html'].includes(claim.page));
+  const staticConflicts = [];
+  for (const page of statics.pages) {
+    const descriptionClaims = metricClaims(page.description || '');
+    for (const claim of descriptionClaims) {
+      if (!groupMetrics.has(claim.kind)) continue;
+      const matches = groupClaims.filter((current) => current.kind === claim.kind && current.value !== claim.value);
+      if (matches.length) staticConflicts.push({ metric: claim.kind, olderValue: claim.raw, olderSource: `${page.route} meta description`, currentValues: [...new Set(matches.map((item) => item.raw))], currentPages: [...new Set(matches.map((item) => item.page))], resolution: 'Metadata was excluded from searchable records; current group-page body copy is retained pending content-owner review.' });
+    }
+  }
+  const cms1 = readPublicSnapshot(routes);
+  if (cms1) cms1.companyRegistry = companyRegistry;
+  const cms2 = cmsV2Snapshot(routes, companyRegistry);
+  const snapshot = publicSnapshotDocs(cms1, statics.docs, routes);
+  const companyAliases = publicSnapshotCompanies(cms1, companyRegistry);
+  const entities = buildEntities(companyRegistry, statics.pages, companyAliases);
+  const companyNames = entities.map((entity) => entity.name);
+  const directory = {
+    id: 'directory:companies', t: 'Lake Group companies', s: `The current public company pages cover ${companyNames.join(', ')}.`, u: 'index.html', f: 1,
+    entityType: 'group', entity: 'Lake Group', category: 'overview', title: 'Lake Group companies', text: `The current public company pages cover ${companyNames.join(', ')}.`,
+    keywords: 'Lake Group companies business verticals subsidiaries group company list', aliases: ['Lake Group'], page: 'index.html', source: 'current-public-page-inventory', priority: 90, verification: 'PUBLISHED',
+  };
+  const docs = removeDuplicateRecords([...cms2.docs, ...statics.docs, ...snapshot.docs, directory]);
+  const pagesWithContent = new Set(statics.docs.map((doc) => doc.page));
+  const langs = { en: { docs } };
+  const localizationConflicts = [];
+  for (const locale of Object.keys(I18N_CONTENT)) {
+    if (locale === 'en') continue;
+    const localized = localizedRecords(locale, routes, companyRegistry, statics.docs);
+    localizationConflicts.push(...localized.conflicts);
+    const localizedPages = new Set(localized.docs.map((doc) => doc.page));
+    langs[locale] = { docs: removeDuplicateRecords([...localized.docs, ...statics.docs.filter((doc) => !localizedPages.has(doc.page))]) };
+  }
+  const kb = {
+    version: 2,
+    source: 'current-indexable-site-pages-and-verified-public-snapshots',
+    pages: statics.pages,
+    entities,
+    audit: {
+      pageCount: routes.length,
+      pagesWithAnswerableContent: pagesWithContent.size,
+      companyCount: entities.length,
+      publicSnapshot: cms1 ? { releaseId: cms1.pointer.releaseId, generatedAt: cms1.snapshot.generatedAt } : null,
+      cmsV2ReleaseId: cms2.releaseId,
+      conflicts: [...snapshot.conflicts, ...localizationConflicts, ...staticConflicts],
+    },
+    langs,
+  };
+  const payload = `/* Generated by scripts/build_assistant_kb.js. Do not edit by hand. */\nwindow.__LAKE_ASSISTANT_KB__ = ${JSON.stringify(kb)};\n`;
+  fs.writeFileSync(OUT, payload, 'utf8');
+  console.log(`Published route inventory: ${routes.length} pages; ${pagesWithContent.size} contain answerable content; ${entities.length} company pages.`);
+  console.log(`Knowledge records: ${docs.length} (${statics.docs.length} current HTML, ${snapshot.docs.length} eligible public-snapshot, ${cms2.docs.length} CMS V2).`);
+  console.log(`Public snapshot: ${cms1 ? `${cms1.pointer.releaseId} (${cms1.snapshot.generatedAt})` : 'not present/valid'}; CMS V2: ${cms2.releaseId || 'no local published release'}.`);
+  for (const conflict of [...snapshot.conflicts, ...staticConflicts]) console.warn(`Audited ${conflict.metric} figure ${conflict.olderValue}; current published pages show ${conflict.currentValues.join(', ')} (${conflict.currentPages.join(', ')}).`);
+  console.log(`wrote assets/assistant-kb.js (${(Buffer.byteLength(payload) / 1024).toFixed(1)} KB)`);
+}
+
+main().catch((error) => { console.error(error.stack || error.message); process.exitCode = 1; });

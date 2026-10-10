@@ -15,18 +15,20 @@ test('Assistant V2 keeps one deterministic controller and lazy knowledge loading
   assert.doesNotMatch(fs.readFileSync(path.join(root, 'assets', 'site.js'), 'utf8'), /function initChat/);
 });
 
-test('approved snapshot exposes structured, verified records', () => {
+test('generated snapshot exposes structured records from current published sources', () => {
   assert.match(kbSource, /"entityType"/);
-  assert.match(kbSource, /"verification":"VERIFIED"/);
-  assert.match(kbSource, /"source":"approved-/);
+  assert.match(kbSource, /"verification":"PUBLISHED"/);
+  assert.match(kbSource, /"source":"published-static-html"/);
+  assert.match(kbSource, /"audit"/);
   assert.match(kbSource, /Lake Aviation/);
-  assert.match(source, /Lake Pipes/);
+  assert.match(kbSource, /Lake Pipes/);
+  assert.match(source, /companies=kb&&kb\.entities/);
 });
 
 test('intent, follow-up, safe no-match, and accessibility contracts are present', () => {
-  for (const name of ['COMPANY_INFO', 'PRODUCT_INFO', 'CONTACT', 'CAREERS', 'COUNTRIES', 'SUSTAINABILITY', 'FOLLOW_UP']) assert.match(source, new RegExp(name));
+  for (const name of ['COMPANY_INFO', 'PRODUCT_INFO', 'CONTACT', 'CAREERS', 'COUNTRIES', 'SUSTAINABILITY', 'usesRecentContext']) assert.match(source, new RegExp(name));
   assert.match(source, /currentEntity/);
-  assert.match(source, /couldn't find a verified Lake Group answer/i);
+  assert.match(source, /confirmed answer/i);
   assert.match(source, /aria-modal/);
   assert.match(source, /Escape/);
 });
