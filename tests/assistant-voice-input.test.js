@@ -92,3 +92,10 @@ test('outside-click closing still aborts recording and leaves the page click ava
   assert.match(assistantCode, /document\.addEventListener\('pointerdown',[\s\S]*?closePanel\(false\)/);
   assert.match(assistantCode, /function closePanel\([\s\S]*?cancelVoice\(false\)/);
 });
+
+test('voice control stays visible and accessibly disabled when the private service is unavailable', () => {
+  assert.match(assistantCode, /function setVoiceUnavailable\([^)]*\)[\s\S]*?refs\.voiceButton\.hidden = false/);
+  assert.match(assistantCode, /refs\.voiceButton\.classList\.add\('is-unavailable'\)/);
+  assert.match(assistantCode, /refs\.voiceButton\.setAttribute\('aria-disabled', 'true'\)/);
+  assert.match(assistantCode, /private transcription service is not ready/);
+});

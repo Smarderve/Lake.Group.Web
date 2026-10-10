@@ -10,6 +10,7 @@ $results = [Collections.Generic.List[object]]::new()
 $timings = [Collections.Generic.List[double]]::new()
 $manifest = $null
 $ollamaPort = 11434
+$backendPort = 4001
 $ollamaWorkingSetPeak = 0L
 $ollamaCpuPercentSamples = [Collections.Generic.List[double]]::new()
 $generationTokenRates = [Collections.Generic.List[double]]::new()
@@ -35,10 +36,13 @@ try {
   $installReport = Get-Content -LiteralPath $installReportPath -Raw | ConvertFrom-Json
   if ($installReport.Status -ne 'INSTALLED') { throw "Install report status is $($installReport.Status), not INSTALLED." }
   if ($installReport.OllamaLoopbackPort) { $ollamaPort = [int]$installReport.OllamaLoopbackPort }
+  if ($installReport.PrivateApiPort) { $backendPort = [int]$installReport.PrivateApiPort }
   $ollama = Join-Path $InstallRoot 'ai\runtime\ollama\ollama.exe'
   if ((Test-Path -LiteralPath $ollama -PathType Leaf) -and (& $ollama --version 2>&1 | Out-String) -match [regex]::Escape($manifest.runtime.version)) { Add-Result 'Bundled Ollama version' 'PASS' $manifest.runtime.version } else { Add-Result 'Bundled Ollama version' 'FAIL' 'Expected pinned executable/version was not found.' }
   $listener = @(Get-NetTCPConnection -State Listen -LocalPort $ollamaPort -ErrorAction SilentlyContinue)
   if ($listener.Count -gt 0 -and @($listener | Where-Object LocalAddress -ne '127.0.0.1').Count -eq 0) { Add-Result 'Ollama loopback binding' 'PASS' "$ollamaPort listens only on 127.0.0.1." } else { Add-Result 'Ollama loopback binding' 'FAIL' "Port $ollamaPort is absent or bound to a non-loopback interface." }
+  $backendListener = @(Get-NetTCPConnection -State Listen -LocalPort $backendPort -ErrorAction SilentlyContinue)
+  if ($backendListener.Count -gt 0 -and @($backendListener | Where-Object LocalAddress -ne '127.0.0.1').Count -eq 0) { Add-Result 'Assistant API loopback binding' 'PASS' "$backendPort listens only on 127.0.0.1." } else { Add-Result 'Assistant API loopback binding' 'FAIL' "Port $backendPort is absent or bound to a non-loopback interface." }
   $env:OLLAMA_MODELS = Join-Path $InstallRoot 'ai\models'
   $env:OLLAMA_HOST = "127.0.0.1:$ollamaPort"
   $tags = Invoke-RestMethod -Uri "http://127.0.0.1:$ollamaPort/api/tags" -TimeoutSec 5
@@ -47,6 +51,11 @@ try {
     Add-Result 'Approved model availability' 'PASS' "$($manifest.model.name), $($model.details.parameter_size) $($model.details.quantization_level), local manifest digest $($model.digest), $($model.size) bytes."
   } else { Add-Result 'Approved model availability' 'FAIL' 'Exact model tag, expected Q4_K_M quantization, or expected minimum blob size was not verified.' }
 } catch { Add-Result 'Ollama/runtime checks' 'FAIL' $_.Exception.Message }
+try {
+  $voiceHealth = Invoke-RestMethod -Uri ([uri]::new($WebsiteBaseUrl, '/api/assistant/voice-health')) -TimeoutSec 10
+  if ($voiceHealth.ready) { Add-Result 'Same-origin private Whisper health' 'PASS' 'The website proxy reached the private transcription service and its memory guard is ready.' }
+  else { Add-Result 'Same-origin private Whisper health' 'FAIL' 'The endpoint responded, but Whisper or its memory guard is not ready.' }
+} catch { Add-Result 'Same-origin private Whisper health' 'FAIL' $_.Exception.Message }
 try { $recordCount = Test-Index (Join-Path $InstallRoot 'ai\knowledge\lake-group-index.json'); Add-Result 'Knowledge index integrity' 'PASS' "$recordCount provenance-checked records." } catch { Add-Result 'Knowledge index integrity' 'FAIL' $_.Exception.Message }
 foreach ($taskName in @('LakeAssistant-Ollama', 'LakeAssistant-Backend')) {
   try { $task = Get-ScheduledTask -TaskName $taskName -ErrorAction Stop; $taskInfo = Get-ScheduledTaskInfo -TaskName $taskName; if ($task.State -eq 'Running') { Add-Result "$taskName startup task" 'PASS' "Running; last result $($taskInfo.LastTaskResult)." } else { Add-Result "$taskName startup task" 'FAIL' "State $($task.State); last result $($taskInfo.LastTaskResult)." } }

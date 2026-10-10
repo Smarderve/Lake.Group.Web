@@ -347,7 +347,7 @@
     refs.voiceButton.title = 'Checking private voice input…';
     refs.voiceButton.setAttribute('aria-label', 'Checking private voice input availability');
     if (!localCaptureAvailable) {
-      setVoiceUnavailable();
+      setVoiceUnavailable('Voice input is not supported in this browser. Use a current browser over HTTPS.', 'Voice input unavailable: this browser does not support the required microphone recording APIs.');
       return;
     }
     fetch(voiceEndpoint('voice-health'), { credentials: 'same-origin', cache: 'no-store' }).then(function (response) {
@@ -357,6 +357,8 @@
       voiceState.localReady = !!(payload && payload.ready);
       if (voiceState.localReady) {
         refs.voiceButton.disabled = false;
+        refs.voiceButton.classList.remove('is-unavailable');
+        refs.voiceButton.removeAttribute('aria-disabled');
         refs.voiceButton.title = 'Voice input (pauses do not stop recording)';
         refs.voiceButton.setAttribute('aria-label', 'Start voice input');
       } else setVoiceUnavailable();
@@ -365,10 +367,14 @@
       setVoiceUnavailable();
     });
   }
-  function setVoiceUnavailable() {
-    refs.voiceButton.hidden = true;
+  function setVoiceUnavailable(message, accessibleLabel) {
+    refs.voiceButton.hidden = false;
     refs.voiceButton.disabled = true;
-    voiceUi('Voice input is unavailable right now. You can still type.', true);
+    refs.voiceButton.classList.add('is-unavailable');
+    refs.voiceButton.title = accessibleLabel || 'Voice input unavailable: the private transcription service is not ready.';
+    refs.voiceButton.setAttribute('aria-disabled', 'true');
+    voiceUi(message || 'Voice input is unavailable right now. You can still type.', true);
+    refs.voiceButton.setAttribute('aria-label', refs.voiceButton.title);
     window.setTimeout(function () { if (!voiceState.active && !voiceState.pending) voiceUi('', false); }, 4200);
   }
   function voiceUi(message, visible) {
@@ -378,7 +384,7 @@
     refs.voiceButton.classList.toggle('is-listening', !!(visible && voiceState.active));
     refs.voiceStatus.classList.toggle('is-listening', !!(visible && voiceState.active));
     refs.voiceStatus.classList.toggle('is-processing', !!(visible && voiceState.pending));
-    refs.voiceButton.setAttribute('aria-label', voiceState.active ? 'Listening. Stop or cancel voice input.' : refs.voiceButton.disabled ? 'Voice input unavailable' : 'Start voice input');
+    refs.voiceButton.setAttribute('aria-label', voiceState.active ? 'Listening. Stop or cancel voice input.' : refs.voiceButton.disabled ? (refs.voiceButton.title || 'Voice input unavailable') : 'Start voice input');
     refs.voiceButton.setAttribute('aria-pressed', voiceState.active ? 'true' : 'false');
     refs.voiceStop.disabled = !voiceState.active || !!voiceState.pending;
   }

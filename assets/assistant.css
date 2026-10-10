@@ -289,6 +289,7 @@
 }
 #chat-widget.la-widget .la-voice:hover { background: #eef8fc; }
 #chat-widget.la-widget .la-voice:disabled { opacity: .46; cursor: not-allowed; }
+#chat-widget.la-widget .la-voice.is-unavailable { opacity: .58; }
 #chat-widget.la-widget .la-voice svg { width: 20px; height: 20px; }
 #chat-widget.la-widget .la-voice.is-listening { background: #e7f5fb; color: #016b9b; }
 #chat-widget.la-widget .la-voice.is-listening svg { animation: la-mic-listen 1.4s ease-in-out infinite; }

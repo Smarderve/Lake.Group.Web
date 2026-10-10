@@ -166,6 +166,7 @@ try {
   Copy-Item -LiteralPath (Join-Path $sourceRoot 'backend\prisma.config.ts') -Destination (Join-Path $InstallRoot 'backend\prisma.config.ts') -Force
   Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'Run-LakeAssistantOllama.ps1') -Destination (Join-Path $InstallRoot 'scripts') -Force
   Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'Run-LakeAssistantBackend.ps1') -Destination (Join-Path $InstallRoot 'scripts') -Force
+  Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'Manage-LakeAssistant.ps1') -Destination (Join-Path $InstallRoot 'scripts') -Force
   Push-Location (Join-Path $InstallRoot 'backend'); try { & npm.cmd ci; if ($LASTEXITCODE -ne 0) { throw 'npm ci failed; the private backend was not registered.' }; & npm.cmd run db:generate; if ($LASTEXITCODE -ne 0) { throw 'Prisma client generation failed; the private backend was not registered.' } } finally { Pop-Location }
   & icacls.exe $InstallRoot /inheritance:r /T /C | Out-Null
   if ($LASTEXITCODE -ne 0) { throw 'Could not protect the private application directory ACL.' }
@@ -207,6 +208,8 @@ try {
   $inference = Invoke-RestMethod -Uri "http://127.0.0.1:$backendPort/api/assistant/chat" -Method Post -ContentType 'application/json' -Body (@{ message = 'What is Lake Group?'; locale = 'en' } | ConvertTo-Json -Compress) -TimeoutSec 240
   $inferenceWatch.Stop()
   if ([string]::IsNullOrWhiteSpace($inference.answer) -or -not $inference.grounded -or @($inference.sources).Count -lt 1) { throw 'The real local inference check did not return a grounded answer with at least one approved source.' }
+  $voiceHealth = Invoke-RestMethod -Uri "http://127.0.0.1:$backendPort/api/assistant/voice-health" -TimeoutSec 5
+  if (-not $voiceHealth.ready) { throw 'Chat inference passed, but private Whisper is not ready (model/runtime missing or less than 3 GiB free memory); installation was rolled back before IIS traffic was enabled.' }
   [pscustomobject]@{ Status = 'INSTALLED'; InstallRoot = $InstallRoot; IisSite = $IisSiteName; AllowedPublicOrigins = $allowedPublicOrigins; PrivateApiPort = $backendPort; OllamaLoopbackPort = $ollamaPort; KnowledgeRecords = $recordCount; BackupWebConfig = $webConfigBackup; Runtime = $manifest.runtime.version; Model = $manifest.model.name; Cpu = $cpuName; LogicalCpuCores = $cores; OsCaption = $os.Caption; OsVersion = $os.Version; OsBuild = $os.BuildNumber; TotalRamBytes = [uint64]$os.TotalVisibleMemorySize * 1KB; AvailableRamBytesAtInstall = $availableRamBytes; GpuDevices = $gpuNames; InitialInferenceSeconds = [math]::Round($inferenceWatch.Elapsed.TotalSeconds, 2); GroundedSourceCount = @($inference.sources).Count } | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $InstallRoot 'install-report.json') -Encoding UTF8
   Write-Host "Installed private payload under $InstallRoot. Run Verify-LakeAssistant.ps1 and review the report before approving traffic."
 } catch {
