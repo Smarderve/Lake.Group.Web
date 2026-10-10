@@ -33,7 +33,7 @@
 
 'use strict';
 
-const VERSION = 'v91-20261010-01';
+const VERSION = 'v94-20261010-04';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -78,8 +78,8 @@ const PRECACHE_URLS = [
   './assets/vendor/gsap/ScrollTrigger.min.js',
   './assets/i18n.js?v=20260828-01',
   './assets/i18n-content.js?v=20260828-01',
-  './assets/assistant.js?v=20261009-01',
-  './assets/assistant.css?v=20261009-01',
+  './assets/assistant.js?v=20261010-04',
+  './assets/assistant.css?v=20261010-04',
   './assets/phase-01-navbar.css?v=20260828-01',
   './assets/phase-01-footer.css?v=20260828-01',
   './assets/phase-01-navbar.js?v=20260828-01',

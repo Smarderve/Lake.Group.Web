@@ -78,17 +78,15 @@
     svg.setAttribute('stroke-linejoin', 'round');
     svg.setAttribute('aria-hidden', 'true');
     if (kind === 'chat') {
+      svg.setAttribute('viewBox', '0 0 24 24');
+      svg.setAttribute('stroke-width', '2');
       var bubble = document.createElementNS(svg.namespaceURI, 'path');
-      bubble.setAttribute('d', 'M20 11.5a7.5 7.5 0 0 1-7.5 7.5H8l-6-2.2 4.2-3.1A7.5 7.5 0 1 1 20 11.5Z');
+      bubble.setAttribute('d', 'M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.205 1.288l3.354-.994a2 2 0 0 1 1.099.092 10 10 0 1 0-4.687-4.843Z');
       svg.appendChild(bubble);
       for (var i = 0; i < 3; i++) {
-        var dot = document.createElementNS(svg.namespaceURI, 'circle');
+        var dot = document.createElementNS(svg.namespaceURI, 'path');
         dot.setAttribute('class', 'la-launcher-dot la-launcher-dot-' + (i + 1));
-        dot.setAttribute('cx', 8 + i * 4);
-        dot.setAttribute('cy', '12');
-        dot.setAttribute('r', '0.7');
-        dot.setAttribute('fill', 'currentColor');
-        dot.setAttribute('stroke', 'none');
+        dot.setAttribute('d', 'M' + (8 + i * 4) + ' 12h.01');
         svg.appendChild(dot);
       }
     } else if (kind === 'close') {
@@ -291,12 +289,14 @@
   }
   function recognitionConstructor() { return window.SpeechRecognition || window.webkitSpeechRecognition || null; }
   function voiceUi(message, active) {
+    var statusHidden = refs.voiceStatus.hidden;
     refs.voiceStatus.hidden = !active;
     refs.voiceMessage.textContent = message || '';
     refs.voiceButton.classList.toggle('is-listening', !!(active && voiceState.active));
     refs.voiceButton.setAttribute('aria-label', voiceState.active ? 'Listening. Start a new voice input after this one finishes.' : 'Start voice input');
     refs.voiceButton.setAttribute('aria-pressed', voiceState.active ? 'true' : 'false');
     refs.voiceStop.disabled = !voiceState.active;
+    if (statusHidden !== refs.voiceStatus.hidden) growInput();
   }
   function renderVoiceDraft(includeInterim) {
     var recognized = voiceState.finalText + (includeInterim ? voiceState.interimText : '');
