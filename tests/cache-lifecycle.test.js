@@ -18,7 +18,7 @@ for (const url of urls) {
   assert.ok(fs.existsSync(path.join(ROOT, pathname)), `precache entry exists: ${url}`);
 }
 
-assert.match(sw, /const VERSION = 'v95-20261010-07'/);
+assert.match(sw, /const VERSION = 'v95-20261010-08'/);
 assert.match(sw, /await self\.skipWaiting\(\)/, 'the current worker activates without waiting for closed tabs');
 assert.match(sw, /await self\.clients\.claim\(\)/, 'future navigations are claimed without reloading visible tabs');
 assert.match(sw, /name\.startsWith\('lake-'\) && !KNOWN_CACHES\.includes\(name\)/);

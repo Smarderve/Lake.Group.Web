@@ -13,9 +13,9 @@ function makeWav(seconds = 1) {
 
 describe('local Whisper transcription guardrails', () => {
   it('keeps the recording and memory limits explicit', () => {
-    expect(ASSISTANT_TRANSCRIPTION_LIMITS.maxAudioSeconds).toBe(20);
-    expect(ASSISTANT_TRANSCRIPTION_LIMITS.maxAudioBytes).toBeLessThan(750_000);
-    expect(ASSISTANT_TRANSCRIPTION_LIMITS.minFreeMemoryBytes).toBe(2 * 1024 * 1024 * 1024);
+    expect(ASSISTANT_TRANSCRIPTION_LIMITS.maxAudioSeconds).toBe(30);
+    expect(ASSISTANT_TRANSCRIPTION_LIMITS.maxAudioBytes).toBe(1_000_000);
+    expect(ASSISTANT_TRANSCRIPTION_LIMITS.minFreeMemoryBytes).toBe(3 * 1024 * 1024 * 1024);
   });
 
   it('fails closed on invalid audio, missing runtime, and low memory', async () => {
@@ -27,8 +27,9 @@ describe('local Whisper transcription guardrails', () => {
     await expect(constrained.transcribe({ audio: makeWav(), locale: 'en' })).rejects.toMatchObject({ status: 503, code: 'TRANSCRIPTION_MEMORY_GUARD' });
   });
 
-  it('rejects recordings above the duration cap', async () => {
+  it('accepts the full 30-second WAV limit and rejects longer recordings', async () => {
     const service = createAssistantTranscriptionService({ cliPath: 'missing.exe', modelPath: 'missing.bin' });
-    await expect(service.transcribe({ audio: makeWav(21), locale: 'sw' })).rejects.toMatchObject({ status: 400, code: 'INVALID_AUDIO' });
+    await expect(service.transcribe({ audio: makeWav(30) })).rejects.toMatchObject({ status: 503, code: 'TRANSCRIPTION_UNAVAILABLE' });
+    await expect(service.transcribe({ audio: makeWav(31) })).rejects.toMatchObject({ status: 400, code: 'INVALID_AUDIO' });
   });
 });

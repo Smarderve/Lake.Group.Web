@@ -60,7 +60,7 @@ export function assistantRouter({ service, transcriptionService = null, cookieSe
   });
   const uploadAudio = multer({
     storage: multer.memoryStorage(),
-    limits: { fileSize: 700_000, files: 1, fields: 1, parts: 4, fieldSize: 8 },
+    limits: { fileSize: 1_000_000, files: 1, fields: 1, parts: 4, fieldSize: 8 },
     fileFilter: (_request, file, callback) => callback(null, /^audio\/wav$/iu.test(file.mimetype)),
   }).single('audio');
 
@@ -104,17 +104,18 @@ export function assistantRouter({ service, transcriptionService = null, cookieSe
     response.once('close', () => { if (!response.writableEnded) transcriptionAbort.abort(); });
     try {
       await new Promise((resolvePromise, reject) => uploadAudio(request, response, (error) => error ? reject(error) : resolvePromise()));
-      const locale = request.body?.language;
-      if (!request.file || !['en', 'sw'].includes(locale)) {
-        return response.status(400).json({ error: { code: 'INVALID_AUDIO', message: 'Choose English or Kiswahili and record a short voice message.' } });
+      const language = request.body?.language;
+      if (!request.file || !['auto', 'en', 'sw'].includes(language)) {
+        return response.status(400).json({ error: { code: 'INVALID_AUDIO', message: 'Record a short voice message and try again.' } });
       }
-      const result = await transcriptionService.transcribe({ audio: request.file.buffer, locale, signal: transcriptionAbort.signal });
+      const result = await transcriptionService.transcribe({ audio: request.file.buffer, language, signal: transcriptionAbort.signal });
       const text = typeof result?.text === 'string' ? result.text.trim().slice(0, 1000) : '';
       if (!text) return response.status(422).json({ error: { code: 'NO_SPEECH', message: 'No speech was recognized. Try again or type your message.' } });
-      return response.json({ text });
+      const detectedLanguage = typeof result?.language === 'string' ? result.language.toLowerCase().slice(0, 12) : 'unknown';
+      return response.json({ text, language: detectedLanguage });
     } catch (error) {
       if (error?.name === 'AbortError' || transcriptionAbort.signal.aborted) return;
-      if (error?.name === 'MulterError' && error.code === 'LIMIT_FILE_SIZE') return response.status(413).json({ error: { code: 'AUDIO_TOO_LARGE', message: 'Keep voice messages to 20 seconds or less.' } });
+      if (error?.name === 'MulterError' && error.code === 'LIMIT_FILE_SIZE') return response.status(413).json({ error: { code: 'AUDIO_TOO_LARGE', message: 'Keep voice messages to 30 seconds or less.' } });
       if (error?.name === 'MulterError') return response.status(400).json({ error: { code: 'INVALID_AUDIO', message: 'The recording is invalid. Please try again.' } });
       if (error?.status === 400) return response.status(400).json({ error: { code: error.code || 'INVALID_AUDIO', message: 'The recording is invalid. Please try again.' } });
       if (error?.status === 422) return response.status(422).json({ error: { code: 'NO_SPEECH', message: 'No speech was recognized. Try again or type your message.' } });

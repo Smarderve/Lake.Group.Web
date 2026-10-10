@@ -72,6 +72,16 @@ if ($availableRamBytes -lt 4GB) { Stop-Install 'At least 4 GiB physical RAM must
 $cores = ($cpuInventory | Measure-Object -Property NumberOfLogicalProcessors -Sum).Sum
 if ($cores -lt 4) { Stop-Install 'At least four logical CPU cores are required.' }
 if (-not (Test-Path -LiteralPath (Join-Path $sourceRoot 'ai\runtime\ollama\ollama.exe') -PathType Leaf)) { Stop-Install 'Bundled Ollama runtime is missing from this package.' }
+$speechManifestPath = Join-Path $sourceRoot 'ai\speech\config\whisper-manifest.json'
+if (-not (Test-Path -LiteralPath $speechManifestPath -PathType Leaf)) { Stop-Install 'Bundled private Whisper manifest is missing.' }
+$speechManifest = Get-Content -LiteralPath $speechManifestPath -Raw | ConvertFrom-Json
+$speechModelPath = Join-Path $sourceRoot 'ai\speech\models\ggml-base.bin'
+$speechExecutablePath = Join-Path $sourceRoot 'ai\speech\runtime\whisper-cli.exe'
+if (-not (Test-Path -LiteralPath $speechModelPath -PathType Leaf) -or (Get-Item -LiteralPath $speechModelPath).Length -ne [long]$speechManifest.model.bytes) { Stop-Install 'Bundled Whisper multilingual model is missing or has an invalid size.' }
+if ((Get-FileHash -LiteralPath $speechModelPath -Algorithm SHA256).Hash.ToLowerInvariant() -ne $speechManifest.model.sha256) { Stop-Install 'Bundled Whisper model failed SHA-256 verification.' }
+if (-not (Test-Path -LiteralPath $speechExecutablePath -PathType Leaf)) { Stop-Install 'Bundled Whisper CPU runtime is missing.' }
+if ((Get-Item -LiteralPath $speechExecutablePath).Length -ne [long]$speechManifest.runtime.executableBytes -or (Get-FileHash -LiteralPath $speechExecutablePath -Algorithm SHA256).Hash.ToLowerInvariant() -ne $speechManifest.runtime.executableSha256) { Stop-Install 'Bundled Whisper CPU runtime failed its pinned size or SHA-256 check.' }
+foreach ($dependency in $speechManifest.runtime.dependencies) { if (-not (Test-Path -LiteralPath (Join-Path (Split-Path -Parent $speechExecutablePath) $dependency) -PathType Leaf)) { Stop-Install "Bundled Whisper runtime dependency is missing: $dependency" } }
 $runtimeRoot = Join-Path $sourceRoot 'ai\runtime\ollama'
 if (-not (Test-Path -LiteralPath (Join-Path $runtimeRoot 'lib\ollama\llama-server.exe') -PathType Leaf) -or -not @(Get-ChildItem (Join-Path $runtimeRoot 'lib\ollama') -Filter '*.dll' -File -ErrorAction SilentlyContinue).Count) { Stop-Install 'Bundled Ollama inference runtime dependencies are incomplete.' }
 $manifestPath = Join-Path $sourceRoot 'ai\config\runtime-manifest.json'
@@ -146,7 +156,7 @@ if (-not $PSCmdlet.ShouldProcess($InstallRoot, 'Install Lake Assistant private p
 $backupRoot = Join-Path $InstallRoot ('rollback\' + (Get-Date -Format 'yyyyMMdd-HHmmss'))
 try {
   New-Item -ItemType Directory -Force -Path $InstallRoot, (Join-Path $InstallRoot 'ai'), (Join-Path $InstallRoot 'backend'), (Join-Path $InstallRoot 'scripts'), (Join-Path $InstallRoot 'logs') | Out-Null
-  foreach ($folder in @('runtime', 'models', 'knowledge', 'config', 'licenses')) {
+  foreach ($folder in @('runtime', 'models', 'knowledge', 'config', 'licenses', 'speech')) {
     $source = Join-Path $sourceRoot "ai\$folder"; if (Test-Path -LiteralPath $source) { Copy-Item -LiteralPath $source -Destination (Join-Path $InstallRoot 'ai') -Recurse -Force }
   }
   Copy-Item -LiteralPath (Join-Path $sourceRoot 'backend\src') -Destination (Join-Path $InstallRoot 'backend') -Recurse -Force

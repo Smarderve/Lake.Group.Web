@@ -5,6 +5,8 @@ node_modules
 /ai/runtime/ollama/
 /ai/runtime/whisper/
 /ai/models/
+/ai/speech/runtime/
+/ai/speech/models/
 
 # Local caches and workspace state
 .freebuff/

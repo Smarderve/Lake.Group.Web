@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 2,
+  "runtime": {
+    "name": "whisper.cpp CPU Windows x64",
+    "version": "1.9.2",
+    "source": "https://github.com/ggml-org/whisper.cpp/releases/download/v1.9.2/whisper-bin-x64.zip",
+    "archiveBytes": 8194445,
+    "archiveSha256": "49dcc16de826f20bd53d44f947a1ae49dfa81f86cad67a64d80820cb192d674a",
+    "archiveSha256Verified": true,
+    "installedPath": "ai/speech/runtime/whisper-cli.exe",
+    "executableBytes": 479232,
+    "executableSha256": "95e3c0b0e778ad9499eb0125f97c1dcf437dd9eb4ea77050b043574f93c2631d",
+    "dependencies": ["ggml-base.dll", "ggml-cpu-alderlake.dll", "ggml-cpu-cannonlake.dll", "ggml-cpu-cascadelake.dll", "ggml-cpu-haswell.dll", "ggml-cpu-icelake.dll", "ggml-cpu-sandybridge.dll", "ggml-cpu-skylakex.dll", "ggml-cpu-sse42.dll", "ggml-cpu-x64.dll", "ggml.dll", "parakeet.dll", "SDL2.dll", "whisper.dll"]
+  },
+  "model": {
+    "name": "Whisper Base multilingual",
+    "file": "ai/speech/models/ggml-base.bin",
+    "source": "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-base.bin",
+    "bytes": 147951465,
+    "sha256": "60ed5bc3dd14eea856493d334349b405782ddcaf0028d4b5df4088345fba2efe",
+    "sha256VerifiedAgainstUpstreamLfs": true,
+    "upstreamLfsOid": "60ed5bc3dd14eea856493d334349b405782ddcaf0028d4b5df4088345fba2efe",
+    "license": "MIT",
+    "licenseFile": "ai/speech/licenses/WHISPER-MODEL-LICENSE.txt",
+    "languages": ["multilingual; automatic detection enabled"]
+  },
+  "audio": {
+    "browserCapture": "MediaRecorder; prefer the actual supported Firefox/Chrome audio/ogg or audio/webm Opus MIME type.",
+    "normalization": "Browser AudioContext decodes the selected MediaRecorder format and creates mono 16 kHz PCM WAV before same-origin upload; the server accepts WAV only.",
+    "detectedLanguageReturned": true
+  },
+  "limits": {
+    "maxAudioSeconds": 30,
+    "maxAudioBytes": 1000000,
+    "maxConcurrentJobs": 1,
+    "minFreeMemoryBytes": 3221225472,
+    "temporaryAudioRetention": "OS temp directory; removed after each job"
+  }
+}

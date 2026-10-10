@@ -1,6 +1,7 @@
+import { createHash } from 'node:crypto';
 import { spawn } from 'node:child_process';
 import { createReadStream, existsSync } from 'node:fs';
-import { stat } from 'node:fs/promises';
+import { readFile, stat } from 'node:fs/promises';
 import { createServer, request as httpRequest } from 'node:http';
 import { connect } from 'node:net';
 import { dirname, extname, relative, resolve, sep } from 'node:path';
@@ -14,6 +15,7 @@ const ollamaPort = Number(process.env.LAKE_ASSISTANT_OLLAMA_PORT || 11434);
 const nodePath = process.execPath;
 const ollamaPath = resolve(root, 'ai/runtime/ollama/ollama.exe');
 const backendEntry = resolve(root, 'backend/src/assistant-index.js');
+const speechManifestPath = resolve(root, 'ai/speech/config/whisper-manifest.json');
 const children = [];
 let closing = false;
 
@@ -34,6 +36,37 @@ async function getJson(url, timeoutMs = 3000) {
   const response = await fetch(url, { signal: AbortSignal.timeout(timeoutMs), cache: 'no-store' });
   const payload = await response.json().catch(() => ({}));
   return { response, payload };
+}
+
+async function sha256File(path) {
+  const hash = createHash('sha256');
+  await new Promise((resolvePromise, reject) => {
+    const stream = createReadStream(path);
+    stream.on('data', (chunk) => hash.update(chunk));
+    stream.once('error', reject);
+    stream.once('end', resolvePromise);
+  });
+  return hash.digest('hex');
+}
+
+async function ensureSpeechPayload() {
+  if (!existsSync(speechManifestPath)) fail(`Whisper manifest is missing: ${speechManifestPath}`);
+  const manifest = JSON.parse(await readFile(speechManifestPath, 'utf8'));
+  const cliPath = resolve(root, manifest.runtime.installedPath);
+  const modelPath = resolve(root, manifest.model.file);
+  for (const [label, path, expectedBytes, expectedHash] of [
+    ['Whisper runtime', cliPath, manifest.runtime.executableBytes, manifest.runtime.executableSha256],
+    ['Whisper Base model', modelPath, manifest.model.bytes, manifest.model.sha256],
+  ]) {
+    if (!existsSync(path)) fail(`${label} is missing: ${path}`);
+    const info = await stat(path);
+    if (info.size !== expectedBytes) fail(`${label} has ${info.size} bytes; expected ${expectedBytes}.`);
+    if (await sha256File(path) !== expectedHash) fail(`${label} failed its pinned SHA-256 check.`);
+  }
+  for (const dependency of manifest.runtime.dependencies || []) {
+    if (!existsSync(resolve(root, 'ai/speech/runtime', dependency))) fail(`Whisper runtime dependency is missing: ${dependency}`);
+  }
+  console.log(`Verified bundled Whisper ${manifest.runtime.version} and ${manifest.model.name}.`);
 }
 
 function launch(executable, args, options) {
@@ -88,7 +121,9 @@ async function ensureBackend() {
     try {
       const { response, payload } = await getJson(`http://127.0.0.1:${backendPort}/api/assistant/health`);
       if (response.ok && payload.status === 'ready') {
-        console.log(`Reusing ready Lake Assistant API on port ${backendPort}.`);
+        const voice = await getJson(`http://127.0.0.1:${backendPort}/api/assistant/voice-health`);
+        if (!voice.response.ok || !voice.payload.ready) fail(`The API is ready, but private Whisper transcription is not ready on port ${backendPort}.`);
+        console.log(`Reusing ready Lake Assistant API and private Whisper on port ${backendPort}.`);
         return;
       }
     } catch { /* report the occupied port below */ }
@@ -106,9 +141,11 @@ async function ensureBackend() {
   });
   await waitFor(async () => {
     const { response, payload } = await getJson(`http://127.0.0.1:${backendPort}/api/assistant/health`);
-    return response.ok && payload.status === 'ready';
+    if (!response.ok || payload.status !== 'ready') return false;
+    const voice = await getJson(`http://127.0.0.1:${backendPort}/api/assistant/voice-health`);
+    return voice.response.ok && voice.payload.ready;
   }, backend, 'Lake Assistant API', 30_000);
-  console.log(`Lake Assistant API is ready on 127.0.0.1:${backendPort}.`);
+  console.log(`Lake Assistant API and private Whisper are ready on 127.0.0.1:${backendPort}.`);
 }
 
 const mimeTypes = {
@@ -169,6 +206,7 @@ async function shutdown() {
   setTimeout(() => process.exit(0), 500).unref();
 }
 
+await ensureSpeechPayload();
 await ensureOllama();
 await ensureBackend();
 if (await isListening(websitePort)) fail(`Website port ${websitePort} is occupied; no listener was stopped. Set LAKE_ASSISTANT_DEV_PORT to a free port and run again.`);

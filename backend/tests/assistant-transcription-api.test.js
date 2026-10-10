@@ -28,12 +28,12 @@ describe('private assistant voice transcription API', () => {
   });
 
   it('accepts a bounded WAV and returns only the recognized text', async () => {
-    const transcribe = vi.fn(async ({ audio, locale }) => ({ text: locale === 'sw' ? 'Habari Lake Group' : 'Tell me about Lake Group', bytes: audio.length }));
+    const transcribe = vi.fn(async ({ audio, language }) => ({ text: 'Habari Lake Group', language: language === 'auto' ? 'sw' : language, bytes: audio.length }));
     const app = appWithTranscription({ health: () => ({ available: true, memoryReady: true }), transcribe });
-    await request(app).post('/api/assistant/transcribe').field('language', 'sw').attach('audio', makeWav(), { filename: 'lake-voice.wav', contentType: 'audio/wav' }).expect(200, { text: 'Habari Lake Group' });
+    await request(app).post('/api/assistant/transcribe').field('language', 'auto').attach('audio', makeWav(), { filename: 'lake-voice.wav', contentType: 'audio/wav' }).expect(200, { text: 'Habari Lake Group', language: 'sw' });
     expect(transcribe).toHaveBeenCalledTimes(1);
     expect(transcribe.mock.calls[0][0].audio).toBeInstanceOf(Buffer);
-    expect(transcribe.mock.calls[0][0].locale).toBe('sw');
+    expect(transcribe.mock.calls[0][0].language).toBe('auto');
   });
 
   it('rejects missing runtime, malformed language, and cross-origin uploads', async () => {
@@ -47,7 +47,7 @@ describe('private assistant voice transcription API', () => {
   it('bounds uploads and returns a safe no-speech result', async () => {
     const service = { health: () => ({ available: true, memoryReady: true }), transcribe: vi.fn(async () => ({ text: '' })) };
     const app = appWithTranscription(service);
-    const oversized = Buffer.alloc(700_001);
+    const oversized = Buffer.alloc(1_000_001);
     oversized.write('RIFF'); oversized.write('WAVE', 8);
     await request(app).post('/api/assistant/transcribe').field('language', 'en').attach('audio', oversized, { filename: 'voice.wav', contentType: 'audio/wav' }).expect(413);
     await request(app).post('/api/assistant/transcribe').field('language', 'en').attach('audio', makeWav(), { filename: 'voice.wav', contentType: 'audio/wav' }).expect(422, { error: { code: 'NO_SPEECH', message: 'No speech was recognized. Try again or type your message.' } });
