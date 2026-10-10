@@ -33,7 +33,7 @@
 
 'use strict';
 
-const VERSION = 'v95-20261010-09';
+const VERSION = 'v95-20261011-01';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
