@@ -25,14 +25,15 @@
     "languages": ["multilingual; automatic detection enabled"]
   },
   "audio": {
-    "browserCapture": "MediaRecorder; prefer the actual supported Firefox/Chrome audio/ogg or audio/webm Opus MIME type.",
-    "normalization": "Browser AudioContext decodes the selected MediaRecorder format and creates mono 16 kHz PCM WAV before same-origin upload; the server accepts WAV only.",
+    "browserCapture": "Web Audio API ScriptProcessorNode captures mono Float32 PCM in Firefox, Chrome, and Edge; bounded overlapping 3.5-second windows are sent for actual Whisper recognition while recording continues.",
+    "normalization": "Browser converts captured PCM into mono 16 kHz PCM WAV windows and a final full-recording WAV; same-origin server accepts WAV only. Interim text is returned by Whisper and remains editable.",
     "detectedLanguageReturned": true
   },
   "limits": {
     "maxAudioSeconds": 30,
     "maxAudioBytes": 1000000,
     "maxConcurrentJobs": 1,
+    "maxRequestsPerMinute": 12,
     "minFreeMemoryBytes": 3221225472,
     "temporaryAudioRetention": "OS temp directory; removed after each job"
   }

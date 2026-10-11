@@ -52,4 +52,15 @@ describe('private assistant voice transcription API', () => {
     await request(app).post('/api/assistant/transcribe').field('language', 'en').attach('audio', oversized, { filename: 'voice.wav', contentType: 'audio/wav' }).expect(413);
     await request(app).post('/api/assistant/transcribe').field('language', 'en').attach('audio', makeWav(), { filename: 'voice.wav', contentType: 'audio/wav' }).expect(422, { error: { code: 'NO_SPEECH', message: 'No speech was recognized. Try again or type your message.' } });
   });
+
+  it('allows a bounded set of incremental speech windows and rejects excess transcription work', async () => {
+    const app = appWithTranscription({
+      health: () => ({ available: true, memoryReady: true }),
+      transcribe: vi.fn(async () => ({ text: 'Lake Group', language: 'en' })),
+    });
+    for (let window = 0; window < 12; window += 1) {
+      await request(app).post('/api/assistant/transcribe').field('language', 'auto').attach('audio', makeWav(4), { filename: 'voice-window.wav', contentType: 'audio/wav' }).expect(200);
+    }
+    await request(app).post('/api/assistant/transcribe').field('language', 'auto').attach('audio', makeWav(4), { filename: 'voice-window.wav', contentType: 'audio/wav' }).expect(429);
+  });
 });

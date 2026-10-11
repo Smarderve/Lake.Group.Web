@@ -27,13 +27,16 @@
  *
  * v86: Refresh the precached standalone offline experience.
  *
+ * v96: Refresh the versioned Assistant bundle with cross-browser live voice
+ *      capture and Whisper transcription windows.
+ *
  * v84: Promote the approved globe-lab bundle to Home and retire the previous
  *      production globe bundle from the network-first route.
  */
 
 'use strict';
 
-const VERSION = 'v95-20261011-02';
+const VERSION = 'v96-20261011-01';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -78,7 +81,7 @@ const PRECACHE_URLS = [
   './assets/vendor/gsap/ScrollTrigger.min.js',
   './assets/i18n.js?v=20260828-01',
   './assets/i18n-content.js?v=20260828-01',
-  './assets/assistant.js?v=20261010-07',
+  './assets/assistant.js?v=20261011-01',
   './assets/assistant.css?v=20261010-07',
   './assets/phase-01-navbar.css?v=20260828-01',
   './assets/phase-01-footer.css?v=20260828-01',

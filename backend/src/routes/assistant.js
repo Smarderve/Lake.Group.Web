@@ -53,7 +53,9 @@ export function assistantRouter({ service, transcriptionService = null, cookieSe
   });
   const transcriptionLimiter = rateLimit({
     windowMs: 60_000,
-    limit: 4,
+    // A 30-second message is transcribed in short, overlapping live windows
+    // plus one final pass. Keep a hard per-client ceiling to bound CPU use.
+    limit: 12,
     standardHeaders: 'draft-8',
     legacyHeaders: false,
     handler: (_request, response) => response.status(429).json({ error: { code: 'RATE_LIMITED', message: 'Please wait before trying voice input again.' } }),
