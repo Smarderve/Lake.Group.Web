@@ -116,23 +116,44 @@ function contentBlocks(tree, metadata, route) {
 
 function classify(heading, text, route, type = '') {
   const value = `${heading} ${text} ${type}`.toLowerCase();
+  if (route === 'contact.html') return 'contact';
   if (/contact|telephone|phone|e-mail|email|headquarters|address/.test(value)) return 'contact';
   if (/career|vacanc|job application|recruit|workforce opportunities/.test(value) || route === 'careers.html') return 'careers';
   if (/sustainab|environment|community|csr|social responsibility/.test(value) || ['csr.html', 'sustainability.html'].includes(route)) return 'sustainability';
   if (/leadership|chairman|director|management|executive|founder/.test(value) || route.startsWith('leadership')) return 'leadership';
   if (/history|founded|founding|timeline|milestone|established/.test(value) || ['history.html', 'our-story.html'].includes(route)) return 'history';
   if (/station|dealer|retail network/.test(value) || route === 'station-locator.html') return 'stations';
-  if (/location|located|based|headquarters|countries|markets|footprint|where we|airport|port|region|operate in/.test(value)) return 'locations';
   if (/product|manufactur|produce|range|portfolio|model|cylinder|steel bar|pipe|vehicle|equipment/.test(value)) return 'products';
   if (/service|services|provide|supply|offering|solution|capabilit|operation|logistics|transport|quarry|fleet/.test(value)) return 'services';
+  if (/headquarters|head office|office address|factory|manufacturing facility|plant|depot|warehouse|terminal|airport|located in|based in|location|countries|markets|footprint|operates? in|across (?:east|central|southern) africa/.test(value)) return 'locations';
   return 'overview';
 }
 
 function factTypeFor(heading, text, route) {
   const value = `${heading} ${text}`.toLowerCase();
-  const physicalAddress = /\b(plots?|road|street|avenue|po box)\b/.test(text.toLowerCase()) && /\b(dar es salaam|tanzania)\b/.test(text.toLowerCase());
-  if (route === 'contact.html' && physicalAddress && /\b(headquarters|group headquarters)\b/.test(value)) return 'headquarters';
+  if (/\b(?:group )?headquarters\b/.test(value)) return 'headquarters';
+  if (/\b(?:head|registered) office\b/.test(value)) return 'office';
+  if (/\b(?:factory|manufacturing facility|production facility)\b/.test(value)) return 'factory';
+  if (/\b(?:plant|blending plant|batching plant)\b/.test(value)) return 'plant';
+  if (/\bdepot\b/.test(value)) return 'depot';
+  if (/\bterminal\b/.test(value)) return 'terminal';
+  if (/\bwarehouse\b/.test(value)) return 'warehouse';
+  if (/\b(?:international )?airport\b/.test(value)) return 'airport';
+  if (/\b(?:port of|dar es salaam port|port gateway)\b/.test(value)) return 'port';
+  if (route === 'contact.html' && /\b(?:plots?|road|street|avenue|po box)\b/.test(value)) return 'contact-address';
+  if (/\b(?:email|e-mail|phone|telephone|contact channel)\b|@[a-z0-9.-]+\.[a-z]{2,}/.test(value)) return 'contact';
   if (route === 'about.html' && /established in \d{4}/.test(text.toLowerCase()) && /regional business group/.test(text.toLowerCase())) return 'group-overview';
+  return '';
+}
+
+function locationTypeFor(heading, text, route) {
+  const value = `${heading} ${text}`.toLowerCase();
+  const hasGeographicEvidence = /\b(?:tanzania|kenya|uganda|zambia|mozambique|burundi|rwanda|congo|dr congo|democratic republic|east africa|central africa|southern africa|dar es salaam|mwanza|arusha|dodoma|morogoro|iringa|mbeya|tanga|zanzibar|kigali|lusaka|maputo|nairobi|lugoba|kibaha|visiga|kilifi|entebbe|kilimanjaro|mikocheni|pugu road|oysterbay|kigamboni)\b/.test(value);
+  if (!hasGeographicEvidence) return '';
+  const factType = factTypeFor(heading, text, route);
+  if (['headquarters', 'office', 'factory', 'plant', 'depot', 'terminal', 'warehouse', 'airport', 'port', 'contact-address'].includes(factType)) return factType;
+  if (/\b(?:located|based|operates?|operations|serves?|serving|presence|across|throughout|market|region|countries|country)\b/.test(value) &&
+      /\b(?:tanzania|kenya|uganda|zambia|mozambique|burundi|rwanda|congo|dr congo|democratic republic|east africa|central africa|southern africa|dar es salaam|mwanza|arusha|dodoma|morogoro|iringa|mbeya|tanga|zanzibar|kigali|lusaka|maputo|nairobi|lugoba|kibaha|visiga|kilifi|entebbe|kilimanjaro|mikocheni)\b/.test(value)) return 'operating-area';
   return '';
 }
 
@@ -515,6 +536,8 @@ async function main() {
         : /gallery/i.test(doc.title || doc.t || '') || new URL(doc.page || doc.u || 'index.html', 'https://www.lakeoilgroup.com/').pathname.toLowerCase() === '/gallery.html' ? 'gallery'
           : (doc.text || doc.s || '').length < 80 && (doc.title || doc.t || '') === (doc.text || doc.s || '') ? 'heading'
             : 'content',
+      factType: doc.factType || factTypeFor(doc.title || doc.t || '', doc.text || doc.s || '', normalizeRoute(doc.page || doc.u || 'index.html')),
+      locationType: locationTypeFor(doc.title || doc.t || '', doc.text || doc.s || '', normalizeRoute(doc.page || doc.u || 'index.html')),
       publishedVersion: doc.contentVersion || null,
       contentHash: crypto.createHash('sha256').update(doc.text || doc.s || '').digest('hex'),
       provenance: doc.source || 'published-static-html',

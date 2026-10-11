@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it, vi } from 'vitest';
-import { createAssistantChatService, retrieveKnowledge } from '../src/lib/assistant-rag.js';
+import { createAssistantChatService, retrieveKnowledge, removeUnsupportedCompanyLocations, validateGroupWideAnswer } from '../src/lib/assistant-rag.js';
 
 const indexPath = fileURLToPath(new URL('../../ai/knowledge/lake-group-index.json', import.meta.url));
 
@@ -72,6 +72,131 @@ describe('Lake Assistant RAG', () => {
     expect(new Set(results.map((record) => record.entity))).toEqual(new Set(['Lake Gas Limited', 'Lake Lubes Ltd']));
     expect(results.some((record) => record.entity === 'Lake Gas Limited' && /LPG|cylinders/i.test(record.text))).toBe(true);
     expect(results.some((record) => record.entity === 'Lake Lubes Ltd' && /lubricant|grease/i.test(record.text))).toBe(true);
+  });
+
+  it('handles group-wide company location questions without assigning generic group records to subsidiaries', async () => {
+    const records = await indexedRecords();
+    for (const query of [
+      'locations for each company of lake grup',
+      'where are all Lake Group companies located',
+      'list subsidiaries and their locations',
+      'where does each company operate',
+      'kampuni zote ziko wapi?',
+    ]) {
+      const results = retrieveKnowledge(query, [], records, 24);
+      expect(results.length).toBeGreaterThanOrEqual(8);
+      expect(new Set(results.map((record) => record.entity)).size).toBe(results.length);
+      expect(results.every((record) => record.entity !== 'Lake Group')).toBe(true);
+      expect(results.some((record) => record.entity === 'Lake Gas Limited' && /Tanzania|Tanga|depot|facility/i.test(record.text))).toBe(true);
+      expect(results.some((record) => record.entity === 'Lake Aviation' && /Airport|Uganda|Entebbe/i.test(record.text))).toBe(true);
+      expect(results.find((record) => record.entity === 'Lake Aviation')?.text).toContain('Kilimanjaro International Airport');
+      expect(results.find((record) => record.entity === 'Lake Aviation')?.text).not.toMatch(/^Entebbe International Airport.*Lake Oil Uganda$/i);
+      expect(results.some((record) => /Concrete Mixer Trucks/i.test(record.pageTitle))).toBe(false);
+    }
+    const aviation = retrieveKnowledge('Where does Lake Aviation operate?', [], records, 8);
+    expect(aviation.some((record) => /Lake Oil Uganda/.test(record.text) && /^Entebbe International Airport/i.test(record.text))).toBe(false);
+    expect(aviation.some((record) => /Kilimanjaro International Airport/.test(record.text))).toBe(true);
+    const unsafeAnswer = 'Lake Aviation operates in Tanzania and Uganda, including Kilimanjaro International Airport (JRO), Julius Nyerere International Airport (DAR), and Entebbe International Airport (EBB).';
+    const safeAnswer = removeUnsupportedCompanyLocations(unsafeAnswer, aviation, { groupWide: false, intent: 'locations', entities: ['Lake Aviation'] });
+    expect(safeAnswer).toContain('Kilimanjaro International Airport');
+    expect(safeAnswer).not.toMatch(/Entebbe|\bEBB\b|\bUganda\b/);
+    expect(safeAnswer).not.toMatch(/\bin\s*\.|\bat\s*\.|operates,\s*including|,\./i);
+  });
+
+  it('selects intent-relevant evidence across subsidiaries for services and products', async () => {
+    const records = await indexedRecords();
+    const services = retrieveKnowledge('What services does each Lake Group company provide?', [], records, 24);
+    const products = retrieveKnowledge('Which products do all Lake Group companies make?', [], records, 24);
+    expect(services).toHaveLength(18);
+    expect(products).toHaveLength(18);
+    expect(services.every((record) => record.entity !== 'Lake Group')).toBe(true);
+    expect(products.every((record) => record.entity !== 'Lake Group')).toBe(true);
+    expect(services.some((record) => record.entity === 'African Inland Logistics Ltd. (AILL)' && /cargo|logistics|port/i.test(record.text))).toBe(true);
+    expect(products.some((record) => record.entity === 'Lake Pipes' && /PVC/i.test(record.text))).toBe(true);
+  });
+
+  it('filters a group-wide country question to companies with explicit country evidence', async () => {
+    const records = await indexedRecords();
+    const results = retrieveKnowledge('Which Lake Group companies operate in Kenya?', [], records, 24);
+    expect(results.length).toBeGreaterThan(0);
+    expect(results.every((record) => /\bkenya\b/i.test(record.text))).toBe(true);
+    expect(results.some((record) => record.entity === 'Lake Gas Limited')).toBe(true);
+    expect(results.some((record) => record.entity === 'Lake Oil Ltd.')).toBe(true);
+  });
+
+  it('grounds plural facility wording such as the Lake Gas depot question', async () => {
+    const records = await indexedRecords();
+    const results = retrieveKnowledge('Where are Lake Gas depots?', [], records, 8);
+    expect(results.some((record) => record.entity === 'Lake Gas Limited' && /Dar es Salaam|Mwanza|Arusha/i.test(record.text))).toBe(true);
+    const { fetchImpl } = fakeOllama('Lake Gas lists depots in its published network.');
+    const service = createAssistantChatService({ fetchImpl });
+    const answer = await service.chat({ message: 'Where are Lake Gas depots?' });
+    expect(answer.grounded).toBe(true);
+    expect(answer.sources.length).toBeGreaterThan(0);
+  });
+
+  it('keeps group sector contacts labeled as group-level rather than subsidiary contacts', async () => {
+    const records = await indexedRecords();
+    const results = retrieveKnowledge('List contact details for each Lake Group company', [], records, 24);
+    expect(results.length).toBeGreaterThan(0);
+    expect(results.every((record) => record.entity === 'Lake Group')).toBe(true);
+    expect(results.every((record) => record.topic === 'contact')).toBe(true);
+  });
+
+  it('buffers group-wide streamed answers, performs at most one coverage retry, then releases one final answer', async () => {
+    const { requests, fetchImpl } = fakeOllama('A grounded local answer.');
+    const service = createAssistantChatService({ fetchImpl });
+    const deltas = [];
+    const answer = await service.chat({ message: 'List subsidiaries and their locations', onToken: (delta) => deltas.push(delta) });
+    expect(requests).toHaveLength(2);
+    expect(requests[0].body.stream).toBe(true);
+    expect(requests[1].body.stream).toBe(false);
+    expect(deltas).toEqual(['A grounded local answer.']);
+    expect(answer.answerValidation).toEqual({ passed: false, retryCount: 1 });
+  });
+
+  it('exposes retrieval diagnostics only outside production', () => {
+    const previous = process.env.NODE_ENV;
+    process.env.NODE_ENV = 'production';
+    try {
+      expect(createAssistantChatService().diagnose).toBeUndefined();
+    } finally {
+      if (previous === undefined) delete process.env.NODE_ENV;
+      else process.env.NODE_ENV = previous;
+    }
+  });
+
+  it('accepts a complete evidence-matched roster answer and rejects cross-company locations', async () => {
+    const records = await indexedRecords();
+    const diagnostics = {};
+    const evidence = retrieveKnowledge('locations for each company of lake grup', [], records, 24, { diagnostics });
+    const plan = { groupWide: true, intent: 'locations', exhaustive: true, companies: diagnostics.companyRoster };
+    const completeAnswer = `1. African Inland Container Depot (AFICD) – depot
+2. African Inland Logistics Ltd. (AILL) – operating-area across Tanzania, Zambia and Mozambique
+3. Agrinova Tech Limited – office on Pugu Road opposite JNIA Terminal 3, Dar es Salaam; factory in Kibaha, Tanzania
+4. Assembly Tech Limited – operating-area across East and Central Africa
+5. Cross Country Developer Limited – operating-area in Dar es Salaam, Tanzania
+6. Gulf Aggregates – operating-area in Lugoba, Tanzania
+7. Lake Agro Limited – operating-area including Zambia and Tanzania
+8. Lake Aviation – airport operations at Kilimanjaro International Airport (JRO), Julius Nyerere International Airport (DAR) and Abeid Amani Karume International Airport (ZNZ)
+9. Lake Building Solution – location in Kibaha Visiga, Coast Region, Tanzania
+10. Lake Cylinders Limited – factory in Tanzania
+11. Lake Gas Limited – depot locations in Dar es Salaam, Mwanza, Arusha, Dodoma, Morogoro, Iringa, Mbeya, Tanga and Zanzibar; Kenya operations
+12. Lake Lubes Ltd. – operating-area across East Africa
+13. Lake Oil Ltd. – operating-area including Zambia, DR Congo, Burundi and Kenya
+14. Lake Pipes – plant at Visiga, Kibaha, Tanzania
+15. Lake Premix – batching plant at Mikocheni, Tanzania
+16. Lake Steel & Allied Products Limited – no published location identified
+17. Lake Trans Limited – operating-area across East Africa
+18. NextDrive Motors Limited – no published location identified`;
+    expect(validateGroupWideAnswer(completeAnswer, evidence, plan).misattributedLocations.length).toBeGreaterThan(0);
+    const correctedAnswer = completeAnswer
+      .replace('Cross Country Developer Limited – operating-area in Dar es Salaam, Tanzania', 'Cross Country Developer Limited – operating-area in Dar es Salaam')
+      .replace('Lake Premix – batching plant at Mikocheni, Tanzania', 'Lake Premix – batching plant at Mikocheni');
+    expect(validateGroupWideAnswer(correctedAnswer, evidence, plan)).toEqual({ valid: true, missingCompanies: [], answerHasEvidenceLocation: true, answerHasUnrelatedLeak: false, unsupportedAffiliateAttribution: false, misattributedLocations: [] });
+    expect(validateGroupWideAnswer(removeUnsupportedCompanyLocations(completeAnswer, evidence, plan), evidence, plan).valid).toBe(true);
+    const wrongAffiliate = correctedAnswer.replace('Kilimanjaro International Airport (JRO), Julius Nyerere International Airport (DAR) and Abeid Amani Karume International Airport (ZNZ)', 'Entebbe International Airport (EBB)');
+    expect(validateGroupWideAnswer(wrongAffiliate, evidence, plan).valid).toBe(false);
   });
 
   it('keeps a short follow-up anchored to the preceding Lake Group fact', async () => {
@@ -183,11 +308,34 @@ describe('Lake Assistant RAG', () => {
     expect(more.status).toBe('ok');
     expect(more.sources[0].url).toBe('https://www.lakeoilgroup.com/lake-aviation.html');
     expect(requests[1].body.messages.map((message) => message.content).join('\n')).toContain('Tell me about Lake Aviation.');
+    expect(requests[1].body.messages.map((message) => message.content).join('\n')).not.toContain('Lake Aviation provides aviation fuel and into-plane services.');
+    expect(more.sources.length).toBeLessThanOrEqual(3);
     expect(requests[1].body.messages[0].content).toContain('Resolve follow-ups from the current topic');
     const simplify = await service.chat({ sessionId: first.sessionId, message: "I don't understand" });
     expect(simplify.status).toBe('ok');
     expect(requests[2].body.messages[0].content).toContain('Re-explain the same supported facts more simply');
     expect(requests[2].body.messages[0].content).toContain('Lake Aviation');
+  });
+
+  it('retains grounded history when a contextual follow-up has no fresh matching retrieval', async () => {
+    const { requests, fetchImpl } = fakeOllama('Lake Group works across verified business sectors.');
+    const service = createAssistantChatService({ fetchImpl });
+    const first = await service.chat({ message: 'Tell me about Lake Group.' });
+    const followUp = await service.chat({ sessionId: first.sessionId, message: 'Tell me more about its operations.' });
+    expect(first.grounded).toBe(true);
+    expect(followUp.grounded).toBe(true);
+    expect(followUp.status).toBe('ok');
+    expect(requests[1].body.messages.map((message) => message.content).join('\n')).toContain('Tell me about Lake Group.');
+    expect(requests[1].body.messages[0].content).toContain('Approved retrieved evidence');
+  });
+
+  it('treats a request for company details as a company profile lookup', async () => {
+    const { fetchImpl } = fakeOllama('Agrinova Tech Limited provides the supported agricultural technology information.');
+    const service = createAssistantChatService({ fetchImpl });
+    const result = await service.chat({ message: 'Give me details about Agrinova Tech.' });
+    expect(result.status).toBe('ok');
+    expect(result.grounded).toBe(true);
+    expect(result.sources[0].url).toBe('https://www.lakeoilgroup.com/agrinova-tech.html');
   });
 
   it('rejects any configured Ollama port outside the private loopback range', () => {
