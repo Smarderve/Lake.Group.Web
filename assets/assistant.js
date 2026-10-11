@@ -111,8 +111,15 @@
   function draw(message) {
     if (message.role === 'user') refs.messages.classList.remove('is-welcome');
     var article = node('article', 'la-message la-' + message.role);
-    article.appendChild(node('p', '', message.text));
+    var answerText = String(message.text || '')
+      .replace(/\[([^\]]+)\]\(https:\/\/www\.lakeoilgroup\.com(?:\/[^)\s]*)?\)/gi, '$1')
+      .replace(/https:\/\/www\.lakeoilgroup\.com(?:\/[^\s)\]<>]*)?/gi, '')
+      .replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim();
+    article.appendChild(node('p', '', answerText));
+    var seenSources = Object.create(null);
     (message.links || []).forEach(function (link) {
+      if (!link || !link.u || seenSources[link.u]) return;
+      seenSources[link.u] = true;
       var sources = node('div', 'la-links');
       var anchor = node('a', '', link.t);
       anchor.href = link.u;
@@ -329,7 +336,7 @@
           return source && typeof source.title === 'string' && /^https:\/\/www\.lakeoilgroup\.com\//i.test(source.url || '');
         }).map(function (source) { return { t: source.title, u: source.url }; }) : [];
         draw({ role: 'bot', text: answerText, links: links });
-        var noEvidence = payload.status === 'no_evidence' || payload.grounded === false;
+        var noEvidence = payload.status === 'no_evidence';
         if (window.LakeAnalytics && window.LakeAnalytics.track) window.LakeAnalytics.track(noEvidence ? 'CHAT_NO_MATCH' : 'CHAT_QUESTION', { page: location.pathname, language: lang(), query: query.slice(0, 300) });
         if (noEvidence && window.LAKE_API_BASE) fetch(window.LAKE_API_BASE.replace(/\/$/, '') + '/api/public/assistant/unanswered', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question: query.slice(0, 300), page: location.pathname, language: lang() }), keepalive: true }).catch(function () {});
       });

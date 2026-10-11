@@ -510,6 +510,11 @@ async function main() {
       sourceUrl: new URL(doc.page || doc.u || 'index.html', 'https://www.lakeoilgroup.com/').href,
       pageTitle: doc.title || doc.t || 'Lake Group',
       aliases: Array.isArray(doc.aliases) ? doc.aliases : [],
+      sourcePriority: Number(doc.priority) || 0,
+      contentKind: doc.source === 'current-public-page-inventory' ? 'directory'
+        : /gallery/i.test(doc.title || doc.t || '') || new URL(doc.page || doc.u || 'index.html', 'https://www.lakeoilgroup.com/').pathname.toLowerCase() === '/gallery.html' ? 'gallery'
+          : (doc.text || doc.s || '').length < 80 && (doc.title || doc.t || '') === (doc.text || doc.s || '') ? 'heading'
+            : 'content',
       publishedVersion: doc.contentVersion || null,
       contentHash: crypto.createHash('sha256').update(doc.text || doc.s || '').digest('hex'),
       provenance: doc.source || 'published-static-html',
