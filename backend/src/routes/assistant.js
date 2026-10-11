@@ -138,15 +138,61 @@ export function assistantRouter({ service, transcriptionService = null, cookieSe
       if (!parsed.success) {
         return response.status(400).json({ error: { code: 'INVALID_MESSAGE', message: 'Enter a message of up to 1,000 characters.' } });
       }
-      const result = await service.chat({
-        sessionId: cookieValue(request, SESSION_COOKIE),
-        message: parsed.data.message,
-        locale: parsed.data.locale,
-      });
-      const sessionId = SESSION_PATTERN.test(String(result.sessionId || '')) ? result.sessionId : randomUUID();
-      response.append('Set-Cookie', `${SESSION_COOKIE}=${encodeURIComponent(sessionId)}; Path=/api/assistant; Max-Age=1800; HttpOnly; SameSite=Lax${cookieSecure ? '; Secure' : ''}`);
+      const wantsStream = String(request.get('accept') || '').split(',').some((item) => item.trim().split(';')[0] === 'application/x-ndjson');
+      const existingSessionId = cookieValue(request, SESSION_COOKIE);
+      const sessionId = existingSessionId || (wantsStream ? randomUUID() : null);
+      if (wantsStream) response.append('Set-Cookie', `${SESSION_COOKIE}=${encodeURIComponent(sessionId)}; Path=/api/assistant; Max-Age=1800; HttpOnly; SameSite=Lax${cookieSecure ? '; Secure' : ''}`);
+      let result;
+      if (wantsStream) {
+        const abortController = new AbortController();
+        const abortOnDisconnect = () => abortController.abort();
+        request.once('aborted', abortOnDisconnect);
+        response.once('close', () => { if (!response.writableEnded) abortOnDisconnect(); });
+        response.status(200);
+        response.set({
+          'Content-Type': 'application/x-ndjson; charset=utf-8',
+          'Cache-Control': 'no-cache, no-store, no-transform',
+          'X-Accel-Buffering': 'no',
+        });
+        response.flushHeaders();
+        const writeEvent = (event) => new Promise((resolvePromise, reject) => {
+          if (response.destroyed) return reject(Object.assign(new Error('The visitor disconnected.'), { name: 'AbortError' }));
+          if (response.write(`${JSON.stringify(event)}\n`)) return resolvePromise();
+          const onDrain = () => { cleanup(); resolvePromise(); };
+          const onClose = () => { cleanup(); reject(Object.assign(new Error('The visitor disconnected.'), { name: 'AbortError' })); };
+          const cleanup = () => { response.off('drain', onDrain); response.off('close', onClose); };
+          response.once('drain', onDrain);
+          response.once('close', onClose);
+        });
+        try {
+          result = await service.chat({
+            sessionId,
+            message: parsed.data.message,
+            locale: parsed.data.locale,
+            signal: abortController.signal,
+            onToken: (text) => writeEvent({ type: 'delta', text }),
+          });
+          if (abortController.signal.aborted || response.destroyed) return;
+          await writeEvent({ type: 'done', answer: result.answer, sources: result.sources || [], grounded: Boolean(result.grounded), status: result.status || 'ok', metrics: result.metrics || {} });
+          return response.end();
+        } catch (error) {
+          if (abortController.signal.aborted || error?.name === 'AbortError' || response.destroyed) return;
+          await writeEvent({ type: 'error', message: 'Lake Assistant could not complete this response.' }).catch(() => {});
+          return response.end();
+        } finally {
+          request.off('aborted', abortOnDisconnect);
+        }
+      } else {
+        result = await service.chat({
+          sessionId: existingSessionId,
+          message: parsed.data.message,
+          locale: parsed.data.locale,
+        });
+      }
+      const resolvedSessionId = SESSION_PATTERN.test(String(result.sessionId || '')) ? result.sessionId : randomUUID();
+      if (!wantsStream) response.append('Set-Cookie', `${SESSION_COOKIE}=${encodeURIComponent(resolvedSessionId)}; Path=/api/assistant; Max-Age=1800; HttpOnly; SameSite=Lax${cookieSecure ? '; Secure' : ''}`);
       const rawMetrics = result.metrics || {};
-      const metrics = Object.fromEntries(['totalDurationNs', 'promptTokens', 'generatedTokens', 'generationDurationNs']
+      const metrics = Object.fromEntries(['totalDurationNs', 'loadDurationNs', 'promptTokens', 'promptEvalDurationNs', 'generatedTokens', 'generationDurationNs', 'firstTokenMs', 'retrievalMs', 'totalServiceMs']
         .filter((key) => rawMetrics[key] !== null && rawMetrics[key] !== undefined && Number.isFinite(Number(rawMetrics[key])) && Number(rawMetrics[key]) >= 0)
         .map((key) => [key, Number(rawMetrics[key])]));
       return response.json({ answer: result.answer, sources: result.sources || [], grounded: Boolean(result.grounded), status: result.status || 'ok', ...(Object.keys(metrics).length ? { metrics } : {}) });

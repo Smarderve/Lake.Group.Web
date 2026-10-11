@@ -22,8 +22,18 @@ async function indexedRecords() {
 function fakeOllama(content = 'A grounded local answer.') {
   const requests = [];
   const fetchImpl = vi.fn(async (url, options) => {
-    requests.push({ url, body: options?.body && JSON.parse(options.body) });
-    return { ok: true, json: async () => ({ message: { content }, total_duration: 1_000_000_000, prompt_eval_count: 150, eval_count: 30, eval_duration: 500_000_000 }) };
+    const body = options?.body && JSON.parse(options.body);
+    requests.push({ url, body });
+    const metrics = { total_duration: 1_000_000_000, load_duration: 100_000_000, prompt_eval_count: 150, prompt_eval_duration: 200_000_000, eval_count: 30, eval_duration: 500_000_000 };
+    if (body?.stream) {
+      const records = [
+        { message: { content: '<think>private reasoning</think>A grounded ' } },
+        { message: { content: 'local answer.' } },
+        { ...metrics, done: true },
+      ];
+      return new Response(records.map((record) => JSON.stringify(record)).join('\n') + '\n', { headers: { 'Content-Type': 'application/x-ndjson' } });
+    }
+    return new Response(JSON.stringify({ message: { content }, ...metrics }), { headers: { 'Content-Type': 'application/json' } });
   });
   return { requests, fetchImpl };
 }
@@ -34,6 +44,7 @@ describe('Lake Assistant RAG', () => {
     expect(retrieveKnowledge('What is Lake Group?', [], records)[0]?.entity).toBe('Lake Group');
     expect(retrieveKnowledge('Tell me everything about Lake Group', [], records)[0]?.entity).toBe('Lake Group');
     expect(retrieveKnowledge('What does Lake Aviation do?', [], records)[0]?.entity).toBe('Lake Aviation');
+    expect(retrieveKnowledge('Explain Lake Aviation in detail.', [], records)[0]?.entity).toBe('Lake Aviation');
     expect(retrieveKnowledge('Where is your headquarters?', [], records)[0]?.entity).toBe('Lake Group');
     expect(retrieveKnowledge('locaton', [], records).length).toBeGreaterThan(0);
   });
@@ -83,7 +94,8 @@ describe('Lake Assistant RAG', () => {
     expect(second.sources.some((source) => source.url.includes('lakeoilgroup.com'))).toBe(true);
     expect(modelRequest.url).toBe('http://127.0.0.1:11434/api/chat');
     expect(modelRequest.body.model).toBe('qwen3:4b-instruct-2507-q4_K_M');
-    expect(modelRequest.body.options.num_ctx).toBe(4096);
+    expect(modelRequest.body.think).toBe(false);
+    expect(modelRequest.body.options.num_ctx).toBe(3072);
     expect(modelRequest.body.stream).toBe(false);
     expect(modelRequest.body.messages.map((message) => message.content).join('\n')).toContain('Tell me about Lake Aviation.');
     expect(modelRequest.body.messages.map((message) => message.content).join('\n')).toContain('What services does it provide?');
@@ -109,7 +121,7 @@ describe('Lake Assistant RAG', () => {
     expect(open.status).toBe('conversation');
     expect(open.sources).toEqual([]);
     expect(requests).toHaveLength(1);
-    expect(requests[0].body.messages[0].content).toContain('friendly, concise clarifying question');
+    expect(requests[0].body.messages[0].content).toContain('This is a general or conversational turn');
     const unrelated = await service.chat({ sessionId: open.sessionId, message: 'What is the weather on Mars?' });
     expect(unrelated.status).toBe('conversation');
     expect(unrelated.sources).toEqual([]);
@@ -130,15 +142,48 @@ describe('Lake Assistant RAG', () => {
     expect(requests[0].body.options.repeat_penalty).toBeGreaterThan(1);
   });
 
+  it('streams safe answer deltas and returns Ollama timing metadata', async () => {
+    const { requests, fetchImpl } = fakeOllama();
+    const service = createAssistantChatService({ fetchImpl });
+    const deltas = [];
+    const result = await service.chat({ message: 'What is Lake Group?', onToken: (text) => deltas.push(text) });
+    expect(requests[0].body.stream).toBe(true);
+    expect(deltas.join('')).toBe('A grounded local answer.');
+    expect(deltas.join('')).not.toContain('private reasoning');
+    expect(result.answer).toBe('A grounded local answer.');
+    expect(result.metrics.loadDurationNs).toBe(100_000_000);
+    expect(result.metrics.promptEvalDurationNs).toBe(200_000_000);
+    expect(result.metrics.firstTokenMs).toBeGreaterThanOrEqual(0);
+    expect(result.metrics.retrievalMs).toBeGreaterThanOrEqual(0);
+  });
+
+  it('rejects an Ollama stream that ends before its completion record', async () => {
+    const fetchImpl = async () => new Response(`${JSON.stringify({ message: { content: 'partial answer' } })}\n`, { headers: { 'Content-Type': 'application/x-ndjson' } });
+    const service = createAssistantChatService({ fetchImpl });
+    await expect(service.chat({ message: 'What is Lake Group?', onToken: vi.fn() })).rejects.toMatchObject({ code: 'INCOMPLETE_MODEL_STREAM' });
+  });
+
+  it('skips startup warm-up when RAM headroom is insufficient and pins Qwen only when safe', async () => {
+    const lowMemory = fakeOllama();
+    const skipped = createAssistantChatService({ fetchImpl: lowMemory.fetchImpl, memoryProvider: () => 6 * 1024 ** 3 }).warmup();
+    await expect(skipped).resolves.toMatchObject({ status: 'skipped', reason: 'insufficient_memory_headroom' });
+    expect(lowMemory.requests).toHaveLength(0);
+
+    const sufficientMemory = fakeOllama();
+    const warmService = createAssistantChatService({ fetchImpl: sufficientMemory.fetchImpl, memoryProvider: () => 8 * 1024 ** 3 });
+    await expect(warmService.warmup()).resolves.toMatchObject({ status: 'ready', loadDurationNs: 100_000_000 });
+    expect(sufficientMemory.requests[0].body.keep_alive).toBe(-1);
+  });
+
   it('keeps follow-ups on the active company, retrieves fresh detail, and reuses it to simplify', async () => {
     const { requests, fetchImpl } = fakeOllama('Lake Aviation provides aviation fuel and into-plane services.');
     const service = createAssistantChatService({ fetchImpl });
     const first = await service.chat({ message: 'Tell me about Lake Aviation.' });
-    const more = await service.chat({ sessionId: first.sessionId, message: 'Tell me more' });
+    const more = await service.chat({ sessionId: first.sessionId, message: 'Tell me more about its operations' });
     expect(more.status).toBe('ok');
     expect(more.sources[0].url).toBe('https://www.lakeoilgroup.com/lake-aviation.html');
     expect(requests[1].body.messages.map((message) => message.content).join('\n')).toContain('Tell me about Lake Aviation.');
-    expect(requests[1].body.messages[0].content).toContain('Continue the current topic');
+    expect(requests[1].body.messages[0].content).toContain('Resolve follow-ups from the current topic');
     const simplify = await service.chat({ sessionId: first.sessionId, message: "I don't understand" });
     expect(simplify.status).toBe('ok');
     expect(requests[2].body.messages[0].content).toContain('Re-explain the same supported facts more simply');

@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   if (window.LakeAssistantV2 || window.LAKE_ASSISTANT_ENABLED === false) return;
-  var refs = {}, index, assets, companies = [], kbMetadata = null, welcomeTimer = null, welcomeTyping = null, welcomeText = '', welcomeToken = 0, hasWelcomed = false, voiceState = { recorder: null, stream: null, chunks: [], timer: null, counterTimer: null, recordingStartedAt: 0, meterContext: null, meterSource: null, meterAnalyser: null, meterFrame: 0, meterLevel: 0, controller: null, mode: '', session: 0, active: false, pending: false, localReady: false, sendAfterTranscript: false, stopRequested: false, finalText: '', detectedLanguage: '', baseText: '', submitted: false, locale: 'en-US' };
+  var refs = {}, index, assets, companies = [], kbMetadata = null, welcomeTimer = null, welcomeTyping = null, welcomeText = '', welcomeToken = 0, hasWelcomed = false, activeChatController = null, chatStreamActive = false, chatStreamFollow = true, voiceState = { recorder: null, stream: null, chunks: [], timer: null, counterTimer: null, recordingStartedAt: 0, meterContext: null, meterSource: null, meterAnalyser: null, meterFrame: 0, meterLevel: 0, controller: null, mode: '', session: 0, active: false, pending: false, localReady: false, sendAfterTranscript: false, stopRequested: false, finalText: '', detectedLanguage: '', baseText: '', submitted: false, locale: 'en-US' };
   var groupEntity = { name: 'Lake Group', route: 'about.html', aliases: ['Lake Group', 'Lake Oil Group'] };
   var routes = {
     CONTACT: ['contact.html', 'Contact Lake Group'], CAREERS: ['careers.html', 'Careers at Lake Group'],
@@ -108,16 +108,15 @@
     }
     return svg;
   }
-  function draw(message) {
-    if (message.role === 'user') refs.messages.classList.remove('is-welcome');
-    var article = node('article', 'la-message la-' + message.role);
-    var answerText = String(message.text || '')
+  function safeAnswerText(value) {
+    return String(value || '')
       .replace(/\[([^\]]+)\]\(https:\/\/www\.lakeoilgroup\.com(?:\/[^)\s]*)?\)/gi, '$1')
       .replace(/https:\/\/www\.lakeoilgroup\.com(?:\/[^\s)\]<>]*)?/gi, '')
       .replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim();
-    article.appendChild(node('p', '', answerText));
+  }
+  function appendSources(article, links) {
     var seenSources = Object.create(null);
-    (message.links || []).forEach(function (link) {
+    (links || []).forEach(function (link) {
       if (!link || !link.u || seenSources[link.u]) return;
       seenSources[link.u] = true;
       var sources = node('div', 'la-links');
@@ -126,8 +125,56 @@
       sources.appendChild(anchor);
       article.appendChild(sources);
     });
+  }
+  function draw(message) {
+    if (message.role === 'user') refs.messages.classList.remove('is-welcome');
+    var article = node('article', 'la-message la-' + message.role);
+    article.appendChild(node('p', '', safeAnswerText(message.text)));
+    appendSources(article, message.links);
     refs.messages.appendChild(article);
     refs.messages.scrollTop = refs.messages.scrollHeight;
+  }
+  function streamArticle(text) {
+    var article = node('article', 'la-message la-bot');
+    var paragraph = node('p');
+    paragraph.textContent = safeAnswerText(text);
+    article.appendChild(paragraph);
+    refs.messages.appendChild(article);
+    return { article: article, paragraph: paragraph };
+  }
+  function followStreamToLatest() {
+    if (chatStreamFollow) refs.messages.scrollTop = refs.messages.scrollHeight;
+  }
+  async function readChatStream(response, onText) {
+    if (!response.body || !response.body.getReader) throw new Error('Streaming is unavailable in this browser.');
+    var reader = response.body.getReader();
+    var decoder = new TextDecoder();
+    var pending = '';
+    var completion = null;
+    async function acceptLine(line) {
+      if (!line.trim()) return;
+      var event = JSON.parse(line);
+      if (event.type === 'delta' && typeof event.text === 'string') onText(event.text);
+      else if (event.type === 'done') completion = event;
+      else if (event.type === 'error') throw new Error(event.message || 'Lake Assistant could not complete this response.');
+    }
+    try {
+      while (true) {
+        var result = await reader.read();
+        if (result.done) break;
+        pending += decoder.decode(result.value, { stream: true });
+        var newline;
+        while ((newline = pending.indexOf('\n')) >= 0) {
+          var line = pending.slice(0, newline);
+          pending = pending.slice(newline + 1);
+          await acceptLine(line);
+        }
+      }
+      pending += decoder.decode();
+      if (pending.trim()) await acceptLine(pending);
+    } finally { reader.releaseLock(); }
+    if (!completion) throw new Error('The response stream ended before Lake Assistant finished.');
+    return completion;
   }
   function build() {
     var mount = document.getElementById('chat-widget') || document.body.appendChild(node('div'));
@@ -188,6 +235,10 @@
     mount.append(panel, launcher);
     refs = { mount: mount, launcher: launcher, panel: panel, close: close, messages: messages, form: form, input: input, voiceButton: voiceButton, voiceStatus: voiceStatus, voiceMessage: voiceMessage, voiceStop: voiceStop, voiceCancel: voiceCancel };
 
+    messages.addEventListener('scroll', function () {
+      if (!chatStreamActive) return;
+      chatStreamFollow = messages.scrollHeight - messages.scrollTop - messages.clientHeight < 56;
+    }, { passive: true });
     launcher.addEventListener('click', function () { panel.hidden ? open() : closePanel(true); });
     close.addEventListener('click', function () { closePanel(true); });
     form.addEventListener('submit', send);
@@ -227,6 +278,11 @@
   }
   function closePanel(restoreFocus) {
     cancelVoice(false);
+    if (activeChatController) {
+      activeChatController.abort();
+      activeChatController = null;
+    }
+    chatStreamActive = false;
     clearWelcome();
     refs.panel.hidden = true;
     refs.launcher.setAttribute('aria-expanded', 'false');
@@ -289,6 +345,7 @@
   }
   function send(event) {
     event.preventDefault();
+    if (activeChatController) return;
     if (voiceState.active || voiceState.pending) {
       voiceState.sendAfterTranscript = true;
       if (voiceState.active) stopVoice();
@@ -316,34 +373,71 @@
     typing.appendChild(dots);
     refs.messages.appendChild(typing);
     refs.messages.scrollTop = refs.messages.scrollHeight;
-    var started = Date.now();
+    chatStreamActive = true;
+    chatStreamFollow = true;
+    var controller = new AbortController();
+    activeChatController = controller;
+    var sendButton = refs.form.querySelector('.la-send');
+    sendButton.disabled = true;
+    var answerArticle = null;
+    var answerParagraph = null;
+    var answerComplete = false;
+    var streamedText = '';
     var assistantApi = (window.LAKE_API_BASE ? window.LAKE_API_BASE.replace(/\/$/, '') : '') + '/api/assistant/chat';
-    fetch(assistantApi, {
-      method: 'POST',
-      credentials: 'same-origin',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: query, locale: /^sw(?:-|$)/i.test(lang()) ? 'sw' : 'en' })
-    }).then(function (response) {
-      if (!response.ok) throw new Error('Assistant request unavailable.');
-      return response.json();
-    }).then(function (payload) {
-      var answerText = String(payload && payload.answer || '').trim();
-      if (!answerText) throw new Error('Assistant returned an empty reply.');
-      var elapsed = Date.now() - started;
-      return new Promise(function (resolve) { window.setTimeout(resolve, Math.max(0, 320 - elapsed)); }).then(function () {
-        typing.remove();
+    (async function () {
+      try {
+        var response = await fetch(assistantApi, {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/x-ndjson, application/json' },
+          body: JSON.stringify({ message: query, locale: /^sw(?:-|$)/i.test(lang()) ? 'sw' : 'en' }),
+          signal: controller.signal
+        });
+        if (!response.ok) throw new Error('Assistant request unavailable.');
+        var payload;
+        if ((response.headers.get('Content-Type') || '').toLowerCase().indexOf('application/x-ndjson') >= 0) {
+          payload = await readChatStream(response, function (text) {
+            if (typing.isConnected) typing.remove();
+            if (!answerArticle) {
+              refs.messages.classList.remove('is-welcome');
+              var message = streamArticle('');
+              answerArticle = message.article;
+              answerParagraph = message.paragraph;
+            }
+            streamedText += text;
+            answerParagraph.textContent = safeAnswerText(streamedText);
+            followStreamToLatest();
+          });
+        } else payload = await response.json();
+        var answerText = String(payload && payload.answer || '').trim();
+        if (!answerText) throw new Error('Assistant returned an empty reply.');
+        answerComplete = true;
+        if (typing.isConnected) typing.remove();
+        if (!answerArticle) {
+          var finalMessage = streamArticle(answerText);
+          answerArticle = finalMessage.article;
+          answerParagraph = finalMessage.paragraph;
+        } else answerParagraph.textContent = safeAnswerText(answerText);
         var links = Array.isArray(payload.sources) ? payload.sources.filter(function (source) {
           return source && typeof source.title === 'string' && /^https:\/\/www\.lakeoilgroup\.com\//i.test(source.url || '');
         }).map(function (source) { return { t: source.title, u: source.url }; }) : [];
-        draw({ role: 'bot', text: answerText, links: links });
+        appendSources(answerArticle, links);
+        followStreamToLatest();
         var noEvidence = payload.status === 'no_evidence';
         if (window.LakeAnalytics && window.LakeAnalytics.track) window.LakeAnalytics.track(noEvidence ? 'CHAT_NO_MATCH' : 'CHAT_QUESTION', { page: location.pathname, language: lang(), query: query.slice(0, 300) });
         if (noEvidence && window.LAKE_API_BASE) fetch(window.LAKE_API_BASE.replace(/\/$/, '') + '/api/public/assistant/unanswered', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question: query.slice(0, 300), page: location.pathname, language: lang() }), keepalive: true }).catch(function () {});
-      });
-    }).catch(function () {
-      typing.remove();
-      draw({ role: 'bot', text: 'Lake Assistant is temporarily unavailable. Please try again shortly.' });
-    });
+      } catch (error) {
+        if (typing.isConnected) typing.remove();
+        if (!answerComplete && answerArticle && answerArticle.isConnected) answerArticle.remove();
+        if (!controller.signal.aborted) draw({ role: 'bot', text: 'Lake Assistant is temporarily unavailable. Please try again shortly.' });
+      } finally {
+        chatStreamActive = false;
+        if (activeChatController === controller) {
+          activeChatController = null;
+          sendButton.disabled = false;
+        }
+      }
+    })();
   }
   function canRecordLocally() { return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder && (window.AudioContext || window.webkitAudioContext)); }
   function voiceEndpoint(path) { return (window.LAKE_API_BASE ? window.LAKE_API_BASE.replace(/\/$/, '') : '') + '/api/assistant/' + path; }

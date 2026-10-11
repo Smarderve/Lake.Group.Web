@@ -42,6 +42,28 @@ describe('self-hosted assistant API', () => {
     expect(chat).toHaveBeenCalledTimes(1);
   });
 
+  it('streams newline-delimited deltas with a session cookie and a final metrics event', async () => {
+    const chat = vi.fn(async ({ sessionId, onToken }) => {
+      await onToken('Lake ');
+      await onToken('Group is here.');
+      return { sessionId, answer: 'Lake Group is here.', sources: [], grounded: true, status: 'ok', metrics: { firstTokenMs: 85, generatedTokens: 5 } };
+    });
+    const response = await request(appWithAssistant({ chat, health: async () => ({ status: 'ready' }) }))
+      .post('/api/assistant/chat')
+      .set('Host', '127.0.0.1:5000')
+      .set('Origin', 'http://127.0.0.1:5000')
+      .set('Accept', 'application/x-ndjson, application/json')
+      .send({ message: 'What is Lake Group?', locale: 'en' })
+      .expect(200)
+      .expect('Content-Type', /application\/x-ndjson/);
+    const events = response.text.trim().split('\n').map((line) => JSON.parse(line));
+    expect(events.map((event) => event.type)).toEqual(['delta', 'delta', 'done']);
+    expect(events.at(-1)).toMatchObject({ answer: 'Lake Group is here.', metrics: { firstTokenMs: 85, generatedTokens: 5 } });
+    expect(response.headers['set-cookie'][0]).toContain('HttpOnly');
+    expect(chat.mock.calls[0][0].sessionId).toMatch(/^[0-9a-f-]{36}$/i);
+    expect(chat.mock.calls[0][0].signal).toBeInstanceOf(AbortSignal);
+  });
+
   it('allows only configured public origins behind a reverse proxy', async () => {
     const chat = vi.fn(async () => ({ sessionId: '39eea75e-7f74-41ca-8447-211f1292d3a9', answer: 'Lake Group overview', sources: [], grounded: false }));
     const app = appWithAssistant({ chat, health: async () => ({ status: 'ready' }) }, ['https://www.lakeoilgroup.com']);

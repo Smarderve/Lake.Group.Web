@@ -21,8 +21,9 @@ const app = express();
 app.disable('x-powered-by');
 // This process is reachable only on loopback; IIS is its sole public proxy.
 app.set('trust proxy', 1);
+const assistantService = createAssistantChatService();
 app.use('/api/assistant', assistantRouter({
-  service: createAssistantChatService(),
+  service: assistantService,
   transcriptionService: createAssistantTranscriptionService(),
   cookieSecure: !localDevelopment,
   allowedOrigins,
@@ -30,6 +31,10 @@ app.use('/api/assistant', assistantRouter({
 
 const server = app.listen(port, '127.0.0.1', () => {
   process.stdout.write(`Lake Assistant private API listening on 127.0.0.1:${port}\n`);
+  void assistantService.warmup().then((result) => {
+    if (result.status === 'ready') process.stdout.write(`Qwen warm-up ready; Ollama load time ${Math.round(result.loadDurationNs / 1e6)} ms.\n`);
+    else process.stdout.write(`Qwen warm-up skipped (${result.reason}); current free memory ${Math.round(result.freeBytes / 1024 ** 3 * 10) / 10} GiB.\n`);
+  }).catch((error) => process.stderr.write(`Qwen warm-up failed; the API remains available: ${error.code || 'MODEL_WARMUP_FAILED'}\n`));
 });
 server.requestTimeout = 125_000;
 server.headersTimeout = 60_000;
