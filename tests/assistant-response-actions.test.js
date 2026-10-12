@@ -35,7 +35,7 @@ test('copy and share operate on the individual message text with explicit fallba
   assert.match(js, /function copyResponse\(text\)/);
   assert.match(js, /navigator\.clipboard\.writeText\(text\)/);
   assert.match(js, /document\.execCommand\('copy'\)/);
-  assert.match(js, /navigator\.share\(\{ title: 'Lake Assistant response', text: article\._responseText \}\)/);
+  assert.match(js, /navigator\.share\(\{ title: 'Lake Assistant response', text: message \}\)/);
   assert.match(js, /function openShareDialog\(article, button\)/);
   assert.match(js, /Share response/);
   assert.doesNotMatch(js, /la-share-menu/);

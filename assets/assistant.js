@@ -263,12 +263,7 @@
       }).catch(function () { actionFeedback(article, 'Could not copy. Select and copy the message text instead.'); });
     });
     var share = responseAction(article, 'share', 'Share message');
-    share.addEventListener('click', function () {
-      if (typeof navigator.share === 'function') {
-        navigator.share({ title: 'Lake Assistant response', text: article._responseText }).then(function () { actionFeedback(article, 'Shared'); }, function (error) { if (error && error.name !== 'AbortError') openShareDialog(article, share); });
-      } else if (shareDialogState && shareDialogState.button === share) closeShareDialog(true);
-      else openShareDialog(article, share);
-    });
+    share.addEventListener('click', function () { if (shareDialogState && shareDialogState.button === share) closeShareDialog(true); else openShareDialog(article, share); });
     var speak = responseAction(article, 'speaker', 'Read message aloud');
     speak.setAttribute('aria-pressed', 'false'); speak.addEventListener('click', function () { toggleSpeech(article, speak); });
     if (kind === 'assistant' || kind === 'success') {
@@ -366,13 +361,49 @@
     var preview = node('p', 'la-share-preview', article._responseText);
     var copy = node('button', 'la-share-copy'); copy.type = 'button'; copy.append(uiIcon('copy'), node('span', '', 'Copy response'));
     var options = node('div', 'la-share-options');
-    var email = node('a', 'la-share-option'); email.append(uiIcon('mail'), node('span', '', 'Email'));
-    email.href = 'mailto:?subject=' + encodeURIComponent('Lake Assistant response') + '&body=' + encodeURIComponent(article._responseText);
-    var whatsapp = node('a', 'la-share-option'); whatsapp.append(uiIcon('share'), node('span', '', 'WhatsApp'));
-    whatsapp.href = 'https://wa.me/?text=' + encodeURIComponent(article._responseText); whatsapp.target = '_blank'; whatsapp.rel = 'noopener noreferrer';
-    options.append(email, whatsapp);
+    var message = article._responseText;
+    var publicUrl = 'https://www.lakeoilgroup.com/';
+    function socialLink(label, icon, href, hint) {
+      var link = node('a', 'la-share-option la-share-' + label.toLowerCase().replace(/[^a-z0-9]+/g, '-'));
+      var image = document.createElement('img'); image.src = 'assets/icons/social/' + icon + '.svg'; image.alt = ''; image.setAttribute('aria-hidden', 'true');
+      link.append(image, node('span', '', label)); link.href = href; link.target = '_blank'; link.rel = 'noopener noreferrer';
+      if (hint) link.title = hint;
+      link.dataset.shareTarget = label.toLowerCase();
+      return link;
+    }
+    function shareSmsSupported() {
+      return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent || '') || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    }
+    function xShareText(value) {
+      var text = String(value || '').replace(/https?:\/\/\S+/gi, '[link]');
+      var chars = Array.from(text), result = '', weight = 0;
+      for (var charIndex = 0; charIndex < chars.length; charIndex++) {
+        var char = chars[charIndex], nextWeight = char.codePointAt(0) <= 0x7f ? 1 : 2;
+        if (weight + nextWeight > 259) { result = result.trimEnd() + '…'; break; }
+        result += char; weight += nextWeight;
+      }
+      return result || text;
+    }
+    var whatsapp = socialLink('WhatsApp', 'whatsapp', 'https://wa.me/?text=' + encodeURIComponent(message), 'Opens WhatsApp with the response text ready to review.');
+    var telegram = socialLink('Telegram', 'telegram', 'https://t.me/share/url?url=' + encodeURIComponent(publicUrl) + '&text=' + encodeURIComponent(message), 'Shares the response text with Lake Group’s public website link.');
+    var facebook = socialLink('Facebook', 'facebook', 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(publicUrl), 'Shares Lake Group’s public website link; copy the response to add its text.');
+    var x = socialLink('X', 'x', 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(xShareText(message)), 'Opens an editable X post with a length-limited response excerpt.');
+    var linkedin = socialLink('LinkedIn', 'linkedin', 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(publicUrl), 'Shares Lake Group’s public website link; copy the response to add its text.');
+    var email = node('a', 'la-share-option la-share-email'); email.append(uiIcon('mail'), node('span', '', 'Email'));
+    email.href = 'mailto:?subject=' + encodeURIComponent('Lake Assistant response') + '&body=' + encodeURIComponent(message); email.dataset.shareTarget = 'email';
+    var sms = node('a', 'la-share-option la-share-sms'); sms.append(uiIcon('chat'), node('span', '', 'Messages'));
+    sms.href = 'sms:?body=' + encodeURIComponent(message); sms.title = 'Opens your device’s messaging app when supported.'; sms.dataset.shareTarget = 'sms';
+    var optionsToClose = [whatsapp, telegram, facebook, x, linkedin, email, sms];
+    if (shareSmsSupported()) optionsToClose.push(sms); else sms.hidden = true;
+    options.append(whatsapp, telegram, facebook, x, linkedin, email, sms);
+    var more = null;
+    if (typeof navigator.share === 'function') {
+      more = node('button', 'la-share-option la-share-more'); more.type = 'button'; more.append(uiIcon('share'), node('span', '', 'More apps'));
+      more.title = 'Share the response using an app available on your device.'; more.dataset.shareTarget = 'native'; options.appendChild(more);
+    }
+    var note = node('p', 'la-share-note', 'Facebook and LinkedIn share Lake Group’s public website link, not private chat content. Copy the response to add its text. X receives a short excerpt when needed to fit its post limit.');
     var status = node('p', 'la-share-status'); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite');
-    dialog.append(headingRow, preview, copy, options, status);
+    dialog.append(headingRow, preview, copy, options, note, status);
     layer.appendChild(dialog);
     layer.addEventListener('keydown', function (event) {
       if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); closeShareDialog(true); return; }
@@ -389,7 +420,16 @@
       copy.disabled = true;
       copyResponse(article._responseText).then(function () { closeShareDialog(true); actionFeedback(article, 'Copied'); }).catch(function () { status.textContent = 'Copy is unavailable. Select the response text to copy it.'; copy.disabled = false; });
     });
-    [email, whatsapp].forEach(function (link) { link.addEventListener('click', function () { closeShareDialog(false); }); });
+    optionsToClose.forEach(function (link) { link.addEventListener('click', function () { closeShareDialog(false); }); });
+    if (more) more.addEventListener('click', function () {
+      more.disabled = true;
+      try {
+        navigator.share({ title: 'Lake Assistant response', text: message }).then(function () { closeShareDialog(true); actionFeedback(article, 'Response shared.'); }, function (error) {
+          more.disabled = false;
+          if (error && error.name !== 'AbortError') status.textContent = 'Device sharing could not open. Choose another option or copy the response.';
+        });
+      } catch (_) { more.disabled = false; status.textContent = 'Device sharing could not open. Choose another option or copy the response.'; }
+    });
     function reposition() {
       if (!shareDialogState || shareDialogState.layer !== layer) return;
       var panelBounds = refs.panel.getBoundingClientRect();
