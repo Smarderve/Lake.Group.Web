@@ -87,7 +87,7 @@ test('transcription edits the draft and only an explicit Send action submits it 
   assert.match(assistantCode, /if \(sendAfterTranscript && finalText && refs\.input\.value\.trim\(\)\)/);
   assert.match(assistantCode, /refs\.form\.requestSubmit\(\)/);
   assert.match(assistantCode, /event\.key !== 'Enter' \|\| event\.shiftKey/);
-  assert.match(assistantCode, /window\.addEventListener\('pagehide', function \(\) \{ cancelVoice\(false\); \}\)/);
+  assert.match(assistantCode, /window\.addEventListener\('pagehide', function \(\) \{ cancelVoice\(false\); stopSpeech\(\); \}\)/);
 });
 
 test('outside-click closing still aborts recording and leaves the page click available', () => {
@@ -100,4 +100,14 @@ test('voice control stays visible and accessibly disabled when the private servi
   assert.match(assistantCode, /refs\.voiceButton\.classList\.add\('is-unavailable'\)/);
   assert.match(assistantCode, /refs\.voiceButton\.setAttribute\('aria-disabled', 'true'\)/);
   assert.match(assistantCode, /private transcription service is not ready/);
+});
+
+test('composer uses one integrated bar, the approved placeholder, and inline recording controls', () => {
+  const css = fs.readFileSync(path.join(__dirname, '..', 'assets', 'assistant.css'), 'utf8');
+  assert.match(assistantCode, /input\.placeholder = 'Ask Lake\.\.\.'/);
+  assert.match(assistantCode, /composerControls\.append\(voiceStatus, voiceButton, submit\)/);
+  assert.match(assistantCode, /form\.append\(input, composerControls\)/);
+  assert.match(assistantCode, /refs\.voiceWave\.hidden = !voiceState\.active && !voiceState\.pending/);
+  assert.doesNotMatch(css, /\.la-voice-status\s*\{[^}]*position:\s*absolute/s);
+  assert.match(css, /\.la-form\s*\{[^}]*display:\s*grid/s);
 });

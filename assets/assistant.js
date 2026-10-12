@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   if (window.LakeAssistantV2 || window.LAKE_ASSISTANT_ENABLED === false) return;
-  var refs = {}, index, assets, companies = [], kbMetadata = null, welcomeTimer = null, welcomeTyping = null, welcomeText = '', welcomeToken = 0, hasWelcomed = false, activeChatController = null, chatStreamActive = false, chatStreamFollow = true, voiceState = { stream: null, pcmChunks: [], pcmSamples: 0, pcmSampleRate: 0, captureContext: null, captureSource: null, captureProcessor: null, captureGain: null, partialTimer: null, partialPromise: null, partialController: null, partialCursor: 0, timer: null, counterTimer: null, recordingStartedAt: 0, meterContext: null, meterSource: null, meterAnalyser: null, meterFrame: 0, meterLevel: 0, controller: null, mode: '', session: 0, active: false, pending: false, localReady: false, healthTimer: null, healthFailures: 0, sendAfterTranscript: false, finalText: '', detectedLanguage: '', baseText: '', submitted: false, locale: 'en-US' };
+  var refs = {}, index, assets, companies = [], kbMetadata = null, welcomeTimer = null, welcomeTyping = null, welcomeText = '', welcomeToken = 0, hasWelcomed = false, activeChatController = null, chatStreamActive = false, chatStreamFollow = true, latestResponseArticle = null, speechState = null, voiceState = { stream: null, pcmChunks: [], pcmSamples: 0, pcmSampleRate: 0, captureContext: null, captureSource: null, captureProcessor: null, captureGain: null, partialTimer: null, partialPromise: null, partialController: null, partialCursor: 0, timer: null, counterTimer: null, recordingStartedAt: 0, meterContext: null, meterSource: null, meterAnalyser: null, meterFrame: 0, meterLevel: 0, controller: null, mode: '', session: 0, active: false, pending: false, localReady: false, healthTimer: null, healthFailures: 0, sendAfterTranscript: false, finalText: '', detectedLanguage: '', baseText: '', submitted: false, locale: 'en-US' };
   var groupEntity = { name: 'Lake Group', route: 'about.html', aliases: ['Lake Group', 'Lake Oil Group'] };
   var routes = {
     CONTACT: ['contact.html', 'Contact Lake Group'], CAREERS: ['careers.html', 'Careers at Lake Group'],
@@ -101,6 +101,20 @@
       var stop = document.createElementNS(svg.namespaceURI, 'rect');
       stop.setAttribute('x', '7'); stop.setAttribute('y', '7'); stop.setAttribute('width', '10'); stop.setAttribute('height', '10'); stop.setAttribute('rx', '2');
       svg.appendChild(stop);
+    } else if (kind === 'copy') {
+      var copyPath = document.createElementNS(svg.namespaceURI, 'path'); copyPath.setAttribute('d', 'M8 8V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3M6 8h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2Z'); svg.appendChild(copyPath);
+    } else if (kind === 'share') {
+      var sharePath = document.createElementNS(svg.namespaceURI, 'path'); sharePath.setAttribute('d', 'M12 16V3m0 0L7 8m5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6'); svg.appendChild(sharePath);
+    } else if (kind === 'speaker') {
+      var speakerPath = document.createElementNS(svg.namespaceURI, 'path'); speakerPath.setAttribute('d', 'M11 5 6 9H3v6h3l5 4V5Zm4 3a5 5 0 0 1 0 8m2-11a9 9 0 0 1 0 14'); svg.appendChild(speakerPath);
+    } else if (kind === 'regenerate') {
+      var regeneratePath = document.createElementNS(svg.namespaceURI, 'path'); regeneratePath.setAttribute('d', 'M20 7v5h-5M4 17v-5h5m10-1a7 7 0 0 0-12-4L4 9m16 6-3 2a7 7 0 0 1-12-4'); svg.appendChild(regeneratePath);
+    } else if (kind === 'thumb-up') {
+      var thumbUp = document.createElementNS(svg.namespaceURI, 'path'); thumbUp.setAttribute('d', 'M7 10v11H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3Zm0 0 5-8c2 0 3 2 2 4l-1 4h6a2 2 0 0 1 2 2l-2 7a2 2 0 0 1-2 2H7'); svg.appendChild(thumbUp);
+    } else if (kind === 'thumb-down') {
+      var thumbDown = document.createElementNS(svg.namespaceURI, 'path'); thumbDown.setAttribute('d', 'M7 14V3H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3Zm0 0 5 8c2 0 3-2 2-4l-1-4h6a2 2 0 0 0 2-2l-2-7a2 2 0 0 0-2-2H7'); svg.appendChild(thumbDown);
+    } else if (kind === 'check') {
+      var checkPath = document.createElementNS(svg.namespaceURI, 'path'); checkPath.setAttribute('d', 'm5 12 4 4L19 6'); svg.appendChild(checkPath);
     } else {
       var arrow = document.createElementNS(svg.namespaceURI, 'path');
       arrow.setAttribute('d', 'M12 19V5m-6 6 6-6 6 6');
@@ -130,6 +144,7 @@
     if (message.role === 'user') refs.messages.classList.remove('is-welcome');
     var article = node('article', 'la-message la-' + message.role);
     article.appendChild(node('p', '', safeAnswerText(message.text)));
+    article._answerParagraph = article.firstChild;
     appendSources(article, message.links);
     refs.messages.appendChild(article);
     refs.messages.scrollTop = refs.messages.scrollHeight;
@@ -140,7 +155,166 @@
     paragraph.textContent = safeAnswerText(text);
     article.appendChild(paragraph);
     refs.messages.appendChild(article);
+    article._answerParagraph = paragraph;
     return { article: article, paragraph: paragraph };
+  }
+  function responseAction(article, kind, label, extraClass) {
+    var button = node('button', 'la-response-action' + (extraClass ? ' ' + extraClass : ''));
+    button.type = 'button'; button.title = label; button.setAttribute('aria-label', label); button.appendChild(uiIcon(kind));
+    article._actionBar.appendChild(button);
+    return button;
+  }
+  function actionFeedback(article, text) {
+    if (!article._actionFeedback) {
+      article._actionFeedback = node('span', 'la-action-feedback');
+      article._actionFeedback.setAttribute('role', 'status'); article._actionFeedback.setAttribute('aria-live', 'polite');
+      article._actionBar.parentNode.appendChild(article._actionFeedback);
+    }
+    article._actionFeedback.textContent = text || '';
+  }
+  function setLatestResponse(article) {
+    if (latestResponseArticle && latestResponseArticle !== article && latestResponseArticle._regenerateButton) {
+      latestResponseArticle._regenerateButton.disabled = true;
+      latestResponseArticle._regenerateButton.title = 'Only the latest response can be regenerated';
+      latestResponseArticle._regenerateButton.setAttribute('aria-label', 'Only the latest response can be regenerated');
+    }
+    latestResponseArticle = article;
+    if (article._regenerateButton) {
+      article._regenerateButton.disabled = false;
+      article._regenerateButton.title = 'Regenerate response';
+      article._regenerateButton.setAttribute('aria-label', 'Regenerate response');
+    }
+  }
+  function addResponseActions(article, answer, locale) {
+    if (!article || article._actionBar) return;
+    article._responseText = safeAnswerText(answer);
+    article._responseLocale = locale || (/\b(karibu|habari|asante|katika|kwa|ya|ni|naweza|shughuli|kampuni|nchini)\b/i.test(answer) ? 'sw' : 'en');
+    var bar = node('div', 'la-response-actions');
+    bar.setAttribute('role', 'group'); bar.setAttribute('aria-label', 'Response actions');
+    article._actionBar = bar;
+    var copy = responseAction(article, 'copy', 'Copy response');
+    var copyTimer = null;
+    copy.addEventListener('click', function () {
+      copyResponse(article._responseText).then(function () {
+        copy.classList.add('is-active'); copy.replaceChildren(uiIcon('check')); copy.title = 'Copied'; copy.setAttribute('aria-label', 'Response copied');
+        actionFeedback(article, 'Copied'); window.clearTimeout(copyTimer);
+        copyTimer = window.setTimeout(function () { copy.classList.remove('is-active'); copy.replaceChildren(uiIcon('copy')); copy.title = 'Copy response'; copy.setAttribute('aria-label', 'Copy response'); actionFeedback(article, ''); }, 1800);
+      }).catch(function () { actionFeedback(article, 'Could not copy. Select and copy the response text instead.'); });
+    });
+    var share = responseAction(article, 'share', 'Share response');
+    var shareMenu = node('div', 'la-share-menu'); shareMenu.hidden = true;
+    var email = node('a', '', 'Email'), whatsapp = node('a', '', 'WhatsApp'), copyLink = node('button', '', 'Copy text');
+    var encodedAnswer = encodeURIComponent(article._responseText);
+    email.href = 'mailto:?subject=' + encodeURIComponent('Lake Assistant response') + '&body=' + encodedAnswer;
+    whatsapp.href = 'https://wa.me/?text=' + encodedAnswer; whatsapp.target = '_blank'; whatsapp.rel = 'noopener noreferrer';
+    copyLink.type = 'button'; copyLink.setAttribute('aria-label', 'Copy response text');
+    shareMenu.append(email, whatsapp, copyLink); article.appendChild(shareMenu);
+    share.addEventListener('click', function () {
+      if (typeof navigator.share === 'function') {
+        navigator.share({ title: 'Lake Assistant response', text: article._responseText }).then(function () { actionFeedback(article, 'Shared'); }, function (error) { if (error && error.name !== 'AbortError') actionFeedback(article, 'Sharing is unavailable on this device.'); });
+      } else { shareMenu.hidden = !shareMenu.hidden; if (!shareMenu.hidden) { email.setAttribute('aria-label', 'Share response by email'); whatsapp.setAttribute('aria-label', 'Share response with WhatsApp'); } }
+    });
+    copyLink.addEventListener('click', function () { copyResponse(article._responseText).then(function () { shareMenu.hidden = true; actionFeedback(article, 'Copied'); }).catch(function () { actionFeedback(article, 'Could not copy this response.'); }); });
+    var speak = responseAction(article, 'speaker', 'Read response aloud');
+    speak.setAttribute('aria-pressed', 'false'); speak.addEventListener('click', function () { toggleSpeech(article, speak); });
+    var regenerate = responseAction(article, 'regenerate', 'Regenerate response');
+    article._regenerateButton = regenerate; regenerate.addEventListener('click', function () { regenerateResponse(article); });
+    var up = responseAction(article, 'thumb-up', 'Good response');
+    var down = responseAction(article, 'thumb-down', 'Bad response');
+    article._ratingButtons = { up: up, down: down }; article._rating = null;
+    up.setAttribute('aria-pressed', 'false'); down.setAttribute('aria-pressed', 'false');
+    up.addEventListener('click', function () { setRating(article, article._rating === 'up' ? null : 'up'); });
+    down.addEventListener('click', function () { setRating(article, article._rating === 'down' ? null : 'down'); });
+    article.appendChild(bar);
+    setLatestResponse(article);
+  }
+  function setRating(article, rating) {
+    article._rating = rating;
+    article._ratingButtons.up.setAttribute('aria-pressed', rating === 'up' ? 'true' : 'false');
+    article._ratingButtons.down.setAttribute('aria-pressed', rating === 'down' ? 'true' : 'false');
+    article._ratingButtons.up.classList.toggle('is-active', rating === 'up');
+    article._ratingButtons.down.classList.toggle('is-active', rating === 'down');
+    actionFeedback(article, rating ? (rating === 'up' ? 'Marked helpful' : 'Marked not helpful') : 'Feedback removed');
+    window.setTimeout(function () { if (article._rating === rating && rating === null) actionFeedback(article, ''); }, 1400);
+  }
+  function copyResponse(text) {
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') return navigator.clipboard.writeText(text);
+    return new Promise(function (resolve, reject) {
+      var field = document.createElement('textarea'); field.value = text; field.setAttribute('readonly', '');
+      field.style.position = 'fixed'; field.style.opacity = '0'; field.style.pointerEvents = 'none'; document.body.appendChild(field); field.select();
+      var copied = false; try { copied = document.execCommand('copy'); } catch (_) {}
+      field.remove(); copied ? resolve() : reject(new Error('Clipboard unavailable'));
+    });
+  }
+  function speechChunks(text) {
+    var sentences = String(text || '').replace(/https?:\/\/\S+/g, '').split(/(?<=[.!?])\s+/).filter(Boolean), chunks = [], current = '';
+    sentences.forEach(function (sentence) {
+      while (sentence.length > 220) { if (current) { chunks.push(current); current = ''; } var breakAt = sentence.lastIndexOf(' ', 220); if (breakAt < 80) breakAt = 220; chunks.push(sentence.slice(0, breakAt)); sentence = sentence.slice(breakAt).trim(); }
+      if ((current + ' ' + sentence).trim().length > 220) { if (current) chunks.push(current); current = sentence; } else current = (current + ' ' + sentence).trim();
+    });
+    if (current) chunks.push(current); return chunks;
+  }
+  function stopSpeech() {
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+    if (speechState && speechState.button) { speechState.button.classList.remove('is-active'); speechState.button.setAttribute('aria-pressed', 'false'); speechState.button.title = 'Read response aloud'; speechState.button.setAttribute('aria-label', 'Read response aloud'); }
+    speechState = null;
+  }
+  function toggleSpeech(article, button) {
+    if (!window.speechSynthesis || typeof window.SpeechSynthesisUtterance !== 'function') { actionFeedback(article, 'Read aloud is not supported by this browser.'); return; }
+    if (speechState && speechState.article === article) { stopSpeech(); return; }
+    stopSpeech();
+    var synthesis = window.speechSynthesis, voices = synthesis.getVoices().filter(function (voice) { return voice.localService === true; });
+    var language = String(article._responseLocale || 'en').toLowerCase().split('-')[0];
+    var voice = voices.find(function (item) { return String(item.lang || '').toLowerCase().split('-')[0] === language; });
+    if (!voice) { actionFeedback(article, language === 'sw' ? 'No on-device Kiswahili voice is available on this device.' : 'No on-device English voice is available on this device.'); return; }
+    var chunks = speechChunks(article._responseText), stateForSpeech = { article: article, button: button, chunks: chunks, index: 0 };
+    speechState = stateForSpeech; button.classList.add('is-active'); button.setAttribute('aria-pressed', 'true'); button.title = 'Stop reading response'; button.setAttribute('aria-label', 'Stop reading response');
+    function speakNext() {
+      if (speechState !== stateForSpeech) return;
+      if (stateForSpeech.index >= chunks.length) { stopSpeech(); return; }
+      var utterance = new window.SpeechSynthesisUtterance(chunks[stateForSpeech.index++]); utterance.voice = voice; utterance.lang = voice.lang; utterance.onend = speakNext; utterance.onerror = function () { if (speechState === stateForSpeech) { stopSpeech(); actionFeedback(article, 'Read aloud stopped because playback failed.'); } };
+      synthesis.speak(utterance);
+    }
+    speakNext();
+  }
+  async function regenerateResponse(article) {
+    if (article !== latestResponseArticle || activeChatController || chatStreamActive || article._regenerating) return;
+    article._regenerating = true; article._regenerateButton.disabled = true; article.setAttribute('aria-busy', 'true');
+    actionFeedback(article, 'Regenerating response…'); stopSpeech();
+    var typing = node('div', 'la-typing la-regenerate-loading'); typing.setAttribute('role', 'status'); typing.setAttribute('aria-label', 'Regenerating response');
+    var dots = node('span', 'la-typing-dots'); for (var dot = 0; dot < 3; dot++) dots.appendChild(node('i')); typing.appendChild(dots); refs.messages.appendChild(typing); followStreamToLatest();
+    var controller = new AbortController(); activeChatController = controller; chatStreamActive = true; chatStreamFollow = true;
+    var preview = null, previewParagraph = null, candidate = '';
+    try {
+      var endpoint = (window.LAKE_API_BASE ? window.LAKE_API_BASE.replace(/\/$/, '') : '') + '/api/assistant/regenerate';
+      var response = await fetch(endpoint, { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', 'Accept': 'application/x-ndjson, application/json' }, body: '{}', signal: controller.signal });
+      if (!response.ok) { var problem = await response.json().catch(function () { return {}; }); throw Object.assign(new Error(problem?.error?.message || 'Regeneration is unavailable.'), { code: problem?.error?.code || 'REGENERATION_FAILED' }); }
+      var payload;
+      if ((response.headers.get('Content-Type') || '').toLowerCase().indexOf('application/x-ndjson') >= 0) {
+        payload = await readChatStream(response, function (text) {
+          if (typing.isConnected) typing.remove();
+          if (!preview) { preview = streamArticle(''); preview.article.classList.add('la-regeneration-preview'); preview.article.setAttribute('aria-label', 'New response preview'); previewParagraph = preview.paragraph; }
+          candidate += text; previewParagraph.textContent = safeAnswerText(candidate); followStreamToLatest();
+        });
+      } else payload = await response.json();
+      var nextAnswer = String(payload && payload.answer || candidate).trim();
+      if (!nextAnswer) throw new Error('Lake Assistant returned an empty response.');
+      if (typing.isConnected) typing.remove();
+      if (preview) preview.article.remove();
+      article._answerParagraph.textContent = safeAnswerText(nextAnswer);
+      Array.prototype.slice.call(article.querySelectorAll('.la-links')).forEach(function (item) { item.remove(); });
+      var links = Array.isArray(payload.sources) ? payload.sources.filter(function (source) { return source && typeof source.title === 'string' && /^https:\/\/www\.lakeoilgroup\.com\//i.test(source.url || ''); }).map(function (source) { return { t: source.title, u: source.url }; }) : [];
+      appendSources(article, links); article._responseText = safeAnswerText(nextAnswer); article._responseLocale = payload.locale || article._responseLocale;
+      setRating(article, null); actionFeedback(article, 'Response regenerated');
+      window.setTimeout(function () { if (article._rating === null) actionFeedback(article, ''); }, 1800);
+    } catch (error) {
+      if (typing.isConnected) typing.remove(); if (preview && preview.article.isConnected) preview.article.remove();
+      var message = error && error.code === 'INSUFFICIENT_MEMORY_HEADROOM' ? 'Regeneration is paused because available memory is too low. Your previous response is unchanged.' : 'Could not regenerate. Your previous response is unchanged.';
+      if (!controller.signal.aborted) actionFeedback(article, message);
+    } finally {
+      article._regenerating = false; article.removeAttribute('aria-busy'); article._regenerateButton.disabled = article !== latestResponseArticle;
+      chatStreamActive = false; if (activeChatController === controller) activeChatController = null;
+    }
   }
   function followStreamToLatest() {
     if (chatStreamFollow) refs.messages.scrollTop = refs.messages.scrollHeight;
@@ -156,7 +330,7 @@
       var event = JSON.parse(line);
       if (event.type === 'delta' && typeof event.text === 'string') onText(event.text);
       else if (event.type === 'done') completion = event;
-      else if (event.type === 'error') throw new Error(event.message || 'Lake Assistant could not complete this response.');
+      else if (event.type === 'error') throw Object.assign(new Error(event.message || 'Lake Assistant could not complete this response.'), { code: event.code || 'ASSISTANT_STREAM_FAILED' });
     }
     try {
       while (true) {
@@ -214,9 +388,9 @@
     var input = document.createElement('textarea');
     input.rows = 1;
     input.maxLength = 300;
-    input.placeholder = 'Message Lake...';
+    input.placeholder = 'Ask Lake...';
     input.setAttribute('enterkeyhint', 'send');
-    input.setAttribute('aria-label', 'Message Lake');
+    input.setAttribute('aria-label', 'Ask Lake');
     var submit = node('button', 'la-send');
     submit.type = 'submit';
     submit.setAttribute('aria-label', 'Send message');
@@ -230,10 +404,11 @@
     var voiceStop = node('button', 'la-voice-stop'); voiceStop.type = 'button'; voiceStop.setAttribute('aria-label', 'Stop recording'); voiceStop.title = 'Stop recording'; voiceStop.appendChild(uiIcon('stop'));
     var voiceCancel = node('button', 'la-voice-cancel'); voiceCancel.type = 'button'; voiceCancel.setAttribute('aria-label', 'Cancel voice input'); voiceCancel.title = 'Cancel voice input'; voiceCancel.appendChild(uiIcon('close'));
     voiceStatus.append(voiceWave, voiceMessage, voiceStop, voiceCancel);
-    form.append(voiceStatus, input, voiceButton, submit);
+    var composerControls = node('div', 'la-composer-controls'); composerControls.append(voiceStatus, voiceButton, submit);
+    form.append(input, composerControls);
     panel.append(header, messages, form);
     mount.append(panel, launcher);
-    refs = { mount: mount, launcher: launcher, panel: panel, close: close, messages: messages, form: form, input: input, voiceButton: voiceButton, voiceStatus: voiceStatus, voiceMessage: voiceMessage, voiceStop: voiceStop, voiceCancel: voiceCancel };
+    refs = { mount: mount, launcher: launcher, panel: panel, close: close, messages: messages, form: form, input: input, voiceButton: voiceButton, voiceStatus: voiceStatus, voiceMessage: voiceMessage, voiceWave: voiceWave, voiceStop: voiceStop, voiceCancel: voiceCancel };
 
     messages.addEventListener('scroll', function () {
       if (!chatStreamActive) return;
@@ -265,7 +440,7 @@
       window.visualViewport.addEventListener('resize', syncViewport);
       syncViewport();
     }
-    window.addEventListener('pagehide', function () { cancelVoice(false); });
+    window.addEventListener('pagehide', function () { cancelVoice(false); stopSpeech(); });
   }
   function open() {
     if (!refs.panel.hidden) return;
@@ -278,6 +453,7 @@
   }
   function closePanel(restoreFocus) {
     cancelVoice(false);
+    stopSpeech();
     if (activeChatController) {
       activeChatController.abort();
       activeChatController = null;
@@ -295,10 +471,8 @@
   }
   function trapTab(event) {
     if (event.key !== 'Tab') return;
-    var items = [refs.close, refs.input];
-    if (!refs.voiceButton.hidden && !refs.voiceButton.disabled) items.push(refs.voiceButton);
-    if (!refs.voiceStatus.hidden) items.push(refs.voiceStop, refs.voiceCancel);
-    items.push(refs.form.querySelector('.la-send'));
+    var items = Array.prototype.slice.call(refs.panel.querySelectorAll('button:not([disabled]), textarea:not([disabled]), a[href]')).filter(function (item) { return !item.closest('[hidden]'); });
+    if (!items.length) return;
     var first = items[0], last = items[items.length - 1];
     if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
     else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
@@ -422,6 +596,7 @@
           return source && typeof source.title === 'string' && /^https:\/\/www\.lakeoilgroup\.com\//i.test(source.url || '');
         }).map(function (source) { return { t: source.title, u: source.url }; }) : [];
         appendSources(answerArticle, links);
+        addResponseActions(answerArticle, answerText, payload.locale);
         followStreamToLatest();
         var noEvidence = payload.status === 'no_evidence';
         if (window.LakeAnalytics && window.LakeAnalytics.track) window.LakeAnalytics.track(noEvidence ? 'CHAT_NO_MATCH' : 'CHAT_QUESTION', { page: location.pathname, language: lang(), query: query.slice(0, 300) });
@@ -505,10 +680,14 @@
   function voiceUi(message, visible) {
     refs.voiceStatus.hidden = !visible;
     refs.voiceMessage.textContent = message || '';
+    refs.voiceWave.hidden = !voiceState.active && !voiceState.pending;
+    refs.voiceStop.hidden = !voiceState.active;
+    refs.voiceCancel.hidden = !voiceState.active && !voiceState.pending;
     refs.voiceMessage.setAttribute('aria-live', voiceState.active && message.indexOf('Recording ·') === 0 ? 'off' : 'polite');
     refs.voiceButton.classList.toggle('is-listening', !!(visible && voiceState.active));
     refs.voiceStatus.classList.toggle('is-listening', !!(visible && voiceState.active));
     refs.voiceStatus.classList.toggle('is-processing', !!(visible && voiceState.pending));
+    refs.form.classList.toggle('la-voice-live', !!(visible && (voiceState.active || voiceState.pending)));
     refs.voiceButton.setAttribute('aria-label', voiceState.active ? 'Listening. Stop or cancel voice input.' : refs.voiceButton.disabled ? (refs.voiceButton.title || 'Voice input unavailable') : 'Start voice input');
     refs.voiceButton.setAttribute('aria-pressed', voiceState.active ? 'true' : 'false');
     refs.voiceStop.disabled = !voiceState.active || !!voiceState.pending;

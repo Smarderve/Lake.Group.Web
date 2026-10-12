@@ -64,6 +64,32 @@ describe('self-hosted assistant API', () => {
     expect(chat.mock.calls[0][0].signal).toBeInstanceOf(AbortSignal);
   });
 
+  it('streams regeneration only for the existing same-origin session', async () => {
+    const sessionId = '39eea75e-7f74-41ca-8447-211f1292d3a9';
+    const regenerate = vi.fn(async ({ sessionId: receivedId, onToken }) => {
+      await onToken('A new, grounded formulation.');
+      return { sessionId: receivedId, answer: 'A new, grounded formulation.', sources: [], grounded: true, status: 'ok', locale: 'en' };
+    });
+    const app = appWithAssistant({ chat: vi.fn(), regenerate, health: async () => ({ status: 'ready' }) });
+    const response = await request(app).post('/api/assistant/regenerate')
+      .set('Host', '127.0.0.1:5000')
+      .set('Origin', 'http://127.0.0.1:5000')
+      .set('Cookie', `lake_assistant.sid=${sessionId}`)
+      .set('Accept', 'application/x-ndjson')
+      .send({})
+      .expect(200)
+      .expect('Content-Type', /application\/x-ndjson/);
+    const events = response.text.trim().split('\n').map((line) => JSON.parse(line));
+    expect(events.map((event) => event.type)).toEqual(['delta', 'done']);
+    expect(events.at(-1).answer).toBe('A new, grounded formulation.');
+    expect(regenerate.mock.calls[0][0].sessionId).toBe(sessionId);
+    expect(regenerate.mock.calls[0][0].signal).toBeInstanceOf(AbortSignal);
+    await request(app).post('/api/assistant/regenerate').send({}).expect(409);
+    await request(app).post('/api/assistant/regenerate').set('Origin', 'https://attacker.invalid')
+      .set('Cookie', `lake_assistant.sid=${sessionId}`).send({}).expect(403);
+    expect(regenerate).toHaveBeenCalledTimes(1);
+  });
+
   it('allows only configured public origins behind a reverse proxy', async () => {
     const chat = vi.fn(async () => ({ sessionId: '39eea75e-7f74-41ca-8447-211f1292d3a9', answer: 'Lake Group overview', sources: [], grounded: false }));
     const app = appWithAssistant({ chat, health: async () => ({ status: 'ready' }) }, ['https://www.lakeoilgroup.com']);

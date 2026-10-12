@@ -461,6 +461,47 @@ describe('Lake Assistant RAG', () => {
     expect(englishPrompts.every((prompt) => prompt.includes('Respond in English.'))).toBe(true);
   });
 
+  it('regenerates only the latest answer from its original pre-turn context without duplicating history', async () => {
+    const { requests, fetchImpl } = fakeOllama();
+    const service = createTestService({ fetchImpl });
+    const first = await service.chat({ message: 'Tell me about Lake Aviation.' });
+    const secondQuestion = 'Tell me more about its operations.';
+    const second = await service.chat({ sessionId: first.sessionId, message: secondQuestion });
+    const deltas = [];
+    const regenerated = await service.regenerate({ sessionId: first.sessionId, onToken: (text) => deltas.push(text) });
+
+    expect(regenerated.answer).toBe('A grounded local answer.');
+    expect(regenerated.sessionId).toBe(first.sessionId);
+    expect(deltas.join('')).toBe(regenerated.answer);
+    expect(requests).toHaveLength(3);
+    const regenerationMessages = requests[2].body.messages;
+    expect(regenerationMessages.at(-1)).toEqual({ role: 'user', content: secondQuestion });
+    expect(regenerationMessages.filter((message) => message.role === 'user' && message.content === secondQuestion)).toHaveLength(1);
+    expect(regenerationMessages.some((message) => message.role === 'assistant' && message.content === second.answer)).toBe(false);
+    expect(regenerationMessages[0].content).toContain('Regeneration request: write a fresh formulation');
+    expect(regenerationMessages[0].content).toContain('Kilimanjaro International Airport');
+
+    await service.regenerate({ sessionId: first.sessionId });
+    expect(requests).toHaveLength(4);
+    expect(requests[3].body.messages.at(-1)).toEqual({ role: 'user', content: secondQuestion });
+    expect(requests[3].body.messages.filter((message) => message.role === 'user' && message.content === secondQuestion)).toHaveLength(1);
+  });
+
+  it('keeps the original answer eligible when a regeneration fails', async () => {
+    const { fetchImpl: baseFetch } = fakeOllama();
+    let failNext = false;
+    const fetchImpl = vi.fn(async (url, options) => {
+      if (failNext) { failNext = false; return new Response('unavailable', { status: 503 }); }
+      return baseFetch(url, options);
+    });
+    const service = createTestService({ fetchImpl });
+    const first = await service.chat({ message: 'Tell me about Lake Aviation.' });
+    failNext = true;
+    await expect(service.regenerate({ sessionId: first.sessionId })).rejects.toMatchObject({ code: 'MODEL_UNAVAILABLE' });
+    const next = await service.regenerate({ sessionId: first.sessionId });
+    expect(next.answer).toBe('A grounded local answer.');
+  });
+
   it('treats a request for company details as a company profile lookup', async () => {
     const { fetchImpl } = fakeOllama('Agrinova Tech Limited provides the supported agricultural technology information.');
     const service = createTestService({ fetchImpl });

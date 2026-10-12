@@ -176,7 +176,7 @@ export function assistantRouter({ service, transcriptionService = null, cookieSe
             onToken: (text) => writeEvent({ type: 'delta', text }),
           });
           if (abortController.signal.aborted || response.destroyed) return;
-          await writeEvent({ type: 'done', answer: result.answer, sources: result.sources || [], grounded: Boolean(result.grounded), status: result.status || 'ok', metrics: result.metrics || {} });
+          await writeEvent({ type: 'done', answer: result.answer, sources: result.sources || [], grounded: Boolean(result.grounded), status: result.status || 'ok', locale: result.locale || parsed.data.locale, metrics: result.metrics || {} });
           return response.end();
         } catch (error) {
           if (abortController.signal.aborted || error?.name === 'AbortError' || response.destroyed) return;
@@ -198,12 +198,73 @@ export function assistantRouter({ service, transcriptionService = null, cookieSe
       const metrics = Object.fromEntries(['totalDurationNs', 'loadDurationNs', 'promptTokens', 'promptEvalDurationNs', 'generatedTokens', 'generationDurationNs', 'firstTokenMs', 'retrievalMs', 'totalServiceMs']
         .filter((key) => rawMetrics[key] !== null && rawMetrics[key] !== undefined && Number.isFinite(Number(rawMetrics[key])) && Number(rawMetrics[key]) >= 0)
         .map((key) => [key, Number(rawMetrics[key])]));
-      return response.json({ answer: result.answer, sources: result.sources || [], grounded: Boolean(result.grounded), status: result.status || 'ok', ...(Object.keys(metrics).length ? { metrics } : {}) });
+      return response.json({ answer: result.answer, sources: result.sources || [], grounded: Boolean(result.grounded), status: result.status || 'ok', locale: result.locale || parsed.data.locale, ...(Object.keys(metrics).length ? { metrics } : {}) });
     } catch (error) {
       if (error?.status === 400) return response.status(400).json({ error: { code: 'INVALID_MESSAGE', message: 'Enter a message of up to 1,000 characters.' } });
       if (error?.status === 429) return response.status(429).json({ error: { code: 'RATE_LIMITED', message: 'Please wait a moment before sending another message.' } });
       if (error?.status === 503 || error?.name === 'TimeoutError' || error?.name === 'AbortError') return safeUnavailable(response);
       request.log?.error?.({ err: error?.constructor?.name || 'Error' }, 'local assistant request failed');
+      return safeUnavailable(response);
+    }
+  });
+
+  router.post('/regenerate', express.json({ limit: '1kb', type: 'application/json' }), limiter, async (request, response) => {
+    try {
+      if (!/^application\/json(?:\s*;|$)/iu.test(request.get('content-type') || '')) {
+        return response.status(415).json({ error: { code: 'UNSUPPORTED_CONTENT_TYPE', message: 'Send a JSON request.' } });
+      }
+      if (!sameOriginIfPresent(request, allowedOrigins)) {
+        return response.status(403).json({ error: { code: 'ORIGIN_REJECTED', message: 'This request is not allowed.' } });
+      }
+      if (!request.body || typeof request.body !== 'object' || Array.isArray(request.body) || Object.keys(request.body).length) {
+        return response.status(400).json({ error: { code: 'INVALID_REGENERATION', message: 'This response cannot be regenerated.' } });
+      }
+      if (typeof service.regenerate !== 'function') {
+        return response.status(503).json({ error: { code: 'REGENERATION_UNAVAILABLE', message: 'Lake Assistant cannot regenerate this response right now.' } });
+      }
+      const sessionId = cookieValue(request, SESSION_COOKIE);
+      if (!sessionId) return response.status(409).json({ error: { code: 'NO_REGENERATABLE_RESPONSE', message: 'There is no recent response to regenerate.' } });
+
+      const abortController = new AbortController();
+      const abortOnDisconnect = () => abortController.abort();
+      request.once('aborted', abortOnDisconnect);
+      response.once('close', () => { if (!response.writableEnded) abortOnDisconnect(); });
+      response.status(200);
+      response.set({
+        'Content-Type': 'application/x-ndjson; charset=utf-8',
+        'Cache-Control': 'no-cache, no-store, no-transform',
+        'X-Accel-Buffering': 'no',
+      });
+      response.flushHeaders();
+      const writeEvent = (event) => new Promise((resolvePromise, reject) => {
+        if (response.destroyed) return reject(Object.assign(new Error('The visitor disconnected.'), { name: 'AbortError' }));
+        if (response.write(`${JSON.stringify(event)}\n`)) return resolvePromise();
+        const onDrain = () => { cleanup(); resolvePromise(); };
+        const onClose = () => { cleanup(); reject(Object.assign(new Error('The visitor disconnected.'), { name: 'AbortError' })); };
+        const cleanup = () => { response.off('drain', onDrain); response.off('close', onClose); };
+        response.once('drain', onDrain);
+        response.once('close', onClose);
+      });
+      try {
+        const result = await service.regenerate({
+          sessionId,
+          signal: abortController.signal,
+          onToken: (text) => writeEvent({ type: 'delta', text }),
+        });
+        if (abortController.signal.aborted || response.destroyed) return;
+        await writeEvent({ type: 'done', answer: result.answer, sources: result.sources || [], grounded: Boolean(result.grounded), status: result.status || 'ok', locale: result.locale || 'en', metrics: result.metrics || {} });
+        return response.end();
+      } catch (error) {
+        if (abortController.signal.aborted || error?.name === 'AbortError' || response.destroyed) return;
+        const safeCode = ['INSUFFICIENT_MEMORY_HEADROOM', 'MODEL_BUSY', 'MODEL_UNAVAILABLE', 'SESSION_BUSY', 'NO_REGENERATABLE_RESPONSE'].includes(error?.code) ? error.code : 'REGENERATION_FAILED';
+        await writeEvent({ type: 'error', code: safeCode, message: 'Lake Assistant could not regenerate this response. Your existing answer is unchanged.' }).catch(() => {});
+        return response.end();
+      } finally {
+        request.off('aborted', abortOnDisconnect);
+      }
+    } catch (error) {
+      if (error?.status === 429) return response.status(429).json({ error: { code: 'RATE_LIMITED', message: 'Please wait a moment before trying again.' } });
+      request.log?.error?.({ err: error?.constructor?.name || 'Error' }, 'local assistant regeneration request failed');
       return safeUnavailable(response);
     }
   });

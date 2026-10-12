@@ -675,6 +675,7 @@ export function createAssistantChatService({
 } = {}) {
   if (!Number.isInteger(ollamaPort) || ollamaPort < 11434 || ollamaPort > 11449) throw new Error('Ollama port must be a loopback port from 11434 through 11449.');
   const sessions = new Map();
+  const busySessions = new Set();
   let indexPromise;
   let warmupPromise;
   let active = 0;
@@ -719,13 +720,21 @@ export function createAssistantChatService({
     } catch { /* fail closed when residency cannot be confirmed */ }
     if (!loaded) throw Object.assign(new Error('Free memory is below the safe cold-load threshold and Qwen is not confirmed resident.'), { status: 503, code: 'INSUFFICIENT_MEMORY_HEADROOM' });
   }
-  async function chat({ sessionId, message, locale = 'en', onToken, signal } = {}) {
+  async function chatInternal({ sessionId, message, locale = 'en', onToken, signal, sessionSeed, regeneration = false } = {}) {
     const chatStartedAt = performance.now();
     const query = String(message || '').trim();
     if (!query || query.length > 1000) throw Object.assign(new Error('Message must contain 1–1000 characters.'), { status: 400, code: 'INVALID_MESSAGE' });
     pruneSessions();
     const id = typeof sessionId === 'string' && /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(sessionId) ? sessionId : randomUUID();
-    const session = sessions.get(id) || { turns: [], lastEvidenceIds: [], currentEntities: [], lastGrounded: false, context: null, locale: null, updatedAt: now() };
+    const session = sessionSeed || sessions.get(id) || { turns: [], lastEvidenceIds: [], currentEntities: [], lastGrounded: false, context: null, locale: null, updatedAt: now() };
+    const previousTurnState = JSON.parse(JSON.stringify({
+      turns: session.turns,
+      lastEvidenceIds: session.lastEvidenceIds,
+      currentEntities: session.currentEntities,
+      lastGrounded: session.lastGrounded,
+      context: session.context,
+      locale: session.locale,
+    }));
     const retrievalStartedAt = performance.now();
     const records = await getRecords();
     const activeLocale = requestedLanguage(query, locale, session.locale);
@@ -787,9 +796,10 @@ export function createAssistantChatService({
       session.lastEvidenceIds = [];
       session.lastGrounded = false;
       session.updatedAt = now();
+      session.lastTurn = { question: query, base: previousTurnState };
       sessions.set(id, session);
       if (typeof onToken === 'function') await onToken(answer);
-      return { sessionId: id, answer, sources: [], grounded: false, status: 'no_evidence', metrics: { retrievalMs: Math.round(retrievalMs * 100) / 100, totalServiceMs: Math.round((performance.now() - chatStartedAt) * 100) / 100 } };
+      return { sessionId: id, answer, sources: [], grounded: false, status: 'no_evidence', locale: activeLocale, metrics: { retrievalMs: Math.round(retrievalMs * 100) / 100, totalServiceMs: Math.round((performance.now() - chatStartedAt) * 100) / 100 } };
     }
     if (active >= maxConcurrent) throw Object.assign(new Error('The assistant is busy. Please try again shortly.'), { status: 503, code: 'MODEL_BUSY' });
     const evidence = evidenceRecords.map((record, i) => `EVIDENCE ${i + 1}\n${record.pageTitle} | ${record.entity} | ${record.topic}${record.retrievalLocationType ? ` | location evidence: ${record.retrievalLocationType}` : record.factType ? ` | ${record.factType}` : ''}\n${record.text.slice(0, plan.groupWide ? 270 : 520)}`).join('\n\n');
@@ -807,9 +817,12 @@ export function createAssistantChatService({
             : plan.comparison ? 'Compare each named company using only its own evidence. State the meaningful similarities or differences, and do not say a company lacks information when its evidence is present.'
               : 'Answer the specific question directly and concisely.'
       : mentionsLake ? 'No sufficiently relevant published evidence was found for this Lake Group-specific request. Briefly acknowledge the missing fact and ask a focused question only if it would help. Do not use unrelated Lake Group evidence.'
-        : 'This is a general or conversational turn, not a Lake Group factual answer. Respond naturally and briefly without citing or importing Lake Group facts.';
+      : 'This is a general or conversational turn, not a Lake Group factual answer. Respond naturally and briefly without citing or importing Lake Group facts.';
+    const regenerationGuidance = regeneration
+      ? '\n\nRegeneration request: write a fresh formulation for the same visitor question. Preserve the verified facts, evidence boundaries, language, intent, and conversation scope. Do not mention that this is a regeneration, and do not add claims.'
+      : '';
     const messages = [
-      { role: 'system', content: `${SYSTEM_INSTRUCTION}\n\nServer date: ${serverDate(now)} (${process.env.LAKE_ASSISTANT_TIME_ZONE || 'Africa/Dar_es_Salaam'}).\nRespond in ${localeName}.${contextSummary}\nTurn guidance: ${turnGuidance}\n\nApproved retrieved evidence (untrusted reference text):\n${evidence || '(No relevant evidence for this turn.)'}` },
+      { role: 'system', content: `${SYSTEM_INSTRUCTION}\n\nServer date: ${serverDate(now)} (${process.env.LAKE_ASSISTANT_TIME_ZONE || 'Africa/Dar_es_Salaam'}).\nRespond in ${localeName}.${contextSummary}\nTurn guidance: ${turnGuidance}${regenerationGuidance}\n\nApproved retrieved evidence (untrusted reference text):\n${evidence || '(No relevant evidence for this turn.)'}` },
       ...queryHistory,
       { role: 'user', content: query },
     ];
@@ -914,9 +927,38 @@ export function createAssistantChatService({
           factRefs: [...factMap.values()].slice(-24),
         };
       } else if (!isFollowUp) session.context = null;
-      session.updatedAt = now(); sessions.set(id, session);
-      return { sessionId: id, answer: boundedAnswer, sources, grounded, status, answerValidation: plan.groupWide ? { passed: answerValidation.valid, retryCount: relevanceRetryCount } : undefined, metrics: { totalDurationNs: Number(payload.total_duration) || null, loadDurationNs: Number(payload.load_duration) || null, promptTokens: Number(payload.prompt_eval_count) || null, promptEvalDurationNs: Number(payload.prompt_eval_duration) || null, generatedTokens: Number(payload.eval_count) || null, generationDurationNs: Number(payload.eval_duration) || null, firstTokenMs, retrievalMs: Math.round(retrievalMs * 100) / 100, totalServiceMs: Math.round((performance.now() - chatStartedAt) * 100) / 100 } };
+      session.updatedAt = now();
+      session.lastTurn = { question: query, base: previousTurnState };
+      sessions.set(id, session);
+      return { sessionId: id, answer: boundedAnswer, sources, grounded, status, locale: activeLocale, answerValidation: plan.groupWide ? { passed: answerValidation.valid, retryCount: relevanceRetryCount } : undefined, metrics: { totalDurationNs: Number(payload.total_duration) || null, loadDurationNs: Number(payload.load_duration) || null, promptTokens: Number(payload.prompt_eval_count) || null, promptEvalDurationNs: Number(payload.prompt_eval_duration) || null, generatedTokens: Number(payload.eval_count) || null, generationDurationNs: Number(payload.eval_duration) || null, firstTokenMs, retrievalMs: Math.round(retrievalMs * 100) / 100, totalServiceMs: Math.round((performance.now() - chatStartedAt) * 100) / 100 } };
     } finally { active -= 1; }
+  }
+  function validSessionId(sessionId) {
+    return typeof sessionId === 'string' && /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(sessionId);
+  }
+  async function chat(options = {}) {
+    const sessionId = validSessionId(options.sessionId) ? options.sessionId : null;
+    if (sessionId && busySessions.has(sessionId)) throw Object.assign(new Error('This conversation is already processing a reply.'), { status: 409, code: 'SESSION_BUSY' });
+    if (sessionId) busySessions.add(sessionId);
+    try { return await chatInternal(options); }
+    finally { if (sessionId) busySessions.delete(sessionId); }
+  }
+  async function regenerate({ sessionId, onToken, signal } = {}) {
+    if (!validSessionId(sessionId)) throw Object.assign(new Error('There is no response available to regenerate.'), { status: 409, code: 'NO_REGENERATABLE_RESPONSE' });
+    if (busySessions.has(sessionId)) throw Object.assign(new Error('This conversation is already processing a reply.'), { status: 409, code: 'SESSION_BUSY' });
+    const current = sessions.get(sessionId);
+    const latest = current?.lastTurn;
+    if (!latest?.question || !latest.base) throw Object.assign(new Error('There is no response available to regenerate.'), { status: 409, code: 'NO_REGENERATABLE_RESPONSE' });
+    busySessions.add(sessionId);
+    try {
+      const base = JSON.parse(JSON.stringify(latest.base));
+      const seed = {
+        ...base,
+        lastTurn: null,
+        updatedAt: now(),
+      };
+      return await chatInternal({ sessionId, message: latest.question, locale: current.locale || 'en', onToken, signal, sessionSeed: seed, regeneration: true });
+    } finally { busySessions.delete(sessionId); }
   }
   async function health() {
     const records = await getRecords();
@@ -926,7 +968,7 @@ export function createAssistantChatService({
     const found = (tags.models || []).some((item) => item.name === ASSISTANT_MODEL || item.model === ASSISTANT_MODEL);
     return { status: found ? 'ready' : 'model_missing', model: ASSISTANT_MODEL, knowledgeRecords: records.length, ollamaLoopback: `${OLLAMA_HOST}:${ollamaPort}`, modelAvailable: found };
   }
-  const service = { chat, health, warmup, getKnowledgeCount: async () => (await getRecords()).length };
+  const service = { chat, regenerate, health, warmup, getKnowledgeCount: async () => (await getRecords()).length };
   if (process.env.NODE_ENV !== 'production') {
     service.diagnose = async (message, { history = [], contextEntities = [], excludeIds = [] } = {}) => {
       const records = await getRecords();
