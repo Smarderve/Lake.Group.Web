@@ -11,6 +11,7 @@ export const ASSISTANT_SESSION_TTL_MS = 30 * 60 * 1000;
 export const ASSISTANT_MAX_HISTORY_MESSAGES = 8;
 export const ASSISTANT_WARMUP_MIN_FREE_BYTES = 7 * 1024 ** 3;
 export const ASSISTANT_KEEP_ALIVE_MIN_FREE_BYTES = 3 * 1024 ** 3;
+export const ASSISTANT_MIN_INFERENCE_FREE_BYTES = 3 * 1024 ** 3;
 const DEFAULT_INDEX_PATH = fileURLToPath(new URL('../../../ai/knowledge/lake-group-index.json', import.meta.url));
 const OLLAMA_HOST = '127.0.0.1';
 const STOP_WORDS = new Set('a an and are as at be but by can could did do does for from had has have how i if in is it its lake me more of on or our please tell that the their them there these they this to us was we what when where which who why with would you your about everything all overview introduction today know explain detail detailed each every company companies subsidiary subsidiaries list of zote kila tanzu'.split(' '));
@@ -702,6 +703,22 @@ export function createAssistantChatService({
     })().finally(() => { warmupPromise = null; });
     return warmupPromise;
   }
+  async function assertInferenceMemorySafe() {
+    const freeBytes = Number(memoryProvider()) || 0;
+    if (freeBytes < ASSISTANT_MIN_INFERENCE_FREE_BYTES) {
+      throw Object.assign(new Error('There is not enough free memory to run Lake Assistant safely.'), { status: 503, code: 'INSUFFICIENT_MEMORY_HEADROOM' });
+    }
+    if (freeBytes >= ASSISTANT_WARMUP_MIN_FREE_BYTES) return;
+    let loaded = false;
+    try {
+      const response = await fetchImpl(`http://${OLLAMA_HOST}:${ollamaPort}/api/ps`, { signal: AbortSignal.timeout(3000) });
+      if (response.ok) {
+        const payload = await response.json();
+        loaded = (payload.models || []).some((item) => item.name === ASSISTANT_MODEL || item.model === ASSISTANT_MODEL);
+      }
+    } catch { /* fail closed when residency cannot be confirmed */ }
+    if (!loaded) throw Object.assign(new Error('Free memory is below the safe cold-load threshold and Qwen is not confirmed resident.'), { status: 503, code: 'INSUFFICIENT_MEMORY_HEADROOM' });
+  }
   async function chat({ sessionId, message, locale = 'en', onToken, signal } = {}) {
     const chatStartedAt = performance.now();
     const query = String(message || '').trim();
@@ -798,6 +815,7 @@ export function createAssistantChatService({
     ];
     active += 1;
     try {
+      await assertInferenceMemorySafe();
       const requestStartedAt = performance.now();
       const outputToken = (plan.groupWide || isFollowUp) && typeof onToken === 'function' ? () => {} : onToken;
       const response = await fetchImpl(`http://${OLLAMA_HOST}:${ollamaPort}/api/chat`, {

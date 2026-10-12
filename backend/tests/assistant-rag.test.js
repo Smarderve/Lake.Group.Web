@@ -38,6 +38,10 @@ function fakeOllama(content = 'A grounded local answer.') {
   return { requests, fetchImpl };
 }
 
+function createTestService(options = {}) {
+  return createAssistantChatService({ memoryProvider: () => 8 * 1024 ** 3, ...options });
+}
+
 describe('Lake Assistant RAG', () => {
   it('retrieves Lake Group overview, company evidence, headquarters and common typo queries', async () => {
     const records = await indexedRecords();
@@ -129,7 +133,7 @@ describe('Lake Assistant RAG', () => {
     const results = retrieveKnowledge('Where are Lake Gas depots?', [], records, 8);
     expect(results.some((record) => record.entity === 'Lake Gas Limited' && /Dar es Salaam|Mwanza|Arusha/i.test(record.text))).toBe(true);
     const { fetchImpl } = fakeOllama('Lake Gas lists depots in its published network.');
-    const service = createAssistantChatService({ fetchImpl });
+    const service = createTestService({ fetchImpl });
     const answer = await service.chat({ message: 'Where are Lake Gas depots?' });
     expect(answer.grounded).toBe(true);
     expect(answer.sources).toEqual([]);
@@ -147,7 +151,7 @@ describe('Lake Assistant RAG', () => {
 
   it('buffers group-wide streamed answers, performs at most one coverage retry, then releases one final answer', async () => {
     const { requests, fetchImpl } = fakeOllama('A grounded local answer.');
-    const service = createAssistantChatService({ fetchImpl });
+    const service = createTestService({ fetchImpl });
     const deltas = [];
     const answer = await service.chat({ message: 'List subsidiaries and their locations', onToken: (delta) => deltas.push(delta) });
     expect(requests).toHaveLength(2);
@@ -161,7 +165,7 @@ describe('Lake Assistant RAG', () => {
     const previous = process.env.NODE_ENV;
     process.env.NODE_ENV = 'production';
     try {
-      expect(createAssistantChatService().diagnose).toBeUndefined();
+      expect(createTestService().diagnose).toBeUndefined();
     } finally {
       if (previous === undefined) delete process.env.NODE_ENV;
       else process.env.NODE_ENV = previous;
@@ -213,7 +217,7 @@ describe('Lake Assistant RAG', () => {
 
   it('passes bounded multi-turn history, context, citations and conservative model settings', async () => {
     const { requests, fetchImpl } = fakeOllama('Lake Aviation provides the services described on its published page.');
-    const service = createAssistantChatService({ fetchImpl });
+    const service = createTestService({ fetchImpl });
     const first = await service.chat({ message: 'Tell me about Lake Aviation.' });
     const second = await service.chat({ sessionId: first.sessionId, message: 'What services does it provide?' });
     expect(second.sources).toEqual([]);
@@ -233,7 +237,7 @@ describe('Lake Assistant RAG', () => {
 
   it('safely answers unsupported Lake-specific facts without fabricating or returning unrelated links', async () => {
     const { requests, fetchImpl } = fakeOllama();
-    const service = createAssistantChatService({ fetchImpl });
+    const service = createTestService({ fetchImpl });
     const unsupported = await service.chat({ message: "What was Lake Group's 2024 net profit?" });
     expect(unsupported.status).toBe('no_evidence');
     expect(unsupported.grounded).toBe(false);
@@ -245,7 +249,7 @@ describe('Lake Assistant RAG', () => {
 
   it('does not fabricate company financial figures or rankings when approved evidence has none', async () => {
     const { requests, fetchImpl } = fakeOllama('Lake Group has a $7 billion valuation and ranks number one.');
-    const service = createAssistantChatService({ fetchImpl });
+    const service = createTestService({ fetchImpl });
     const valuation = await service.chat({ message: 'What is Lake Group worth?' });
     const ranking = await service.chat({ message: 'How does Lake Group rank in East Africa?' });
     expect(valuation.answer).toMatch(/don’t have verified financial figures/i);
@@ -258,7 +262,7 @@ describe('Lake Assistant RAG', () => {
 
   it('answers general valuation concepts normally and supplies the configured server date', async () => {
     const { requests, fetchImpl } = fakeOllama('A valuation is an estimate of economic value.');
-    const service = createAssistantChatService({ fetchImpl, now: () => Date.parse('2026-10-12T12:00:00.000Z') });
+    const service = createTestService({ fetchImpl, now: () => Date.parse('2026-10-12T12:00:00.000Z') });
     const definition = await service.chat({ message: 'What does company valuation mean?' });
     const date = await service.chat({ sessionId: definition.sessionId, message: "What's today's date?" });
     expect(definition.status).toBe('conversation');
@@ -269,7 +273,7 @@ describe('Lake Assistant RAG', () => {
 
   it('routes unrelated/general and open-ended chat through Qwen without stale Lake evidence or links', async () => {
     const { requests, fetchImpl } = fakeOllama('What would you like to know about Lake Group?');
-    const service = createAssistantChatService({ fetchImpl });
+    const service = createTestService({ fetchImpl });
     const open = await service.chat({ message: 'Tell me' });
     expect(open.status).toBe('conversation');
     expect(open.sources).toEqual([]);
@@ -285,7 +289,7 @@ describe('Lake Assistant RAG', () => {
 
   it('deduplicates factual sources and keeps raw URLs out of Qwen answers and evidence', async () => {
     const { requests, fetchImpl } = fakeOllama('Lake Aviation supplies aviation fuel. Visit https://www.lakeoilgroup.com/lake-aviation.html');
-    const service = createAssistantChatService({ fetchImpl });
+    const service = createTestService({ fetchImpl });
     const answer = await service.chat({ message: 'Tell me about Lake Aviation. Show sources.' });
     expect(answer.sources).toHaveLength(1);
     expect(answer.sources[0].url).toBe('https://www.lakeoilgroup.com/lake-aviation.html');
@@ -297,7 +301,7 @@ describe('Lake Assistant RAG', () => {
 
   it('streams safe answer deltas and returns Ollama timing metadata', async () => {
     const { requests, fetchImpl } = fakeOllama();
-    const service = createAssistantChatService({ fetchImpl });
+    const service = createTestService({ fetchImpl });
     const deltas = [];
     const result = await service.chat({ message: 'What is Lake Group?', onToken: (text) => deltas.push(text) });
     expect(requests[0].body.stream).toBe(true);
@@ -312,7 +316,7 @@ describe('Lake Assistant RAG', () => {
 
   it('rejects an Ollama stream that ends before its completion record', async () => {
     const fetchImpl = async () => new Response(`${JSON.stringify({ message: { content: 'partial answer' } })}\n`, { headers: { 'Content-Type': 'application/x-ndjson' } });
-    const service = createAssistantChatService({ fetchImpl });
+    const service = createTestService({ fetchImpl });
     await expect(service.chat({ message: 'What is Lake Group?', onToken: vi.fn() })).rejects.toMatchObject({ code: 'INCOMPLETE_MODEL_STREAM' });
   });
 
@@ -328,9 +332,35 @@ describe('Lake Assistant RAG', () => {
     expect(sufficientMemory.requests[0].body.keep_alive).toBe(-1);
   });
 
+  it('blocks unsafe inference and cold loads below the memory thresholds', async () => {
+    const criticallyLow = fakeOllama();
+    const criticalService = createAssistantChatService({ fetchImpl: criticallyLow.fetchImpl, memoryProvider: () => 2.5 * 1024 ** 3 });
+    await expect(criticalService.chat({ message: 'What is Lake Group?' })).rejects.toMatchObject({ code: 'INSUFFICIENT_MEMORY_HEADROOM' });
+    expect(criticallyLow.requests).toHaveLength(0);
+
+    const cold = fakeOllama();
+    const coldService = createAssistantChatService({ fetchImpl: cold.fetchImpl, memoryProvider: () => 6 * 1024 ** 3 });
+    await expect(coldService.chat({ message: 'What is Lake Group?' })).rejects.toMatchObject({ code: 'INSUFFICIENT_MEMORY_HEADROOM' });
+    expect(cold.requests).toHaveLength(1);
+    expect(cold.requests[0].url).toMatch(/\/api\/ps$/);
+  });
+
+  it('allows reduced-headroom inference only when Ollama confirms Qwen is already resident', async () => {
+    const { requests: modelRequests, fetchImpl } = fakeOllama();
+    const guardedFetch = vi.fn(async (url, options) => {
+      if (String(url).endsWith('/api/ps')) return new Response(JSON.stringify({ models: [{ name: 'qwen3:4b-instruct-2507-q4_K_M' }] }), { headers: { 'Content-Type': 'application/json' } });
+      return fetchImpl(url, options);
+    });
+    const service = createAssistantChatService({ fetchImpl: guardedFetch, memoryProvider: () => 4 * 1024 ** 3 });
+    const result = await service.chat({ message: 'What is Lake Group?' });
+    expect(result.answer).toBe('A grounded local answer.');
+    expect(guardedFetch.mock.calls[0][0]).toMatch(/\/api\/ps$/);
+    expect(modelRequests).toHaveLength(1);
+  });
+
   it('keeps follow-ups on the active company, retrieves fresh detail, and reuses it to simplify', async () => {
     const { requests, fetchImpl } = fakeOllama('Lake Aviation provides aviation fuel and into-plane services.');
-    const service = createAssistantChatService({ fetchImpl });
+    const service = createTestService({ fetchImpl });
     const first = await service.chat({ message: 'Tell me about Lake Aviation.' });
     const more = await service.chat({ sessionId: first.sessionId, message: 'Tell me more about its operations' });
     expect(more.status).toBe('ok');
@@ -346,7 +376,7 @@ describe('Lake Assistant RAG', () => {
 
   it('retains grounded history when a contextual follow-up has no fresh matching retrieval', async () => {
     const { requests, fetchImpl } = fakeOllama('Lake Group works across verified business sectors.');
-    const service = createAssistantChatService({ fetchImpl });
+    const service = createTestService({ fetchImpl });
     const first = await service.chat({ message: 'Tell me about Lake Group.' });
     const followUp = await service.chat({ sessionId: first.sessionId, message: 'Tell me more about its operations.' });
     expect(first.grounded).toBe(true);
@@ -358,7 +388,7 @@ describe('Lake Assistant RAG', () => {
 
   it('preserves Kenya facts and source references across company follow-ups without widening the topic', async () => {
     const { requests, fetchImpl } = fakeOllama('Lake Gas Limited and Lake Oil Ltd. operate in Kenya.');
-    const service = createAssistantChatService({ fetchImpl });
+    const service = createTestService({ fetchImpl });
     const first = await service.chat({ message: 'Which Lake Group companies operate in Kenya?' });
     expect(first.sources).toEqual([]);
 
@@ -395,7 +425,7 @@ describe('Lake Assistant RAG', () => {
       if (body.stream) return new Response(`${JSON.stringify({ message: { content } })}\n${JSON.stringify({ ...metrics, done: true })}\n`, { headers: { 'Content-Type': 'application/x-ndjson' } });
       return new Response(JSON.stringify({ message: { content }, ...metrics }), { headers: { 'Content-Type': 'application/json' } });
     });
-    const service = createAssistantChatService({ fetchImpl });
+    const service = createTestService({ fetchImpl });
     const first = await service.chat({ message: 'Which Lake Group companies operate in Kenya?' });
     const onToken = vi.fn();
     const followUp = await service.chat({ sessionId: first.sessionId, message: 'Tell me more about their operations.', onToken });
@@ -410,7 +440,7 @@ describe('Lake Assistant RAG', () => {
 
   it('chooses answer language from message content, honors explicit changes, and carries it through ambiguous follow-ups', async () => {
     const { requests, fetchImpl } = fakeOllama('Jibu lililothibitishwa.');
-    const service = createAssistantChatService({ fetchImpl });
+    const service = createTestService({ fetchImpl });
     const first = await service.chat({ message: 'Tell me about Lake Aviation.', locale: 'sw' });
     expect(requests[0].body.messages[0].content).toContain('Respond in English.');
 
@@ -433,7 +463,7 @@ describe('Lake Assistant RAG', () => {
 
   it('treats a request for company details as a company profile lookup', async () => {
     const { fetchImpl } = fakeOllama('Agrinova Tech Limited provides the supported agricultural technology information.');
-    const service = createAssistantChatService({ fetchImpl });
+    const service = createTestService({ fetchImpl });
     const result = await service.chat({ message: 'Give me details about Agrinova Tech. Show sources.' });
     expect(result.status).toBe('ok');
     expect(result.grounded).toBe(true);
