@@ -90,6 +90,34 @@ describe('self-hosted assistant API', () => {
     expect(regenerate).toHaveBeenCalledTimes(1);
   });
 
+  it('streams a same-origin message edit against the existing session and stable turn id', async () => {
+    const sessionId = '39eea75e-7474-41ca-8447-211f1292d3a9';
+    const turnId = '49eea75e-7474-41ca-8447-211f1292d3a9';
+    const editTurn = vi.fn(async ({ sessionId: receivedSession, turnId: receivedTurn, message, onToken }) => {
+      await onToken('Corrected answer.');
+      return { sessionId: receivedSession, turnId: receivedTurn, answer: 'Corrected answer.', sources: [], grounded: true, status: 'ok', locale: 'en' };
+    });
+    const app = appWithAssistant({ chat: vi.fn(), editTurn, health: async () => ({ status: 'ready' }) });
+    const response = await request(app).post('/api/assistant/edit')
+      .set('Host', '127.0.0.1:5000')
+      .set('Origin', 'http://127.0.0.1:5000')
+      .set('Cookie', `lake_assistant.sid=${sessionId}`)
+      .set('Accept', 'application/x-ndjson')
+      .send({ turnId, message: 'Who owns Lake Group?' })
+      .expect(200)
+      .expect('Content-Type', /application\/x-ndjson/);
+    const events = response.text.trim().split('\n').map((line) => JSON.parse(line));
+    expect(events.map((event) => event.type)).toEqual(['delta', 'done']);
+    expect(events.at(-1)).toMatchObject({ answer: 'Corrected answer.', turnId });
+    expect(editTurn.mock.calls[0][0]).toMatchObject({ sessionId, turnId, message: 'Who owns Lake Group?' });
+    expect(editTurn.mock.calls[0][0].signal).toBeInstanceOf(AbortSignal);
+    await request(app).post('/api/assistant/edit').set('Cookie', `lake_assistant.sid=${sessionId}`)
+      .send({ turnId: 'invalid', message: 'retry' }).expect(400);
+    await request(app).post('/api/assistant/edit').set('Origin', 'https://attacker.invalid')
+      .set('Cookie', `lake_assistant.sid=${sessionId}`).send({ turnId, message: 'No' }).expect(403);
+    expect(editTurn).toHaveBeenCalledTimes(1);
+  });
+
   it('allows only configured public origins behind a reverse proxy', async () => {
     const chat = vi.fn(async () => ({ sessionId: '39eea75e-7f74-41ca-8447-211f1292d3a9', answer: 'Lake Group overview', sources: [], grounded: false }));
     const app = appWithAssistant({ chat, health: async () => ({ status: 'ready' }) }, ['https://www.lakeoilgroup.com']);

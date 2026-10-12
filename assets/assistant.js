@@ -103,6 +103,8 @@
       svg.appendChild(stop);
     } else if (kind === 'copy') {
       var copyPath = document.createElementNS(svg.namespaceURI, 'path'); copyPath.setAttribute('d', 'M8 8V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3M6 8h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2Z'); svg.appendChild(copyPath);
+    } else if (kind === 'edit') {
+      var editPath = document.createElementNS(svg.namespaceURI, 'path'); editPath.setAttribute('d', 'M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z'); svg.appendChild(editPath);
     } else if (kind === 'share') {
       var sharePath = document.createElementNS(svg.namespaceURI, 'path'); sharePath.setAttribute('d', 'M12 16V3m0 0L7 8m5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6'); svg.appendChild(sharePath);
     } else if (kind === 'speaker') {
@@ -140,20 +142,45 @@
       article.appendChild(sources);
     });
   }
+  function messageUuid() {
+    if (window.crypto && typeof window.crypto.randomUUID === 'function') return window.crypto.randomUUID();
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (character) {
+      var value = Math.random() * 16 | 0;
+      return (character === 'x' ? value : (value & 3 | 8)).toString(16);
+    });
+  }
   function draw(message) {
-    if (message.role === 'user') refs.messages.classList.remove('is-welcome');
-    var article = node('article', 'la-message la-' + message.role);
-    article.appendChild(node('p', '', safeAnswerText(message.text)));
-    article._answerParagraph = article.firstChild;
+    var isUser = message.role === 'user';
+    if (isUser) refs.messages.classList.remove('is-welcome');
+    var article = node('article', 'la-message la-' + (isUser ? 'user' : 'bot'));
+    article.dataset.messageId = message.id || messageUuid();
+    if (message.turnId) { article.dataset.turnId = message.turnId; article._turnId = message.turnId; }
+    article._messageKind = message.kind || (message.type === 'error' ? 'error' : message.type === 'welcome' ? 'welcome' : 'assistant');
+    var body = node('div', 'la-message-body');
+    var messageText = isUser ? String(message.text || '').trim() : safeAnswerText(message.text);
+    body.appendChild(node('p', '', messageText));
+    article._messageBody = body;
+    article._answerParagraph = body.firstChild;
+    article._messageText = messageText;
+    article.appendChild(body);
     appendSources(article, message.links);
     refs.messages.appendChild(article);
+    if (isUser) addUserActions(article);
+    else addResponseActions(article, message.text, message.locale, article._messageKind, message.turnId, message.questionArticle);
     refs.messages.scrollTop = refs.messages.scrollHeight;
+    return article;
   }
-  function streamArticle(text) {
+  function streamArticle(text, turnId) {
     var article = node('article', 'la-message la-bot');
+    article._messageKind = 'assistant';
+    if (turnId) { article.dataset.turnId = turnId; article._turnId = turnId; }
+    var body = node('div', 'la-message-body');
     var paragraph = node('p');
     paragraph.textContent = safeAnswerText(text);
-    article.appendChild(paragraph);
+    body.appendChild(paragraph);
+    article.appendChild(body);
+    article._messageBody = body;
+    article._messageText = safeAnswerText(text);
     refs.messages.appendChild(article);
     article._answerParagraph = paragraph;
     return { article: article, paragraph: paragraph };
@@ -173,11 +200,6 @@
     article._actionFeedback.textContent = text || '';
   }
   function setLatestResponse(article) {
-    if (latestResponseArticle && latestResponseArticle !== article && latestResponseArticle._regenerateButton) {
-      latestResponseArticle._regenerateButton.disabled = true;
-      latestResponseArticle._regenerateButton.title = 'Only the latest response can be regenerated';
-      latestResponseArticle._regenerateButton.setAttribute('aria-label', 'Only the latest response can be regenerated');
-    }
     latestResponseArticle = article;
     if (article._regenerateButton) {
       article._regenerateButton.disabled = false;
@@ -185,48 +207,110 @@
       article._regenerateButton.setAttribute('aria-label', 'Regenerate response');
     }
   }
-  function addResponseActions(article, answer, locale) {
+  function addResponseActions(article, answer, locale, kind, turnId, questionArticle) {
     if (!article || article._actionBar) return;
+    kind = kind || 'assistant';
     article._responseText = safeAnswerText(answer);
     article._responseLocale = locale || (/\b(karibu|habari|asante|katika|kwa|ya|ni|naweza|shughuli|kampuni|nchini)\b/i.test(answer) ? 'sw' : 'en');
     var bar = node('div', 'la-response-actions');
-    bar.setAttribute('role', 'group'); bar.setAttribute('aria-label', 'Response actions');
+    bar.setAttribute('role', 'group'); bar.setAttribute('aria-label', 'Assistant message actions');
     article._actionBar = bar;
-    var copy = responseAction(article, 'copy', 'Copy response');
+    var copy = responseAction(article, 'copy', 'Copy message');
     var copyTimer = null;
     copy.addEventListener('click', function () {
       copyResponse(article._responseText).then(function () {
-        copy.classList.add('is-active'); copy.replaceChildren(uiIcon('check')); copy.title = 'Copied'; copy.setAttribute('aria-label', 'Response copied');
+        copy.classList.add('is-active'); copy.replaceChildren(uiIcon('check')); copy.title = 'Copied'; copy.setAttribute('aria-label', 'Message copied');
         actionFeedback(article, 'Copied'); window.clearTimeout(copyTimer);
-        copyTimer = window.setTimeout(function () { copy.classList.remove('is-active'); copy.replaceChildren(uiIcon('copy')); copy.title = 'Copy response'; copy.setAttribute('aria-label', 'Copy response'); actionFeedback(article, ''); }, 1800);
-      }).catch(function () { actionFeedback(article, 'Could not copy. Select and copy the response text instead.'); });
+        copyTimer = window.setTimeout(function () { copy.classList.remove('is-active'); copy.replaceChildren(uiIcon('copy')); copy.title = 'Copy message'; copy.setAttribute('aria-label', 'Copy message'); actionFeedback(article, ''); }, 1800);
+      }).catch(function () { actionFeedback(article, 'Could not copy. Select and copy the message text instead.'); });
     });
-    var share = responseAction(article, 'share', 'Share response');
+    var share = responseAction(article, 'share', 'Share message');
     var shareMenu = node('div', 'la-share-menu'); shareMenu.hidden = true;
     var email = node('a', '', 'Email'), whatsapp = node('a', '', 'WhatsApp'), copyLink = node('button', '', 'Copy text');
-    var encodedAnswer = encodeURIComponent(article._responseText);
-    email.href = 'mailto:?subject=' + encodeURIComponent('Lake Assistant response') + '&body=' + encodedAnswer;
-    whatsapp.href = 'https://wa.me/?text=' + encodedAnswer; whatsapp.target = '_blank'; whatsapp.rel = 'noopener noreferrer';
+    function updateShareTargets() {
+      var encodedAnswer = encodeURIComponent(article._responseText);
+      email.href = 'mailto:?subject=' + encodeURIComponent('Lake Assistant message') + '&body=' + encodedAnswer;
+      whatsapp.href = 'https://wa.me/?text=' + encodedAnswer;
+    }
+    updateShareTargets(); whatsapp.target = '_blank'; whatsapp.rel = 'noopener noreferrer';
     copyLink.type = 'button'; copyLink.setAttribute('aria-label', 'Copy response text');
     shareMenu.append(email, whatsapp, copyLink); article.appendChild(shareMenu);
     share.addEventListener('click', function () {
+      updateShareTargets();
       if (typeof navigator.share === 'function') {
-        navigator.share({ title: 'Lake Assistant response', text: article._responseText }).then(function () { actionFeedback(article, 'Shared'); }, function (error) { if (error && error.name !== 'AbortError') actionFeedback(article, 'Sharing is unavailable on this device.'); });
+        navigator.share({ title: 'Lake Assistant message', text: article._responseText }).then(function () { actionFeedback(article, 'Shared'); }, function (error) { if (error && error.name !== 'AbortError') actionFeedback(article, 'Sharing is unavailable on this device.'); });
       } else { shareMenu.hidden = !shareMenu.hidden; if (!shareMenu.hidden) { email.setAttribute('aria-label', 'Share response by email'); whatsapp.setAttribute('aria-label', 'Share response with WhatsApp'); } }
     });
     copyLink.addEventListener('click', function () { copyResponse(article._responseText).then(function () { shareMenu.hidden = true; actionFeedback(article, 'Copied'); }).catch(function () { actionFeedback(article, 'Could not copy this response.'); }); });
-    var speak = responseAction(article, 'speaker', 'Read response aloud');
+    var speak = responseAction(article, 'speaker', 'Read message aloud');
     speak.setAttribute('aria-pressed', 'false'); speak.addEventListener('click', function () { toggleSpeech(article, speak); });
-    var regenerate = responseAction(article, 'regenerate', 'Regenerate response');
-    article._regenerateButton = regenerate; regenerate.addEventListener('click', function () { regenerateResponse(article); });
+    if (kind === 'assistant' || kind === 'success') {
+      var regenerate = responseAction(article, 'regenerate', 'Regenerate response');
+      article._regenerateButton = regenerate;
+      regenerate.addEventListener('click', function () {
+        if (article !== latestResponseArticle && questionArticle && turnId) {
+          applyEditedTurn(questionArticle, questionArticle._messageText, null, article);
+          return;
+        }
+        regenerateResponse(article);
+      });
+    }
     var up = responseAction(article, 'thumb-up', 'Good response');
     var down = responseAction(article, 'thumb-down', 'Bad response');
     article._ratingButtons = { up: up, down: down }; article._rating = null;
     up.setAttribute('aria-pressed', 'false'); down.setAttribute('aria-pressed', 'false');
     up.addEventListener('click', function () { setRating(article, article._rating === 'up' ? null : 'up'); });
     down.addEventListener('click', function () { setRating(article, article._rating === 'down' ? null : 'down'); });
+    if (kind === 'error') {
+      var retry = responseAction(article, 'regenerate', 'Retry failed question', 'la-retry-action');
+      retry.addEventListener('click', function () { retryFailedTurn(article, questionArticle, turnId); });
+    }
     article.appendChild(bar);
-    setLatestResponse(article);
+    if (kind === 'assistant' || kind === 'success') setLatestResponse(article);
+  }
+  function addUserActions(article) {
+    if (!article || article._actionBar) return;
+    var bar = node('div', 'la-response-actions la-user-actions');
+    bar.setAttribute('role', 'group'); bar.setAttribute('aria-label', 'Your message actions');
+    article._actionBar = bar;
+    var copy = responseAction(article, 'copy', 'Copy your message');
+    copy.addEventListener('click', function () {
+      copyResponse(article._messageText).then(function () { actionFeedback(article, 'Copied'); }).catch(function () { actionFeedback(article, 'Could not copy this message.'); });
+    });
+    var edit = responseAction(article, 'edit', 'Edit your message');
+    edit.addEventListener('click', function () { openMessageEditor(article); });
+    article.appendChild(bar);
+  }
+  function openMessageEditor(article) {
+    if (!article || article._editor || activeChatController || chatStreamActive) return;
+    var editor = node('div', 'la-message-editor');
+    var field = node('textarea', 'la-edit-input'); field.value = article._messageText || article._answerParagraph.textContent; field.maxLength = 1000; field.rows = 2;
+    field.setAttribute('aria-label', 'Edit your message');
+    var controls = node('div', 'la-edit-controls');
+    var save = node('button', 'la-edit-save', 'Save'); save.type = 'button';
+    var cancel = node('button', 'la-edit-cancel', 'Cancel'); cancel.type = 'button';
+    var status = node('span', 'la-edit-status'); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite');
+    controls.append(save, cancel); editor.append(field, controls, status);
+    article.appendChild(editor); article._editor = { root: editor, field: field, save: save, cancel: cancel, status: status };
+    article._actionBar.hidden = true;
+    save.addEventListener('click', function () { applyEditedTurn(article, field.value, article._editor); });
+    cancel.addEventListener('click', function () { closeMessageEditor(article); });
+    field.addEventListener('keydown', function (event) { if (event.key === 'Escape') { event.preventDefault(); closeMessageEditor(article); } });
+    field.focus(); field.setSelectionRange(field.value.length, field.value.length);
+  }
+  function closeMessageEditor(article) {
+    if (!article || !article._editor || article._editing) return;
+    article._editor.root.remove(); article._editor = null; article._actionBar.hidden = false;
+  }
+  function clearMessageActions(article) {
+    if (article._actionBar) article._actionBar.remove();
+    if (article._actionFeedback) article._actionFeedback.remove();
+    Array.prototype.slice.call(article.querySelectorAll('.la-share-menu')).forEach(function (menu) { menu.remove(); });
+    article._actionBar = null; article._actionFeedback = null; article._regenerateButton = null; article._ratingButtons = null;
+  }
+  function retryFailedTurn(errorArticle, questionArticle, turnId) {
+    if (!questionArticle || !turnId || activeChatController) { actionFeedback(errorArticle, 'This question cannot be retried in the current conversation.'); return; }
+    applyEditedTurn(questionArticle, questionArticle._messageText, null, errorArticle);
   }
   function setRating(article, rating) {
     article._rating = rating;
@@ -256,7 +340,7 @@
   }
   function stopSpeech() {
     if (window.speechSynthesis) window.speechSynthesis.cancel();
-    if (speechState && speechState.button) { speechState.button.classList.remove('is-active'); speechState.button.setAttribute('aria-pressed', 'false'); speechState.button.title = 'Read response aloud'; speechState.button.setAttribute('aria-label', 'Read response aloud'); }
+    if (speechState && speechState.button) { speechState.button.classList.remove('is-active'); speechState.button.setAttribute('aria-pressed', 'false'); speechState.button.title = 'Read message aloud'; speechState.button.setAttribute('aria-label', 'Read message aloud'); }
     speechState = null;
   }
   function toggleSpeech(article, button) {
@@ -268,7 +352,7 @@
     var voice = voices.find(function (item) { return String(item.lang || '').toLowerCase().split('-')[0] === language; });
     if (!voice) { actionFeedback(article, language === 'sw' ? 'No on-device Kiswahili voice is available on this device.' : 'No on-device English voice is available on this device.'); return; }
     var chunks = speechChunks(article._responseText), stateForSpeech = { article: article, button: button, chunks: chunks, index: 0 };
-    speechState = stateForSpeech; button.classList.add('is-active'); button.setAttribute('aria-pressed', 'true'); button.title = 'Stop reading response'; button.setAttribute('aria-label', 'Stop reading response');
+    speechState = stateForSpeech; button.classList.add('is-active'); button.setAttribute('aria-pressed', 'true'); button.title = 'Stop reading message'; button.setAttribute('aria-label', 'Stop reading message');
     function speakNext() {
       if (speechState !== stateForSpeech) return;
       if (stateForSpeech.index >= chunks.length) { stopSpeech(); return; }
@@ -312,7 +396,7 @@
       var message = error && error.code === 'INSUFFICIENT_MEMORY_HEADROOM' ? 'Regeneration is paused because available memory is too low. Your previous response is unchanged.' : 'Could not regenerate. Your previous response is unchanged.';
       if (!controller.signal.aborted) actionFeedback(article, message);
     } finally {
-      article._regenerating = false; article.removeAttribute('aria-busy'); article._regenerateButton.disabled = article !== latestResponseArticle;
+      article._regenerating = false; article.removeAttribute('aria-busy'); article._regenerateButton.disabled = false;
       chatStreamActive = false; if (activeChatController === controller) activeChatController = null;
     }
   }
@@ -512,10 +596,110 @@
       welcomeTyping.remove();
       welcomeTyping = null;
       welcomeTimer = null;
-      draw({ role: 'bot', text: welcomeText });
+      draw({ role: 'bot', type: 'welcome', text: welcomeText });
       welcomeText = '';
       hasWelcomed = true;
     }, reducedMotion ? 350 : 850);
+  }
+  async function applyEditedTurn(questionArticle, editedText, editor, errorArticle) {
+    if (activeChatController || chatStreamActive || !questionArticle) return;
+    var query = String(editedText || '').trim();
+    if (!query || query.length > 1000) {
+      if (editor) editor.status.textContent = 'Enter a message of up to 1,000 characters.';
+      else if (errorArticle) actionFeedback(errorArticle, 'Enter a message before retrying.');
+      return;
+    }
+    var turnId = questionArticle._turnId || questionArticle.dataset.turnId;
+    if (!turnId) {
+      if (editor) editor.status.textContent = 'This message cannot be linked to the current conversation. Send it as a new message instead.';
+      return;
+    }
+    if (editor) { editor.save.disabled = true; editor.cancel.disabled = true; editor.status.textContent = 'Updating this conversation…'; }
+    else if (errorArticle) actionFeedback(errorArticle, 'Retrying this question…');
+    var typing = node('div', 'la-typing'); typing.setAttribute('role', 'status'); typing.setAttribute('aria-label', 'Lake is typing');
+    var dots = node('span', 'la-typing-dots'); for (var dot = 0; dot < 3; dot++) dots.appendChild(node('i')); typing.appendChild(dots);
+    refs.messages.appendChild(typing); followStreamToLatest();
+    var priorAssistant = Array.prototype.slice.call(refs.messages.querySelectorAll('.la-message.la-bot')).find(function (item) { return item._turnId === turnId || item.dataset.turnId === turnId; }) || null;
+    var preview = null, previewParagraph = null, streamedText = '';
+    var controller = new AbortController(); activeChatController = controller; chatStreamActive = true; chatStreamFollow = true;
+    var sendButton = refs.form.querySelector('.la-send'); sendButton.disabled = true;
+    try {
+      var endpoint = (window.LAKE_API_BASE ? window.LAKE_API_BASE.replace(/\/$/, '') : '') + '/api/assistant/edit';
+      var response = await fetch(endpoint, {
+        method: 'POST', credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/x-ndjson, application/json' },
+        body: JSON.stringify({ turnId: turnId, message: query, locale: /^sw(?:-|$)/i.test(lang()) ? 'sw' : 'en' }),
+        signal: controller.signal
+      });
+      if (!response.ok) {
+        var problem = await response.json().catch(function () { return {}; });
+        throw Object.assign(new Error(problem && problem.error && problem.error.message || 'The conversation could not be updated.'), { code: problem && problem.error && problem.error.code || 'EDIT_FAILED' });
+      }
+      var payload;
+      if ((response.headers.get('Content-Type') || '').toLowerCase().indexOf('application/x-ndjson') >= 0) {
+        payload = await readChatStream(response, function (text) {
+          if (typing.isConnected) typing.remove();
+          if (!preview) { var partial = streamArticle('', turnId); preview = partial.article; preview.classList.add('la-edit-preview'); previewParagraph = partial.paragraph; }
+          streamedText += text; previewParagraph.textContent = safeAnswerText(streamedText); followStreamToLatest();
+        });
+      } else payload = await response.json();
+      var answerText = String(payload && payload.answer || streamedText).trim();
+      if (!answerText) throw new Error('Lake Assistant returned an empty replacement answer.');
+      if (typing.isConnected) typing.remove(); if (preview && preview.isConnected) preview.remove();
+
+      var messages = Array.prototype.slice.call(refs.messages.querySelectorAll('.la-message'));
+      var userPosition = messages.indexOf(questionArticle);
+      messages.slice(userPosition + 1).forEach(function (item) { if (item !== priorAssistant) item.remove(); });
+      Array.prototype.slice.call(refs.messages.querySelectorAll('.la-typing')).forEach(function (item) { item.remove(); });
+      questionArticle._answerParagraph.textContent = safeAnswerText(query);
+      questionArticle._messageText = safeAnswerText(query);
+      questionArticle._turnId = turnId; questionArticle.dataset.turnId = turnId;
+      var answerArticle = priorAssistant;
+      if (!answerArticle || !answerArticle.isConnected) {
+        answerArticle = node('article', 'la-message la-bot');
+        answerArticle.dataset.turnId = turnId; answerArticle._turnId = turnId; answerArticle._messageKind = 'assistant';
+        var body = node('div', 'la-message-body'), paragraph = node('p'); body.appendChild(paragraph); answerArticle.appendChild(body);
+        answerArticle._messageBody = body; answerArticle._answerParagraph = paragraph;
+        refs.messages.insertBefore(answerArticle, questionArticle.nextSibling);
+      } else {
+        refs.messages.insertBefore(answerArticle, questionArticle.nextSibling);
+      }
+      clearMessageActions(answerArticle);
+      answerArticle.classList.remove('la-edit-preview'); answerArticle._messageKind = 'assistant';
+      answerArticle._answerParagraph.textContent = safeAnswerText(answerText); answerArticle._messageText = safeAnswerText(answerText);
+      Array.prototype.slice.call(answerArticle.querySelectorAll('.la-links')).forEach(function (item) { item.remove(); });
+      var links = Array.isArray(payload.sources) ? payload.sources.filter(function (source) { return source && typeof source.title === 'string' && /^https:\/\/www\.lakeoilgroup\.com\//i.test(source.url || ''); }).map(function (source) { return { t: source.title, u: source.url }; }) : [];
+      appendSources(answerArticle, links);
+      addResponseActions(answerArticle, answerText, payload.locale, 'assistant', turnId, questionArticle);
+      if (editor) { editor.root.remove(); questionArticle._editor = null; questionArticle._actionBar.hidden = false; }
+      actionFeedback(answerArticle, 'Message updated');
+      window.setTimeout(function () { if (answerArticle._actionFeedback) actionFeedback(answerArticle, ''); }, 1500);
+      followStreamToLatest();
+    } catch (error) {
+      if (typing.isConnected) typing.remove(); if (preview && preview.isConnected) preview.remove();
+      if (controller.signal.aborted) {
+        if (editor) {
+          editor.status.textContent = 'Update canceled. Your previous conversation is unchanged.';
+          editor.save.disabled = false; editor.cancel.disabled = false;
+        }
+      } else {
+        var note = 'Could not update the conversation. Your previous messages are unchanged.';
+        if (error && error.code === 'INSUFFICIENT_MEMORY_HEADROOM') note = 'The replacement is paused because available memory is too low. Your previous conversation is unchanged.';
+        if (editor) {
+          editor.status.textContent = note;
+          editor.save.disabled = false; editor.cancel.disabled = false;
+          if (!editor.retry) {
+            editor.retry = node('button', 'la-edit-retry', 'Retry'); editor.retry.type = 'button';
+            editor.retry.addEventListener('click', function () { applyEditedTurn(questionArticle, editor.field.value, editor); });
+            editor.root.appendChild(editor.retry);
+          }
+        } else if (errorArticle) actionFeedback(errorArticle, note + ' You can retry this question.');
+      }
+    } finally {
+      chatStreamActive = false;
+      if (activeChatController === controller) activeChatController = null;
+      sendButton.disabled = false;
+    }
   }
   function send(event) {
     event.preventDefault();
@@ -532,13 +716,14 @@
       welcomeTimer = null;
       if (welcomeTyping) welcomeTyping.remove();
       welcomeTyping = null;
-      draw({ role: 'bot', text: welcomeText });
+      draw({ role: 'bot', type: 'welcome', text: welcomeText });
       welcomeText = '';
       hasWelcomed = true;
     }
     refs.input.value = '';
     growInput();
-    draw({ role: 'user', text: query });
+    var turnId = messageUuid();
+    var questionArticle = draw({ role: 'user', text: query, turnId: turnId });
     var typing = node('div', 'la-typing');
     typing.setAttribute('role', 'status');
     typing.setAttribute('aria-label', 'Lake is typing');
@@ -564,7 +749,7 @@
           method: 'POST',
           credentials: 'same-origin',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/x-ndjson, application/json' },
-          body: JSON.stringify({ message: query, locale: /^sw(?:-|$)/i.test(lang()) ? 'sw' : 'en' }),
+          body: JSON.stringify({ message: query, turnId: turnId, locale: /^sw(?:-|$)/i.test(lang()) ? 'sw' : 'en' }),
           signal: controller.signal
         });
         if (!response.ok) throw new Error('Assistant request unavailable.');
@@ -574,7 +759,7 @@
             if (typing.isConnected) typing.remove();
             if (!answerArticle) {
               refs.messages.classList.remove('is-welcome');
-              var message = streamArticle('');
+              var message = streamArticle('', turnId);
               answerArticle = message.article;
               answerParagraph = message.paragraph;
             }
@@ -588,7 +773,7 @@
         answerComplete = true;
         if (typing.isConnected) typing.remove();
         if (!answerArticle) {
-          var finalMessage = streamArticle(answerText);
+          var finalMessage = streamArticle(answerText, turnId);
           answerArticle = finalMessage.article;
           answerParagraph = finalMessage.paragraph;
         } else answerParagraph.textContent = safeAnswerText(answerText);
@@ -596,7 +781,7 @@
           return source && typeof source.title === 'string' && /^https:\/\/www\.lakeoilgroup\.com\//i.test(source.url || '');
         }).map(function (source) { return { t: source.title, u: source.url }; }) : [];
         appendSources(answerArticle, links);
-        addResponseActions(answerArticle, answerText, payload.locale);
+        addResponseActions(answerArticle, answerText, payload.locale, 'assistant', turnId, questionArticle);
         followStreamToLatest();
         var noEvidence = payload.status === 'no_evidence';
         if (window.LakeAnalytics && window.LakeAnalytics.track) window.LakeAnalytics.track(noEvidence ? 'CHAT_NO_MATCH' : 'CHAT_QUESTION', { page: location.pathname, language: lang(), query: query.slice(0, 300) });
@@ -604,7 +789,7 @@
       } catch (error) {
         if (typing.isConnected) typing.remove();
         if (!answerComplete && answerArticle && answerArticle.isConnected) answerArticle.remove();
-        if (!controller.signal.aborted) draw({ role: 'bot', text: 'Lake Assistant is temporarily unavailable. Please try again shortly.' });
+        if (!controller.signal.aborted) draw({ role: 'bot', type: 'error', text: 'Lake Assistant is temporarily unavailable. Please try again shortly.', turnId: turnId, questionArticle: questionArticle });
       } finally {
         chatStreamActive = false;
         if (activeChatController === controller) {

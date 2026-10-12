@@ -487,6 +487,83 @@ describe('Lake Assistant RAG', () => {
     expect(requests[3].body.messages.filter((message) => message.role === 'user' && message.content === secondQuestion)).toHaveLength(1);
   });
 
+  it('rewrites an edited older turn as a branch and drops every later turn only after a successful answer', async () => {
+    const { requests, fetchImpl } = fakeOllama();
+    const service = createTestService({ fetchImpl });
+    const sessionId = 'b9bf248a-88a7-44c6-aaf0-b5f5bcd60e8a';
+    const firstId = 'b9bf248a-88a7-44c6-aaf0-b5f5bcd60e8b';
+    const secondId = 'b9bf248a-88a7-44c6-aaf0-b5f5bcd60e8c';
+    const first = await service.chat({ sessionId, turnId: firstId, message: 'Where does Lake Aviation operate?' });
+    await service.chat({ sessionId, turnId: secondId, message: 'Tell me more about its operations.' });
+
+    const edited = await service.editTurn({ sessionId, turnId: firstId, message: 'Tell me about Lake Gas operations.' });
+    expect(edited).toMatchObject({ sessionId, turnId: firstId, answer: 'A grounded local answer.' });
+    expect(requests).toHaveLength(3);
+    expect(requests[2].body.messages.at(-1)).toEqual({ role: 'user', content: 'Tell me about Lake Gas operations.' });
+
+    await service.chat({ sessionId, turnId: 'b9bf248a-88a7-44c6-aaf0-b5f5bcd60e8d', message: 'Tell me more about its operations.' });
+    expect(requests).toHaveLength(4);
+    expect(requests[3].body.messages[0].content).toContain('subject: Tell me about Lake Gas operations.');
+    expect(requests[3].body.messages[0].content).not.toContain('subject: Where does Lake Aviation operate?');
+    expect(first.sessionId).toBe(sessionId);
+  });
+
+  it('keeps the existing branch unchanged when an edit inference fails and safely retries a failed uncommitted turn', async () => {
+    const { requests, fetchImpl: baseFetch } = fakeOllama();
+    let shouldFail = false;
+    const fetchImpl = vi.fn(async (...args) => {
+      if (shouldFail) { shouldFail = false; return new Response('unavailable', { status: 503 }); }
+      return baseFetch(...args);
+    });
+    const service = createTestService({ fetchImpl });
+    const sessionId = 'c9bf248a-88a7-44c6-aaf0-b5f5bcd60e8a';
+    const firstId = 'c9bf248a-88a7-44c6-aaf0-b5f5bcd60e8b';
+    const first = await service.chat({ sessionId, turnId: firstId, message: 'Tell me about Lake Aviation.' });
+    shouldFail = true;
+    await expect(service.editTurn({ sessionId, turnId: firstId, message: 'Tell me about Lake Gas.' })).rejects.toMatchObject({ code: 'MODEL_UNAVAILABLE' });
+    const retried = await service.editTurn({ sessionId, turnId: firstId, message: 'Tell me about Lake Gas.' });
+    expect(retried).toMatchObject({ sessionId, turnId: firstId });
+    expect(first.sessionId).toBe(sessionId);
+
+    const missingId = 'c9bf248a-88a7-44c6-aaf0-b5f5bcd60e8c';
+    shouldFail = true;
+    await expect(service.chat({ sessionId, turnId: missingId, message: 'What is Lake Group?' })).rejects.toMatchObject({ code: 'MODEL_UNAVAILABLE' });
+    const retryWithoutCommittedTurn = await service.editTurn({ sessionId, turnId: missingId, message: 'What is Lake Group?' });
+    expect(retryWithoutCommittedTurn).toMatchObject({ sessionId, turnId: missingId });
+    expect(requests.length).toBeGreaterThanOrEqual(3);
+  });
+
+  it('retries an initial unavailable request through the same stable turn without duplicating it', async () => {
+    const { requests, fetchImpl: baseFetch } = fakeOllama();
+    let unavailable = true;
+    const fetchImpl = vi.fn(async (...args) => {
+      if (unavailable) return new Response('unavailable', { status: 503 });
+      return baseFetch(...args);
+    });
+    const service = createTestService({ fetchImpl });
+    const sessionId = 'd9bf248a-88a7-44c6-aaf0-b5f5bcd60e8a';
+    const turnId = 'd9bf248a-88a7-44c6-aaf0-b5f5bcd60e8b';
+    await expect(service.chat({ sessionId, turnId, message: 'What is Lake Group?' })).rejects.toMatchObject({ code: 'MODEL_UNAVAILABLE' });
+    unavailable = false;
+    const retried = await service.editTurn({ sessionId, turnId, message: 'What is Lake Group?' });
+    expect(retried).toMatchObject({ sessionId, turnId, answer: 'A grounded local answer.' });
+    expect(requests).toHaveLength(1);
+    expect(requests[0].body.messages.at(-1)).toEqual({ role: 'user', content: 'What is Lake Group?' });
+  });
+
+  it('makes duplicate chat submission idempotent for a stable turn id', async () => {
+    const { requests, fetchImpl } = fakeOllama();
+    const service = createTestService({ fetchImpl });
+    const sessionId = 'e9bf248a-88a7-44c6-aaf0-b5f5bcd60e8a';
+    const turnId = 'e9bf248a-88a7-44c6-aaf0-b5f5bcd60e8b';
+    const first = await service.chat({ sessionId, turnId, message: 'What is Lake Group?' });
+    const duplicate = await service.chat({ sessionId, turnId, message: 'What is Lake Group?' });
+    expect(duplicate).toMatchObject({ sessionId, turnId, answer: first.answer, sources: first.sources });
+    expect(requests).toHaveLength(1);
+    await expect(service.chat({ sessionId, turnId, message: 'A different question' })).rejects.toMatchObject({ code: 'TURN_ID_CONFLICT' });
+    expect(requests).toHaveLength(1);
+  });
+
   it('keeps the original answer eligible when a regeneration fails', async () => {
     const { fetchImpl: baseFetch } = fakeOllama();
     let failNext = false;

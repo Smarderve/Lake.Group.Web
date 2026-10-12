@@ -720,21 +720,43 @@ export function createAssistantChatService({
     } catch { /* fail closed when residency cannot be confirmed */ }
     if (!loaded) throw Object.assign(new Error('Free memory is below the safe cold-load threshold and Qwen is not confirmed resident.'), { status: 503, code: 'INSUFFICIENT_MEMORY_HEADROOM' });
   }
-  async function chatInternal({ sessionId, message, locale = 'en', onToken, signal, sessionSeed, regeneration = false } = {}) {
+  function snapshotTurnState(session) {
+    return JSON.parse(JSON.stringify({
+      turns: session.turns || [],
+      lastEvidenceIds: session.lastEvidenceIds || [],
+      currentEntities: session.currentEntities || [],
+      lastGrounded: Boolean(session.lastGrounded),
+      context: session.context || null,
+      locale: session.locale || null,
+    }));
+  }
+  function recordTurn(session, turnId, question, answer, base, outcome = {}) {
+    session.turnRecords ||= [];
+    session.pendingTurns = (session.pendingTurns || []).filter((turn) => turn.turnId !== turnId);
+    session.turnRecords.push({ turnId, question, answer, base, outcome });
+    // Keep turn identity aligned with the bounded model history while allowing
+    // earlier visible turns in the same active conversation to be edited.
+    session.turnRecords = session.turnRecords.slice(-32);
+  }
+  async function chatInternal({ sessionId, message, locale = 'en', onToken, signal, sessionSeed, regeneration = false, turnId = randomUUID() } = {}) {
     const chatStartedAt = performance.now();
     const query = String(message || '').trim();
     if (!query || query.length > 1000) throw Object.assign(new Error('Message must contain 1–1000 characters.'), { status: 400, code: 'INVALID_MESSAGE' });
     pruneSessions();
     const id = typeof sessionId === 'string' && /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(sessionId) ? sessionId : randomUUID();
-    const session = sessionSeed || sessions.get(id) || { turns: [], lastEvidenceIds: [], currentEntities: [], lastGrounded: false, context: null, locale: null, updatedAt: now() };
-    const previousTurnState = JSON.parse(JSON.stringify({
-      turns: session.turns,
-      lastEvidenceIds: session.lastEvidenceIds,
-      currentEntities: session.currentEntities,
-      lastGrounded: session.lastGrounded,
-      context: session.context,
-      locale: session.locale,
-    }));
+    const session = sessionSeed || sessions.get(id) || { turns: [], turnRecords: [], lastEvidenceIds: [], currentEntities: [], lastGrounded: false, context: null, locale: null, updatedAt: now() };
+    session.turnRecords ||= [];
+    session.pendingTurns ||= [];
+    const pendingTurn = session.pendingTurns.find((turn) => turn.turnId === turnId);
+    if (pendingTurn && pendingTurn.question !== query) throw Object.assign(new Error('This message ID already belongs to a different visitor question.'), { status: 409, code: 'TURN_ID_CONFLICT' });
+    const previousTurnState = snapshotTurnState(session);
+    if (!pendingTurn && !session.turnRecords.some((turn) => turn.turnId === turnId)) {
+      session.pendingTurns.push({ turnId, question: query, base: previousTurnState, turnRecordIds: session.turnRecords.map((turn) => turn.turnId) });
+      session.pendingTurns = session.pendingTurns.slice(-32);
+    }
+    // Keep a lightweight session shell even when inference fails so a visible
+    // failed visitor turn can be retried with the same session and turn ID.
+    if (!sessionSeed) sessions.set(id, session);
     const retrievalStartedAt = performance.now();
     const records = await getRecords();
     const activeLocale = requestedLanguage(query, locale, session.locale);
@@ -788,6 +810,7 @@ export function createAssistantChatService({
     const status = grounded ? 'ok' : generalConversation ? 'conversation' : 'no_evidence';
     if (companyFinancialQuestion(query, records) && !financialEvidence(evidenceRecords)) {
       const answer = financialUnavailableAnswer(activeLocale, query);
+      if (signal?.aborted) throw Object.assign(new Error('The visitor disconnected.'), { name: 'AbortError' });
       session.turns.push({ role: 'user', content: query }, { role: 'assistant', content: answer });
       session.turns = session.turns.slice(-ASSISTANT_MAX_HISTORY_MESSAGES);
       session.locale = activeLocale;
@@ -796,10 +819,11 @@ export function createAssistantChatService({
       session.lastEvidenceIds = [];
       session.lastGrounded = false;
       session.updatedAt = now();
-      session.lastTurn = { question: query, base: previousTurnState };
+      recordTurn(session, turnId, query, answer, previousTurnState, { sources: [], grounded: false, status: 'no_evidence', locale: activeLocale });
+      session.lastTurn = { turnId, question: query, base: previousTurnState };
       sessions.set(id, session);
       if (typeof onToken === 'function') await onToken(answer);
-      return { sessionId: id, answer, sources: [], grounded: false, status: 'no_evidence', locale: activeLocale, metrics: { retrievalMs: Math.round(retrievalMs * 100) / 100, totalServiceMs: Math.round((performance.now() - chatStartedAt) * 100) / 100 } };
+      return { sessionId: id, turnId, answer, sources: [], grounded: false, status: 'no_evidence', locale: activeLocale, metrics: { retrievalMs: Math.round(retrievalMs * 100) / 100, totalServiceMs: Math.round((performance.now() - chatStartedAt) * 100) / 100 } };
     }
     if (active >= maxConcurrent) throw Object.assign(new Error('The assistant is busy. Please try again shortly.'), { status: 503, code: 'MODEL_BUSY' });
     const evidence = evidenceRecords.map((record, i) => `EVIDENCE ${i + 1}\n${record.pageTitle} | ${record.entity} | ${record.topic}${record.retrievalLocationType ? ` | location evidence: ${record.retrievalLocationType}` : record.factType ? ` | ${record.factType}` : ''}\n${record.text.slice(0, plan.groupWide ? 270 : 520)}`).join('\n\n');
@@ -899,6 +923,7 @@ export function createAssistantChatService({
       const boundedAnswer = answer.length <= 6000 ? answer : `${answer.slice(0, 5997).replace(/\s+\S*$/, '').trim()}…`;
       if (!boundedAnswer) throw Object.assign(new Error('The local model returned an empty answer.'), { status: 503, code: 'EMPTY_MODEL_RESPONSE' });
       if ((plan.groupWide || isFollowUp) && typeof onToken === 'function') await onToken(boundedAnswer);
+      if (signal?.aborted) throw Object.assign(new Error('The visitor disconnected.'), { name: 'AbortError' });
       const sources = requestsSources(query) ? sourceLinks(evidenceRecords, { grounded, plan, conversational: status === 'conversation' }) : [];
       session.turns.push({ role: 'user', content: query }, { role: 'assistant', content: boundedAnswer });
       session.turns = session.turns.slice(-ASSISTANT_MAX_HISTORY_MESSAGES);
@@ -928,9 +953,10 @@ export function createAssistantChatService({
         };
       } else if (!isFollowUp) session.context = null;
       session.updatedAt = now();
-      session.lastTurn = { question: query, base: previousTurnState };
+      recordTurn(session, turnId, query, boundedAnswer, previousTurnState, { sources, grounded, status, locale: activeLocale });
+      session.lastTurn = { turnId, question: query, base: previousTurnState };
       sessions.set(id, session);
-      return { sessionId: id, answer: boundedAnswer, sources, grounded, status, locale: activeLocale, answerValidation: plan.groupWide ? { passed: answerValidation.valid, retryCount: relevanceRetryCount } : undefined, metrics: { totalDurationNs: Number(payload.total_duration) || null, loadDurationNs: Number(payload.load_duration) || null, promptTokens: Number(payload.prompt_eval_count) || null, promptEvalDurationNs: Number(payload.prompt_eval_duration) || null, generatedTokens: Number(payload.eval_count) || null, generationDurationNs: Number(payload.eval_duration) || null, firstTokenMs, retrievalMs: Math.round(retrievalMs * 100) / 100, totalServiceMs: Math.round((performance.now() - chatStartedAt) * 100) / 100 } };
+      return { sessionId: id, turnId, answer: boundedAnswer, sources, grounded, status, locale: activeLocale, answerValidation: plan.groupWide ? { passed: answerValidation.valid, retryCount: relevanceRetryCount } : undefined, metrics: { totalDurationNs: Number(payload.total_duration) || null, loadDurationNs: Number(payload.load_duration) || null, promptTokens: Number(payload.prompt_eval_count) || null, promptEvalDurationNs: Number(payload.prompt_eval_duration) || null, generatedTokens: Number(payload.eval_count) || null, generationDurationNs: Number(payload.eval_duration) || null, firstTokenMs, retrievalMs: Math.round(retrievalMs * 100) / 100, totalServiceMs: Math.round((performance.now() - chatStartedAt) * 100) / 100 } };
     } finally { active -= 1; }
   }
   function validSessionId(sessionId) {
@@ -939,9 +965,51 @@ export function createAssistantChatService({
   async function chat(options = {}) {
     const sessionId = validSessionId(options.sessionId) ? options.sessionId : null;
     if (sessionId && busySessions.has(sessionId)) throw Object.assign(new Error('This conversation is already processing a reply.'), { status: 409, code: 'SESSION_BUSY' });
+    if (sessionId && validSessionId(options.turnId)) {
+      const existing = sessions.get(sessionId)?.turnRecords?.find((turn) => turn.turnId === options.turnId);
+      if (existing) {
+        if (existing.question !== String(options.message || '').trim()) throw Object.assign(new Error('This message ID already belongs to a different visitor question.'), { status: 409, code: 'TURN_ID_CONFLICT' });
+        return { sessionId, turnId: existing.turnId, answer: existing.answer, ...(existing.outcome || {}) };
+      }
+    }
     if (sessionId) busySessions.add(sessionId);
     try { return await chatInternal(options); }
     finally { if (sessionId) busySessions.delete(sessionId); }
+  }
+  async function editTurn({ sessionId, turnId, message, locale, onToken, signal } = {}) {
+    if (!validSessionId(sessionId) || !validSessionId(turnId)) throw Object.assign(new Error('This conversation turn cannot be edited.'), { status: 409, code: 'TURN_NOT_FOUND' });
+    if (busySessions.has(sessionId)) throw Object.assign(new Error('This conversation is already processing a reply.'), { status: 409, code: 'SESSION_BUSY' });
+    const current = sessions.get(sessionId);
+    if (!current) throw Object.assign(new Error('This conversation has expired. Send the question again to start a new conversation.'), { status: 409, code: 'SESSION_EXPIRED' });
+    busySessions.add(sessionId);
+    let temporaryId = null;
+    try {
+      const turnIndex = (current.turnRecords || []).findIndex((turn) => turn.turnId === turnId);
+      const target = turnIndex >= 0 ? current.turnRecords[turnIndex] : null;
+      const pending = target ? null : (current.pendingTurns || []).find((turn) => turn.turnId === turnId);
+      if (!target && !pending) throw Object.assign(new Error('This turn is no longer in the active conversation.'), { status: 409, code: 'TURN_NOT_FOUND' });
+      const baseState = target ? target.base : pending.base;
+      const turnRecordsBefore = target
+        ? current.turnRecords.slice(0, turnIndex)
+        : (pending.turnRecordIds || []).map((id) => current.turnRecords.find((turn) => turn.turnId === id)).filter(Boolean);
+      const branch = {
+        ...JSON.parse(JSON.stringify(baseState)),
+        turnRecords: JSON.parse(JSON.stringify(turnRecordsBefore)),
+        updatedAt: now(),
+      };
+      temporaryId = randomUUID();
+      const result = await chatInternal({ sessionId: temporaryId, turnId, message, locale: locale || current.locale || 'en', onToken, signal, sessionSeed: branch });
+      const rewritten = sessions.get(temporaryId);
+      if (!rewritten) throw Object.assign(new Error('The edited turn could not be committed.'), { status: 503, code: 'EDIT_NOT_COMMITTED' });
+      sessions.delete(temporaryId);
+      temporaryId = null;
+      rewritten.updatedAt = now();
+      sessions.set(sessionId, rewritten);
+      return { ...result, sessionId, turnId };
+    } finally {
+      if (temporaryId) sessions.delete(temporaryId);
+      busySessions.delete(sessionId);
+    }
   }
   async function regenerate({ sessionId, onToken, signal } = {}) {
     if (!validSessionId(sessionId)) throw Object.assign(new Error('There is no response available to regenerate.'), { status: 409, code: 'NO_REGENERATABLE_RESPONSE' });
@@ -954,10 +1022,11 @@ export function createAssistantChatService({
       const base = JSON.parse(JSON.stringify(latest.base));
       const seed = {
         ...base,
+        turnRecords: JSON.parse(JSON.stringify(current.turnRecords.slice(0, -1))),
         lastTurn: null,
         updatedAt: now(),
       };
-      return await chatInternal({ sessionId, message: latest.question, locale: current.locale || 'en', onToken, signal, sessionSeed: seed, regeneration: true });
+      return await chatInternal({ sessionId, turnId: latest.turnId, message: latest.question, locale: current.locale || 'en', onToken, signal, sessionSeed: seed, regeneration: true });
     } finally { busySessions.delete(sessionId); }
   }
   async function health() {
@@ -968,7 +1037,7 @@ export function createAssistantChatService({
     const found = (tags.models || []).some((item) => item.name === ASSISTANT_MODEL || item.model === ASSISTANT_MODEL);
     return { status: found ? 'ready' : 'model_missing', model: ASSISTANT_MODEL, knowledgeRecords: records.length, ollamaLoopback: `${OLLAMA_HOST}:${ollamaPort}`, modelAvailable: found };
   }
-  const service = { chat, regenerate, health, warmup, getKnowledgeCount: async () => (await getRecords()).length };
+  const service = { chat, editTurn, regenerate, health, warmup, getKnowledgeCount: async () => (await getRecords()).length };
   if (process.env.NODE_ENV !== 'production') {
     service.diagnose = async (message, { history = [], contextEntities = [], excludeIds = [] } = {}) => {
       const records = await getRecords();

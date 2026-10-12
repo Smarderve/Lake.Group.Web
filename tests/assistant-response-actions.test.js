@@ -6,28 +6,40 @@ const test = require('node:test');
 const js = fs.readFileSync(path.join(__dirname, '..', 'assets', 'assistant.js'), 'utf8');
 const css = fs.readFileSync(path.join(__dirname, '..', 'assets', 'assistant.css'), 'utf8');
 
-test('completed assistant replies receive the six actions once in the required order', () => {
-  const start = js.indexOf('function addResponseActions(');
-  const end = js.indexOf('function setRating(', start);
-  const actionBuilder = js.slice(start, end);
-  const order = ['copy', 'share', 'speaker', 'regenerate', 'thumb-up', 'thumb-down'];
-  const positions = order.map((kind) => actionBuilder.indexOf(`responseAction(article, '${kind}'`));
-  assert.ok(positions.every((position) => position >= 0));
-  assert.deepEqual(positions, [...positions].sort((a, b) => a - b));
-  assert.match(actionBuilder, /if \(!article \|\| article\._actionBar\) return/);
-  assert.match(js, /addResponseActions\(answerArticle, answerText, payload\.locale\)/);
-  assert.match(js, /if \(\(response\.headers\.get\('Content-Type'\) \|\| ''\)\.toLowerCase\(\)\.indexOf\('application\/x-ndjson'\) >= 0\)[\s\S]*?var answerText = String\(payload && payload\.answer \|\| ''\)\.trim\(\)[\s\S]*?addResponseActions\(answerArticle, answerText, payload\.locale\)/);
-  assert.match(js, /if \(!controller\.signal\.aborted\) draw\(\{ role: 'bot', text: 'Lake Assistant is temporarily unavailable/);
+test('the shared renderer attaches role-specific actions immediately, including welcome and errors', () => {
+  const draw = js.slice(js.indexOf('function draw('), js.indexOf('function streamArticle('));
+  assert.match(draw, /if \(isUser\) addUserActions\(article\);/);
+  assert.match(draw, /else addResponseActions\(article, message\.text, message\.locale, article\._messageKind/);
+  assert.match(js, /draw\(\{ role: 'bot', type: 'welcome', text: welcomeText \}\)/);
+  assert.match(js, /draw\(\{ role: 'bot', type: 'error',[\s\S]*?questionArticle: questionArticle \}\)/);
+  assert.match(js, /function addUserActions\(article\)/);
+  const userActions = js.slice(js.indexOf('function addUserActions('), js.indexOf('function openMessageEditor('));
+  assert.match(userActions, /responseAction\(article, 'copy'/);
+  assert.match(userActions, /responseAction\(article, 'edit'/);
+  assert.doesNotMatch(userActions, /responseAction\(article, '(share|speaker|regenerate|thumb-up|thumb-down)'/);
 });
 
-test('copy and share operate on answer text only, with clipboard fallback and explicit sharing choices', () => {
+test('assistant action capability depends on message type and always includes standard actions', () => {
+  const actionBuilder = js.slice(js.indexOf('function addResponseActions('), js.indexOf('function addUserActions('));
+  for (const kind of ['copy', 'share', 'speaker', 'thumb-up', 'thumb-down']) {
+    assert.match(actionBuilder, new RegExp(`responseAction\\(article, '${kind}'`));
+  }
+  assert.match(actionBuilder, /if \(kind === 'assistant' \|\| kind === 'success'\)[\s\S]*?responseAction\(article, 'regenerate'/);
+  assert.match(actionBuilder, /if \(kind === 'error'\)[\s\S]*?responseAction\(article, 'regenerate', 'Retry failed question'/);
+  assert.match(actionBuilder, /if \(kind === 'assistant' \|\| kind === 'success'\) setLatestResponse\(article\)/);
+  assert.match(actionBuilder, /if \(!article \|\| article\._actionBar\) return/);
+  assert.match(js, /addResponseActions\(answerArticle, answerText, payload\.locale, 'assistant', turnId, questionArticle\)/);
+});
+
+test('copy and share operate on the individual message text with explicit fallbacks', () => {
   assert.match(js, /function copyResponse\(text\)/);
   assert.match(js, /navigator\.clipboard\.writeText\(text\)/);
   assert.match(js, /document\.execCommand\('copy'\)/);
-  assert.match(js, /navigator\.share\(\{ title: 'Lake Assistant response', text: article\._responseText \}\)/);
+  assert.match(js, /navigator\.share\(\{ title: 'Lake Assistant message', text: article\._responseText \}\)/);
   assert.match(js, /wa\.me\/\?text=/);
   assert.match(js, /mailto:\?subject=/);
   assert.doesNotMatch(js, /navigator\.share\([^)]*url:/);
+  assert.match(js, /article\._messageText = messageText/);
 });
 
 test('read aloud is local-voice-only, chunked, exclusive, and stopped on close/navigation', () => {
@@ -38,14 +50,37 @@ test('read aloud is local-voice-only, chunked, exclusive, and stopped on close/n
   assert.match(js, /window\.addEventListener\('pagehide', function \(\) \{ cancelVoice\(false\); stopSpeech\(\); \}\)/);
 });
 
-test('feedback is local to each response and mutually exclusive; regeneration is latest-only and preserves prior content on failure', () => {
+test('message editing uses a stable turn identity and commits the server branch before replacing visible history', () => {
+  assert.match(js, /function messageUuid\(\)/);
+  assert.match(js, /JSON\.stringify\(\{ message: query, turnId: turnId/);
+  assert.match(js, /\/api\/assistant\/edit/);
+  assert.match(js, /JSON\.stringify\(\{ turnId: turnId, message: query/);
+  assert.match(js, /var answerText = String\(payload && payload\.answer \|\| streamedText\)\.trim\(\)/);
+  assert.match(js, /questionArticle\._answerParagraph\.textContent = safeAnswerText\(query\)/);
+  assert.match(js, /messages\.slice\(userPosition \+ 1\)\.forEach\(function \(item\) \{ if \(item !== priorAssistant\) item\.remove\(\); \}\)/);
+  assert.match(js, /Your previous messages are unchanged/);
+  assert.match(js, /editor\.retry = node\('button', 'la-edit-retry', 'Retry'\)/);
+  assert.match(js, /function retryFailedTurn\(errorArticle, questionArticle, turnId\)/);
+  assert.match(js, /function closeMessageEditor\(article\)[\s\S]*?article\._actionBar\.hidden = false/);
+});
+
+test('feedback is per assistant message, mutually exclusive, and regeneration uses the latest endpoint or safe branch editing', () => {
   assert.match(js, /article\._rating = rating/);
   assert.match(js, /article\._ratingButtons\.up\.setAttribute\('aria-pressed', rating === 'up' \? 'true' : 'false'\)/);
   assert.match(js, /article\._ratingButtons\.down\.setAttribute\('aria-pressed', rating === 'down' \? 'true' : 'false'\)/);
+  assert.match(js, /if \(article !== latestResponseArticle && questionArticle && turnId\)[\s\S]*?applyEditedTurn\(questionArticle, questionArticle\._messageText, null, article\)/);
   assert.match(js, /if \(article !== latestResponseArticle \|\| activeChatController \|\| chatStreamActive \|\| article\._regenerating\) return/);
   assert.match(js, /\/api\/assistant\/regenerate/);
   assert.match(js, /article\._answerParagraph\.textContent = safeAnswerText\(nextAnswer\)/);
   assert.match(js, /Could not regenerate\. Your previous response is unchanged\./);
+});
+
+test('the persistent action bars and inline editor have visible focus and touch-friendly layout', () => {
+  assert.match(css, /\.la-response-actions\s*\{[^}]*display:\s*flex/s);
+  assert.match(css, /\.la-user-actions\s*\{[^}]*align-self:\s*flex-end/s);
   assert.match(css, /\.la-response-action:focus-visible/);
-  assert.match(css, /\.la-response-actions\s*\{[^}]*flex-wrap:\s*wrap/s);
+  assert.match(css, /\.la-message-editor/);
+  assert.match(css, /\.la-edit-input:focus-visible/);
+  assert.match(css, /\.la-edit-retry:focus-visible/);
+  assert.doesNotMatch(css, /\.la-response-actions[^}]*opacity:\s*0/);
 });

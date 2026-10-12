@@ -10,6 +10,12 @@ const requestSchema = z.object({
   message: z.string().trim().min(1).max(1000),
   locale: z.enum(['en', 'sw']).optional().default('en'),
 }).strict();
+const chatRequestSchema = requestSchema.extend({ turnId: z.string().uuid().optional() }).strict();
+const editRequestSchema = z.object({
+  turnId: z.string().uuid(),
+  message: z.string().trim().min(1).max(1000),
+  locale: z.enum(['en', 'sw']).optional(),
+}).strict();
 
 function cookieValue(request, name) {
   for (const part of String(request.headers.cookie || '').split(';')) {
@@ -137,7 +143,7 @@ export function assistantRouter({ service, transcriptionService = null, cookieSe
       if (!sameOriginIfPresent(request, allowedOrigins)) {
         return response.status(403).json({ error: { code: 'ORIGIN_REJECTED', message: 'This request is not allowed.' } });
       }
-      const parsed = requestSchema.safeParse(request.body);
+      const parsed = chatRequestSchema.safeParse(request.body);
       if (!parsed.success) {
         return response.status(400).json({ error: { code: 'INVALID_MESSAGE', message: 'Enter a message of up to 1,000 characters.' } });
       }
@@ -170,13 +176,14 @@ export function assistantRouter({ service, transcriptionService = null, cookieSe
         try {
           result = await service.chat({
             sessionId,
+          ...(parsed.data.turnId ? { turnId: parsed.data.turnId } : {}),
             message: parsed.data.message,
             locale: parsed.data.locale,
             signal: abortController.signal,
             onToken: (text) => writeEvent({ type: 'delta', text }),
           });
           if (abortController.signal.aborted || response.destroyed) return;
-          await writeEvent({ type: 'done', answer: result.answer, sources: result.sources || [], grounded: Boolean(result.grounded), status: result.status || 'ok', locale: result.locale || parsed.data.locale, metrics: result.metrics || {} });
+          await writeEvent({ type: 'done', answer: result.answer, turnId: result.turnId, sources: result.sources || [], grounded: Boolean(result.grounded), status: result.status || 'ok', locale: result.locale || parsed.data.locale, metrics: result.metrics || {} });
           return response.end();
         } catch (error) {
           if (abortController.signal.aborted || error?.name === 'AbortError' || response.destroyed) return;
@@ -188,6 +195,7 @@ export function assistantRouter({ service, transcriptionService = null, cookieSe
       } else {
         result = await service.chat({
           sessionId: existingSessionId,
+          ...(parsed.data.turnId ? { turnId: parsed.data.turnId } : {}),
           message: parsed.data.message,
           locale: parsed.data.locale,
         });
@@ -198,13 +206,70 @@ export function assistantRouter({ service, transcriptionService = null, cookieSe
       const metrics = Object.fromEntries(['totalDurationNs', 'loadDurationNs', 'promptTokens', 'promptEvalDurationNs', 'generatedTokens', 'generationDurationNs', 'firstTokenMs', 'retrievalMs', 'totalServiceMs']
         .filter((key) => rawMetrics[key] !== null && rawMetrics[key] !== undefined && Number.isFinite(Number(rawMetrics[key])) && Number(rawMetrics[key]) >= 0)
         .map((key) => [key, Number(rawMetrics[key])]));
-      return response.json({ answer: result.answer, sources: result.sources || [], grounded: Boolean(result.grounded), status: result.status || 'ok', locale: result.locale || parsed.data.locale, ...(Object.keys(metrics).length ? { metrics } : {}) });
+      return response.json({ answer: result.answer, ...(result.turnId ? { turnId: result.turnId } : {}), sources: result.sources || [], grounded: Boolean(result.grounded), status: result.status || 'ok', locale: result.locale || parsed.data.locale, ...(Object.keys(metrics).length ? { metrics } : {}) });
     } catch (error) {
       if (error?.status === 400) return response.status(400).json({ error: { code: 'INVALID_MESSAGE', message: 'Enter a message of up to 1,000 characters.' } });
       if (error?.status === 429) return response.status(429).json({ error: { code: 'RATE_LIMITED', message: 'Please wait a moment before sending another message.' } });
       if (error?.status === 503 || error?.name === 'TimeoutError' || error?.name === 'AbortError') return safeUnavailable(response);
       request.log?.error?.({ err: error?.constructor?.name || 'Error' }, 'local assistant request failed');
       return safeUnavailable(response);
+    }
+  });
+
+  router.post('/edit', express.json({ limit: '8kb', type: 'application/json' }), limiter, async (request, response) => {
+    if (!/^application\/json(?:\s*;|$)/iu.test(request.get('content-type') || '')) {
+      return response.status(415).json({ error: { code: 'UNSUPPORTED_CONTENT_TYPE', message: 'Send a JSON message.' } });
+    }
+    if (!sameOriginIfPresent(request, allowedOrigins)) {
+      return response.status(403).json({ error: { code: 'ORIGIN_REJECTED', message: 'This request is not allowed.' } });
+    }
+    if (typeof service.editTurn !== 'function') {
+      return response.status(503).json({ error: { code: 'EDIT_UNAVAILABLE', message: 'This conversation cannot be edited right now.' } });
+    }
+    const parsed = editRequestSchema.safeParse(request.body);
+    if (!parsed.success) return response.status(400).json({ error: { code: 'INVALID_EDIT', message: 'Enter a message of up to 1,000 characters.' } });
+    const sessionId = cookieValue(request, SESSION_COOKIE);
+    if (!sessionId) return response.status(409).json({ error: { code: 'SESSION_EXPIRED', message: 'This conversation has expired. Send the question again to start a new conversation.' } });
+
+    const abortController = new AbortController();
+    const abortOnDisconnect = () => abortController.abort();
+    request.once('aborted', abortOnDisconnect);
+    response.once('close', () => { if (!response.writableEnded) abortOnDisconnect(); });
+    response.status(200);
+    response.set({
+      'Content-Type': 'application/x-ndjson; charset=utf-8',
+      'Cache-Control': 'no-cache, no-store, no-transform',
+      'X-Accel-Buffering': 'no',
+    });
+    response.flushHeaders();
+    const writeEvent = (event) => new Promise((resolvePromise, reject) => {
+      if (response.destroyed) return reject(Object.assign(new Error('The visitor disconnected.'), { name: 'AbortError' }));
+      if (response.write(`${JSON.stringify(event)}\n`)) return resolvePromise();
+      const onDrain = () => { cleanup(); resolvePromise(); };
+      const onClose = () => { cleanup(); reject(Object.assign(new Error('The visitor disconnected.'), { name: 'AbortError' })); };
+      const cleanup = () => { response.off('drain', onDrain); response.off('close', onClose); };
+      response.once('drain', onDrain);
+      response.once('close', onClose);
+    });
+    try {
+      const result = await service.editTurn({
+        sessionId,
+        turnId: parsed.data.turnId,
+        message: parsed.data.message,
+        locale: parsed.data.locale,
+        signal: abortController.signal,
+        onToken: (text) => writeEvent({ type: 'delta', text }),
+      });
+      if (abortController.signal.aborted || response.destroyed) return;
+      await writeEvent({ type: 'done', answer: result.answer, turnId: result.turnId || parsed.data.turnId, sources: result.sources || [], grounded: Boolean(result.grounded), status: result.status || 'ok', locale: result.locale || parsed.data.locale || 'en', metrics: result.metrics || {} });
+      return response.end();
+    } catch (error) {
+      if (abortController.signal.aborted || error?.name === 'AbortError' || response.destroyed) return;
+      const safeCode = ['INSUFFICIENT_MEMORY_HEADROOM', 'MODEL_BUSY', 'MODEL_UNAVAILABLE', 'SESSION_BUSY', 'TURN_NOT_FOUND', 'SESSION_EXPIRED', 'EDIT_NOT_COMMITTED'].includes(error?.code) ? error.code : 'EDIT_FAILED';
+      await writeEvent({ type: 'error', code: safeCode, message: 'Lake Assistant could not update this turn. Your previous conversation is unchanged.' }).catch(() => {});
+      return response.end();
+    } finally {
+      request.off('aborted', abortOnDisconnect);
     }
   });
 
