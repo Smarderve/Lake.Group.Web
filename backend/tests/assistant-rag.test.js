@@ -132,7 +132,9 @@ describe('Lake Assistant RAG', () => {
     const service = createAssistantChatService({ fetchImpl });
     const answer = await service.chat({ message: 'Where are Lake Gas depots?' });
     expect(answer.grounded).toBe(true);
-    expect(answer.sources.length).toBeGreaterThan(0);
+    expect(answer.sources).toEqual([]);
+    const sources = await service.chat({ sessionId: answer.sessionId, message: 'Show me your sources.' });
+    expect(sources.sources.length).toBeGreaterThan(0);
   });
 
   it('keeps group sector contacts labeled as group-level rather than subsidiary contacts', async () => {
@@ -214,9 +216,11 @@ describe('Lake Assistant RAG', () => {
     const service = createAssistantChatService({ fetchImpl });
     const first = await service.chat({ message: 'Tell me about Lake Aviation.' });
     const second = await service.chat({ sessionId: first.sessionId, message: 'What services does it provide?' });
-    const modelRequest = requests.at(-1);
+    expect(second.sources).toEqual([]);
+    const sourceTurn = await service.chat({ sessionId: first.sessionId, message: 'Show me the sources for that.' });
+    const modelRequest = requests[1];
     expect(second.status).toBe('ok');
-    expect(second.sources.some((source) => source.url.includes('lakeoilgroup.com'))).toBe(true);
+    expect(sourceTurn.sources.some((source) => source.url.includes('lakeoilgroup.com'))).toBe(true);
     expect(modelRequest.url).toBe('http://127.0.0.1:11434/api/chat');
     expect(modelRequest.body.model).toBe('qwen3:4b-instruct-2507-q4_K_M');
     expect(modelRequest.body.think).toBe(false);
@@ -227,16 +231,40 @@ describe('Lake Assistant RAG', () => {
     expect(modelRequest.body.messages[0].content).toContain('Approved retrieved evidence');
   });
 
-  it('invokes Qwen for unsupported Lake facts and returns no unrelated evidence links', async () => {
+  it('safely answers unsupported Lake-specific facts without fabricating or returning unrelated links', async () => {
     const { requests, fetchImpl } = fakeOllama();
     const service = createAssistantChatService({ fetchImpl });
     const unsupported = await service.chat({ message: "What was Lake Group's 2024 net profit?" });
     expect(unsupported.status).toBe('no_evidence');
     expect(unsupported.grounded).toBe(false);
     expect(unsupported.sources).toEqual([]);
-    expect(requests).toHaveLength(1);
-    expect(requests[0].body.messages.map((message) => message.content).join('\n')).toContain('What was Lake Group\'s 2024 net profit?');
-    expect(requests[0].body.messages[0].content).toContain('(No relevant evidence for this turn.)');
+    expect(unsupported.answer).toMatch(/don’t have verified financial figures/i);
+    expect(unsupported.answer).not.toMatch(/\$|\b(?:million|billion)\b/i);
+    expect(requests).toHaveLength(0);
+  });
+
+  it('does not fabricate company financial figures or rankings when approved evidence has none', async () => {
+    const { requests, fetchImpl } = fakeOllama('Lake Group has a $7 billion valuation and ranks number one.');
+    const service = createAssistantChatService({ fetchImpl });
+    const valuation = await service.chat({ message: 'What is Lake Group worth?' });
+    const ranking = await service.chat({ message: 'How does Lake Group rank in East Africa?' });
+    expect(valuation.answer).toMatch(/don’t have verified financial figures/i);
+    expect(valuation.answer).not.toMatch(/\$|\bbillion\b/i);
+    expect(ranking.answer).toMatch(/verified, dated ranking source/i);
+    expect(ranking.answer).not.toMatch(/number one|\b#1\b/i);
+    expect(valuation.sources).toEqual([]);
+    expect(requests).toHaveLength(0);
+  });
+
+  it('answers general valuation concepts normally and supplies the configured server date', async () => {
+    const { requests, fetchImpl } = fakeOllama('A valuation is an estimate of economic value.');
+    const service = createAssistantChatService({ fetchImpl, now: () => Date.parse('2026-10-12T12:00:00.000Z') });
+    const definition = await service.chat({ message: 'What does company valuation mean?' });
+    const date = await service.chat({ sessionId: definition.sessionId, message: "What's today's date?" });
+    expect(definition.status).toBe('conversation');
+    expect(requests[0].body.messages[0].content).toContain('Use general knowledge to explain concepts');
+    expect(requests[1].body.messages[0].content).toContain('Server date: 12 October 2026');
+    expect(date.status).toBe('conversation');
   });
 
   it('routes unrelated/general and open-ended chat through Qwen without stale Lake evidence or links', async () => {
@@ -258,7 +286,7 @@ describe('Lake Assistant RAG', () => {
   it('deduplicates factual sources and keeps raw URLs out of Qwen answers and evidence', async () => {
     const { requests, fetchImpl } = fakeOllama('Lake Aviation supplies aviation fuel. Visit https://www.lakeoilgroup.com/lake-aviation.html');
     const service = createAssistantChatService({ fetchImpl });
-    const answer = await service.chat({ message: 'Tell me about Lake Aviation.' });
+    const answer = await service.chat({ message: 'Tell me about Lake Aviation. Show sources.' });
     expect(answer.sources).toHaveLength(1);
     expect(answer.sources[0].url).toBe('https://www.lakeoilgroup.com/lake-aviation.html');
     expect(new Set(answer.sources.map((source) => source.url)).size).toBe(answer.sources.length);
@@ -306,15 +334,14 @@ describe('Lake Assistant RAG', () => {
     const first = await service.chat({ message: 'Tell me about Lake Aviation.' });
     const more = await service.chat({ sessionId: first.sessionId, message: 'Tell me more about its operations' });
     expect(more.status).toBe('ok');
-    expect(more.sources[0].url).toBe('https://www.lakeoilgroup.com/lake-aviation.html');
+    expect(more.sources).toEqual([]);
     expect(requests[1].body.messages.map((message) => message.content).join('\n')).toContain('Tell me about Lake Aviation.');
     expect(requests[1].body.messages.map((message) => message.content).join('\n')).not.toContain('Lake Aviation provides aviation fuel and into-plane services.');
-    expect(more.sources.length).toBeLessThanOrEqual(3);
     expect(requests[1].body.messages[0].content).toContain('Resolve follow-ups from the current topic');
     const simplify = await service.chat({ sessionId: first.sessionId, message: "I don't understand" });
     expect(simplify.status).toBe('ok');
-    expect(requests[2].body.messages[0].content).toContain('Re-explain the same supported facts more simply');
-    expect(requests[2].body.messages[0].content).toContain('Lake Aviation');
+    expect(requests.at(-1).body.messages[0].content).toContain('Re-explain the same supported facts more simply');
+    expect(requests.at(-1).body.messages[0].content).toContain('Lake Aviation');
   });
 
   it('retains grounded history when a contextual follow-up has no fresh matching retrieval', async () => {
@@ -333,7 +360,7 @@ describe('Lake Assistant RAG', () => {
     const { requests, fetchImpl } = fakeOllama('Lake Gas Limited and Lake Oil Ltd. operate in Kenya.');
     const service = createAssistantChatService({ fetchImpl });
     const first = await service.chat({ message: 'Which Lake Group companies operate in Kenya?' });
-    expect(first.sources.map((source) => new URL(source.url).pathname)).toEqual(expect.arrayContaining(['/lake-gas.html', '/lake-oil.html']));
+    expect(first.sources).toEqual([]);
 
     const more = await service.chat({ sessionId: first.sessionId, message: 'Tell me more about their operations.' });
     expect(more.grounded).toBe(true);
@@ -348,7 +375,9 @@ describe('Lake Assistant RAG', () => {
     const locations = await service.chat({ sessionId: first.sessionId, message: 'Where are they located?' });
     expect(locations.grounded).toBe(true);
     expect(requests[2].body.messages[0].content).toMatch(/countries: Kenya/i);
-    expect(locations.sources.every((source) => ['/lake-gas.html', '/lake-oil.html'].includes(new URL(source.url).pathname))).toBe(true);
+    expect(locations.sources).toEqual([]);
+    const sources = await service.chat({ sessionId: first.sessionId, message: 'Show sources for that.' });
+    expect(sources.sources.map((source) => new URL(source.url).pathname)).toEqual(expect.arrayContaining(['/lake-gas.html', '/lake-oil.html']));
   });
 
   it('withholds and repairs a country contradiction against previously verified evidence', async () => {
@@ -405,7 +434,7 @@ describe('Lake Assistant RAG', () => {
   it('treats a request for company details as a company profile lookup', async () => {
     const { fetchImpl } = fakeOllama('Agrinova Tech Limited provides the supported agricultural technology information.');
     const service = createAssistantChatService({ fetchImpl });
-    const result = await service.chat({ message: 'Give me details about Agrinova Tech.' });
+    const result = await service.chat({ message: 'Give me details about Agrinova Tech. Show sources.' });
     expect(result.status).toBe('ok');
     expect(result.grounded).toBe(true);
     expect(result.sources[0].url).toBe('https://www.lakeoilgroup.com/agrinova-tech.html');
