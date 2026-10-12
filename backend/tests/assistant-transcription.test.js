@@ -20,10 +20,11 @@ describe('local Whisper transcription guardrails', () => {
 
   it('fails closed on invalid audio, missing runtime, and low memory', async () => {
     const service = createAssistantTranscriptionService({ cliPath: 'missing-whisper-cli.exe', modelPath: 'missing-model.bin', memoryProvider: () => 4 * 1024 * 1024 * 1024 });
-    expect(service.health()).toEqual({ available: false, memoryReady: true });
+    expect(service.health()).toEqual({ available: false, memoryReady: true, reason: 'runtime_unavailable' });
     await expect(service.transcribe({ audio: Buffer.from('not wav'), locale: 'en' })).rejects.toMatchObject({ status: 400, code: 'INVALID_AUDIO' });
     const constrained = createAssistantTranscriptionService({ memoryProvider: () => 1 });
     expect(constrained.health().memoryReady).toBe(false);
+    expect(constrained.health().reason).toBe('insufficient_memory');
     await expect(constrained.transcribe({ audio: makeWav(), locale: 'en' })).rejects.toMatchObject({ status: 503, code: 'TRANSCRIPTION_MEMORY_GUARD' });
   });
 

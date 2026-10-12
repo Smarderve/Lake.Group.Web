@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   if (window.LakeAssistantV2 || window.LAKE_ASSISTANT_ENABLED === false) return;
-  var refs = {}, index, assets, companies = [], kbMetadata = null, welcomeTimer = null, welcomeTyping = null, welcomeText = '', welcomeToken = 0, hasWelcomed = false, activeChatController = null, chatStreamActive = false, chatStreamFollow = true, voiceState = { stream: null, pcmChunks: [], pcmSamples: 0, pcmSampleRate: 0, captureContext: null, captureSource: null, captureProcessor: null, captureGain: null, partialTimer: null, partialPromise: null, partialController: null, partialCursor: 0, timer: null, counterTimer: null, recordingStartedAt: 0, meterContext: null, meterSource: null, meterAnalyser: null, meterFrame: 0, meterLevel: 0, controller: null, mode: '', session: 0, active: false, pending: false, localReady: false, sendAfterTranscript: false, finalText: '', detectedLanguage: '', baseText: '', submitted: false, locale: 'en-US' };
+  var refs = {}, index, assets, companies = [], kbMetadata = null, welcomeTimer = null, welcomeTyping = null, welcomeText = '', welcomeToken = 0, hasWelcomed = false, activeChatController = null, chatStreamActive = false, chatStreamFollow = true, voiceState = { stream: null, pcmChunks: [], pcmSamples: 0, pcmSampleRate: 0, captureContext: null, captureSource: null, captureProcessor: null, captureGain: null, partialTimer: null, partialPromise: null, partialController: null, partialCursor: 0, timer: null, counterTimer: null, recordingStartedAt: 0, meterContext: null, meterSource: null, meterAnalyser: null, meterFrame: 0, meterLevel: 0, controller: null, mode: '', session: 0, active: false, pending: false, localReady: false, healthTimer: null, healthFailures: 0, sendAfterTranscript: false, finalText: '', detectedLanguage: '', baseText: '', submitted: false, locale: 'en-US' };
   var groupEntity = { name: 'Lake Group', route: 'about.html', aliases: ['Lake Group', 'Lake Oil Group'] };
   var routes = {
     CONTACT: ['contact.html', 'Contact Lake Group'], CAREERS: ['careers.html', 'Careers at Lake Group'],
@@ -451,21 +451,45 @@
       setVoiceUnavailable('Voice input is not supported in this browser. Use a current browser over HTTPS.', 'Voice input unavailable: this browser does not support the required microphone recording APIs.');
       return;
     }
-    fetch(voiceEndpoint('voice-health'), { credentials: 'same-origin', cache: 'no-store' }).then(function (response) {
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) checkVoiceAvailability(); });
+    window.addEventListener('online', checkVoiceAvailability);
+    checkVoiceAvailability();
+  }
+  function checkVoiceAvailability() {
+    if (!canRecordLocally() || voiceState.active || voiceState.pending) return;
+    window.clearTimeout(voiceState.healthTimer);
+    fetch(voiceEndpoint('voice-health'), { credentials: 'same-origin', cache: 'no-store', signal: AbortSignal.timeout(5000) }).then(function (response) {
       if (!response.ok) throw new Error('Voice service unavailable.');
       return response.json();
     }).then(function (payload) {
       voiceState.localReady = !!(payload && payload.ready);
       if (voiceState.localReady) {
+        voiceState.healthFailures = 0;
         refs.voiceButton.disabled = false;
         refs.voiceButton.classList.remove('is-unavailable');
         refs.voiceButton.removeAttribute('aria-disabled');
         refs.voiceButton.title = 'Voice input (pauses do not stop recording)';
         refs.voiceButton.setAttribute('aria-label', 'Start voice input');
-      } else setVoiceUnavailable();
+        if (refs.voiceMessage.textContent.indexOf('Voice input') === 0 || refs.voiceMessage.textContent.indexOf('The private') === 0) voiceUi('', false);
+      } else {
+        voiceState.healthFailures = Math.min(voiceState.healthFailures + 1, 4);
+        var reason = payload && payload.reason;
+        var message = reason === 'insufficient_memory'
+          ? 'Voice input is temporarily paused while the device is low on available memory. You can still type.'
+          : 'Voice transcription is temporarily unavailable. Please try again later or type your message.';
+        var label = reason === 'insufficient_memory' ? 'Voice input temporarily unavailable: available device memory is below the safe transcription requirement.' : 'Voice input temporarily unavailable: the private transcription runtime is not ready.';
+        setVoiceUnavailable(message, label);
+      }
     }).catch(function () {
+      voiceState.localReady = false;
+      voiceState.healthFailures = Math.min(voiceState.healthFailures + 1, 4);
       voiceDiagnostic('VOICE_HEALTH_UNAVAILABLE');
-      setVoiceUnavailable();
+      setVoiceUnavailable('The private voice service cannot be reached right now. You can still type; voice will retry automatically.', 'Voice input temporarily unavailable: the private assistant service is offline.');
+    }).finally(function () {
+      if (!voiceState.localReady && canRecordLocally()) {
+        var retryDelay = Math.min(15000 * Math.pow(2, Math.max(0, voiceState.healthFailures - 1)), 60000);
+        voiceState.healthTimer = window.setTimeout(checkVoiceAvailability, retryDelay);
+      }
     });
   }
   function setVoiceUnavailable(message, accessibleLabel) {
@@ -764,8 +788,14 @@
       voiceState.submitted = true; voiceState.active = false; voiceState.pending = false; voiceState.mode = '';
       refs.input.readOnly = false; renderVoiceDraft();
       voiceState.sendAfterTranscript = false;
-      voiceUi(error && error.code === 'NO_SPEECH' ? 'No speech was recognized. Your draft is still here.' : 'Transcription failed. Your recognized words and typed draft are still editable.', true);
+      var code = error && error.code;
+      var failureMessage = code === 'NO_SPEECH' ? 'No speech was recognized. Your draft is still here.'
+        : code === 'TRANSCRIPTION_MEMORY_GUARD' ? 'Voice transcription is paused because available memory is below the safe limit. Your draft is still editable.'
+          : code === 'TRANSCRIPTION_UNAVAILABLE' || code === 'ASSISTANT_PROXY_UNAVAILABLE' ? 'The private voice service is unavailable right now. Your draft is still editable.'
+            : 'Transcription failed. Your recognized words and typed draft are still editable.';
+      voiceUi(failureMessage, true);
       focusVoiceDraft();
+      if (code === 'TRANSCRIPTION_MEMORY_GUARD' || code === 'TRANSCRIPTION_UNAVAILABLE' || code === 'ASSISTANT_PROXY_UNAVAILABLE') checkVoiceAvailability();
     });
   }
   function cancelVoice(restoreFocus) {

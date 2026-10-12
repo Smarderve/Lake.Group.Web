@@ -63,9 +63,11 @@ function harness(SpeechRecognition = class {}) {
 
 function userMessages(messages) { return messages.children.filter((item) => item.className.includes('la-user')); }
 
-test('voice recording uses the private MediaRecorder pipeline, not silence-sensitive speech recognition', () => {
-  assert.match(assistantCode, /navigator\.mediaDevices && navigator\.mediaDevices\.getUserMedia && window\.MediaRecorder/);
-  assert.match(assistantCode, /recorder\.start\(250\)/);
+test('voice recording uses the private captured-audio pipeline, not silence-sensitive speech recognition', () => {
+  assert.match(assistantCode, /navigator\.mediaDevices && navigator\.mediaDevices\.getUserMedia && \(window\.AudioContext \|\| window\.webkitAudioContext\)/);
+  assert.match(assistantCode, /createScriptProcessor\(4096, 1, 1\)/);
+  assert.match(assistantCode, /function encodeCapturedWav\(/);
+  assert.match(assistantCode, /function requestPartialTranscription\(/);
   assert.doesNotMatch(assistantCode, /SpeechRecognition|onspeechend/);
   assert.match(assistantCode, /voiceEndpoint\('voice-health'\)/);
   assert.match(assistantCode, /voiceEndpoint\('transcribe'\)/);
@@ -74,7 +76,7 @@ test('voice recording uses the private MediaRecorder pipeline, not silence-sensi
 test('recording remains active until an explicit stop, send, cancel, or visible 30-second safety limit', () => {
   assert.match(assistantCode, /voiceState\.timer = window\.setTimeout\(function \(\) \{[\s\S]*?Time limit reached/);
   assert.match(assistantCode, /remaining <= 5 \? remaining \+ ' sec left · recording will stop'/);
-  assert.match(assistantCode, /function stopVoice\(\)[\s\S]*?voiceState\.recorder\.stop\(\)/);
+  assert.match(assistantCode, /function stopVoice\(\)[\s\S]*?encodeCapturedWav\(0, Infinity\)/);
   assert.match(assistantCode, /function cancelVoice\(restoreFocus\)[\s\S]*?voiceState\.controller\.abort\(\)/);
   assert.doesNotMatch(assistantCode, /setTimeout\(stopVoice,\s*\d+\)/);
 });

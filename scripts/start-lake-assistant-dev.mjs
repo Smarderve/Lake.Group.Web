@@ -55,8 +55,7 @@ async function selectDevelopmentPorts() {
     try {
       const { response, payload } = await getJson(`http://127.0.0.1:${backendPort}/api/assistant/health`);
       if (response.ok && payload.status === 'ready') {
-        const voice = await getJson(`http://127.0.0.1:${backendPort}/api/assistant/voice-health`);
-        reusable = voice.response.ok && voice.payload.ready;
+        reusable = true;
       }
     } catch { reusable = false; }
     if (!reusable) {
@@ -158,8 +157,9 @@ async function ensureBackend() {
       const { response, payload } = await getJson(`http://127.0.0.1:${backendPort}/api/assistant/health`);
       if (response.ok && payload.status === 'ready') {
         const voice = await getJson(`http://127.0.0.1:${backendPort}/api/assistant/voice-health`);
-        if (!voice.response.ok || !voice.payload.ready) fail(`The API is ready, but private Whisper transcription is not ready on port ${backendPort}.`);
-        console.log(`Reusing ready Lake Assistant API and private Whisper on port ${backendPort}.`);
+        console.log(voice.response.ok && voice.payload.ready
+          ? `Reusing ready Lake Assistant API and private Whisper on port ${backendPort}.`
+          : `Reusing ready Lake Assistant API on port ${backendPort}; voice transcription is unavailable (${voice.payload.reason || 'service unavailable'}).`);
         return;
       }
     } catch { /* report the occupied port below */ }
@@ -177,11 +177,12 @@ async function ensureBackend() {
   });
   await waitFor(async () => {
     const { response, payload } = await getJson(`http://127.0.0.1:${backendPort}/api/assistant/health`);
-    if (!response.ok || payload.status !== 'ready') return false;
-    const voice = await getJson(`http://127.0.0.1:${backendPort}/api/assistant/voice-health`);
-    return voice.response.ok && voice.payload.ready;
+    return response.ok && payload.status === 'ready';
   }, backend, 'Lake Assistant API', 30_000);
-  console.log(`Lake Assistant API and private Whisper are ready on 127.0.0.1:${backendPort}.`);
+  const voice = await getJson(`http://127.0.0.1:${backendPort}/api/assistant/voice-health`);
+  console.log(voice.response.ok && voice.payload.ready
+    ? `Lake Assistant API and private Whisper are ready on 127.0.0.1:${backendPort}.`
+    : `Lake Assistant API is ready on 127.0.0.1:${backendPort}; voice transcription is unavailable (${voice.payload.reason || 'service unavailable'}).`);
 }
 
 const mimeTypes = {

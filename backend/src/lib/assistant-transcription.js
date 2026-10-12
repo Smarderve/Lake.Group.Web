@@ -65,7 +65,13 @@ export function createAssistantTranscriptionService({ cliPath = DEFAULT_CLI, mod
   let active = false;
   return {
     health() {
-      return { available: existsSync(cliPath) && existsSync(modelPath), memoryReady: memoryProvider() >= MIN_FREE_MEMORY_BYTES };
+      const available = existsSync(cliPath) && existsSync(modelPath);
+      const memoryReady = memoryProvider() >= MIN_FREE_MEMORY_BYTES;
+      return {
+        available,
+        memoryReady,
+        reason: !available ? 'runtime_unavailable' : !memoryReady ? 'insufficient_memory' : 'ready',
+      };
     },
     async transcribe({ audio, language = 'auto', signal } = {}) {
       if (active) throw Object.assign(new Error('A transcription is already running.'), { status: 429, code: 'TRANSCRIPTION_BUSY' });

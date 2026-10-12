@@ -23,8 +23,8 @@ function appWithTranscription(transcriptionService) {
 
 describe('private assistant voice transcription API', () => {
   it('reports unavailable until the local runtime, model, and memory are ready', async () => {
-    const app = appWithTranscription({ health: () => ({ available: true, memoryReady: false }) });
-    await request(app).get('/api/assistant/voice-health').expect(200, { ready: false });
+    const app = appWithTranscription({ health: () => ({ available: true, memoryReady: false, reason: 'insufficient_memory' }) });
+    await request(app).get('/api/assistant/voice-health').expect(200, { ready: false, reason: 'insufficient_memory' });
   });
 
   it('accepts a bounded WAV and returns only the recognized text', async () => {

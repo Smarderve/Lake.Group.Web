@@ -86,9 +86,10 @@ export function assistantRouter({ service, transcriptionService = null, cookieSe
     try {
       const status = transcriptionService?.health?.();
       const ready = Boolean(status?.available && status?.memoryReady);
-      return response.status(200).json({ ready });
+      const reason = ready ? 'ready' : status?.reason || (!status ? 'runtime_unavailable' : !status.available ? 'runtime_unavailable' : 'insufficient_memory');
+      return response.status(200).json({ ready, reason });
     } catch {
-      return response.status(200).json({ ready: false });
+      return response.status(200).json({ ready: false, reason: 'runtime_unavailable' });
     }
   });
 
