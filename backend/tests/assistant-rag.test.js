@@ -329,6 +329,79 @@ describe('Lake Assistant RAG', () => {
     expect(requests[1].body.messages[0].content).toContain('Approved retrieved evidence');
   });
 
+  it('preserves Kenya facts and source references across company follow-ups without widening the topic', async () => {
+    const { requests, fetchImpl } = fakeOllama('Lake Gas Limited and Lake Oil Ltd. operate in Kenya.');
+    const service = createAssistantChatService({ fetchImpl });
+    const first = await service.chat({ message: 'Which Lake Group companies operate in Kenya?' });
+    expect(first.sources.map((source) => new URL(source.url).pathname)).toEqual(expect.arrayContaining(['/lake-gas.html', '/lake-oil.html']));
+
+    const more = await service.chat({ sessionId: first.sessionId, message: 'Tell me more about their operations.' });
+    expect(more.grounded).toBe(true);
+    const followUpPrompt = requests[1].body.messages[0].content;
+    expect(followUpPrompt).toContain('Which Lake Group companies operate in Kenya?');
+    expect(followUpPrompt).toContain('Lake Gas Limited');
+    expect(followUpPrompt).toContain('Lake Oil Ltd.');
+    expect(followUpPrompt).toMatch(/countries: Kenya/i);
+    expect(followUpPrompt).toContain('Clean energy for households and business.');
+    expect(followUpPrompt).not.toContain('Connecting Port Operations with Inland Logistics');
+
+    const locations = await service.chat({ sessionId: first.sessionId, message: 'Where are they located?' });
+    expect(locations.grounded).toBe(true);
+    expect(requests[2].body.messages[0].content).toMatch(/countries: Kenya/i);
+    expect(locations.sources.every((source) => ['/lake-gas.html', '/lake-oil.html'].includes(new URL(source.url).pathname))).toBe(true);
+  });
+
+  it('withholds and repairs a country contradiction against previously verified evidence', async () => {
+    const requests = [];
+    const responses = [
+      'Lake Gas Limited and Lake Oil Ltd. operate in Kenya.',
+      'The evidence does not specify any Lake Group companies that operate in Kenya. There is no mention of Kenya.',
+      'The evidence does not specify any Lake Group companies that operate in Kenya. There is no mention of Kenya.',
+    ];
+    const metrics = { total_duration: 1_000_000_000, load_duration: 100_000_000, prompt_eval_count: 120, prompt_eval_duration: 200_000_000, eval_count: 40, eval_duration: 600_000_000 };
+    const fetchImpl = vi.fn(async (_url, options) => {
+      const body = JSON.parse(options.body);
+      requests.push(body);
+      const content = responses[requests.length - 1] || responses.at(-1);
+      if (body.stream) return new Response(`${JSON.stringify({ message: { content } })}\n${JSON.stringify({ ...metrics, done: true })}\n`, { headers: { 'Content-Type': 'application/x-ndjson' } });
+      return new Response(JSON.stringify({ message: { content }, ...metrics }), { headers: { 'Content-Type': 'application/json' } });
+    });
+    const service = createAssistantChatService({ fetchImpl });
+    const first = await service.chat({ message: 'Which Lake Group companies operate in Kenya?' });
+    const onToken = vi.fn();
+    const followUp = await service.chat({ sessionId: first.sessionId, message: 'Tell me more about their operations.', onToken });
+
+    expect(requests).toHaveLength(3);
+    expect(requests[2].messages[0].content).toContain('Your draft contradicts the visitor');
+    expect(followUp.answer).toContain('Lake Gas Limited and Lake Oil Ltd. operate in Kenya');
+    expect(followUp.answer).not.toMatch(/no mention of Kenya|does not specify any Lake Group companies/i);
+    expect(onToken).toHaveBeenCalledTimes(1);
+    expect(onToken).toHaveBeenCalledWith(followUp.answer);
+  });
+
+  it('chooses answer language from message content, honors explicit changes, and carries it through ambiguous follow-ups', async () => {
+    const { requests, fetchImpl } = fakeOllama('Jibu lililothibitishwa.');
+    const service = createAssistantChatService({ fetchImpl });
+    const first = await service.chat({ message: 'Tell me about Lake Aviation.', locale: 'sw' });
+    expect(requests[0].body.messages[0].content).toContain('Respond in English.');
+
+    await service.chat({ sessionId: first.sessionId, message: 'More.', locale: 'sw' });
+    expect(requests[1].body.messages[0].content).toContain('Respond in English.');
+
+    await service.chat({ sessionId: first.sessionId, message: 'Explain that in Kiswahili.', locale: 'en' });
+    expect(requests[2].body.messages[0].content).toContain('Respond in Kiswahili.');
+
+    const swahiliQuestion = 'Kampuni za Lake Group zinafanya kazi wapi?';
+    await service.chat({ sessionId: first.sessionId, message: swahiliQuestion, locale: 'en' });
+    const swahiliPrompts = requests.filter((request) => request.body.messages.at(-1)?.content === swahiliQuestion).map((request) => request.body.messages[0].content);
+    expect(swahiliPrompts.length).toBeGreaterThan(0);
+    expect(swahiliPrompts.every((prompt) => prompt.includes('Respond in Kiswahili.'))).toBe(true);
+
+    await service.chat({ sessionId: first.sessionId, message: 'Where is Lake Group headquarters?', locale: 'sw' });
+    const englishPrompts = requests.filter((request) => request.body.messages.at(-1)?.content === 'Where is Lake Group headquarters?').map((request) => request.body.messages[0].content);
+    expect(englishPrompts.every((prompt) => prompt.includes('Respond in English.'))).toBe(true);
+  });
+
   it('treats a request for company details as a company profile lookup', async () => {
     const { fetchImpl } = fakeOllama('Agrinova Tech Limited provides the supported agricultural technology information.');
     const service = createAssistantChatService({ fetchImpl });
