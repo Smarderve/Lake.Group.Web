@@ -48,13 +48,23 @@ for (const [asset, assetVersions] of versions) {
 }
 
 const precacheRelease = release;
-release = '20261011-01';
+release = '20261012-01';
 const sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8');
 if (!new RegExp('v\\d+-' + release.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\$&')).test(sw)) {
   errors.push('sw.js: release version is not current');
 }
 for (const asset of critical.filter((name) => name !== 'theme.css')) {
   if (!sw.includes(asset + '?v=' + precacheRelease)) errors.push('sw.js: missing current precache URL for ' + asset);
+}
+for (const [asset, version] of [['assistant.js', release], ['assistant.css', release]]) {
+  const url = `assets/${asset}?v=${version}`;
+  if (!sw.includes(url)) errors.push('sw.js: missing current assistant precache URL ' + url);
+  for (const file of htmlFiles) {
+    const source = fs.readFileSync(path.join(root, file), 'utf8');
+    if (source.includes(`assets/${asset}?v=`) && !source.includes(url)) {
+      errors.push(file + ': stale assistant asset version for ' + asset);
+    }
+  }
 }
 
 const vercel = fs.readFileSync(path.join(root, 'vercel.json'), 'utf8');

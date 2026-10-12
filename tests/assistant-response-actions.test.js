@@ -16,6 +16,8 @@ test('completed assistant replies receive the six actions once in the required o
   assert.deepEqual(positions, [...positions].sort((a, b) => a - b));
   assert.match(actionBuilder, /if \(!article \|\| article\._actionBar\) return/);
   assert.match(js, /addResponseActions\(answerArticle, answerText, payload\.locale\)/);
+  assert.match(js, /if \(\(response\.headers\.get\('Content-Type'\) \|\| ''\)\.toLowerCase\(\)\.indexOf\('application\/x-ndjson'\) >= 0\)[\s\S]*?var answerText = String\(payload && payload\.answer \|\| ''\)\.trim\(\)[\s\S]*?addResponseActions\(answerArticle, answerText, payload\.locale\)/);
+  assert.match(js, /if \(!controller\.signal\.aborted\) draw\(\{ role: 'bot', text: 'Lake Assistant is temporarily unavailable/);
 });
 
 test('copy and share operate on answer text only, with clipboard fallback and explicit sharing choices', () => {

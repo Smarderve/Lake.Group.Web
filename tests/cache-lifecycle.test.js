@@ -18,7 +18,9 @@ for (const url of urls) {
   assert.ok(fs.existsSync(path.join(ROOT, pathname)), `precache entry exists: ${url}`);
 }
 
-assert.match(sw, /const VERSION = 'v96-20261011-01'/);
+assert.match(sw, /const VERSION = 'v97-20261012-01'/);
+assert.ok(urls.includes('./assets/assistant.js?v=20261012-01'), 'assistant JavaScript precache uses the current release');
+assert.ok(urls.includes('./assets/assistant.css?v=20261012-01'), 'assistant CSS precache uses the current release');
 assert.match(sw, /await self\.skipWaiting\(\)/, 'the current worker activates without waiting for closed tabs');
 assert.match(sw, /await self\.clients\.claim\(\)/, 'future navigations are claimed without reloading visible tabs');
 assert.match(sw, /name\.startsWith\('lake-'\) && !KNOWN_CACHES\.includes\(name\)/);
@@ -27,4 +29,4 @@ assert.match(sw, /request\.mode === 'navigate' \|\| request\.destination === 'do
 assert.match(sw, /return 'network-first-asset'/);
 assert.doesNotMatch(sw, /terminal-overview\.jpg|fleet-loading\.jpg|depot-terminal\.jpg/);
 
-console.log(`Cache lifecycle check: ${urls.length} precache entries validated; v96 network-first lifecycle controls present.`);
+console.log(`Cache lifecycle check: ${urls.length} precache entries validated; v97 network-first lifecycle controls present.`);

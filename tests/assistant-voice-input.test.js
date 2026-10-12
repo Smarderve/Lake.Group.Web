@@ -96,10 +96,13 @@ test('outside-click closing still aborts recording and leaves the page click ava
 });
 
 test('voice control stays visible and accessibly disabled when the private service is unavailable', () => {
-  assert.match(assistantCode, /function setVoiceUnavailable\([^)]*\)[\s\S]*?refs\.voiceButton\.hidden = false/);
+  const unavailableHandler = assistantCode.slice(assistantCode.indexOf('function setVoiceUnavailable('), assistantCode.indexOf('function voiceUi(', assistantCode.indexOf('function setVoiceUnavailable(')));
+  assert.match(unavailableHandler, /refs\.voiceButton\.hidden = false/);
   assert.match(assistantCode, /refs\.voiceButton\.classList\.add\('is-unavailable'\)/);
   assert.match(assistantCode, /refs\.voiceButton\.setAttribute\('aria-disabled', 'true'\)/);
   assert.match(assistantCode, /private transcription service is not ready/);
+  assert.match(unavailableHandler, /refs\.voiceStatus\.hidden = true/);
+  assert.doesNotMatch(unavailableHandler, /voiceUi\(/);
 });
 
 test('composer uses one integrated bar, the approved placeholder, and inline recording controls', () => {
@@ -109,5 +112,7 @@ test('composer uses one integrated bar, the approved placeholder, and inline rec
   assert.match(assistantCode, /form\.append\(input, composerControls\)/);
   assert.match(assistantCode, /refs\.voiceWave\.hidden = !voiceState\.active && !voiceState\.pending/);
   assert.doesNotMatch(css, /\.la-voice-status\s*\{[^}]*position:\s*absolute/s);
-  assert.match(css, /\.la-form\s*\{[^}]*display:\s*grid/s);
+  assert.match(css, /\.la-form\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)\s+auto/s);
+  assert.doesNotMatch(css, /\.la-form:focus-within/);
+  assert.match(assistantCode, /function growInput\(\)\s*\{\s*refs\.input\.style\.height = '0px';\s*refs\.input\.style\.height = Math\.min\(refs\.input\.scrollHeight, 104\)/);
 });

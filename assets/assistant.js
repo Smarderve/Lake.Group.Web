@@ -466,8 +466,8 @@
     if (restoreFocus) refs.launcher.focus({ preventScroll: true });
   }
   function growInput() {
-    refs.input.style.height = 'auto';
-    refs.input.style.height = Math.min(refs.input.scrollHeight, 120) + 'px';
+    refs.input.style.height = '0px';
+    refs.input.style.height = Math.min(refs.input.scrollHeight, 104) + 'px';
   }
   function trapTab(event) {
     if (event.key !== 'Tab') return;
@@ -623,7 +623,7 @@
     refs.voiceButton.title = 'Checking private voice input…';
     refs.voiceButton.setAttribute('aria-label', 'Checking private voice input availability');
     if (!localCaptureAvailable) {
-      setVoiceUnavailable('Voice input is not supported in this browser. Use a current browser over HTTPS.', 'Voice input unavailable: this browser does not support the required microphone recording APIs.');
+      setVoiceUnavailable('Voice input unavailable: this browser does not support the required microphone recording APIs.');
       return;
     }
     document.addEventListener('visibilitychange', function () { if (!document.hidden) checkVoiceAvailability(); });
@@ -645,21 +645,17 @@
         refs.voiceButton.removeAttribute('aria-disabled');
         refs.voiceButton.title = 'Voice input (pauses do not stop recording)';
         refs.voiceButton.setAttribute('aria-label', 'Start voice input');
-        if (refs.voiceMessage.textContent.indexOf('Voice input') === 0 || refs.voiceMessage.textContent.indexOf('The private') === 0) voiceUi('', false);
       } else {
         voiceState.healthFailures = Math.min(voiceState.healthFailures + 1, 4);
         var reason = payload && payload.reason;
-        var message = reason === 'insufficient_memory'
-          ? 'Voice input is temporarily paused while the device is low on available memory. You can still type.'
-          : 'Voice transcription is temporarily unavailable. Please try again later or type your message.';
         var label = reason === 'insufficient_memory' ? 'Voice input temporarily unavailable: available device memory is below the safe transcription requirement.' : 'Voice input temporarily unavailable: the private transcription runtime is not ready.';
-        setVoiceUnavailable(message, label);
+        setVoiceUnavailable(label);
       }
     }).catch(function () {
       voiceState.localReady = false;
       voiceState.healthFailures = Math.min(voiceState.healthFailures + 1, 4);
       voiceDiagnostic('VOICE_HEALTH_UNAVAILABLE');
-      setVoiceUnavailable('The private voice service cannot be reached right now. You can still type; voice will retry automatically.', 'Voice input temporarily unavailable: the private assistant service is offline.');
+      setVoiceUnavailable('Voice input temporarily unavailable: the private assistant service is offline.');
     }).finally(function () {
       if (!voiceState.localReady && canRecordLocally()) {
         var retryDelay = Math.min(15000 * Math.pow(2, Math.max(0, voiceState.healthFailures - 1)), 60000);
@@ -667,15 +663,18 @@
       }
     });
   }
-  function setVoiceUnavailable(message, accessibleLabel) {
+  function setVoiceUnavailable(accessibleLabel) {
     refs.voiceButton.hidden = false;
     refs.voiceButton.disabled = true;
     refs.voiceButton.classList.add('is-unavailable');
     refs.voiceButton.title = accessibleLabel || 'Voice input unavailable: the private transcription service is not ready.';
     refs.voiceButton.setAttribute('aria-disabled', 'true');
-    voiceUi(message || 'Voice input is unavailable right now. You can still type.', true);
+    refs.voiceStatus.hidden = true;
+    refs.voiceMessage.textContent = '';
+    refs.form.classList.remove('la-voice-live');
+    refs.voiceButton.classList.remove('is-listening');
+    refs.voiceStatus.classList.remove('is-listening', 'is-processing');
     refs.voiceButton.setAttribute('aria-label', refs.voiceButton.title);
-    window.setTimeout(function () { if (!voiceState.active && !voiceState.pending) voiceUi('', false); }, 4200);
   }
   function voiceUi(message, visible) {
     refs.voiceStatus.hidden = !visible;
@@ -702,7 +701,6 @@
     if (session !== voiceState.session || voiceState.submitted) return;
     window.clearTimeout(voiceState.timer); voiceState.timer = null;
     voiceState.submitted = true;
-    var mode = voiceState.mode;
     var sendAfterTranscript = voiceState.sendAfterTranscript;
     voiceState.sendAfterTranscript = false;
     var finalText = String(voiceState.finalText || '').trim();
@@ -712,14 +710,16 @@
     voiceState.pcmChunks = []; voiceState.pcmSamples = 0;
     if (finalText) {
       renderVoiceDraft();
-      var languageLabel = voiceState.detectedLanguage === 'sw' ? ' in Kiswahili' : voiceState.detectedLanguage === 'en' ? ' in English' : '';
-      voiceUi((mode === 'local' ? 'Transcript ready' + languageLabel : 'Transcript ready') + ' — review before sending.', true);
+      voiceUi('', false);
+      refs.voiceButton.title = 'Transcript ready. Review the text in the message field before sending.';
+      refs.voiceButton.setAttribute('aria-label', refs.voiceButton.title);
     } else {
       refs.input.value = voiceState.baseText; growInput();
-      voiceUi('No speech was recognized. You can try again or type your message.', true);
+      voiceUi('', false);
+      refs.voiceButton.title = 'No speech was recognized. Try again or type your message.';
+      refs.voiceButton.setAttribute('aria-label', refs.voiceButton.title);
     }
     focusVoiceDraft();
-    window.setTimeout(function () { if (session === voiceState.session && !voiceState.active && !voiceState.pending) voiceUi('', false); }, finalText ? 2200 : 2500);
     if (sendAfterTranscript && finalText && refs.input.value.trim()) window.setTimeout(function () {
       if (session === voiceState.session && !voiceState.active && !voiceState.pending) refs.form.requestSubmit();
     }, 0);
@@ -743,7 +743,11 @@
     stopVoiceMeter();
     refs.input.readOnly = false;
     refs.input.value = voiceState.baseText; growInput();
-    if (message) voiceUi(message, true);
+    if (message) {
+      voiceUi('', false);
+      refs.voiceButton.title = message;
+      refs.voiceButton.setAttribute('aria-label', message);
+    }
     focusVoiceDraft();
   }
   function startVoice() {
@@ -754,8 +758,9 @@
     else voiceUi('Voice input is unavailable. You can type your message instead.', true);
   }
   async function startLocalVoice(session) {
-    voiceState.mode = 'local'; voiceState.active = true; refs.input.readOnly = true;
-    voiceUi('Listening…', true);
+    voiceState.mode = 'local'; voiceState.pending = true; voiceState.active = false; refs.input.readOnly = true;
+    refs.voiceButton.title = 'Waiting for microphone access';
+    refs.voiceButton.setAttribute('aria-label', 'Waiting for microphone access');
     var stream;
     try { stream = await navigator.mediaDevices.getUserMedia({ audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true, autoGainControl: true } }); }
     catch (error) {
@@ -783,9 +788,10 @@
       };
       source.connect(processor); processor.connect(silentGain); silentGain.connect(context.destination);
       voiceState.captureContext = context; voiceState.captureSource = source; voiceState.captureProcessor = processor; voiceState.captureGain = silentGain;
-      voiceState.pcmSampleRate = context.sampleRate; voiceState.active = true;
+      voiceState.pcmSampleRate = context.sampleRate;
       if (context.state === 'suspended') await context.resume();
       if (session !== voiceState.session) { stopVoiceTracks(); return; }
+      voiceState.pending = false; voiceState.active = true;
       voiceState.recordingStartedAt = Date.now(); voiceState.meterLevel = 0;
       voiceUi('Recording · 0:00 / 0:30', true);
       startVoiceMeter(stream, session);
