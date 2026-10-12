@@ -77,7 +77,7 @@ test('feedback is per assistant message, mutually exclusive, and regeneration us
   assert.match(js, /article\._ratingButtons\.up\.setAttribute\('aria-pressed', rating === 'up' \? 'true' : 'false'\)/);
   assert.match(js, /article\._ratingButtons\.down\.setAttribute\('aria-pressed', rating === 'down' \? 'true' : 'false'\)/);
   assert.match(js, /function openFeedbackDialog\(article, button\)/);
-  assert.match(js, /\['Visual is unhelpful or broken', 'Incorrect or incomplete', 'Not what I asked for', 'Slow or buggy', 'Style or tone', 'Safety or legal concern', 'Other'\]/);
+  assert.match(js, /\['Incorrect information', "Didn't answer my question", 'Incomplete or vague answer', 'Lost conversation context', 'Outdated information', 'Unreliable or irrelevant sources', 'Wrong language or unclear wording', 'Slow response or technical issue', 'Safety or privacy concern', 'Other'\]/);
   assert.match(js, /sessionFeedback\[article\._messageId\] = record/);
   assert.match(js, /article\._feedback = record/);
   const feedbackDialog = js.slice(js.indexOf('function openFeedbackDialog('), js.indexOf('function openShareDialog('));

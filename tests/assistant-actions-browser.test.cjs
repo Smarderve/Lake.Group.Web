@@ -253,13 +253,18 @@ test('actual Chrome website renders message actions, retries and rewrites edited
   const feedback = page.getByRole('dialog', { name: 'Share feedback' });
   await feedback.waitFor({ state: 'visible' });
   assert.equal(await negativeButton.getAttribute('aria-pressed'), 'false', 'Dislike is not saved before Submit');
-  assert.equal(await feedback.locator('.la-feedback-category').count(), 7);
+  assert.equal(await feedback.locator('.la-feedback-category').count(), 10);
+  assert.deepEqual(await feedback.locator('.la-feedback-category').allTextContents(), [
+    'Incorrect information', "Didn't answer my question", 'Incomplete or vague answer', 'Lost conversation context', 'Outdated information',
+    'Unreliable or irrelevant sources', 'Wrong language or unclear wording', 'Slow response or technical issue', 'Safety or privacy concern', 'Other',
+  ]);
   assert.equal(await feedback.getByRole('button', { name: 'Submit' }).isDisabled(), true, 'Submit requires a category or details');
   await page.screenshot({ path: path.join(evidenceDir, 'reaction-feedback-dialog.png'), fullPage: false });
-  await feedback.getByRole('button', { name: 'Incorrect or incomplete' }).click();
-  await feedback.getByRole('button', { name: 'Style or tone' }).click();
-  assert.equal(await feedback.getByRole('button', { name: 'Incorrect or incomplete' }).getAttribute('aria-pressed'), 'true');
-  assert.equal(await feedback.getByRole('button', { name: 'Style or tone' }).getAttribute('aria-pressed'), 'true');
+  await feedback.getByRole('button', { name: 'Incorrect information' }).click();
+  await feedback.getByRole('button', { name: 'Wrong language or unclear wording' }).click();
+  assert.equal(await feedback.getByRole('button', { name: 'Incorrect information' }).getAttribute('aria-pressed'), 'true');
+  assert.equal(await feedback.getByRole('button', { name: 'Wrong language or unclear wording' }).getAttribute('aria-pressed'), 'true');
+  assert.equal(await feedback.locator('.la-feedback-categories').evaluate((el) => el.scrollWidth <= el.clientWidth), true, 'category chips wrap without horizontal overflow');
   await feedback.locator('.la-feedback-details').fill('The answer needs a source for this claim.');
   await page.screenshot({ path: path.join(evidenceDir, 'reaction-feedback-categories-selected.png'), fullPage: false });
   await feedback.getByRole('button', { name: 'Cancel' }).click();
@@ -290,14 +295,14 @@ test('actual Chrome website renders message actions, retries and rewrites edited
 
   await negativeButton.click();
   const feedbackToSubmit = page.getByRole('dialog', { name: 'Share feedback' });
-  await feedbackToSubmit.getByRole('button', { name: 'Incorrect or incomplete' }).click();
+  await feedbackToSubmit.getByRole('button', { name: 'Incorrect information' }).click();
   await feedbackToSubmit.getByRole('button', { name: 'Other', exact: true }).click();
   await feedbackToSubmit.locator('.la-feedback-details').fill('The answer needs a source for this claim.');
   await feedbackToSubmit.getByRole('button', { name: 'Submit' }).click();
   assert.equal(await negativeButton.getAttribute('aria-pressed'), 'true');
   assert.equal(await latest.getByRole('button', { name: 'Good response' }).getAttribute('aria-pressed'), 'false', 'Dislike replaces Like');
   assert.deepEqual(await latest.evaluate((article) => ({ messageId: article._feedback.messageId, rating: article._feedback.rating, categories: article._feedback.categories, details: article._feedback.details })), {
-    messageId: await latest.getAttribute('data-message-id'), rating: 'down', categories: ['Incorrect or incomplete', 'Other'], details: 'The answer needs a source for this claim.',
+    messageId: await latest.getAttribute('data-message-id'), rating: 'down', categories: ['Incorrect information', 'Other'], details: 'The answer needs a source for this claim.',
   }, 'feedback is stored locally against the response message');
   assert.equal(await latest.locator('.la-action-feedback').count(), 0, 'Dislike adds no text under the response');
   assert.equal(await latest.evaluate((article) => article.getBoundingClientRect().height), beforeReaction, 'reaction dialog and state do not shift message layout');
@@ -400,6 +405,9 @@ test('actual Chrome website renders message actions, retries and rewrites edited
   assert.ok(feedbackBounds.left >= 0 && feedbackBounds.right <= feedbackBounds.viewportWidth, 'mobile feedback dialog stays within viewport width');
   assert.ok(feedbackBounds.top >= 0 && feedbackBounds.bottom <= feedbackBounds.viewportHeight, 'mobile feedback dialog stays within viewport height');
   assert.ok(feedbackBounds.scrollWidth <= feedbackBounds.clientWidth + 1, 'mobile feedback dialog has no horizontal overflow');
+  assert.equal(await mobileFeedback.locator('.la-feedback-categories').evaluate((group) => group.scrollWidth <= group.clientWidth), true, 'mobile category chips wrap without horizontal overflow');
+  assert.equal(await mobileFeedback.locator('.la-feedback-category').count(), 10, 'all feedback categories remain available on mobile');
+  await page.waitForTimeout(180);
   await page.screenshot({ path: path.join(evidenceDir, 'mobile-feedback-dialog.png'), fullPage: false });
   await page.keyboard.press('Escape');
   assert.equal(await welcomeBack.getByRole('button', { name: 'Bad response' }).getAttribute('aria-pressed'), 'false', 'Escape closes without recording a reaction');

@@ -377,7 +377,7 @@
     headingRow.append(heading, dismiss);
     var group = node('fieldset', 'la-feedback-categories');
     var legend = node('legend', '', 'What could be better? Select all that apply.'); group.appendChild(legend);
-    var categoryNames = ['Visual is unhelpful or broken', 'Incorrect or incomplete', 'Not what I asked for', 'Slow or buggy', 'Style or tone', 'Safety or legal concern', 'Other'];
+    var categoryNames = ['Incorrect information', "Didn't answer my question", 'Incomplete or vague answer', 'Lost conversation context', 'Outdated information', 'Unreliable or irrelevant sources', 'Wrong language or unclear wording', 'Slow response or technical issue', 'Safety or privacy concern', 'Other'];
     var selected = Object.create(null), categoryButtons = [];
     categoryNames.forEach(function (label) {
       var option = node('button', 'la-feedback-category', label); option.type = 'button'; option.setAttribute('aria-pressed', 'false');
