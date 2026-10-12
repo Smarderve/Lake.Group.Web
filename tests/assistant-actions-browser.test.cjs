@@ -235,21 +235,77 @@ test('actual Chrome website renders message actions, retries and rewrites edited
 
   const latest = page.locator('#chat-widget .la-message.la-bot').last();
   const beforeReaction = await latest.evaluate((article) => article.getBoundingClientRect().height);
+  await page.screenshot({ path: path.join(evidenceDir, 'reaction-default-toolbar.png'), fullPage: false });
   await latest.getByRole('button', { name: 'Good response' }).click();
   assert.equal(await latest.getByRole('button', { name: 'Good response' }).getAttribute('aria-pressed'), 'true');
   assert.equal(await latest.getByRole('button', { name: 'Good response' }).evaluate((button) => button.classList.contains('is-active')), true);
   await page.waitForFunction(() => getComputedStyle(document.querySelector('#chat-widget .la-message.la-bot:last-of-type .la-rating-action.is-active')).color === 'rgb(1, 129, 187)');
   assert.equal(await latest.getByRole('button', { name: 'Good response' }).evaluate((button) => getComputedStyle(button).color), 'rgb(1, 129, 187)');
-  assert.equal(await latest.getByRole('button', { name: 'Good response' }).evaluate((button) => getComputedStyle(button).backgroundColor), 'rgb(234, 246, 251)');
-  assert.equal(await isScreenReaderOnly(latest.locator('.la-action-feedback')), true);
-  assert.match(await latest.locator('.la-action-feedback').textContent(), /Marked helpful/);
-  await latest.getByRole('button', { name: 'Bad response' }).click();
-  assert.equal(await latest.getByRole('button', { name: 'Good response' }).getAttribute('aria-pressed'), 'false');
-  assert.equal(await latest.getByRole('button', { name: 'Bad response' }).getAttribute('aria-pressed'), 'true');
-  assert.equal(await isScreenReaderOnly(latest.locator('.la-action-feedback')), true);
-  await latest.getByRole('button', { name: 'Bad response' }).click();
-  assert.equal(await latest.getByRole('button', { name: 'Bad response' }).getAttribute('aria-pressed'), 'false', 'clicking the active reaction clears it');
-  assert.equal(await latest.evaluate((article) => article.getBoundingClientRect().height), beforeReaction, 'reaction updates do not shift message layout');
+  assert.equal(await latest.getByRole('button', { name: 'Good response' }).evaluate((button) => getComputedStyle(button).backgroundColor), 'rgba(1, 129, 187, 0.09)');
+  assert.equal(await latest.locator('.la-action-feedback').count(), 0, 'reaction adds no feedback text beneath the message');
+  await page.screenshot({ path: path.join(evidenceDir, 'reaction-selected-like.png'), fullPage: false });
+  await latest.getByRole('button', { name: 'Good response' }).click();
+  assert.equal(await latest.getByRole('button', { name: 'Good response' }).getAttribute('aria-pressed'), 'false', 'clicking Like again deselects it');
+  assert.equal(await latest.evaluate((article) => article.getBoundingClientRect().height), beforeReaction, 'Like does not shift message layout');
+
+  const negativeButton = latest.getByRole('button', { name: 'Bad response' });
+  await negativeButton.click();
+  const feedback = page.getByRole('dialog', { name: 'Share feedback' });
+  await feedback.waitFor({ state: 'visible' });
+  assert.equal(await negativeButton.getAttribute('aria-pressed'), 'false', 'Dislike is not saved before Submit');
+  assert.equal(await feedback.locator('.la-feedback-category').count(), 7);
+  assert.equal(await feedback.getByRole('button', { name: 'Submit' }).isDisabled(), true, 'Submit requires a category or details');
+  await page.screenshot({ path: path.join(evidenceDir, 'reaction-feedback-dialog.png'), fullPage: false });
+  await feedback.getByRole('button', { name: 'Incorrect or incomplete' }).click();
+  await feedback.getByRole('button', { name: 'Style or tone' }).click();
+  assert.equal(await feedback.getByRole('button', { name: 'Incorrect or incomplete' }).getAttribute('aria-pressed'), 'true');
+  assert.equal(await feedback.getByRole('button', { name: 'Style or tone' }).getAttribute('aria-pressed'), 'true');
+  await feedback.locator('.la-feedback-details').fill('The answer needs a source for this claim.');
+  await page.screenshot({ path: path.join(evidenceDir, 'reaction-feedback-categories-selected.png'), fullPage: false });
+  await feedback.getByRole('button', { name: 'Cancel' }).click();
+  assert.equal(await negativeButton.getAttribute('aria-pressed'), 'false', 'Cancel does not change the rating');
+  assert.equal(await latest.evaluate((article) => article._feedback || null), null, 'Cancel does not save feedback');
+  await negativeButton.click();
+  const outsideDismiss = page.getByRole('dialog', { name: 'Share feedback' });
+  await outsideDismiss.waitFor({ state: 'visible' });
+  await outsideDismiss.locator('.la-share-close').focus();
+  await page.keyboard.press('Shift+Tab');
+  assert.equal(await page.evaluate(() => document.activeElement.classList.contains('la-feedback-cancel')), true, 'keyboard focus wraps inside the feedback dialog');
+  await page.locator('#chat-widget .la-head').click({ position: { x: 12, y: 16 } });
+  await outsideDismiss.waitFor({ state: 'detached' });
+  assert.equal(await page.locator('#chat-widget .la-panel').isVisible(), true, 'clicking outside feedback closes only the dialog');
+  assert.equal(await negativeButton.getAttribute('aria-pressed'), 'false', 'outside dismissal does not save feedback');
+  await negativeButton.click();
+  const closeByX = page.getByRole('dialog', { name: 'Share feedback' });
+  await closeByX.getByRole('button', { name: 'Close feedback dialog' }).click();
+  await closeByX.waitFor({ state: 'detached' });
+  assert.equal(await negativeButton.getAttribute('aria-pressed'), 'false', 'X closes without saving feedback');
+
+  await latest.getByRole('button', { name: 'Good response' }).click();
+  await negativeButton.click();
+  const cancelWithPositive = page.getByRole('dialog', { name: 'Share feedback' });
+  await cancelWithPositive.getByRole('button', { name: 'Other', exact: true }).click();
+  await cancelWithPositive.getByRole('button', { name: 'Cancel' }).click();
+  assert.equal(await latest.getByRole('button', { name: 'Good response' }).getAttribute('aria-pressed'), 'true', 'Cancel preserves the previous Like');
+
+  await negativeButton.click();
+  const feedbackToSubmit = page.getByRole('dialog', { name: 'Share feedback' });
+  await feedbackToSubmit.getByRole('button', { name: 'Incorrect or incomplete' }).click();
+  await feedbackToSubmit.getByRole('button', { name: 'Other', exact: true }).click();
+  await feedbackToSubmit.locator('.la-feedback-details').fill('The answer needs a source for this claim.');
+  await feedbackToSubmit.getByRole('button', { name: 'Submit' }).click();
+  assert.equal(await negativeButton.getAttribute('aria-pressed'), 'true');
+  assert.equal(await latest.getByRole('button', { name: 'Good response' }).getAttribute('aria-pressed'), 'false', 'Dislike replaces Like');
+  assert.deepEqual(await latest.evaluate((article) => ({ messageId: article._feedback.messageId, rating: article._feedback.rating, categories: article._feedback.categories, details: article._feedback.details })), {
+    messageId: await latest.getAttribute('data-message-id'), rating: 'down', categories: ['Incorrect or incomplete', 'Other'], details: 'The answer needs a source for this claim.',
+  }, 'feedback is stored locally against the response message');
+  assert.equal(await latest.locator('.la-action-feedback').count(), 0, 'Dislike adds no text under the response');
+  assert.equal(await latest.evaluate((article) => article.getBoundingClientRect().height), beforeReaction, 'reaction dialog and state do not shift message layout');
+  assert.equal(await firstSuccess.getByRole('button', { name: 'Good response' }).getAttribute('aria-pressed'), 'false', 'ratings are independent for each message');
+  await page.screenshot({ path: path.join(evidenceDir, 'reaction-selected-dislike.png'), fullPage: false });
+  await negativeButton.click();
+  assert.equal(await negativeButton.getAttribute('aria-pressed'), 'false', 'clicking selected Dislike removes it');
+  assert.equal(await latest.evaluate((article) => article._feedback || null), null, 'removing Dislike clears the local record');
   await latest.getByRole('button', { name: 'Regenerate response' }).click();
   await page.getByText('Regenerated fixture answer.', { exact: true }).waitFor({ state: 'visible' });
 
@@ -337,6 +393,16 @@ test('actual Chrome website renders message actions, retries and rewrites edited
   assert.equal(await mobileShareDialog.locator('.la-share-options').evaluate((grid) => grid.scrollWidth <= grid.clientWidth), true, 'mobile sharing grid has no horizontal overflow');
   await page.screenshot({ path: path.join(evidenceDir, 'mobile-share-sheet.png'), fullPage: false });
   await page.keyboard.press('Escape');
+  await welcomeBack.getByRole('button', { name: 'Bad response' }).click();
+  const mobileFeedback = page.getByRole('dialog', { name: 'Share feedback' });
+  await mobileFeedback.waitFor({ state: 'visible' });
+  const feedbackBounds = await mobileFeedback.evaluate((dialog) => { const bounds = dialog.getBoundingClientRect(); return { left: bounds.left, right: bounds.right, top: bounds.top, bottom: bounds.bottom, width: bounds.width, viewportWidth: innerWidth, viewportHeight: innerHeight, scrollWidth: dialog.scrollWidth, clientWidth: dialog.clientWidth }; });
+  assert.ok(feedbackBounds.left >= 0 && feedbackBounds.right <= feedbackBounds.viewportWidth, 'mobile feedback dialog stays within viewport width');
+  assert.ok(feedbackBounds.top >= 0 && feedbackBounds.bottom <= feedbackBounds.viewportHeight, 'mobile feedback dialog stays within viewport height');
+  assert.ok(feedbackBounds.scrollWidth <= feedbackBounds.clientWidth + 1, 'mobile feedback dialog has no horizontal overflow');
+  await page.screenshot({ path: path.join(evidenceDir, 'mobile-feedback-dialog.png'), fullPage: false });
+  await page.keyboard.press('Escape');
+  assert.equal(await welcomeBack.getByRole('button', { name: 'Bad response' }).getAttribute('aria-pressed'), 'false', 'Escape closes without recording a reaction');
   await mobileShare.evaluate((button) => button.focus());
   const mobilePanel = await page.locator('#chat-widget .la-panel').evaluate((panel) => {
     const bounds = panel.getBoundingClientRect();

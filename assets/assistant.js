@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   if (window.LakeAssistantV2 || window.LAKE_ASSISTANT_ENABLED === false) return;
-  var refs = {}, index, assets, companies = [], kbMetadata = null, welcomeTimer = null, welcomeTyping = null, welcomeText = '', welcomeToken = 0, hasWelcomed = false, activeChatController = null, chatStreamActive = false, chatStreamFollow = true, latestResponseArticle = null, speechState = null, shareDialogState = null, voiceState = { stream: null, pcmChunks: [], pcmSamples: 0, pcmSampleRate: 0, captureContext: null, captureSource: null, captureProcessor: null, captureGain: null, partialTimer: null, partialPromise: null, partialController: null, partialCursor: 0, timer: null, counterTimer: null, recordingStartedAt: 0, meterContext: null, meterSource: null, meterAnalyser: null, meterFrame: 0, meterLevel: 0, controller: null, mode: '', session: 0, active: false, pending: false, localReady: false, healthTimer: null, healthFailures: 0, sendAfterTranscript: false, finalText: '', detectedLanguage: '', baseText: '', submitted: false, locale: 'en-US' };
+  var refs = {}, index, assets, companies = [], kbMetadata = null, welcomeTimer = null, welcomeTyping = null, welcomeText = '', welcomeToken = 0, hasWelcomed = false, activeChatController = null, chatStreamActive = false, chatStreamFollow = true, latestResponseArticle = null, speechState = null, shareDialogState = null, feedbackDialogState = null, sessionFeedback = Object.create(null), voiceState = { stream: null, pcmChunks: [], pcmSamples: 0, pcmSampleRate: 0, captureContext: null, captureSource: null, captureProcessor: null, captureGain: null, partialTimer: null, partialPromise: null, partialController: null, partialCursor: 0, timer: null, counterTimer: null, recordingStartedAt: 0, meterContext: null, meterSource: null, meterAnalyser: null, meterFrame: 0, meterLevel: 0, controller: null, mode: '', session: 0, active: false, pending: false, localReady: false, healthTimer: null, healthFailures: 0, sendAfterTranscript: false, finalText: '', detectedLanguage: '', baseText: '', submitted: false, locale: 'en-US' };
   var groupEntity = { name: 'Lake Group', route: 'about.html', aliases: ['Lake Group', 'Lake Oil Group'] };
   var routes = {
     CONTACT: ['contact.html', 'Contact Lake Group'], CAREERS: ['careers.html', 'Careers at Lake Group'],
@@ -155,7 +155,8 @@
     var isUser = message.role === 'user';
     if (isUser) refs.messages.classList.remove('is-welcome');
     var article = node('article', 'la-message la-' + (isUser ? 'user' : 'bot'));
-    article.dataset.messageId = message.id || messageUuid();
+    article._messageId = String(message.id || messageUuid());
+    article.setAttribute('data-message-id', article._messageId);
     if (message.turnId) { article.dataset.turnId = message.turnId; article._turnId = message.turnId; }
     article._messageKind = message.kind || (message.type === 'error' ? 'error' : message.type === 'welcome' ? 'welcome' : 'assistant');
     var body = node('div', 'la-message-body');
@@ -174,6 +175,8 @@
   }
   function streamArticle(text, turnId) {
     var article = node('article', 'la-message la-bot');
+    article._messageId = messageUuid();
+    article.setAttribute('data-message-id', article._messageId);
     article._messageKind = 'assistant';
     if (turnId) { article.dataset.turnId = turnId; article._turnId = turnId; }
     var body = node('div', 'la-message-body');
@@ -282,7 +285,10 @@
     article._ratingButtons = { up: up, down: down }; article._rating = null;
     up.setAttribute('aria-pressed', 'false'); down.setAttribute('aria-pressed', 'false');
     up.addEventListener('click', function () { setRating(article, article._rating === 'up' ? null : 'up'); });
-    down.addEventListener('click', function () { setRating(article, article._rating === 'down' ? null : 'down'); });
+    down.addEventListener('click', function () {
+      if (article._rating === 'down') setRating(article, null);
+      else openFeedbackDialog(article, down);
+    });
     if (kind === 'error') {
       var retry = responseAction(article, 'regenerate', 'Retry failed question', 'la-retry-action');
       retry.addEventListener('click', function () { retryFailedTurn(article, questionArticle, turnId); });
@@ -337,6 +343,7 @@
     if (article._actionBar) article._actionBar.remove();
     if (article._actionFeedback) article._actionFeedback.remove();
     if (shareDialogState && shareDialogState.article === article) closeShareDialog(false);
+    if (feedbackDialogState && feedbackDialogState.article === article) closeFeedbackDialog(false);
     article._actionBar = null; article._actionFeedback = null; article._regenerateButton = null; article._ratingButtons = null;
   }
   function closeShareDialog(restoreFocus) {
@@ -348,8 +355,92 @@
     current.layer.remove();
     if (restoreFocus && current.button.isConnected && !refs.panel.hidden) current.button.focus({ preventScroll: true });
   }
+  function closeFeedbackDialog(restoreFocus) {
+    if (!feedbackDialogState) return;
+    var current = feedbackDialogState;
+    feedbackDialogState = null;
+    document.removeEventListener('pointerdown', current.outsideHandler);
+    window.removeEventListener('resize', current.reposition);
+    current.layer.remove();
+    if (restoreFocus && current.button.isConnected && !refs.panel.hidden) current.button.focus({ preventScroll: true });
+  }
+  function openFeedbackDialog(article, button) {
+    if (!refs.panel || refs.panel.hidden || !article || !button) return;
+    if (shareDialogState) closeShareDialog(false);
+    if (feedbackDialogState) closeFeedbackDialog(false);
+    var layer = node('div', 'la-share-layer la-feedback-layer');
+    var dialog = node('section', 'la-share-dialog la-feedback-dialog');
+    dialog.setAttribute('role', 'dialog'); dialog.setAttribute('aria-modal', 'false'); dialog.setAttribute('aria-labelledby', 'la-feedback-title-' + article._messageId);
+    var headingRow = node('div', 'la-share-heading');
+    var heading = node('h2', '', 'Share feedback'); heading.id = 'la-feedback-title-' + article._messageId;
+    var dismiss = node('button', 'la-share-close'); dismiss.type = 'button'; dismiss.appendChild(uiIcon('close')); dismiss.setAttribute('aria-label', 'Close feedback dialog');
+    headingRow.append(heading, dismiss);
+    var group = node('fieldset', 'la-feedback-categories');
+    var legend = node('legend', '', 'What could be better? Select all that apply.'); group.appendChild(legend);
+    var categoryNames = ['Visual is unhelpful or broken', 'Incorrect or incomplete', 'Not what I asked for', 'Slow or buggy', 'Style or tone', 'Safety or legal concern', 'Other'];
+    var selected = Object.create(null), categoryButtons = [];
+    categoryNames.forEach(function (label) {
+      var option = node('button', 'la-feedback-category', label); option.type = 'button'; option.setAttribute('aria-pressed', 'false');
+      option.addEventListener('click', function () {
+        selected[label] = !selected[label];
+        option.setAttribute('aria-pressed', selected[label] ? 'true' : 'false'); option.classList.toggle('is-selected', !!selected[label]);
+        updateSubmit();
+      });
+      categoryButtons.push(option); group.appendChild(option);
+    });
+    var details = document.createElement('textarea'); details.className = 'la-feedback-details'; details.maxLength = 1000; details.rows = 3; details.setAttribute('aria-label', 'Share details (optional)'); details.placeholder = 'Share details (optional)';
+    var controls = node('div', 'la-feedback-controls');
+    var cancel = node('button', 'la-feedback-cancel', 'Cancel'); cancel.type = 'button';
+    var submit = node('button', 'la-feedback-submit', 'Submit'); submit.type = 'button'; submit.disabled = true;
+    controls.append(cancel, submit);
+    var status = node('p', 'la-feedback-status'); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite');
+    dialog.append(headingRow, group, details, controls, status); layer.appendChild(dialog);
+    function updateSubmit() { submit.disabled = !Object.keys(selected).some(function (key) { return selected[key]; }) && !details.value.trim(); }
+    details.addEventListener('input', updateSubmit);
+    cancel.addEventListener('click', function () { closeFeedbackDialog(true); });
+    dismiss.addEventListener('click', function () { closeFeedbackDialog(true); });
+    submit.addEventListener('click', function () {
+      var categories = Object.keys(selected).filter(function (key) { return selected[key]; });
+      var detailText = details.value.trim();
+      if (!categories.length && !detailText) return;
+      var record = { messageId: article._messageId, rating: 'down', categories: categories, details: detailText, submittedAt: new Date().toISOString() };
+      sessionFeedback[article._messageId] = record;
+      article._feedback = record;
+      setRating(article, 'down');
+      closeFeedbackDialog(true);
+    });
+    layer.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); closeFeedbackDialog(true); return; }
+      if (event.key !== 'Tab') return;
+      event.stopPropagation();
+      var focusable = Array.prototype.slice.call(dialog.querySelectorAll('button:not([disabled]), textarea'));
+      if (!focusable.length) return;
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    });
+    function reposition() {
+      if (!feedbackDialogState || feedbackDialogState.layer !== layer) return;
+      var panelBounds = refs.panel.getBoundingClientRect();
+      var mobile = window.matchMedia && window.matchMedia('(max-width: 600px)').matches;
+      if (mobile) {
+        dialog.style.left = '10px'; dialog.style.right = '10px'; dialog.style.top = 'auto'; dialog.style.bottom = 'max(10px, env(safe-area-inset-bottom))';
+      } else {
+        var dialogWidth = Math.min(380, window.innerWidth - 32);
+        var left = Math.min(window.innerWidth - dialogWidth - 16, Math.max(16, panelBounds.left + (panelBounds.width - dialogWidth) / 2));
+        dialog.style.left = left + 'px'; dialog.style.right = 'auto'; dialog.style.bottom = 'auto';
+        dialog.style.top = Math.max(12, Math.min(window.innerHeight - dialog.offsetHeight - 12, panelBounds.top + (panelBounds.height - dialog.offsetHeight) / 2)) + 'px';
+      }
+    }
+    var outsideHandler = function (event) { if (!dialog.contains(event.target) && event.target !== button) closeFeedbackDialog(false); };
+    refs.mount.appendChild(layer);
+    feedbackDialogState = { article: article, button: button, layer: layer, dialog: dialog, outsideHandler: outsideHandler, reposition: reposition };
+    document.addEventListener('pointerdown', outsideHandler); window.addEventListener('resize', reposition); reposition();
+    categoryButtons[0].focus({ preventScroll: true });
+  }
   function openShareDialog(article, button) {
     if (!refs.panel || refs.panel.hidden || !article || !button) return;
+    if (feedbackDialogState) closeFeedbackDialog(false);
     if (shareDialogState) closeShareDialog(false);
     var layer = node('div', 'la-share-layer');
     var dialog = node('section', 'la-share-dialog');
@@ -460,7 +551,10 @@
     article._ratingButtons.down.setAttribute('aria-pressed', rating === 'down' ? 'true' : 'false');
     article._ratingButtons.up.classList.toggle('is-active', rating === 'up');
     article._ratingButtons.down.classList.toggle('is-active', rating === 'down');
-    actionFeedback(article, rating ? (rating === 'up' ? 'Marked helpful.' : 'Marked not helpful.') : 'Reaction removed.');
+    if (rating !== 'down') {
+      delete sessionFeedback[article._messageId];
+      article._feedback = null;
+    }
   }
   function copyResponse(text) {
     if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') return navigator.clipboard.writeText(text);
@@ -685,6 +779,7 @@
     input.addEventListener('input', growInput);
     panel.addEventListener('keydown', trapTab);
     document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && feedbackDialogState) { event.preventDefault(); closeFeedbackDialog(true); return; }
       if (event.key === 'Escape' && shareDialogState) { event.preventDefault(); closeShareDialog(true); return; }
       if (event.key === 'Escape' && !panel.hidden) closePanel(true);
     });
@@ -709,6 +804,7 @@
   }
   function closePanel(restoreFocus) {
     closeShareDialog(false);
+    closeFeedbackDialog(false);
     cancelVoice(false);
     stopSpeech();
     if (activeChatController) {

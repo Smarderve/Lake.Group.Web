@@ -48,7 +48,7 @@ for (const [asset, assetVersions] of versions) {
 }
 
 const precacheRelease = release;
-release = '20261012-05';
+release = '20261012-06';
 const sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8');
 if (!new RegExp('v\\d+-' + release.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\$&')).test(sw)) {
   errors.push('sw.js: release version is not current');
