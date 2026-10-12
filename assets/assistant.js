@@ -201,6 +201,45 @@
     }
     article._actionFeedback.textContent = text || '';
   }
+  function clearActionContext(button) {
+    if (!button) return;
+    window.clearTimeout(button._feedbackTimer);
+    if (button.dataset.feedbackOriginalTitle) button.title = button.dataset.feedbackOriginalTitle;
+    button.removeAttribute('aria-description');
+    delete button.dataset.feedbackTitle;
+    delete button.dataset.feedbackOriginalTitle;
+  }
+  function actionContext(button, text, duration) {
+    if (!button) return;
+    clearActionContext(button);
+    if (!button.dataset.feedbackOriginalTitle) button.dataset.feedbackOriginalTitle = button.title;
+    button.dataset.feedbackTitle = text;
+    button.title = text;
+    button.setAttribute('aria-description', text);
+    window.clearTimeout(button._feedbackTimer);
+    button._feedbackTimer = window.setTimeout(function () {
+      if (button.dataset.feedbackTitle !== text) return;
+      button.title = button.dataset.feedbackOriginalTitle;
+      button.removeAttribute('aria-description');
+      delete button.dataset.feedbackTitle;
+      delete button.dataset.feedbackOriginalTitle;
+    }, duration || 3500);
+  }
+  function flashCopied(article, button, text) {
+    var originalLabel = button.getAttribute('aria-label') || 'Copy message';
+    window.clearTimeout(button._copyTimer);
+    button.classList.add('is-active');
+    button.replaceChildren(uiIcon('check'));
+    button.title = 'Copied';
+    button.setAttribute('aria-label', 'Message copied');
+    actionFeedback(article, text || 'Message copied.');
+    button._copyTimer = window.setTimeout(function () {
+      button.classList.remove('is-active');
+      button.replaceChildren(uiIcon('copy'));
+      button.title = originalLabel;
+      button.setAttribute('aria-label', originalLabel);
+    }, 1800);
+  }
   function setLatestResponse(article) {
     latestResponseArticle = article;
     if (article._regenerateButton) {
@@ -218,12 +257,9 @@
     bar.setAttribute('role', 'group'); bar.setAttribute('aria-label', 'Assistant message actions');
     article._actionBar = bar;
     var copy = responseAction(article, 'copy', 'Copy message');
-    var copyTimer = null;
     copy.addEventListener('click', function () {
       copyResponse(article._responseText).then(function () {
-        copy.classList.add('is-active'); copy.replaceChildren(uiIcon('check')); copy.title = 'Copied'; copy.setAttribute('aria-label', 'Message copied');
-        actionFeedback(article, 'Copied'); window.clearTimeout(copyTimer);
-        copyTimer = window.setTimeout(function () { copy.classList.remove('is-active'); copy.replaceChildren(uiIcon('copy')); copy.title = 'Copy message'; copy.setAttribute('aria-label', 'Copy message'); actionFeedback(article, ''); }, 1800);
+        flashCopied(article, copy);
       }).catch(function () { actionFeedback(article, 'Could not copy. Select and copy the message text instead.'); });
     });
     var share = responseAction(article, 'share', 'Share message');
@@ -246,8 +282,8 @@
         regenerateResponse(article);
       });
     }
-    var up = responseAction(article, 'thumb-up', 'Good response');
-    var down = responseAction(article, 'thumb-down', 'Bad response');
+    var up = responseAction(article, 'thumb-up', 'Good response', 'la-rating-action');
+    var down = responseAction(article, 'thumb-down', 'Bad response', 'la-rating-action');
     article._ratingButtons = { up: up, down: down }; article._rating = null;
     up.setAttribute('aria-pressed', 'false'); down.setAttribute('aria-pressed', 'false');
     up.addEventListener('click', function () { setRating(article, article._rating === 'up' ? null : 'up'); });
@@ -266,7 +302,7 @@
     article._actionBar = bar;
     var copy = responseAction(article, 'copy', 'Copy your message');
     copy.addEventListener('click', function () {
-      copyResponse(article._messageText).then(function () { actionFeedback(article, 'Copied'); }).catch(function () { actionFeedback(article, 'Could not copy this message.'); });
+      copyResponse(article._messageText).then(function () { flashCopied(article, copy, 'Your message was copied.'); }).catch(function () { actionFeedback(article, 'Could not copy this message.'); });
     });
     var edit = responseAction(article, 'edit', 'Edit your message');
     edit.addEventListener('click', function () { openMessageEditor(article); });
@@ -384,8 +420,7 @@
     article._ratingButtons.down.setAttribute('aria-pressed', rating === 'down' ? 'true' : 'false');
     article._ratingButtons.up.classList.toggle('is-active', rating === 'up');
     article._ratingButtons.down.classList.toggle('is-active', rating === 'down');
-    actionFeedback(article, rating ? (rating === 'up' ? 'Marked helpful' : 'Marked not helpful') : 'Feedback removed');
-    window.setTimeout(function () { if (article._rating === rating && rating === null) actionFeedback(article, ''); }, 1400);
+    actionFeedback(article, rating ? (rating === 'up' ? 'Marked helpful.' : 'Marked not helpful.') : 'Reaction removed.');
   }
   function copyResponse(text) {
     if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') return navigator.clipboard.writeText(text);
@@ -406,7 +441,7 @@
   }
   function stopSpeech() {
     if (window.speechSynthesis) window.speechSynthesis.cancel();
-    if (speechState && speechState.button) { speechState.button.classList.remove('is-active'); speechState.button.setAttribute('aria-pressed', 'false'); speechState.button.title = 'Read message aloud'; speechState.button.setAttribute('aria-label', 'Read message aloud'); }
+    if (speechState && speechState.button) { clearActionContext(speechState.button); speechState.button.classList.remove('is-active'); speechState.button.setAttribute('aria-pressed', 'false'); speechState.button.title = 'Read message aloud'; speechState.button.setAttribute('aria-label', 'Read message aloud'); }
     speechState = null;
   }
   function onDeviceSpeechVoice(synthesis, language, timeoutMs) {
@@ -428,9 +463,13 @@
     });
   }
   async function toggleSpeech(article, button) {
-    if (!window.speechSynthesis || typeof window.SpeechSynthesisUtterance !== 'function') { actionFeedback(article, 'Read aloud is not supported by this browser.'); return; }
+    if (!window.speechSynthesis || typeof window.SpeechSynthesisUtterance !== 'function') {
+      var unsupported = 'Read aloud is unavailable in this browser.';
+      actionFeedback(article, unsupported); actionContext(button, unsupported); return;
+    }
     if (speechState && speechState.article === article) { stopSpeech(); return; }
     stopSpeech();
+    clearActionContext(button);
     var synthesis = window.speechSynthesis;
     var language = String(article._responseLocale || 'en').toLowerCase().split('-')[0];
     var chunks = speechChunks(article._responseText), stateForSpeech = { article: article, button: button, chunks: chunks, index: 0 };
@@ -440,14 +479,15 @@
     if (speechState !== stateForSpeech) return;
     if (!voice) {
       stopSpeech();
-      actionFeedback(article, language === 'sw' ? 'No on-device Kiswahili voice is available. Your message was not sent anywhere.' : 'No on-device English voice is available. Your message was not sent anywhere.');
+      var unavailable = language === 'sw' ? 'No on-device Kiswahili voice is available.' : 'No on-device English voice is available.';
+      actionFeedback(article, unavailable + ' Your message was not sent anywhere.'); actionContext(button, unavailable);
       return;
     }
     actionFeedback(article, '');
     function speakNext() {
       if (speechState !== stateForSpeech) return;
       if (stateForSpeech.index >= chunks.length) { stopSpeech(); return; }
-      var utterance = new window.SpeechSynthesisUtterance(chunks[stateForSpeech.index++]); utterance.voice = voice; utterance.lang = voice.lang; utterance.onend = speakNext; utterance.onerror = function () { if (speechState === stateForSpeech) { stopSpeech(); actionFeedback(article, 'Read aloud stopped because playback failed.'); } };
+      var utterance = new window.SpeechSynthesisUtterance(chunks[stateForSpeech.index++]); utterance.voice = voice; utterance.lang = voice.lang; utterance.onend = speakNext; utterance.onerror = function () { if (speechState === stateForSpeech) { stopSpeech(); var failure = 'Read aloud playback failed.'; actionFeedback(article, failure); actionContext(button, failure); } };
       synthesis.speak(utterance);
     }
     speakNext();

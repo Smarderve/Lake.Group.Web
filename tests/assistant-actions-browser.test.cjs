@@ -36,6 +36,13 @@ function ndjson(events) {
   return `${events.map((event) => JSON.stringify(event)).join('\n')}\n`;
 }
 
+function isScreenReaderOnly(locator) {
+  return locator.evaluate((element) => {
+    const style = getComputedStyle(element);
+    return style.position === 'absolute' && style.width === '1px' && style.height === '1px' && style.overflow === 'hidden' && style.clip !== 'auto';
+  });
+}
+
 test('actual Chrome website renders message actions, retries and rewrites edited conversation history', async (t) => {
   const { server, url } = await startStaticSite();
   let browser = null;
@@ -107,7 +114,9 @@ test('actual Chrome website renders message actions, retries and rewrites edited
   await speaker.click();
   const activeSpeaker = welcome.locator('.la-response-action[aria-pressed="true"]').first();
   assert.equal(await activeSpeaker.getAttribute('aria-pressed'), 'true');
-  await welcome.getByText('Looking for an on-device voice…', { exact: true }).waitFor({ state: 'visible' });
+  const speechStatus = welcome.locator('.la-action-feedback');
+  await page.waitForFunction(() => document.querySelector('#chat-widget .la-action-feedback')?.textContent === 'Looking for an on-device voice…');
+  assert.equal(await isScreenReaderOnly(speechStatus), true, 'speech status is available to screen readers only');
   await page.evaluate(() => window.__setSpeechVoices([{ name: 'Local English fixture voice', lang: 'en-US', localService: true }]));
   await page.waitForFunction(() => window.__speechCalls.some((call) => call.type === 'speak' && call.text.includes('Hi there!')));
   assert.equal(await page.evaluate(() => window.__speechCalls.some((call) => call.type === 'speak' && call.text.includes('Hi there!'))), true);
@@ -116,7 +125,9 @@ test('actual Chrome website renders message actions, retries and rewrites edited
   await welcome.evaluate((article) => { article._responseLocale = 'sw'; });
   await page.evaluate(() => window.__setSpeechVoices([]));
   await welcome.getByRole('button', { name: 'Read message aloud' }).click();
-  await welcome.getByText('No on-device Kiswahili voice is available. Your message was not sent anywhere.', { exact: true }).waitFor({ state: 'visible' });
+  await page.waitForFunction(() => document.querySelector('#chat-widget .la-action-feedback')?.textContent.includes('No on-device Kiswahili voice is available.'));
+  assert.equal(await isScreenReaderOnly(speechStatus), true, 'voice-unavailable explanation is screen-reader-only');
+  assert.match(await welcome.getByRole('button', { name: 'Read message aloud' }).getAttribute('title'), /No on-device Kiswahili voice/);
   await welcome.evaluate((article) => { article._responseLocale = 'en'; });
   await page.evaluate(() => window.__setSpeechVoices([{ name: 'Local English fixture voice', lang: 'en-US', localService: true }]));
   await welcome.getByRole('button', { name: 'Share message' }).click();
@@ -133,7 +144,8 @@ test('actual Chrome website renders message actions, retries and rewrites edited
   assert.equal(await shareDialog.getByRole('button', { name: 'Copy response' }).count(), 1);
   await shareDialog.getByRole('button', { name: 'Copy response' }).click();
   await shareDialog.waitFor({ state: 'detached' });
-  await page.locator('#chat-widget .la-action-feedback').filter({ hasText: 'Copied' }).waitFor({ state: 'visible' });
+  await page.waitForFunction(() => document.querySelector('#chat-widget .la-action-feedback')?.textContent.includes('Copied'));
+  assert.equal(await isScreenReaderOnly(page.locator('#chat-widget .la-action-feedback')), true, 'share copy confirmation does not add a visible row');
   await shareButton.click();
   await shareDialog.waitFor({ state: 'visible' });
   await page.keyboard.press('Escape');
@@ -154,9 +166,9 @@ test('actual Chrome website renders message actions, retries and rewrites edited
   const input = page.locator('#chat-widget .la-form textarea');
   await input.fill('hi'); await page.locator('#chat-widget .la-send').click();
   await page.getByText('Lake Assistant is temporarily unavailable. Please try again shortly.', { exact: true }).waitFor({ state: 'visible' });
-  await page.waitForTimeout(300);
   const user = page.locator('#chat-widget .la-message.la-user').first();
   const error = page.locator('#chat-widget .la-message.la-bot').filter({ hasText: 'temporarily unavailable' });
+  await page.waitForFunction(() => getComputedStyle(document.querySelector('#chat-widget .la-message.la-user')).opacity === '1');
   assert.deepEqual(await user.locator('.la-response-action').evaluateAll((buttons) => buttons.map((button) => button.getAttribute('aria-label'))), ['Copy your message', 'Edit your message']);
   assert.equal(await user.locator('.la-message-body').evaluate((bubble) => getComputedStyle(bubble).backgroundColor), 'rgb(1, 129, 187)');
   assert.equal(await user.evaluate((article) => getComputedStyle(article).opacity), '1');
@@ -183,11 +195,22 @@ test('actual Chrome website renders message actions, retries and rewrites edited
   await page.screenshot({ path: path.join(evidenceDir, 'desktop-multi-message-actions.png'), fullPage: false });
 
   const latest = page.locator('#chat-widget .la-message.la-bot').last();
+  const beforeReaction = await latest.evaluate((article) => article.getBoundingClientRect().height);
   await latest.getByRole('button', { name: 'Good response' }).click();
   assert.equal(await latest.getByRole('button', { name: 'Good response' }).getAttribute('aria-pressed'), 'true');
+  assert.equal(await latest.getByRole('button', { name: 'Good response' }).evaluate((button) => button.classList.contains('is-active')), true);
+  await page.waitForFunction(() => getComputedStyle(document.querySelector('#chat-widget .la-message.la-bot:last-of-type .la-rating-action.is-active')).color === 'rgb(1, 129, 187)');
+  assert.equal(await latest.getByRole('button', { name: 'Good response' }).evaluate((button) => getComputedStyle(button).color), 'rgb(1, 129, 187)');
+  assert.equal(await latest.getByRole('button', { name: 'Good response' }).evaluate((button) => getComputedStyle(button).backgroundColor), 'rgb(234, 246, 251)');
+  assert.equal(await isScreenReaderOnly(latest.locator('.la-action-feedback')), true);
+  assert.match(await latest.locator('.la-action-feedback').textContent(), /Marked helpful/);
   await latest.getByRole('button', { name: 'Bad response' }).click();
   assert.equal(await latest.getByRole('button', { name: 'Good response' }).getAttribute('aria-pressed'), 'false');
   assert.equal(await latest.getByRole('button', { name: 'Bad response' }).getAttribute('aria-pressed'), 'true');
+  assert.equal(await isScreenReaderOnly(latest.locator('.la-action-feedback')), true);
+  await latest.getByRole('button', { name: 'Bad response' }).click();
+  assert.equal(await latest.getByRole('button', { name: 'Bad response' }).getAttribute('aria-pressed'), 'false', 'clicking the active reaction clears it');
+  assert.equal(await latest.evaluate((article) => article.getBoundingClientRect().height), beforeReaction, 'reaction updates do not shift message layout');
   await latest.getByRole('button', { name: 'Regenerate response' }).click();
   await page.getByText('Regenerated fixture answer.', { exact: true }).waitFor({ state: 'visible' });
 
@@ -235,7 +258,17 @@ test('actual Chrome website renders message actions, retries and rewrites edited
 
   const copy = page.locator('#chat-widget .la-message.la-user').first().getByRole('button', { name: 'Copy your message' });
   await copy.click();
-  await page.locator('#chat-widget .la-action-feedback').filter({ hasText: 'Copied' }).first().waitFor({ state: 'visible' });
+  const copiedState = await page.waitForFunction(() => {
+    const button = document.querySelector('#chat-widget .la-message.la-user .la-response-action[aria-label="Message copied"]');
+    if (!button || button.querySelector('svg path')?.getAttribute('d') !== 'm5 12 4 4L19 6') return false;
+    const status = button.closest('.la-message').querySelector('.la-action-feedback');
+    const style = getComputedStyle(status);
+    return { icon: button.querySelector('svg path').getAttribute('d'), message: status.textContent, hidden: style.position === 'absolute' && style.width === '1px' && style.clip !== 'auto' };
+  });
+  const copied = await copiedState.jsonValue();
+  assert.equal(copied.icon, 'm5 12 4 4L19 6', 'Copy changes to a checkmark');
+  assert.match(copied.message, /copied/i);
+  assert.equal(copied.hidden, true, 'Copy confirmation does not add visible text');
   assert.equal(await page.evaluate(() => navigator.clipboard.readText()), 'What is Lake Group?');
 
   await page.locator('#chat-widget .la-close').click();

@@ -81,6 +81,12 @@ test('feedback is per assistant message, mutually exclusive, and regeneration us
   assert.match(js, /\/api\/assistant\/regenerate/);
   assert.match(js, /article\._answerParagraph\.textContent = safeAnswerText\(nextAnswer\)/);
   assert.match(js, /Could not regenerate\. Your previous response is unchanged\./);
+  assert.match(js, /article\._ratingButtons\.up\.setAttribute\('aria-pressed'/);
+  assert.match(js, /actionFeedback\(article, rating \? \(rating === 'up' \? 'Marked helpful\.' : 'Marked not helpful\.'\) : 'Reaction removed\.'\)/);
+  assert.match(css, /\.la-rating-action\.is-active \{ background: #eaf6fb; \}/);
+  assert.match(css, /\.la-action-feedback\s*\{[^}]*position:\s*absolute[^}]*clip:\s*rect\(0, 0, 0, 0\)/s);
+  assert.match(js, /function flashCopied\(article, button, text\)/);
+  assert.match(js, /function actionContext\(button, text, duration\)/);
 });
 
 test('the persistent action bars and inline editor have visible focus and touch-friendly layout', () => {
