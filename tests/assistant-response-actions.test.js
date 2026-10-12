@@ -35,15 +35,21 @@ test('copy and share operate on the individual message text with explicit fallba
   assert.match(js, /function copyResponse\(text\)/);
   assert.match(js, /navigator\.clipboard\.writeText\(text\)/);
   assert.match(js, /document\.execCommand\('copy'\)/);
-  assert.match(js, /navigator\.share\(\{ title: 'Lake Assistant message', text: article\._responseText \}\)/);
+  assert.match(js, /navigator\.share\(\{ title: 'Lake Assistant response', text: article\._responseText \}\)/);
+  assert.match(js, /function openShareDialog\(article, button\)/);
+  assert.match(js, /Share response/);
+  assert.doesNotMatch(js, /la-share-menu/);
   assert.match(js, /wa\.me\/\?text=/);
   assert.match(js, /mailto:\?subject=/);
   assert.doesNotMatch(js, /navigator\.share\([^)]*url:/);
   assert.match(js, /article\._messageText = messageText/);
 });
 
-test('read aloud is local-voice-only, chunked, exclusive, and stopped on close/navigation', () => {
-  assert.match(js, /synthesis\.getVoices\(\)\.filter\(function \(voice\) \{ return voice\.localService === true; \}\)/);
+test('read aloud waits for a matching on-device voice, chunks playback, and stops on close/navigation', () => {
+  assert.match(js, /function onDeviceSpeechVoice\(synthesis, language, timeoutMs\)/);
+  assert.match(js, /item\.localService === true && String\(item\.lang \|\| ''\)\.toLowerCase\(\)\.split\('-'\)\[0\] === language/);
+  assert.match(js, /synthesis\.addEventListener\('voiceschanged', check\)/);
+  assert.match(js, /onDeviceSpeechVoice\(synthesis, language, 1800\)/);
   assert.match(js, /function speechChunks\(text\)/);
   assert.match(js, /if \(speechState && speechState\.article === article\) \{ stopSpeech\(\); return; \}/);
   assert.match(js, /function closePanel\([\s\S]*?stopSpeech\(\)/);
@@ -59,7 +65,9 @@ test('message editing uses a stable turn identity and commits the server branch 
   assert.match(js, /questionArticle\._answerParagraph\.textContent = safeAnswerText\(query\)/);
   assert.match(js, /messages\.slice\(userPosition \+ 1\)\.forEach\(function \(item\) \{ if \(item !== priorAssistant\) item\.remove\(\); \}\)/);
   assert.match(js, /Your previous messages are unchanged/);
-  assert.match(js, /editor\.retry = node\('button', 'la-edit-retry', 'Retry'\)/);
+  assert.match(js, /article\._messageBody\.replaceWith\(editor\)/);
+  assert.match(js, /editor\.root\.replaceWith\(editor\.originalBody\)/);
+  assert.match(js, /draft is unsent and history is unchanged/i);
   assert.match(js, /function retryFailedTurn\(errorArticle, questionArticle, turnId\)/);
   assert.match(js, /function closeMessageEditor\(article\)[\s\S]*?article\._actionBar\.hidden = false/);
 });
@@ -80,7 +88,9 @@ test('the persistent action bars and inline editor have visible focus and touch-
   assert.match(css, /\.la-user-actions\s*\{[^}]*align-self:\s*flex-end/s);
   assert.match(css, /\.la-response-action:focus-visible/);
   assert.match(css, /\.la-message-editor/);
-  assert.match(css, /\.la-edit-input:focus-visible/);
-  assert.match(css, /\.la-edit-retry:focus-visible/);
+  assert.match(css, /\.la-message-editor:focus-within/);
+  assert.match(css, /\.la-edit-controls \.la-edit-save/);
+  assert.match(css, /\.la-share-dialog/);
+  assert.match(css, /\.la-share-layer/);
   assert.doesNotMatch(css, /\.la-response-actions[^}]*opacity:\s*0/);
 });

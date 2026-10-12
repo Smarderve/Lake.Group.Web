@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   if (window.LakeAssistantV2 || window.LAKE_ASSISTANT_ENABLED === false) return;
-  var refs = {}, index, assets, companies = [], kbMetadata = null, welcomeTimer = null, welcomeTyping = null, welcomeText = '', welcomeToken = 0, hasWelcomed = false, activeChatController = null, chatStreamActive = false, chatStreamFollow = true, latestResponseArticle = null, speechState = null, voiceState = { stream: null, pcmChunks: [], pcmSamples: 0, pcmSampleRate: 0, captureContext: null, captureSource: null, captureProcessor: null, captureGain: null, partialTimer: null, partialPromise: null, partialController: null, partialCursor: 0, timer: null, counterTimer: null, recordingStartedAt: 0, meterContext: null, meterSource: null, meterAnalyser: null, meterFrame: 0, meterLevel: 0, controller: null, mode: '', session: 0, active: false, pending: false, localReady: false, healthTimer: null, healthFailures: 0, sendAfterTranscript: false, finalText: '', detectedLanguage: '', baseText: '', submitted: false, locale: 'en-US' };
+  var refs = {}, index, assets, companies = [], kbMetadata = null, welcomeTimer = null, welcomeTyping = null, welcomeText = '', welcomeToken = 0, hasWelcomed = false, activeChatController = null, chatStreamActive = false, chatStreamFollow = true, latestResponseArticle = null, speechState = null, shareDialogState = null, voiceState = { stream: null, pcmChunks: [], pcmSamples: 0, pcmSampleRate: 0, captureContext: null, captureSource: null, captureProcessor: null, captureGain: null, partialTimer: null, partialPromise: null, partialController: null, partialCursor: 0, timer: null, counterTimer: null, recordingStartedAt: 0, meterContext: null, meterSource: null, meterAnalyser: null, meterFrame: 0, meterLevel: 0, controller: null, mode: '', session: 0, active: false, pending: false, localReady: false, healthTimer: null, healthFailures: 0, sendAfterTranscript: false, finalText: '', detectedLanguage: '', baseText: '', submitted: false, locale: 'en-US' };
   var groupEntity = { name: 'Lake Group', route: 'about.html', aliases: ['Lake Group', 'Lake Oil Group'] };
   var routes = {
     CONTACT: ['contact.html', 'Contact Lake Group'], CAREERS: ['careers.html', 'Careers at Lake Group'],
@@ -107,6 +107,8 @@
       var editPath = document.createElementNS(svg.namespaceURI, 'path'); editPath.setAttribute('d', 'M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z'); svg.appendChild(editPath);
     } else if (kind === 'share') {
       var sharePath = document.createElementNS(svg.namespaceURI, 'path'); sharePath.setAttribute('d', 'M12 16V3m0 0L7 8m5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6'); svg.appendChild(sharePath);
+    } else if (kind === 'mail') {
+      var mailPath = document.createElementNS(svg.namespaceURI, 'path'); mailPath.setAttribute('d', 'M4 6h16v12H4zM4 7l8 6 8-6'); svg.appendChild(mailPath);
     } else if (kind === 'speaker') {
       var speakerPath = document.createElementNS(svg.namespaceURI, 'path'); speakerPath.setAttribute('d', 'M11 5 6 9H3v6h3l5 4V5Zm4 3a5 5 0 0 1 0 8m2-11a9 9 0 0 1 0 14'); svg.appendChild(speakerPath);
     } else if (kind === 'regenerate') {
@@ -225,23 +227,12 @@
       }).catch(function () { actionFeedback(article, 'Could not copy. Select and copy the message text instead.'); });
     });
     var share = responseAction(article, 'share', 'Share message');
-    var shareMenu = node('div', 'la-share-menu'); shareMenu.hidden = true;
-    var email = node('a', '', 'Email'), whatsapp = node('a', '', 'WhatsApp'), copyLink = node('button', '', 'Copy text');
-    function updateShareTargets() {
-      var encodedAnswer = encodeURIComponent(article._responseText);
-      email.href = 'mailto:?subject=' + encodeURIComponent('Lake Assistant message') + '&body=' + encodedAnswer;
-      whatsapp.href = 'https://wa.me/?text=' + encodedAnswer;
-    }
-    updateShareTargets(); whatsapp.target = '_blank'; whatsapp.rel = 'noopener noreferrer';
-    copyLink.type = 'button'; copyLink.setAttribute('aria-label', 'Copy response text');
-    shareMenu.append(email, whatsapp, copyLink); article.appendChild(shareMenu);
     share.addEventListener('click', function () {
-      updateShareTargets();
       if (typeof navigator.share === 'function') {
-        navigator.share({ title: 'Lake Assistant message', text: article._responseText }).then(function () { actionFeedback(article, 'Shared'); }, function (error) { if (error && error.name !== 'AbortError') actionFeedback(article, 'Sharing is unavailable on this device.'); });
-      } else { shareMenu.hidden = !shareMenu.hidden; if (!shareMenu.hidden) { email.setAttribute('aria-label', 'Share response by email'); whatsapp.setAttribute('aria-label', 'Share response with WhatsApp'); } }
+        navigator.share({ title: 'Lake Assistant response', text: article._responseText }).then(function () { actionFeedback(article, 'Shared'); }, function (error) { if (error && error.name !== 'AbortError') openShareDialog(article, share); });
+      } else if (shareDialogState && shareDialogState.button === share) closeShareDialog(true);
+      else openShareDialog(article, share);
     });
-    copyLink.addEventListener('click', function () { copyResponse(article._responseText).then(function () { shareMenu.hidden = true; actionFeedback(article, 'Copied'); }).catch(function () { actionFeedback(article, 'Could not copy this response.'); }); });
     var speak = responseAction(article, 'speaker', 'Read message aloud');
     speak.setAttribute('aria-pressed', 'false'); speak.addEventListener('click', function () { toggleSpeech(article, speak); });
     if (kind === 'assistant' || kind === 'success') {
@@ -284,29 +275,104 @@
   function openMessageEditor(article) {
     if (!article || article._editor || activeChatController || chatStreamActive) return;
     var editor = node('div', 'la-message-editor');
-    var field = node('textarea', 'la-edit-input'); field.value = article._messageText || article._answerParagraph.textContent; field.maxLength = 1000; field.rows = 2;
+    var field = node('textarea', 'la-edit-input'); field.value = article._messageText || article._answerParagraph.textContent; field.maxLength = 1000; field.rows = 1;
     field.setAttribute('aria-label', 'Edit your message');
     var controls = node('div', 'la-edit-controls');
-    var save = node('button', 'la-edit-save', 'Save'); save.type = 'button';
+    var save = node('button', 'la-edit-save', 'Send'); save.type = 'button'; save.setAttribute('aria-label', 'Send edited message');
     var cancel = node('button', 'la-edit-cancel', 'Cancel'); cancel.type = 'button';
     var status = node('span', 'la-edit-status'); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite');
-    controls.append(save, cancel); editor.append(field, controls, status);
-    article.appendChild(editor); article._editor = { root: editor, field: field, save: save, cancel: cancel, status: status };
+    controls.append(cancel, save); editor.append(field, controls, status);
+    article._messageBody.replaceWith(editor);
+    article.classList.add('la-editing');
+    article._editor = { root: editor, field: field, save: save, cancel: cancel, status: status, originalBody: article._messageBody };
     article._actionBar.hidden = true;
     save.addEventListener('click', function () { applyEditedTurn(article, field.value, article._editor); });
     cancel.addEventListener('click', function () { closeMessageEditor(article); });
-    field.addEventListener('keydown', function (event) { if (event.key === 'Escape') { event.preventDefault(); closeMessageEditor(article); } });
+    field.addEventListener('input', function () { field.style.height = 'auto'; field.style.height = Math.min(field.scrollHeight, 180) + 'px'; });
+    field.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') { event.preventDefault(); closeMessageEditor(article); }
+      else if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) { event.preventDefault(); save.click(); }
+    });
+    field.dispatchEvent(new Event('input', { bubbles: true }));
+    article.scrollIntoView({ block: 'nearest', behavior: window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     field.focus(); field.setSelectionRange(field.value.length, field.value.length);
   }
   function closeMessageEditor(article) {
     if (!article || !article._editor || article._editing) return;
-    article._editor.root.remove(); article._editor = null; article._actionBar.hidden = false;
+    var editor = article._editor;
+    editor.root.replaceWith(editor.originalBody); article.classList.remove('la-editing'); article._editor = null; article._actionBar.hidden = false;
   }
   function clearMessageActions(article) {
     if (article._actionBar) article._actionBar.remove();
     if (article._actionFeedback) article._actionFeedback.remove();
-    Array.prototype.slice.call(article.querySelectorAll('.la-share-menu')).forEach(function (menu) { menu.remove(); });
+    if (shareDialogState && shareDialogState.article === article) closeShareDialog(false);
     article._actionBar = null; article._actionFeedback = null; article._regenerateButton = null; article._ratingButtons = null;
+  }
+  function closeShareDialog(restoreFocus) {
+    if (!shareDialogState) return;
+    var current = shareDialogState;
+    shareDialogState = null;
+    document.removeEventListener('pointerdown', current.outsideHandler);
+    window.removeEventListener('resize', current.reposition);
+    current.layer.remove();
+    if (restoreFocus && current.button.isConnected && !refs.panel.hidden) current.button.focus({ preventScroll: true });
+  }
+  function openShareDialog(article, button) {
+    if (!refs.panel || refs.panel.hidden || !article || !button) return;
+    if (shareDialogState) closeShareDialog(false);
+    var layer = node('div', 'la-share-layer');
+    var dialog = node('section', 'la-share-dialog');
+    dialog.setAttribute('role', 'dialog'); dialog.setAttribute('aria-modal', 'false'); dialog.setAttribute('aria-labelledby', 'la-share-title-' + article.dataset.messageId);
+    var headingRow = node('div', 'la-share-heading');
+    var heading = node('h2', '', 'Share response'); heading.id = 'la-share-title-' + article.dataset.messageId;
+    var dismiss = node('button', 'la-share-close'); dismiss.type = 'button'; dismiss.appendChild(uiIcon('close')); dismiss.setAttribute('aria-label', 'Close share response');
+    headingRow.append(heading, dismiss);
+    var preview = node('p', 'la-share-preview', article._responseText);
+    var copy = node('button', 'la-share-copy'); copy.type = 'button'; copy.append(uiIcon('copy'), node('span', '', 'Copy response'));
+    var options = node('div', 'la-share-options');
+    var email = node('a', 'la-share-option'); email.append(uiIcon('mail'), node('span', '', 'Email'));
+    email.href = 'mailto:?subject=' + encodeURIComponent('Lake Assistant response') + '&body=' + encodeURIComponent(article._responseText);
+    var whatsapp = node('a', 'la-share-option'); whatsapp.append(uiIcon('share'), node('span', '', 'WhatsApp'));
+    whatsapp.href = 'https://wa.me/?text=' + encodeURIComponent(article._responseText); whatsapp.target = '_blank'; whatsapp.rel = 'noopener noreferrer';
+    options.append(email, whatsapp);
+    var status = node('p', 'la-share-status'); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite');
+    dialog.append(headingRow, preview, copy, options, status);
+    layer.appendChild(dialog);
+    layer.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); closeShareDialog(true); return; }
+      if (event.key !== 'Tab') return;
+      event.stopPropagation();
+      var focusable = Array.prototype.slice.call(dialog.querySelectorAll('button:not([disabled]), a[href]'));
+      if (!focusable.length) return;
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    });
+    dismiss.addEventListener('click', function () { closeShareDialog(true); });
+    copy.addEventListener('click', function () {
+      copy.disabled = true;
+      copyResponse(article._responseText).then(function () { closeShareDialog(true); actionFeedback(article, 'Copied'); }).catch(function () { status.textContent = 'Copy is unavailable. Select the response text to copy it.'; copy.disabled = false; });
+    });
+    [email, whatsapp].forEach(function (link) { link.addEventListener('click', function () { closeShareDialog(false); }); });
+    function reposition() {
+      if (!shareDialogState || shareDialogState.layer !== layer) return;
+      var panelBounds = refs.panel.getBoundingClientRect();
+      if (window.matchMedia && window.matchMedia('(max-width: 600px)').matches) {
+        dialog.style.left = '10px'; dialog.style.right = '10px'; dialog.style.top = 'auto'; dialog.style.bottom = 'max(10px, env(safe-area-inset-bottom))'; dialog.style.transform = 'none';
+      } else {
+        var dialogWidth = Math.min(340, window.innerWidth - 32);
+        var left = Math.min(window.innerWidth - dialogWidth - 16, Math.max(16, panelBounds.left + (panelBounds.width - dialogWidth) / 2));
+        var centerY = Math.max(16, Math.min(window.innerHeight - 16, panelBounds.top + panelBounds.height / 2));
+        dialog.style.left = left + 'px'; dialog.style.right = 'auto'; dialog.style.top = centerY + 'px'; dialog.style.bottom = 'auto'; dialog.style.transform = 'translateY(-50%)';
+      }
+    }
+    var outsideHandler = function (event) { if (!dialog.contains(event.target) && event.target !== button) closeShareDialog(false); };
+    refs.mount.appendChild(layer);
+    shareDialogState = { article: article, button: button, layer: layer, dialog: dialog, outsideHandler: outsideHandler, reposition: reposition };
+    document.addEventListener('pointerdown', outsideHandler);
+    window.addEventListener('resize', reposition);
+    reposition();
+    copy.focus({ preventScroll: true });
   }
   function retryFailedTurn(errorArticle, questionArticle, turnId) {
     if (!questionArticle || !turnId || activeChatController) { actionFeedback(errorArticle, 'This question cannot be retried in the current conversation.'); return; }
@@ -343,16 +409,41 @@
     if (speechState && speechState.button) { speechState.button.classList.remove('is-active'); speechState.button.setAttribute('aria-pressed', 'false'); speechState.button.title = 'Read message aloud'; speechState.button.setAttribute('aria-label', 'Read message aloud'); }
     speechState = null;
   }
-  function toggleSpeech(article, button) {
+  function onDeviceSpeechVoice(synthesis, language, timeoutMs) {
+    return new Promise(function (resolve) {
+      var settled = false, timer = null;
+      function finish(voice) {
+        if (settled) return;
+        settled = true; window.clearTimeout(timer); synthesis.removeEventListener('voiceschanged', check); resolve(voice || null);
+      }
+      function check() {
+        var voices = [];
+        try { voices = synthesis.getVoices() || []; } catch (_) {}
+        var voice = voices.find(function (item) { return item.localService === true && String(item.lang || '').toLowerCase().split('-')[0] === language; });
+        if (voice) finish(voice);
+      }
+      synthesis.addEventListener('voiceschanged', check);
+      timer = window.setTimeout(function () { check(); finish(null); }, timeoutMs);
+      check();
+    });
+  }
+  async function toggleSpeech(article, button) {
     if (!window.speechSynthesis || typeof window.SpeechSynthesisUtterance !== 'function') { actionFeedback(article, 'Read aloud is not supported by this browser.'); return; }
     if (speechState && speechState.article === article) { stopSpeech(); return; }
     stopSpeech();
-    var synthesis = window.speechSynthesis, voices = synthesis.getVoices().filter(function (voice) { return voice.localService === true; });
+    var synthesis = window.speechSynthesis;
     var language = String(article._responseLocale || 'en').toLowerCase().split('-')[0];
-    var voice = voices.find(function (item) { return String(item.lang || '').toLowerCase().split('-')[0] === language; });
-    if (!voice) { actionFeedback(article, language === 'sw' ? 'No on-device Kiswahili voice is available on this device.' : 'No on-device English voice is available on this device.'); return; }
     var chunks = speechChunks(article._responseText), stateForSpeech = { article: article, button: button, chunks: chunks, index: 0 };
     speechState = stateForSpeech; button.classList.add('is-active'); button.setAttribute('aria-pressed', 'true'); button.title = 'Stop reading message'; button.setAttribute('aria-label', 'Stop reading message');
+    actionFeedback(article, 'Looking for an on-device voice…');
+    var voice = await onDeviceSpeechVoice(synthesis, language, 1800);
+    if (speechState !== stateForSpeech) return;
+    if (!voice) {
+      stopSpeech();
+      actionFeedback(article, language === 'sw' ? 'No on-device Kiswahili voice is available. Your message was not sent anywhere.' : 'No on-device English voice is available. Your message was not sent anywhere.');
+      return;
+    }
+    actionFeedback(article, '');
     function speakNext() {
       if (speechState !== stateForSpeech) return;
       if (stateForSpeech.index >= chunks.length) { stopSpeech(); return; }
@@ -514,10 +605,11 @@
     input.addEventListener('input', growInput);
     panel.addEventListener('keydown', trapTab);
     document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && shareDialogState) { event.preventDefault(); closeShareDialog(true); return; }
       if (event.key === 'Escape' && !panel.hidden) closePanel(true);
     });
     document.addEventListener('pointerdown', function (event) {
-      if (!panel.hidden && !mount.contains(event.target)) closePanel(false);
+      if (!panel.hidden && !mount.contains(event.target) && !(shareDialogState && shareDialogState.dialog.contains(event.target))) closePanel(false);
     });
     if (window.visualViewport) {
       var syncViewport = function () { mount.style.setProperty('--la-viewport-height', window.visualViewport.height + 'px'); };
@@ -536,6 +628,7 @@
     refs.input.focus({ preventScroll: true });
   }
   function closePanel(restoreFocus) {
+    closeShareDialog(false);
     cancelVoice(false);
     stopSpeech();
     if (activeChatController) {
@@ -651,7 +744,7 @@
       var userPosition = messages.indexOf(questionArticle);
       messages.slice(userPosition + 1).forEach(function (item) { if (item !== priorAssistant) item.remove(); });
       Array.prototype.slice.call(refs.messages.querySelectorAll('.la-typing')).forEach(function (item) { item.remove(); });
-      questionArticle._answerParagraph.textContent = safeAnswerText(query);
+       questionArticle._answerParagraph.textContent = safeAnswerText(query);
       questionArticle._messageText = safeAnswerText(query);
       questionArticle._turnId = turnId; questionArticle.dataset.turnId = turnId;
       var answerArticle = priorAssistant;
@@ -671,7 +764,7 @@
       var links = Array.isArray(payload.sources) ? payload.sources.filter(function (source) { return source && typeof source.title === 'string' && /^https:\/\/www\.lakeoilgroup\.com\//i.test(source.url || ''); }).map(function (source) { return { t: source.title, u: source.url }; }) : [];
       appendSources(answerArticle, links);
       addResponseActions(answerArticle, answerText, payload.locale, 'assistant', turnId, questionArticle);
-      if (editor) { editor.root.remove(); questionArticle._editor = null; questionArticle._actionBar.hidden = false; }
+       if (editor) { editor.root.replaceWith(editor.originalBody); questionArticle.classList.remove('la-editing'); questionArticle._editor = null; questionArticle._actionBar.hidden = false; }
       actionFeedback(answerArticle, 'Message updated');
       window.setTimeout(function () { if (answerArticle._actionFeedback) actionFeedback(answerArticle, ''); }, 1500);
       followStreamToLatest();
@@ -684,15 +777,12 @@
         }
       } else {
         var note = 'Could not update the conversation. Your previous messages are unchanged.';
-        if (error && error.code === 'INSUFFICIENT_MEMORY_HEADROOM') note = 'The replacement is paused because available memory is too low. Your previous conversation is unchanged.';
+        if (error && error.code === 'INSUFFICIENT_MEMORY_HEADROOM') note = 'Not enough memory to update. Your draft is unsent and history is unchanged. Choose Send to retry.';
+        else note = 'Could not update. Your draft is unsent and history is unchanged. Choose Send to retry.';
         if (editor) {
           editor.status.textContent = note;
           editor.save.disabled = false; editor.cancel.disabled = false;
-          if (!editor.retry) {
-            editor.retry = node('button', 'la-edit-retry', 'Retry'); editor.retry.type = 'button';
-            editor.retry.addEventListener('click', function () { applyEditedTurn(questionArticle, editor.field.value, editor); });
-            editor.root.appendChild(editor.retry);
-          }
+          editor.root.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
         } else if (errorArticle) actionFeedback(errorArticle, note + ' You can retry this question.');
       }
     } finally {
