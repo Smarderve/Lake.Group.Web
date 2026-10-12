@@ -76,8 +76,8 @@ test('feedback is per assistant message, mutually exclusive, and regeneration us
   assert.match(js, /article\._rating = rating/);
   assert.match(js, /article\._ratingButtons\.up\.setAttribute\('aria-pressed', rating === 'up' \? 'true' : 'false'\)/);
   assert.match(js, /article\._ratingButtons\.down\.setAttribute\('aria-pressed', rating === 'down' \? 'true' : 'false'\)/);
-  assert.match(js, /function openFeedbackDialog\(article, button\)/);
-  assert.match(js, /\['Incorrect information', "Didn't answer my question", 'Incomplete or vague answer', 'Lost conversation context', 'Outdated information', 'Unreliable or irrelevant sources', 'Wrong language or unclear wording', 'Slow response or technical issue', 'Safety or privacy concern', 'Other'\]/);
+  assert.match(js, /function openFeedbackDialog\(article, button, rating\)/);
+  assert.match(js, /categoriesForRating = rating === 'up'[\s\S]*?'Accurate information', 'Answered my question', 'Clear and easy to understand', 'Helpful and detailed', 'Relevant and useful information', 'Good language and tone', 'Fast and responsive', 'Other'[\s\S]*?'Incorrect information', "Didn't answer my question", 'Incomplete or vague answer', 'Lost conversation context', 'Outdated information', 'Unreliable or irrelevant sources', 'Wrong language or unclear wording', 'Slow response or technical issue', 'Safety or privacy concern', 'Other'/);
   assert.match(js, /sessionFeedback\[article\._messageId\] = record/);
   assert.match(js, /article\._feedback = record/);
   const feedbackDialog = js.slice(js.indexOf('function openFeedbackDialog('), js.indexOf('function openShareDialog('));
@@ -93,8 +93,10 @@ test('feedback is per assistant message, mutually exclusive, and regeneration us
   assert.match(js, /Could not regenerate\. Your previous response is unchanged\./);
   assert.match(js, /article\._ratingButtons\.up\.setAttribute\('aria-pressed'/);
   assert.doesNotMatch(js.slice(js.indexOf('function setRating('), js.indexOf('function copyResponse(')), /actionFeedback\(/);
-  assert.match(css, /\.la-rating-action\.is-active \{ background: rgba\(1, 129, 187, \.09\); color: #0181BB; \}/);
-  assert.doesNotMatch(css, /\.la-rating-action\.is-active svg path \{ fill: currentColor; \}/);
+  assert.match(css, /\.la-rating-action\.is-active \.la-rating-filled \{ display: block; \}/);
+  assert.match(css, /\.la-rating-action\.is-active \{ color: #59656b; \}/);
+  assert.doesNotMatch(css, /\.la-rating-action\.is-active \{ background: rgba/);
+  assert.match(css, /\.la-feedback-toast[\s\S]*?pointer-events: none/);
   assert.match(css, /\.la-feedback-dialog/);
   assert.match(css, /\.la-feedback-category\.is-selected/);
   assert.match(css, /\.la-action-feedback\s*\{[^}]*position:\s*absolute[^}]*clip:\s*rect\(0, 0, 0, 0\)/s);

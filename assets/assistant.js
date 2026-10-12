@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   if (window.LakeAssistantV2 || window.LAKE_ASSISTANT_ENABLED === false) return;
-  var refs = {}, index, assets, companies = [], kbMetadata = null, welcomeTimer = null, welcomeTyping = null, welcomeText = '', welcomeToken = 0, hasWelcomed = false, activeChatController = null, chatStreamActive = false, chatStreamFollow = true, latestResponseArticle = null, speechState = null, shareDialogState = null, feedbackDialogState = null, sessionFeedback = Object.create(null), voiceState = { stream: null, pcmChunks: [], pcmSamples: 0, pcmSampleRate: 0, captureContext: null, captureSource: null, captureProcessor: null, captureGain: null, partialTimer: null, partialPromise: null, partialController: null, partialCursor: 0, timer: null, counterTimer: null, recordingStartedAt: 0, meterContext: null, meterSource: null, meterAnalyser: null, meterFrame: 0, meterLevel: 0, controller: null, mode: '', session: 0, active: false, pending: false, localReady: false, healthTimer: null, healthFailures: 0, sendAfterTranscript: false, finalText: '', detectedLanguage: '', baseText: '', submitted: false, locale: 'en-US' };
+  var refs = {}, index, assets, companies = [], kbMetadata = null, welcomeTimer = null, welcomeTyping = null, welcomeText = '', welcomeToken = 0, hasWelcomed = false, activeChatController = null, chatStreamActive = false, chatStreamFollow = true, latestResponseArticle = null, speechState = null, shareDialogState = null, feedbackDialogState = null, feedbackToast = null, feedbackToastTimer = null, sessionFeedback = Object.create(null), voiceState = { stream: null, pcmChunks: [], pcmSamples: 0, pcmSampleRate: 0, captureContext: null, captureSource: null, captureProcessor: null, captureGain: null, partialTimer: null, partialPromise: null, partialController: null, partialCursor: 0, timer: null, counterTimer: null, recordingStartedAt: 0, meterContext: null, meterSource: null, meterAnalyser: null, meterFrame: 0, meterLevel: 0, controller: null, mode: '', session: 0, active: false, pending: false, localReady: false, healthTimer: null, healthFailures: 0, sendAfterTranscript: false, finalText: '', detectedLanguage: '', baseText: '', submitted: false, locale: 'en-US' };
   var groupEntity = { name: 'Lake Group', route: 'about.html', aliases: ['Lake Group', 'Lake Oil Group'] };
   var routes = {
     CONTACT: ['contact.html', 'Contact Lake Group'], CAREERS: ['careers.html', 'Careers at Lake Group'],
@@ -117,6 +117,16 @@
       var thumbUp = document.createElementNS(svg.namespaceURI, 'path'); thumbUp.setAttribute('d', 'M7 10v11H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3Zm0 0 5-8c2 0 3 2 2 4l-1 4h6a2 2 0 0 1 2 2l-2 7a2 2 0 0 1-2 2H7'); svg.appendChild(thumbUp);
     } else if (kind === 'thumb-down') {
       var thumbDown = document.createElementNS(svg.namespaceURI, 'path'); thumbDown.setAttribute('d', 'M7 14V3H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3Zm0 0 5 8c2 0 3-2 2-4l-1-4h6a2 2 0 0 0 2-2l-2-7a2 2 0 0 0-2-2H7'); svg.appendChild(thumbDown);
+    } else if (kind === 'thumb-up-filled' || kind === 'thumb-down-filled') {
+      svg.setAttribute('fill', 'currentColor'); svg.setAttribute('stroke', 'none');
+      var filledThumb = document.createElementNS(svg.namespaceURI, 'path');
+      filledThumb.setAttribute('d', kind === 'thumb-up-filled'
+        ? 'M7 10 10.1 3.4c.7-1.5 2.6-1.9 3.8-.8.8.7 1 1.8.7 2.8L13.5 9h4.9c1.7 0 2.9 1.6 2.4 3.2l-2.3 7A2.5 2.5 0 0 1 16.1 21H7V10ZM4.5 10H7v11H4.5A2.5 2.5 0 0 1 2 18.5v-6A2.5 2.5 0 0 1 4.5 10Z'
+        : 'M7 14 10.1 20.6c.7 1.5 2.6 1.9 3.8.8.8-.7 1-1.8.7-2.8L13.5 15h4.9c1.7 0 2.9-1.6 2.4-3.2l-2.3-7A2.5 2.5 0 0 0 16.1 3H7v11ZM4.5 14H7V3H4.5A2.5 2.5 0 0 0 2 5.5v6A2.5 2.5 0 0 0 4.5 14Z');
+      filledThumb.setAttribute('fill', 'currentColor'); filledThumb.setAttribute('stroke', 'none'); svg.appendChild(filledThumb);
+      svg.classList.add('la-rating-filled-icon');
+    } else if (kind === 'check-circle') {
+      var checkCircle = document.createElementNS(svg.namespaceURI, 'path'); checkCircle.setAttribute('d', 'M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4 12 14.01l-3-3'); svg.appendChild(checkCircle);
     } else if (kind === 'check') {
       var checkPath = document.createElementNS(svg.namespaceURI, 'path'); checkPath.setAttribute('d', 'm5 12 4 4L19 6'); svg.appendChild(checkPath);
     } else {
@@ -282,13 +292,15 @@
     }
     var up = responseAction(article, 'thumb-up', 'Good response', 'la-rating-action');
     var down = responseAction(article, 'thumb-down', 'Bad response', 'la-rating-action');
+    [up, down].forEach(function (button) {
+      button.firstChild.classList.add('la-rating-outline');
+      var filled = uiIcon(button === up ? 'thumb-up-filled' : 'thumb-down-filled');
+      filled.classList.add('la-rating-filled'); button.appendChild(filled);
+    });
     article._ratingButtons = { up: up, down: down }; article._rating = null;
     up.setAttribute('aria-pressed', 'false'); down.setAttribute('aria-pressed', 'false');
-    up.addEventListener('click', function () { setRating(article, article._rating === 'up' ? null : 'up'); });
-    down.addEventListener('click', function () {
-      if (article._rating === 'down') setRating(article, null);
-      else openFeedbackDialog(article, down);
-    });
+    up.addEventListener('click', function () { openFeedbackDialog(article, up, 'up'); });
+    down.addEventListener('click', function () { openFeedbackDialog(article, down, 'down'); });
     if (kind === 'error') {
       var retry = responseAction(article, 'regenerate', 'Retry failed question', 'la-retry-action');
       retry.addEventListener('click', function () { retryFailedTurn(article, questionArticle, turnId); });
@@ -364,23 +376,47 @@
     current.layer.remove();
     if (restoreFocus && current.button.isConnected && !refs.panel.hidden) current.button.focus({ preventScroll: true });
   }
-  function openFeedbackDialog(article, button) {
+  function showFeedbackToast() {
+    if (!refs.panel) return;
+    if (feedbackToastTimer) window.clearTimeout(feedbackToastTimer);
+    if (!feedbackToast) {
+      feedbackToast = node('div', 'la-feedback-toast');
+      feedbackToast.setAttribute('role', 'status'); feedbackToast.setAttribute('aria-live', 'polite'); feedbackToast.setAttribute('aria-atomic', 'true');
+      var icon = uiIcon('check-circle'); icon.classList.add('la-feedback-toast-icon');
+      var copy = node('span', 'la-feedback-toast-copy');
+      copy.append(node('strong', '', 'Thank you for your feedback!'), node('span', '', 'Your feedback has been saved.'));
+      feedbackToast.append(icon, copy); refs.panel.appendChild(feedbackToast);
+    }
+    feedbackToast.classList.remove('is-leaving'); feedbackToast.hidden = false;
+    requestAnimationFrame(function () { if (feedbackToast) feedbackToast.classList.add('is-visible'); });
+    feedbackToastTimer = window.setTimeout(function () {
+      if (!feedbackToast) return;
+      feedbackToast.classList.remove('is-visible'); feedbackToast.classList.add('is-leaving');
+      window.setTimeout(function () { if (feedbackToast && feedbackToast.parentNode) feedbackToast.remove(); feedbackToast = null; }, 220);
+    }, 3000);
+  }
+  function openFeedbackDialog(article, button, rating) {
     if (!refs.panel || refs.panel.hidden || !article || !button) return;
     if (shareDialogState) closeShareDialog(false);
     if (feedbackDialogState) closeFeedbackDialog(false);
+    rating = rating === 'up' ? 'up' : 'down';
+    var previous = article._feedback && article._feedback.rating === rating ? article._feedback : null;
+    var categoriesForRating = rating === 'up'
+      ? ['Accurate information', 'Answered my question', 'Clear and easy to understand', 'Helpful and detailed', 'Relevant and useful information', 'Good language and tone', 'Fast and responsive', 'Other']
+      : ['Incorrect information', "Didn't answer my question", 'Incomplete or vague answer', 'Lost conversation context', 'Outdated information', 'Unreliable or irrelevant sources', 'Wrong language or unclear wording', 'Slow response or technical issue', 'Safety or privacy concern', 'Other'];
     var layer = node('div', 'la-share-layer la-feedback-layer');
     var dialog = node('section', 'la-share-dialog la-feedback-dialog');
     dialog.setAttribute('role', 'dialog'); dialog.setAttribute('aria-modal', 'false'); dialog.setAttribute('aria-labelledby', 'la-feedback-title-' + article._messageId);
     var headingRow = node('div', 'la-share-heading');
-    var heading = node('h2', '', 'Share feedback'); heading.id = 'la-feedback-title-' + article._messageId;
+    var heading = node('h2', '', rating === 'up' ? 'Share positive feedback' : 'Share feedback'); heading.id = 'la-feedback-title-' + article._messageId;
     var dismiss = node('button', 'la-share-close'); dismiss.type = 'button'; dismiss.appendChild(uiIcon('close')); dismiss.setAttribute('aria-label', 'Close feedback dialog');
     headingRow.append(heading, dismiss);
     var group = node('fieldset', 'la-feedback-categories');
-    var legend = node('legend', '', 'What could be better? Select all that apply.'); group.appendChild(legend);
-    var categoryNames = ['Incorrect information', "Didn't answer my question", 'Incomplete or vague answer', 'Lost conversation context', 'Outdated information', 'Unreliable or irrelevant sources', 'Wrong language or unclear wording', 'Slow response or technical issue', 'Safety or privacy concern', 'Other'];
+    var legend = node('legend', '', rating === 'up' ? 'What did Lake Assistant do well? Select all that apply.' : 'What could Lake Assistant improve? Select all that apply.'); group.appendChild(legend);
     var selected = Object.create(null), categoryButtons = [];
-    categoryNames.forEach(function (label) {
+    categoriesForRating.forEach(function (label) {
       var option = node('button', 'la-feedback-category', label); option.type = 'button'; option.setAttribute('aria-pressed', 'false');
+      if (previous && Array.isArray(previous.categories) && previous.categories.indexOf(label) !== -1) { selected[label] = true; option.setAttribute('aria-pressed', 'true'); option.classList.add('is-selected'); }
       option.addEventListener('click', function () {
         selected[label] = !selected[label];
         option.setAttribute('aria-pressed', selected[label] ? 'true' : 'false'); option.classList.toggle('is-selected', !!selected[label]);
@@ -388,26 +424,31 @@
       });
       categoryButtons.push(option); group.appendChild(option);
     });
-    var details = document.createElement('textarea'); details.className = 'la-feedback-details'; details.maxLength = 1000; details.rows = 3; details.setAttribute('aria-label', 'Share details (optional)'); details.placeholder = 'Share details (optional)';
+    var details = document.createElement('textarea'); details.className = 'la-feedback-details'; details.maxLength = 1000; details.rows = 3; details.setAttribute('aria-label', 'Share details (optional)'); details.placeholder = 'Share details (optional)'; details.value = previous && previous.details || '';
     var controls = node('div', 'la-feedback-controls');
     var cancel = node('button', 'la-feedback-cancel', 'Cancel'); cancel.type = 'button';
     var submit = node('button', 'la-feedback-submit', 'Submit'); submit.type = 'button'; submit.disabled = true;
     controls.append(cancel, submit);
     var status = node('p', 'la-feedback-status'); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite');
     dialog.append(headingRow, group, details, controls, status); layer.appendChild(dialog);
-    function updateSubmit() { submit.disabled = !Object.keys(selected).some(function (key) { return selected[key]; }) && !details.value.trim(); }
+    function hasSelection() { return Object.keys(selected).some(function (key) { return selected[key]; }); }
+    function updateSubmit() { submit.disabled = !hasSelection() && !details.value.trim() && !previous; }
     details.addEventListener('input', updateSubmit);
     cancel.addEventListener('click', function () { closeFeedbackDialog(true); });
     dismiss.addEventListener('click', function () { closeFeedbackDialog(true); });
     submit.addEventListener('click', function () {
       var categories = Object.keys(selected).filter(function (key) { return selected[key]; });
       var detailText = details.value.trim();
-      if (!categories.length && !detailText) return;
-      var record = { messageId: article._messageId, rating: 'down', categories: categories, details: detailText, submittedAt: new Date().toISOString() };
-      sessionFeedback[article._messageId] = record;
-      article._feedback = record;
-      setRating(article, 'down');
+      if (!categories.length && !detailText && !previous) return;
+      try {
+        if (!categories.length && !detailText) setRating(article, null);
+        else {
+          var record = { messageId: article._messageId, rating: rating, categories: categories, details: detailText, submittedAt: new Date().toISOString() };
+          sessionFeedback[article._messageId] = record; article._feedback = record; setRating(article, rating);
+        }
+      } catch (_) { status.textContent = 'Feedback could not be saved. Please try again.'; return; }
       closeFeedbackDialog(true);
+      if (categories.length || detailText) showFeedbackToast();
     });
     layer.addEventListener('keydown', function (event) {
       if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); closeFeedbackDialog(true); return; }
@@ -551,7 +592,7 @@
     article._ratingButtons.down.setAttribute('aria-pressed', rating === 'down' ? 'true' : 'false');
     article._ratingButtons.up.classList.toggle('is-active', rating === 'up');
     article._ratingButtons.down.classList.toggle('is-active', rating === 'down');
-    if (rating !== 'down') {
+    if (rating === null) {
       delete sessionFeedback[article._messageId];
       article._feedback = null;
     }
