@@ -6,6 +6,7 @@
     "deploy": "npx firebase deploy --only hosting",
     "build": "npm run build:seo && npm run build:assistant-kb",
     "build:assistant-kb": "node scripts/build_assistant_kb.js",
+    "assistant:external-kb:check": "node scripts/manage-assistant-external-kb.mjs check",
     "build:globe-lab": "node scripts/build-globe-lab.mjs",
     "build:seo": "node scripts/build-seo-foundation.mjs && node scripts/build-sitemap.js && node scripts/build-llms.mjs",
     "audit:images": "node scripts/audit-public-images.mjs",

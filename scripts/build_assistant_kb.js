@@ -12,8 +12,8 @@ const ROOT = path.resolve(__dirname, '..');
 const OUT = path.join(ROOT, 'assets', 'assistant-kb.js');
 const RAG_OUT = path.join(ROOT, 'ai', 'knowledge', 'lake-group-index.json');
 const MIN_TEXT = 48;
-const SKIP_TAGS = new Set(['script', 'style', 'template', 'noscript', 'svg', 'nav', 'footer', 'header', 'button', 'input', 'select', 'textarea', 'iframe', 'canvas']);
-const BLOCK_TAGS = new Set(['p', 'li', 'blockquote', 'address', 'figcaption', 'dt', 'dd']);
+const SKIP_TAGS = new Set(['script', 'style', 'template', 'noscript', 'svg', 'nav', 'footer', 'header', 'button', 'input', 'select', 'textarea', 'iframe', 'canvas', 'figcaption']);
+const BLOCK_TAGS = new Set(['p', 'li', 'blockquote', 'address', 'dt', 'dd']);
 const HEADING_TAG = /^h[1-6]$/;
 const STOP_CONTENT = /\b(?:lorem ipsum|placeholder text|coming soon|under construction|currently preparing this section|sample text|demo content)\b/i;
 
@@ -74,6 +74,9 @@ function pageMetadata(route, html, tree) {
 }
 
 function contentBlocks(tree, metadata, route) {
+  // Gallery captions are descriptive labels for images, not approved company
+  // facts. Exclude the media page rather than relying on a retrieval penalty.
+  if (route.toLowerCase() === 'gallery.html') return [];
   const root = findNode(tree, (node) => node.tagName === 'main') || findNode(tree, (node) => node.tagName === 'body') || tree;
   const blocks = [];
   let activeHeading = metadata.title;

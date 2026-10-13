@@ -13,6 +13,8 @@ export const ASSISTANT_WARMUP_MIN_FREE_BYTES = 7 * 1024 ** 3;
 export const ASSISTANT_KEEP_ALIVE_MIN_FREE_BYTES = 3 * 1024 ** 3;
 export const ASSISTANT_MIN_INFERENCE_FREE_BYTES = 3 * 1024 ** 3;
 const DEFAULT_INDEX_PATH = fileURLToPath(new URL('../../../ai/knowledge/lake-group-index.json', import.meta.url));
+const DEFAULT_EXTERNAL_INDEX_PATH = fileURLToPath(new URL('../../../ai/knowledge/lake-group-external-index.json', import.meta.url));
+const EXTERNAL_SOURCE_HOSTS = new Set(['ewura.go.tz', 'www.ewura.go.tz', 'cqs.ewura.go.tz', 'epra.go.ke', 'new.kenyalaw.org', 'businessdailyafrica.com', 'www.businessdailyafrica.com']);
 const OLLAMA_HOST = '127.0.0.1';
 const STOP_WORDS = new Set('a an and are as at be but by can could did do does for from had has have how i if in is it its lake me more of on or our please tell that the their them there these they this to us was we what when where which who why with would you your about everything all overview introduction today know explain detail detailed each every company companies subsidiary subsidiaries list of zote kila tanzu'.split(' '));
 const EXPANSIONS = {
@@ -75,17 +77,42 @@ function companyFinancialQuestion(message, records) {
 }
 
 function financialEvidence(records) {
-  return records.some((record) => /\b(?:audited accounts?|financial statements?|revenue|turnover|net profit|gross profit|valuation|market capitalization|market cap|total assets|shareholders' equity|ranking)\b/i.test(`${record.pageTitle || ''} ${record.text || ''}`));
+  return records.some((record) => /\b(?:audited accounts?|financial statements?|revenue|turnover|net profit|gross profit|valuation|market capitalization|market cap|total assets|shareholders' equity|ranking|market share|sales volume)\b/i.test(`${record.pageTitle || ''} ${record.text || ''}`));
 }
 
-function financialUnavailableAnswer(locale, message) {
-  const ranking = /\b(?:rank(?:ing)?|biggest|largest|top company)\b/i.test(message);
-  if (locale === 'sw') return ranking
-    ? 'Sina chanzo cha kuaminika kilichothibitishwa hapa kinachoonyesha nafasi ya Lake Group. Nafasi yoyote inahitaji kutaja mchapishaji, mwaka, eneo na kipimo kilichotumika; sitabuni cheo.'
-    : 'Sina takwimu za kifedha zilizothibitishwa za Lake Group katika taarifa zilizoidhinishwa nilizonazo, na siwezi kubuni namba. Thamani ya kampuni, mapato, faida, mali, thamani ya hisa sokoni na utajiri binafsi ni vipimo tofauti; takwimu yoyote inahitaji chanzo na tarehe inayoweza kuthibitishwa.';
-  return ranking
-    ? 'I don’t have a verified, dated ranking source for Lake Group in the approved information available to me. A responsible ranking needs its publisher, year, geographic scope, and metric, so I won’t invent one.'
-    : 'I don’t have verified financial figures for Lake Group in the approved information available to me, so I won’t guess. Company valuation, revenue, profit, assets, market capitalization, and an owner’s personal net worth are different measures; any figure needs a verifiable source and date.';
+function financialAnswerMatchesEvidence(answer, records, query) {
+  if (!companyFinancialQuestion(query, records)) return true;
+  const evidence = records.map((record) => `${record.text || ''} ${record.reportingPeriod || ''}`).join(' ').normalize('NFKC').toLowerCase();
+  const claims = String(answer || '').match(/(?:[$€£]\s?\d[\d,.]*(?:\s?(?:million|billion|trillion|bn|m))?|\b(?:ksh|kes|tsh|tzs|usd|sh)\s?\d[\d,.]*(?:\s?(?:million|billion|trillion|bn|m))?|\b\d[\d,.]*\s?(?:%|percent|million|billion|trillion|bn))/gi) || [];
+  for (const claim of claims) {
+    const number = claim.match(/\d[\d,.]*/)?.[0]?.replace(/,/g, '');
+    const unit = claim.match(/%|percent|million|billion|trillion|bn\b|m\b/i)?.[0]?.toLowerCase();
+    const evidenceHasClaim = unit === '%'
+      ? new RegExp(`\\b${escapeRegExp(number)}\\s*%`).test(evidence) || new RegExp(`\\b${escapeRegExp(number)}\\s*percent\\b`, 'i').test(evidence)
+      : unit ? new RegExp(`\\b${escapeRegExp(number)}\\s*(?:${unit === 'bn' ? '(?:billion|bn)' : escapeRegExp(unit)})\\b`, 'i').test(evidence)
+        : number ? new RegExp(`\\b${escapeRegExp(number)}\\b`).test(evidence) : true;
+    if (!evidenceHasClaim) return false;
+  }
+  if (/\b(?:rank(?:ed|ing)?|position)\b/i.test(query)) {
+    const rankPhrase = String(answer || '').match(/\b(?:ranks?|ranked|ranking|position)\s+(?:number\s+|no\.?\s*)?(?:\d+(?:st|nd|rd|th)?|first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth)\b|\bnumber\s+(?:one|two|three|four|five|six|seven|eight|nine|ten)\b/i);
+    if (rankPhrase) {
+      const rankWords = { first: '1', one: '1', second: '2', two: '2', third: '3', three: '3', fourth: '4', four: '4', fifth: '5', five: '5', sixth: '6', six: '6', seventh: '7', seven: '7', eighth: '8', eight: '8', ninth: '9', nine: '9', tenth: '10', ten: '10' };
+      const ordinal = rankPhrase[0].match(/\b(first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|one|two|three|four|five|six|seven|eight|nine|ten)\b/i)?.[0]?.toLowerCase();
+      const rank = ordinal ? rankWords[ordinal] : rankPhrase[0].match(/\d+/)?.[0];
+      const sourceHasRank = new RegExp(`\\b(?:rank(?:ed)?|position|top[- ]ten table)[^.!?]{0,100}\\b(?:${rank}\\s*(?:st|nd|rd|th)?|${Object.keys(rankWords).find((word) => rankWords[word] === rank) || 'NEVER_MATCH'})\\b`, 'i').test(evidence);
+      if (!sourceHasRank) return false;
+    }
+  }
+  return true;
+}
+
+function financialGuidance(locale, message, records) {
+  if (!companyFinancialQuestion(message, records)) return '';
+  const hasFigure = financialEvidence(records);
+  const language = locale === 'sw' ? 'Kiswahili' : 'English';
+  return hasFigure
+    ? `\n\nFinancial-question safeguard: answer in ${language}. Use only figures explicitly present in retrieved evidence. Name the exact metric, publisher, reporting period, geography and date. If evidence is a secondary press report or is marked unverified, attribute it explicitly and state its limitations; do not call it audited, current, valuation, or group-wide unless the evidence says so. Revenue is not valuation, profit, assets, equity, or market capitalization. A rank must match the source's scope and table.`
+    : `\n\nFinancial-question safeguard: answer in ${language}. No relevant verified figure for the requested metric appears in the retrieved evidence. Do not invent one or substitute revenue, market share, assets, profit, or a ranking for valuation. Explain what is and is not established, and offer useful context only when it is in the retrieved evidence.`;
 }
 
 function serverDate(now) {
@@ -248,6 +275,7 @@ function isLakeOilUgandaAirportReference(record) {
 
 function detectQueryIntent(message) {
   const value = String(message || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  if (/\b(?:worth|valuation|valued|revenue|turnover|sales|profit|earnings|net worth|assets|equity|market capitalization|market cap|market share|rank(?:ing)?|biggest|largest|top company|financial position)\b/.test(value) && /\blake\b/.test(value)) return 'business';
   if (/\b(?:contact|contacts|email|e-mail|phone|telephone|address|anwani|mawasiliano|barua pepe|simu)\b/.test(value)) return 'contact';
   if (/\b(?:headquarters|head office|makao makuu)\b/.test(value)) return 'headquarters';
   if (/\b(?:location|locations|where|located|operate|operates|operating|countries|country|market|markets|footprint|office|offices|factory|factories|plant|plants|depot|depots|terminal|terminals|warehouse|warehouses|facility|facilities|airport|airports|wapi|eneo|maeneo|nchi|ofisi|kiwanda|viwanda|ghala|maghala)\b/.test(value)) return 'locations';
@@ -312,6 +340,29 @@ function validateIndex(index) {
     return { ...record, sourcePriority: Number(record.sourcePriority) || 0, contentKind: record.contentKind || 'content', terms, frequencies, length: terms.length };
   }).filter(Boolean);
   if (!records.length) throw new Error('Knowledge index has no published records.');
+  return records;
+}
+
+export function validateAssistantExternalIndex(index) {
+  if (!index || index.schemaVersion !== 1 || !Array.isArray(index.records)) throw new Error('External knowledge index has an unsupported schema.');
+  const seen = new Set();
+  const records = index.records.map((record) => {
+    if (!record || typeof record.id !== 'string' || typeof record.text !== 'string' || !record.text.trim() || seen.has(record.id)) throw new Error('External knowledge index contains an invalid or duplicate record.');
+    seen.add(record.id);
+    if (!record.sourceTitle || !record.publisher || !record.checkedAt || !record.entity || !record.topic || !record.reportingPeriod || !record.limitations || !record.sourceClass) throw new Error(`External knowledge record ${record.id} is missing provenance metadata.`);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(record.checkedAt) || (record.publicationDate != null && !/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/.test(record.publicationDate))) throw new Error(`External knowledge record ${record.id} has an invalid source date.`);
+    let source;
+    try { source = new URL(record.sourceUrl); } catch { throw new Error(`External knowledge record ${record.id} has an invalid source URL.`); }
+    if (source.protocol !== 'https:' || !EXTERNAL_SOURCE_HOSTS.has(source.hostname) || source.username || source.password) throw new Error(`External knowledge record ${record.id} is outside the curated source allowlist.`);
+    if (record.verification !== 'PUBLISHED' && record.verification !== 'REVIEW') throw new Error(`External knowledge record ${record.id} must be REVIEW or PUBLISHED.`);
+    const contentHash = createHash('sha256').update(record.text).digest('hex');
+    if (record.contentHash !== contentHash) throw new Error(`External knowledge record ${record.id} failed its content hash check.`);
+    if (record.verification !== 'PUBLISHED') return null;
+    const terms = tokens([record.entity, record.topic, record.pageTitle, ...(record.aliases || []), record.text].join(' '));
+    const frequencies = new Map();
+    terms.forEach((term) => frequencies.set(term, (frequencies.get(term) || 0) + 1));
+    return { ...record, sourcePriority: Number(record.sourcePriority) || 90, contentKind: record.contentKind || 'external-fact', terms, frequencies, length: terms.length };
+  }).filter(Boolean);
   return records;
 }
 
@@ -588,11 +639,11 @@ function sourceLinks(records, { grounded, plan, conversational }) {
     let url;
     try {
       const parsed = new URL(record.sourceUrl);
-      if (parsed.protocol !== 'https:' || parsed.hostname !== 'www.lakeoilgroup.com') continue;
+      if (parsed.protocol !== 'https:' || (parsed.hostname !== 'www.lakeoilgroup.com' && !EXTERNAL_SOURCE_HOSTS.has(parsed.hostname))) continue;
       url = parsed.href;
     } catch { continue; }
     if (seen.has(url) || /gallery/i.test(record.pageTitle || '')) continue;
-    seen.add(url); sources.push({ title: record.pageTitle, url });
+    seen.add(url); sources.push({ title: record.sourceTitle || record.pageTitle, url, ...(record.publisher ? { publisher: record.publisher } : {}), ...(record.publicationDate ? { publicationDate: record.publicationDate } : {}), ...(record.sourceClass ? { sourceClass: record.sourceClass } : {}) });
     if (sources.length >= maximum) break;
   }
   return sources;
@@ -667,6 +718,7 @@ export function removeUnsupportedCompanyLocations(answer, evidenceRecords, plan)
 
 export function createAssistantChatService({
   knowledgeIndexPath = process.env.LAKE_ASSISTANT_KNOWLEDGE_FILE || DEFAULT_INDEX_PATH,
+  externalKnowledgeIndexPath = process.env.LAKE_ASSISTANT_EXTERNAL_KNOWLEDGE_FILE || DEFAULT_EXTERNAL_INDEX_PATH,
   ollamaPort = Number(process.env.LAKE_ASSISTANT_OLLAMA_PORT || 11434),
   fetchImpl = globalThis.fetch,
   now = Date.now,
@@ -680,7 +732,10 @@ export function createAssistantChatService({
   let warmupPromise;
   let active = 0;
   async function getRecords() {
-    if (!indexPromise) indexPromise = readFile(resolve(knowledgeIndexPath), 'utf8').then((text) => validateIndex(JSON.parse(text))).catch((error) => { indexPromise = null; throw error; });
+    if (!indexPromise) indexPromise = Promise.all([
+      readFile(resolve(knowledgeIndexPath), 'utf8').then((text) => validateIndex(JSON.parse(text))),
+      readFile(resolve(externalKnowledgeIndexPath), 'utf8').then((text) => validateAssistantExternalIndex(JSON.parse(text))),
+    ]).then(([official, external]) => [...official, ...external]).catch((error) => { indexPromise = null; throw error; });
     return indexPromise;
   }
   function pruneSessions() {
@@ -794,10 +849,19 @@ export function createAssistantChatService({
       const included = new Set(anchors.map((record) => record.id));
       retrieved = [...anchors, ...retrieved.filter((record) => !included.has(record.id))];
     }
+    if (companyFinancialQuestion(query, records)) {
+      const financialEntities = mentionsLakeGroup(query) ? new Set(['Lake Group']) : specificEntities.length ? new Set(specificEntities) : null;
+      const requestedCountryList = requestedCountries(query);
+      // A financial question must not inherit unrelated leadership, CSR, or
+      // location snippets just because they mention the same company.
+      retrieved = retrieved.filter((record) => financialEvidence([record]) &&
+        (!financialEntities || financialEntities.has(record.entity)) &&
+        (!requestedCountryList.length || requestedCountryList.some((country) => String(record.text || '').toLowerCase().includes(country))));
+    }
     const mentionsLake = /\blake\b/i.test(query) || explicitEntities.length > 0;
     const generalConversation = conversational || isOpenEndedConversation(query) || (!mentionsLake && !isFollowUp);
     if (generalConversation && !isFollowUp) retrieved = [];
-    const grounded = supportsQuery(retrieved, plan);
+    const grounded = supportsQuery(retrieved, plan) || (companyFinancialQuestion(query, records) && financialEvidence(retrieved));
     const evidenceLimit = plan.groupWide ? 18 : plan.broad || plan.comparison ? 6 : 4;
     const seenEvidence = new Set();
     const evidenceRecords = grounded ? retrieved.filter((record) => {
@@ -808,25 +872,7 @@ export function createAssistantChatService({
     }).slice(0, evidenceLimit) : [];
     const retrievalMs = Math.max(0, performance.now() - retrievalStartedAt);
     const status = grounded ? 'ok' : generalConversation ? 'conversation' : 'no_evidence';
-    if (companyFinancialQuestion(query, records) && !financialEvidence(evidenceRecords)) {
-      const answer = financialUnavailableAnswer(activeLocale, query);
-      if (signal?.aborted) throw Object.assign(new Error('The visitor disconnected.'), { name: 'AbortError' });
-      session.turns.push({ role: 'user', content: query }, { role: 'assistant', content: answer });
-      session.turns = session.turns.slice(-ASSISTANT_MAX_HISTORY_MESSAGES);
-      session.locale = activeLocale;
-      session.context = null;
-      session.currentEntities = [];
-      session.lastEvidenceIds = [];
-      session.lastGrounded = false;
-      session.updatedAt = now();
-      recordTurn(session, turnId, query, answer, previousTurnState, { sources: [], grounded: false, status: 'no_evidence', locale: activeLocale });
-      session.lastTurn = { turnId, question: query, base: previousTurnState };
-      sessions.set(id, session);
-      if (typeof onToken === 'function') await onToken(answer);
-      return { sessionId: id, turnId, answer, sources: [], grounded: false, status: 'no_evidence', locale: activeLocale, metrics: { retrievalMs: Math.round(retrievalMs * 100) / 100, totalServiceMs: Math.round((performance.now() - chatStartedAt) * 100) / 100 } };
-    }
     if (active >= maxConcurrent) throw Object.assign(new Error('The assistant is busy. Please try again shortly.'), { status: 503, code: 'MODEL_BUSY' });
-    const evidence = evidenceRecords.map((record, i) => `EVIDENCE ${i + 1}\n${record.pageTitle} | ${record.entity} | ${record.topic}${record.retrievalLocationType ? ` | location evidence: ${record.retrievalLocationType}` : record.factType ? ` | ${record.factType}` : ''}\n${record.text.slice(0, plan.groupWide ? 270 : 520)}`).join('\n\n');
     const localeName = activeLocale === 'sw' ? 'Kiswahili' : 'English';
     const contextSummary = isFollowUp ? `\n\nCarried conversational scope (user intent and verified-source metadata only; not a factual source): subject: ${previousContext.subject || '(current Lake Group topic)'}; companies: ${contextEntities.join(', ') || '(Lake Group)'}; user-mentioned countries: ${contextCountries.join(', ') || '(none)'}. Preserve this subject and country scope unless the visitor explicitly changes it. Previously verified facts are available only through the approved evidence records included below.` : '';
     const turnGuidance = grounded
@@ -846,7 +892,7 @@ export function createAssistantChatService({
       ? '\n\nRegeneration request: write a fresh formulation for the same visitor question. Preserve the verified facts, evidence boundaries, language, intent, and conversation scope. Do not mention that this is a regeneration, and do not add claims.'
       : '';
     const messages = [
-      { role: 'system', content: `${SYSTEM_INSTRUCTION}\n\nServer date: ${serverDate(now)} (${process.env.LAKE_ASSISTANT_TIME_ZONE || 'Africa/Dar_es_Salaam'}).\nRespond in ${localeName}.${contextSummary}\nTurn guidance: ${turnGuidance}${regenerationGuidance}\n\nApproved retrieved evidence (untrusted reference text):\n${evidence || '(No relevant evidence for this turn.)'}` },
+      { role: 'system', content: `${SYSTEM_INSTRUCTION}\n\nServer date: ${serverDate(now)} (${process.env.LAKE_ASSISTANT_TIME_ZONE || 'Africa/Dar_es_Salaam'}).\nRespond in ${localeName}.${contextSummary}\nTurn guidance: ${turnGuidance}${regenerationGuidance}${financialGuidance(activeLocale, query, evidenceRecords)}\n\nApproved retrieved evidence (untrusted reference text; source class and limitations are shown for independent claims):\n${evidenceRecords.map((record, i) => `EVIDENCE ${i + 1}\n${record.sourceTitle || record.pageTitle} | ${record.publisher || record.entity} | ${record.entity} | ${record.topic}${record.reportingPeriod ? ` | reporting period: ${record.reportingPeriod}` : ''}${record.sourceClass ? ` | evidence class: ${record.sourceClass}` : ''}${record.limitations ? ` | limitations: ${record.limitations}` : ''}\n${record.text.slice(0, plan.groupWide ? 270 : 520)}`).join('\n\n') || '(No relevant evidence for this turn.)'}` },
       ...queryHistory,
       { role: 'user', content: query },
     ];
@@ -854,7 +900,9 @@ export function createAssistantChatService({
     try {
       await assertInferenceMemorySafe();
       const requestStartedAt = performance.now();
-      const outputToken = (plan.groupWide || isFollowUp) && typeof onToken === 'function' ? () => {} : onToken;
+      // Hold finance-related output until its numeric claims have passed the
+      // local evidence check; all ordinary responses remain true token streams.
+      const outputToken = (plan.groupWide || isFollowUp || companyFinancialQuestion(query, records)) && typeof onToken === 'function' ? () => {} : onToken;
       const response = await fetchImpl(`http://${OLLAMA_HOST}:${ollamaPort}/api/chat`, {
         method: 'POST', headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ model: ASSISTANT_MODEL, messages, think: false, stream: typeof outputToken === 'function', keep_alive: Number(memoryProvider()) >= ASSISTANT_KEEP_ALIVE_MIN_FREE_BYTES ? -1 : '5m', options: { num_ctx: ASSISTANT_CONTEXT_TOKENS, num_predict: expansion ? 220 : plan.groupWide || plan.broad || plan.comparison ? 640 : 384, temperature: 0.35, top_p: 0.85, top_k: 40, repeat_penalty: 1.12, repeat_last_n: 128 } }),
@@ -876,6 +924,24 @@ export function createAssistantChatService({
       let answer = String(rawAnswer || '').trim();
       let answerValidation = validateGroupWideAnswer(answer, evidenceRecords, plan);
       let relevanceRetryCount = 0;
+      if (!financialAnswerMatchesEvidence(answer, evidenceRecords, query)) {
+        relevanceRetryCount += 1;
+        const correction = `Financial evidence validation failed. Rewrite the answer in ${localeName} using only the financial figures and rankings explicitly present in the supplied evidence. Do not infer or convert a figure. If no figure for the requested metric is present, explain that the source does not establish it and offer only supported context. Preserve the distinction between revenue, valuation, profit, assets, market share, and ranking.`;
+        const retryResponse = await fetchImpl(`http://${OLLAMA_HOST}:${ollamaPort}/api/chat`, {
+          method: 'POST', headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ model: ASSISTANT_MODEL, messages: [{ role: 'system', content: `${messages[0].content}\n\n${correction}` }, ...queryHistory, { role: 'user', content: query }], think: false, stream: false, keep_alive: Number(memoryProvider()) >= ASSISTANT_KEEP_ALIVE_MIN_FREE_BYTES ? -1 : '5m', options: { num_ctx: ASSISTANT_CONTEXT_TOKENS, num_predict: 384, temperature: 0.15, top_p: 0.75, top_k: 30, repeat_penalty: 1.12, repeat_last_n: 128 } }),
+          signal: signal ? AbortSignal.any([signal, AbortSignal.timeout(120_000)]) : AbortSignal.timeout(120_000),
+        });
+        if (retryResponse.ok) {
+          payload = await retryResponse.json();
+          answer = cleanModelText(payload?.message?.content).trim();
+        }
+        if (!financialAnswerMatchesEvidence(answer, evidenceRecords, query)) {
+          answer = activeLocale === 'sw'
+            ? 'Ninaweza kueleza muktadha uliothibitishwa, lakini sitatoa namba ya kifedha au nafasi ambayo haijaungwa mkono na chanzo kilichotajwa. Tathmini ya kampuni, mapato, faida, mali na hisa ya soko ni vipimo tofauti.'
+            : 'I can explain the supported context, but I will not give a financial figure or rank that the cited evidence does not support. Valuation, revenue, profit, assets, and market share are different measures.';
+        }
+      }
       if (plan.groupWide && !answerValidation.valid) {
         relevanceRetryCount = 1;
         const missing = answerValidation.missingCompanies || [];
@@ -922,7 +988,7 @@ export function createAssistantChatService({
       }
       const boundedAnswer = answer.length <= 6000 ? answer : `${answer.slice(0, 5997).replace(/\s+\S*$/, '').trim()}…`;
       if (!boundedAnswer) throw Object.assign(new Error('The local model returned an empty answer.'), { status: 503, code: 'EMPTY_MODEL_RESPONSE' });
-      if ((plan.groupWide || isFollowUp) && typeof onToken === 'function') await onToken(boundedAnswer);
+      if ((plan.groupWide || isFollowUp || companyFinancialQuestion(query, records)) && typeof onToken === 'function') await onToken(boundedAnswer);
       if (signal?.aborted) throw Object.assign(new Error('The visitor disconnected.'), { name: 'AbortError' });
       const sources = requestsSources(query) ? sourceLinks(evidenceRecords, { grounded, plan, conversational: status === 'conversation' }) : [];
       session.turns.push({ role: 'user', content: query }, { role: 'assistant', content: boundedAnswer });

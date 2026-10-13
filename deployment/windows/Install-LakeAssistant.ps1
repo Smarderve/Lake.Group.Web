@@ -35,6 +35,25 @@ function Test-KnowledgeIndex([string]$Path) {
   }
   return $index.records.Count
 }
+function Test-ExternalKnowledgeIndex([string]$Path) {
+  $index = Get-Content -LiteralPath $Path -Raw | ConvertFrom-Json
+  if ($index.schemaVersion -ne 1 -or $null -eq $index.records) { Stop-Install 'External knowledge index schema is invalid.' }
+  $allowedHosts = @('ewura.go.tz', 'www.ewura.go.tz', 'cqs.ewura.go.tz', 'epra.go.ke', 'new.kenyalaw.org', 'businessdailyafrica.com', 'www.businessdailyafrica.com')
+  $ids = @{}
+  foreach ($record in $index.records) {
+    if (-not $record.id -or $ids.ContainsKey([string]$record.id)) { Stop-Install 'External knowledge index contains a missing or duplicate record ID.' }
+    $ids[[string]$record.id] = $true
+    foreach ($field in @('entity','topic','sourceTitle','sourceUrl','publisher','checkedAt','reportingPeriod','limitations','sourceClass','text','contentHash')) { if (-not [string]$record.$field) { Stop-Install "External knowledge record $($record.id) is missing $field." } }
+    if ($record.verification -notin @('PUBLISHED','REVIEW')) { Stop-Install "External knowledge record $($record.id) has an invalid review status." }
+    $uri = [uri]$record.sourceUrl
+    if ($uri.Scheme -ne 'https' -or $uri.Host -notin $allowedHosts -or $uri.UserInfo) { Stop-Install "External knowledge record $($record.id) has a non-allowlisted source." }
+    if ($record.checkedAt -notmatch '^\d{4}-\d{2}-\d{2}$' -or ($record.publicationDate -and $record.publicationDate -notmatch '^\d{4}(-\d{2}(-\d{2})?)?$')) { Stop-Install "External knowledge record $($record.id) has an invalid source date." }
+    $sha = [Security.Cryptography.SHA256]::Create()
+    try { $hash = ([BitConverter]::ToString($sha.ComputeHash([Text.Encoding]::UTF8.GetBytes([string]$record.text)))).Replace('-', '').ToLowerInvariant() } finally { $sha.Dispose() }
+    if ($hash -ne $record.contentHash) { Stop-Install "External knowledge record $($record.id) failed its content hash." }
+  }
+  return $index.records.Count
+}
 function Set-AssistantProxyRule([string]$Path, [string]$Port) {
   $doc = New-Object Xml.XmlDocument
   $doc.PreserveWhitespace = $true
@@ -94,6 +113,7 @@ if ((Get-Item -LiteralPath $modelBlob).Length -ne [long]$manifest.model.primaryL
 $blobHash = (Get-FileHash -LiteralPath $modelBlob -Algorithm SHA256).Hash.ToLowerInvariant()
 if ($blobHash -ne $manifest.model.primaryLayerDigest.Substring(7)) { Stop-Install 'The approved model blob failed SHA-256 verification.' }
 $recordCount = Test-KnowledgeIndex (Join-Path $sourceRoot 'ai\knowledge\lake-group-index.json')
+$externalRecordCount = Test-ExternalKnowledgeIndex (Join-Path $sourceRoot 'ai\knowledge\lake-group-external-index.json')
 if (-not (Get-Command node.exe -ErrorAction SilentlyContinue)) { Stop-Install 'Node.js 22.6 or later is required; no machine-accessible node.exe was found.' }
 $nodeCommand = Get-Command node.exe -ErrorAction Stop
 if ($env:USERPROFILE -and (Test-ContainedPath $env:USERPROFILE $nodeCommand.Source)) { Stop-Install 'The selected Node.js executable is under the administrator profile and may not be accessible to LocalService; install Node.js machine-wide and rerun.' }
@@ -210,7 +230,7 @@ try {
   if ([string]::IsNullOrWhiteSpace($inference.answer) -or -not $inference.grounded -or @($inference.sources).Count -lt 1) { throw 'The real local inference check did not return a grounded answer with at least one approved source.' }
   $voiceHealth = Invoke-RestMethod -Uri "http://127.0.0.1:$backendPort/api/assistant/voice-health" -TimeoutSec 5
   if (-not $voiceHealth.ready) { throw 'Chat inference passed, but private Whisper is not ready (model/runtime missing or less than 3 GiB free memory); installation was rolled back before IIS traffic was enabled.' }
-  [pscustomobject]@{ Status = 'INSTALLED'; InstallRoot = $InstallRoot; IisSite = $IisSiteName; AllowedPublicOrigins = $allowedPublicOrigins; PrivateApiPort = $backendPort; OllamaLoopbackPort = $ollamaPort; KnowledgeRecords = $recordCount; BackupWebConfig = $webConfigBackup; Runtime = $manifest.runtime.version; Model = $manifest.model.name; Cpu = $cpuName; LogicalCpuCores = $cores; OsCaption = $os.Caption; OsVersion = $os.Version; OsBuild = $os.BuildNumber; TotalRamBytes = [uint64]$os.TotalVisibleMemorySize * 1KB; AvailableRamBytesAtInstall = $availableRamBytes; GpuDevices = $gpuNames; InitialInferenceSeconds = [math]::Round($inferenceWatch.Elapsed.TotalSeconds, 2); GroundedSourceCount = @($inference.sources).Count } | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $InstallRoot 'install-report.json') -Encoding UTF8
+  [pscustomobject]@{ Status = 'INSTALLED'; InstallRoot = $InstallRoot; IisSite = $IisSiteName; AllowedPublicOrigins = $allowedPublicOrigins; PrivateApiPort = $backendPort; OllamaLoopbackPort = $ollamaPort; KnowledgeRecords = $recordCount; ExternalKnowledgeRecords = $externalRecordCount; BackupWebConfig = $webConfigBackup; Runtime = $manifest.runtime.version; Model = $manifest.model.name; Cpu = $cpuName; LogicalCpuCores = $cores; OsCaption = $os.Caption; OsVersion = $os.Version; OsBuild = $os.BuildNumber; TotalRamBytes = [uint64]$os.TotalVisibleMemorySize * 1KB; AvailableRamBytesAtInstall = $availableRamBytes; GpuDevices = $gpuNames; InitialInferenceSeconds = [math]::Round($inferenceWatch.Elapsed.TotalSeconds, 2); GroundedSourceCount = @($inference.sources).Count } | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $InstallRoot 'install-report.json') -Encoding UTF8
   Write-Host "Installed private payload under $InstallRoot. Run Verify-LakeAssistant.ps1 and review the report before approving traffic."
 } catch {
   foreach ($name in $tasksChanged) { Stop-ScheduledTask -TaskName $name -ErrorAction SilentlyContinue; Unregister-ScheduledTask -TaskName $name -Confirm:$false -ErrorAction SilentlyContinue }

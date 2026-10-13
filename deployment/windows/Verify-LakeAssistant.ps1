@@ -29,6 +29,24 @@ function Test-Index([string]$Path) {
   }
   return $index.records.Count
 }
+function Test-ExternalIndex([string]$Path) {
+  $index = Get-Content -LiteralPath $Path -Raw | ConvertFrom-Json
+  if ($index.schemaVersion -ne 1 -or $null -eq $index.records) { throw 'Unsupported external knowledge index schema.' }
+  $allowedHosts = @('ewura.go.tz', 'www.ewura.go.tz', 'cqs.ewura.go.tz', 'epra.go.ke', 'new.kenyalaw.org', 'businessdailyafrica.com', 'www.businessdailyafrica.com')
+  $ids = @{}
+  foreach ($record in $index.records) {
+    if (-not $record.id -or $ids.ContainsKey([string]$record.id)) { throw 'Missing or duplicate external record ID.' }
+    $ids[[string]$record.id] = $true
+    foreach ($field in @('entity','topic','sourceTitle','sourceUrl','publisher','checkedAt','reportingPeriod','limitations','sourceClass','text','contentHash')) { if (-not [string]$record.$field) { throw "External record $($record.id) is missing $field." } }
+    if ($record.verification -notin @('PUBLISHED','REVIEW')) { throw "Invalid review status in external record $($record.id)." }
+    $uri = [uri]$record.sourceUrl
+    if ($uri.Scheme -ne 'https' -or $uri.Host -notin $allowedHosts -or $uri.UserInfo) { throw "Unapproved external source in record $($record.id)." }
+    $sha = [Security.Cryptography.SHA256]::Create()
+    try { $hash = ([BitConverter]::ToString($sha.ComputeHash([Text.Encoding]::UTF8.GetBytes([string]$record.text)))).Replace('-', '').ToLowerInvariant() } finally { $sha.Dispose() }
+    if ($hash -ne $record.contentHash) { throw "Hash mismatch in external record $($record.id)." }
+  }
+  return $index.records.Count
+}
 try {
   $manifest = Get-Content -LiteralPath (Join-Path $InstallRoot 'ai\config\runtime-manifest.json') -Raw | ConvertFrom-Json
   $installReportPath = Join-Path $InstallRoot 'install-report.json'
@@ -57,6 +75,7 @@ try {
   else { Add-Result 'Same-origin private Whisper health' 'FAIL' 'The endpoint responded, but Whisper or its memory guard is not ready.' }
 } catch { Add-Result 'Same-origin private Whisper health' 'FAIL' $_.Exception.Message }
 try { $recordCount = Test-Index (Join-Path $InstallRoot 'ai\knowledge\lake-group-index.json'); Add-Result 'Knowledge index integrity' 'PASS' "$recordCount provenance-checked records." } catch { Add-Result 'Knowledge index integrity' 'FAIL' $_.Exception.Message }
+try { $externalRecordCount = Test-ExternalIndex (Join-Path $InstallRoot 'ai\knowledge\lake-group-external-index.json'); Add-Result 'Independent knowledge index integrity' 'PASS' "$externalRecordCount allowlisted, hash-checked records; review-only records are not served." } catch { Add-Result 'Independent knowledge index integrity' 'FAIL' $_.Exception.Message }
 foreach ($taskName in @('LakeAssistant-Ollama', 'LakeAssistant-Backend')) {
   try { $task = Get-ScheduledTask -TaskName $taskName -ErrorAction Stop; $taskInfo = Get-ScheduledTaskInfo -TaskName $taskName; if ($task.State -eq 'Running') { Add-Result "$taskName startup task" 'PASS' "Running; last result $($taskInfo.LastTaskResult)." } else { Add-Result "$taskName startup task" 'FAIL' "State $($task.State); last result $($taskInfo.LastTaskResult)." } }
   catch { Add-Result "$taskName startup task" 'NOT TESTED' 'Managed automatic-start task not found.' }

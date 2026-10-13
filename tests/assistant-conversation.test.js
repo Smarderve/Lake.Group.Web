@@ -101,7 +101,8 @@ test('knowledge snapshot covers all current indexable routes and company entitie
   assert.equal(kb.value.audit.pageCount, routeCount);
   assert.equal(kb.value.entities.length, 18);
   assert.equal(kb.value.pages.length, routeCount);
-  assert.equal(kb.value.audit.pagesWithAnswerableContent, 30);
+  assert.equal(kb.value.audit.pagesWithAnswerableContent, 29);
+  assert.equal(kb.value.langs.en.docs.some((doc) => /gallery|photo library|real photos from our operations/i.test(doc.text)), false);
   assert.ok(kb.value.audit.conflicts.some((item) => item.metric === 'employees' && item.olderValue === '30,000'));
   assert.equal(kb.value.langs.en.docs.some((doc) => /30,000 professionals/i.test(doc.text)), false);
 });
