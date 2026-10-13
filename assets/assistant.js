@@ -161,6 +161,27 @@
       return (character === 'x' ? value : (value & 3 | 8)).toString(16);
     });
   }
+  function assistantAvatar() {
+    var avatar = node('span', 'la-assistant-avatar');
+    avatar.setAttribute('aria-hidden', 'true');
+    var logoIcon = document.createElement('img');
+    logoIcon.src = 'assets/images/logos/LAKE_LOGO_LAKE_ONLY_BLUE.png';
+    logoIcon.alt = '';
+    avatar.appendChild(logoIcon);
+    return avatar;
+  }
+  function typingIndicator() {
+    var typing = node('div', 'la-typing');
+    typing.setAttribute('role', 'status');
+    typing.setAttribute('aria-label', 'Lake AI is typing');
+    typing.appendChild(assistantAvatar());
+    var bubble = node('span', 'la-typing-indicator');
+    var dots = node('span', 'la-typing-dots');
+    for (var i = 0; i < 3; i++) dots.appendChild(node('i'));
+    bubble.appendChild(dots);
+    typing.appendChild(bubble);
+    return typing;
+  }
   function draw(message) {
     var isUser = message.role === 'user';
     if (isUser) refs.messages.classList.remove('is-welcome');
@@ -175,6 +196,7 @@
     article._messageBody = body;
     article._answerParagraph = body.firstChild;
     article._messageText = messageText;
+    if (!isUser) article.appendChild(assistantAvatar());
     article.appendChild(body);
     appendSources(article, message.links);
     refs.messages.appendChild(article);
@@ -193,7 +215,7 @@
     var paragraph = node('p');
     paragraph.textContent = safeAnswerText(text);
     body.appendChild(paragraph);
-    article.appendChild(body);
+    article.append(assistantAvatar(), body);
     article._messageBody = body;
     article._messageText = safeAnswerText(text);
     refs.messages.appendChild(article);
@@ -757,17 +779,15 @@
     panel.hidden = true;
     panel.setAttribute('role', 'dialog');
     panel.setAttribute('aria-modal', 'true');
-    panel.setAttribute('aria-label', 'Lake Assistant');
+    panel.setAttribute('aria-label', 'Lake AI');
     var header = node('header', 'la-head');
     var brand = node('div', 'la-brand');
-    var logo = document.createElement('img');
-    logo.src = 'assets/images/logos/LAKE_LOGO_LAKE_ONLY_BLUE.png';
-    logo.alt = 'Lake';
+    brand.appendChild(assistantAvatar());
+    brand.appendChild(node('span', 'la-brand-name', 'Lake AI'));
     var close = node('button', 'la-close');
     close.type = 'button';
     close.appendChild(uiIcon('close'));
     close.setAttribute('aria-label', 'Close Lake Assistant');
-    brand.appendChild(logo);
     header.append(brand, close);
 
     var messages = node('div', 'la-messages is-welcome');
@@ -891,12 +911,7 @@
   function showWelcome(returning) {
     clearWelcome();
     var token = welcomeToken;
-    welcomeTyping = node('div', 'la-typing');
-    welcomeTyping.setAttribute('role', 'status');
-    welcomeTyping.setAttribute('aria-label', 'Lake is typing');
-    var dots = node('span', 'la-typing-dots');
-    for (var i = 0; i < 3; i++) dots.appendChild(node('i'));
-    welcomeTyping.appendChild(dots);
+    welcomeTyping = typingIndicator();
     refs.messages.appendChild(welcomeTyping);
     welcomeText = welcomeMessage(returning);
     refs.messages.scrollTop = refs.messages.scrollHeight;
@@ -926,8 +941,7 @@
     }
     if (editor) { editor.save.disabled = true; editor.cancel.disabled = true; editor.status.textContent = 'Updating this conversation…'; }
     else if (errorArticle) actionFeedback(errorArticle, 'Retrying this question…');
-    var typing = node('div', 'la-typing'); typing.setAttribute('role', 'status'); typing.setAttribute('aria-label', 'Lake is typing');
-    var dots = node('span', 'la-typing-dots'); for (var dot = 0; dot < 3; dot++) dots.appendChild(node('i')); typing.appendChild(dots);
+    var typing = typingIndicator();
     refs.messages.appendChild(typing); followStreamToLatest();
     var priorAssistant = Array.prototype.slice.call(refs.messages.querySelectorAll('.la-message.la-bot')).find(function (item) { return item._turnId === turnId || item.dataset.turnId === turnId; }) || null;
     var preview = null, previewParagraph = null, streamedText = '';
@@ -968,7 +982,7 @@
       if (!answerArticle || !answerArticle.isConnected) {
         answerArticle = node('article', 'la-message la-bot');
         answerArticle.dataset.turnId = turnId; answerArticle._turnId = turnId; answerArticle._messageKind = 'assistant';
-        var body = node('div', 'la-message-body'), paragraph = node('p'); body.appendChild(paragraph); answerArticle.appendChild(body);
+        var body = node('div', 'la-message-body'), paragraph = node('p'); body.appendChild(paragraph); answerArticle.append(assistantAvatar(), body);
         answerArticle._messageBody = body; answerArticle._answerParagraph = paragraph;
         refs.messages.insertBefore(answerArticle, questionArticle.nextSibling);
       } else {
@@ -1031,12 +1045,7 @@
     growInput();
     var turnId = messageUuid();
     var questionArticle = draw({ role: 'user', text: query, turnId: turnId });
-    var typing = node('div', 'la-typing');
-    typing.setAttribute('role', 'status');
-    typing.setAttribute('aria-label', 'Lake is typing');
-    var dots = node('span', 'la-typing-dots');
-    for (var i = 0; i < 3; i++) dots.appendChild(node('i'));
-    typing.appendChild(dots);
+    var typing = typingIndicator();
     refs.messages.appendChild(typing);
     refs.messages.scrollTop = refs.messages.scrollHeight;
     chatStreamActive = true;

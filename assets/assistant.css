@@ -112,8 +112,43 @@
   background: #fff;
 }
 
-#chat-widget.la-widget .la-brand { display: flex; min-width: 0; align-items: center; }
-#chat-widget.la-widget .la-brand img { display: block; width: 108px; height: auto; }
+#chat-widget.la-widget .la-brand { display: flex; min-width: 0; align-items: center; gap: 11px; }
+#chat-widget.la-widget .la-brand-name {
+  color: var(--la-ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: -.01em;
+  line-height: 1.2;
+}
+
+#chat-widget.la-widget .la-assistant-avatar {
+  position: relative;
+  display: inline-grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(1, 129, 187, .12);
+  border-radius: 50%;
+  background: #f0f8fb;
+  box-shadow: 0 1px 3px rgba(18, 67, 87, .10);
+}
+
+#chat-widget.la-widget .la-assistant-avatar img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: auto;
+  max-width: none;
+  height: 100%;
+  object-fit: contain;
+  object-position: left center;
+}
+
+#chat-widget.la-widget .la-head > .la-brand .la-assistant-avatar { width: 38px; height: 38px; flex-basis: 38px; }
 
 #chat-widget.la-widget .la-close {
   display: grid;
@@ -156,9 +191,22 @@
 }
 
 #chat-widget.la-widget .la-bot {
+  display: grid;
+  width: 100%;
+  max-width: 100%;
+  grid-template-columns: 34px minmax(0, 1fr);
+  column-gap: 10px;
   align-self: flex-start;
+  align-items: start;
   color: var(--la-ink);
 }
+
+#chat-widget.la-widget .la-bot > .la-assistant-avatar { grid-column: 1; grid-row: 1; }
+#chat-widget.la-widget .la-bot > .la-message-body,
+#chat-widget.la-widget .la-bot > .la-links,
+#chat-widget.la-widget .la-bot > .la-response-actions,
+#chat-widget.la-widget .la-bot > .la-action-feedback,
+#chat-widget.la-widget .la-bot > .la-message-editor { grid-column: 2; min-width: 0; }
 
 #chat-widget.la-widget .la-user {
   align-self: flex-end;
@@ -199,16 +247,27 @@
 #chat-widget.la-widget .la-links a:hover { color: var(--la-light-blue); }
 
 #chat-widget.la-widget .la-typing {
+  display: grid;
+  width: max-content;
+  max-width: 100%;
+  grid-template-columns: 34px auto;
+  column-gap: 10px;
+  align-self: flex-start;
+  align-items: start;
+  animation: la-message-in 180ms ease-out both;
+}
+
+#chat-widget.la-widget .la-typing-indicator {
   display: flex;
-  width: fit-content;
   min-width: 54px;
   min-height: 32px;
   align-items: center;
   padding: 0 12px;
   border-radius: 16px;
   background: #f1f6f8;
-  animation: la-message-in 180ms ease-out both;
 }
+
+#chat-widget.la-widget .la-typing > .la-assistant-avatar { grid-column: 1; grid-row: 1; }
 
 #chat-widget.la-widget .la-typing-dots { display: flex; align-items: center; gap: 4px; }
 #chat-widget.la-widget .la-typing i {
