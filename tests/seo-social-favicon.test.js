@@ -22,8 +22,9 @@ for (const property of [
 for (const name of ['twitter:card', 'twitter:title', 'twitter:description', 'twitter:image']) {
   assert.match(home, new RegExp(`name="${name}"`));
 }
-assert.match(home, /<meta property="og:image" content="https:\/\/www\.lakeoilgroup\.com\/assets\/images\/social\/lake-group-og-v2\.jpg">/);
-assert.match(home, /<meta property="og:image:secure_url" content="https:\/\/www\.lakeoilgroup\.com\/assets\/images\/social\/lake-group-og-v2\.jpg">/);
+assert.match(home, /<meta property="og:image" content="https:\/\/www\.lakeoilgroup\.com\/assets\/images\/social\/lake-group-og-v3-brand\.png">/);
+assert.match(home, /<meta property="og:image:secure_url" content="https:\/\/www\.lakeoilgroup\.com\/assets\/images\/social\/lake-group-og-v3-brand\.png">/);
+assert.match(home, /<meta property="og:image:type" content="image\/png">/);
 assert.match(home, /<meta name="twitter:card" content="summary_large_image">/);
 
 for (const asset of [
@@ -31,7 +32,7 @@ for (const asset of [
   'assets/icons/pwa/icon-192.png',
   'assets/icons/pwa/icon-512.png',
   'assets/icons/pwa/apple-touch-icon.png',
-  'assets/images/social/lake-group-og-v2.jpg',
+  'assets/images/social/lake-group-og-v3-brand.png',
 ]) assert.ok(fs.existsSync(path.join(ROOT, asset)), `${asset} is present`);
 
 const redirectOnlyPages = new Set([

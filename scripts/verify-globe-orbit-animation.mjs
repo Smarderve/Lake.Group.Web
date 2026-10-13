@@ -12,7 +12,7 @@ const server=http.createServer((req,res)=>{
   res.writeHead(200,{'Content-Type':mime[path.extname(file)]||'application/octet-stream'});fs.createReadStream(file).pipe(res);
 });
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
-const browser=await chromium.launch({headless:true});
+const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH||'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'});
 try {
   const context=await browser.newContext({viewport:{width:1440,height:900},recordVideo:{dir:out,size:{width:1440,height:900}}});
   const page=await context.newPage(), video=page.video();
@@ -27,19 +27,24 @@ try {
         paths:leaders.map(n=>({id:n.dataset.leader,draw:Number(n.dataset.progress),offset:Number(n.style.strokeDashoffset),length:n.getTotalLength()}))});
     },40);
   });
-  for(const phase of ['rotate','reveal','hold','retract','clean']){
+  for(const phase of ['rotate','reveal','hold']){
     await page.waitForFunction(p=>document.querySelector('#experience-3d-panel').dataset.globePhase===p,phase,{timeout:60000});
     await page.screenshot({path:path.join(out,`animation-${phase}.png`)});
   }
+  // The former 19-second loop retracted the whole network after hold. Keep
+  // observing past that old failure window and prove the revealed state stays.
+  await page.waitForTimeout(8000);
+  await page.screenshot({path:path.join(out,'animation-network-held.png')});
   const samples=await page.evaluate(()=>{clearInterval(window.orbitTimer);return window.orbitSamples});
-  const result={actualDashDrawing:true,paths:{}};
+  const visibleSnapshots=samples.filter(sample=>sample.phase==='hold').map(sample=>sample.paths.filter(path=>path.offset===0).length);
+  const result={actualDashDrawing:true,networkHeld:visibleSnapshots.length>0&&Math.min(...visibleSnapshots)>=8,paths:{}};
   for(const id of ['tz','ke','ug','rw','bi','cd','zm','mz','et','ae']){
     const values=samples.flatMap(s=>s.paths.filter(p=>p.id===id));
-    const checks={hidden:values.some(p=>p.offset===1),partial:values.some(p=>p.offset>.05&&p.offset<.95),full:values.some(p=>p.offset===0),retract:samples.some(s=>s.phase==='retract'&&s.paths.some(p=>p.id===id&&p.offset>0&&p.offset<1))};
+    const checks={hidden:values.some(p=>p.offset===1),partial:values.some(p=>p.offset>.05&&p.offset<.95),full:values.some(p=>p.offset===0)};
     result.paths[id]=checks;if(Object.values(checks).some(v=>!v))result.actualDashDrawing=false;
   }
   fs.writeFileSync(path.join(out,'animation-verification.json'),JSON.stringify(result,null,2));
   await context.close();await video.saveAs(path.join(out,'full-cycle.webm'));await video.delete();
   console.log(JSON.stringify(result,null,2));
-  if(!result.actualDashDrawing)process.exitCode=1;
+  if(!result.actualDashDrawing||!result.networkHeld)process.exitCode=1;
 } finally {await browser.close();server.closeAllConnections();server.close();}

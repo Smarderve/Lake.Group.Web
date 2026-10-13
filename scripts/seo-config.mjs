@@ -49,7 +49,8 @@ export const SITE = Object.freeze({
   name: 'Lake Group',
   locale: 'en_TZ',
   logo: '/assets/images/logos/LAKE_GROUP_LOGO.png',
-  socialImage: '/assets/images/social/lake-group-og-v2.jpg',
+  socialImage: '/assets/images/social/lake-group-og-v3-brand.png',
+  socialImageType: 'image/png',
   organizationId: SITE_URL ? `${SITE_URL}/#organization` : '',
   websiteId: SITE_URL ? `${SITE_URL}/#website` : '',
 });
