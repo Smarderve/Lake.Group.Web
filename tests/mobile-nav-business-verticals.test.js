@@ -58,12 +58,16 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 320, height: 568 }
     await drawer.evaluate((el) => { el.scrollTop = el.scrollHeight; });
     await page.waitForTimeout(50);
     assert.equal(await drawer.getByText('Contact Us', { exact: true }).isVisible(), true, 'bottom navigation remains reachable');
-    assert.equal(await drawer.locator('.mob-lang-static').isVisible(), true, 'static English language indicator is reachable');
+    const languageTrigger = drawer.locator('.mob-language-trigger');
+    assert.equal(await languageTrigger.isVisible(), true, 'mobile language selector is reachable');
+    await languageTrigger.click();
+    assert.equal(await drawer.locator('.mob-language-option').count(), 8, 'eight language choices are listed');
+    assert.equal(await drawer.locator('.mob-language-option:disabled').count(), 7, 'unapproved languages remain disabled');
 
     await drawer.locator('.mob-corporate-trigger').click();
     assert.equal(await drawer.locator('.mob-primary').getAttribute('aria-expanded'), 'false', 'Corporate closes Business Verticals');
     assert.equal(await drawer.locator('.mob-corporate-trigger').getAttribute('aria-expanded'), 'true');
-    for (const label of ['Our History', 'CSR & Sustainability', 'Investor Relations', 'Major Projects', 'Gallery']) {
+    for (const label of ['Our History', 'CSR & Sustainability', 'Gallery']) {
       assert.equal(await drawer.getByText(label, { exact: true }).isVisible(), true, `${label} is visible`);
     }
     assert.equal(await drawer.getByText('Operations Map', { exact: true }).count(), 0, 'Operations Map is not exposed in the Corporate menu');

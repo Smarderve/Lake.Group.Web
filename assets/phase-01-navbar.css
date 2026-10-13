@@ -1626,15 +1626,17 @@ body.lg-nav-open {
   .nav-mobile[data-phase01-navbar-mobile] .mob-language-option.active {
     color: #fff200 !important;
   }
+  .nav-mobile[data-phase01-navbar-mobile] .mob-language-option[data-available="false"]::after {
+    content: "Soon";
+    margin-inline-start: auto;
+    color: rgba(255, 255, 255, .48);
+    font-size: .65rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
   .nav-mobile[data-phase01-navbar-mobile] .mob-language-status {
     padding: 6px 4px !important;
     color: rgba(255, 255, 255, .62) !important;
     font: 500 .72rem/1.4 Jost, Arial, sans-serif !important;
   }
 }
-
-/* Launch control: language architecture remains in markup, but no selector is
-   presented until the translated launch copy is approved. */
-.site-nav[data-phase01-navbar] .lang-switcher,
-.nav-mobile[data-phase01-navbar-mobile] .mob-lang-static,
-.nav-mobile[data-phase01-navbar-mobile] .mob-language-panel { display: none !important; }

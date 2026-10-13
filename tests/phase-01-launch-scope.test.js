@@ -32,9 +32,16 @@ test('CSR is a live public page with approved source content', () => {
 });
 
 test('public UI exposes the planned language selector', () => {
-  assert.match(read('assets/i18n.js'), /const SUPPORTED = \['en', 'fr', 'sw', 'pt', 'es', 'ar'\]/);
-  assert.match(read('assets/i18n.js'), /Translation for/);
-  assert.match(read('index.html'), /class="lang-switcher"/);
+  const controller = read('assets/i18n.js');
+  const home = read('index.html');
+  assert.match(controller, /const SUPPORTED = \['en', 'sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt'\]/);
+  assert.match(controller, /const AVAILABLE_TRANSLATIONS = \['en'\]/);
+  assert.match(controller, /localStorage\.getItem\(STORAGE_KEY\)/);
+  assert.match(home, /class="lang-switcher"/);
+  assert.match(home, /class="mob-acc-btn mob-language-trigger"/);
+  for (const [code, label] of [['en', 'English'], ['sw', 'Kiswahili'], ['hi', 'हिन्दी'], ['ar', 'العربية'], ['zh', '简体中文'], ['fr', 'Français'], ['es', 'Español'], ['pt', 'Português']]) {
+    assert.ok(home.includes(`data-lang="${code}"`) && home.includes(`>${label}</button>`), `${label} option is present`);
+  }
 });
 
 test('leadership exposes Chairman Ally Edha Awadh only', () => {

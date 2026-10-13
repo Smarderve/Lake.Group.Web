@@ -30,17 +30,19 @@
  */
 window.LakeI18n = (function () {
   const STORAGE_KEY = 'lake-lang';
-  const SUPPORTED = ['en'];  // TODO: restore ['en', 'fr', 'sw', 'pt', 'es', 'ar'] when translations are ready
+  const SUPPORTED = ['en', 'sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt'];
   const AVAILABLE_TRANSLATIONS = ['en'];
   const RTL_LANGS = ['ar'];
   // ASCII-safe escapes so labels survive encoding mishaps in editors/tooling.
   const LANG_LABELS = {
     en: 'English',
-    fr: 'French',
-    sw: 'Swahili',
-    pt: 'Portuguese',
-    es: 'Spanish',
-    ar: 'Arabic'
+    sw: 'Kiswahili',
+    hi: 'हिन्दी',
+    ar: 'العربية',
+    zh: '简体中文',
+    fr: 'Français',
+    es: 'Español',
+    pt: 'Português'
   };
 
   let dictionaries = null;
@@ -51,8 +53,6 @@ window.LakeI18n = (function () {
   let keyboardIntent = false;
   const LANG_OPEN_DELAY_MS = 200;
   const LANG_CLOSE_DELAY_MS = 180;
-
-  try { localStorage.removeItem(STORAGE_KEY); } catch (e) { /* unavailable */ }
 
   function loadDictionaries() {
     if (dictionaries) return Promise.resolve(dictionaries);
@@ -185,15 +185,25 @@ window.LakeI18n = (function () {
     });
     document.querySelectorAll('.lang-btn').forEach((btn) => {
       const active = btn.dataset.lang === lang;
+      const available = AVAILABLE_TRANSLATIONS.includes(btn.dataset.lang);
       btn.classList.toggle('active', active);
+      btn.disabled = !available;
+      btn.dataset.available = String(available);
       btn.setAttribute('aria-checked', String(active));
+      btn.setAttribute('aria-disabled', String(!available));
+      btn.setAttribute('aria-label', `${LANG_LABELS[btn.dataset.lang] || btn.dataset.lang}${available ? '' : ' (translation pending)'}`);
       if (active) btn.setAttribute('aria-current', 'true');
       else btn.removeAttribute('aria-current');
     });
     document.querySelectorAll('.mob-language-option[data-lang]').forEach((btn) => {
       const active = btn.dataset.lang === lang;
+      const available = AVAILABLE_TRANSLATIONS.includes(btn.dataset.lang);
       btn.classList.toggle('active', active);
+      btn.disabled = !available;
+      btn.dataset.available = String(available);
       btn.setAttribute('aria-checked', String(active));
+      btn.setAttribute('aria-disabled', String(!available));
+      btn.setAttribute('aria-label', `${LANG_LABELS[btn.dataset.lang] || btn.dataset.lang}${available ? '' : ' (translation pending)'}`);
       if (active) btn.setAttribute('aria-current', 'true');
       else btn.removeAttribute('aria-current');
     });
@@ -204,6 +214,8 @@ window.LakeI18n = (function () {
     });
     document.querySelectorAll('.lang-trigger').forEach((trigger) => {
       // Compact mobile header shows selected language only; keep aria in sync.
+      const visibleLabel = trigger.querySelector('[data-lang-label]') || trigger.querySelector('span');
+      if (visibleLabel) visibleLabel.textContent = label;
       trigger.setAttribute('aria-label', label);
       trigger.setAttribute('title', label);
     });
@@ -306,8 +318,16 @@ window.LakeI18n = (function () {
   }
 
   function apply() {
-    current = 'en';
-    return loadDictionaries().then(() => applyAll(current));
+    return loadDictionaries().then(() => {
+      let preferred = 'en';
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved && AVAILABLE_TRANSLATIONS.includes(saved)) preferred = saved;
+      } catch (e) { /* unavailable */ }
+      current = preferred;
+      applyAll(preferred);
+      return current;
+    });
   }
 
   function selectLanguage(lang) {
@@ -315,7 +335,12 @@ window.LakeI18n = (function () {
       showUnavailableMessage(lang);
       return Promise.resolve(current);
     }
-    return loadDictionaries().then(() => applyAll(lang));
+    return loadDictionaries().then(() => {
+      current = lang;
+      try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* unavailable */ }
+      applyAll(lang);
+      return current;
+    });
   }
 
   function hydrateDictionaries(content) {
@@ -417,7 +442,13 @@ window.LakeI18n = (function () {
 
   function init() {
     loadDictionaries().then(() => {
-      applyAll('en');
+      let preferred = 'en';
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved && AVAILABLE_TRANSLATIONS.includes(saved)) preferred = saved;
+      } catch (e) { /* unavailable */ }
+      current = preferred;
+      applyAll(preferred);
       // Auto-bind all language switchers on the page.
       document.querySelectorAll('.lang-switcher').forEach((root) => {
         // Create the dropdown menu if it doesn't exist yet.
@@ -441,8 +472,10 @@ window.LakeI18n = (function () {
             btn.setAttribute('aria-checked', String(code === current));
             btn.dataset.lang = code;
             btn.textContent = LANG_LABELS[code] || code;
-            btn.dataset.available = String(AVAILABLE_TRANSLATIONS.indexOf(code) !== -1);
-            btn.setAttribute('aria-label', `${LANG_LABELS[code] || code}${AVAILABLE_TRANSLATIONS.indexOf(code) === -1 ? ' (translation unavailable)' : ''}`);
+            const available = AVAILABLE_TRANSLATIONS.includes(code);
+            btn.dataset.available = String(available);
+            btn.disabled = !available;
+            btn.setAttribute('aria-label', `${LANG_LABELS[code] || code}${available ? '' : ' (translation pending)'}`);
             if (code === current) btn.classList.add('active');
             menu.appendChild(btn);
           });

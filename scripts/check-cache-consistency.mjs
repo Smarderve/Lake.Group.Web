@@ -16,6 +16,11 @@ const critical = [
   'flagship.css',
   'theme.css',
 ];
+const perAssetRelease = new Map([
+  ['phase-01-navbar.css', '20261013-01'],
+  ['i18n.js', '20261013-01'],
+  ['i18n-content.js', '20261013-01'],
+]);
 const errors = [];
 const versions = new Map();
 
@@ -34,8 +39,9 @@ for (const file of htmlFiles) {
     if (version) {
       if (!versions.has(asset)) versions.set(asset, new Set());
       versions.get(asset).add(version);
-      if (critical.includes(name) && version !== release) {
-        errors.push(file + ': ' + asset + ' uses ' + version + ', expected ' + release);
+      const expected = perAssetRelease.get(name) || release;
+      if (critical.includes(name) && version !== expected) {
+        errors.push(file + ': ' + asset + ' uses ' + version + ', expected ' + expected);
       }
     }
   }
@@ -48,13 +54,14 @@ for (const [asset, assetVersions] of versions) {
 }
 
 const precacheRelease = release;
-release = '20261013-01';
+release = '20261013-02';
 const sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8');
 if (!new RegExp('v\\d+-' + release.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\$&')).test(sw)) {
   errors.push('sw.js: release version is not current');
 }
 for (const asset of critical.filter((name) => name !== 'theme.css')) {
-  if (!sw.includes(asset + '?v=' + precacheRelease)) errors.push('sw.js: missing current precache URL for ' + asset);
+  const expected = perAssetRelease.get(asset) || precacheRelease;
+  if (!sw.includes(asset + '?v=' + expected)) errors.push('sw.js: missing current precache URL for ' + asset);
 }
 for (const [asset, version] of [['assistant.js', release], ['assistant.css', release]]) {
   const url = `assets/${asset}?v=${version}`;

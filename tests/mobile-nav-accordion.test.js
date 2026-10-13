@@ -30,7 +30,8 @@ for (const sector of ['energies', 'manufacturing', 'logistics', 'realestate', 'a
   assert.match(template, new RegExp(`class="mob-sector-heading" data-mm-cat="${sector}"`));
 }
 assert.match(template, /Energies Sector[\s\S]*?Lake Oil/);
-assert.match(template, /class="mob-lang-static"/);
+assert.match(template, /class="mob-acc-btn mob-language-trigger"/);
+assert.match(template, /class="mob-language-panel"/);
 assert.match(template, /data-lang-label>English/);
 
 console.log('Mobile navigation accordion checks passed');
