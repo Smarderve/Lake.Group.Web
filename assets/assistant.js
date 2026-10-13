@@ -165,7 +165,7 @@
     var avatar = node('span', 'la-assistant-avatar');
     avatar.setAttribute('aria-hidden', 'true');
     var logoIcon = document.createElement('img');
-    logoIcon.src = 'assets/images/logos/LAKE_LOGO_LAKE_ONLY_BLUE.png';
+    logoIcon.src = 'assets/images/logos/lake-symbol-sunrise-icon.png';
     logoIcon.alt = '';
     avatar.appendChild(logoIcon);
     return avatar;

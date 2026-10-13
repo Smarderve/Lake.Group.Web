@@ -114,11 +114,11 @@
 
 #chat-widget.la-widget .la-brand { display: flex; min-width: 0; align-items: center; gap: 11px; }
 #chat-widget.la-widget .la-brand-name {
-  color: var(--la-ink);
+  color: #0181bb;
   font-family: Jost, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 16px;
-  font-weight: 650;
-  letter-spacing: -.01em;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: normal;
   line-height: 1.2;
 }
 
@@ -130,25 +130,22 @@
   flex: 0 0 34px;
   place-items: center;
   overflow: hidden;
-  border: 1px solid rgba(1, 129, 187, .12);
+  border: 0;
   border-radius: 50%;
-  background: #f0f8fb;
-  box-shadow: 0 1px 3px rgba(18, 67, 87, .10);
+  background: #0181bb;
+  box-shadow: none;
 }
 
 #chat-widget.la-widget .la-assistant-avatar img {
-  position: absolute;
-  top: 0;
-  left: 0;
   display: block;
-  width: auto;
-  max-width: none;
-  height: 100%;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
-  object-position: left center;
+  object-position: center;
 }
 
 #chat-widget.la-widget .la-head > .la-brand .la-assistant-avatar { width: 38px; height: 38px; flex-basis: 38px; }
+#chat-widget.la-widget .la-head > .la-brand .la-assistant-avatar img { width: 32px; height: 32px; }
 
 #chat-widget.la-widget .la-close {
   display: grid;

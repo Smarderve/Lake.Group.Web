@@ -27,8 +27,7 @@
  *
  * v86: Refresh the precached standalone offline experience.
  *
- * v96: Refresh the versioned Assistant bundle with cross-browser live voice
- *      capture and Whisper transcription windows.
+ * v103: Refresh Assistant avatar identity asset and styles.
  *
  * v84: Promote the approved globe-lab bundle to Home and retire the previous
  *      production globe bundle from the network-first route.
@@ -36,7 +35,7 @@
 
 'use strict';
 
-const VERSION = 'v102-20261013-01';
+const VERSION = 'v103-20261013-02';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -81,12 +80,13 @@ const PRECACHE_URLS = [
   './assets/vendor/gsap/ScrollTrigger.min.js',
   './assets/i18n.js?v=20260828-01',
   './assets/i18n-content.js?v=20260828-01',
-  './assets/assistant.js?v=20261013-01',
-  './assets/assistant.css?v=20261013-01',
+  './assets/assistant.js?v=20261013-02',
+  './assets/assistant.css?v=20261013-02',
   './assets/phase-01-navbar.css?v=20260828-01',
   './assets/phase-01-footer.css?v=20260828-01',
   './assets/phase-01-navbar.js?v=20260828-01',
   './assets/images/logos/LAKE_GROUP_LOGO.png',
+  './assets/images/logos/lake-symbol-sunrise-icon.png',
   './assets/images/delivery/home/verticals/energies-960.webp',
   './assets/images/banner/LakeOil1.webp?v=20260828-01',
   './assets/images/lakeoil/current/lake-energies-station-approved.webp?v=20260828-01',
