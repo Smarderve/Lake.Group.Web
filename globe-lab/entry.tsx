@@ -18,7 +18,7 @@ const PLACES: Place[] = [
   { id:'et', name:'ETHIOPIA', lat:9.03, lng:38.74, flag:'et', desktop:[72,-44], mobile:[42,-42], altitude:.13 },
   { id:'ae', name:'UAE', lat:24.4539, lng:54.3773, flag:'ae', desktop:[88,-72], mobile:[50,-68], altitude:.2 },
 ];
-const RADIUS=2, FINAL_ROTATION=4.36, LOOP_SECONDS=19;
+const RADIUS=2, FINAL_ROTATION=4.36, HOLD_AT_SECONDS=12;
 const APPROVED_START_ROTATIONS=[FINAL_ROTATION-1.82,FINAL_ROTATION+1.66,FINAL_ROTATION-2.48,FINAL_ROTATION+2.32];
 function chooseStartRotation(){const requested=Number(new URLSearchParams(location.search).get('globeStart')),random=globalThis.crypto?.getRandomValues?globalThis.crypto.getRandomValues(new Uint32Array(1))[0]/0xffffffff:Math.random(),index=Number.isInteger(requested)&&requested>=0?requested%APPROVED_START_ROTATIONS.length:Math.floor(random*APPROVED_START_ROTATIONS.length);return APPROVED_START_ROTATIONS[index]}
 const START_ROTATION=chooseStartRotation();
@@ -49,9 +49,12 @@ function Scene({reduced,labelRefs,leaderRefs}:{reduced:boolean;labelRefs:DomRefs
   useEffect(()=>()=>routeObjects.forEach(line=>{line.geometry.dispose();line.material.dispose()}),[routeObjects]);
   useFrame((_,delta)=>{
     if(!group.current)return;
-    timeline.current=reduced?12:(timeline.current+Math.min(delta,.2))%LOOP_SECONDS;
-    const elapsed=Math.max(0,timeline.current),travel=THREE.MathUtils.smoothstep(elapsed,2,8),retract=1-THREE.MathUtils.smoothstep(elapsed,15,17);
-    const phase=reduced?'hold':elapsed<2?'clean':elapsed<6?'rotate':elapsed<8?'africa-centered':elapsed<12?(elapsed<10?'reveal':'reveal-mid'):elapsed<15?'hold':elapsed<17?'retract':'clean';
+    // The approved sequence introduces the network once, then retains it. The
+    // earlier 19-second loop deliberately retracted every route and label
+    // before restarting, which looked like a broken globe during normal use.
+    timeline.current=reduced?HOLD_AT_SECONDS:Math.min(HOLD_AT_SECONDS,timeline.current+Math.min(delta,.2));
+    const elapsed=Math.max(0,timeline.current),travel=THREE.MathUtils.smoothstep(elapsed,2,8);
+    const phase=reduced?'hold':elapsed<2?'clean':elapsed<6?'rotate':elapsed<8?'africa-centered':elapsed<10?'reveal':elapsed<HOLD_AT_SECONDS?'reveal-mid':'hold';
     const panel=gl.domElement.closest('.experience-3d-panel') as HTMLElement|null;if(panel&&panel.dataset.globePhase!==phase)panel.dataset.globePhase=phase;
     camera.position.set(0,.05,size.width<600?7.8:6.3);camera.lookAt(0,-.08,0);
     automatedRotation.current={x:THREE.MathUtils.lerp(-.04,0,travel),y:FINAL_ROTATION+travel*(Math.PI*2)};
@@ -59,8 +62,8 @@ function Scene({reduced,labelRefs,leaderRefs}:{reduced:boolean;labelRefs:DomRefs
     if(offset.active){group.current.rotation.y=automatedRotation.current.y+offset.y;group.current.rotation.x=THREE.MathUtils.clamp(automatedRotation.current.x+offset.x,-.34,.24)}
     else if(offset.decay>0){offset.decay=Math.max(0,offset.decay-.03*Math.min(delta,.2));group.current.rotation.y=automatedRotation.current.y+offset.y*offset.decay;group.current.rotation.x=THREE.MathUtils.clamp(automatedRotation.current.x+offset.x*offset.decay,-.34,.24)}
     else{offset.x=0;offset.y=0;group.current.rotation.y=automatedRotation.current.y;group.current.rotation.x=automatedRotation.current.x}
-    const originOn=THREE.MathUtils.smoothstep(elapsed,7.9,8.25)*retract;markerRefs.current.forEach((mesh,index)=>{if(!mesh)return;const start=8.2+(index-1)*.41,active=index===0?originOn:THREE.MathUtils.smoothstep(elapsed,start,start+.28)*retract;mesh.scale.setScalar(active*(index===0?1.18:1))});
-    routeRefs.current.forEach((line,index)=>{if(!line)return;const start=8.15+index*.41,progress=THREE.MathUtils.smoothstep(elapsed,start,start+.38)*retract;line.geometry.setDrawRange(0,Math.max(0,Math.floor(progress*96)))});
+    const originOn=THREE.MathUtils.smoothstep(elapsed,7.9,8.25);markerRefs.current.forEach((mesh,index)=>{if(!mesh)return;const start=8.2+(index-1)*.41,active=index===0?originOn:THREE.MathUtils.smoothstep(elapsed,start,start+.28);mesh.scale.setScalar(active*(index===0?1.18:1))});
+    routeRefs.current.forEach((line,index)=>{if(!line)return;const start=8.15+index*.41,progress=THREE.MathUtils.smoothstep(elapsed,start,start+.38);line.geometry.setDrawRange(0,Math.max(0,Math.floor(progress*96)))});
     const center=new THREE.Vector3(0,0,0).project(camera),rim=new THREE.Vector3(RADIUS,0,0).project(camera),centerX=(center.x*.5+.5)*size.width,centerY=(-center.y*.5+.5)*size.height,radiusX=Math.max(1,Math.abs((rim.x-center.x)*.5*size.width)),radiusY=radiusX;
     const docks=dockLayout(window.innerWidth);
     PLACES.forEach((place,index)=>{
@@ -92,14 +95,16 @@ function Scene({reduced,labelRefs,leaderRefs}:{reduced:boolean;labelRefs:DomRefs
       leader.setAttribute('d',path);
       leader.setAttribute('pathLength','1');
       const markerStart=index===0?7.9:8.2+(index-1)*.41;
-      const start=markerStart+.10,draw=reduced?1:THREE.MathUtils.smoothstep(elapsed,start,start+.40)*retract;
-      const labelReveal=reduced?1:THREE.MathUtils.smoothstep(elapsed,start+.32,start+.55)*retract;
-      const attached=world.clone().normalize().dot(camera.position.clone().normalize())>.08&&!offset.active&&offset.decay===0;
+      const start=markerStart+.10,draw=reduced?1:THREE.MathUtils.smoothstep(elapsed,start,start+.40);
+      const labelReveal=reduced?1:THREE.MathUtils.smoothstep(elapsed,start+.32,start+.55);
+      // Keep geographical occlusion, but do not blank the overlay while the
+      // user drags or while the post-drag offset settles back to the hold.
+      const attached=world.clone().normalize().dot(camera.position.clone().normalize())>.08;
       label.style.transform=`translate3d(${left}px,${top+(1-labelReveal)*5}px,0)`;
       label.style.opacity=String(attached?labelReveal:0);
       leader.style.strokeDasharray='1';
       leader.style.strokeDashoffset=String(1-draw);
-      leader.style.opacity=String(attached?(window.innerWidth<600?.72:.65)*retract:0);
+      leader.style.opacity=String(attached?(window.innerWidth<600?.72:.65):0);
       leader.dataset.centerX=String(centerX);leader.dataset.centerY=String(centerY);leader.dataset.globeRadius=String(radiusX);
       leader.dataset.progress=String(draw);
       dockNode.setAttribute('cx',String(endX));dockNode.setAttribute('cy',String(endY));
