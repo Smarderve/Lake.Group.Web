@@ -34,6 +34,24 @@ enum CmsAccessLevel {
   IT_ADMIN
 }
 
+enum TranslationJobStatus {
+  WAITING_FOR_ENGINE
+  QUEUED
+  TRANSLATING
+  MACHINE_TRANSLATED
+  VALIDATION_FAILED
+  NEEDS_REVIEW
+  APPROVED
+  PUBLISHED
+  OUTDATED
+  FAILED
+}
+
+enum TranslationMemoryOrigin {
+  MACHINE_APPROVED
+  ADMIN_CORRECTION
+}
+
 /// A backend user. Created manually (seed/script) — no public signup.
 model User {
   id           String    @id @default(uuid())
@@ -80,8 +98,62 @@ model ContentRevision {
   data         Json
   createdAt    DateTime        @default(now())
   releaseDocuments CmsReleaseDocument[]
+  translationJobs CmsTranslationJob[]
 
   @@index([documentId, createdAt])
+}
+
+/// Persistent, revision-bound translation work. A job never modifies an
+/// immutable CMS revision; approved text is stored as a separate record.
+model CmsTranslationJob {
+  id             String              @id
+  documentKey    String
+  revisionId     String
+  revision       ContentRevision     @relation(fields: [revisionId], references: [id], onDelete: Cascade)
+  sourceLanguage String              @default("en")
+  targetLanguage String
+  fieldPath      String
+  contextKey     String
+  sourceText     String
+  sourceHash     String
+  translation    String?
+  modelVersion   String?
+  glossaryVersion String?
+  status         TranslationJobStatus @default(WAITING_FOR_ENGINE)
+  attempts       Int                 @default(0)
+  lastError      String?
+  leaseExpiresAt DateTime?
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @updatedAt
+
+  @@unique([revisionId, targetLanguage, fieldPath, sourceHash])
+  @@index([documentKey, revisionId, targetLanguage, status])
+  @@index([status, leaseExpiresAt, createdAt])
+  @@index([sourceHash, targetLanguage, fieldPath, status])
+}
+
+/// Approved-only reuse store. Exact source, language, and context must match;
+/// routine generation cannot overwrite an administrator correction.
+model CmsTranslationMemoryEntry {
+  id               String                  @id @default(uuid())
+  sourceLanguage   String                  @default("en")
+  targetLanguage   String
+  sourceText       String
+  sourceHash       String
+  contextKey       String
+  translation      String
+  sourceRevisionId String?
+  modelVersion     String?
+  glossaryVersion  String?
+  origin           TranslationMemoryOrigin
+  approvedById     String?
+  approvedAt       DateTime                @default(now())
+  createdAt        DateTime                @default(now())
+  updatedAt        DateTime                @updatedAt
+
+  @@unique([targetLanguage, sourceHash, contextKey])
+  @@index([sourceHash, targetLanguage])
+  @@index([contextKey, targetLanguage, approvedAt])
 }
 
 /// A content-addressed, immutable public snapshot. The current pointer is

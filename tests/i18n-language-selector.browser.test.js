@@ -91,3 +91,16 @@ test('mobile selector opens, preserves selected English on reload, and fits the 
   assert.equal(await page.evaluate(() => localStorage.getItem('lake-lang')), 'en');
   await context.close();
 });
+
+test('RTL direction reaches the legacy navigation and keeps the language menu in the viewport', async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await page.goto(`${baseUrl}/index.html`, { waitUntil: 'domcontentloaded' });
+  await page.evaluate(() => document.documentElement.setAttribute('dir', 'rtl'));
+  assert.equal(await page.locator('.site-nav').evaluate((element) => getComputedStyle(element).direction), 'rtl');
+  await page.locator('.lang-trigger').first().click();
+  const menu = page.locator('.lang-menu').first();
+  await menu.waitFor({ state: 'visible' });
+  const bounds = await menu.boundingBox();
+  assert.ok(bounds && bounds.x >= 0 && bounds.x + bounds.width <= 1440, `RTL language menu stays within the viewport: ${JSON.stringify(bounds)}`);
+  await page.close();
+});

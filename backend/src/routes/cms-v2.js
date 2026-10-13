@@ -5,6 +5,21 @@ import { CMS_V2_PAGE_DEFINITIONS } from '../lib/cms-v2-content.js';
 export function cmsV2Router({ db, service, recentAuthWindowMs } = {}) {
   const router = Router();
   const guard = [requireAuth(db), requireCmsAdmin()];
+  router.get('/translations/jobs', ...guard, async (req, res, next) => {
+    try {
+      const { documentKey, revisionId, targetLanguage, status, limit } = req.query;
+      res.json({ jobs: await service.listTranslationJobs({ documentKey, revisionId, targetLanguage, status, limit }) });
+    } catch (error) { next(error); }
+  });
+  router.post('/translations/jobs/:jobId/retry', ...guard, async (req, res, next) => {
+    try { res.status(202).json({ job: await service.retryTranslationJob({ id: req.params.jobId, actorId: req.user.id }) }); } catch (error) { next(error); }
+  });
+  router.post('/translations/jobs/:jobId/approve', ...guard, requireRecentAuth(recentAuthWindowMs), async (req, res, next) => {
+    try {
+      if (typeof req.body?.translation !== 'string' || !req.body.translation.trim()) return res.status(400).json({ error: { code: 'INVALID_TRANSLATION', message: 'A non-empty corrected translation is required.' } });
+      res.json({ job: await service.approveTranslationJob({ id: req.params.jobId, translation: req.body.translation.trim(), approvedById: req.user.id }) });
+    } catch (error) { next(error); }
+  });
   router.get('/page-source/:documentKey', ...guard, async (req, res, next) => {
     try { res.json(await service.readPageSource(req.params.documentKey)); } catch (error) { next(error); }
   });

@@ -15,6 +15,7 @@ backend/.env
 backend/.next/
 backend/.pgdata/
 scripts/_chrome_profile*
+scripts/.generated/
 scripts/_qa_screens/
 scripts/_scraped/
 scripts/_lp_bodies/

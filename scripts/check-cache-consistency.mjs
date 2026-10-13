@@ -17,7 +17,7 @@ const critical = [
   'theme.css',
 ];
 const perAssetRelease = new Map([
-  ['phase-01-navbar.css', '20261013-01'],
+  ['phase-01-navbar.css', '20261013-02'],
   ['i18n.js', '20261013-01'],
   ['i18n-content.js', '20261013-01'],
 ]);

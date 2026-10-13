@@ -4,7 +4,10 @@
   "scripts": {
     "serve": "npx firebase emulators:start --only hosting",
     "deploy": "npx firebase deploy --only hosting",
-    "build": "npm run build:seo && npm run build:assistant-kb",
+    "build": "npm run i18n:prepare && npm run build:seo && npm run build:assistant-kb",
+    "i18n:prepare": "npm run i18n:extract && npm run i18n:quality",
+    "i18n:extract": "node scripts/i18n-extract.mjs",
+    "i18n:quality": "node scripts/i18n-quality.mjs",
     "build:assistant-kb": "node scripts/build_assistant_kb.js",
     "assistant:external-kb:check": "node scripts/manage-assistant-external-kb.mjs check",
     "build:globe-lab": "node scripts/build-globe-lab.mjs",
@@ -16,6 +19,9 @@
     "test:static-runtime": "node scripts/verify-static-runtime.mjs",
     "test:responsive-hero-images": "node scripts/verify-responsive-hero-images.mjs",
     "test:iis-static-security": "node --test tests/iis-static-security.test.js",
+    "test:i18n-language-selector": "node --test tests/i18n-language-selector.test.js",
+    "test:i18n-language-selector-browser": "node --test tests/i18n-language-selector.browser.test.js",
+    "test:i18n-quality": "node --test tests/i18n-quality.test.js tests/i18n-extract.test.js",
     "test:skeleton": "node tests/skeleton-loader.test.js",
     "test:faq-runtime": "node tests/company-faq-runtime.test.js",
     "test:phase01-navbar": "node --test tests/phase-01-navbar.test.js",
@@ -42,6 +48,7 @@
     "test:production-update": "node tests/production-update-lifecycle.test.js"
   },
   "devDependencies": {
+    "@babel/parser": "^8.0.7",
     "esbuild": "^0.28.1",
     "firebase-tools": "^15.26.0",
     "parse5": "^5.1.1",

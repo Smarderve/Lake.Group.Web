@@ -5,6 +5,7 @@ export type CmsDocumentData = Record<string, CmsField | undefined>;
 export type LakeAviationData = CmsDocumentData & { hero: { heading: string; description: string; image: string; alt?: string }; introduction: { heading: string; body: string }; cta: { label: string; href: string }; seo: { title: string; description: string } };
 export type CmsRevision = { id: string; authorId?: string | null; createdAt: string; data?: any };
 export type CmsRelease = { id: string; revisionId: string; integrity: string; publishedAt: string };
+export type CmsTranslationJob = { id: string; documentKey: string; revisionId: string; targetLanguage: string; fieldPath: string; sourceText: string; translation?: string | null; status: string; attempts: number; lastError?: string | null; updatedAt: string };
 export const cmsV2Api = {
   document: () => api.get<{ document: { currentDraftRevision?: CmsRevision | null; currentPublishedRevision?: CmsRevision | null } }>('/admin/v2/content/lake-aviation'),
   saveDraft: (data: LakeAviationData, baseRevisionId?: string | null) => api.put<{ revision: CmsRevision }>('/admin/v2/content/lake-aviation/draft', { data, baseRevisionId }),
@@ -17,4 +18,7 @@ export const cmsV2Api = {
   restoreRevisionByKey: (key: string, revisionId: string) => api.post<{ revision: CmsRevision }>(`/admin/v2/content/${key}/revisions/${revisionId}/restore`),
   publishByKey: (key: string, revisionId: string) => api.post<{ release: CmsRelease }>('/admin/v2/releases', { key, revisionId }),
   releases: () => api.get<{ releases: CmsRelease[] }>('/admin/v2/releases'),
+  translationJobs: (documentKey: string, revisionId?: string | null) => api.get<{ jobs: CmsTranslationJob[] }>(`/admin/v2/translations/jobs?documentKey=${encodeURIComponent(documentKey)}${revisionId ? `&revisionId=${encodeURIComponent(revisionId)}` : ''}`),
+  retryTranslationJob: (jobId: string) => api.post<{ job: CmsTranslationJob }>(`/admin/v2/translations/jobs/${encodeURIComponent(jobId)}/retry`),
+  approveTranslationJob: (jobId: string, translation: string) => api.post<{ job: CmsTranslationJob }>(`/admin/v2/translations/jobs/${encodeURIComponent(jobId)}/approve`, { translation }),
 };

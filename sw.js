@@ -82,7 +82,7 @@ const PRECACHE_URLS = [
   './assets/i18n-content.js?v=20261013-01',
   './assets/assistant.js?v=20261013-02',
   './assets/assistant.css?v=20261013-02',
-  './assets/phase-01-navbar.css?v=20261013-01',
+  './assets/phase-01-navbar.css?v=20261013-02',
   './assets/phase-01-footer.css?v=20260828-01',
   './assets/phase-01-navbar.js?v=20260828-01',
   './assets/images/logos/LAKE_GROUP_LOGO.png',

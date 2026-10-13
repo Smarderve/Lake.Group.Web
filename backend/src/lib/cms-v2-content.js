@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { z } from 'zod';
 import { reviewContentRelease } from './cms-v2-release-review.js';
 import { cmsV2ComponentSchema, cmsV2CompositionSchema } from './cms-v2-components.js';
+import { buildCmsTranslationJobs } from './cms-v2-translation.js';
 
 const text = (maximum) => z.string().trim().min(1).max(maximum);
 const url = text(1000);
@@ -74,6 +75,12 @@ export function createContentReleaseService({ repository, writePointer, readPubl
       id: id('revision'), key, schemaVersion: definition.schemaVersion, actorId, data: structuredClone(parsed.data),
       createdAt: now().toISOString(),
     };
+    const priorRevision = document.currentDraftRevision ?? (document.currentDraftRevisionId ? await repository.getRevision(document.currentDraftRevisionId) : null);
+    const translationWork = buildCmsTranslationJobs({ documentKey: key, revisionId: revision.id, currentRevisionId: document.currentDraftRevisionId, previousData: priorRevision?.data ?? null, data: revision.data, createdAt: revision.createdAt });
+    if (repository.saveDraftWithTranslationJobs) {
+      await repository.saveDraftWithTranslationJobs({ document, revision, baseRevisionId: baseRevisionId ?? null, ...translationWork });
+      return revision;
+    }
     await repository.saveRevision(revision);
     await repository.saveDocument({ ...(await repository.getDocument(key)), currentDraftRevisionId: revision.id, updatedAt: revision.createdAt });
     return revision;
@@ -140,15 +147,26 @@ export function createContentReleaseService({ repository, writePointer, readPubl
   async function saveDraftBatch({ actorId, documents }) {
     if (!repository.saveDraftBatch) throw fault('TRANSACTION_UNAVAILABLE', 'Atomic content transactions are unavailable.');
     const createdAt = now().toISOString();
-    const entries = documents.map((document) => {
+    const entries = await Promise.all(documents.map(async (document) => {
       const definition = CMS_V2_DOCUMENTS[document.key];
       if (!definition) throw fault('INVALID_CONTENT_DOCUMENT', `Document ${document.key} is not registered.`);
       const parsed = definition.schema.safeParse(document.data);
       if (!parsed.success) throw fault('INVALID_CONTENT_PAYLOAD', `Document ${document.key} failed validation.`);
-      return { key: document.key, baseRevisionId: document.baseRevisionId ?? null, schemaVersion: definition.schemaVersion, actorId, data: structuredClone(parsed.data), createdAt, id: id('revision') };
-    });
+      const prior = await repository.getDocument(document.key);
+      const revision = { key: document.key, baseRevisionId: document.baseRevisionId ?? null, schemaVersion: definition.schemaVersion, actorId, data: structuredClone(parsed.data), createdAt, id: id('revision') };
+      const previousRevision = prior?.currentDraftRevision ?? (prior?.currentDraftRevisionId ? await repository.getRevision(prior.currentDraftRevisionId) : null);
+      const work = buildCmsTranslationJobs({ documentKey: revision.key, revisionId: revision.id, currentRevisionId: prior?.currentDraftRevisionId ?? null, previousData: previousRevision?.data ?? null, data: revision.data, createdAt });
+      return { ...revision, ...work };
+    }));
     if (new Set(entries.map((entry) => entry.key)).size !== entries.length) throw fault('INVALID_CONTENT_PAYLOAD', 'A transaction cannot update a document more than once.');
     return repository.saveDraftBatch(entries);
   }
-  return { saveDraft, saveDraftBatch, publish, restore, restoreRevision, reviewRelease, readDocument, listRevisions: (key) => repository.listRevisions?.(key) ?? [], listReleases: () => repository.listReleases() };
+  return {
+    saveDraft, saveDraftBatch, publish, restore, restoreRevision, reviewRelease, readDocument,
+    listRevisions: (key) => repository.listRevisions?.(key) ?? [],
+    listReleases: () => repository.listReleases(),
+    listTranslationJobs: (filters) => repository.listTranslationJobs?.(filters) ?? [],
+    retryTranslationJob: (jobId) => repository.retryTranslationJob?.(jobId),
+    approveTranslationJob: (input) => repository.approveTranslationJob?.(input),
+  };
 }

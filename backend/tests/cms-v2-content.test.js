@@ -41,6 +41,34 @@ describe('CMS V2 Lake Aviation pilot service', () => {
     await expect(service.saveDraft({ key: 'lake-aviation', actorId: 'it', baseRevisionId: first.id, data: content('Stale') })).rejects.toMatchObject({ code: 'REVISION_CONFLICT' });
   });
 
+  it('creates durable jobs for all target locales with each saved revision and only requeues changed fields', async () => {
+    const repository = memoryRepository();
+    const persistedJobs = [];
+    repository.saveDraftWithTranslationJobs = async ({ document, revision, baseRevisionId, jobs, changedPaths, previousRevisionId }) => {
+      const current = await repository.getDocument(document.key);
+      if ((current?.currentDraftRevisionId ?? null) !== baseRevisionId) throw Object.assign(new Error('stale revision'), { code: 'REVISION_CONFLICT' });
+      if (!current) await repository.saveDocument(document);
+      await repository.saveRevision(revision);
+      const next = { ...(await repository.getDocument(document.key)), currentDraftRevisionId: revision.id };
+      next.currentDraftRevision = revision;
+      await repository.saveDocument(next);
+      if (previousRevisionId && changedPaths.length) {
+        for (const row of persistedJobs) if (row.revisionId === previousRevisionId && changedPaths.includes(row.fieldPath) && row.status !== 'PUBLISHED') row.status = 'OUTDATED';
+      }
+      persistedJobs.push(...jobs);
+    };
+    const service = createContentReleaseService({ repository, writePointer: async () => {}, id: (() => { let i = 0; return (prefix) => `${prefix}-${++i}`; })() });
+    const first = await service.saveDraft({ key: 'lake-aviation', actorId: 'it', data: content('First') });
+    expect(persistedJobs).toHaveLength(56);
+    expect(new Set(persistedJobs.map((job) => job.targetLanguage))).toEqual(new Set(['sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt']));
+    expect(persistedJobs.every((job) => job.revisionId === first.id && job.status === 'WAITING_FOR_ENGINE')).toBe(true);
+    const second = await service.saveDraft({ key: 'lake-aviation', actorId: 'it', baseRevisionId: first.id, data: content('Second') });
+    expect(persistedJobs.slice(56)).toHaveLength(14);
+    expect(new Set(persistedJobs.slice(56).map((job) => job.fieldPath))).toEqual(new Set(['hero.heading', 'seo.title']));
+    expect(persistedJobs.filter((job) => job.revisionId === first.id && ['hero.heading', 'seo.title'].includes(job.fieldPath)).every((job) => job.status === 'OUTDATED')).toBe(true);
+    expect(second.id).not.toBe(first.id);
+  });
+
   it('keeps the prior public pointer when publication fails', async () => {
     let pointer = { releaseId: 'known-good' };
     const service = createContentReleaseService({ repository: memoryRepository(), writePointer: async () => { throw Object.assign(new Error('storage unavailable'), { code: 'STORAGE_FAILED' }); } });

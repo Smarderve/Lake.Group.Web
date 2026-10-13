@@ -972,6 +972,24 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .mm-cat.is-active {
   pointer-events: none !important;
 }
 
+/* Arabic selections set the document direction in i18n.js. Keep the shared
+   navigation aligned with that direction even on legacy pages whose nav has
+   an explicit LTR attribute. */
+html[dir="rtl"] .site-nav[data-phase01-navbar] {
+  direction: rtl !important;
+}
+
+html[dir="rtl"] .site-nav[data-phase01-navbar] .nav-dropdown {
+  right: 0 !important;
+  left: auto !important;
+}
+
+html[dir="rtl"] .site-nav[data-phase01-navbar] .lang-menu {
+  right: 100% !important;
+  left: auto !important;
+  text-align: right !important;
+}
+
 .site-nav[data-phase01-navbar] .lang-switcher.is-open .lang-menu:not([hidden]) {
   opacity: 1 !important;
   transform: translateY(0) !important;
@@ -1611,6 +1629,10 @@ body.lg-nav-open {
   .nav-mobile[data-phase01-navbar-mobile] .mob-language-panel {
     padding: 4px 0 8px 36px !important;
   }
+  html[dir="rtl"] .nav-mobile[data-phase01-navbar-mobile] .mob-language-panel {
+    padding: 4px 36px 8px 0 !important;
+    text-align: right !important;
+  }
   .nav-mobile[data-phase01-navbar-mobile] .mob-language-option {
     display: flex !important;
     align-items: center !important;
@@ -1622,6 +1644,9 @@ body.lg-nav-open {
     color: rgba(255, 255, 255, .74) !important;
     font: 500 .83rem/1.25 Jost, Arial, sans-serif !important;
     text-align: left !important;
+  }
+  html[dir="rtl"] .nav-mobile[data-phase01-navbar-mobile] .mob-language-option {
+    text-align: right !important;
   }
   .nav-mobile[data-phase01-navbar-mobile] .mob-language-option.active {
     color: #fff200 !important;

@@ -30,6 +30,9 @@ const prefsStore = createUserPrefsStore(config.databaseUrlRuntime) ?? createMemo
 const mediaStorage = createObjectStorage(config);
 const cmsV2Storage = createCmsV2ReleaseStorage({ root: resolve(process.env.CMS_V2_RELEASE_DIR || '../public-content/cms-v2') });
 const cmsV2Service = db ? createCmsV2RuntimeService({ db, storage: cmsV2Storage, logger, publicSiteOrigin: process.env.CMS_V2_PUBLIC_SITE_ORIGIN }) : null;
+if (cmsV2Service) void cmsV2Service.recoverTranslationJobs().then((count) => {
+  if (count) logger.info({ count }, 'expired translation leases returned to waiting state');
+}).catch((error) => logger.error({ error }, 'translation job recovery failed'));
 // Explicit opt-in keeps existing deployments unchanged until IT has installed
 // the project-local Ollama runtime and model store.
 const assistantService = process.env.LAKE_ASSISTANT_ENABLED === 'true'
