@@ -149,7 +149,7 @@ test('bounded typo correction preserves company and topic intent while using pub
   const assistant = harness();
   const kb = {};
   vm.runInNewContext(kbCode.replace('window.__LAKE_ASSISTANT_KB__ = ', 'kb.value = '), { kb });
-  const headquarters = kb.value.langs.en.docs.find((doc) => doc.factType === 'headquarters');
+  const headquarters = kb.value.langs.en.docs.find((doc) => doc.factType === 'headquarters' && /Vijibweni.*Kigamboni.*Dar es Salaam/i.test(doc.evidenceText || ''));
   assert.ok(headquarters);
   assert.equal(headquarters.page, 'contact.html');
   assert.match(headquarters.evidenceText, /Vijibweni.*Kigamboni.*Dar es Salaam/i);

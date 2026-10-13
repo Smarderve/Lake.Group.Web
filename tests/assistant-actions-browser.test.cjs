@@ -49,6 +49,9 @@ test('actual Chrome website renders message actions, retries and rewrites edited
   const evidenceDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lake-assistant-actions-'));
   const editCalls = [];
   let failNextEdit = false;
+  let holdNextRegenerate = false;
+  let releaseRegenerate;
+  let notifyRegenerateStarted;
   t.after(async () => {
     if (browser) await browser.close();
     await new Promise((resolve) => server.close(resolve));
@@ -93,7 +96,13 @@ test('actual Chrome website renders message actions, retries and rewrites edited
       const answer = `Replacement answer for: ${body.message}`;
       return route.fulfill({ status: 200, contentType: 'application/x-ndjson; charset=utf-8', body: ndjson([{ type: 'delta', text: answer }, { type: 'done', answer, turnId: body.turnId, grounded: true, status: 'ok', locale: 'en', sources: [] }]) });
     }
-    if (endpoint.endsWith('/regenerate')) return route.fulfill({ status: 200, contentType: 'application/x-ndjson; charset=utf-8', body: ndjson([{ type: 'delta', text: 'Regenerated fixture answer.' }, { type: 'done', answer: 'Regenerated fixture answer.', grounded: true, status: 'ok', locale: 'en', sources: [] }]) });
+    if (endpoint.endsWith('/regenerate')) {
+      if (holdNextRegenerate) {
+        holdNextRegenerate = false;
+        await new Promise((resolve) => { releaseRegenerate = resolve; if (notifyRegenerateStarted) notifyRegenerateStarted(); });
+      }
+      return route.fulfill({ status: 200, contentType: 'application/x-ndjson; charset=utf-8', body: ndjson([{ type: 'delta', text: 'Regenerated fixture answer.' }, { type: 'done', answer: 'Regenerated fixture answer.', grounded: true, status: 'ok', locale: 'en', sources: [] }]) });
+    }
     return route.fulfill({ status: 404, body: '' });
   });
 
@@ -101,7 +110,14 @@ test('actual Chrome website renders message actions, retries and rewrites edited
   const launcher = page.locator('#chat-widget .la-launcher');
   await launcher.waitFor({ state: 'visible', timeout: 15_000 });
   await launcher.click();
-  await page.locator('#chat-widget .la-typing').waitFor({ state: 'visible' });
+  const welcomeTyping = page.locator('#chat-widget .la-typing');
+  await welcomeTyping.waitFor({ state: 'visible' });
+  assert.equal(await welcomeTyping.locator('.la-assistant-avatar').count(), 1, 'welcome typing indicator has the assistant avatar');
+  assert.equal(await page.locator('#chat-widget .la-head .la-brand-name').textContent(), 'Lake AI');
+  assert.match(await page.locator('#chat-widget .la-head .la-brand-name').evaluate((name) => getComputedStyle(name).fontFamily), /^Jost,/i, 'Lake AI name uses the approved clean Jost UI font');
+  const headerAvatar = page.locator('#chat-widget .la-head .la-assistant-avatar img');
+  await headerAvatar.evaluate((image) => image.decode());
+  assert.equal(await headerAvatar.evaluate((image) => image.naturalWidth > 0), true, 'header avatar loads the approved Lake symbol asset');
   await page.screenshot({ path: path.join(evidenceDir, 'desktop-typing-indicator.png'), fullPage: false });
   await page.getByText('Hi there! How can I help you today?', { exact: true }).waitFor({ state: 'visible' });
   const welcome = page.locator('#chat-widget .la-message.la-bot').first();
@@ -211,6 +227,8 @@ test('actual Chrome website renders message actions, retries and rewrites edited
   assert.deepEqual(await user.locator('.la-response-action').evaluateAll((buttons) => buttons.map((button) => button.getAttribute('aria-label'))), ['Copy your message', 'Edit your message']);
   assert.equal(await user.locator('.la-message-body').evaluate((bubble) => getComputedStyle(bubble).backgroundColor), 'rgb(1, 129, 187)');
   assert.equal(await user.evaluate((article) => getComputedStyle(article).opacity), '1');
+  assert.equal(await user.locator('.la-assistant-avatar').count(), 0, 'visitor messages never show the Lake AI avatar');
+  assert.equal(await error.locator('.la-assistant-avatar').count(), 1, 'assistant error messages retain the Lake AI avatar');
   assert.deepEqual(await error.locator('.la-response-action').evaluateAll((buttons) => buttons.map((button) => button.getAttribute('aria-label'))), [
     'Copy message', 'Share message', 'Read message aloud', 'Good response', 'Bad response', 'Retry failed question',
   ]);
@@ -364,8 +382,16 @@ test('actual Chrome website renders message actions, retries and rewrites edited
   await removeNegative.getByRole('button', { name: 'Submit' }).click();
   assert.equal(await negativeButton.getAttribute('aria-pressed'), 'false', 'submitting an empty revised response removes Dislike');
   assert.equal(await latest.evaluate((article) => article._feedback || null), null, 'removing Dislike clears the local record');
+  const regenerateStarted = new Promise((resolve) => { notifyRegenerateStarted = resolve; });
+  holdNextRegenerate = true;
   await latest.getByRole('button', { name: 'Regenerate response' }).click();
+  await regenerateStarted;
+  const regenerateTyping = page.locator('#chat-widget .la-regenerate-loading');
+  await regenerateTyping.waitFor({ state: 'visible' });
+  assert.equal(await regenerateTyping.locator('.la-assistant-avatar').count(), 1, 'regeneration loading state has the same assistant avatar');
+  releaseRegenerate();
   await page.getByText('Regenerated fixture answer.', { exact: true }).waitFor({ state: 'visible' });
+  assert.equal(await latest.locator('.la-assistant-avatar').count(), 1, 'regenerated assistant reply retains its avatar');
 
   const firstUser = page.locator('#chat-widget .la-message.la-user').first();
   await firstUser.getByRole('button', { name: 'Edit your message' }).click();
@@ -474,6 +500,8 @@ test('actual Chrome website renders message actions, retries and rewrites edited
   assert.ok(mobilePanel.left >= 0 && mobilePanel.right <= mobilePanel.viewportWidth, 'mobile messenger stays within the viewport');
   assert.ok(mobilePanel.composerBottom <= mobilePanel.viewportHeight, 'mobile composer remains visible');
   assert.ok(mobilePanel.scrollWidth <= mobilePanel.clientWidth + 1, 'mobile messenger has no horizontal overflow');
+  const avatarAudit = await page.locator('#chat-widget .la-message').evaluateAll((messages) => messages.map((message) => ({ role: message.classList.contains('la-user') ? 'user' : 'assistant', avatars: message.querySelectorAll('.la-assistant-avatar').length })));
+  assert.equal(avatarAudit.every((message) => message.avatars === (message.role === 'assistant' ? 1 : 0)), true, 'every assistant message has exactly one avatar and user messages have none');
   assert.deepEqual(pageErrors, [], `browser console errors: ${pageErrors.join('; ')}`);
   await context.close();
 });
