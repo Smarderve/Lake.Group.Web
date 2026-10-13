@@ -71,6 +71,9 @@ test('voice recording uses the private captured-audio pipeline, not silence-sens
   assert.doesNotMatch(assistantCode, /SpeechRecognition|onspeechend/);
   assert.match(assistantCode, /voiceEndpoint\('voice-health'\)/);
   assert.match(assistantCode, /voiceEndpoint\('transcribe'\)/);
+  assert.match(assistantCode, /function voiceHealthTimeoutSignal\(milliseconds\)/);
+  assert.match(assistantCode, /window\.AbortSignal\.timeout\(milliseconds\)/);
+  assert.match(assistantCode, /new window\.AbortController\(\)/);
 });
 
 test('recording remains active until an explicit stop, send, cancel, or visible 30-second safety limit', () => {

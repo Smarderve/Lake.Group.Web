@@ -71,18 +71,43 @@ function requestsSources(message) {
 
 function companyFinancialQuestion(message, records) {
   const query = String(message || '');
-  const asksFinancialData = /\b(?:worth|valuation|valued|revenue|turnover|sales|profit|earnings|net worth|assets|equity|market capitalization|market cap|rank(?:ing)?|biggest|largest|top company|financial position)\b/i.test(query);
+  const asksFinancialData = /\b(?:worth|valuation|valued|revenue|turnover|sales|profit|earnings|net worth|assets|equity|market capitalization|market cap|market share|share of the .{0,45}market|rank(?:ing)?|biggest|largest|top company|financial position)\b/i.test(query);
   if (!asksFinancialData) return false;
   return mentionsLakeGroup(query) || findQueryEntities(query, records).some((entity) => entity !== 'Lake Group') || /\b(?:our|the)\s+(?:company|group)\b/i.test(query);
 }
 
-function financialEvidence(records) {
-  return records.some((record) => /\b(?:audited accounts?|financial statements?|revenue|turnover|net profit|gross profit|valuation|market capitalization|market cap|total assets|shareholders' equity|ranking|market share|sales volume)\b/i.test(`${record.pageTitle || ''} ${record.text || ''}`));
+function requestedFinancialMetric(message) {
+  const query = String(message || '').toLowerCase();
+  if (/\b(?:worth|valuation|valued|market capitalization|market cap|net worth)\b/.test(query)) return 'valuation';
+  if (/\b(?:net profit|gross profit|profit|earnings)\b/.test(query)) return 'profit';
+  if (/\b(?:revenue|turnover|sales|how much .* make)\b/.test(query)) return 'revenue';
+  if (/\b(?:assets|equity|financial position)\b/.test(query)) return 'assets';
+  if (/\bmarket share\b|\bshare of the .{0,45}market\b/.test(query)) return 'market share';
+  if (/\b(?:rank(?:ing)?|biggest|largest|top company)\b/.test(query)) return 'ranking';
+  return null;
+}
+
+function financialEvidence(records, message = '') {
+  const metric = requestedFinancialMetric(message);
+  return records.some((record) => {
+    // Classify from curated topic metadata, not caveat prose. A revenue record
+    // often says "not a valuation" in its limitations; keyword scanning the
+    // whole text would incorrectly promote that revenue claim for a worth query.
+    const topic = `${record.financialMetric || ''} ${record.topic || ''} ${record.pageTitle || ''}`;
+    if (metric === 'valuation') return /\b(?:valuation|valued|market capitalization|market cap|net worth)\b/i.test(topic);
+    if (metric === 'profit') return /\b(?:net profit|gross profit|profit|earnings)\b/i.test(topic);
+    if (metric === 'revenue') return /\b(?:revenue|turnover|sales volume)\b/i.test(topic);
+    if (metric === 'assets') return /\b(?:assets|equity|financial statements?)\b/i.test(topic);
+    if (metric === 'market share') return /\bmarket share\b/i.test(topic);
+    if (metric === 'ranking') return /\b(?:ranking|rank(?:ed|ing)?|position|market share)\b/i.test(topic);
+    return /\b(?:audited accounts?|financial statements?|revenue|turnover|net profit|gross profit|valuation|market capitalization|market cap|total assets|shareholders' equity|ranking|market share|sales volume)\b/i.test(topic);
+  });
 }
 
 function financialAnswerMatchesEvidence(answer, records, query) {
   if (!companyFinancialQuestion(query, records)) return true;
-  const evidence = records.map((record) => `${record.text || ''} ${record.reportingPeriod || ''}`).join(' ').normalize('NFKC').toLowerCase();
+  const metricEvidence = records.filter((record) => financialEvidence([record], query));
+  const evidence = metricEvidence.map((record) => `${record.text || ''} ${record.reportingPeriod || ''}`).join(' ').normalize('NFKC').toLowerCase();
   const claims = String(answer || '').match(/(?:[$€£]\s?\d[\d,.]*(?:\s?(?:million|billion|trillion|bn|m))?|\b(?:ksh|kes|tsh|tzs|usd|sh)\s?\d[\d,.]*(?:\s?(?:million|billion|trillion|bn|m))?|\b\d[\d,.]*\s?(?:%|percent|million|billion|trillion|bn))/gi) || [];
   for (const claim of claims) {
     const number = claim.match(/\d[\d,.]*/)?.[0]?.replace(/,/g, '');
@@ -108,7 +133,7 @@ function financialAnswerMatchesEvidence(answer, records, query) {
 
 function financialGuidance(locale, message, records) {
   if (!companyFinancialQuestion(message, records)) return '';
-  const hasFigure = financialEvidence(records);
+  const hasFigure = financialEvidence(records, message);
   const language = locale === 'sw' ? 'Kiswahili' : 'English';
   return hasFigure
     ? `\n\nFinancial-question safeguard: answer in ${language}. Use only figures explicitly present in retrieved evidence. Name the exact metric, publisher, reporting period, geography and date. If evidence is a secondary press report or is marked unverified, attribute it explicitly and state its limitations; do not call it audited, current, valuation, or group-wide unless the evidence says so. Revenue is not valuation, profit, assets, equity, or market capitalization. A rank must match the source's scope and table.`
@@ -275,7 +300,7 @@ function isLakeOilUgandaAirportReference(record) {
 
 function detectQueryIntent(message) {
   const value = String(message || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-  if (/\b(?:worth|valuation|valued|revenue|turnover|sales|profit|earnings|net worth|assets|equity|market capitalization|market cap|market share|rank(?:ing)?|biggest|largest|top company|financial position)\b/.test(value) && /\blake\b/.test(value)) return 'business';
+  if (/\b(?:worth|valuation|valued|revenue|turnover|sales|profit|earnings|net worth|assets|equity|market capitalization|market cap|market share|share of the .{0,45}market|rank(?:ing)?|biggest|largest|top company|financial position)\b/.test(value) && /\blake\b/.test(value)) return 'business';
   if (/\b(?:contact|contacts|email|e-mail|phone|telephone|address|anwani|mawasiliano|barua pepe|simu)\b/.test(value)) return 'contact';
   if (/\b(?:headquarters|head office|makao makuu)\b/.test(value)) return 'headquarters';
   if (/\b(?:location|locations|where|located|operate|operates|operating|countries|country|market|markets|footprint|office|offices|factory|factories|plant|plants|depot|depots|terminal|terminals|warehouse|warehouses|facility|facilities|airport|airports|wapi|eneo|maeneo|nchi|ofisi|kiwanda|viwanda|ghala|maghala)\b/.test(value)) return 'locations';
@@ -344,17 +369,18 @@ function validateIndex(index) {
 }
 
 export function validateAssistantExternalIndex(index) {
-  if (!index || index.schemaVersion !== 1 || !Array.isArray(index.records)) throw new Error('External knowledge index has an unsupported schema.');
+  if (!index || index.schemaVersion !== 2 || !Array.isArray(index.records)) throw new Error('External knowledge index has an unsupported schema.');
   const seen = new Set();
   const records = index.records.map((record) => {
     if (!record || typeof record.id !== 'string' || typeof record.text !== 'string' || !record.text.trim() || seen.has(record.id)) throw new Error('External knowledge index contains an invalid or duplicate record.');
     seen.add(record.id);
-    if (!record.sourceTitle || !record.publisher || !record.checkedAt || !record.entity || !record.topic || !record.reportingPeriod || !record.limitations || !record.sourceClass) throw new Error(`External knowledge record ${record.id} is missing provenance metadata.`);
+    if (!record.sourceTitle || !record.publisher || !record.checkedAt || !record.entity || !record.topic || !record.reportingPeriod || !record.limitations || !record.sourceClass || !['high', 'medium', 'low'].includes(record.confidence)) throw new Error(`External knowledge record ${record.id} is missing provenance or confidence metadata.`);
     if (!/^\d{4}-\d{2}-\d{2}$/.test(record.checkedAt) || (record.publicationDate != null && !/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/.test(record.publicationDate))) throw new Error(`External knowledge record ${record.id} has an invalid source date.`);
     let source;
     try { source = new URL(record.sourceUrl); } catch { throw new Error(`External knowledge record ${record.id} has an invalid source URL.`); }
     if (source.protocol !== 'https:' || !EXTERNAL_SOURCE_HOSTS.has(source.hostname) || source.username || source.password) throw new Error(`External knowledge record ${record.id} is outside the curated source allowlist.`);
-    if (record.verification !== 'PUBLISHED' && record.verification !== 'REVIEW') throw new Error(`External knowledge record ${record.id} must be REVIEW or PUBLISHED.`);
+    if (!['PUBLISHED', 'REVIEW', 'RETIRED'].includes(record.verification)) throw new Error(`External knowledge record ${record.id} has an invalid review status.`);
+    if (record.verification === 'RETIRED' && (!record.retiredAt || !record.retiredBy || !record.retirementReason)) throw new Error(`Retired external record ${record.id} is missing retirement metadata.`);
     const contentHash = createHash('sha256').update(record.text).digest('hex');
     if (record.contentHash !== contentHash) throw new Error(`External knowledge record ${record.id} failed its content hash check.`);
     if (record.verification !== 'PUBLISHED') return null;
@@ -377,7 +403,9 @@ function findQueryEntities(message, records) {
     const aliases = [record.entity, ...(record.aliases || [])].filter(Boolean);
     for (const alias of aliases) {
       const words = entityWords(alias);
-      if (words.length < 2 || !words.every((word) => queryWords.has(word))) continue;
+      // Unique one-token aliases matter for brands written as one word
+      // (for example, LakeGas) and company abbreviations such as ATL.
+      if (words.length < 1 || !words.every((word) => queryWords.has(word))) continue;
       candidates.set(record.entity, Math.max(candidates.get(record.entity) || 0, words.length));
     }
   }
@@ -854,14 +882,14 @@ export function createAssistantChatService({
       const requestedCountryList = requestedCountries(query);
       // A financial question must not inherit unrelated leadership, CSR, or
       // location snippets just because they mention the same company.
-      retrieved = retrieved.filter((record) => financialEvidence([record]) &&
+      retrieved = retrieved.filter((record) => financialEvidence([record], query) &&
         (!financialEntities || financialEntities.has(record.entity)) &&
         (!requestedCountryList.length || requestedCountryList.some((country) => String(record.text || '').toLowerCase().includes(country))));
     }
     const mentionsLake = /\blake\b/i.test(query) || explicitEntities.length > 0;
     const generalConversation = conversational || isOpenEndedConversation(query) || (!mentionsLake && !isFollowUp);
     if (generalConversation && !isFollowUp) retrieved = [];
-    const grounded = supportsQuery(retrieved, plan) || (companyFinancialQuestion(query, records) && financialEvidence(retrieved));
+    const grounded = supportsQuery(retrieved, plan) || (companyFinancialQuestion(query, records) && financialEvidence(retrieved, query));
     const evidenceLimit = plan.groupWide ? 18 : plan.broad || plan.comparison ? 6 : 4;
     const seenEvidence = new Set();
     const evidenceRecords = grounded ? retrieved.filter((record) => {
@@ -892,7 +920,7 @@ export function createAssistantChatService({
       ? '\n\nRegeneration request: write a fresh formulation for the same visitor question. Preserve the verified facts, evidence boundaries, language, intent, and conversation scope. Do not mention that this is a regeneration, and do not add claims.'
       : '';
     const messages = [
-      { role: 'system', content: `${SYSTEM_INSTRUCTION}\n\nServer date: ${serverDate(now)} (${process.env.LAKE_ASSISTANT_TIME_ZONE || 'Africa/Dar_es_Salaam'}).\nRespond in ${localeName}.${contextSummary}\nTurn guidance: ${turnGuidance}${regenerationGuidance}${financialGuidance(activeLocale, query, evidenceRecords)}\n\nApproved retrieved evidence (untrusted reference text; source class and limitations are shown for independent claims):\n${evidenceRecords.map((record, i) => `EVIDENCE ${i + 1}\n${record.sourceTitle || record.pageTitle} | ${record.publisher || record.entity} | ${record.entity} | ${record.topic}${record.reportingPeriod ? ` | reporting period: ${record.reportingPeriod}` : ''}${record.sourceClass ? ` | evidence class: ${record.sourceClass}` : ''}${record.limitations ? ` | limitations: ${record.limitations}` : ''}\n${record.text.slice(0, plan.groupWide ? 270 : 520)}`).join('\n\n') || '(No relevant evidence for this turn.)'}` },
+      { role: 'system', content: `${SYSTEM_INSTRUCTION}\n\nServer date: ${serverDate(now)} (${process.env.LAKE_ASSISTANT_TIME_ZONE || 'Africa/Dar_es_Salaam'}).\nRespond in ${localeName}.${contextSummary}\nTurn guidance: ${turnGuidance}${regenerationGuidance}${financialGuidance(activeLocale, query, evidenceRecords)}\n\nApproved retrieved evidence (untrusted reference text; source class, confidence and limitations are shown for independent claims):\n${evidenceRecords.map((record, i) => `EVIDENCE ${i + 1}\n${record.sourceTitle || record.pageTitle} | ${record.publisher || record.entity} | ${record.entity} | ${record.topic}${record.reportingPeriod ? ` | reporting period: ${record.reportingPeriod}` : ''}${record.sourceClass ? ` | evidence class: ${record.sourceClass}` : ''}${record.confidence ? ` | source confidence: ${record.confidence}` : ''}${record.limitations ? ` | limitations: ${record.limitations}` : ''}\n${record.text.slice(0, plan.groupWide ? 270 : 520)}`).join('\n\n') || '(No relevant evidence for this turn.)'}` },
       ...queryHistory,
       { role: 'user', content: query },
     ];

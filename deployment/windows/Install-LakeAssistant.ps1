@@ -37,14 +37,16 @@ function Test-KnowledgeIndex([string]$Path) {
 }
 function Test-ExternalKnowledgeIndex([string]$Path) {
   $index = Get-Content -LiteralPath $Path -Raw | ConvertFrom-Json
-  if ($index.schemaVersion -ne 1 -or $null -eq $index.records) { Stop-Install 'External knowledge index schema is invalid.' }
+  if ($index.schemaVersion -ne 2 -or $null -eq $index.records) { Stop-Install 'External knowledge index schema is invalid.' }
   $allowedHosts = @('ewura.go.tz', 'www.ewura.go.tz', 'cqs.ewura.go.tz', 'epra.go.ke', 'new.kenyalaw.org', 'businessdailyafrica.com', 'www.businessdailyafrica.com')
   $ids = @{}
   foreach ($record in $index.records) {
     if (-not $record.id -or $ids.ContainsKey([string]$record.id)) { Stop-Install 'External knowledge index contains a missing or duplicate record ID.' }
     $ids[[string]$record.id] = $true
-    foreach ($field in @('entity','topic','sourceTitle','sourceUrl','publisher','checkedAt','reportingPeriod','limitations','sourceClass','text','contentHash')) { if (-not [string]$record.$field) { Stop-Install "External knowledge record $($record.id) is missing $field." } }
-    if ($record.verification -notin @('PUBLISHED','REVIEW')) { Stop-Install "External knowledge record $($record.id) has an invalid review status." }
+    foreach ($field in @('entity','topic','sourceTitle','sourceUrl','publisher','checkedAt','reportingPeriod','limitations','sourceClass','confidence','text','contentHash')) { if (-not [string]$record.$field) { Stop-Install "External knowledge record $($record.id) is missing $field." } }
+    if ($record.confidence -notin @('high','medium','low')) { Stop-Install "External knowledge record $($record.id) has an invalid confidence." }
+    if ($record.verification -notin @('PUBLISHED','REVIEW','RETIRED')) { Stop-Install "External knowledge record $($record.id) has an invalid review status." }
+    if ($record.verification -eq 'RETIRED' -and (-not $record.retiredAt -or -not $record.retiredBy -or -not $record.retirementReason)) { Stop-Install "Retired external knowledge record $($record.id) is missing retirement metadata." }
     $uri = [uri]$record.sourceUrl
     if ($uri.Scheme -ne 'https' -or $uri.Host -notin $allowedHosts -or $uri.UserInfo) { Stop-Install "External knowledge record $($record.id) has a non-allowlisted source." }
     if ($record.checkedAt -notmatch '^\d{4}-\d{2}-\d{2}$' -or ($record.publicationDate -and $record.publicationDate -notmatch '^\d{4}(-\d{2}(-\d{2})?)?$')) { Stop-Install "External knowledge record $($record.id) has an invalid source date." }

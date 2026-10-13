@@ -54,7 +54,7 @@ describe('Lake Assistant RAG', () => {
   });
 
   it('loads allowlisted independent evidence with provenance and retrieves regulator market-share facts', async () => {
-    const { fetchImpl } = fakeOllama('The regulator reported a historical share.');
+    const { fetchImpl, requests } = fakeOllama('The regulator reported a historical share.');
     const service = createTestService({ fetchImpl });
     const result = await service.chat({ message: 'What was Lake Oil market share in Tanzania? Show sources.' });
     expect(result.grounded).toBe(true);
@@ -68,12 +68,19 @@ describe('Lake Assistant RAG', () => {
     expect(selected.some((record) => record.id === 'external:ewura-market-share-fy2023-24-lake-oil')).toBe(true);
     expect(selected.some((record) => record.id === 'external:epra-kenya-market-share-fy2024-25-lake-oil')).toBe(true);
     expect(selected.find((record) => record.id === 'external:ewura-market-share-fy2023-24-lake-oil')?.limitations).toMatch(/Historical regulator/);
+
+    const lakeGas = await service.chat({ message: 'What share of the Tanzania LPG market is LakeGas?' });
+    expect(lakeGas.grounded).toBe(true);
+    expect(requests.at(-1).body.messages[0].content).toMatch(/8\.17%/);
+    expect(requests.at(-1).body.messages[0].content).toMatch(/source confidence: medium/);
   });
 
   it('rejects unallowlisted, undated or tampered external knowledge records', async () => {
     const externalPath = fileURLToPath(new URL('../../ai/knowledge/lake-group-external-index.json', import.meta.url));
     const externalIndex = JSON.parse(await readFile(externalPath, 'utf8'));
     expect(validateAssistantExternalIndex(externalIndex).length).toBe(externalIndex.records.length);
+    expect(externalIndex.schemaVersion).toBe(2);
+    expect(externalIndex.records.find((record) => record.id === 'external:ewura-factsheet-dec2025-lakegas-lpg-share')?.confidence).toBe('medium');
     const untrusted = structuredClone(externalIndex);
     untrusted.records[0].sourceUrl = 'https://example.com/fact';
     expect(() => validateAssistantExternalIndex(untrusted)).toThrow(/allowlist/);
@@ -81,8 +88,14 @@ describe('Lake Assistant RAG', () => {
     tampered.records[0].text += ' Edited.';
     expect(() => validateAssistantExternalIndex(tampered)).toThrow(/hash/);
     const incomplete = structuredClone(externalIndex);
-    delete incomplete.records[0].limitations;
-    expect(() => validateAssistantExternalIndex(incomplete)).toThrow(/provenance metadata/);
+    delete incomplete.records[0].confidence;
+    expect(() => validateAssistantExternalIndex(incomplete)).toThrow(/provenance or confidence metadata/);
+    const retired = structuredClone(externalIndex);
+    retired.records[0].verification = 'RETIRED';
+    retired.records[0].retiredAt = '2026-10-13T00:00:00.000Z';
+    retired.records[0].retiredBy = 'Compliance reviewer';
+    retired.records[0].retirementReason = 'Replaced by a newer regulator report.';
+    expect(validateAssistantExternalIndex(retired).some((record) => record.id === externalIndex.records[0].id)).toBe(false);
   });
 
   it('prioritizes substantive group profile and history over gallery captions', async () => {
@@ -271,11 +284,11 @@ describe('Lake Assistant RAG', () => {
     const { requests, fetchImpl } = fakeOllama();
     const service = createTestService({ fetchImpl });
     const unsupported = await service.chat({ message: "What was Lake Group's 2024 net profit?" });
-    expect(unsupported.grounded).toBe(true);
+    expect(unsupported.grounded).toBe(false);
     expect(requests.length).toBeGreaterThan(0);
     expect(requests[0].body.messages[0].content).toMatch(/Financial-question safeguard/);
-    expect(requests[0].body.messages[0].content).toMatch(/secondary_press_unverified/);
-    expect(requests[0].body.messages[0].content).toMatch(/did not identify an accounting period/);
+    expect(requests[0].body.messages[0].content).toMatch(/No relevant verified figure for the requested metric/);
+    expect(requests[0].body.messages[0].content).not.toMatch(/KSh 150 billion/);
     expect(unsupported.answer).toBe('A grounded local answer.');
   });
 
@@ -290,11 +303,20 @@ describe('Lake Assistant RAG', () => {
     expect(ranking.answer).not.toMatch(/number one|\b#1\b/i);
     expect(valuation.sources).toEqual([]);
     expect(requests.length).toBeGreaterThanOrEqual(4);
-    expect(requests[0].body.messages[0].content).toMatch(/Revenue is not valuation/i);
+    expect(requests[0].body.messages[0].content).toMatch(/No relevant verified figure for the requested metric/i);
     const streamedDeltas = [];
     const guarded = await service.chat({ message: 'What is Lake Group worth?', onToken: (delta) => streamedDeltas.push(delta) });
     expect(streamedDeltas).toEqual([guarded.answer]);
     expect(guarded.answer).not.toMatch(/\$|\bbillion\b|number one/i);
+  });
+
+  it('does not substitute Lake Oil or LakeGas market-share evidence for Lake Group valuation', async () => {
+    const { requests, fetchImpl } = fakeOllama('No verified valuation appears in the approved evidence.');
+    const service = createTestService({ fetchImpl });
+    await service.chat({ message: 'What is Lake Group worth?' });
+    const prompt = requests[0].body.messages[0].content;
+    expect(prompt).toMatch(/No relevant verified figure for the requested metric/);
+    expect(prompt).not.toMatch(/5\.9%|8\.17%|112,301\.62/);
   });
 
   it('answers general valuation concepts normally and supplies the configured server date', async () => {

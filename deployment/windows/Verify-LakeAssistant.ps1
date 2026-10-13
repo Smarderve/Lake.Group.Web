@@ -31,14 +31,16 @@ function Test-Index([string]$Path) {
 }
 function Test-ExternalIndex([string]$Path) {
   $index = Get-Content -LiteralPath $Path -Raw | ConvertFrom-Json
-  if ($index.schemaVersion -ne 1 -or $null -eq $index.records) { throw 'Unsupported external knowledge index schema.' }
+  if ($index.schemaVersion -ne 2 -or $null -eq $index.records) { throw 'Unsupported external knowledge index schema.' }
   $allowedHosts = @('ewura.go.tz', 'www.ewura.go.tz', 'cqs.ewura.go.tz', 'epra.go.ke', 'new.kenyalaw.org', 'businessdailyafrica.com', 'www.businessdailyafrica.com')
   $ids = @{}
   foreach ($record in $index.records) {
     if (-not $record.id -or $ids.ContainsKey([string]$record.id)) { throw 'Missing or duplicate external record ID.' }
     $ids[[string]$record.id] = $true
-    foreach ($field in @('entity','topic','sourceTitle','sourceUrl','publisher','checkedAt','reportingPeriod','limitations','sourceClass','text','contentHash')) { if (-not [string]$record.$field) { throw "External record $($record.id) is missing $field." } }
-    if ($record.verification -notin @('PUBLISHED','REVIEW')) { throw "Invalid review status in external record $($record.id)." }
+    foreach ($field in @('entity','topic','sourceTitle','sourceUrl','publisher','checkedAt','reportingPeriod','limitations','sourceClass','confidence','text','contentHash')) { if (-not [string]$record.$field) { throw "External record $($record.id) is missing $field." } }
+    if ($record.confidence -notin @('high','medium','low')) { throw "Invalid confidence in external record $($record.id)." }
+    if ($record.verification -notin @('PUBLISHED','REVIEW','RETIRED')) { throw "Invalid review status in external record $($record.id)." }
+    if ($record.verification -eq 'RETIRED' -and (-not $record.retiredAt -or -not $record.retiredBy -or -not $record.retirementReason)) { throw "Retired external record $($record.id) is missing retirement metadata." }
     $uri = [uri]$record.sourceUrl
     if ($uri.Scheme -ne 'https' -or $uri.Host -notin $allowedHosts -or $uri.UserInfo) { throw "Unapproved external source in record $($record.id)." }
     $sha = [Security.Cryptography.SHA256]::Create()

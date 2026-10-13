@@ -1119,6 +1119,13 @@
   }
   function canRecordLocally() { return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && (window.AudioContext || window.webkitAudioContext)); }
   function voiceEndpoint(path) { return (window.LAKE_API_BASE ? window.LAKE_API_BASE.replace(/\/$/, '') : '') + '/api/assistant/' + path; }
+  function voiceHealthTimeoutSignal(milliseconds) {
+    if (window.AbortSignal && typeof window.AbortSignal.timeout === 'function') return window.AbortSignal.timeout(milliseconds);
+    if (!window.AbortController) return undefined;
+    var controller = new window.AbortController();
+    window.setTimeout(function () { controller.abort(); }, milliseconds);
+    return controller.signal;
+  }
   function configureVoiceAvailability() {
     var localCaptureAvailable = canRecordLocally();
     refs.voiceButton.hidden = false;
@@ -1136,7 +1143,7 @@
   function checkVoiceAvailability() {
     if (!canRecordLocally() || voiceState.active || voiceState.pending) return;
     window.clearTimeout(voiceState.healthTimer);
-    fetch(voiceEndpoint('voice-health'), { credentials: 'same-origin', cache: 'no-store', signal: AbortSignal.timeout(5000) }).then(function (response) {
+    fetch(voiceEndpoint('voice-health'), { credentials: 'same-origin', cache: 'no-store', signal: voiceHealthTimeoutSignal(5000) }).then(function (response) {
       if (!response.ok) throw new Error('Voice service unavailable.');
       return response.json();
     }).then(function (payload) {
