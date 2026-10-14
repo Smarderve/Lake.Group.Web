@@ -11,7 +11,9 @@ test('HTML extraction detects untagged text and attributes without rewriting sou
     fs.writeFileSync(path.join(directory, 'new-page.html'), '<h2>Expanding Our Energy Network</h2><p>Lake <strong>Group</strong> expands energy access</p><p data-i18n="known">Existing copy</p><img alt="Regional distribution network"><a href="https://example.com">Learn more</a>');
     const first = extractPublicHtml(directory);
     const second = extractPublicHtml(directory);
-    assert.deepEqual(first.entries.map((entry) => entry.source), ['Expanding Our Energy Network', 'Lake Group expands energy access', 'Regional distribution network', 'Learn more']);
+    assert.deepEqual(first.entries.map((entry) => entry.source), ['Expanding Our Energy Network', 'Lake', 'expands energy access', 'Group', 'Regional distribution network', 'Learn more']);
+    assert.equal(first.entries.find((entry) => entry.source === 'Group').status, 'protected');
+    assert.equal(first.entries.find((entry) => entry.source === 'expands energy access').renderMode, 'runtime-text');
     assert.deepEqual(first.entries.map((entry) => entry.id), second.entries.map((entry) => entry.id));
     assert.ok(first.entries.every((entry) => ['missing', 'protected'].includes(entry.status)));
     assert.equal(first.entries.find((entry) => entry.source === 'Learn more').classification, 'public-visitor-copy');

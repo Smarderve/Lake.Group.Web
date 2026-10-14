@@ -9,11 +9,10 @@ import { PROTECTED_TERMS, TERMINOLOGY } from '../backend/src/lib/translation-glo
 const root = process.cwd();
 const publicTextTags = new Set(['a', 'button', 'caption', 'dd', 'dt', 'figcaption', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'label', 'legend', 'li', 'option', 'p', 'span', 'strong', 'em', 'summary', 'td', 'th']);
 const skipTags = new Set(['script', 'style', 'svg', 'noscript', 'template', 'code', 'pre']);
-const excluded = /^(?:\d[\d\s.,%/+\-:$€£#]*|[A-Z]{2,4}|https?:\/\/\S+|mailto:\S+|tel:\S+|[\w.+-]+@[\w.-]+\.[A-Za-z]{2,})$/;
+const excluded = /^(?:\+?\d[\d\s.,%/+\-:$€£#]*|[A-Z]{2,4}|https?:\/\/\S+|mailto:\S+|tel:\S+|[\w.+-]+@[\w.-]+\.[A-Za-z]{2,})$/;
 
 function attrs(node) { return Object.fromEntries((node.attrs || []).map(({ name, value }) => [name, value])); }
-function directText(node) { return (node.childNodes || []).filter((child) => child.nodeName === '#text').map((child) => child.value).join('').replace(/\s+/g, ' ').trim(); }
-function descendantText(node) { return (node.childNodes || []).map((child) => child.nodeName === '#text' ? child.value : descendantText(child)).join('').replace(/\s+/g, ' ').trim(); }
+function descendantText(node) { return (node.childNodes || []).map((child) => child.nodeName === '#text' ? child.value : descendantText(child)).join(' ').replace(/\s+/g, ' ').trim(); }
 function stableSelector(node) {
   const parts = [];
   for (let current = node; current?.tagName; current = current.parentNode) {
@@ -23,14 +22,18 @@ function stableSelector(node) {
   return parts.join(' > ');
 }
 function normalizeSource(text) { return String(text ?? '').replace(/<[^>]*>/g, ' ').replace(/&(?:nbsp|amp|lt|gt|quot|#39);/g, ' ').replace(/\s+/g, ' ').trim().toLocaleLowerCase('en'); }
-function visit(node, page, output, ancestry = [], covered = false, inventory = {}, suppressNestedText = false) {
+function visit(node, page, output, ancestry = [], covered = false, inventory = {}, suppressNestedText = false, protectedContext = '') {
   if (!node) return;
   const tag = node.tagName || '';
   if (!tag) {
-    for (const child of node.childNodes || []) visit(child, page, output, ancestry, covered, inventory, suppressNestedText);
+    for (const child of node.childNodes || []) visit(child, page, output, ancestry, covered, inventory, suppressNestedText, protectedContext);
     return;
   }
   const a = attrs(node);
+  const nodeText = descendantText(node);
+  const nodeProtectedContext = PROTECTED_TERMS.some((term) => nodeText.toLocaleLowerCase('en').includes(term.toLocaleLowerCase('en')))
+    ? [protectedContext, nodeText].filter(Boolean).join(' ')
+    : protectedContext;
   const nowCovered = covered || Object.hasOwn(a, 'data-i18n');
   const route = [...ancestry, `${tag}${a.id ? `#${a.id}` : ''}${a.class ? `.${a.class.trim().split(/\s+/).slice(0, 2).join('.')}` : ''}`].slice(-5);
   if (a['data-i18n']) {
@@ -42,13 +45,29 @@ function visit(node, page, output, ancestry = [], covered = false, inventory = {
   }
   let suppressChildText = suppressNestedText;
   if (!nowCovered && !suppressNestedText && publicTextTags.has(tag) && !skipTags.has(tag)) {
-    const text = descendantText(node);
-    if (text.length > 1 && !excluded.test(text) && !a['aria-hidden']) {
+    // Prefer an element's own text nodes when it wraps other elements. Using
+    // descendantText here collapses navigation labels/card fields into one
+    // unsupported string and then suppresses the useful child candidates.
+    const hasElementChildren = (node.childNodes || []).some((child) => Boolean(child.tagName));
+    const textNodes = hasElementChildren
+      ? (node.childNodes || []).filter((child) => child.nodeName === '#text').map((child) => child.value.replace(/\s+/g, ' ').trim()).filter(Boolean)
+      : [descendantText(node)];
+    if (!a['aria-hidden']) for (const text of textNodes) {
+      if (text.length < 2 || excluded.test(text)) continue;
       const before = output.length;
       addCandidate(output, page, `HTML ${tag} ${route.join(' > ')}`, text, node.sourceCodeLocation?.startLine, inventory.occurrenceCounts);
       if (output.length > before) {
-        Object.assign(output.at(-1), { page, tag, route: route.join(' > '), targetSelector: stableSelector(node), renderMode: (node.childNodes || []).every((child) => child.nodeName === '#text' || child.nodeName === '#comment') ? 'text' : 'unsupported-structure' });
-        suppressChildText = true;
+        const protectedFragment = PROTECTED_TERMS.some((term) => nodeProtectedContext.toLocaleLowerCase('en').includes(term.toLocaleLowerCase('en'))
+          && term.split(/\s+/).some((part) => part.toLocaleLowerCase('en') === text.toLocaleLowerCase('en')));
+        Object.assign(output.at(-1), {
+          page, tag, route: route.join(' > '),
+          targetSelector: hasElementChildren ? null : stableSelector(node),
+          renderMode: hasElementChildren ? 'runtime-text' : 'text',
+          ...(protectedFragment ? { classification: 'protected-brand', status: 'protected' } : {}),
+        });
+        // Text inside descendants is separately extracted so markup-bearing
+        // elements keep their original structure and child controls.
+        suppressChildText = !hasElementChildren;
       }
     }
   }
@@ -62,7 +81,7 @@ function visit(node, page, output, ancestry = [], covered = false, inventory = {
     }
   }
   if (skipTags.has(tag)) return;
-  for (const child of node.childNodes || []) visit(child, page, output, route, nowCovered, inventory, suppressChildText);
+  for (const child of node.childNodes || []) visit(child, page, output, route, nowCovered, inventory, suppressChildText, nodeProtectedContext);
 }
 
 const translatableAttributes = new Set(['alt', 'aria-label', 'placeholder', 'title', 'label']);

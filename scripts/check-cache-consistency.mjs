@@ -18,10 +18,10 @@ const critical = [
 ];
 const perAssetRelease = new Map([
   ['phase-01-navbar.css', '20261013-02'],
-  ['i18n.js', '20261013-01'],
-  ['i18n-content.js', '20261014-02'],
+  ['i18n.js', '20261014-02'],
+  ['i18n-content.js', '20261014-03'],
 ]);
-const serviceWorkerRelease = '20261014-02';
+const serviceWorkerRelease = '20261014-04';
 const assistantRelease = '20261013-02';
 const errors = [];
 const versions = new Map();

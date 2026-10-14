@@ -121,16 +121,24 @@ window.LakeI18n = (function () {
       if (!entry || typeof entry.source !== 'string' || typeof entry.translation !== 'string') return;
       if (entry.mode === 'runtime-text') {
         const matches = matchingTextNodes(entry.source);
-        if (matches.length !== 1) return;
-        const node = matches[0]; const original = node.nodeValue;
-        node.nodeValue = entry.translation; appliedAutoTargets.push({ node, original }); return;
+        if (!matches.length) return;
+        matches.forEach((node) => {
+          const original = node.nodeValue;
+          node.nodeValue = entry.translation;
+          appliedAutoTargets.push({ node, original });
+        });
+        return;
       }
       if (entry.mode === 'runtime-attribute') {
         if (!['alt', 'title', 'aria-label', 'placeholder'].includes(entry.attribute)) return;
         const matches = [...document.querySelectorAll(`[${entry.attribute}]`)].filter((node) => !node.closest('[data-i18n]') && normalize(node.getAttribute(entry.attribute)) === normalize(entry.source));
-        if (matches.length !== 1) return;
-        const node = matches[0]; const original = node.getAttribute(entry.attribute);
-        node.setAttribute(entry.attribute, entry.translation); appliedAutoTargets.push({ node, attribute: entry.attribute, original }); return;
+        if (!matches.length) return;
+        matches.forEach((node) => {
+          const original = node.getAttribute(entry.attribute);
+          node.setAttribute(entry.attribute, entry.translation);
+          appliedAutoTargets.push({ node, attribute: entry.attribute, original });
+        });
+        return;
       }
       if (typeof entry.selector !== 'string') return;
       let nodes;
