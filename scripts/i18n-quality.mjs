@@ -37,6 +37,9 @@ export function validateDictionaries(dictionaries) {
   for (const locale of locales) {
     const pack = dictionaries[locale] || {};
     for (const [key, enValue] of Object.entries(source)) {
+      // Empty English placeholders are not visitor-facing source copy and
+      // must not inflate missing-translation counts until they are populated.
+      if (typeof enValue !== 'string' || !enValue.trim()) continue;
       const value = pack[key];
       if (typeof value !== 'string' || !value.trim()) {
         issues.push({ locale, key, type: 'missing', status: 'missing' });
@@ -58,8 +61,8 @@ export function validateDictionaries(dictionaries) {
   for (const locale of locales) {
     const rows = issues.filter((item) => item.locale === locale);
     summary[locale] = {
-      required: Object.keys(source).length,
-      translated: Object.keys(source).filter((key) => typeof dictionaries[locale]?.[key] === 'string' && dictionaries[locale][key].trim()).length,
+      required: Object.values(source).filter((value) => typeof value === 'string' && value.trim()).length,
+      translated: Object.entries(source).filter(([key, value]) => typeof value === 'string' && value.trim() && typeof dictionaries[locale]?.[key] === 'string' && dictionaries[locale][key].trim()).length,
       missing: rows.filter((item) => item.status === 'missing').length,
       validationFailed: rows.filter((item) => item.status === 'validation-failed').length,
       status: rows.length ? 'pending-validation' : 'machine-checks-pass-review-still-required',

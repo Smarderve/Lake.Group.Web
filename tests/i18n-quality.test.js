@@ -35,3 +35,12 @@ test('localized thousands and decimal separators compare as the same numbers', (
   dictionaries.pt = { count: '50.000 unidades e 12,5 por cento' };
   assert.deepEqual(validateDictionaries(dictionaries).issues.filter((issue) => issue.type === 'numbers'), []);
 });
+
+test('empty English placeholders do not count as missing visitor translations', () => {
+  const dictionaries = { en: { empty: '', visible: 'Gallery' } };
+  for (const locale of ['sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt']) dictionaries[locale] = { empty: '', visible: 'Gallery' };
+  const report = validateDictionaries(dictionaries);
+  assert.deepEqual(report.issues, []);
+  assert.equal(report.summary.sw.required, 1);
+  assert.equal(report.summary.sw.translated, 1);
+});

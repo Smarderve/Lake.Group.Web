@@ -82,7 +82,7 @@ const PRECACHE_URLS = [
   './assets/vendor/gsap/gsap.min.js',
   './assets/vendor/gsap/ScrollTrigger.min.js',
   './assets/i18n.js?v=20261013-01',
-  './assets/i18n-content.js?v=20261013-01',
+  './assets/i18n-content.js?v=20261014-01',
   './assets/assistant.js?v=20261013-02',
   './assets/assistant.css?v=20261013-02',
   './assets/phase-01-navbar.css?v=20261013-02',
