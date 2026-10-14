@@ -455,7 +455,6 @@ window.LakeI18n = (function () {
     root.dataset.i18nBound = '1';
 
     const trigger = root.querySelector('.lang-trigger');
-    const icons = root.querySelector('.lang-icons');
     const menu = root.querySelector('.lang-menu');
     if (trigger) {
       trigger.disabled = false;
@@ -497,10 +496,11 @@ window.LakeI18n = (function () {
       });
     });
 
-    // Desktop hover: open only from the globe/icons hit-area (not English|Swahili
-    // text or surrounding nav padding), with intent delay like mega-menus.
-    if (icons) {
-      icons.addEventListener('mouseenter', () => {
+    // Desktop hover opens from the complete language trigger, including its
+    // text label. The root owns delayed close so the pointer can cross into
+    // the menu without losing the open state.
+    if (trigger) {
+      trigger.addEventListener('mouseenter', () => {
         if (!canHoverOpen()) return;
         if (hoverCloseTimer) {
           clearTimeout(hoverCloseTimer);
@@ -512,7 +512,7 @@ window.LakeI18n = (function () {
           toggleMenu(root, true);
         }, LANG_OPEN_DELAY_MS);
       });
-      icons.addEventListener('mouseleave', () => {
+      trigger.addEventListener('mouseleave', () => {
         if (hoverOpenTimer) {
           clearTimeout(hoverOpenTimer);
           hoverOpenTimer = null;

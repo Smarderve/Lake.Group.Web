@@ -73,6 +73,26 @@ test('desktop selector opens from the keyboard and marks the current choice', as
   await page.close();
 });
 
+test('desktop selector opens from the language label and pointer can enter the compact menu', async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await page.goto(`${baseUrl}/index.html`, { waitUntil: 'domcontentloaded' });
+  const trigger = page.locator('.lang-trigger').first();
+  const label = trigger.locator('span').first();
+  await label.hover();
+  const menu = page.locator('.lang-menu').first();
+  await menu.waitFor({ state: 'visible' });
+  await page.waitForFunction(() => document.querySelector('.lang-switcher')?.classList.contains('is-open'));
+  const bounds = await menu.boundingBox();
+  assert.ok(bounds && bounds.width >= 190 && bounds.width <= 210, `compact menu width: ${JSON.stringify(bounds)}`);
+  const option = menu.locator('[data-lang="en"]');
+  const optionBounds = await option.boundingBox();
+  assert.ok(optionBounds && optionBounds.height >= 34 && optionBounds.height <= 40, `compact row height: ${JSON.stringify(optionBounds)}`);
+  await option.hover();
+  await page.waitForTimeout(220);
+  assert.equal(await trigger.getAttribute('aria-expanded'), 'true', 'menu stays open while pointer is inside the menu');
+  await page.close();
+});
+
 test('mobile selector opens, preserves selected English on reload, and fits the viewport', async () => {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const page = await context.newPage();
