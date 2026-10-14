@@ -112,6 +112,10 @@ test('seven locale shared UI drafts switch on real homepage DOM and persist in d
     await desktop.waitForFunction((texts) => texts.includes(document.querySelector('.hero-sub')?.textContent.trim()), expectedHero);
     if (locale === 'ar') assert.equal(await desktop.locator('html').getAttribute('dir'), 'rtl');
     await desktop.waitForTimeout(1200);
+    if (locale === 'ar') {
+      assert.ok(await desktop.evaluate(() => document.querySelector('.hero').getBoundingClientRect().left === 0), 'Arabic desktop hero remains anchored to the viewport');
+      assert.equal(await desktop.evaluate(() => { scrollTo(1200, 0); return scrollX; }), 0, 'Arabic desktop cannot be horizontally displaced by off-canvas content');
+    }
     await desktop.screenshot({ path: path.join(screenshotDir, `homepage-${locale}-desktop-draft.png`) });
     await desktop.reload({ waitUntil: 'domcontentloaded' });
     await desktop.waitForFunction((code) => window.LakeI18n?.current === code, locale);

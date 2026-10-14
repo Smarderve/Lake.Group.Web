@@ -413,6 +413,10 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   align-self: center;
 }
 .site-nav .lang-menu { right: 0; left: auto; }
+/* RTL flex/positioned widgets can extend beyond the viewport. Keep the page
+   viewport anchored at its normal origin instead of allowing RTL overflow to
+   shift the rendered page horizontally. */
+html[dir="rtl"] { overflow-x: clip; }
 html[dir="rtl"] .nav-mobile { direction: rtl; }
 html[dir="rtl"] .nav-mobile a { border-left: 0; border-right: 2px solid transparent; }
 html[dir="rtl"] .nav-mobile a:hover { border-right-color: var(--yellow, var(--gold)); }
