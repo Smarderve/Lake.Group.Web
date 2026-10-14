@@ -18,3 +18,9 @@ Do not infer translation quality from license or language coverage. These are ca
 5. Report per-language results, failures, reviewer methodology, resource use, model/dependency licenses, and unresolved risks. Do not select a model until the evidence is reviewed.
 
 Benchmark output must remain separate from published translation assets until it passes review and the publishing policy is approved.
+
+## Machine-readable benchmark handoff
+
+Use `scripts/.generated/i18n-translation-manifest.json` from a normal build as the source corpus inventory. It contains English candidates and hashes only, not simulated or generated translations. Import it only into a migrated isolated/server database with `npm run translation:import-hardcoded -- <manifest>` from `backend/`. Capture the host inventory from `deployment/windows/translation/verify-translation-server.ps1`; model download, conversion, checkpoint selection and inference are intentionally outside this development workstation workflow. Compare outputs with a versioned glossary, record per-language human review and numerical/name/placeholder screening, and leave every output in review state until approval.
+
+The worker adapter protocol and deployment shell do not establish compatibility with Transformers, CTranslate2, MADLAD, M2M100, quantization, or a specific model checkpoint. IT must supply and review an adapter executable that implements the documented JSON stdio contract, pass the full benchmark, confirm exact weight/runtime license obligations, and approve activation. No checkpoint is selected or benchmarked here.

@@ -156,6 +156,31 @@ model CmsTranslationMemoryEntry {
   @@index([contextKey, targetLanguage, approvedAt])
 }
 
+/// Durable source-manifest translation work, separate from CMS revisions.
+model HardcodedTranslationJob {
+  id              String               @id
+  sourceFile      String
+  contextKey      String
+  sourceLanguage  String               @default("en")
+  targetLanguage  String
+  sourceText      String
+  sourceHash      String
+  translation     String?
+  modelVersion    String?
+  glossaryVersion String?
+  status          TranslationJobStatus @default(WAITING_FOR_ENGINE)
+  attempts        Int                  @default(0)
+  lastError       String?
+  leaseExpiresAt  DateTime?
+  manifestVersion String
+  updatedAt       DateTime             @updatedAt
+  createdAt       DateTime             @default(now())
+
+  @@unique([sourceHash, targetLanguage, contextKey])
+  @@index([status, leaseExpiresAt, createdAt])
+  @@index([sourceFile, manifestVersion])
+}
+
 /// A content-addressed, immutable public snapshot. The current pointer is
 /// external/static so readers never observe a partially written release.
 model CmsRelease {

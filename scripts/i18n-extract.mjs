@@ -170,6 +170,23 @@ export function compareExtractionSnapshots(previous, current) {
   };
 }
 
+/** Build-only handoff: source strings and hashes are jobs, never translations. */
+export function buildTranslationManifest(extraction) {
+  return {
+    schemaVersion: 1,
+    manifestType: 'lake-group-hardcoded-translation-jobs',
+    generatedAt: extraction.generatedAt,
+    sourceRevision: process.env.GIT_COMMIT || null,
+    translationStatus: 'pending-engine-and-review',
+    targetLanguages: extraction.locales,
+    entries: extraction.entries.filter((entry) => entry.status !== 'protected').map((entry) => ({
+      id: entry.id, file: entry.file, context: entry.context, line: entry.line,
+      source: entry.source, sourceHash: entry.sourceHash, classification: entry.classification,
+    })),
+    removedIds: extraction.changesSincePreviousLocalScan?.removedIds ?? [],
+  };
+}
+
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
   const result = extractPublicHtml();
   const outputArg = process.argv.indexOf('--output');
@@ -180,8 +197,12 @@ if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.ar
     changes = compareExtractionSnapshots(previous, result);
   } catch { /* first local baseline */ }
   result.changesSincePreviousLocalScan = changes;
+  const previous = (() => { try { return JSON.parse(fs.readFileSync(output, 'utf8')); } catch { return null; } })();
+  result.changesSincePreviousLocalScan = { ...changes, removedIds: (previous?.entries || []).map(({ id }) => id).filter((id) => !result.entries.some((entry) => entry.id === id)) };
   fs.mkdirSync(path.dirname(output), { recursive: true });
   fs.writeFileSync(output, `${JSON.stringify(result, null, 2)}\n`);
+  const manifestOutput = path.resolve('scripts/.generated/i18n-translation-manifest.json');
+  fs.writeFileSync(manifestOutput, `${JSON.stringify(buildTranslationManifest(result), null, 2)}\n`);
   console.log(`Extraction queue written to ${path.relative(root, output)}`);
   console.log(`i18n extraction: ${result.pagesScanned} HTML pages, ${result.sourceFilesScanned} JS/JSX/TS/TSX files, ${result.entries.length} candidates, ${result.duplicates.length} duplicate groups, ${result.unsupportedPatterns.length} dynamic patterns, ${result.extractionErrors.length} parser failures.`);
   console.log(`Classification: ${JSON.stringify(result.classifications)}; local source changes since previous scan: ${JSON.stringify(changes)}. All targets remain pending benchmark.`);

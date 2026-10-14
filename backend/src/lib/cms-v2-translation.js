@@ -45,6 +45,7 @@ export function buildCmsTranslationJobs({ documentKey, revisionId, currentRevisi
 
 export function validateTranslationResult(job, translation) {
   const errors = [];
+  if (typeof translation !== 'string') return { valid: false, errors: ['TRANSLATION_NOT_STRING'] };
   const sourceNumbers = [...job.sourceText.matchAll(/\d[\d,.]*(?:%|\+)?/g)].map((m) => m[0].replace(/,/g, '')).sort();
   const translatedNumbers = [...String(translation).matchAll(/\d[\d,.]*(?:%|\+)?/g)].map((m) => m[0].replace(/,/g, '')).sort();
   if (JSON.stringify(sourceNumbers) !== JSON.stringify(translatedNumbers)) errors.push('NUMBER_MISMATCH');
@@ -86,7 +87,7 @@ export async function runTranslationWorkerOnce({ repository, translate, leaseMs 
     const completed = await repository.finishTranslationJob({ id: job.id, translation, modelVersion: typeof output === 'string' ? null : output?.modelVersion ?? null, glossaryVersion: typeof output === 'string' ? TRANSLATION_GLOSSARY_VERSION : output?.glossaryVersion ?? TRANSLATION_GLOSSARY_VERSION, validationErrors: check.errors, stillCurrent });
     return { processed: true, job: completed, validation: check, publication: 'not-published' };
   } catch (error) {
-    const failed = await repository.finishTranslationJob({ id: job.id, failure: error?.message || 'Translation provider failed.' });
+    const failed = await repository.finishTranslationJob({ id: job.id, failure: error?.code || 'TRANSLATION_PROVIDER_FAILED' });
     return { processed: true, job: failed, publication: 'not-published' };
   }
 }

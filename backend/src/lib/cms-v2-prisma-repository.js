@@ -112,7 +112,13 @@ export function createCmsV2PrismaRepository(db) {
     },
     async recoverExpiredTranslationJobs({ now = new Date(), engineAvailable = false } = {}) {
       const result = await db.cmsTranslationJob.updateMany({ where: { status: 'TRANSLATING', leaseExpiresAt: { lte: now } }, data: { status: engineAvailable ? 'QUEUED' : 'WAITING_FOR_ENGINE', leaseExpiresAt: null, updatedAt: now } });
-      return result.count;
+      let retried = 0;
+      for (let attempts = 1; attempts < 5; attempts += 1) {
+        const backoffMs = 30000 * (2 ** (attempts - 1));
+        const retry = await db.cmsTranslationJob.updateMany({ where: { status: 'FAILED', attempts, updatedAt: { lte: new Date(now.getTime() - backoffMs) } }, data: { status: engineAvailable ? 'QUEUED' : 'WAITING_FOR_ENGINE', lastError: null, leaseExpiresAt: null, updatedAt: now } });
+        retried += retry.count;
+      }
+      return result.count + retried;
     },
     async finishTranslationJob({ id, translation, modelVersion = null, glossaryVersion = null, validationErrors = [], stillCurrent = true, failure = null }) {
       const status = failure ? 'FAILED' : !stillCurrent ? 'OUTDATED' : validationErrors.length ? 'VALIDATION_FAILED' : 'NEEDS_REVIEW';

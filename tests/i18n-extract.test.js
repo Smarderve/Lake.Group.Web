@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { compareExtractionSnapshots, extractJavaScript, extractPublicHtml } = require('../scripts/i18n-extract.mjs');
+const { buildTranslationManifest, compareExtractionSnapshots, extractJavaScript, extractPublicHtml } = require('../scripts/i18n-extract.mjs');
 
 test('HTML extraction detects untagged text and attributes without rewriting source', () => {
   const fs = require('node:fs');
@@ -51,4 +51,14 @@ test('snapshot comparison tracks additions, source changes, and removals by stab
   const previous = { entries: [{ id: 'same', sourceHash: 'old' }, { id: 'removed', sourceHash: 'gone' }] };
   const current = { entries: [{ id: 'same', sourceHash: 'new' }, { id: 'added', sourceHash: 'fresh' }] };
   assert.deepEqual(compareExtractionSnapshots(previous, current), { added: 1, changed: 1, removed: 1 });
+});
+
+test('translation manifest includes source jobs only and does not fabricate translations', () => {
+  const manifest = buildTranslationManifest({ generatedAt: 'test', locales: ['sw','hi','ar','zh','fr','es','pt'], entries: [
+    { id: 'copy', file: 'index.html', context: 'HTML p', source: 'Safe copy', sourceHash: 'abc', classification: 'public-visitor-copy', status: 'missing' },
+    { id: 'brand', file: 'index.html', context: 'HTML span', source: 'Lake Group', sourceHash: 'def', classification: 'protected-brand', status: 'protected' },
+  ] });
+  assert.deepEqual(manifest.entries.map(({ id }) => id), ['copy']);
+  assert.equal(manifest.translationStatus, 'pending-engine-and-review');
+  assert.ok(manifest.entries.every((entry) => !Object.hasOwn(entry, 'translation')));
 });
