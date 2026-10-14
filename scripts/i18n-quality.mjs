@@ -8,25 +8,53 @@ function visibleText(value) {
   return String(value ?? '').replace(/<[^>]*>/g, ' ').replace(/&(?:nbsp|amp|lt|gt|quot|#39);/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
-function normalizeNumerals(value, locale = 'en') {
-  let text = String(value).replace(/[\u0660-\u0669\u06f0-\u06f9]/g, (digit) => {
-    const code = digit.charCodeAt(0);
-    return String(code >= 0x06f0 ? code - 0x06f0 : code - 0x0660);
-  }).replace(/[\u066b]/g, '.').replace(/[\u066c]/g, ',');
-  if (['fr', 'es', 'pt'].includes(locale)) {
-    text = text.replace(/(\d)[.\u00a0\u202f ](?=\d{3}(?:\D|$))/g, '$1');
-    text = text.replace(/(\d),(\d{1,2})(?!\d)/g, '$1.$2');
-  }
-  return text;
-}
-
 function protectedTokens(value, locale = 'en') {
   const text = String(value ?? '');
+  const normalizeNumberText = (input) => {
+    let normalized = String(input).replace(/[\u0660-\u0669\u06f0-\u06f9]/g, (digit) => {
+      const code = digit.charCodeAt(0);
+      return String(code >= 0x06f0 ? code - 0x06f0 : code - 0x0660);
+    }).replace(/[\u066b]/g, '.').replace(/[\u066c]/g, ',');
+    if (['fr', 'es', 'pt'].includes(locale)) {
+      normalized = normalized.replace(/(\d)[.\u00a0\u202f ](?=\d{3}(?:\D|$))/g, '$1');
+      normalized = normalized.replace(/(\d),(\d{1,2})(?!\d)/g, '$1.$2');
+    }
+    return normalized;
+  };
+  const numericTokens = (input) => {
+    const normalized = normalizeNumberText(input)
+      // A decade expression such as "mid-20s" is commonly written out in
+      // translation ("mid-twenties"); it is not a protected numeric fact.
+      .replace(/\b(?:mid|early|late)[- ]\d{2}s\b/gi, ' ');
+    const tokens = [];
+    const consumed = new Set();
+    // Expand compact unit ranges (12–40k) to the same values as 12,000–40,000.
+    const ranges = /(?<![\p{L}\d])([\d,.]+)\s*[–—-]\s*([\d,.]+)\s*([kK])\b/gu;
+    for (const match of normalized.matchAll(ranges)) {
+      const scale = 1000;
+      const canonical = (raw) => {
+        const value = Number(raw.replace(/,/g, ''));
+        return Number.isFinite(value) ? String(value * scale) : raw;
+      };
+      tokens.push(canonical(match[1]), canonical(match[2]));
+      for (let index = match.index; index < match.index + match[0].length; index += 1) consumed.add(index);
+    }
+    const pattern = /(?<![\p{L}\d])(?:\d{1,3}(?:[,\u00a0\u202f ]\d{3})+|\d+)(?:[.,]\d+)?(?:\s*[kK](?![\p{L}\d]))?(?:[+%])?/gu;
+    for (const match of normalized.matchAll(pattern)) {
+      if ([...Array(match[0].length).keys()].some((offset) => consumed.has(match.index + offset))) continue;
+      let token = match[0].replace(/[\u00a0\u202f ]/g, '').trim();
+      const suffix = token.match(/[kK](?=\+?$|%$)/)?.[0];
+      token = token.replace(/[kK]/g, '').replace(/,/g, '');
+      if (suffix) token = String(Number(token) * 1000);
+      tokens.push(token);
+    }
+    return tokens.sort();
+  };
   return {
     placeholders: [...text.matchAll(/\{\{?\s*[\w.-]+\s*\}?\}|%\d*\$?[sdif]|\$\{[^}]+\}/g)].map((m) => m[0]).sort(),
     urls: [...text.matchAll(/(?:https?:\/\/|mailto:|tel:)[^\s"'<>]+/gi)].map((m) => m[0].replace(/[),.;]+$/, '')).sort(),
     tags: [...text.matchAll(/<\/?([a-z][\w-]*)\b[^>]*>/gi)].map((m) => `${m[0].startsWith('</') ? '/' : ''}${m[1].toLowerCase()}`).sort(),
-    numbers: [...normalizeNumerals(visibleText(text), locale).matchAll(/\d[\d,.]*(?:%|\+)?/g)].map((m) => m[0].replace(/,/g, '')).sort(),
+    numbers: numericTokens(visibleText(text)),
   };
 }
 
@@ -48,7 +76,17 @@ export function validateDictionaries(dictionaries) {
       const enTokens = protectedTokens(enValue);
       const translatedTokens = protectedTokens(value, locale);
       for (const type of ['numbers', 'urls', 'placeholders', 'tags']) {
-        if (JSON.stringify(enTokens[type]) !== JSON.stringify(translatedTokens[type])) {
+        let matches = JSON.stringify(enTokens[type]) === JSON.stringify(translatedTokens[type]);
+        if (type === 'numbers' && locale === 'sw' && !matches) {
+          const sourceNumbers = enTokens.numbers.map((token) => token.replace(/\+$/, ''));
+          const translatedNumbers = translatedTokens.numbers.map((token) => token.replace(/\+$/, ''));
+          const sameNumericValues = JSON.stringify(sourceNumbers) === JSON.stringify(translatedNumbers);
+          const equivalentThreshold = (/(?:\bmore than\b|\bover\b)/i.test(enValue) && ( /\bzaidi ya\b/i.test(value) || /\d[\d,.]*\+/i.test(value)))
+            || (/\d[\d,.]*\+/i.test(enValue) && /\bzaidi ya\b/i.test(value));
+          const equivalentPlusSpacing = /\d\s+\+/.test(enValue) && /\d\+/.test(value);
+          matches = sameNumericValues && (equivalentThreshold || equivalentPlusSpacing);
+        }
+        if (!matches) {
           issues.push({ locale, key, type, status: 'validation-failed', source: enTokens[type], translation: translatedTokens[type] });
         }
       }

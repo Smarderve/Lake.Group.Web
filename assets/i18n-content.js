@@ -4221,7 +4221,7 @@ window.__LAKE_I18N_CONTENT__ = {
     "fuel.6": "Tunaifanya Afrika Isonge Mbele",
     "fuel.7": "Lake Oil Ltd. ni kampuni kinara ya Lake Group na mojawapo ya wasambazaji 5 bora wa bidhaa za petroli nchini Tanzania. Ilianzishwa mwaka 2006 na imejenga uwepo imara kote Afrika Mashariki na Kati.",
     "fuel.8": "Tunasambaza bidhaa nyeupe za petroli - petroli na dizeli - kupitia vituo vya rejareja, usambazaji wa jumla na maghala ya kimkakati kote kanda, na kutoa huduma za kujaza mafuta meli zinazotia nanga katika bandari ya Dar es Salaam.",
-    "fuel.9": "<span class=\"lg-check\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 13l4 4L19 7\"/></svg></span>Vituo 500+ vya mafuta vya rejareja katika mtandao wa Lake Group",
+    "fuel.9": "<span style=\"color:var(--amber);font-weight:700\">✓</span>Vituo 500+ vya mafuta vya rejareja katika mtandao wa Lake Group",
     "fuel.10": "<span class=\"lg-check\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 13l4 4L19 7\"/></svg></span>Usambazaji wa mafuta kwa wingi kwa wateja wa kampuni na serikali",
     "fuel.11": "<span class=\"lg-check\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 13l4 4L19 7\"/></svg></span>Miundombinu yetu wenyewe ya kuhifadhi mafuta Tanzania, Kenya, Burundi na DR Congo",
     "fuel.12": "<span class=\"lg-check\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 13l4 4L19 7\"/></svg></span>Bei shindani zinazoungwa mkono na ukubwa wa mnyororo wa ugavi wa kanda",

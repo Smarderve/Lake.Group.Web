@@ -36,6 +36,19 @@ test('localized thousands and decimal separators compare as the same numbers', (
   assert.deepEqual(validateDictionaries(dictionaries).issues.filter((issue) => issue.type === 'numbers'), []);
 });
 
+test('quality screening normalizes unit ranges, metric units, threshold wording, and sentence punctuation', () => {
+  const dictionaries = { en: { range: 'Capacity 12–40k litres.', threshold: 'More than 10,000 employees.', metric: '30,000m³ monthly.' } };
+  for (const locale of ['hi', 'ar', 'zh', 'fr', 'es', 'pt']) dictionaries[locale] = { ...dictionaries.en };
+  dictionaries.sw = {
+    range: 'Uwezo wa lita 12,000 hadi 40,000.',
+    threshold: 'Wafanyakazi zaidi ya 10,000.',
+    metric: '30,000 m³ kwa mwezi.',
+  };
+  assert.deepEqual(validateDictionaries(dictionaries).issues.filter((issue) => issue.locale === 'sw' && issue.type === 'numbers'), []);
+  dictionaries.sw.range = 'Uwezo wa lita 12,000 hadi 39,000.';
+  assert.deepEqual(validateDictionaries(dictionaries).issues.filter((issue) => issue.locale === 'sw' && issue.type === 'numbers').map((issue) => issue.key), ['range']);
+});
+
 test('empty English placeholders do not count as missing visitor translations', () => {
   const dictionaries = { en: { empty: '', visible: 'Gallery' } };
   for (const locale of ['sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt']) dictionaries[locale] = { empty: '', visible: 'Gallery' };
