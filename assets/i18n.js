@@ -32,6 +32,7 @@ window.LakeI18n = (function () {
   const STORAGE_KEY = 'lake-lang';
   const SUPPORTED = ['en', 'sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt'];
   const AVAILABLE_TRANSLATIONS = ['en'];
+  const availableLanguages = new Set(AVAILABLE_TRANSLATIONS);
   const RTL_LANGS = ['ar'];
   // ASCII-safe escapes so labels survive encoding mishaps in editors/tooling.
   const LANG_LABELS = {
@@ -46,6 +47,13 @@ window.LakeI18n = (function () {
   };
 
   let dictionaries = null;
+  let publicationManifest = null;
+  let publicationPromise = null;
+  let publishedPageTranslations = {};
+  let publishedLocale = null;
+  let appliedAutoTargets = [];
+  let autoMutationObserver = null;
+  let autoObserverFrame = 0;
   let current = 'en';
   let hoverOpenTimer = null;
   let hoverCloseTimer = null;
@@ -53,6 +61,99 @@ window.LakeI18n = (function () {
   let keyboardIntent = false;
   const LANG_OPEN_DELAY_MS = 200;
   const LANG_CLOSE_DELAY_MS = 180;
+
+  function loadPublicationManifest() {
+    if (publicationPromise) return publicationPromise;
+    if (!window.fetch || /^file:/i.test(window.location?.protocol || '')) return Promise.resolve(null);
+    publicationPromise = window.fetch('/assets/i18n-published/current.json', { credentials: 'omit', cache: 'no-store' })
+      .then((response) => response.ok ? response.json() : null)
+      .then((manifest) => {
+        if (!manifest || manifest.schemaVersion !== 1 || !Array.isArray(manifest.activeLanguages) || !manifest.files || !manifest.releaseId) return null;
+        const active = new Set(['en']);
+        manifest.activeLanguages.forEach((language) => { if (SUPPORTED.includes(language)) active.add(language); });
+        publicationManifest = manifest;
+        availableLanguages.clear(); active.forEach((language) => availableLanguages.add(language));
+        return manifest;
+      }).catch(() => null);
+    return publicationPromise;
+  }
+
+  function loadPublishedLocale(lang) {
+    if (lang === 'en' || !availableLanguages.has(lang)) return Promise.resolve(null);
+    if (publishedLocale === lang) return Promise.resolve(publishedPageTranslations);
+    return loadPublicationManifest().then((manifest) => {
+      const file = manifest?.files?.[lang];
+      if (typeof file !== 'string' || !new RegExp(`^releases/[a-f0-9]{24}/${lang}\\.json$`).test(file)) throw new Error('Published language asset path rejected');
+      return window.fetch(`/assets/i18n-published/${file}`, { credentials: 'omit', cache: 'force-cache' }).then((response) => response.ok ? response.json() : Promise.reject(new Error('Published language asset unavailable')));
+    }).then((asset) => {
+      if (!asset || asset.schemaVersion !== 1 || asset.releaseId !== publicationManifest.releaseId || asset.language !== lang || !asset.pages || typeof asset.pages !== 'object' || !asset.integrity || !window.crypto?.subtle) throw new Error('Published language asset integrity metadata rejected');
+      const integrity = asset.integrity; const unsigned = { ...asset }; delete unsigned.integrity;
+      const bytes = new TextEncoder().encode(JSON.stringify(unsigned));
+      return window.crypto.subtle.digest('SHA-256', bytes).then((digest) => {
+        const actual = `sha256-${btoa(String.fromCharCode(...new Uint8Array(digest)))}`;
+        if (actual !== integrity) throw new Error('Published language asset digest mismatch');
+        publishedPageTranslations = asset.pages;
+        publishedLocale = lang;
+        return asset.pages;
+      });
+    });
+  }
+
+  function applyPublishedPage(lang) {
+    autoMutationObserver?.disconnect();
+    appliedAutoTargets.forEach(({ node, attribute, original }) => { if (attribute) node.setAttribute(attribute, original); else node.textContent = original; });
+    appliedAutoTargets = [];
+    if (lang === 'en' || publishedLocale !== lang) return;
+    const page = window.location.pathname.split('/').pop() || 'index.html';
+    const rows = publishedPageTranslations[page] || [];
+    const normalize = (value) => String(value || '').replace(/\s+/g, ' ').trim();
+    const matchingTextNodes = (source) => {
+      const matches = [];
+      const walker = document.createTreeWalker(document.body || document.documentElement, NodeFilter.SHOW_TEXT);
+      let node;
+      while ((node = walker.nextNode())) {
+        if (node.parentElement?.closest('[data-i18n],script,style,noscript,template')) continue;
+        if (normalize(node.nodeValue) === normalize(source)) matches.push(node);
+      }
+      return matches;
+    };
+    rows.forEach((entry) => {
+      if (!entry || typeof entry.source !== 'string' || typeof entry.translation !== 'string') return;
+      if (entry.mode === 'runtime-text') {
+        const matches = matchingTextNodes(entry.source);
+        if (matches.length !== 1) return;
+        const node = matches[0]; const original = node.nodeValue;
+        node.nodeValue = entry.translation; appliedAutoTargets.push({ node, original }); return;
+      }
+      if (entry.mode === 'runtime-attribute') {
+        if (!['alt', 'title', 'aria-label', 'placeholder'].includes(entry.attribute)) return;
+        const matches = [...document.querySelectorAll(`[${entry.attribute}]`)].filter((node) => !node.closest('[data-i18n]') && normalize(node.getAttribute(entry.attribute)) === normalize(entry.source));
+        if (matches.length !== 1) return;
+        const node = matches[0]; const original = node.getAttribute(entry.attribute);
+        node.setAttribute(entry.attribute, entry.translation); appliedAutoTargets.push({ node, attribute: entry.attribute, original }); return;
+      }
+      if (typeof entry.selector !== 'string') return;
+      let nodes;
+      try { nodes = document.querySelectorAll(entry.selector); } catch (_) { return; }
+      if (nodes.length !== 1) return;
+      const node = nodes[0];
+      const source = entry.mode === 'attribute'
+        ? (['alt', 'title', 'aria-label', 'placeholder', 'content'].includes(entry.attribute) ? node.getAttribute(entry.attribute) : null)
+        : entry.mode === 'text' && !node.querySelector('*') ? node.textContent : null;
+      if (source === null || normalize(source) !== normalize(entry.source)) return;
+      const attribute = entry.mode === 'attribute' ? entry.attribute : null;
+      const original = attribute ? node.getAttribute(attribute) : node.textContent;
+      if (attribute) node.setAttribute(attribute, entry.translation); else node.textContent = entry.translation;
+      appliedAutoTargets.push({ node, attribute, original });
+    });
+    if (!autoMutationObserver && typeof MutationObserver === 'function') {
+      autoMutationObserver = new MutationObserver(() => {
+        if (autoObserverFrame) return;
+        autoObserverFrame = window.requestAnimationFrame(() => { autoObserverFrame = 0; applyPublishedPage(current); });
+      });
+    }
+    autoMutationObserver?.observe(document.body || document.documentElement, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['alt', 'title', 'aria-label', 'placeholder'] });
+  }
 
   function loadDictionaries() {
     if (dictionaries) return Promise.resolve(dictionaries);
@@ -185,7 +286,7 @@ window.LakeI18n = (function () {
     });
     document.querySelectorAll('.lang-btn').forEach((btn) => {
       const active = btn.dataset.lang === lang;
-      const available = AVAILABLE_TRANSLATIONS.includes(btn.dataset.lang);
+      const available = availableLanguages.has(btn.dataset.lang);
       btn.classList.toggle('active', active);
       btn.disabled = !available;
       btn.dataset.available = String(available);
@@ -197,7 +298,7 @@ window.LakeI18n = (function () {
     });
     document.querySelectorAll('.mob-language-option[data-lang]').forEach((btn) => {
       const active = btn.dataset.lang === lang;
-      const available = AVAILABLE_TRANSLATIONS.includes(btn.dataset.lang);
+      const available = availableLanguages.has(btn.dataset.lang);
       btn.classList.toggle('active', active);
       btn.disabled = !available;
       btn.dataset.available = String(available);
@@ -296,6 +397,7 @@ window.LakeI18n = (function () {
     syncSwitcherUI(lang);
     closeAllMenus();
     document.dispatchEvent(new CustomEvent('lake-i18n-applied', { detail: { lang } }));
+    applyPublishedPage(lang);
   }
 
   function showUnavailableMessage(lang) {
@@ -318,29 +420,27 @@ window.LakeI18n = (function () {
   }
 
   function apply() {
-    return loadDictionaries().then(() => {
+    return Promise.all([loadDictionaries(), loadPublicationManifest()]).then(() => {
       let preferred = 'en';
       try {
         const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved && AVAILABLE_TRANSLATIONS.includes(saved)) preferred = saved;
+        if (saved && availableLanguages.has(saved)) preferred = saved;
       } catch (e) { /* unavailable */ }
-      current = preferred;
-      applyAll(preferred);
-      return current;
+      return loadPublishedLocale(preferred).then(() => { current = preferred; applyAll(preferred); return current; }).catch(() => { current = 'en'; applyAll('en'); return current; });
     });
   }
 
   function selectLanguage(lang) {
-    if (AVAILABLE_TRANSLATIONS.indexOf(lang) === -1) {
+    if (!availableLanguages.has(lang)) {
       showUnavailableMessage(lang);
       return Promise.resolve(current);
     }
-    return loadDictionaries().then(() => {
+    return Promise.all([loadDictionaries(), loadPublicationManifest()]).then(() => loadPublishedLocale(lang)).then(() => {
       current = lang;
       try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* unavailable */ }
       applyAll(lang);
       return current;
-    });
+    }).catch(() => { showUnavailableMessage(lang); return current; });
   }
 
   function hydrateDictionaries(content) {
@@ -358,6 +458,7 @@ window.LakeI18n = (function () {
     const icons = root.querySelector('.lang-icons');
     const menu = root.querySelector('.lang-menu');
     if (trigger) {
+      trigger.disabled = false;
       trigger.setAttribute('aria-haspopup', 'menu');
       if (menu) trigger.setAttribute('aria-controls', menu.id || '');
       if (!trigger.hasAttribute('aria-expanded')) trigger.setAttribute('aria-expanded', 'false');
@@ -441,14 +542,13 @@ window.LakeI18n = (function () {
   }
 
   function init() {
-    loadDictionaries().then(() => {
+    Promise.all([loadDictionaries(), loadPublicationManifest()]).then(() => {
       let preferred = 'en';
       try {
         const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved && AVAILABLE_TRANSLATIONS.includes(saved)) preferred = saved;
+        if (saved && availableLanguages.has(saved)) preferred = saved;
       } catch (e) { /* unavailable */ }
-      current = preferred;
-      applyAll(preferred);
+      loadPublishedLocale(preferred).catch(() => { preferred = 'en'; }).then(() => { current = preferred; applyAll(preferred); });
       // Auto-bind all language switchers on the page.
       document.querySelectorAll('.lang-switcher').forEach((root) => {
         // Create the dropdown menu if it doesn't exist yet.
@@ -472,7 +572,7 @@ window.LakeI18n = (function () {
             btn.setAttribute('aria-checked', String(code === current));
             btn.dataset.lang = code;
             btn.textContent = LANG_LABELS[code] || code;
-            const available = AVAILABLE_TRANSLATIONS.includes(code);
+            const available = availableLanguages.has(code);
             btn.dataset.available = String(available);
             btn.disabled = !available;
             btn.setAttribute('aria-label', `${LANG_LABELS[code] || code}${available ? '' : ' (translation pending)'}`);

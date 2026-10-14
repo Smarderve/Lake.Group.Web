@@ -77,6 +77,25 @@ describe('CMS V2 Lake Aviation pilot service', () => {
     expect(pointer.releaseId).toBe('known-good');
   });
 
+  it('publishes only approved translations for the exact CMS revision in the immutable snapshot', async () => {
+    const repository = memoryRepository();
+    repository.getApprovedTranslations = async ({ revisionId }) => revisionId === 'revision-1'
+      ? { fr: { 'lake-aviation': { 'introduction.body': 'Nos services aéronautiques.' } } }
+      : {};
+    let snapshot;
+    let pointer;
+    const service = createContentReleaseService({
+      repository,
+      readPublishedSnapshot: async () => snapshot,
+      writePointer: async (next, body) => { pointer = next; snapshot = structuredClone(body); },
+      id: () => 'revision-1',
+    });
+    const draft = await service.saveDraft({ key: 'lake-aviation', actorId: 'it', data: content('Aviation services') });
+    const release = await service.publish({ key: 'lake-aviation', revisionId: draft.id, actorId: 'it' });
+    expect(release.snapshot.translations.fr['lake-aviation']['introduction.body']).toBe('Nos services aéronautiques.');
+    expect(contentIntegrity(snapshot)).toBe(pointer.integrity);
+  });
+
   it('restores historical content by creating a new draft without publishing', async () => {
     let writes = 0;
     const service = createContentReleaseService({ repository: memoryRepository(), writePointer: async () => { writes += 1; }, id: (() => { let i = 0; return (prefix) => `${prefix}-${++i}`; })() });

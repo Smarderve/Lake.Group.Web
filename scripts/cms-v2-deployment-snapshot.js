@@ -10,7 +10,8 @@ function verifyBundle(bundle) {
   const { pointer, snapshot } = bundle || {};
   if (pointer?.schemaVersion !== 2 || snapshot?.schemaVersion !== 1 || pointer.releaseId !== snapshot.releaseId) throw new Error('CMS V2 release identity is invalid');
   if (!/^[A-Za-z0-9_-]+$/.test(pointer.releaseId) || pointer.snapshotUrl !== `releases/${pointer.releaseId}/content.json`) throw new Error('CMS V2 release path is invalid');
-  const digest = `sha256-${crypto.createHash('sha256').update(JSON.stringify(canonical({ schemaVersion: snapshot.schemaVersion, documents: snapshot.documents }))).digest('base64')}`;
+  const content = { schemaVersion: snapshot.schemaVersion, documents: snapshot.documents, ...(snapshot.translations ? { translations: snapshot.translations } : {}) };
+  const digest = `sha256-${crypto.createHash('sha256').update(JSON.stringify(canonical(content))).digest('base64')}`;
   if (pointer.integrity !== snapshot.integrity || digest !== pointer.integrity) throw new Error('CMS V2 release integrity is invalid');
   return { pointer, snapshot };
 }

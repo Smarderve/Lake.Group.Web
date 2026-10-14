@@ -55,7 +55,7 @@ test('snapshot comparison tracks additions, source changes, and removals by stab
 
 test('translation manifest includes source jobs only and does not fabricate translations', () => {
   const manifest = buildTranslationManifest({ generatedAt: 'test', locales: ['sw','hi','ar','zh','fr','es','pt'], entries: [
-    { id: 'copy', file: 'index.html', context: 'HTML p', source: 'Safe copy', sourceHash: 'abc', classification: 'public-visitor-copy', status: 'missing' },
+    { id: 'copy', file: 'index.html', page: 'index.html', renderMode: 'text', targetSelector: 'p:nth-of-type(1)', context: 'HTML p', source: 'Safe copy', sourceHash: 'abc', classification: 'public-visitor-copy', status: 'missing' },
     { id: 'brand', file: 'index.html', context: 'HTML span', source: 'Lake Group', sourceHash: 'def', classification: 'protected-brand', status: 'protected' },
   ] });
   assert.deepEqual(manifest.entries.map(({ id }) => id), ['copy']);

@@ -11,6 +11,18 @@ export function cmsV2Router({ db, service, recentAuthWindowMs } = {}) {
       res.json({ jobs: await service.listTranslationJobs({ documentKey, revisionId, targetLanguage, status, limit }) });
     } catch (error) { next(error); }
   });
+  router.get('/translations/hardcoded/jobs', ...guard, async (req, res, next) => {
+    try { res.json({ jobs: await service.listHardcodedTranslationJobs({ targetLanguage: req.query.targetLanguage, status: req.query.status, limit: req.query.limit }) }); } catch (error) { next(error); }
+  });
+  router.post('/translations/hardcoded/jobs/:jobId/retry', ...guard, async (req, res, next) => {
+    try { res.status(202).json({ job: await service.retryHardcodedTranslationJob({ id: req.params.jobId, actorId: req.user.id }) }); } catch (error) { next(error); }
+  });
+  router.post('/translations/hardcoded/jobs/:jobId/approve', ...guard, requireRecentAuth(recentAuthWindowMs), async (req, res, next) => {
+    try {
+      if (typeof req.body?.translation !== 'string' || !req.body.translation.trim()) return res.status(400).json({ error: { code: 'INVALID_TRANSLATION', message: 'A non-empty reviewed translation is required.' } });
+      res.json({ job: await service.approveHardcodedTranslationJob({ id: req.params.jobId, translation: req.body.translation.trim(), approvedById: req.user.id }) });
+    } catch (error) { next(error); }
+  });
   router.post('/translations/jobs/:jobId/retry', ...guard, async (req, res, next) => {
     try { res.status(202).json({ job: await service.retryTranslationJob({ id: req.params.jobId, actorId: req.user.id }) }); } catch (error) { next(error); }
   });

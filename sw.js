@@ -31,11 +31,14 @@
  *
  * v84: Promote the approved globe-lab bundle to Home and retire the previous
  *      production globe bundle from the network-first route.
+ *
+ * v104: Refresh translation publication runtime and Lake Aviation CMS pilot
+ *       assets for the private, integrity-checked multilingual release path.
  */
 
 'use strict';
 
-const VERSION = 'v103-20261013-02';
+const VERSION = 'v104-20261014-01';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;

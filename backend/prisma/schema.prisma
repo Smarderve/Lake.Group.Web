@@ -160,7 +160,13 @@ model CmsTranslationMemoryEntry {
 model HardcodedTranslationJob {
   id              String               @id
   sourceFile      String
+  page            String?
+  applicablePages String[]             @default([])
   contextKey      String
+  classification  String
+  targetSelector  String?
+  targetAttribute String?
+  renderMode      String
   sourceLanguage  String               @default("en")
   targetLanguage  String
   sourceText      String
@@ -179,6 +185,25 @@ model HardcodedTranslationJob {
   @@unique([sourceHash, targetLanguage, contextKey])
   @@index([status, leaseExpiresAt, createdAt])
   @@index([sourceFile, manifestVersion])
+}
+
+/// Reviewed hardcoded-copy translations reused only for the same source/context.
+model HardcodedTranslationMemoryEntry {
+  id               String   @id @default(uuid())
+  targetLanguage   String
+  sourceText       String
+  sourceHash       String
+  contextKey       String
+  translation      String
+  sourceRevisionId String?
+  modelVersion     String?
+  approvedById     String
+  approvedAt       DateTime @default(now())
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@unique([targetLanguage, sourceHash, contextKey])
+  @@index([sourceHash, targetLanguage])
 }
 
 /// A content-addressed, immutable public snapshot. The current pointer is

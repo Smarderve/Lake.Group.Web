@@ -2,9 +2,11 @@ import { createCmsV2PrismaRepository } from './cms-v2-prisma-repository.js';
 import { contentIntegrity, createContentReleaseService } from './cms-v2-content.js';
 import { writeAudit } from './audit.js';
 import { createPageSourceReader } from './cms-v2-page-source.js';
+import { createHardcodedTranslationRepository } from './hardcoded-translation-repository.js';
 
 export function createCmsV2RuntimeService({ db, storage, logger, publicSiteOrigin }) {
   const repository = createCmsV2PrismaRepository(db);
+  const hardcodedRepository = createHardcodedTranslationRepository(db);
   const service = createContentReleaseService({
     repository,
     readPublishedSnapshot: async () => {
@@ -14,7 +16,7 @@ export function createCmsV2RuntimeService({ db, storage, logger, publicSiteOrigi
       if (pointer.schemaVersion !== 2) throw Object.assign(new Error('CMS V2 release storage overlaps another public snapshot namespace'), { code: 'RELEASE_NAMESPACE_CONFLICT' });
       const stored = await storage.readRelease(pointer.releaseId);
       if (stored.schemaVersion !== 1 || !stored.documents || typeof stored.documents !== 'object') throw Object.assign(new Error('Current CMS V2 release is invalid'), { code: 'INTEGRITY_MISMATCH' });
-      const snapshot = { schemaVersion: stored.schemaVersion, documents: stored.documents };
+      const snapshot = { schemaVersion: stored.schemaVersion, documents: stored.documents, ...(stored.translations ? { translations: stored.translations } : {}) };
       if (contentIntegrity(snapshot) !== pointer.integrity) throw Object.assign(new Error('Current release integrity verification failed'), { code: 'INTEGRITY_MISMATCH' });
       return snapshot;
     },
@@ -33,7 +35,7 @@ export function createCmsV2RuntimeService({ db, storage, logger, publicSiteOrigi
       const pointer = await storage.readCurrent();
       if (pointer.schemaVersion !== 2) throw Object.assign(new Error('Current CMS V2 pointer is invalid'), { code: 'INTEGRITY_MISMATCH' });
       const snapshot = await storage.readRelease(pointer.releaseId);
-      const content = { schemaVersion: snapshot.schemaVersion, documents: snapshot.documents };
+      const content = { schemaVersion: snapshot.schemaVersion, documents: snapshot.documents, ...(snapshot.translations ? { translations: snapshot.translations } : {}) };
       if (pointer.integrity !== snapshot.integrity || contentIntegrity(content) !== pointer.integrity) throw Object.assign(new Error('Current CMS V2 release integrity verification failed'), { code: 'INTEGRITY_MISMATCH' });
       return { pointer, snapshot };
     },
@@ -43,6 +45,9 @@ export function createCmsV2RuntimeService({ db, storage, logger, publicSiteOrigi
     async saveDraftBatch(input) { const revisions = await service.saveDraftBatch(input); await writeAudit(db, { actorId: input.actorId, action: 'CMS_V2_GLOBAL_TRANSACTION', resource: 'admin/v2/global-data/transaction', metadata: { documents: revisions.map((revision) => revision.key) } }, logger); return revisions; },
     async retryTranslationJob(input) { const job = await service.retryTranslationJob(input.id); await writeAudit(db, { actorId: input.actorId, action: 'CMS_V2_TRANSLATION_RETRY', resource: `admin/v2/translations/jobs/${input.id}`, metadata: { status: job.status } }, logger); return job; },
     async approveTranslationJob(input) { const job = await service.approveTranslationJob(input); await writeAudit(db, { actorId: input.approvedById, action: 'CMS_V2_TRANSLATION_APPROVED', resource: `admin/v2/translations/jobs/${input.id}`, metadata: { targetLanguage: job.targetLanguage, fieldPath: job.fieldPath } }, logger); return job; },
+    listHardcodedTranslationJobs: (filters) => hardcodedRepository.listHardcodedTranslationJobs(filters),
+    async retryHardcodedTranslationJob(input) { const job = await hardcodedRepository.retryHardcodedTranslationJob(input.id); await writeAudit(db, { actorId: input.actorId, action: 'HARDCODED_TRANSLATION_RETRY', resource: `admin/v2/translations/hardcoded/${input.id}`, metadata: { targetLanguage: job.targetLanguage, status: job.status } }, logger); return job; },
+    async approveHardcodedTranslationJob(input) { const job = await hardcodedRepository.approveTranslation(input.id, input.translation, input.approvedById); await writeAudit(db, { actorId: input.approvedById, action: 'HARDCODED_TRANSLATION_APPROVED', resource: `admin/v2/translations/hardcoded/${input.id}`, metadata: { targetLanguage: job.targetLanguage, sourceFile: job.sourceFile } }, logger); return job; },
     async recoverTranslationJobs() { return repository.recoverExpiredTranslationJobs({ engineAvailable: false }); },
   };
 }

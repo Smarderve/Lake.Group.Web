@@ -1,5 +1,5 @@
 /** Prisma adapter kept separate from CMS V2 domain/release logic. */
-import { validateTranslationResult } from './cms-v2-translation.js';
+import { extractCmsTranslationFields, TARGET_LANGUAGES, validateTranslationResult } from './cms-v2-translation.js';
 export function createCmsV2PrismaRepository(db) {
   if (!db) throw new TypeError('Prisma database is required');
   async function invalidateChangedJobs(tx, revisionId, changedPaths) {
@@ -131,6 +131,19 @@ export function createCmsV2PrismaRepository(db) {
       if (!job) return false;
       const document = await db.contentDocument.findUnique({ where: { key: job.documentKey }, select: { currentDraftRevisionId: true } });
       return document?.currentDraftRevisionId === job.revisionId;
+    },
+    async getApprovedTranslations({ documentKey, revisionId, data }) {
+      const fields = extractCmsTranslationFields(data);
+      if (!fields.length) return {};
+      const rows = await db.cmsTranslationMemoryEntry.findMany({ where: { OR: fields.flatMap((field) => TARGET_LANGUAGES.map((targetLanguage) => ({ targetLanguage, sourceHash: field.sourceHash, contextKey: `${documentKey}:${field.fieldPath}` }))) } });
+      const translations = {};
+      for (const field of fields) for (const targetLanguage of TARGET_LANGUAGES) {
+        const memory = rows.find((row) => row.targetLanguage === targetLanguage && row.sourceHash === field.sourceHash && row.contextKey === `${documentKey}:${field.fieldPath}`);
+        if (memory) (((translations[targetLanguage] ||= {})[documentKey] ||= {})[field.fieldPath] = memory.translation);
+      }
+      const approvedJobs = await db.cmsTranslationJob.findMany({ where: { documentKey, revisionId, status: 'APPROVED' } });
+      for (const job of approvedJobs) (((translations[job.targetLanguage] ||= {})[documentKey] ||= {})[job.fieldPath] = job.translation);
+      return translations;
     },
     async approveTranslationJob({ id, translation, approvedById = null }) {
       return db.$transaction(async (tx) => {

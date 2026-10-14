@@ -23,6 +23,11 @@ const { resolveStatic } = require('../../scripts/_safe_static.js');
 
 const ROOT = join(tmpdir(), `p14-root-${Date.now()}`);
 const SCRIPTS_DIR = fileURLToPath(new URL('../../scripts', import.meta.url));
+const STATIC_SERVER_INVENTORY = [
+  '_accessibility_audit.js', '_audit_mobile_text.js', '_audit_overflow.js', '_dark_mode_regression.js',
+  '_live_verify_checklist.js', '_live_verify_edge.js', '_verify_accessibility.js', '_verify_cms_live.js',
+  '_verify_csp.js', '_verify_phase8_entities.js', '_verify_phase9_ai.js', '_visual_regression.js',
+].sort();
 
 describe('SECURITY_ROADMAP Phase 14 — path traversal', () => {
   describe('resolveStatic (shared static-server resolver)', () => {
@@ -107,7 +112,7 @@ describe('SECURITY_ROADMAP Phase 14 — path traversal', () => {
     it('every static server delegates to resolveStatic', () => {
       const files = readdirSync(SCRIPTS_DIR).filter((f) => f.endsWith('.js'));
       const servers = files.filter((f) => readFileSync(join(SCRIPTS_DIR, f), 'utf8').includes('createServer'));
-      expect(servers.length).toBeGreaterThanOrEqual(23);
+      expect(servers.sort()).toEqual(STATIC_SERVER_INVENTORY);
       for (const file of servers) {
         const src = readFileSync(join(SCRIPTS_DIR, file), 'utf8');
         expect(src, `${file} static server lacks the safe resolver`).toContain('resolveStatic');

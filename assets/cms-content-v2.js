@@ -27,11 +27,24 @@
   const canonical = (value) => Array.isArray(value) ? value.map(canonical) : value && typeof value === 'object'
     ? Object.keys(value).sort().reduce((out, key) => { out[key] = canonical(value[key]); return out; }, {}) : value;
   const digest = async (snapshot) => {
-    const bytes = new TextEncoder().encode(JSON.stringify(canonical({ schemaVersion: snapshot.schemaVersion, documents: snapshot.documents })));
+    const content = { schemaVersion: snapshot.schemaVersion, documents: snapshot.documents, ...(snapshot.translations ? { translations: snapshot.translations } : {}) };
+    const bytes = new TextEncoder().encode(JSON.stringify(canonical(content)));
     const hash = await crypto.subtle.digest('SHA-256', bytes);
     return `sha256-${btoa(String.fromCharCode(...new Uint8Array(hash)))}`;
   };
   const nonEmptyString = (value) => typeof value === 'string' && value.length > 0;
+  const localizeDocument = (content, translations, language) => {
+    const localized = structuredClone(content);
+    const fields = translations?.[language]?.[pageKey] || {};
+    for (const [fieldPath, value] of Object.entries(fields)) {
+      if (typeof value !== 'string') continue;
+      const parts = fieldPath.split('.'); let target = localized;
+      for (const part of parts.slice(0, -1)) target = target && typeof target === 'object' ? target[part] : null;
+      const leaf = parts.at(-1);
+      if (target && typeof target[leaf] === 'string') target[leaf] = value;
+    }
+    return localized;
+  };
   const preparePage = (content) => {
     if (!content || typeof content !== 'object') return null;
     const { hero, introduction, cta, seo } = content;
@@ -114,15 +127,22 @@
       if (pointer.integrity !== snapshot.integrity) throw new Error('CMS V2 release metadata rejected');
       const computedIntegrity = await digest(snapshot);
       if (pointer.integrity !== computedIntegrity) throw new Error(`CMS V2 release digest rejected: expected ${pointer.integrity}, got ${computedIntegrity}`);
-      const prepared = preparePage(snapshot?.documents?.[pageKey]);
-      if (!prepared) throw new Error('CMS V2 content rejected');
-      // Every validation has completed. This is the single DOM-mutation phase.
-      prepared.text.forEach(([field, value]) => setText(field, value));
-      prepared.attributes.forEach(([field, attribute, value]) => setAttribute(field, attribute, value));
-      applyComposition(prepared.composition, snapshot?.documents?.global);
-      applyNavigation(snapshot?.documents?.global?.navigation);
-      document.title = prepared.seo.title;
-      document.querySelector('meta[name="description"]')?.setAttribute('content', prepared.seo.description);
+      const sourceDocument = snapshot?.documents?.[pageKey];
+      if (!preparePage(sourceDocument)) throw new Error('CMS V2 content rejected');
+      const applyLanguage = (language) => {
+        const content = localizeDocument(sourceDocument, snapshot.translations, language);
+        const prepared = preparePage(content);
+        if (!prepared) return;
+        // All candidate fields are schema-controlled strings; mutation never injects HTML.
+        prepared.text.forEach(([field, value]) => setText(field, value));
+        prepared.attributes.forEach(([field, attribute, value]) => setAttribute(field, attribute, value));
+        applyComposition(prepared.composition, localizeDocument(snapshot?.documents?.global || {}, snapshot.translations, language));
+        applyNavigation(localizeDocument(snapshot?.documents?.global || {}, snapshot.translations, language).navigation);
+        document.title = prepared.seo.title;
+        document.querySelector('meta[name="description"]')?.setAttribute('content', prepared.seo.description);
+      };
+      document.addEventListener('lake-i18n-applied', (event) => applyLanguage(event.detail?.lang || 'en'));
+      applyLanguage(window.LakeI18n?.current || 'en');
     })
     .catch((error) => {
       // A controlled diagnostic for local verification; static HTML remains

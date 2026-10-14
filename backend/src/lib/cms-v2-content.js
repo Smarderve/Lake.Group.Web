@@ -55,7 +55,8 @@ function canonical(value) {
 }
 
 export function contentIntegrity(snapshot) {
-  return `sha256-${createHash('sha256').update(JSON.stringify(canonical(snapshot))).digest('base64')}`;
+  const integrityPayload = snapshot?.translations ? { schemaVersion: snapshot.schemaVersion, documents: snapshot.documents, translations: snapshot.translations } : { schemaVersion: snapshot.schemaVersion, documents: snapshot.documents };
+  return `sha256-${createHash('sha256').update(JSON.stringify(canonical(integrityPayload))).digest('base64')}`;
 }
 
 export function createContentReleaseService({ repository, writePointer, readPublishedSnapshot = async () => null, now = () => new Date(), id = (prefix) => `${prefix}_${crypto.randomUUID()}` } = {}) {
@@ -96,7 +97,13 @@ export function createContentReleaseService({ repository, writePointer, readPubl
     const review = await reviewRelease({ key, revisionId });
     if (!review.valid) throw fault('PREPUBLISH_VALIDATION_FAILED', 'Resolve the blocking release issues before publishing.');
     const previous = await readPublishedSnapshot();
-    const snapshot = { schemaVersion: definition.schemaVersion, documents: { ...(previous?.documents ?? {}), [key]: structuredClone(revision.data) } };
+    const translations = await repository.getApprovedTranslations?.({ documentKey: key, revisionId, data: revision.data });
+    const translationSnapshot = structuredClone(previous?.translations ?? {});
+    for (const fieldsByDocument of Object.values(translationSnapshot)) delete fieldsByDocument[key];
+    for (const [language, docs] of Object.entries(translations ?? {})) {
+      for (const [documentKey, fields] of Object.entries(docs)) translationSnapshot[language] = { ...(translationSnapshot[language] ?? {}), [documentKey]: fields };
+    }
+    const snapshot = { schemaVersion: definition.schemaVersion, documents: { ...(previous?.documents ?? {}), [key]: structuredClone(revision.data) }, ...(Object.keys(translationSnapshot).length ? { translations: translationSnapshot } : {}) };
     const integrity = contentIntegrity(snapshot);
     const release = { id: id('release'), key, revisionId, actorId, restoredFromReleaseId, snapshot, integrity, publishedAt: now().toISOString() };
     await repository.saveRelease(release);

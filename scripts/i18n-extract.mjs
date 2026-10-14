@@ -14,6 +14,14 @@ const excluded = /^(?:\d[\d\s.,%/+\-:$€£#]*|[A-Z]{2,4}|https?:\/\/\S+|mailto:
 function attrs(node) { return Object.fromEntries((node.attrs || []).map(({ name, value }) => [name, value])); }
 function directText(node) { return (node.childNodes || []).filter((child) => child.nodeName === '#text').map((child) => child.value).join('').replace(/\s+/g, ' ').trim(); }
 function descendantText(node) { return (node.childNodes || []).map((child) => child.nodeName === '#text' ? child.value : descendantText(child)).join('').replace(/\s+/g, ' ').trim(); }
+function stableSelector(node) {
+  const parts = [];
+  for (let current = node; current?.tagName; current = current.parentNode) {
+    const siblings = (current.parentNode?.childNodes || []).filter((child) => child.tagName === current.tagName);
+    parts.unshift(`${current.tagName}:nth-of-type(${Math.max(1, siblings.indexOf(current) + 1)})`);
+  }
+  return parts.join(' > ');
+}
 function normalizeSource(text) { return String(text ?? '').replace(/<[^>]*>/g, ' ').replace(/&(?:nbsp|amp|lt|gt|quot|#39);/g, ' ').replace(/\s+/g, ' ').trim().toLocaleLowerCase('en'); }
 function visit(node, page, output, ancestry = [], covered = false, inventory = {}, suppressNestedText = false) {
   if (!node) return;
@@ -39,7 +47,7 @@ function visit(node, page, output, ancestry = [], covered = false, inventory = {
       const before = output.length;
       addCandidate(output, page, `HTML ${tag} ${route.join(' > ')}`, text, node.sourceCodeLocation?.startLine, inventory.occurrenceCounts);
       if (output.length > before) {
-        Object.assign(output.at(-1), { page, tag, route: route.join(' > ') });
+        Object.assign(output.at(-1), { page, tag, route: route.join(' > '), targetSelector: stableSelector(node), renderMode: (node.childNodes || []).every((child) => child.nodeName === '#text' || child.nodeName === '#comment') ? 'text' : 'unsupported-structure' });
         suppressChildText = true;
       }
     }
@@ -50,7 +58,7 @@ function visit(node, page, output, ancestry = [], covered = false, inventory = {
       if (!text || text.length < 2 || excluded.test(text)) continue;
       const before = output.length;
       addCandidate(output, page, `HTML ${tag} ${attribute} ${route.join(' > ')}`, text, node.sourceCodeLocation?.startLine, inventory.occurrenceCounts);
-      if (output.length > before) Object.assign(output.at(-1), { page, tag, attribute, route: route.join(' > ') });
+      if (output.length > before) Object.assign(output.at(-1), { page, tag, attribute, route: route.join(' > '), targetSelector: stableSelector(node), targetAttribute: attribute, renderMode: 'attribute' });
     }
   }
   if (skipTags.has(tag)) return;
@@ -64,7 +72,7 @@ function addCandidate(output, file, context, value, line, occurrenceCounts = new
   const normalized = text.toLocaleLowerCase('en').replace(/[\s\u00a0]+/g, ' ');
   const brand = PROTECTED_TERMS.find((term) => normalized === term.toLocaleLowerCase('en')) || (context.includes('nav-logo') && normalized === 'lake' ? 'Lake' : null);
   const technicalTerm = TERMINOLOGY.find((term) => normalized.includes(term.source.toLocaleLowerCase('en')));
-  const classification = brand ? 'protected-brand' : technicalTerm ? 'terminology-review' : file.startsWith('cms/') ? 'cms-interface-copy' : file.endsWith('.html') ? 'public-visitor-copy' : 'runtime-ui-copy';
+  const classification = brand ? 'protected-brand' : technicalTerm ? 'terminology-review' : file.startsWith('cms/') || file.startsWith('backend/') || file.startsWith('scripts/') ? 'cms-interface-copy' : file.endsWith('.html') ? 'public-visitor-copy' : 'runtime-ui-copy';
   const base = crypto.createHash('sha256').update(`${file}\0${context}\0${line ?? 0}`).digest('hex').slice(0, 16);
   const occurrence = occurrenceCounts.get(base) || 0;
   occurrenceCounts.set(base, occurrence + 1);
@@ -82,16 +90,16 @@ export function extractJavaScript(source, file = 'source.jsx') {
   const translationKeys = [];
   function walk(node, parents = [], parentNode = null) {
     if (!node || typeof node !== 'object') return;
-    if (node.type === 'JSXText') addCandidate(entries, file, 'JSX text', node.value, node.loc?.start.line, occurrenceCounts);
+    if (node.type === 'JSXText') { const before = entries.length; addCandidate(entries, file, 'JSX text', node.value, node.loc?.start.line, occurrenceCounts); if (entries.length > before) entries.at(-1).renderMode = 'runtime-text'; }
     if (node.type === 'CallExpression' && node.callee?.type === 'MemberExpression' && node.callee.property?.name === 't' && node.arguments?.[0]?.type === 'StringLiteral' && (node.callee.object?.name === 'LakeI18n' || node.callee.object?.property?.name === 'LakeI18n')) translationKeys.push(node.arguments[0].value);
     if (node.type === 'JSXAttribute' && translatableAttributes.has(node.name?.name)) {
       const value = node.value?.type === 'StringLiteral' ? node.value.value : node.value?.type === 'JSXExpressionContainer' && node.value.expression?.type === 'StringLiteral' ? node.value.expression.value : null;
-      if (value !== null) addCandidate(entries, file, `JSX ${node.name.name}`, value, node.loc?.start.line, occurrenceCounts);
+      if (value !== null) { const before = entries.length; addCandidate(entries, file, `JSX ${node.name.name}`, value, node.loc?.start.line, occurrenceCounts); if (entries.length > before) { entries.at(-1).renderMode = 'runtime-attribute'; entries.at(-1).targetAttribute = node.name.name; } }
     }
     if (node.type === 'AssignmentExpression' && node.left?.type === 'MemberExpression') {
       const member = node.left.computed ? node.left.property?.value : node.left.property?.name;
       const value = node.right?.type === 'StringLiteral' ? node.right.value : null;
-      if (value !== null && ['textContent', 'innerText', 'placeholder', 'title', 'ariaLabel'].includes(member)) addCandidate(entries, file, `DOM ${member}`, value, node.loc?.start.line, occurrenceCounts);
+      if (value !== null && ['textContent', 'innerText', 'placeholder', 'title', 'ariaLabel'].includes(member)) { const before = entries.length; addCandidate(entries, file, `DOM ${member}`, value, node.loc?.start.line, occurrenceCounts); if (entries.length > before) { entries.at(-1).renderMode = member === 'placeholder' || member === 'title' || member === 'ariaLabel' ? 'runtime-attribute' : 'runtime-text'; entries.at(-1).targetAttribute = member === 'ariaLabel' ? 'aria-label' : member === 'textContent' || member === 'innerText' ? null : member; } }
       else if (value === null && ['textContent', 'innerText', 'placeholder', 'title', 'ariaLabel'].includes(member)) unsupportedPatterns.push({ file, line: node.loc?.start.line, status: 'unsupported-runtime-content', context: `DOM ${member}` });
     }
     if (node.type === 'JSXExpressionContainer' && !['StringLiteral', 'JSXEmptyExpression'].includes(node.expression?.type)) {
@@ -129,10 +137,25 @@ export function extractPublicHtml(directory = root) {
   const unsupportedPatterns = [];
   const keyedRefs = [];
   const occurrenceCounts = new Map();
+  const scriptFilesByPage = {};
   const dictionaryPath = path.join(directory, 'assets', 'i18n-content.json');
   const dictionary = fs.existsSync(dictionaryPath) ? JSON.parse(fs.readFileSync(dictionaryPath, 'utf8')).en || {} : {};
   const pages = fs.readdirSync(directory, { withFileTypes: true }).filter((item) => item.isFile() && item.name.endsWith('.html')).map((item) => item.name).sort();
-  for (const page of pages) visit(parse(fs.readFileSync(path.join(directory, page), 'utf8'), { sourceCodeLocationInfo: true }), page, entries, [], false, { dictionary, keyedRefs, occurrenceCounts });
+  for (const page of pages) {
+    const document = parse(fs.readFileSync(path.join(directory, page), 'utf8'), { sourceCodeLocationInfo: true });
+    visit(document, page, entries, [], false, { dictionary, keyedRefs, occurrenceCounts });
+    const refs = [];
+    const collectScripts = (node) => {
+      if (node?.tagName === 'script') {
+        const source = attrs(node).src;
+        if (source && !/^(?:[a-z]+:|\/\/)/i.test(source)) refs.push(source.split(/[?#]/, 1)[0].replace(/^\.\//, ''));
+        else if (source?.startsWith('/')) refs.push(source.slice(1).split(/[?#]/, 1)[0]);
+      }
+      (node?.childNodes || []).forEach(collectScripts);
+    };
+    collectScripts(document);
+    scriptFilesByPage[page] = [...new Set(refs)];
+  }
   const scripts = ['assets', 'scripts', 'cms', 'backend/src'].map((name) => path.join(directory, name)).filter((name) => fs.existsSync(name)).flatMap(sourceFiles);
   const codeKeys = new Set();
   for (const file of scripts) {
@@ -157,7 +180,7 @@ export function extractPublicHtml(directory = root) {
   const sourceDrift = keyedRefs.filter((ref) => !ref.source || (ref.rawText && normalizeSource(ref.rawText) !== normalizeSource(ref.source))).map((ref) => ({ ...ref, status: ref.source ? 'source-outdated' : 'missing-key' }));
   const referencedKeys = new Set([...keyedRefs.map((ref) => ref.key), ...codeKeys]);
   const orphanedDictionaryKeys = Object.keys(dictionary).filter((key) => !referencedKeys.has(key));
-  return { schemaVersion: 2, generatedAt: new Date().toISOString(), locales: ['sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt'], translationStatus: 'pending-benchmark', pagesScanned: pages.length, sourceFilesScanned: scripts.length, entries, classifications, duplicates, unsupportedPatterns, extractionErrors, sourceDrift, orphanedDictionaryKeys };
+  return { schemaVersion: 2, generatedAt: new Date().toISOString(), locales: ['sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt'], translationStatus: 'pending-benchmark', pagesScanned: pages.length, sourceFilesScanned: scripts.length, scriptFilesByPage, entries, classifications, duplicates, unsupportedPatterns, extractionErrors, sourceDrift, orphanedDictionaryKeys };
 }
 
 export function compareExtractionSnapshots(previous, current) {
@@ -179,9 +202,17 @@ export function buildTranslationManifest(extraction) {
     sourceRevision: process.env.GIT_COMMIT || null,
     translationStatus: 'pending-engine-and-review',
     targetLanguages: extraction.locales,
-    entries: extraction.entries.filter((entry) => entry.status !== 'protected').map((entry) => ({
-      id: entry.id, file: entry.file, context: entry.context, line: entry.line,
+    entries: extraction.entries.filter((entry) => {
+      if (entry.status === 'protected' || entry.classification === 'cms-interface-copy') return false;
+      if (entry.page) return ['public-visitor-copy', 'terminology-review'].includes(entry.classification);
+      const applicablePages = Object.entries(extraction.scriptFilesByPage || {}).filter(([, files]) => files.includes(entry.file)).map(([page]) => page);
+      if (!applicablePages.length) return false;
+      return ['runtime-ui-copy', 'terminology-review'].includes(entry.classification);
+    }).map((entry) => ({
+      id: entry.id, file: entry.file, context: entry.context, line: entry.line, page: entry.page ?? null,
       source: entry.source, sourceHash: entry.sourceHash, classification: entry.classification,
+      targetSelector: entry.targetSelector ?? null, targetAttribute: entry.targetAttribute ?? null, renderMode: entry.renderMode ?? 'source-only',
+      applicablePages: entry.page ? [entry.page] : Object.entries(extraction.scriptFilesByPage || {}).filter(([, files]) => files.includes(entry.file)).map(([page]) => page),
     })),
     removedIds: extraction.changesSincePreviousLocalScan?.removedIds ?? [],
   };

@@ -20,7 +20,7 @@ describe('CMS V2 component registry and atomic updates', () => {
 
   it('validates every document before invoking the atomic repository write', async () => {
     let writes = 0;
-    const repository = { saveDraftBatch: async (entries) => { writes += 1; return entries; } };
+    const repository = { getDocument: async () => null, saveDraftBatch: async (entries) => { writes += 1; return entries; } };
     const service = createContentReleaseService({ repository, writePointer: async () => {}, id: (prefix) => `${prefix}-${writes}` });
     const composition = { version: 1, root: { id: 'page', key: 'page', type: 'page', name: 'Page', children: [node()] } };
     await expect(service.saveDraftBatch({ actorId: 'it', documents: [{ key: 'home', baseRevisionId: null, data: page(composition) }] })).resolves.toHaveLength(1);

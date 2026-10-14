@@ -34,6 +34,9 @@ const ALWAYS_AUDITED = new Set([
   // service, which writes CMS_V2_DRAFT_SAVED, CMS_V2_GLOBAL_TRANSACTION,
   // CMS_V2_PUBLISHED, or CMS_V2_REVISION_RESTORED audit records.
   'contentDocument', 'contentRevision', 'cmsRelease',
+  // Translation job state is a system-owned queue; human retry/approval
+  // actions are wrapped by the CMS runtime and write their own audit rows.
+  'cmsTranslationJob',
 ]);
 
 // Governed factory entities (lib/governed.js): every mutation goes through

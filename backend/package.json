@@ -32,6 +32,8 @@
     "seed:content": "node scripts/seed-content.js",
     "cms:v2:seed": "node scripts/seed-cms-v2.js",
     "translation:import-hardcoded": "node scripts/import-hardcoded-translation-manifest.js",
+    "translation:publish-hardcoded": "node scripts/publish-hardcoded-translations.js",
+    "translation:rollback-hardcoded": "node scripts/rollback-hardcoded-translations.js",
     "translation:worker": "node src/translation-worker.js",
     "seed:all": "node scripts/seed-metrics.js && node scripts/seed-content.js",
     "health:report": "node scripts/content-health-report.js",
