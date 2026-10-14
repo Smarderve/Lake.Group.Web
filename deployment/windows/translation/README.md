@@ -4,9 +4,9 @@ This package prepares a separate startup scheduled task named `LakeGroupTranslat
 
 ## Install and validate
 
-1. Run `verify-translation-server.ps1` elevated with the intended private model path and inspect RAM, CPU, disk, related service inventory, and blockers. It does not infer GPU readiness or database readiness.
+1. Run `verify-translation-server.ps1` elevated with the intended private model path and staging PostgreSQL host/port. It records CPU, GPU adapters/driver versions, total/free RAM, selected-volume free disk, Qwen/Ollama/Whisper processes and services, Windows/PowerShell/Node/npm runtime, and a credential-free PostgreSQL TCP probe. The TCP probe does not authenticate or establish that the selected database is isolated. The 8 GiB RAM and 10 GiB disk defaults are only generic preflight floors; model suitability is established from measured benchmark results.
 2. Prepare the backend payload with the approved Node runtime and locked dependencies in an IT staging area. Do not put it under IIS public root. The install script accepts `-TranslationManifest <path>` and copies a present source-only manifest to the private worker root.
-3. Back up PostgreSQL and follow `docs/development/translation-migration-safety.md`; migration execution is a separate controlled step, not part of install.
+3. Follow the **Staging-only rehearsal** below with a separately named test database and staging-only credentials. Keep production connection values out of the translation service account and shell history. Migration execution is a separate controlled step, not part of install.
 4. Run `install-translation-service.ps1`. It refuses an existing task and grants LocalService read-only application access and log write access. Inject runtime DB credentials using the approved machine secret/environment mechanism; never commit them.
 5. Review the exact model checkpoint, license, conversion/runtime chain, and benchmark on approved server hardware. Configure only after approval with `configure-translation-engine.ps1 -ApprovedByIT`.
 6. Generate the source-only job manifest with the normal website build (`npm run i18n:extract`; `npm run build` also runs extraction and quality checks). Deploy/copy it to the private worker root (default path is `scripts/.generated/i18n-translation-manifest.json`; override with `LAKE_TRANSLATION_MANIFEST` if needed). Each worker poll imports a new manifest version transactionally after restart, without blocking the English build/publication. Re-import is idempotent: unchanged approved memory remains approved, changed source is queued again, and removed candidates become `OUTDATED`. `npm run translation:import-hardcoded -- <manifest>` remains available for a supervised one-time sync. CMS draft saves create revision-bound jobs in the same PostgreSQL transaction as the revision.
@@ -15,3 +15,36 @@ This package prepares a separate startup scheduled task named `LakeGroupTranslat
 9. Deploy the CMS V2 release snapshot/bundle using the existing CMS V2 handoff after CMS approvals. The browser verifies snapshot integrity and overlays only fields in the approved snapshot for the currently published revision. Hardcoded website assets and CMS release storage are separate publication paths.
 
 `rollback-translation-service.ps1` removes only the task. `uninstall-translation-service.ps1` retains all private files by default; database translations and memory are never deleted. This kit is source-prepared, not server-tested. Resource telemetry on Windows reports RAM/disk and CPU load percent from CIM; the Node worker fails closed on missing model path, insufficient free RAM, or an unset engine executable. GPU, existing service utilization, DB credentials/connectivity, filesystem atomic-rename behavior, and full process memory ceilings require IT-specific verification. The generic process adapter does not claim MADLAD, M2M100, CTranslate2, or quantization compatibility. Fixture output is not accepted by the production publisher and tests never write to the website publication directory.
+
+## Staging-only rehearsal (must use a separate test database)
+
+1. Obtain an approved staging database name and private host/port from IT. Verify its database identity with a read-only authenticated `SELECT current_database(), current_user`; stop unless the database name is explicitly the staging/test database. The server preflight's TCP check is not an identity check. Do not reuse a production connection string.
+2. Capture a PostgreSQL-native backup of that staging database, record the backup path and SHA-256, and restore it into a second disposable database. Verify the restored database name before continuing. Production must not be used as the restore target.
+3. From the approved release's `backend/` directory, point `DATABASE_URL` and `DATABASE_URL_RUNTIME` at the isolated staging DB (separate migration-owner and least-privilege runtime roles). Run `npx prisma migrate status`; inspect the result. Apply pending migrations with `npm run db:migrate`, which deploys the full ordered migration history, including `0016_cms_translation_jobs`, `0017_hardcoded_translation_jobs`, and `0018_hardcoded_translation_publication`. Never invoke `migrate reset`, `db push`, or use production values in this rehearsal.
+4. Install the private worker shell with `install-translation-service.ps1`, then configure machine-scoped service environment values through IT's approved secret mechanism. Include staging-only DB URLs, `NODE_ENV=staging`, `LAKE_TRANSLATION_MANIFEST` if non-default, and worker poll/lease settings only when required. Do not place credentials in `engine.json`, PowerShell command history, logs, or this handoff.
+5. Start the scheduled task in a supervised session and run `verify-translation-service.ps1`. Import the generated source manifest with `npm run translation:import-hardcoded -- <manifest>` from `backend/`; verify idempotency by repeating the import and checking that job counts do not grow for unchanged source revisions. The normal worker may also synchronize the private manifest automatically.
+6. With an IT-approved model adapter on approved server hardware, process a small staging batch. Without a real approved model, use only the repository's deterministic fixtures in isolated tests; do not enter fixture output into live staging publication or label it model-generated. Review/approve outputs through the authenticated CMS/hardcoded review routes, then publish one complete approved locale to a staging-only output directory. Confirm the generated `current.json` selects that release and the browser enables only that locale. This step is blocked until real-model outputs have been generated and approved.
+7. Verify CMS revision-bound jobs against a disposable staging CMS document: save an English draft, confirm jobs bind to its revision, exercise retry/restart recovery, review and approve target fields, publish a staging CMS release, and verify the snapshot points to the current published revision. Confirm an older revision cannot overwrite it.
+8. Exercise rollback only against the staging output directory: restore the previous hardcoded release id with `translation:rollback-hardcoded`, and restore the prior CMS revision/release using CMS V2's existing revision restore workflow. Verify English content, dropdown availability, and public release pointers remain intact.
+9. Retain logs, migration status, backup/restore proof, release IDs, fixture-versus-model distinction, and reviewer records. Only after the rehearsal succeeds may IT prepare a separate production change request; this procedure grants no production authorization.
+
+## CMS production launch configuration inventory (values supplied privately by IT)
+
+Set and validate these 14 names for the CMS/backend release. This document intentionally contains variable names only; it must never contain their values, connection strings, tokens, passwords, or key material. See `backend/.env.example`, `backend/src/config.js`, and `docs/CMS-PRODUCTION-DEPLOYMENT.md` for exact validation rules.
+
+1. `NODE_ENV`
+2. `PORT`
+3. `DATABASE_URL` (migration-owner connection; never passed to the worker)
+4. `DATABASE_URL_RUNTIME` (least-privilege runtime connection)
+5. `SESSION_SECRET`
+6. `SESSION_COOKIE_SECURE`
+7. `TRUST_PROXY`
+8. `CMS_ALLOWED_ORIGINS`
+9. `CSRF_ALLOWED_ORIGINS`
+10. `CMS_V2_RELEASE_DIR` (durable, private, separate from legacy release storage)
+11. `CMS_V2_PUBLIC_SITE_ORIGIN` (approved HTTPS public origin)
+12. `CMS_V2_DEPLOYMENT_TOKEN` (managed secret; matching deployment integration value)
+13. `MEDIA_STORAGE_DRIVER`
+14. `MEDIA_PUBLIC_BASE_URL`
+
+If the existing public-release bridge is enabled, IT must separately configure and secret-manage `PUBLIC_RELEASE_GITHUB_REPOSITORY`, `PUBLIC_RELEASE_GITHUB_TOKEN`, and `PUBLIC_RELEASE_API_BASE_URL`; these are outside the 14 CMS launch values. The translation worker also requires private `DATABASE_URL_RUNTIME`, `LAKE_TRANSLATION_CONFIG` or the default private `engine.json`, model/runtime approval evidence, and (when overridden) `LAKE_TRANSLATION_MANIFEST`.

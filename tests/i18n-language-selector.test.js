@@ -58,7 +58,7 @@ test('shipped employee-count translations preserve the verified 10,000 figure', 
     if (language === 'en') continue;
     for (const [key, source] of Object.entries(dictionaries.en)) {
       if (!source.includes('10,000')) continue;
-      assert.doesNotMatch(entries[key] || '', /30[.,]000/, `${language}.${key} changes 10,000 to 30,000`);
+      assert.doesNotMatch(entries[key] || '', /(?:30[.,\s\u00a0\u202f]000|٣٠[٬,\s]?٠٠٠)/, `${language}.${key} changes 10,000 to 30,000`);
     }
   }
 });

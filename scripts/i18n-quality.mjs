@@ -8,13 +8,25 @@ function visibleText(value) {
   return String(value ?? '').replace(/<[^>]*>/g, ' ').replace(/&(?:nbsp|amp|lt|gt|quot|#39);/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
-function protectedTokens(value) {
+function normalizeNumerals(value, locale = 'en') {
+  let text = String(value).replace(/[\u0660-\u0669\u06f0-\u06f9]/g, (digit) => {
+    const code = digit.charCodeAt(0);
+    return String(code >= 0x06f0 ? code - 0x06f0 : code - 0x0660);
+  }).replace(/[\u066b]/g, '.').replace(/[\u066c]/g, ',');
+  if (['fr', 'es', 'pt'].includes(locale)) {
+    text = text.replace(/(\d)[.\u00a0\u202f ](?=\d{3}(?:\D|$))/g, '$1');
+    text = text.replace(/(\d),(\d{1,2})(?!\d)/g, '$1.$2');
+  }
+  return text;
+}
+
+function protectedTokens(value, locale = 'en') {
   const text = String(value ?? '');
   return {
     placeholders: [...text.matchAll(/\{\{?\s*[\w.-]+\s*\}?\}|%\d*\$?[sdif]|\$\{[^}]+\}/g)].map((m) => m[0]).sort(),
     urls: [...text.matchAll(/(?:https?:\/\/|mailto:|tel:)[^\s"'<>]+/gi)].map((m) => m[0].replace(/[),.;]+$/, '')).sort(),
     tags: [...text.matchAll(/<\/?([a-z][\w-]*)\b[^>]*>/gi)].map((m) => `${m[0].startsWith('</') ? '/' : ''}${m[1].toLowerCase()}`).sort(),
-    numbers: [...visibleText(text).matchAll(/\d[\d,.]*(?:%|\+)?/g)].map((m) => m[0].replace(/,/g, '')).sort(),
+    numbers: [...normalizeNumerals(visibleText(text), locale).matchAll(/\d[\d,.]*(?:%|\+)?/g)].map((m) => m[0].replace(/,/g, '')).sort(),
   };
 }
 
@@ -31,7 +43,7 @@ export function validateDictionaries(dictionaries) {
         continue;
       }
       const enTokens = protectedTokens(enValue);
-      const translatedTokens = protectedTokens(value);
+      const translatedTokens = protectedTokens(value, locale);
       for (const type of ['numbers', 'urls', 'placeholders', 'tags']) {
         if (JSON.stringify(enTokens[type]) !== JSON.stringify(translatedTokens[type])) {
           issues.push({ locale, key, type, status: 'validation-failed', source: enTokens[type], translation: translatedTokens[type] });
