@@ -87,6 +87,57 @@ const authored = {
   pt: { 'nav.steel': 'Lake Steel', 'footer.question': 'Tem alguma dúvida?', 'footer.connect': 'Fale conosco' },
 };
 
+const heroAuthored = {
+  hi: {
+    'hero.slide1': 'दो दशकों से पूर्वी अफ्रीका को ऊर्जा प्रदान कर रहे हैं',
+    'hero.slide2': 'प्रगति की नींव का निर्माण।',
+    'hero.slide3': 'ऑटोमोटिव उत्कृष्टता के माध्यम से गतिशीलता का भविष्य गढ़ना।',
+    'hero.slide4': 'पूरे क्षेत्र में रणनीतिक वाणिज्यिक केंद्र विकसित करना।',
+    'hero.slide5': 'पूर्वी अफ्रीका में कृषि और कृषि-प्रसंस्करण को आगे बढ़ाना।',
+    'hero.slide6': 'दार एस सलाम: वैश्विक व्यापार के लिए पूर्वी अफ्रीका का प्रवेशद्वार।',
+  },
+  ar: {
+    'hero.slide1': 'نمدّ شرق أفريقيا بالطاقة منذ عقدين',
+    'hero.slide2': 'نصنع أسس التقدم.',
+    'hero.slide3': 'نرسم مستقبل التنقل عبر التميز في صناعة السيارات.',
+    'hero.slide4': 'نبني مراكز تجارية استراتيجية في أنحاء المنطقة.',
+    'hero.slide5': 'نطوّر الزراعة والتصنيع الزراعي في شرق أفريقيا.',
+    'hero.slide6': 'دار السلام: بوابة شرق أفريقيا إلى التجارة العالمية.',
+  },
+  zh: {
+    'hero.slide1': '二十年来为东非提供能源',
+    'hero.slide2': '打造进步的基石。',
+    'hero.slide3': '以卓越汽车制造塑造出行未来。',
+    'hero.slide4': '在本地区建设战略性商业枢纽。',
+    'hero.slide5': '推动东非农业与农产品加工发展。',
+    'hero.slide6': '达累斯萨拉姆：东非通往全球贸易的门户。',
+  },
+  fr: {
+    'hero.slide1': "Depuis deux décennies, nous fournissons de l'énergie à l'Afrique de l'Est.",
+    'hero.slide2': 'Bâtir les fondations du progrès.',
+    'hero.slide3': "Façonner l'avenir de la mobilité grâce à l'excellence automobile.",
+    'hero.slide4': 'Créer des pôles commerciaux stratégiques dans toute la région.',
+    'hero.slide5': "Faire progresser l'agriculture et l'agro-industrie en Afrique de l'Est.",
+    'hero.slide6': "Dar es Salaam : la porte de l'Afrique de l'Est sur le commerce mondial.",
+  },
+  es: {
+    'hero.slide1': 'Impulsando África Oriental durante dos décadas.',
+    'hero.slide2': 'Fabricando los cimientos del progreso.',
+    'hero.slide3': 'Dando forma al futuro de la movilidad mediante la excelencia automotriz.',
+    'hero.slide4': 'Construyendo centros comerciales estratégicos en toda la región.',
+    'hero.slide5': 'Impulsando la agricultura y la agroindustria en África Oriental.',
+    'hero.slide6': 'Dar es Salaam: la puerta de África Oriental al comercio mundial.',
+  },
+  pt: {
+    'hero.slide1': 'Abastecendo a África Oriental há duas décadas.',
+    'hero.slide2': 'Construindo os alicerces do progresso.',
+    'hero.slide3': 'Construindo o futuro da mobilidade com excelência automotiva.',
+    'hero.slide4': 'Criando centros comerciais estratégicos em toda a região.',
+    'hero.slide5': 'Impulsionando a agricultura e o processamento agroindustrial na África Oriental.',
+    'hero.slide6': 'Dar es Salaam: a porta da África Oriental para o comércio global.',
+  },
+};
+
 export async function buildSharedUiDrafts({ dictionaryPath = DICTIONARY_PATH, outputRoot = OUTPUT_ROOT } = {}) {
   const dictionary = JSON.parse(await readFile(dictionaryPath, 'utf8'));
   const keys = keysForBatch(dictionary);
@@ -123,6 +174,52 @@ export async function buildSharedUiDrafts({ dictionaryPath = DICTIONARY_PATH, ou
       authoringMethod: 'existing dictionary reuse plus AI-authored text; not machine-model output',
       createdAt: previous?.createdAt || new Date().toISOString(), reviewEvidence: null, releaseEligible: false, candidateCount: keys.length,
       translatedCount: translations.length, translations,
+    };
+    await mkdir(dirname(path), { recursive: true });
+    await writeFile(path, `${JSON.stringify(draft, null, 2)}\n`);
+    output[locale] = { path, translated: translations.length, reused: translations.filter((row) => row.origin === 'reused-existing-dictionary').length, authored: translations.filter((row) => row.origin === 'ai-authored-draft').length };
+  }
+  const heroCarousel = await buildHeroCarouselDrafts({ dictionaryPath, outputRoot });
+  return { sourceDigest, keys: keys.length, locales: output, heroCarousel };
+}
+
+export async function buildHeroCarouselDrafts({ dictionaryPath = DICTIONARY_PATH, outputRoot = OUTPUT_ROOT } = {}) {
+  const dictionary = JSON.parse(await readFile(dictionaryPath, 'utf8'));
+  const keys = ['hero.slide1', 'hero.slide2', 'hero.slide3', 'hero.slide4', 'hero.slide5', 'hero.slide6'];
+  const sourceDigest = sha256(JSON.stringify(keys.map((key) => [key, dictionary.en[key]])));
+  const output = {};
+  for (const locale of LOCALES) {
+    const path = resolve(outputRoot, locale, 'hero-carousel.json');
+    let previous = null;
+    try { previous = JSON.parse(await readFile(path, 'utf8')); } catch (error) { if (error.code !== 'ENOENT') throw error; }
+    const previousRows = new Map((previous?.translations || []).map((row) => [row.id, row]));
+    const translations = keys.map((key) => {
+      const source = dictionary.en?.[key];
+      if (typeof source !== 'string' || !source.trim()) throw new Error(`Missing authoritative English hero source ${key}`);
+      const existing = dictionary[locale]?.[key];
+      const authoredValue = heroAuthored[locale]?.[key];
+      const sourceHash = sha256(`${key}\0${source}`);
+      const previousRow = previousRows.get(`dict.${key}`);
+      const preserveDraft = previousRow?.sourceHash === sourceHash && typeof previousRow.translation === 'string' && previousRow.translation.trim();
+      const seededTranslation = typeof authoredValue === 'string' ? authoredValue : existing;
+      const translation = preserveDraft ? previousRow.translation : seededTranslation;
+      if (typeof translation !== 'string' || !translation.trim()) throw new Error(`Missing ${locale} translation for ${key}`);
+      const validation = validateTranslationResult({ sourceText: source }, translation);
+      if (!validation.valid) throw new Error(`${locale}.${key}: ${validation.errors.join(', ')}`);
+      return {
+        id: `dict.${key}`, sourceHash, key, source, translation,
+        origin: preserveDraft
+          ? (previousRow.translation !== seededTranslation ? 'preserved-editorial-draft' : (previousRow.origin || 'preserved-editorial-draft'))
+          : (typeof authoredValue === 'string' ? 'ai-authored-draft' : 'reused-existing-dictionary'),
+        validation: 'structural checks passed; linguistic review required',
+      };
+    });
+    const draft = {
+      schemaVersion: 1, status: 'DRAFT_PENDING_HUMAN_REVIEW', locale,
+      batch: 'homepage-hero-carousel', sourceDigest,
+      authoringMethod: 'existing dictionary reuse plus AI-authored text; not machine-model output',
+      createdAt: previous?.createdAt || new Date().toISOString(), reviewEvidence: null,
+      releaseEligible: false, candidateCount: keys.length, translatedCount: translations.length, translations,
     };
     await mkdir(dirname(path), { recursive: true });
     await writeFile(path, `${JSON.stringify(draft, null, 2)}\n`);

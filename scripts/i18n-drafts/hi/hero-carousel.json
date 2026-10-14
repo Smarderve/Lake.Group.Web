@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "status": "DRAFT_PENDING_HUMAN_REVIEW",
+  "locale": "hi",
+  "batch": "homepage-hero-carousel",
+  "sourceDigest": "f7c13e3c7ab0b691960992d6831ab13dde8eef36c6c9340f3922b77217071c70",
+  "authoringMethod": "existing dictionary reuse plus AI-authored text; not machine-model output",
+  "createdAt": "2026-10-14T20:00:49.879Z",
+  "reviewEvidence": null,
+  "releaseEligible": false,
+  "candidateCount": 6,
+  "translatedCount": 6,
+  "translations": [
+    {
+      "id": "dict.hero.slide1",
+      "sourceHash": "5fc5a4ab94859f1291ff388adc4e4aa4151c9bd1103a2b409bcd7eba43794401",
+      "key": "hero.slide1",
+      "source": "Fueling East Africa for two decades",
+      "translation": "दो दशकों से पूर्वी अफ्रीका को ऊर्जा प्रदान कर रहे हैं",
+      "origin": "ai-authored-draft",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.hero.slide2",
+      "sourceHash": "cffb783485c1b2bc555c6dd2226010e3501840ea779cd6ccb25182f90bb4636d",
+      "key": "hero.slide2",
+      "source": "Manufacturing the Foundations of Progress.",
+      "translation": "प्रगति की नींव का निर्माण।",
+      "origin": "ai-authored-draft",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.hero.slide3",
+      "sourceHash": "7b73cacadd433af0519a41960ddaec7d9eb39709374842368d805e738bc38baf",
+      "key": "hero.slide3",
+      "source": "Shaping the Future of Mobility Through Automotive Excellence.",
+      "translation": "ऑटोमोटिव उत्कृष्टता के माध्यम से गतिशीलता का भविष्य गढ़ना।",
+      "origin": "ai-authored-draft",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.hero.slide4",
+      "sourceHash": "6da0c55a2c9c3eb1c3a4d2e6d2318f0407dc631715db1f074f7bfcea729de517",
+      "key": "hero.slide4",
+      "source": "Building Strategic Commercial Hubs Across the Region.",
+      "translation": "पूरे क्षेत्र में रणनीतिक वाणिज्यिक केंद्र विकसित करना।",
+      "origin": "ai-authored-draft",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.hero.slide5",
+      "sourceHash": "ea097a6965791bcd0c00349720c37bc55f488d20d9c88846ac9b1f7f4dfd469d",
+      "key": "hero.slide5",
+      "source": "Advancing Agriculture and Agro-Processing Across East Africa.",
+      "translation": "पूर्वी अफ्रीका में कृषि और कृषि-प्रसंस्करण को आगे बढ़ाना।",
+      "origin": "ai-authored-draft",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.hero.slide6",
+      "sourceHash": "e05e8fce8b3489dbd8daa0cbc13b7a96b535d98cc917b18898607b3aa99f8aa9",
+      "key": "hero.slide6",
+      "source": "Dar es Salaam: East Africa's Gateway to Global Trade.",
+      "translation": "दार एस सलाम: वैश्विक व्यापार के लिए पूर्वी अफ्रीका का प्रवेशद्वार।",
+      "origin": "ai-authored-draft",
+      "validation": "structural checks passed; linguistic review required"
+    }
+  ]
+}

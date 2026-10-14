@@ -26,6 +26,12 @@ test('shared UI batch writes resumable review-pending drafts for all seven local
         assert.match(row.sourceHash, /^[a-f0-9]{64}$/);
         assert.ok(validateTranslationResult({ sourceText: row.source }, row.translation).valid, `${locale}.${row.key} structural validation`);
       }
+      const hero = JSON.parse(await readFile(join(outputRoot, locale, 'hero-carousel.json'), 'utf8'));
+      assert.equal(hero.status, 'DRAFT_PENDING_HUMAN_REVIEW');
+      assert.equal(hero.reviewEvidence, null);
+      assert.equal(hero.releaseEligible, false);
+      assert.equal(hero.translations.length, 6);
+      for (const row of hero.translations) assert.ok(validateTranslationResult({ sourceText: row.source }, row.translation).valid, `${locale}.${row.key} structural validation`);
     }
     const hi = JSON.parse(await readFile(join(outputRoot, 'hi', 'shared-ui.json'), 'utf8'));
     const zh = JSON.parse(await readFile(join(outputRoot, 'zh', 'shared-ui.json'), 'utf8'));

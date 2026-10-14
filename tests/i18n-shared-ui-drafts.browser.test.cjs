@@ -10,10 +10,12 @@ const root = path.resolve(__dirname, '..');
 const locales = ['sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt'];
 const labels = { sw: 'Kiswahili', hi: 'हिन्दी', ar: 'العربية', zh: '简体中文', fr: 'Français', es: 'Español', pt: 'Português' };
 const drafts = Object.fromEntries(locales.map((locale) => [locale, JSON.parse(fs.readFileSync(path.join(root, 'scripts', 'i18n-drafts', locale, 'shared-ui.json'), 'utf8'))]));
+const heroDrafts = Object.fromEntries(locales.map((locale) => [locale, JSON.parse(fs.readFileSync(path.join(root, 'scripts', 'i18n-drafts', locale, 'hero-carousel.json'), 'utf8'))]));
 const dictionary = JSON.parse(fs.readFileSync(path.join(root, 'assets', 'i18n-content.json'), 'utf8'));
 for (const locale of locales) {
   dictionary[locale] ||= {};
   for (const row of drafts[locale].translations) dictionary[locale][row.key] = row.translation;
+  for (const row of heroDrafts[locale].translations) dictionary[locale][row.key] = row.translation;
 }
 const releaseId = crypto.createHash('sha256').update(locales.map((locale) => drafts[locale].sourceDigest).join(':')).digest('hex').slice(0, 24);
 const unsignedAssets = Object.fromEntries(locales.map((locale) => [locale, {
@@ -37,6 +39,20 @@ const mime = new Map([
 let server;
 let browser;
 let baseUrl;
+
+async function addDraftBanner(page) {
+  await page.addInitScript(() => document.addEventListener('DOMContentLoaded', () => {
+    const badge = document.createElement('aside');
+    badge.textContent = 'LOCAL TRANSLATION DRAFT PREVIEW — NOT APPROVED OR PUBLIC';
+    badge.setAttribute('aria-label', badge.textContent);
+    Object.assign(badge.style, {
+      position: 'fixed', top: '8px', left: '50%', transform: 'translateX(-50%)', zIndex: '2147483647',
+      background: '#8a2d00', color: '#fff', padding: '5px 8px', font: '600 10px sans-serif',
+      borderRadius: '4px', pointerEvents: 'none',
+    });
+    document.body.append(badge);
+  }, { once: true }));
+}
 
 test.before(async () => {
   server = http.createServer((req, res) => {
@@ -79,9 +95,12 @@ test('seven locale shared UI drafts switch on real homepage DOM and persist in d
     assert.equal(drafts[locale].reviewEvidence, null);
     assert.equal(drafts[locale].releaseEligible, false);
     const expectedHome = drafts[locale].translations.find((row) => row.key === 'nav.home')?.translation;
+    const expectedHero = heroDrafts[locale].translations.map((row) => row.translation);
     assert.ok(expectedHome, `${locale} has a real navigation draft`);
+    assert.equal(expectedHero.length, 6);
 
     const desktop = await browser.newPage({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block' });
+    await addDraftBanner(desktop);
     await desktop.goto(`${baseUrl}/index.html`, { waitUntil: 'domcontentloaded' });
     await desktop.locator('.lang-trigger').first().click();
     const option = desktop.locator(`.lang-menu [data-lang="${locale}"]`).first();
@@ -90,22 +109,30 @@ test('seven locale shared UI drafts switch on real homepage DOM and persist in d
     await option.click();
     await desktop.waitForFunction((code) => window.LakeI18n?.current === code, locale);
     await desktop.waitForFunction((text) => document.querySelector('[data-i18n="nav.home"]')?.textContent === text, expectedHome);
+    await desktop.waitForFunction((texts) => texts.includes(document.querySelector('.hero-sub')?.textContent.trim()), expectedHero);
     if (locale === 'ar') assert.equal(await desktop.locator('html').getAttribute('dir'), 'rtl');
+    await desktop.waitForTimeout(1200);
     await desktop.screenshot({ path: path.join(screenshotDir, `homepage-${locale}-desktop-draft.png`) });
     await desktop.reload({ waitUntil: 'domcontentloaded' });
     await desktop.waitForFunction((code) => window.LakeI18n?.current === code, locale);
     await desktop.waitForFunction((text) => document.querySelector('[data-i18n="nav.home"]')?.textContent === text, expectedHome);
+    await desktop.locator('.lang-trigger').first().click();
+    await desktop.locator('.lang-menu [data-lang="en"]').first().click();
+    await desktop.waitForFunction(() => window.LakeI18n?.current === 'en' && document.querySelector('[data-i18n="nav.home"]')?.textContent === 'Home');
     await desktop.close();
 
     const mobile = await browser.newPage({ viewport: { width: 390, height: 844 }, serviceWorkers: 'block' });
+    await addDraftBanner(mobile);
     await mobile.goto(`${baseUrl}/index.html`, { waitUntil: 'domcontentloaded' });
     await mobile.locator('#nav-toggle').click();
     await mobile.locator('.mob-language-trigger').click();
     await mobile.locator(`#mob-language-panel [data-lang="${locale}"]`).click();
     await mobile.waitForFunction((code) => window.LakeI18n?.current === code, locale);
     await mobile.waitForFunction((text) => document.querySelector('[data-i18n="nav.home"]')?.textContent === text, expectedHome);
+    await mobile.waitForFunction((texts) => texts.includes(document.querySelector('.hero-sub')?.textContent.trim()), expectedHero);
     if (locale === 'ar') assert.equal(await mobile.locator('html').getAttribute('dir'), 'rtl');
     await mobile.locator('#nav-toggle').click();
+    await mobile.waitForTimeout(1200);
     await mobile.screenshot({ path: path.join(screenshotDir, `homepage-${locale}-mobile-draft.png`) });
     assert.ok(await mobile.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${locale} mobile width`);
     await mobile.close();
