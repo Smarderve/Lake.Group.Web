@@ -1,0 +1,780 @@
+{
+  "schemaVersion": 1,
+  "status": "DRAFT_PENDING_HUMAN_REVIEW",
+  "locale": "es",
+  "batch": "shared-navigation-mobile-footer",
+  "sourceDigest": "eaf9241cb0444cdcd070d109aa4ee284932eea9b0a416b8253a4105c20bcffb0",
+  "authoringMethod": "existing dictionary reuse plus AI-authored text; not machine-model output",
+  "createdAt": "2026-10-14T17:34:56.442Z",
+  "reviewEvidence": null,
+  "releaseEligible": false,
+  "candidateCount": 85,
+  "translatedCount": 85,
+  "translations": [
+    {
+      "id": "dict.nav.home",
+      "sourceHash": "c54d2ba901e129ec714422fd6ef578728ba8e5d15b9a9e92142ac2a562f0619a",
+      "key": "nav.home",
+      "source": "Home",
+      "translation": "Inicio",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.about",
+      "sourceHash": "6b21a4a7e1e97f1385c62e02cac6ce685263b652a43fd167b73c075a6aaacd40",
+      "key": "nav.about",
+      "source": "About",
+      "translation": "Acerca de",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.services",
+      "sourceHash": "290bc7f4f4d00690c3714a10a835bba0a848b33b2fa7c32916db4388fe068b22",
+      "key": "nav.services",
+      "source": "Services",
+      "translation": "Servicios",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.dd.energy",
+      "sourceHash": "6540558ddbc35bec81e9470756a6b3692e4707502ef43d4089714c170a5d1aa6",
+      "key": "nav.dd.energy",
+      "source": "Energy",
+      "translation": "Energía",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.fuel",
+      "sourceHash": "0fb8d0508c7972a9c9fee49779a6a1cade485acfbffd68ea0174cdae58d82b78",
+      "key": "nav.fuel",
+      "source": "Fuel & Petroleum",
+      "translation": "Combustible y petróleo",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.lpg",
+      "sourceHash": "e62ed89a3dcbf181857c63a05b38cd24d048f9e924efab468fa0407b22d1afc1",
+      "key": "nav.lpg",
+      "source": "LPG Gas",
+      "translation": "LPG gasolina",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.lubricants",
+      "sourceHash": "2496855b3cac500a9340cccbc82f302e5ab669e8908640e488b59941652a1f40",
+      "key": "nav.lubricants",
+      "source": "Lubricants",
+      "translation": "Lubricantes",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.dd.industry",
+      "sourceHash": "131ac31cbd995e8b566731086bd6d4b7d6d9fcdbbf2523ce68b807dfd7db08d0",
+      "key": "nav.dd.industry",
+      "source": "Industry",
+      "translation": "Industria",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.steel",
+      "sourceHash": "b63460432d47ac2839b7920e9dfa0b2a82a30f6c84997c6aef2b96bedb241da6",
+      "key": "nav.steel",
+      "source": "Lake Steel",
+      "translation": "Lake Steel",
+      "origin": "ai-authored-draft",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.concrete",
+      "sourceHash": "fe2108cbf270fdd1c897fc263568ea54df34de20e6ee39b880ccd7865bde60f6",
+      "key": "nav.concrete",
+      "source": "Concrete & Aggregate",
+      "translation": "Concreto y agregado",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.dd.logistics",
+      "sourceHash": "ce74413b12040bb0ef91217510174fed606566be0c6ab53f59d96b7f6c771591",
+      "key": "nav.dd.logistics",
+      "source": "Logistics",
+      "translation": "Logística",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.logistics",
+      "sourceHash": "c4e9da869f71a7c21e34aa8b93be01c9bf90a537e9e20856b855dfd766047b4e",
+      "key": "nav.logistics",
+      "source": "Transport & Haulage",
+      "translation": "Transporte y acarreo",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.containers",
+      "sourceHash": "34f4ee2e71ceecd7fac6a59b9c12df899b52b6d70540b834c282e09a8cd84a24",
+      "key": "nav.containers",
+      "source": "Container Services",
+      "translation": "Servicios de contenedores",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.companies",
+      "sourceHash": "b67ea56f3d41e9c4c09b33ae25f65ad8e78166dfda2c0960d806c7cac5ae92b8",
+      "key": "nav.companies",
+      "source": "Business Verticals",
+      "translation": "Verticales de Negocio",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.mob.companies",
+      "sourceHash": "ca827ec15ea1796b63e5edbcd8a348fcdba546cbc33758e3a4290c0ef98a726d",
+      "key": "mob.companies",
+      "source": "Business Verticals",
+      "translation": "Verticales de Negocio",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.dd.energies",
+      "sourceHash": "6fd9dfb552e4cd2b6422f2f79d9b062f70680c43692ad98c5f20c6353a057ee3",
+      "key": "nav.dd.energies",
+      "source": "Energies Sector",
+      "translation": "Sector energético",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.dd.manufacturing",
+      "sourceHash": "a7c3c3d43f3aef6d0397cac4bed0bccc2e6c36cc8cd471a26adfecb15fa91762",
+      "key": "nav.dd.manufacturing",
+      "source": "Manufacturing Sector",
+      "translation": "Sector manufacturero",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.dd.logisticsCos",
+      "sourceHash": "3b979f2aa924b226011b6c338a4cdff3d542747a7ef7294d8afaa298ea71f458",
+      "key": "nav.dd.logisticsCos",
+      "source": "Logistics Sector",
+      "translation": "Sector logístico",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.dd.realEstate",
+      "sourceHash": "b72c6c339b455773b7fceb03e3fdade95939f0365f982edc734f8edd5a89da5c",
+      "key": "nav.dd.realEstate",
+      "source": "Real Estate Sector",
+      "translation": "Sector inmobiliario",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.dd.agro",
+      "sourceHash": "6f4c431e6d1f9163b97b09b78291e309579db5fc75393452c9cac16ea31c8ca6",
+      "key": "nav.dd.agro",
+      "source": "Agro Processing Sector",
+      "translation": "Sector de procesamiento agrícola",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.dd.automotive",
+      "sourceHash": "ec2bfdedf7117f640b1f880e45f9df604acc885828153f6a7c3880b1b95c033d",
+      "key": "nav.dd.automotive",
+      "source": "Automotive Sector",
+      "translation": "Sector automotriz",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.co.lakeOil",
+      "sourceHash": "e933915e23c9b03e9a4cc4837d4c6607a38409fb958ab9a215da5e0609d5b023",
+      "key": "nav.co.lakeOil",
+      "source": "Lake Oil",
+      "translation": "Lake Oil",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.co.lakeAviation",
+      "sourceHash": "2a82fba7f14590a5e1cc9a0a1fe341d9534a1df6ce29fcb52a41da01d613a073",
+      "key": "nav.co.lakeAviation",
+      "source": "Lake Aviation",
+      "translation": "Lake Aviation",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.co.lakeGas",
+      "sourceHash": "ad8ab1501abe385b1e1f46d68a278386aab16895931c61be63c2f0fe9a0f93f3",
+      "key": "nav.co.lakeGas",
+      "source": "Lake Gas",
+      "translation": "Lake Gas",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.co.lakeLubes",
+      "sourceHash": "ae71babaef13212189897a5c10f57a5214e8a2c97aab91b711f835e592e07d48",
+      "key": "nav.co.lakeLubes",
+      "source": "Lake Lubes",
+      "translation": "Lake Lubes",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.co.lakeBuildings",
+      "sourceHash": "42961b397151844cbcc0ae87f4c6e9e78f492090fa566ea779f6f62563b2406f",
+      "key": "nav.co.lakeBuildings",
+      "source": "Lake Building Solution",
+      "translation": "Lake Building Solution",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.co.lakePipes",
+      "sourceHash": "f6dec98243d45970d80eae4941f62085e667806f60731c33614d982e14328b7a",
+      "key": "nav.co.lakePipes",
+      "source": "Lake Pipes",
+      "translation": "Lake Pipes",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.co.lakeSteel",
+      "sourceHash": "41c78db5a8ac8e1be12bf270a8b5313c5e323e8892a3e997c06429b51fd8a396",
+      "key": "nav.co.lakeSteel",
+      "source": "Lake Steel",
+      "translation": "Lake Steel",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.co.lakeCylinders",
+      "sourceHash": "cd1f8746b542b9817f884c9b68fad7c187e891f6ecd1866958da94c7b6a7ce50",
+      "key": "nav.co.lakeCylinders",
+      "source": "Lake Cylinders",
+      "translation": "Lake Cylinders",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.co.gulfAggregates",
+      "sourceHash": "de86a623d931ac26f122b0a35239ae8261510d6b4f85b651ec5719683b72d3dd",
+      "key": "nav.co.gulfAggregates",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.co.atl",
+      "sourceHash": "18068a72d932dc4872855cad55459078e0d68f01cc3fa9bf529447f6473a60c0",
+      "key": "nav.co.atl",
+      "source": "ATL",
+      "translation": "ATL",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.co.lakePremixCement",
+      "sourceHash": "6895b48e53741a4b1604d9955280ba261b0534f61d6b0dcdad3fd09db05dd297",
+      "key": "nav.co.lakePremixCement",
+      "source": "Lake Premix",
+      "translation": "Lake Premix",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.co.aficd",
+      "sourceHash": "d49756fa4033f7c2dd92507168eca763d1c55bc160c15047bad1804730728cb2",
+      "key": "nav.co.aficd",
+      "source": "AFICD",
+      "translation": "AFICD",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.co.aill",
+      "sourceHash": "2359cdcde47ba8b8105b776116a2cec3c0d652b9ac0136c6f5d40a4c42570703",
+      "key": "nav.co.aill",
+      "source": "AILL",
+      "translation": "AILL",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.co.lakeTrans",
+      "sourceHash": "7101548e78ded456d1e37ef139227644b75a3f183c2ad1806931f8043e667c3b",
+      "key": "nav.co.lakeTrans",
+      "source": "Lake Trans",
+      "translation": "Lake Trans",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.co.crossCountry",
+      "sourceHash": "bab8b143fa17fd2298eabc2ddb3e75b138642821a6940627a30fdc099d6f0768",
+      "key": "nav.co.crossCountry",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.co.lakeAgro",
+      "sourceHash": "c782d534e9b48f1183aa7cdc356336b4fb693ee5651c014803f7588622956bae",
+      "key": "nav.co.lakeAgro",
+      "source": "Lake Agro",
+      "translation": "Lake Agro",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.co.assemblyTech",
+      "sourceHash": "5ea52cae250c00e7e6240aa31038f923c19752a304d720702598b7e4bbb986aa",
+      "key": "nav.co.assemblyTech",
+      "source": "Assembly Tech Limited",
+      "translation": "Assembly Tech Limited",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.co.agrinovaTech",
+      "sourceHash": "b797d898533b370d122b1d018fe614eeeda007fa689b113268f17a66da22c284",
+      "key": "nav.co.agrinovaTech",
+      "source": "Agrinova Tech Limited",
+      "translation": "Agrinova Tech Limited",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.co.nextDriveMotors",
+      "sourceHash": "427b15ce081cebe1d39e18c860021e205cbb4355a9c81b6cd5e3cbabffbae486",
+      "key": "nav.co.nextDriveMotors",
+      "source": "NextDrive Motors Limited",
+      "translation": "NextDrive Motors Limited",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.network",
+      "sourceHash": "0622570e25ae4f02a908018830bc47c4585f4d32c04e200d036f84ab0b0c41c0",
+      "key": "nav.network",
+      "source": "Operations Map",
+      "translation": "Mapa de Operaciones",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.africaMap",
+      "sourceHash": "03a5821558b5b07afc5342c11fa7ff85bf27d3472d9fa94b7eec387f20c416fe",
+      "key": "nav.africaMap",
+      "source": "Operations Map",
+      "translation": "Mapa de Operaciones",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.stations",
+      "sourceHash": "ea05088a6e490deaf4b073cc4dbbeb34e2541d1569d3835eb460a670c840caa2",
+      "key": "nav.stations",
+      "source": "Station Locator",
+      "translation": "Localizadora de estaciones",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.fleet",
+      "sourceHash": "2a7222d973d1052ce5742c80b3f0f1202eb3ae4684e0a2adea39cf386c6ed876",
+      "key": "nav.fleet",
+      "source": "Our Fleet",
+      "translation": "Nuestra flota",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.company",
+      "sourceHash": "eab297f2ddb5764e5e87b8c1e801af9e704fe4881db31a9d7b7a3082f36e9554",
+      "key": "nav.company",
+      "source": "Corporate",
+      "translation": "Corporativo",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.history",
+      "sourceHash": "0a26c0e69f68e7df95c90b4f42ea6098a48f53269d6a667a2a0eb921899fa25e",
+      "key": "nav.history",
+      "source": "Our History",
+      "translation": "Nuestra Historia",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.leadership",
+      "sourceHash": "a518e806e72364b143234d13f5bde657009f36e359afbc27a145aac135f3bede",
+      "key": "nav.leadership",
+      "source": "Leadership",
+      "translation": "Liderazgo",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.csr",
+      "sourceHash": "fd76c78d2119fb10c63d85242df96348db513683cbf89ea8586d8aab74250c21",
+      "key": "nav.csr",
+      "source": "CSR & Sustainability",
+      "translation": "CSR y Sostenibilidad",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.investors",
+      "sourceHash": "59721995bb121d0c80771bd67b54fcf42f949b4e2d1f55940df61608e5b76d0c",
+      "key": "nav.investors",
+      "source": "Investor Relations",
+      "translation": "Relaciones con inversores",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.gallery",
+      "sourceHash": "dcf6a557d31f6b19bce416489490153c9fa332c157bb8738bb84e44ccad71d40",
+      "key": "nav.gallery",
+      "source": "Gallery",
+      "translation": "Galería",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.news",
+      "sourceHash": "be570a0c5de95d991d75c307df24117adf87037be1372ed22563c450b5386fb9",
+      "key": "nav.news",
+      "source": "News",
+      "translation": "Noticias",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.careers",
+      "sourceHash": "4bf6e7e458d6860aa16aa49991f115bd5a41c8ebc11c233bf31f9bd24c3aff64",
+      "key": "nav.careers",
+      "source": "Careers",
+      "translation": "Carreras",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.fuelShort",
+      "sourceHash": "87b4cf429ef5cfc24badfea43b796661b62ea8de9d5ae8632b81d151021c06c9",
+      "key": "nav.fuelShort",
+      "source": "Fuel",
+      "translation": "Combustible",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.steelShort",
+      "sourceHash": "a84d830f717e1d6c14d0376b4f262a394b14a7ec5fc7b38f8bc7ac3d763fa266",
+      "key": "nav.steelShort",
+      "source": "Steel",
+      "translation": "Acero",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.concreteShort",
+      "sourceHash": "f4962d3d3e005e01c03d17611bd9fb6da462c183d917638717d6846f7f5124a5",
+      "key": "nav.concreteShort",
+      "source": "Concrete",
+      "translation": "Concreta",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.transportShort",
+      "sourceHash": "6dfc7cff50e091fa6eca1f65f10c1a3faf335cbe0a101c8024ac25b4e0839ab8",
+      "key": "nav.transportShort",
+      "source": "Transport",
+      "translation": "Transporte",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.containersShort",
+      "sourceHash": "6e4861227255dbb2eeff01486f7dc81adacb3cd5977fe8aeebe51ecf28c6d748",
+      "key": "nav.containersShort",
+      "source": "Containers",
+      "translation": "Contenedores",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.africaMapShort",
+      "sourceHash": "429efdd0167cc57dcdfd57272acf1a0c4d6bada4e2958c98bba5b3fc7cf2f7d9",
+      "key": "nav.africaMapShort",
+      "source": "Operations Map",
+      "translation": "Mapa de Operaciones",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.historyShort",
+      "sourceHash": "f110a6ca70e7bcafb3f6404f74718c0412f203fc716360964b353afc673734a0",
+      "key": "nav.historyShort",
+      "source": "History",
+      "translation": "Historia",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.csrShort",
+      "sourceHash": "b98dd9055572aec0a4133cd064cbe2893603aa2ee16ed410046a60cae7e6ecb2",
+      "key": "nav.csrShort",
+      "source": "CSR",
+      "translation": "CSR",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.investorsShort",
+      "sourceHash": "5f672410145d90859c054ad1ba8fb2d173f4dd14843880defb06f58db43e368b",
+      "key": "nav.investorsShort",
+      "source": "Investors",
+      "translation": "Inversoras",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.aboutUs",
+      "sourceHash": "39881f7349d988a7f5f77add8e600c142798bbbb13be174e56805d78c1157b32",
+      "key": "nav.aboutUs",
+      "source": "About Us",
+      "translation": "Sobre nosotros",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.mob.services",
+      "sourceHash": "41829a22b6737d9ccb5cd90a5802c1a6119201ba7bf158810e861d67ba9b93ac",
+      "key": "mob.services",
+      "source": "Services",
+      "translation": "Servicios",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.mob.network",
+      "sourceHash": "66598ca8f88e0d09ebc6af0bad63d3bfdfdaa9816a36533edb17c8e680f230e1",
+      "key": "mob.network",
+      "source": "Operations Map",
+      "translation": "Mapa de Operaciones",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.mob.company",
+      "sourceHash": "2ab7f61fb672bbb3b7dfbe41d06f55874540bb0bc2d3fa5572270bd262010387",
+      "key": "mob.company",
+      "source": "Corporate",
+      "translation": "Corporativa",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.mob.more",
+      "sourceHash": "dd5c2209f4337818f61b42773d4774f4bb38999f0e28ac18335e76719db11287",
+      "key": "mob.more",
+      "source": "More",
+      "translation": "Más",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.footer.motto",
+      "sourceHash": "35fdf3411a67aeb741039c568bc399dd37b83144501b719c0000546656d6f856",
+      "key": "footer.motto",
+      "source": "Quality, Service, Safety, Professionalism",
+      "translation": "Calidad, Servicio, Seguridad, Profesionalismo",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.footer.contact",
+      "sourceHash": "05051f0581990a5af003aeb3ae27cd02778bdde2d5f886a46a14703505f73df7",
+      "key": "footer.contact",
+      "source": "Contact Us",
+      "translation": "Contacta con nosotros",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.footer.services",
+      "sourceHash": "2131b369ea06c37f518de620e56485d2c553f38f1b95ed302a23cba5aac29b5d",
+      "key": "footer.services",
+      "source": "Business Verticals",
+      "translation": "Verticales de Negocio",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.footer.viewAllCompanies",
+      "sourceHash": "074e00176df02b36fc439e4fda09c332c81004bf88eecad44436c9a31393c011",
+      "key": "footer.viewAllCompanies",
+      "source": "View All Business Verticals",
+      "translation": "Ver todas las verticales de negocio",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.footer.company",
+      "sourceHash": "4e7438a76d9b6c0a036cfbf0428cda54d06be88d448b574bcd40cc54bc166fea",
+      "key": "footer.company",
+      "source": "Corporate",
+      "translation": "Corporativa",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.footer.contactHeading",
+      "sourceHash": "8e9031bb830caec5506a2a3a8bf32c76a91d8d0ccefa32b03f0ab955197e5e17",
+      "key": "footer.contactHeading",
+      "source": "Contact",
+      "translation": "Contacto",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.footer.address",
+      "sourceHash": "d4afeac0129d7bdd48e981de33b801c4ebb7fc4748dd13b19de1c626328b21ef",
+      "key": "footer.address",
+      "source": "Plots 72 & 73, Vijibweni Area, Kigamboni, Dar es Salaam",
+      "translation": "Parcelas 72 y 73, área de Vijibweni, Kigamboni, Dar es Salaam",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.footer.rights",
+      "sourceHash": "675a239bba971b15cbe2fed62aab2fe443434c91fe71475130fc84c8e6a976db",
+      "key": "footer.rights",
+      "source": "All rights reserved.",
+      "translation": "Reservados todos los derechos.",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.footer.privacy",
+      "sourceHash": "5d396970e1d32d925d5f22eb93f026a348b37abe5e75ad6c1851c38f6682ca7a",
+      "key": "footer.privacy",
+      "source": "Privacy",
+      "translation": "Privacidad",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.footer.terms",
+      "sourceHash": "9d01b07489ebcad42fbcc09e0d036cf13639286a3c7d770353a2a47694faf996",
+      "key": "footer.terms",
+      "source": "Terms",
+      "translation": "Términos",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.contact",
+      "sourceHash": "18b7ea5199a640948455ef004cbf153f15ed3e09e61ab7107e98745fc18416b6",
+      "key": "nav.contact",
+      "source": "Contact Us",
+      "translation": "Contáctenos",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.mob.language",
+      "sourceHash": "ca5eb967be36448a3c7a0a219aa98ae1955e05d974225373d4b8261ff1d7f178",
+      "key": "mob.language",
+      "source": "Language",
+      "translation": "Idioma",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.nav.menu",
+      "sourceHash": "04a490387dfd76a40a7ff606472a5b5641176564a82d064b08864be1a8fa1f97",
+      "key": "nav.menu",
+      "source": "Menu",
+      "translation": "Menú",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.footer.youtube",
+      "sourceHash": "e5fa14a1ebcf78a165a4700c19d9324f82a67f6369514f9cb43684a178288e2c",
+      "key": "footer.youtube",
+      "source": "YouTube",
+      "translation": "YouTube",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.footer.instagram",
+      "sourceHash": "3507b81bb39852a69588b030dbf2f5426c3332212103b73a195bf64eb38acf5a",
+      "key": "footer.instagram",
+      "source": "Instagram",
+      "translation": "Instagram",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.footer.whatsapp",
+      "sourceHash": "ef87ccb7921bcf63142a91a92117eb5b40364c99e25c38439be112cbe5db2403",
+      "key": "footer.whatsapp",
+      "source": "WhatsApp",
+      "translation": "WhatsApp",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.footer.question",
+      "sourceHash": "52f1f4db10eb77eb278e17617daee00cca5d5b54206e39ccacd875b2fba2d179",
+      "key": "footer.question",
+      "source": "Got a Question?",
+      "translation": "¿Tiene alguna pregunta?",
+      "origin": "ai-authored-draft",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.footer.connect",
+      "sourceHash": "886d97942f913c548d8b0b76f016881ea5793e57cc1dae51bac88c6509b3f32d",
+      "key": "footer.connect",
+      "source": "Connect With Us",
+      "translation": "Conéctese con nosotros",
+      "origin": "ai-authored-draft",
+      "validation": "structural checks passed; linguistic review required"
+    },
+    {
+      "id": "dict.footer.facebook",
+      "sourceHash": "126a6af8d8717c341f6362954d94bdf241bdb0da5abf904d9a42dec4db4378e0",
+      "key": "footer.facebook",
+      "source": "Facebook",
+      "translation": "Facebook",
+      "origin": "reused-existing-dictionary",
+      "validation": "structural checks passed; linguistic review required"
+    }
+  ]
+}
