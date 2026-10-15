@@ -38,7 +38,7 @@
 
 'use strict';
 
-const VERSION = 'v108-20261015-01';
+const VERSION = 'v109-20261015-02';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -85,6 +85,7 @@ const PRECACHE_URLS = [
   './assets/i18n-content.js?v=20261014-03',
   './assets/assistant.js?v=20261013-02',
   './assets/assistant.css?v=20261015-01',
+  './assets/home-hero.js?v=20261015-02',
   './assets/phase-01-navbar.css?v=20261013-02',
   './assets/phase-01-footer.css?v=20260828-01',
   './assets/phase-01-navbar.js?v=20260828-01',

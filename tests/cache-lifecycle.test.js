@@ -18,9 +18,10 @@ for (const url of urls) {
   assert.ok(fs.existsSync(path.join(ROOT, pathname)), `precache entry exists: ${url}`);
 }
 
-assert.match(sw, /const VERSION = 'v108-20261015-01'/);
+assert.match(sw, /const VERSION = 'v109-20261015-02'/);
 assert.ok(urls.includes('./assets/assistant.js?v=20261013-02'), 'assistant JavaScript precache uses the current release');
 assert.ok(urls.includes('./assets/assistant.css?v=20261015-01'), 'assistant CSS precache uses the current release');
+assert.ok(urls.includes('./assets/home-hero.js?v=20261015-02'), 'homepage hero JavaScript precache uses the current release');
 assert.match(sw, /await self\.skipWaiting\(\)/, 'the current worker activates without waiting for closed tabs');
 assert.match(sw, /await self\.clients\.claim\(\)/, 'future navigations are claimed without reloading visible tabs');
 assert.match(sw, /name\.startsWith\('lake-'\) && !KNOWN_CACHES\.includes\(name\)/);

@@ -20,6 +20,7 @@
   var index = 0;
   var timer = null;
   var paused = false;
+  var pageActive = true;
   var transitionTimer = null;
   var readyPromises = {};
   var requestToken = 0;
@@ -59,7 +60,10 @@
 
   function ensureSlideReady(i) {
     if (readyPromises[i]) return readyPromises[i];
-    var image = hydrateSlideImage(slides[i]);
+    // The first slide is eagerly loaded with `src`, while later slides are
+    // hydrated from `data-src`. Accept both so the final-to-first wrap waits
+    // for the already eager image instead of treating it as unavailable.
+    var image = hydrateSlideImage(slides[i]) || slides[i].querySelector("img");
     if (!image) return Promise.resolve(false);
     try { image.loading = "eager"; } catch (_) { /* ignore */ }
     image.decoding = "async";
@@ -164,16 +168,16 @@
      without a future tick or create competing timers. */
   function schedule() {
     stop();
-    if (!paused) {
+    if (!paused && pageActive && !document.hidden) {
       timer = setTimeout(function advance() {
         timer = null;
-        if (paused) return;
+        if (paused || !pageActive || document.hidden) return;
         // The modulo expression deliberately remains the single slide-order
         // rule: reveal is deferred until ensureSlideReady resolves.
         // index = (index + 1) % slides.length
         var next = (index + 1) % slides.length;
         ensureSlideReady(next).then(function (ready) {
-          if (paused) return;
+          if (paused || !pageActive || document.hidden) return;
           if (ready) {
             index = next;
             setActive(index);
@@ -202,7 +206,7 @@
       var token = ++requestToken;
       stop();
       ensureSlideReady(n).then(function (ready) {
-        if (token !== requestToken || paused || !ready) return;
+        if (token !== requestToken || paused || !pageActive || document.hidden || !ready) return;
         index = n;
         setActive(index);
         schedule();
@@ -218,6 +222,20 @@
   document.addEventListener("visibilitychange", function () {
     if (document.hidden) stop();
     else schedule();
+  });
+
+  window.addEventListener("pagehide", function () {
+    pageActive = false;
+    stop();
+    if (transitionTimer !== null) {
+      clearTimeout(transitionTimer);
+      transitionTimer = null;
+    }
+  });
+  window.addEventListener("pageshow", function (event) {
+    if (!event.persisted) return;
+    pageActive = true;
+    schedule();
   });
 
   /* When the visitor switches language (or i18n first applies), re-render the
