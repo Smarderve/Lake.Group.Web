@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 1,
+  "status": "DRAFT_PENDING_HUMAN_REVIEW",
+  "locale": "pt",
+  "page": "csr.html",
+  "sourceManifestDigest": "181d42c4930d1abb298d1bb6193e994fb20c4653ed2347cb78f9ae1ea1fa8fa8",
+  "sourceManifestGeneratedAt": "2026-10-15T10:48:55.402Z",
+  "createdAt": "2026-10-15T10:47:00.775Z",
+  "authoringMethod": "existing dictionary reuse; no model output for generated rows",
+  "reviewEvidence": null,
+  "releaseEligible": false,
+  "candidateCount": 93,
+  "translatedCount": 24,
+  "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
+  "translations": [
+    {
+      "id": "auto.c010967be7de0679",
+      "sourceHash": "6970059994dce7e30c88b19df4696c7234a01aca3caf2fa69322593c6a6af253",
+      "source": "Energies Sector",
+      "translation": "Setor de Energia",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.dd.energies"
+    },
+    {
+      "id": "auto.d76d268d6649c8ba",
+      "sourceHash": "a5afb4aade70f80dfcfe58c3010f00144236c6ca8129540b687e55212a3b578c",
+      "source": "Manufacturing Sector",
+      "translation": "Setor de Fabrico",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.dd.manufacturing"
+    },
+    {
+      "id": "auto.f0708d53db86bf06",
+      "sourceHash": "e7b5da31e0d3ed96a265076f35ba8a8f9efcbe2d5334e1a630a2a6e97ea0d8a9",
+      "source": "Logistics Sector",
+      "translation": "Setor de Logística",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.dd.logisticsCos"
+    },
+    {
+      "id": "auto.825ed55db2e24f1c",
+      "sourceHash": "c4555e8c89a2895e935b9299e6d4716cb0321cd039f54446c9a71fc67fc57a22",
+      "source": "Real Estate Sector",
+      "translation": "Setor Imobiliário",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.dd.realEstate"
+    },
+    {
+      "id": "auto.99eed908aea7ce65",
+      "sourceHash": "7e00b18a6385c9956eed4a4293f467aa59bb8ea1ef99405ee3a8b103956ab404",
+      "source": "Agro Processing Sector",
+      "translation": "Setor de Agroprocessamento",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.dd.agro"
+    },
+    {
+      "id": "auto.4f886e8a9d6b740e",
+      "sourceHash": "c20855570f1042ee09d6d09266c094337995decf07d38fec808dcbc6774ec507",
+      "source": "Automotive Sector",
+      "translation": "Setor Automotivo",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.dd.automotive"
+    },
+    {
+      "id": "auto.762b39c0fb2e7079.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "RSC e sustentabilidade",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.csr"
+    },
+    {
+      "id": "auto.762b39c0fb2e7079.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "Galeria",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.gallery"
+    },
+    {
+      "id": "auto.04822b094d36d31a",
+      "sourceHash": "3a78695388b38b5cceefaf6796b0137877514593543b91af2752d5a17e3d736c",
+      "source": "Home",
+      "translation": "Início",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.home"
+    },
+    {
+      "id": "auto.04822b094d36d31a.2",
+      "sourceHash": "4efca0d10c5feb8e9b35eb1d994f2905bb71714e6a271f511d713b539ea5faa1",
+      "source": "About",
+      "translation": "Sobre",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.about"
+    },
+    {
+      "id": "auto.f707aa919842ef50",
+      "sourceHash": "cf60fd65dcd0f8b69d51d6cb91fe601244ed4af363dd5f2a242787f54c16300d",
+      "source": "Business Verticals",
+      "translation": "Verticais de Negocios",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.companies"
+    },
+    {
+      "id": "auto.e943edd1f7a22cef",
+      "sourceHash": "ec75f79040af17557c450e94a4214a484350634a433592d2eb31784c5a46e865",
+      "source": "Leadership",
+      "translation": "Liderança",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.leadership"
+    },
+    {
+      "id": "auto.7f2235949f35c960",
+      "sourceHash": "a034729933d1cbf407645e11d9c91d9ac1bfddbef23fd58cb36782e3f60ae659",
+      "source": "Corporate",
+      "translation": "Corporativo",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.company"
+    },
+    {
+      "id": "auto.ee32f6bdeca1dc1d.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "RSC e sustentabilidade",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.csr"
+    },
+    {
+      "id": "auto.ee32f6bdeca1dc1d.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "Galeria",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.gallery"
+    },
+    {
+      "id": "auto.715f0b40fb5afdd4",
+      "sourceHash": "7e658675b5ca75b3802ff34b548abe663438f113bed3acf541142b317c146e34",
+      "source": "Careers",
+      "translation": "Carreiras",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(4)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.careers"
+    },
+    {
+      "id": "auto.715f0b40fb5afdd4.2",
+      "sourceHash": "98b67063cf8e584d75e53b88472ee85473e01e0ea16f29ece9cc98f4a2710494",
+      "source": "Contact Us",
+      "translation": "Contacte-nos",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(5)",
+      "attribute": null,
+      "origin": "existing-dictionary:footer.contact"
+    },
+    {
+      "id": "auto.52277b4f08ca4987",
+      "sourceHash": "69518e684f065f0c39a26d5f18ae2a775ffffd4e390cc3d73afeac2fb50992a7",
+      "source": "Type a message...",
+      "translation": "Escreva uma mensagem...",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > input:nth-of-type(1)",
+      "attribute": "placeholder",
+      "origin": "existing-dictionary:chat.placeholder"
+    },
+    {
+      "id": "auto.b0afbd27cbb46e01",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "Tanzânia",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary:africa_network.27"
+    },
+    {
+      "id": "auto.2f36f4dc8b3dd795",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "Quénia",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary:africa_network.29"
+    },
+    {
+      "id": "auto.50fdfff4437b898e",
+      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
+      "source": "Zambia",
+      "translation": "Zâmbia",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary:africa_network.31"
+    },
+    {
+      "id": "auto.bb869a4350217e22",
+      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
+      "source": "Rwanda",
+      "translation": "Ruanda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary:africa_network.33"
+    },
+    {
+      "id": "auto.588cdec0d71447f4",
+      "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
+      "source": "Ethiopia",
+      "translation": "Etiópia",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary:africa_network.38"
+    },
+    {
+      "id": "auto.7ee18ee0016d499b",
+      "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
+      "source": "Mozambique",
+      "translation": "Moçambique",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary:africa_network.40"
+    }
+  ]
+}

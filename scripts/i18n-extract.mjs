@@ -199,7 +199,7 @@ export function extractPublicHtml(directory = root) {
   const sourceDrift = keyedRefs.filter((ref) => !ref.source || (ref.rawText && normalizeSource(ref.rawText) !== normalizeSource(ref.source))).map((ref) => ({ ...ref, status: ref.source ? 'source-outdated' : 'missing-key' }));
   const referencedKeys = new Set([...keyedRefs.map((ref) => ref.key), ...codeKeys]);
   const orphanedDictionaryKeys = Object.keys(dictionary).filter((key) => !referencedKeys.has(key));
-  return { schemaVersion: 2, generatedAt: new Date().toISOString(), locales: ['sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt'], translationStatus: 'pending-benchmark', pagesScanned: pages.length, sourceFilesScanned: scripts.length, scriptFilesByPage, entries, classifications, duplicates, unsupportedPatterns, extractionErrors, sourceDrift, orphanedDictionaryKeys };
+  return { schemaVersion: 2, generatedAt: new Date().toISOString(), locales: ['sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt'], translationStatus: 'pending-benchmark', pagesScanned: pages.length, sourceFilesScanned: scripts.length, scriptFilesByPage, entries, keyedRefs, classifications, duplicates, unsupportedPatterns, extractionErrors, sourceDrift, orphanedDictionaryKeys };
 }
 
 export function compareExtractionSnapshots(previous, current) {

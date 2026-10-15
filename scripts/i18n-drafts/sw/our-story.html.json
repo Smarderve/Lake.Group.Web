@@ -1,0 +1,207 @@
+{
+  "schemaVersion": 1,
+  "status": "DRAFT_PENDING_HUMAN_REVIEW",
+  "locale": "sw",
+  "page": "our-story.html",
+  "sourceManifestDigest": "181d42c4930d1abb298d1bb6193e994fb20c4653ed2347cb78f9ae1ea1fa8fa8",
+  "sourceManifestGeneratedAt": "2026-10-15T10:48:55.402Z",
+  "createdAt": "2026-10-15T10:47:00.398Z",
+  "authoringMethod": "existing dictionary reuse; no model output for generated rows",
+  "reviewEvidence": null,
+  "releaseEligible": false,
+  "candidateCount": 66,
+  "translatedCount": 19,
+  "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
+  "translations": [
+    {
+      "id": "auto.b7c6cf6caab7857f",
+      "sourceHash": "6970059994dce7e30c88b19df4696c7234a01aca3caf2fa69322593c6a6af253",
+      "source": "Energies Sector",
+      "translation": "Sekta ya Nishati",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.dd.energies"
+    },
+    {
+      "id": "auto.507296b32a58f4a6",
+      "sourceHash": "a5afb4aade70f80dfcfe58c3010f00144236c6ca8129540b687e55212a3b578c",
+      "source": "Manufacturing Sector",
+      "translation": "Sekta ya Uzalishaji",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.dd.manufacturing"
+    },
+    {
+      "id": "auto.fbfb803bf5c9657c",
+      "sourceHash": "e7b5da31e0d3ed96a265076f35ba8a8f9efcbe2d5334e1a630a2a6e97ea0d8a9",
+      "source": "Logistics Sector",
+      "translation": "Sekta ya Usafirishaji",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.dd.logisticsCos"
+    },
+    {
+      "id": "auto.fdc3031c88c7c523",
+      "sourceHash": "c4555e8c89a2895e935b9299e6d4716cb0321cd039f54446c9a71fc67fc57a22",
+      "source": "Real Estate Sector",
+      "translation": "Sekta ya Mali Isiyohamishika",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.dd.realEstate"
+    },
+    {
+      "id": "auto.c85234a906b7ce36",
+      "sourceHash": "7e00b18a6385c9956eed4a4293f467aa59bb8ea1ef99405ee3a8b103956ab404",
+      "source": "Agro Processing Sector",
+      "translation": "Sekta ya Usindikaji wa Kilimo",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.dd.agro"
+    },
+    {
+      "id": "auto.eca1367728b8e745",
+      "sourceHash": "c20855570f1042ee09d6d09266c094337995decf07d38fec808dcbc6774ec507",
+      "source": "Automotive Sector",
+      "translation": "Sekta ya Magari",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.dd.automotive"
+    },
+    {
+      "id": "auto.8ea13294b8a776a3.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "Matunzio",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.gallery"
+    },
+    {
+      "id": "auto.067cde31d7a3c7af",
+      "sourceHash": "99af6606ff9d6cd5154d4d4e9c21e325086d3e904677cdb41d363c8a3480f862",
+      "source": "Menu",
+      "translation": "Menyu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary:nav.menu"
+    },
+    {
+      "id": "auto.6858432de007681f",
+      "sourceHash": "3a78695388b38b5cceefaf6796b0137877514593543b91af2752d5a17e3d736c",
+      "source": "Home",
+      "translation": "Nyumbani",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.home"
+    },
+    {
+      "id": "auto.6858432de007681f.2",
+      "sourceHash": "4efca0d10c5feb8e9b35eb1d994f2905bb71714e6a271f511d713b539ea5faa1",
+      "source": "About",
+      "translation": "Kuhusu Sisi",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.about"
+    },
+    {
+      "id": "auto.34ee5c78143495cc",
+      "sourceHash": "cf60fd65dcd0f8b69d51d6cb91fe601244ed4af363dd5f2a242787f54c16300d",
+      "source": "Business Verticals",
+      "translation": "Sekta za Biashara",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.companies"
+    },
+    {
+      "id": "auto.a31dd7f2e74cc081",
+      "sourceHash": "ec75f79040af17557c450e94a4214a484350634a433592d2eb31784c5a46e865",
+      "source": "Leadership",
+      "translation": "Uongozi",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.leadership"
+    },
+    {
+      "id": "auto.e7899643c1658262",
+      "sourceHash": "a034729933d1cbf407645e11d9c91d9ac1bfddbef23fd58cb36782e3f60ae659",
+      "source": "Corporate",
+      "translation": "Shirika",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.company"
+    },
+    {
+      "id": "auto.cca01f36a112aa69.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "Matunzio",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.gallery"
+    },
+    {
+      "id": "auto.42773b34d8c68d7e",
+      "sourceHash": "7e658675b5ca75b3802ff34b548abe663438f113bed3acf541142b317c146e34",
+      "source": "Careers",
+      "translation": "Ajira",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(4)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.careers"
+    },
+    {
+      "id": "auto.42773b34d8c68d7e.2",
+      "sourceHash": "98b67063cf8e584d75e53b88472ee85473e01e0ea16f29ece9cc98f4a2710494",
+      "source": "Contact Us",
+      "translation": "Wasiliana Nasi",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(5)",
+      "attribute": null,
+      "origin": "existing-dictionary:footer.contact"
+    },
+    {
+      "id": "auto.b811f428029a6758",
+      "sourceHash": "62e42f816fb6e8f3ead11731e9bcc768ded4ba8986257f748609aef9e6df0431",
+      "source": "Lake Trans fleet of trucks",
+      "translation": "Msafara wa malori wa Lake Trans",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > div:nth-of-type(3) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary:ose.alt.s3"
+    },
+    {
+      "id": "auto.211f1aaeefa6ae1a",
+      "sourceHash": "36963b974496ba2869faff50e0299742c5b3696025c1a4b26ca335b5e6ec82e0",
+      "source": "Lake Group logo",
+      "translation": "Nembo ya Lake Group",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > div:nth-of-type(8) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary:ose.alt.s8"
+    },
+    {
+      "id": "auto.f2a293298ddd8e3c",
+      "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
+      "source": "Mozambique",
+      "translation": "Msumbiji",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary:africa_network.40"
+    }
+  ]
+}

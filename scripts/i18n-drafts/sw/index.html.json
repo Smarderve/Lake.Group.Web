@@ -4,14 +4,14 @@
   "locale": "sw",
   "page": "index.html",
   "sourceManifestDigest": "181d42c4930d1abb298d1bb6193e994fb20c4653ed2347cb78f9ae1ea1fa8fa8",
-  "sourceManifestGeneratedAt": "2026-10-14T10:38:40.431Z",
+  "sourceManifestGeneratedAt": "2026-10-15T10:48:55.402Z",
   "createdAt": "2026-10-14T10:45:16.898Z",
   "authoringMethod": "AI-authored and existing dictionary reuse; not machine-model output",
   "reviewEvidence": null,
   "releaseEligible": false,
   "candidateCount": 93,
-  "translatedCount": 93,
-  "validation": "protected numbers, names, URLs, placeholders and markup passed; linguistic review remains required",
+  "translatedCount": 73,
+  "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
   "translations": [
     {
       "id": "auto.a3c19c63eede26c8",
@@ -82,26 +82,6 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(6)",
       "attribute": null,
       "origin": "existing-dictionary:nav.dd.automotive"
-    },
-    {
-      "id": "auto.e3f86ca0864933ce.6",
-      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
-      "source": "Gulf Aggregates",
-      "translation": "Gulf Aggregates",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
-      "attribute": "alt",
-      "origin": "existing-dictionary:nav.co.gulfAggregates"
-    },
-    {
-      "id": "auto.90ffb5029cf035f9",
-      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
-      "source": "Cross Country",
-      "translation": "Cross Country",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
-      "attribute": "alt",
-      "origin": "existing-dictionary:nav.co.crossCountry"
     },
     {
       "id": "auto.e29dfcefbb1a2c8f.2",
@@ -212,26 +192,6 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": null,
       "origin": "existing-dictionary:nav.companies"
-    },
-    {
-      "id": "auto.01fa0d59df4d17e9.6",
-      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
-      "source": "Gulf Aggregates",
-      "translation": "Gulf Aggregates",
-      "mode": "text",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
-      "attribute": null,
-      "origin": "existing-dictionary:nav.co.gulfAggregates"
-    },
-    {
-      "id": "auto.4b9c4353518a904a",
-      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
-      "source": "Cross Country",
-      "translation": "Cross Country",
-      "mode": "text",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
-      "attribute": null,
-      "origin": "existing-dictionary:nav.co.crossCountry"
     },
     {
       "id": "auto.d17cd3a3bb034413",
@@ -464,16 +424,6 @@
       "origin": "ai-authored-draft"
     },
     {
-      "id": "auto.63cbf8b0f68be556",
-      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
-      "source": "Tanzania",
-      "translation": "Tanzania",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary:africa_network.27"
-    },
-    {
       "id": "auto.07f1b2fac2780edb",
       "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
       "source": "Tanzania flag",
@@ -482,16 +432,6 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
       "attribute": "alt",
       "origin": "ai-authored-draft"
-    },
-    {
-      "id": "auto.63cbf8b0f68be556.2",
-      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
-      "source": "Kenya",
-      "translation": "Kenya",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary:africa_network.29"
     },
     {
       "id": "auto.07f1b2fac2780edb.2",
@@ -504,16 +444,6 @@
       "origin": "ai-authored-draft"
     },
     {
-      "id": "auto.63cbf8b0f68be556.3",
-      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
-      "source": "Zambia",
-      "translation": "Zambia",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary:africa_network.31"
-    },
-    {
       "id": "auto.07f1b2fac2780edb.3",
       "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
       "source": "Zambia flag",
@@ -522,16 +452,6 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
       "attribute": "alt",
       "origin": "ai-authored-draft"
-    },
-    {
-      "id": "auto.b88166347ff3abf8",
-      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
-      "source": "Tanzania",
-      "translation": "Tanzania",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary:africa_network.27"
     },
     {
       "id": "auto.431a1bd97a26b914",
@@ -544,16 +464,6 @@
       "origin": "ai-authored-draft"
     },
     {
-      "id": "auto.b88166347ff3abf8.2",
-      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
-      "source": "Kenya",
-      "translation": "Kenya",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary:africa_network.29"
-    },
-    {
       "id": "auto.431a1bd97a26b914.2",
       "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
       "source": "Kenya flag",
@@ -564,16 +474,6 @@
       "origin": "ai-authored-draft"
     },
     {
-      "id": "auto.b88166347ff3abf8.3",
-      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
-      "source": "Zambia",
-      "translation": "Zambia",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary:africa_network.31"
-    },
-    {
       "id": "auto.431a1bd97a26b914.3",
       "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
       "source": "Zambia flag",
@@ -582,16 +482,6 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
       "attribute": "alt",
       "origin": "ai-authored-draft"
-    },
-    {
-      "id": "auto.aedeab109c00a404",
-      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
-      "source": "Tanzania",
-      "translation": "Tanzania",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary:africa_network.27"
     },
     {
       "id": "auto.0337ae4f9ef78480",
@@ -624,16 +514,6 @@
       "origin": "ai-authored-draft"
     },
     {
-      "id": "auto.a998ceb13ef8cf70",
-      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
-      "source": "Tanzania",
-      "translation": "Tanzania",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary:africa_network.27"
-    },
-    {
       "id": "auto.d51f3f70f3e4ccc8",
       "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
       "source": "Tanzania flag",
@@ -644,16 +524,6 @@
       "origin": "ai-authored-draft"
     },
     {
-      "id": "auto.24ed654337abfb7c",
-      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
-      "source": "Tanzania",
-      "translation": "Tanzania",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary:africa_network.27"
-    },
-    {
       "id": "auto.462edd22a478803d",
       "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
       "source": "Tanzania flag",
@@ -662,16 +532,6 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(7) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
       "attribute": "alt",
       "origin": "ai-authored-draft"
-    },
-    {
-      "id": "auto.24ed654337abfb7c.2",
-      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
-      "source": "Zambia",
-      "translation": "Zambia",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary:africa_network.31"
     },
     {
       "id": "auto.462edd22a478803d.2",
@@ -744,16 +604,6 @@
       "origin": "ai-authored-draft"
     },
     {
-      "id": "auto.6f6011f805dc13a6",
-      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
-      "source": "Tanzania",
-      "translation": "Tanzania",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary:africa_network.27"
-    },
-    {
       "id": "auto.02f6a511085b64c3",
       "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
       "source": "Tanzania flag",
@@ -762,16 +612,6 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
       "attribute": "alt",
       "origin": "ai-authored-draft"
-    },
-    {
-      "id": "auto.0b4970fa02b5b828",
-      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
-      "source": "Kenya",
-      "translation": "Kenya",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary:africa_network.29"
     },
     {
       "id": "auto.494d78809016177c",
@@ -784,16 +624,6 @@
       "origin": "ai-authored-draft"
     },
     {
-      "id": "auto.cee4b475ce4b56a6",
-      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
-      "source": "Zambia",
-      "translation": "Zambia",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary:africa_network.31"
-    },
-    {
       "id": "auto.d1cebbb19a731ea2",
       "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
       "source": "Zambia flag",
@@ -804,16 +634,6 @@
       "origin": "ai-authored-draft"
     },
     {
-      "id": "auto.10c265cc9c1fff02",
-      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
-      "source": "Rwanda",
-      "translation": "Rwanda",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary:africa_network.33"
-    },
-    {
       "id": "auto.336f356b8715ed99",
       "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
       "source": "Rwanda flag",
@@ -822,16 +642,6 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
       "attribute": "alt",
       "origin": "ai-authored-draft"
-    },
-    {
-      "id": "auto.2881e56940bbbf0b",
-      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
-      "source": "Burundi",
-      "translation": "Burundi",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary:africa_network.35"
     },
     {
       "id": "auto.cd3c0de9423def86",
@@ -862,16 +672,6 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
       "attribute": "alt",
       "origin": "ai-authored-draft"
-    },
-    {
-      "id": "auto.d412567ca580b77d",
-      "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
-      "source": "Ethiopia",
-      "translation": "Ethiopia",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary:africa_network.38"
     },
     {
       "id": "auto.870397228bfc0d0b",

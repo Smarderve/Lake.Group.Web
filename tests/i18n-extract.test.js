@@ -17,6 +17,7 @@ test('HTML extraction detects untagged text and attributes without rewriting sou
     assert.deepEqual(first.entries.map((entry) => entry.id), second.entries.map((entry) => entry.id));
     assert.ok(first.entries.every((entry) => ['missing', 'protected'].includes(entry.status)));
     assert.equal(first.entries.find((entry) => entry.source === 'Learn more').classification, 'public-visitor-copy');
+    assert.deepEqual(first.keyedRefs.map((ref) => ref.key), ['known'], 'the coverage queue retains keyed dictionary references by page');
   } finally { fs.rmSync(directory, { recursive: true, force: true }); }
 });
 

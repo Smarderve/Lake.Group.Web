@@ -46,6 +46,7 @@ window.LakeI18n = (function () {
   } catch (_) { /* preview can still be enabled for this explicit URL */ }
   const DRAFT_PREVIEW = localPreviewHost && !productionHost && (previewQuery === '1' || (previewQuery !== '0' && persistedPreview));
   const draftPageTranslations = {};
+  const draftEnglishSources = {};
   const RTL_LANGS = ['ar'];
   // ASCII-safe escapes so labels survive encoding mishaps in editors/tooling.
   const LANG_LABELS = {
@@ -70,6 +71,9 @@ window.LakeI18n = (function () {
   let current = 'en';
   let hoverOpenTimer = null;
   let hoverCloseTimer = null;
+  // Keep a page's original English value so stale keyed dictionaries cannot
+  // rewrite newer copy or facts, even after the user changes languages.
+  const keyedSourceSnapshots = new WeakMap();
   // Distinguish Tab focus (open menu) from pointer focus (click owns toggle).
   let keyboardIntent = false;
   const LANG_OPEN_DELAY_MS = 200;
@@ -110,8 +114,15 @@ window.LakeI18n = (function () {
       if (!validateDraft(shared) || !validateDraft(hero) || (pageDraft && (!validateDraft(pageDraft) || pageDraft.page !== page))) throw new Error('Draft schema/status rejected');
       const content = dictionaries || window.__LAKE_I18N_CONTENT__ || {};
       const overlay = { ...(content[lang] || {}) };
-      [...shared.translations, ...hero.translations].forEach((row) => { if (row.key) overlay[row.key] = row.translation; });
+      const englishSources = {};
+      [...shared.translations, ...hero.translations].forEach((row) => {
+        if (row.key) {
+          overlay[row.key] = row.translation;
+          if (typeof row.source === 'string') englishSources[row.key] = row.source;
+        }
+      });
       dictionaries = { ...content, [lang]: overlay };
+      draftEnglishSources[lang] = englishSources;
       draftPageTranslations[lang] = { ready: true, rows: pageDraft?.translations || [] };
       availableLanguages.add(lang);
       return true;
@@ -196,14 +207,25 @@ window.LakeI18n = (function () {
       try { nodes = document.querySelectorAll(entry.selector); } catch (_) { return; }
       if (nodes.length !== 1) return;
       const node = nodes[0];
+      let textTarget = node;
+      if (entry.mode === 'text' && node.querySelector('*')) {
+        const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT);
+        const exactTextNodes = [];
+        let textNode;
+        while ((textNode = walker.nextNode())) if (normalize(textNode.nodeValue) === normalize(entry.source)) exactTextNodes.push(textNode);
+        if (exactTextNodes.length !== 1) return;
+        textTarget = exactTextNodes[0];
+      }
       const source = entry.mode === 'attribute'
         ? (['alt', 'title', 'aria-label', 'placeholder', 'content'].includes(entry.attribute) ? node.getAttribute(entry.attribute) : null)
-        : entry.mode === 'text' && !node.querySelector('*') ? node.textContent : null;
+        : entry.mode === 'text' ? (textTarget.nodeType === Node.TEXT_NODE ? textTarget.nodeValue : node.textContent) : null;
       if (source === null || normalize(source) !== normalize(entry.source)) return;
       const attribute = entry.mode === 'attribute' ? entry.attribute : null;
-      const original = attribute ? node.getAttribute(attribute) : node.textContent;
-      if (attribute) node.setAttribute(attribute, entry.translation); else node.textContent = entry.translation;
-      appliedAutoTargets.push({ node, attribute, original });
+      const original = attribute ? node.getAttribute(attribute) : (textTarget.nodeType === Node.TEXT_NODE ? textTarget.nodeValue : textTarget.textContent);
+      if (attribute) node.setAttribute(attribute, entry.translation);
+      else if (textTarget.nodeType === Node.TEXT_NODE) textTarget.nodeValue = entry.translation;
+      else textTarget.textContent = entry.translation;
+      appliedAutoTargets.push({ node: textTarget, attribute, original });
     });
     if (!autoMutationObserver && typeof MutationObserver === 'function') {
       autoMutationObserver = new MutationObserver(() => {
@@ -256,9 +278,35 @@ window.LakeI18n = (function () {
     return null;
   }
 
+  function normalizedMarkupText(value) {
+    const holder = document.createElement('span');
+    holder.innerHTML = String(value ?? '');
+    return String(holder.textContent || '').replace(/\s+/g, ' ').trim().toLocaleLowerCase('en');
+  }
+
+  function matchesDictionarySource(el, key, slot, rawValue, lang) {
+    let snapshots = keyedSourceSnapshots.get(el);
+    if (!snapshots) { snapshots = new Map(); keyedSourceSnapshots.set(el, snapshots); }
+    if (!snapshots.has(slot)) snapshots.set(slot, rawValue);
+    const dictionarySource = dictionaries?.en?.[key];
+    const source = typeof dictionarySource === 'string' ? dictionarySource : draftEnglishSources[lang]?.[key];
+    return typeof source === 'string' && normalizedMarkupText(snapshots.get(slot)) === normalizedMarkupText(source);
+  }
+
+  function restoreKeyedSource(el, slot, property) {
+    const snapshot = keyedSourceSnapshots.get(el)?.get(slot);
+    if (snapshot === undefined) return;
+    if (property === 'text-html') el.innerHTML = snapshot;
+    else if (property === 'text') el.textContent = snapshot;
+    else if (property) el.setAttribute(property, snapshot);
+  }
+
   function applyToElement(el, lang) {
     const key = el.getAttribute('data-i18n');
-    if (key) {
+    const keyedHtml = el.hasAttribute('data-i18n-html');
+    const keyedTextMatches = key && matchesDictionarySource(el, key, 'text', keyedHtml ? el.innerHTML : el.textContent, lang);
+    if (key && !keyedTextMatches) restoreKeyedSource(el, 'text', keyedHtml ? 'text-html' : 'text');
+    if (key && keyedTextMatches) {
       let val = t(key, lang);
       if (val !== null) {
         // Eastern Arabic digits for ar display strings.
@@ -293,25 +341,29 @@ window.LakeI18n = (function () {
     }
 
     const phKey = el.getAttribute('data-i18n-placeholder');
-    if (phKey) {
+    if (phKey && !matchesDictionarySource(el, phKey, 'placeholder', el.getAttribute('placeholder'), lang)) restoreKeyedSource(el, 'placeholder', 'placeholder');
+    if (phKey && matchesDictionarySource(el, phKey, 'placeholder', el.getAttribute('placeholder'), lang)) {
       const val = t(phKey, lang);
       if (val !== null) el.setAttribute('placeholder', val);
     }
 
     const titleKey = el.getAttribute('data-i18n-title');
-    if (titleKey) {
+    if (titleKey && !matchesDictionarySource(el, titleKey, 'title', el.getAttribute('title'), lang)) restoreKeyedSource(el, 'title', 'title');
+    if (titleKey && matchesDictionarySource(el, titleKey, 'title', el.getAttribute('title'), lang)) {
       const val = t(titleKey, lang);
       if (val !== null) el.setAttribute('title', val);
     }
 
     const altKey = el.getAttribute('data-i18n-alt');
-    if (altKey) {
+    if (altKey && !matchesDictionarySource(el, altKey, 'alt', el.getAttribute('alt'), lang)) restoreKeyedSource(el, 'alt', 'alt');
+    if (altKey && matchesDictionarySource(el, altKey, 'alt', el.getAttribute('alt'), lang)) {
       const val = t(altKey, lang);
       if (val !== null) el.setAttribute('alt', val);
     }
 
     const ariaKey = el.getAttribute('data-i18n-aria');
-    if (ariaKey) {
+    if (ariaKey && !matchesDictionarySource(el, ariaKey, 'aria-label', el.getAttribute('aria-label'), lang)) restoreKeyedSource(el, 'aria-label', 'aria-label');
+    if (ariaKey && matchesDictionarySource(el, ariaKey, 'aria-label', el.getAttribute('aria-label'), lang)) {
       const val = t(ariaKey, lang);
       if (val !== null) el.setAttribute('aria-label', val);
     }

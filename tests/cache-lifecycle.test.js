@@ -18,8 +18,8 @@ for (const url of urls) {
   assert.ok(fs.existsSync(path.join(ROOT, pathname)), `precache entry exists: ${url}`);
 }
 
-assert.match(sw, /const VERSION = 'v110-20261015-03'/);
-assert.ok(urls.includes('./assets/i18n.js?v=20261015-01'), 'i18n runtime precache uses the current release');
+assert.match(sw, /const VERSION = 'v112-20261015-05'/);
+assert.ok(urls.includes('./assets/i18n.js?v=20261015-03'), 'i18n runtime precache uses the current release');
 assert.ok(urls.includes('./assets/phase-01-navbar.css?v=20261015-01'), 'language menu CSS precache uses the current release');
 assert.ok(urls.includes('./assets/assistant.js?v=20261013-02'), 'assistant JavaScript precache uses the current release');
 assert.ok(urls.includes('./assets/assistant.css?v=20261015-01'), 'assistant CSS precache uses the current release');
