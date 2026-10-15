@@ -3,16 +3,26 @@
   "status": "DRAFT_PENDING_HUMAN_REVIEW",
   "locale": "fr",
   "page": "lake-gas.html",
-  "sourceManifestDigest": "181d42c4930d1abb298d1bb6193e994fb20c4653ed2347cb78f9ae1ea1fa8fa8",
-  "sourceManifestGeneratedAt": "2026-10-15T10:48:55.402Z",
+  "sourceManifestDigest": "60675f76844f3800729cf1ef938b65c6ddcb2e7351b7ee2b74eb4da0f9f40714",
+  "sourceManifestGeneratedAt": "2026-10-15T12:12:03.389Z",
   "createdAt": "2026-10-15T10:47:00.590Z",
-  "authoringMethod": "existing dictionary reuse; no model output for generated rows",
+  "authoringMethod": "existing dictionary reuse plus assistant-authored initial draft; human review required",
   "reviewEvidence": null,
   "releaseEligible": false,
   "candidateCount": 95,
-  "translatedCount": 27,
-  "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
+  "translatedCount": 95,
+  "validation": "Exact source ids and hashes preserved; company names, product names, native language labels, legal facts and copyright preserved; editorial review pending",
   "translations": [
+    {
+      "id": "auto.e27c65cabf50be06",
+      "sourceHash": "b3562474338a780cb1fa39773f5e628c73280b706d691dcfca45d10654e23fee",
+      "source": "Lake Gas Limited supplies retail and bulk LPG for household and commercial use across East and Central Africa, with Tanzania as its central hub.",
+      "translation": "Lake Gas Limited fournit du GPL au détail et en vrac pour les usages domestiques et commerciaux en Afrique de l’Est et centrale, avec la Tanzanie comme centre principal.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content",
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
     {
       "id": "auto.3b4118ea86826277",
       "sourceHash": "6970059994dce7e30c88b19df4696c7234a01aca3caf2fa69322593c6a6af253",
@@ -74,6 +84,36 @@
       "origin": "existing-dictionary:nav.dd.automotive"
     },
     {
+      "id": "auto.b4b555e7c1532fc2.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.e3b5463caa894fb0",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.f69b8f28fa93ffe6.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "NexDrive Motors",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
       "id": "auto.e241a04978d9311b",
       "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
       "source": "Our History",
@@ -104,6 +144,46 @@
       "origin": "existing-dictionary:nav.gallery"
     },
     {
+      "id": "auto.1e4195b702fee11f",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "Langue : anglais",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.41b609802b5664c2",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.5509fc74899afd3a",
+      "sourceHash": "99af6606ff9d6cd5154d4d4e9c21e325086d3e904677cdb41d363c8a3480f862",
+      "source": "Menu",
+      "translation": "Menu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.9422d97dfbf1382a",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "Fermer le menu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
       "id": "auto.7062ab95b0465d6f",
       "sourceHash": "3a78695388b38b5cceefaf6796b0137877514593543b91af2752d5a17e3d736c",
       "source": "Home",
@@ -132,6 +212,26 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": null,
       "origin": "existing-dictionary:nav.companies"
+    },
+    {
+      "id": "auto.526add6c73f910bd.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.3f14f9ae5b71d8f0",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
     },
     {
       "id": "auto.6c4cfea170fe9d52",
@@ -204,6 +304,176 @@
       "origin": "existing-dictionary:footer.contact"
     },
     {
+      "id": "auto.b340904969abaa96",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.74010f20d6b1df98",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.74010f20d6b1df98.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.74010f20d6b1df98.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.74010f20d6b1df98.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.74010f20d6b1df98.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.74010f20d6b1df98.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.74010f20d6b1df98.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.74010f20d6b1df98.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.2ff1f43028f99cf6",
+      "sourceHash": "65d45bc180487db6305f318223b30c577b117e2b6c73efde4eb7b3832e5ae7f0",
+      "source": "Clean, safe and reliable LPG energy for households and businesses across East and Central Africa.",
+      "translation": "Une énergie GPL propre, sûre et fiable pour les ménages et les entreprises d’Afrique de l’Est et centrale.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.b43eff7209594cb5",
+      "sourceHash": "c43ba10830446dd077884486d502501567b1447999b3024aa40cd517cf4f0259",
+      "source": "Clean energy for households and business.",
+      "translation": "De l’énergie propre pour les ménages et les entreprises.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.7716cc541996bddd",
+      "sourceHash": "dcbd146a0918f87a20c5cd60283b5b012106f7eb50c7f10893690971eaec26a3",
+      "source": "Lake Gas Limited was established in 2011 to deliver LPG household and commercial solutions across East and Central Africa.",
+      "translation": "Lake Gas Limited a été créée en 2011 pour proposer des solutions GPL domestiques et commerciales en Afrique de l’Est et centrale.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.cf0fefcce6cdf610",
+      "sourceHash": "db38b851b22cd8e2b47ce569aa433453005e8461dbdbfea02f1cf0f48098bdae",
+      "source": "With Tanzania as its central hub, Lake Gas supplies retail and bulk LPG across six countries. Its Tanzania network includes depot and filling locations in Dar es Salaam, Mwanza, Arusha, Dodoma, Morogoro, Iringa, Mbeya, Tanga and Zanzibar. Kenya operations have run since 2014.",
+      "translation": "Avec la Tanzanie comme principal centre, Lake Gas fournit du GPL au détail et en vrac dans six pays. Son réseau tanzanien comprend des dépôts et des sites de remplissage à Dar es Salaam, Mwanza, Arusha, Dodoma, Morogoro, Iringa, Mbeya, Tanga et Zanzibar. Ses activités au Kenya sont en place depuis 2014.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.5d8fd576a826cd61",
+      "sourceHash": "1fa4523240c32d52b439d1861df3c914d52a3f91f2092598886225296255bb56",
+      "source": "Retail and bulk LPG across six countries",
+      "translation": "GPL au détail et en vrac dans six pays",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.5d8fd576a826cd61.2",
+      "sourceHash": "4b55b9b3567a4a03cbe0f4174e56b53b838b9d292ae1c6b2bee4c9e9d52aaa9a",
+      "source": "Bottled LPG cylinders and commercial services",
+      "translation": "Bouteilles de GPL et services commerciaux",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.5d8fd576a826cd61.3",
+      "sourceHash": "442512c8db265570218d59b920f24853a4671f8d9117659eb90b7322f3a83d44",
+      "source": "Q&Q: Quality with Quantity",
+      "translation": "Q&Q : la qualité et la quantité",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.d28e55cdec074c06",
+      "sourceHash": "19309a8aa84f46578498fd44627c3cabf76f0e8961c7db50fb9c881e92e435ce",
+      "source": "Regional LPG Network",
+      "translation": "Réseau régional de GPL",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
       "id": "auto.16ed73f610986d7c",
       "sourceHash": "4932324d5942c0bb64fbbe0c45283eb493c1cc27b1e65d4595d6da5f2c16e234",
       "source": "Established",
@@ -212,6 +482,36 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
       "attribute": null,
       "origin": "existing-dictionary:atl.glance.est"
+    },
+    {
+      "id": "auto.16ed73f610986d7c.2",
+      "sourceHash": "4c74596f200144f1fc2aef537741dd1c275931dd832a4ee41d58165185e74370",
+      "source": "Tanzania locations",
+      "translation": "Sites en Tanzanie",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.16ed73f610986d7c.3",
+      "sourceHash": "e1f41be56dc99989b81d51ff43996a7a3120ded1063d91146d3a4d676160e418",
+      "source": "Kenya since",
+      "translation": "Au Kenya depuis",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.16ed73f610986d7c.4",
+      "sourceHash": "7f48a42b50bd933c13511d2424405b8af00a043b84d737aee69695610e888f89",
+      "source": "Rural residents reached",
+      "translation": "Habitants ruraux concernés",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
     },
     {
       "id": "auto.ab385626744b3430",
@@ -224,6 +524,46 @@
       "origin": "existing-dictionary:atl.s2.title"
     },
     {
+      "id": "auto.b6ed380a897a6f02",
+      "sourceHash": "e6b85bfbf55020aab80a2fc74cc83aa428a2290c9153ffbd23bdb86befd1def7",
+      "source": "Mission",
+      "translation": "Mission",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.ebee846af3f5d659",
+      "sourceHash": "fbbd9f8d5d7dc6b47cd2004585a99f3d84e7a05a7c78ed9312fc59f10b4fc705",
+      "source": "Support the global shift toward green and sustainable energy through environmentally friendly solutions.",
+      "translation": "Soutenir la transition mondiale vers une énergie verte et durable grâce à des solutions respectueuses de l’environnement.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.b6ed380a897a6f02.2",
+      "sourceHash": "c587c2601ccfc456cb7d4d9bb34f12f0fd11ad49faeeb4602860e239b5397843",
+      "source": "Vision",
+      "translation": "Vision",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.ebee846af3f5d659.2",
+      "sourceHash": "4a43264187132c69a2871ede09717c8601334fa97531cc3988e27ab6a0962c54",
+      "source": "Be a world-class oil and gas marketing company delivering safe, high-quality products and services.",
+      "translation": "Devenir une société de commercialisation de pétrole et de gaz de classe mondiale, offrant des produits et services sûrs et de grande qualité.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
       "id": "auto.77b755ccb20b9d1e",
       "sourceHash": "ad5ea6aae7ca18f5f3823bfd0a0f0e400434b701dd4325c2810eba1e826d7618",
       "source": "Integrity",
@@ -232,6 +572,16 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h4:nth-of-type(1)",
       "attribute": null,
       "origin": "existing-dictionary:atl.val.integrity"
+    },
+    {
+      "id": "auto.92629b7085742b2a",
+      "sourceHash": "74276a9f6636a37f58f7998d2edc7cd5369a7e8488ceb4255d3f7fcbcdea41b4",
+      "source": "Upholding the highest ethical standards in our stakeholder relationships.",
+      "translation": "Respecter les normes éthiques les plus élevées dans nos relations avec nos parties prenantes.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
     },
     {
       "id": "auto.77b755ccb20b9d1e.2",
@@ -244,6 +594,156 @@
       "origin": "existing-dictionary:about.30"
     },
     {
+      "id": "auto.92629b7085742b2a.2",
+      "sourceHash": "f61460833e7c2d430d483d5b9296b0db91119ccccadbef4f1a4bde8912c64ec8",
+      "source": "Driving continuous improvement through smart solutions of serving the market.",
+      "translation": "Favoriser l’amélioration continue grâce à des solutions intelligentes au service du marché.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.77b755ccb20b9d1e.3",
+      "sourceHash": "3d21775cd60083e921206d7acdca72bf24ed38c33b9127188c80b7f6f4bffa88",
+      "source": "Sustainability",
+      "translation": "Durabilité",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.92629b7085742b2a.3",
+      "sourceHash": "6921c4d667a22885d26436b44487b025f6d5da86a63377ff4a4178b142a828ec",
+      "source": "Supporting the transition toward green and sustainable energy through environmentally responsible solutions and practices.",
+      "translation": "Soutenir la transition vers une énergie verte et durable grâce à des solutions et à des pratiques respectueuses de l’environnement.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.77b755ccb20b9d1e.4",
+      "sourceHash": "565a6230291e6804a67e3b84a26ab59bb5d9f2e0d4046ec69d2c94b6da3c7557",
+      "source": "Customer Focus",
+      "translation": "Orientation client",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.92629b7085742b2a.4",
+      "sourceHash": "ed49660646f584d0cb758da3391180dc4061fb6405bc708aeb4a74734a401362",
+      "source": "Placing customer satisfaction and dependable service delivery at the heart of our operations.",
+      "translation": "Placer la satisfaction des clients et la fiabilité du service au cœur de nos activités.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.78595e7e79f18dc9",
+      "sourceHash": "1d51d05845f5c507072d60dee4dda079473478e645551ef12be335287649bd1d",
+      "source": "Quality with Quantity.",
+      "translation": "La qualité et la quantité.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.168517907f5e79bb",
+      "sourceHash": "47b66b1c13fd811b9ecc26e4f85e9f008565ebb0a4ee11fbbed698af80d65862",
+      "source": "Lake Gas LPG filling plant",
+      "translation": "Usine de remplissage de bouteilles de GPL de Lake Gas",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.65777dc7ebedae0a",
+      "sourceHash": "0770fb8dcd39bff072aeda019f8ac02a72ddf429ffe61b035e21b1de20816b39",
+      "source": "Cylinder Solutions",
+      "translation": "Solutions pour bouteilles",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.e48b56ce57458592",
+      "sourceHash": "9f7adf073f5dc22f4dc33e26c304a8f389ba09686d91ee08b1cb2990ce92e0f6",
+      "source": "Bottled LPG cylinders use tamper-proof cylinder seals for household and commercial customers.",
+      "translation": "Les bouteilles de GPL utilisent des scellés inviolables pour les clients particuliers et professionnels.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.168517907f5e79bb.2",
+      "sourceHash": "5f8af503a1453c2b104a8dff28a6e3ca60cf6bdbc3db853ada6c977325471a8d",
+      "source": "Lake Gas LPG filling operations",
+      "translation": "Opérations de remplissage de GPL de Lake Gas",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.65777dc7ebedae0a.2",
+      "sourceHash": "d344adc3606eab6e1836b5e14e4710db5c2b792b65002b9dd4de2d9879b19840",
+      "source": "Composite Cylinders",
+      "translation": "Bouteilles composites",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.e48b56ce57458592.2",
+      "sourceHash": "5a7e73c988c60d9b575656a9f554a5fa7bc6ec28e5ab12ade41e14c4ab0808fc",
+      "source": "Lake Gas describes its composite LPG cylinders as non-explosive, non-corrosive, lightweight and translucent.",
+      "translation": "Lake Gas décrit ses bouteilles composites de GPL comme non explosives, non corrosives, légères et translucides.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.168517907f5e79bb.3",
+      "sourceHash": "bd386a97e99a6ecd59b5de9164c29b73b253889a514a32d88edbf1205c247c5d",
+      "source": "Lake Gas storage operations",
+      "translation": "Activités de stockage de Lake Gas",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.65777dc7ebedae0a.3",
+      "sourceHash": "9a07449eb3050930f639abedce0f1f5d25a911f38de075463f4165f74e075231",
+      "source": "Storage & Access",
+      "translation": "Stockage et accès",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
+      "id": "auto.e48b56ce57458592.3",
+      "sourceHash": "2e26bc4b83192a365fa67b1290ec223649c4045d674cc90af73b6b1f7dbfc352",
+      "source": "The Phase 2 LPG storage facility is at Vipingo, Kilifi County; the Tanga terminal is described as East Africa's largest LPG storage terminal.",
+      "translation": "L’installation de stockage de GPL de la phase 2 se trouve à Vipingo, dans le comté de Kilifi ; le terminal de Tanga est présenté comme le plus grand terminal de stockage de GPL d’Afrique de l’Est.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
       "id": "auto.12465d4ca8e49007",
       "sourceHash": "69518e684f065f0c39a26d5f18ae2a775ffffd4e390cc3d73afeac2fb50992a7",
       "source": "Type a message...",
@@ -252,6 +752,16 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > input:nth-of-type(1)",
       "attribute": "placeholder",
       "origin": "existing-dictionary:chat.placeholder"
+    },
+    {
+      "id": "auto.dbf65087e0c581da",
+      "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
+      "source": "Chat",
+      "translation": "Discussion",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.38afaf1f23bc9806",
@@ -264,6 +774,36 @@
       "origin": "existing-dictionary:africa_network.27"
     },
     {
+      "id": "auto.dbaef0871f2d88f5",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Drapeau de la Tanzanie",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.5739e71c12767a19",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "Kenya",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.ba56a1628a1177e5",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "Drapeau du Kenya",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
       "id": "auto.4a78eeae32ae3782",
       "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
       "source": "Zambia",
@@ -274,6 +814,76 @@
       "origin": "existing-dictionary:africa_network.31"
     },
     {
+      "id": "auto.7da1de9abd70f6e0",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "Drapeau de la Zambie",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.45b3d43f0258fd76",
+      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
+      "source": "Rwanda",
+      "translation": "Rwanda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.5dbc95836cfc154a",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "Drapeau du Rwanda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.28aa6c7cd5663259",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "Burundi",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.4e0e180e594650dc",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "Drapeau du Burundi",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.d99e605632846af2",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "RD Congo",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.90877283f5a00f8f",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "Drapeau de la RD Congo",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-gas.html"
+    },
+    {
       "id": "auto.859bcdb7d3f5c1ae",
       "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
       "source": "Ethiopia",
@@ -282,6 +892,76 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary:africa_network.38"
+    },
+    {
+      "id": "auto.7916971cd8cb1898",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "Drapeau de l’Éthiopie",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.bc09e40ff471ffbc",
+      "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
+      "source": "Mozambique",
+      "translation": "Mozambique",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.39309166e64f7da4",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "Drapeau du Mozambique",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.738b67d5172c20a1",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "Ouganda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.974da0951bf14585",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "Drapeau de l’Ouganda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.d30af45a5be9bfd0",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "Drapeau des Émirats arabes unis",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.301d339c7f1603c1",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
     }
   ]
 }

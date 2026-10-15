@@ -3,16 +3,26 @@
   "status": "DRAFT_PENDING_HUMAN_REVIEW",
   "locale": "fr",
   "page": "leadership.html",
-  "sourceManifestDigest": "181d42c4930d1abb298d1bb6193e994fb20c4653ed2347cb78f9ae1ea1fa8fa8",
-  "sourceManifestGeneratedAt": "2026-10-15T10:48:55.402Z",
+  "sourceManifestDigest": "60675f76844f3800729cf1ef938b65c6ddcb2e7351b7ee2b74eb4da0f9f40714",
+  "sourceManifestGeneratedAt": "2026-10-15T12:12:03.389Z",
   "createdAt": "2026-10-15T10:47:00.616Z",
-  "authoringMethod": "existing dictionary reuse; no model output for generated rows",
+  "authoringMethod": "AI-authored initial leadership translations with exact-source draft reuse; human review pending",
   "reviewEvidence": null,
   "releaseEligible": false,
   "candidateCount": 94,
-  "translatedCount": 26,
-  "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
+  "translatedCount": 94,
+  "validation": "Source ids and hashes match current extraction manifest; linguistic and editorial review remains required",
   "translations": [
+    {
+      "id": "auto.f7a84fbdd98fe645",
+      "sourceHash": "3a88d99db5148f6bd2aa76cd80a17dc248f25c5a3e208614936bea2ecbdce2ef",
+      "source": "Meet the Lake Group leadership team. Explore dedicated profiles for executives across energy, manufacturing, logistics and agribusiness.",
+      "translation": "Découvrez l’équipe dirigeante de Lake Group et les profils de ses cadres dans l’énergie, l’industrie, la logistique et l’agro-industrie.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content",
+      "origin": "ai-authored-initial-draft"
+    },
     {
       "id": "auto.98b0eafe8abf0222",
       "sourceHash": "6970059994dce7e30c88b19df4696c7234a01aca3caf2fa69322593c6a6af253",
@@ -74,6 +84,36 @@
       "origin": "existing-dictionary:nav.dd.automotive"
     },
     {
+      "id": "auto.eeaed1e6b06d7660.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-shared-ui:reused-existing-dictionary"
+    },
+    {
+      "id": "auto.3b14387559bee163",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-shared-ui:reused-existing-dictionary"
+    },
+    {
+      "id": "auto.d865dd3132a67c39.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "NexDrive Motors",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-proper-name-or-language-endonym"
+    },
+    {
       "id": "auto.7bf364290f24f7fb",
       "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
       "source": "Our History",
@@ -104,6 +144,46 @@
       "origin": "existing-dictionary:nav.gallery"
     },
     {
+      "id": "auto.764c77198948ef34",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "Langue : English",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.6b8487f64f7d8e99",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-language-endonym"
+    },
+    {
+      "id": "auto.63a19e6ec7c06d03",
+      "sourceHash": "99af6606ff9d6cd5154d4d4e9c21e325086d3e904677cdb41d363c8a3480f862",
+      "source": "Menu",
+      "translation": "Menu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-shared-ui:reused-existing-dictionary"
+    },
+    {
+      "id": "auto.0340fcabec9f5a3a",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "Fermer le menu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
       "id": "auto.ad305f3ee6391e53",
       "sourceHash": "3a78695388b38b5cceefaf6796b0137877514593543b91af2752d5a17e3d736c",
       "source": "Home",
@@ -132,6 +212,26 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": null,
       "origin": "existing-dictionary:nav.companies"
+    },
+    {
+      "id": "auto.6e08f6eb5283155c.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
+      "attribute": null,
+      "origin": "reused-shared-ui:reused-existing-dictionary"
+    },
+    {
+      "id": "auto.715c8d4514d9fd89",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-shared-ui:reused-existing-dictionary"
     },
     {
       "id": "auto.44b43e237b31d1df",
@@ -204,6 +304,96 @@
       "origin": "existing-dictionary:footer.contact"
     },
     {
+      "id": "auto.677c2ce09670e51c",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-language-endonym"
+    },
+    {
+      "id": "auto.c7965896dd3b9aa8",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-language-endonym"
+    },
+    {
+      "id": "auto.c7965896dd3b9aa8.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-language-endonym"
+    },
+    {
+      "id": "auto.c7965896dd3b9aa8.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-language-endonym"
+    },
+    {
+      "id": "auto.c7965896dd3b9aa8.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-language-endonym"
+    },
+    {
+      "id": "auto.c7965896dd3b9aa8.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-language-endonym"
+    },
+    {
+      "id": "auto.c7965896dd3b9aa8.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-language-endonym"
+    },
+    {
+      "id": "auto.c7965896dd3b9aa8.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-language-endonym"
+    },
+    {
+      "id": "auto.c7965896dd3b9aa8.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-language-endonym"
+    },
+    {
       "id": "auto.5da0a94748c4c508",
       "sourceHash": "65940826a96c700c036102b31734ee8559b9717e66795ba15e9d2c957b798e40",
       "source": "Our Leadership",
@@ -212,6 +402,226 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(2)",
       "attribute": null,
       "origin": "existing-dictionary:about.46"
+    },
+    {
+      "id": "auto.50849601e0e59109",
+      "sourceHash": "7730cbc16872442d98fe1da7241eadb0ca669f68ecc14cb0070e34784390c82d",
+      "source": "Leadership Built on Long-Term Value",
+      "translation": "Une direction tournée vers la valeur à long terme",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.05e501d0223b8b07",
+      "sourceHash": "c266633b78579db98635287dccdb58abfd8310994ea14abb3d6c1d7c429c1975",
+      "source": "Lake Group's leadership provides the expertise, strategic vision and commitment to excellence that support the Group's growth, diversification, innovation, operational excellence and sustainable value creation across every market we serve.",
+      "translation": "La direction de Lake Group apporte l’expertise, la vision stratégique et l’exigence d’excellence qui soutiennent la croissance, la diversification, l’innovation, la performance opérationnelle et la création de valeur durable dans chacun de nos marchés.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(3)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.d08d07579ff13daf",
+      "sourceHash": "d77f3f4f4147df540ec815f0d7a04814721ed6a5c9095f3b0154e31c6b6b39f9",
+      "source": "Ally Edha Awadh",
+      "translation": "Ally Edha Awadh",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-proper-name-or-language-endonym"
+    },
+    {
+      "id": "auto.b1922db1d81e68d5",
+      "sourceHash": "f89aeaabd1554a0665ebe20629ef36e85950f41662e05a221ebcbc381f0fd045",
+      "source": "About Our Chairman",
+      "translation": "À propos de notre président",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.520b1299eabca1d4",
+      "sourceHash": "d77f3f4f4147df540ec815f0d7a04814721ed6a5c9095f3b0154e31c6b6b39f9",
+      "source": "Ally Edha Awadh",
+      "translation": "Ally Edha Awadh",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > h2:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-language-endonym"
+    },
+    {
+      "id": "auto.8e88b727bb54de2f",
+      "sourceHash": "2c0eba73c9459490c6ac02ed060582155a803fda2e71b14d7fa1b7d617b757fe",
+      "source": "Founder & Chairman",
+      "translation": "Fondateur et président",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.64c0e680d93aca6e",
+      "sourceHash": "6ab0e183d2ed1d36fa793f67a85165ea4820e6c2434d59aafa001152f40a10c8",
+      "source": "Mr. Ally Edha Awadh is the Founder and Chairman of Lake Group. Born and raised in Tanzania, he completed his primary education locally before pursuing various jobs that shaped his work ethic and entrepreneurial mindset.",
+      "translation": "M. Ally Edha Awadh est le fondateur et président de Lake Group. Né et élevé en Tanzanie, il y a terminé ses études primaires avant d’exercer plusieurs métiers qui ont façonné sa rigueur professionnelle et son esprit d’entreprise.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.fe6214d2f9fe7eac",
+      "sourceHash": "82cc16893b0adc5b87ff5cb07999539f38b75c1c3823c3d8d2527ea379023d30",
+      "source": "Through his vision, perseverance and strategic leadership, Lake Group has grown into one of East Africa's leading private-sector conglomerates, with a footprint spanning 10 countries and industrial operations contributing to employment and economic empowerment across the region.",
+      "translation": "Grâce à sa vision, sa persévérance et son leadership stratégique, Lake Group est devenu l’un des principaux groupes privés d’Afrique de l’Est. Présent dans 10 pays, le groupe contribue à l’emploi et à l’autonomisation économique dans la région.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.52e010b09551090c",
+      "sourceHash": "826f729a22373311b599db6175d3e67173674fc194de0dc2937ddfdfa55470f2",
+      "source": "The Entrepreneurial Journey",
+      "translation": "Le parcours entrepreneurial",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.65bae1ed81fa0693",
+      "sourceHash": "23bfc8ea296a827ef6521e29d3524bfe0f5c60e021f68af9067e8f85f7b39451",
+      "source": "Age 23",
+      "translation": "À 23 ans",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.31cc38ff23a7d414",
+      "sourceHash": "91cb8884373b60b5fbd18798ca2c498576f49fcf6c37900b28a77943ffaa8711",
+      "source": "Moved to Canada",
+      "translation": "Départ pour le Canada",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.50721d8a6d3bbcbe",
+      "sourceHash": "8ef4806ab2695410c170b9f3eea96fd8f8f3fc4f9daa330b0e993ab24e8e9cbe",
+      "source": "Relocated to Canada to pursue higher education, developing a global perspective on business and opportunity.",
+      "translation": "Il s’est installé au Canada pour poursuivre ses études supérieures et développer une vision internationale des affaires et des opportunités.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.42afb40b46653d21",
+      "sourceHash": "be55ef3f4c4e6c2d9c2afe2a33ac90ad0f50d4de7f9163999877e2a9ca5a54f8",
+      "source": "Canada",
+      "translation": "Canada",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.46c2c351b1049c24",
+      "sourceHash": "6fe10150dde890b472463f0eea605ab87f6b1479e932bd424b3ea585a2cc88d5",
+      "source": "First Business",
+      "translation": "Première entreprise",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.fecfa34d8375aaad",
+      "sourceHash": "db2b81afe58481c234c7a250a683e86faae4908e691eec6a43c6b9637aef28a5",
+      "source": "Launched his first business in the clothing industry. The success of that venture helped him recognise his entrepreneurial potential and pursue larger opportunities.",
+      "translation": "Il a lancé sa première entreprise dans le secteur de l’habillement. Sa réussite lui a permis de reconnaître son potentiel entrepreneurial et de viser des opportunités plus importantes.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.389da552916a06fe",
+      "sourceHash": "e2b74cbf45705aeab91fa6cd6a3b3b51d48c550c3561e7b91256c0b50092cc11",
+      "source": "Age 26",
+      "translation": "À 26 ans",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.7aa7ab5c2e7b42d8",
+      "sourceHash": "00b6c2f3e418388f18a535f6d9b0a22dd9bc850ea08162fedb42bfa3fa6aad4f",
+      "source": "PBPA Licence",
+      "translation": "Licence PBPA",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.eda51ca478953ea1",
+      "sourceHash": "f5b227b23393064e8ce7fa56a407b571ea3f04af3d16df54b87d587f79518fd2",
+      "source": "Acquired a licence from Tanzania's Petroleum Bulk Procurement Agency (PBPA), laying the foundation for what became Lake Energies.",
+      "translation": "Il a obtenu une licence de la Petroleum Bulk Procurement Agency (PBPA) de Tanzanie, posant les bases de ce qui est devenu Lake Energies.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.c4e7394160ced029",
+      "sourceHash": "df42a4d5d3537666f9ed0012c3a44999878842f8d92f2ac056e6df0ca4ac44d1",
+      "source": "Foundation",
+      "translation": "Fondation",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.c05f241087f3ac4d",
+      "sourceHash": "e015fc804f90bcb7603046774f2b80d745aacf19184963efe7fff3c23275fee3",
+      "source": "Lake Energies became the cornerstone of the diversified Lake Group, growing into one of East Africa's leading energy and industrial conglomerates.",
+      "translation": "Lake Energies est devenue le pilier du groupe diversifié Lake Group et l’un des principaux conglomérats de l’énergie et de l’industrie en Afrique de l’Est.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.46b36061a842789f",
+      "sourceHash": "e837fa74d2327233b8661820629e3cfed11c7b6a37df27036b8c85ead90234ff",
+      "source": "Leadership Impact",
+      "translation": "L’impact du leadership",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a19be58d87ef0515",
+      "sourceHash": "a3b5552e1c34106adfe9e537415970db9b0f3c6158ec08dbac04051fddb92e20",
+      "source": "Building Lake Group",
+      "translation": "Bâtir Lake Group",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
     },
     {
       "id": "auto.72fab3dd263dbef4",
@@ -224,6 +634,36 @@
       "origin": "existing-dictionary:stat.countries"
     },
     {
+      "id": "auto.517e42a8a7795911",
+      "sourceHash": "d8aa5ed8411e3d76cd4193c5d1a59381649c0637178611ca600a3c749253d6f8",
+      "source": "Lake Group's footprint spans 10 countries across East and Central Africa.",
+      "translation": "Lake Group est présent dans 10 pays d’Afrique de l’Est et centrale.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.9dbb8af26b9bc1f0",
+      "sourceHash": "22466b5a68ad045ff73e3f9c7b0f9edd3fe66651d18efe3b7cfc943acb667093",
+      "source": "Recognition",
+      "translation": "Distinction",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.b2d67d188dbb6d32",
+      "sourceHash": "9bc1edc2a708a7c028b64947461912a7463b28b12a8c80adfdc601df94fdea3e",
+      "source": "Young Business Leader of the Year — African Leadership Magazine.",
+      "translation": "Jeune dirigeant d’entreprise de l’année — African Leadership Magazine.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
       "id": "auto.61f73002348b52e4",
       "sourceHash": "6520e44889730d13e3e687ab0e403d653584169102ad8ebb3221d6ce368495ef",
       "source": "Founded",
@@ -232,6 +672,66 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > h3:nth-of-type(1)",
       "attribute": null,
       "origin": "existing-dictionary:leadership.85"
+    },
+    {
+      "id": "auto.bba8f73f52d8b60d",
+      "sourceHash": "5aecbee9dc667acc6601dc22cd291b5310f0fb6af3e06f87d382bbeb6d3935fc",
+      "source": "Established Lake Oil with a single fuel outlet in Dar es Salaam.",
+      "translation": "Il a fondé Lake Oil avec une seule station-service à Dar es Salaam.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.6540bce14eb08a0e",
+      "sourceHash": "c587c2601ccfc456cb7d4d9bb34f12f0fd11ad49faeeb4602860e239b5397843",
+      "source": "Vision",
+      "translation": "Vision",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.bb1b176195327d3e",
+      "sourceHash": "ee649e8f8b07e0beb371883c04370e2d8e55289cbe2668171c983ea908e44b50",
+      "source": "Committed to community welfare and sustainable development across East Africa.",
+      "translation": "Engagé en faveur du bien-être des communautés et du développement durable en Afrique de l’Est.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.be6fa9a5b5f4d988",
+      "sourceHash": "e94e99c758b41c9be817c261cabd46229cb4331c15adbf9a20d378f8e77963b4",
+      "source": "Beyond Business",
+      "translation": "Au-delà des affaires",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.9c96058c86c94c20",
+      "sourceHash": "29a8c7d34ffab2cea07b6360d4f44331152a1c287fed71107fee173cc70abe76",
+      "source": "Committed to Sustainable Development",
+      "translation": "Engagé pour le développement durable",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.69bbe26e90ea2ab8",
+      "sourceHash": "a9b38fba1ade06274057ca72bd5ee999430f0cea333388044bc082d21c2b8dd3",
+      "source": "Beyond business, Mr. Awadh is committed to community welfare initiatives and strategic partnerships contributing to sustainable development across East Africa.",
+      "translation": "Au-delà des affaires, M. Awadh s’engage dans des initiatives de bien-être communautaire et des partenariats stratégiques qui contribuent au développement durable en Afrique de l’Est.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
     },
     {
       "id": "auto.8c6b129791b8102e",
@@ -244,6 +744,16 @@
       "origin": "existing-dictionary:chat.placeholder"
     },
     {
+      "id": "auto.829a27e6224ac5ba",
+      "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
+      "source": "Chat",
+      "translation": "Discussion",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
       "id": "auto.0d658f1dd5b211c8",
       "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
       "source": "Tanzania",
@@ -252,6 +762,36 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary:africa_network.27"
+    },
+    {
+      "id": "auto.e47413df30451868",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Drapeau de la Tanzanie",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.ed17d40faba77648",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "Kenya",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.88d01e072c957000",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "Drapeau du Kenya",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
     },
     {
       "id": "auto.e9fdb1427ca3d357",
@@ -264,6 +804,76 @@
       "origin": "existing-dictionary:africa_network.31"
     },
     {
+      "id": "auto.b809e7edb5b699d9",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "Drapeau de la Zambie",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.b522a1c398429236",
+      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
+      "source": "Rwanda",
+      "translation": "Rwanda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.e7521dab20ab76d2",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "Drapeau du Rwanda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.77005f09eb2116f7",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "Burundi",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.59a78d31ef197f0a",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "Drapeau du Burundi",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.72b9a8703fcf20d0",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "République démocratique du Congo",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a97a4bf72f5c9139",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "Drapeau de la République démocratique du Congo",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
       "id": "auto.0ee30034921795ea",
       "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
       "source": "Ethiopia",
@@ -272,6 +882,76 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary:africa_network.38"
+    },
+    {
+      "id": "auto.8ad9991cb1b8abc2",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "Drapeau de l’Éthiopie",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.330cd2c31a7e5848",
+      "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
+      "source": "Mozambique",
+      "translation": "Mozambique",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.666f22d3de6b7a31",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "Drapeau du Mozambique",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.2bda107b81e5df4c",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "Ouganda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.578c246add6d5aee",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "Drapeau de l’Ouganda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.55eff8d3ae39d6e8",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "Drapeau des Émirats arabes unis",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.bb04ed4e0bbb509f",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-proper-name-or-language-endonym"
     }
   ]
 }

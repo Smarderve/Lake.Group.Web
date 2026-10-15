@@ -9,9 +9,9 @@
   "authoringMethod": "existing dictionary reuse; no model output for generated rows",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 102,
-  "translatedCount": 23,
-  "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
+  "candidateCount": 101,
+  "translatedCount": 102,
+  "validation": "source hashes and protected facts checked; linguistic review remains required",
   "translations": [
     {
       "id": "auto.65b74b5c8d5fdbcd",
@@ -242,6 +242,796 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary:africa_network.40"
+    },
+    {
+      "id": "auto.83ac95c9141ad695",
+      "sourceHash": "56ef332a5b02c8551008fd7f18ab79f053da9035b599fab5b3e1813bc7511e7f",
+      "source": "Gulf Aggregates operates a quarry at Lugoba, Tanzania, supplying aggregate for ready-mix operations and the construction industry.",
+      "translation": "Gulf Aggregates inaendesha machimbo Lugoba, Tanzania, na kusambaza kokoto kwa shughuli za zege lililochanganywa tayari na sekta ya ujenzi.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content",
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.5d3f044d8b3e28d4",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.76e76ef8c16045c9.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.c6d340e335633a9d",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.bd26246231a909c4.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "NexDrive Motors",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.e980cb217de92391",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "Historia Yetu",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.e980cb217de92391.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "Uwajibikaji kwa Jamii na Uendelevu",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.49af0bc4a6cdee0d",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "Lugha: English",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.7ec6b5fb0d583761",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.2a50edeb8be9e511",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "Funga menyu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.d6aba3f50eace0ac.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.dac0b01633f2c194",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.9c2a90c597a8d5bb",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "Historia Yetu",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.9c2a90c597a8d5bb.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "Uwajibikaji kwa Jamii na Uendelevu",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.62609a4b025c08ee",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.dd780a85720d4430",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.dd780a85720d4430.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.dd780a85720d4430.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.dd780a85720d4430.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.dd780a85720d4430.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.dd780a85720d4430.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.dd780a85720d4430.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.dd780a85720d4430.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.5a2e790d7760ab61",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > h1:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.66fd474734b10106",
+      "sourceHash": "607a398c9e6f1e4ecac415abbaedaecbb28f24093838ad95ac51fa61bcc5ff16",
+      "source": "Quarrying, crushing, screening and aggregate handling from Lugoba, Tanzania, serving construction and infrastructure sectors.",
+      "translation": "Uchimbaji wa mawe, uvunjaji, uchujaji na ushughulikiaji wa kokoto Lugoba, Tanzania, kwa ajili ya sekta za ujenzi na miundombinu.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.4fa3256b96e39521",
+      "sourceHash": "135fd69446889947f76fd06b542b3f16bee84c8bce803f9917e0f415c73ff3cf",
+      "source": "Quarrying & aggregate supply",
+      "translation": "Uchimbaji na usambazaji wa kokoto",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.4d7b84d675bfe909",
+      "sourceHash": "e8d048b08d7b7e62c555067deb932938713547b843221353cd1a3846d997370f",
+      "source": "Gulf Aggregates Tanzania Ltd develops and operates quarry resources in Lugoba, Tanzania. Its quarrying, crushing, screening and aggregate-handling capabilities create an integrated supply platform for construction and infrastructure sectors.",
+      "translation": "Gulf Aggregates Tanzania Ltd huendeleza na kuendesha rasilimali za machimbo Lugoba, Tanzania. Uwezo wake wa kuchimba, kuvunja, kuchuja na kushughulikia kokoto huunda jukwaa jumuishi la usambazaji kwa sekta za ujenzi na miundombinu.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.d2f785927627ce91",
+      "sourceHash": "ddd45ba05e61c6d7f2c97c11d261e8a9f1adcb4b9cf0573d74df67bfb0e66908",
+      "source": "The company controls its own quarry resources and has in-house production capability to supply aggregates in the required sizes and volumes.",
+      "translation": "Kampuni inadhibiti rasilimali zake za machimbo na ina uwezo wa uzalishaji wa ndani wa kusambaza kokoto kwa ukubwa na kiasi kinachohitajika.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.0ff745e06b93c1be",
+      "sourceHash": "6f328937eb0b34e7a306e7701afe84334dfb49752e1a65d763e9948839cbdbf8",
+      "source": "Own quarry at Lugoba, Tanzania",
+      "translation": "Machimbo yake Lugoba, Tanzania",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.d184ae57a74856d0",
+      "sourceHash": "0890f130df11f78e4fd747fc8846961f5d31a6ea91756c56a8875d349fc9d82f",
+      "source": "Supplies Lake Group's own consumption and third-party construction customers",
+      "translation": "Husambaza mahitaji ya ndani ya Lake Group na wateja wengine wa ujenzi",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.c7357713ef79624f",
+      "sourceHash": "5f3a902c87540a468a60c6dd57a735216147c3667978b61c1c5df9a6048ad706",
+      "source": "Operational capabilities",
+      "translation": "Uwezo wa Uendeshaji",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.d091a651e1f91f8d",
+      "sourceHash": "a2460ad75ef09ebb383853ce98c2114aa0877147b53d356c01a0a433166dfca3",
+      "source": "Quarrying",
+      "translation": "Uchimbaji wa Mawe",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.d8628fa7c4d980c6",
+      "sourceHash": "4736a8ecad4982693a0aa66a748902ff7699f7b4b092e35a15b870d0b27e7dfb",
+      "source": "Core operation",
+      "translation": "Shughuli kuu",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.26fd8d13b7b6c5bf",
+      "sourceHash": "491d9fd0fdd74b5d1b27030130e8adf61583b614f7771e2af28e7bca018609a6",
+      "source": "Crushing",
+      "translation": "Uvunjaji wa Mawe",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.13afca48906d32fb",
+      "sourceHash": "6d56deeb0ccdbc2e707b16066d5580fdd1370a13601eb1ae1d4207aa1d873ea3",
+      "source": "& screening",
+      "translation": "na uchujaji",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.ecb4c67051bf36b4",
+      "sourceHash": "bf428d3ff5c6e4de55176c555db4a496b31f33e53e026098bf983a8bfba6fd43",
+      "source": "Supply",
+      "translation": "Ugavi",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.7b07e50abfcc9019",
+      "sourceHash": "390ce75b778a6b5f2c501a4e52b9aa1e7f8943c06a4731864cee179eb48756ce",
+      "source": "Resource-to-market model",
+      "translation": "Mfumo wa Rasilimali hadi Soko",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.5a697de0cec751d4",
+      "sourceHash": "d811412069de844210b78794f5dc7de9ff275c0c6d029876d973914f99478fe2",
+      "source": "Lugoba",
+      "translation": "Lugoba",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.582b3b938571ec0d",
+      "sourceHash": "3de0506189648bc09cc2e9063cdadac5651c5a0bc20b5caf86b81f899f927cde",
+      "source": "Quarry Location",
+      "translation": "Mahali pa Machimbo",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.0e118e3f0d0330c1",
+      "sourceHash": "ce45aa8b190045e23057a705a9cae470fa573f13f11a3070559d9bf1b18c4b71",
+      "source": "Mission, Vision & History",
+      "translation": "Dhamira, Maono na Historia",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.1f338acdb33f7628",
+      "sourceHash": "ece87482e677c5ae8adeef03b7439cbbf6ed4032d10237c555ec79c7f84b325d",
+      "source": "To responsibly develop quarry resources and produce high-quality aggregates through safe, efficient and reliable operations, while delivering consistent value to customers, employees, business partners and shareholders.",
+      "translation": "Kuendeleza rasilimali za machimbo kwa uwajibikaji na kuzalisha kokoto za ubora wa juu kupitia shughuli salama, bora na za kuaminika, huku tukitoa thamani thabiti kwa wateja, wafanyakazi, washirika wa biashara na wanahisa.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.08ebff4f8f570f64",
+      "sourceHash": "0e49289f739e87680fd806383ee45fd5ddd966736979db8963a035f25b502806",
+      "source": "To become a leading and trusted aggregates producer in Tanzania, recognized for resource quality, production reliability, operational excellence, safety and long-term sustainable growth.",
+      "translation": "Kuwa mzalishaji mkuu na anayeaminika wa kokoto nchini Tanzania, anayetambuliwa kwa ubora wa rasilimali, uzalishaji wa kuaminika, ubora wa uendeshaji, usalama na ukuaji endelevu wa muda mrefu.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.b8bd326ac2cdb4cd",
+      "sourceHash": "50cfc74e77e1ccb25ba97038c14cb2b2d41b15d101f7e1c901e723259016b631",
+      "source": "Protecting people, communities, equipment and environment.",
+      "translation": "Kulinda watu, jamii, vifaa na mazingira.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.a48d6fb0673bbef9",
+      "sourceHash": "3d21775cd60083e921206d7acdca72bf24ed38c33b9127188c80b7f6f4bffa88",
+      "source": "Sustainability",
+      "translation": "Uendelevu",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.7b212fbbbd4196ef",
+      "sourceHash": "d1ecdc068d87110ddf6fb93965e9ab0ca65d3078ba90ad24f7289000a06c5ce3",
+      "source": "Developing mineral resources responsibly and reducing environmental impact.",
+      "translation": "Kuendeleza rasilimali za madini kwa uwajibikaji na kupunguza athari kwa mazingira.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.0f4b28773660a639",
+      "sourceHash": "565a6230291e6804a67e3b84a26ab59bb5d9f2e0d4046ec69d2c94b6da3c7557",
+      "source": "Customer Focus",
+      "translation": "Kumweka Mteja Kipaumbele",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(3) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.dd6e8b77aa8f1ae5",
+      "sourceHash": "771e6c13b796dce433ea2bdceb5ecb6a9fecc5432733e6454774c7673bd0836c",
+      "source": "Providing dependable supply, responsive service and competitive value.",
+      "translation": "Kutoa ugavi wa kuaminika, huduma inayojibu mahitaji na thamani shindani.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.140b06bc39fa5943",
+      "sourceHash": "a0ee4221adc173aad9cf59bac22e7048e44cb019c9a52b8791251eab8a54c0cd",
+      "source": "Maintaining consistent aggregate quality.",
+      "translation": "Kudumisha ubora thabiti wa kokoto.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.6e35a73736c34dde",
+      "sourceHash": "4cb1b9dd86e74b774f4dbd57c9e1aad9f3e2d4c1de1944b749c00ef74f2b6ba3",
+      "source": "Quarrying & Aggregate Supply",
+      "translation": "Uchimbaji na Ugavi wa Kokoto",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.f0148f510161891b",
+      "sourceHash": "328cc6f63f4b48818276947ba8ced79aa69c5781b6bb71f9187cb160057bc001",
+      "source": "Excavator loading crushed rock at quarry face",
+      "translation": "Mchimbaji akipakia mawe yaliyovunjwa kwenye uso wa machimbo",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.3f13fa9333efb220",
+      "sourceHash": "7c0e865912a4ee294594ab90aaac88b62e7573f7c0cac13562410c26c6c837eb",
+      "source": "Crushed Stone Aggregate",
+      "translation": "Kokoto za Mawe Yaliyovunjwa",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.cdb72d3e0d9f04ea",
+      "sourceHash": "2fed6fec3ca25fb1efc5562f70120ebcd01efffd1a6f58b1170e326e293573e8",
+      "source": "Quarried, crushed and supplied for construction and infrastructure requirements.",
+      "translation": "Huchimbwa, huvunjwa na kusambazwa kwa mahitaji ya ujenzi na miundombinu.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.f6772c62bfba9e56",
+      "sourceHash": "5f060c423b3372542dacf19249d3400735115ac364552a549b3ca37a8586f129",
+      "source": "Aggregate screening and processing plant with conveyors",
+      "translation": "Kiwanda cha kuchuja na kuchakata kokoto chenye mikanda ya kusafirisha",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.46a5345c5b3231bf",
+      "sourceHash": "cccbc2016bcc87f4b115e81d37927ce54cab7c8e94009c35e7e3ef1df13ee4c4",
+      "source": "Screening & Sizing",
+      "translation": "Uchujaji na Upimaji wa Ukubwa",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.865899c5a5d852df",
+      "sourceHash": "8f68d68f1d4596f9f5f7fc91de65e63e828ff60f17ece8e6718b1b23545f1b37",
+      "source": "Screening, sizing and stockpile management shaped around project requirements.",
+      "translation": "Uchujaji, upangaji wa ukubwa na usimamizi wa akiba kulingana na mahitaji ya mradi.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.3078251a639b9ff7",
+      "sourceHash": "135fd45579125ab861e5d138620eb2266e16c771d31f0f6a1a66d51ee4fa10d5",
+      "source": "Lake-branded concrete plant with mixer truck",
+      "translation": "Kiwanda cha zege chenye chapa ya Lake na lori la kuchanganyia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.48f2634923da4b90",
+      "sourceHash": "70bca5afe247ae0a403b27e68dd05390b4a24f0cbbc008770024ced4746eaa66",
+      "source": "Integrated Supply",
+      "translation": "Ugavi Jumuishi",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.ae8176311f42fa5a",
+      "sourceHash": "134cc9427c3d73182076fe9273721433abb62b88023c47fde828221294aa5cd5",
+      "source": "Customized production and supply planning for contractors and infrastructure developers.",
+      "translation": "Mipango maalum ya uzalishaji na ugavi kwa wakandarasi na waendelezaji wa miundombinu.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "auto.33bc4824076925a3",
+      "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
+      "source": "Chat",
+      "translation": "Gumzo",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.e3a44f08c36ee100",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "Tanzania",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.7dd7ed642590d15d",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Bendera ya Tanzania",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.602c558cd06add84",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "Kenya",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.b1369fe2eac43f85",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "Bendera ya Kenya",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.bb83444ab3223bdf",
+      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
+      "source": "Zambia",
+      "translation": "Zambia",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.883c56435e607948",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "Bendera ya Zambia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.c888981495727b3f",
+      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
+      "source": "Rwanda",
+      "translation": "Rwanda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.5b5f3ac043189316",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "Bendera ya Rwanda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.ffea754d3ed36109",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "Burundi",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.596ba94afd68bd76",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "Bendera ya Burundi",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.9b2e3882939501cc",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "Jamhuri ya Kidemokrasia ya Kongo",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.bd529c8b11ccf04f",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "Bendera ya Jamhuri ya Kidemokrasia ya Kongo",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.093f2d251fab4a51",
+      "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
+      "source": "Ethiopia",
+      "translation": "Ethiopia",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.181c25a41aaa7160",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "Bendera ya Ethiopia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.2411f2b5e58cd57b",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "Bendera ya Msumbiji",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.8e7bb32f5b2314ff",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "Uganda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.a85837f55362210a",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "Bendera ya Uganda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.63a10aaf51ad3028",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "Bendera ya Falme za Kiarabu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.e18b6a71b7368f94",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.a75b2b7581a3deee",
+      "sourceHash": "ac3d71287435af58f0fbc6f758faab6bc97676198dbcf414519f390ba0892cf0",
+      "source": "Initially operated as Gulf Concrete and Cement Products (GCCP) to secure a reliable, own-quarried aggregate supply for Lake Group's ready-mix concrete operations. The company later revamped as Gulf Aggregates with quarrying carried out at Lugoba, Tanzania.",
+      "translation": "Hapo awali kampuni iliendesha shughuli kama Gulf Concrete and Cement Products (GCCP) ili kuhakikisha upatikanaji wa kokoto za kuaminika zilizochimbwa yenyewe kwa shughuli za zege lililochanganywa tayari za Lake Group. Baadaye ilibadilishwa na kuwa Gulf Aggregates, huku uchimbaji ukifanyika Lugoba, Tanzania.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:gulf-aggregates.html"
     }
   ]
 }

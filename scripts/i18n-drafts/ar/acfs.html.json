@@ -3,16 +3,26 @@
   "status": "DRAFT_PENDING_HUMAN_REVIEW",
   "locale": "ar",
   "page": "acfs.html",
-  "sourceManifestDigest": "181d42c4930d1abb298d1bb6193e994fb20c4653ed2347cb78f9ae1ea1fa8fa8",
-  "sourceManifestGeneratedAt": "2026-10-15T10:48:55.402Z",
+  "sourceManifestDigest": "60675f76844f3800729cf1ef938b65c6ddcb2e7351b7ee2b74eb4da0f9f40714",
+  "sourceManifestGeneratedAt": "2026-10-15T12:12:03.389Z",
   "createdAt": "2026-10-15T10:47:00.428Z",
   "authoringMethod": "existing dictionary reuse; no model output for generated rows",
   "reviewEvidence": null,
   "releaseEligible": false,
   "candidateCount": 144,
-  "translatedCount": 30,
-  "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
+  "translatedCount": 144,
+  "validation": "Source ids and hashes preserved; number tokens checked; editorial review pending",
   "translations": [
+    {
+      "id": "auto.0ec657cec2b53e53",
+      "sourceHash": "117e58d6d4dde26340f05af36a9b13c476ef2b6ab5b5eed9232a75f14b016868",
+      "source": "ACFS (African Cargo Freight Station) - Lake Group's container freight station and empty container depot at Tazara, Pugu Road, Dar es Salaam, with 5,000 TEU capacity and rail link.",
+      "translation": "ACFS (African Cargo Freight Station) — محطة شحن الحاويات ومستودع الحاويات الفارغة التابعان لـ Lake Group في تازارا، طريق بوغو، دار السلام، بسعة 5,000 TEU وارتباط بالسكك الحديدية.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content",
+      "origin": "assistant-authored-draft:acfs.html"
+    },
     {
       "id": "auto.a0cab0dc4f3134e6",
       "sourceHash": "6970059994dce7e30c88b19df4696c7234a01aca3caf2fa69322593c6a6af253",
@@ -84,6 +94,26 @@
       "origin": "existing-dictionary:nav.co.gulfAggregates"
     },
     {
+      "id": "auto.f8e63a5c1214f134",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-brand-language-name-copyright-or-figure"
+    },
+    {
+      "id": "auto.d680dda9e617ed0f.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "NexDrive Motors",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-brand-language-name-copyright-or-figure"
+    },
+    {
       "id": "auto.145c3e01c33c4b15",
       "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
       "source": "Our History",
@@ -94,6 +124,46 @@
       "origin": "existing-dictionary:nav.history"
     },
     {
+      "id": "auto.145c3e01c33c4b15.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "المسؤولية الاجتماعية والاستدامة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:shared-ui"
+    },
+    {
+      "id": "auto.145c3e01c33c4b15.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "المعرض",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:shared-ui"
+    },
+    {
+      "id": "auto.01bd0fa9fb83b5f2",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "اللغة: الإنجليزية",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.aa7b3ba95a087bac",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-brand-language-name-copyright-or-figure"
+    },
+    {
       "id": "auto.28d0466b70ad93a0",
       "sourceHash": "99af6606ff9d6cd5154d4d4e9c21e325086d3e904677cdb41d363c8a3480f862",
       "source": "Menu",
@@ -102,6 +172,16 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": "aria-label",
       "origin": "existing-dictionary:nav.menu"
+    },
+    {
+      "id": "auto.9fac03a0497a8c0b",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "إغلاق القائمة",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "assistant-authored-draft:acfs.html"
     },
     {
       "id": "auto.7eea0de79838edc2",
@@ -144,6 +224,26 @@
       "origin": "existing-dictionary:nav.co.gulfAggregates"
     },
     {
+      "id": "auto.4f597d5ee9ef93a4",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-brand-language-name-copyright-or-figure"
+    },
+    {
+      "id": "auto.3daf7a4ba43626be",
+      "sourceHash": "ec75f79040af17557c450e94a4214a484350634a433592d2eb31784c5a46e865",
+      "source": "Leadership",
+      "translation": "القيادة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:shared-ui"
+    },
+    {
       "id": "auto.749eef91300f20df",
       "sourceHash": "a034729933d1cbf407645e11d9c91d9ac1bfddbef23fd58cb36782e3f60ae659",
       "source": "Corporate",
@@ -164,6 +264,36 @@
       "origin": "existing-dictionary:nav.history"
     },
     {
+      "id": "auto.8b32f54e421212a3.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "المسؤولية الاجتماعية والاستدامة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:shared-ui"
+    },
+    {
+      "id": "auto.8b32f54e421212a3.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "المعرض",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:shared-ui"
+    },
+    {
+      "id": "auto.eedc3527ecef3ad9",
+      "sourceHash": "7e658675b5ca75b3802ff34b548abe663438f113bed3acf541142b317c146e34",
+      "source": "Careers",
+      "translation": "الوظائف",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(4)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:shared-ui"
+    },
+    {
       "id": "auto.eedc3527ecef3ad9.2",
       "sourceHash": "98b67063cf8e584d75e53b88472ee85473e01e0ea16f29ece9cc98f4a2710494",
       "source": "Contact Us",
@@ -172,6 +302,196 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(5)",
       "attribute": null,
       "origin": "existing-dictionary:footer.contact"
+    },
+    {
+      "id": "auto.be207c94639a3a4c",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-brand-language-name-copyright-or-figure"
+    },
+    {
+      "id": "auto.a953a673a5ee60e3",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-brand-language-name-copyright-or-figure"
+    },
+    {
+      "id": "auto.a953a673a5ee60e3.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-brand-language-name-copyright-or-figure"
+    },
+    {
+      "id": "auto.a953a673a5ee60e3.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "preserved-brand-language-name-copyright-or-figure"
+    },
+    {
+      "id": "auto.a953a673a5ee60e3.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "preserved-brand-language-name-copyright-or-figure"
+    },
+    {
+      "id": "auto.a953a673a5ee60e3.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "preserved-brand-language-name-copyright-or-figure"
+    },
+    {
+      "id": "auto.a953a673a5ee60e3.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "preserved-brand-language-name-copyright-or-figure"
+    },
+    {
+      "id": "auto.a953a673a5ee60e3.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "preserved-brand-language-name-copyright-or-figure"
+    },
+    {
+      "id": "auto.a953a673a5ee60e3.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "preserved-brand-language-name-copyright-or-figure"
+    },
+    {
+      "id": "auto.321bc66a27e440ff",
+      "sourceHash": "7aa2d99f4b09a2ef3cf4631a41b5f14393b4edbcf66dfff15ce96f23839000a9",
+      "source": "Lake Group's container freight station and empty container depot at Tazara, Pugu Road, Dar es Salaam . CFS and empty-container services with rail-linked capacity.",
+      "translation": "محطة شحن الحاويات ومستودع الحاويات الفارغة التابعان لـ Lake Group في تازارا، طريق بوغو، دار السلام. خدمات CFS والحاويات الفارغة بقدرة مرتبطة بالسكك الحديدية.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.e8489f83a36f858a",
+      "sourceHash": "c0986753e1c00dd85a769fcd145ccd0bbeb1928aa5ffa3629fe5dec0e155078d",
+      "source": "The CFS & Empty Container Hub of Dar es Salaam",
+      "translation": "مركز CFS والحاويات الفارغة في دار السلام",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.a386f666745b25e7",
+      "sourceHash": "f9070663c4c68d67c3bf440d4694cf628ea70ef58f7b9557b1c0ea7ea53a31e9",
+      "source": "ACFS (African Cargo Freight Station) is Lake Group's container freight station and empty container depot, providing CFS and Empty Container Depot services at Tazara, Pugu Road . one of the fastest growing companies of the Lake Group in Tanzania.",
+      "translation": "ACFS (African Cargo Freight Station) هي محطة شحن الحاويات ومستودع الحاويات الفارغة التابعان لـ Lake Group، وتقدم خدمات CFS ومستودع الحاويات الفارغة في تازارا، طريق بوغو. وهي إحدى أسرع شركات Lake Group نموًا في تنزانيا.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.48f5963e7f68c72c",
+      "sourceHash": "6dcb1762f539a521fd1d15796ceaa81d83b064bb3e68d16fef99de98b22cb37f",
+      "source": "Located on the main Pugu Road highway in Dar es Salaam, ACFS combines location, rail link and its own transport facility to offer storage, stacking and transportation of empty containers to the port, other ICDs, CFS and client premises . serving shipping lines including COSCO, RAIS Shipping Line and Coral Shipping Line.",
+      "translation": "تقع ACFS على الطريق الرئيسي في طريق بوغو بدار السلام، وتجمع بين الموقع والارتباط بالسكك الحديدية ووسائل النقل الخاصة بها لتوفير تخزين الحاويات الفارغة وتكديسها ونقلها إلى الميناء ومراكز ICD الأخرى ومحطات CFS ومواقع العملاء. وتخدم خطوط شحن منها COSCO وRAIS Shipping Line وCoral Shipping Line.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.ccbf1143ddad4c4b",
+      "sourceHash": "a3177eba9889a6a69281dadd671cbae47dd8b1f3a5d21249d25f8849ea048163",
+      "source": "Container Freight Station (CFS) services",
+      "translation": "خدمات محطة شحن الحاويات (CFS)",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.8cf5257e5c5682e9",
+      "sourceHash": "efa010b30b70717d698699c2c3aec367e5efea82504b3371da851fcdcb1c29e1",
+      "source": "Empty container depot storage and stacking",
+      "translation": "تخزين الحاويات الفارغة وتكديسها في المستودع",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.a1b58384aa0ad8f2",
+      "sourceHash": "a918ed56f7a28aff6431207189fef58fbb2afdfebdfb83c5a67ac198375dbe0d",
+      "source": "Transportation of empty containers to port and client premises",
+      "translation": "نقل الحاويات الفارغة إلى الميناء ومواقع العملاء",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.341020a26c324c57",
+      "sourceHash": "c609c154b923f696d1189c7a71cb6a03131770444d924e0f3ae6008e50892db5",
+      "source": "Rail-linked operations on the Tazara corridor",
+      "translation": "عمليات مرتبطة بالسكك الحديدية على ممر تازارا",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(4)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.827bc52056f59205",
+      "sourceHash": "a893321e80ca931bf8cd192f03e879158139a03a6e11aa0ac0125b14ca2ba7ef",
+      "source": "Round-the-clock security and container inspection",
+      "translation": "الأمن وفحص الحاويات على مدار الساعة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.ff8eae9cb036395c",
+      "sourceHash": "f954c4a32e21bf7e6d04ccb4a792116d2e33922ea97f1cfbe1a04141835e43e9",
+      "source": "Terminal At A Glance",
+      "translation": "لمحة عن المحطة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
     },
     {
       "id": "auto.9b82152ffd172714",
@@ -184,6 +504,96 @@
       "origin": "existing-dictionary:africa_network.27"
     },
     {
+      "id": "auto.97851d0e4e378776",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "علم تنزانيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.218a6c5d82209d08",
+      "sourceHash": "79aa72d9a9e71424dea336320e641105c1b6ef1be883bba79d0e258a7f59c3c2",
+      "source": "Tazara, Pugu Road, Dar es Salaam . main road highway, rail linked",
+      "translation": "تازارا، طريق بوغو، دار السلام — طريق رئيسي ومرتبط بالسكك الحديدية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.efe75d6bd41b20cc",
+      "sourceHash": "fab9fd965997e2fdb44508bfbda9174a48191c0dd2247bdca5b3b1c65f937300",
+      "source": "Yard",
+      "translation": "الساحة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.e0e9c816b5f83a62",
+      "sourceHash": "61af7abf8f2ec893e61648c845ff968faaf442b32e8d39cf403ab99ce0d108a6",
+      "source": "52,000 m²",
+      "translation": "52,000 م²",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.370aaaba3598db9f",
+      "sourceHash": "0e314df3181606c9e4e3a59bcf30c0fb3bc7e13b663d26184a479c89285e7b41",
+      "source": "Total terminal area of 13 acres with warehouse of 2,100 m²",
+      "translation": "المساحة الإجمالية للمحطة 13 فدانًا، وتضم مستودعًا بمساحة 2,100 م²",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.18e4e72ce4a6bfeb",
+      "sourceHash": "ae65d096550ff4eb2a643d022dad2f3f511876d7720f2cbe7a9f5a71c3e91f77",
+      "source": "Capacity",
+      "translation": "السعة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.8e50c5fceeb53cff",
+      "sourceHash": "9459995f606d6bb8db8c95eff42059252e356cee90c9f2831811842505f4a0d9",
+      "source": "5,000 TEU",
+      "translation": "5,000 TEU",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.8a03761a60d8e2c8",
+      "sourceHash": "3717e2b75497b519f2d457abe2a2e7b28086dd4091a8dcd0f7a6e92311de885a",
+      "source": "800 laden ground slots (4,000 TEU) and 250 empty ground slots (1,000 TEU)",
+      "translation": "800 موقعًا أرضيًا للحاويات المحمّلة (4,000 TEU) و250 موقعًا أرضيًا للحاويات الفارغة (1,000 TEU)",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.638e1ea28091d9b5",
+      "sourceHash": "ce45aa8b190045e23057a705a9cae470fa573f13f11a3070559d9bf1b18c4b71",
+      "source": "Mission, Vision & History",
+      "translation": "الرسالة والرؤية والتاريخ",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
       "id": "auto.1143b99f2544a0d4",
       "sourceHash": "e6b85bfbf55020aab80a2fc74cc83aa428a2290c9153ffbd23bdb86befd1def7",
       "source": "Mission",
@@ -192,6 +602,16 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
       "attribute": null,
       "origin": "existing-dictionary:atl.s2.mission"
+    },
+    {
+      "id": "auto.83bf3eec3d99bd38",
+      "sourceHash": "52830ac56a7ce9dc46ba169602ea947caa239e4f75fac4e5766fbe2b37f61595",
+      "source": "To provide CFS and empty container depot services with client satisfaction as the ultimate purpose of business . backed by location, rail link and an in-house transport fleet.",
+      "translation": "تقديم خدمات CFS ومستودع الحاويات الفارغة، مع جعل رضا العملاء الغاية الأساسية للعمل، مستندين إلى الموقع والارتباط بالسكك الحديدية وأسطول النقل الخاص بنا.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
     },
     {
       "id": "auto.d9b458a306595557",
@@ -204,6 +624,16 @@
       "origin": "existing-dictionary:atl.s2.vision"
     },
     {
+      "id": "auto.5d3a4fc69121a5dc",
+      "sourceHash": "25145b9279a1eb190e004d8c6d58c764a898d56959e39c07194f4e9522e0f34b",
+      "source": "To be the region's most trusted container freight station, offering comprehensive storage, stacking and transportation services at competitive, quality service.",
+      "translation": "أن نكون محطة شحن الحاويات الأكثر موثوقية في المنطقة، وأن نقدم خدمات شاملة للتخزين والتكديس والنقل بجودة وأسعار تنافسية.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
       "id": "auto.ada83174891c0068",
       "sourceHash": "0e769600933790607b2a13b33ddfade0fa17810eb62c3b28ee23e59516516491",
       "source": "History",
@@ -212,6 +642,16 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > h3:nth-of-type(1)",
       "attribute": null,
       "origin": "existing-dictionary:nav.historyShort"
+    },
+    {
+      "id": "auto.9c5e6d5c1d5266c4",
+      "sourceHash": "67371f15a94bb7359cc5719337ee283c01d11ab0d9d98715a62c0e88e48915c3",
+      "source": "ACFS was launched under the AFICD brand . building on three years of rich experience in ICD logistics (AFICD ICD No. 022) . as the Container Freight Station arm (CFS No. 013), commencing CFS operations and growing into one of the Lake Group's fastest expanding companies in Tanzania, serving all major shipping lines at Dar es Salaam port.",
+      "translation": "أُطلقت ACFS تحت علامة AFICD، مستندة إلى خبرة غنية تمتد لثلاث سنوات في الخدمات اللوجستية لمراكز ICD (رقم AFICD ICD 022). وبصفتها ذراع محطة شحن الحاويات (رقم CFS 013)، بدأت عمليات CFS ونمت لتصبح إحدى أسرع شركات Lake Group توسعًا في تنزانيا، وتخدم جميع خطوط الشحن الرئيسية في ميناء دار السلام.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
     },
     {
       "id": "auto.2fdf0927b3e3f649",
@@ -224,6 +664,16 @@
       "origin": "existing-dictionary:africa_network.105"
     },
     {
+      "id": "auto.e794e0e071bdbc81",
+      "sourceHash": "331cbc3f2d39aaa218d7e4a1f8e059317fca93319593a9c7cb8bc0892d3b695e",
+      "source": "No compromise on quality",
+      "translation": "لا مساومة على الجودة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
       "id": "auto.27f5ecbf8782fb72",
       "sourceHash": "d677190e0a9990e7d5fa9e4c1bbde44271fb8959c4acb6d43e02ed991128b4bf",
       "source": "Service",
@@ -232,6 +682,36 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > h4:nth-of-type(1)",
       "attribute": null,
       "origin": "existing-dictionary:africa_network.107"
+    },
+    {
+      "id": "auto.2d5e02f89b7f4552",
+      "sourceHash": "a3bf9e41ba7a7124880443c3facb3b61afb8a09f9383c26b48423e24311564db",
+      "source": "Committed to excellence",
+      "translation": "ملتزمون بالتميز",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.4a9df7f2bb3ddbec",
+      "sourceHash": "726d11bd5b230253cc5f795cfcb3268117267cb11fee8df060a472e6448abc56",
+      "source": "Safety",
+      "translation": "السلامة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(3) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.01f0f8a163ad6e43",
+      "sourceHash": "a60e5efe9edc31403efd5126815c88b77c8b9f025fc57d271c416f333300e386",
+      "source": "Safety is first, always",
+      "translation": "السلامة أولًا دائمًا",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
     },
     {
       "id": "auto.b2adb5812128a992",
@@ -244,6 +724,536 @@
       "origin": "existing-dictionary:africa_network.111"
     },
     {
+      "id": "auto.8d6dfe7bdf1b8fa7",
+      "sourceHash": "ec07b2b9b55ec4cf4bb83b892ed4c3cffb5caa8a04fdfbddeb88ade9a4169166",
+      "source": "A culture we cherish",
+      "translation": "ثقافة نعتز بها",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.36c824d266a0ca45",
+      "sourceHash": "b8b3f11a493d702874c2f06d8c6048f02d0e8ec2edd952caa7bf6fbb86b4d7c4",
+      "source": "Container Freight & Depot Services",
+      "translation": "خدمات شحن الحاويات والمستودعات",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.7d2b6321e032c9af",
+      "sourceHash": "3e26ce1d4a72f5079ffa701a11a6eed0f5b3191c27593ed346af1d73f25be65c",
+      "source": "ACFS empty container depot",
+      "translation": "مستودع الحاويات الفارغة لدى ACFS",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.b31352b3c22755b5",
+      "sourceHash": "eeb939767206ef611b540fa39173d00f6da123282affc1b282077f4f556980d0",
+      "source": "Empty Container Depot",
+      "translation": "مستودع الحاويات الفارغة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.a4d015d0ad2e6265",
+      "sourceHash": "992f8d4ed7f27b6fb4285f6d892f1038a9f5eeb44abfaa1886ac95508fb1169c",
+      "source": "Storage, stacking and handling of empty containers for all major shipping lines operating at Dar es Salaam port.",
+      "translation": "تخزين الحاويات الفارغة وتكديسها ومناولتها لجميع خطوط الشحن الرئيسية العاملة في ميناء دار السلام.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.be98fa94ea1dc328",
+      "sourceHash": "787f38afd60cc812b1e1f6527a087d7edeac81bfff626415b303962b27b03fb9",
+      "source": "ACFS container stacking yard",
+      "translation": "ساحة تكديس الحاويات لدى ACFS",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.7cd1689e6a5976e2",
+      "sourceHash": "464324c7a6213cd56b4d4534fe353760a5f7050dbf9251e4ab72815761803abe",
+      "source": "Container Storage & Stacking",
+      "translation": "تخزين الحاويات وتكديسها",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.008636ec5271baf2",
+      "sourceHash": "67305d5b3d93a0914ea8bdcb35135e6b17351858d651542441f7980bddd88531",
+      "source": "Secure yard storage for flat rack, open top, high cube and reefer containers, stacked by type up to 5-high.",
+      "translation": "تخزين آمن في الساحة لحاويات flat rack وopen top وhigh cube والحاويات المبردة (reefer)، مع تكديسها حسب النوع حتى ارتفاع 5 حاويات.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.9ca4ba207ba6a821",
+      "sourceHash": "37c4902d45b8b9ac0788cbd1669b392ba5728367733db4fb00cff995820b1188",
+      "source": "ACFS container handling",
+      "translation": "مناولة الحاويات لدى ACFS",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.f41d48fed42d8815",
+      "sourceHash": "bb4c70c1aeb8f95f5c10dd96b5414616ecfad4c5ef6625007e9c8419ac474930",
+      "source": "Container Inspection & Repair",
+      "translation": "فحص الحاويات وإصلاحها",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.638fce3bf44c53ee",
+      "sourceHash": "cf5e3393ac2c1bf7c3518242dcb0ddb1ed4004a1e4027f8c4d748c7b694c54f6",
+      "source": "Containers accepted only after thorough inspection; minor and major repairs by trained technical personnel.",
+      "translation": "لا تُقبل الحاويات إلا بعد فحص دقيق؛ ويجري فنيون مدربون الإصلاحات البسيطة والكبيرة.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.0e14d3df5ac0a5b8",
+      "sourceHash": "310c61e32545f275517865d0ff7751ea1a086b0173a93d82df68fd8b897c38b9",
+      "source": "ACFS depot operations",
+      "translation": "عمليات مستودع ACFS",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.5c4a3fc3d404b017",
+      "sourceHash": "647882784a300224ae227978f3252f71c460a5134412bef62a58716335840dd0",
+      "source": "24/7 Security",
+      "translation": "الأمن على مدار 24/7",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.1fa4475a5c4abb58",
+      "sourceHash": "4e9bfd3b1536f7bd50f49e0ca5681a894260fa6ea98917d1959aa6b5aa63b20e",
+      "source": "Round-the-clock security guards and CCTV-style vigilance over all container entry, exit and stacking.",
+      "translation": "حراسة أمنية على مدار الساعة ومراقبة شبيهة بكاميرات CCTV لجميع عمليات دخول الحاويات وخروجها وتكديسها.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.cfe7916cb4631dab",
+      "sourceHash": "22107e09eb7c5a4751d30e56e6857f591f1ee69699dc652557ed896ba7c00fac",
+      "source": "ACFS yard at Tazara, Pugu Road",
+      "translation": "ساحة ACFS في تازارا، طريق بوغو",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(5) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.eb3710850618bf32",
+      "sourceHash": "3d7181e7f99a56f789860a83749a1292f760fa8a27cd88bedc2480ac18beb11c",
+      "source": "SAP-Powered Operations",
+      "translation": "عمليات مدعومة بنظام SAP",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(5) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.3b28b45f8f60ce46",
+      "sourceHash": "bae2a529fd7484a1c3bc1571d1b179520c8ce37233535614f1000cd39324e288",
+      "source": "Customized SAP software for ICD operations and financial processes, with IT staff available 24/7.",
+      "translation": "برنامج SAP مخصص لعمليات ICD والإجراءات المالية، مع توفر موظفي تقنية المعلومات على مدار 24/7.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.569db0ef639ff576",
+      "sourceHash": "2c6e2f7b50bce341c033641d40648a51c1078df2cc4cfee1a937fff7fde91a58",
+      "source": "Facility & Equipment",
+      "translation": "المنشأة والمعدات",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.e168f90b2ac5978e",
+      "sourceHash": "610248239626644e26b5668af5820def958f106410ef4dcd4c48c1ee1cee4da9",
+      "source": "Terminal Facts",
+      "translation": "معلومات المحطة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.354ae3657cdafdd5",
+      "sourceHash": "9f4758a1af8ea3cbca89483b89834e54157df92e5ced57364d947e14ae6482d6",
+      "source": "Total Area",
+      "translation": "المساحة الإجمالية",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.facc7cdff3b0129b",
+      "sourceHash": "4a696c494ff6f95d0e4e721eb37523d969b0467af0b4a5a8cb6a3276d0914597",
+      "source": "13 Acres",
+      "translation": "13 Acres",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.8e40210d59efda06",
+      "sourceHash": "d8549892415867023f5ea281e82db896e79df8abc961029cfc0aa8358e0dc54c",
+      "source": "Depot Size",
+      "translation": "حجم المستودع",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.f573b778dbe0e5cc",
+      "sourceHash": "61af7abf8f2ec893e61648c845ff968faaf442b32e8d39cf403ab99ce0d108a6",
+      "source": "52,000 m²",
+      "translation": "52,000 م²",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.c2c927c4b099032d",
+      "sourceHash": "ae65d096550ff4eb2a643d022dad2f3f511876d7720f2cbe7a9f5a71c3e91f77",
+      "source": "Capacity",
+      "translation": "السعة",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.9272d98de5414934",
+      "sourceHash": "9459995f606d6bb8db8c95eff42059252e356cee90c9f2831811842505f4a0d9",
+      "source": "5,000 TEU",
+      "translation": "5,000 TEU",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.5ff898de50f8ada5",
+      "sourceHash": "5bd5243cb6534f662c17d4621d2d8f342804261c6590ff983cd83fa357ede195",
+      "source": "Rail Tracks",
+      "translation": "مسارات السكك الحديدية",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.f9887fe342328926",
+      "sourceHash": "2a625c251683ca2ba8a1125319cb76d8f3d448d9e4d5a6c97bd948145217e36f",
+      "source": "Warehouse",
+      "translation": "المستودع",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.e9dc49172f77ff71",
+      "sourceHash": "defdf73ef5d16c3c93e2f757e992db603db86d0a8f63c8cd855c85c54547cf57",
+      "source": "2,100 m²",
+      "translation": "2,100 م²",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.2cf2c586d9398aa8",
+      "sourceHash": "b5df76f7ab3bb7051ab4172cd1801ff2900dee368df6560e085c12266d5f1295",
+      "source": "Weighbridge",
+      "translation": "ميزان الشاحنات",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.99be0d095a522e36",
+      "sourceHash": "0ba5e3d4ce951f18c7ee0dfed34d9be7872ce6c96b829ccad9f093624cbe6eed",
+      "source": "80 Tons",
+      "translation": "80 Tons",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(6) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.a8fdde25d7e31a8a",
+      "sourceHash": "d334233dcc50077bc677bf08bc89583cda2b55eb536e0808a64015447ca3e858",
+      "source": "Reefer Points",
+      "translation": "نقاط توصيل الحاويات المبردة",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.919c9055e49a1673",
+      "sourceHash": "5e62332ac271f3b22daecd1ee8598c5c0fbd622110211ecf9c853c323dcf7694",
+      "source": "Equipment & Fleet",
+      "translation": "المعدات والأسطول",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.41659a8e51072d95",
+      "sourceHash": "add426244348526cd93558822ad06a679d43a5c8d813c52fa092f7afd5d948ae",
+      "source": "Reach Stackers",
+      "translation": "رافعات مناولة الحاويات",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.70a16e7c03842c85",
+      "sourceHash": "59f4b6707d833fda71bd66ee765c8ecee86e6b8348507c4735a011a99f74bc8b",
+      "source": "Forklifts (3t & 7t)",
+      "translation": "رافعات شوكية (3t و7t)",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.23ba82b40c8556bf",
+      "sourceHash": "8a6c5db3f6b5a906a25bee818dad566d99340522ce9b2881cfaae39a6b6c203f",
+      "source": "Trucks & Trailers",
+      "translation": "الشاحنات والمقطورات",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.dab9eabe47eb44b0",
+      "sourceHash": "347981242f58a78e10a3a344145bd5450f64fb4c1d69bc46a720c5253250663d",
+      "source": "Rail Wagons (Phase 2)",
+      "translation": "عربات السكك الحديدية (المرحلة 2)",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.def6a7094b43afc4",
+      "sourceHash": "d4e3205b60bae4260149af79166032290147aa67a9ac663ce818287a02eb2897",
+      "source": "Locomotive (Phase 2)",
+      "translation": "قاطرة (المرحلة 2)",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.d36e9c537f1db078",
+      "sourceHash": "60d862b685acbc7eed256ecd0d0c2c86379f3b6aee4e6f432b754e8718f1fb68",
+      "source": "Empty Container Handler",
+      "translation": "معدة مناولة الحاويات الفارغة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(6) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.277d37003a45ed49",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "المعرض",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:shared-ui"
+    },
+    {
+      "id": "auto.fb234ccbd1daaadf",
+      "sourceHash": "e5fd73e7434ea101d1a65b8644977d52570943854f8773542682e8e81c8a4cb2",
+      "source": "ACFS container freight station",
+      "translation": "محطة شحن الحاويات لدى ACFS",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.6c250de79d1ea99f",
+      "sourceHash": "158eb5febe395fcc42b1f4e5ceeadaa9212fb64a2c2bb43daf6fe825b9874ec3",
+      "source": "container freight station",
+      "translation": "محطة شحن الحاويات",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(1) > figcaption:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.b6302f62ed5f4a0b",
+      "sourceHash": "3e26ce1d4a72f5079ffa701a11a6eed0f5b3191c27593ed346af1d73f25be65c",
+      "source": "ACFS empty container depot",
+      "translation": "مستودع الحاويات الفارغة لدى ACFS",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.db0dc606f9e57ca1",
+      "sourceHash": "d6064b3c8329250055ea6df0b518efd2bc69abcf1db8747db470a796dc53ff5a",
+      "source": "empty container depot",
+      "translation": "مستودع الحاويات الفارغة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(2) > figcaption:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.5ab1c49f1c1beac0",
+      "sourceHash": "787f38afd60cc812b1e1f6527a087d7edeac81bfff626415b303962b27b03fb9",
+      "source": "ACFS container stacking yard",
+      "translation": "ساحة تكديس الحاويات لدى ACFS",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.ee683654aaa36b00",
+      "sourceHash": "9a974cd89f0a6afe547438f6aebf20ed4b35e21c557394d497b7f80224761c42",
+      "source": "container stacking yard",
+      "translation": "ساحة تكديس الحاويات",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(3) > figcaption:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.7a7446d36bfa1877",
+      "sourceHash": "310c61e32545f275517865d0ff7751ea1a086b0173a93d82df68fd8b897c38b9",
+      "source": "ACFS depot operations",
+      "translation": "عمليات مستودع ACFS",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.2126106590a720e0",
+      "sourceHash": "49fd6ef355322a186fe904e63824ad91ac3399627ad6a42b3379918d04fd0bf1",
+      "source": "depot operations",
+      "translation": "عمليات المستودع",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(4) > figcaption:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.59f48c8c9d0ef0b5",
+      "sourceHash": "37c4902d45b8b9ac0788cbd1669b392ba5728367733db4fb00cff995820b1188",
+      "source": "ACFS container handling",
+      "translation": "مناولة الحاويات لدى ACFS",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.b38ad82927ca349c",
+      "sourceHash": "fc714b8217a6306a41a8cf8fa6fc056f88e15b2d1f559f4055d1941605b95d57",
+      "source": "container handling",
+      "translation": "مناولة الحاويات",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(5) > figcaption:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.0db51dd43291e6ac",
+      "sourceHash": "e5f3fcb0c425ecb827d3a44b46cd58ca01fd8b2376bc0d23fee8d4d2cbebee0d",
+      "source": "ACFS rail-linked terminal",
+      "translation": "محطة ACFS المرتبطة بالسكك الحديدية",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.aeb25afb6cfbf14d",
+      "sourceHash": "07b3616f8bc962bcfa449d6db077107824e6019182a93eccdc6e7a8c5b244e4e",
+      "source": "rail-linked terminal",
+      "translation": "محطة مرتبطة بالسكك الحديدية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(6) > figcaption:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.e7db31f23101c5d8",
+      "sourceHash": "22107e09eb7c5a4751d30e56e6857f591f1ee69699dc652557ed896ba7c00fac",
+      "source": "ACFS yard at Tazara, Pugu Road",
+      "translation": "ساحة ACFS في تازارا، طريق بوغو",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.205e56da0c4cf752",
+      "sourceHash": "f48d66f1f96adfad80655b3336c733b16b3b367b23149f410f0643b08aca108a",
+      "source": "yard at Tazara",
+      "translation": "الساحة في تازارا",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(7) > figcaption:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
       "id": "auto.152f7572d3c78c4b",
       "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
       "source": "Tanzania",
@@ -252,6 +1262,16 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary:africa_network.27"
+    },
+    {
+      "id": "auto.d0fbc7fe39c7efbd",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "علم تنزانيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:acfs.html"
     },
     {
       "id": "auto.9f1dd32b61e5862a",
@@ -264,6 +1284,16 @@
       "origin": "existing-dictionary:africa_network.29"
     },
     {
+      "id": "auto.562c369c47006b12",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "علم كينيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
       "id": "auto.eb4655217263d7af",
       "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
       "source": "Zambia",
@@ -272,6 +1302,16 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary:africa_network.31"
+    },
+    {
+      "id": "auto.9eaf11920c0029c1",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "علم زامبيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:acfs.html"
     },
     {
       "id": "auto.a1c9675931f9c9bb",
@@ -284,6 +1324,16 @@
       "origin": "existing-dictionary:africa_network.33"
     },
     {
+      "id": "auto.c16eafb33a983834",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "علم رواندا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
       "id": "auto.6368a54e66fc2a6b",
       "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
       "source": "Burundi",
@@ -292,6 +1342,36 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary:africa_network.35"
+    },
+    {
+      "id": "auto.f5649ab5481573b7",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "علم بوروندي",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.f36aab44f2dc88ab",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "جمهورية الكونغو الديمقراطية",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.882702df4000b9b1",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "علم جمهورية الكونغو الديمقراطية",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:acfs.html"
     },
     {
       "id": "auto.76a7b44e2c2f342e",
@@ -304,6 +1384,16 @@
       "origin": "existing-dictionary:africa_network.38"
     },
     {
+      "id": "auto.7c0c0d7423fe00fa",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "علم إثيوبيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
       "id": "auto.cc2076d21a816a9b",
       "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
       "source": "Mozambique",
@@ -312,6 +1402,56 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary:africa_network.40"
+    },
+    {
+      "id": "auto.5877601d98e9fe63",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "علم موزمبيق",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.62174b67b5a41a91",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "أوغندا",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.e262f33f4bce775c",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "علم أوغندا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.89a9aec4f75b01a6",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "علم الإمارات",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:acfs.html"
+    },
+    {
+      "id": "auto.9636f3fee5f4d121",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-brand-language-name-copyright-or-figure"
     }
   ]
 }

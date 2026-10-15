@@ -3,16 +3,26 @@
   "status": "DRAFT_PENDING_HUMAN_REVIEW",
   "locale": "es",
   "page": "our-story.html",
-  "sourceManifestDigest": "181d42c4930d1abb298d1bb6193e994fb20c4653ed2347cb78f9ae1ea1fa8fa8",
-  "sourceManifestGeneratedAt": "2026-10-15T10:48:55.402Z",
+  "sourceManifestDigest": "60675f76844f3800729cf1ef938b65c6ddcb2e7351b7ee2b74eb4da0f9f40714",
+  "sourceManifestGeneratedAt": "2026-10-15T12:12:03.389Z",
   "createdAt": "2026-10-15T10:47:00.739Z",
-  "authoringMethod": "existing dictionary reuse; no model output for generated rows",
+  "authoringMethod": "Exact-source reuse and initial AI-authored page drafts; human review pending",
   "reviewEvidence": null,
   "releaseEligible": false,
   "candidateCount": 66,
-  "translatedCount": 19,
-  "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
+  "translatedCount": 66,
+  "validation": "Source ids and hashes preserved; human review pending",
   "translations": [
+    {
+      "id": "auto.6494b5efe3792d9a",
+      "sourceHash": "1a202dc6cbadbfe527330ef56e4ca3cfdb423ae790d666553a274ff74feade5e",
+      "source": "The Lake Group story from one fuel depot in Dar es Salaam in 2006 to an energy, logistics and industrial group operating across 10 countries. An immersive scroll experience.",
+      "translation": "La historia de Lake Group comenzó con un único depósito de combustible en Dar es Salaam en 2006 y hoy es la de un grupo energético, logístico e industrial que opera en 10 países. Una experiencia narrativa inmersiva al desplazarse por la página.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content",
+      "origin": "ai-authored-initial-draft"
+    },
     {
       "id": "auto.b7c6cf6caab7857f",
       "sourceHash": "6970059994dce7e30c88b19df4696c7234a01aca3caf2fa69322593c6a6af253",
@@ -74,6 +84,46 @@
       "origin": "existing-dictionary:nav.dd.automotive"
     },
     {
+      "id": "auto.2042bcc031918ea8.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.f07ee48983b5c3d2",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.7d1877b24a542ef3.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "NexDrive Motors",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.8ea13294b8a776a3",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "Nuestra Historia",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source-draft"
+    },
+    {
       "id": "auto.8ea13294b8a776a3.2",
       "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
       "source": "CSR & Sustainability",
@@ -94,6 +144,26 @@
       "origin": "existing-dictionary:nav.gallery"
     },
     {
+      "id": "auto.6ed390d69859cf50",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "Idioma: inglés",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-exact-source-draft"
+    },
+    {
+      "id": "auto.ab44d3e0e46ae896",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "Inglés",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source-draft"
+    },
+    {
       "id": "auto.067cde31d7a3c7af",
       "sourceHash": "99af6606ff9d6cd5154d4d4e9c21e325086d3e904677cdb41d363c8a3480f862",
       "source": "Menu",
@@ -102,6 +172,16 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": "aria-label",
       "origin": "existing-dictionary:nav.menu"
+    },
+    {
+      "id": "auto.af157d2b886dd5bd",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "Cerrar menú",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-exact-source-draft"
     },
     {
       "id": "auto.6858432de007681f",
@@ -134,6 +214,26 @@
       "origin": "existing-dictionary:nav.companies"
     },
     {
+      "id": "auto.94a7305734b9ecf4.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.e9335b894413b01d",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
       "id": "auto.a31dd7f2e74cc081",
       "sourceHash": "ec75f79040af17557c450e94a4214a484350634a433592d2eb31784c5a46e865",
       "source": "Leadership",
@@ -142,6 +242,26 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(3)",
       "attribute": null,
       "origin": "existing-dictionary:nav.leadership"
+    },
+    {
+      "id": "auto.e7899643c1658262",
+      "sourceHash": "a034729933d1cbf407645e11d9c91d9ac1bfddbef23fd58cb36782e3f60ae659",
+      "source": "Corporate",
+      "translation": "Corporativa",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-exact-source"
+    },
+    {
+      "id": "auto.cca01f36a112aa69",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "Nuestra Historia",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source-draft"
     },
     {
       "id": "auto.cca01f36a112aa69.2",
@@ -174,6 +294,126 @@
       "origin": "existing-dictionary:nav.careers"
     },
     {
+      "id": "auto.42773b34d8c68d7e.2",
+      "sourceHash": "98b67063cf8e584d75e53b88472ee85473e01e0ea16f29ece9cc98f4a2710494",
+      "source": "Contact Us",
+      "translation": "Contacta con nosotros",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(5)",
+      "attribute": null,
+      "origin": "reused-exact-source-draft"
+    },
+    {
+      "id": "auto.f2200aa1254d46a0",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "Inglés",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source-draft"
+    },
+    {
+      "id": "auto.e394d3420b2bf319",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "Inglés",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source-draft"
+    },
+    {
+      "id": "auto.e394d3420b2bf319.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.e394d3420b2bf319.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.e394d3420b2bf319.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.e394d3420b2bf319.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.e394d3420b2bf319.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.e394d3420b2bf319.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.e394d3420b2bf319.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.ebe7c0b428b7c716",
+      "sourceHash": "32d7d7ad289afd7099aadf1db047598aacb413829bca3c81b2dd28426f82bb69",
+      "source": "Lake Energies service station",
+      "translation": "Estación de servicio de Lake Energies",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.116b8d31aeb323d0",
+      "sourceHash": "74dd11dc66fc0e2829efab947df73476860d2c14ebbc5643e1d90aaa5b1e1d68",
+      "source": "Lake Oil terminal in Dar es Salaam",
+      "translation": "Terminal de Lake Oil en Dar es Salaam",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > div:nth-of-type(2) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
       "id": "auto.b811f428029a6758",
       "sourceHash": "62e42f816fb6e8f3ead11731e9bcc768ded4ba8986257f748609aef9e6df0431",
       "source": "Lake Trans fleet of trucks",
@@ -182,6 +422,46 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > div:nth-of-type(3) > div:nth-of-type(1) > img:nth-of-type(1)",
       "attribute": "alt",
       "origin": "existing-dictionary:ose.alt.s3"
+    },
+    {
+      "id": "auto.ff3fe7f9d9fdbe16",
+      "sourceHash": "2357d8bf893da34a2c16dde6c109248ab260ecb345d154d199c26526f205a36c",
+      "source": "Lake Gas LPG cylinders at the filling plant",
+      "translation": "Cilindros de GLP de Lake Gas en la planta de llenado",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > div:nth-of-type(4) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.35ba439c3fbcd5e1",
+      "sourceHash": "83d8ea8b70f1ffbb611906f274c9ef36e5de1ef4255a70f19f3f29b175e9dbd0",
+      "source": "Gulf Concrete and Cement Products ready-mix truck",
+      "translation": "Camión de hormigón premezclado de Gulf Concrete and Cement Products",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > div:nth-of-type(5) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.2f661bd0a665e65f",
+      "sourceHash": "ec43991c002ee5bc48649579e4941ef4b3de0a26df57fcc0d47b09b172f6e112",
+      "source": "Lake Group operations team during a fleet inspection",
+      "translation": "Equipo de operaciones de Lake Group durante una inspección de flota",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > div:nth-of-type(6) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.985875cb88dafbf7",
+      "sourceHash": "2ec0fd8d53bc3c89deb6029c2720a6e58ae2b7202bb612cab37f2d139cbdd1b0",
+      "source": "Aerial view of the AFICD container depot",
+      "translation": "Vista aérea del depósito de contenedores de AFICD",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > div:nth-of-type(7) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
     },
     {
       "id": "auto.211f1aaeefa6ae1a",
@@ -194,6 +474,126 @@
       "origin": "existing-dictionary:ose.alt.s8"
     },
     {
+      "id": "auto.24c3e3c9a3a8c6f0",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "Tanzania",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.64b1a2884fec2b92",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Bandera de Tanzania",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source-draft"
+    },
+    {
+      "id": "auto.05b64af8899755e5",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "Kenia",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source-draft"
+    },
+    {
+      "id": "auto.4c44c2021ecd9d0b",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "Bandera de Kenia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source-draft"
+    },
+    {
+      "id": "auto.0e6044bc3a99a738",
+      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
+      "source": "Zambia",
+      "translation": "Zambia",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.6a39ca69548909e0",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "Bandera de Zambia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source-draft"
+    },
+    {
+      "id": "auto.43d8f414d212799c",
+      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
+      "source": "Rwanda",
+      "translation": "Ruanda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source-draft"
+    },
+    {
+      "id": "auto.6596175e3e2a27f3",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "Bandera de Ruanda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source-draft"
+    },
+    {
+      "id": "auto.049e67de555cd5f3",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "Burundi",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.aa3b2fc3a9a5291f",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "Bandera de Burundi",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source-draft"
+    },
+    {
+      "id": "auto.7d2e3918963a98b7",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "República Democrática del Congo",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source-draft"
+    },
+    {
+      "id": "auto.29936c843af12975",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "Bandera de la República Democrática del Congo",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source-draft"
+    },
+    {
       "id": "auto.028995dbef8a31fb",
       "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
       "source": "Ethiopia",
@@ -202,6 +602,76 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary:africa_network.38"
+    },
+    {
+      "id": "auto.47502598d6c5eea9",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "Bandera de Etiopía",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source-draft"
+    },
+    {
+      "id": "auto.f2a293298ddd8e3c",
+      "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
+      "source": "Mozambique",
+      "translation": "Mozambique",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.ce57eae9dfee6b81",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "Bandera de Mozambique",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source-draft"
+    },
+    {
+      "id": "auto.01054a483e0aa70b",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "Uganda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.f19a20bb3f5f10f7",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "Bandera de Uganda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source-draft"
+    },
+    {
+      "id": "auto.0efafa42f63ad2c0",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "Bandera de los Emiratos Árabes Unidos",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source-draft"
+    },
+    {
+      "id": "auto.841238e8013ecebd",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
     }
   ]
 }

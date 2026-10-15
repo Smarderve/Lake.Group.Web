@@ -10,8 +10,8 @@
   "reviewEvidence": null,
   "releaseEligible": false,
   "candidateCount": 145,
-  "translatedCount": 32,
-  "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
+  "translatedCount": 145,
+  "validation": "source hashes and protected facts checked; linguistic review remains required",
   "translations": [
     {
       "id": "auto.9e836b7d85dc0bcd",
@@ -332,6 +332,1136 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary:africa_network.40"
+    },
+    {
+      "id": "auto.972107882e2ec343.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.e3881e8effe4c046",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.3266b4fcce888e47.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "NexDrive Motors",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.19e9ab44b4e390b1",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "A nossa história",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.a16fddd961e5f07a",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "Idioma: inglês",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.3c111ccbe3533731",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.fe647e764361b326",
+      "sourceHash": "99af6606ff9d6cd5154d4d4e9c21e325086d3e904677cdb41d363c8a3480f862",
+      "source": "Menu",
+      "translation": "Menu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.203bcbc769e71067",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "Fechar menu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.bcd5afaa7fd36d6f.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.6788f6314d7b5237",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.6ec5f2b25a914b80",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "A nossa história",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.c420936894e34565",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.fde2d6e035d6b57a",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.fde2d6e035d6b57a.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.fde2d6e035d6b57a.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.fde2d6e035d6b57a.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.fde2d6e035d6b57a.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.fde2d6e035d6b57a.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.fde2d6e035d6b57a.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.fde2d6e035d6b57a.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.e1e5180df18834c8",
+      "sourceHash": "bb1c9353d712e64b2ab8b32afc78e6e73ce153eea48fbddfb5244a1121da8223",
+      "source": "Manufacturing Base",
+      "translation": "Base de fabricação",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.9034360465fbdd04",
+      "sourceHash": "e135994f6625268bcc47b4f473c5ea1de7191b3d283880466e3c84003d1ff93f",
+      "source": "Ashok Leyland",
+      "translation": "Ashok Leyland",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1) > strong:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.9ecde57f725fe4ee.3",
+      "sourceHash": "3d21775cd60083e921206d7acdca72bf24ed38c33b9127188c80b7f6f4bffa88",
+      "source": "Sustainability",
+      "translation": "Sustentabilidade",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(3) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.4f0f4450b2ae98b5",
+      "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
+      "source": "Chat",
+      "translation": "Conversa",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.e16fd67dfbc3d6ae",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Bandeira da Tanzânia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.084726a85f707869",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "Bandeira do Quênia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.70e9d47747387b4d",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "Bandeira da Zâmbia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.a696ba0aa113912f",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "Bandeira de Ruanda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.ed65da60d225c769",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "Burundi",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.c82088c1296ced48",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "Bandeira do Burundi",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.998c45a7d88a4da3",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "República Democrática do Congo",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.80b22a6308b4f7f6",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "Bandeira da República Democrática do Congo",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.2cc2a90321e3a9d7",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "Bandeira da Etiópia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.79225852eb5b587c",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "Bandeira de Moçambique",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.b76b4d4cd26ccf23",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "Uganda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.590201c7853646b1",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "Bandeira de Uganda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.95394c78d426eaf2",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "Bandeira dos Emirados Árabes Unidos",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.81d2c849b1340b1b",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.896f323aa71984f0",
+      "sourceHash": "a14a469dc1131fde5ab29e633792152ece6f5e32ec11dba8423142ffbcd71251",
+      "source": "Assembly Tech Limited manufactures aluminium trailers and fuel transportation solutions for commercial transport requirements across East and Central Africa.",
+      "translation": "A Assembly Tech Limited fabrica reboques de alumínio e soluções de transporte de combustível para as necessidades do transporte comercial na África Oriental e Central.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content",
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.54cc2c57f4ab9b88",
+      "sourceHash": "f5a29d7692fb2a95737816a00d70dc89c4f3b63b4d599b46b8074dea3622081f",
+      "source": "Vehicle & Trailer Assembly Solutions",
+      "translation": "Soluções de montagem de veículos e reboques",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.7ff6d68d30aae0ba",
+      "sourceHash": "3ccf66e03778b7b33cc567ee51cd0d791e596da26c799afdf9a9dd49b4b88681",
+      "source": "Commercial vehicles and trailers engineered for transportation, logistics and specialized requirements across East and Central Africa.",
+      "translation": "Veículos comerciais e reboques concebidos para transporte, logística e requisitos especializados na África Oriental e Central.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.ec69c037e9c7e308",
+      "sourceHash": "f5a29d7692fb2a95737816a00d70dc89c4f3b63b4d599b46b8074dea3622081f",
+      "source": "Vehicle & Trailer Assembly Solutions",
+      "translation": "Soluções de montagem de veículos e reboques",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.83d89943e1ac85b1",
+      "sourceHash": "bac7ba093a1cbcc9623c868d15fecc5515caa798cdc34aba66c79037fb1ac1b0",
+      "source": "ATL Limited (Assembly Tech Ltd), established in 2019, has evolved from aluminium trailer manufacturing into a broader vehicle and trailer assembly business. The company provides quality, safety and durability-focused solutions for transportation, logistics and specialized operating requirements across East and Central Africa.",
+      "translation": "A ATL Limited (Assembly Tech Ltd), fundada em 2019, evoluiu do fabrico de reboques de alumínio para uma atividade mais ampla de montagem de veículos e reboques. A empresa oferece soluções focadas na qualidade, segurança e durabilidade para transporte, logística e operações especializadas na África Oriental e Central.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.9f88b2716a535290",
+      "sourceHash": "3b889040f120187b1faba20b1366143dcd807159dc5b05e13c12cbe8fa91eef9",
+      "source": "Rebranded as Assembly Tech Ltd",
+      "translation": "Rebatizada como Assembly Tech Ltd",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.72a511561f1e1056",
+      "sourceHash": "7d6cc193948f9770f7e6781f7d4f92ed0c31ca0b2c65f167f7a79437d848735b",
+      "source": "Aluminium Engineering For Fuel Transport.",
+      "translation": "Engenharia de alumínio para o transporte de combustível.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.fe953952acd67da7",
+      "sourceHash": "3e9d82015b8523e1b44483d26cdac547adfa0e662a82d649b30f3c3103df2398",
+      "source": "Fuel Transportation",
+      "translation": "Transporte de combustível",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.3b55c4404d4f09af",
+      "sourceHash": "945380045b5dd8f77d50fa5cc8299a8046bd366bf1f72df750210bdb4b19a905",
+      "source": "Aluminium construction suitable for fuel transportation.",
+      "translation": "Estrutura de alumínio adequada ao transporte de combustível.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.02f5ca79285c1d2c",
+      "sourceHash": "45887548466b8b00e95fc5d468f8eb7877c2c5509dc83900726d6bb723aeacd5",
+      "source": "Payload Efficiency",
+      "translation": "Eficiência de carga útil",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.32ec31263dec38be",
+      "sourceHash": "16645a7f22e9a70546bdd48d92a8bfcf3ce5b8ecb4117955606d1e138c365b72",
+      "source": "Lightweight trailer design supporting higher payload efficiency.",
+      "translation": "Conceção leve do reboque que favorece uma maior eficiência de carga útil.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.93fdc66539808b47",
+      "sourceHash": "9cca3ef70bf38fd1af2337c0076b0bf27ed5d7f87896d72cdda06732cb423dcb",
+      "source": "Strength To Weight",
+      "translation": "Relação resistência/peso",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.174b42ae22ec57a0",
+      "sourceHash": "c2398c08dc5debd2a17033acbb2b806defb0b90990ed3e15efdb77bb6ece57a2",
+      "source": "High strength-to-weight performance for demanding transport requirements.",
+      "translation": "Elevada relação resistência/peso para exigentes requisitos de transporte.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.3c17f7a91e43ea34",
+      "sourceHash": "1483db342871e997c9890acc35dd44a374501ef65ea3f744d8afb0e988394c55",
+      "source": "Durable Structures",
+      "translation": "Estruturas duradouras",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.290573b531f2d0f4",
+      "sourceHash": "4d58c73a22eca3373f925c49b3feb7d3b9beb4e54fbc84ed6cf825e5a5a86183",
+      "source": "Designed for demanding fuel transport operations.",
+      "translation": "Concebidas para operações exigentes de transporte de combustível.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.2de3e52e9fb2d4eb",
+      "sourceHash": "b7ccac9227300c8850c3af388297e969b60cfdb289de4c5f88ef1c264384b9bd",
+      "source": "Impact Absorption",
+      "translation": "Absorção de impactos",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(5) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.8a7bccc40e3822bf",
+      "sourceHash": "6dc5721ae8cc0c27b6c3011d7283cf81ae88057cf731bf3a6ebb4c6a26f945f6",
+      "source": "Aluminium construction offering useful impact absorption characteristics in demanding operating conditions.",
+      "translation": "A estrutura de alumínio oferece características úteis de absorção de impactos em condições operacionais exigentes.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(5) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.2947dcb8bc39a100",
+      "sourceHash": "1a2cde8d4caf3959e6f0255e1c3c8cffdbefc7a1a9c957080fb2cf836826a919",
+      "source": "Polished aluminium tanker trailer in ATL manufacturing facility",
+      "translation": "Reboque-cisterna de alumínio polido nas instalações de fabrico da ATL",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.28eb19775effacfe",
+      "sourceHash": "ba695140e31a5fae3d659f93909765b1b7ef0b4a67aeaf638c60397c661b1030",
+      "source": "Built For The Road. Engineered For The Job.",
+      "translation": "Feito para a estrada. Concebido para o trabalho.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.a23e5e9d35a30eab",
+      "sourceHash": "4f737349e00d7d6e929cd156363bc2e5cda2e97808a1f4cb8603eaaf2f7330b8",
+      "source": "ATL assembles a growing range of commercial vehicles and trailers designed to support transportation, logistics and specialized operating requirements across East and Central Africa.",
+      "translation": "A ATL monta uma gama crescente de veículos comerciais e reboques concebidos para apoiar requisitos de transporte, logística e operações especializadas na África Oriental e Central.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.8dd818bf8a40a139",
+      "sourceHash": "c7539226eeb4cd6360368a1a413f3014dbe59ae2be7c3844af0d8b14d91a84d2",
+      "source": "White AVANCO aluminium fuel tanker fleet manufactured by ATL",
+      "translation": "Frota de cisternas de combustível de alumínio AVANCO brancas fabricadas pela ATL",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.486a844af88ffc62",
+      "sourceHash": "1be512f6b612218b14818ff873e236a9d9709ecb606a98744a9582482f920467",
+      "source": "Lightweight aluminium tanker solutions designed for reliable fuel transportation, combining durability, payload efficiency and strong structural performance.",
+      "translation": "Soluções leves de cisternas de alumínio para transporte fiável de combustível, combinando durabilidade, eficiência de carga e desempenho estrutural robusto.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.50a6308101489065",
+      "sourceHash": "ca7538beb1ecec64d10ddef3a0dd22ccadbaa75d61d349e1a27e0b8360f61741",
+      "source": "Red ATL flatbed trailer",
+      "translation": "Reboque plataforma vermelho da ATL",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(3) > article:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.4214d08b8086405d",
+      "sourceHash": "a5a682eeb1ed1f44ed8deaab60bbb5d7ccf39103d190ba85d17cbd583c84782c",
+      "source": "Flatbed Trailers",
+      "translation": "Reboques plataforma",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(3) > article:nth-of-type(1) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.322702388c9b2d3a",
+      "sourceHash": "b775901a3c135deb88d42b9318afc3b5ec28ff9a20186e03c938efce9bbf08bd",
+      "source": "Versatile open-platform solutions for transporting equipment, machinery and commercial cargo.",
+      "translation": "Soluções versáteis de plataforma aberta para transportar equipamentos, máquinas e carga comercial.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(3) > article:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.6acf9079c8d88234",
+      "sourceHash": "8bdd96f34f53f4f95df31299beeabf0ad0dbcefd13856ed19e6ec03d0aa0262c",
+      "source": "Curtain side trailer for protected cargo transport",
+      "translation": "Reboque de cortina lateral para transporte protegido de carga",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(3) > article:nth-of-type(2) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.c1e538b29d0b19a1",
+      "sourceHash": "1951a5345eda4a4add6699eacadd3938d9f8eb8be6b3c592d93713b73fb2d85c",
+      "source": "Curtain Side Trailers",
+      "translation": "Reboques de cortina lateral",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(3) > article:nth-of-type(2) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.82b97c60bfa65703",
+      "sourceHash": "03f57889fc98877f0c7ca56be60384e06a55ccff396def77f626963d2c9cf65a",
+      "source": "Protected commercial transport with efficient side access for loading and unloading.",
+      "translation": "Transporte comercial protegido com acesso lateral eficiente para carga e descarga.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(3) > article:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.b5b7684c7e3d179c",
+      "sourceHash": "120a9fd28edcec47af09c0ce6c738d59557a2e62414d260f3dd48c0dcf02c046",
+      "source": "Heavy-duty tipper trailer for bulk transport",
+      "translation": "Reboque basculante reforçado para transporte a granel",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(3) > article:nth-of-type(3) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.8ddaefebb0c585c5",
+      "sourceHash": "0d3e25e6b5ae7e5082d3e5c8dfbd7107d239fbe941c1c3cf59417ed227e5771a",
+      "source": "Tipper Trailers",
+      "translation": "Reboques basculantes",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(3) > article:nth-of-type(3) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.1f105330321d5d93",
+      "sourceHash": "ac5c7e744495fc954f85a37ae3dbfbefe66b1baa28e8d2ce0e71b5651a1a424b",
+      "source": "Heavy-duty tipping solutions for bulk material and demanding transport applications.",
+      "translation": "Soluções basculantes reforçadas para materiais a granel e aplicações de transporte exigentes.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(3) > article:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.24f09e5b1a24c32f",
+      "sourceHash": "c2af288f8c6b6d697f6d1f9866827976644845afacccd3db64d77297998de47b",
+      "source": "Drawbar trailer configuration",
+      "translation": "Configuração de reboque com lança",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(3) > article:nth-of-type(4) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.191f8dff440537f1",
+      "sourceHash": "7bac251fbcfc6f0b816edaa8ce0cff0acda99c21bcb3fe07dee1d8ec92ef63e4",
+      "source": "Drawbar Trailers",
+      "translation": "Reboques com lança",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(3) > article:nth-of-type(4) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.532d3083981854de",
+      "sourceHash": "c2e30440a004a1665c5afa6135f1288e88c4e3dc5333b09cbacd8a7b53352c6e",
+      "source": "Flexible trailer configurations for commercial and specialized transport requirements.",
+      "translation": "Configurações flexíveis de reboques para requisitos de transporte comercial e especializado.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(3) > article:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.d40af0dbcc4f9db7",
+      "sourceHash": "d914abdcef25532c4925725a698dc8f937539b8996723885097d50931046cb84",
+      "source": "ATL commercial trailer assembly",
+      "translation": "Montagem de reboques comerciais da ATL",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(3) > article:nth-of-type(5) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.74c070620f49ec89",
+      "sourceHash": "0606a9b25164c36c974bbae732ddebfbbf029f5f90865f692097c50cbee8e344",
+      "source": "Danglers",
+      "translation": "Reboques pendulares",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(3) > article:nth-of-type(5) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.026a9e0e4dcbeef2",
+      "sourceHash": "43a0d02609c5df17e4708f01d48777f3694351823ee89d4d864975d1a09a367e",
+      "source": "Specialized trailer solutions within ATL's expanding commercial transport portfolio.",
+      "translation": "Soluções especializadas de reboques no portefólio crescente de transporte comercial da ATL.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(3) > article:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.6b3884656acf8765",
+      "sourceHash": "f97a38a7620e708b0e65fe8c5b5d3a55406d858a2beba1cec8ae2fc19ea3b6ad",
+      "source": "Commercial Vehicle Assembly",
+      "translation": "Montagem de veículos comerciais",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(5) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.52fb84067a540a46",
+      "sourceHash": "f89a349e59e7ee6bdbe3eebf79ea60b60ba6a85c52a2d78fdabae6634ab81d44",
+      "source": "ATL also assembles commercial vehicles including",
+      "translation": "A ATL também monta veículos comerciais, incluindo",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.52fb84067a540a46.2",
+      "sourceHash": "6201111b83a0cb5b0922cb37cc442b9a40e24e3b1ce100a4bb204f4c63fd2ac0",
+      "source": "and",
+      "translation": "e",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.168eebe331670a15",
+      "sourceHash": "589845b11a309d4ed166de94344479d7555f368f2ef767ef3513b8ca327b623a",
+      "source": "Finished blue fuel tanker trailer ready for delivery",
+      "translation": "Reboque-cisterna azul concluído e pronto para entrega",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.c4233713ca4e457d",
+      "sourceHash": "78be429e11730befee22c3d9682c8598b700d6aa568520dab8ba619e5b5845b5",
+      "source": "East & Central Africa",
+      "translation": "África Oriental e Central",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.712fdff20ce0a2f2",
+      "sourceHash": "ad82b7eb7a000f8a9dd84f7fb3ec238e96bc42735a40a89c8e21d8873ff58e74",
+      "source": "Target Market",
+      "translation": "Mercado-alvo",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.b708fdc3f51ab44b",
+      "sourceHash": "e82eef8da758582f71e77835727f2517b64e7acaa3ec7adf5597ae1286a8c238",
+      "source": "Built For Demanding Transport Operations.",
+      "translation": "Concebido para operações de transporte exigentes.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.fe432ae4c750459f",
+      "sourceHash": "9714b65119a7aec9e5d00e2fd9453fcc82594944d6ebaf89a2561aa60133a933",
+      "source": "Fuel Transport",
+      "translation": "Transporte de combustível",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.d6f5b8ad08868726",
+      "sourceHash": "58487e38dd6f2ec9de66dc21f18884b4bcacc3dff7126900102d77cf8579b966",
+      "source": "Engineered for reliable transportation of fuel products.",
+      "translation": "Concebido para o transporte fiável de produtos combustíveis.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.ef726a978046f15a",
+      "sourceHash": "43c66e2c984d845e65ecbc20b51c5cff1356c03463b5e83881170ab333922122",
+      "source": "Commercial Haulage",
+      "translation": "Transporte comercial",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(2) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.7a38bd720f5ada8e",
+      "sourceHash": "0ebb3fa36a35e41ad68b42cd2726e224aaa5944b12f20042dc0dd5e635f9e258",
+      "source": "Lightweight aluminium structures supporting payload efficiency.",
+      "translation": "Estruturas leves de alumínio que apoiam a eficiência da carga útil.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.eb98ab1faa2ee822",
+      "sourceHash": "0eaad376672014307b8901310c60ff1b0265d8e00de29119b1f30a3676efb4ec",
+      "source": "Custom Trailer Solutions",
+      "translation": "Soluções personalizadas de reboques",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(3) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.8a5025adb3f7a267",
+      "sourceHash": "7b4c2bf760deabf4c6471b95371a913da6992a72e415aed67a5f49021075d4e8",
+      "source": "Designed to support specialized transport requirements.",
+      "translation": "Concebidas para responder a requisitos de transporte especializados.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.ad73368dcb1c3582",
+      "sourceHash": "ba1a6a9f1a4d62ee8daeb9968564f40fc501ece4719f7b9b1d1ee6ea171e87b8",
+      "source": "Regional Operations",
+      "translation": "Operações regionais",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(4) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.af160d8b9b56000a",
+      "sourceHash": "c9f304d296212045a9d695743c292b9cb26eba10372b55da66213155855ef74c",
+      "source": "Solutions intended for customers across East and Central Africa.",
+      "translation": "Soluções destinadas a clientes da África Oriental e Central.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.c53641a261febabb",
+      "sourceHash": "af840b7e0b4adecdbe697abaca9c20d3a7dbb5c9e4c7504cc312a7d81885894e",
+      "source": "To provide high-quality vehicle and trailer assembly solutions through precision, innovation, integrity, and continuous improvement, while delivering reliable products that meet the evolving needs of our customers.",
+      "translation": "Fornecer soluções de montagem de veículos e reboques de alta qualidade através de precisão, inovação, integridade e melhoria contínua, entregando produtos fiáveis que satisfaçam as necessidades em evolução dos clientes.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.c53641a261febabb.2",
+      "sourceHash": "f87adde9159348bb7f4f754c644469018b8e820107632a5aca048507c379a448",
+      "source": "To become a leading vehicle and trailer assembly company in East and Central Africa, recognized for quality, safety, innovation, efficiency, and customized transportation solutions.",
+      "translation": "Tornar-nos uma empresa líder de montagem de veículos e reboques na África Oriental e Central, reconhecida pela qualidade, segurança, inovação, eficiência e soluções de transporte personalizadas.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.3e5164b644127603",
+      "sourceHash": "e9c3757a1d467d7d0765cca311725795ae566fed1d02ffa98a9961dd163fd78f",
+      "source": "Honesty, transparency and accountability guide our actions and decisions.",
+      "translation": "A honestidade, transparência e responsabilização orientam as nossas ações e decisões.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.9ecde57f725fe4ee.2",
+      "sourceHash": "7db20897053bb2780b9b706e5505227b005de80c236e4a4836aab37a3a7bb298",
+      "source": "People",
+      "translation": "Pessoas",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.3e5164b644127603.2",
+      "sourceHash": "2fbe8c26f9f582da2dd5eb6ad5daebca68da8156fed1fea1cdd065f73759bf99",
+      "source": "A supportive and inclusive workplace where people are empowered to grow, innovate and contribute to our success.",
+      "translation": "Um ambiente de trabalho inclusivo e solidário, onde as pessoas podem crescer, inovar e contribuir para o nosso sucesso.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.3e5164b644127603.3",
+      "sourceHash": "4a7f354411b022e2052e308c10f2057b8965b486695c61975e44f28503efe405",
+      "source": "Minimizing environmental impact and promoting sustainable practices throughout our operations.",
+      "translation": "Minimizar o impacto ambiental e promover práticas sustentáveis em todas as nossas operações.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.3e5164b644127603.4",
+      "sourceHash": "861bcea34741373d4b3ee3559243c766bc0cde90ccb86dcba27fb1cf39bb8548",
+      "source": "Building lasting relationships through trust, mutual respect and consistent delivery of value.",
+      "translation": "Construir relações duradouras através da confiança, do respeito mútuo e da criação consistente de valor.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.294874f78416a9ab",
+      "sourceHash": "dd8ec1e350a4c84dd409107810c0b65e2f001dd0b91d9b4a102258c10276db13",
+      "source": "From Aluminum Trailers Limited To Assembly Tech Limited",
+      "translation": "De Aluminum Trailers Limited para Assembly Tech Limited",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.a40a2f83b33872cb",
+      "sourceHash": "646bc0d687c9ac279e2fb4bdb8162db042cc29eacd6ff7936d3b61324bcaec00",
+      "source": "Established in 2019 as Aluminum Trailers Limited, the company rebranded as Assembly Tech Ltd in 2026 as part of its continued development and expansion of premium customized trailer solutions.",
+      "translation": "Fundada em 2019 como Aluminum Trailers Limited, a empresa passou a chamar-se Assembly Tech Ltd em 2026, no âmbito do seu desenvolvimento contínuo e da expansão de soluções premium de reboques personalizados.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.2a167caf1d1f6f35",
+      "sourceHash": "8c96bf5c8f21230d8af5a579238e02846b468bed904164d0a64d8120cf36a90f",
+      "source": "ATL Aluminium Trailers Ltd — original company logo",
+      "translation": "ATL Aluminium Trailers Ltd — logótipo original da empresa",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.2a167caf1d1f6f35.2",
+      "sourceHash": "c22a28ed3b6adc09142e97bb776479635cf747794ad568373df8da5d9401a0d4",
+      "source": "ATL Assembly Tech Limited — current company logo",
+      "translation": "ATL Assembly Tech Limited — logótipo atual da empresa",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.765cfc5d4d4357c6",
+      "sourceHash": "07b9889bdc9545e136147fd4fa9f4243c456518062ea6c8de5986b62c5ac11d4",
+      "source": "ATL worker fabricating aluminium components",
+      "translation": "Trabalhador da ATL a fabricar componentes de alumínio",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.0dfbe35580c9e5ad",
+      "sourceHash": "c42a9cc5e76215e8d315668715dba419d05f00940974fc07e11161b0553bc6e0",
+      "source": "Engineered For Reliable Transport.",
+      "translation": "Concebido para um transporte fiável.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.9bdd1008a3a849f0",
+      "sourceHash": "9d85d46a3cf629048617ce4ab3245fe64c83f7a544dcc7e53e71a45e996a495c",
+      "source": "Lightweight Construction",
+      "translation": "Construção leve",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.92f7c0ecb89c983f",
+      "sourceHash": "04458fe20de6ce71b3cc77a18878ee43572f5c4a9fec6b781d6228b0b4d98677",
+      "source": "Supports increased payload potential while helping improve hauling efficiency.",
+      "translation": "Permite aumentar a carga útil e melhorar a eficiência do transporte.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.451b491f646d74a0",
+      "sourceHash": "8d76588c8a2e316b68e6ed415b0af06090f11a45c834d834f37d980021ffb1f4",
+      "source": "High Strength-To-Weight",
+      "translation": "Elevada resistência em relação ao peso",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(2) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.dfc9b757b32938c6",
+      "sourceHash": "0bc1fc895122900fe710f4f09addbda3d8e47084a13d4e9ceda2ae1d89b06e47",
+      "source": "Strong aluminium structures designed for demanding fuel transportation.",
+      "translation": "Estruturas de alumínio robustas concebidas para transporte exigente de combustível.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.3795a1afa91a8534",
+      "sourceHash": "bbd8a82ac3e265652dcf1c9477e6f00ff1da19bb1ec8b96bb6a53f180b4e706e",
+      "source": "Fuel Compatibility",
+      "translation": "Compatibilidade com combustíveis",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(3) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.0995e1f75c5115ff",
+      "sourceHash": "1e6621fc817ef2cc56767e4f9fdac1ea4a9893e7c9d23f00ab3c6da758ff36f2",
+      "source": "Aluminium is non-reactive with many fuels, helping reduce contamination risk.",
+      "translation": "O alumínio não reage com muitos combustíveis, ajudando a reduzir o risco de contaminação.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.053daac05dc98e69",
+      "sourceHash": "f913c72eb6f4a44a807a28dd2c2513626a62c8073c8d8323e6005fb452cda04b",
+      "source": "Impact Performance",
+      "translation": "Desempenho contra impactos",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(4) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.fe20faef0d61b479",
+      "sourceHash": "50360f06fb5791448db4a825649cae809f6988e0d9df542abf11765b2cd979d8",
+      "source": "Aluminium construction can provide useful impact absorption characteristics in demanding operating situations.",
+      "translation": "A estrutura de alumínio pode oferecer características úteis de absorção de impactos em situações operacionais exigentes.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.992d9f75ca8c940b",
+      "sourceHash": "db4fd57378909f3aa6055a1161511dbac7cb913bcfb8ecfd206cb8d1a4d94b9c",
+      "source": "Customization",
+      "translation": "Personalização",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(5) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "auto.b39d0eb28795a6fa",
+      "sourceHash": "9ee63ed99d2a68197fd4792fe1f7c8b96578408ed8dd262e0ede95857eb1441f",
+      "source": "Product development focused on premium customized trailer solutions.",
+      "translation": "Desenvolvimento de produtos focado em soluções premium de reboques personalizados.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(5) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:assembly-tech.html"
     }
   ]
 }

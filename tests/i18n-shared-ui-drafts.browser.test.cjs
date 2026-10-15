@@ -10,6 +10,7 @@ const locales = ['sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt'];
 const labels = { sw: 'Kiswahili', hi: 'हिन्दी', ar: 'العربية', zh: '简体中文', fr: 'Français', es: 'Español', pt: 'Português' };
 const drafts = Object.fromEntries(locales.map((locale) => [locale, JSON.parse(fs.readFileSync(path.join(root, 'scripts', 'i18n-drafts', locale, 'shared-ui.json'), 'utf8'))]));
 const heroDrafts = Object.fromEntries(locales.map((locale) => [locale, JSON.parse(fs.readFileSync(path.join(root, 'scripts', 'i18n-drafts', locale, 'hero-carousel.json'), 'utf8'))]));
+const homeDrafts = Object.fromEntries(locales.map((locale) => [locale, JSON.parse(fs.readFileSync(path.join(root, 'scripts', 'i18n-drafts', locale, 'index.html.json'), 'utf8'))]));
 const mime = new Map([
   ['.css', 'text/css'], ['.html', 'text/html'], ['.js', 'text/javascript'], ['.json', 'application/json'],
   ['.svg', 'image/svg+xml'], ['.webp', 'image/webp'], ['.png', 'image/png'], ['.jpg', 'image/jpeg'], ['.jpeg', 'image/jpeg'],
@@ -60,6 +61,7 @@ test('seven locale shared UI drafts switch on real homepage DOM and persist in d
     assert.equal(drafts[locale].reviewEvidence, null);
     assert.equal(drafts[locale].releaseEligible, false);
     const expectedHome = drafts[locale].translations.find((row) => row.key === 'nav.home')?.translation;
+    const expectedSteelDescription = homeDrafts[locale].translations.find((row) => row.source === 'Lake Steel & Allied Products Limited manufactures TBS-certified TMT reinforcement steel bars conforming to BS 500, with a 25T/hr computerized rolling mill.');
     const expectedHero = heroDrafts[locale].translations.map((row) => row.translation);
     assert.ok(expectedHome, `${locale} has a real navigation draft`);
     assert.equal(expectedHero.length, 6);
@@ -87,6 +89,8 @@ test('seven locale shared UI drafts switch on real homepage DOM and persist in d
     await option.click();
     await desktop.waitForFunction((code) => window.LakeI18n?.current === code, locale);
     await desktop.waitForFunction((text) => document.querySelector('[data-i18n="nav.home"]')?.textContent === text, expectedHome);
+    assert.ok(expectedSteelDescription?.translation, `${locale} has an authored homepage content draft`);
+    await desktop.waitForFunction(({ selector, expected }) => document.querySelector(selector)?.textContent.trim() === expected, { selector: expectedSteelDescription.selector, expected: expectedSteelDescription.translation });
     await desktop.waitForFunction((texts) => texts.includes(document.querySelector('.hero-sub')?.textContent.trim()), expectedHero);
     if (locale === 'ar') assert.equal(await desktop.locator('html').getAttribute('dir'), 'rtl');
     await desktop.waitForTimeout(1200);
@@ -98,6 +102,7 @@ test('seven locale shared UI drafts switch on real homepage DOM and persist in d
     await desktop.reload({ waitUntil: 'domcontentloaded' });
     await desktop.waitForFunction((code) => window.LakeI18n?.current === code, locale);
     await desktop.waitForFunction((text) => document.querySelector('[data-i18n="nav.home"]')?.textContent === text, expectedHome);
+    await desktop.waitForFunction(({ selector, expected }) => document.querySelector(selector)?.textContent.trim() === expected, { selector: expectedSteelDescription.selector, expected: expectedSteelDescription.translation });
     const expectedAbout = drafts[locale].translations.find((row) => row.key === 'nav.about')?.translation;
     await desktop.locator('.site-nav a[href="about.html"]').first().click();
     await desktop.waitForURL(/about\.html/);

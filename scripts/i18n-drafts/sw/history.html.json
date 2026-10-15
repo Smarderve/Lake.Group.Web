@@ -6,11 +6,11 @@
   "sourceManifestDigest": "181d42c4930d1abb298d1bb6193e994fb20c4653ed2347cb78f9ae1ea1fa8fa8",
   "sourceManifestGeneratedAt": "2026-10-15T10:48:55.402Z",
   "createdAt": "2026-10-15T10:47:00.334Z",
-  "authoringMethod": "existing dictionary reuse; no model output for generated rows",
+  "authoringMethod": "existing dictionary reuse plus assistant-authored initial draft; human review required",
   "reviewEvidence": null,
   "releaseEligible": false,
   "candidateCount": 129,
-  "translatedCount": 23,
+  "translatedCount": 82,
   "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
   "translations": [
     {
@@ -242,6 +242,1066 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary:africa_network.40"
+    },
+    {
+      "id": "auto.915f9f14b29e513b",
+      "sourceHash": "02a18fd13e5a1dc4008efdded3116baba7773d3f7ba7f58105c7dca5f4dbd853",
+      "source": "Explore Lake Group's timeline from the establishment of Lake Oil in Tanzania in 2006 through its expansion across energy, logistics, manufacturing, aviation, real estate and agriculture.",
+      "translation": "Gundua historia ya Lake Group kuanzia kuanzishwa kwa Lake Oil nchini Tanzania mwaka 2006 hadi upanuzi wake katika nishati, usafirishaji, uzalishaji, usafiri wa anga, mali isiyohamishika na kilimo.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content",
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.db587b268b2f4678",
+      "sourceHash": "df1c253d5722938c857841353a5326be2ae57522312a9375e5d737124170d632",
+      "source": "A timeline of Lake Group's growth across energy, logistics, manufacturing, real estate and agriculture.",
+      "translation": "Mfuatano wa ukuaji wa Lake Group katika sekta za nishati, usafirishaji, uzalishaji, mali isiyohamishika na kilimo.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.4fe5687efae22fb1",
+      "sourceHash": "fb9c2ea0d2cef7b44d3d6a07c9afd9a158a4624d6337292b5bea9f799f4cc0ee",
+      "source": "From petroleum operations in Tanzania in 2006 to a diversified regional group spanning energy, logistics, manufacturing, aviation, real estate and agriculture.",
+      "translation": "Kuanzia shughuli za mafuta ya petroli nchini Tanzania mwaka 2006 hadi kuwa kundi la kikanda lenye shughuli mbalimbali katika nishati, usafirishaji, uzalishaji, usafiri wa anga, mali isiyohamishika na kilimo.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.59e2db229442cf36",
+      "sourceHash": "c7b3e04b0919f4eb9cbb5170cbb084877ca5a12056558a3b625cbd73b107dcfd",
+      "source": "Entered petroleum importation, storage, distribution, marketing, fuel retail stations, logistics and fuel storage operations.",
+      "translation": "Ilianza shughuli za uagizaji, uhifadhi, usambazaji na uuzaji wa bidhaa za petroli, vituo vya rejareja vya mafuta, usafirishaji na uhifadhi wa mafuta.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.4d52410d1347cffe",
+      "sourceHash": "00aa4274ca9dae582b69427b4dee340d63851c97308db2d127ecab1aa89cc698",
+      "source": "Lake Group’s Zambian establishment, Lake Petroleum Limited, incorporated.",
+      "translation": "Lake Petroleum Limited, taasisi ya Lake Group nchini Zambia, ilianzishwa kisheria.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > article:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.56d6f822438bb872",
+      "sourceHash": "35cdaab946f629665514dfbcb35d469a48c91c37f1f4721f65c3837b5ff2d3fd",
+      "source": "Opened operations to provide high-quality concrete.",
+      "translation": "Ilianza shughuli za kutoa saruji mchanganyiko ya ubora wa juu.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > article:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.ddcffe139190ca0d",
+      "sourceHash": "be312beb9a83c9b84379d95deb036b4b11dcdbd5ab5a9a0f0529476c9cdbbea3",
+      "source": "Established transportation and logistics business specializing in petroleum transport and cross-border logistics.",
+      "translation": "Ilianzisha biashara ya usafirishaji na ugavi inayobobea katika kusafirisha bidhaa za petroli na huduma za ugavi zinazovuka mipaka.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(2) > article:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.ddcffe139190ca0d.2",
+      "sourceHash": "1fbd78260efc49c61e7313f0e73c8bf3d3f32c940806cf7ca3daa254f55277d8",
+      "source": "Initiated LPG distribution across Tanzania.",
+      "translation": "Ilianza usambazaji wa LPG kote Tanzania.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(2) > article:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.ddcffe139190ca0d.3",
+      "sourceHash": "bb71d3f34bd9cbcb14488d8c06e96c472b2f9bf92b5e91292bc2ae749dcea11a",
+      "source": "Began petroleum retail, bulk fuel supply, depot operations and LPG distribution.",
+      "translation": "Ilianza biashara ya rejareja ya bidhaa za petroli, usambazaji wa mafuta kwa wingi, shughuli za bohari na usambazaji wa LPG.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(2) > article:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.a5e84c89cc98f341",
+      "sourceHash": "3e24c5cb2b71da762624620a39007d0f92fba553697cdda08023b4541470d267",
+      "source": "Incorporated to market and distribute LPG across Kenya and regional markets. Operations commenced in February 2014.",
+      "translation": "Ilianzishwa kisheria kwa ajili ya kutangaza na kusambaza LPG kote Kenya na katika masoko ya kikanda. Shughuli zilianza Februari 2014.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(5) > div:nth-of-type(2) > article:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.693e3c09f96480be",
+      "sourceHash": "c1a5d22dcd680bf57e237960506a5a9ced517cc2f37bf01f19cdc8479a7cba5f",
+      "source": "Started LPG retail, commercial and bulk supply operations.",
+      "translation": "Ilianza usambazaji wa LPG kwa rejareja, kwa wateja wa biashara na kwa wingi.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(6) > div:nth-of-type(2) > article:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.0c567db0ec4bd345",
+      "sourceHash": "98e944ed2b76b5c65057f208299b8fbefa378fca52f535e8587cfd2aa7609fac",
+      "source": "Established lubricant and grease manufacturing business with blending and packaging capabilities.",
+      "translation": "Ilianzisha biashara ya utengenezaji wa vilainishi na grisi, ikiwa na uwezo wa kuchanganya na kufungasha bidhaa.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(7) > div:nth-of-type(2) > article:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.6f7a8f0abf821f18",
+      "sourceHash": "631cc01286a97b50876b1706354988498290879c23c3b423673e7d1b8f790be2",
+      "source": "Entered Kenyan market through acquisition of 19 service stations and Nairobi terminal.",
+      "translation": "Iliingia katika soko la Kenya kwa kununua vituo 19 vya mafuta na kituo cha kuhifadhi mafuta cha Nairobi.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(8) > div:nth-of-type(2) > article:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.6f7a8f0abf821f18.2",
+      "sourceHash": "1b38b85584fc5a410967973165dcb1879b587c7f0ccd75643d98bf7e31eb64d5",
+      "source": "Established steel manufacturing business producing TMT reinforcement bars and allied steel products.",
+      "translation": "Ilianzisha biashara ya utengenezaji wa chuma, ikizalisha nondo za TMT na bidhaa nyingine za chuma.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(8) > div:nth-of-type(2) > article:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.6f7a8f0abf821f18.3",
+      "sourceHash": "4115e1f40d4a2b6d492bf1c0da4d3017e7652b7f537f6b4f578b1b8f2428fd47",
+      "source": "Commenced operations in Zambia, establishing a commercially sustainable agricultural business.",
+      "translation": "Ilianza shughuli nchini Zambia na kuanzisha biashara ya kilimo inayoweza kujiendesha kibiashara kwa uendelevu.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(8) > div:nth-of-type(2) > article:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.1d4fdf1e2f2eb53a",
+      "sourceHash": "2a11fa4520a56f55945178a2fe2896787455e59037f77e94627e032f1d03c521",
+      "source": "Commissioned quarrying and crushing operations.",
+      "translation": "Ilizindua shughuli za uchimbaji wa mawe na uvunjaji.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(9) > div:nth-of-type(2) > article:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.1d4fdf1e2f2eb53a.2",
+      "sourceHash": "5d9b52f230f7f4cddd71c824aa3b6f1a699c01f46de92c2ddb9334ec2c25cbf7",
+      "source": "Established in Ndola and commenced operations with bonded warehousing.",
+      "translation": "Ilianzishwa Ndola na kuanza shughuli za maghala ya forodha.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(9) > div:nth-of-type(2) > article:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.bb51aace4507becc",
+      "sourceHash": "10ff1d8da1549970719965e7f91377977ae32cc65d6d33f90b77651513b470f2",
+      "source": "Established lubricant manufacturing, distribution and marketing business. Operations officially began in 2021.",
+      "translation": "Ilianzisha biashara ya utengenezaji, usambazaji na uuzaji wa vilainishi. Shughuli zilianza rasmi mwaka 2021.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(10) > div:nth-of-type(2) > article:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.bb51aace4507becc.2",
+      "sourceHash": "457c7c610c6bdc701ca52288298157fbeb4dfcc03b830c24b4389cf929803925",
+      "source": "Established aluminium trailer manufacturing operations.",
+      "translation": "Ilianzisha shughuli za utengenezaji wa trela za alumini.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(10) > div:nth-of-type(2) > article:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.bb51aace4507becc.3",
+      "sourceHash": "203c1a6145e9aa552bc2623041f5199a62c3c7af34bc8034c467868aa4774e99",
+      "source": "Opened a modern cylinder manufacturing plant at Visiga, Kibaha.",
+      "translation": "Ilifungua kiwanda cha kisasa cha kutengeneza mitungi huko Visiga, Kibaha.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(10) > div:nth-of-type(2) > article:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.bb51aace4507becc.4",
+      "sourceHash": "157c3ebb5ca584d31e68c3f421b411a6098a687fbf514ef7b5fa9e915ff9b4fc",
+      "source": "Official commencement of operations.",
+      "translation": "Shughuli zilianza rasmi.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(10) > div:nth-of-type(2) > article:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.bb51aace4507becc.5",
+      "sourceHash": "fe8f8548a1df8f237d139734db81027be22999c35836f26ba5585e61c6b3bca0",
+      "source": "Commenced operations logistics facility in Beira.",
+      "translation": "Ilianza shughuli katika kituo cha ugavi cha Beira.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(10) > div:nth-of-type(2) > article:nth-of-type(5) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.b61a8fc1b8793f06.2",
+      "sourceHash": "d1bec7dccc9b7ec83a46ee45ca92cc8b77e865977e3ffec6190ada15d8d80aff",
+      "source": "Commenced petroleum storage and distribution operations in Beira with an initial three-tank terminal.",
+      "translation": "Ilianza shughuli za kuhifadhi na kusambaza bidhaa za petroli Beira ikiwa na kituo cha awali chenye matangi matatu.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(11) > div:nth-of-type(2) > article:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.e52887026190a092",
+      "sourceHash": "af3e9919174253d5cd91143f34d2937052cb722b0812ea83929f8a03591ca0a3",
+      "source": "Established real estate development company.",
+      "translation": "Ilianzisha kampuni ya uendelezaji wa mali isiyohamishika.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(12) > div:nth-of-type(2) > article:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.e52887026190a092.3",
+      "sourceHash": "03c82eb451e6894a096160782398af71d391190981f3c7103a8ea79475bd2aab",
+      "source": "Lubricant manufacturing operations officially started.",
+      "translation": "Shughuli za utengenezaji wa vilainishi zilianza rasmi.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(12) > div:nth-of-type(2) > article:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.e52887026190a092.4",
+      "sourceHash": "2961af563f53b380404c7c86a02d9246c0e48ff5a9db80ce2a8611dd8cbce233",
+      "source": "Officially established agribusiness operations.",
+      "translation": "Shughuli za biashara ya kilimo zilianzishwa rasmi.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(12) > div:nth-of-type(2) > article:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.e7db350068564950.2",
+      "sourceHash": "c5225f034194e94d20f23518c1e7f24f08a95bb4c424300dc8f58e3dc7edb29e",
+      "source": "Commissioned Steel Melting Shop (SMS) and Continuous Casting Machine (CCM), enabling billet production and backward integration.",
+      "translation": "Ilizindua kiwanda cha kuyeyusha chuma (SMS) na mashine ya utupaji endelevu (CCM), na kuwezesha uzalishaji wa billets na ujumuishaji wa hatua za awali za uzalishaji.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(13) > div:nth-of-type(2) > article:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.b61a8fc1b8793f06",
+      "sourceHash": "66d120eafe026c110092d673eb78d5c93054050ab06cb2b37aca06f0ba9148f4",
+      "source": "Commenced aviation fuel supply and into-plane fueling services at Kilimanjaro International Airport (JRO).",
+      "translation": "Ilianza kusambaza mafuta ya ndege na kutoa huduma za kujaza mafuta moja kwa moja kwenye ndege katika Uwanja wa Ndege wa Kimataifa wa Kilimanjaro (JRO).",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(11) > div:nth-of-type(2) > article:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.b61a8fc1b8793f06.3",
+      "sourceHash": "393b4870ca5c616d67c96580c782c0c889a7d41a9656088329840c92b8009436",
+      "source": "Incorporated ready-mix concrete company serving construction and infrastructure sectors.",
+      "translation": "Ilianzishwa kisheria kampuni ya saruji mchanganyiko iliyo tayari, inayohudumia sekta za ujenzi na miundombinu.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(11) > div:nth-of-type(2) > article:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.e52887026190a092.2",
+      "sourceHash": "e2e64501ed0f514e5bb696cb33808a75ef5c089b5cfc850acdcfb90d08a6fb59",
+      "source": "Official commencement of ready-mix concrete operations.",
+      "translation": "Shughuli za saruji mchanganyiko iliyo tayari zilianza rasmi.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(12) > div:nth-of-type(2) > article:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.e7db350068564950",
+      "sourceHash": "7cfe8e10a532354866bf40e854600c562aa0ad3e1dd3cf1a48c15b204f47f14d",
+      "source": "Opened second aviation fuel terminal and depot at Julius Nyerere International Airport (DAR), Dar es Salaam.",
+      "translation": "Ilifungua kituo cha pili cha mafuta ya ndege na bohari katika Uwanja wa Ndege wa Kimataifa wa Julius Nyerere (DAR), Dar es Salaam.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(13) > div:nth-of-type(2) > article:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.aafa32f7e6e12866",
+      "sourceHash": "47a7d5b4696c1aba8e071663fbbbfe39a9a1bf80d02648d86fa16179c37690c0",
+      "source": "Expanded to Zanzibar through development of third aviation fuel terminal at Abeid Amani Karume International Airport (ZNZ).",
+      "translation": "Ilipanua shughuli hadi Zanzibar kwa kuendeleza kituo cha tatu cha mafuta ya ndege katika Uwanja wa Ndege wa Kimataifa wa Abeid Amani Karume (ZNZ).",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(14) > div:nth-of-type(2) > article:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.b5c3ef2c6f264868",
+      "sourceHash": "08344eb9b4c499df414687ebd53bdbcce4fe669aa46d9addf957df123587ac51",
+      "source": "Zanzibar aviation terminal commissioned.",
+      "translation": "Kituo cha mafuta ya ndege cha Zanzibar kilianza rasmi shughuli.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(15) > div:nth-of-type(2) > article:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.b5c3ef2c6f264868.2",
+      "sourceHash": "5126590bd1e00edf69ecb9377cb775d00357afe74c49f19dd0d49cc385240ada",
+      "source": "Expanded operations through its new crushing unit in Lugoba.",
+      "translation": "Ilipanua shughuli kwa kuongeza kitengo kipya cha kusaga mawe huko Lugoba.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(15) > div:nth-of-type(2) > article:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.b5c3ef2c6f264868.3",
+      "sourceHash": "ff35e9fb8df2d682ee8a70f20351aa31d4072f64fa8cb120c69f983083b5f754",
+      "source": "Established to support end-to-end agricultural solutions and machinery.",
+      "translation": "Ilianzishwa kusaidia suluhisho na mitambo ya kilimo kuanzia mwanzo hadi mwisho.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(15) > div:nth-of-type(2) > article:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.b5c3ef2c6f264868.4",
+      "sourceHash": "c1c13fb2cde28fc4d185c23c9d479965cee5a48666bf71697abdcb0c51e4f31b",
+      "source": "Rebranded itself to Assembly Tech Limited.",
+      "translation": "Ilibadilisha jina lake na kuwa Assembly Tech Limited.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(15) > div:nth-of-type(2) > article:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.5dea972c70c10c01",
+      "sourceHash": "b111249be2008661b9a8cd4b8501929cad24922c6aa5af949eafdb760cee920d",
+      "source": "Upcoming · 2026",
+      "translation": "Inayokuja · 2026",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(15) > div:nth-of-type(2) > article:nth-of-type(5) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.b5c3ef2c6f264868.5",
+      "sourceHash": "bb51b176cbc572a51650ef2b5391ef45ed9b5d1c157ed66e7780a2f4dca9fa0b",
+      "source": "Waterfront Mall: a modern lifestyle, entertainment and shopping destination in a coastal neighbourhood by the Indian Ocean.",
+      "translation": "Waterfront Mall: kituo cha kisasa cha maisha, burudani na ununuzi katika kitongoji cha pwani kando ya Bahari ya Hindi.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(15) > div:nth-of-type(2) > article:nth-of-type(5) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.fad74fae2b513e62",
+      "sourceHash": "3ee682617130958e29ef2aaa714af5c97176f0b0d062579a5e2e652ffb521608",
+      "source": "Join our team or partner with Lake Group as we continue building across Africa.",
+      "translation": "Jiunge na timu yetu au shirikiana na Lake Group tunapoendelea kujenga kote Afrika.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.1925783ce87a1d36",
+      "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
+      "source": "Chat",
+      "translation": "Gumzo",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.71c10f39b354f491",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "Tanzania",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.39533bf874141481",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Bendera ya Tanzania",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.733c396e3bcf3a58",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "Kenya",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.b974dbdeb7f231de",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "Bendera ya Kenya",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.9571a4d22f0cf150",
+      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
+      "source": "Zambia",
+      "translation": "Zambia",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.9133213598bf4fe0",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "Bendera ya Zambia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.ac131e6b6553fad2",
+      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
+      "source": "Rwanda",
+      "translation": "Rwanda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.38c8dc16edbebf02",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "Bendera ya Rwanda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.31e935e883854a20",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "Burundi",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.b1243cdee317177c",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "Bendera ya Burundi",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.f16eae0b810b13fc",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "DR Congo",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.ed2982491f9863b1",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "Bendera ya DR Congo",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.59ec30b9b1544126",
+      "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
+      "source": "Ethiopia",
+      "translation": "Ethiopia",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.da07133fc292efc1",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "Bendera ya Ethiopia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.445859070ffb5d19",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "Bendera ya Msumbiji",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.fd911e584692f81c",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "Uganda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.6c57f2ef6c242736",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "Bendera ya Uganda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.2b2c199557f8d414",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "Bendera ya UAE",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.391ea9acf937e031",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "Historia Yetu",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:shared-ui"
+    },
+    {
+      "id": "auto.391ea9acf937e031.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "CSR na Uendelevu",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:shared-ui"
+    },
+    {
+      "id": "auto.baba0e4a2ce044e6",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "Historia Yetu",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:shared-ui"
+    },
+    {
+      "id": "auto.baba0e4a2ce044e6.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "CSR na Uendelevu",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:shared-ui"
+    },
+    {
+      "id": "auto.90d65bef252900a3",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "Lugha: Kiingereza",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.4e25ff1708622355",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "Funga menyu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "assistant-authored-draft:history.html"
+    },
+    {
+      "id": "auto.8c49b55589a746db.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.6dedf980e9d87db3",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.e4ed7579e4ef2415.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "NexDrive Motors",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.4f0854030929e330",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:index.html"
+    },
+    {
+      "id": "auto.e7b39aa0cef0c3ea.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.1041d65605d02942",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.7286cbc300402ec2",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:index.html"
+    },
+    {
+      "id": "auto.dafae97cb31f3989",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:index.html"
+    },
+    {
+      "id": "auto.dafae97cb31f3989.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.dafae97cb31f3989.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.dafae97cb31f3989.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.dafae97cb31f3989.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.dafae97cb31f3989.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.dafae97cb31f3989.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.dafae97cb31f3989.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.3c8395a8ccfc552c",
+      "sourceHash": "5b9bfc3b9c5d3d222cd2a392fbd1c32e961612cbd3b9f8093832c6ebbcc5782e",
+      "source": "Lake Oil Ltd",
+      "translation": "Lake Oil Ltd",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.04c27a9323083311",
+      "sourceHash": "de843dbd03a64c327c56097f8b00ac0195aaa3e4d48a0ab17fe5c3060f6a95ce",
+      "source": "Lake Petroleum Limited",
+      "translation": "Lake Petroleum Limited",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > article:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.00ca7cf509242e89",
+      "sourceHash": "e83639ddc4d6065c559764695d0f1182268ac1dc15cc7fd672e283625c4febc1",
+      "source": "AFICD & AILL",
+      "translation": "AFICD & AILL",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > article:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.664915f646b682d6",
+      "sourceHash": "83bfeb1bed57343072f620a607a21a24a38dbb6b3ade6a9046b84418a76fb391",
+      "source": "Lake Trans Ltd",
+      "translation": "Lake Trans Ltd",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(2) > article:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.664915f646b682d6.2",
+      "sourceHash": "2b0f42b6cad7d85e82f79e372e17ffbf93247231483705a0e712e51d73e5b5f9",
+      "source": "Lake Gas Ltd",
+      "translation": "Lake Gas Ltd",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(2) > article:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.664915f646b682d6.3",
+      "sourceHash": "4a9688cc96a43c9d9664e8276920b89fbeef2f719b16bce9470b02176ed5edfd",
+      "source": "Sun Fuel SARL",
+      "translation": "Sun Fuel SARL",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(2) > article:nth-of-type(3) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.0fc015583bbfbb3f",
+      "sourceHash": "2b0f42b6cad7d85e82f79e372e17ffbf93247231483705a0e712e51d73e5b5f9",
+      "source": "Lake Gas Ltd",
+      "translation": "Lake Gas Ltd",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(5) > div:nth-of-type(2) > article:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.f459cfd338c0c873",
+      "sourceHash": "2b0f42b6cad7d85e82f79e372e17ffbf93247231483705a0e712e51d73e5b5f9",
+      "source": "Lake Gas Ltd",
+      "translation": "Lake Gas Ltd",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(6) > div:nth-of-type(2) > article:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.2dbb8c9eb9218b5e",
+      "sourceHash": "29ab9e0097db35b8bf27ea5943f37bf604bca8f63c3be5155835ce71c4be9116",
+      "source": "Lake Lubes Ltd",
+      "translation": "Lake Lubes Ltd",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(7) > div:nth-of-type(2) > article:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.9f2512cb11b10e00",
+      "sourceHash": "5b9bfc3b9c5d3d222cd2a392fbd1c32e961612cbd3b9f8093832c6ebbcc5782e",
+      "source": "Lake Oil Ltd",
+      "translation": "Lake Oil Ltd",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(8) > div:nth-of-type(2) > article:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.9f2512cb11b10e00.2",
+      "sourceHash": "24343e2c0656e09d8ae24f5d32ede037021818719cd13e8e615030e3ad08d460",
+      "source": "Lake Steel & Allied Products Ltd",
+      "translation": "Lake Steel & Allied Products Ltd",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(8) > div:nth-of-type(2) > article:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.9f2512cb11b10e00.3",
+      "sourceHash": "1525e535ad9df8f85e742a2bfb613c32e5031aa2ea2642dd3eb85f5984031c00",
+      "source": "Lake Agro Zambia",
+      "translation": "Lake Agro Zambia",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(8) > div:nth-of-type(2) > article:nth-of-type(3) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.908f60bf2b520d3a",
+      "sourceHash": "c94ddd8e98aca7afc9bd6f7552145fb242e4d1689acf33e3045d6a79a7dad8c1",
+      "source": "Gulf Aggregates Ltd",
+      "translation": "Gulf Aggregates Ltd",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(9) > div:nth-of-type(2) > article:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.67e57f5423f78179",
+      "sourceHash": "29ab9e0097db35b8bf27ea5943f37bf604bca8f63c3be5155835ce71c4be9116",
+      "source": "Lake Lubes Ltd",
+      "translation": "Lake Lubes Ltd",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(10) > div:nth-of-type(2) > article:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.67e57f5423f78179.2",
+      "sourceHash": "05661e344140407fd3efbd324679bfc47f5be761864b4c48c1d5ef40fca3e08d",
+      "source": "ATL Ltd",
+      "translation": "ATL Ltd",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(10) > div:nth-of-type(2) > article:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.67e57f5423f78179.4",
+      "sourceHash": "c94ddd8e98aca7afc9bd6f7552145fb242e4d1689acf33e3045d6a79a7dad8c1",
+      "source": "Gulf Aggregates Ltd",
+      "translation": "Gulf Aggregates Ltd",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(10) > div:nth-of-type(2) > article:nth-of-type(4) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.cf07df419fba42dd.2",
+      "sourceHash": "4c5b260576177893b1c971822885d0d5f585eb0a3c2426c9c8b9b748058d0fb1",
+      "source": "Lake Oil LDA",
+      "translation": "Lake Oil LDA",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(11) > div:nth-of-type(2) > article:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.cf07df419fba42dd.3",
+      "sourceHash": "5891abf9e890f42ccf8361470f820505c975cb878a6811869c47a1d359b865a6",
+      "source": "Gulf Premix Ltd",
+      "translation": "Gulf Premix Ltd",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(11) > div:nth-of-type(2) > article:nth-of-type(3) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.5556a49b08236852",
+      "sourceHash": "cbf9746a67c67e8d4524ff9965ef3b4c09163b0eedf81f17d6d41d68080eaaec",
+      "source": "Cross Country Developer Ltd",
+      "translation": "Cross Country Developer Ltd",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(12) > div:nth-of-type(2) > article:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.5556a49b08236852.2",
+      "sourceHash": "5891abf9e890f42ccf8361470f820505c975cb878a6811869c47a1d359b865a6",
+      "source": "Gulf Premix Ltd",
+      "translation": "Gulf Premix Ltd",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(12) > div:nth-of-type(2) > article:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.5556a49b08236852.3",
+      "sourceHash": "29ab9e0097db35b8bf27ea5943f37bf604bca8f63c3be5155835ce71c4be9116",
+      "source": "Lake Lubes Ltd",
+      "translation": "Lake Lubes Ltd",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(12) > div:nth-of-type(2) > article:nth-of-type(3) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.5556a49b08236852.4",
+      "sourceHash": "0a1e534929fd654a5289f81fe6ff782795f664bdb4ccf5b2cd046e32c467a6d3",
+      "source": "Lake Agro Ltd",
+      "translation": "Lake Agro Ltd",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(12) > div:nth-of-type(2) > article:nth-of-type(4) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.92285e78db4e5715.2",
+      "sourceHash": "24343e2c0656e09d8ae24f5d32ede037021818719cd13e8e615030e3ad08d460",
+      "source": "Lake Steel & Allied Products Ltd",
+      "translation": "Lake Steel & Allied Products Ltd",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(13) > div:nth-of-type(2) > article:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.90b974a3127f285c",
+      "sourceHash": "39098b176c1bb62124242c2bfb61e82d16bc8f4b46349be851a20357f702791b",
+      "source": "Lake Aviation Tanzania",
+      "translation": "Lake Aviation Tanzania",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(15) > div:nth-of-type(2) > article:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.90b974a3127f285c.2",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(15) > div:nth-of-type(2) > article:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.90b974a3127f285c.4",
+      "sourceHash": "cbf9746a67c67e8d4524ff9965ef3b4c09163b0eedf81f17d6d41d68080eaaec",
+      "source": "Cross Country Developer Ltd",
+      "translation": "Cross Country Developer Ltd",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(15) > div:nth-of-type(2) > article:nth-of-type(5) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-source-retained"
+    },
+    {
+      "id": "auto.7d4142400907fb2e",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "protected-source-retained"
     }
   ]
 }

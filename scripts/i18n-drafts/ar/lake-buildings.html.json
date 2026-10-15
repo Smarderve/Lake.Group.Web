@@ -3,16 +3,26 @@
   "status": "DRAFT_PENDING_HUMAN_REVIEW",
   "locale": "ar",
   "page": "lake-buildings.html",
-  "sourceManifestDigest": "181d42c4930d1abb298d1bb6193e994fb20c4653ed2347cb78f9ae1ea1fa8fa8",
-  "sourceManifestGeneratedAt": "2026-10-15T10:48:55.402Z",
+  "sourceManifestDigest": "60675f76844f3800729cf1ef938b65c6ddcb2e7351b7ee2b74eb4da0f9f40714",
+  "sourceManifestGeneratedAt": "2026-10-15T12:12:03.389Z",
   "createdAt": "2026-10-15T10:47:00.475Z",
   "authoringMethod": "existing dictionary reuse; no model output for generated rows",
   "reviewEvidence": null,
   "releaseEligible": false,
   "candidateCount": 102,
-  "translatedCount": 31,
-  "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
+  "translatedCount": 102,
+  "validation": "Exact source ids and hashes retained; remaining strings are protected brands, native language names, or copyright; editorial review pending",
   "translations": [
+    {
+      "id": "auto.c1d43826d535d646",
+      "sourceHash": "08113e4858e30eda1638dfe4a296a15f7ddf3b3ba9fec9ff0d7159289d0d4fd0",
+      "source": "Lake Building Solution manufactures gypsum board and marine board in Kibaha Visiga, Tanzania, as part of Lake Group's Manufacturing sector.",
+      "translation": "تصنع Lake Building Solution ألواح الجبس والألواح البحرية في كيباها فيسيغا، تنزانيا، ضمن قطاع التصنيع في Lake Group.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content",
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
     {
       "id": "auto.fd52238c17c93f3e",
       "sourceHash": "6970059994dce7e30c88b19df4696c7234a01aca3caf2fa69322593c6a6af253",
@@ -84,6 +94,26 @@
       "origin": "existing-dictionary:nav.co.gulfAggregates"
     },
     {
+      "id": "auto.5637418152acb29e",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.472289f018563906.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "NexDrive Motors",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
       "id": "auto.5192802c7047bedc",
       "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
       "source": "Our History",
@@ -94,6 +124,46 @@
       "origin": "existing-dictionary:nav.history"
     },
     {
+      "id": "auto.5192802c7047bedc.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "المسؤولية الاجتماعية والاستدامة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:shared-ui"
+    },
+    {
+      "id": "auto.5192802c7047bedc.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "المعرض",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:shared-ui"
+    },
+    {
+      "id": "auto.ad0dd7ba54f9dc45",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "اللغة: الإنجليزية",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.3f9f54e84b831257",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
       "id": "auto.c4c0280eb18b2d12",
       "sourceHash": "99af6606ff9d6cd5154d4d4e9c21e325086d3e904677cdb41d363c8a3480f862",
       "source": "Menu",
@@ -102,6 +172,16 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": "aria-label",
       "origin": "existing-dictionary:nav.menu"
+    },
+    {
+      "id": "auto.b7729f5c05f3d881",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "إغلاق القائمة",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "assistant-authored-draft:lake-buildings.html"
     },
     {
       "id": "auto.10c4bc4b2e73b36a",
@@ -144,6 +224,26 @@
       "origin": "existing-dictionary:nav.co.gulfAggregates"
     },
     {
+      "id": "auto.9c43707719da5241",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.553b902fda2a409a",
+      "sourceHash": "ec75f79040af17557c450e94a4214a484350634a433592d2eb31784c5a46e865",
+      "source": "Leadership",
+      "translation": "القيادة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:shared-ui"
+    },
+    {
       "id": "auto.91ebe5d51a791d3f",
       "sourceHash": "a034729933d1cbf407645e11d9c91d9ac1bfddbef23fd58cb36782e3f60ae659",
       "source": "Corporate",
@@ -164,6 +264,36 @@
       "origin": "existing-dictionary:nav.history"
     },
     {
+      "id": "auto.ee4c5d703f9a7b36.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "المسؤولية الاجتماعية والاستدامة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:shared-ui"
+    },
+    {
+      "id": "auto.ee4c5d703f9a7b36.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "المعرض",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:shared-ui"
+    },
+    {
+      "id": "auto.63aeb5697361293e",
+      "sourceHash": "7e658675b5ca75b3802ff34b548abe663438f113bed3acf541142b317c146e34",
+      "source": "Careers",
+      "translation": "الوظائف",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(4)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:shared-ui"
+    },
+    {
       "id": "auto.63aeb5697361293e.2",
       "sourceHash": "98b67063cf8e584d75e53b88472ee85473e01e0ea16f29ece9cc98f4a2710494",
       "source": "Contact Us",
@@ -172,6 +302,176 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(5)",
       "attribute": null,
       "origin": "existing-dictionary:footer.contact"
+    },
+    {
+      "id": "auto.ca5d9e60fab1b2d9",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.bad1848635c28f8f",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.bad1848635c28f8f.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.bad1848635c28f8f.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.bad1848635c28f8f.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.bad1848635c28f8f.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.bad1848635c28f8f.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.bad1848635c28f8f.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.bad1848635c28f8f.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.285e7050ea7ca5f6",
+      "sourceHash": "7aee03a8dc6ede9900684035ad0af64e2396e9919070067dba3a5cd94da5695b",
+      "source": "Manufacturing high-quality gypsum boards and marine boards for the construction industry.",
+      "translation": "تصنيع ألواح جبس وألواح بحرية عالية الجودة لقطاع البناء.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.c0547374b5b77b5f",
+      "sourceHash": "698c65a82230ecf52441c4c526dc949d37da256c466e24eda01a85a38aa32b8e",
+      "source": "Manufacturing for Modern Construction",
+      "translation": "التصنيع من أجل البناء الحديث",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.20a3a6526729436a",
+      "sourceHash": "3b856883736d6402340cc746eb7aed4c3dd0837ecc9c45aea581b02dcf156d0c",
+      "source": "Lake Building Solution (LBS), a subsidiary of Lake Group, is an innovative industrial company located in Kibaha Visiga, Coast Region, Tanzania, specializing in the production of high-quality gypsum boards for the construction industry.",
+      "translation": "Lake Building Solution (LBS)، وهي شركة صناعية مبتكرة تابعة لـ Lake Group، تقع في كيباها فيسيغا، إقليم الساحل، تنزانيا، وتتخصص في إنتاج ألواح جبس عالية الجودة لقطاع البناء.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.7387d221d763b489",
+      "sourceHash": "2d2c0d69764b4d4f9eb133ecc8a82f4dd8fec52b5406ce0f364f2774a5de152f",
+      "source": "With over 100 employees and industry experience, Lake Building Solution combines technical know-how, customer focus and modern manufacturing capability to serve the construction industry. The company operates a state-of-the-art manufacturing facility equipped with cutting-edge technology.",
+      "translation": "بخبرة القطاع وأكثر من 100 موظف، تجمع Lake Building Solution بين المعرفة التقنية والتركيز على العملاء وقدرات التصنيع الحديثة لخدمة قطاع البناء. وتدير الشركة منشأة تصنيع متطورة مجهزة بأحدث التقنيات.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.b07a10da3c35f30c",
+      "sourceHash": "92f734e658938b633f3bb48e7344890d25551c1d25b2d1cb275cb6c7d6fd7344",
+      "source": "High-quality gypsum board manufacturing",
+      "translation": "تصنيع ألواح جبس عالية الجودة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.3f8e6673f720020d",
+      "sourceHash": "4be1fd9f86cfd52c7fe3353c73400f0554d8f35b7ed7ca18366a2f05394c7552",
+      "source": "Marine board for moisture-exposed applications",
+      "translation": "ألواح بحرية للاستخدامات المعرضة للرطوبة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.44c75407f0b2a7d8",
+      "sourceHash": "46d79ba62872cc6b926d205cb701549018c865ff206653a4325cb4d6717819c6",
+      "source": "State-of-the-art facility in Kibaha Visiga",
+      "translation": "منشأة متطورة في كيباها فيسيغا",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.d3ffa0479143391e",
+      "sourceHash": "1dc75640fdaf36b8f722c2d60813468f0c80e6883c7a608ca5dc68d3f67dbd84",
+      "source": "Quality, efficiency and environmental responsibility",
+      "translation": "الجودة والكفاءة والمسؤولية البيئية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(4)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
     },
     {
       "id": "auto.8c1d0f851793dbec",
@@ -194,6 +494,66 @@
       "origin": "existing-dictionary:ose.ending.employees"
     },
     {
+      "id": "auto.21d42c0a80d02e36",
+      "sourceHash": "c753eb65414bb2ad888e5a5d59bec918ccbd07583978b31afa1a1930c278e48c",
+      "source": "Kibaha",
+      "translation": "كيباها",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.b10bf3496678199a",
+      "sourceHash": "19e35563d05f115134f62217758908efeef7bc7a426e924153e03744049b30c5",
+      "source": "Visiga, Tanzania",
+      "translation": "فيسيغا، تنزانيا",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.54f7f08e0c67c3cd",
+      "sourceHash": "00472783d4f9a2ddc7a31bf72d425209f45c80900f27467a538279ebc996f2a0",
+      "source": "Gypsum",
+      "translation": "الجبس",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.62e6cb76f7a59270",
+      "sourceHash": "4f81d087702b87d2eac027ae368d4febbd21e0983a834fae23e4d45af12fe9da",
+      "source": "Board Core Product",
+      "translation": "المنتج الأساسي من الألواح",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.1b4fafa995fd96b1",
+      "sourceHash": "1da20b447642deaa6f426c75c8b5613e2df7ecaa79b0136006f94a518c594110",
+      "source": "Marine",
+      "translation": "بحري",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.343c5007baf1591a",
+      "sourceHash": "9d63482dbafc4388a0b9453ee4c73572721aec2c8a6f97c26b819fbd93145408",
+      "source": "Board Specialist",
+      "translation": "متخصص في الألواح",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
       "id": "auto.d2e908f33fae709a",
       "sourceHash": "8d57b4cd7c7376a3f1903241803ce37d8901c76dad071887c6462a847741911e",
       "source": "Mission, Vision & Values",
@@ -214,6 +574,16 @@
       "origin": "existing-dictionary:atl.s2.mission"
     },
     {
+      "id": "auto.5f659c578ffbcc51",
+      "sourceHash": "7d87447c47994d2869fdaf25da80c8d8f0aadacb59a17dc03b7dc3952241bf88",
+      "source": "To provide high-quality gypsum boards that meet the needs and expectations of our customers in the construction industry, while minimizing our environmental impact and contributing to the growth and development of the communities in which we operate.",
+      "translation": "توفير ألواح جبس عالية الجودة تلبي احتياجات عملائنا وتوقعاتهم في قطاع البناء، مع الحد من أثرنا البيئي والمساهمة في نمو المجتمعات التي نعمل فيها وتنميتها.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
       "id": "auto.e1981e71c6bff15d",
       "sourceHash": "c587c2601ccfc456cb7d4d9bb34f12f0fd11ad49faeeb4602860e239b5397843",
       "source": "Vision",
@@ -222,6 +592,36 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > h3:nth-of-type(1)",
       "attribute": null,
       "origin": "existing-dictionary:atl.s2.vision"
+    },
+    {
+      "id": "auto.3c20a9bdee027ca0",
+      "sourceHash": "202f9289050333dc260ca372005d6a0b203f07166e039a33fbfdbd114d305243",
+      "source": "To build Lake Building Solution into an innovative industrial company producing high-quality gypsum boards for the construction industry, supported by advanced manufacturing technology and a commitment to quality and efficiency.",
+      "translation": "تطوير Lake Building Solution لتصبح شركة صناعية مبتكرة تنتج ألواح جبس عالية الجودة لقطاع البناء، مدعومة بتقنيات تصنيع متقدمة والتزام بالجودة والكفاءة.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.759d5dee3636ed2d",
+      "sourceHash": "cdf7689a4e7e9d8dc09828df1d5c397a03232b2f53db67a5d3949c7991f48030",
+      "source": "Customer Service",
+      "translation": "خدمة العملاء",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.10701921a98bf1fa",
+      "sourceHash": "57a95741e08016d62b2b64511ad78f28c46a149485988be45e5b8f2e442b0e64",
+      "source": "Responsive, knowledgeable and customer-focused service",
+      "translation": "خدمة سريعة ومتمكنة تركز على العملاء",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
     },
     {
       "id": "auto.d0c6b32deb5eb717",
@@ -234,6 +634,16 @@
       "origin": "existing-dictionary:about.30"
     },
     {
+      "id": "auto.55be3e241749d660",
+      "sourceHash": "4c9426e204cbacfbbeac76a2ae57045f1ab170029e8d9d5f9746db4df2884330",
+      "source": "Advanced manufacturing processes and modern technology",
+      "translation": "عمليات تصنيع متقدمة وتقنيات حديثة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
       "id": "auto.4502730d396d9781",
       "sourceHash": "d21fa65ba2caa092b153da5f5cff07e6457b01cbb86cf2038c911fa897c909f5",
       "source": "Environmental Stewardship",
@@ -242,6 +652,166 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > h4:nth-of-type(1)",
       "attribute": null,
       "origin": "existing-dictionary:csr.22"
+    },
+    {
+      "id": "auto.72e0b4a43a8c2a99",
+      "sourceHash": "35b468bff50f1e132adc898403d4bd80f113f2380a1d487d15477288cfdf95f5",
+      "source": "Sustainable materials, waste reduction and energy conservation",
+      "translation": "مواد مستدامة، والحد من النفايات، والحفاظ على الطاقة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.106178c2e4f009e2",
+      "sourceHash": "4a84556e7fd02081e0e92242b82822cce9eb6bae14aec2590bbf14c24e74930e",
+      "source": "Teamwork",
+      "translation": "العمل الجماعي",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.7e49b0c0d6cbfdf7",
+      "sourceHash": "2d5b9bda1430684d75346c17a1b8f29136d3ee873790ac407555ce28d0f2552d",
+      "source": "Collaborative approach to quality and efficiency",
+      "translation": "نهج تعاوني لتحقيق الجودة والكفاءة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.46ef1ee75ff840d1",
+      "sourceHash": "3dfc599d67c9a34c4f66403102978274f335821d17bac7cf8f44072458eeddbc",
+      "source": "Gypsum Board & Marine Board",
+      "translation": "ألواح الجبس والألواح البحرية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.6d82a8c9c930b143",
+      "sourceHash": "1141b7ade346878207a7a42eb19f47e2c5d215f53b7a2fec7f2f137965828c7e",
+      "source": "Gypsum Board",
+      "translation": "لوح جبس",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.2b68eaf512e105bf",
+      "sourceHash": "1141b7ade346878207a7a42eb19f47e2c5d215f53b7a2fec7f2f137965828c7e",
+      "source": "Gypsum Board",
+      "translation": "لوح جبس",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.e85cede0cb1f6c36",
+      "sourceHash": "3190f148d40bbfe0c8b6ae515232b9c8bf747b02666cf0e3550b80159aba5e6c",
+      "source": "Size: 9 mm x 1220 mm x 2440 mm. Weight: 19.2-19.5 kg. Strength: Longitudinal 350 N; Transverse 160 N. High ductility, lightweight, high strength and highly fire resistant.",
+      "translation": "المقاس: 9 mm x 1220 mm x 2440 mm. الوزن: 19.2-19.5 kg. القوة: طوليًا 350 N؛ عرضيًا 160 N. يتميز بمرونة عالية وخفة الوزن والقوة ومقاومة عالية للحريق.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.7ff97e9f19f196a8",
+      "sourceHash": "874e44783734b95f8ad718b3827d71fd40c0a8e8d70095edeaa6f26a637bb585",
+      "source": "Marine Board",
+      "translation": "لوح بحري",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.e95b54fe06751a2c",
+      "sourceHash": "874e44783734b95f8ad718b3827d71fd40c0a8e8d70095edeaa6f26a637bb585",
+      "source": "Marine Board",
+      "translation": "لوح بحري",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.1f64d1017259d639",
+      "sourceHash": "7692b2b1e17e3bd9608355d5e662bb767214259c590abacf0139c8941b81d45c",
+      "source": "Size: 18 mm x 1220 mm x 2440 mm. Weight: 34 kg. Water and moisture resistant. Resistant to warping, cracking and shrinking in wet conditions.",
+      "translation": "المقاس: 18 mm x 1220 mm x 2440 mm. الوزن: 34 kg. مقاوم للماء والرطوبة، كما يقاوم الالتواء والتشقق والانكماش في الظروف الرطبة.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.45222121c53b7c1c",
+      "sourceHash": "1757c18c1d329b8b7113dc2ea1fdb6d2a91b52e1be4af1ae8a4856003d5e3efe",
+      "source": "Gypsum Board Applications",
+      "translation": "استخدامات ألواح الجبس",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.aa4b801584066ab5",
+      "sourceHash": "d42ddd9b42db23fb2ca9b5fd64f6e845c919a01f5cab6eb4430d75cab933417d",
+      "source": "Wall systems, ceiling systems, partition systems for residential, institutional and commercial construction.",
+      "translation": "أنظمة الجدران والأسقف والفواصل للمباني السكنية والمؤسسية والتجارية.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.dec8c95e11b7f376",
+      "sourceHash": "d091d5262ab2870dba73276c3713281e8c382b45ca4bcd0b1bf6d19a29c572f2",
+      "source": "Marine Board Applications",
+      "translation": "استخدامات الألواح البحرية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.841d0808b02c7ded",
+      "sourceHash": "7ba244159d628a9a96a21ba5f7c8cda7819c44f03747494f0828a39dd37443b8",
+      "source": "Areas exposed to water, moisture and humidity, including suitable civil construction work.",
+      "translation": "المناطق المعرضة للماء والرطوبة، بما في ذلك أعمال البناء المدني المناسبة.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.e24c906d9336b40e",
+      "sourceHash": "fbfa7d54e7446a649cbccfc5b4d7fa6b2b387eb305d53103bb21f1386416d6d5",
+      "source": "Quality & Commitment",
+      "translation": "الجودة والالتزام",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.95966dec1a77b0c0",
+      "sourceHash": "4d7541da57a60afaa915a41c474ce2940046c6974d08047160ea1e57ac8b7731",
+      "source": "Quality is central to our manufacturing philosophy, using high-quality materials and advanced processes.",
+      "translation": "الجودة محور فلسفتنا التصنيعية، ونستخدم مواد عالية الجودة وعمليات متقدمة.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
     },
     {
       "id": "auto.01ca92e9edeb7a25",
@@ -254,6 +824,16 @@
       "origin": "existing-dictionary:chat.placeholder"
     },
     {
+      "id": "auto.13ab7a75638daeec",
+      "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
+      "source": "Chat",
+      "translation": "محادثة",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
       "id": "auto.c54320653b9290c9",
       "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
       "source": "Tanzania",
@@ -262,6 +842,16 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary:africa_network.27"
+    },
+    {
+      "id": "auto.b9f899a90f36c431",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "علم تنزانيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-buildings.html"
     },
     {
       "id": "auto.2556b9771916b1aa",
@@ -274,6 +864,16 @@
       "origin": "existing-dictionary:africa_network.29"
     },
     {
+      "id": "auto.9ba06d48f02f3006",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "علم كينيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
       "id": "auto.7cb8ce45484d2bf6",
       "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
       "source": "Zambia",
@@ -282,6 +882,16 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary:africa_network.31"
+    },
+    {
+      "id": "auto.cd500f979c688f87",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "علم زامبيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-buildings.html"
     },
     {
       "id": "auto.dbfd9ae49ee33810",
@@ -294,6 +904,16 @@
       "origin": "existing-dictionary:africa_network.33"
     },
     {
+      "id": "auto.9a8268fa3bde2c9e",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "علم رواندا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
       "id": "auto.6fc04b7b297f414d",
       "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
       "source": "Burundi",
@@ -302,6 +922,36 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary:africa_network.35"
+    },
+    {
+      "id": "auto.aba10a4eb1d4c588",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "علم بوروندي",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.f9b048b79954f8f5",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "جمهورية الكونغو الديمقراطية",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.9e53e68c22f936ea",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "علم جمهورية الكونغو الديمقراطية",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-buildings.html"
     },
     {
       "id": "auto.81d23a938d21a762",
@@ -314,6 +964,16 @@
       "origin": "existing-dictionary:africa_network.38"
     },
     {
+      "id": "auto.bc34a389c48a3851",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "علم إثيوبيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
       "id": "auto.979038c2afbe7eb5",
       "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
       "source": "Mozambique",
@@ -322,6 +982,56 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary:africa_network.40"
+    },
+    {
+      "id": "auto.8c2dd93c7eedccc9",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "علم موزمبيق",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.5e73758af66efd6d",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "أوغندا",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.04df338fa4beea69",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "علم أوغندا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.257d43b4ac1e0fab",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "علم الإمارات",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-buildings.html"
+    },
+    {
+      "id": "auto.209ac5e50d005479",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
     }
   ]
 }

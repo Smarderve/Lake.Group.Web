@@ -5,13 +5,13 @@
   "page": "lake-group-org-chart.html",
   "sourceManifestDigest": "181d42c4930d1abb298d1bb6193e994fb20c4653ed2347cb78f9ae1ea1fa8fa8",
   "sourceManifestGeneratedAt": "2026-10-15T10:48:55.402Z",
-  "createdAt": "2026-10-15T10:47:00.810Z",
+  "createdAt": "2026-10-15T12:56:46.905Z",
   "authoringMethod": "existing dictionary reuse; no model output for generated rows",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 101,
-  "translatedCount": 28,
-  "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
+  "candidateCount": 100,
+  "translatedCount": 101,
+  "validation": "source hashes and protected facts checked; linguistic review remains required",
   "translations": [
     {
       "id": "auto.b391c27262dbb5d3",
@@ -21,7 +21,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.energies"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.0100d09c9bf2f155",
@@ -31,7 +31,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.manufacturing"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.7dfd4d1828c7482c",
@@ -41,7 +41,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.logisticsCos"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.844258c6d8368451",
@@ -51,7 +51,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(4)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.realEstate"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.8154135572c8fdcf",
@@ -61,7 +61,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(5)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.agro"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.25212941d00db3d6",
@@ -71,7 +71,47 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(6)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.automotive"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.750024e349ad1b41.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.a9aaeba224551862",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.f9cd0a6d01d2c43c.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "NexDrive Motors",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.16834486d16c054a",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "A nossa história",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.16834486d16c054a.2",
@@ -81,7 +121,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(2)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.csr"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.16834486d16c054a.3",
@@ -91,7 +131,47 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(3)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.gallery"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.739c1e5b92fb1891",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "Idioma: inglês",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.d2e9183ddbc460e7",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.23a9cce6cf53b6f8",
+      "sourceHash": "99af6606ff9d6cd5154d4d4e9c21e325086d3e904677cdb41d363c8a3480f862",
+      "source": "Menu",
+      "translation": "Menu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.97a8fbfd78458652",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "Fechar menu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.f77cbacbb06a39dc",
@@ -101,7 +181,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.home"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.f77cbacbb06a39dc.2",
@@ -111,7 +191,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(2)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.about"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.f8f331fb4e2b7aef",
@@ -121,7 +201,27 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.companies"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.ef6166e98bb7d856.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.0d023a2d812e31e6",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.95658f8addc45864",
@@ -131,7 +231,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(3)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.leadership"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.b3dc9c251da0c177",
@@ -141,7 +241,17 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.company"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.1cc8163536f19290",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "A nossa história",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.1cc8163536f19290.2",
@@ -151,7 +261,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(2)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.csr"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.1cc8163536f19290.3",
@@ -161,7 +271,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(3)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.gallery"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.9b8f1dba060e939e",
@@ -171,7 +281,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(4)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.careers"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.9b8f1dba060e939e.2",
@@ -181,7 +291,97 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(5)",
       "attribute": null,
-      "origin": "existing-dictionary:footer.contact"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.ef32d1b5a85df7d1",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.79458cbc09e9069b",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.79458cbc09e9069b.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.79458cbc09e9069b.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.79458cbc09e9069b.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.79458cbc09e9069b.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.79458cbc09e9069b.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.79458cbc09e9069b.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.79458cbc09e9069b.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.d1b89c7e3c2aa1e9",
@@ -191,7 +391,7 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:contact.div.mfg"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.b9847b5cdce3c3ca",
@@ -201,7 +401,7 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.logistics"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.2d13150e23ad3bee",
@@ -211,7 +411,17 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:contact.div.realEstate"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.2ddc56ba6da4c3f7",
+      "sourceHash": "f5a34a07f3e91994798406ff7ed901c6f38fdb2933d4026743ed66abae0c4652",
+      "source": "Agro Processing",
+      "translation": "Processamento agrícola",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.e2b25cc986715cfc",
@@ -221,7 +431,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(4) > button:nth-of-type(1) > span:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.lubricants"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.c6f210ebf2b714e8",
@@ -231,7 +441,47 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(5) > button:nth-of-type(1) > span:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.concreteShort"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.2ec4cc30680bf366",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.5b97ca67163dab47",
+      "sourceHash": "a2460ad75ef09ebb383853ce98c2114aa0877147b53d356c01a0a433166dfca3",
+      "source": "Quarrying",
+      "translation": "Extração",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(6) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.622de440f6ae7836",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.19e9face631e5b09",
+      "sourceHash": "ea26abf663a94c274e2a06590ce93aa9a752db2ec86fee23e6ede6a6585acce6",
+      "source": "Waterfront Mall",
+      "translation": "Waterfront Mall",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.8c40ac7cdbe38025",
@@ -241,7 +491,17 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.27"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.a52ba5ef0475b848",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Bandeira da Tanzânia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.22fca5914f69cb9e",
@@ -251,7 +511,17 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.29"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.f026a16f70172512",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "Bandeira do Quênia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.c1659f77632c20c3",
@@ -261,7 +531,17 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.31"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.20f95416c42a8ac6",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "Bandeira da Zâmbia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.aeb19d8ee0590c15",
@@ -271,7 +551,57 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.33"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.1ba17e5a49c6dc4f",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "Bandeira de Ruanda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.86ab89cf63746da3",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "Burundi",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.878ffcef02d599b4",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "Bandeira do Burundi",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.a5055f05dfbcdf1b",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "República Democrática do Congo",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.84c61e03b81367af",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "Bandeira da República Democrática do Congo",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.09ad551369cb2fb1",
@@ -281,7 +611,17 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.38"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.e989d9d2417ddb06",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "Bandeira da Etiópia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.c158fb627c3e2b8d",
@@ -291,7 +631,397 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.40"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.8610994d285e1294",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "Bandeira de Moçambique",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.433855c8bf109af0",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "Uganda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.1521f58be10b52e1",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "Bandeira de Uganda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.a96a08aaf74f6e01",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "Bandeira dos Emirados Árabes Unidos",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.0fe6a6cdc90dd310",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.5321ec96ac76e29b",
+      "sourceHash": "4d3a17d1d3b6c84070fd970db690add74184ea8e70e44f63616b011c8db27d22",
+      "source": "Interactive organisational chart of Lake Group companies owned by Mr. Ally Edha Awadh . energy, manufacturing, logistics, real estate, and agro-processing subsidiaries.",
+      "translation": "Organograma interativo das empresas do Lake Group pertencentes ao Sr. Ally Edha Awadh: subsidiárias de energia, fabrico, logística, imobiliário e agroprocessamento.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(4)",
+      "attribute": "content",
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.2d67e6253d7444ad",
+      "sourceHash": "5b4de9c3aa32c731f03176c74d638d8f56385a2aaaf781c214daa3b46b21fa76",
+      "source": "Lake Group . Organisational Chart",
+      "translation": "Lake Group . Organograma",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > header:nth-of-type(1) > h1:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.31dc0f16023521e4",
+      "sourceHash": "9ded99df8bc9f43b9b62de66fe03d3fcc2d42a233a6472f758273e4054a54137",
+      "source": "Group companies & subsidiaries owned by Mr. Ally Edha Awadh",
+      "translation": "Empresas e subsidiárias do Grupo pertencentes ao Sr. Ally Edha Awadh",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > header:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.0403fa6febfbb85c",
+      "sourceHash": "528073a8fa06a6fe0e4eec2ffc2ea3565bbadc4e43f2dbfdaf1523b6bf237c05",
+      "source": "🏢 18+ Companies",
+      "translation": "🏢 Mais de 18 empresas",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > header:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.10b87be3084aa222",
+      "sourceHash": "1033c777a7b8a277398f4affaefd3774857fbe56ee47f9e122f749861503ebb2",
+      "source": "ðŸŒ 10+ Countries",
+      "translation": "ðŸŒ Mais de 10 países",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > header:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.28f0a95eb92a2a29",
+      "sourceHash": "d3c9e64621475d797d0f8cfd215d3792cd7a552719eb0dc43ac0ee75bc98bef2",
+      "source": "ðŸ‘¥ 10,000+ Employees",
+      "translation": "ðŸ‘¥ Mais de 10.000 colaboradores",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > header:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.e448ccdc414cb09b",
+      "sourceHash": "ca9b6eaed6073835b2e5d60ac1d31dc75326a6788b4bf21b99fd0cc9b4823c11",
+      "source": "📅 Est. 2006",
+      "translation": "📅 Fundado em 2006",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > header:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.c061c5d5fa96605c",
+      "sourceHash": "97633b7526362c289235997c48bfd2201830c22899457e80661c4f62d793d17e",
+      "source": "ðŸ’° $1B Revenue (Forbes 2017)",
+      "translation": "ðŸ’° Receita: $1B (Forbes 2017)",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > header:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.caab5e46299c4be9",
+      "sourceHash": "58f69a8463559ab0d7cd02255f40827f4082897ba1bf74c2ad7316789edde1f0",
+      "source": "Associated",
+      "translation": "Associadas",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.188fc298af1e7ab1",
+      "sourceHash": "cc00e6ff27f066a10a301e6f1a286a5f147cddde8fd11810dbbca0d26cc3c9b2",
+      "source": "4 companies",
+      "translation": "4 empresas",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.9d8c8401cd25d8d1",
+      "sourceHash": "dd67f04f9b90080003f7baad6237f7d69c99c7719deac37acd3e9b0034bc9641",
+      "source": "Petroleum distribution",
+      "translation": "Distribuição de produtos petrolíferos",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.6f5768a2eb52f5c2",
+      "sourceHash": "e4afa16b9f30791d1da9d0378934f205c005221381754eb9bad108c15037e9e5",
+      "source": "ðŸŒ 10 countries",
+      "translation": "ðŸŒ 10 países",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.1afd7bd11928af3b",
+      "sourceHash": "ac1bde7d732a835c3bc73e6f08a84843574581a5b82b319a1363c6c9dbcdb0b9",
+      "source": "LPG & cooking gas",
+      "translation": "GPL e gás de cozinha",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.56d441d4ffb26b6b",
+      "sourceHash": "d476b84d23d0303cb89ae5dbc74ce3066f4bcda5eddbe42d3f8d9bd3e5656896",
+      "source": "ðŸŒ 7 countries",
+      "translation": "ðŸŒ 7 países",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > button:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.27d36a3484b0d00b",
+      "sourceHash": "f369aa57cc015e06b68f284b302e117094cf7ca40b6d9dd7da76088e29def7ce",
+      "source": "7 companies",
+      "translation": "7 empresas",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.5ddf893fe60814b5",
+      "sourceHash": "0f5c23c129ff62b746307d215e9ae0356b151001acd6759c429c76483e4870f8",
+      "source": "Steel . 60K MT/yr billets",
+      "translation": "Aço . biletes 60K MT/ano",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.5eff7eaa484ad5d7",
+      "sourceHash": "39b194354750d48cf5dc84a929f08bbcc23b0563c68235b3417d50ea83d94fbf",
+      "source": "Construction materials",
+      "translation": "Materiais de construção",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.a905d5957bb603e3",
+      "sourceHash": "faee75075afb9d67e1b80c51997c99fb5f10387e752f4e9d13a39f905e9de39b",
+      "source": "Plastics",
+      "translation": "Plásticos",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(3) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.8d401406a74087f0",
+      "sourceHash": "f5b2e9acd51509289393602062889e9903513efd1b9e94da045ce41a9acfa376",
+      "source": "Cylinder mfg",
+      "translation": "Fabrico de cilindros",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.cadc05951c11c8e7",
+      "sourceHash": "0c46935b9c12a7640c5a0669bef3bc5a01448bdf4e49c387171a2e71c75e4f37",
+      "source": "Tanker mfg",
+      "translation": "Fabrico de cisternas",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(7) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.d491728a9e908402",
+      "sourceHash": "6fa272b881915b01d7fc7b12f8b5f1d989b064267f9d8f091ec512ca992defdb",
+      "source": "3 companies",
+      "translation": "3 empresas",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.437f2d37389cf6e5",
+      "sourceHash": "8f50cb179fbc6fcfc41e949d816135868982c4ac494b74d61a41a07f4671d059",
+      "source": "Fuel transport fleet",
+      "translation": "Frota de transporte de combustível",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(3) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.ea0cc48b40563f6d",
+      "sourceHash": "82bf0b06d029170b66503f58b257cc1496e9c3c034a0ae2971dc36df82098ff4",
+      "source": "ðŸš› 1,600+ trucks",
+      "translation": "ðŸš› Mais de 1.600 camiões",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(3) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.8423670c2b615e81",
+      "sourceHash": "41fcae08c5f84858512a1d85e3fab745638af7fa76f435f477d950e5306e4c80",
+      "source": "Container depot",
+      "translation": "Depósito de contentores",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(3) > div:nth-of-type(2) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.2b2bf1599d12c28e",
+      "sourceHash": "8e084ef8539f8c722fc28343b63f4fe22d5efb064c4b36c119c8d30f5751a210",
+      "source": "Container freight",
+      "translation": "Transporte de contentores",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(3) > div:nth-of-type(3) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.7a9456c423023f80",
+      "sourceHash": "d8f408f09556e98aecfd5ccab7839970cfae9423cc8b4dce0bb0306e68a91297",
+      "source": "2 companies",
+      "translation": "2 empresas",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.dd9df5d5e4ea5187",
+      "sourceHash": "94dba1ec5b099e3323f18e522868cdc570991147fbb975ce6c1403edbdbff916",
+      "source": "Property development",
+      "translation": "Promoção imobiliária",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(3) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.3f355aa64e7b0608",
+      "sourceHash": "9088a4a179ad6add12a964551b6abed3bdff70e0048b01b222ff80d4fc96f44a",
+      "source": "ðŸ—ï¸ Waterfront mall",
+      "translation": "ðŸ—ï¸ Centro comercial Waterfront Mall",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(3) > div:nth-of-type(2) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.e3b36b6fde31261a",
+      "sourceHash": "e7a0efb35cee99bdbe74ab2ec0159030de6b053d44d26356fc36e70d960ddf62",
+      "source": "1 company",
+      "translation": "1 empresa",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(5) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.0475320e590a02df",
+      "sourceHash": "24496e8410aff396361d834048489919acf0032d41e7dd24197a4dc7e20cdfd2",
+      "source": "ðŸŒ¾ Commercial farming",
+      "translation": "ðŸŒ¾ Agricultura comercial",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(5) > div:nth-of-type(3) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.38335e97faa739ab",
+      "sourceHash": "8f3e510fb5a73433d56e898c73539bb0b18f5167a8c77ad4d24342e34795beb1",
+      "source": "1 venture",
+      "translation": "1 empreendimento",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.58742b5a852a0dbe",
+      "sourceHash": "8f98a8f61392233b0e868787d93758c37ac5399aec7f33181932d3420e7b138b",
+      "source": "Ready-mix . Dubai",
+      "translation": "Betão pronto . Dubai",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(3) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.9f0912958703f68f",
+      "sourceHash": "f674eb4eea1cc323432f9710d274ee4030fa85d96bd293d9af776b2aa4f3ba36",
+      "source": "lakeoilgroup.com",
+      "translation": "lakeoilgroup.com",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(5) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.c172d6fb9eb9118e",
+      "sourceHash": "a2d6f27d6295a9bd86aa901cbab41569378f46c5248a26a17507a4e0b3680b82",
+      "source": "Aviation fuel",
+      "translation": "Combustível de aviação",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(3) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
     }
   ]
 }

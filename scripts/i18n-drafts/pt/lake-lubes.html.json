@@ -10,8 +10,8 @@
   "reviewEvidence": null,
   "releaseEligible": false,
   "candidateCount": 126,
-  "translatedCount": 31,
-  "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
+  "translatedCount": 126,
+  "validation": "source hashes and protected facts checked; linguistic review remains required",
   "translations": [
     {
       "id": "auto.c65ca48e1f1103ac",
@@ -322,6 +322,956 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary:africa_network.40"
+    },
+    {
+      "id": "auto.67afb2dfb6844fe8",
+      "sourceHash": "b821fd98727923b247f1107d146915e075b762aaac1938e9aa94b6377330fd8b",
+      "source": "Lake Lubes Ltd produces automotive, industrial and specialty lubricants and greases from its blending and packaging operation in Tanzania.",
+      "translation": "A Lake Lubes Ltd produz lubrificantes e massas lubrificantes para os setores automóvel, industrial e especializado nas suas operações de mistura e embalagem na Tanzânia.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content",
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.7619130989ae8203.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.6cf3d32bb7c0891f",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.e0466a96a9545200.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "NexDrive Motors",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.5c97d7ccf8592cfb",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "A nossa história",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.dd8df2b74097de4c",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "Idioma: inglês",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.40e677689a2a52e1",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.5926f4686344949c",
+      "sourceHash": "99af6606ff9d6cd5154d4d4e9c21e325086d3e904677cdb41d363c8a3480f862",
+      "source": "Menu",
+      "translation": "Menu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.7f05cac90be00eb6",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "Fechar menu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.72d4fec3787008b8.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.2d31d09e8cda878d",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.2e21caeaa2fb3238",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "A nossa história",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.82d6d3292b33f475",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.5379777b6581ac9c",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.5379777b6581ac9c.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.5379777b6581ac9c.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.5379777b6581ac9c.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.5379777b6581ac9c.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.5379777b6581ac9c.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.5379777b6581ac9c.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.5379777b6581ac9c.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.85212c178a83a83f",
+      "sourceHash": "116eca0df35f2c4fedd4b7adef738d5f6c8aee8e5117710e5c6209f3c293529f",
+      "source": "Specialized lubricant and grease manufacturing for Tanzania and the wider East African market.",
+      "translation": "Fabrico especializado de lubrificantes e massas lubrificantes para a Tanzânia e o mercado mais amplo da África Oriental.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.1bac12d84b9a9415",
+      "sourceHash": "a8a7faab20919de75c8fb16699635a11d6b09a899d63c1f2b2314c8af16da0c0",
+      "source": "Lake Lubes Ltd is a specialized lubricant and grease manufacturing company and part of the Lake Group, established in 2016 to support the growing demand for high-quality automotive, industrial and specialty lubricants in Tanzania and the wider East African market.",
+      "translation": "A Lake Lubes Ltd é uma empresa especializada no fabrico de lubrificantes e massas lubrificantes e integra o Lake Group. Foi criada em 2016 para responder à crescente procura por lubrificantes automóveis, industriais e especializados de alta qualidade na Tanzânia e no mercado mais amplo da África Oriental.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.434fdae08b2a95c4",
+      "sourceHash": "650cc04ef03e204e00b2021abfcf3d868974d4e1bedb62bef5ac3b12dd91e99a",
+      "source": "Lake Lubes operates a fully integrated Lube Oil Blending Plant (LOBP), supported by modern blending technology, strict quality control systems and experienced technical personnel.",
+      "translation": "A Lake Lubes opera uma unidade integrada de mistura de óleos lubrificantes (LOBP), apoiada por tecnologia moderna de mistura, sistemas rigorosos de controlo de qualidade e pessoal técnico experiente.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.2fecf52bfeb13d30",
+      "sourceHash": "b8aa13ebc15d4632115100b2c6755e2c0dd5fc24478717a5119ebc294550df73",
+      "source": "4.2 million litres of base-oil storage capacity",
+      "translation": "Capacidade de armazenamento de 4,2 milhões de litros de óleo base",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.08ce4783b0d882e2",
+      "sourceHash": "e4880e8ac5f0ac896bb43b0c7acdda158ac3475fbb626193645881dc2b9c12f0",
+      "source": "10 blenders with combined capacity of 54,000 litres per day",
+      "translation": "10 misturadores com capacidade combinada de 54.000 litros por dia",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.4e9df5c55d2de80d",
+      "sourceHash": "7521e78cb9c8da493395ad30a145ce1defa6834d797c672ecf7f5c942349457b",
+      "source": "Dedicated blender for coolant manufacturing",
+      "translation": "Misturador dedicado ao fabrico de líquido de refrigeração",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.b9a6d8b6229681cb",
+      "sourceHash": "e7bba4994c7c646c5a8272eacb7dffdb0cf5e322c52c17f647c13b22707a42a0",
+      "source": "In-house jerry cans from 250 ml to 20 litres",
+      "translation": "Produção própria de jerry cans de 250 ml a 20 litros",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(4)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.f5ffab3e023b34ce",
+      "sourceHash": "27da08466e9838f9df256670651ec671019c1077d0172f9a76e43a5c3af133e1",
+      "source": "In-house laboratory quality control across blending, filling and packaging",
+      "translation": "Controlo de qualidade em laboratório próprio durante a mistura, o enchimento e a embalagem",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.660f9772894ddac6",
+      "sourceHash": "9f93730ac556d42ea976d56b570cf854ebdca1656305f99d11de57c89c680050",
+      "source": "Litres base oil storage",
+      "translation": "Litros de armazenamento de óleo base",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.031dda563e7b0ca1",
+      "sourceHash": "e06d7e66d56e5f52a7e8ff04639a29b3abeb148a0b58e4b4f064071297f82c96",
+      "source": "Blenders",
+      "translation": "Misturadores",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.e0edefbd135e3a8a",
+      "sourceHash": "b3b392e6c58ac8a6276c52a6dde92702dc640c9e9f6b59022059accc739c238a",
+      "source": "Litres per day",
+      "translation": "Litros por dia",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.f4141f5844ef4cdf",
+      "sourceHash": "4efb8e0dea0bc58f4550745d206c2e2579f1b1752a49e5aa3a033c624fbba15f",
+      "source": "250ml–20L",
+      "translation": "250ml–20L",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.b2c490c31be0eb3f",
+      "sourceHash": "974a52eead33d25e485599fc358b35ae84d03afc0d6d2ac70bfb54729a1454fe",
+      "source": "Jerry-can range",
+      "translation": "Gama de jerry cans",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.c0ad224949e2cbd5",
+      "sourceHash": "e85bfb9ffb7152afb27378275b20f5a8f746580b24a655fc19c6aa817e76c53e",
+      "source": "East Africa",
+      "translation": "África Oriental",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(6) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.590c6a6bd7552421",
+      "sourceHash": "5238d9bd03d543e62fff76cbea6a2392a95f42110e36c282e4c919991f607daf",
+      "source": "Market",
+      "translation": "Mercado",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(6) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.3cc6e5a3c8f158f7",
+      "sourceHash": "bd2cd8b109b1add28685984c67e5303de2d8c0a6a5742617f074f658ca789bba",
+      "source": "Mission, Vision & Core Values",
+      "translation": "Missão, visão e valores fundamentais",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.08bacbff9462c29b",
+      "sourceHash": "6ff33f9ba269535e9c81ce590de9c747cf8c982c4872ccbb3dd54fd52e84091e",
+      "source": "To deliver safe, reliable and high-quality lubricants and greases to every sector in Tanzania through self-reliant manufacturing, rigorous quality control and a responsive nationwide distribution network, supporting a more industrialized and efficient Tanzania.",
+      "translation": "Fornecer lubrificantes e massas lubrificantes seguros, fiáveis e de alta qualidade a todos os setores da Tanzânia através de produção autónoma, controlo rigoroso de qualidade e uma rede nacional de distribuição ágil, contribuindo para uma Tanzânia mais industrializada e eficiente.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.6706ef03ce0aba57",
+      "sourceHash": "480597a8a18c9390626686d0bf7204ddf02bd78f36e0487eb5a40fb643f19ac7",
+      "source": "To become East Africa's leading and most trusted lubricant manufacturer, setting high standards in quality, innovation and self-sufficiency while delivering total customer satisfaction and contributing to the region's industrial and economic growth.",
+      "translation": "Tornar-nos o fabricante de lubrificantes líder e mais confiável da África Oriental, definindo elevados padrões de qualidade, inovação e autossuficiência, satisfazendo plenamente os clientes e contribuindo para o crescimento industrial e económico da região.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.b0378820df72b118",
+      "sourceHash": "eedf66fe56bb60df6e3782cd396ef9175d362f4abee5523529329e631a15e0a1",
+      "source": "Quality Excellence",
+      "translation": "Excelência em qualidade",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.1178560e6070da18",
+      "sourceHash": "dfc7bb95173f8d7c20247b81a6311e4cea588630d6b5d7e023fa5a7bc9ab3e5d",
+      "source": "Committed to producing reliable lubricants and greases that meet required quality and performance standards.",
+      "translation": "Comprometidos com a produção de lubrificantes e massas lubrificantes fiáveis que cumpram os padrões exigidos de qualidade e desempenho.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.aec6f8939bff8dc6",
+      "sourceHash": "b829960386e58e72b021dbea02865d3e9a0e3b3482d24e3dd50a60b9ba843eea",
+      "source": "Operational Excellence",
+      "translation": "Excelência operacional",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.bef2069dcfa554ab",
+      "sourceHash": "6d3993f590cec365871d231788665afbb1838785ee5e3dbb32df47b8c660743f",
+      "source": "Vigilant on efficiency, productivity and continuous improvement across our plant and supply chain.",
+      "translation": "Atenção constante à eficiência, produtividade e melhoria contínua na nossa unidade e cadeia de abastecimento.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.c98cf3636010a6d9",
+      "sourceHash": "e6e8649e640c343d9e5bb73cd11cd46151e62528599174797acc668327a43d74",
+      "source": "Self-Reliance",
+      "translation": "Autossuficiência",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.0fee69418d9040e6",
+      "sourceHash": "8b53ec0327cee4171a8e5ba67078d9c53271537b6fd184d6d7740acf9626c8e7",
+      "source": "Focused on in-house capability, from base oil handling to packaging manufacturing, to control quality at every stage.",
+      "translation": "Foco na capacidade interna, desde o manuseamento do óleo base até ao fabrico das embalagens, para controlar a qualidade em todas as etapas.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.4a979bb2e83db6fa",
+      "sourceHash": "091d79bce1f8db36638a3228ba9c6e8394ab24d99cb5282f44993f7f86b2cf23",
+      "source": "National Development",
+      "translation": "Desenvolvimento nacional",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.8bf46fe81222bd55",
+      "sourceHash": "82d84ccfcbcf74624f7eedb8ad4e5045d2173e38ce8ab6b85bff41c0769bd879",
+      "source": "Support Tanzania's industrial and economic growth through local manufacturing, employment and energy development.",
+      "translation": "Apoiar o crescimento industrial e económico da Tanzânia através da produção local, do emprego e do desenvolvimento energético.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.925c0828d988cb92",
+      "sourceHash": "d780fbd30698538eb0132996abc33b9b92bdc36c00fda105249aa6d8f0bac958",
+      "source": "Company Objectives",
+      "translation": "Objetivos da empresa",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.c422bb9850f4d14f",
+      "sourceHash": "dcf19e021daa6f357dffe99e31afd362d90178cd3c8d25bd131059b1975ab17e",
+      "source": "Maintain high quality and safety standards throughout blending, filling and packaging, backed by our in-house laboratory",
+      "translation": "Manter elevados padrões de qualidade e segurança durante a mistura, o enchimento e a embalagem, com o apoio do nosso laboratório próprio",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.609c30764833bb85",
+      "sourceHash": "4741d4b0bc54a27d7d2795be00c71bf157a0f1d5fb20d74a398a47f3b3b33e3b",
+      "source": "Strengthen self-reliant packaging, supplying jerry cans from 250 ml to 20 litres without third-party dependence",
+      "translation": "Reforçar a embalagem própria, fornecendo jerry cans de 250 ml a 20 litres sem depender de terceiros",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.9545b4e39bc741c1",
+      "sourceHash": "9d8cd7439299e04e79cc1361f23dbb729f1abbe50f2b587e6fd69ea0f0f7176b",
+      "source": "Develop our workforce through technical training, skills development and a strong quality and safety culture",
+      "translation": "Desenvolver a equipa através de formação técnica, desenvolvimento de competências e uma forte cultura de qualidade e segurança",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > ul:nth-of-type(2) > li:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.10fb0ea5141cf4f5",
+      "sourceHash": "ae1ce8b5e3c0af9c28d5bed8a2a24c4d620a47e288fcf33d56f996eaf5d91682",
+      "source": "Build a strong regional presence across East Africa, leveraging the Lake Group network",
+      "translation": "Construir uma forte presença regional em toda a África Oriental, aproveitando a rede do Lake Group",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > ul:nth-of-type(2) > li:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.e8fd59eacb1c271a",
+      "sourceHash": "5ca46844cfaf087fef22cae70bd8a35a2fa3cea41a920ba83e1af764108e2e49",
+      "source": "Product Categories & Support",
+      "translation": "Categorias de produtos e apoio",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.6fed19500c21eede",
+      "sourceHash": "92532e441a04cb9a820aa24f0b68d9901581b4a4498d0ae89f995c5850e1374d",
+      "source": "Engine oils and lubricants for passenger and commercial vehicles.",
+      "translation": "Óleos de motor e lubrificantes para veículos de passageiros e comerciais.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.9d985cf597ec37fb",
+      "sourceHash": "2051edb20f1f8914cf400367c37f81bce9b837aaf3491ae9f37b64d8903902ec",
+      "source": "Formulations for industrial and specialty applications.",
+      "translation": "Formulações para aplicações industriais e especializadas.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.4102265e3cc3ee73",
+      "sourceHash": "8fd55f8dbdf7928e7d9948bc137dfde3194f1b4842461040ef602d62eb9fae81",
+      "source": "Greases",
+      "translation": "Massas lubrificantes",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.5a57e1ec0d8e9c07",
+      "sourceHash": "63cf399d3615937c099d43943dda74956084b407f65c62ba4a883cdb7d85dcc1",
+      "source": "Manufactured to meet automotive and industrial requirements.",
+      "translation": "Produzidas para satisfazer os requisitos automóveis e industriais.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.8b93976d38d38917",
+      "sourceHash": "f7b1b9bff94bd4186afe481bee91d10a33623993e055477ddb3b92e48faf963c",
+      "source": "Coolants",
+      "translation": "Líquidos de refrigeração",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.b86a61758ba823cc",
+      "sourceHash": "ef3b074b1ef6d91a58189f7be2172bbc3ad393f778b2e87494f541e203aad9b1",
+      "source": "Manufactured on a dedicated, separate blending line.",
+      "translation": "Produzidos numa linha de mistura dedicada e separada.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.4ed02ec247ffba88",
+      "sourceHash": "3ff7160fd46809b4cb4ccd732cce289188562b04844c39d95e9afab7c291c1e3",
+      "source": "Base Oil Handling",
+      "translation": "Manuseamento do óleo base",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(5) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.fd0a3d2d55b0eedd",
+      "sourceHash": "47a0d23d5a61542ae4619e1099b9b515ce69e9d2976608a189c422780e11d7b8",
+      "source": "Dedicated pump house for base-oil offloading and 4.2 million litres of base-oil storage capacity.",
+      "translation": "Casa de bombas dedicada à descarga de óleo base e capacidade de armazenamento de 4,2 milhões de litros.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.97288a88dc7db45f",
+      "sourceHash": "c469ad654967984606b88bb61112c4c0cfdce2480280e183490605df3d7b39b1",
+      "source": "In-House Packaging",
+      "translation": "Embalagem própria",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(6) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.3186ac5aa1025843",
+      "sourceHash": "307372d4e1cdc1d704c2e99f14822875d269311a98c881de262af2f5f9e8cd56",
+      "source": "Jerry can production from 250 ml to 20 litres; bulk drums of 200 litres and 180 kg.",
+      "translation": "Produção de jerry cans de 250 ml a 20 litres; tambores a granel de 200 litres e 180 kg.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(6) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.f009710970a0bb6c",
+      "sourceHash": "013dbf11aff02e2ef2dd87e76ec7f01d241967c53f7029671f4274b504b6e2fd",
+      "source": "Quality Testing & Inspection",
+      "translation": "Ensaios e inspeção de qualidade",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(7) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.9f5b4921e4b2d1d2",
+      "sourceHash": "231e3b52061a2549b8d0198f0ccb9aa1a1157f3e394553f32db5de11edbe1314",
+      "source": "Strict quality control across blending, filling and packaging through our in-house laboratory.",
+      "translation": "Controlo rigoroso da qualidade durante a mistura, o enchimento e a embalagem através do nosso laboratório próprio.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(7) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.2945ac84bfa77413",
+      "sourceHash": "343076353fba22240a5273d1a6d42959906c9e46c6b424084086d91ac56de10a",
+      "source": "Nationwide Distribution",
+      "translation": "Distribuição nacional",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(8) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.37bef1b36a4784c1",
+      "sourceHash": "43eeb25ecb503718f82cc94ca601fd28dee6dafa798e3e3f041725161dc7e3ed",
+      "source": "Supply and delivery through our own fleet of trucks.",
+      "translation": "Fornecimento e entrega através da nossa própria frota de camiões.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(8) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.50ff0101688dd9ae",
+      "sourceHash": "badfce39e8e95110f80b574a300a0a471a586015e7f9b0079424e1a260bf4559",
+      "source": "Watch Lake Lubes in Action",
+      "translation": "Veja a Lake Lubes em ação",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.849a8bcab4f2cc8b",
+      "sourceHash": "fab4cfabe6a268e37bb1de23a99a5b50934ec6303564479a920be4d1afd8e500",
+      "source": "Lake Lubes product range",
+      "translation": "Gama de produtos Lake Lubes",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.89d474282628b83e",
+      "sourceHash": "70963e34be3d8adf02ad89ff2a425d225e944d6e9baca7e5319102e530e1df05",
+      "source": "Play Lake Lubes in Action",
+      "translation": "Reproduzir Lake Lubes em ação",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.ef52016719c31192",
+      "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
+      "source": "Chat",
+      "translation": "Conversa",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.0e3adbc6b8270fe0",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Bandeira da Tanzânia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.ae49b395f41c367f",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "Bandeira do Quênia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.8d7cc7983e278beb",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "Bandeira da Zâmbia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.e7c6bf5a17af2e50",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "Bandeira de Ruanda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.ee14885a95bafc47",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "Burundi",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.e99dbeba71e9490a",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "Bandeira do Burundi",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.154826566245b0c9",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "República Democrática do Congo",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.e625321550a5e3d2",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "Bandeira da República Democrática do Congo",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.eb1ebf63233dc473",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "Bandeira da Etiópia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.53e33a2543f00d50",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "Bandeira de Moçambique",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.c1f740c001d2ae9f",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "Uganda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.6e4c2c0f284973a3",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "Bandeira de Uganda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.2653c227c889868f",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "Bandeira dos Emirados Árabes Unidos",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.43c74d4d6fd23950",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.94b531eb0a098454",
+      "sourceHash": "70fab31df678ce33b1d33c0de932b37cc1fd4ae12d6676fc0549af3d68c50384",
+      "source": "4.2M",
+      "translation": "4,2 M",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.0be4abe00ebd3a27",
+      "sourceHash": "070eda6def0dc6e045d107b213f84d4ce341f683dd7bf565b1e30b12e5d70229",
+      "source": "54K",
+      "translation": "54 mil",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.5b28ccb741b997ae",
+      "sourceHash": "bb0f6e45b93429b6068a4b0e2abd46542c5b303dc00ff946d1e381d52a254d3d",
+      "source": "Lake Power Supreme SAE 20W50 petrol engine oil",
+      "translation": "Lake Power Supreme SAE 20W50 — óleo de motor a gasolina",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.f654a7420a826775",
+      "sourceHash": "f5d6d905ce72c7ef4ddcdfbc16ef3ed718426fa0c85b768f9c5a9a16bc2ef709",
+      "source": "Lake HD Supreme 700 20L industrial lubricant",
+      "translation": "Lake HD Supreme 700 20L — lubrificante industrial",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.f7d81d7a0803182d",
+      "sourceHash": "7fdc649bf4fa35e27a2209a81bb8c5cc2c9b02b19cc22d21c3550ec45da19ba5",
+      "source": "Lake Lubes Grease MP2 1 kg",
+      "translation": "Lake Lubes Grease MP2 1 kg — massa lubrificante",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.f2db44f6a7877c39",
+      "sourceHash": "d2c3734494525e609e4501a37cc77ab7491f6fa74e3f4539b15fbe096774df8c",
+      "source": "Lake Super Cool 5L coolant",
+      "translation": "Lake Super Cool 5L — líquido de refrigeração",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.1bb27e9adcde870b",
+      "sourceHash": "e9b5940be71a3fdb1fc70539c2c5d4c6ec11988da305f534060aefa0b2b76873",
+      "source": "Lake Lubes branded industrial drums",
+      "translation": "Tambores industriais da marca Lake Lubes",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(5) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.d6e54aab60ec086d",
+      "sourceHash": "2b9fb5fdc1ab3373ff16b5da1039ddf3624aac3f78539b844dde4c7999fdfc29",
+      "source": "Lake Super Cool 20L coolant container",
+      "translation": "Recipiente de líquido de refrigeração Lake Super Cool 20L",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(6) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.ae0a0ac3c37afc9a",
+      "sourceHash": "b38359af2b75f1b31346cf3d893d28ff6dffa6f7355c8cda6ea9486ce5f5ca92",
+      "source": "Lake Power Supreme 4L petrol engine oil",
+      "translation": "Lake Power Supreme 4L — óleo de motor a gasolina",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(7) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "auto.60ed5ba4d0e07a77",
+      "sourceHash": "2e88dc32d7d77fe692642df5289be8c684d8c7aee6fc4ffedd8bad30e18e4d6d",
+      "source": "Lake GL5 SAE 85W140 5L gear oil",
+      "translation": "Lake GL5 SAE 85W140 5L — óleo para engrenagens",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(8) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-lubes.html"
     }
   ]
 }

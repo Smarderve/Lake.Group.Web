@@ -3,16 +3,26 @@
   "status": "DRAFT_PENDING_HUMAN_REVIEW",
   "locale": "es",
   "page": "media-center.html",
-  "sourceManifestDigest": "181d42c4930d1abb298d1bb6193e994fb20c4653ed2347cb78f9ae1ea1fa8fa8",
-  "sourceManifestGeneratedAt": "2026-10-15T10:48:55.402Z",
+  "sourceManifestDigest": "60675f76844f3800729cf1ef938b65c6ddcb2e7351b7ee2b74eb4da0f9f40714",
+  "sourceManifestGeneratedAt": "2026-10-15T12:12:03.389Z",
   "createdAt": "2026-10-15T10:47:00.729Z",
-  "authoringMethod": "existing dictionary reuse; no model output for generated rows",
+  "authoringMethod": "Exact-source reuse and AI-authored visitor copy; human review pending",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 64,
-  "translatedCount": 18,
-  "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
+  "candidateCount": 65,
+  "translatedCount": 65,
+  "validation": "Exact extraction ids and source hashes preserved; editorial review pending",
   "translations": [
+    {
+      "id": "auto.1c8f881837382ead",
+      "sourceHash": "8e5969a20b804d83e195613d5031d08e8fab6e9c13895ec220d378f4d6592c44",
+      "source": "Press releases, media kits and corporate communications from Lake Group.",
+      "translation": "Comunicados de prensa, kits de prensa y comunicaciones corporativas de Lake Group.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content",
+      "origin": "ai-authored-initial-draft"
+    },
     {
       "id": "auto.49ed8f1add85d8d9",
       "sourceHash": "6970059994dce7e30c88b19df4696c7234a01aca3caf2fa69322593c6a6af253",
@@ -74,6 +84,46 @@
       "origin": "existing-dictionary:nav.dd.automotive"
     },
     {
+      "id": "auto.73cb863123996fe9.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.44408cc12ceebb4a",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.499dd3adbb1252aa.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "NexDrive Motors",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.f1c25fb618567dfa",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "Nuestra Historia",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source-draft"
+    },
+    {
       "id": "auto.f1c25fb618567dfa.2",
       "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
       "source": "CSR & Sustainability",
@@ -94,6 +144,26 @@
       "origin": "existing-dictionary:nav.gallery"
     },
     {
+      "id": "auto.27d890f7c83edab6",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "Idioma: inglés",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-exact-source-draft"
+    },
+    {
+      "id": "auto.9f4d13477a6599ea",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "Inglés",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source-draft"
+    },
+    {
       "id": "auto.3220a8c3fe2ac170",
       "sourceHash": "99af6606ff9d6cd5154d4d4e9c21e325086d3e904677cdb41d363c8a3480f862",
       "source": "Menu",
@@ -102,6 +172,16 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": "aria-label",
       "origin": "existing-dictionary:nav.menu"
+    },
+    {
+      "id": "auto.ec3eede7c3471f0a",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "Cerrar menú",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-exact-source-draft"
     },
     {
       "id": "auto.f183a1a409a8fa71",
@@ -134,6 +214,26 @@
       "origin": "existing-dictionary:nav.companies"
     },
     {
+      "id": "auto.34960f5aa15a1a74.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.ac2bc90d77181ff1",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
       "id": "auto.600612d86bcb2592",
       "sourceHash": "ec75f79040af17557c450e94a4214a484350634a433592d2eb31784c5a46e865",
       "source": "Leadership",
@@ -142,6 +242,26 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(3)",
       "attribute": null,
       "origin": "existing-dictionary:nav.leadership"
+    },
+    {
+      "id": "auto.0ec06b1f8ad44b49",
+      "sourceHash": "a034729933d1cbf407645e11d9c91d9ac1bfddbef23fd58cb36782e3f60ae659",
+      "source": "Corporate",
+      "translation": "Corporativa",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-exact-source"
+    },
+    {
+      "id": "auto.0ad3d115da1ed5da",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "Nuestra Historia",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source-draft"
     },
     {
       "id": "auto.0ad3d115da1ed5da.2",
@@ -174,6 +294,146 @@
       "origin": "existing-dictionary:nav.careers"
     },
     {
+      "id": "auto.6651c3849db11277.2",
+      "sourceHash": "98b67063cf8e584d75e53b88472ee85473e01e0ea16f29ece9cc98f4a2710494",
+      "source": "Contact Us",
+      "translation": "Contáctenos",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(5)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.9dd7f650ff72aac5",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "Inglés",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source-draft"
+    },
+    {
+      "id": "auto.503790a00cc05dc5",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "Inglés",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source-draft"
+    },
+    {
+      "id": "auto.503790a00cc05dc5.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.503790a00cc05dc5.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.503790a00cc05dc5.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.503790a00cc05dc5.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.503790a00cc05dc5.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.503790a00cc05dc5.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.503790a00cc05dc5.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "auto.50fa2666f143e960",
+      "sourceHash": "6ffc1a0ee9063745b67a20390fcc19ee8588cde138645728a0d1e4ba8bdd8c58",
+      "source": "Lake Group Logo Pack (ZIP)",
+      "translation": "Paquete de logotipos de Lake Group (ZIP)",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.927307907a1d2268",
+      "sourceHash": "35d38112a5c8e658dc39391cdfab79d4ded95f9700b51976b377a890c44f340e",
+      "source": "Company Profile (PDF)",
+      "translation": "Perfil de la empresa (PDF)",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.95c6bf54fc3ff8a3",
+      "sourceHash": "581a5959f513eebf879c3ec1cc4012792043c9546b785ccc3d78487837dc2493",
+      "source": "CEO Photo (High-Res)",
+      "translation": "Foto del CEO (alta resolución)",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.7ed12ffaa61a7d6c",
+      "sourceHash": "7d8b9dd78a53aa3433fd1cce1eb02f7aba37ab0fa2c4dc795fca11af7dafdc60",
+      "source": "Brand Guidelines",
+      "translation": "Guía de marca",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
       "id": "auto.9d227dfa210d40a3",
       "sourceHash": "69518e684f065f0c39a26d5f18ae2a775ffffd4e390cc3d73afeac2fb50992a7",
       "source": "Type a message...",
@@ -184,6 +444,136 @@
       "origin": "existing-dictionary:chat.placeholder"
     },
     {
+      "id": "auto.9655a36cf9b3eaa7",
+      "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
+      "source": "Chat",
+      "translation": "Chat",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.fb2995ae4c68fa2c",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "Tanzania",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.c11e4b2a66b0257f",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Bandera de Tanzania",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.def987c384710cfc",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "Kenia",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.5159dc9c61c3c2ed",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "Bandera de Kenia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.ae87c223cdcd05e7",
+      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
+      "source": "Zambia",
+      "translation": "Zambia",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.fa5c5d1dd9d46367",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "Bandera de Zambia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.d699e712ac15a246",
+      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
+      "source": "Rwanda",
+      "translation": "Ruanda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.1ded3152eb0596c3",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "Bandera de Ruanda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.c0dfd29b696dd886",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "Burundi",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.d91b19692742b8e6",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "Bandera de Burundi",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.efbd544375fba35e",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "R. D. del Congo",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.de38d3e4af127c44",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "Bandera de R. D. del Congo",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
       "id": "auto.09fb19c30cdc9535",
       "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
       "source": "Ethiopia",
@@ -192,6 +582,89 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary:africa_network.38"
+    },
+    {
+      "id": "auto.945ee60fc07d5d5f",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "Bandera de Etiopía",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.abaab6207897b6e2",
+      "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
+      "source": "Mozambique",
+      "translation": "Mozambique",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.33cc8bf5de735805",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "Bandera de Mozambique",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.d1842d4716e55cb4",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "Uganda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.3d52c8b4f5832030",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "Bandera de Uganda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.f014b4fba72232e2",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "Bandera de los EAU",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.83a504632fe766c2",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-name-or-invariant"
+    },
+    {
+      "id": "key:media_center.4",
+      "sourceHash": "406a1c432d1ceb03c61fc64638c195ea57534bca6177766365b0c3ae4d0864c6",
+      "source": "Press releases, official statements, corporate videos and downloadable media assets for Lake Group.",
+      "translation": "Comunicados de prensa, declaraciones oficiales, videos corporativos y recursos multimedia descargables de Lake Group.",
+      "mode": "text",
+      "selector": "[data-i18n=\"media_center.4\"]",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
     }
   ]
 }

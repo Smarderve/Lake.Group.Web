@@ -10,7 +10,7 @@
   "reviewEvidence": null,
   "releaseEligible": false,
   "candidateCount": 72,
-  "translatedCount": 22,
+  "translatedCount": 72,
   "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
   "translations": [
     {
@@ -21,7 +21,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.energies"
+      "origin": "existing-dictionary:nav.dd.energies",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.f3836d7d4d0ffea6",
@@ -31,7 +33,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.manufacturing"
+      "origin": "existing-dictionary:nav.dd.manufacturing",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.bae90f0f28dd8191",
@@ -41,7 +45,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.logisticsCos"
+      "origin": "existing-dictionary:nav.dd.logisticsCos",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.1156020584d7e1ee",
@@ -51,7 +57,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(4)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.realEstate"
+      "origin": "existing-dictionary:nav.dd.realEstate",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.cd0e15927a053fa5",
@@ -61,7 +69,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(5)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.agro"
+      "origin": "existing-dictionary:nav.dd.agro",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.5dd8e177f2559b4c",
@@ -71,7 +81,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(6)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.automotive"
+      "origin": "existing-dictionary:nav.dd.automotive",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.d8e71a76f2787a90.3",
@@ -81,7 +93,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(3)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.gallery"
+      "origin": "existing-dictionary:nav.gallery",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.91908145a711443f",
@@ -91,7 +105,9 @@
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": "aria-label",
-      "origin": "existing-dictionary:nav.menu"
+      "origin": "existing-dictionary:nav.menu",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.b1918e54361a1faa",
@@ -101,7 +117,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.home"
+      "origin": "existing-dictionary:nav.home",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.b1918e54361a1faa.2",
@@ -111,7 +129,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(2)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.about"
+      "origin": "existing-dictionary:nav.about",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.8ac8c5f24e2cc0f4",
@@ -121,7 +141,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.companies"
+      "origin": "existing-dictionary:nav.companies",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.cdfa978c1c311fee",
@@ -131,7 +153,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(3)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.leadership"
+      "origin": "existing-dictionary:nav.leadership",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.baf906033db1fe7c",
@@ -141,7 +165,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.company"
+      "origin": "existing-dictionary:nav.company",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.ad2f783f8e4f4e56.3",
@@ -151,7 +177,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(3)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.gallery"
+      "origin": "existing-dictionary:nav.gallery",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.f77796cfda1521f5",
@@ -161,7 +189,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(4)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.careers"
+      "origin": "existing-dictionary:nav.careers",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.f77796cfda1521f5.2",
@@ -171,7 +201,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(5)",
       "attribute": null,
-      "origin": "existing-dictionary:footer.contact"
+      "origin": "existing-dictionary:footer.contact",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.4d597c981bdf44b7",
@@ -181,7 +213,10 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:leadership.89"
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.c2205e8a565c843a",
@@ -191,37 +226,49 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:leadership.89"
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.6a7b30c625b6c8da",
       "sourceHash": "bfb4eb28e357b3de96c7205a2e64b8f075779846773c3586751e74a51f290c06",
       "source": "ENSURES SUSTAINABILITY",
-      "translation": "Inahakikisha Uendelevu",
+      "translation": "HUHAKIKISHA UENDELEVU",
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:agro.s8.title"
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.8193d495e16496a7",
       "sourceHash": "272776a0df04c4c5e20f12bfd4b6d2bca6d00cc852263f607351eee0b7d09eea",
       "source": "QUALITY",
-      "translation": "Ubora",
+      "translation": "UBORA",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1) > em:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.105"
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.20f07dad84eda710",
       "sourceHash": "e75775abf18e6812ecad4a551b1ffb49ece5431489fe12f8a3d7fdf1110a3bb3",
       "source": "HUMAN CAPITAL",
-      "translation": "Rasilimali Watu",
+      "translation": "RASILIMALI WATU",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:agro.s6.title"
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.f06179cf6c4e0332",
@@ -231,7 +278,659 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.40"
+      "origin": "existing-dictionary:africa_network.40",
+      "releaseEligible": false,
+      "reviewEvidence": null
+    },
+    {
+      "id": "auto.484cd965ab3990f9",
+      "sourceHash": "7c811aa3f94969e3e32d8e0986d5386ac454fd234518aa74732256a819232f04",
+      "source": "Lake Group — East and Central Africa.",
+      "translation": "Lake Group — Afrika Mashariki na Kati.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(6)",
+      "attribute": "content",
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.607cf06db32b2eec.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.e0899443d4ba2c92",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.31b89f2e11cf3dd7.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "NexDrive Motors",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.d8e71a76f2787a90",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "Historia Yetu",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.d8e71a76f2787a90.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "Uwajibikaji kwa Jamii na Uendelevu",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.75a7716f67da11ba",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "Lugha: English",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.f5e8513ea8001a6a",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "Kiingereza",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.7318c20cf878d2c4",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "Funga menyu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.c82c2f57d63c2fd8.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
+      "attribute": null,
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.c028aac1024185a8",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.ad2f783f8e4f4e56",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "Historia Yetu",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.ad2f783f8e4f4e56.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "Uwajibikaji kwa Jamii na Uendelevu",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.2e8bf5cc9bb4c557",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "Kiingereza",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.dd875bc3442ba9f1",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "Kiingereza",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.dd875bc3442ba9f1.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.dd875bc3442ba9f1.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.dd875bc3442ba9f1.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.dd875bc3442ba9f1.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.dd875bc3442ba9f1.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.dd875bc3442ba9f1.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.dd875bc3442ba9f1.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.7507cc69bf21bcb2",
+      "sourceHash": "ad0aa16dd4b13da11728157a2d2050e716cf7a53011b2ae890ef568b35ef6caa",
+      "source": "Dar Es Salaam, Tanzania.",
+      "translation": "Dar Es Salaam, Tanzania.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.184e9caa26abb293",
+      "sourceHash": "527851d2f01d00e6570675b1a91e1b31a0803f271bf59cb970989651535c7226",
+      "source": "Home /",
+      "translation": "Nyumbani /",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.6f4450f235bfeeae",
+      "sourceHash": "bfde2905e59eb9d0de447223d9a23cf355701086be0431a2e94fb556b450311f",
+      "source": "All the departments (IT, Legal counsel, Auditing and Human resources) are streamlined in a way to help to achieve future strategies of the organization.",
+      "translation": "Idara zote (TEHAMA, ushauri wa kisheria, ukaguzi na rasilimali watu) zimepangwa kwa ufanisi ili kusaidia kufikia mikakati ya baadaye ya shirika.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.6f4450f235bfeeae.2",
+      "sourceHash": "06017311f01c91c51f0f953321150e14e57c93fe9d06b3619ffde0a4f7567c33",
+      "source": "Two Points :",
+      "translation": "Mambo Mawili:",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.d27625f9908ba8f4",
+      "sourceHash": "aebfd6490efac6255d8574a0b4450d6b41bbd4dd0da819f855132eb3280d8ef4",
+      "source": "A talent pool of human resources allows us to correctly operate and maintain the sustainability of the project – financially, socially and on a production basis.",
+      "translation": "Rasilimali watu wenye vipaji hutuwezesha kuendesha mradi ipasavyo na kudumisha uendelevu wake kifedha, kijamii na katika uzalishaji.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.65ebeaa3d6401781",
+      "sourceHash": "ac1619e1b47415c2f58b7fb68765d6eaa4bd949b7043fb905bd96ec482008c58",
+      "source": "Understanding and technical know-how of the leadership entrenches a deep understanding on how to plan, run and execute such Plantations and Operate them whilst knowing how to Secure or Improve them over time. Sustainability is an equation that is made up of Quality and Profitability that endures over the life of the Plantations we own.",
+      "translation": "Uelewa na utaalamu wa kiufundi wa uongozi hujenga ufahamu wa kina wa jinsi ya kupanga, kuendesha na kutekeleza mashamba hayo, na jinsi ya kuyaimarisha au kuyaboresha kadiri muda unavyopita. Uendelevu ni mlinganyo unaojumuisha Ubora na Faida na kudumu katika maisha ya mashamba tunayomiliki.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.e6e35e43cea077fb",
+      "sourceHash": "1a55e040eacc1215ac92def221e0b8a05ffb5acf1285d0c52e67734c6f57d1ad",
+      "source": "AG PARKS",
+      "translation": "AG PARKS",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.9fb9e0022b2a14af",
+      "sourceHash": "6375c046f3ca84ddd8a381d0d1467b4f089cb6be4fc84e3af1b8a4d8eb46120f",
+      "source": "GROWTH OF",
+      "translation": "UKUAJI WA",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.fcba824d1f599e55",
+      "sourceHash": "80290f5323361f846e2e438c1520f7541b6b31878d99ade07e11d75a67bba458",
+      "source": "More View",
+      "translation": "Tazama Zaidi",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(5) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.4dc21e95bf53e966",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "Tanzania",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.9ae100ae9729c795",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Bendera ya Tanzania",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.63086e2a7cfc7b6f",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "Kenya",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.9efaa5ac63d8f31e",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "Bendera ya Kenya",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.b4e0bd71cbdc0d65",
+      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
+      "source": "Zambia",
+      "translation": "Zambia",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.9ba988991341cdd7",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "Bendera ya Zambia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.b1ee6bff88f810be",
+      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
+      "source": "Rwanda",
+      "translation": "Rwanda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.f2af44d7e51a2838",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "Bendera ya Rwanda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.80769d061b4bf382",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "Burundi",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.305b4de1c91fb9d1",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "Bendera ya Burundi",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.7425a3051f8e4d09",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "Jamhuri ya Kidemokrasia ya Kongo",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.143d451b74c12ea0",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "Bendera ya Jamhuri ya Kidemokrasia ya Kongo",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.4adc6c8a7564c014",
+      "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
+      "source": "Ethiopia",
+      "translation": "Ethiopia",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.d2a65b33f747a70e",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "Bendera ya Ethiopia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.2f97829e9c1a7e79",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "Bendera ya Msumbiji",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.890ca53c9cf97c0c",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "Uganda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.9fee363bea93a351",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "Bendera ya Uganda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.01ab271173407d48",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "Bendera ya Falme za Kiarabu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.b7c3e453233bb259",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "exact-source-translation-reuse",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
     }
   ]
 }

@@ -5,13 +5,13 @@
   "page": "ocean-galleria.html",
   "sourceManifestDigest": "181d42c4930d1abb298d1bb6193e994fb20c4653ed2347cb78f9ae1ea1fa8fa8",
   "sourceManifestGeneratedAt": "2026-10-15T10:48:55.402Z",
-  "createdAt": "2026-10-15T10:47:00.836Z",
+  "createdAt": "2026-10-15T12:54:54.994Z",
   "authoringMethod": "existing dictionary reuse; no model output for generated rows",
   "reviewEvidence": null,
   "releaseEligible": false,
   "candidateCount": 119,
-  "translatedCount": 32,
-  "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
+  "translatedCount": 119,
+  "validation": "source hashes and protected facts checked; linguistic review remains required",
   "translations": [
     {
       "id": "auto.c5553be4244aa253",
@@ -21,7 +21,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.energies"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.00dab024fa47d718",
@@ -31,7 +31,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.manufacturing"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.781c75604a44c8ba",
@@ -41,7 +41,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.logisticsCos"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.86c9d2da63af5017",
@@ -51,7 +51,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(4)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.realEstate"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.aac41205200f2afd",
@@ -61,7 +61,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(5)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.agro"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.72fe029413e34130",
@@ -71,7 +71,47 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(6)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.automotive"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.e83a3fd827baab9a.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.75adc19244841268",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.466eedb67c3f25ec.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "NexDrive Motors",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.92571cbd78307af1",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "A nossa história",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.92571cbd78307af1.2",
@@ -81,7 +121,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(2)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.csr"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.92571cbd78307af1.3",
@@ -91,7 +131,47 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(3)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.gallery"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.74f4dcd7763a54f2",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "Idioma: inglês",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.b745a3c1857ab21b",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.0ca855bd9ccbb2c0",
+      "sourceHash": "99af6606ff9d6cd5154d4d4e9c21e325086d3e904677cdb41d363c8a3480f862",
+      "source": "Menu",
+      "translation": "Menu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.78ec9bb1bfb50711",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "Fechar menu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.71f267c9e11f4000",
@@ -101,7 +181,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.home"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.71f267c9e11f4000.2",
@@ -111,7 +191,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(2)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.about"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.b4a8dd08047e34ba",
@@ -121,7 +201,27 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.companies"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.5a78f22f4da53fe4.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.13a223fe43580638",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.a86064cefd59c7a2",
@@ -131,7 +231,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(3)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.leadership"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.7064b819f66058cb",
@@ -141,7 +241,17 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.company"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.316042a099a82cae",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "A nossa história",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.316042a099a82cae.2",
@@ -151,7 +261,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(2)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.csr"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.316042a099a82cae.3",
@@ -161,7 +271,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(3)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.gallery"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.0d8e4e58cc1ffe55",
@@ -171,7 +281,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(4)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.careers"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.0d8e4e58cc1ffe55.2",
@@ -181,7 +291,97 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(5)",
       "attribute": null,
-      "origin": "existing-dictionary:footer.contact"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.267b683f4d4727e6",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.9d64127cf4a7bdbf",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.9d64127cf4a7bdbf.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.9d64127cf4a7bdbf.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.9d64127cf4a7bdbf.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.9d64127cf4a7bdbf.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.9d64127cf4a7bdbf.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.9d64127cf4a7bdbf.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.9d64127cf4a7bdbf.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.0d55f5d7de87e64c",
@@ -191,7 +391,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h3:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:fuel.16"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.e5e8becd9b40e1d2",
@@ -201,7 +401,27 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.27"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.035047662c78343d",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Bandeira da Tanzânia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.427a0bd35c9d7004",
+      "sourceHash": "ce45aa8b190045e23057a705a9cae470fa573f13f11a3070559d9bf1b18c4b71",
+      "source": "Mission, Vision & History",
+      "translation": "Missão, visão e história",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.dd47d6131ecd8af0",
@@ -211,7 +431,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:atl.s2.mission"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.e44e1ab25081fd4b",
@@ -221,7 +441,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > h3:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:atl.s2.vision"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.fa79cd852c0954e7",
@@ -231,7 +451,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > h3:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.historyShort"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.4081e994fa0b82a3",
@@ -241,7 +461,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > h4:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:about.30"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.27b7a4e2bbe3b244",
@@ -251,7 +471,27 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(3) > h4:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:csr.14"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.fbbed331992f1a25",
+      "sourceHash": "3d366201f5b88bcbfafb078aee5f2a55b8fd88135f4baafa83abe7161b7a27db",
+      "source": "Excellence",
+      "translation": "Excelência",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(4) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.cb43e675fb409da8",
+      "sourceHash": "3b7388ca6f4f2873ac653509fa1f630ea92fb671192d1c4be291fab34bec220f",
+      "source": "Our Services",
+      "translation": "Os nossos serviços",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.39f40f1d2b959058",
@@ -261,7 +501,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > section:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.gallery"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.c03300a009631ffd",
@@ -271,7 +511,17 @@
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > input:nth-of-type(1)",
       "attribute": "placeholder",
-      "origin": "existing-dictionary:chat.placeholder"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.6e7ce82c48b92e6b",
+      "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
+      "source": "Chat",
+      "translation": "Conversa",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.93351545608f4630",
@@ -281,7 +531,17 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.27"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.3f77dbe483d4052a",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Bandeira da Tanzânia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.bbd014377ce6a931",
@@ -291,7 +551,17 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.29"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.2bdd3cdfd8b367f3",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "Bandeira do Quênia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.6efc909b9abe4790",
@@ -301,7 +571,17 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.31"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.cf0871768fcc5401",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "Bandeira da Zâmbia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.9af6cd97429fd45b",
@@ -311,7 +591,57 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.33"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.f3b3029480938d2a",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "Bandeira de Ruanda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.31147875ae27b11c",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "Burundi",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.1ba26f9575d9fcf0",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "Bandeira do Burundi",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.60d2a7cb33fbfbf4",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "República Democrática do Congo",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.e20ecd4e3576af80",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "Bandeira da República Democrática do Congo",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.a3cd61b2f5fd46f6",
@@ -321,7 +651,17 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.38"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.221bc5d41a95d5aa",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "Bandeira da Etiópia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.69888ea857d39979",
@@ -331,7 +671,537 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.40"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.40d720bfe2e57718",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "Bandeira de Moçambique",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.5c15929493df5118",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "Uganda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.7004cf4abeb55b25",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "Bandeira de Uganda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.6d11f3f9e4d9904e",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "Bandeira dos Emirados Árabes Unidos",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.662494867a3832ef",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.3e217aee835b7216",
+      "sourceHash": "82314ba83cd2449b986b46c74e4c1a12a7e0b9bde7d5ad91882fc1bf0aaaba4a",
+      "source": "Waterfront Mall is a luxury waterfront lifestyle and shopping destination under development in Masaki, Dar es Salaam . redefining retail, dining and entertainment.",
+      "translation": "O Waterfront Mall é um destino de luxo à beira-mar dedicado ao lazer e às compras, em desenvolvimento em Masaki, Dar es Salaam, que irá redefinir o comércio, a restauração e o entretenimento.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content",
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.5b4c27bb5cfa814b",
+      "sourceHash": "d169ab7d4d143c53f664bf1cbda5275411ecd64d5e366a3b784bb52a0614bd1f",
+      "source": "A luxury waterfront lifestyle and shopping destination under development in Masaki, Dar es Salaam . redefining retail, dining and entertainment.",
+      "translation": "Destino de luxo à beira-mar para lazer e compras, em desenvolvimento em Masaki, Dar es Salaam, que irá redefinir o comércio, a restauração e o entretenimento.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.891d97c0587cbede",
+      "sourceHash": "b9180950b773a6b3a3a11a0d05ef8c9343cf5ef6d183ac88d57d27da0d9b5b69",
+      "source": "Redefining the Waterfront Experience",
+      "translation": "A redefinir a experiência à beira-mar",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.a8ca93e1b1d0acbb",
+      "sourceHash": "a28ba15296a84b36b4e313732b15643237d6521c5682673eeef5303b362459ce",
+      "source": "Waterfront Mall Ltd. is developing a premium waterfront lifestyle and shopping destination in the heart of Masaki, Dar es Salaam's most prestigious coastal neighborhood.",
+      "translation": "A Waterfront Mall Ltd. está a desenvolver um destino premium de lazer e compras à beira-mar no coração de Masaki, o bairro costeiro mais prestigiado de Dar es Salaam.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.ca9b5bba608ce891",
+      "sourceHash": "1a0e658c88db111330d9433694bf4b4bb6ad6430499c0ead6e03a27330d487b3",
+      "source": "As Lake Group's premier real estate development in the luxury segment, Waterfront Mall will bring world-class retail, dining and entertainment experiences to Tanzania's vibrant coastal capital, setting a new benchmark for lifestyle destinations in East Africa.",
+      "translation": "Como principal empreendimento imobiliário de luxo do Lake Group, o Waterfront Mall trará experiências de comércio, restauração e entretenimento de classe mundial à vibrante capital costeira da Tanzânia, estabelecendo um novo padrão para destinos de lazer na África Oriental.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.bbd8446f227316f5",
+      "sourceHash": "7bf8d31934654e0596a858126b2e7eb321f0a8a9403b0a3b61050f1d3edbe73a",
+      "source": "Premium waterfront location in Masaki, Dar es Salaam",
+      "translation": "Localização premium à beira-mar em Masaki, Dar es Salaam",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.5583832ceff0c837",
+      "sourceHash": "07ae67e2e8b28b2092b29da1a99bfa55a90efe595cdcac9a0851c423985be7c4",
+      "source": "Curated retail spaces for local and international brands",
+      "translation": "Espaços comerciais selecionados para marcas locais e internacionais",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.9c151a695a8964ec",
+      "sourceHash": "1d3edd3895ec9d8ac3f506eb53c7ea7bf64cba68cbf05bc5a317dcd49626aedd",
+      "source": "World-class dining venues and culinary experiences",
+      "translation": "Espaços de restauração e experiências culinárias de classe mundial",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.b07c6f5b62dbc0f7",
+      "sourceHash": "b3367591adf38f4bcb98be283b530cdef2f0c5e9c64fce98662031bfc7d30f49",
+      "source": "Entertainment and leisure facilities for all ages",
+      "translation": "Instalações de entretenimento e lazer para todas as idades",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(4)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.097ab9e16ecc069c",
+      "sourceHash": "6665aafc1bd99f86569298fd41621e06d6680e4387eaa024e19761573974deea",
+      "source": "Architectural excellence and premium finishes throughout",
+      "translation": "Excelência arquitetónica e acabamentos premium em todo o espaço",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.2c9ceec66ccf383f",
+      "sourceHash": "0074ec395adabb73ad5be126cfa97bbb1c7ce02d057fc4157197c77fb4631660",
+      "source": "To create East Africa's premier waterfront lifestyle destination, offering world-class retail, dining and entertainment experiences that enrich the community.",
+      "translation": "Criar o principal destino de lazer à beira-mar da África Oriental, oferecendo experiências de comércio, restauração e entretenimento de classe mundial que enriquecem a comunidade.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.5939f179c5cd84e4",
+      "sourceHash": "044ff25595fbdef8380e13756725639a6942df9c3fbf1c64bfbbea59cd279e29",
+      "source": "To be the defining lifestyle destination in Dar es Salaam . a place where people gather, connect, shop, dine and celebrate the best of coastal living.",
+      "translation": "Ser o destino de referência de Dar es Salaam: um lugar onde as pessoas se encontram, convivem, fazem compras, comem e celebram o melhor da vida costeira.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.3b286259c1946b62",
+      "sourceHash": "89fd0f69fccbf6c526f64fcab77591b9b9c5b898b34688e2b61b58c56d88e917",
+      "source": "Waterfront Mall Ltd. was established as Lake Group's flagship real estate development in the luxury segment. The Masaki waterfront project represents the Group's vision to create exceptional spaces that contribute to Dar es Salaam's evolution as a world-class city.",
+      "translation": "A Waterfront Mall Ltd. foi criada como o empreendimento imobiliário de referência do Lake Group no segmento de luxo. O projeto costeiro de Masaki representa a visão do Grupo de criar espaços excecionais que contribuam para a evolução de Dar es Salaam como cidade de classe mundial.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.a200130ad2326e0f",
+      "sourceHash": "e07064d92349e4aaaba050a4c891a1c54e54e9e50fbe3dfd0610df0fbc8ad091",
+      "source": "Luxury",
+      "translation": "Luxo",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.e7855fd92f95be74",
+      "sourceHash": "df333224d2e3fa427fbd61965975e73e87b728024ad98d9eb77a67922741a243",
+      "source": "Premium experiences",
+      "translation": "Experiências premium",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.1f6ea3edfcd2af99",
+      "sourceHash": "4b3eeaa1dddb90ee9bc644ccc9cb7e8108b9b1a77a68ce958e022feea08337b8",
+      "source": "Modern design vision",
+      "translation": "Visão de design moderno",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.4fba26d44d629fef",
+      "sourceHash": "f0b696b8a8f3ad9eeb44dfb9c7c47aecf72fb10bd760ad1d4b22125a2e4921e6",
+      "source": "Gathering place for all",
+      "translation": "Um espaço de encontro para todos",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.ca6b95d251fa7081",
+      "sourceHash": "99e39600213cf2e0cdd760bc1b15023dd939004989c8d5354babc1c71fa4926b",
+      "source": "Uncompromising quality",
+      "translation": "Qualidade sem compromissos",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.2471b68053066c6f",
+      "sourceHash": "ea26abf663a94c274e2a06590ce93aa9a752db2ec86fee23e6ede6a6585acce6",
+      "source": "Waterfront Mall",
+      "translation": "Waterfront Mall",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.dae26323f1193b27",
+      "sourceHash": "ea26abf663a94c274e2a06590ce93aa9a752db2ec86fee23e6ede6a6585acce6",
+      "source": "Waterfront Mall",
+      "translation": "Waterfront Mall",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(3) > h1:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.80b9ed178c9c3f54",
+      "sourceHash": "ea26abf663a94c274e2a06590ce93aa9a752db2ec86fee23e6ede6a6585acce6",
+      "source": "Waterfront Mall",
+      "translation": "Waterfront Mall",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.5d520ca1c7540f03",
+      "sourceHash": "96737049d895fe30bbda3d75e7f85885dd88d0cd7f7bd790a532e750cd8e8f74",
+      "source": "Waterfront Mall waterfront development",
+      "translation": "Desenvolvimento à beira-mar do Waterfront Mall",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.eb79efcb20a43e16",
+      "sourceHash": "0a63e53017cb882692d26d1d176791c93465a014261a275bfb96608a8ef58a13",
+      "source": "Retail Leasing",
+      "translation": "Arrendamento de espaços comerciais",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.57f3c3bc054f8aa0",
+      "sourceHash": "aacc942c0fb0e8bf5f4653cda9dc4cc5bcef72ec71b578799f4f711f6185ada9",
+      "source": "Premium retail spaces designed for international brands, local boutiques and specialty stores in a vibrant waterfront setting.",
+      "translation": "Espaços comerciais premium para marcas internacionais, boutiques locais e lojas especializadas num ambiente vibrante à beira-mar.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.c75a1c1db0ac675c",
+      "sourceHash": "fd47cd262a6496e1b26155d394237c62958f5ea867a188bcea73cc14142cd3e8",
+      "source": "Waterfront Mall development progress",
+      "translation": "Progresso do desenvolvimento do Waterfront Mall",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.c241929353800a75",
+      "sourceHash": "ead02e2ad8c8b247fcb8ca0a8edd55733bb1eaa4fe3bb4bc4bef97cbae833bdd",
+      "source": "Dining Concepts",
+      "translation": "Conceitos de restauração",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.8a381eb336a787fa",
+      "sourceHash": "eabb7ec99955690a60b0233eabf53edf662bc745e5c72ad63d02c64ec3ee1bd5",
+      "source": "Curated selection of restaurants, cafes and food venues offering diverse culinary experiences from casual to fine dining.",
+      "translation": "Seleção de restaurantes, cafés e espaços de restauração com experiências culinárias variadas, desde refeições casuais até alta gastronomia.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.3695f7e82b32c961",
+      "sourceHash": "b0e1421fc60a1547f60e6a9e3b8c49a556dc485f827bf76b3ac90218f0a118ef",
+      "source": "Waterfront Mall site overview",
+      "translation": "Visão geral do local do Waterfront Mall",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.8640d8faa8631599",
+      "sourceHash": "ceaa553e838fb9f12e3e473ec6a8fe0c53329041cdee871874a3e4b2769e36ea",
+      "source": "Entertainment",
+      "translation": "Entretenimento",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.0e880dbaac8d4c29",
+      "sourceHash": "5fb94f06263a131c3298080965b7af89338dfc2659db0061cedba65a00f8e3ba",
+      "source": "Entertainment facilities including cinema, family activities and leisure attractions for visitors of all ages.",
+      "translation": "Instalações de entretenimento, incluindo cinema, atividades familiares e atrações de lazer para visitantes de todas as idades.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.c58dd17ade59acb7",
+      "sourceHash": "ff3c9f3e60f524e067c09936bf71aaa47938130d4593c85dc4724c6e91654bd5",
+      "source": "Waterfront Mall construction phase",
+      "translation": "Fase de construção do Waterfront Mall",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.2c74c07cb0bab462",
+      "sourceHash": "3337cd0fc990c24f90ade0fe5990982999c7352e32daf174f5130c00effa4045",
+      "source": "Events & Hospitality",
+      "translation": "Eventos e hospitalidade",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.8890d5a8fb694d06",
+      "sourceHash": "60b2debe297a0289209e2ea0fc27bdd20d208f93cae14b8c47f2477bd9d22d53",
+      "source": "Event spaces and hospitality services for corporate functions, social gatherings and special celebrations.",
+      "translation": "Espaços para eventos e serviços de hospitalidade para funções empresariais, encontros sociais e celebrações especiais.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.4abb218d1019bd18",
+      "sourceHash": "cfbc30ff73a20e3e3724b0842869363df82e142d2ec32cb810095d0bb468b12f",
+      "source": "Our Products",
+      "translation": "Os nossos produtos",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.58f046a34daca4a0",
+      "sourceHash": "6e43577a8412df16d7c1c24428afa843136eac0883626e5fdcd94fef9ddcb6fd",
+      "source": "Retail Spaces",
+      "translation": "Espaços comerciais",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.3be67755420bd07a",
+      "sourceHash": "84a8a01470c3fb22b1be13d5fb6b00cc05410d7f32223f13e6347b73025a57b8",
+      "source": "Premium retail units designed for international and local brands, offering high footfall and waterfront visibility.",
+      "translation": "Unidades comerciais premium para marcas internacionais e locais, com elevado fluxo de visitantes e visibilidade à beira-mar.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.11aaceb9cb876eab",
+      "sourceHash": "e1499710119ffddd90f7eae9675d282b127b02529767c36efc36f8190a17ebb8",
+      "source": "Dining Venues",
+      "translation": "Espaços de restauração",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.c655daf78aa6f489",
+      "sourceHash": "cd1195fa8d1d0e8dfaa46077293f77f4a5d204455601d01c348c0d633a28a181",
+      "source": "Restaurant and café spaces with sea views, designed for memorable dining experiences.",
+      "translation": "Restaurantes e cafés com vista para o mar, concebidos para experiências gastronómicas memoráveis.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.ed760342476a76b3",
+      "sourceHash": "ceaa553e838fb9f12e3e473ec6a8fe0c53329041cdee871874a3e4b2769e36ea",
+      "source": "Entertainment",
+      "translation": "Entretenimento",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.e2a3f07bdadec92d",
+      "sourceHash": "1d3f62b48a6c6c9e0051a2c9f451d38127418a0adb7aa67eca0ee15165188473",
+      "source": "Purpose-built entertainment facilities including cinema, family zones and event spaces.",
+      "translation": "Instalações de entretenimento concebidas para o efeito, incluindo cinema, zonas familiares e espaços para eventos.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.000a0e67f6bc557a",
+      "sourceHash": "8771e16bc41c114608c441fb10da9102c3726b6ae33cfdfe5fa3cfcab652e38c",
+      "source": "Waterfront Mall Waterfront development",
+      "translation": "Desenvolvimento à beira-mar do Waterfront Mall",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.91de36b657dddba3",
+      "sourceHash": "0714502d380564cef63a34b0588245b57872b21eaa22dc3b08288251866a7417",
+      "source": "WATERFRONT DEVELOPMENT",
+      "translation": "DESENVOLVIMENTO À BEIRA-MAR",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(1) > figcaption:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.2fb6a1fe74991f75",
+      "sourceHash": "17f0b378fced5c09ff78cc4397d2f7004847ef14c45b6b1550d10a8174d4ed5a",
+      "source": "SITE OVERVIEW",
+      "translation": "VISÃO GERAL DO LOCAL",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(2) > figcaption:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.d96ff7d5e4c4e110",
+      "sourceHash": "bb8e4e581320891cd0f51b3c72665f8ca5f2818c1ebcc887aa4c202d4014bfd0",
+      "source": "DEVELOPMENT PROGRESS",
+      "translation": "PROGRESSO DO DESENVOLVIMENTO",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(3) > figcaption:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.23839d77be4edc27",
+      "sourceHash": "a18ce9e2d824ff292ccc305bc6812416cf7999a3df50c92c5bc8409641373620",
+      "source": "CONSTRUCTION PHASE",
+      "translation": "FASE DE CONSTRUÇÃO",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(4) > figcaption:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.5ccb09bd3cf08fbe",
+      "sourceHash": "871a265c634d9a7116454b5499cf31751a314be4f6f27db06f5dfd2b00b56b03",
+      "source": "Waterfront Mall Site overview",
+      "translation": "Visão geral do local do Waterfront Mall",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.f6f9ba662c18cb01",
+      "sourceHash": "94d82298fdc8c7d05040f8d6132dde3cc572c825f246a86b65b190d18d109bd2",
+      "source": "Waterfront Mall Development progress",
+      "translation": "Progresso do desenvolvimento do Waterfront Mall",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:ocean-galleria.html"
+    },
+    {
+      "id": "auto.5a4e5a50fff5a5f4",
+      "sourceHash": "b2338b1aa97498325d22a6dc9151f9c4b435587a77b1784a9ac50c2cc48bb611",
+      "source": "Waterfront Mall Construction phase",
+      "translation": "Fase de construção do Waterfront Mall",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:ocean-galleria.html"
     }
   ]
 }

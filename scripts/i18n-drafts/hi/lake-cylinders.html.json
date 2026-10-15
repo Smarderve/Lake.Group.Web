@@ -1,0 +1,1397 @@
+{
+  "schemaVersion": 1,
+  "status": "DRAFT_PENDING_HUMAN_REVIEW",
+  "locale": "hi",
+  "page": "lake-cylinders.html",
+  "createdAt": "2026-10-15T12:43:34.281Z",
+  "translations": [
+    {
+      "id": "auto.5b745f7cbc942ddd",
+      "sourceHash": "fdea043aafcd547427856addc3c738030c9d3a0d1f48844dae99616686644c9d",
+      "source": "Lake Cylinders Limited manufactures LPG cylinders supporting safe and reliable LPG solutions in Tanzania and the wider East African market.",
+      "translation": "लेक सिलिंडर्स लिमिटेड तंज़ानिया और व्यापक पूर्वी अफ्रीकी बाज़ार में सुरक्षित और भरोसेमंद एलपीजी समाधानों के लिए एलपीजी सिलिंडर बनाती है।",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.80e5efc4e5409491",
+      "sourceHash": "6970059994dce7e30c88b19df4696c7234a01aca3caf2fa69322593c6a6af253",
+      "source": "Energies Sector",
+      "translation": "ऊर्जा क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.34802d4ccfab546f",
+      "sourceHash": "a5afb4aade70f80dfcfe58c3010f00144236c6ca8129540b687e55212a3b578c",
+      "source": "Manufacturing Sector",
+      "translation": "विनिर्माण क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.22291a1d8c0b0be5",
+      "sourceHash": "e7b5da31e0d3ed96a265076f35ba8a8f9efcbe2d5334e1a630a2a6e97ea0d8a9",
+      "source": "Logistics Sector",
+      "translation": "लॉजिस्टिक्स क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.d80157ba7bc4d85c",
+      "sourceHash": "c4555e8c89a2895e935b9299e6d4716cb0321cd039f54446c9a71fc67fc57a22",
+      "source": "Real Estate Sector",
+      "translation": "रियल एस्टेट क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.500232588799e238",
+      "sourceHash": "7e00b18a6385c9956eed4a4293f467aa59bb8ea1ef99405ee3a8b103956ab404",
+      "source": "Agro Processing Sector",
+      "translation": "कृषि प्रसंस्करण क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.cab487d5f5f861e6",
+      "sourceHash": "c20855570f1042ee09d6d09266c094337995decf07d38fec808dcbc6774ec507",
+      "source": "Automotive Sector",
+      "translation": "ऑटोमोटिव क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.f6ae33d2cce117ed.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.8ad5b6bf8085cb84",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.3fc0905b9e7f03c2.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "NexDrive Motors",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.89abbf54e3005b64",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "हमारा इतिहास",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.89abbf54e3005b64.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "सीएसआर और सतत विकास",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.89abbf54e3005b64.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "गैलरी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.d8fcd2a108291218",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "भाषा: English",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.907a9dbe13c41010",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.22fcfed05f1cb496",
+      "sourceHash": "99af6606ff9d6cd5154d4d4e9c21e325086d3e904677cdb41d363c8a3480f862",
+      "source": "Menu",
+      "translation": "मेनू",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.b31f23f6b9cc8bf3",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "मेन्यू बंद करें",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.8e5d031bcb5bc444",
+      "sourceHash": "3a78695388b38b5cceefaf6796b0137877514593543b91af2752d5a17e3d736c",
+      "source": "Home",
+      "translation": "होम",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.8e5d031bcb5bc444.2",
+      "sourceHash": "4efca0d10c5feb8e9b35eb1d994f2905bb71714e6a271f511d713b539ea5faa1",
+      "source": "About",
+      "translation": "हमारे बारे में",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.6cb460841e9810f9",
+      "sourceHash": "cf60fd65dcd0f8b69d51d6cb91fe601244ed4af363dd5f2a242787f54c16300d",
+      "source": "Business Verticals",
+      "translation": "व्यावसायिक क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.ffc886e7d5da4ddb.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.e460a7f1802baf35",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.f96980f42515175a",
+      "sourceHash": "ec75f79040af17557c450e94a4214a484350634a433592d2eb31784c5a46e865",
+      "source": "Leadership",
+      "translation": "नेतृत्व",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.5654e0a8716db553",
+      "sourceHash": "a034729933d1cbf407645e11d9c91d9ac1bfddbef23fd58cb36782e3f60ae659",
+      "source": "Corporate",
+      "translation": "कॉर्पोरेट",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.b165e3476726d662",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "हमारा इतिहास",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.b165e3476726d662.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "सीएसआर और सतत विकास",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.b165e3476726d662.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "गैलरी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.9cb806936cac2315",
+      "sourceHash": "7e658675b5ca75b3802ff34b548abe663438f113bed3acf541142b317c146e34",
+      "source": "Careers",
+      "translation": "करियर",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(4)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.9cb806936cac2315.2",
+      "sourceHash": "98b67063cf8e584d75e53b88472ee85473e01e0ea16f29ece9cc98f4a2710494",
+      "source": "Contact Us",
+      "translation": "संपर्क करें",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(5)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.16a857bd30b06ee0",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.600acd0ac988df67",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.600acd0ac988df67.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.600acd0ac988df67.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.600acd0ac988df67.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.600acd0ac988df67.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.600acd0ac988df67.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.600acd0ac988df67.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.600acd0ac988df67.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.652fcf099c446d64",
+      "sourceHash": "08f4612f5c9eb085caa79e94d1a524340fbbb5fe413e7570883415cfa7226664",
+      "source": "A specialized LPG cylinder manufacturing company, part of the Lake Group, established to support the growing demand for safe, reliable and high-quality LPG solutions in Tanzania and the wider East African market.",
+      "translation": "लेक ग्रुप का हिस्सा एक विशेष एलपीजी सिलिंडर निर्माता, जिसकी स्थापना तंज़ानिया और व्यापक पूर्वी अफ्रीकी बाज़ार में सुरक्षित, भरोसेमंद और उच्च गुणवत्ता वाले एलपीजी समाधानों की बढ़ती मांग को पूरा करने के लिए हुई।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.f410741d5eb431c8",
+      "sourceHash": "7bd8e86876791776e1a31468612e9a2f3e0a616bbc8368e7cb13a45eba187547",
+      "source": "Powering Clean Energy Access",
+      "translation": "स्वच्छ ऊर्जा की पहुँच को बढ़ावा",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.dc07d58c6ea5a2d1",
+      "sourceHash": "297e16fe0313cd0e16083ed25e73b130271adf278d0e5f5a10a92271bfced352",
+      "source": "Lake Cylinders Limited is a specialized LPG cylinder manufacturing company and part of the Lake Group, established to support the growing demand for safe, reliable and high-quality LPG solutions in Tanzania and the wider East African market.",
+      "translation": "लेक सिलिंडर्स लिमिटेड एलपीजी सिलिंडर बनाने वाली विशेषज्ञ कंपनी और लेक ग्रुप का हिस्सा है। इसकी स्थापना तंज़ानिया और व्यापक पूर्वी अफ्रीकी बाज़ार में सुरक्षित, विश्वसनीय और उच्च गुणवत्ता वाले एलपीजी समाधानों की बढ़ती मांग को पूरा करने के लिए हुई।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.694381306efbc2bb",
+      "sourceHash": "f3bdc08a1031daa3441c5e700b91db79e917d0fc47f1b34e69716e8396c26667",
+      "source": "Based in Tanzania, Lake Cylinders operates a dedicated manufacturing facility for the production of LPG cylinders, supported by modern manufacturing processes, quality control systems and experienced technical personnel. The company focuses on producing durable cylinders that meet applicable safety and quality requirements while maintaining consistent manufacturing standards.",
+      "translation": "तंज़ानिया में स्थित लेक सिलिंडर्स एलपीजी सिलिंडर बनाने के लिए एक समर्पित विनिर्माण सुविधा चलाती है। इसमें आधुनिक विनिर्माण प्रक्रियाएँ, गुणवत्ता नियंत्रण प्रणालियाँ और अनुभवी तकनीकी कर्मचारी सहयोग करते हैं। कंपनी लागू सुरक्षा और गुणवत्ता आवश्यकताओं को पूरा करने वाले टिकाऊ सिलिंडर बनाने और उत्पादन मानकों में निरंतरता बनाए रखने पर ध्यान देती है।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.209f1989862cc14e",
+      "sourceHash": "37d11a402e32bae37facc4f6957a211c081f4123dfbb861ca4e25a71d28cf504",
+      "source": "LPG cylinder manufacturing for domestic, commercial and industrial use",
+      "translation": "घरेलू, वाणिज्यिक और औद्योगिक उपयोग के लिए एलपीजी सिलिंडर निर्माण",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.39cfa7a85e85dc57",
+      "sourceHash": "815ed3704e7e0bf855d51c845f3aeecdca6538d925a083abbcc45ca475e4ca89",
+      "source": "Production meeting applicable safety and quality standards",
+      "translation": "लागू सुरक्षा और गुणवत्ता मानकों के अनुरूप उत्पादन",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a9b39b6acbe93238",
+      "sourceHash": "879ac4655ad450ff2981f23413bd04896d39e67d50bc908f60e96466bf2f2f1e",
+      "source": "Strengthening the local LPG value chain with locally manufactured cylinders",
+      "translation": "स्थानीय स्तर पर निर्मित सिलिंडरों से घरेलू एलपीजी मूल्य श्रृंखला को मजबूत करना",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.5f5efdef48c3a582",
+      "sourceHash": "7ea64dc3d09dab6e42bf600044c4eca87e89473dbaf442f0b3d84a63166c44d8",
+      "source": "Manufacturing excellence with quality testing protocols",
+      "translation": "गुणवत्ता परीक्षण प्रक्रियाओं के साथ विनिर्माण उत्कृष्टता",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(4)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.29f03353c50d8446",
+      "sourceHash": "f224383f462288c0b0d73e73a0b1f76c713f69d16eed0f34d20eee012fe22ea4",
+      "source": "Supporting the expansion of clean and accessible LPG energy solutions",
+      "translation": "स्वच्छ और सुलभ एलपीजी ऊर्जा समाधानों के विस्तार में सहयोग",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.7c2206a65a5ae037",
+      "sourceHash": "0e92bd70c2cb783f694f20ce211b497c344cd61950154cd477b8234281c39838",
+      "source": "Operations by Country",
+      "translation": "देश के अनुसार संचालन",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.c69b8841270d7d7b",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "तंज़ानिया",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.0b97c43b99f82ba6",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "तंज़ानिया का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.f17bed8a4cc0e447",
+      "sourceHash": "bb1c9353d712e64b2ab8b32afc78e6e73ce153eea48fbddfb5244a1121da8223",
+      "source": "Manufacturing Base",
+      "translation": "विनिर्माण केंद्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a2bd6d7d527d00d5",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "कांगो लोकतांत्रिक गणराज्य",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.8342926eb90f358a",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "कांगो लोकतांत्रिक गणराज्य का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.1ef669f2cbc4a309",
+      "sourceHash": "37c19b0c5d72e28d883d147ac754df9172dcf1ef602ae744c04979e337aa72ca",
+      "source": "Regional Supply",
+      "translation": "क्षेत्रीय आपूर्ति",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.07086a7871281b29",
+      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
+      "source": "Rwanda",
+      "translation": "रवांडा",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.2a1f9f532053a399",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "रवांडा का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.04a976c2d4b69c6c",
+      "sourceHash": "37c19b0c5d72e28d883d147ac754df9172dcf1ef602ae744c04979e337aa72ca",
+      "source": "Regional Supply",
+      "translation": "क्षेत्रीय आपूर्ति",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > span:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.2623635e9a6b7603",
+      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
+      "source": "Zambia",
+      "translation": "ज़ाम्बिया",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.d0b4059f77b25c66",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "ज़ाम्बिया का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.aeb66097d7221fa2",
+      "sourceHash": "37c19b0c5d72e28d883d147ac754df9172dcf1ef602ae744c04979e337aa72ca",
+      "source": "Regional Supply",
+      "translation": "क्षेत्रीय आपूर्ति",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > span:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.aacd395590fb5e6a",
+      "sourceHash": "8d57b4cd7c7376a3f1903241803ce37d8901c76dad071887c6462a847741911e",
+      "source": "Mission, Vision & Values",
+      "translation": "मिशन, दृष्टि और मूल्य",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.dd12fe179363015c",
+      "sourceHash": "e6b85bfbf55020aab80a2fc74cc83aa428a2290c9153ffbd23bdb86befd1def7",
+      "source": "Mission",
+      "translation": "मिशन",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.e6cf020904e15243",
+      "sourceHash": "d80ff589ae12792aed275131e241ee559ba902c0b01bc818038d852774809caa",
+      "source": "To accelerate LPG adoption across every sector in Tanzania by manufacturing safe, reliable and high-quality LPG cylinders, delivering excellent customer service, and supporting a cleaner, more sustainable and industrialized Tanzania.",
+      "translation": "सुरक्षित, भरोसेमंद और उच्च गुणवत्ता वाले एलपीजी सिलिंडर बनाकर, उत्कृष्ट ग्राहक सेवा देकर तथा अधिक स्वच्छ, टिकाऊ और औद्योगीकृत तंज़ानिया का समर्थन करके देश के हर क्षेत्र में एलपीजी के उपयोग को तेज़ करना।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.0e223a00269207c6",
+      "sourceHash": "c587c2601ccfc456cb7d4d9bb34f12f0fd11ad49faeeb4602860e239b5397843",
+      "source": "Vision",
+      "translation": "दृष्टि",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.e26dcbba4089d0fd",
+      "sourceHash": "431cfa8078b58e700e3853e3abb12006b4696b4f744acec080da2d715cb92895",
+      "source": "To become East Africa's largest and most trusted LPG cylinder manufacturer, setting high standards in quality, safety and innovation while delivering total customer satisfaction and contributing to the region's economic and energy growth.",
+      "translation": "पूर्वी अफ्रीका का सबसे बड़ा और सबसे भरोसेमंद एलपीजी सिलिंडर निर्माता बनना, गुणवत्ता, सुरक्षा और नवाचार के उच्च मानक स्थापित करना, ग्राहकों की पूर्ण संतुष्टि देना और क्षेत्र की आर्थिक तथा ऊर्जा वृद्धि में योगदान करना।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.dbe874ae7e73dc34",
+      "sourceHash": "ca6141dc61f285f4f67fd70c884ccbc6e11456c282ac1a88f49cc151f81f6fb2",
+      "source": "Safety First",
+      "translation": "सुरक्षा सर्वोपरि",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.d6f1aec9abd372f8",
+      "sourceHash": "e1d7e76bb0fab30e61991f7bdbe7b805fe1e4d7756cc41ba7f1f81769dea8a6f",
+      "source": "Safety at the heart of our products, people and operations",
+      "translation": "हमारे उत्पादों, लोगों और संचालन के केंद्र में सुरक्षा",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.2fe84084480aee40",
+      "sourceHash": "eedf66fe56bb60df6e3782cd396ef9175d362f4abee5523529329e631a15e0a1",
+      "source": "Quality Excellence",
+      "translation": "उत्कृष्ट गुणवत्ता",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.f61933884a588f02",
+      "sourceHash": "ebf3f008423157753ce33c1dc24dfc97a899131bbdac20ee9233a900bc8390b0",
+      "source": "Reliable LPG cylinders meeting required standards",
+      "translation": "आवश्यक मानकों को पूरा करने वाले भरोसेमंद एलपीजी सिलिंडर",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.034906420aa6748d",
+      "sourceHash": "d2e53f8615d9d7932b5baa03aeb63cd8948fd7ea34e0d53f0c6270a42ffd3d11",
+      "source": "Customer Satisfaction",
+      "translation": "ग्राहक संतुष्टि",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.bceae300f434f584",
+      "sourceHash": "2d60ed8d306e1e212d8347fb04e40b382848e143310efede5266aa24fe9c901c",
+      "source": "Quality products and responsive service",
+      "translation": "गुणवत्तापूर्ण उत्पाद और तत्पर सेवा",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.6a1a03961233eaed",
+      "sourceHash": "ad5ea6aae7ca18f5f3823bfd0a0f0e400434b701dd4325c2810eba1e826d7618",
+      "source": "Integrity",
+      "translation": "ईमानदारी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.1396df09472db0f8",
+      "sourceHash": "191633f8b9b9e23a1e20f3e1fe3c3e4a914fd9150dc75bb1983685fd7b0ebb93",
+      "source": "Honesty, transparency and accountability",
+      "translation": "ईमानदारी, पारदर्शिता और जवाबदेही",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.6ae00271932b5cbe",
+      "sourceHash": "71d0acd46556424657f3866a5dc46d45d66b0849904e0a66d712764f95fa16bb",
+      "source": "Reliability",
+      "translation": "विश्वसनीयता",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(5) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.95fec8d03117490e",
+      "sourceHash": "bfef89ed413e4830414a368f8093fe1cda032e029669acf289d917d0b92bf0b8",
+      "source": "Consistent products and dependable service",
+      "translation": "एकसमान उत्पाद और भरोसेमंद सेवा",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(5) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.02e19ccdb82a35df",
+      "sourceHash": "389fdf62a9a9e5dae14ef0d435c006196e0b929ecff41031a495d57d78bb3d00",
+      "source": "Innovation",
+      "translation": "नवाचार",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.f1c8a5eaa7462b81",
+      "sourceHash": "26fac08ea583eb9513c247c3663bcc17e50f920ea38c6a068b3add03253ddcc4",
+      "source": "Continuous improvement of technology and processes",
+      "translation": "प्रौद्योगिकी और प्रक्रियाओं में निरंतर सुधार",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.b9abdfd9db016a2d",
+      "sourceHash": "b829960386e58e72b021dbea02865d3e9a0e3b3482d24e3dd50a60b9ba843eea",
+      "source": "Operational Excellence",
+      "translation": "परिचालन उत्कृष्टता",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(7) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.5348d778a7ee1ed7",
+      "sourceHash": "f2b79bbc203fd51d7f1e241035fa8d07f5f9d7b025757a0e5e95a4d704414f78",
+      "source": "Efficiency, productivity, waste reduction and continuous improvement",
+      "translation": "दक्षता, उत्पादकता, अपशिष्ट में कमी और निरंतर सुधार",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(7) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.f052f8202311cea7",
+      "sourceHash": "3d21775cd60083e921206d7acdca72bf24ed38c33b9127188c80b7f6f4bffa88",
+      "source": "Sustainability",
+      "translation": "स्थिरता",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(8) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.56f175a6541bb1c3",
+      "sourceHash": "5bb2b170b5dfc81af8799f98ca21705f94a42fad66e3d870f4067a00046f7aa1",
+      "source": "Cleaner energy adoption and responsible manufacturing",
+      "translation": "स्वच्छ ऊर्जा अपनाना और जिम्मेदार विनिर्माण",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(8) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.5d278fe9f5319527",
+      "sourceHash": "f2f0d49de70853c98f7fe8033b1f32ca280d00b9ced9ec09ac5fd80406dd58bd",
+      "source": "People & Teamwork",
+      "translation": "लोग और टीमवर्क",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.d970505b78ffb5e2",
+      "sourceHash": "c46c583f0e055adb137307f2f26fd74ee3e3452ba9d9ee3b4a20c1b93a3a5fbd",
+      "source": "Developing our people and working together",
+      "translation": "अपने लोगों का विकास करना और मिलकर काम करना",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.b78a7273e6735574",
+      "sourceHash": "091d79bce1f8db36638a3228ba9c6e8394ab24d99cb5282f44993f7f86b2cf23",
+      "source": "National Development",
+      "translation": "राष्ट्रीय विकास",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.ef6ec38735db828e",
+      "sourceHash": "f8c3b45f1fdd242d409a23ea86694f9882e4842bd9614410cf922670a99ec6e6",
+      "source": "Supporting Tanzania's industrial and economic growth through local manufacturing, employment and energy development",
+      "translation": "स्थानीय विनिर्माण, रोज़गार और ऊर्जा विकास के माध्यम से तंज़ानिया की औद्योगिक और आर्थिक वृद्धि का समर्थन करना",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.4532ebac57e9ba2e",
+      "sourceHash": "d780fbd30698538eb0132996abc33b9b92bdc36c00fda105249aa6d8f0bac958",
+      "source": "Company Objectives",
+      "translation": "कंपनी के उद्देश्य",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(4) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.c387e47a9786ab47",
+      "sourceHash": "45086cc8b19337804c422bd765c484bc404b5e8a1ed726989181b91d1ce9fad6",
+      "source": "Increase LPG adoption through safe and reliable cylinder availability",
+      "translation": "सुरक्षित और भरोसेमंद सिलिंडरों की उपलब्धता से एलपीजी का उपयोग बढ़ाना",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.79fbc0c852bfbc46",
+      "sourceHash": "6895b04098eba1802290fe95ce137f11b0c353eda401b11b7f92c3e12fa9ec8e",
+      "source": "Expand manufacturing capacity for Tanzania and East Africa",
+      "translation": "तंज़ानिया और पूर्वी अफ्रीका के लिए विनिर्माण क्षमता बढ़ाना",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.2fa25505d516ab3b",
+      "sourceHash": "99116a0c1c12307b521e71824c93e53d3fff4d1901762f1ffd81b9205edd752b",
+      "source": "Maintain high quality and safety standards throughout production",
+      "translation": "पूरे उत्पादन में उच्च गुणवत्ता और सुरक्षा मानकों को बनाए रखना",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.e65111ca7fd06e81",
+      "sourceHash": "37c5547441090501c4cdb4ecffeb21dd8aef3c06bb9f3d4b74bddbaa672cb9f8",
+      "source": "Improve customer satisfaction through reliable products and responsive service",
+      "translation": "भरोसेमंद उत्पादों और तत्पर सेवा के माध्यम से ग्राहक संतुष्टि में सुधार करना",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(4)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.c78f7591838edfca",
+      "sourceHash": "2129b170642c43993a1d7ee900cb209dd3203c6c64e4551444c0a44d7fddadd0",
+      "source": "Improve production efficiency and reduce material waste",
+      "translation": "उत्पादन दक्षता बढ़ाना और सामग्री की बर्बादी कम करना",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.b1ba54ea0044f674",
+      "sourceHash": "d34c7083bbadb788f321e12674a05280e2b67126e4f646941597cc7597a04fe9",
+      "source": "Develop technical skills and a strong safety culture",
+      "translation": "तकनीकी कौशल और मजबूत सुरक्षा संस्कृति विकसित करना",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > ul:nth-of-type(2) > li:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.318d22dcd264ca13",
+      "sourceHash": "9edf82f99c7fd197290c50f7ecf5c45b1d7debea3c75f5d3f56274c0f1ee0bf2",
+      "source": "Strengthen local manufacturing and reduce dependence on imports where locally produced alternatives meet requirements",
+      "translation": "स्थानीय विनिर्माण को मजबूत करना और जहाँ स्थानीय विकल्प आवश्यकताओं को पूरा करें वहाँ आयात पर निर्भरता घटाना",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > ul:nth-of-type(2) > li:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.74a380680b456d58",
+      "sourceHash": "ccdd420014733c925d95007a1298be606ca078e93e31f85388e3f3975400e783",
+      "source": "Expand the product portfolio for different LPG applications",
+      "translation": "विभिन्न एलपीजी उपयोगों के लिए उत्पाद श्रृंखला का विस्तार करना",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > ul:nth-of-type(2) > li:nth-of-type(3)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.c3c4a78050b4190e",
+      "sourceHash": "d2d3603df24b0a13516549c0a8f905c5866fecc45a3bed181c82da0286a56c76",
+      "source": "Build a trusted regional presence across East Africa",
+      "translation": "पूरे पूर्वी अफ्रीका में भरोसेमंद क्षेत्रीय उपस्थिति बनाना",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > ul:nth-of-type(2) > li:nth-of-type(4)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.57eb42456befc1e2",
+      "sourceHash": "5540c500be84be3e62993a5bbb0ac3e3cfdbaccfcf3ab4b4d9f36a70e150de62",
+      "source": "Support sustainable energy solutions and Tanzania's industrial development",
+      "translation": "टिकाऊ ऊर्जा समाधानों और तंज़ानिया के औद्योगिक विकास का समर्थन करना",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > ul:nth-of-type(2) > li:nth-of-type(5)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.32973af2da05c5ca",
+      "sourceHash": "4eab0cc95ab35d8c3eada0a173d44f58e0f82d6e7cb33a283d71f04fbf13917e",
+      "source": "Projects & Achievements",
+      "translation": "परियोजनाएँ और उपलब्धियाँ",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.85d4fcb74944a2ac",
+      "sourceHash": "b61c2d0c49a76bb1d10d478b3883dff4c43656946311e2fc101eee0215549f34",
+      "source": "Completed Projects",
+      "translation": "पूर्ण परियोजनाएँ",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.31ce524c002f19a7",
+      "sourceHash": "25c6cc4a2ad50f0c5bd7d7755dac08ad28ea56adb983f13b6829c99e5285d6ea",
+      "source": "Large-Scale LPG Cylinder Supply for the Rural Energy Agency (REA)",
+      "translation": "ग्रामीण ऊर्जा एजेंसी (REA) के लिए बड़े पैमाने पर एलपीजी सिलिंडर आपूर्ति",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.0388fd8e3f75cc16",
+      "sourceHash": "776be5983f64876dfca80041b096f072391c680b65e492e366f378c0532a67ed",
+      "source": "Successfully completed the manufacturing and supply of more than 200,000 LPG cylinders to the Rural Energy Agency (REA) within the specified project timeframe, demonstrating the ability to manage large-volume production, maintain consistent product quality and meet demanding delivery schedules.",
+      "translation": "निर्धारित परियोजना अवधि में ग्रामीण ऊर्जा एजेंसी (REA) को 200,000 से अधिक एलपीजी सिलिंडरों का निर्माण और आपूर्ति सफलतापूर्वक पूरी की। इससे बड़े पैमाने के उत्पादन का प्रबंधन, उत्पाद की एकसमान गुणवत्ता बनाए रखने और कड़े वितरण कार्यक्रमों को पूरा करने की क्षमता प्रदर्शित हुई।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.bc8e655fb4313555",
+      "sourceHash": "a19f9296d87f2c17d5b32ae8af63aa331c941e31ffb97d50eca35ca57f5e951e",
+      "source": "Regional Cylinder Supply",
+      "translation": "क्षेत्रीय सिलिंडर आपूर्ति",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.91ce82acf333afc0",
+      "sourceHash": "ad0f8227af8ec7658da619968e21e9a1a8d92e14e5324df725bbd83625e38aba",
+      "source": "Supplied LPG cylinders to customers in regional African markets, including Rwanda, the Democratic Republic of Congo (DRC), Zambia and other markets, responding quickly to customer requirements and supporting timely deliveries across the region.",
+      "translation": "रवांडा, कांगो लोकतांत्रिक गणराज्य (DRC), ज़ाम्बिया और अन्य बाज़ारों सहित क्षेत्रीय अफ्रीकी बाज़ारों के ग्राहकों को एलपीजी सिलिंडर की आपूर्ति की। कंपनी ने ग्राहकों की आवश्यकताओं पर शीघ्र प्रतिक्रिया दी और समय पर क्षेत्रीय डिलीवरी में सहयोग किया।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.dddf7db7d51a3190",
+      "sourceHash": "8ba73af3a05cff07a2f597104c640171eea3e6cb00d201e9c0a66609e52a8653",
+      "source": "Ongoing & Future Projects",
+      "translation": "चल रही और भविष्य की परियोजनाएँ",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.91fc151c6b349378",
+      "sourceHash": "77f1dcfd316e6d7dbc812f67abe9c0497d2c14f3e4b2d0e3ac3348f784a3adc2",
+      "source": "Expansion of LPG cylinder production capacity to meet growing demand",
+      "translation": "बढ़ती मांग को पूरा करने के लिए एलपीजी सिलिंडर उत्पादन क्षमता का विस्तार",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.bd215a9262880e18",
+      "sourceHash": "379f39016554d84f0330ac6768b8b6603e44d73860dece8a73d00d9fe2cee337",
+      "source": "Entry into 38 kg cylinder manufacturing with dedicated equipment",
+      "translation": "समर्पित उपकरणों के साथ 38 किग्रा सिलिंडर निर्माण शुरू करना",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.3f9cc78d1fc1e288",
+      "sourceHash": "2c76b9867b340765aa9624c57ce6edecf745d20cb39a42c24b0c7f06b4079a79",
+      "source": "Expansion of 15 kg cylinder production alongside 6 kg capability",
+      "translation": "6 किग्रा उत्पादन क्षमता के साथ 15 किग्रा सिलिंडर उत्पादन का विस्तार",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(3)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.1a609ee7ed8d9685",
+      "sourceHash": "d625a1af3168161f11199ed40764f585cc570f60de8b46df6aec72b3ddd69a02",
+      "source": "Growth of cylinder revalidation and refurbishment operations",
+      "translation": "सिलिंडरों के पुनः सत्यापन और नवीनीकरण कार्यों का विस्तार",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(4)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.e2cdfa7e47a181a2",
+      "sourceHash": "37688fc52d413dbb8515729d198bc4069b7bb4d6ddee1e87d23fe4d9dbdef7cb",
+      "source": "Development of a highly automated manufacturing facility, with automation introduced progressively across production processes",
+      "translation": "अत्यधिक स्वचालित विनिर्माण सुविधा विकसित करना और उत्पादन प्रक्रियाओं में क्रमिक रूप से स्वचालन लागू करना",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(5)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.ea0ba1a470c6bc60",
+      "sourceHash": "9576bdcf07e522b9e86da48b4a66e2b7d38e3fefe36068a70d4210fa0efb9a10",
+      "source": "Regional market expansion across East and Central Africa",
+      "translation": "पूर्वी और मध्य अफ्रीका में क्षेत्रीय बाज़ारों का विस्तार",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(6)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.15d689b2fa5614a7",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "गैलरी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.315ddb0196dfb0fd",
+      "sourceHash": "701518bcfbb29cfb89502be6a6200f8ea716e894fbc53e80e05add2027da8413",
+      "source": "Lake Cylinders team at the manufacturing facility",
+      "translation": "लेक सिलिंडर्स की विनिर्माण सुविधा में टीम",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.bae4d0c4b39a5e73",
+      "sourceHash": "5985039f106df054b43c3529139613bf7c2372937539f344c7c5ee47d00a0d63",
+      "source": "Team",
+      "translation": "टीम",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(1) > figcaption:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.ea8b28ae7362942d",
+      "sourceHash": "5955626584b9f1f843ef41aad6269b1380e862a7349da17270781b6d5381895f",
+      "source": "Lake Cylinders quality inspection on the production line",
+      "translation": "उत्पादन लाइन पर लेक सिलिंडर्स की गुणवत्ता जाँच",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.bd1daf24945ddc8c",
+      "sourceHash": "b71fa0ad257df65dff809e17a606a86c2383c66e2633ecae02e236adc082fc7d",
+      "source": "Quality inspection",
+      "translation": "गुणवत्ता निरीक्षण",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(2) > figcaption:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.58d2d0dd73e86311",
+      "sourceHash": "5ad7cc8f9f58fa1e092dd6f767986a749dbd1a2e35623d25a547b123e4803871",
+      "source": "Lake Cylinders conveyor line with cylinder handling",
+      "translation": "लेक सिलिंडर्स की कन्वेयर लाइन पर सिलिंडर हैंडलिंग",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.3f5346254d097ea6",
+      "sourceHash": "decd6cf51b1e800bf292c51ef19530495f9fe27e19fc3bb1fa00af566f3f5d1e",
+      "source": "Conveyor line",
+      "translation": "कन्वेयर लाइन",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(3) > figcaption:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.eeca82bd6e2321ef",
+      "sourceHash": "69518e684f065f0c39a26d5f18ae2a775ffffd4e390cc3d73afeac2fb50992a7",
+      "source": "Type a message...",
+      "translation": "संदेश लिखें...",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > input:nth-of-type(1)",
+      "attribute": "placeholder",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.b21a5ee5e630ec0c",
+      "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
+      "source": "Chat",
+      "translation": "चैट",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.edb1573ba5035c9a",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "तंज़ानिया",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.1b98c4e7d6fbf503",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "तंज़ानिया का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.cc0a0cca372fc5fe",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "केन्या",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.6b0d3f8824e8652d",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "केन्या का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.ebce670a136ade80",
+      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
+      "source": "Zambia",
+      "translation": "ज़ाम्बिया",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.ab617108dfd2e260",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "ज़ाम्बिया का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.ede4f5107b566554",
+      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
+      "source": "Rwanda",
+      "translation": "रवांडा",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.c8669935cb8b6351",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "रवांडा का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.155a26b8b3a57994",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "बुरुंडी",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.24df2ab8e889cc8a",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "बुरुंडी का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.9d3b9378997a9c41",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "कांगो लोकतांत्रिक गणराज्य",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.9e482bd5566a8870",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "कांगो लोकतांत्रिक गणराज्य का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.1e5d512a0b6c0ee2",
+      "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
+      "source": "Ethiopia",
+      "translation": "इथियोपिया",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.8a85c5e7e8694734",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "इथियोपिया का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.9361b88e14ee4c44",
+      "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
+      "source": "Mozambique",
+      "translation": "मोज़ाम्बिक",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.1cc08200c7b9874a",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "मोज़ाम्बिक का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.28e8df7e9891c766",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "युगांडा",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.533816fc3ba15f89",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "युगांडा का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.106926d0b26af32f",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "संयुक्त अरब अमीरात का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.a8fd94cd83b02183",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    }
+  ],
+  "sourceManifestDigest": "60675f76844f3800729cf1ef938b65c6ddcb2e7351b7ee2b74eb4da0f9f40714",
+  "sourceManifestGeneratedAt": "2026-10-15T12:12:03.389Z",
+  "authoringMethod": "AI-authored initial Lake Cylinders translations with exact-source draft reuse; human review pending",
+  "reviewEvidence": null,
+  "releaseEligible": false,
+  "candidateCount": 138,
+  "translatedCount": 138,
+  "validation": "Technical terms, product specifications, company names and numerical claims preserved; source ids and hashes match current extraction manifest; editorial review pending"
+}

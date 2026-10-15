@@ -1,0 +1,1607 @@
+{
+  "schemaVersion": 1,
+  "status": "DRAFT_PENDING_HUMAN_REVIEW",
+  "locale": "hi",
+  "page": "aill.html",
+  "createdAt": "2026-10-15T12:47:01.493Z",
+  "translations": [
+    {
+      "id": "auto.1d15b0b73f279924",
+      "sourceHash": "b492c619f95eb7ee3bb6449866a2074983094ef1caa77626de22305bcdc9566d",
+      "source": "African Inland Logistics Ltd. (AILL) provides logistics support and container freight station services in Dar es Salaam, Tanzania.",
+      "translation": "African Inland Logistics Ltd. (AILL) दार एस सलाम, तंज़ानिया में लॉजिस्टिक्स सहायता और कंटेनर फ्रेट स्टेशन सेवाएँ प्रदान करती है।",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.f83dac7f940f5ec9",
+      "sourceHash": "6970059994dce7e30c88b19df4696c7234a01aca3caf2fa69322593c6a6af253",
+      "source": "Energies Sector",
+      "translation": "ऊर्जा क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.109c659eb655e9c2",
+      "sourceHash": "a5afb4aade70f80dfcfe58c3010f00144236c6ca8129540b687e55212a3b578c",
+      "source": "Manufacturing Sector",
+      "translation": "विनिर्माण क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.72517f94fa3c8944",
+      "sourceHash": "e7b5da31e0d3ed96a265076f35ba8a8f9efcbe2d5334e1a630a2a6e97ea0d8a9",
+      "source": "Logistics Sector",
+      "translation": "लॉजिस्टिक्स क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.f535f8da278df7c2",
+      "sourceHash": "c4555e8c89a2895e935b9299e6d4716cb0321cd039f54446c9a71fc67fc57a22",
+      "source": "Real Estate Sector",
+      "translation": "रियल एस्टेट क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.648bd029e66e331d",
+      "sourceHash": "7e00b18a6385c9956eed4a4293f467aa59bb8ea1ef99405ee3a8b103956ab404",
+      "source": "Agro Processing Sector",
+      "translation": "कृषि प्रसंस्करण क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.2fc18dd963d85c06",
+      "sourceHash": "c20855570f1042ee09d6d09266c094337995decf07d38fec808dcbc6774ec507",
+      "source": "Automotive Sector",
+      "translation": "ऑटोमोटिव क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.a7aacae295d8b1c8.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-brand-language-name-copyright-or-figure"
+    },
+    {
+      "id": "auto.25fdef56d25d2afe",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-brand-language-name-copyright-or-figure"
+    },
+    {
+      "id": "auto.bb99fa138a1dd2f7.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "NexDrive Motors",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-brand-language-name-copyright-or-figure"
+    },
+    {
+      "id": "auto.cfba7fbdfa2ff5e4",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "हमारा इतिहास",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.cfba7fbdfa2ff5e4.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "सीएसआर और सतत विकास",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.cfba7fbdfa2ff5e4.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "गैलरी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.c5ca1a32acc0d9fe",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "भाषा: English",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.6e5e56d92c0e0004",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.81fd45b07d01056d",
+      "sourceHash": "99af6606ff9d6cd5154d4d4e9c21e325086d3e904677cdb41d363c8a3480f862",
+      "source": "Menu",
+      "translation": "मेनू",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.edd7ec43feb332cb",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "मेन्यू बंद करें",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.d5b6d167f9b6d253",
+      "sourceHash": "3a78695388b38b5cceefaf6796b0137877514593543b91af2752d5a17e3d736c",
+      "source": "Home",
+      "translation": "होम",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.d5b6d167f9b6d253.2",
+      "sourceHash": "4efca0d10c5feb8e9b35eb1d994f2905bb71714e6a271f511d713b539ea5faa1",
+      "source": "About",
+      "translation": "हमारे बारे में",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.f9759e9a990417c6",
+      "sourceHash": "cf60fd65dcd0f8b69d51d6cb91fe601244ed4af363dd5f2a242787f54c16300d",
+      "source": "Business Verticals",
+      "translation": "व्यावसायिक क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.d62ab32d18298068.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
+      "attribute": null,
+      "origin": "preserved-brand-language-name-copyright-or-figure"
+    },
+    {
+      "id": "auto.3800b4a62db493c1",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-brand-language-name-copyright-or-figure"
+    },
+    {
+      "id": "auto.4229fd9d0cd3aeca",
+      "sourceHash": "ec75f79040af17557c450e94a4214a484350634a433592d2eb31784c5a46e865",
+      "source": "Leadership",
+      "translation": "नेतृत्व",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.32a42d9599fb2068",
+      "sourceHash": "a034729933d1cbf407645e11d9c91d9ac1bfddbef23fd58cb36782e3f60ae659",
+      "source": "Corporate",
+      "translation": "कॉर्पोरेट",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.6d7ddcac724dc92c",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "हमारा इतिहास",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.6d7ddcac724dc92c.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "सीएसआर और सतत विकास",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.6d7ddcac724dc92c.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "गैलरी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.f905f1fcb85063eb",
+      "sourceHash": "7e658675b5ca75b3802ff34b548abe663438f113bed3acf541142b317c146e34",
+      "source": "Careers",
+      "translation": "करियर",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(4)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.f905f1fcb85063eb.2",
+      "sourceHash": "98b67063cf8e584d75e53b88472ee85473e01e0ea16f29ece9cc98f4a2710494",
+      "source": "Contact Us",
+      "translation": "संपर्क करें",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(5)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.958207f84b489648",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.0bc4bf5ec3608820",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.0bc4bf5ec3608820.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.0bc4bf5ec3608820.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.0bc4bf5ec3608820.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.0bc4bf5ec3608820.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.0bc4bf5ec3608820.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.0bc4bf5ec3608820.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.0bc4bf5ec3608820.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.d75f03c403c3e902",
+      "sourceHash": "bce80e4ccad5536e176a9dbd60102af6c826ec80e1d4ce22573434595e6b7361",
+      "source": "African Inland Logistics Ltd. (AILL)",
+      "translation": "African Inland Logistics Ltd. (AILL)",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > h1:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.06ff65e2480ccc87",
+      "sourceHash": "68508846ab3823ef9987ec3b72708b1ff7d2b65469c663538a669c5f32ae9e5a",
+      "source": "Port handling, warehousing, bagging, customs clearance and logistics solutions for bulk, break-bulk and containerized cargo.",
+      "translation": "थोक, ब्रेक-बल्क और कंटेनरीकृत माल के लिए बंदरगाह संचालन, भंडारण, बैगिंग, सीमा शुल्क निकासी और लॉजिस्टिक्स समाधान।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.06ff65e2480ccc87.2",
+      "sourceHash": "1be4586905cbd2c8bbd2571bd0a2a55661e94b9590696a60ab05dcfca8238570",
+      "source": "Moving Cargo. Connecting Markets. Delivering End-to-End Logistics Solutions.",
+      "translation": "माल को आगे बढ़ाना। बाज़ारों को जोड़ना। संपूर्ण लॉजिस्टिक्स समाधान देना।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.9aed394b3f0eff78",
+      "sourceHash": "0eb4e3ff7b7fc96312661089d6c932f86589a853446f76e145ebe9b22d1020bd",
+      "source": "From Port to Border. From Border to Port. One Integrated Logistics Partner.",
+      "translation": "बंदरगाह से सीमा तक। सीमा से बंदरगाह तक। एक एकीकृत लॉजिस्टिक्स भागीदार।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.d97268e8214f016b",
+      "sourceHash": "37f81a7b2ef9714b98578eb1f73f250201f862632307b67820f68e6cd3df8f28",
+      "source": "African Inland Logistics Limited (AILL), a flagship company of Lake Group, provides integrated cargo-handling and logistics solutions across port handling, warehousing, bagging, customs clearance, road and rail transport for bulk, break-bulk and containerized cargo.",
+      "translation": "लेक ग्रुप की प्रमुख कंपनी African Inland Logistics Limited (AILL) थोक, ब्रेक-बल्क और कंटेनरीकृत माल के लिए बंदरगाह संचालन, भंडारण, बैगिंग, सीमा शुल्क निकासी तथा सड़क और रेल परिवहन सहित एकीकृत कार्गो हैंडलिंग और लॉजिस्टिक्स समाधान प्रदान करती है।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.5c2ed30775b58792",
+      "sourceHash": "d9c8845beace57c6fe84b46b95f10d32a91abe2738faee8255698e32e18fc48a",
+      "source": "AILL coordinates the cargo journey from vessel discharge and port handling through clearance, transport, storage, processing and final border or port delivery. Strategically located facilities, dedicated equipment, rail capability and experienced teams support the safe, efficient movement of high-volume cargo across the region.",
+      "translation": "AILL जहाज़ से माल उतारने और बंदरगाह पर संचालन से लेकर कस्टम निकासी, परिवहन, भंडारण, प्रसंस्करण और सीमा या बंदरगाह तक अंतिम डिलीवरी तक माल की यात्रा का समन्वय करती है। रणनीतिक स्थानों पर सुविधाएँ, समर्पित उपकरण, रेल क्षमता और अनुभवी टीमें क्षेत्र में बड़ी मात्रा के माल की सुरक्षित और कुशल आवाजाही में मदद करती हैं।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.8c1aca1c4bf1f33c",
+      "sourceHash": "276f5d670e664df75088be9ef17454305250ebdfe8828a5f3e260f724eb73bc1",
+      "source": "AILL and its Group company's ICD/CFS operations extend across Tanzania, Zambia and Mozambique, supported by Lake Group's wider regional network.",
+      "translation": "AILL और उसकी समूह कंपनियों के ICD/CFS संचालन तंज़ानिया, ज़ाम्बिया और मोज़ाम्बिक में फैले हैं और इन्हें लेक ग्रुप के व्यापक क्षेत्रीय नेटवर्क का समर्थन मिलता है।",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.b9726b69e9f66de7",
+      "sourceHash": "d4bdb51c16afb56af556efae60e59fabfcf08dd75f9cfe7608d441825225a1c2",
+      "source": "Integrated Logistics. Operational Excellence. Regional Connectivity.",
+      "translation": "एकीकृत लॉजिस्टिक्स। परिचालन उत्कृष्टता। क्षेत्रीय संपर्क।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(3) > strong:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.1919c2b38fc73ac3",
+      "sourceHash": "393ef591d9b7e3feb79a8cd88cd5ef88c4b4c2f4db0d628cc5444d8078f632e7",
+      "source": "Port handling and vessel-to-inland coordination",
+      "translation": "बंदरगाह संचालन और जहाज़ से अंतर्देशीय परिवहन का समन्वय",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.578037f0c850a356",
+      "sourceHash": "5a214d6dc4ced973a85aa3b0435d187bc2e72b196a8e2d6dd66e83628796b92d",
+      "source": "Warehousing and secure open-yard storage",
+      "translation": "गोदाम और सुरक्षित खुले यार्ड में भंडारण",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.44da721bd3d91588",
+      "sourceHash": "a07ae4b1f70064b97a00c3168764fe8ade905e39593de00493ced2f541a18105",
+      "source": "Bagging, stuffing and de-stuffing operations",
+      "translation": "बैगिंग, कंटेनर भरने और खाली करने का संचालन",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.bd0a78f861dd06a0",
+      "sourceHash": "848ec0e752b11f424662e20f6c3fb873b811f9e1ac2838e9f2a51009c1e265e8",
+      "source": "Customs clearance and compliance support",
+      "translation": "सीमा शुल्क निकासी और अनुपालन सहायता",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(4)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.fecd69f52eceeb8e",
+      "sourceHash": "89f443760a01fe6f36db33be25d9f92cbf3303566518b1db86d4cc8ce6c7aa38",
+      "source": "Road and rail transportation",
+      "translation": "सड़क और रेल परिवहन",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.94ab47505116e270",
+      "sourceHash": "b61a0b3c3388bc0fb40f4e35b7e516461617d322a336425ab80e7104d7db2b22",
+      "source": "Bulk, break-bulk and containerized cargo (stuffing & de-stuffing)",
+      "translation": "थोक, ब्रेक-बल्क और कंटेनरीकृत माल (कंटेनर भरना और खाली करना)",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(6)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.8c3c456495a5f5a7",
+      "sourceHash": "48bfa476accdf796631c8221a972d868b9f37ac7d0d54853c6da9f9ea4c2bc75",
+      "source": "Sulphur, copper, lithium and other bulk & bagged products",
+      "translation": "सल्फर, तांबा, लिथियम और अन्य थोक तथा बैग में पैक उत्पाद",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(7)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.c5cea604d182481b",
+      "sourceHash": "97de2f34e73084bba085008e3b6f17586389f616f1d62b8b571b7f926012991f",
+      "source": "Cargo logistics operations supporting regional movement",
+      "translation": "क्षेत्रीय आवाजाही में सहायक कार्गो लॉजिस्टिक्स संचालन",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.77258151337a0ffa",
+      "sourceHash": "9504eba7daceba344577c90d68c2e4f78f998f0c01049b348db72438f554c496",
+      "source": "Built to Handle. Equipped to Deliver.",
+      "translation": "संभालने के लिए तैयार। डिलीवरी के लिए सुसज्जित।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.828d3af40507ba14",
+      "sourceHash": "f3cd2977af8821adcdbc0e1b99134dbd2ae5d0b7bab33eed8fd3d269d9b929bb",
+      "source": "AILL combines strategically located facilities with dedicated fleets, enabling safe, efficient management of high-volume, time-sensitive cargo operations across bulk, break-bulk and containerized cargo.",
+      "translation": "AILL रणनीतिक स्थानों पर स्थित सुविधाओं और समर्पित वाहनों को जोड़ती है, जिससे थोक, ब्रेक-बल्क और कंटेनरीकृत माल के बड़े और समय-संवेदनशील संचालन का सुरक्षित व कुशल प्रबंधन संभव होता है।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.d4128857e0fcf6c8",
+      "sourceHash": "a3a1066ec85565fac86ed19138bfb0311a291765a2c802fd02b592165acee397",
+      "source": "Sulphur Operations",
+      "translation": "सल्फर संचालन",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.02a4507dae63a6c1",
+      "sourceHash": "a6f13bb4bc467d1f985ff9684d4ef5b53fce020d1422eefc38cd244024cde367",
+      "source": "sqm warehouse",
+      "translation": "sqm गोदाम",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a8126c1b31678560",
+      "sourceHash": "6130729eee5e084904ac9de7dce4fd75803f26b39619caeb089876bffd2dfe05",
+      "source": "sqm open-yard area",
+      "translation": "sqm खुला यार्ड क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.54ac14ce7c0ab8aa",
+      "sourceHash": "38f9ab59c0f5791a086bbc77d0f6f55c5efcc1b30530f748be5ae418b4df5cfb",
+      "source": "180K → 300K",
+      "translation": "180K → 300K",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.8417169e30c2cccd",
+      "sourceHash": "59d03b1fe9bc0059e705310e5c723ad994a3d5c27dde8bdd37839a337d709401",
+      "source": "MT storage · current → planned",
+      "translation": "MT भंडारण · वर्तमान → नियोजित",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.1f693c099e250639",
+      "sourceHash": "0b0fa0b2280a09639e2059e56c8fa9328f4d76ab48e081dfdc80da7f0984f94e",
+      "source": "#1",
+      "translation": "#1",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.324c6df7fb058cdd",
+      "sourceHash": "11314318195f7161db64523d1c2445ef64a470b1a1a2c93e7621ccc70775aa1a",
+      "source": "Bulk sulphur handling at Dar es Salaam Port",
+      "translation": "दार एस सलाम बंदरगाह पर थोक सल्फर संचालन",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.e9c14ff767df76cf",
+      "sourceHash": "54d755adba136d573d1d683c8529effaeb079c05d45019230a0dc3dc97728f19",
+      "source": "Copper Operations",
+      "translation": "तांबा संचालन",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.355ec73c1d9c53b1",
+      "sourceHash": "8380d93610676ed5a21a354af1c120910f35bcf1e4b4be99e13f6d99ff89e7a0",
+      "source": "Dedicated warehouses",
+      "translation": "समर्पित गोदाम",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.bacc18be71cec783",
+      "sourceHash": "fdcfa6b3c109a0e4a22499cfc23792a52ee7ebfb7c332dc3c3178e9e60c5b4b9",
+      "source": "sqm combined capacity",
+      "translation": "sqm संयुक्त क्षमता",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.f84fd38d5b23ecfb",
+      "sourceHash": "6130729eee5e084904ac9de7dce4fd75803f26b39619caeb089876bffd2dfe05",
+      "source": "sqm open-yard area",
+      "translation": "sqm खुला यार्ड क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.e8ac13471d3bf987",
+      "sourceHash": "719f35779f460e0c5b35d3fea288d15240fd0c0d53e9e65ae04ea3c409f8dbdf",
+      "source": "150K → 230K",
+      "translation": "150K → 230K",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.173c46ade0eddfdb",
+      "sourceHash": "59d03b1fe9bc0059e705310e5c723ad994a3d5c27dde8bdd37839a337d709401",
+      "source": "MT storage · current → planned",
+      "translation": "MT भंडारण · वर्तमान → नियोजित",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.2c62497c894c3f06",
+      "sourceHash": "4c874e47290fdd0d6dff8aea4223e71d7dab827fc767bd4b4b1cdbf15b13d2bd",
+      "source": "Planned Expansion",
+      "translation": "नियोजित विस्तार",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.5dff18a9b5acec37",
+      "sourceHash": "ac22e40fded495c6c2364052f3a79b5841587fcf5855c426f1dc6240bd65f1d4",
+      "source": "A new 22,000 sqm multi-purpose warehouse is scheduled to support Sulphur, Copper and other minerals, increasing capacity and operational flexibility.",
+      "translation": "सल्फर, तांबा और अन्य खनिजों के लिए 22,000 sqm का नया बहुउद्देशीय गोदाम प्रस्तावित है, जिससे क्षमता और परिचालन लचीलापन बढ़ेगा।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.530bf62513f554fa",
+      "sourceHash": "dc5ac1163d9f43958c5bf029ab65bc8f8971b4aa67a75bd0c0e5919c4835a488",
+      "source": "Operating Footprint",
+      "translation": "परिचालन विस्तार",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.676137e22cc4d594",
+      "sourceHash": "aa6132820e3fcd041c312bec69bac593b4f3a069e6d141f424938a92ca226c5f",
+      "source": "201,000 → 331,000",
+      "translation": "201,000 → 331,000",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.676137e22cc4d594.2",
+      "sourceHash": "e2ade56f4a5dc45dd1a6de34a0f6b2670462a838a219fba5c2d6d4e87078e150",
+      "source": "sqm",
+      "translation": "sqm",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.0f1f8a8017122328",
+      "sourceHash": "b6c2f0bc0e009b8a65a01bd21746276100eab5ff080390a72dec4530d81365a6",
+      "source": "Current → planned total by end of 2026",
+      "translation": "वर्तमान → 2026 के अंत तक नियोजित कुल",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.6e0afb116d5a4c26",
+      "sourceHash": "246cddc331f400bce596a7c060fb288ae30d56521e9a5c866a40354c1d132c25",
+      "source": "Combined Growth",
+      "translation": "संयुक्त वृद्धि",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.45d4dab18dd63099",
+      "sourceHash": "e2ade56f4a5dc45dd1a6de34a0f6b2670462a838a219fba5c2d6d4e87078e150",
+      "source": "sqm",
+      "translation": "sqm",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.7f5079d07ee0b334",
+      "sourceHash": "15a8ebac7dc14b046bdfa15a9d73f70e7ae9a8b4de484c0a90e0cfccde368ec0",
+      "source": "Potential AILL + AFICD development footprint",
+      "translation": "AILL + AFICD का संभावित विकास क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.9c9fd9bfab9a2f47",
+      "sourceHash": "719354b42f07f9504df39a170b9ef72782c41a1247e432481698e44a54c59099",
+      "source": "Strategic Land Footprint & Future Growth",
+      "translation": "रणनीतिक भूमि विस्तार और भविष्य की वृद्धि",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.6ae750813441b805",
+      "sourceHash": "8ebbb707c44211d813584b3f21058ec9c04f1ea1b3eeb3fff2a38fca67079a34",
+      "source": "Potential Development Footprint",
+      "translation": "संभावित विकास क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.6db18d91bed6abe8",
+      "sourceHash": "dee96d62fe9464e4536bc93e634e3e0d82b3d76b8fe75f21b0f383530c79d418",
+      "source": "AILL has the potential to develop up to 200,000 sqm to support growing demand for bulk cargo handling, warehousing, storage, distribution and integrated logistics solutions.",
+      "translation": "AILL के पास थोक माल संचालन, गोदाम, भंडारण, वितरण और एकीकृत लॉजिस्टिक्स समाधानों की बढ़ती मांग को पूरा करने के लिए 200,000 sqm तक विकसित करने की क्षमता है।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.99879b989172a52e",
+      "sourceHash": "be03eb3902bd5f82459f19b5777c7c5ce9c99310c93c19850f1b51a8badbd981",
+      "source": "Combined AILL + AFICD Footprint",
+      "translation": "AILL + AFICD का संयुक्त क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.9e51059b036f8211",
+      "sourceHash": "ea4e1a32454c3b8563775a3baa211264f90bde842dc45de01d327d422eb2e5f5",
+      "source": "Together with AFICD, the two businesses represent a potential development footprint of up to 400,000 sqm, providing a strong platform for long-term growth and scalable infrastructure.",
+      "translation": "AFICD के साथ, दोनों व्यवसायों के पास 400,000 sqm तक का संभावित विकास क्षेत्र है, जो दीर्घकालिक वृद्धि और विस्तार योग्य बुनियादी ढाँचे के लिए मजबूत आधार प्रदान करता है।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.5d15873cc5483e58",
+      "sourceHash": "b2cd51040a4bc38346e774901cc025a0743f6561787a3e4f0ef11c988aecb790",
+      "source": "Bulk Cargo Handling",
+      "translation": "थोक माल संचालन",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a9c91ae18c33026a",
+      "sourceHash": "487e43c89d534e0302e811d878f23dd7899b717cae5bb5fab6614975b6b72fee",
+      "source": "Warehousing",
+      "translation": "गोदाम भंडारण",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.68c502a3c68ec4d4",
+      "sourceHash": "a69c4dece144a46e40d430726395533d8f335a7d601d8ca292220b3a4a7faca4",
+      "source": "Storage",
+      "translation": "भंडारण",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > span:nth-of-type(3)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a721a5063efd76b6",
+      "sourceHash": "72a23e549d099bbd49b9266bb96afba35da89e5a93a91b056a61c9326c16266f",
+      "source": "Distribution",
+      "translation": "वितरण",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > span:nth-of-type(4)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.5850b8d3e9842e7b",
+      "sourceHash": "8878f3d25abd319455e6c35a7d75a603eac0290bd4b089ccb2850488d1dbe3e4",
+      "source": "Integrated Logistics",
+      "translation": "एकीकृत लॉजिस्टिक्स",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > span:nth-of-type(5)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.31ed8e168af08c30",
+      "sourceHash": "7e8f737205f77c7922c0ebba49d9ff0eba524019f10b2247882e627d19f9aa97",
+      "source": "Bulk Receiving",
+      "translation": "थोक माल प्राप्ति",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.0ad409a061cc1430",
+      "sourceHash": "d6cfc4812434ce6585bf6c3fc95041e3ca21424a7c08b816c370c0d0b60b43fd",
+      "source": "Bagging",
+      "translation": "बैगिंग",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.56381e59118e418a",
+      "sourceHash": "8b70b0a199f14783a87046982317886be90af9be90341a1cc4bf34947750311e",
+      "source": "Stacking & Storage",
+      "translation": "स्टैकिंग और भंडारण",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(3)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a45833cc6f295ecc",
+      "sourceHash": "52bfe584a5fc450539e2aa651b990fa2415060492a243816ab2994292089c6fd",
+      "source": "Delivery",
+      "translation": "डिलीवरी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(4)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.4ee67452f72b2478",
+      "sourceHash": "8016b28d49a1951914c830e8d0ef7fc143f5566f5c18a1ab9fef37c2c9904d34",
+      "source": "Customs Clearance",
+      "translation": "सीमा शुल्क निकासी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(5)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.f91f4d5264b3b097",
+      "sourceHash": "c35cb7bfc81f777fe1d0b8ead5b5c8ce5bd21650c14898448573ee52d044a6e9",
+      "source": "Rail Logistics",
+      "translation": "रेल लॉजिस्टिक्स",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(6)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.f0028f403cbd2c35",
+      "sourceHash": "5a654a2bdf6465131f78a65bb16816071bf68a70961cb8de0a175f41f54f85bf",
+      "source": "One Partner Across the Entire Cargo Journey",
+      "translation": "पूरी कार्गो यात्रा में एक भागीदार",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.ba61caae280860d5",
+      "sourceHash": "69477fe7832573343c7c812b0e2654aa439bfe00cc33fc5573c80c05675195dd",
+      "source": "Port Handling",
+      "translation": "बंदरगाह संचालन",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.5fb464be610f410e",
+      "sourceHash": "be9d5d1e7a1cd55e1c837b4a0493ccd5d563ab77515d4bb26fc1ac40f12dc9e0",
+      "source": "Import and export coordination between vessel operations, inland terminals and onward transport.",
+      "translation": "जहाज़ संचालन, अंतर्देशीय टर्मिनलों और आगे के परिवहन के बीच आयात-निर्यात समन्वय।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.55e14b436eba31e8",
+      "sourceHash": "b2cd51040a4bc38346e774901cc025a0743f6561787a3e4f0ef11c988aecb790",
+      "source": "Bulk Cargo Handling",
+      "translation": "थोक माल संचालन",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.497ef405df228ff8",
+      "sourceHash": "dc2ac6fea516773fda19b8390c0b571aa2c706d07bd817f7ddba2524d19a9aeb",
+      "source": "High-volume handling of Sulphur, copper and break-bulk cargo with dedicated equipment and experienced teams.",
+      "translation": "समर्पित उपकरणों और अनुभवी टीमों के साथ सल्फर, तांबे और ब्रेक-बल्क माल का बड़े पैमाने पर संचालन।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.7d2c68043dfcb616",
+      "sourceHash": "778daea78449ee554f7c43a9d512c63e7f3f7752b5411875bc37d21e37d69fd9",
+      "source": "Warehousing & Storage",
+      "translation": "गोदाम और भंडारण",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.d8caedd12fd32849",
+      "sourceHash": "41a0f63e182954ee393f27a70288ccc1f023ec4d0cc71f3b930977dec1fca2c9",
+      "source": "Secure warehouse and open-yard solutions for bulk, break-bulk and containerized cargo.",
+      "translation": "थोक, ब्रेक-बल्क और कंटेनरीकृत माल के लिए सुरक्षित गोदाम और खुले यार्ड समाधान।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.f8075a0afeef7fb1",
+      "sourceHash": "06a4307b81dff9bfa1f90c566760c1f511480aa2183c7441e06a2e0c845bb8b4",
+      "source": "Bagging & Stuffing",
+      "translation": "बैगिंग और कंटेनर भरना",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.e2837ffecacc3ff2",
+      "sourceHash": "02fbd09578c4fe4190f29cfc505de301492db5ddf877c92d8fa1c8cf9f1d7c44",
+      "source": "Bulk-to-bag conversion, stuffing, segregation, loading, verification and dispatch preparation.",
+      "translation": "थोक माल को बैग में बदलना, कंटेनर भरना, अलग करना, लोडिंग, सत्यापन और डिस्पैच की तैयारी।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.abc0bf1b2f0cabbe",
+      "sourceHash": "e5ffd6e65424dd6439e5ef2c7e4ddcbc1ed610c242fb0c1cd9da85cd382c22f4",
+      "source": "Transportation",
+      "translation": "परिवहन",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.6d8879587515a944",
+      "sourceHash": "c55fd0d16ad37228b637906d6d67fe6559dd5228882a0e73ea30e82c003e70cb",
+      "source": "Road and rail cargo movement between port, facilities, destinations and regional borders.",
+      "translation": "बंदरगाह, सुविधाओं, गंतव्यों और क्षेत्रीय सीमाओं के बीच सड़क और रेल द्वारा माल परिवहन।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.accbb1cfad1c01db",
+      "sourceHash": "a69d67f11708e386d86a35ad50b3e90f72ad56678a68161ccece69cac5bf76ce",
+      "source": "Customs & Compliance",
+      "translation": "सीमा शुल्क और अनुपालन",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(6) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.037a886d42428ff9",
+      "sourceHash": "54305d22db54b5ce0a6af1fb67703df8e339b846a126ed01333b32dc16b0fdcb",
+      "source": "Documentation, clearance, verification coordination and border requirements for imports and exports.",
+      "translation": "आयात और निर्यात के लिए दस्तावेज़, निकासी, सत्यापन समन्वय और सीमा संबंधी आवश्यकताएँ।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(6) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.11a04f143e6e9d38",
+      "sourceHash": "b4b8d5922dcfbcc46a18262625439d10b5dcc46a6c3a0c5d18fd3dcd9148643d",
+      "source": "Sulphur & Copper — End-to-End Solutions",
+      "translation": "सल्फर और तांबा — आरंभ से अंत तक समाधान",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.7cb11b4182592ba7",
+      "sourceHash": "83ff9e5b8ef18455352c33f7d9788d30de9d69d7485b8f8bda84528e62ea24d7",
+      "source": "AILL provides integrated logistics solutions for both Sulphur and Copper cargo, covering the complete cycle from vessel discharge through storage, processing and final delivery.",
+      "translation": "AILL सल्फर और तांबे के माल के लिए एकीकृत लॉजिस्टिक्स समाधान देती है, जो जहाज़ से उतारने से लेकर भंडारण, प्रसंस्करण और अंतिम डिलीवरी तक पूरे चक्र को कवर करते हैं।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.ad9cefba67e80dc8",
+      "sourceHash": "67373db93ed2248305de38e83ab39aaf7ad7b44f26522058f00d2bf5053af2f9",
+      "source": "Sulphur Logistics",
+      "translation": "सल्फर लॉजिस्टिक्स",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.d9a04462c08ce809",
+      "sourceHash": "70d747e7d7c35043ef6e4e9c7ae02a2907436530efe0c7ee104aa29e85e80955",
+      "source": "Integrated import cycle from vessel discharge through transport, storage, bagging, customs clearance and border delivery.",
+      "translation": "जहाज़ से माल उतारने से लेकर परिवहन, भंडारण, बैगिंग, सीमा शुल्क निकासी और सीमा पर डिलीवरी तक एकीकृत आयात चक्र।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.0353cc4396a28341",
+      "sourceHash": "271742ecd0c40a0293fd787a787fa792a8c2055766fbca57078453b7a13b2872",
+      "source": "Full vessels independently handled",
+      "translation": "स्वतंत्र रूप से संभाले गए पूरे जहाज़",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.c19cb61532b9d6a1",
+      "sourceHash": "1cc98214c56ff59b047754ffc8282b0855e40717f42dd4021268778bbba55160",
+      "source": "MT discharged in a peak month",
+      "translation": "चरम माह में उतारे गए मीट्रिक टन",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.4d6529a5e804a39f",
+      "sourceHash": "d26bf79d96b26afcd51f8e0341e385163f583e57ddcbc3252e121bcba44214eb",
+      "source": "MT storage capacity",
+      "translation": "मीट्रिक टन में भंडारण क्षमता",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.8dbf3663abbedf35",
+      "sourceHash": "4dc94fd24e3dbbceb05ae6b0728fa033ed8d21b565ce3a769270eaa14327b2ee",
+      "source": "Reported market share",
+      "translation": "रिपोर्ट की गई बाज़ार हिस्सेदारी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.89095562c66ab85e",
+      "sourceHash": "72e9a59f5a1d6289dbacb35df897d6c007c55a27e77018455c37e7b372668475",
+      "source": "Port",
+      "translation": "बंदरगाह",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.55fa1655cfaf2c28",
+      "sourceHash": "aaead4abf5d0fd5ecc08d1dcb7effadfc4b65034aa0f3f80edb8bb3932411637",
+      "source": "Transport",
+      "translation": "परिवहन",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(3)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.00f06d829c454564",
+      "sourceHash": "ee7da936b5cb293e9ae2fa0982bc5fcd4bdb11f4e7233bfdd81c1446010b4478",
+      "source": "Store",
+      "translation": "भंडारण",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(5)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.f6e10e62866e406a",
+      "sourceHash": "b053c961f2acb0b9754c29a8f3131f728765de82c55818b3794a5c266e4e2bc8",
+      "source": "Bag",
+      "translation": "बैग में भरें",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(7)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.75f5e3061fb71f05",
+      "sourceHash": "83b12c2216efb4fdc924e1deb5182e905e4926ed0c1c324d467107f46d5a26a9",
+      "source": "Clear",
+      "translation": "सीमा शुल्क निकासी करें",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(9)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.2542142217eadae9",
+      "sourceHash": "a62b8fdf7f62ef72c0ba7ba2e8625c031cd13e868c4989b119d9a5f44e46550b",
+      "source": "Deliver",
+      "translation": "पहुंचाएँ",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(11)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.5e37c7f705190b02",
+      "sourceHash": "c90cac2fb0454be8d03cd0d74003d045ccdf0d5b5a3271d4fe8b54a41181fb9f",
+      "source": "Copper Logistics",
+      "translation": "तांबा लॉजिस्टिक्स",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.9c78fc6b752fec1d",
+      "sourceHash": "7c618e12e60572f4cf459872b7c2b4e0b27d868302348a126b9781136ef48b6d",
+      "source": "Integrated export cycle from cargo receipt through secure storage, segregation, customs, verification and port delivery.",
+      "translation": "माल प्राप्ति से सुरक्षित भंडारण, पृथक्करण, कस्टम, सत्यापन और बंदरगाह डिलीवरी तक एकीकृत निर्यात चक्र।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.37cc0df7baed13bd",
+      "sourceHash": "db0f88c5c54c9b17c5da25fdcbc018c5e25a7ccf9a95bbe1018f54d0bdde2b19",
+      "source": "3M+",
+      "translation": "3M+",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-brand-language-name-copyright-or-figure"
+    },
+    {
+      "id": "auto.dc139b0f94d6b884",
+      "sourceHash": "1b0242ea6d569864455f49baa43cd9320cda29f32aadd17d03a933ab2d37d817",
+      "source": "MT copper cargo handled",
+      "translation": "处理的铜货物公吨数",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.c4ae67eb4228bd57",
+      "sourceHash": "704ee26480c00ae709ea3db9e645767e11bfce9005e23e0460278e0ab49b6be1",
+      "source": "MT peak monthly volume",
+      "translation": "अधिकतम मासिक मात्रा, मीट्रिक टन में",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.dd80014aab51d85c",
+      "sourceHash": "d26bf79d96b26afcd51f8e0341e385163f583e57ddcbc3252e121bcba44214eb",
+      "source": "MT storage capacity",
+      "translation": "मीट्रिक टन में भंडारण क्षमता",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.9be8b446d09a0d53",
+      "sourceHash": "4dc94fd24e3dbbceb05ae6b0728fa033ed8d21b565ce3a769270eaa14327b2ee",
+      "source": "Reported market share",
+      "translation": "रिपोर्ट की गई बाज़ार हिस्सेदारी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.13e1f5c235f13522",
+      "sourceHash": "bac9d15ad9f1ca0c964e670b53bc837493e92addaface934a63b00e54bba0bde",
+      "source": "Receive",
+      "translation": "प्राप्त करें",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.54be6d86064c3b24",
+      "sourceHash": "ee7da936b5cb293e9ae2fa0982bc5fcd4bdb11f4e7233bfdd81c1446010b4478",
+      "source": "Store",
+      "translation": "भंडारण",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(3)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.46d8d36dc6f4fca9",
+      "sourceHash": "7a5c83aef344151a11e37904b9b255849948534ced6ce91575d0c999f014471d",
+      "source": "Segregate",
+      "translation": "अलग करें",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(5)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.db113f140bd82783",
+      "sourceHash": "83b12c2216efb4fdc924e1deb5182e905e4926ed0c1c324d467107f46d5a26a9",
+      "source": "Clear",
+      "translation": "सीमा शुल्क निकासी करें",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(7)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.02fde0f74a18558c",
+      "sourceHash": "a01be2e69e3d32a1374d59b5f3e23b2fccd1c8169da998ae303012c67489e9e2",
+      "source": "Stuff",
+      "translation": "कंटेनर भरें",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(9)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.5e7bd319c45ebe25",
+      "sourceHash": "72e9a59f5a1d6289dbacb35df897d6c007c55a27e77018455c37e7b372668475",
+      "source": "Port",
+      "translation": "बंदरगाह",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(11)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.b7e9c40827ffdb9c",
+      "sourceHash": "c7b9c1a9c13791cf9c5b44679877ae385ecb6c5fbcbd6c2eff8b08d49b07d7c4",
+      "source": "Let's Move Your Cargo",
+      "translation": "आइए, आपका माल आगे बढ़ाएँ",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.387b4425066ce4fc",
+      "sourceHash": "b90e5e934d74d16515994a8b10a3c1ea4aa77a26876ce93f9df0a08aac7a90d5",
+      "source": "One Partner. Every Stage of the Journey. From vessel to warehouse. From port to border. From Tanzania to the region.",
+      "translation": "एक भागीदार। यात्रा का हर चरण। जहाज़ से गोदाम तक। बंदरगाह से सीमा तक। तंज़ानिया से पूरे क्षेत्र तक।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.db69f3e544c34a8d",
+      "sourceHash": "2ae3b0f09a5f3128c5ee75106f5b63a80d8ac08b48fd2d984daaa7dc331e9a99",
+      "source": "Contact Our Logistics Team",
+      "translation": "हमारी लॉजिस्टिक्स टीम से संपर्क करें",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a835e726e8e1fc9e",
+      "sourceHash": "69518e684f065f0c39a26d5f18ae2a775ffffd4e390cc3d73afeac2fb50992a7",
+      "source": "Type a message...",
+      "translation": "संदेश लिखें...",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > input:nth-of-type(1)",
+      "attribute": "placeholder",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.3667b7ba27772a76",
+      "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
+      "source": "Chat",
+      "translation": "चैट",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.609f1c65518184e1",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "तंज़ानिया",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.ff6465f7687536ae",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "तंज़ानिया का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.44f7c04fed192993",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "केन्या",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.09ff8a5a2ee4c420",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "केन्या का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.33329f4487e470fe",
+      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
+      "source": "Zambia",
+      "translation": "ज़ाम्बिया",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.24a33973980e62a3",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "ज़ाम्बिया का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.d4d39c22e7ef63cc",
+      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
+      "source": "Rwanda",
+      "translation": "रवांडा",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.621eea40e2c554c1",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "रवांडा का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.f7f0eaa3513fdc8a",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "बुरुंडी",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.2616fd6fe20463fc",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "बुरुंडी का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.83636317c494bba8",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "कांगो लोकतांत्रिक गणराज्य",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.5b824cb4ffa8ca2b",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "कांगो लोकतांत्रिक गणराज्य का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.99c0809fa44ea8d3",
+      "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
+      "source": "Ethiopia",
+      "translation": "इथियोपिया",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.65daf59bb6094bf2",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "इथियोपिया का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.13245db90bb57b4e",
+      "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
+      "source": "Mozambique",
+      "translation": "मोज़ाम्बिक",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.58e0e20a740bd56f",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "मोज़ाम्बिक का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.415541e77c56e70d",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "युगांडा",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.cdad25c9f95c3009",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "युगांडा का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.e1ed14b1ef7cf093",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "संयुक्त अरब अमीरात का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.1216c92c42dccf23",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    }
+  ],
+  "sourceManifestDigest": "60675f76844f3800729cf1ef938b65c6ddcb2e7351b7ee2b74eb4da0f9f40714",
+  "sourceManifestGeneratedAt": "2026-10-15T12:12:03.389Z",
+  "authoringMethod": "AI-authored initial inland logistics page translations with exact-source dictionary/draft reuse; human review pending",
+  "reviewEvidence": null,
+  "releaseEligible": false,
+  "candidateCount": 159,
+  "translatedCount": 159,
+  "validation": "Source ids and hashes preserved; number tokens checked; editorial review pending"
+}

@@ -10,7 +10,7 @@
   "reviewEvidence": null,
   "releaseEligible": false,
   "candidateCount": 203,
-  "translatedCount": 25,
+  "translatedCount": 115,
   "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
   "translations": [
     {
@@ -262,6 +262,1786 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary:africa_network.38"
+    },
+    {
+      "id": "auto.0deac45a8a8c2597",
+      "sourceHash": "4cf7bdd95944e34b6e76a15297a4538a94c294dedfe876c0ba857fb9c9864466",
+      "source": "Lake Group financial dashboard . revenue metrics, growth trajectory, sector breakdown, and key investments across East Africa's leading conglomerate.",
+      "translation": "Panel financiero de Lake Group: ingresos, trayectoria de crecimiento, distribución por sectores e inversiones clave del principal conglomerado de África Oriental.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(4)",
+      "attribute": "content",
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.bc61427bd9fb2d58.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.3448b72fec8a46af",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.d1b31a2b17e578d2.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "NexDrive Motors",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.6a9c5d9da277b8d1",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "Nuestra Historia",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.72aa25bccd585e6c",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "Idioma: inglés",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.9727781cca40248f",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "Inglés",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source-draft"
+    },
+    {
+      "id": "auto.ab224e006b6394ca",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "Cerrar menú",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.d662b2a6fbca8536.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.2dc52c28816ec6df",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.4e3f4aa1eb82e6a5",
+      "sourceHash": "a034729933d1cbf407645e11d9c91d9ac1bfddbef23fd58cb36782e3f60ae659",
+      "source": "Corporate",
+      "translation": "Corporativo",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.3285b4c4310813ab",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "Nuestra Historia",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.79557b35b61b8183.2",
+      "sourceHash": "98b67063cf8e584d75e53b88472ee85473e01e0ea16f29ece9cc98f4a2710494",
+      "source": "Contact Us",
+      "translation": "Contacta con nosotros",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(5)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.f7f1d45d15cc9be9",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "Inglés",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source-draft"
+    },
+    {
+      "id": "auto.0b780459ec085885",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "Inglés",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source-draft"
+    },
+    {
+      "id": "auto.0b780459ec085885.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.0b780459ec085885.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.0b780459ec085885.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.0b780459ec085885.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.0b780459ec085885.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.0b780459ec085885.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.0b780459ec085885.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.4a63693894b91606",
+      "sourceHash": "aa30cd8554217087d7b05c88a505ba78f5f00efb5b034dc6ed9be11bec21ecb1",
+      "source": "Financial Dashboard",
+      "translation": "Panel financiero",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > header:nth-of-type(1) > h1:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.9d0bcbdd5d9a4340",
+      "sourceHash": "cbb6305788e89f410bc8e2ce0a66bfdb3408c153924f7af5c5008b818fa14f10",
+      "source": "Key metrics, growth trajectory, and investments across East & Central Africa's leading diversified conglomerate",
+      "translation": "Indicadores clave, trayectoria de crecimiento e inversiones del principal conglomerado diversificado de África Oriental y Central.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > header:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.2b6e226006ae08c5",
+      "sourceHash": "244af232c4769e3a0592b0e804dddd4846b346716814eefca097e4074b35d676",
+      "source": "Trajectory",
+      "translation": "Trayectoria",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.61aa0b61af0ed725",
+      "sourceHash": "2e7d82c440735964955799bf99584a57ee0de700d7e592177c2c28a8d20b86f2",
+      "source": "Revenue & Scale Evolution",
+      "translation": "Evolución de ingresos y escala",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.2113630ed9610bf6",
+      "sourceHash": "d7f9dd40d3a3c38ad43a0a5190f07f6c33bb3c8964786059b1363ee6875dd04c",
+      "source": "$1B",
+      "translation": "$1B",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.d7eb1f6630047f56",
+      "sourceHash": "47086be4b4e4e8b2fc5fc0282ba39aab79e902478fdbccbc0281404d54875113",
+      "source": "Forbes report",
+      "translation": "Informe de Forbes",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.7b4eef953ade9e74",
+      "sourceHash": "5d64e9c32ceff735df06f48642e6ba01b9cd094ff42a8a13a484a69bdb31f6d3",
+      "source": "Est. growth",
+      "translation": "Crecimiento estimado",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.686fd2a1c1b7ea9d",
+      "sourceHash": "70f51214079655c7f386f7ce5437f2f11f352c7ce1311a451f815469176ae0ea",
+      "source": "Diversification",
+      "translation": "Diversificación",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.3b1ad93958c5a99b",
+      "sourceHash": "3179a80f1ff31dd9e169490ccac428de7ba356bca79507570a826951d47e436b",
+      "source": "Expanding",
+      "translation": "En expansión",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.e0679bc9d038b3b4",
+      "sourceHash": "a843a2424dab3de8b8b8ff35461abaf33127ace6d2dd7eadf2b09e8c3b543373",
+      "source": "Steel, LPG, Agro",
+      "translation": "Acero, GLP y agroindustria",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.fe740a8e4fc84904",
+      "sourceHash": "7114b1d38edb7457ea17f3265a00be6e762752f0f0a6293fe1729e12b7543829",
+      "source": "$60M LPG",
+      "translation": "$60M LPG",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.7ff195928c94c199",
+      "sourceHash": "e0886b1b3f623acb5c2f12a5ef3ea7e274994b09343515019d90a0dcbc9c1fa0",
+      "source": "Kenya terminal",
+      "translation": "Terminal de Kenia",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.aa41a156b4006c65",
+      "sourceHash": "72b4e44ae92824b9d2ec96f0c7ccaa199960500e926ea686b5349c306f40b3b9",
+      "source": "Est. >$1B",
+      "translation": "Est. >$1B",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.2b7ee2d0b237f4ab",
+      "sourceHash": "d1e90b30baeb1ad1f8a89551710d664a5a38f2021d81d5fbecbc1a697bba95d0",
+      "source": "Current trajectory",
+      "translation": "Trayectoria actual",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.ac6bb7cbfcaf724b",
+      "sourceHash": "42f13624cc46747e9d185a6c55ecc3e34b659a1751d6a7ad8382b02c7f7363ca",
+      "source": "Key Milestones",
+      "translation": "Hitos clave",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.d87a95562e749df0",
+      "sourceHash": "df42a4d5d3537666f9ed0012c3a44999878842f8d92f2ac056e6df0ca4ac44d1",
+      "source": "Foundation",
+      "translation": "Fundación",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.6462ff69958b9d00",
+      "sourceHash": "13ce5d72db7717d57b15355d6705e85894c53a011ca10f21fedb60b18c6f0a30",
+      "source": "LPG Innovation",
+      "translation": "Innovación en GLP",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.84ba77c6f1b06fa7",
+      "sourceHash": "8fa5a1082ad83805a2650c0771ef8208ffc3edfc92e01fcd7ade93e734d21fd0",
+      "source": "Global Recognition",
+      "translation": "Reconocimiento internacional",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.1ff3e791bd35f91c",
+      "sourceHash": "857cb84b487c70fbc1805def19851cb2f62e68fed4481045277aa4f974840ded",
+      "source": "Award",
+      "translation": "Premio",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(5) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.470f22bcf263da14",
+      "sourceHash": "857cb84b487c70fbc1805def19851cb2f62e68fed4481045277aa4f974840ded",
+      "source": "Award",
+      "translation": "Premio",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(6) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.39537818efa60ec6",
+      "sourceHash": "fe7d0d7bb76a7462a29fbb1921555d33341ae8bb72f4a34bbee0aedac6ef3319",
+      "source": "Major Investment",
+      "translation": "Inversión importante",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(7) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.f64915ef2e14a23a",
+      "sourceHash": "a58da793c7250f1b3b8f8710efd7c7ee7e1a2dac4208f355dad42458a421e4ec",
+      "source": "Metrics",
+      "translation": "Métricas",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.1964f9b71ee7babc",
+      "sourceHash": "4211f2cc8e2bb21e8cdb3b02a144b829d52c0995bbacc830469707265c89df69",
+      "source": "B+",
+      "translation": "B+",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.3d9a7c620f22859b",
+      "sourceHash": "227efef3468fe13ca815dab626faeae47ae60a10528d9ae193e4ff7ea7937497",
+      "source": "MT/yr",
+      "translation": "MT/yr",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.40932fb1584ac882",
+      "sourceHash": "3ffe201a20342a4c5f1eaa13c43325221a2d52f9703bedabd926c5912f33f32b",
+      "source": "Breakdown",
+      "translation": "Desglose",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.2a79e6af99bf1841",
+      "sourceHash": "78903e6a4798273158ed5dd3e93858789b51eb01feeb8f3e0e6a3ff348e7de22",
+      "source": "Flagship",
+      "translation": "Proyecto insignia",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.ca33707ea80d596f",
+      "sourceHash": "4e8f285a3f2de063bc2e525e15c156768cc15a1202d75a2e8cbcaa95756f3dfb",
+      "source": "Lake Oil . Top 5 in TZ",
+      "translation": "Lake Oil . Entre los 5 primeros en TZ",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.e2881c436fbaf147",
+      "sourceHash": "bdf69923821ec8d46b7055cdfd50dcc71561bce0d917df9304b4b6e4934d6f6d",
+      "source": "Retail Stations",
+      "translation": "Estaciones de servicio",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.c36882fc00949815",
+      "sourceHash": "76034e42fe5382025521717025f49f472675db2e8d045aa3a9d272a0e1f098e2",
+      "source": "LPG Market",
+      "translation": "Mercado de GLP",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.47381f19763b7e77",
+      "sourceHash": "5584a549401e5abc2a42b664a6a94c9e5f881d2014131fdcef6c314c9caaa2e2",
+      "source": "~2% Kenya market share",
+      "translation": "~2% del mercado keniano",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(3) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.fd0bbe5dcf0a33ef",
+      "sourceHash": "b0688409025c38b1d9e195e189d2d2d4362eb8350a9db88e2e22853a4c319b29",
+      "source": "Key Investment",
+      "translation": "Inversión clave",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(5) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.c7bc7e79fa9c796a",
+      "sourceHash": "3ca5cfb6c094033cd0e6c1e1c7a1c1dc06ed2f9d1c4955cf2746d6544969e3ff",
+      "source": "$60M Kenya terminal (2025)",
+      "translation": "$60M Kenya terminal (2025)",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(5) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.6751355fcdc508d4",
+      "sourceHash": "48025a962bd50cece94f302ce260658076eb5eb0c13c063fe95b064b5896407f",
+      "source": "Steel Capacity",
+      "translation": "Capacidad de producción de acero",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.24421b21e09e438b",
+      "sourceHash": "0395b94495db830f9e330f936611bce84cefae7cb093ad2e7bd54e41ca792aa8",
+      "source": "100,000 MT/yr",
+      "translation": "100,000 MT/yr",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.8977e0104520ec78",
+      "sourceHash": "d40b99b69c5266b98e0592f0d5ad72aac301a47dc0e8ca1afe88eb25eb003f9d",
+      "source": "Premix/Concrete",
+      "translation": "Premezcla/hormigón",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.51763f9360cf90a9",
+      "sourceHash": "b46190b8586b49f40eda1c89e00a5081fd73f72e557043c28b5ff91480f2ff74",
+      "source": "GCCP (est. 2010) + MERM (Dubai)",
+      "translation": "GCCP (est. 2010) + MERM (Dubai)",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(2) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.5fc6564611d31a6e",
+      "sourceHash": "25a11971aa6469093dc825042986cf482d77bc40e4741cfddac5ab157e5594c7",
+      "source": "ATL Tankers",
+      "translation": "Camiones cisterna ATL",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.8cad3d86bd48cbc2",
+      "sourceHash": "8ff3dabfe45a6b3208912e572743a2362dcca4ff06cc0fa9df992457478b8cf9",
+      "source": "Aluminium tanker mfg (2019)",
+      "translation": "Fabricación de cisternas de aluminio (2019)",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(3) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.e0a15deb464b4a79",
+      "sourceHash": "03682205c3ad8cdc132fca3619a64103b15ccf77c98fe8c8143ea09b095f7c86",
+      "source": "Steel, buildings, plastics, cylinders, aggregates",
+      "translation": "Acero, edificios, plásticos, cilindros y áridos",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(4) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.ecf93b5d51dd3a9a",
+      "sourceHash": "5914dd69fdefef4fc1ccc226ecc5a9ac442cd3827c2c31ddec0daa4a7032c18f",
+      "source": "Truck Fleet",
+      "translation": "Flota de camiones",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.c96e09c7ef08628b",
+      "sourceHash": "5a60802d36a9c02c0b5dcb6b655899e2746ed26c1b047f323763f74d22ce945a",
+      "source": "1,600+ tankers",
+      "translation": "1,600+ camiones cisterna",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.2a09a30fd58a828a",
+      "sourceHash": "523487a5de21adb5301bbf09807653a537991aded9884ef99c115d906c5b8a1d",
+      "source": "Coverage",
+      "translation": "Cobertura",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.83f5f74a5fe4d78c",
+      "sourceHash": "946f105f474cd0e196313c6cf5ab1f9cb1186b778214551b353bf9491103a075",
+      "source": "7 countries",
+      "translation": "7 countries",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(2) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.607c288e3aa1399c",
+      "sourceHash": "3deae0510355bb5253e4967f6d83524390fe6749f68618edcb1ed9bb1cdb5c27",
+      "source": "Container Depots",
+      "translation": "Depósitos de contenedores",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.ae2e1b99080f94d0",
+      "sourceHash": "a567596a483910a921f2a95cb22cf2972e33ecda2e0c087169a4cb44fc2bf773",
+      "source": "AFICD: TZ, Zambia, Mozambique",
+      "translation": "AFICD: TZ, Zambia, Mozambique",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(3) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.b0f417409d2f92d4",
+      "sourceHash": "26505d287aceaf004c8ae9dfed515d986759c2ab7fb2c09c3e977194ce20584b",
+      "source": "Freight Services",
+      "translation": "Servicios de carga",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(4) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.293d0df43dc9dec3",
+      "sourceHash": "b2610daf831de940bb9ea26c203cffc5d3461d20d8a3f83ebc3297898592e395",
+      "source": "AILL container freight station",
+      "translation": "Estación de carga de contenedores AILL",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(4) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.f091623f4d4bb3c6",
+      "sourceHash": "ea26abf663a94c274e2a06590ce93aa9a752db2ec86fee23e6ede6a6585acce6",
+      "source": "Waterfront Mall",
+      "translation": "Waterfront Mall",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.6b6c2341e1c3aca9",
+      "sourceHash": "d9e22dcf84e9cdc62913914b1fe0289a1fb83f11f5909da91c20110591e2e3ac",
+      "source": "Waterfront mall, Dar es Salaam",
+      "translation": "Waterfront Mall, Dar es Salaam",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.b986e84e668ad640",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.6151b56c4085f188",
+      "sourceHash": "94dba1ec5b099e3323f18e522868cdc570991147fbb975ce6c1403edbdbff916",
+      "source": "Property development",
+      "translation": "Desarrollo inmobiliario",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.083716eda90f7239",
+      "sourceHash": "1e87edcc79410bdabc3f8dc4476c4503fff44ff4ae519024323d702d9a8ffadf",
+      "source": "17,250-acre Yala Swamp, Kenya",
+      "translation": "17,250-acre Yala Swamp, Kenya",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.d20ffad2a81646bc",
+      "sourceHash": "2af8c7724becc2d48cfae5a02839b33144990a5475e4b7fdd979634bebd0035b",
+      "source": "Agro Investment",
+      "translation": "Inversión agropecuaria",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.b2c2dcad3b199d73",
+      "sourceHash": "b28741ecc76e36c558977e95172e942c073d138100bf457ad5b996c23bc521f3",
+      "source": "Sh20B (~$13M) planned",
+      "translation": "Sh20B (~$13M) planned",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.6757b1fce76a2af6",
+      "sourceHash": "853e2f1fb9712bb95c3d17679356a1cbb2ab25569a22d030f2a4ed6bbeb88090",
+      "source": "Investments",
+      "translation": "Inversiones",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.60aca6699107c7e5",
+      "sourceHash": "fb6f7c93e6bf3dfac450d268bf57844ae92b9c93f7d027b07f715bfbc467d225",
+      "source": "Planned",
+      "translation": "Previsto",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(5) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.44a645717d06aede",
+      "sourceHash": "996bf57d15be4ec3dc244c7cfed0fd8da07e3e55fb2028c92d6905605101cf49",
+      "source": "Operational",
+      "translation": "En funcionamiento",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(5) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.0088ad9d88766452",
+      "sourceHash": "ba821bcfa53ba4183a36e4fc5fa159d36237878b8c8bae121291fc2a2c6603bc",
+      "source": "Projections",
+      "translation": "Proyecciones",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.b57755245c2f4ecc",
+      "sourceHash": "c190c79fb10fc70a089d70e9070976a598415335fba9291b2aa4a652ccee7b5e",
+      "source": "🔌 Lake Steel . Utilization & Revenue Model",
+      "translation": "🔌 Lake Steel . Modelo de utilización e ingresos",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(2) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.cdbe496a80359270",
+      "sourceHash": "89442e08cb302fed58224f695f942242c2278c44d4f09d38615de4491bb3812f",
+      "source": "100,000 MT/yr capacity × $950/MT avg rebar price. Steel EBITDA margins: 6–12% emerging market benchmark.",
+      "translation": "100,000 MT/yr capacity × $950/MT avg rebar price. Steel EBITDA margins: 6–12% emerging market benchmark.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.f202e4feac697df9",
+      "sourceHash": "db4768ce4e050ff60d0b94b7ffa5b5fd2e921f7888109aedc626f6d5b6e1aa70",
+      "source": "50% Utilization (50,000 MT)",
+      "translation": "50% Utilization (50,000 MT)",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.f202e4feac697df9.2",
+      "sourceHash": "fa4f51b2762c112b43532a6c49cfca4135f4d1eda1431772c11e0f866dc3f3cd",
+      "source": "$47.5M rev · $2.9–5.7M EBITDA",
+      "translation": "$47.5M rev · $2.9–5.7M EBITDA",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.4350a0e1447c91f3",
+      "sourceHash": "ae1f623b3e39c9cafd64c6185eec8948a33afd22de1b5800960a742efc0f8524",
+      "source": "65% Utilization (65,000 MT)",
+      "translation": "65% Utilization (65,000 MT)",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.4350a0e1447c91f3.2",
+      "sourceHash": "f4e9099c4e5b6a9bc59cbbc54cc4d6e1c050632f99dc728e7ff5a836618ab8a6",
+      "source": "$61.8M rev · $3.7–7.4M EBITDA",
+      "translation": "$61.8M rev · $3.7–7.4M EBITDA",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.8fbe7718086e78c8",
+      "sourceHash": "af376aacff801342c0d373d2152b4962653ea6f56d723d0fc18f604e156435f3",
+      "source": "80% Utilization (80,000 MT)",
+      "translation": "80% Utilization (80,000 MT)",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.8fbe7718086e78c8.2",
+      "sourceHash": "7cf63687ef2f90c47839b8d04c5c6e3f5dcbb098b47198555e86439b010d5ffe",
+      "source": "$76.0M rev · $4.6–9.1M EBITDA",
+      "translation": "$76.0M rev · $4.6–9.1M EBITDA",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.1040f4f1996db561",
+      "sourceHash": "a4af9a4926e83b681f77fcd77af509bbf55f152cdc5edef3d46dbac69f2622c4",
+      "source": "90% Utilization (90,000 MT)",
+      "translation": "90% Utilization (90,000 MT)",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.1040f4f1996db561.2",
+      "sourceHash": "4cf10d72731785448ecaf649fb384df1a4fd582261c47cabe5797572a4221c8a",
+      "source": "$85.5M rev · $5.1–10.3M EBITDA",
+      "translation": "$85.5M rev · $5.1–10.3M EBITDA",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.0109ccf437105353",
+      "sourceHash": "d073e00a9c08464b7659ae12687280261dd4b983bbfa1af52e5f3bb9b9c5f899",
+      "source": "Market: East African rebar growing at 3–5% CAGR. Lake Steel's automated mill at 25 MT/hr is regionally competitive.",
+      "translation": "Market: East African rebar growing at 3–5% CAGR. Lake Steel's automated mill at 25 MT/hr is regionally competitive.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.d9851d44f26a6200",
+      "sourceHash": "79ac33d752d6822c327923ead474b92761edf096723d066570c89f24e9d30824",
+      "source": "🔥 Lake Gas . Market Share Trajectory",
+      "translation": "🔥 Lake Gas . Trayectoria de cuota de mercado",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(3) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.2f52bd89e9471d20",
+      "sourceHash": "507385274aa6b117ddfd8cf33b1a73d0628cd4d9322bd19880500fb5c22c5380",
+      "source": "Kenya LPG market ~415K MT, growing >5%/yr. $60M terminal enables share growth. Wholesale ~$1,100/MT.",
+      "translation": "Kenya LPG market ~415K MT, growing >5%/yr. $60M terminal enables share growth. Wholesale ~$1,100/MT.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.021c2eb85a85d94f",
+      "sourceHash": "7de1afea454978101f4f98222d18ec32f7fab6a568237e5005ce5a59eef137dc",
+      "source": "2.0% share · 8,300 MT · $9.1M rev",
+      "translation": "2.0% share · 8,300 MT · $9.1M rev",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.dc1cc818623ea1ed",
+      "sourceHash": "2b82c43ccc568e4add883699381ccb7e19fe41fe505e9410d5be4388d22e6256",
+      "source": "2.5% share · 10,900 MT · $12.0M rev",
+      "translation": "2.5% share · 10,900 MT · $12.0M rev",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.91966c13675b0473",
+      "sourceHash": "4dcf037dcdbe77d2d6b340098754ec724aabd68e1c5ab67363a2c69751ecec4b",
+      "source": "3.5% share · 15,900 MT · $17.5M rev",
+      "translation": "3.5% share · 15,900 MT · $17.5M rev",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.179a4fc5f6328fc2",
+      "sourceHash": "12971d752418264c5216d80893876a1b65002107d2187a2d1477b9ed86b1451e",
+      "source": "5.0% share · 23,600 MT · $26.0M rev",
+      "translation": "5.0% share · 23,600 MT · $26.0M rev",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.b9ee074add31e970",
+      "sourceHash": "2924f60fc31614f600a5f4d055e69d137da696a9d00cc2d1c09893f2ddb117a4",
+      "source": "Regional LPG growth: 4–6% CAGR through 2035 (IEA/WLGA). Additional revenue from TZ, ZM, CD, RW, BI, UG not shown.",
+      "translation": "Regional LPG growth: 4–6% CAGR through 2035 (IEA/WLGA). Additional revenue from TZ, ZM, CD, RW, BI, UG not shown.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.d44947cecf2e505a",
+      "sourceHash": "4e77d3dbd957cc18dd89876c55609bad099afb2597668bb360f9cf2be9e57fac",
+      "source": "🚛 Lake Trans . Fleet Revenue Estimate",
+      "translation": "🚛 Lake Trans . Estimación de ingresos de la flota",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(3) > div:nth-of-type(2) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.871c071734f94e5d",
+      "sourceHash": "a654eee8f82e3d6b334eca5725502080a40a52392fb7c78d0f41137d571f3203",
+      "source": "1,600+ tanker trucks across 7-country network. Freight rates: $0.12–0.18/tonne-km.",
+      "translation": "1,600+ tanker trucks across 7-country network. Freight rates: $0.12–0.18/tonne-km.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.2970873579a82ab2",
+      "sourceHash": "657508e10877f246ba874c8c6b296b24be8839e707914284136831320d280c5a",
+      "source": "EBITDA 8–12%",
+      "translation": "EBITDA 8–12%",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.2970873579a82ab2.2",
+      "sourceHash": "77aa497a272191f1e1f2dcc4a5d4134e6bd61b0402a3a7f04746d1ee2b3c1f30",
+      "source": "$9.6M – $21.6M",
+      "translation": "$9.6M – $21.6M",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.c23d09862541c938",
+      "sourceHash": "946f105f474cd0e196313c6cf5ab1f9cb1186b778214551b353bf9491103a075",
+      "source": "7 countries",
+      "translation": "7 countries",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > span:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.c23d09862541c938.2",
+      "sourceHash": "a273d0ab7de7505da644821152fae815896576ec08ea87c2f33d366e7a368edd",
+      "source": "Cross-border operations",
+      "translation": "Operaciones transfronterizas",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > span:nth-of-type(2) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.5bb2945771006ef2",
+      "sourceHash": "fa4ef35a59bce949464b65958a6bfb892f2db1c1c32eb17dfaf3e87289a94966",
+      "source": "📊 Consolidated Group Revenue Estimate",
+      "translation": "📊 Estimación de ingresos consolidados del grupo",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(4) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.215d6541d6b5b4ef",
+      "sourceHash": "eabf8d84a290414862ae210662595da93cc7d5413adef5916aa984708333c1ff",
+      "source": "Excluding core Lake Oil petroleum distribution (reported at $1B in 2017)",
+      "translation": "Excluding core Lake Oil petroleum distribution (reported at $1B in 2017)",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.0ecc38490d116c25",
+      "sourceHash": "2010bb874c5a8516bfaf941a116c094c38938ff6e56691372e2dd49d94936db5",
+      "source": "🚚 Lake Trans:",
+      "translation": "🚚 Lake Trans:",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.f652839fa71aeced",
+      "sourceHash": "f3fae3b5d07676f738bfa319f49cf98fa977a736ead267ac0f57bc3cee1dfbf1",
+      "source": "$120–180M",
+      "translation": "$120–180M",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(1) > strong:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.c6e82d58f7d40f69",
+      "sourceHash": "f9b1948c12f6d6e68154d45259b72f026827e596743001c0d1be71cf806319b4",
+      "source": "🔌 Lake Steel:",
+      "translation": "🔌 Lake Steel:",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.950014e6bd735314",
+      "sourceHash": "1cca7be1d87594862ceb8790e5d2f06b7fc34190c41e6c9535a9af37e1437747",
+      "source": "$48–86M",
+      "translation": "$48–86M",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(2) > strong:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.734127cf46e817e3",
+      "sourceHash": "fa0b547452b236d954104dd2e0e65750fd2fb4be1024f38d2f22d8df522fcae9",
+      "source": "🔥 Lake Gas (Kenya):",
+      "translation": "🔥 Lake Gas (Kenya):",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.2e589cada1a909cd",
+      "sourceHash": "3a66112299bd68cd7414d66ff9d69f58f68867e58457495c23e3ea0084ed955d",
+      "source": "$9–26M",
+      "translation": "$9–26M",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(3) > strong:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.c78a82a126df1e94",
+      "sourceHash": "7f6a438743e76621c93d2a75f71ffeae1694e18f65904aebcd17d7b78837fc3c",
+      "source": "🏷️ Lake Premix (GCCP):",
+      "translation": "🏷️ Lake Premix (GCCP):",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.c6dafc04faad0e62",
+      "sourceHash": "d2d2a6cad8f1e5696389a208404a7967eaf767a7c10e4993b17d81d2df2fd1c1",
+      "source": "$5–15M",
+      "translation": "$5–15M",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(4) > strong:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.debc35994f9c71ca",
+      "sourceHash": "8efcf1555b9241cca2a85306abe7ddee72e326583f0f9a4785a6eaeb0dbde3e3",
+      "source": "⏸ ATL:",
+      "translation": "⏸ ATL:",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.39ce0bc0a2a047fa",
+      "sourceHash": "3858a76e04f6867058e9da47d0c2bd5d80a4bc03801470e49015970414f80822",
+      "source": "$3–8M",
+      "translation": "$3–8M",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(5) > strong:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.4fb086b11c12e891",
+      "sourceHash": "79d3585dc69202795172dd19c13c438c193a5bc666f3bb816781a4568605c30d",
+      "source": "📦 AFICD/AILL:",
+      "translation": "📦 AFICD/AILL:",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.e61938d8230710dc",
+      "sourceHash": "612721a6e04b3b88918e1993f3a2b9ad4182163b275908e8b3bc5086ea780f6e",
+      "source": "$5–12M",
+      "translation": "$5–12M",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(6) > strong:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.514f5d9f150c789f",
+      "sourceHash": "6ffd260e92100ca0de613c1f4acd0e2ad0e89347412ba07f026a4a20e29de004",
+      "source": "🌾 Lake Agro:",
+      "translation": "🌾 Lake Agro:",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.d9dd66244c0b1941",
+      "sourceHash": "83206cffe9998daae80fa0b65e028a90a243882ea3938109cc48e25f8780ab96",
+      "source": "Pre-revenue",
+      "translation": "Antes de generar ingresos",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(7) > strong:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.ad9e8e494ba86dff",
+      "sourceHash": "4e758d9975a0fcb04c9809b82cd95f12c9610be5aef0fe994004029fb600b492",
+      "source": "🏹️ Waterfront Mall:",
+      "translation": "🏹️ Waterfront Mall:",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.3c2246366fa504cf",
+      "sourceHash": "09c6ae2ec5a8c32d1e3c18e5c715c262ada76c9997c4e61bd7c7ef15d3832188",
+      "source": "2026 completion",
+      "translation": "2026 completion",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(8) > strong:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.0f0beef0f131f7a2",
+      "sourceHash": "22abc33346a79e3d4b6c0f96babc1421be8e544dec106a1a2ed8f9b702a9c51e",
+      "source": "Total group revenue well in excess of $1B as of 2026. These are indicative estimates based on operational metrics and industry benchmarks . not official company disclosures.",
+      "translation": "Total group revenue well in excess of $1B as of 2026. These are indicative estimates based on operational metrics and industry benchmarks . not official company disclosures.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(4) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.7eea52e1c01fd1f7",
+      "sourceHash": "d6b3e8c828d3742089ed59ebbfd89492ec2ce0bc89a19294cae52a6ac233b244",
+      "source": "Presence",
+      "translation": "Presencia",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.ff1e8ddfa5101289",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "Tanzania",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.62cb57d466d9b3cf",
+      "sourceHash": "887e449b386fc184c5a32cf5036ac5ebeae37f9275caf08b3d6152f307bcb684",
+      "source": "ðŸ‡¹ðŸ‡¿",
+      "translation": "ðŸ‡¹ðŸ‡¿",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.c3a86bfe9179febd",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "Kenia",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.64fa527b01541585",
+      "sourceHash": "f00b4e405abfc1ae74dea9c65fb2a3ec4ea968197d93847ade5c382eade79a4d",
+      "source": "ðŸ‡°ðŸ‡ª",
+      "translation": "ðŸ‡°ðŸ‡ª",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.9158fdfb00d24226",
+      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
+      "source": "Zambia",
+      "translation": "Zambia",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.c66fc498f3c0ac5b",
+      "sourceHash": "6dcd726a66595dc3df55f0236bc05acf37609a3709f6dd0210a757976461f98a",
+      "source": "ðŸ‡¿ðŸ‡²",
+      "translation": "ðŸ‡¿ðŸ‡²",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.a8a615fc3485270f",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "República Democrática del Congo",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.343595b045f1da30",
+      "sourceHash": "a8b78dea54efd554f4245ef2bf9203f0524953408b949f7ab4a8b02c0dd6c793",
+      "source": "ðŸ‡¨ðŸ‡©",
+      "translation": "ðŸ‡¨ðŸ‡©",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(4) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.9699e5f17de3d602",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "Burundi",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.ebd418b4abaae674",
+      "sourceHash": "add0f1129e54f47eca23f49048541451bdf189f00b0d2018ce83f38428802e9a",
+      "source": "ðŸ‡§ðŸ‡®",
+      "translation": "ðŸ‡§ðŸ‡®",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(5) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.388957308b902c63",
+      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
+      "source": "Rwanda",
+      "translation": "Ruanda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.d0dd567b91fdb850",
+      "sourceHash": "95b22e7c2ce39559329b5f233724114e73921bb038baecc12abda9ac032e6945",
+      "source": "ðŸ‡·ðŸ‡¼",
+      "translation": "ðŸ‡·ðŸ‡¼",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(6) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.6c7a433b2ccd5dcb",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "Uganda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.e118982a50528304",
+      "sourceHash": "3490c9078a0ac7dc6b3f57aa5607bb7dd8f348725903a0edf14a325a6146c0db",
+      "source": "ðŸ‡ºðŸ‡¬",
+      "translation": "ðŸ‡ºðŸ‡¬",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(7) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.4bee56ac6e8f93fb",
+      "sourceHash": "88436c1670a14a59569c879b8ff3c02af5ed94fabc3361afebfea89fe038974f",
+      "source": "ðŸ‡ªðŸ‡¹",
+      "translation": "ðŸ‡ªðŸ‡¹",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(8) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.0609a068a2c31427",
+      "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
+      "source": "Mozambique",
+      "translation": "Mozambique",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.3025f76fc9a48724",
+      "sourceHash": "dd544e96131927738ac9036eb5953ad7e5472b615b0154c4b7bf5ed4e7ad37f9",
+      "source": "ðŸ‡²ðŸ‡¿",
+      "translation": "ðŸ‡²ðŸ‡¿",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(9) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.bdf09f09fc099623",
+      "sourceHash": "0e3c43f118ae37c8359b2ae228157af641cda0076de1d7f8f6ad8a1fb4a8be2b",
+      "source": "UAE (Dubai)",
+      "translation": "UAE (Dubai)",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.d58af500d6edd256",
+      "sourceHash": "60604bdfbf7aaaf3a7c25e99fba96e3c3e0437769ebe4cad056ff7e71b24cc05",
+      "source": "ðŸ‡¦ðŸ‡ª",
+      "translation": "ðŸ‡¦ðŸ‡ª",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(10) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.a4bbc66ed573703e",
+      "sourceHash": "c92f5ee028d026f179eba47d1f5a6b78cdb7a327dbf74304a50b79197844c9d8",
+      "source": "Established operations",
+      "translation": "Operaciones establecidas",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.9441b6f8f59763eb",
+      "sourceHash": "6e8bfd41f7f9ac45eef0c161e132dad018277754e1b83b1747ca1a7b770fd6ca",
+      "source": "Trading / Emerging presence",
+      "translation": "Comercio / presencia emergente",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.4db50b93c3c2bfc7",
+      "sourceHash": "22466b5a68ad045ff73e3f9c7b0f9edd3fe66651d18efe3b7cfc943acb667093",
+      "source": "Recognition",
+      "translation": "Reconocimiento",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.d41bdc04cff7fc77",
+      "sourceHash": "8a7525b1492fb84833f5c4a69b30f4bfbb134f9b666b61a2c1872d63d234c085",
+      "source": "Notes",
+      "translation": "Notas",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.637a2c460262528e",
+      "sourceHash": "3e9dbf4341bc0ae401dfa1c51899028a8e7e8794878920f2a206337ed217c027",
+      "source": "Public Credit Rating",
+      "translation": "Calificación crediticia pública",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.fef99b6ce51a8e32",
+      "sourceHash": "e32a637ccd68b2ee01d197464c2fb22faa911a869a6dd7bc91cfcf28fc2d1d2c",
+      "source": "Not available (private company)",
+      "translation": "No disponible (empresa privada)",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.8b15e7229595aeb9",
+      "sourceHash": "e32f0b43ff54e741526243377ca358799d725be2933b6c577e5e6fd744826129",
+      "source": "Audited Financial Statements",
+      "translation": "Estados financieros auditados",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.c0037e0b22f67cd8",
+      "sourceHash": "bf70ad0cf8ec03264cb7e7be35251ff91bb8d4d4cbed9929d6504a923852dfab",
+      "source": "Not publicly disclosed",
+      "translation": "No divulgado públicamente",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.da102318053c0397",
+      "sourceHash": "dd5eb254b18b097dbfbf88cf6fad295022e517280185a8757c018416c729de69",
+      "source": "Revenue Source",
+      "translation": "Fuente de ingresos",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(2) > div:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.0c57b89ee687ef20",
+      "sourceHash": "cdd9c55cd8e32fb39a289b8a3ab6ad8bf40e798eb648635997c899a03533dbad",
+      "source": "Forbes Africa feature (May 2017)",
+      "translation": "Artículo de Forbes Africa (mayo de 2017)",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(2) > div:nth-of-type(3) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.ab42b3aa83ccefae",
+      "sourceHash": "99e88f4d452588a554de628da78c690beac691a6e1c9330f9ace97235665ace9",
+      "source": "Personal Net Worth (Ally Awadh)",
+      "translation": "Patrimonio neto personal (Ally Awadh)",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(2) > div:nth-of-type(4) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.43d4c259fad2b734",
+      "sourceHash": "eb448b8af64fd486b3e6d309bd6d47babfdab715700f8a431b4385898ae68f6c",
+      "source": "No independent verification published",
+      "translation": "No se ha publicado una verificación independiente",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(2) > div:nth-of-type(4) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.aee33e7ab2bb6cf5",
+      "sourceHash": "a863461af849c3ada879e613c342a4c5f1c3d7fde7875e7900ec884e37ac3c22",
+      "source": "Data Currency",
+      "translation": "Vigencia de los datos",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(2) > div:nth-of-type(5) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.3cdfdeb823b1b04c",
+      "sourceHash": "012fc02ad463fc1836b2f8419ed95387e523f3a311e414277ad729f59dd4859d",
+      "source": "July 2026",
+      "translation": "July 2026",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(2) > div:nth-of-type(5) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.66891f263bc3d9a4",
+      "sourceHash": "f674eb4eea1cc323432f9710d274ee4030fa85d96bd293d9af776b2aa4f3ba36",
+      "source": "lakeoilgroup.com",
+      "translation": "lakeoilgroup.com",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.f51b86aaaac04dfe",
+      "sourceHash": "bf474ea461b09825b059f8cc9ddab87e8cee7023bca13ae636ce6ee423da01f8",
+      "source": "Forbes Africa 2017",
+      "translation": "Forbes Africa 2017",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-financial-dashboard.html"
+    },
+    {
+      "id": "auto.d88f6c4894a7fe5e",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "Tanzania",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.f5ce9d096b318f06",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Bandera de Tanzania",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.99c81fead0eafc73",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "Kenia",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.49a79fba5a1c261d",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "Bandera de Kenia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.d0c29b2bb94e9313",
+      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
+      "source": "Zambia",
+      "translation": "Zambia",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.4bd89a776729c1ae",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "Bandera de Zambia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.458933ca661d31ca",
+      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
+      "source": "Rwanda",
+      "translation": "Ruanda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.213acb76b9504378",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "Bandera de Ruanda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.7aa2a0dbf49bc118",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "Burundi",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.3c2407eb96d9e65a",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "Bandera de Burundi",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.d75e4b455b4ef142",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "República Democrática del Congo",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.f92a6d097b624a2a",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "Bandera de la República Democrática del Congo",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.de9f7fee9bebb645",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "Bandera de Etiopía",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.4065d7e9680ee616",
+      "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
+      "source": "Mozambique",
+      "translation": "Mozambique",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.5dd6d22f4b492e20",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "Bandera de Mozambique",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.031e3f0e84a64284",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "Uganda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
+    },
+    {
+      "id": "auto.81e1a99132664c55",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "Bandera de Uganda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.0102bdeb153a490f",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "Bandera de los Emiratos Árabes Unidos",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.2b27be946b058982",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-financial-value-or-source"
     }
   ]
 }

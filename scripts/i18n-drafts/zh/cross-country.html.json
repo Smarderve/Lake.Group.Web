@@ -1,0 +1,1347 @@
+{
+  "schemaVersion": 1,
+  "status": "DRAFT_PENDING_HUMAN_REVIEW",
+  "locale": "zh",
+  "page": "cross-country.html",
+  "createdAt": "2026-10-15T12:29:23.361Z",
+  "translations": [
+    {
+      "id": "auto.f057d029d4e8db38",
+      "sourceHash": "729d40fb66861f1fb95b08e9a31bce5fea7e094b39ecaab896ceed436b6c5316",
+      "source": "Cross Country Developer Limited develops and manages commercial, retail, hospitality and mixed-use properties in Tanzania as part of Lake Group.",
+      "translation": "作为 Lake Group 的一部分，Cross Country Developer Limited 在坦桑尼亚开发和管理商业、零售、酒店及混合用途物业。",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.1774b6abcf486ec0",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.d2e535db302cf0c1",
+      "sourceHash": "6970059994dce7e30c88b19df4696c7234a01aca3caf2fa69322593c6a6af253",
+      "source": "Energies Sector",
+      "translation": "能源板块",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.0b8b3aa6029dc3ff",
+      "sourceHash": "a5afb4aade70f80dfcfe58c3010f00144236c6ca8129540b687e55212a3b578c",
+      "source": "Manufacturing Sector",
+      "translation": "制造板块",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.df40776b1b3c252c",
+      "sourceHash": "e7b5da31e0d3ed96a265076f35ba8a8f9efcbe2d5334e1a630a2a6e97ea0d8a9",
+      "source": "Logistics Sector",
+      "translation": "物流板块",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.fafed0051cedee8a",
+      "sourceHash": "c4555e8c89a2895e935b9299e6d4716cb0321cd039f54446c9a71fc67fc57a22",
+      "source": "Real Estate Sector",
+      "translation": "房地产板块",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.34dfb366db6e92e5",
+      "sourceHash": "7e00b18a6385c9956eed4a4293f467aa59bb8ea1ef99405ee3a8b103956ab404",
+      "source": "Agro Processing Sector",
+      "translation": "农产品加工板块",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.085404e3fff531bc",
+      "sourceHash": "c20855570f1042ee09d6d09266c094337995decf07d38fec808dcbc6774ec507",
+      "source": "Automotive Sector",
+      "translation": "汽车板块",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.a1ccde99c11713bb.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.eef60f4790960d9c",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.ba89342f70f66ba0.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "NexDrive Motors",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.0f94fb5cd128a030",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "发展历程",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.0f94fb5cd128a030.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "企业社会责任与可持续发展",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.0f94fb5cd128a030.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "图库",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.02be82c89ca204b4",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "语言：English",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.12c73279d9853575",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.c151f9325abc4533",
+      "sourceHash": "99af6606ff9d6cd5154d4d4e9c21e325086d3e904677cdb41d363c8a3480f862",
+      "source": "Menu",
+      "translation": "菜单",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.25c9144fc7f07379",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "关闭菜单",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.f3cb1cbd430b78a8",
+      "sourceHash": "3a78695388b38b5cceefaf6796b0137877514593543b91af2752d5a17e3d736c",
+      "source": "Home",
+      "translation": "首页",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.f3cb1cbd430b78a8.2",
+      "sourceHash": "4efca0d10c5feb8e9b35eb1d994f2905bb71714e6a271f511d713b539ea5faa1",
+      "source": "About",
+      "translation": "关于我们",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.41f9e97fd27b4908",
+      "sourceHash": "cf60fd65dcd0f8b69d51d6cb91fe601244ed4af363dd5f2a242787f54c16300d",
+      "source": "Business Verticals",
+      "translation": "业务板块",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.60236699f8384942.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.ff90b0172342f194",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.5f48d1f1acc39712",
+      "sourceHash": "ec75f79040af17557c450e94a4214a484350634a433592d2eb31784c5a46e865",
+      "source": "Leadership",
+      "translation": "领导团队",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.70122b0cfbb2aaa6",
+      "sourceHash": "a034729933d1cbf407645e11d9c91d9ac1bfddbef23fd58cb36782e3f60ae659",
+      "source": "Corporate",
+      "translation": "企业信息",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.c2264d9cddc92483",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "发展历程",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.c2264d9cddc92483.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "企业社会责任与可持续发展",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.c2264d9cddc92483.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "图库",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.9dae2151bfaac6d6",
+      "sourceHash": "7e658675b5ca75b3802ff34b548abe663438f113bed3acf541142b317c146e34",
+      "source": "Careers",
+      "translation": "职业发展",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(4)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.9dae2151bfaac6d6.2",
+      "sourceHash": "98b67063cf8e584d75e53b88472ee85473e01e0ea16f29ece9cc98f4a2710494",
+      "source": "Contact Us",
+      "translation": "联系我们",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(5)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.2bde3ad6a8ffc428",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.24de721a3c1f0d94",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.24de721a3c1f0d94.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.24de721a3c1f0d94.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.24de721a3c1f0d94.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.24de721a3c1f0d94.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.24de721a3c1f0d94.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.24de721a3c1f0d94.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.24de721a3c1f0d94.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.7c36c386b37ebfb9",
+      "sourceHash": "b4304366b999c9c3c71b86dc993ac82da2b5ac50fa73e03ac711ea36f3a82634",
+      "source": "Cross Country Developer Limited",
+      "translation": "Cross Country Developer Limited",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > h1:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-brand-place-name-or-language-endonym"
+    },
+    {
+      "id": "auto.41d7539e07856ba0",
+      "sourceHash": "b09e271b1a6364ed8f6c8985057d1841fb3f0939cc8f0693ebf9f44e5232cfef",
+      "source": "Lake Group's real estate development company, established in 2021 to develop and manage commercial, retail, hospitality and mixed-use properties across Tanzania.",
+      "translation": "Lake Group 的房地产开发公司，成立于 2021 年，负责在坦桑尼亚各地开发和管理商业、零售、酒店及混合用途物业。",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.14920fc30fea8a94",
+      "sourceHash": "2e27db53b29e027b6806779d7d7d5973be3fafa0e29df56f8fb9845b865f4f15",
+      "source": "Commercial properties, thoughtfully developed.",
+      "translation": "精心开发的商业物业。",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.026a9a541f9b1f5d",
+      "sourceHash": "432ab41afcbf000379e179239ba312536c8a675aafa6ce46bd7a16698af1c945",
+      "source": "Cross Country Developer Limited is a real estate development company operating under The Lake Group, established in 2021 with a focus on developing and managing commercial, retail, hospitality and mixed-use properties.",
+      "translation": "Cross Country Developer Limited 是一家隶属于 The Lake Group 的房地产开发公司，成立于 2021 年，专注于开发和管理商业、零售、酒店及混合用途物业。",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.2f9c32dc0c8931e7",
+      "sourceHash": "75ce2cef3723dedf7d9be9f50b9004d9f43b6c244647b9f701052236c4d2775f",
+      "source": "The company has undertaken development across prime Dar es Salaam locations and operates under Lake Group.",
+      "translation": "该公司在达累斯萨拉姆的优质地段开展开发项目，并隶属于 Lake Group。",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.e084e837aa3fa1d1",
+      "sourceHash": "49b10542d07a4a5fc4a495c66736446ace017f1106cd5f1485a683dce6e201ee",
+      "source": "Commercial, retail, hospitality and mixed-use property development",
+      "translation": "商业、零售、酒店及混合用途物业开发",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.ab8a11fa6ab34ffa",
+      "sourceHash": "9ec9fe0cb6630200d2e30fa418d542a3d70a24cf4fbe9ea94f4a3706be791d14",
+      "source": "Strategic developments across Lake Avenue, Kingsway, Waterfront Mall and UN Road",
+      "translation": "Lake Avenue、Kingsway、Waterfront Mall 和 UN Road 的战略开发项目",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.db5bda9fb6c9488b",
+      "sourceHash": "dab36231004202149bef3535bdd91b2c25196a1b3d0382f1b6a44afe4cd2204c",
+      "source": "Cross Country development overview",
+      "translation": "Cross Country 开发概况",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > figure:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.02b3a0b286d5afd6",
+      "sourceHash": "837bc07bf84b88a8bf41b07a9697f62169dc1a6ff7126b0b80e4e6797d0209c3",
+      "source": "Company Snapshot",
+      "translation": "公司概况",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.13f5f3e578060310",
+      "sourceHash": "4932324d5942c0bb64fbbe0c45283eb493c1cc27b1e65d4595d6da5f2c16e234",
+      "source": "Established",
+      "translation": "成立时间",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.82591a319c8cd514",
+      "sourceHash": "31a231c06e6dd0d89fa2c8ae81e1b7c735b750470519d09fa6d0f506894fbe67",
+      "source": "Sector",
+      "translation": "行业",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.71c3e084aad8d8e3",
+      "sourceHash": "c6fb1b61acb98141509e6d37aa3a680ab947d31f1dbad03f9a8093e472dfb544",
+      "source": "Real Estate Development",
+      "translation": "房地产开发",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.2afb1328532331a4",
+      "sourceHash": "9d3cab2b5efed4eaef42a707dbc813da2ffad53220aa713b5f3c950596fe35f5",
+      "source": "Focus",
+      "translation": "业务重点",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.45e6709914d1b374",
+      "sourceHash": "05fd833ece8c45016ff988ff9e2c45a055310cc4865fa529d442a5d4af9f9930",
+      "source": "Commercial • Retail • Hospitality",
+      "translation": "商业 • 零售 • 酒店",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.aad71fb0aba9690c",
+      "sourceHash": "358cc201f87d9dc9defd3eac467a62fae720aa99a76be8b98e0fc9b3893a427d",
+      "source": "Operations",
+      "translation": "运营地点",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.48492f09c04801b5",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "坦桑尼亚",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.485b1df64b31e97b",
+      "sourceHash": "f51410d4b322b3acb9e89a13e8b3e4e89850719f827b46dfb7d8b290bcce742c",
+      "source": "Our Vision & Mission",
+      "translation": "我们的愿景与使命",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.0ba1884edf1e3277",
+      "sourceHash": "91e26710c5f63a4f134ed859c1471a01d6829f18bb8d5ca93f006510bd09187f",
+      "source": "Cross Country vision and mission",
+      "translation": "Cross Country 的愿景与使命",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.c8865140ba34c577",
+      "sourceHash": "c587c2601ccfc456cb7d4d9bb34f12f0fd11ad49faeeb4602860e239b5397843",
+      "source": "Vision",
+      "translation": "愿景",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.821d3275110e0e34",
+      "sourceHash": "6b70145b146ae835535c3de966d4996169d24743b473853d451d7ce980d37aa3",
+      "source": "To be a leading real estate developer recognized for innovative, sustainable and high-value developments that enrich communities, support business growth and contribute to modern urban transformation.",
+      "translation": "成为领先的房地产开发商，以创新、可持续且高价值的开发项目著称，惠及社区、支持商业增长并推动现代城市转型。",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.b5185815af0c3b5f",
+      "sourceHash": "e6b85bfbf55020aab80a2fc74cc83aa428a2290c9153ffbd23bdb86befd1def7",
+      "source": "Mission",
+      "translation": "使命",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > h3:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.6a68a1b4dc1605cc",
+      "sourceHash": "48c03b289351d3a24632c8ba443d6c3bb1980a61effd9350ebd19e6bbcdb86c0",
+      "source": "To develop, manage and enhance high-quality commercial, retail, hospitality and mixed-use properties.",
+      "translation": "开发、管理并提升高品质的商业、零售、酒店及混合用途物业。",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.7cdead006bc12e5a",
+      "sourceHash": "5912782f153a733d550d433bfc0c2bcee5249afdf059d5e2d852fe47444522d3",
+      "source": "Core Values",
+      "translation": "核心价值观",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.ae2b8f7c22fe1ccf",
+      "sourceHash": "ad5ea6aae7ca18f5f3823bfd0a0f0e400434b701dd4325c2810eba1e826d7618",
+      "source": "Integrity",
+      "translation": "诚信",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.bbcd7bba02276ecd",
+      "sourceHash": "41fbc6b0b2b44c655ddc1f114db7c74ecc256037f22d4a991cd4262e05ef78fd",
+      "source": "We conduct our business with honesty, transparency and strong ethical standards.",
+      "translation": "我们以诚信、透明和严格的道德标准开展业务。",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.ff04f97ba401243a",
+      "sourceHash": "389fdf62a9a9e5dae14ef0d435c006196e0b929ecff41031a495d57d78bb3d00",
+      "source": "Innovation",
+      "translation": "创新",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.cad1cf22d0276881",
+      "sourceHash": "99de907b199b5a53f79cab3c9ebd4b981f2b24d8341b73b4de39e450b62dd73e",
+      "source": "We embrace modern ideas and creative solutions to enhance property development and management.",
+      "translation": "我们采用现代理念和创新方案，提升物业开发与管理水平。",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.b5f5bf0565baa8e0",
+      "sourceHash": "3d366201f5b88bcbfafb078aee5f2a55b8fd88135f4baafa83abe7161b7a27db",
+      "source": "Excellence",
+      "translation": "卓越",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.93e3a365f0e912b6",
+      "sourceHash": "5d0c20d45bdfe8939abd0e01c2b55638699586a9b24e2add8ce73cdbcbd774e4",
+      "source": "We are committed to delivering high-quality developments and superior service in every project.",
+      "translation": "我们致力于在每个项目中提供高质量开发成果和优质服务。",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.b8f3b06dfe496cd7",
+      "sourceHash": "3d21775cd60083e921206d7acdca72bf24ed38c33b9127188c80b7f6f4bffa88",
+      "source": "Sustainability",
+      "translation": "可持续发展",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.81ab06bdb0a6e440",
+      "sourceHash": "b45d34960c9e878c6b7cbb793bf1dd52b48e77ca5b7591a4384e5ab373c190ad",
+      "source": "We prioritize responsible development that supports long-term environmental and urban growth.",
+      "translation": "我们优先开展负责任的开发，支持环境与城市的长期发展。",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.0f2d9b86e6bfd24d",
+      "sourceHash": "86f8f04889207706b103f5be670cef68986574642fafbdfe6e1c1d14f9e9d325",
+      "source": "Cross Country core values",
+      "translation": "Cross Country 核心价值观",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > figure:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a7a680337525f522",
+      "sourceHash": "4fc2d0e809e02521aeef7ac53bd774a49556719dbb9d22f8bb2212b31ec26eaa",
+      "source": "Our Expertise",
+      "translation": "我们的专业能力",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.ad057b6893080603",
+      "sourceHash": "7dcaa270849dcf50e8c24c6f6951c26a84d065632a1e1f6736a78b5689041381",
+      "source": "Commercial, retail and mixed-use developments",
+      "translation": "商业、零售及混合用途开发项目",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.1ec087253136765b",
+      "sourceHash": "bc90999795ecc686974d0c22a6ea50f2165803856e372976bc9b118bfb49c2dc",
+      "source": "Development & Management",
+      "translation": "开发与管理",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.17edecbe913adfed",
+      "sourceHash": "c7e67585df947ef2b08daf4319bcdddc76ae4c97598a877a8696e207c86c08e2",
+      "source": "Develop and manage commercial, retail and mixed-use real estate projects.",
+      "translation": "开发和管理商业、零售及混合用途房地产项目。",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.f8cd0869786ad498",
+      "sourceHash": "e17a301b484d88f0da3272be61763c39b01bf8d55f4db2561209fe3ff9168895",
+      "source": "Property management solutions",
+      "translation": "物业管理方案",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.4e2ff0f9b820bcf1",
+      "sourceHash": "c5606fe39b131f4620c8a9070bc64fde6ff693c8a8f98549ecf481e9fa1fedaf",
+      "source": "Property Management",
+      "translation": "物业管理",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.0e6de8f8f97947a3",
+      "sourceHash": "f5061761c6574bbbf77acb45aa8f2dcce384d35810c9cc8b356af03e042652b6",
+      "source": "Provide property management solutions that ensure long-term asset performance and tenant satisfaction.",
+      "translation": "提供物业管理方案，确保资产的长期表现并提升租户满意度。",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.7bda406aed48c63e",
+      "sourceHash": "3d791bf96bfe1e7b6c078dcb50e32d3925380681a9224460d3fecd4c1da25a5a",
+      "source": "Transforming strategic locations",
+      "translation": "改造战略地段",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.c981ecb87f13a92d",
+      "sourceHash": "697055368884c7a0407aa2ed5ec020d7ba11be8f6e4daa62f0aa36b5589ed964",
+      "source": "Strategic Development",
+      "translation": "战略开发",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.e21f42e4584c05eb",
+      "sourceHash": "a95034c6244c1de513e0da024b40813a379358d2aacc19e1506ade8c7408a2a9",
+      "source": "Transform strategic locations into modern, functional and high-value developments.",
+      "translation": "将战略地段打造为现代化、实用且高价值的项目。",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a9fdbc49f0e3a07d",
+      "sourceHash": "3be9af664a90333133288baebe25ebb01e777408e770e9e3ae4802301565b6db",
+      "source": "Vibrant urban destinations",
+      "translation": "充满活力的城市目的地",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.e1a69926b860dc2a",
+      "sourceHash": "db60960d4827748c3e1663a79bee610334d7764c36347ddb3f004b888ef92738",
+      "source": "Urban Destinations",
+      "translation": "城市目的地",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.c07d0f634f2ec7eb",
+      "sourceHash": "101b7845ef4cd35ea34474247bd5f1c34a9b5788b271890b18ede448d143ef39",
+      "source": "Create vibrant urban destinations that support business growth and community development.",
+      "translation": "打造充满活力的城市目的地，支持商业增长和社区发展。",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.7537e4253d9e7032",
+      "sourceHash": "ca6c862fb3e22d5b093255c3f91664c53a93d685ef5ed44fbac0b6edd7369848",
+      "source": "Delivered Developments",
+      "translation": "已交付项目",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.51d839439387f016",
+      "sourceHash": "a9e4e1854af35e39644b9615007ab7e06c464f7e479d942921d8283eab7f56bc",
+      "source": "Cross Country has delivered strategic property developments across Dar es Salaam’s most sought-after locations — from Lake Avenue to Kimweri Street in Oysterbay, and Kingsway.",
+      "translation": "Cross Country 已在达累斯萨拉姆备受青睐的地段交付战略性物业项目——从 Lake Avenue 到 Oysterbay 的 Kimweri Street，以及 Kingsway。",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.57821ea23dd1b430",
+      "sourceHash": "7aa3ee93c93c911efc61d3482140d9ea67b95122ec42b57605cf1ebaeb8680c8",
+      "source": "Lake Avenue development",
+      "translation": "Lake Avenue 开发项目",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.b1105f810b9092d1",
+      "sourceHash": "ff47ebb41e6ff823633d826c9b25fd77bce2c7abc7dbf6472f189f12e1cb216b",
+      "source": "Completed development",
+      "translation": "已完成项目",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.75775a3f568cf545",
+      "sourceHash": "ff47ebb41e6ff823633d826c9b25fd77bce2c7abc7dbf6472f189f12e1cb216b",
+      "source": "Completed development",
+      "translation": "已完成项目",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.dbb79703e7d29862",
+      "sourceHash": "ff47ebb41e6ff823633d826c9b25fd77bce2c7abc7dbf6472f189f12e1cb216b",
+      "source": "Completed development",
+      "translation": "已完成项目",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.ccb2f27ec28976f4",
+      "sourceHash": "ff47ebb41e6ff823633d826c9b25fd77bce2c7abc7dbf6472f189f12e1cb216b",
+      "source": "Completed development",
+      "translation": "已完成项目",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.52d070d472e87d21",
+      "sourceHash": "ff47ebb41e6ff823633d826c9b25fd77bce2c7abc7dbf6472f189f12e1cb216b",
+      "source": "Completed development",
+      "translation": "已完成项目",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.56bf62a57571d9ca",
+      "sourceHash": "6da0b9ad45498d9de055ee9fd50e66a93d108a20130e61a37a2458695622761c",
+      "source": "Lake Avenue",
+      "translation": "Lake Avenue",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-brand-place-name-or-language-endonym"
+    },
+    {
+      "id": "auto.4a58397adde46768",
+      "sourceHash": "3a703e396fbbf4c2cffa8763abd24d465fea2190d34588a4e67970db24b24114",
+      "source": "Plot No. 60, Kimweri Street, Oysterbay",
+      "translation": "Plot No. 60, Kimweri Street, Oysterbay",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-brand-place-name-or-language-endonym"
+    },
+    {
+      "id": "auto.30eea60424d7a790",
+      "sourceHash": "8b52f76043ff804b3e9891270a1be9447277a8cbd95120c07dbd8292cff415f5",
+      "source": "Plot No. 57, Kimweri Street, Oysterbay",
+      "translation": "Plot No. 57, Kimweri Street, Oysterbay",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3)",
+      "attribute": null,
+      "origin": "preserved-brand-place-name-or-language-endonym"
+    },
+    {
+      "id": "auto.fe77d38d68b01389",
+      "sourceHash": "bb5f3f7d5afc8f081a5cc0e53c7fc265b1a11cff71ee0d7d2b6bd61f6656c5e3",
+      "source": "Kingsway Development",
+      "translation": "Kingsway 开发项目",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(4)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.667b9aa0bd96e478",
+      "sourceHash": "286e90ee9b91a86440e2434b7e8ac76255d021582f944c300aa30896f04cd6be",
+      "source": "Projects Under Development",
+      "translation": "开发中项目",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.6e6271ab9e656e35",
+      "sourceHash": "4523950d7e31ec811d2a5046a8eca5756b203a2e322c7059a19ea0ef2cb58b0c",
+      "source": "Waterfront Mall — Masaki",
+      "translation": "Waterfront Mall — Masaki",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.cd025929bbf84ac1",
+      "sourceHash": "dddbbf0e6c6e48a4eebc833534483ba60389dee71d48bb9ec5ea1a9e634a9589",
+      "source": "An ongoing Cross Country development project.",
+      "translation": "Cross Country 正在进行中的开发项目。",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.03498db7a721ff45",
+      "sourceHash": "5eaa4f5041c9d90a992b1db4ddf922e218f91bce931e232f481943b404975bc7",
+      "source": "UN Road Development",
+      "translation": "UN Road 开发项目",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.293886f0a07329dd",
+      "sourceHash": "dddbbf0e6c6e48a4eebc833534483ba60389dee71d48bb9ec5ea1a9e634a9589",
+      "source": "An ongoing Cross Country development project.",
+      "translation": "Cross Country 正在进行中的开发项目。",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.04c38b63619f0ad8",
+      "sourceHash": "5d33fb6fdd3a7dc7f251537f70213aa41a515f6c6dbd9fd211ac3c32c7374022",
+      "source": "Town Development Project",
+      "translation": "城镇开发项目",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(3)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.7cf83262d78d2ff0",
+      "sourceHash": "dddbbf0e6c6e48a4eebc833534483ba60389dee71d48bb9ec5ea1a9e634a9589",
+      "source": "An ongoing Cross Country development project.",
+      "translation": "Cross Country 正在进行中的开发项目。",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(3)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.cefc8c7acb5e4ff5",
+      "sourceHash": "d9a1bb6eede0b009bcdc1edcd02ab0ff9c3df20e658bfa630d0e22419143c97d",
+      "source": "Kingsway Town under development",
+      "translation": "开发中的 Kingsway Town",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > figure:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.3d9cc4cd5c490762",
+      "sourceHash": "145e758a814bc32d801acb484d490bd3af387311487fdd9747b21d12efc33922",
+      "source": "Project Gallery",
+      "translation": "项目图片集",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.ec143ce0c917a437",
+      "sourceHash": "bfcc16171ef0c97b55cdf8996235484555c34ec9d22823dcff73be87af39ff3d",
+      "source": "Cross Country development",
+      "translation": "Cross Country 开发项目",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.afcd97c5790f107a",
+      "sourceHash": "bfcc16171ef0c97b55cdf8996235484555c34ec9d22823dcff73be87af39ff3d",
+      "source": "Cross Country development",
+      "translation": "Cross Country 开发项目",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(1) > figcaption:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.43d577d8a9b4b15e",
+      "sourceHash": "bfcc16171ef0c97b55cdf8996235484555c34ec9d22823dcff73be87af39ff3d",
+      "source": "Cross Country development",
+      "translation": "Cross Country 开发项目",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.44a30da6d1da4094",
+      "sourceHash": "dab36231004202149bef3535bdd91b2c25196a1b3d0382f1b6a44afe4cd2204c",
+      "source": "Cross Country development overview",
+      "translation": "Cross Country 开发概况",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.3c966832c534f321",
+      "sourceHash": "91e26710c5f63a4f134ed859c1471a01d6829f18bb8d5ca93f006510bd09187f",
+      "source": "Cross Country vision and mission",
+      "translation": "Cross Country 的愿景与使命",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.b3d51386f5a4160d",
+      "sourceHash": "86f8f04889207706b103f5be670cef68986574642fafbdfe6e1c1d14f9e9d325",
+      "source": "Cross Country core values",
+      "translation": "Cross Country 核心价值观",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.8877add16d30fd51",
+      "sourceHash": "69518e684f065f0c39a26d5f18ae2a775ffffd4e390cc3d73afeac2fb50992a7",
+      "source": "Type a message...",
+      "translation": "输入消息...",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > input:nth-of-type(1)",
+      "attribute": "placeholder",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.4a01284fbf62baa9",
+      "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
+      "source": "Chat",
+      "translation": "聊天",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.43e609ec59c2baee",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "坦桑尼亚",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.d4eadf8a4f5f9cc7",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "坦桑尼亚国旗",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.67485c6c08ee3f09",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "肯尼亚",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.18981cf903139a5b",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "肯尼亚国旗",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.18a29fc430b1c636",
+      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
+      "source": "Zambia",
+      "translation": "赞比亚",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.94625c773752c572",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "赞比亚国旗",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.8def8f3ae1185667",
+      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
+      "source": "Rwanda",
+      "translation": "卢旺达",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.f758a5dae41c58ee",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "卢旺达国旗",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.fedf31d5d69fb4c4",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "布隆迪",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.5f0d287f19ee07a6",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "布隆迪国旗",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.ead71b93552ffc0d",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "刚果民主共和国",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.e52305bdb7572f31",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "刚果民主共和国国旗",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.f390cb41ab737951",
+      "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
+      "source": "Ethiopia",
+      "translation": "埃塞俄比亚",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.8ed0b326c5c1e983",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "埃塞俄比亚国旗",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.a18a0e99dda127bc",
+      "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
+      "source": "Mozambique",
+      "translation": "莫桑比克",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.f17ec0797752e4bc",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "莫桑比克国旗",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.25fa8e27ba24ad78",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "乌干达",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.e71e2577b2732eae",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "乌干达国旗",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.73095221200ef0fa",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "阿联酋国旗",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.0b2d9d89427144c1",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    }
+  ],
+  "sourceManifestDigest": "60675f76844f3800729cf1ef938b65c6ddcb2e7351b7ee2b74eb4da0f9f40714",
+  "sourceManifestGeneratedAt": "2026-10-15T12:12:03.389Z",
+  "authoringMethod": "AI-authored initial Cross Country page translations with exact-source draft reuse; human review pending",
+  "reviewEvidence": null,
+  "releaseEligible": false,
+  "candidateCount": 133,
+  "translatedCount": 133,
+  "validation": "Company and place names, figures and project facts preserved; source ids and hashes match current extraction manifest; editorial review pending"
+}

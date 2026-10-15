@@ -6,12 +6,12 @@
   "sourceManifestDigest": "181d42c4930d1abb298d1bb6193e994fb20c4653ed2347cb78f9ae1ea1fa8fa8",
   "sourceManifestGeneratedAt": "2026-10-15T10:48:55.402Z",
   "createdAt": "2026-10-15T10:47:00.606Z",
-  "authoringMethod": "existing dictionary reuse; no model output for generated rows",
+  "authoringMethod": "AI-authored initial translations with exact existing dictionary reuse; pending human review",
   "reviewEvidence": null,
   "releaseEligible": false,
   "candidateCount": 116,
-  "translatedCount": 32,
-  "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
+  "translatedCount": 116,
+  "validation": "source IDs and hashes checked; structural validation passed; linguistic review remains required",
   "translations": [
     {
       "id": "auto.358908cff7eb0ad0",
@@ -21,7 +21,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.energies"
+      "origin": "existing-dictionary:nav.dd.energies",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.513bb768553b6459",
@@ -31,7 +33,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.manufacturing"
+      "origin": "existing-dictionary:nav.dd.manufacturing",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.63a15214a728209d",
@@ -41,7 +45,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.logisticsCos"
+      "origin": "existing-dictionary:nav.dd.logisticsCos",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.3099efcc26295b73",
@@ -51,7 +57,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(4)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.realEstate"
+      "origin": "existing-dictionary:nav.dd.realEstate",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.fe86a4322d63a177",
@@ -61,7 +69,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(5)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.agro"
+      "origin": "existing-dictionary:nav.dd.agro",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.844c7b73ddf25ad3",
@@ -71,7 +81,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(6)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.automotive"
+      "origin": "existing-dictionary:nav.dd.automotive",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.1a15c2e84de53829",
@@ -81,7 +93,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.history"
+      "origin": "existing-dictionary:nav.history",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.1a15c2e84de53829.2",
@@ -91,7 +105,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(2)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.csr"
+      "origin": "existing-dictionary:nav.csr",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.1a15c2e84de53829.3",
@@ -101,7 +117,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(3)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.gallery"
+      "origin": "existing-dictionary:nav.gallery",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.83a86d99106c3f4a",
@@ -111,7 +129,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.home"
+      "origin": "existing-dictionary:nav.home",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.83a86d99106c3f4a.2",
@@ -121,7 +141,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(2)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.about"
+      "origin": "existing-dictionary:nav.about",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.7a99ab1eceb8f77a",
@@ -131,7 +153,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.companies"
+      "origin": "existing-dictionary:nav.companies",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.eb6f84e8f4c26ea2",
@@ -141,7 +165,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(3)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.leadership"
+      "origin": "existing-dictionary:nav.leadership",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.2f8a04c47750554c",
@@ -151,7 +177,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.company"
+      "origin": "existing-dictionary:nav.company",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.0c67d152c7629208",
@@ -161,7 +189,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.history"
+      "origin": "existing-dictionary:nav.history",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.0c67d152c7629208.2",
@@ -171,7 +201,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(2)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.csr"
+      "origin": "existing-dictionary:nav.csr",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.0c67d152c7629208.3",
@@ -181,7 +213,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(3)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.gallery"
+      "origin": "existing-dictionary:nav.gallery",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.af53ff9bff6df95d",
@@ -191,7 +225,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(4)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.careers"
+      "origin": "existing-dictionary:nav.careers",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.af53ff9bff6df95d.2",
@@ -201,7 +237,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(5)",
       "attribute": null,
-      "origin": "existing-dictionary:footer.contact"
+      "origin": "existing-dictionary:footer.contact",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.00fbd4614c224df3",
@@ -211,7 +249,9 @@
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
       "attribute": "alt",
-      "origin": "existing-dictionary:africa_network.27"
+      "origin": "existing-dictionary:africa_network.27",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.69b15c962a55d79a",
@@ -221,17 +261,21 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.27"
+      "origin": "existing-dictionary:africa_network.27",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.1ca3564a7649fc70",
       "sourceHash": "4932324d5942c0bb64fbbe0c45283eb493c1cc27b1e65d4595d6da5f2c16e234",
       "source": "Established",
-      "translation": "Fondée",
+      "translation": "Créée",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > p:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:atl.glance.est"
+      "origin": "existing-dictionary:atl.glance.est",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.a81bff164e35c5d4",
@@ -241,7 +285,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > h2:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:atl.s2.title"
+      "origin": "existing-dictionary:atl.s2.title",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.f37f0e6b3e883548",
@@ -251,7 +297,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h4:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.105"
+      "origin": "existing-dictionary:africa_network.105",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.a7aabf52ab5ba4d4",
@@ -261,27 +309,33 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > h4:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:concrete.29"
+      "origin": "existing-dictionary:concrete.29",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.7693e1144ad9559f",
       "sourceHash": "589afa9b330af07617779184393ce33641ee540859f6cda964d38e2366b1c69e",
       "source": "Self-Consolidating Concrete (SCC)",
-      "translation": "Béton auto-plaçant (BAP)",
+      "translation": "Béton autoplaçant (BAP)",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(1) > h4:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:concrete.33"
+      "origin": "existing-dictionary:concrete.33",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.dbb2ec4fb6612cce",
       "sourceHash": "d8c9a4958c58f8e68e8e9198ea50f30ad218f20fc07ce4560a06e889690a4c16",
       "source": "Flows and consolidates under its own weight, ideal for congested reinforcement.",
-      "translation": "S'écoule et se consolide sous son propre poids, idéal pour les armatures denses.",
+      "translation": "Il s’écoule et se compacte sous son propre poids, idéal pour les armatures denses.",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(1) > p:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:concrete.34"
+      "origin": "existing-dictionary:concrete.34",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.6079f9dea00bb474",
@@ -291,7 +345,9 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(5) > div:nth-of-type(1) > h4:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:concrete.35"
+      "origin": "existing-dictionary:concrete.35",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.ad4f06df5122c9c5",
@@ -301,7 +357,9 @@
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > input:nth-of-type(1)",
       "attribute": "placeholder",
-      "origin": "existing-dictionary:chat.placeholder"
+      "origin": "existing-dictionary:chat.placeholder",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.e9f56b0c1b92c9fd",
@@ -311,7 +369,9 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.27"
+      "origin": "existing-dictionary:africa_network.27",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.28ed532ca66b981f",
@@ -321,7 +381,9 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.31"
+      "origin": "existing-dictionary:africa_network.31",
+      "releaseEligible": false,
+      "reviewEvidence": null
     },
     {
       "id": "auto.00b925625d950844",
@@ -331,7 +393,1101 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.38"
+      "origin": "existing-dictionary:africa_network.38",
+      "releaseEligible": false,
+      "reviewEvidence": null
+    },
+    {
+      "id": "auto.a1f2475e21ad29f8.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.83c3ca9c5efd0a47",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.e536d65125428abc.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "NexDrive Motors",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.02259202e907c8c4",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "Language: English",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.c72119ed5e89a20a",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.1b86c6ffe011307a",
+      "sourceHash": "99af6606ff9d6cd5154d4d4e9c21e325086d3e904677cdb41d363c8a3480f862",
+      "source": "Menu",
+      "translation": "Menu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.8fd314f71e03364e",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "Close menu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.2ce51bffee0496fc.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.b182cd2170264c44",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.1c362b9510c1dd83",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.300c0613fd3e55e9",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.300c0613fd3e55e9.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.300c0613fd3e55e9.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.300c0613fd3e55e9.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.300c0613fd3e55e9.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.300c0613fd3e55e9.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.300c0613fd3e55e9.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.300c0613fd3e55e9.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.6f1ec353984b3bde",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "Kenya",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.8ac303f9d751061c",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "Kenya",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.8ac303f9d751061c.2",
+      "sourceHash": "a7dd82cf6bf6d38182405108086d28638222507e4bd15d54c9244921cf04ef4a",
+      "source": "Gulf Premix",
+      "translation": "Gulf Premix",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.f46ddb611313bbe6",
+      "sourceHash": "c4556cb0e3bfd26df24a122e37afa480fb9ffafc5003a5a16684ba830eede171",
+      "source": "Fleet & Equipment",
+      "translation": "Flotte et équipements",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.6366c2c66fb24c79",
+      "sourceHash": "072db41aa80674066c8e56b57e5b97336b24f6ec765740e9f9416242c84ceb1e",
+      "source": "Mixer Trucks",
+      "translation": "Camions malaxeurs",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.77148799228a5333",
+      "sourceHash": "2bcaa3e46b183de419ef076ff5d1c2410ffb060493a3343617696688c4fadf5a",
+      "source": "Boom Pump Trucks",
+      "translation": "Camions-pompes à flèche",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.eeda2e7f6f55a19a",
+      "sourceHash": "b5540e09b2ac496883d9095e3de1630b14e469a886aa391d2f88bedafd0c1b09",
+      "source": "Line Pump Trucks",
+      "translation": "Camions-pompes à ligne",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.f0055cb83dd1b657",
+      "sourceHash": "e6b85bfbf55020aab80a2fc74cc83aa428a2290c9153ffbd23bdb86befd1def7",
+      "source": "Mission",
+      "translation": "Mission",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.ca07e83d8a767b81",
+      "sourceHash": "c587c2601ccfc456cb7d4d9bb34f12f0fd11ad49faeeb4602860e239b5397843",
+      "source": "Vision",
+      "translation": "Vision",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.c8d76ac2ea5e9433",
+      "sourceHash": "a0efe1665cd61c96436e0bfdaeeeada41b6797ce8fec583e52c707f16c7e9266",
+      "source": "To continue as the market leader in the city's premix business by participating in prestigious construction projects and supporting the construction sector.",
+      "translation": "Poursuivre notre position de leader du marché du béton prêt à l’emploi dans la ville en participant à des projets de construction prestigieux et en soutenant le secteur du bâtiment.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.df13fb5e16fa99f2",
+      "sourceHash": "ee0b30f9f0a83d28b0eed242ea3eb38ba1f275bbd26812355175aa2110b855b4",
+      "source": "Best-quality concrete and services",
+      "translation": "Béton et services de la meilleure qualité",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.dbb37410c921ccb5",
+      "sourceHash": "b6f2bf45e5d4d89a1e90b7727b496cacbb5451d0ee1ce39eb79be2eca3279091",
+      "source": "Commitment",
+      "translation": "Engagement",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.d4d9f620beb97abc",
+      "sourceHash": "85df5a86e651a43b5d071087c7ddeae124db8e6522e083fe2f3212c29e2cdff2",
+      "source": "Customer satisfaction and community welfare",
+      "translation": "Satisfaction des clients et bien-être de la communauté",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.6b548e1064eacdb0",
+      "sourceHash": "54755b48eb844b484e826bd8b9d199a35d9551feaddb939179fc4a847078fb97",
+      "source": "Innovation & Sustainable Construction",
+      "translation": "Innovation et construction durable",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.6438e9af46bed9b9",
+      "sourceHash": "b6f28461ee97e95597a2e9456e1eb38c8308c1f3edbe415906338da275d9ed2e",
+      "source": "Improving concrete properties and developing innovative solutions",
+      "translation": "Améliorer les propriétés du béton et développer des solutions innovantes",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.dd08d83c209843a0",
+      "sourceHash": "1240e4d486626a13ce202ae76a8782dff9ae48784f4eeedb6e5bcb78d05171e6",
+      "source": "Concrete Products & Grades",
+      "translation": "Produits et classes de béton",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.ff8c05b9c61f84c0",
+      "sourceHash": "a15ed5cb68108c0972d8b854daf7687726d1a051f4e508de00c81def43600a3f",
+      "source": "Concrete supplied for construction applications, with grades ranging from C10 to C55 to meet different construction requirements.",
+      "translation": "Béton fourni pour les travaux de construction, avec des classes de C10 à C55 afin de répondre aux différentes exigences des projets.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.ce56b74b87c9f235",
+      "sourceHash": "e360ba265bbe2063a40603eec7b004aabf8d2a48182d5cc613e30d05ab8c451c",
+      "source": "Special concrete solution for projects requiring fast construction schedules.",
+      "translation": "Solution de béton spéciale pour les projets nécessitant des délais de construction courts.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.8ec86f2b2b841163",
+      "sourceHash": "e0f7b88aa56758d9bc663220125267ddee85c649716f472ecd5e0545ddfd5be6",
+      "source": "Crack-Resistant / Low-Shrinkage Concrete",
+      "translation": "Béton résistant aux fissures / à faible retrait",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.47c65edd2e1685a1",
+      "sourceHash": "c7dc34ebcb59872da53a790ddfe4fa8dcad5ccb56e8b4c23be6fcb8139e6b7c1",
+      "source": "Concrete designed around crack resistance or reduced shrinkage requirements.",
+      "translation": "Béton conçu pour répondre aux exigences de résistance aux fissures ou de réduction du retrait.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.a024a84e20452cc0",
+      "sourceHash": "2291806270517246820ff460d2897555c718bdf738f9746fd6b0bd79d2f31743",
+      "source": "Specialized concrete solution for facades, decorative surfaces and exposed elements.",
+      "translation": "Solution de béton spécialisée pour les façades, les surfaces décoratives et les éléments apparents.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.f76b2bb81c0f2924",
+      "sourceHash": "908d72900e2475921b580e971e603ef224f1995cdf47e3022d12ee88ae3e6e8a",
+      "source": "C10",
+      "translation": "C10",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.a42b2998578c994f",
+      "sourceHash": "c1f5e527f9d411dfe793aebe1021a0910fccbc69e55cb8ddaef79f5d535d60ec",
+      "source": "C15",
+      "translation": "C15",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.2963f14391f42397",
+      "sourceHash": "c9c1dd0d52c99ca43beb6a5871fbf1eeffd1f2eed971cfcfa59b1b7704556c97",
+      "source": "C20",
+      "translation": "C20",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(3)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.e1cdfdc32dc5936e",
+      "sourceHash": "ae44923efec2b790c7e0df0c323baab635934205504f69c34bea3bb0128962c7",
+      "source": "C25",
+      "translation": "C25",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(4)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.2f732cdfd4ebf417",
+      "sourceHash": "0de00bed022821e665d07b7f4b8e75c0c4ab0db9f3eb8ee92112e2f981df4fd7",
+      "source": "C30",
+      "translation": "C30",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(5)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.71af57d522555ae6",
+      "sourceHash": "937e831e2a5108f26d40072a47f7227b93dcada421add1e6dbd4ea30543ad804",
+      "source": "C35",
+      "translation": "C35",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(6)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.7d162b16c94d2b57",
+      "sourceHash": "d5d60392941814047f2c7e4cd47b72616278432e83d4c8db2bbadd28e2ac2357",
+      "source": "C40",
+      "translation": "C40",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(7)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.54a5a71b84c34f40",
+      "sourceHash": "f3dea8a4125c29c0eaac7ac03c80c7957f59669e1ff129ac3e1cea2923b4d32a",
+      "source": "C45",
+      "translation": "C45",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(8)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.f931d4e8c733ba6c",
+      "sourceHash": "f4f4ab46a407fcadc695fa1d49f0070e241c1c6fe16f48e2841577f8b831e141",
+      "source": "C50",
+      "translation": "C50",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(9)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.5bff881e458d2b4a",
+      "sourceHash": "68af017ba8a372a1a7c8ef5864e9f8971ba7be097ffe7f2227687aef4479bbed",
+      "source": "C55",
+      "translation": "C55",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(10)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.8e571b1154ae755d",
+      "sourceHash": "95fdb4278727d7db40b7058c90998c0cca1b201adce195f374027faeccc8a43a",
+      "source": "Batching Plants & Delivery",
+      "translation": "Centrales à béton et livraison",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.ddc21f787ec885f1",
+      "sourceHash": "7b93f48c98c5da08fe32f7ea29039d7d45e37e68f0f06ef688aa20ac70a986a6",
+      "source": "Mikocheni Batching Plant",
+      "translation": "Centrale à béton de Mikocheni",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.6ab1c6f9fec12b21",
+      "sourceHash": "17180797ad012927c18bc0de8d617b62360fcf0a90041e34c0c914351812d153",
+      "source": "Fully automatic concrete batching plant from SANY International. 2 cement silos with 240 tons stated capacity.",
+      "translation": "Centrale à béton entièrement automatisée de SANY International. 2 silos à ciment d’une capacité déclarée de 240 tonnes.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.1012af916aa6f953",
+      "sourceHash": "e65553bf43ab1c656278a69c8526a2cbda7ffbea6ef525e56fc20e90e931401b",
+      "source": "Temeke Batching Plant",
+      "translation": "Centrale à béton de Temeke",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.2e403aaba7f4a39c",
+      "sourceHash": "17180797ad012927c18bc0de8d617b62360fcf0a90041e34c0c914351812d153",
+      "source": "Fully automatic concrete batching plant from SANY International. 2 cement silos with 240 tons stated capacity.",
+      "translation": "Centrale à béton entièrement automatisée de SANY International. 2 silos à ciment d’une capacité déclarée de 240 tonnes.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.884ce91a85eb13a6",
+      "sourceHash": "072db41aa80674066c8e56b57e5b97336b24f6ec765740e9f9416242c84ceb1e",
+      "source": "Mixer Trucks",
+      "translation": "Camions malaxeurs",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.86434af7b37aceb6",
+      "sourceHash": "efe5065c8fe4248f7c81e1ba97d86d1083d50938d636907228385da96ac63913",
+      "source": "Pumping Equipment",
+      "translation": "Équipement de pompage",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.63d1829e7b09bd44",
+      "sourceHash": "510e78ddafc83ac8fb884d3a1a9aacbb68ff50b42cb49fc66aee20d972a05819",
+      "source": "5 boom pump trucks and 3 line pump trucks for concrete placement at construction sites.",
+      "translation": "5 camions-pompes à flèche et 3 camions-pompes à ligne pour le coulage du béton sur les chantiers.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.8212e88e6c7d143b",
+      "sourceHash": "157c20cdcdb122685227e2cc4b1befe9e721c962a425405094a7937b044c171e",
+      "source": "Lake Premix has its own quarry at Lugoba with crushing facilities. The quarry and crushers provide aggregate for the company's own consumption and also supply the construction industry.",
+      "translation": "Lake Premix possède sa propre carrière à Lugoba, équipée d’installations de concassage. La carrière et les concasseurs fournissent des granulats pour les besoins de l’entreprise et approvisionnent également le secteur de la construction.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.8034a37b1b5bee75",
+      "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
+      "source": "Chat",
+      "translation": "Chat",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.5e38c1954a47a570",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Tanzania flag",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.39e94e1188ff6d90",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "Kenya",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.865410d231b1fe14",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "Kenya flag",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.24e27e07d98976a5",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "Zambia flag",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.7a6c80914a5fd96c",
+      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
+      "source": "Rwanda",
+      "translation": "Rwanda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.10293666815b4b30",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "Rwanda flag",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.cd6525b91dfd6a67",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "Burundi",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.9fbe3c06f89362bf",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "Burundi flag",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.b24db8442f6ab53b",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "DR Congo",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.80ac584c5808a452",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "DR Congo flag",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.ee848372c02dcbed",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "Ethiopia flag",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.15428a24c008082e",
+      "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
+      "source": "Mozambique",
+      "translation": "Mozambique",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.551bc82259c66e2f",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "Mozambique flag",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.f38a08dcae563d8c",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "Uganda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.615909bc3a7d9ff7",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "Uganda flag",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.7d28a1675caeb810",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "UAE flag",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.4bcacbe21c938b75",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-proper-name-or-technical-value",
+      "authoringMethod": "dictionary reuse or preserved proper name/technical value; pending human review",
+      "reviewEvidence": null,
+      "releaseEligible": false
+    },
+    {
+      "id": "auto.0a76b7d620022c43",
+      "sourceHash": "075e15947cea57ed511cbe77fc0faa9c34de579ebaca0a149ee05e6643a92954",
+      "source": "Lake Premix provides ready-mix concrete solutions in Dar es Salaam, with operations extended to Kenya through Gulf Premix.",
+      "translation": "Lake Premix propose des solutions de béton prêt à l’emploi à Dar es Salaam et étend ses activités au Kenya par l’intermédiaire de Gulf Premix.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content",
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "releaseEligible": false,
+      "reviewEvidence": null
+    },
+    {
+      "id": "auto.6b6491c8b761a4f7",
+      "sourceHash": "c417d0827252d1fc841aa6762c9adeb6666394960cd1d6e15bdcef77312b0bc6",
+      "source": "Ready-mix concrete solutions for Dar es Salaam and Nairobi, established 2010.",
+      "translation": "Solutions de béton prêt à l’emploi pour Dar es Salaam et Nairobi, entreprise créée en 2010.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "releaseEligible": false,
+      "reviewEvidence": null
+    },
+    {
+      "id": "auto.b6e2a9d9800e4050",
+      "sourceHash": "07ed518391b28502f3f8237c7ec8c44bd7e77b5d3414bebea39f10cb8276ab98",
+      "source": "Ready-Mix Concrete Solutions",
+      "translation": "Solutions de béton prêt à l’emploi",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "releaseEligible": false,
+      "reviewEvidence": null
+    },
+    {
+      "id": "auto.069d1f5fdb8ad151",
+      "sourceHash": "5dea6a55826dafecc1e0f6665a8eee16af284a613384a3842eec1958455657c5",
+      "source": "Lake Premix is a leading ready-mix concrete company in Dar es Salaam and a subsidiary of Lake Group. Established in 2010 under Tanzanian company laws, the company has built its position through the supply of ready-mix concrete and participation in prestigious construction projects.",
+      "translation": "Lake Premix est une entreprise de premier plan dans le béton prêt à l’emploi à Dar es Salaam et une filiale de Lake Group. Créée en 2010 conformément au droit des sociétés tanzanien, elle a développé sa position grâce à la fourniture de béton prêt à l’emploi et à sa participation à des projets de construction prestigieux.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "releaseEligible": false,
+      "reviewEvidence": null
+    },
+    {
+      "id": "auto.db839ea6c30fef4d",
+      "sourceHash": "f022be5172267399e60772b81e1614ea1281f19149baa1f5a2a2bdf98e34eb55",
+      "source": "In 2020, Lake Premix extended its network to Kenya under Gulf Premix to provide ready-mix concrete to Nairobi and other regions of Kenya.",
+      "translation": "En 2020, Lake Premix a étendu son réseau au Kenya sous le nom de Gulf Premix afin de fournir du béton prêt à l’emploi à Nairobi et dans d’autres régions du Kenya.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "releaseEligible": false,
+      "reviewEvidence": null
+    },
+    {
+      "id": "auto.387038dbc36efb7d",
+      "sourceHash": "68bcb729d5c3b1841a2c9b983eda8ef764c77b3ac40d3e422b8b4a0fff8f28dd",
+      "source": "To produce highly durable concrete for piling, foundations and structures, by combining ready-mix concrete production with supporting the supply of aggregates for its own consumption and the wider construction industry.",
+      "translation": "Produire un béton très durable pour les pieux, les fondations et les structures, en associant la production de béton prêt à l’emploi au soutien de l’approvisionnement en granulats pour ses propres besoins et pour l’ensemble du secteur de la construction.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "releaseEligible": false,
+      "reviewEvidence": null
+    },
+    {
+      "id": "auto.efaab3d32a7b8bb5",
+      "sourceHash": "4b920c51d81ca4189ba398ee812d3abffcac13107c7e1ebc1123058b0f251323",
+      "source": "Ready-Mix Concrete",
+      "translation": "Béton prêt à l’emploi",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "releaseEligible": false,
+      "reviewEvidence": null
+    },
+    {
+      "id": "auto.baea92a8dd103831",
+      "sourceHash": "10e2957b8c56715bb0f26aaad09f7bf1c81c2599708d9467b2d34ea5231edc4f",
+      "source": "30 mixer trucks for transportation and delivery of ready-mix concrete to construction sites.",
+      "translation": "30 camions malaxeurs pour transporter et livrer le béton prêt à l’emploi sur les chantiers.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant",
+      "authoringMethod": "AI-authored initial translation; pending human review",
+      "releaseEligible": false,
+      "reviewEvidence": null
     }
   ]
 }

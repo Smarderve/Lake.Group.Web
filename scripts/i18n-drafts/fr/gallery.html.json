@@ -3,16 +3,26 @@
   "status": "DRAFT_PENDING_HUMAN_REVIEW",
   "locale": "fr",
   "page": "gallery.html",
-  "sourceManifestDigest": "181d42c4930d1abb298d1bb6193e994fb20c4653ed2347cb78f9ae1ea1fa8fa8",
-  "sourceManifestGeneratedAt": "2026-10-15T10:48:55.402Z",
+  "sourceManifestDigest": "60675f76844f3800729cf1ef938b65c6ddcb2e7351b7ee2b74eb4da0f9f40714",
+  "sourceManifestGeneratedAt": "2026-10-15T12:12:03.389Z",
   "createdAt": "2026-10-15T10:47:00.563Z",
-  "authoringMethod": "existing dictionary reuse; no model output for generated rows",
+  "authoringMethod": "AI-authored initial gallery translations with exact-source draft reuse; human review pending",
   "reviewEvidence": null,
   "releaseEligible": false,
   "candidateCount": 159,
-  "translatedCount": 29,
-  "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
+  "translatedCount": 159,
+  "validation": "Image descriptions preserve source claims; source ids and hashes match current extraction manifest; editorial review pending",
   "translations": [
+    {
+      "id": "auto.39c66345fbb7dcbf",
+      "sourceHash": "6338cb204c6580ea74d7fc8001ba0138148c9a17cb7a4514a69608e6d3454af5",
+      "source": "Photos from Lake Group operations, events, and facilities across East and Central Africa.",
+      "translation": "Photos des activités, événements et installations de Lake Group en Afrique de l’Est et centrale.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content",
+      "origin": "ai-authored-initial-draft"
+    },
     {
       "id": "auto.58ec3ae95521ffbf",
       "sourceHash": "6970059994dce7e30c88b19df4696c7234a01aca3caf2fa69322593c6a6af253",
@@ -74,6 +84,36 @@
       "origin": "existing-dictionary:nav.dd.automotive"
     },
     {
+      "id": "auto.9d7a1f5791b7bdc9.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.1b1f7ee451181b9e",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.59c1031fa699093f.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "NexDrive Motors",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
       "id": "auto.d116cc548bae3302",
       "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
       "source": "Our History",
@@ -104,6 +144,46 @@
       "origin": "existing-dictionary:nav.gallery"
     },
     {
+      "id": "auto.3f7a3a5b91246137",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "Langue : English",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.22d0b7c0cf177ddb",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.2f93b4db665f1f5e",
+      "sourceHash": "99af6606ff9d6cd5154d4d4e9c21e325086d3e904677cdb41d363c8a3480f862",
+      "source": "Menu",
+      "translation": "Menu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.9bc7f487da1c41a7",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "Fermer le menu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
       "id": "auto.74f7a5e984bc0d39",
       "sourceHash": "3a78695388b38b5cceefaf6796b0137877514593543b91af2752d5a17e3d736c",
       "source": "Home",
@@ -132,6 +212,26 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": null,
       "origin": "existing-dictionary:nav.companies"
+    },
+    {
+      "id": "auto.f195525f3f9e9ca4.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.92a1cb47cca94a5d",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
     },
     {
       "id": "auto.36d793c588122133",
@@ -204,6 +304,136 @@
       "origin": "existing-dictionary:footer.contact"
     },
     {
+      "id": "auto.81219e3aa7a4cf1f",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.8db7fe19b8ef4b52",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.8db7fe19b8ef4b52.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.8db7fe19b8ef4b52.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.8db7fe19b8ef4b52.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.8db7fe19b8ef4b52.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.8db7fe19b8ef4b52.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.8db7fe19b8ef4b52.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.8db7fe19b8ef4b52.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.2b035125fad2d8f3",
+      "sourceHash": "35fc275990c15d3bad66ce7a5878eadc1d6c8e8e1d8428050656c730c525211f",
+      "source": "A visual record of Lake Group operations across energy, logistics, manufacturing and construction materials.",
+      "translation": "Un aperçu en images des activités de Lake Group dans l’énergie, la logistique, l’industrie et les matériaux de construction.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.89c0ba51199d51ca",
+      "sourceHash": "7d9eb7acb13e24625c404401d8e88b2350e32162455885f18276cf802f7701ed",
+      "source": "Close",
+      "translation": "Fermer",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.c62442e83fa3925a",
+      "sourceHash": "a57b08a480b822a0a572b993391c292ede593bf8000b406675b180bbb16260fa",
+      "source": "Previous",
+      "translation": "Précédent",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > button:nth-of-type(2)",
+      "attribute": "aria-label",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.0145c20f82a52cd3",
+      "sourceHash": "1ff57a29d7c9d11bdf61c1b80f2b289b44c1ea844824d4b94a0d52b6ba5fc858",
+      "source": "Next",
+      "translation": "Suivant",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > button:nth-of-type(3)",
+      "attribute": "aria-label",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
       "id": "auto.b08a1f850fa970af",
       "sourceHash": "4bb5ea6df9a9affb66fbde8ec1e133729e39c72ca4f44e6eaec211c312fe9e69",
       "source": "Lake Group Gallery",
@@ -212,6 +442,16 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)",
       "attribute": null,
       "origin": "existing-dictionary:gallery.3"
+    },
+    {
+      "id": "auto.558132b9b228b783",
+      "sourceHash": "606a16606797ef20407dae0038c73bc84eaa56ed621935a50769be5ab5ef9910",
+      "source": "Fuel distribution terminal",
+      "translation": "Terminal de distribution de carburant",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
     },
     {
       "id": "auto.6cb937f0932c8093",
@@ -224,6 +464,36 @@
       "origin": "existing-dictionary:nav.dd.energy"
     },
     {
+      "id": "auto.a279d8741ac178e4",
+      "sourceHash": "b8c4669a53a936c3219a87888423bf8bda13653c2083b8a272172386a3c832b6",
+      "source": "Fuel Distribution Terminal",
+      "translation": "Terminal de distribution de carburant",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1) > span:nth-of-type(2) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.3389eb3b86e60284",
+      "sourceHash": "519ade01278a364c4b9d9ef0d3ec96fee03c019afd0ed80fc105299fe55a0cd8",
+      "source": "Lake Group operations",
+      "translation": "Activités de Lake Group",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1) > span:nth-of-type(2) > span:nth-of-type(3)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.42e44271dc36ba1b",
+      "sourceHash": "969808aa36780fcde89016ce2329923aa0e1628ec239b50a4637cc9185c271e7",
+      "source": "LPG cylinder operations",
+      "translation": "Activités liées aux bouteilles de GPL",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
       "id": "auto.28fd1fbf5ab8e98d",
       "sourceHash": "f2fcd3f7dccadd194c4c5a54a5102c9559487743ac236a6236301e4418d0dd7c",
       "source": "Energy",
@@ -232,6 +502,146 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1) > span:nth-of-type(2) > span:nth-of-type(1)",
       "attribute": null,
       "origin": "existing-dictionary:nav.dd.energy"
+    },
+    {
+      "id": "auto.29baf1d667f1f7c1",
+      "sourceHash": "5f4409e61fe179959092e649f171ee050f1ce5927b6966630e43bee3d30df136",
+      "source": "LPG Cylinder Operations",
+      "translation": "Activités liées aux bouteilles de GPL",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1) > span:nth-of-type(2) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.b99bc5fc74ab2615",
+      "sourceHash": "519ade01278a364c4b9d9ef0d3ec96fee03c019afd0ed80fc105299fe55a0cd8",
+      "source": "Lake Group operations",
+      "translation": "Activités de Lake Group",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1) > span:nth-of-type(2) > span:nth-of-type(3)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.c486c86e389de1bf",
+      "sourceHash": "798c05d337f8ddf18737e3b25326fcc5bcde1c2aa241c90f2ae4de2aee665358",
+      "source": "Concrete production facility",
+      "translation": "Installation de production de béton",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.c921b721fdd95bf7",
+      "sourceHash": "32faff8971f10db6292363689cb93a7dbe88264b9c59b11ed5a2622d26690342",
+      "source": "Construction & Materials",
+      "translation": "Construction et matériaux",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1) > span:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.d6378f9c12f9d781",
+      "sourceHash": "bd8291a3774a794100f9a1c8f537b5edfb0ad69035a25a232bab2fe48e4fc71e",
+      "source": "Concrete Production Facility",
+      "translation": "Installation de production de béton",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1) > span:nth-of-type(2) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.baca94912a880ee1",
+      "sourceHash": "519ade01278a364c4b9d9ef0d3ec96fee03c019afd0ed80fc105299fe55a0cd8",
+      "source": "Lake Group operations",
+      "translation": "Activités de Lake Group",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1) > span:nth-of-type(2) > span:nth-of-type(3)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.122e2a0af3284e9f",
+      "sourceHash": "9500acf69f5420dbabc1fe63b59254cc5ea76a4c0f7c682a359aea3ec4b7f64e",
+      "source": "Ready-mix concrete fleet",
+      "translation": "Flotte de béton prêt à l’emploi",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.cdee759b70482dd3",
+      "sourceHash": "32faff8971f10db6292363689cb93a7dbe88264b9c59b11ed5a2622d26690342",
+      "source": "Construction & Materials",
+      "translation": "Construction et matériaux",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > a:nth-of-type(1) > span:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a9c13575b0f1158a",
+      "sourceHash": "0b8749b53b89d7125e95c085b3e668535ffa31aaf4328e33efcdbae6d71dcc68",
+      "source": "Ready-Mix Concrete Fleet",
+      "translation": "Flotte de béton prêt à l’emploi",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > a:nth-of-type(1) > span:nth-of-type(2) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.7bc8c9f7b517d127",
+      "sourceHash": "519ade01278a364c4b9d9ef0d3ec96fee03c019afd0ed80fc105299fe55a0cd8",
+      "source": "Lake Group operations",
+      "translation": "Activités de Lake Group",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > a:nth-of-type(1) > span:nth-of-type(2) > span:nth-of-type(3)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.d1e13dfd1e6b7643",
+      "sourceHash": "35dcad8a18898c05eb46635b6935cb8b76d640d7d43621460f7fb24b78cf0bb6",
+      "source": "Lake Agro farming operations",
+      "translation": "Activités agricoles de Lake Agro",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.e84a2b1aa6756379",
+      "sourceHash": "f5a34a07f3e91994798406ff7ed901c6f38fdb2933d4026743ed66abae0c4652",
+      "source": "Agro Processing",
+      "translation": "Transformation agricole",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5) > a:nth-of-type(1) > span:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.dc563618de13ae9f",
+      "sourceHash": "dd12527813764898537d75745782df3d15a5d55d590c08f32efcfde9ddfde220",
+      "source": "Agro Processing Operations",
+      "translation": "Activités de transformation agricole",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5) > a:nth-of-type(1) > span:nth-of-type(2) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.69848701affb1f0b",
+      "sourceHash": "519ade01278a364c4b9d9ef0d3ec96fee03c019afd0ed80fc105299fe55a0cd8",
+      "source": "Lake Group operations",
+      "translation": "Activités de Lake Group",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5) > a:nth-of-type(1) > span:nth-of-type(2) > span:nth-of-type(3)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
     },
     {
       "id": "auto.be238045ac693a6e",
@@ -264,6 +674,716 @@
       "origin": "existing-dictionary:contact.div.mfg"
     },
     {
+      "id": "auto.e716806507eeb1d5",
+      "sourceHash": "32faff8971f10db6292363689cb93a7dbe88264b9c59b11ed5a2622d26690342",
+      "source": "Construction & Materials",
+      "translation": "Construction et matériaux",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.9268fe139e70d4af",
+      "sourceHash": "5e972380c4dccde945abff2e431bced3932a73713939e8c776d148597cdbf6a9",
+      "source": "Operations team",
+      "translation": "Équipe opérationnelle",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.c2efe2453a3cac23",
+      "sourceHash": "3141e797b2e670bb4fc67e5f4f03776d625e0d49f91da6ddc3cbb3dac702fc39",
+      "source": "Operations Team",
+      "translation": "Équipe opérationnelle",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.0036a452464c0dd0",
+      "sourceHash": "ef1e126a3c740b5beafe017ac102ec00356ff45474f85a876395ec63f9077aa2",
+      "source": "Personnel supporting Lake Group operations.",
+      "translation": "Personnel contribuant aux activités de Lake Group.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.ce3112dc028ed38d",
+      "sourceHash": "606a16606797ef20407dae0038c73bc84eaa56ed621935a50769be5ab5ef9910",
+      "source": "Fuel distribution terminal",
+      "translation": "Terminal de distribution de carburant",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.17832fb9858757ca",
+      "sourceHash": "b8c4669a53a936c3219a87888423bf8bda13653c2083b8a272172386a3c832b6",
+      "source": "Fuel Distribution Terminal",
+      "translation": "Terminal de distribution de carburant",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a0ccd08a7b9e41d2",
+      "sourceHash": "c057860b4d55d112475bdbcfe25795e38b526599a449024311d87bcbf7fd0565",
+      "source": "Fuel storage and distribution infrastructure.",
+      "translation": "Infrastructures de stockage et de distribution de carburant.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.66e5e4417c5286ec",
+      "sourceHash": "51889a778eb2953640743a894d1d00fd714f70dff4b12591dd430d8f404f90e3",
+      "source": "Fuel distribution fleet",
+      "translation": "Flotte de distribution de carburant",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(3) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.96380a3fd50d7c52",
+      "sourceHash": "ad41f8ebb770757c61f089d2cce308d3852e6436817aa6ad9b484c9e154e22af",
+      "source": "Fuel Distribution Fleet",
+      "translation": "Flotte de distribution de carburant",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(3) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.b4f61f950f6c009a",
+      "sourceHash": "8e681389da2c8664fc7d40b8345531e7415d54961a06a74985a9bd98a18af6f4",
+      "source": "Tanker fleet supporting regional fuel distribution.",
+      "translation": "Une flotte de camions-citernes au service de la distribution régionale de carburant.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(3) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.dc5a26ac1e7fc942",
+      "sourceHash": "1061cbe9b9b85a14cdf692117a198ee4b0d039209daf4864d608240bc10c46a6",
+      "source": "Lake Energies retail station",
+      "translation": "Station-service de Lake Energies",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(4) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.b4d6191d0e31e4c5",
+      "sourceHash": "e3312238ca2224e9d453cad286a8199b56ceacd29ecb830eab5ab62ab36b7706",
+      "source": "Retail Fuel Station",
+      "translation": "Station-service",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(4) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a131724e3c005c03",
+      "sourceHash": "66d85bc2f92fe6b414652422f555f3d321817dc9e1a8fd943ea9586f8b84f2a6",
+      "source": "Lake Energies retail station serving motorists.",
+      "translation": "Une station-service Lake Energies au service des automobilistes.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(4) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a099dee695a65356",
+      "sourceHash": "586ba5eed3cbf321dd09d88c91f4829fe8acb1a523c4053e39bc4502fd3b2fb1",
+      "source": "Fuel tanker operations",
+      "translation": "Activités des camions-citernes",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(5) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.7993fea1eb8af87a",
+      "sourceHash": "2f2390bf43b8941770f84cc6ca766edb6be3122b2eda3463e1b76320c0bb1719",
+      "source": "Fuel Tanker Operations",
+      "translation": "Activités des camions-citernes",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(5) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.8a2eb9f9ef776e06",
+      "sourceHash": "bc5c8d0cd8bd4e36664013ef31e3b297558ed6f686e68fc201a399ff4e68b87d",
+      "source": "Tanker prepared for fuel distribution operations.",
+      "translation": "Camion-citerne préparé pour la distribution de carburant.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(5) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.1619ff916a01de9c",
+      "sourceHash": "969808aa36780fcde89016ce2329923aa0e1628ec239b50a4637cc9185c271e7",
+      "source": "LPG cylinder operations",
+      "translation": "Activités liées aux bouteilles de GPL",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(6) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.e6bb56486f604175",
+      "sourceHash": "5f4409e61fe179959092e649f171ee050f1ce5927b6966630e43bee3d30df136",
+      "source": "LPG Cylinder Operations",
+      "translation": "Activités liées aux bouteilles de GPL",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(6) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.f2fa6c09bd5948bb",
+      "sourceHash": "7b87ff1b288fe70f378c2b0520a706fbc6c62866fb8fe4aa6a2c1084ceae8263",
+      "source": "Cylinder handling supporting LPG distribution.",
+      "translation": "La manutention des bouteilles contribue à la distribution de GPL.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(6) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.dfa7cfe68e9aa647",
+      "sourceHash": "f76fe22a35a30a1e7ad097767dfd83a4b4dd536e6baeeaab494e0a0177510afb",
+      "source": "Lake Gas LPG cylinder filling plant",
+      "translation": "Usine de remplissage de bouteilles GPL de Lake Gas",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(7) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.6a39803cfbdb57f1",
+      "sourceHash": "4dcb2cccde8c656598a5a5d2d3a61b8e712db7bbedd8fc3c2508cd3cccc1a1df",
+      "source": "LPG Cylinder Filling",
+      "translation": "Remplissage de bouteilles GPL",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(7) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.4d4769037d59ada2",
+      "sourceHash": "bf38c005dcae9f187cb4469a53c8f5996306c57e40bb9c736dd85cb967c3ffac",
+      "source": "LPG cylinder filling and distribution plant operations.",
+      "translation": "Activités de l’usine de remplissage et de distribution de bouteilles GPL.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(7) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.e682a8df96561f37",
+      "sourceHash": "6ae2666c8fa84aa119b72dd18d2da66ee033afe0b28ae78e2d5399e851eb583e",
+      "source": "Fleet safety inspection operations",
+      "translation": "Opérations d’inspection de la sécurité de la flotte",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(8) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.3a3a25c9a5eb940b",
+      "sourceHash": "89b6fc3a4923fc88b2537137c639eaa2c9c68c76d821f9f8c87b542e2e4ee1e2",
+      "source": "Fleet Safety Operations",
+      "translation": "Sécurité de la flotte",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(8) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.b2fa9dac0c916c8b",
+      "sourceHash": "c055d4f15598ab63d7d7c1105408d101a11097461b61c60a47e47bbc8fd5147e",
+      "source": "Operational safety activities involving transport personnel.",
+      "translation": "Activités de sécurité opérationnelle impliquant le personnel de transport.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(8) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.3848bc267212aba5",
+      "sourceHash": "53c7025edd1b5eaa35fbb0bb088d47330a0c15dcb6dcb3e100f41229c7c32f6a",
+      "source": "Lake Lubes lubricant product drums and packaging",
+      "translation": "Fûts et emballages des lubrifiants Lake Lubes",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(9) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.e124daf023314aec",
+      "sourceHash": "b5acc757863b99a868e77b0eaabfe633b166911bb33708bfeaa6f7b7a93ad262",
+      "source": "Lake Lubes Products",
+      "translation": "Produits Lake Lubes",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(9) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.8cff86b158a075b7",
+      "sourceHash": "e7698881c9e1f2d3cf9d114dbc14f45f7912447516ee3be235de9ff759b59962",
+      "source": "Range of automotive and industrial lubricant products.",
+      "translation": "Une gamme de lubrifiants automobiles et industriels.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(9) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.3a4c2b3467909b20",
+      "sourceHash": "7d6625013f7904278214cf6a34b4824c3e2ce970a879fbf6fa9e78f6c33db5be",
+      "source": "Lake Agro tractor fleet for farming operations",
+      "translation": "Flotte de tracteurs Lake Agro pour les activités agricoles",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(10) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.d8fe5d16ab8a135e",
+      "sourceHash": "e58fefa147a085f09c9cd93fd6bc32326c573e89d451924bf6b6cee34c560288",
+      "source": "Lake Agro Tractors",
+      "translation": "Tracteurs Lake Agro",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(10) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.095f696207b9170d",
+      "sourceHash": "a16f73e44775a2df0a9b4f5b81227d61cb268008dbff8fdf6eb6f8709e551678",
+      "source": "Fleet of agricultural tractors for large-scale farming.",
+      "translation": "Une flotte de tracteurs agricoles pour les cultures à grande échelle.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(10) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.d0ccb16c8a81d4d9",
+      "sourceHash": "798c05d337f8ddf18737e3b25326fcc5bcde1c2aa241c90f2ae4de2aee665358",
+      "source": "Concrete production facility",
+      "translation": "Installation de production de béton",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(11) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.434f787c4b4e25e7",
+      "sourceHash": "bd8291a3774a794100f9a1c8f537b5edfb0ad69035a25a232bab2fe48e4fc71e",
+      "source": "Concrete Production Facility",
+      "translation": "Installation de production de béton",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(11) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.89b90c5ff181e10c",
+      "sourceHash": "ce096fea9a326c6e88f7384a0dea5c8fa86b49cd1ffe39920fc74be81ebe6beb",
+      "source": "Ready-mix production facility supporting construction supply.",
+      "translation": "Installation de production de béton prêt à l’emploi destinée à l’approvisionnement des chantiers.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(11) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.8e1435c6ab4a5eb2",
+      "sourceHash": "fdf10d01984cc5f3e2de31f889a403d98696ecd78e6313cb6e5db8dc5dc8868b",
+      "source": "Concrete delivery operations",
+      "translation": "Livraison de béton",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(12) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.cac57f9e5f111b09",
+      "sourceHash": "60931f120c142f29248ec2d994cd72e4ca10308b962aeb5145c58b80a2c13179",
+      "source": "Concrete Delivery Operations",
+      "translation": "Livraison de béton",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(12) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.64207582672a08ec",
+      "sourceHash": "6e4f2c8fcecbe3c94bbab7860398eda06aea20bec3a026f96d8ddf24d1725508",
+      "source": "Ready-mix trucks prepared for customer deliveries.",
+      "translation": "Des camions de béton prêt à l’emploi préparés pour les livraisons aux clients.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(12) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.7fc8550a10fcb658",
+      "sourceHash": "cab0f030af7213587b2a2d3357657c94d7c95e2b9a6bdbe48e2a69e536114bef",
+      "source": "Concrete pump operations",
+      "translation": "Opérations de pompage du béton",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(13) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.75c1320cd0f9e137",
+      "sourceHash": "d1a2fd9f5cdd4daf9676193de35cf3e5b2071be863ad0f5cb7554ce833eac345",
+      "source": "Concrete Pump Operations",
+      "translation": "Opérations de pompage du béton",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(13) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.723cb539a0a6a509",
+      "sourceHash": "7970114278c12400267d8d4a03e788d7f8e622d3d1150fe83f93d627822d438b",
+      "source": "Concrete pump supporting on-site construction work.",
+      "translation": "Une pompe à béton pour les travaux de construction sur site.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(13) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.5a8464e60880d766",
+      "sourceHash": "c01eab8499614f9dd22b6cfa99d1ecb83d0a2078ce9b4e584a4b8b4f5259ba89",
+      "source": "Concrete production equipment",
+      "translation": "Équipement de production de béton",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(14) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.6a04e969ffcbf2a6",
+      "sourceHash": "7bd8d2741cf2537a05430bc8e640a6b01e3a3d0f9b8ea97d771d59f7cf902a3e",
+      "source": "Concrete Production Equipment",
+      "translation": "Équipement de production de béton",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(14) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.30b20edadc56dba7",
+      "sourceHash": "fe01f281346f22b419ed262364b5d1f53199a032e938fbcc77a9b300af91c42c",
+      "source": "Equipment supporting concrete batching operations.",
+      "translation": "Équipement destiné aux opérations de dosage et de préparation du béton.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(14) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.b943e6ba00dfef57",
+      "sourceHash": "f44836799707b26ce27ea19a05cb71ce389f1567f451dc3a09ff85d1dfa0fa29",
+      "source": "Lake Energies fuel tanker distribution network",
+      "translation": "Réseau de distribution par camions-citernes de Lake Energies",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(15) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.3db6a8728c12757c",
+      "sourceHash": "e3d98729740f191c7153ed45f97e2561795704f64bbc2ac47c1c70ffd62bd630",
+      "source": "Fuel Tanker Network",
+      "translation": "Réseau de camions-citernes",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(15) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.2f5d15d9d5f1f598",
+      "sourceHash": "b0cbc55a67269222addff598b45156de30fe48dc424dd3fd0e3839f274c7a008",
+      "source": "Lake Energies tanker fleet supporting regional fuel distribution.",
+      "translation": "La flotte de camions-citernes de Lake Energies soutient la distribution régionale de carburant.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(15) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.5ae965ca44aef7e4",
+      "sourceHash": "3bbc04be3ee1456b8ad84e467bff557eae193e0f3ab802eeb7cf7881bfc18891",
+      "source": "Lake Gas LPG cylinder filling production line",
+      "translation": "Ligne de remplissage de bouteilles GPL de Lake Gas",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(16) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.fbeff9620404ef36",
+      "sourceHash": "36309dc33d635b3354e7b9d6024f4ff9d2970e14dca00c1911d2585c6ed96e28",
+      "source": "LPG Filling Line",
+      "translation": "Ligne de remplissage GPL",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(16) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.99b2978df1a481a8",
+      "sourceHash": "aa595e274173280d690a472c0e2560b42c90378f5e37472e490ab1047f57f290",
+      "source": "Lake Gas LPG cylinder filling and production line.",
+      "translation": "Ligne de remplissage et de production de bouteilles GPL de Lake Gas.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(16) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.575bab52dacf5763",
+      "sourceHash": "a10194daeca55eed501d8647e202bc9144cd2b0cf712e158b3055597f2a05406",
+      "source": "Lake Lubes lubricant production plant",
+      "translation": "Usine de production de lubrifiants Lake Lubes",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(17) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.969ffad227e0da2d",
+      "sourceHash": "73582a3535ce7fc3916ff04d2571491fb85c00e4736fe4b21cf4473b0a6f95a3",
+      "source": "Lake Lubes Plant",
+      "translation": "Usine Lake Lubes",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(17) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a9caedbbaa65f7de",
+      "sourceHash": "8c1778c5f4b97b08cb15f36bec93c8a9c7d608b3bff197382ecc07d092ad256f",
+      "source": "Lubricant blending and packaging plant operations.",
+      "translation": "Activités d’une usine de mélange et de conditionnement de lubrifiants.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(17) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.da47911d24b8bc06",
+      "sourceHash": "935ac8dab464dff54dad75b2e1edcc18849220d008fcb87f2dcf500d6a0f1026",
+      "source": "Lake Steel hot rolling mill operations",
+      "translation": "Activités du laminoir à chaud de Lake Steel",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(18) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.250cf793e173ed29",
+      "sourceHash": "7f0045249f55eda216962e61b7bafc46358e3ce29847d0ca5cf9f03ef80668e5",
+      "source": "Steel Hot Rolling",
+      "translation": "Laminage à chaud de l’acier",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(18) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.b8a1a236417f8523",
+      "sourceHash": "e8d6e0df458d546a5e2e0a17d0239944cccb77bb1fba4885d03ab006f06562da",
+      "source": "Hot rolling mill producing steel bars and structural sections.",
+      "translation": "Laminoir à chaud produisant des barres et des profilés structurels en acier.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(18) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.cd0bf150185fcce6",
+      "sourceHash": "e9ab320e9aa91798b2fef4fa323fc65a17f880796b0b7dce529ae162f59eaccf",
+      "source": "Lake Pipes blue PVC pipe production",
+      "translation": "Production de tuyaux PVC bleus chez Lake Pipes",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(19) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.1bcc9325c4c72dbf",
+      "sourceHash": "3cc8afb6dd2f68c2d3a2a3f26be60308631a82d130597d543a93d0e595bd663b",
+      "source": "Blue Pipe Production",
+      "translation": "Production de tuyaux bleus",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(19) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.b66f093d19cef55f",
+      "sourceHash": "627ec2060d72cfaaf0804017e466bea9e48ac6fbfc22c4199e5f77bfa4f8734e",
+      "source": "Manufacturing of PVC and HDPE pipes for water infrastructure.",
+      "translation": "Fabrication de tuyaux en PVC et PEHD pour les infrastructures hydrauliques.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(19) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.0f8462d13b4ba255",
+      "sourceHash": "739b86a5fb4e158d0b5dc67cf8a7ce60e1b47374d5d135830d13e05a298f6530",
+      "source": "Lake Building Solutions water tank manufacturing",
+      "translation": "Fabrication de réservoirs d’eau chez Lake Building Solutions",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(20) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.c7f915872f396e72",
+      "sourceHash": "2ff6ba8b60a9cb12218faa0086dc0174522d27ef4d432c70e0cdaac9f8f5c560",
+      "source": "Tank Manufacturing",
+      "translation": "Fabrication de réservoirs",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(20) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.44bff4257ad59d90",
+      "sourceHash": "bf696ff1d108a62f422f8b4c9a762ff9e2d771ce7125af766c0ac7c83dbde7a0",
+      "source": "Manufacturing of polyethylene water storage tanks.",
+      "translation": "Fabrication de réservoirs de stockage d’eau en polyéthylène.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(20) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.bac278d1d7167a7c",
+      "sourceHash": "d402863dcb9b83694541a40c9da10ddc62ab9b87fa8c2d79d606d889a7e0ae1f",
+      "source": "Gulf Aggregates quarry and aggregate production",
+      "translation": "Exploitation de carrière et production de granulats de Gulf Aggregates",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(21) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.0ba3962b5220c6b8",
+      "sourceHash": "c117491dc0ac7df59101e93c698f3228423e441995df34ac7d28ce19b8de0fea",
+      "source": "Gulf Aggregates Operations",
+      "translation": "Activités de Gulf Aggregates",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(21) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.57a6c6454bd4d50e",
+      "sourceHash": "2b3211b2ef89dea4fbc8c68114a072283577355cc1defd811a79db2609006eec",
+      "source": "Quarry aggregate extraction and processing operations.",
+      "translation": "Activités d’extraction et de traitement des granulats en carrière.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(21) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a7c355cf2324b214",
+      "sourceHash": "6e7fd6d424ec2f00c30a59fba798a0a9ee0ddb89424c47da60d91293f672c651",
+      "source": "Lake Agro Tanzania processing factory",
+      "translation": "Usine de transformation de Lake Agro Tanzania",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(22) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.dba0f24f3c36bb6c",
+      "sourceHash": "d952a7a929be2a939ca74c4f2d58770aa76028dfb67e4756361be38936cf93e7",
+      "source": "Lake Agro Factory",
+      "translation": "Usine Lake Agro",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(22) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.0ca0a478b95af4a7",
+      "sourceHash": "e2feafa74146269e2e06f5799b4133f25709608aa35fa6b7d8e55a4735268292",
+      "source": "Agricultural commodity processing factory in Tanzania.",
+      "translation": "Usine de transformation de produits agricoles en Tanzanie.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(22) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.8cfdbfe67b57495f",
+      "sourceHash": "e9906664e19571eab016432932154f205d4095b9038d8eef1bbedb78f10dcdf6",
+      "source": "AFICD reach stacker handling shipping containers",
+      "translation": "Chariot élévateur à portée d’AFICD manipulant des conteneurs maritimes",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(23) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.f444867f495b43b2",
+      "sourceHash": "952bd177f74aac62162ddd8ff58d3156dae87a847479476d3a61ac5258ff5a23",
+      "source": "AFICD Container Operations",
+      "translation": "Opérations de conteneurs d’AFICD",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(23) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.0413803fe0c9e7dd",
+      "sourceHash": "fd51d32ce0468d601c831009bfcb450f42f4ff05ce9f0b0feb3fa4091c88d16c",
+      "source": "Container handling and freight logistics at AFICD depot.",
+      "translation": "Manutention de conteneurs et logistique de fret au dépôt AFICD.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(23) > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.5a399d0e7ea42a45",
+      "sourceHash": "2bfc621ad2295ca21c729ba908875a0683c31e944c4ca0cd300967799636f6a4",
+      "source": "Real photos from Lake Group operations across energy, logistics, manufacturing and construction materials.",
+      "translation": "Photos réelles des activités de Lake Group dans l’énergie, la logistique, l’industrie et les matériaux de construction.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
       "id": "auto.585f558603f4d00d",
       "sourceHash": "69518e684f065f0c39a26d5f18ae2a775ffffd4e390cc3d73afeac2fb50992a7",
       "source": "Type a message...",
@@ -272,6 +1392,16 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > input:nth-of-type(1)",
       "attribute": "placeholder",
       "origin": "existing-dictionary:chat.placeholder"
+    },
+    {
+      "id": "auto.6a51ae4f07dac4d3",
+      "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
+      "source": "Chat",
+      "translation": "Discussion",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-exact-source:about.html"
     },
     {
       "id": "auto.fd1da2e92bf77590",
@@ -284,6 +1414,36 @@
       "origin": "existing-dictionary:africa_network.27"
     },
     {
+      "id": "auto.125c19e9aa8fee4f",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Drapeau de la Tanzanie",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.7c1998a25e6fc20f",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "Kenya",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.166e9e984faf5d88",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "Drapeau du Kenya",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
       "id": "auto.c93da185289d7690",
       "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
       "source": "Zambia",
@@ -294,6 +1454,76 @@
       "origin": "existing-dictionary:africa_network.31"
     },
     {
+      "id": "auto.2ffa03cd9058fa56",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "Drapeau de la Zambie",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.36c0399c6000b2bb",
+      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
+      "source": "Rwanda",
+      "translation": "Rwanda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.dc44c822bf6aa958",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "Drapeau du Rwanda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.46a227d04e060861",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "Burundi",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.a1174a5c25983fdf",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "Drapeau du Burundi",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.5cccf2674984f4df",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "République démocratique du Congo",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.e6bc220a9123ff1b",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "Drapeau de la République démocratique du Congo",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
       "id": "auto.4b72600011d8fceb",
       "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
       "source": "Ethiopia",
@@ -302,6 +1532,76 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary:africa_network.38"
+    },
+    {
+      "id": "auto.517a350364da298b",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "Drapeau de l’Éthiopie",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.b44a671385737d29",
+      "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
+      "source": "Mozambique",
+      "translation": "Mozambique",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.5775ef92bfe130ac",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "Drapeau du Mozambique",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.10d9ffd1392a0d3e",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "Ouganda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.24849b618a1be941",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "Drapeau de l’Ouganda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.3433ae8320bbf363",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "Drapeau des Émirats arabes unis",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.8efd4a9e4540599c",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:leadership.html"
     }
   ]
 }

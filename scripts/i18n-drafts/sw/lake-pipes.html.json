@@ -10,7 +10,7 @@
   "reviewEvidence": null,
   "releaseEligible": false,
   "candidateCount": 103,
-  "translatedCount": 24,
+  "translatedCount": 103,
   "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
   "translations": [
     {
@@ -252,6 +252,796 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary:africa_network.40"
+    },
+    {
+      "id": "auto.d57b78e91c81304a",
+      "sourceHash": "30e5fac1a7ba683c9bd8ec6cbd573c500ae804ff4ea9d952d2faeeaf432052bc",
+      "source": "Lake Pipes manufactures and distributes PVC and HDPE pipes, water tanks and fittings from its Visiga plant in Kibaha, Tanzania.",
+      "translation": "Lake Pipes hutengeneza na kusambaza mabomba ya PVC na HDPE, matangi ya maji na viungio kutoka kiwanda chake cha Visiga, Kibaha, Tanzania.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content",
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.56fd30854d2a2bf5",
+      "sourceHash": "3db57db88c1af16cf7fe51f0b7efe5e0cc775043acaa4753654f163609e251b8",
+      "source": "Manufacturing and distributing quality pipes, water tanks and fittings for water management, irrigation, distribution and sewage systems.",
+      "translation": "Kutengeneza na kusambaza mabomba, matangi ya maji na viungio bora kwa usimamizi wa maji, umwagiliaji, usambazaji na mifumo ya maji taka.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.4629c3a5b8d52ed5",
+      "sourceHash": "810bee8833701cf670adddbe087649bdfae22e316460d41eef13860e22b5c5de",
+      "source": "Pipe & Water System Manufacturing",
+      "translation": "Utengenezaji wa Mabomba na Mifumo ya Maji",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.a1d0adf969f25239",
+      "sourceHash": "fd2548042d7aa5e1659621a3c4bccfdcf07ad39d1314c7bed50a8509f48605a2",
+      "source": "Lake Pipes, a division of Lake Group established in 2019, manufactures and distributes quality PVC and HDPE pipes, water tanks and fittings for water system management, irrigation systems, water distribution systems and sewage disposal systems.",
+      "translation": "Lake Pipes, kitengo cha Lake Group kilichoanzishwa mwaka 2019, hutengeneza na kusambaza mabomba bora ya PVC na HDPE, matangi ya maji na viungio kwa ajili ya usimamizi wa mifumo ya maji, umwagiliaji, usambazaji wa maji na utupaji wa maji taka.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.4a2fc1e5861226c3",
+      "sourceHash": "310fe374ae049be12d65d24aa7d155a2e5caa77ea56cafd0b906b38525c83425",
+      "source": "The manufacturing plant at Visiga, Kibaha, Tanzania, is equipped with ultramodern PVC, PPR and HDPE multilayer extruders, roto molding and blow molding machines. Products are quality tested at every stage to maintain standards.",
+      "translation": "Kiwanda cha Visiga, Kibaha, Tanzania, kina vifaa vya kisasa vya kutolea mabomba ya tabaka nyingi ya PVC, PPR na HDPE, pamoja na mashine za roto molding na blow molding. Bidhaa hupimwa ubora katika kila hatua ili kudumisha viwango.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.dcfedb969e3972be",
+      "sourceHash": "6d16811ff9011ed6ca60e83b31a0bb20a5339c59bdcf98b11b6808af4241db0c",
+      "source": "PVC, PPR and HDPE multilayer pipe extrusion",
+      "translation": "Utoaji wa Mabomba ya Tabaka Nyingi ya PVC, PPR na HDPE",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.3247d55c85138db8",
+      "sourceHash": "52daf58d3f6878c5d54ac3e9375ffa5c9bd1a2497f611b1d373810b2b64cb161",
+      "source": "Roto molding and blow molding capability",
+      "translation": "Uwezo wa Roto Molding na Blow Molding",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.7c875b3cf97012ed",
+      "sourceHash": "c01a69c1a511a3f05158be71d244b801908ba63e9416921a58dadf58f6064c17",
+      "source": "U-PVC fittings per ISO 1452 (20mm – 200mm)",
+      "translation": "Viungio vya U-PVC kwa mujibu wa ISO 1452 (20mm – 200mm)",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.74bc54090fff5add",
+      "sourceHash": "1d5bccdc3d91712b8cc6b07c3933c52f631d517180d6753fd4fa32b4363b575f",
+      "source": "Quality tested at every production stage",
+      "translation": "Ubora Hupimwa Katika Kila Hatua ya Uzalishaji",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(4)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.c91e27d75c0b1b7b",
+      "sourceHash": "3243a5b16ae4f8ab60c4ca51652b07daa43103f3060841f836507105922ca6a1",
+      "source": "To provide customers with top quality plastic products and high-standard services while maintaining safety, cost-efficiency and environmental responsibility.",
+      "translation": "Kuwapa wateja bidhaa za plastiki za ubora wa juu na huduma zenye viwango vya juu, huku tukidumisha usalama, ufanisi wa gharama na uwajibikaji wa kimazingira.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.6f404e958b398812",
+      "sourceHash": "25ae6a83afec25b27935ca4435dac0a7edad118f4216d31d06980977d654bb72",
+      "source": "To become the leading regional manufacturer and marketer of pipes and services, achieving continuous improvement, excellence and customer satisfaction through teamwork, reliability and integrity.",
+      "translation": "Kuwa mtengenezaji na muuzaji mkuu wa kikanda wa mabomba na huduma, tukifanikisha maboresho endelevu, ubora na kuridhika kwa wateja kupitia kazi ya pamoja, kutegemewa na uadilifu.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.f9699931361554bb",
+      "sourceHash": "e1d7e76bb0fab30e61991f7bdbe7b805fe1e4d7756cc41ba7f1f81769dea8a6f",
+      "source": "Safety at the heart of our products, people and operations",
+      "translation": "Usalama ndio kiini cha bidhaa, watu na shughuli zetu",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.39a74cf09f654a8f",
+      "sourceHash": "eedf66fe56bb60df6e3782cd396ef9175d362f4abee5523529329e631a15e0a1",
+      "source": "Quality Excellence",
+      "translation": "Ubora wa Hali ya Juu",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.1bd44397fc235945",
+      "sourceHash": "076eb78f06f23f417044a3ec645f0e365511d167e3067790c9f9234d139b4920",
+      "source": "Committed to producing plastic products that meet required quality and safety standards",
+      "translation": "Kujitolea kutengeneza bidhaa za plastiki zinazokidhi viwango vinavyohitajika vya ubora na usalama",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.1c69a2413a62f48a",
+      "sourceHash": "d2e53f8615d9d7932b5baa03aeb63cd8948fd7ea34e0d53f0c6270a42ffd3d11",
+      "source": "Customer Satisfaction",
+      "translation": "Kuridhika kwa Wateja",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.abefb4733ad12aab",
+      "sourceHash": "baf9957a687f1a8ede4c599680a9a660c7e81304bf4c0162bff22a1528f00deb",
+      "source": "Listening to customers and delivering quality products and responsive service",
+      "translation": "Kuwasikiliza wateja na kuwapatia bidhaa bora na huduma inayojibu mahitaji yao",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.289c04b2b1cd4c34",
+      "sourceHash": "25cb10a210ff6317daa3c2f1a418eb2676b1bb39a380ed0a7db04cebbff9a8ad",
+      "source": "Conducting business with honesty, transparency and accountability",
+      "translation": "Kuendesha biashara kwa uaminifu, uwazi na uwajibikaji",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.c66d28cd423903fb",
+      "sourceHash": "28d291966f08701a08f56ef263621532d5e680334896d0678648f21a6a4d5123",
+      "source": "Our Capabilities",
+      "translation": "Uwezo Wetu",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.777885d7f3956385",
+      "sourceHash": "51bc9105210910dbda2be4e6b3cf082ad01ef5e72179d2fc004f0f5854a4b71b",
+      "source": "PVC / PPR / HDPE Extrusion",
+      "translation": "Utoaji wa PVC / PPR / HDPE",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.762ca39caf38efd6",
+      "sourceHash": "f499d6e56831392d61afb2476c6b64fce1c70d58bc52a3df69076f93c22cd946",
+      "source": "Multilayer pipe manufacturing with full range of PVC, PPR and HDPE extruders at the Visiga facility.",
+      "translation": "Utengenezaji wa mabomba ya tabaka nyingi kwa kutumia aina kamili ya mashine za kutolea PVC, PPR na HDPE katika kiwanda cha Visiga.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.61927d30975f0fd4",
+      "sourceHash": "e08993c42715788f3fb748035ed104e0e5dd887b07f298494bfe5871c1fe3818",
+      "source": "Roto Molding",
+      "translation": "Roto Molding",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.27fceeed2ef7ddd7",
+      "sourceHash": "f8afbb2860defd9c4e94323f7312b7647e6fe3964724bd577d6bedcd659992eb",
+      "source": "Manufacturing capability for water tanks and specialized plastic products at the Visiga facility.",
+      "translation": "Uwezo wa kutengeneza matangi ya maji na bidhaa maalum za plastiki katika kiwanda cha Visiga.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.9daea0bdc05f5721",
+      "sourceHash": "7dd508b0ba0ba4493b615ac93ae2086c85a1bc7dce62fff207a8fc9d7f859074",
+      "source": "Blow Molding",
+      "translation": "Blow Molding",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.630802948993769f",
+      "sourceHash": "d19e896849fd015d8205540430548cf4ffbededbe96e97bb33dbfe6fbb47ee00",
+      "source": "Blow molding machinery for pipe and fitting production at the manufacturing facility.",
+      "translation": "Mashine za blow molding kwa ajili ya uzalishaji wa mabomba na viungio katika kiwanda.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.c603a4bf97fdd0f2",
+      "sourceHash": "57ef87af296508086574dfaea8f530b33d62509c061536a95afd37ea41edfa4c",
+      "source": "Quality Testing",
+      "translation": "Upimaji wa Ubora",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.d577f563839bf840",
+      "sourceHash": "d0c4326c0b81555f044622a21ab339df730a89493b707e33e922f4204579c4d5",
+      "source": "Products quality tested at every stage, with raw material testing using PE 80, PE 100 and PVC K-67.",
+      "translation": "Ubora wa bidhaa hupimwa katika kila hatua, huku malighafi ikijaribiwa kwa kutumia PE 80, PE 100 na PVC K-67.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.460196b69aa3ae0f",
+      "sourceHash": "3c6f583ca46bebb6ede214978949df9d7d0549b41c68536e5a8d4d996b4ea4cb",
+      "source": "Lake Pipes warehouse with stored products",
+      "translation": "Ghala la Lake Pipes lenye bidhaa zilizohifadhiwa",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.b21279721cb2abed",
+      "sourceHash": "d4dffea02e0f9eff427e6843df6037d900d933490d10275bee41be48aef8e848",
+      "source": "PVC Pipes",
+      "translation": "Mabomba ya PVC",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.f3ae547b23099d7f",
+      "sourceHash": "e41e20213c6d1612d81abb7450cdefcef1424d57dc55a2e0975b74e3e51f6746",
+      "source": "Quality PVC pipes for water distribution, irrigation and sewage systems, manufactured at the Visiga plant.",
+      "translation": "Mabomba bora ya PVC kwa mifumo ya usambazaji wa maji, umwagiliaji na maji taka, yanayotengenezwa katika kiwanda cha Visiga.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.c67a0f280e8d5e4d",
+      "sourceHash": "329cf2e9ec716a1423eac1970074d05c9c132b3e6b80154d09060773d33830e5",
+      "source": "Stacked HDPE pipes in warehouse",
+      "translation": "Mabomba ya HDPE Yaliyopangwa Ghalani",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.5df653d9d4dd090a",
+      "sourceHash": "812cdf675893d641a01f2357fee74c30636986e0b580e302061ac9af79d65d8a",
+      "source": "HDPE Pipes",
+      "translation": "Mabomba ya HDPE",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.97ae5dbf6c70ee1b",
+      "sourceHash": "66b8c01c39cbbdeea7a6e1fcc41b2212de65b382af724f0566c69f6ce9cc6b57",
+      "source": "High-density polyethylene pipes for water system management and distribution applications.",
+      "translation": "Mabomba ya polyethilini yenye msongamano mkubwa kwa matumizi ya usimamizi na usambazaji wa mifumo ya maji.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.e70a5744e0cdaace",
+      "sourceHash": "9d4e28ea27072669d66e98769fa269d70c4d843cd84bd64744070e20243c8e6e",
+      "source": "Lake Tanks water storage tanks",
+      "translation": "Matangi ya Kuhifadhi Maji ya Lake Tanks",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.9b70390d460cc507",
+      "sourceHash": "a4e054963493e9d95a5304fbfe7e974e54cdf4f2189f8f994534fa0126cd59fa",
+      "source": "Water Tanks",
+      "translation": "Matangi ya Maji",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.8e773e96dcec39fe",
+      "sourceHash": "b14b957705e86106884b244533915f71f4eeb62e1156ce22ea3f60f79a33ea85",
+      "source": "Quality water tanks manufactured using roto molding and blow molding processes.",
+      "translation": "Matangi bora ya maji yanayotengenezwa kwa michakato ya roto molding na blow molding.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.c01b3045c0699a2d",
+      "sourceHash": "3e9ea1b7de3b1b8378dd37aef839450bbf76a6146a1fa536a0fdc36bccf29041",
+      "source": "HDPE pipe coiling machine",
+      "translation": "Mashine ya Kukunjia Mabomba ya HDPE",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.f285a043610d0ebc",
+      "sourceHash": "47d70849754f22d0acc45b28ac93856279aeb0896b9d4137ed1bacd7c39078fb",
+      "source": "U-PVC Fittings",
+      "translation": "Viungio vya U-PVC",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.453519bdeebd7e5f",
+      "sourceHash": "ae41c277c25e6d9787e91519e3630ff2571c361aaf2e8b23c759eca118b4ea2a",
+      "source": "U-PVC fittings produced to ISO 1452 standards, available in sizes 20mm to 200mm diameter.",
+      "translation": "Viungio vya U-PVC vinavyotengenezwa kwa viwango vya ISO 1452, vinapatikana kwa kipenyo cha 20mm hadi 200mm.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.5a9a676710b9cec1",
+      "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
+      "source": "Chat",
+      "translation": "Gumzo",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "assistant-authored-draft:lake-pipes.html"
+    },
+    {
+      "id": "auto.e16d24b81d59ca96.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.6f82a25343259d7c",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.79032218208c48d4.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "NexDrive Motors",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.39251f315e18a3b3",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "Historia Yetu",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.39251f315e18a3b3.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "Uwajibikaji kwa Jamii na Uendelevu",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.9e8cc8ac4d2869dd",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "Lugha: English",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.9970d6f7b8f08a13",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.5e8148a07f027fbd",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "Funga menyu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.0f01792f28110857.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.d577788d4fce500e",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.cd4d46c7d445be8d",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "Historia Yetu",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.cd4d46c7d445be8d.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "Uwajibikaji kwa Jamii na Uendelevu",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.b39e2c3f61281931",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.6b5ff3af8d1a3aba",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.6b5ff3af8d1a3aba.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.6b5ff3af8d1a3aba.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.6b5ff3af8d1a3aba.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.6b5ff3af8d1a3aba.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.6b5ff3af8d1a3aba.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.6b5ff3af8d1a3aba.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.6b5ff3af8d1a3aba.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.717fad11ba1eeb4a",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "Tanzania",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.4e160cd304a95afe",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Bendera ya Tanzania",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.b38aa4df2ddba8a4",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "Kenya",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.9a6708ea227416ac",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "Bendera ya Kenya",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.69a4c0e8714b9856",
+      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
+      "source": "Zambia",
+      "translation": "Zambia",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.76238d4eee57c112",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "Bendera ya Zambia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.5b7f79ff69f24608",
+      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
+      "source": "Rwanda",
+      "translation": "Rwanda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.ea0048a9bf14ab4b",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "Bendera ya Rwanda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.9a1ede3dd059d62f",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "Burundi",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.e16e3718a87f8361",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "Bendera ya Burundi",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.8957af9d0dea8fa6",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "Jamhuri ya Kidemokrasia ya Kongo",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.e5991b9fa21581e3",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "Bendera ya Jamhuri ya Kidemokrasia ya Kongo",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.02103a8bb47c234b",
+      "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
+      "source": "Ethiopia",
+      "translation": "Ethiopia",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.475f6d2e7c486b7e",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "Bendera ya Ethiopia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.8c22cbe618644cb9",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "Bendera ya Msumbiji",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.ec127642f70860a1",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "Uganda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.cfdaa98530af5e85",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "Bendera ya Uganda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.d032daa73d4dad8b",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "Bendera ya Falme za Kiarabu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.fb6312a233eb6e79",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
     }
   ]
 }

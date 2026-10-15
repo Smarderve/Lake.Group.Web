@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "status": "DRAFT_PENDING_HUMAN_REVIEW",
+  "locale": "sw",
+  "page": "offline.html",
+  "sourceManifestDigest": "181d42c4930d1abb298d1bb6193e994fb20c4653ed2347cb78f9ae1ea1fa8fa8",
+  "sourceManifestGeneratedAt": "2026-10-15T10:48:55.402Z",
+  "createdAt": "2026-10-15T12:59:24.338Z",
+  "authoringMethod": "existing dictionary reuse; no model output for generated rows",
+  "reviewEvidence": null,
+  "releaseEligible": false,
+  "candidateCount": 10,
+  "translatedCount": 10,
+  "validation": "source hashes and protected facts checked; linguistic review remains required",
+  "translations": [
+    {
+      "id": "auto.cc9b02e470c7af3e",
+      "sourceHash": "3a78695388b38b5cceefaf6796b0137877514593543b91af2752d5a17e3d736c",
+      "source": "Home",
+      "translation": "Nyumbani",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.cc9b02e470c7af3e.2",
+      "sourceHash": "4efca0d10c5feb8e9b35eb1d994f2905bb71714e6a271f511d713b539ea5faa1",
+      "source": "About",
+      "translation": "Kuhusu Sisi",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.cc9b02e470c7af3e.3",
+      "sourceHash": "604dce445e326d952308addc99bd3d0e3ffb0ed9a455e4aa0190641fc5facccc",
+      "source": "Services",
+      "translation": "Huduma",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.cc9b02e470c7af3e.4",
+      "sourceHash": "2b5c3d26721ae9c350cf3009318b626f0fc8a90b4a2ac0ca8099c05aa849282e",
+      "source": "Contact",
+      "translation": "Mawasiliano",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(4)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.cf48c40aac357408",
+      "sourceHash": "fc488d74373f2d4e150cbd1d14c74b6a1735e869c5d2a50384821b72862f17a4",
+      "source": "You're offline — check your connection and retry. Lake Group: energy, logistics, manufacturing and agro across Africa.",
+      "translation": "Huna muunganisho wa intaneti — angalia muunganisho wako na ujaribu tena. Lake Group: nishati, ugavi, utengenezaji na kilimo kote Afrika.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content",
+      "origin": "assistant-authored-draft:offline.html"
+    },
+    {
+      "id": "auto.4074b5b2df5efd02",
+      "sourceHash": "c0212a81b08c69f2012a22ccde46fa877b00d21dcc0c1fbd7c2152cd389e274a",
+      "source": "You're",
+      "translation": "Huna muunganisho",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:offline.html"
+    },
+    {
+      "id": "auto.4074b5b2df5efd02.2",
+      "sourceHash": "74b01175ba74602b476152129e175091ff9302071b85a52aa42e9ace3d21762d",
+      "source": "currently",
+      "translation": "kwa sasa",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > h1:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:offline.html"
+    },
+    {
+      "id": "auto.0ebb50b2d57110fd",
+      "sourceHash": "b451f2c801077d58117b05c5c8f0caea2720ea22bbcca28ffe682b95332d78ef",
+      "source": "This page isn't available without an internet connection. Pages you've visited before are saved and may still work. Try one of these, or reconnect and retry.",
+      "translation": "Ukurasa huu haupatikani bila muunganisho wa intaneti. Kurasa ulizotembelea awali zimehifadhiwa na huenda bado zikafanya kazi. Jaribu mojawapo ya hizi, au unganisha tena na ujaribu tena.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:offline.html"
+    },
+    {
+      "id": "auto.25937de67749fd95",
+      "sourceHash": "35f09f1991fbcd12741ce8fed48abfad03f12fcb2a88ce6d887696524421884e",
+      "source": "Retry Connection",
+      "translation": "Jaribu Kuunganisha Tena",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:offline.html"
+    },
+    {
+      "id": "auto.6c30e77aff7797ca",
+      "sourceHash": "bae7366a908ebc7116f6f4f0ecd7f9ea5dc431b05ce0656cf6bb47a1d5fa7dfc",
+      "source": "Offline · waiting for connection",
+      "translation": "Nje ya mtandao · inasubiri muunganisho",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > p:nth-of-type(2) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:offline.html"
+    }
+  ]
+}

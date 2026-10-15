@@ -121,6 +121,20 @@ window.LakeI18n = (function () {
           if (typeof row.source === 'string') englishSources[row.key] = row.source;
         }
       });
+      // Page draft rows that target one exact keyed control/content node take
+      // precedence over an older locale dictionary value only when the English
+      // source still matches exactly. This lets editorial previews correct an
+      // incomplete keyed translation without weakening source-integrity checks.
+      const normalizeDraftSource = (value) => String(value || '').replace(/\s+/g, ' ').trim();
+      (pageDraft?.translations || []).forEach((row) => {
+        if (row.mode !== 'text' || typeof row.selector !== 'string') return;
+        const keyMatch = row.selector.match(/^\[data-i18n=["']([^"']+)["']\]$/);
+        if (!keyMatch) return;
+        const key = keyMatch[1];
+        const englishSource = content.en?.[key];
+        if (typeof englishSource !== 'string' || normalizeDraftSource(englishSource) !== normalizeDraftSource(row.source)) return;
+        overlay[key] = row.translation;
+      });
       dictionaries = { ...content, [lang]: overlay };
       draftEnglishSources[lang] = englishSources;
       draftPageTranslations[lang] = { ready: true, rows: pageDraft?.translations || [] };

@@ -3,16 +3,26 @@
   "status": "DRAFT_PENDING_HUMAN_REVIEW",
   "locale": "pt",
   "page": "aficd.html",
-  "sourceManifestDigest": "181d42c4930d1abb298d1bb6193e994fb20c4653ed2347cb78f9ae1ea1fa8fa8",
-  "sourceManifestGeneratedAt": "2026-10-15T10:48:55.402Z",
+  "sourceManifestDigest": "60675f76844f3800729cf1ef938b65c6ddcb2e7351b7ee2b74eb4da0f9f40714",
+  "sourceManifestGeneratedAt": "2026-10-15T12:12:03.389Z",
   "createdAt": "2026-10-15T10:47:00.755Z",
-  "authoringMethod": "existing dictionary reuse; no model output for generated rows",
+  "authoringMethod": "AI-authored initial AFICD facility, capability, accessibility, and expansion translations; human review pending",
   "reviewEvidence": null,
   "releaseEligible": false,
   "candidateCount": 158,
-  "translatedCount": 33,
-  "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
+  "translatedCount": 158,
+  "validation": "Exact source ids and hashes retained; remaining strings are protected brands, native language names, or copyright; editorial review pending",
   "translations": [
+    {
+      "id": "auto.8c3cfde421892abc",
+      "sourceHash": "e119eb500efc2f8435599dd5237fa5b9e5c2a31ec27aba0ba14b875648de56e7",
+      "source": "African Inland Container Depot (AFICD) provides ICD, CFS and empty container depot services supporting cargo handling, storage and inland logistics in Tanzania.",
+      "translation": "A African Inland Container Depot (AFICD) oferece serviços ICD, CFS e depósito de contêineres vazios para apoiar a movimentação e o armazenamento de cargas e a logística interior na Tanzânia.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content",
+      "origin": "ai-authored-initial-draft"
+    },
     {
       "id": "auto.1ca4fea5118e8e06",
       "sourceHash": "6970059994dce7e30c88b19df4696c7234a01aca3caf2fa69322593c6a6af253",
@@ -74,6 +84,46 @@
       "origin": "existing-dictionary:nav.dd.automotive"
     },
     {
+      "id": "auto.f42a2f111ad2ac25.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.297a6ebcf8fb57c9",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.f11106cd5b579e45.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "NexDrive Motors",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.36561c6484b9b23f",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "A nossa história",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
       "id": "auto.36561c6484b9b23f.2",
       "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
       "source": "CSR & Sustainability",
@@ -92,6 +142,46 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(3)",
       "attribute": null,
       "origin": "existing-dictionary:nav.gallery"
+    },
+    {
+      "id": "auto.da6687ec8c9b3e10",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "Idioma: English",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "auto.29b0ef3057a94800",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.7a808b06a56176e2",
+      "sourceHash": "99af6606ff9d6cd5154d4d4e9c21e325086d3e904677cdb41d363c8a3480f862",
+      "source": "Menu",
+      "translation": "Menu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.5a5bc3566d276c3d",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "Fechar menu",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-exact-source:about.html"
     },
     {
       "id": "auto.ce6ddce354d79f53",
@@ -124,6 +214,26 @@
       "origin": "existing-dictionary:nav.companies"
     },
     {
+      "id": "auto.54456068fe53d72a.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "auto.66780b9b9c209263",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
       "id": "auto.94acbca5febab13e",
       "sourceHash": "ec75f79040af17557c450e94a4214a484350634a433592d2eb31784c5a46e865",
       "source": "Leadership",
@@ -142,6 +252,16 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
       "attribute": null,
       "origin": "existing-dictionary:nav.company"
+    },
+    {
+      "id": "auto.6e59c8adfe0091d2",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "A nossa história",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
     },
     {
       "id": "auto.6e59c8adfe0091d2.2",
@@ -184,6 +304,96 @@
       "origin": "existing-dictionary:footer.contact"
     },
     {
+      "id": "auto.96ce67a0b415616c",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.a556125aaf3e10c0",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.a556125aaf3e10c0.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.a556125aaf3e10c0.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.a556125aaf3e10c0.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.a556125aaf3e10c0.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.a556125aaf3e10c0.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.a556125aaf3e10c0.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.a556125aaf3e10c0.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
       "id": "auto.2e19d3105edd8741",
       "sourceHash": "12980763775c5ff72cd09534e5530c894b464d8382edf748e071752cde9c7143",
       "source": "African Inland Container Depot (AFICD)",
@@ -194,6 +404,236 @@
       "origin": "existing-dictionary:leadership.44"
     },
     {
+      "id": "auto.c3dafd8791ed985c",
+      "sourceHash": "169c564bd4cd7fd928c8cdd345d43a679db0470a9beb51215434ed3ac649f527",
+      "source": "Connecting Port Operations with Inland Logistics",
+      "translation": "Conectando operações portuárias à logística interior",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.450ddb05629185e8",
+      "sourceHash": "84faa2e39b022df148909fa1dd2f67f8413269874cdf772a1fd6b796e15ad75c",
+      "source": "Serving East, Central and Southern Africa with integrated inland logistics, container handling and warehousing since 2010.",
+      "translation": "Desde 2010, atendemos a África Oriental, Central e Austral com logística interior integrada, movimentação de contêineres e armazenagem.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.94acee0f9612bea6",
+      "sourceHash": "2fdadfa1bd385f3e29e0319b81fa9ea6ee78349aa9182be43884081b73a6843a",
+      "source": "AFICD — Connecting the Port to the Inland Supply Chain.",
+      "translation": "AFICD — Conectando o porto à cadeia de suprimentos interior.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(3)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.ddc9500a9ac10796",
+      "sourceHash": "ffc941bc1eae1888a9f735ba5caeb1cd8ea137d7a4ff8b046ecaf6f162fefb47",
+      "source": "From Port to Border. From Border to Port",
+      "translation": "Do porto à fronteira. Da fronteira ao porto",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.3379eb9de6538c64",
+      "sourceHash": "9d79a18168876e5801d1933d9990f02209297664c2e321726664335f7d90b137",
+      "source": "SANY reach stacker lifting a container at AFICD",
+      "translation": "Reach stacker SANY içando um contêiner na AFICD",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > figure:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.11b551ced155026d",
+      "sourceHash": "169c564bd4cd7fd928c8cdd345d43a679db0470a9beb51215434ed3ac649f527",
+      "source": "Connecting Port Operations with Inland Logistics",
+      "translation": "Conectando operações portuárias à logística interior",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.c4ac7a191ed6d94d",
+      "sourceHash": "d78d5a297dd65de0f10cd1e54aa2088f6c7140320409931c80e1609e0518a2fe",
+      "source": "African Inland Container Depot (AFICD), a member of Lake Group, commenced operations in 2010. It is a leading provider of integrated inland logistics solutions across East, Central and Southern Africa.",
+      "translation": "A African Inland Container Depot (AFICD), integrante do Lake Group, iniciou suas operações em 2010. É uma fornecedora líder de soluções integradas de logística interior na África Oriental, Central e Austral.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.87c7921619504d7e",
+      "sourceHash": "5986eb7efa6d2e0abd66d4645a2121487ab2136051df7e6d2528eaf1886c26c6",
+      "source": "Strategically positioned along key trade corridors and port gateways, AFICD delivers Inland Container Depot (ICD), Container Freight Station (CFS), Empty Container Depot (ECD), bonded warehousing and cargo-handling services that support the seamless movement of import and export cargo.",
+      "translation": "Posicionada estrategicamente nos principais corredores comerciais e acessos portuários, a AFICD oferece serviços de Inland Container Depot (ICD), Container Freight Station (CFS), Empty Container Depot (ECD), armazenagem alfandegada e movimentação de cargas, apoiando o fluxo contínuo de importações e exportações.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.c0536eaf13af06e0",
+      "sourceHash": "2165e932ddebe18fd5e2ff04c5b6d9e18b59e427f85c6a905f64e016c04fe8da",
+      "source": "Backed by Lake Group's extensive logistics network, AFICD continues to invest in infrastructure, technology and capacity expansion to meet the evolving needs of customers and the growing demands of regional and international trade.",
+      "translation": "Com o apoio da ampla rede logística do Lake Group, a AFICD continua investindo em infraestrutura, tecnologia e expansão de capacidade para atender às necessidades em evolução dos clientes e ao crescimento do comércio regional e internacional.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(3)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.86f205df2ce30bf5",
+      "sourceHash": "489e1fae92d36ad90d718cb0598bfd2fcd2e07c3950d846bb67f41811d899a05",
+      "source": "Inland Container Depot (ICD), Container Freight Station (CFS) and Empty Container Depot (ECD)",
+      "translation": "Inland Container Depot (ICD), Container Freight Station (CFS) e Empty Container Depot (ECD)",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.7702d59a273e9eeb",
+      "sourceHash": "0f16b48d565b0d40c18f45258c46f0a045bd63575357eb85804f4845dc61436f",
+      "source": "Bonded warehousing and cargo-handling services",
+      "translation": "Armazenagem alfandegada e serviços de movimentação de cargas",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.7eb19da21b47aed4",
+      "sourceHash": "bff394e8d2b8cd6d663f933a967baf63652ef50b2d796096c889b082b2ed9e27",
+      "source": "Serving shipping lines, manufacturers, traders and logistics partners",
+      "translation": "Atendendo armadores, fabricantes, comerciantes e parceiros logísticos",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.6fd0435970988bb8",
+      "sourceHash": "673dbb629e297352245eed2480373e29bcb006509679aabcef21e1e6ab1cc169",
+      "source": "Improving cargo flow and optimizing supply-chain performance",
+      "translation": "Melhorar o fluxo de cargas e otimizar o desempenho da cadeia de suprimentos",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(4)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.be783b2550493f9c",
+      "sourceHash": "7793350b3bf039aa4bd8fb7649444b1eed82837313c05d65eb7bea32cc632925",
+      "source": "Enhancing regional trade connectivity",
+      "translation": "Aprimorar a conectividade comercial regional",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.3ed5334f70e8f516",
+      "sourceHash": "edddcd38eaa5eb0ede7c3461c945bd810766273d995addedd176e5d01d9de42c",
+      "source": "AFICD container yard operations",
+      "translation": "Operações do pátio de contêineres da AFICD",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > figure:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a7756b11726331e1",
+      "sourceHash": "a3c4e21633027d8d344d50a9ab7dcdc56aaac15207a753db9fbaca0c46379ac9",
+      "source": "AFICD at a Glance",
+      "translation": "AFICD em resumo",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a48f18649ff50cf7",
+      "sourceHash": "d1c2ee19d7e3e451a3febd74cd1ab586dc578ed368ca6ddeb77b865739bac54f",
+      "source": "AFICD branded container handling equipment",
+      "translation": "Equipamentos de movimentação de contêineres com a marca AFICD",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.da96f86a281f00b8",
+      "sourceHash": "19fbe25648e82945d31b909f1941b847815abd14f8b17a02021054f36005295c",
+      "source": "Manga yard",
+      "translation": "Pátio de Manga",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.32d9e58799af7257",
+      "sourceHash": "1c5592634e22e16d0460c330ef5de6fe9bee591351eafd25b7ee3ac9ef6aae8b",
+      "source": "4,550 sq. metre",
+      "translation": "4,550 metros quadrados",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > strong:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.cbd6fcb2337de66e",
+      "sourceHash": "c3140481bbef7d2ff3afce7924962b97bd785b02d3ee62e4587c7914d59e6ff0",
+      "source": "Dondo facility",
+      "translation": "Instalação de Dondo",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.bc3362b3900120b9",
+      "sourceHash": "cf4c788b45b20ba750da32b5588bb34e153010917fe7dde543fc00ef601261f7",
+      "source": "20 sq. metre",
+      "translation": "20 metros quadrados",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > strong:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.1be337e4453dd17d",
+      "sourceHash": "38e2e70ab6e6e322d8ba019fe7c7e19826c714d6bce28b142cdde2a105ed6431",
+      "source": "Zambia throughput",
+      "translation": "Volume de carga que passa pela Zâmbia",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.cd58c670ae033794",
+      "sourceHash": "10d48255bfa68e247ef287148113ff02be3ccc7699966c61196d4f7e5dd02f1e",
+      "source": "180,000 MT cargo per year",
+      "translation": "180,000 toneladas métricas de carga por ano",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > strong:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
       "id": "auto.b8c7f6743aa08917",
       "sourceHash": "358cc201f87d9dc9defd3eac467a62fae720aa99a76be8b98e0fc9b3893a427d",
       "source": "Operations",
@@ -202,6 +642,36 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > span:nth-of-type(1)",
       "attribute": null,
       "origin": "existing-dictionary:careers.44"
+    },
+    {
+      "id": "auto.620ff3d2cd6b3d17",
+      "sourceHash": "eb89150566a9c6498343825a7354db5c916c3c0c39a2088874856951e783a922",
+      "source": "365 days a year · round the clock",
+      "translation": "365 dias por ano · dia e noite",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > strong:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.1bedfca5550ce99b",
+      "sourceHash": "0447fe78ffb9f4b1849820d3141058b28e402dfee6350955741c132e2d0f8b40",
+      "source": "Expansion",
+      "translation": "Expansão",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(5) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.92fd969612aaf17f",
+      "sourceHash": "d7a968ca80170f9491adb806e018857c125683adcf26f7b9b4a05eeddf33c4db",
+      "source": "Zambia 2018 · Mozambique 2019",
+      "translation": "Zâmbia 2018 · Moçambique 2019",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(5) > strong:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
     },
     {
       "id": "auto.41a5d0198752e7a2",
@@ -224,6 +694,16 @@
       "origin": "existing-dictionary:atl.s2.mission"
     },
     {
+      "id": "auto.f029a906e2009b0e",
+      "sourceHash": "b2b7d184c66c3701d04a27d31819660123008623af118b56d800333e28d0aadb",
+      "source": "To deliver safe, efficient and cost-effective inland logistics, warehousing, container handling and cargo management solutions that facilitate trade, strengthen supply chains and support sustainable economic growth across Africa.",
+      "translation": "Oferecer soluções seguras, eficientes e econômicas de logística interior, armazenagem, movimentação de contêineres e gestão de cargas que facilitem o comércio, fortaleçam as cadeias de suprimentos e apoiem o crescimento econômico sustentável em toda a África.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
       "id": "auto.d6504805b3a365f2",
       "sourceHash": "c587c2601ccfc456cb7d4d9bb34f12f0fd11ad49faeeb4602860e239b5397843",
       "source": "Vision",
@@ -232,6 +712,16 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > h3:nth-of-type(1)",
       "attribute": null,
       "origin": "existing-dictionary:atl.s2.vision"
+    },
+    {
+      "id": "auto.97e2c4738e520b2e",
+      "sourceHash": "b7147b4c747dfc7014147894d628c9e53b5ab3dc7711eb361b55503ec6dd7ac6",
+      "source": "To be Africa's leading inland logistics and container depot network, recognized for operational excellence, innovative logistics solutions, and seamless regional and global trade connectivity.",
+      "translation": "Ser a principal rede africana de logística interior e depósitos de contêineres, reconhecida pela excelência operacional, por soluções logísticas inovadoras e pela conectividade fluida do comércio regional e global.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
     },
     {
       "id": "auto.2674417dce76a4d2",
@@ -244,6 +734,16 @@
       "origin": "existing-dictionary:about.35"
     },
     {
+      "id": "auto.08f2c47ce4b2885c",
+      "sourceHash": "fdb0370a86126a2c72337093f2ce85efd463eeb2bffd611a2b48c43a7447ccd1",
+      "source": "We prioritize the safety of our people, customers, assets and operations.",
+      "translation": "Priorizamos a segurança das nossas pessoas, clientes, ativos e operações.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
       "id": "auto.ccb6cf2ea4a40ac0",
       "sourceHash": "ad5ea6aae7ca18f5f3823bfd0a0f0e400434b701dd4325c2810eba1e826d7618",
       "source": "Integrity",
@@ -252,6 +752,56 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > h3:nth-of-type(1)",
       "attribute": null,
       "origin": "existing-dictionary:atl.val.integrity"
+    },
+    {
+      "id": "auto.1b74948703020cbc",
+      "sourceHash": "15f1f224e35332e4dfcaadf6cc6e42f8e73679effcc8bc0c5018a17f2f5dd900",
+      "source": "We conduct business with honesty, transparency and accountability.",
+      "translation": "Conduzimos os negócios com honestidade, transparência e responsabilidade.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.2f40f2aa3b122248",
+      "sourceHash": "71d0acd46556424657f3866a5dc46d45d66b0849904e0a66d712764f95fa16bb",
+      "source": "Reliability",
+      "translation": "Confiabilidade",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:lake-cylinders.html"
+    },
+    {
+      "id": "auto.b305689562189402",
+      "sourceHash": "411a7a0bfabee92aa5e3cc6f154bf4af09e0cbb386afafefa918272e13c27290",
+      "source": "Deliver consistent, dependable and high-quality services.",
+      "translation": "Oferecer serviços consistentes, confiáveis e de alta qualidade.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.310ca5964fa140d1",
+      "sourceHash": "b829960386e58e72b021dbea02865d3e9a0e3b3482d24e3dd50a60b9ba843eea",
+      "source": "Operational Excellence",
+      "translation": "Excelência operacional",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-exact-source:lake-cylinders.html"
+    },
+    {
+      "id": "auto.37013bf86e609533",
+      "sourceHash": "31e89e02b354a13d734c01e6bf0c64f5ca2ba06b340bcc56918dce0c8dbb23e3",
+      "source": "We continuously improve our processes, systems and performance.",
+      "translation": "Melhoramos continuamente nossos processos, sistemas e desempenho.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
     },
     {
       "id": "auto.f682a1be07b693f5",
@@ -264,6 +814,516 @@
       "origin": "existing-dictionary:about.30"
     },
     {
+      "id": "auto.de996a769100f0a1",
+      "sourceHash": "b2f1d70830bba341f4c9356f30d810095be89b88158f3242453257fb7f39ed6b",
+      "source": "We embrace forward-thinking solutions that enhance efficiency and growth.",
+      "translation": "Adotamos soluções inovadoras que aumentam a eficiência e o crescimento.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(5) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.f518db548326ade0",
+      "sourceHash": "07608ab97bb3e810b0355a7c8b6af9b3376db9b032734242691e7bbf2da6c093",
+      "source": "Facilities & Capabilities",
+      "translation": "Instalações e capacidades",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.08bb9bab69c2fa33",
+      "sourceHash": "c7de6719fd3df2de4f658cf221dd25690f176feb76166b17e3fae6c2dfb5270f",
+      "source": "Reach stacker working between stacked containers at AFICD",
+      "translation": "Reach stacker operando entre contêineres empilhados na AFICD",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.ba8fc6893b88aaaf",
+      "sourceHash": "bfa0c758a7173de1f2b2d1286b694697b6d1a28606ed9c7ad9ef47ce364b969e",
+      "source": "Manga Yard",
+      "translation": "Pátio de Manga",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.9af033ef3aac140c",
+      "sourceHash": "3b368b110dbb6b475189e812a2a7bace9cf2fdc6b012608f6dfc6c7c1564c094",
+      "source": "4,550 sq. metre yard for container stacking, handling and yard management.",
+      "translation": "Pátio de 4,550 metros quadrados para empilhamento e movimentação de contêineres e gestão do pátio.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.74d495375757fe37",
+      "sourceHash": "5286d3e6041cacdf57b1f43a30205675d50320bffa91ab68d012853f6105c381",
+      "source": "Dondo Facility",
+      "translation": "Instalação de Dondo",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.ddf62bcd4e94be16",
+      "sourceHash": "38af1945d52e8dd6a7c33f25d033093be64aba3556178818174c7f03e15fc4b5",
+      "source": "20 sq. metre supporting facility in Dondo.",
+      "translation": "Instalação de apoio de 20 metros quadrados em Dondo.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a4f4d9671c6b7833",
+      "sourceHash": "6ece2e8f1e7f1d7bd2f2ebf9f07dc991e0160fe4a813095ed3a7384da1f5f4c1",
+      "source": "Modern Equipment",
+      "translation": "Equipamentos modernos",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a04e9522f259273b",
+      "sourceHash": "a8845b4f57fdbdfec6b778958ba44704613c9613427dbe305369fe9f0e55c490",
+      "source": "Specialized handling equipment, rail connectivity and transport connectivity.",
+      "translation": "Equipamentos especializados de movimentação, ligação ferroviária e conectividade de transporte.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.0d157713f878be11",
+      "sourceHash": "bb6ca46e22dee208ca0cb5961f7b1795ee013e45fbc23e286dc762ab52117b21",
+      "source": "Experienced Teams",
+      "translation": "Equipes experientes",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a8335a2121475f26",
+      "sourceHash": "596fc19e54fbcb34e54c06bec1ed8ad9d51981cbb527098a655957b0c91e8d6e",
+      "source": "Operational teams with modern facilities and dedicated resources.",
+      "translation": "Equipes operacionais com instalações modernas e recursos dedicados.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.6a16a459adb78f10",
+      "sourceHash": "b2e57b1ac49688292e0b114265e64432e2404ad221d330b7ecf4f73baf8190a2",
+      "source": "Operational Strength & Readiness",
+      "translation": "Capacidade e prontidão operacional",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.3b10328fc1f4abad",
+      "sourceHash": "4a51d9018371db50e44539d0c6dc0c409c4f62c6ce55dcde456fdf7812fb7521",
+      "source": "AFICD reach stacker loading a container onto a truck",
+      "translation": "Reach stacker da AFICD carregando um contêiner em um caminhão",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.8f64491045919146",
+      "sourceHash": "430ebabacaccb68c0beeb58a7f9984b9d69d3e00f588791a30d56a2642a150a9",
+      "source": "AFICD is designed and operated as an extension of the Port of Dar es Salaam, providing a reliable inland platform that supports the continuous flow of containers and cargo beyond the port gates.",
+      "translation": "A AFICD foi concebida e é operada como uma extensão do Porto de Dar es Salaam, oferecendo uma plataforma interior confiável que mantém o fluxo contínuo de contêineres e cargas para além dos portões do porto.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.de44e76c451e0531",
+      "sourceHash": "eefed7c293add21f859d66ac95d0ba27bddedd2a7a9108634bcdf9c96c6b3b90",
+      "source": "AFICD operates 365 days a year, round the clock, supported by experienced manpower and reach stackers, front loaders, forklifts and other supporting equipment.",
+      "translation": "A AFICD opera 365 dias por ano, 24 horas por dia, com equipes experientes, reach stackers, pás-carregadeiras, empilhadeiras e outros equipamentos de apoio.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.6019c3e9e5567c7c",
+      "sourceHash": "26af3914c831cd334497c67408f42544009bca56a5fdd375b734d15727a03439",
+      "source": "365 DAYS",
+      "translation": "365 DIAS",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > strong:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.bbea71053cb98260",
+      "sourceHash": "bd76da556ac7a57fde468743b0ee5a2fea30674df34c87c21c38f1787067625f",
+      "source": "Year-round operations",
+      "translation": "Operações durante todo o ano",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.bbea71053cb98260.2",
+      "sourceHash": "bf184f6debc12255c3ded2292e4052dd69a770c465c9e8aafc30c64d8877f395",
+      "source": "Round-the-clock readiness",
+      "translation": "Prontidão contínua",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.8046cb1ad7738d1d",
+      "sourceHash": "a65d0e5d7ae88402b61b78b7eef1affd20aa2177acc940466ef2478bae2a756c",
+      "source": "Integrated Logistics Solutions",
+      "translation": "Soluções logísticas integradas",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.233cde467370a297",
+      "sourceHash": "62407b68426391df4289aa0ef8793f3d2f968b73b506935a0ae4a289de67de19",
+      "source": "AFICD serves shipping lines, manufacturers, traders and logistics partners by improving cargo flow, optimizing supply-chain performance and enhancing regional trade connectivity across East, Central and Southern Africa.",
+      "translation": "A AFICD atende armadores, fabricantes, comerciantes e parceiros logísticos, melhorando o fluxo de cargas, o desempenho da cadeia de suprimentos e a conectividade comercial na África Oriental, Central e Austral.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.afe7b0b36a2eb4b8",
+      "sourceHash": "8ecfdd9cac8b8913d67f24b6b36a8050ee64b4b07574cf9383961943818919e1",
+      "source": "Containers arranged in the AFICD yard",
+      "translation": "Contêineres organizados no pátio da AFICD",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.6c5145a3a07a9fca",
+      "sourceHash": "4dccf10273118163f4d46ea0118a16185dd28174ac16fbc7008625b281448493",
+      "source": "ICD Operations",
+      "translation": "Operações de ICD",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.5c54970ba4d77f84",
+      "sourceHash": "3a94a8a48f9f95b7c4625392a1d425cb8029f443cc04523c4935318b05a0d826",
+      "source": "Inland Container Depot services supporting storage, handling and cargo flow.",
+      "translation": "Serviços de Inland Container Depot para apoiar o armazenamento, a movimentação e o fluxo de cargas.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.f26ebcb5e553461b",
+      "sourceHash": "1766293410795e075a5fe235003d7093fc52fee869948620d4a78b3764d0d875",
+      "source": "AFICD reach stacker handling a shipping container",
+      "translation": "Reach stacker da AFICD movimentando um contêiner marítimo",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.7b9a916fca996920",
+      "sourceHash": "b19dcc5e78972b5e2eb19c5291575ebbfd5bd4eadef72dc90e4e16118a8d3b02",
+      "source": "CFS Operations",
+      "translation": "Operações de CFS",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.52204ac72d02d288",
+      "sourceHash": "ca1c5c14e49e4cf6ca645c01a663f703d40ac138ce7f2cce15cbedcae03ea063",
+      "source": "Container Freight Station operations for controlled cargo handling.",
+      "translation": "Operações de Container Freight Station para movimentação controlada de cargas.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.30a58fbd1821f830",
+      "sourceHash": "6813cf4f9e9f4e42490dc53b5dd3ba384e982f1b5db2da319c8b2e0ce94a0c90",
+      "source": "AFICD inland container storage area",
+      "translation": "Área de armazenamento interior de contêineres da AFICD",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.2dcddc4820a07ae4",
+      "sourceHash": "eeb939767206ef611b540fa39173d00f6da123282affc1b282077f4f556980d0",
+      "source": "Empty Container Depot",
+      "translation": "Depósito de contêineres vazios",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a6f9bbb491252278",
+      "sourceHash": "39f4961963b9e662b3506a576e53948e778e7972ae9eacf0215fa486a85daf16",
+      "source": "ECD services for the positioning and movement of empty containers.",
+      "translation": "Serviços ECD para posicionamento e movimentação de contêineres vazios.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.65804076fd2d8aa9",
+      "sourceHash": "10e5e5e1d677019f41b70f5eafa28a785db81b5e9a5f7a94b82095399d5c35dc",
+      "source": "Container stacking at AFICD",
+      "translation": "Empilhamento de contêineres na AFICD",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.189b35382c3843c0",
+      "sourceHash": "c3bcc8581f035f750a31d9bd121f394dee5efcb100bac4c45728deebb88ff7a9",
+      "source": "Handling & Stacking",
+      "translation": "Movimentação e empilhamento",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.08baffaf6cffb611",
+      "sourceHash": "d3bbc54312e8bde9d6149f603a0a1f047c9b43d97dfd72bd1d12444bae769d84",
+      "source": "Full and empty container handling, stacking and secure storage.",
+      "translation": "Movimentação, empilhamento e armazenamento seguro de contêineres cheios e vazios.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.d4ed0a80f9f22e86",
+      "sourceHash": "943024cec2bbe472308d11b07b89c74118f810bad34fe8873a3f17f728eb94d0",
+      "source": "Container positioned for inland transport",
+      "translation": "Contêiner posicionado para transporte interior",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.068d5819267804d6",
+      "sourceHash": "88820498ce64d7998bee106061c5992a1fe4dca6d14d2bd745657f9697c9b2ab",
+      "source": "Yard Management",
+      "translation": "Gestão do pátio",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(5) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.5350b40a4e3fc5ee",
+      "sourceHash": "daaa395ef647cee2fe8fc36b42bfc18459dc1b838ba2526ff091c6985618c3f8",
+      "source": "Container positioning, yard management, storage and cargo handling.",
+      "translation": "Posicionamento de contêineres, gestão do pátio, armazenamento e movimentação de cargas.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.4f900f22ae4bd17a",
+      "sourceHash": "16b698887a22a959b0582e95146ef5ccbf1f95923505c9973b9b2074e8aa3adc",
+      "source": "AFICD container supporting inland logistics",
+      "translation": "Contêiner da AFICD que apoia a logística interior",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.4b04683224fc60e3",
+      "sourceHash": "575f06b45f41fc483ceb6886c8772dcd98c3a5a24eb03278da7c919e71c8afa8",
+      "source": "Port–Inland Coordination",
+      "translation": "Coordenação entre o porto e o interior",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(6) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.408a4a1199e9ee23",
+      "sourceHash": "049efcb5432ade062193bfa6d53770420267b808c922229de10b49a0d5f9c13d",
+      "source": "Coordination between port and inland facilities for shipping lines, cargo owners, transporters and logistics operators.",
+      "translation": "Coordenação entre o porto e instalações interiores para armadores, proprietários de cargas, transportadores e operadores logísticos.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(6) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.2e369aabdc17a638",
+      "sourceHash": "6b117c3ed9111f674b87c7cf9d4ed28ebf6e09d24232dbdcafdd142bb4e54bc7",
+      "source": "COSCO",
+      "translation": "COSCO",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.2e369aabdc17a638.2",
+      "sourceHash": "505f048506dfd2d2f4bbc4d93ec207bb65f5f9892c9144a53d88c7f015b0f8a0",
+      "source": "RAIS Shipping",
+      "translation": "RAIS Shipping",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.2e369aabdc17a638.3",
+      "sourceHash": "56f4273b568a1bd17f92ec4f4e444b97c924e2dadbee7e1e4ca8ad9ad13d486d",
+      "source": "Coral Shipping",
+      "translation": "Coral Shipping",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(3)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.2e369aabdc17a638.4",
+      "sourceHash": "12cd5aae978dc1d7e2a9435a2eb92de1c5ef50c6e24a6df7fa613018a5feac19",
+      "source": "CMA CGM",
+      "translation": "CMA CGM",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(5)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.2e369aabdc17a638.5",
+      "sourceHash": "f3187f8cf60d4e99ce71b5100a289828cbb4f59d1e01078470ec8a881d8be578",
+      "source": "Emirates Shipping",
+      "translation": "Emirates Shipping",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(7)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.2e369aabdc17a638.6",
+      "sourceHash": "f5dd04e00e16b8a40b15ae23953b7d729a5b91d445a36211cf4c5a558e50f116",
+      "source": "Masina Shipping",
+      "translation": "Masina Shipping",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(8)",
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.8da1dd385a7e29a9",
+      "sourceHash": "719354b42f07f9504df39a170b9ef72782c41a1247e432481698e44a54c59099",
+      "source": "Strategic Land Footprint & Future Growth",
+      "translation": "Área estratégica e crescimento futuro",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(8) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.7273399b2d2b4226",
+      "sourceHash": "7c5cfcc7f062ca54afde320fbee60afd2eb5ae735d21c9bcda14727c5b08f500",
+      "source": "Strategic Land Potential",
+      "translation": "Potencial estratégico de terrenos",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.48e39b771bb2c326",
+      "sourceHash": "8ebbb707c44211d813584b3f21058ec9c04f1ea1b3eeb3fff2a38fca67079a34",
+      "source": "Potential Development Footprint",
+      "translation": "Área potencial de desenvolvimento",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.adde713aec8c61c8",
+      "sourceHash": "66bd007afad21059d6195ae04bada5bc4c47115c9ecdd2bfe29047e905581db4",
+      "source": "AFICD has the potential to develop and market up to 200,000 sqm of strategically located logistics and container-related facilities, providing substantial room for future expansion, warehousing, container handling, storage and value-added logistics services.",
+      "translation": "A AFICD tem potencial para desenvolver e comercializar até 200,000 sqm de instalações logísticas e relacionadas a contêineres em locais estratégicos, oferecendo amplo espaço para expansão futura, armazéns, movimentação de contêineres, armazenamento e serviços logísticos de valor agregado.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.8ed045432a53a372",
+      "sourceHash": "db4cd5001c3f75b6771b89b396ae6fc27a934331709846d21cfda66e6484ed19",
+      "source": "Our expansion strategy is designed to create future-ready logistics infrastructure, with the flexibility to accommodate additional warehouses, open storage areas, cargo-handling facilities and other value-added services.",
+      "translation": "Nossa estratégia de expansão visa criar uma infraestrutura logística preparada para o futuro, flexível para acomodar armazéns adicionais, áreas de armazenamento abertas, instalações de movimentação de cargas e outros serviços de valor agregado.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.ce7caf5de00d2759",
+      "sourceHash": "632485d9f5c10cec5e6d8eb4c4929819582f42746d893c5df133b5541ffbc37d",
+      "source": "Together with AILL, the two businesses represent a potential development footprint of up to 400,000 sqm, providing a strong platform for long-term growth across the East African logistics corridor.",
+      "translation": "Juntamente com a AILL, as duas empresas representam uma área potencial de desenvolvimento de até 400,000 sqm, oferecendo uma base sólida para o crescimento de longo prazo no corredor logístico da África Oriental.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(3)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a613f41c891a5961",
+      "sourceHash": "ab32058d9e92e930f0e0f5cc5cfe510b8d1cab149a1d6983d829be5fbf97635c",
+      "source": "AFICD equipment and container infrastructure",
+      "translation": "Equipamentos e infraestrutura de contêineres da AFICD",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
       "id": "auto.7e01abe241751714",
       "sourceHash": "db4553852af465a8ae50912debbe73eda82e78767617a5a130a1a9f75722a9ca",
       "source": "Our Commitment",
@@ -272,6 +1332,46 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(9) > div:nth-of-type(1) > h2:nth-of-type(1)",
       "attribute": null,
       "origin": "existing-dictionary:csr.5"
+    },
+    {
+      "id": "auto.7ee40edae1bc827b",
+      "sourceHash": "390d3e88bcd02e4f277053e8cc8436c7614bb00a6eaeb740f880ef2d3a113d26",
+      "source": "AFICD focuses not only on providing container space but on efficient, secure and dependable logistics solutions that help customers move cargo with greater confidence and predictability.",
+      "translation": "A AFICD não se limita a oferecer espaço para contêineres: também fornece soluções logísticas eficientes, seguras e confiáveis que ajudam os clientes a movimentar cargas com mais confiança e previsibilidade.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.7ee40edae1bc827b.2",
+      "sourceHash": "f917befdc1e9c04bb5fb9636e5ec7b0a8111588ec006c5a761f371fd8a1e75b5",
+      "source": "Continued investment in infrastructure, equipment, technology, people and operations supports Tanzania's expanding trade and East African supply-chain connectivity.",
+      "translation": "O investimento contínuo em infraestrutura, equipamentos, tecnologia, pessoas e operações apoia a expansão do comércio da Tanzânia e a conectividade das cadeias de suprimentos da África Oriental.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.c6746f2c602e943c",
+      "sourceHash": "2fdadfa1bd385f3e29e0319b81fa9ea6ee78349aa9182be43884081b73a6843a",
+      "source": "AFICD — Connecting the Port to the Inland Supply Chain.",
+      "translation": "AFICD — Conectando o porto à cadeia de suprimentos interior.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(3)",
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.08093611d7a5f6c9",
+      "sourceHash": "57ebe6f8b05ff22c368e0aef71e05266bacd3159760c910b8de1c535c34157ad",
+      "source": "AFICD branded container and handling equipment",
+      "translation": "Contêiner e equipamentos de movimentação com a marca AFICD",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
     },
     {
       "id": "auto.04dc7ea537a72ebd",
@@ -284,6 +1384,16 @@
       "origin": "existing-dictionary:chat.placeholder"
     },
     {
+      "id": "auto.9da9ab2c5d740fdd",
+      "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
+      "source": "Chat",
+      "translation": "Conversa",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
       "id": "auto.1eb7e58d2ee4f5c5",
       "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
       "source": "Tanzania",
@@ -292,6 +1402,16 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary:africa_network.27"
+    },
+    {
+      "id": "auto.80dc04be7aac24ef",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Bandeira da Tanzânia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
     },
     {
       "id": "auto.bd7fc10f0358945b",
@@ -304,6 +1424,16 @@
       "origin": "existing-dictionary:africa_network.29"
     },
     {
+      "id": "auto.67889e60ce20c647",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "Bandeira do Quênia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
       "id": "auto.8c4ca91a7c0262fd",
       "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
       "source": "Zambia",
@@ -312,6 +1442,16 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary:africa_network.31"
+    },
+    {
+      "id": "auto.e53b11fbfbf98e07",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "Bandeira da Zâmbia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
     },
     {
       "id": "auto.0d9b873ac4755703",
@@ -324,6 +1464,56 @@
       "origin": "existing-dictionary:africa_network.33"
     },
     {
+      "id": "auto.637821ce441e409d",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "Bandeira de Ruanda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.817faab81c58e3a1",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "Burundi",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.99c6516bfb7fd89d",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "Bandeira do Burundi",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.b60c8a10dfc03281",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "República Democrática do Congo",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.332297bb6ca4e771",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "Bandeira da República Democrática do Congo",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
       "id": "auto.6d4562cccc68ee3a",
       "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
       "source": "Ethiopia",
@@ -334,6 +1524,16 @@
       "origin": "existing-dictionary:africa_network.38"
     },
     {
+      "id": "auto.b62ceabe229764ff",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "Bandeira da Etiópia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
       "id": "auto.3facc6a995ad3839",
       "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
       "source": "Mozambique",
@@ -342,6 +1542,56 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary:africa_network.40"
+    },
+    {
+      "id": "auto.e2619edbb15b308d",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "Bandeira de Moçambique",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.767e2b505f7fb524",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "Uganda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "auto.21ab32a6359d7cb4",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "Bandeira de Uganda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.9ba5f7a1f4b5dff3",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "Bandeira dos Emirados Árabes Unidos",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-exact-source:about.html"
+    },
+    {
+      "id": "auto.98ff230d17168a15",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "preserved-proper-name-or-invariant"
     }
   ]
 }

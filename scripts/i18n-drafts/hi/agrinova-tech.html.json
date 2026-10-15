@@ -1,0 +1,1437 @@
+{
+  "schemaVersion": 1,
+  "status": "DRAFT_PENDING_HUMAN_REVIEW",
+  "locale": "hi",
+  "page": "agrinova-tech.html",
+  "sourceManifestDigest": "181d42c4930d1abb298d1bb6193e994fb20c4653ed2347cb78f9ae1ea1fa8fa8",
+  "sourceManifestGeneratedAt": "2026-10-15T10:48:55.402Z",
+  "createdAt": "2026-10-15T12:48:00.670Z",
+  "authoringMethod": "existing dictionary reuse; no model output for generated rows",
+  "reviewEvidence": null,
+  "releaseEligible": false,
+  "candidateCount": 142,
+  "translatedCount": 142,
+  "validation": "source hashes and protected facts checked; linguistic review remains required",
+  "translations": [
+    {
+      "id": "auto.568b918074440813",
+      "sourceHash": "b3a3a24cfe10d6cf310ff0bfc041f4d004caf7715ca07adb9371b68fcd81b0d5",
+      "source": "Agrinova Tech Limited provides agricultural machinery and practical farming solutions in Tanzania as part of Lake Group's Automotive sector.",
+      "translation": "Agrinova Tech Limited, Lake Group के ऑटोमोटिव क्षेत्र का हिस्सा है और तंज़ानिया में कृषि मशीनरी व व्यावहारिक खेती समाधान प्रदान करती है।",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content",
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.5398a0e78ba24fb5",
+      "sourceHash": "6970059994dce7e30c88b19df4696c7234a01aca3caf2fa69322593c6a6af253",
+      "source": "Energies Sector",
+      "translation": "ऊर्जा क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.34e0b60eb37d426f",
+      "sourceHash": "a5afb4aade70f80dfcfe58c3010f00144236c6ca8129540b687e55212a3b578c",
+      "source": "Manufacturing Sector",
+      "translation": "विनिर्माण क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.e76dbbcf1a211317",
+      "sourceHash": "e7b5da31e0d3ed96a265076f35ba8a8f9efcbe2d5334e1a630a2a6e97ea0d8a9",
+      "source": "Logistics Sector",
+      "translation": "लॉजिस्टिक्स क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.c6060a7c8329358e",
+      "sourceHash": "c4555e8c89a2895e935b9299e6d4716cb0321cd039f54446c9a71fc67fc57a22",
+      "source": "Real Estate Sector",
+      "translation": "रियल एस्टेट क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.250d2e89b52e3be8",
+      "sourceHash": "7e00b18a6385c9956eed4a4293f467aa59bb8ea1ef99405ee3a8b103956ab404",
+      "source": "Agro Processing Sector",
+      "translation": "कृषि प्रसंस्करण क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.9963ef8055cc8ae6",
+      "sourceHash": "c20855570f1042ee09d6d09266c094337995decf07d38fec808dcbc6774ec507",
+      "source": "Automotive Sector",
+      "translation": "ऑटोमोटिव क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.a61e20a41d0fb6c0.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.417614b7de0c9ddf",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.84144127e0a94988.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "NexDrive Motors",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.8a614bcd5405a686",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "हमारा इतिहास",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.8a614bcd5405a686.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "सीएसआर और सतत विकास",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.8a614bcd5405a686.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "गैलरी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.3861f108f7b94cce",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "भाषा: अंग्रेज़ी",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.0c269407518ad1be",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.af0fa37f838acaf9",
+      "sourceHash": "99af6606ff9d6cd5154d4d4e9c21e325086d3e904677cdb41d363c8a3480f862",
+      "source": "Menu",
+      "translation": "मेनू",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.d26ca8c3b745b19a",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "मेन्यू बंद करें",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.6ef26906121ab0a6",
+      "sourceHash": "3a78695388b38b5cceefaf6796b0137877514593543b91af2752d5a17e3d736c",
+      "source": "Home",
+      "translation": "होम",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.6ef26906121ab0a6.2",
+      "sourceHash": "4efca0d10c5feb8e9b35eb1d994f2905bb71714e6a271f511d713b539ea5faa1",
+      "source": "About",
+      "translation": "हमारे बारे में",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.5d4f85039f7e3924",
+      "sourceHash": "cf60fd65dcd0f8b69d51d6cb91fe601244ed4af363dd5f2a242787f54c16300d",
+      "source": "Business Verticals",
+      "translation": "व्यावसायिक क्षेत्र",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.a85ef0a956d25665.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.fe32312e0891de56",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.837955325c89cc09",
+      "sourceHash": "ec75f79040af17557c450e94a4214a484350634a433592d2eb31784c5a46e865",
+      "source": "Leadership",
+      "translation": "नेतृत्व",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.80d880faecb660ed",
+      "sourceHash": "a034729933d1cbf407645e11d9c91d9ac1bfddbef23fd58cb36782e3f60ae659",
+      "source": "Corporate",
+      "translation": "कॉर्पोरेट",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.2e0d6d6a11033478",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "हमारा इतिहास",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.2e0d6d6a11033478.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "सीएसआर और सतत विकास",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.2e0d6d6a11033478.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "गैलरी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.9e2c2283055bce12",
+      "sourceHash": "7e658675b5ca75b3802ff34b548abe663438f113bed3acf541142b317c146e34",
+      "source": "Careers",
+      "translation": "करियर",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(4)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.9e2c2283055bce12.2",
+      "sourceHash": "98b67063cf8e584d75e53b88472ee85473e01e0ea16f29ece9cc98f4a2710494",
+      "source": "Contact Us",
+      "translation": "संपर्क करें",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(5)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.2f2927b2503a10e2",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.b8bd58e5c31ca015",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.b8bd58e5c31ca015.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.b8bd58e5c31ca015.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.b8bd58e5c31ca015.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.b8bd58e5c31ca015.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.b8bd58e5c31ca015.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.b8bd58e5c31ca015.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.b8bd58e5c31ca015.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.9bb0842fce059544",
+      "sourceHash": "30025d3986bc2c7f6cca8a5324a45a130600fcd0f28734a11e61d733c9140ea2",
+      "source": "Centre-pivot irrigation system in a cultivated field",
+      "translation": "खेती के खेत में केंद्र-पिवट सिंचाई प्रणाली",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.17f06a1ff8c20124",
+      "sourceHash": "7e525aa8280dbfdea37e05c3823d5d94f85d7bbc2b5db70729c85fd5abb50aac",
+      "source": "Powering the future of agriculture",
+      "translation": "कृषि के भविष्य को शक्ति देना",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.8d522fe5f98889ce",
+      "sourceHash": "08a30369494485edc31f4cf07a9a4f55dd25935de0be633168959e7f8f31d52d",
+      "source": "Reliable agricultural machinery and solutions designed to help farmers improve productivity from land preparation to planting, irrigation, harvesting and beyond.",
+      "translation": "भरोसेमंद कृषि मशीनरी और समाधान, जो भूमि तैयारी से लेकर बुवाई, सिंचाई, कटाई और आगे तक किसानों की उत्पादकता बढ़ाने में मदद के लिए बनाए गए हैं।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.2b5765ad026ba4e0",
+      "sourceHash": "2d48b0ff3ed1fe2df845b6b7699717198b8b0751866108161ef7ae437048cddd",
+      "source": "Explore our solutions",
+      "translation": "हमारे समाधान देखें",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.da291488bcc567d6",
+      "sourceHash": "5fbc0ca89a619cb791eaf3c7eceaff6d5fa41e381b96f9208a71104009d603e8",
+      "source": "Talk to our team",
+      "translation": "हमारी टीम से बात करें",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.74be31d02c588313",
+      "sourceHash": "425f1b2b299c7b6226345c7ed9fe90e899add7fe8b9c160a6ed32c6b253c71b2",
+      "source": "Transforming agriculture.",
+      "translation": "कृषि में बदलाव।",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.74be31d02c588313.2",
+      "sourceHash": "2da87dac1e450eaba3571e2c0196f5675659a52f5f792a5338843b9671631f43",
+      "source": "Empowering farmers.",
+      "translation": "किसानों को सशक्त बनाना।",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.ea95d52d75fc06ee",
+      "sourceHash": "8bd261c8823ae2a56c3c5cf35ba54814b33f89e444f77bc8113aae79364e23c6",
+      "source": "Agrinova is an agricultural transformation and solutions company focused on empowering farmers through reliable machinery and practical solutions for modern agricultural production across Tanzania.",
+      "translation": "Agrinova एक कृषि परिवर्तन और समाधान कंपनी है, जो भरोसेमंद मशीनरी और व्यावहारिक समाधानों के माध्यम से पूरे तंज़ानिया में आधुनिक कृषि उत्पादन के लिए किसानों को सशक्त बनाने पर केंद्रित है।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.ea95d52d75fc06ee.2",
+      "sourceHash": "0519148faea54c4c04d8cadba3424ef757f552e11b3ef23552ac88e27a56a52f",
+      "source": "From land preparation and planting to crop management, irrigation, harvesting, threshing and transportation, Agrinova supports the agricultural cycle with one connected offering.",
+      "translation": "भूमि तैयारी और बुवाई से लेकर फसल प्रबंधन, सिंचाई, कटाई, मड़ाई और परिवहन तक, Agrinova एकीकृत पेशकश के साथ कृषि चक्र का समर्थन करती है।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.3b3f19d15780f01f",
+      "sourceHash": "8399f65c0c7ee6301ae44838f875c6f9adddeb4b7430335f152e40d311e4f9e2",
+      "source": "To be the catalyst for mechanized agriculture and one of the top five market leaders in the agricultural sector in Africa.",
+      "translation": "यंत्रीकृत कृषि के लिए प्रेरक बनना और अफ्रीका के कृषि क्षेत्र में शीर्ष पाँच बाज़ार नेताओं में शामिल होना।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > article:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.d3792f08a4668ba1",
+      "sourceHash": "3ae8f2f39b78365471a7220bf5dba6a7c749b32bf5533789796955954b9b1537",
+      "source": "To drive agricultural transformation across Tanzania by providing accessible, reliable and innovative machinery solutions.",
+      "translation": "सुलभ, भरोसेमंद और नवोन्मेषी मशीनरी समाधान प्रदान करके पूरे तंज़ानिया में कृषि परिवर्तन को आगे बढ़ाना।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > article:nth-of-type(2) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.c2b43688b3334838",
+      "sourceHash": "e881c8900c04869e11337f85dbf59d8603c213cd4e74fa17e2b6501b71818f23",
+      "source": "Everything you need across the agricultural cycle",
+      "translation": "कृषि चक्र के हर चरण के लिए आवश्यक सब कुछ",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.7aaee39c926bba39",
+      "sourceHash": "33e5534bcabb0e871e0a2ce396684a2d981a550647af4b4a30c9358591169c33",
+      "source": "You farm",
+      "translation": "आप खेती करते हैं",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.7aaee39c926bba39.2",
+      "sourceHash": "bfc56b789516cb5f0a44d8e50fd1213f7078875fd77db9276ab28d0196595234",
+      "source": "You till",
+      "translation": "आप जुताई करते हैं",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.7aaee39c926bba39.3",
+      "sourceHash": "d06a32e2b26af96d72dd5825bf2571e1e27a28f54bf2ee5d07363a12f58b3708",
+      "source": "You plant",
+      "translation": "आप बुवाई करते हैं",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(3)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.7aaee39c926bba39.4",
+      "sourceHash": "70a67714de1f02f967f5a3a7c351d261e9db7b7ffce83fbbdb7e4862a0f16780",
+      "source": "You manage",
+      "translation": "आप फसल का प्रबंधन करते हैं",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(4)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.7aaee39c926bba39.5",
+      "sourceHash": "0d934fb075a4a3b559a8ba0cace64ad815e6b1d68f572d007a930a1f6b1c019f",
+      "source": "You irrigate",
+      "translation": "आप सिंचाई करते हैं",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(5)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.7aaee39c926bba39.6",
+      "sourceHash": "9740a62ea080e59d2632f831a6293ad7a7b6e508d39a70b2de5f1d06ff0110a4",
+      "source": "You harvest",
+      "translation": "आप कटाई करते हैं",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(6)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.7aaee39c926bba39.7",
+      "sourceHash": "322b189b909bc82b3ecb52f673c7f42c596d1e77dfe3fcc72d8186e324e0079f",
+      "source": "You thresh",
+      "translation": "आप मड़ाई करते हैं",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(7)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.7aaee39c926bba39.8",
+      "sourceHash": "2c45a0ac4c3f8a789515444605aa75e09858b599bbcff26f9b412aba3e40b760",
+      "source": "You transport",
+      "translation": "आप परिवहन करते हैं",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(8)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.8972fcc1e0accda4",
+      "sourceHash": "eb58dc2211660bffa66fca719946640edd2042614c9015ca6455d953549a98a2",
+      "source": "Red agricultural tractor in a cultivated landscape",
+      "translation": "खेती के परिदृश्य में लाल कृषि ट्रैक्टर",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(5) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.2a4aec2becfb1343",
+      "sourceHash": "7ccd8de6b00ca9e5695440f115b6df83e7bc7a778995bda4e1df4a14d0057648",
+      "source": "Power matched to your operation.",
+      "translation": "आपके काम के अनुरूप शक्ति।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.4bad8aa738721d03",
+      "sourceHash": "068ee0ad128b5afd9a74f4fe590937b72dc73b3a1ecb886e887865c8e3c718e5",
+      "source": "Eicher Tractors",
+      "translation": "Eicher ट्रैक्टर",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1) > strong:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.4bad8aa738721d03.2",
+      "sourceHash": "75fdec4d3144c7a2cfe61c62a431cf9b8ca58d3e5290be7a30e0318e7250e5d2",
+      "source": "YTO Tractors",
+      "translation": "YTO ट्रैक्टर",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2) > strong:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.e7c84780a9a8f1a1",
+      "sourceHash": "714941911b002dc92c906a1ca255af27b9a8a50a88a1f0e875db81b2d6b91512",
+      "source": "Tractor range: 45–240 HP",
+      "translation": "ट्रैक्टर रेंज: 45–240 HP",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(3)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.66c5df4b34a878fa",
+      "sourceHash": "fd41efa46441f2620da79ed164ad51232550369307932b51418337db42e76ad5",
+      "source": "Built around your agricultural needs",
+      "translation": "आपकी कृषि आवश्यकताओं के अनुरूप निर्मित",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.fd3b83f28830c409",
+      "sourceHash": "c5fe20e66ae76ad5504491e6dbbd0c4f0e292bf1061e90e8fae5867d552e7bf1",
+      "source": "Tractors",
+      "translation": "ट्रैक्टर",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.d6ca5b61cdde9abc",
+      "sourceHash": "40134cbcfc3cfc47e08c39b40c0547266047bfbd5baf2f2f4d5d1ca69178239a",
+      "source": "Eicher & YTO tractors from 45–240 HP",
+      "translation": "Eicher और YTO ट्रैक्टर 45–240 HP तक",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.fd3b83f28830c409.2",
+      "sourceHash": "0d48cea853b7be335009d7a16d939ed4fa8ef4bfef85317ae955336a3033bb9e",
+      "source": "Tillage equipment",
+      "translation": "जुताई के उपकरण",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.d6ca5b61cdde9abc.2",
+      "sourceHash": "1e490a1116a096ff2c39df4fb879fbef82ec624ca044d037ebdd12f69e234d75",
+      "source": "Disc ploughs, harrows and rotavators",
+      "translation": "डिस्क हल, हैरो और रोटावेटर",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.fd3b83f28830c409.3",
+      "sourceHash": "acac5809559da4503b15f3be04a867307055aee0199b4a2d34d1afb886a686d9",
+      "source": "Planting equipment",
+      "translation": "बुवाई के उपकरण",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.d6ca5b61cdde9abc.3",
+      "sourceHash": "bfba97316a302c47ba764f25a67747fd396037db4cc130116b4bad5987233c65",
+      "source": "Purpose-built agricultural planters",
+      "translation": "कृषि के लिए विशेष रूप से बनाए गए प्लांटर",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.fd3b83f28830c409.4",
+      "sourceHash": "e3eadfcba218b36d4a8d3cbb01a8ff5ee7506df87db39624a82a52330f1cc016",
+      "source": "Crop management",
+      "translation": "फसल प्रबंधन",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.d6ca5b61cdde9abc.4",
+      "sourceHash": "ec2990a3dd13b34d5f2a29cfd1e18d37e1a25613ac4553f7ea5a0c083d0e2d33",
+      "source": "Boom sprayers and crop management tools",
+      "translation": "बूम स्प्रेयर और फसल प्रबंधन उपकरण",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.fd3b83f28830c409.5",
+      "sourceHash": "213ed8aee7be9e0fb1c9e8af7e918f7ab461e4b1f74f206cc7146431834d1c68",
+      "source": "Irrigation",
+      "translation": "सिंचाई",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(5) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.d6ca5b61cdde9abc.5",
+      "sourceHash": "2971055c4a1a7a6c0007404da147a5f698dcfbc9c4581c1a667a5b2f8ff8b9de",
+      "source": "Centre pivot systems, 30–300+ acres",
+      "translation": "केंद्र-पिवट प्रणालियाँ, 30–300+ एकड़",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(5) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.fd3b83f28830c409.6",
+      "sourceHash": "5efcdc8cd93d182daa435ba93e52cab014355da90add46b7b99a4fbd0a4443ff",
+      "source": "Harvesting",
+      "translation": "कटाई",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(6) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.d6ca5b61cdde9abc.6",
+      "sourceHash": "0cd1ce75330258ce0f883743aff7745358e41ce1820af8849eb67d75d24a498c",
+      "source": "Combine harvesters for efficient harvesting",
+      "translation": "कुशल कटाई के लिए कंबाइन हार्वेस्टर",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(6) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.fd3b83f28830c409.7",
+      "sourceHash": "9520c80b7de0d3becc957c8553a1653b76ef8ced041667bc450f7f67d4da1766",
+      "source": "Threshing",
+      "translation": "मड़ाई",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(7) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.d6ca5b61cdde9abc.7",
+      "sourceHash": "a30fd72a2e92970347521f4f9061c2d313afbaf37e5e4d639a5510c7a1f2d5f8",
+      "source": "Maize, paddy, beans and groundnuts",
+      "translation": "मक्का, धान, फलियाँ और मूँगफली",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(7) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.fd3b83f28830c409.8",
+      "sourceHash": "099cdbe8994e6a8f20448ee3d291a304a9c1b2cadcb351de448c0097c179f31c",
+      "source": "Trailers",
+      "translation": "ट्रेलर",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(8) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.d6ca5b61cdde9abc.8",
+      "sourceHash": "c31d18a61547de19b3fa4b2e5cf38f9f15de3d0f014674c0fa21e9f7604a0b14",
+      "source": "5-ton and 9-ton agricultural trailers",
+      "translation": "5 टन और 9 टन के कृषि ट्रेलर",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(8) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.473031e56b59c2b7",
+      "sourceHash": "c87d1ac5228a40590218ec90f625dcd5b8664f041de99eed1a9cd3cb2f286c40",
+      "source": "Efficient harvesting for the next stage of production.",
+      "translation": "उत्पादन के अगले चरण के लिए कुशल कटाई।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.9744666f1ec8f47b",
+      "sourceHash": "724de4de3e32c0a0d02f297a838075fe479a2c1c1d627197f254032d5975d754",
+      "source": "Combine harvesters are part of Agrinova's source-approved agricultural solutions.",
+      "translation": "कंबाइन हार्वेस्टर Agrinova के स्रोत-अनुमोदित कृषि समाधानों का हिस्सा हैं।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.80063488e3f70c35",
+      "sourceHash": "63f0bb93312cbe076af2fbddadfd1d469707dfc0b516c741d79481616cb11ea7",
+      "source": "Combine harvester working in a field",
+      "translation": "खेत में काम करता कंबाइन हार्वेस्टर",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(7) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.b35b70cb5491edc3",
+      "sourceHash": "4649be9646f0964f22467aa52b9c2f895dbf912e6488c31950214c9d1894e03e",
+      "source": "More than machinery. A complete agricultural solution.",
+      "translation": "सिर्फ मशीनरी नहीं। एक संपूर्ण कृषि समाधान।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(8) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.af092b4c429aa504",
+      "sourceHash": "35d8bf51904319a594e653145aedd066542427fec52dd39abeebd5fcd2ed16c2",
+      "source": "Durable equipment",
+      "translation": "टिकाऊ उपकरण",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.af092b4c429aa504.2",
+      "sourceHash": "a44018a6f2b40a468be021c8c8776c025b13323060a8511ee2ec46ead302b86c",
+      "source": "Reliable after sales support",
+      "translation": "विश्वसनीय बिक्री-पश्चात सहायता",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.af092b4c429aa504.3",
+      "sourceHash": "0f98af30b7f0d9c6fd8299a2d8861e82ae2a33209dd337ca7dc63fd58064b519",
+      "source": "Genuine spare parts",
+      "translation": "असली स्पेयर पार्ट्स",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.af092b4c429aa504.4",
+      "sourceHash": "3b5193778ee646348c84c0d17d6a5477dae5206df5fd287ccdee942ef40084fa",
+      "source": "Financial assistance",
+      "translation": "वित्तीय सहायता",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.af092b4c429aa504.5",
+      "sourceHash": "58ab8cacae10edbb7152528983c34f4e5f251b1831debff444b30a3e00dd6668",
+      "source": "Agricultural expertise",
+      "translation": "कृषि विशेषज्ञता",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.af092b4c429aa504.6",
+      "sourceHash": "8da9488d4f21c8c988378710c936a795894852fae0dc78e051c0bb9f54f90dba",
+      "source": "One agricultural partner",
+      "translation": "एक कृषि भागीदार",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.c3601055665b607f",
+      "sourceHash": "6dd187f516f465cb5ae127676e44c281cb781f3a62c53b210490f113440e2222",
+      "source": "Solutions for different agricultural operations",
+      "translation": "विभिन्न कृषि कार्यों के लिए समाधान",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(9) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.9052009672758311",
+      "sourceHash": "d7001529927e0b1548c970c323795a04c8e83b249ad6a9d3e5d3114df30d47a0",
+      "source": "Small & medium scale farmers",
+      "translation": "छोटे और मध्यम किसान",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.9052009672758311.2",
+      "sourceHash": "27015445d67ae5d0537f3a0d047d93ba82d00de810e5e46189136ed105a7bf01",
+      "source": "Commercial farmers",
+      "translation": "व्यावसायिक किसान",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.9052009672758311.3",
+      "sourceHash": "a8a665c654e0e1f63723cd6230a8f09b4f4106f6cac5579d3ac24d6cdac0c6a2",
+      "source": "Agricultural contractors",
+      "translation": "कृषि ठेकेदार",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.9052009672758311.4",
+      "sourceHash": "dab2a3dfc4bdf28035e9a35fdd6cb9fdb657cf65cf14b316c8668fee166584ab",
+      "source": "Agribusinesses",
+      "translation": "कृषि व्यवसाय",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.9052009672758311.5",
+      "sourceHash": "9febc8062c864ad6946f67a890e69f9301c01d445d8b629437ca733702729471",
+      "source": "Institutions & development projects",
+      "translation": "संस्थान और विकास परियोजनाएँ",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.4544d6ec5de32cba",
+      "sourceHash": "bc1004406cf915f545a2e261b1f84f3576686e07906211231a2115b28cc2ae0c",
+      "source": "Understand",
+      "translation": "समझें",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(10) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.4544d6ec5de32cba.2",
+      "sourceHash": "b7629cecee74de732c203019eb744cbca8f67a67c4e39575063e2e5c282094cf",
+      "source": "Assess",
+      "translation": "आकलन करें",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(10) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.4544d6ec5de32cba.3",
+      "sourceHash": "beef09f237c7c15edb9b0fb3e250b5616e0e4514a3d420dfb04d8d520e049c79",
+      "source": "Recommend",
+      "translation": "सिफारिश करें",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(10) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.4544d6ec5de32cba.4",
+      "sourceHash": "885fd3041d12884b56119a71af7e84e4ad73261a7232419852d00c134dd10c05",
+      "source": "Equip",
+      "translation": "उपकरण दें",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(10) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.4544d6ec5de32cba.5",
+      "sourceHash": "be91940b79f469101df9a50544b6873aa5509a12f1f93f1cb5e3be3990d344b3",
+      "source": "Support",
+      "translation": "सहायता करें",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(10) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(5) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.44062145a3515b9c",
+      "sourceHash": "f0163682256c8076b1a214b4a0171c403deac82dff526632b1f1d8f28e846dc8",
+      "source": "Your journey doesn't end after purchase",
+      "translation": "खरीद के बाद आपकी यात्रा समाप्त नहीं होती",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(11) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.10f014de53890798",
+      "sourceHash": "ec97f444bf06eb163824a85772e380ee68d6b660d551b88d0141ddc83d4f8458",
+      "source": "After sales service, genuine spare parts, warranty support, technical assistance, maintenance support and customer guidance.",
+      "translation": "बिक्री-पश्चात सेवा, असली स्पेयर पार्ट्स, वारंटी सहायता, तकनीकी सहायता, रखरखाव सहायता और ग्राहक मार्गदर्शन।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(11) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.10f014de53890798.2",
+      "sourceHash": "8d8bef6e47e9ea19ba84bc0bd66dc12a43dc484a63b9b4e858843fc096665fd1",
+      "source": "Kibaha, Tanzania",
+      "translation": "Kibaha, तंज़ानिया",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.af65bb5f74193e99",
+      "sourceHash": "ed31475b45e262fc0cfcfe049e4fce275ef1da06f1923d94e1cc9fb84fb01f61",
+      "source": "Factory & support:",
+      "translation": "कारखाना और सहायता:",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(11) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2) > strong:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.8d46e4017ddfc679",
+      "sourceHash": "96cf5c37aa1542ed15e88d61558d422352f113d91f0c558070554fb92ddfb685",
+      "source": "Making agricultural machinery more accessible",
+      "translation": "कृषि मशीनरी को अधिक सुलभ बनाना",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(11) > div:nth-of-type(1) > div:nth-of-type(2) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.6dff51e442cbf948",
+      "sourceHash": "0941e48467c5631899051ef2309aa995d71b579158b1b9d8473e66f517196e7c",
+      "source": "Agrinova provides support on financing options, eligibility requirements, deposit requirements, repayment periods and machinery for farmers.",
+      "translation": "Agrinova किसानों को वित्त विकल्पों, पात्रता आवश्यकताओं, डाउन पेमेंट, पुनर्भुगतान अवधि और उपलब्ध मशीनरी के बारे में सहायता देती है।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(11) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.cae05a20f799d39a",
+      "sourceHash": "bf5f52211b3670662295c2216677602bae5e24136a343e6c02d599716e05b3e9",
+      "source": "Questions about Agrinova",
+      "translation": "Agrinova के बारे में प्रश्न",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(12) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.83d1afa5c3792b09",
+      "sourceHash": "2785434ff8d29c8561d9e99d3b79533eb125c78016888d3f6c6606821898974e",
+      "source": "What agricultural machinery does Agrinova provide?",
+      "translation": "Agrinova कौन-सी कृषि मशीनरी प्रदान करती है?",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(12) > div:nth-of-type(1) > div:nth-of-type(1) > details:nth-of-type(1) > summary:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.b7e3636f0eb7a41f",
+      "sourceHash": "a9a69f67589d8bdbe76f5404e10b02b770d35fedd43e3bad30a928e42d0aed81",
+      "source": "Tractors, tillage equipment, planting equipment, crop management tools, irrigation systems, harvesting, threshing and trailers.",
+      "translation": "ट्रैक्टर, जुताई उपकरण, बुवाई उपकरण, फसल प्रबंधन उपकरण, सिंचाई प्रणालियाँ, कटाई, मड़ाई और ट्रेलर।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(12) > div:nth-of-type(1) > div:nth-of-type(1) > details:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.83d1afa5c3792b09.2",
+      "sourceHash": "474a19a2d759f60cc329c886115709372f673ea320195dc2bca099c4249fb383",
+      "source": "What tractor brands and horsepower ranges are available?",
+      "translation": "कौन-से ट्रैक्टर ब्रांड और हॉर्सपावर रेंज उपलब्ध हैं?",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(12) > div:nth-of-type(1) > div:nth-of-type(1) > details:nth-of-type(2) > summary:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.b7e3636f0eb7a41f.2",
+      "sourceHash": "f47a78aec8cb9211a85803d6ece3c4751d9dc15fe84d39c82c96f9c697355e8a",
+      "source": "Eicher tractors are available from 45–85 HP and YTO tractors from 55–240 HP.",
+      "translation": "Eicher ट्रैक्टर 45–85 HP और YTO ट्रैक्टर 55–240 HP में उपलब्ध हैं।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(12) > div:nth-of-type(1) > div:nth-of-type(1) > details:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.83d1afa5c3792b09.3",
+      "sourceHash": "db178d97af4f1c5053de941f5f462e811f37cced5643f74b9608cd24eb564be0",
+      "source": "Does Agrinova provide spare parts and after sales support?",
+      "translation": "क्या Agrinova स्पेयर पार्ट्स और बिक्री-पश्चात सहायता देती है?",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(12) > div:nth-of-type(1) > div:nth-of-type(1) > details:nth-of-type(3) > summary:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.b7e3636f0eb7a41f.3",
+      "sourceHash": "fa06e837372c17e7ea1202b477dc52eb0c639a91fa116997d1f55c5263b94c01",
+      "source": "Agrinova provides genuine spare parts, after sales service, warranty support, technical assistance, maintenance support and customer guidance.",
+      "translation": "Agrinova असली स्पेयर पार्ट्स, बिक्री-पश्चात सेवा, वारंटी सहायता, तकनीकी सहायता, रखरखाव और ग्राहक मार्गदर्शन देती है।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(12) > div:nth-of-type(1) > div:nth-of-type(1) > details:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.83d1afa5c3792b09.4",
+      "sourceHash": "447e91398b2f9deb060e47c986121304af4aaff1c6226cee26f32a0e570e6b40",
+      "source": "Where is Agrinova located?",
+      "translation": "Agrinova कहाँ स्थित है?",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(12) > div:nth-of-type(1) > div:nth-of-type(1) > details:nth-of-type(4) > summary:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.b7e3636f0eb7a41f.4",
+      "sourceHash": "518346c068045acfbae4389dbbf541f43877c8972f79699a611fcb7086a2bbe9",
+      "source": "The head office and showroom are on Pugu Road opposite JNIA Terminal 3 in Dar es Salaam. Factory and support are in Kibaha, Tanzania.",
+      "translation": "मुख्य कार्यालय और शोरूम Dar es Salaam में JNIA Terminal 3 के सामने Pugu Road पर हैं। कारखाना और सहायता केंद्र Kibaha, तंज़ानिया में हैं।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(12) > div:nth-of-type(1) > div:nth-of-type(1) > details:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.83d1afa5c3792b09.5",
+      "sourceHash": "956769865f124bedb15ebc809cb7902147d48471e5fce88789c2ce27d47708e9",
+      "source": "Can I request machinery based on my farm requirements?",
+      "translation": "क्या मैं अपनी खेती की ज़रूरतों के अनुसार मशीनरी का अनुरोध कर सकता हूँ?",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(12) > div:nth-of-type(1) > div:nth-of-type(1) > details:nth-of-type(5) > summary:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.b7e3636f0eb7a41f.5",
+      "sourceHash": "8d93c8099970f4ac7df9da8b81cf8ae2f9a43dcda0d8449c99067e6a28856ab2",
+      "source": "Contact Agrinova to discuss your farm, equipment requirements and available financing options.",
+      "translation": "अपने खेत, उपकरण आवश्यकताओं और उपलब्ध वित्त विकल्पों पर चर्चा के लिए Agrinova से संपर्क करें।",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(12) > div:nth-of-type(1) > div:nth-of-type(1) > details:nth-of-type(5) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:agrinova-tech.html"
+    },
+    {
+      "id": "auto.d3be638966239031",
+      "sourceHash": "69518e684f065f0c39a26d5f18ae2a775ffffd4e390cc3d73afeac2fb50992a7",
+      "source": "Type a message...",
+      "translation": "संदेश लिखें...",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > input:nth-of-type(1)",
+      "attribute": "placeholder",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.dbd7aa82758a6b6e",
+      "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
+      "source": "Chat",
+      "translation": "चैट",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.66aa2c2ae3cbebc2",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "तंज़ानिया",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.1166b4dc9e8f5a48",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "तंज़ानिया का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.79f88744df0d49f4",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "केन्या",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.06ee81a9edb3242f",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "केन्या का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.b49630af1497c37e",
+      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
+      "source": "Zambia",
+      "translation": "ज़ाम्बिया",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.e171b2e9b828d110",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "ज़ाम्बिया का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.2b484ca1ad158830",
+      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
+      "source": "Rwanda",
+      "translation": "रवांडा",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.097d78dc4de53a9f",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "रवांडा का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.c079c85cf599132a",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "बुरुंडी",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.c632a214f46d5580",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "बुरुंडी का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.385614696bd701a8",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "कांगो लोकतांत्रिक गणराज्य",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.2a24d996d6d6dfc9",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "कांगो लोकतांत्रिक गणराज्य का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.278cf50f81d877d9",
+      "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
+      "source": "Ethiopia",
+      "translation": "इथियोपिया",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.f5c8dfc5da456bf7",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "इथियोपिया का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.8fc709be479ab753",
+      "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
+      "source": "Mozambique",
+      "translation": "मोज़ाम्बिक",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.30a6249613d6a856",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "मोज़ाम्बिक का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.68a376c0c68dcbe9",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "युगांडा",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.38b5d6db9afde67c",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "युगांडा का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.4fe26e41eb32e350",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "संयुक्त अरब अमीरात का ध्वज",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.bba41439fd44553b",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.da37e2c88e3a7e09",
+      "sourceHash": "a78d42f4a3dddd27ea8160e756de43b281188e331b69af2b97258c843c221982",
+      "source": "45–85 HP",
+      "translation": "45–85 HP",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "protected-technical-value"
+    },
+    {
+      "id": "auto.da37e2c88e3a7e09.2",
+      "sourceHash": "8760697a0c1cc71a9ff6a9da6b0d13399dcfbe9182c81270bc75eecb45c0fee7",
+      "source": "55–240 HP",
+      "translation": "55–240 HP",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "protected-technical-value"
+    }
+  ]
+}

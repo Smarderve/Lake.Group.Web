@@ -5,13 +5,13 @@
   "page": "lake-trans.html",
   "sourceManifestDigest": "181d42c4930d1abb298d1bb6193e994fb20c4653ed2347cb78f9ae1ea1fa8fa8",
   "sourceManifestGeneratedAt": "2026-10-15T10:48:55.402Z",
-  "createdAt": "2026-10-15T10:47:00.499Z",
+  "createdAt": "2026-10-15T12:53:43.585Z",
   "authoringMethod": "existing dictionary reuse; no model output for generated rows",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 124,
-  "translatedCount": 30,
-  "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
+  "candidateCount": 122,
+  "translatedCount": 124,
+  "validation": "source hashes and protected facts checked; linguistic review remains required",
   "translations": [
     {
       "id": "auto.16065ef3797c6435",
@@ -21,7 +21,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.energies"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.8036829e411ab674",
@@ -31,7 +31,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.manufacturing"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.1d0190e788b2c69d",
@@ -41,7 +41,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.logisticsCos"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.a90ddbd2099ff3e9",
@@ -51,7 +51,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(4)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.realEstate"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.0b245d846dc14410",
@@ -61,7 +61,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(5)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.agro"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.38dbfa31087991cb",
@@ -71,7 +71,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(6)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.automotive"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.7109974c45817729.6",
@@ -81,7 +81,27 @@
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
       "attribute": "alt",
-      "origin": "existing-dictionary:nav.co.gulfAggregates"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.89b52130e45693bf",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.3499c6217ca81c22.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "NexDrive Motors",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.55b76ef994944216",
@@ -91,7 +111,47 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.history"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.55b76ef994944216.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "المسؤولية الاجتماعية والاستدامة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.55b76ef994944216.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "المعرض",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.159e0a071a7c3d55",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "اللغة: الإنجليزية",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.071ee5a03e43475d",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.dd6adf439f781b18",
@@ -101,7 +161,17 @@
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": "aria-label",
-      "origin": "existing-dictionary:nav.menu"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.35dbe953894e0e10",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "إغلاق القائمة",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.87428f7a457203eb",
@@ -111,7 +181,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.home"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.87428f7a457203eb.2",
@@ -121,7 +191,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(2)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.about"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.2adbb1f0f58a72ea",
@@ -131,7 +201,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.companies"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.c2fb5faa09878219.6",
@@ -141,7 +211,27 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.co.gulfAggregates"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.98abe59338d2fdd3",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.22451599d0a079b7",
+      "sourceHash": "ec75f79040af17557c450e94a4214a484350634a433592d2eb31784c5a46e865",
+      "source": "Leadership",
+      "translation": "القيادة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.abf29d11cfdb68ca",
@@ -151,7 +241,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.company"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.fbd657454fe97aff",
@@ -161,7 +251,37 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.history"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.fbd657454fe97aff.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "المسؤولية الاجتماعية والاستدامة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.fbd657454fe97aff.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "المعرض",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.df4859f904cceff8",
+      "sourceHash": "7e658675b5ca75b3802ff34b548abe663438f113bed3acf541142b317c146e34",
+      "source": "Careers",
+      "translation": "الوظائف",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(4)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.df4859f904cceff8.2",
@@ -171,7 +291,97 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(5)",
       "attribute": null,
-      "origin": "existing-dictionary:footer.contact"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.a661501e09f913bd",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.387da139e94f1123",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "English",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.387da139e94f1123.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.387da139e94f1123.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.387da139e94f1123.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.387da139e94f1123.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.387da139e94f1123.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.387da139e94f1123.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.387da139e94f1123.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.f253dff3cc44aa1e",
@@ -181,7 +391,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:stat.trucks"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.7b87b00a276124d9",
@@ -191,7 +401,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > h2:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:atl.s2.title"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.3c9442c883691900",
@@ -201,7 +411,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:atl.s2.mission"
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.c666e1916018a243",
@@ -211,7 +421,27 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > h3:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:atl.s2.vision"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.2ad97f5dce974e35",
+      "sourceHash": "4a84556e7fd02081e0e92242b82822cce9eb6bae14aec2590bbf14c24e74930e",
+      "source": "Teamwork",
+      "translation": "العمل الجماعي",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.19aba2a53659105c",
+      "sourceHash": "71d0acd46556424657f3866a5dc46d45d66b0849904e0a66d712764f95fa16bb",
+      "source": "Reliability",
+      "translation": "الموثوقية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.1fdaa6a775102488",
@@ -221,7 +451,17 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > h4:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:atl.val.integrity"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.a8edd600bd5a05fc",
+      "sourceHash": "d2e53f8615d9d7932b5baa03aeb63cd8948fd7ea34e0d53f0c6270a42ffd3d11",
+      "source": "Customer Satisfaction",
+      "translation": "رضا العملاء",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.5ed73cdb393e0991",
@@ -231,7 +471,17 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(2) > h4:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:fleet.12"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.c51782324d24edf7",
+      "sourceHash": "e85bfb9ffb7152afb27378275b20f5a8f746580b24a655fc19c6aa817e76c53e",
+      "source": "East Africa",
+      "translation": "شرق أفريقيا",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(5) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.72cf8a9195ca9c7b",
@@ -241,7 +491,17 @@
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) > input:nth-of-type(1)",
       "attribute": "placeholder",
-      "origin": "existing-dictionary:chat.placeholder"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.ec2d2faebea0fe6b",
+      "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
+      "source": "Chat",
+      "translation": "محادثة",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.800c0c7a30293ade",
@@ -251,7 +511,17 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.27"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.9a1f2f6a3656cf55",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "علم تنزانيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.062894ccf957189a",
@@ -261,7 +531,17 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.29"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.03a5d3a4044a22b4",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "علم كينيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.d63243a3a8de4a9e",
@@ -271,7 +551,17 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.31"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.7f300e71d2e6075b",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "علم زامبيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.2c2451be2b61e476",
@@ -281,7 +571,17 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.33"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.d4bcd6fadc497b52",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "علم رواندا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.369cf333b2f68e31",
@@ -291,7 +591,37 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.35"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.d1ed6c0daa98b49d",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "علم بوروندي",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.d27f166b83f42952",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "جمهورية الكونغو الديمقراطية",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.2dfc092d6142efb1",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "علم جمهورية الكونغو الديمقراطية",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.2f8d07de5c380c2c",
@@ -301,7 +631,17 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.38"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.ea1805e33fb4b271",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "علم إثيوبيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.a0b23a7724cb82c9",
@@ -311,7 +651,607 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.40"
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.ab3b78fc4a80f320",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "علم موزمبيق",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.e5305896ff4f2eb5",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "أوغندا",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.1bcfbee961e053ec",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "علم أوغندا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.c77268a9dd83feac",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "علم الإمارات العربية المتحدة",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.25012a22ac54a7ae",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.c14e5b59e2691d7e",
+      "sourceHash": "878af0216e0524c3806cba658f6bc2803a8dd768615e879b91782631c7fc4141",
+      "source": "Lake Trans Limited provides petroleum product transportation and logistics services across East Africa as part of Lake Group.",
+      "translation": "تقدم Lake Trans Limited خدمات نقل المنتجات البترولية والخدمات اللوجستية في أنحاء شرق أفريقيا كجزء من Lake Group.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content",
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.607af90762ccceb2",
+      "sourceHash": "4f4032c3e5d8d4cda7ca3c6a54fd814cc29a840f295400b3d470e26d05838427",
+      "source": "Established under Lake Group since 2011. ISO-certified transport company specialising in secure and efficient petroleum product transportation across East Africa.",
+      "translation": "تعمل ضمن Lake Group منذ عام 2011. وهي شركة نقل حاصلة على شهادة ISO ومتخصصة في النقل الآمن والفعال للمنتجات البترولية في أنحاء شرق أفريقيا.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.1df8b48bed93324f",
+      "sourceHash": "deb3c31287911e71047d92a838679fff0daa8b66e5f84e3d702385c1062eee28",
+      "source": "Transporting East Africa Forward",
+      "translation": "نقل شرق أفريقيا إلى الأمام",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.ce76d6ea7f416276",
+      "sourceHash": "cc893b0cdbe857db736f0d4c8ff43577817182595542605a50b7c4cdfebd64d7",
+      "source": "With a formidable fleet of more than 1,500 state-of-the-art trucks, Lake Trans is well-positioned to meet the diverse logistics demands of its clients. Continuous investment in modern, efficient vehicles underscores the company's commitment to keeping the fleet updated with current standards.",
+      "translation": "بفضل أسطول قوي يضم أكثر من 1,500 شاحنة حديثة، تتمتع Lake Trans بموقع جيد لتلبية احتياجات العملاء اللوجستية المتنوعة. ويؤكد الاستثمار المستمر في المركبات الحديثة والفعالة التزام الشركة بتحديث الأسطول وفق المعايير الحالية.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.1bdbdee9298508fa",
+      "sourceHash": "631766e541f1690316ea1e82808cc3afd00bcf84f73826d8ddd7ea8848921e65",
+      "source": "Petroleum tankers for local and cross-border transportation",
+      "translation": "صهاريج بترول للنقل المحلي وعبر الحدود",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.05065e89bf0aa6c9",
+      "sourceHash": "ffe04a28d24b2e049fa5ca6b878aef0b66561c4ef03f6893d2cbb154e9ce6864",
+      "source": "Flatbed trucks and trailers for dry cargo services",
+      "translation": "شاحنات ومقطورات مسطحة لنقل البضائع الجافة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.7b1162781eeda141",
+      "sourceHash": "41e5851fb1bbf7778ba688e7eb0657ec47f9458be0f35b5c97c41debc5386a3f",
+      "source": "GPS-monitored fleet across all routes",
+      "translation": "أسطول مراقب بنظام GPS على جميع الطرق",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.04202e80b611aa84",
+      "sourceHash": "1bebaf9225ca01cb986cb45d6fc0696efb0a68ec7be69b3947268592abf03ff1",
+      "source": "Specialized tipper trucks with mechanical backup",
+      "translation": "شاحنات قلابة متخصصة مع دعم ميكانيكي",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(4)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.0a187f6c8f76f520",
+      "sourceHash": "4f61f1fcfbf89dec5862ec470bb67284a9f7d352e4c76df1ace21f14111b56f1",
+      "source": "Fleet at a Glance",
+      "translation": "لمحة عن الأسطول",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.753f165b37ac9866",
+      "sourceHash": "0f25a4ff8311367aa2d0f7a751c69b0cf4b5c6c9073bd108e112ac6a3dbe4e13",
+      "source": "Part of Lake Group",
+      "translation": "جزء من Lake Group",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.97a72f52e12058c3",
+      "sourceHash": "c9996efd134fedf5ef97d51eb81be29cbf2d4731f62e46ca3d54be47b257623c",
+      "source": "Certified",
+      "translation": "معتمد",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.6ef0b8cedb50f2cd",
+      "sourceHash": "eb39beeab271462f47cab3ce3a9b7f12ca54183bb4be37c63b41a9c4383fceb1",
+      "source": "Fleet Monitoring",
+      "translation": "مراقبة الأسطول",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.dd84f917b0e20cb4",
+      "sourceHash": "1d268a1807cb1c62440628c887e0f61db9f5837208dcdb16ff0ebcaea5880135",
+      "source": "To deliver high-quality, efficient and environmentally responsible products and services while driving sustainable growth, empowering our people and creating value for our stakeholders.",
+      "translation": "تقديم منتجات وخدمات عالية الجودة وفعالة ومسؤولة بيئيًا، مع تعزيز النمو المستدام وتمكين موظفينا وخلق قيمة لأصحاب المصلحة.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.f540394627125434",
+      "sourceHash": "237e926b567f333b4202f861155891ed6bd9fb6cc57099532764b682bba0f672",
+      "source": "To connect Africa's people, businesses and markets through world-class transport services that enable seamless trade and sustainable growth.",
+      "translation": "ربط شعوب أفريقيا وأعمالها وأسواقها من خلال خدمات نقل عالمية المستوى تتيح تجارة سلسة ونموًا مستدامًا.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.3dcbf1ff63ce6111",
+      "sourceHash": "0ad4fa60eee1be9ea82f95f7f93476e960646bc1ddf9d49adacc81f948cff4c5",
+      "source": "Collaborating effectively to achieve common goals",
+      "translation": "التعاون بفعالية لتحقيق الأهداف المشتركة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.3397555b526c06a0",
+      "sourceHash": "c21a6e6a55f89b5bc6c2d67d602f313f257a6b528394c23b71cd1d2690584c70",
+      "source": "Being a dependable partner to our customers and stakeholders",
+      "translation": "أن نكون شريكًا يمكن الاعتماد عليه لعملائنا وأصحاب المصلحة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.16c0f9001db4e047",
+      "sourceHash": "180a47a65f4b4f6e2ce308cd441e02eed8ebfdac63f849e701861154a8289166",
+      "source": "Upholding the highest standards of honesty and transparency",
+      "translation": "الالتزام بأعلى معايير الصدق والشفافية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.d54e2d1b9fa19e25",
+      "sourceHash": "87f1dbe904fd9019dbbdad058d8492f1adebfb2043eebe47917996bd9c1ad721",
+      "source": "Striving to exceed customer expectations at every touchpoint",
+      "translation": "السعي لتجاوز توقعات العملاء في كل نقطة تواصل",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.24796168231b390d",
+      "sourceHash": "a094e73119749e34894fa11385cd8f280b1eed485310f4517b3de00a41e1e32b",
+      "source": "Fleet Capabilities",
+      "translation": "قدرات الأسطول",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.abe3c3372c369912",
+      "sourceHash": "51489bfd6b4d949fa4872f14cb2f53aac527542ce7dd92d56a56e47aa3aa850b",
+      "source": "Lake Trans petroleum tanker",
+      "translation": "صهريج بترول تابع لـ Lake Trans",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.1a5a5b395b9616e4",
+      "sourceHash": "33366e114c3be8a3297d55d628ca5fdbccf47a515775203d14f54a5949cc18c9",
+      "source": "Lake Trans flatbed trucks",
+      "translation": "شاحنات Lake Trans المسطحة",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.450eb385611b7626",
+      "sourceHash": "4005b49de20445ecce1f8fc896a4d972110ea49bfc6d30182e00bf7c384db3d4",
+      "source": "Flatbed & Trailer",
+      "translation": "شاحنات مسطحة ومقطورات",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.bc15a2035469b08c",
+      "sourceHash": "5590c14fb21ad2dec28d9f24df2ceb0b1db9cff19ec7fa757e3bbcbb1b041f1f",
+      "source": "Flatbed trucks and trailers specifically designed for dry cargo services.",
+      "translation": "شاحنات ومقطورات مسطحة مصممة خصيصًا لنقل البضائع الجافة.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.aad9b0ad03acf571",
+      "sourceHash": "682261079010db8de4dd1edf566cb1a4d9f047ecdba848afeaaa73d5b6964250",
+      "source": "Lake Trans GPS-monitored trucks",
+      "translation": "شاحنات Lake Trans المراقبة بنظام GPS",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.61a92bd50598ae06",
+      "sourceHash": "682c285d6a879cb5f6079a694a4b9e57a69a544e89c1c525e9158092f152722c",
+      "source": "GPS Fleet Monitoring",
+      "translation": "مراقبة الأسطول بنظام GPS",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.0f533681a0c28334",
+      "sourceHash": "69d632d58adc0662b0b21bcca47124825126120221863a9408db691bde723068",
+      "source": "All trucks monitored using GPS tracking for safety and efficient delivery.",
+      "translation": "تتم مراقبة جميع الشاحنات عبر GPS لضمان السلامة وكفاءة التسليم.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.a942d221449c564f",
+      "sourceHash": "3592eb25ac4174755987c8862bd07f936b5fdf6f42985c95821b4c754357c423",
+      "source": "Lake Trans tipper trucks and fleet support",
+      "translation": "شاحنات Lake Trans القلابة ودعم الأسطول",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.082d92d0e76a3746",
+      "sourceHash": "d039acefff4e0cfd1e0a48e0d6a0dccdb0236cc4db3a02497b35fdf574ae93b7",
+      "source": "Tipper Trucks & Backup",
+      "translation": "شاحنات قلابة ودعم",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(2) > h4:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.b40f74685cdf8450",
+      "sourceHash": "dcca88f147a2b7356aafaab8c5a39dc64768d0b0bf7a679bc238e241909be833",
+      "source": "Specialized tipper trucks with mechanical backup and repair support.",
+      "translation": "شاحنات قلابة متخصصة مع دعم ميكانيكي وخدمات إصلاح.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.e137e5615cf44112",
+      "sourceHash": "ab080fe1cdceb6c7545266554f942cda599175ed714c218c6cd03b9c56fc3bdf",
+      "source": "From Small Beginnings to Regional Leader",
+      "translation": "من بدايات صغيرة إلى الريادة الإقليمية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.f6cf5c5dd36838a8",
+      "sourceHash": "6d9f4d731be6a26216056b38270a65e60bf3d11865cb4c4036cafab58dd35680",
+      "source": "Lake Trans is one of the initial establishments of Lake Group. It started with a small number of trucks supplying fuel and has since expanded into the leading professional transportation service for fuel, steel, construction materials and containers across East Africa.",
+      "translation": "Lake Trans من أوائل شركات Lake Group. بدأت بعدد قليل من الشاحنات التي توزع الوقود، ثم توسعت لتصبح خدمة النقل المهنية الرائدة للوقود والصلب ومواد البناء والحاويات في شرق أفريقيا.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.46efc1112d3663d1",
+      "sourceHash": "124caeb562589f221fc7cd8ac548940cdcf08dae56a90e830b78e720ef492061",
+      "source": "Today, the fleet has grown to more than 1,500 trucks, with continuous investment in modern vehicles to ensure the fleet remains updated with current standards and environmental best practices.",
+      "translation": "واليوم نما الأسطول ليضم أكثر من 1,500 شاحنة، مع استثمار مستمر في المركبات الحديثة لضمان مواكبته للمعايير الحالية وأفضل الممارسات البيئية.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.c4c694891cb6668e",
+      "sourceHash": "89c598145f2ab8a74086195f76c134374970eb9055bfe20b48b9708b93537b16",
+      "source": "Growth Milestones",
+      "translation": "محطات النمو",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.ec23b4f2a366a247",
+      "sourceHash": "33f217c12b340feccc877ac70c5cbcc5eb2668a621db0de097e13fe23ddaf8fb",
+      "source": "Fleet origin",
+      "translation": "بداية الأسطول",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.46419ca329bce634",
+      "sourceHash": "6afd2e2389ccf63582e75f41fc3c15c6b7a0346cdd79848ae0e5f54ba7073cb1",
+      "source": "Small fuel supply fleet",
+      "translation": "أسطول صغير لتوريد الوقود",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.af993a9e2b80f439",
+      "sourceHash": "ebbd9353813f136b1b1cef054b658a8bc452283ebcde629c656306cc7710c367",
+      "source": "Group integration",
+      "translation": "الاندماج ضمن المجموعة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.f5724aa28c66c01d",
+      "sourceHash": "a524ca5b2c0858a6442d244ce192b83f48c2cf1b820161d712c6c91c311cb5a5",
+      "source": "Since 2011",
+      "translation": "منذ 2011",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.c1e1c5572ffdd6b3",
+      "sourceHash": "54933c3eff437d93aebbd9f69c31754a578e1a43b401bda907fd40a0186f9b01",
+      "source": "Current fleet",
+      "translation": "الأسطول الحالي",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.7552125ddbbbaad8",
+      "sourceHash": "7ba3f0efd991b2105f6a7195f9e778e6062c04e4f0bafe1297df4e9405700dfa",
+      "source": "1,500+ trucks",
+      "translation": "أكثر من 1,500 شاحنة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.e7b4716fa54ad6fa",
+      "sourceHash": "86846f67dd19ad454801b74c1204d316574553797124bb914e5902c9d682d0af",
+      "source": "Certification",
+      "translation": "الشهادة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.4343614005794395",
+      "sourceHash": "70e70adaa9943fd4d40c4e8eb33947b0af8f7104b16f65b86f7f01990891d052",
+      "source": "ISO certified",
+      "translation": "معتمد وفق ISO",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.f063a9f17c6174a2",
+      "sourceHash": "523487a5de21adb5301bbf09807653a537991aded9884ef99c115d906c5b8a1d",
+      "source": "Coverage",
+      "translation": "نطاق التغطية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(5) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.c0e52d65c997deb4",
+      "sourceHash": "114b1591be7b2ee6a953b3aba5225baa3aaafe4fe313c830a180e01f507136df",
+      "source": "Our Fleet in Action",
+      "translation": "أسطولنا أثناء العمل",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > h2:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.ccbbbde1d0092c81",
+      "sourceHash": "95fa8226652c14345dd59f11261afac1b9ebb3b380b8ee34a034513c6bf33353",
+      "source": "Long lineup of Lake Trans blue trucks",
+      "translation": "صف طويل من شاحنات Lake Trans الزرقاء",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.76c49280500f7d44",
+      "sourceHash": "37d4f152857395c168c56ba62163bb4ffa0481f6c7c6782ab674992e13731431",
+      "source": "Regional fleet lineup",
+      "translation": "اصطفاف الأسطول الإقليمي",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(1) > figcaption:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.c7a87c613d549f0c",
+      "sourceHash": "975ca59aa3f7b48088272d26184292205bdafe0366cb39e6cf52033f05b700e8",
+      "source": "Lake Trans petroleum tanker fleet",
+      "translation": "أسطول صهاريج البترول التابع لـ Lake Trans",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.0acfc7272a4389ce",
+      "sourceHash": "4b524832231017fca45b77fdc175c935c59cba38f4eedebbaf6b1294a193a665",
+      "source": "Petroleum tanker fleet",
+      "translation": "أسطول صهاريج البترول",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(2) > figcaption:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.c191d1c7b31c0bbb",
+      "sourceHash": "f2d2012626b6fb419ffa8db98924327e91ff97fd475b947ce50df5514fd60f16",
+      "source": "Lake Group blue trucks prepared for operation",
+      "translation": "شاحنات Lake Group الزرقاء الجاهزة للعمل",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.4dae069c4eb633bc",
+      "sourceHash": "ebd6e2e159ad7b174800318889885222c0f4318de23aa28a2b78b9d22264b56c",
+      "source": "Fleet readiness",
+      "translation": "جاهزية الأسطول",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(3) > figcaption:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.3ee0832d0198a415",
+      "sourceHash": "2e2885fcf1f78914b83c6561b6433dffb6f4da1f75f30b6cbdfd6a81fad48891",
+      "source": "Lake Trans branded petroleum tanker",
+      "translation": "صهريج بترول يحمل علامة Lake Trans",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.fc56a3c4e2f274f0",
+      "sourceHash": "1b198cbf5e78083944867dc4d3328742472c283016c28a085cf6318cc48c0d24",
+      "source": "Bulk liquid transport",
+      "translation": "نقل السوائل السائبة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(4) > figcaption:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.3ac30a44f97fa311",
+      "sourceHash": "012d5cd6a292ddd58892360cda804789a33a62f8a4c1e966dff710d7de627205",
+      "source": "Lake Oil fuel tanker on a regional road",
+      "translation": "صهريج وقود Lake Oil على طريق إقليمي",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.0df8ef1312dabb73",
+      "sourceHash": "2c55a0cc3e7ffa75ef6326ba22b12348598457d88f7392581526ad0b8b985f4a",
+      "source": "On-road service",
+      "translation": "الخدمة على الطريق",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > figure:nth-of-type(5) > figcaption:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.6be5f05f1a89ab7b",
+      "sourceHash": "d4dc0476ac59f0abd2e3cdcbd04c220726d9f8bb57808609757925fcd5c91edf",
+      "source": "Lake Trans Limited, part of Lake Group since 2011, is incorporated and registered in Dar es Salaam, Tanzania. The company is ISO certified and specialises in the secure and efficient transportation of petroleum products.",
+      "translation": "Lake Trans Limited، وهي جزء من Lake Group منذ عام 2011، مسجلة في Dar es Salaam بتنزانيا. الشركة حاصلة على شهادة ISO ومتخصصة في النقل الآمن والفعال للمنتجات البترولية.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "auto.c4ead23cba5da1f5",
+      "sourceHash": "b268859bb473c3747b9ea57e9b4b1fdcba941147945eb125b7bc3e2d38278e11",
+      "source": "Local and cross-border transportation of petroleum products, the company's core specialisation.",
+      "translation": "النقل المحلي وعبر الحدود للمنتجات البترولية هو مجال التخصص الأساسي للشركة.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-trans.html"
     }
   ]
 }
