@@ -21,8 +21,9 @@ const perAssetRelease = new Map([
   ['i18n.js', '20261014-02'],
   ['i18n-content.js', '20261014-03'],
 ]);
-const serviceWorkerRelease = '20261014-04';
-const assistantRelease = '20261013-02';
+const serviceWorkerRelease = '20261015-01';
+const assistantJsRelease = '20261013-02';
+const assistantCssRelease = '20261015-01';
 const errors = [];
 const versions = new Map();
 
@@ -64,7 +65,7 @@ for (const asset of critical.filter((name) => name !== 'theme.css')) {
   const expected = perAssetRelease.get(asset) || precacheRelease;
   if (!sw.includes(asset + '?v=' + expected)) errors.push('sw.js: missing current precache URL for ' + asset);
 }
-for (const [asset, version] of [['assistant.js', assistantRelease], ['assistant.css', assistantRelease]]) {
+for (const [asset, version] of [['assistant.js', assistantJsRelease], ['assistant.css', assistantCssRelease]]) {
   const url = `assets/${asset}?v=${version}`;
   if (!sw.includes(url)) errors.push('sw.js: missing current assistant precache URL ' + url);
   for (const file of htmlFiles) {
