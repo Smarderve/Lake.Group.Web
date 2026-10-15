@@ -20,10 +20,20 @@ test('language controller exposes eight locales and gates unpublished dictionari
   const source = fs.readFileSync(path.join(root, 'assets/i18n.js'), 'utf8');
   assert.match(source, /const SUPPORTED = \['en', 'sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt'\]/);
   assert.match(source, /const AVAILABLE_TRANSLATIONS = \['en'\]/);
+  assert.match(source, /lake-i18n-preview/);
+  assert.match(source, /DRAFT_PENDING_HUMAN_REVIEW/);
+  assert.match(source, /releaseEligible === false/);
+  assert.match(source, /const productionHost = \/\(\^\|\\\.\)lakeoilgroup\\\.com\$\/i/);
   assert.doesNotMatch(source, /localStorage\.removeItem\(STORAGE_KEY\)/);
   assert.match(source, /localStorage\.getItem\(STORAGE_KEY\)/);
   assert.match(source, /localStorage\.setItem\(STORAGE_KEY, lang\)/);
   for (const [, label] of locales) assert.ok(source.includes(`'${label}'`), `${label} label missing`);
+});
+
+test('empty desktop and mobile language status regions remain out of layout', () => {
+  const css = fs.readFileSync(path.join(root, 'assets/phase-01-navbar.css'), 'utf8');
+  assert.match(css, /\.lang-status\[hidden\][\s\S]*?display:\s*none\s*!important/);
+  assert.match(css, /\.mob-language-status\[hidden\][\s\S]*?display:\s*none\s*!important/);
 });
 
 test('public pages with the shared mobile navigation show one eight-language selector', () => {

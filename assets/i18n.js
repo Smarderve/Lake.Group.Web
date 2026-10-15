@@ -33,6 +33,19 @@ window.LakeI18n = (function () {
   const SUPPORTED = ['en', 'sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt'];
   const AVAILABLE_TRANSLATIONS = ['en'];
   const availableLanguages = new Set(AVAILABLE_TRANSLATIONS);
+  // Unreviewed translations are selectable only on a non-production host when
+  // the developer explicitly opts into the local editorial preview.
+  const productionHost = /(^|\.)lakeoilgroup\.com$/i.test(window.location?.hostname || '');
+  const localPreviewHost = ['localhost', '127.0.0.1', '::1'].includes(String(window.location?.hostname || '').toLowerCase());
+  const previewQuery = new URLSearchParams(window.location?.search || '').get('lake-i18n-preview');
+  let persistedPreview = false;
+  try {
+    if (localPreviewHost && previewQuery === '1') localStorage.setItem('lake-i18n-preview', '1');
+    else if (localPreviewHost && previewQuery === '0') localStorage.removeItem('lake-i18n-preview');
+    persistedPreview = localStorage.getItem('lake-i18n-preview') === '1';
+  } catch (_) { /* preview can still be enabled for this explicit URL */ }
+  const DRAFT_PREVIEW = localPreviewHost && !productionHost && (previewQuery === '1' || (previewQuery !== '0' && persistedPreview));
+  const draftPageTranslations = {};
   const RTL_LANGS = ['ar'];
   // ASCII-safe escapes so labels survive encoding mishaps in editors/tooling.
   const LANG_LABELS = {
@@ -73,9 +86,44 @@ window.LakeI18n = (function () {
         manifest.activeLanguages.forEach((language) => { if (SUPPORTED.includes(language)) active.add(language); });
         publicationManifest = manifest;
         availableLanguages.clear(); active.forEach((language) => availableLanguages.add(language));
+        if (DRAFT_PREVIEW) SUPPORTED.filter((language) => draftPageTranslations[language]?.ready).forEach((language) => availableLanguages.add(language));
         return manifest;
       }).catch(() => null);
     return publicationPromise;
+  }
+
+  function loadDraftLocale(lang) {
+    if (!DRAFT_PREVIEW || !SUPPORTED.includes(lang) || lang === 'en') return Promise.resolve(false);
+    if (draftPageTranslations[lang]?.ready) return Promise.resolve(true);
+    const page = window.location.pathname.split('/').pop() || 'index.html';
+    const readDraft = (name, optional) => window.fetch(`/scripts/i18n-drafts/${lang}/${name}`, { credentials: 'omit', cache: 'no-store' }).then((response) => {
+      if (optional && response.status === 404) return null;
+      if (!response.ok) throw new Error(`Draft asset unavailable: ${name}`);
+      return response.json();
+    });
+    const validateDraft = (draft) => draft && draft.schemaVersion === 1 && draft.locale === lang && draft.status === 'DRAFT_PENDING_HUMAN_REVIEW' && draft.releaseEligible === false && Array.isArray(draft.translations) && draft.translations.every((row) => row && typeof row.source === 'string' && typeof row.translation === 'string' && row.translation.trim() && row.sourceHash);
+    return Promise.all([
+      readDraft('shared-ui.json', false),
+      readDraft('hero-carousel.json', false),
+      readDraft(`${encodeURIComponent(page)}.json`, true)
+    ]).then(([shared, hero, pageDraft]) => {
+      if (!validateDraft(shared) || !validateDraft(hero) || (pageDraft && (!validateDraft(pageDraft) || pageDraft.page !== page))) throw new Error('Draft schema/status rejected');
+      const content = dictionaries || window.__LAKE_I18N_CONTENT__ || {};
+      const overlay = { ...(content[lang] || {}) };
+      [...shared.translations, ...hero.translations].forEach((row) => { if (row.key) overlay[row.key] = row.translation; });
+      dictionaries = { ...content, [lang]: overlay };
+      draftPageTranslations[lang] = { ready: true, rows: pageDraft?.translations || [] };
+      availableLanguages.add(lang);
+      return true;
+    }).catch((error) => {
+      console.warn(`Lake I18n draft preview unavailable for ${lang}:`, error.message);
+      return false;
+    });
+  }
+
+  function loadDraftPreviews() {
+    if (!DRAFT_PREVIEW) return Promise.resolve([]);
+    return Promise.all(SUPPORTED.filter((language) => language !== 'en').map(loadDraftLocale));
   }
 
   function loadPublishedLocale(lang) {
@@ -103,9 +151,12 @@ window.LakeI18n = (function () {
     autoMutationObserver?.disconnect();
     appliedAutoTargets.forEach(({ node, attribute, original }) => { if (attribute) node.setAttribute(attribute, original); else node.textContent = original; });
     appliedAutoTargets = [];
-    if (lang === 'en' || publishedLocale !== lang) return;
+    if (lang === 'en') return;
+    const draftRows = DRAFT_PREVIEW && draftPageTranslations[lang]?.ready && draftPageTranslations[lang].rows.length
+      ? draftPageTranslations[lang].rows : null;
+    if (!draftRows && publishedLocale !== lang) return;
     const page = window.location.pathname.split('/').pop() || 'index.html';
-    const rows = publishedPageTranslations[page] || [];
+    const rows = draftRows || publishedPageTranslations[page] || [];
     const normalize = (value) => String(value || '').replace(/\s+/g, ' ').trim();
     const matchingTextNodes = (source) => {
       const matches = [];
@@ -428,13 +479,14 @@ window.LakeI18n = (function () {
   }
 
   function apply() {
-    return Promise.all([loadDictionaries(), loadPublicationManifest()]).then(() => {
+    return Promise.all([loadDictionaries(), loadDraftPreviews(), loadPublicationManifest()]).then(() => {
       let preferred = 'en';
       try {
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved && availableLanguages.has(saved)) preferred = saved;
       } catch (e) { /* unavailable */ }
-      return loadPublishedLocale(preferred).then(() => { current = preferred; applyAll(preferred); return current; }).catch(() => { current = 'en'; applyAll('en'); return current; });
+      const useDraft = DRAFT_PREVIEW && draftPageTranslations[preferred]?.ready;
+      return (useDraft ? Promise.resolve(null) : loadPublishedLocale(preferred)).then(() => { current = preferred; applyAll(preferred); return current; }).catch(() => { current = 'en'; applyAll('en'); return current; });
     });
   }
 
@@ -443,7 +495,10 @@ window.LakeI18n = (function () {
       showUnavailableMessage(lang);
       return Promise.resolve(current);
     }
-    return Promise.all([loadDictionaries(), loadPublicationManifest()]).then(() => loadPublishedLocale(lang)).then(() => {
+    return Promise.all([loadDictionaries(), DRAFT_PREVIEW ? loadDraftLocale(lang) : Promise.resolve(false), loadPublicationManifest()]).then(([, draftReady]) => {
+      if (DRAFT_PREVIEW && draftReady) return null;
+      return loadPublishedLocale(lang);
+    }).then(() => {
       current = lang;
       try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* unavailable */ }
       applyAll(lang);
@@ -550,13 +605,14 @@ window.LakeI18n = (function () {
   }
 
   function init() {
-    Promise.all([loadDictionaries(), loadPublicationManifest()]).then(() => {
+    Promise.all([loadDictionaries(), loadDraftPreviews(), loadPublicationManifest()]).then(() => {
       let preferred = 'en';
       try {
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved && availableLanguages.has(saved)) preferred = saved;
       } catch (e) { /* unavailable */ }
-      loadPublishedLocale(preferred).catch(() => { preferred = 'en'; }).then(() => { current = preferred; applyAll(preferred); });
+      const useDraft = DRAFT_PREVIEW && draftPageTranslations[preferred]?.ready;
+      (useDraft ? Promise.resolve(null) : loadPublishedLocale(preferred)).catch(() => { preferred = 'en'; }).then(() => { current = preferred; applyAll(preferred); });
       // Auto-bind all language switchers on the page.
       document.querySelectorAll('.lang-switcher').forEach((root) => {
         // Create the dropdown menu if it doesn't exist yet.
@@ -617,6 +673,8 @@ window.LakeI18n = (function () {
     localizeDigitsInText,
     LANG_LABELS,
     SUPPORTED,
-    get current() { return current; }
+    get current() { return current; },
+    get available() { return [...availableLanguages]; },
+    get draftPreview() { return DRAFT_PREVIEW; }
   };
 })();

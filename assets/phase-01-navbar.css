@@ -1021,6 +1021,16 @@ html[dir="rtl"] .site-nav[data-phase01-navbar] .lang-menu {
   font: 500 .72rem/1.45 Jost, Arial, sans-serif !important;
 }
 
+/* Empty live regions remain fully out of flow; the scoped dropdown styling
+   above must not override the browser's hidden-state display behavior. */
+.site-nav[data-phase01-navbar] .lang-status[hidden],
+.nav-mobile[data-phase01-navbar-mobile] .mob-language-status[hidden] {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
 .site-nav[data-phase01-navbar] .lang-btn[data-available="false"]::after {
   content: "Soon" !important;
   color: var(--nav-menu-muted) !important;
