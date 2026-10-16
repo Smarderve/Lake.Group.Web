@@ -1031,14 +1031,6 @@ html[dir="rtl"] .site-nav[data-phase01-navbar] .lang-menu {
   border: 0 !important;
 }
 
-.site-nav[data-phase01-navbar] .lang-btn[data-available="false"]::after {
-  content: "Soon" !important;
-  color: var(--nav-menu-muted) !important;
-  font-size: .65rem !important;
-  letter-spacing: .08em !important;
-  text-transform: uppercase !important;
-}
-
 .site-nav[data-phase01-navbar] .lang-trigger {
   cursor: pointer !important;
 }
@@ -1661,14 +1653,6 @@ body.lg-nav-open {
   }
   .nav-mobile[data-phase01-navbar-mobile] .mob-language-option.active {
     color: #fff200 !important;
-  }
-  .nav-mobile[data-phase01-navbar-mobile] .mob-language-option[data-available="false"]::after {
-    content: "Soon";
-    margin-inline-start: auto;
-    color: rgba(255, 255, 255, .48);
-    font-size: .65rem;
-    letter-spacing: .08em;
-    text-transform: uppercase;
   }
   .nav-mobile[data-phase01-navbar-mobile] .mob-language-status {
     padding: 6px 4px !important;

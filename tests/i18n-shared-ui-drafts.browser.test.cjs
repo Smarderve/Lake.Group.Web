@@ -53,7 +53,7 @@ test.after(async () => {
   if (server) await new Promise((resolve) => server.close(resolve));
 });
 
-test('seven locale shared UI drafts switch on real homepage DOM and persist in desktop and mobile preview', async () => {
+test('seven self-hosted locale drafts switch on real homepage DOM and persist on desktop and mobile', async () => {
   const screenshotDir = path.join(root, 'docs', 'qa', 'i18n-seven-locale-draft-preview');
   fs.mkdirSync(screenshotDir, { recursive: true });
   for (const locale of locales) {
@@ -68,16 +68,17 @@ test('seven locale shared UI drafts switch on real homepage DOM and persist in d
 
     const desktop = await browser.newPage({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block' });
     await addDraftBanner(desktop);
-    await desktop.goto(`${baseUrl}/index.html?lake-i18n-preview=1`, { waitUntil: 'domcontentloaded' });
-    await desktop.locator('.lang-menu').waitFor({ state: 'attached' });
+    await desktop.goto(`${baseUrl}/index.html`, { waitUntil: 'domcontentloaded' });
+    await desktop.locator('.lang-switcher .lang-menu').waitFor({ state: 'attached' });
     await desktop.waitForFunction(() => window.LakeI18n?.available?.includes('pt'));
     await desktop.locator('.lang-trigger').first().click();
-    await desktop.locator('.lang-menu').first().waitFor({ state: 'visible' });
-    const option = desktop.locator(`.lang-menu [data-lang="${locale}"]`).first();
+    const openMenu = desktop.locator('.lang-switcher.is-open .lang-menu:not([hidden])').first();
+    await openMenu.waitFor({ state: 'visible' });
+    const option = openMenu.locator(`[data-lang="${locale}"]`);
     await option.waitFor({ state: 'visible' });
-    await assert.equal(await option.isDisabled(), false, `${locale} enabled only in this local draft preview`);
+    await assert.equal(await option.isDisabled(), false, `${locale} is selectable from the self-hosted static files`);
     const menuState = await desktop.evaluate(() => {
-      const menu = document.querySelector('.lang-menu');
+      const menu = document.querySelector('.lang-switcher.is-open .lang-menu:not([hidden])');
       const first = menu.querySelector('.lang-btn');
       const status = menu.querySelector('.lang-status');
       return { gap: first.getBoundingClientRect().top - menu.getBoundingClientRect().top, statusDisplay: getComputedStyle(status).display, statusHidden: status.hidden };
@@ -115,7 +116,7 @@ test('seven locale shared UI drafts switch on real homepage DOM and persist in d
 
     const mobile = await browser.newPage({ viewport: { width: 390, height: 844 }, serviceWorkers: 'block' });
     await addDraftBanner(mobile);
-    await mobile.goto(`${baseUrl}/index.html?lake-i18n-preview=1`, { waitUntil: 'domcontentloaded' });
+    await mobile.goto(`${baseUrl}/index.html`, { waitUntil: 'domcontentloaded' });
     await mobile.waitForFunction(() => window.LakeI18n?.available?.includes('pt'));
     await mobile.locator('#nav-toggle').click();
     await mobile.locator('.mob-language-trigger').click();
@@ -139,6 +140,6 @@ test('seven locale shared UI drafts switch on real homepage DOM and persist in d
     await mobile.screenshot({ path: path.join(screenshotDir, `homepage-${locale}-mobile-draft.png`) });
     assert.ok(await mobile.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${locale} mobile width`);
     await mobile.close();
-    console.log(`${locale} (${labels[locale]}): homepage nav translated and persisted in draft-only preview`);
+    console.log(`${locale} (${labels[locale]}): homepage nav translated and persisted from static draft assets`);
   }
 });

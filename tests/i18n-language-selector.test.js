@@ -16,14 +16,16 @@ const locales = [
   ['pt', 'Português'],
 ];
 
-test('language controller exposes eight locales and gates unpublished dictionaries', () => {
+test('language controller exposes eight locales and loads self-hosted draft files on every host', () => {
   const source = fs.readFileSync(path.join(root, 'assets/i18n.js'), 'utf8');
   assert.match(source, /const SUPPORTED = \['en', 'sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt'\]/);
   assert.match(source, /const AVAILABLE_TRANSLATIONS = \['en'\]/);
-  assert.match(source, /lake-i18n-preview/);
+  assert.match(source, /Static, self-hosted editorial translations are available on every host/);
+  assert.match(source, /const DRAFT_PREVIEW = true/);
   assert.match(source, /DRAFT_PENDING_HUMAN_REVIEW/);
   assert.match(source, /releaseEligible === false/);
-  assert.match(source, /const productionHost = \/\(\^\|\\\.\)lakeoilgroup\\\.com\$\/i/);
+  assert.match(source, /scripts\/i18n-drafts/);
+  assert.doesNotMatch(source, /localPreviewHost|productionHost|lake-i18n-preview/);
   assert.doesNotMatch(source, /localStorage\.removeItem\(STORAGE_KEY\)/);
   assert.match(source, /localStorage\.getItem\(STORAGE_KEY\)/);
   assert.match(source, /localStorage\.setItem\(STORAGE_KEY, lang\)/);
@@ -57,6 +59,7 @@ test('public pages with the shared mobile navigation show one eight-language sel
 test('launch CSS no longer hides the language controls', () => {
   const css = fs.readFileSync(path.join(root, 'assets/phase-01-navbar.css'), 'utf8');
   assert.doesNotMatch(css, /\.lang-switcher[^\{]*,\s*\.nav-mobile[^\{]*mob-language-panel[^\{]*\{\s*display:\s*none\s*!important/);
+  assert.doesNotMatch(css, /content:\s*["']Soon["']/i, 'no language menu renders a Soon badge');
 });
 
 test('shipped employee-count translations preserve the verified 10,000 figure', () => {

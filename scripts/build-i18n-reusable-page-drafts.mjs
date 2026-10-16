@@ -18,7 +18,7 @@ function hasUncommittedPageContent(page) {
   try {
     const committed = execFileSync('git', ['show', `HEAD:${page}`], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
     const working = readFileSync(resolve(page), 'utf8');
-    const normalizeCacheRefs = (value) => value.replace(/\r\n/g, '\n').replace(/i18n\.js\?v=[0-9-]+/g, 'i18n.js?v=<release>');
+    const normalizeCacheRefs = (value) => value.replace(/\r\n/g, '\n').replace(/(i18n\.js|phase-01-navbar\.css)\?v=[0-9-]+/g, '$1?v=<release>');
     return normalizeCacheRefs(committed) !== normalizeCacheRefs(working);
   } catch { return false; }
 }

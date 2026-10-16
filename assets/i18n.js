@@ -33,18 +33,10 @@ window.LakeI18n = (function () {
   const SUPPORTED = ['en', 'sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt'];
   const AVAILABLE_TRANSLATIONS = ['en'];
   const availableLanguages = new Set(AVAILABLE_TRANSLATIONS);
-  // Unreviewed translations are selectable only on a non-production host when
-  // the developer explicitly opts into the local editorial preview.
-  const productionHost = /(^|\.)lakeoilgroup\.com$/i.test(window.location?.hostname || '');
-  const localPreviewHost = ['localhost', '127.0.0.1', '::1'].includes(String(window.location?.hostname || '').toLowerCase());
-  const previewQuery = new URLSearchParams(window.location?.search || '').get('lake-i18n-preview');
-  let persistedPreview = false;
-  try {
-    if (localPreviewHost && previewQuery === '1') localStorage.setItem('lake-i18n-preview', '1');
-    else if (localPreviewHost && previewQuery === '0') localStorage.removeItem('lake-i18n-preview');
-    persistedPreview = localStorage.getItem('lake-i18n-preview') === '1';
-  } catch (_) { /* preview can still be enabled for this explicit URL */ }
-  const DRAFT_PREVIEW = localPreviewHost && !productionHost && (previewQuery === '1' || (previewQuery !== '0' && persistedPreview));
+  // Static, self-hosted editorial translations are available on every host.
+  // Their source files retain DRAFT_PENDING_HUMAN_REVIEW/releaseEligible=false;
+  // making them selectable does not represent human review or approval.
+  const DRAFT_PREVIEW = true;
   const draftPageTranslations = {};
   const draftEnglishSources = {};
   const RTL_LANGS = ['ar'];

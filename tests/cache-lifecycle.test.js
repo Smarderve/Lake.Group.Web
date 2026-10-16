@@ -18,9 +18,9 @@ for (const url of urls) {
   assert.ok(fs.existsSync(path.join(ROOT, pathname)), `precache entry exists: ${url}`);
 }
 
-assert.match(sw, /const VERSION = 'v113-20261015-06'/);
-assert.ok(urls.includes('./assets/i18n.js?v=20261015-04'), 'i18n runtime precache uses the current release');
-assert.ok(urls.includes('./assets/phase-01-navbar.css?v=20261015-01'), 'language menu CSS precache uses the current release');
+assert.match(sw, /const VERSION = 'v114-20261016-01'/);
+assert.ok(urls.includes('./assets/i18n.js?v=20261016-01'), 'i18n runtime precache uses the current release');
+assert.ok(urls.includes('./assets/phase-01-navbar.css?v=20261016-01'), 'language menu CSS precache uses the current release');
 assert.ok(urls.includes('./assets/assistant.js?v=20261013-02'), 'assistant JavaScript precache uses the current release');
 assert.ok(urls.includes('./assets/assistant.css?v=20261015-01'), 'assistant CSS precache uses the current release');
 assert.ok(urls.includes('./assets/home-hero.js?v=20261015-02'), 'homepage hero JavaScript precache uses the current release');
