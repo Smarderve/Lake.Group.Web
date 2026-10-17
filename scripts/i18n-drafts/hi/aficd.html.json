@@ -169,7 +169,7 @@
       "id": "auto.5a5bc3566d276c3d",
       "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
       "source": "Close menu",
-      "translation": "मेन्यू बंद करें",
+      "translation": "मेनू बंद करें",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": "aria-label",

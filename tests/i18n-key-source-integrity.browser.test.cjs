@@ -30,17 +30,22 @@ test.after(async () => {
   if (server) await new Promise((resolve) => server.close(resolve));
 });
 
-test('stale keyed translations do not replace changed About copy while matching keys still translate', async () => {
+test('stale keyed translations do not replace changed About copy while current matching keys translate', async () => {
   const page = await browser.newPage({ serviceWorkers: 'block' });
+  await page.route('**/about.html*', async (route) => {
+    const response = await route.fetch();
+    const html = await response.text();
+    await route.fulfill({ response, body: html.replace('What Powers Our Journey', 'Updated Journey Heading') });
+  });
   await page.goto(`${baseUrl}/about.html?lake-i18n-preview=1`, { waitUntil: 'domcontentloaded' });
   await page.waitForFunction(() => window.LakeI18n?.current === 'en');
   const currentCopy = await page.locator('[data-i18n="about.22"]').textContent();
-  assert.match(currentCopy, /What Powers Our Journey/);
+  assert.equal(currentCopy, 'Updated Journey Heading');
 
   await page.locator('.lang-trigger').first().click();
   await page.locator('.lang-menu [data-lang="fr"]').first().click();
   await page.waitForFunction(() => window.LakeI18n?.current === 'fr');
-  assert.match(await page.locator('[data-i18n="about.22"]').textContent(), /What Powers Our Journey/, 'changed English source remains intact when its stale dictionary entry is skipped');
+  assert.equal(await page.locator('[data-i18n="about.22"]').textContent(), 'Updated Journey Heading', 'changed English source remains intact when its stale dictionary entry is skipped');
   assert.match(await page.locator('[data-i18n="about.6"]').textContent(), /D'une simple/, 'a matching source key still receives its language translation');
   const category = await page.evaluate(() => ({ html: document.querySelector('#mm-tab-energies')?.innerHTML, nodes: [...document.querySelector('#mm-tab-energies')?.childNodes || []].map((node) => ({ type: node.nodeType, text: node.nodeValue })) }));
   assert.equal((await page.locator('#mm-tab-energies').textContent()).trim(), 'Secteur énergétique', `generated page draft translates this About page navigation item (${JSON.stringify(category)})`);
@@ -48,6 +53,6 @@ test('stale keyed translations do not replace changed About copy while matching 
   await page.locator('.lang-trigger').first().click();
   await page.locator('.lang-menu [data-lang="en"]').first().click();
   await page.waitForFunction(() => window.LakeI18n?.current === 'en');
-  assert.match(await page.locator('[data-i18n="about.22"]').textContent(), /What Powers Our Journey/, 'switching back preserves the current source copy');
+  assert.equal(await page.locator('[data-i18n="about.22"]').textContent(), 'Updated Journey Heading', 'switching back preserves the current source copy');
   await page.close();
 });
