@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   if (window.LakeAssistantV2 || window.LAKE_ASSISTANT_ENABLED === false) return;
-  var refs = {}, index, assets, companies = [], kbMetadata = null, welcomeTimer = null, welcomeTyping = null, welcomeText = '', welcomeToken = 0, hasWelcomed = false, activeChatController = null, chatStreamActive = false, chatStreamFollow = true, latestResponseArticle = null, speechState = null, shareDialogState = null, feedbackDialogState = null, feedbackToast = null, feedbackToastTimer = null, sessionFeedback = Object.create(null), voiceState = { stream: null, pcmChunks: [], pcmSamples: 0, pcmSampleRate: 0, captureContext: null, captureSource: null, captureProcessor: null, captureGain: null, partialTimer: null, partialPromise: null, partialController: null, partialCursor: 0, timer: null, counterTimer: null, recordingStartedAt: 0, meterContext: null, meterSource: null, meterAnalyser: null, meterFrame: 0, meterLevel: 0, controller: null, mode: '', session: 0, active: false, pending: false, localReady: false, healthTimer: null, healthFailures: 0, sendAfterTranscript: false, finalText: '', detectedLanguage: '', baseText: '', submitted: false, locale: 'en-US' };
+  var refs = {}, index, assets, companies = [], kbMetadata = null, welcomeTimer = null, welcomeTyping = null, welcomeText = '', welcomeReturning = false, welcomeToken = 0, hasWelcomed = false, activeChatController = null, chatStreamActive = false, chatStreamFollow = true, latestResponseArticle = null, speechState = null, shareDialogState = null, feedbackDialogState = null, feedbackToast = null, feedbackToastTimer = null, sessionFeedback = Object.create(null), voiceState = { stream: null, pcmChunks: [], pcmSamples: 0, pcmSampleRate: 0, captureContext: null, captureSource: null, captureProcessor: null, captureGain: null, partialTimer: null, partialPromise: null, partialController: null, partialCursor: 0, timer: null, counterTimer: null, recordingStartedAt: 0, meterContext: null, meterSource: null, meterAnalyser: null, meterFrame: 0, meterLevel: 0, controller: null, mode: '', session: 0, active: false, pending: false, localReady: false, healthTimer: null, healthFailures: 0, sendAfterTranscript: false, finalText: '', detectedLanguage: '', baseText: '', submitted: false, locale: 'en-US' };
   var groupEntity = { name: 'Lake Group', route: 'about.html', aliases: ['Lake Group', 'Lake Oil Group'] };
   var routes = {
     CONTACT: ['contact.html', 'Contact Lake Group'], CAREERS: ['careers.html', 'Careers at Lake Group'],
@@ -62,10 +62,175 @@
   function resolve(q){var explicit=findEntity(q),e=explicit&&explicit.ambiguous?null:explicit;if(!e&&usesRecentContext(q,intent(q,null)))e=state.currentEntity;var i=intent(q,e);if(explicit&&explicit.ambiguous)return{answer:{text:'I found more than one possible match. Which company did you mean?',nomatch:false},entity:null,intent:'CLARIFICATION'};if(!e&&hasPronounReference(q)&&state.currentEntity===null)return{answer:{text:chooseVariant('CLARIFICATION',variants.CLARIFICATION),nomatch:false},entity:null,intent:'CLARIFICATION'};if(i==='COMPANY_INFO'&&e===groupEntity){var overview=index.docs.find(function(d){return d.factType==='group-overview'&&d.verification==='PUBLISHED';});if(overview)return{answer:{text:overview.evidenceText||overview.text||overview.s,links:[{u:overview.page||overview.u,t:overview.title||overview.t||'Lake Group overview'}],id:overview.id},entity:e,intent:i};}if(!e&&(i==='PRODUCT_INFO'||i==='SERVICE_INFO'))return{answer:{text:'Which Lake Group company do you mean? I can check its published products or services.',nomatch:false},entity:null,intent:'CLARIFICATION'};return{answer:compose(q,i,e),entity:e,intent:i};}
   function remember(q,result){state.currentEntity=result.entity||((result.intent==='GREETING'||result.intent==='THANKS'||result.intent==='HELP')?state.currentEntity:null);state.currentIntent=result.intent;state.currentTopic=categoryFor(result.intent)||state.currentTopic;state.previousQuery=q;state.previousResultIds=result.answer.id?[result.answer.id]:[];state.recentQuestions.push({query:q,id:result.answer.id||null});state.recentQuestions=state.recentQuestions.slice(-12);}
   function reply(q){var result=resolve(q);remember(q,result);return result.answer;}
-  function node(tag, className, text) {
+  var UI_LINES = {
+    'Open Lake Assistant': ['Fungua msaidizi wa Lake Group','Lake Group सहायक खोलें','افتح مساعد مجموعة ليك','打开 Lake Group 助手','Ouvrir l’assistant Lake Group','Abrir el asistente de Lake Group','Abrir o assistente Lake Group'],
+    'Close Lake Assistant': ['Funga msaidizi wa Lake Group','Lake Group सहायक बंद करें','أغلق مساعد مجموعة ليك','关闭 Lake Group 助手','Fermer l’assistant Lake Group','Cerrar el asistente de Lake Group','Fechar o assistente Lake Group'],
+    'Close assistant': ['Funga msaidizi','सहायक बंद करें','أغلق المساعد','关闭助手','Fermer l’assistant','Cerrar asistente','Fechar assistente'],
+    'Ask Lake...': ['Uliza Lake...','Lake से पूछें...','اسأل Lake...','向 Lake 提问…','Demandez à Lake…','Pregunta a Lake…','Pergunte ao Lake…'],
+    'Ask Lake': ['Uliza Lake','Lake से पूछें','اسأل Lake','向 Lake 提问','Demander à Lake','Preguntar a Lake','Perguntar ao Lake'],
+    'Send message': ['Tuma ujumbe','संदेश भेजें','أرسل الرسالة','发送消息','Envoyer le message','Enviar mensaje','Enviar mensagem'],
+    'Start voice input': ['Anza kuingiza kwa sauti','आवाज़ से इनपुट शुरू करें','ابدأ الإدخال الصوتي','开始语音输入','Démarrer la saisie vocale','Iniciar entrada por voz','Iniciar entrada por voz'],
+    'Voice input': ['Ingizo la sauti','आवाज़ इनपुट','الإدخال الصوتي','语音输入','Saisie vocale','Entrada por voz','Entrada por voz'],
+    'Voice input controls': ['Vidhibiti vya sauti','आवाज़ इनपुट नियंत्रण','عناصر التحكم في الإدخال الصوتي','语音输入控件','Commandes de saisie vocale','Controles de entrada por voz','Controles de entrada por voz'],
+    'Checking private voice input…': ['Inakagua huduma ya faragha ya sauti…','निजी वॉइस सेवा की जाँच हो रही है…','جارٍ التحقق من خدمة الإدخال الصوتي الخاصة…','正在检查私密语音输入服务…','Vérification du service vocal privé…','Comprobando el servicio privado de voz…','A verificar o serviço privado de voz…'],
+    'Checking private voice input availability': ['Inakagua upatikanaji wa ingizo la sauti la faragha','निजी वॉइस इनपुट की उपलब्धता जाँची जा रही है','جارٍ التحقق من توفر الإدخال الصوتي الخاص','正在检查私密语音输入是否可用','Vérifier la disponibilité de la saisie vocale privée','Comprobar la disponibilidad de la entrada de voz privada','Verificar a disponibilidade da entrada de voz privada'],
+    'Voice input (pauses do not stop recording)': ['Ingizo la sauti (kusitisha kwa muda hakukatizi rekodi)','आवाज़ इनपुट (रुकने से रिकॉर्डिंग बंद नहीं होती)','الإدخال الصوتي (التوقف المؤقت لا يوقف التسجيل)','语音输入（暂停不会停止录音）','Saisie vocale (les pauses n’arrêtent pas l’enregistrement)','Entrada por voz (las pausas no detienen la grabación)','Entrada por voz (as pausas não param a gravação)'],
+    'Voice input unavailable: this browser does not support the required microphone recording APIs.': ['Ingizo la sauti halipatikani: kivinjari hiki hakitumii API zinazohitajika kurekodi kupitia maikrofoni.','वॉइस इनपुट उपलब्ध नहीं है: यह ब्राउज़र आवश्यक माइक्रोफ़ोन रिकॉर्डिंग API का समर्थन नहीं करता।','الإدخال الصوتي غير متاح: هذا المتصفح لا يدعم واجهات برمجة التطبيقات اللازمة لتسجيل الميكروفون.','语音输入不可用：此浏览器不支持所需的麦克风录音 API。','Saisie vocale indisponible : ce navigateur ne prend pas en charge les API d’enregistrement requises.','Entrada de voz no disponible: este navegador no admite las API necesarias para grabar con el micrófono.','Entrada por voz indisponível: este navegador não suporta as APIs necessárias para gravar com o microfone.'],
+    'Voice input temporarily unavailable: available device memory is below the safe transcription requirement.': ['Ingizo la sauti halipatikani kwa sasa: kumbukumbu ya kifaa iko chini ya kiwango salama cha unukuzi.','वॉइस इनपुट अस्थायी रूप से उपलब्ध नहीं है: डिवाइस की उपलब्ध मेमोरी सुरक्षित ट्रांसक्रिप्शन आवश्यकता से कम है।','الإدخال الصوتي غير متاح مؤقتًا: الذاكرة المتاحة في الجهاز أقل من الحد الآمن للتفريغ الصوتي.','语音输入暂不可用：设备可用内存低于安全转写要求。','Saisie vocale temporairement indisponible : la mémoire disponible est inférieure au seuil requis pour une transcription sûre.','Entrada de voz no disponible temporalmente: la memoria disponible del dispositivo está por debajo del nivel seguro para transcribir.','Entrada por voz temporariamente indisponível: a memória disponível no dispositivo está abaixo do mínimo seguro para transcrição.'],
+    'Voice input temporarily unavailable: the private transcription runtime is not ready.': ['Ingizo la sauti halipatikani kwa sasa: mfumo binafsi wa unukuzi haujawa tayari.','वॉइस इनपुट अस्थायी रूप से उपलब्ध नहीं है: निजी ट्रांसक्रिप्शन रनटाइम तैयार नहीं है।','الإدخال الصوتي غير متاح مؤقتًا: بيئة التفريغ الصوتي الخاصة غير جاهزة.','语音输入暂不可用：私密转写运行环境尚未就绪。','Saisie vocale temporairement indisponible : le service privé de transcription n’est pas prêt.','Entrada de voz no disponible temporalmente: el servicio privado de transcripción aún no está listo.','Entrada por voz temporariamente indisponível: o serviço privado de transcrição ainda não está pronto.'],
+    'Voice input temporarily unavailable: the private assistant service is offline.': ['Ingizo la sauti halipatikani kwa sasa: huduma binafsi ya msaidizi haipatikani.','वॉइस इनपुट अस्थायी रूप से उपलब्ध नहीं है: निजी सहायक सेवा ऑफ़लाइन है।','الإدخال الصوتي غير متاح مؤقتًا: خدمة المساعد الخاصة غير متصلة.','语音输入暂不可用：私密助手服务目前离线。','Saisie vocale temporairement indisponible : le service privé de l’assistant est hors ligne.','Entrada de voz no disponible temporalmente: el servicio privado del asistente está desconectado.','Entrada por voz temporariamente indisponível: o serviço privado do assistente está offline.'],
+    'Voice input unavailable: the private transcription service is not ready.': ['Ingizo la sauti halipatikani: huduma binafsi ya unukuzi haijawa tayari.','वॉइस इनपुट उपलब्ध नहीं है: निजी ट्रांसक्रिप्शन सेवा तैयार नहीं है।','الإدخال الصوتي غير متاح: خدمة التفريغ الصوتي الخاصة غير جاهزة.','语音输入不可用：私密转写服务尚未就绪。','Saisie vocale indisponible : le service privé de transcription n’est pas prêt.','Entrada de voz no disponible: el servicio privado de transcripción no está listo.','Entrada por voz indisponível: o serviço privado de transcrição não está pronto.'],
+    'Listening. Stop or cancel voice input.': ['Inasikiliza. Simamisha au ghairi ingizo la sauti.','सुन रहा है। वॉइस इनपुट रोकें या रद्द करें।','جارٍ الاستماع. أوقف الإدخال الصوتي أو ألغِه.','正在聆听。停止或取消语音输入。','Écoute en cours. Arrêtez ou annulez la saisie vocale.','Escuchando. Detén o cancela la entrada de voz.','A ouvir. Pare ou cancele a entrada por voz.'],
+    'Transcript ready. Review the text in the message field before sending.': ['Unukuzi uko tayari. Kagua maandishi kwenye sehemu ya ujumbe kabla ya kutuma.','ट्रांसक्रिप्ट तैयार है। भेजने से पहले संदेश फ़ील्ड में पाठ जाँचें।','أصبح التفريغ جاهزًا. راجع النص في حقل الرسالة قبل الإرسال.','转写已完成。发送前请检查消息框中的文本。','Transcription prête. Vérifiez le texte dans le champ de message avant l’envoi.','La transcripción está lista. Revisa el texto del campo antes de enviarlo.','A transcrição está pronta. Reveja o texto no campo da mensagem antes de enviar.'],
+    'No speech was recognized. Try again or type your message.': ['Hakuna hotuba iliyotambuliwa. Jaribu tena au uandike ujumbe wako.','कोई आवाज़ पहचानी नहीं गई। फिर से प्रयास करें या संदेश लिखें।','لم يُتعرّف على كلام. حاول مرة أخرى أو اكتب رسالتك.','未识别到语音。请重试或输入消息。','Aucune parole reconnue. Réessayez ou saisissez votre message.','No se reconoció ninguna voz. Inténtalo de nuevo o escribe tu mensaje.','Não foi reconhecida fala. Tente novamente ou escreva a mensagem.'],
+    'Voice input is unavailable. You can type your message instead.': ['Ingizo la sauti halipatikani. Unaweza kuandika ujumbe wako badala yake.','वॉइस इनपुट उपलब्ध नहीं है। आप इसके बजाय संदेश लिख सकते हैं।','الإدخال الصوتي غير متاح. يمكنك كتابة رسالتك بدلًا من ذلك.','语音输入不可用。你可以改为输入消息。','La saisie vocale est indisponible. Vous pouvez saisir votre message.','La entrada de voz no está disponible. Puedes escribir el mensaje.','A entrada por voz está indisponível. Pode escrever a mensagem.'],
+    'Waiting for microphone access': ['Inasubiri ruhusa ya maikrofoni','माइक्रोफ़ोन की अनुमति की प्रतीक्षा है','بانتظار إذن الوصول إلى الميكروفون','正在等待麦克风权限','En attente de l’accès au microphone','Esperando acceso al micrófono','A aguardar acesso ao microfone'],
+    'Time limit reached · transcribing…': ['Muda umefika · inabadilisha sauti kuwa maandishi…','समय सीमा पूरी · ट्रांसक्रिप्शन जारी…','انتهى الوقت · جارٍ تحويل الصوت إلى نص…','已达到时限 · 正在转写…','Durée maximale atteinte · transcription…','Se alcanzó el límite · transcribiendo…','Limite de tempo atingido · a transcrever…'],
+    'Stop recording': ['Simamisha kurekodi','रिकॉर्डिंग रोकें','أوقف التسجيل','停止录音','Arrêter l’enregistrement','Detener la grabación','Parar a gravação'],
+    'Cancel voice input': ['Ghairi ingizo la sauti','आवाज़ इनपुट रद्द करें','ألغِ الإدخال الصوتي','取消语音输入','Annuler la saisie vocale','Cancelar entrada por voz','Cancelar entrada por voz'],
+    'Lake AI is typing': ['Lake AI inaandika','Lake AI टाइप कर रहा है','يكتب Lake AI','Lake AI 正在输入','Lake AI écrit','Lake AI está escribiendo','Lake AI está digitando'],
+    'Copy message': ['Nakili ujumbe','संदेश कॉपी करें','انسخ الرسالة','复制消息','Copier le message','Copiar mensaje','Copiar mensagem'],
+    'Message copied': ['Ujumbe umenakiliwa','संदेश कॉपी हो गया','تم نسخ الرسالة','消息已复制','Message copié','Mensaje copiado','Mensagem copiada'],
+    'Message copied.': ['Ujumbe umenakiliwa.','संदेश कॉपी हो गया।','تم نسخ الرسالة.','消息已复制。','Message copié.','Mensaje copiado.','Mensagem copiada.'],
+    'Could not copy. Select and copy the message text instead.': ['Imeshindikana kunakili. Chagua na unakili maandishi ya ujumbe.','कॉपी नहीं हो सका। संदेश का पाठ चुनकर कॉपी करें।','تعذر النسخ. حدّد نص الرسالة وانسخه.','无法复制。请选中并复制消息文本。','Copie impossible. Sélectionnez puis copiez le texte du message.','No se pudo copiar. Selecciona y copia el texto del mensaje.','Não foi possível copiar. Selecione e copie o texto da mensagem.'],
+    'Share message': ['Shiriki ujumbe','संदेश साझा करें','شارك الرسالة','分享消息','Partager le message','Compartir mensaje','Partilhar mensagem'],
+    'Read message aloud': ['Soma ujumbe kwa sauti','संदेश ज़ोर से पढ़ें','اقرأ الرسالة بصوت عالٍ','朗读消息','Lire le message à voix haute','Leer mensaje en voz alta','Ler mensagem em voz alta'],
+    'Stop reading message': ['Acha kusoma ujumbe','संदेश पढ़ना बंद करें','أوقف قراءة الرسالة','停止朗读消息','Arrêter la lecture du message','Dejar de leer el mensaje','Parar de ler a mensagem'],
+    'No on-device voice is available. Your message was not sent anywhere.': ['Hakuna sauti inayopatikana kwenye kifaa hiki. Ujumbe wako haukutumwa popote.','इस डिवाइस पर कोई आवाज़ उपलब्ध नहीं है। आपका संदेश कहीं नहीं भेजा गया।','لا يتوفر صوت على هذا الجهاز. لم تُرسل رسالتك إلى أي جهة.','此设备没有可用的本地语音。你的消息未发送到任何地方。','Aucune voix sur l’appareil n’est disponible. Votre message n’a été envoyé nulle part.','No hay una voz disponible en el dispositivo. Tu mensaje no se envió a ningún sitio.','Não há uma voz disponível no dispositivo. A sua mensagem não foi enviada.'],
+    'Read aloud is unavailable in this browser.': ['Kusoma kwa sauti hakupatikani kwenye kivinjari hiki.','इस ब्राउज़र में ज़ोर से पढ़ने की सुविधा उपलब्ध नहीं है।','القراءة بصوت عالٍ غير متاحة في هذا المتصفح.','此浏览器不支持朗读。','La lecture à voix haute n’est pas disponible dans ce navigateur.','La lectura en voz alta no está disponible en este navegador.','A leitura em voz alta não está disponível neste navegador.'],
+    'Read aloud playback failed.': ['Kusoma kwa sauti kumeshindwa.','ज़ोर से पढ़ना विफल रहा।','تعذرت القراءة بصوت عالٍ.','朗读失败。','La lecture à voix haute a échoué.','Falló la lectura en voz alta.','A leitura em voz alta falhou.'],
+    'Good response': ['Jibu zuri','अच्छा जवाब','إجابة جيدة','回答不错','Bonne réponse','Buena respuesta','Boa resposta'],
+    'Bad response': ['Jibu lisilofaa','खराब जवाब','إجابة سيئة','回答不好','Mauvaise réponse','Mala respuesta','Má resposta'],
+    'Regenerate response': ['Tengeneza jibu upya','जवाब फिर से बनाएँ','أعِد إنشاء الرد','重新生成回答','Régénérer la réponse','Regenerar respuesta','Gerar resposta novamente'],
+    'Retry failed question': ['Jaribu swali hili tena','इस प्रश्न को फिर से आज़माएँ','أعد محاولة هذا السؤال','重试此问题','Réessayer cette question','Volver a intentar esta pregunta','Tentar esta pergunta novamente'],
+    'Assistant message actions': ['Vitendo vya ujumbe wa msaidizi','सहायक संदेश के विकल्प','إجراءات رسالة المساعد','助手消息操作','Actions du message de l’assistant','Acciones del mensaje del asistente','Ações da mensagem do assistente'],
+    'Your message actions': ['Vitendo vya ujumbe wako','आपके संदेश के विकल्प','إجراءات رسالتك','你的消息操作','Actions sur votre message','Acciones de tu mensaje','Ações da sua mensagem'],
+    'Copy your message': ['Nakili ujumbe wako','अपना संदेश कॉपी करें','انسخ رسالتك','复制你的消息','Copier votre message','Copiar tu mensaje','Copiar a sua mensagem'],
+    'Edit your message': ['Hariri ujumbe wako','अपना संदेश संपादित करें','عدّل رسالتك','编辑你的消息','Modifier votre message','Editar tu mensaje','Editar a sua mensagem'],
+    'Send edited message': ['Tuma ujumbe uliohaririwa','संपादित संदेश भेजें','أرسل الرسالة المعدّلة','发送编辑后的消息','Envoyer le message modifié','Enviar mensaje editado','Enviar mensagem editada'],
+    'Share feedback': ['Toa maoni','प्रतिक्रिया दें','شارك ملاحظاتك','分享反馈','Partager un avis','Compartir comentarios','Partilhar opinião'],
+    'Share positive feedback': ['Shiriki maoni chanya','सकारात्मक प्रतिक्रिया दें','شارك ملاحظات إيجابية','分享正面反馈','Partager un avis positif','Compartir comentarios positivos','Partilhar uma opinião positiva'],
+    'What did Lake Assistant do well? Select all that apply.': ['Lake Assistant ilifanya nini vizuri? Chagua yote yanayofaa.','Lake Assistant ने क्या अच्छा किया? सभी लागू विकल्प चुनें।','ما الذي أحسن Lake Assistant فعله؟ اختر كل ما ينطبق.','Lake Assistant 哪些方面做得好？请选择所有适用项。','Qu’a bien fait Lake Assistant ? Sélectionnez toutes les réponses pertinentes.','¿Qué hizo bien Lake Assistant? Selecciona todas las opciones aplicables.','O que o Lake Assistant fez bem? Selecione todas as opções aplicáveis.'],
+    'What could Lake Assistant improve? Select all that apply.': ['Lake Assistant inaweza kuboresha nini? Chagua yote yanayofaa.','Lake Assistant क्या सुधार सकता है? सभी लागू विकल्प चुनें।','ما الذي يمكن أن يحسّنه Lake Assistant؟ اختر كل ما ينطبق.','Lake Assistant 哪些方面可以改进？请选择所有适用项。','Que pourrait améliorer Lake Assistant ? Sélectionnez toutes les réponses pertinentes.','¿Qué podría mejorar Lake Assistant? Selecciona todas las opciones aplicables.','O que o Lake Assistant poderia melhorar? Selecione todas as opções aplicáveis.'],
+    'Close feedback dialog': ['Funga dirisha la maoni','प्रतिक्रिया संवाद बंद करें','أغلق نافذة الملاحظات','关闭反馈对话框','Fermer la fenêtre de commentaires','Cerrar el cuadro de comentarios','Fechar a janela de opinião'],
+    'Share details (optional)': ['Shiriki maelezo (si lazima)','विवरण साझा करें (वैकल्पिक)','شارك التفاصيل (اختياري)','补充详情（可选）','Ajouter des détails (facultatif)','Compartir detalles (opcional)','Partilhar detalhes (opcional)'],
+    'Thank you for your feedback!': ['Asante kwa maoni yako!','आपकी प्रतिक्रिया के लिए धन्यवाद!','شكرًا على ملاحظاتك!','感谢你的反馈！','Merci pour votre avis !','¡Gracias por tus comentarios!','Agradecemos a sua opinião!'],
+    'Your feedback has been saved.': ['Maoni yako yamehifadhiwa.','आपकी प्रतिक्रिया सहेज ली गई है।','تم حفظ ملاحظاتك.','你的反馈已保存。','Votre avis a été enregistré.','Se guardaron tus comentarios.','A sua opinião foi guardada.'],
+    'Feedback could not be saved. Please try again.': ['Maoni hayakuweza kuhifadhiwa. Tafadhali jaribu tena.','प्रतिक्रिया सहेजी नहीं जा सकी। कृपया फिर से प्रयास करें।','تعذر حفظ الملاحظات. يُرجى المحاولة مرة أخرى.','无法保存反馈，请重试。','Impossible d’enregistrer votre avis. Veuillez réessayer.','No se pudieron guardar los comentarios. Inténtalo de nuevo.','Não foi possível guardar a opinião. Tente novamente.'],
+    'Share response': ['Shiriki jibu','जवाब साझा करें','شارك الرد','分享回答','Partager la réponse','Compartir respuesta','Partilhar resposta'],
+    'Close share response': ['Funga kushiriki jibu','बातचीत साझा करना बंद करें','أغلق مشاركة الرد','关闭回答分享','Fermer le partage de la réponse','Cerrar al compartir la respuesta','Fechar partilha da resposta'],
+    'Copy response': ['Nakili jibu','जवाब कॉपी करें','انسخ الرد','复制回答','Copier la réponse','Copiar respuesta','Copiar resposta'],
+    'Email': ['Barua pepe','ईमेल','البريد الإلكتروني','电子邮件','E-mail','Correo electrónico','E-mail'],
+    'Messages': ['Ujumbe','संदेश','الرسائل','信息','Messages','Mensajes','Mensagens'],
+    'More apps': ['Programu zaidi','और ऐप','مزيد من التطبيقات','更多应用','Plus d’applications','Más aplicaciones','Mais aplicações'],
+    'Lake Assistant response': ['Jibu la Lake Assistant','Lake Assistant का जवाब','رد Lake Assistant','Lake Assistant 的回答','Réponse de Lake Assistant','Respuesta de Lake Assistant','Resposta do Lake Assistant'],
+    'Copy is unavailable. Select the response text to copy it.': ['Kunakili hakupatikani. Chagua maandishi ya jibu ili kunakili.','कॉपी उपलब्ध नहीं है। जवाब का पाठ चुनकर कॉपी करें।','النسخ غير متاح. حدّد نص الرد لنسخه.','暂时无法复制。请选中回答文本进行复制。','Copie indisponible. Sélectionnez le texte de la réponse pour le copier.','La copia no está disponible. Selecciona el texto de la respuesta para copiarlo.','A cópia não está disponível. Selecione o texto da resposta para o copiar.'],
+    'Response shared.': ['Jibu limeshirikiwa.','जवाब साझा किया गया।','تمت مشاركة الرد.','回答已分享。','Réponse partagée.','Se compartió la respuesta.','Resposta partilhada.'],
+    'Device sharing could not open. Choose another option or copy the response.': ['Kushiriki kwa kifaa hakukufunguka. Chagua njia nyingine au nakili jibu.','डिवाइस शेयरिंग नहीं खुली। दूसरा विकल्प चुनें या जवाब कॉपी करें।','تعذّر فتح المشاركة عبر الجهاز. اختر خيارًا آخر أو انسخ الرد.','无法打开设备分享。请选择其他选项或复制回答。','Le partage de l’appareil n’a pas pu s’ouvrir. Choisissez une autre option ou copiez la réponse.','No se pudo abrir la función para compartir del dispositivo. Elige otra opción o copia la respuesta.','Não foi possível abrir a partilha do dispositivo. Escolha outra opção ou copie a resposta.'],
+    'Lake Assistant is temporarily unavailable. Please try again shortly.': ['Lake Assistant haipatikani kwa sasa. Tafadhali jaribu tena baada ya muda mfupi.','Lake Assistant अभी उपलब्ध नहीं है। कृपया थोड़ी देर बाद फिर प्रयास करें।','Lake Assistant غير متاح مؤقتًا. يُرجى المحاولة بعد قليل.','Lake Assistant 暂时不可用，请稍后再试。','Lake Assistant est temporairement indisponible. Veuillez réessayer dans un instant.','Lake Assistant no está disponible temporalmente. Inténtalo de nuevo en breve.','O Lake Assistant está temporariamente indisponível. Tente novamente daqui a pouco.'],
+    'Checking private voice input…': ['Inakagua upatikanaji wa sauti…','निजी आवाज़ इनपुट की जाँच हो रही है…','جارٍ التحقق من توفر الإدخال الصوتي…','正在检查语音输入是否可用…','Vérification de la saisie vocale…','Comprobando la entrada de voz…','A verificar a entrada por voz…'],
+    'Checking private voice input availability': ['Inakagua upatikanaji wa sauti','निजी आवाज़ इनपुट उपलब्धता जाँची जा रही है','التحقق من توفر الإدخال الصوتي','正在检查语音输入可用性','Vérification de la disponibilité de la saisie vocale','Comprobando la disponibilidad de entrada por voz','A verificar a disponibilidade da entrada por voz'],
+    'Waiting for microphone access': ['Inasubiri ruhusa ya maikrofoni','माइक्रोफ़ोन अनुमति की प्रतीक्षा है','بانتظار إذن الوصول إلى الميكروفون','正在等待麦克风权限','En attente de l’accès au microphone','Esperando el acceso al micrófono','A aguardar acesso ao microfone'],
+    'No speech was recognized. Try again or type your message.': ['Hakuna sauti iliyotambuliwa. Jaribu tena au andika ujumbe wako.','कोई बोली पहचानी नहीं गई। फिर से प्रयास करें या संदेश टाइप करें।','لم يتم التعرّف على كلام. حاول مرة أخرى أو اكتب رسالتك.','未识别到语音。请重试或输入消息。','Aucune parole reconnue. Réessayez ou saisissez votre message.','No se reconoció voz. Inténtalo de nuevo o escribe tu mensaje.','Não foi reconhecida fala. Tente novamente ou escreva a sua mensagem.'],
+    'Transcript ready. Review the text in the message field before sending.': ['Nakala iko tayari. Kagua maandishi kwenye sehemu ya ujumbe kabla ya kutuma.','ट्रांसक्रिप्ट तैयार है। भेजने से पहले संदेश फ़ील्ड में पाठ जाँचें।','النص جاهز. راجع النص في حقل الرسالة قبل الإرسال.','转录已完成。发送前请检查消息框中的文字。','Transcription prête. Vérifiez le texte avant de l’envoyer.','La transcripción está lista. Revisa el texto antes de enviarlo.','A transcrição está pronta. Reveja o texto antes de enviar.'],
+    'Listening. Stop or cancel voice input.': ['Inasikiliza. Simamisha au ghairi ingizo la sauti.','सुन रहा है। आवाज़ इनपुट रोकें या रद्द करें।','جارٍ الاستماع. أوقف الإدخال الصوتي أو ألغِه.','正在聆听。可停止或取消语音输入。','Écoute en cours. Arrêtez ou annulez la saisie vocale.','Escuchando. Detén o cancela la entrada de voz.','A ouvir. Pare ou cancele a entrada por voz.'],
+    'Voice input unavailable': ['Ingizo la sauti halipatikani','आवाज़ इनपुट उपलब्ध नहीं','الإدخال الصوتي غير متاح','语音输入不可用','Saisie vocale indisponible','Entrada por voz no disponible','Entrada por voz indisponível'],
+    'Voice input unavailable: the private transcription service is not ready.': ['Ingizo la sauti halipatikani: huduma ya unukuzi haiko tayari.','आवाज़ इनपुट उपलब्ध नहीं: निजी ट्रांसक्रिप्शन सेवा तैयार नहीं है।','الإدخال الصوتي غير متاح: خدمة التفريغ الخاصة غير جاهزة.','语音输入不可用：语音转录服务尚未就绪。','Saisie vocale indisponible : le service de transcription privé n’est pas prêt.','Entrada por voz no disponible: el servicio privado de transcripción no está listo.','Entrada por voz indisponível: o serviço privado de transcrição não está pronto.'],
+    'Voice input (pauses do not stop recording)': ['Ingizo la sauti (kusimama kidogo hakukomeshi kurekodi)','आवाज़ इनपुट (रुकने से रिकॉर्डिंग बंद नहीं होती)','الإدخال الصوتي (التوقف المؤقت لا ينهي التسجيل)','语音输入（暂停不会停止录音）','Saisie vocale (les pauses n’arrêtent pas l’enregistrement)','Entrada por voz (las pausas no detienen la grabación)','Entrada por voz (as pausas não param a gravação)'],
+    'Read aloud is unavailable in this browser.': ['Kusoma kwa sauti hakupatikani kwenye kivinjari hiki.','इस ब्राउज़र में ज़ोर से पढ़ने की सुविधा उपलब्ध नहीं है।','القراءة بصوت عالٍ غير متاحة في هذا المتصفح.','此浏览器不支持朗读。','La lecture à voix haute n’est pas disponible dans ce navigateur.','La lectura en voz alta no está disponible en este navegador.','A leitura em voz alta não está disponível neste navegador.'],
+    'Regenerating response…': ['Inatengeneza jibu upya…','जवाब फिर से बनाया जा रहा है…','جارٍ إعادة إنشاء الرد…','正在重新生成回答…','Régénération de la réponse…','Regenerando la respuesta…','A gerar a resposta novamente…'],
+    'Regenerating response': ['Inatengeneza jibu upya','जवाब फिर से बनाया जा रहा है','جارٍ إعادة إنشاء الرد','正在重新生成回答','Régénération de la réponse','Regenerando la respuesta','A gerar a resposta novamente'],
+    'New response preview': ['Hakiki ya jibu jipya','नए जवाब का पूर्वावलोकन','معاينة الرد الجديد','新回答预览','Aperçu de la nouvelle réponse','Vista previa de la nueva respuesta','Pré-visualização da nova resposta'],
+    'Response regenerated': ['Jibu limetengenezwa upya','जवाब फिर से बनाया गया','تمت إعادة إنشاء الرد','回答已重新生成','Réponse régénérée','Respuesta regenerada','Resposta gerada novamente'],
+    'Could not regenerate. Your previous response is unchanged.': ['Imeshindikana kutengeneza jibu upya. Jibu lako la awali halijabadilika.','जवाब फिर से नहीं बनाया जा सका। पिछला जवाब वही है।','تعذرت إعادة إنشاء الرد. لم يتغير ردك السابق.','无法重新生成回答。原回答未更改。','Impossible de régénérer la réponse. Votre réponse précédente est inchangée.','No se pudo regenerar. La respuesta anterior no ha cambiado.','Não foi possível gerar novamente. A resposta anterior continua igual.'],
+    'Your message was copied.': ['Ujumbe wako umenakiliwa.','आपका संदेश कॉपी हो गया।','تم نسخ رسالتك.','你的消息已复制。','Votre message a été copié.','Se copió tu mensaje.','A sua mensagem foi copiada.'],
+    'Could not copy this message.': ['Imeshindikana kunakili ujumbe huu.','यह संदेश कॉपी नहीं हो सका।','تعذر نسخ هذه الرسالة.','无法复制此消息。','Impossible de copier ce message.','No se pudo copiar este mensaje.','Não foi possível copiar esta mensagem.'],
+    'Close feedback dialog': ['Funga dirisha la maoni','प्रतिक्रिया विंडो बंद करें','أغلق نافذة الملاحظات','关闭反馈窗口','Fermer la fenêtre de commentaires','Cerrar ventana de comentarios','Fechar janela de opinião'],
+    'Feedback could not be saved. Please try again.': ['Maoni hayakuweza kuhifadhiwa. Tafadhali jaribu tena.','प्रतिक्रिया सहेजी नहीं जा सकी। कृपया फिर से प्रयास करें।','تعذر حفظ الملاحظات. يُرجى المحاولة مرة أخرى.','无法保存反馈，请重试。','Impossible d’enregistrer votre avis. Veuillez réessayer.','No se pudieron guardar los comentarios. Inténtalo de nuevo.','Não foi possível guardar a opinião. Tente novamente.'],
+    'Cancel': ['Ghairi','रद्द करें','إلغاء','取消','Annuler','Cancelar','Cancelar'],
+    'Submit': ['Wasilisha','जमा करें','إرسال','提交','Envoyer','Enviar','Enviar'],
+    'Answered my question': ['Lijibu swali langu','मेरे प्रश्न का उत्तर दिया','أجاب عن سؤالي','回答了我的问题','A répondu à ma question','Respondió a mi pregunta','Respondeu à minha pergunta'],
+    'Clear and easy to understand': ['Wazi na rahisi kuelewa','स्पष्ट और समझने में आसान','واضح وسهل الفهم','清晰易懂','Clair et facile à comprendre','Claro y fácil de entender','Claro e fácil de entender'],
+    'Helpful and detailed': ['Yenye manufaa na maelezo ya kutosha','उपयोगी और विस्तृत','مفيد ومفصّل','有帮助且详细','Utile et détaillée','Útil y detallada','Útil e detalhada'],
+    'Relevant and useful information': ['Taarifa zinazohusika na zenye manufaa','प्रासंगिक और उपयोगी जानकारी','معلومات ذات صلة ومفيدة','相关且实用的信息','Informations pertinentes et utiles','Información pertinente y útil','Informação relevante e útil'],
+    'Good language and tone': ['Lugha na mtindo mzuri','अच्छी भाषा और शैली','لغة ونبرة مناسبتان','语言和语气得当','Langage et ton adaptés','Buen lenguaje y tono','Linguagem e tom adequados'],
+    'Fast and responsive': ['Haraka na yenye mwitikio','तेज़ और प्रतिक्रियाशील','سريع ومتجاوب','快速且响应及时','Rapide et réactif','Rápido y eficaz','Rápido e prestável'],
+    'Other': ['Nyingine','अन्य','أخرى','其他','Autre','Otro','Outro'],
+    'Incorrect information': ['Taarifa zisizo sahihi','गलत जानकारी','معلومات غير صحيحة','信息不正确','Informations incorrectes','Información incorrecta','Informação incorreta'],
+    "Didn't answer my question": ['Haikujibu swali langu','मेरे प्रश्न का उत्तर नहीं दिया','لم يجب عن سؤالي','没有回答我的问题','N’a pas répondu à ma question','No respondió a mi pregunta','Não respondeu à minha pergunta'],
+    'Incomplete or vague answer': ['Jibu lisilokamilika au lisilo wazi','अधूरा या अस्पष्ट जवाब','إجابة ناقصة أو مبهمة','回答不完整或含糊','Réponse incomplète ou vague','Respuesta incompleta o imprecisa','Resposta incompleta ou vaga'],
+    'Lost conversation context': ['Ilipoteza muktadha wa mazungumzo','बातचीत का संदर्भ खो गया','فقد سياق المحادثة','丢失了对话上下文','A perdu le contexte de la conversation','Perdió el contexto de la conversación','Perdeu o contexto da conversa'],
+    'Outdated information': ['Taarifa zilizopitwa na wakati','पुरानी जानकारी','معلومات قديمة','信息已过时','Informations obsolètes','Información desactualizada','Informação desatualizada'],
+    'Unreliable or irrelevant sources': ['Vyanzo visivyoaminika au visivyohusika','अविश्वसनीय या अप्रासंगिक स्रोत','مصادر غير موثوقة أو غير ذات صلة','来源不可靠或不相关','Sources peu fiables ou non pertinentes','Fuentes poco fiables o irrelevantes','Fontes pouco fiáveis ou irrelevantes'],
+    'Wrong language or unclear wording': ['Lugha isiyo sahihi au maneno yasiyo wazi','गलत भाषा या अस्पष्ट शब्दावली','لغة خاطئة أو صياغة غير واضحة','语言错误或措辞不清','Langue incorrecte ou formulation peu claire','Idioma incorrecto o redacción poco clara','Idioma errado ou formulação pouco clara'],
+    'Slow response or technical issue': ['Jibu la polepole au tatizo la kiufundi','धीमा जवाब या तकनीकी समस्या','استجابة بطيئة أو مشكلة تقنية','响应缓慢或技术问题','Réponse lente ou problème technique','Respuesta lenta o problema técnico','Resposta lenta ou problema técnico'],
+    'Safety or privacy concern': ['Wasiwasi wa usalama au faragha','सुरक्षा या गोपनीयता संबंधी चिंता','مخاوف تتعلق بالسلامة أو الخصوصية','安全或隐私问题','Problème de sécurité ou de confidentialité','Problema de seguridad o privacidad','Preocupação de segurança ou privacidade'],
+    'Opens WhatsApp with the response text ready to review.': ['Hufungua WhatsApp na kuweka maandishi ya jibu ili uyakague.','समीक्षा के लिए जवाब का पाठ WhatsApp में खोलता है।','يفتح WhatsApp مع نص الرد لمراجعته.','打开 WhatsApp 并载入回答文本供你查看。','Ouvre WhatsApp avec le texte de la réponse à vérifier.','Abre WhatsApp con el texto de la respuesta para revisarlo.','Abre o WhatsApp com o texto da resposta para rever.'],
+    'Shares the response text with Lake Group’s public website link.': ['Hushiriki maandishi ya jibu pamoja na kiungo cha tovuti ya Lake Group.','जवाब का पाठ Lake Group की सार्वजनिक वेबसाइट के लिंक के साथ साझा करता है।','يشارك نص الرد مع رابط الموقع العام لمجموعة ليك.','分享回答文本及 Lake Group 官网链接。','Partage le texte de la réponse avec le lien public du site Lake Group.','Comparte el texto de la respuesta con el enlace al sitio público de Lake Group.','Partilha o texto da resposta com a ligação ao site público do Lake Group.'],
+    'Shares Lake Group’s public website link; copy the response to add its text.': ['Hushiriki kiungo cha tovuti ya Lake Group; nakili jibu ili kuongeza maandishi yake.','Lake Group की वेबसाइट का लिंक साझा करता है; जवाब का पाठ जोड़ने के लिए उसे कॉपी करें।','يشارك رابط موقع مجموعة ليك؛ انسخ الرد لإضافة نصه.','分享 Lake Group 官网链接；如需附上回答文本，请先复制。','Partage le lien public du site Lake Group ; copiez la réponse pour ajouter son texte.','Comparte el enlace al sitio público de Lake Group; copia la respuesta para incluir su texto.','Partilha a ligação ao site público do Lake Group; copie a resposta para incluir o texto.'],
+    'Opens an editable X post with a length-limited response excerpt.': ['Hufungua chapisho la X linaloweza kuhaririwa lenye dondoo fupi la jibu.','सीमित लंबाई वाले जवाब के अंश के साथ संपादन योग्य X पोस्ट खोलता है।','يفتح منشورًا قابلًا للتحرير على X يتضمن مقتطفًا مختصرًا من الرد.','打开可编辑的 X 帖子，并附上精简后的回答摘录。','Ouvre une publication X modifiable avec un extrait de réponse limité en longueur.','Abre una publicación editable en X con un fragmento breve de la respuesta.','Abre uma publicação editável no X com um excerto curto da resposta.'],
+    'Opens your device’s messaging app when supported.': ['Hufungua programu ya ujumbe ya kifaa chako inapowezekana.','यदि उपलब्ध हो तो आपके डिवाइस का मैसेजिंग ऐप खोलता है।','يفتح تطبيق المراسلة على جهازك عند توفره.','在支持时打开设备上的消息应用。','Ouvre l’application de messagerie de votre appareil si elle est prise en charge.','Abre la aplicación de mensajes del dispositivo si es compatible.','Abre a aplicação de mensagens do dispositivo, se for compatível.'],
+    'Share the response using an app available on your device.': ['Shiriki jibu kwa kutumia programu inayopatikana kwenye kifaa chako.','अपने डिवाइस पर उपलब्ध ऐप से जवाब साझा करें।','شارك الرد باستخدام تطبيق متاح على جهازك.','使用设备上可用的应用分享回答。','Partagez la réponse avec une application disponible sur votre appareil.','Comparte la respuesta con una aplicación disponible en tu dispositivo.','Partilhe a resposta usando uma aplicação disponível no dispositivo.'],
+    'Facebook and LinkedIn share Lake Group’s public website link, not private chat content. Copy the response to add its text. X receives a short excerpt when needed to fit its post limit.': ['Facebook na LinkedIn hushiriki kiungo cha tovuti ya Lake Group, si mazungumzo ya faragha. Nakili jibu ili kuongeza maandishi yake. X hupokea dondoo fupi inapohitajika ili kutoshea kikomo cha chapisho.','Facebook और LinkedIn Lake Group की सार्वजनिक वेबसाइट का लिंक साझा करते हैं, निजी चैट नहीं। जवाब का पाठ जोड़ने के लिए उसे कॉपी करें। पोस्ट की सीमा में रखने के लिए X को ज़रूरत पड़ने पर छोटा अंश मिलता है।','يشارك Facebook وLinkedIn رابط موقع Lake Group العام، وليس محتوى المحادثة الخاصة. انسخ الرد لإضافة نصه. يتلقى X مقتطفًا قصيرًا عند الحاجة ليلائم حد المنشور.','Facebook 和 LinkedIn 分享 Lake Group 官网链接，不会分享私人聊天内容。复制回答可附上文本。必要时，X 会收到精简摘录以符合帖子长度限制。','Facebook et LinkedIn partagent le lien public du site Lake Group, pas le contenu privé du chat. Copiez la réponse pour ajouter son texte. X reçoit un extrait court si nécessaire pour respecter sa limite.','Facebook y LinkedIn comparten el enlace público de Lake Group, no el contenido privado del chat. Copia la respuesta para añadir el texto. X recibe un extracto breve cuando hace falta para ajustarse al límite.','O Facebook e o LinkedIn partilham a ligação pública do Lake Group, não o conteúdo privado da conversa. Copie a resposta para incluir o texto. O X recebe um excerto curto quando necessário para respeitar o limite da publicação.'],
+  };
+  var UI_LOCALE_INDEX = { sw: 0, hi: 1, ar: 2, zh: 3, fr: 4, es: 5, pt: 6 };
+  var UI_PHRASES = Object.create(null);
+  Object.keys(UI_LINES).forEach(function (source) {
+    UI_PHRASES[source] = UI_LINES[source];
+    UI_LINES[source].forEach(function (value) { if (value) UI_PHRASES[value] = UI_LINES[source]; });
+  });
+  function uiText(text) {
+    var source = String(text || '');
+    var line = UI_PHRASES[source];
+    var position = UI_LOCALE_INDEX[lang()];
+    if (position !== undefined) {
+      var recording = source.match(/^Recording · (.+) \/ (.+)$/);
+      if (recording) return ['Inarekodi','रिकॉर्ड हो रहा है','جارٍ التسجيل','正在录音','Enregistrement','Grabando','A gravar'][position] + ' · ' + recording[1] + ' / ' + recording[2];
+      var remaining = source.match(/^(\d+) sec left · recording will stop$/);
+      if (remaining) {
+        var seconds = window.LakeI18n?.formatNumberForLang ? window.LakeI18n.formatNumberForLang(lang(), remaining[1]) : remaining[1];
+        return ['Zimesalia sekunde ' + seconds + ' · rekodi itasimama','' + seconds + ' सेकंड शेष · रिकॉर्डिंग रुक जाएगी','تبقى ' + seconds + ' ثوانٍ · سيتوقف التسجيل',seconds + ' 秒剩余 · 录音即将停止','Encore ' + seconds + ' s · l’enregistrement va s’arrêter','Quedan ' + seconds + ' s · la grabación se detendrá','Restam ' + seconds + ' s · a gravação vai parar'][position];
+      }
+    }
+    return line && position !== undefined ? line[position] : String(text || '');
+  }
+  function localizeAssistantAttributes(root) {
+    if (!root || !root.querySelectorAll) return;
+    var elements = [root].concat(Array.prototype.slice.call(root.querySelectorAll('*')));
+    elements.forEach(function (el) {
+      ['title', 'aria-label', 'aria-description', 'placeholder'].forEach(function (name) {
+        if (!el.hasAttribute || !el.hasAttribute(name)) return;
+        var sourceName = 'laSource' + name.replace(/(^|-)([a-z])/g, function (_match, _dash, character) { return character.toUpperCase(); });
+        var source = el.dataset[sourceName] || el.getAttribute(name);
+        if (!UI_PHRASES[source]) return;
+        el.dataset[sourceName] = source;
+        var value = uiText(source);
+        if (el.getAttribute(name) !== value) el.setAttribute(name, value);
+      });
+    });
+  }
+  function refreshAssistantLocale() {
+    if (!refs.mount) return;
+    var direction = lang() === 'ar' ? 'rtl' : 'ltr';
+    refs.mount.setAttribute('dir', direction);
+    refs.panel.setAttribute('dir', direction);
+    if (refs.input) refs.input.setAttribute('dir', 'auto');
+    Array.prototype.forEach.call(refs.mount.querySelectorAll('[data-la-source-text]'), function (el) {
+      el.textContent = uiText(el.dataset.laSourceText);
+    });
+    localizeAssistantAttributes(refs.mount);
+    Array.prototype.forEach.call(refs.messages.querySelectorAll('.la-message.la-bot'), function (article) {
+      if (article._messageKind === 'welcome' && article._answerParagraph) article._answerParagraph.textContent = welcomeMessage(Boolean(article._welcomeReturning));
+    });
+  }
+  function node(tag, className, text, preserveText) {
     var el = document.createElement(tag);
     if (className) el.className = className;
-    if (text !== undefined) el.textContent = text;
+    if (text !== undefined) {
+      var sourceText = String(text);
+      if (!preserveText && UI_PHRASES[sourceText]) { el.dataset.laSourceText = sourceText; el.textContent = uiText(sourceText); }
+      else el.textContent = sourceText;
+    }
     return el;
   }
   function uiIcon(kind) {
@@ -190,9 +355,12 @@
     article.setAttribute('data-message-id', article._messageId);
     if (message.turnId) { article.dataset.turnId = message.turnId; article._turnId = message.turnId; }
     article._messageKind = message.kind || (message.type === 'error' ? 'error' : message.type === 'welcome' ? 'welcome' : 'assistant');
+    article._welcomeReturning = Boolean(message.returning);
     var body = node('div', 'la-message-body');
+    body.setAttribute('dir', 'auto');
     var messageText = isUser ? String(message.text || '').trim() : safeAnswerText(message.text);
-    body.appendChild(node('p', '', messageText));
+    if (!isUser && message.type === 'error') messageText = uiText(messageText);
+    body.appendChild(node('p', '', messageText, true));
     article._messageBody = body;
     article._answerParagraph = body.firstChild;
     article._messageText = messageText;
@@ -212,6 +380,7 @@
     article._messageKind = 'assistant';
     if (turnId) { article.dataset.turnId = turnId; article._turnId = turnId; }
     var body = node('div', 'la-message-body');
+    body.setAttribute('dir', 'auto');
     var paragraph = node('p');
     paragraph.textContent = safeAnswerText(text);
     body.appendChild(paragraph);
@@ -224,7 +393,7 @@
   }
   function responseAction(article, kind, label, extraClass) {
     var button = node('button', 'la-response-action' + (extraClass ? ' ' + extraClass : ''));
-    button.type = 'button'; button.title = label; button.setAttribute('aria-label', label); button.appendChild(uiIcon(kind));
+    button.type = 'button'; button.title = uiText(label); button.setAttribute('aria-label', uiText(label)); button.appendChild(uiIcon(kind));
     article._actionBar.appendChild(button);
     return button;
   }
@@ -234,7 +403,8 @@
       article._actionFeedback.setAttribute('role', 'status'); article._actionFeedback.setAttribute('aria-live', 'polite');
       article._actionBar.parentNode.appendChild(article._actionFeedback);
     }
-    article._actionFeedback.textContent = text || '';
+    article._actionFeedback.dataset.laSourceText = text || '';
+    article._actionFeedback.textContent = uiText(text || '');
   }
   function clearActionContext(button) {
     if (!button) return;
@@ -249,8 +419,8 @@
     clearActionContext(button);
     if (!button.dataset.feedbackOriginalTitle) button.dataset.feedbackOriginalTitle = button.title;
     button.dataset.feedbackTitle = text;
-    button.title = text;
-    button.setAttribute('aria-description', text);
+    button.title = uiText(text);
+    button.setAttribute('aria-description', uiText(text));
     window.clearTimeout(button._feedbackTimer);
     button._feedbackTimer = window.setTimeout(function () {
       if (button.dataset.feedbackTitle !== text) return;
@@ -676,8 +846,8 @@
     if (speechState !== stateForSpeech) return;
     if (!voice) {
       stopSpeech();
-      var unavailable = language === 'sw' ? 'No on-device Kiswahili voice is available.' : 'No on-device English voice is available.';
-      actionFeedback(article, unavailable + ' Your message was not sent anywhere.'); actionContext(button, unavailable);
+      var unavailable = 'No on-device voice is available. Your message was not sent anywhere.';
+      actionFeedback(article, unavailable); actionContext(button, unavailable, 8000);
       return;
     }
     actionFeedback(article, '');
@@ -701,7 +871,7 @@
     var preview = null, previewParagraph = null, candidate = '';
     try {
       var endpoint = (window.LAKE_API_BASE ? window.LAKE_API_BASE.replace(/\/$/, '') : '') + '/api/assistant/regenerate';
-      var response = await fetch(endpoint, { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', 'Accept': 'application/x-ndjson, application/json' }, body: '{}', signal: controller.signal });
+      var response = await fetch(endpoint, { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', 'Accept': 'application/x-ndjson, application/json' }, body: JSON.stringify({ locale: lang() }), signal: controller.signal });
       if (!response.ok) { var problem = await response.json().catch(function () { return {}; }); throw Object.assign(new Error(problem?.error?.message || 'Regeneration is unavailable.'), { code: problem?.error?.code || 'REGENERATION_FAILED' }); }
       var payload;
       if ((response.headers.get('Content-Type') || '').toLowerCase().indexOf('application/x-ndjson') >= 0) {
@@ -821,6 +991,13 @@
     panel.append(header, messages, form);
     mount.append(panel, launcher);
     refs = { mount: mount, launcher: launcher, panel: panel, close: close, messages: messages, form: form, input: input, voiceButton: voiceButton, voiceStatus: voiceStatus, voiceMessage: voiceMessage, voiceWave: voiceWave, voiceStop: voiceStop, voiceCancel: voiceCancel };
+    var localeObserver = typeof MutationObserver === 'function' ? new MutationObserver(function (records) {
+      records.forEach(function (record) {
+        if (record.type === 'attributes') localizeAssistantAttributes(record.target);
+        else Array.prototype.forEach.call(record.addedNodes || [], function (added) { localizeAssistantAttributes(added); });
+      });
+    }) : null;
+    if (localeObserver) localeObserver.observe(mount, { subtree: true, attributes: true, childList: true, attributeFilter: ['title', 'aria-label', 'aria-description', 'placeholder'] });
 
     messages.addEventListener('scroll', function () {
       if (!chatStreamActive) return;
@@ -847,6 +1024,7 @@
       if (event.key === 'Escape' && !panel.hidden) closePanel(true);
     });
     document.addEventListener('pointerdown', function (event) {
+      if (event.target.closest && event.target.closest('.lang-switcher,.mob-language-panel,.mob-language-trigger,#nav-toggle')) return;
       if (!panel.hidden && !mount.contains(event.target) && !(shareDialogState && shareDialogState.dialog.contains(event.target))) closePanel(false);
     });
     if (window.visualViewport) {
@@ -855,6 +1033,7 @@
       syncViewport();
     }
     window.addEventListener('pagehide', function () { cancelVoice(false); stopSpeech(); });
+    refreshAssistantLocale();
   }
   function open() {
     if (!refs.panel.hidden) return;
@@ -902,16 +1081,22 @@
     welcomeText = '';
   }
   function welcomeMessage(returning) {
-    var language = String(lang()).toLowerCase().split('-')[0];
-    if (language === 'sw') return returning
-      ? 'Karibu tena! Nikusaidie nini wakati huu? Unaweza kuniuliza chochote kuhusu Lake Group.'
-      : 'Habari! Nikusaidie nini leo?';
-    return returning
-      ? 'Welcome back! What can I help you with this time? Feel free to ask me anything about Lake Group.'
-      : 'Hi there! How can I help you today?';
+    var greetings = {
+      en: ['Hi there! How can I help you today?', 'Welcome back! What can I help you with this time? Feel free to ask me anything about Lake Group.'],
+      sw: ['Habari! Nikusaidie nini leo?', 'Karibu tena! Nikusaidie nini wakati huu? Unaweza kuniuliza kuhusu Lake Group.'],
+      hi: ['नमस्ते! आज मैं आपकी कैसे मदद कर सकता हूँ?', 'वापसी पर स्वागत है! आज मैं आपकी किस तरह मदद कर सकता हूँ? Lake Group के बारे में कुछ भी पूछें।'],
+      ar: ['مرحبًا! كيف يمكنني مساعدتك اليوم؟', 'مرحبًا بعودتك! كيف يمكنني مساعدتك هذه المرة؟ يمكنك سؤالي عن Lake Group.'],
+      zh: ['你好！今天我能为你做些什么？', '欢迎回来！这次我能为你做些什么？欢迎询问 Lake Group 的相关信息。'],
+      fr: ['Bonjour ! Comment puis-je vous aider aujourd’hui ?', 'Ravi de vous retrouver ! Comment puis-je vous aider cette fois-ci ? Vous pouvez me poser vos questions sur Lake Group.'],
+      es: ['¡Hola! ¿Cómo puedo ayudarte hoy?', '¡Qué bueno tenerte de nuevo! ¿En qué puedo ayudarte esta vez? Puedes preguntarme lo que quieras sobre Lake Group.'],
+      pt: ['Olá! Como posso ajudar hoje?', 'Que bom ter você de volta! Como posso ajudar desta vez? Pode perguntar o que quiser sobre o Lake Group.']
+    };
+    var entry = greetings[lang()] || greetings.en;
+    return entry[returning ? 1 : 0];
   }
   function showWelcome(returning) {
     clearWelcome();
+    welcomeReturning = Boolean(returning);
     var token = welcomeToken;
     welcomeTyping = typingIndicator();
     refs.messages.appendChild(welcomeTyping);
@@ -923,7 +1108,7 @@
       welcomeTyping.remove();
       welcomeTyping = null;
       welcomeTimer = null;
-      draw({ role: 'bot', type: 'welcome', text: welcomeText });
+      draw({ role: 'bot', type: 'welcome', text: welcomeText, returning: welcomeReturning, locale: lang() });
       welcomeText = '';
       hasWelcomed = true;
     }, reducedMotion ? 350 : 850);
@@ -954,7 +1139,7 @@
       var response = await fetch(endpoint, {
         method: 'POST', credentials: 'same-origin',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/x-ndjson, application/json' },
-        body: JSON.stringify({ turnId: turnId, message: query, locale: /^sw(?:-|$)/i.test(lang()) ? 'sw' : 'en' }),
+        body: JSON.stringify({ turnId: turnId, message: query, locale: lang() }),
         signal: controller.signal
       });
       if (!response.ok) {
@@ -1039,7 +1224,7 @@
       welcomeTimer = null;
       if (welcomeTyping) welcomeTyping.remove();
       welcomeTyping = null;
-      draw({ role: 'bot', type: 'welcome', text: welcomeText });
+      draw({ role: 'bot', type: 'welcome', text: welcomeText, returning: welcomeReturning, locale: lang() });
       welcomeText = '';
       hasWelcomed = true;
     }
@@ -1067,7 +1252,7 @@
           method: 'POST',
           credentials: 'same-origin',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/x-ndjson, application/json' },
-          body: JSON.stringify({ message: query, turnId: turnId, locale: /^sw(?:-|$)/i.test(lang()) ? 'sw' : 'en' }),
+          body: JSON.stringify({ message: query, turnId: turnId, locale: lang() }),
           signal: controller.signal
         });
         if (!response.ok) throw new Error('Assistant request unavailable.');
@@ -1188,7 +1373,8 @@
   }
   function voiceUi(message, visible) {
     refs.voiceStatus.hidden = !visible;
-    refs.voiceMessage.textContent = message || '';
+    refs.voiceMessage.dataset.laSourceText = message || '';
+    refs.voiceMessage.textContent = uiText(message || '');
     refs.voiceWave.hidden = !voiceState.active && !voiceState.pending;
     refs.voiceStop.hidden = !voiceState.active;
     refs.voiceCancel.hidden = !voiceState.active && !voiceState.pending;
@@ -1431,7 +1617,7 @@
     var wav;
     try { wav = encodeCapturedWav(start, end); }
     catch (error) { voiceDiagnostic(error && error.code || 'PARTIAL_AUDIO_ENCODING_FAILED'); voiceState.partialCursor = end; return; }
-    var body = new FormData(); body.append('language', 'auto'); body.append('audio', wav, 'lake-voice-partial.wav');
+    var body = new FormData(); body.append('language', lang()); body.append('audio', wav, 'lake-voice-partial.wav');
     var controller = new AbortController(), startedAt = performance.now(); voiceState.partialController = controller;
     var task = fetch(voiceEndpoint('transcribe'), { method: 'POST', credentials: 'same-origin', body: body, signal: controller.signal }).then(function (response) {
       return response.json().catch(function () { return {}; }).then(function (payload) {
@@ -1455,7 +1641,7 @@
   }
   function sendLocalRecording(session, wav) {
     if (wav.size > 1_000_000) return Promise.reject(new Error('The recording is too large. Please use a shorter voice message.'));
-    var body = new FormData(); body.append('language', 'auto'); body.append('audio', wav, 'lake-voice.wav');
+    var body = new FormData(); body.append('language', lang()); body.append('audio', wav, 'lake-voice.wav');
     var controller = new AbortController(), startedAt = performance.now(); voiceState.controller = controller;
     return fetch(voiceEndpoint('transcribe'), { method: 'POST', credentials: 'same-origin', body: body, signal: controller.signal }).then(function (response) {
       return response.json().catch(function () { return {}; }).then(function (payload) {
@@ -1506,6 +1692,7 @@
     if (restoreFocus) focusVoiceDraft();
   }
   window.LakeAssistantV2={classify:intent,entityFor:entity,answer:function(q){return knowledge().then(function(){return reply(q);});},resetConversation:function(){state=newConversationState();},getConversationState:function(){return{currentEntity:state.currentEntity&&state.currentEntity.name||null,currentIntent:state.currentIntent,currentTopic:state.currentTopic,previousQuery:state.previousQuery,recentQuestionCount:state.recentQuestions.length};},getKnowledgeMetadata:function(){return kbMetadata&&kbMetadata.audit||null;}};
+  document.addEventListener('lake-i18n-applied', refreshAssistantLocale);
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
-  document.addEventListener('pointerdown',function(e){if(refs.panel&&!refs.panel.hidden&&!refs.mount.contains(e.target))closePanel(false);});
+  document.addEventListener('pointerdown',function(e){if(e.target.closest&&e.target.closest('.lang-switcher,.mob-language-panel,.mob-language-trigger,#nav-toggle'))return;if(refs.panel&&!refs.panel.hidden&&!refs.mount.contains(e.target))closePanel(false);});
 })();

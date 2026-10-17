@@ -279,6 +279,13 @@
     return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
+  function formatForCurrentLanguage(value) {
+    var text = String(value);
+    return window.LakeI18n && window.LakeI18n.formatNumberForLang
+      ? window.LakeI18n.formatNumberForLang(window.LakeI18n.current || "en", text)
+      : text;
+  }
+
   function easeOutCubic(t) {
     return 1 - Math.pow(1 - t, 3);
   }
@@ -296,13 +303,13 @@
   function renderFinalValues() {
     nums.forEach(function (el) {
       var info = parseValue(finalText(el));
-      el.textContent = formatWithCommas(info.end) + info.suffix;
+      el.textContent = formatForCurrentLanguage(formatWithCommas(info.end) + info.suffix);
     });
   }
 
   function renderStartValues() {
     nums.forEach(function (el) {
-      el.textContent = "0";
+      el.textContent = formatForCurrentLanguage("0");
     });
   }
 
@@ -339,7 +346,7 @@
         var elapsed = now - start;
         var t = Math.min(1, elapsed / DURATION_MS);
         var current = Math.round(easeOutCubic(t) * info.end);
-        info.el.textContent = current === 0 ? "0" : formatWithCommas(current) + info.suffix;
+        info.el.textContent = formatForCurrentLanguage(current === 0 ? "0" : formatWithCommas(current) + info.suffix);
         if (t < 1) allDone = false;
       });
       if (!allDone) animationFrame = requestAnimationFrame(tick);
@@ -355,6 +362,15 @@
   /* Store final values from the static markup as animation targets. */
   nums.forEach(function (el, index) {
     el.setAttribute("data-count-end", HOME_HERO_STATS[index] || finalText(el));
+  });
+
+  document.addEventListener("lake-i18n-applied", function () {
+    if (animationFrame !== null) cancelAnimationFrame(animationFrame);
+    if (observer) observer.disconnect();
+    animationFrame = null;
+    observer = null;
+    renderFinalValues();
+    state = "completed";
   });
 
   /* ---- IntersectionObserver: fires animation when hero scrolls into view ---- */

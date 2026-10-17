@@ -497,27 +497,27 @@ describe('Lake Assistant RAG', () => {
     expect(onToken).toHaveBeenCalledWith(followUp.answer);
   });
 
-  it('chooses answer language from message content, honors explicit changes, and carries it through ambiguous follow-ups', async () => {
+  it('follows the selected locale, honors explicit language requests, and carries it through ambiguous follow-ups', async () => {
     const { requests, fetchImpl } = fakeOllama('Jibu lililothibitishwa.');
     const service = createTestService({ fetchImpl });
     const first = await service.chat({ message: 'Tell me about Lake Aviation.', locale: 'sw' });
-    expect(requests[0].body.messages[0].content).toContain('Respond in English.');
+    expect(requests[0].body.messages[0].content).toContain('Respond in Kiswahili.');
 
     await service.chat({ sessionId: first.sessionId, message: 'More.', locale: 'sw' });
-    expect(requests[1].body.messages[0].content).toContain('Respond in English.');
+    expect(requests[1].body.messages[0].content).toContain('Respond in Kiswahili.');
 
     await service.chat({ sessionId: first.sessionId, message: 'Explain that in Kiswahili.', locale: 'en' });
     expect(requests[2].body.messages[0].content).toContain('Respond in Kiswahili.');
 
-    const swahiliQuestion = 'Kampuni za Lake Group zinafanya kazi wapi?';
-    await service.chat({ sessionId: first.sessionId, message: swahiliQuestion, locale: 'en' });
-    const swahiliPrompts = requests.filter((request) => request.body.messages.at(-1)?.content === swahiliQuestion).map((request) => request.body.messages[0].content);
-    expect(swahiliPrompts.length).toBeGreaterThan(0);
-    expect(swahiliPrompts.every((prompt) => prompt.includes('Respond in Kiswahili.'))).toBe(true);
+    const selectedLocales = [['hi', 'Hindi'], ['ar', 'Arabic'], ['zh', 'Simplified Chinese'], ['fr', 'French'], ['es', 'Spanish'], ['pt', 'Portuguese']];
+    for (const [locale, name] of selectedLocales) {
+      await service.chat({ sessionId: first.sessionId, message: 'Tell me about Lake Aviation.', locale });
+      expect(requests.at(-1).body.messages[0].content).toContain(`Respond in ${name}.`);
+    }
 
     await service.chat({ sessionId: first.sessionId, message: 'Where is Lake Group headquarters?', locale: 'sw' });
     const englishPrompts = requests.filter((request) => request.body.messages.at(-1)?.content === 'Where is Lake Group headquarters?').map((request) => request.body.messages[0].content);
-    expect(englishPrompts.every((prompt) => prompt.includes('Respond in English.'))).toBe(true);
+    expect(englishPrompts.every((prompt) => prompt.includes('Respond in Kiswahili.'))).toBe(true);
   });
 
   it('regenerates only the latest answer from its original pre-turn context without duplicating history', async () => {

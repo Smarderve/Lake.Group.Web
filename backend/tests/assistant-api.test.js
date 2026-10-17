@@ -33,6 +33,14 @@ describe('self-hosted assistant API', () => {
     expect(response.headers['cache-control']).toBe('no-store');
   });
 
+  it.each(['sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt'])('passes the selected %s locale through to the assistant service', async (locale) => {
+    const chat = vi.fn(async ({ sessionId }) => ({ sessionId: sessionId || '39eea75e-7f74-41ca-8447-211f1292d3a9', answer: `Reply in ${locale}`, sources: [], grounded: true }));
+    const response = await request(appWithAssistant({ chat, health: async () => ({ status: 'ready' }) }))
+      .post('/api/assistant/chat').send({ message: 'Tell me about Lake Aviation.', locale }).expect(200);
+    expect(chat).toHaveBeenCalledWith({ sessionId: null, message: 'Tell me about Lake Aviation.', locale });
+    expect(response.body.answer).toBe(`Reply in ${locale}`);
+  });
+
   it('reuses only a well-formed session cookie and rejects cross-origin calls', async () => {
     const chat = vi.fn(async ({ sessionId }) => ({ sessionId, answer: 'ok', sources: [], grounded: false }));
     const app = appWithAssistant({ chat, health: async () => ({ status: 'ready' }) });

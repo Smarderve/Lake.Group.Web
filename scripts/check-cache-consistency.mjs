@@ -18,14 +18,14 @@ const critical = [
 ];
 const perAssetRelease = new Map([
   ['phase-01-navbar.css', '20261016-01'],
-  ['i18n.js', '20261017-01'],
+  ['i18n.js', '20261017-03'],
   ['i18n-content.js', '20261017-01'],
   ['split-text.js', '20261017-01'],
-  ['home-hero.js', '20261017-01'],
+  ['home-hero.js', '20261017-03'],
 ]);
-const serviceWorkerRelease = '20261017-01';
-const assistantJsRelease = '20261013-02';
-const assistantCssRelease = '20261015-01';
+const serviceWorkerRelease = '20261017-03';
+const assistantJsRelease = '20261017-03';
+const assistantCssRelease = '20261017-03';
 const errors = [];
 const versions = new Map();
 

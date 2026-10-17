@@ -85,7 +85,7 @@ export function createAssistantTranscriptionService({ cliPath = DEFAULT_CLI, mod
         const inputPath = join(workDirectory, `${randomUUID()}.wav`);
         const outputBase = join(workDirectory, 'transcript');
         await writeFile(inputPath, audio, { flag: 'wx', mode: 0o600 });
-        const whisperLanguage = language === 'sw' ? 'sw' : language === 'en' ? 'en' : 'auto';
+        const whisperLanguage = language === 'auto' || !['en', 'sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt'].includes(language) ? 'auto' : language;
         await runWhisper(cliPath, ['-m', modelPath, '-f', inputPath, '-l', whisperLanguage, '-t', '2', '-nt', '-ojf', '-of', outputBase, '--prompt', COMPANY_PROMPT], signal);
         const payload = JSON.parse(await readFile(`${outputBase}.json`, 'utf8'));
         const result = parseWhisperJson(payload);

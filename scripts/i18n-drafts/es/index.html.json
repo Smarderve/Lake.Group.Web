@@ -942,6 +942,519 @@
       "selector": null,
       "attribute": null,
       "origin": "preserved-brand-language-label-or-copyright"
+    },
+    {
+      "id": "auto.c3e13b53c7970d21",
+      "sourceHash": "df2378b238a4b6d3c59ecfa7ade9e859189e5e4a805a8557a4dfe2977195ad38",
+      "source": "Lake Group is a diversified business group with operations across energy, manufacturing, logistics, real estate, agro processing and automotive sectors.",
+      "translation": "Lake Group es un grupo empresarial diversificado con operaciones en los sectores de energía, fabricación, logística, bienes raíces, procesamiento agroindustrial y automoción.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content"
+    },
+    {
+      "id": "auto.94eafa56329d1846",
+      "sourceHash": "6970059994dce7e30c88b19df4696c7234a01aca3caf2fa69322593c6a6af253",
+      "source": "Energies Sector",
+      "translation": "Sector energético",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)"
+    },
+    {
+      "id": "auto.4ca538f829974986",
+      "sourceHash": "a5afb4aade70f80dfcfe58c3010f00144236c6ca8129540b687e55212a3b578c",
+      "source": "Manufacturing Sector",
+      "translation": "Sector manufacturero",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)"
+    },
+    {
+      "id": "auto.4b68d3d39910d65f",
+      "sourceHash": "e7b5da31e0d3ed96a265076f35ba8a8f9efcbe2d5334e1a630a2a6e97ea0d8a9",
+      "source": "Logistics Sector",
+      "translation": "Sector logístico",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3)"
+    },
+    {
+      "id": "auto.1fb2812a16906454",
+      "sourceHash": "c4555e8c89a2895e935b9299e6d4716cb0321cd039f54446c9a71fc67fc57a22",
+      "source": "Real Estate Sector",
+      "translation": "Sector inmobiliario",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(4)"
+    },
+    {
+      "id": "auto.48f411ff36dcb9cb",
+      "sourceHash": "7e00b18a6385c9956eed4a4293f467aa59bb8ea1ef99405ee3a8b103956ab404",
+      "source": "Agro Processing Sector",
+      "translation": "Sector de procesamiento agrícola",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(5)"
+    },
+    {
+      "id": "auto.486366b162be34d5",
+      "sourceHash": "c20855570f1042ee09d6d09266c094337995decf07d38fec808dcbc6774ec507",
+      "source": "Automotive Sector",
+      "translation": "Sector automotriz",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(6)"
+    },
+    {
+      "id": "auto.c498c31bcfd0219f",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "Nuestra Historia",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(1)"
+    },
+    {
+      "id": "auto.c498c31bcfd0219f.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "CSR y Sostenibilidad",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(2)"
+    },
+    {
+      "id": "auto.c498c31bcfd0219f.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "Galería",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(3)"
+    },
+    {
+      "id": "auto.1d1bec12de2e3e2c",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "Idioma: English",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label"
+    },
+    {
+      "id": "auto.5b2feb53923efa12",
+      "sourceHash": "99af6606ff9d6cd5154d4d4e9c21e325086d3e904677cdb41d363c8a3480f862",
+      "source": "Menu",
+      "translation": "Menú",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label"
+    },
+    {
+      "id": "auto.5741df7408ccac4e",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "Cerrar menú",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label"
+    },
+    {
+      "id": "auto.054c659bbfebf819",
+      "sourceHash": "3a78695388b38b5cceefaf6796b0137877514593543b91af2752d5a17e3d736c",
+      "source": "Home",
+      "translation": "Inicio",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)"
+    },
+    {
+      "id": "auto.054c659bbfebf819.2",
+      "sourceHash": "4efca0d10c5feb8e9b35eb1d994f2905bb71714e6a271f511d713b539ea5faa1",
+      "source": "About",
+      "translation": "Acerca de",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(2)"
+    },
+    {
+      "id": "auto.b5e1ebdbf6fbf50b",
+      "sourceHash": "cf60fd65dcd0f8b69d51d6cb91fe601244ed4af363dd5f2a242787f54c16300d",
+      "source": "Business Verticals",
+      "translation": "Verticales de Negocio",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)"
+    },
+    {
+      "id": "auto.928cd8b371dbc535",
+      "sourceHash": "ec75f79040af17557c450e94a4214a484350634a433592d2eb31784c5a46e865",
+      "source": "Leadership",
+      "translation": "Liderazgo",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(3)"
+    },
+    {
+      "id": "auto.8ed25bc05dfea842",
+      "sourceHash": "a034729933d1cbf407645e11d9c91d9ac1bfddbef23fd58cb36782e3f60ae659",
+      "source": "Corporate",
+      "translation": "Corporativo",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)"
+    },
+    {
+      "id": "auto.ab0706fde84b2b5f",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "Nuestra Historia",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)"
+    },
+    {
+      "id": "auto.ab0706fde84b2b5f.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "CSR y Sostenibilidad",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(2)"
+    },
+    {
+      "id": "auto.ab0706fde84b2b5f.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "Galería",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(3)"
+    },
+    {
+      "id": "auto.47ddec18b01a74ce",
+      "sourceHash": "7e658675b5ca75b3802ff34b548abe663438f113bed3acf541142b317c146e34",
+      "source": "Careers",
+      "translation": "Carreras",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(4)"
+    },
+    {
+      "id": "auto.47ddec18b01a74ce.2",
+      "sourceHash": "98b67063cf8e584d75e53b88472ee85473e01e0ea16f29ece9cc98f4a2710494",
+      "source": "Contact Us",
+      "translation": "Contacta con nosotros",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(5)"
+    },
+    {
+      "id": "auto.fc2e52653ca5aa74",
+      "sourceHash": "c6838ed989fd7d93ba9023466783c95230843ee13acafd63a355f9ad766cc39f",
+      "source": "Manufacturing",
+      "translation": "Fabricación",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2) > span:nth-of-type(2)"
+    },
+    {
+      "id": "auto.6a0c191d75ecc3f1",
+      "sourceHash": "eb589cfb23f4584151609b2bac814dffae021b8bbb438727e55119664f031d7c",
+      "source": "Automotive",
+      "translation": "Automotriz",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3) > span:nth-of-type(2)"
+    },
+    {
+      "id": "auto.96f0ae5ae08a1f1d",
+      "sourceHash": "5226954feafeae18181de39d33b5d20b5f78e1ee112684bf04445903bf4db562",
+      "source": "Real Estate",
+      "translation": "Bienes raíces",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4) > span:nth-of-type(2)"
+    },
+    {
+      "id": "auto.80da21602c396a28",
+      "sourceHash": "ae6e98909c98e7c973d920a2d6868685d2e2f25db3e98683ef3d0dbae00bf7d6",
+      "source": "Logistics",
+      "translation": "Logística",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6) > span:nth-of-type(2)"
+    },
+    {
+      "id": "auto.0872f738ca8821d4",
+      "sourceHash": "1f8cbbc84d98195bbdccdb0aae93b87615f447979d5fca1f014714ae50de366b",
+      "source": "Lake Energies fuel station",
+      "translation": "Estación de servicio Lake Energies",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt"
+    },
+    {
+      "id": "auto.94c3db67ea3868c6",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Bandera de Tanzania",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt"
+    },
+    {
+      "id": "auto.73639e0e715e4fde.2",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "Kenia",
+      "mode": "runtime-text"
+    },
+    {
+      "id": "auto.94c3db67ea3868c6.2",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "Bandera de Kenia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt"
+    },
+    {
+      "id": "auto.94c3db67ea3868c6.3",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "Bandera de Zambia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt"
+    },
+    {
+      "id": "auto.85a9e08a7ee525e9",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Bandera de Tanzania",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt"
+    },
+    {
+      "id": "auto.f6a18e9f00fc7889.2",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "Kenia",
+      "mode": "runtime-text"
+    },
+    {
+      "id": "auto.85a9e08a7ee525e9.2",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "Bandera de Kenia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt"
+    },
+    {
+      "id": "auto.85a9e08a7ee525e9.3",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "Bandera de Zambia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt"
+    },
+    {
+      "id": "auto.fdaa50234008b167",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Bandera de Tanzania",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt"
+    },
+    {
+      "id": "auto.98afe0b3ec349255",
+      "sourceHash": "532c1f3d6fa2a4bbbfe751523f48af88b3842e9f329155dcce9cd8b022d83eed",
+      "source": "Lake Lubes Power Eco lubricant products",
+      "translation": "Lubricantes Power Eco de Lake Lubes",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(5) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt"
+    },
+    {
+      "id": "auto.d9d68d309bf0aad0",
+      "sourceHash": "5f8d59effa3f0793fd8c00f856dd10dc7eaa9ad6a0374a4636a41f00ad8dda40",
+      "source": "Lake Steel & Allied Products Limited manufactures TBS-certified TMT reinforcement steel bars conforming to BS 500, with a 25T/hr computerized rolling mill.",
+      "translation": "Lake Steel & Allied Products Limited fabrica barras de refuerzo TMT certificadas por TBS y conformes a BS 500, con un laminador informatizado de 25 toneladas por hora.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(6) > div:nth-of-type(2) > p:nth-of-type(1)"
+    },
+    {
+      "id": "auto.e28b40b140100b02",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Bandera de Tanzania",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(6) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt"
+    },
+    {
+      "id": "auto.aa89a888978e407a",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Bandera de Tanzania",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(7) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt"
+    },
+    {
+      "id": "auto.aa89a888978e407a.2",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "Bandera de Zambia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(7) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt"
+    },
+    {
+      "id": "auto.aa89a888978e407a.3",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "Bandera de Mozambique",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(7) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt"
+    },
+    {
+      "id": "auto.87281286be0a5558",
+      "sourceHash": "2f55863e032e37f96a8bafd01a480e9128e95b4f43dc5010b0a03ee01ce3e2c4",
+      "source": "Previous photo",
+      "translation": "Foto anterior",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > button:nth-of-type(1)",
+      "attribute": "aria-label"
+    },
+    {
+      "id": "auto.5ab2cd0abc9c213c",
+      "sourceHash": "894bb2b7ac07d55d3bee7ff8eb72ad3ee479e7e51c6444d16ae8c7710d8af705",
+      "source": "Next photo",
+      "translation": "siguiente foto",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > button:nth-of-type(2)",
+      "attribute": "aria-label"
+    },
+    {
+      "id": "auto.cbad288fc9937199",
+      "sourceHash": "69518e684f065f0c39a26d5f18ae2a775ffffd4e390cc3d73afeac2fb50992a7",
+      "source": "Type a message...",
+      "translation": "Escribe un mensaje...",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(3) > input:nth-of-type(1)",
+      "attribute": "placeholder"
+    },
+    {
+      "id": "auto.400cf5c97f202e8c",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Bandera de Tanzania",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt"
+    },
+    {
+      "id": "auto.73bf07a1e46d2ded",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "Kenia",
+      "mode": "runtime-text"
+    },
+    {
+      "id": "auto.f41eb8b744110ab4",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "Bandera de Kenia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt"
+    },
+    {
+      "id": "auto.42547bd78bba051d",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "Bandera de Zambia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt"
+    },
+    {
+      "id": "auto.051c4146209aa212",
+      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
+      "source": "Rwanda",
+      "translation": "Ruanda",
+      "mode": "runtime-text"
+    },
+    {
+      "id": "auto.440c55f72473377d",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "Bandera de Ruanda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt"
+    },
+    {
+      "id": "auto.6842975712f2bad0",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "Bandera de Burundi",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt"
+    },
+    {
+      "id": "auto.1c9c8656240dd0e1",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "Bandera de la República Democrática del Congo",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt"
+    },
+    {
+      "id": "auto.94165f1a99e2510b",
+      "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
+      "source": "Ethiopia",
+      "translation": "Etiopía",
+      "mode": "runtime-text"
+    },
+    {
+      "id": "auto.e07de1f9a3a2bb2c",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "Bandera de Etiopía",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt"
+    },
+    {
+      "id": "auto.f3c1fc0925db1e7d",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "Bandera de Mozambique",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt"
+    },
+    {
+      "id": "auto.18ffb45efbb13498",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "Bandera de Uganda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt"
+    },
+    {
+      "id": "auto.60d553d80f27e9b0",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "Bandera de los EAU",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt"
+    },
+    {
+      "id": "auto.d61af55ab60307b6",
+      "sourceHash": "42aafa6f9519f4f2e9530a928944a4c1a55fb9b4681de2cbec2969e95bd0fed7",
+      "source": "Energies",
+      "translation": "Energía",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1) > span:nth-of-type(2)"
+    },
+    {
+      "id": "auto.5af0cf06ba922f86",
+      "sourceHash": "42aafa6f9519f4f2e9530a928944a4c1a55fb9b4681de2cbec2969e95bd0fed7",
+      "source": "Energies",
+      "translation": "Energía",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(5) > span:nth-of-type(1)"
     }
   ]
 }

@@ -10,7 +10,7 @@ test('the shared renderer attaches role-specific actions immediately, including 
   const draw = js.slice(js.indexOf('function draw('), js.indexOf('function streamArticle('));
   assert.match(draw, /if \(isUser\) addUserActions\(article\);/);
   assert.match(draw, /else addResponseActions\(article, message\.text, message\.locale, article\._messageKind/);
-  assert.match(js, /draw\(\{ role: 'bot', type: 'welcome', text: welcomeText \}\)/);
+  assert.match(js, /draw\(\{ role: 'bot', type: 'welcome', text: welcomeText, returning: welcomeReturning, locale: lang\(\) \}\)/);
   assert.match(js, /draw\(\{ role: 'bot', type: 'error',[\s\S]*?questionArticle: questionArticle \}\)/);
   assert.match(js, /function addUserActions\(article\)/);
   const userActions = js.slice(js.indexOf('function addUserActions('), js.indexOf('function openMessageEditor('));

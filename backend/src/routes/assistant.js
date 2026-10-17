@@ -6,16 +6,18 @@ import { z } from 'zod';
 
 const SESSION_COOKIE = 'lake_assistant.sid';
 const SESSION_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+const ASSISTANT_LOCALES = ['en', 'sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt'];
 const requestSchema = z.object({
   message: z.string().trim().min(1).max(1000),
-  locale: z.enum(['en', 'sw']).optional().default('en'),
+  locale: z.enum(ASSISTANT_LOCALES).optional().default('en'),
 }).strict();
 const chatRequestSchema = requestSchema.extend({ turnId: z.string().uuid().optional() }).strict();
 const editRequestSchema = z.object({
   turnId: z.string().uuid(),
   message: z.string().trim().min(1).max(1000),
-  locale: z.enum(['en', 'sw']).optional(),
+  locale: z.enum(ASSISTANT_LOCALES).optional(),
 }).strict();
+const regenerateRequestSchema = z.object({ locale: z.enum(ASSISTANT_LOCALES).optional() }).strict();
 
 function cookieValue(request, name) {
   for (const part of String(request.headers.cookie || '').split(';')) {
@@ -114,7 +116,7 @@ export function assistantRouter({ service, transcriptionService = null, cookieSe
     try {
       await new Promise((resolvePromise, reject) => uploadAudio(request, response, (error) => error ? reject(error) : resolvePromise()));
       const language = request.body?.language;
-      if (!request.file || !['auto', 'en', 'sw'].includes(language)) {
+      if (!request.file || !['auto', ...ASSISTANT_LOCALES].includes(language)) {
         return response.status(400).json({ error: { code: 'INVALID_AUDIO', message: 'Record a short voice message and try again.' } });
       }
       const result = await transcriptionService.transcribe({ audio: request.file.buffer, language, signal: transcriptionAbort.signal });
@@ -281,7 +283,8 @@ export function assistantRouter({ service, transcriptionService = null, cookieSe
       if (!sameOriginIfPresent(request, allowedOrigins)) {
         return response.status(403).json({ error: { code: 'ORIGIN_REJECTED', message: 'This request is not allowed.' } });
       }
-      if (!request.body || typeof request.body !== 'object' || Array.isArray(request.body) || Object.keys(request.body).length) {
+      const parsed = regenerateRequestSchema.safeParse(request.body);
+      if (!parsed.success) {
         return response.status(400).json({ error: { code: 'INVALID_REGENERATION', message: 'This response cannot be regenerated.' } });
       }
       if (typeof service.regenerate !== 'function') {
@@ -313,6 +316,7 @@ export function assistantRouter({ service, transcriptionService = null, cookieSe
       try {
         const result = await service.regenerate({
           sessionId,
+          locale: parsed.data.locale,
           signal: abortController.signal,
           onToken: (text) => writeEvent({ type: 'delta', text }),
         });

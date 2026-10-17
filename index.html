@@ -1672,9 +1672,11 @@
       box-shadow: 0 -8px 24px rgba(1, 32, 48, 0.08);
       position: relative;
       z-index: 3;
+      direction: ltr;
     }
 
     .marquee-wrap .logoloop {
+      direction: ltr;
       --logoloop-fadeColorAuto: #ffffff !important;
       --logoloop-fadeColor: #ffffff !important;
     }
@@ -2401,7 +2403,7 @@
   <link rel="stylesheet" href="assets/tokens.css?v=20260828-01">
   <link rel="stylesheet" href="assets/split-text.css?v=20260828-01" media="print" data-deferred-stylesheet>
 <link rel="stylesheet" href="assets/theme.css?v=20260828-01" />
-  <link rel="stylesheet" href="assets/assistant.css?v=20261015-01">
+  <link rel="stylesheet" href="assets/assistant.css?v=20261017-03">
   <script src="assets/deferred-stylesheets.js?v=20260927-01"></script>
   <link rel="stylesheet" href="assets/skeleton.css?v=20260830-02">
   <link rel="stylesheet" href="assets/home-redesign.css?v=20260828-01">
@@ -2899,33 +2901,11 @@
 
 
   <script src="assets/components/logo-loop-mount.js?v=20260901-02" defer></script>
-  <script src="assets/home-hero.js?v=20261017-01" defer></script>
-  <script src="assets/i18n.js?v=20261017-01" defer></script>
+  <script src="assets/home-hero.js?v=20261017-03" defer></script>
+  <script src="assets/i18n-content.js?v=20261017-01" defer></script>
+  <script src="assets/i18n.js?v=20261017-03" defer></script>
 <script src="assets/site.js?v=20260828-01" defer></script>
-<script>
-    // English copy is present in the static HTML. Defer the full language
-    // dictionary until idle, then hydrate the already-mounted i18n controller.
-    (function () {
-      function loadDictionary() {
-        var script = document.createElement('script');
-        script.src = 'assets/i18n-content.js?v=20261017-01';
-        script.onload = function () {
-          if (window.LakeI18n && window.LakeI18n.hydrateDictionaries) {
-            window.LakeI18n.hydrateDictionaries(window.__LAKE_I18N_CONTENT__);
-          }
-        };
-        document.head.appendChild(script);
-      }
-      function schedule() {
-        // Keep the full 813 KB dictionary out of the first interaction window.
-        // Static English copy remains available while this enhancement warms.
-        window.setTimeout(loadDictionary, 6000);
-      }
-      if (document.readyState === 'complete') schedule();
-      else window.addEventListener('load', schedule, { once: true });
-    })();
-  </script>
-  <script src="assets/assistant.js?v=20261013-02" defer></script>
+  <script src="assets/assistant.js?v=20261017-03" defer></script>
   <script>
     // Keep the approved globe lab island off the critical path. It is fetched
     // after the page load has gone idle, or when the experience section
