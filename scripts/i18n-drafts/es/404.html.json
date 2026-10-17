@@ -14,6 +14,16 @@
   "validation": "source hashes and protected facts checked; linguistic review remains required",
   "translations": [
     {
+      "id": "auto.b7d68d4b36b85a84",
+      "sourceHash": "3d590713fd3d9dc74ab211363362777da6ea969a5e91b6137ffa7df266449b58",
+      "source": "Page not found . return to Lake Group homepage, companies, or contact.",
+      "translation": "Página no encontrada . vuelva a la página de inicio de Lake Group, las empresas o el contacto.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content",
+      "origin": "assistant-authored-draft:404.html"
+    },
+    {
       "id": "auto.679b1a4fa4ee9725",
       "sourceHash": "6970059994dce7e30c88b19df4696c7234a01aca3caf2fa69322593c6a6af253",
       "source": "Energies Sector",
@@ -384,256 +394,6 @@
       "origin": "existing-dictionary-reuse:exact-source"
     },
     {
-      "id": "auto.0fa35a2792ec3cb6",
-      "sourceHash": "3a78695388b38b5cceefaf6796b0137877514593543b91af2752d5a17e3d736c",
-      "source": "Home",
-      "translation": "Inicio",
-      "mode": "text",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(1)",
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.8d7624b6aac3e541",
-      "sourceHash": "4efca0d10c5feb8e9b35eb1d994f2905bb71714e6a271f511d713b539ea5faa1",
-      "source": "About",
-      "translation": "Acerca de",
-      "mode": "text",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(2)",
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.e504af1911dc964c",
-      "sourceHash": "604dce445e326d952308addc99bd3d0e3ffb0ed9a455e4aa0190641fc5facccc",
-      "source": "Services",
-      "translation": "Servicios",
-      "mode": "text",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(3)",
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.6bb7d7031c2e4c8a",
-      "sourceHash": "2b5c3d26721ae9c350cf3009318b626f0fc8a90b4a2ac0ca8099c05aa849282e",
-      "source": "Contact",
-      "translation": "Contacto",
-      "mode": "text",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(4)",
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.fa73118a028e7f09",
-      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
-      "source": "Tanzania",
-      "translation": "Tanzania",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.370ba574aebb7820",
-      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
-      "source": "Tanzania flag",
-      "translation": "Bandera de Tanzania",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
-      "attribute": "alt",
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.ac5b9814fe7b4c99",
-      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
-      "source": "Kenya",
-      "translation": "Kenia",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.60c86629275740e6",
-      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
-      "source": "Kenya flag",
-      "translation": "Bandera de Kenia",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
-      "attribute": "alt",
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.c54c101b89823d72",
-      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
-      "source": "Zambia",
-      "translation": "Zambia",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.fc97a6ac94c536e3",
-      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
-      "source": "Zambia flag",
-      "translation": "Bandera de Zambia",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
-      "attribute": "alt",
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.e8c9246b06ccfb1c",
-      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
-      "source": "Rwanda",
-      "translation": "Ruanda",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.5cf009c833bdf7f4",
-      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
-      "source": "Rwanda flag",
-      "translation": "Bandera de Ruanda",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
-      "attribute": "alt",
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.07ae83939bb2f34b",
-      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
-      "source": "Burundi",
-      "translation": "Burundi",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.ea1275ca6c4c4b66",
-      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
-      "source": "Burundi flag",
-      "translation": "Bandera de Burundi",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
-      "attribute": "alt",
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.57eece641d43e33f",
-      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
-      "source": "DR Congo",
-      "translation": "República Democrática del Congo",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.9218adaa8a2bc84a",
-      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
-      "source": "DR Congo flag",
-      "translation": "Bandera de la República Democrática del Congo",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
-      "attribute": "alt",
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.e0778022ec7d0312",
-      "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
-      "source": "Ethiopia",
-      "translation": "Etiopía",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.ba2bf31c93e18f87",
-      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
-      "source": "Ethiopia flag",
-      "translation": "Bandera de Etiopía",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
-      "attribute": "alt",
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.cccdf3e062c6de16",
-      "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
-      "source": "Mozambique",
-      "translation": "Mozambique",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.3b05b5dcd026e648",
-      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
-      "source": "Mozambique flag",
-      "translation": "Bandera de Mozambique",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
-      "attribute": "alt",
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.39b1788de3c65351",
-      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
-      "source": "Uganda",
-      "translation": "Uganda",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.e2dff3822796857f",
-      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
-      "source": "Uganda flag",
-      "translation": "Bandera de Uganda",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
-      "attribute": "alt",
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.528a05bd440d128c",
-      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
-      "source": "UAE flag",
-      "translation": "Bandera de los Emiratos Árabes Unidos",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
-      "attribute": "alt",
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.d1a0d4e581f2b96e",
-      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
-      "source": "© 2026 Lake Group.",
-      "translation": "© 2026 Lake Group.",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.b7d68d4b36b85a84",
-      "sourceHash": "3d590713fd3d9dc74ab211363362777da6ea969a5e91b6137ffa7df266449b58",
-      "source": "Page not found . return to Lake Group homepage, companies, or contact.",
-      "translation": "Página no encontrada . vuelva a la página de inicio de Lake Group, las empresas o el contacto.",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
-      "attribute": "content",
-      "origin": "assistant-authored-draft:404.html"
-    },
-    {
       "id": "auto.4f63bf9f7cf1014c",
       "sourceHash": "0a843bd710fbb95cb6ec8ce34954829e3f3f1e587c9515117377244c7ae261be",
       "source": "This route is",
@@ -694,6 +454,46 @@
       "origin": "assistant-authored-draft:404.html"
     },
     {
+      "id": "auto.0fa35a2792ec3cb6",
+      "sourceHash": "3a78695388b38b5cceefaf6796b0137877514593543b91af2752d5a17e3d736c",
+      "source": "Home",
+      "translation": "Inicio",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.8d7624b6aac3e541",
+      "sourceHash": "4efca0d10c5feb8e9b35eb1d994f2905bb71714e6a271f511d713b539ea5faa1",
+      "source": "About",
+      "translation": "Acerca de",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.e504af1911dc964c",
+      "sourceHash": "604dce445e326d952308addc99bd3d0e3ffb0ed9a455e4aa0190641fc5facccc",
+      "source": "Services",
+      "translation": "Servicios",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.6bb7d7031c2e4c8a",
+      "sourceHash": "2b5c3d26721ae9c350cf3009318b626f0fc8a90b4a2ac0ca8099c05aa849282e",
+      "source": "Contact",
+      "translation": "Contacto",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(4)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
       "id": "auto.73e945c714c22cb6",
       "sourceHash": "4fe33b32a581760d568d1ec7bf60a3810fb067af148371558768cbd7a55fa9db",
       "source": "Back to Homepage",
@@ -712,6 +512,206 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(2)",
       "attribute": null,
       "origin": "assistant-authored-draft:404.html"
+    },
+    {
+      "id": "auto.e8c9246b06ccfb1c",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "Tanzania",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "auto.5cf009c833bdf7f4",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "Bandera de Tanzania",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "auto.07ae83939bb2f34b",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "Kenia",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "auto.ea1275ca6c4c4b66",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "Bandera de Kenia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "auto.57eece641d43e33f",
+      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
+      "source": "Zambia",
+      "translation": "Zambia",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "auto.9218adaa8a2bc84a",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "Bandera de Zambia",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "auto.e0778022ec7d0312",
+      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
+      "source": "Rwanda",
+      "translation": "Ruanda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "auto.ba2bf31c93e18f87",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "Bandera de Ruanda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "auto.cccdf3e062c6de16",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "Burundi",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "auto.3b05b5dcd026e648",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "Bandera de Burundi",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "auto.39b1788de3c65351",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "República Democrática del Congo",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "auto.e2dff3822796857f",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "Bandera de la República Democrática del Congo",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "auto.56b87b0b33908f59",
+      "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
+      "source": "Ethiopia",
+      "translation": "Etiopía",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "auto.528a05bd440d128c",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "Bandera de Etiopía",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "auto.5425ddc87bb2e00a",
+      "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
+      "source": "Mozambique",
+      "translation": "Mozambique",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "auto.4f7eedfa3265e943",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "Bandera de Mozambique",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "auto.1949a31b5448a0a9",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "Uganda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "auto.321f318e9b1c0730",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "Bandera de Uganda",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "auto.a9529f8239b1fe8f",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "Bandera de los Emiratos Árabes Unidos",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "auto.ca64e08bf87cad6b",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "assistant-authored-initial-draft"
     }
   ]
 }

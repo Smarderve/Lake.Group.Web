@@ -527,11 +527,11 @@
       "id": "auto.70d669773170a5e5",
       "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
       "source": "DR Congo",
-      "translation": "République démocratique du Congo",
+      "translation": "RDC",
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
+      "origin": "assistant-authored-initial-draft"
     },
     {
       "id": "auto.f0b153f85d874a1a",

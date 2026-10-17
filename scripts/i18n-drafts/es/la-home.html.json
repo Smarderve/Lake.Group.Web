@@ -4,7 +4,7 @@
   "locale": "es",
   "page": "la-home.html",
   "sourceManifestDigest": "60675f76844f3800729cf1ef938b65c6ddcb2e7351b7ee2b74eb4da0f9f40714",
-  "sourceManifestGeneratedAt": "2026-10-15T12:12:03.389Z",
+  "sourceManifestGeneratedAt": "2026-10-17T03:25:16.455Z",
   "createdAt": "2026-10-15T10:47:00.684Z",
   "authoringMethod": "Exact-source reuse and AI-authored visitor copy; human review pending",
   "reviewEvidence": null,
@@ -464,7 +464,7 @@
       "origin": "existing-dictionary:atl.val.cust"
     },
     {
-      "id": "auto.d718f2e64e818a21",
+      "id": "auto.3beaeed2ea96e84b",
       "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
       "source": "Tanzania",
       "translation": "Tanzania",
@@ -474,7 +474,7 @@
       "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.bf019cca46406d8f",
+      "id": "auto.f9b20aecc3af7d3a",
       "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
       "source": "Tanzania flag",
       "translation": "Bandera de Tanzania",
@@ -484,7 +484,7 @@
       "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.ed62622d8c6d6e50",
+      "id": "auto.080caa0f1a1e8a25",
       "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
       "source": "Kenya",
       "translation": "Kenia",
@@ -494,7 +494,7 @@
       "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.d4f9fd442bf0655c",
+      "id": "auto.238c2ac27957c551",
       "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
       "source": "Kenya flag",
       "translation": "Bandera de Kenia",
@@ -504,7 +504,7 @@
       "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.3beaeed2ea96e84b",
+      "id": "auto.0121dee70e0a290e",
       "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
       "source": "Zambia",
       "translation": "Zambia",
@@ -514,7 +514,7 @@
       "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.f9b20aecc3af7d3a",
+      "id": "auto.6ffebac3c28b1471",
       "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
       "source": "Zambia flag",
       "translation": "Bandera de Zambia",
@@ -524,7 +524,7 @@
       "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.080caa0f1a1e8a25",
+      "id": "auto.5df17ae1a932a153",
       "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
       "source": "Rwanda",
       "translation": "Ruanda",
@@ -534,7 +534,7 @@
       "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.238c2ac27957c551",
+      "id": "auto.06525d669a3f37a7",
       "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
       "source": "Rwanda flag",
       "translation": "Bandera de Ruanda",
@@ -544,7 +544,7 @@
       "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.0121dee70e0a290e",
+      "id": "auto.be3ccdc47b2953a0",
       "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
       "source": "Burundi",
       "translation": "Burundi",
@@ -554,7 +554,7 @@
       "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.6ffebac3c28b1471",
+      "id": "auto.1337ab9c8845d8ed",
       "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
       "source": "Burundi flag",
       "translation": "Bandera de Burundi",
@@ -564,7 +564,7 @@
       "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.5df17ae1a932a153",
+      "id": "auto.82601c0c1713141d",
       "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
       "source": "DR Congo",
       "translation": "R. D. del Congo",
@@ -574,7 +574,7 @@
       "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.06525d669a3f37a7",
+      "id": "auto.43d540ed1c082ad2",
       "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
       "source": "DR Congo flag",
       "translation": "Bandera de R. D. del Congo",
@@ -584,17 +584,17 @@
       "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.be3ccdc47b2953a0",
+      "id": "auto.555b5d9eb5add4ce",
       "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
       "source": "Ethiopia",
       "translation": "Etiopía",
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.38"
+      "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.1337ab9c8845d8ed",
+      "id": "auto.8c018131e692007a",
       "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
       "source": "Ethiopia flag",
       "translation": "Bandera de Etiopía",
@@ -604,7 +604,7 @@
       "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.82601c0c1713141d",
+      "id": "auto.6b6131f47566afb0",
       "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
       "source": "Mozambique",
       "translation": "Mozambique",
@@ -614,7 +614,7 @@
       "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.43d540ed1c082ad2",
+      "id": "auto.5e64ed88b9992a05",
       "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
       "source": "Mozambique flag",
       "translation": "Bandera de Mozambique",
@@ -624,7 +624,7 @@
       "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.555b5d9eb5add4ce",
+      "id": "auto.1930341b1dc21808",
       "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
       "source": "Uganda",
       "translation": "Uganda",
@@ -634,7 +634,7 @@
       "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.8c018131e692007a",
+      "id": "auto.55155774b3dd61dc",
       "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
       "source": "Uganda flag",
       "translation": "Bandera de Uganda",
@@ -644,7 +644,7 @@
       "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.5e64ed88b9992a05",
+      "id": "auto.66a50af35f8313a0",
       "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
       "source": "UAE flag",
       "translation": "Bandera de los EAU",
@@ -654,14 +654,14 @@
       "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.03eddbc6840bcf3e",
+      "id": "auto.d2648669aded9e9d",
       "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
       "source": "© 2026 Lake Group.",
       "translation": "© 2026 Lake Group.",
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "preserved-name-or-invariant"
+      "origin": "ai-authored-initial-draft"
     }
   ]
 }

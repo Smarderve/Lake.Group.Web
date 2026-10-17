@@ -597,11 +597,11 @@
       "id": "auto.1143b99f2544a0d4",
       "sourceHash": "e6b85bfbf55020aab80a2fc74cc83aa428a2290c9153ffbd23bdb86befd1def7",
       "source": "Mission",
-      "translation": "Dira",
+      "translation": "Dhamira",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:atl.s2.mission"
+      "origin": "assistant-authored-initial-draft"
     },
     {
       "id": "auto.83bf3eec3d99bd38",
@@ -1357,11 +1357,11 @@
       "id": "auto.f36aab44f2dc88ab",
       "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
       "source": "DR Congo",
-      "translation": "DR Congo",
+      "translation": "Jamhuri ya Kidemokrasia ya Kongo",
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "assistant-authored-draft:acfs.html"
+      "origin": "assistant-authored-initial-draft"
     },
     {
       "id": "auto.882702df4000b9b1",

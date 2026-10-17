@@ -1401,7 +1401,7 @@
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
       "attribute": "aria-label",
-      "origin": "reused-exact-source:about.html"
+      "origin": "assistant-authored-initial-draft"
     },
     {
       "id": "auto.fd1da2e92bf77590",

@@ -4,7 +4,7 @@
   "locale": "es",
   "page": "la-projects.html",
   "sourceManifestDigest": "181d42c4930d1abb298d1bb6193e994fb20c4653ed2347cb78f9ae1ea1fa8fa8",
-  "sourceManifestGeneratedAt": "2026-10-15T10:48:55.402Z",
+  "sourceManifestGeneratedAt": "2026-10-17T03:25:16.455Z",
   "createdAt": "2026-10-15T10:47:00.687Z",
   "authoringMethod": "existing dictionary reuse; no model output for generated rows",
   "reviewEvidence": null,
@@ -14,6 +14,16 @@
   "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
   "translations": [
     {
+      "id": "auto.484cd965ab3990f9",
+      "sourceHash": "7c811aa3f94969e3e32d8e0986d5386ac454fd234518aa74732256a819232f04",
+      "source": "Lake Group — East and Central Africa.",
+      "translation": "Lake Group — África Oriental y Central.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(6)",
+      "attribute": "content",
+      "origin": "ai-authored-draft:assistant"
+    },
+    {
       "id": "auto.a3703d2d59fce641",
       "sourceHash": "6970059994dce7e30c88b19df4696c7234a01aca3caf2fa69322593c6a6af253",
       "source": "Energies Sector",
@@ -21,9 +31,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.energies",
-      "releaseEligible": false,
-      "reviewEvidence": null
+      "origin": "existing-dictionary:nav.dd.energies"
     },
     {
       "id": "auto.f3836d7d4d0ffea6",
@@ -33,9 +41,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.manufacturing",
-      "releaseEligible": false,
-      "reviewEvidence": null
+      "origin": "existing-dictionary:nav.dd.manufacturing"
     },
     {
       "id": "auto.bae90f0f28dd8191",
@@ -45,9 +51,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.logisticsCos",
-      "releaseEligible": false,
-      "reviewEvidence": null
+      "origin": "existing-dictionary:nav.dd.logisticsCos"
     },
     {
       "id": "auto.1156020584d7e1ee",
@@ -57,9 +61,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(4)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.realEstate",
-      "releaseEligible": false,
-      "reviewEvidence": null
+      "origin": "existing-dictionary:nav.dd.realEstate"
     },
     {
       "id": "auto.cd0e15927a053fa5",
@@ -69,9 +71,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(5)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.agro",
-      "releaseEligible": false,
-      "reviewEvidence": null
+      "origin": "existing-dictionary:nav.dd.agro"
     },
     {
       "id": "auto.5dd8e177f2559b4c",
@@ -81,219 +81,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(6)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.dd.automotive",
-      "releaseEligible": false,
-      "reviewEvidence": null
-    },
-    {
-      "id": "auto.d8e71a76f2787a90.2",
-      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
-      "source": "CSR & Sustainability",
-      "translation": "CSR y Sostenibilidad",
-      "mode": "text",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(2)",
-      "attribute": null,
-      "origin": "existing-dictionary:nav.csr",
-      "releaseEligible": false,
-      "reviewEvidence": null
-    },
-    {
-      "id": "auto.d8e71a76f2787a90.3",
-      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
-      "source": "Gallery",
-      "translation": "Galería",
-      "mode": "text",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(3)",
-      "attribute": null,
-      "origin": "existing-dictionary:nav.gallery",
-      "releaseEligible": false,
-      "reviewEvidence": null
-    },
-    {
-      "id": "auto.91908145a711443f",
-      "sourceHash": "99af6606ff9d6cd5154d4d4e9c21e325086d3e904677cdb41d363c8a3480f862",
-      "source": "Menu",
-      "translation": "Menú",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
-      "attribute": "aria-label",
-      "origin": "existing-dictionary:nav.menu",
-      "releaseEligible": false,
-      "reviewEvidence": null
-    },
-    {
-      "id": "auto.b1918e54361a1faa",
-      "sourceHash": "3a78695388b38b5cceefaf6796b0137877514593543b91af2752d5a17e3d736c",
-      "source": "Home",
-      "translation": "Inicio",
-      "mode": "text",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
-      "attribute": null,
-      "origin": "existing-dictionary:nav.home",
-      "releaseEligible": false,
-      "reviewEvidence": null
-    },
-    {
-      "id": "auto.b1918e54361a1faa.2",
-      "sourceHash": "4efca0d10c5feb8e9b35eb1d994f2905bb71714e6a271f511d713b539ea5faa1",
-      "source": "About",
-      "translation": "Acerca de",
-      "mode": "text",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(2)",
-      "attribute": null,
-      "origin": "existing-dictionary:nav.about",
-      "releaseEligible": false,
-      "reviewEvidence": null
-    },
-    {
-      "id": "auto.8ac8c5f24e2cc0f4",
-      "sourceHash": "cf60fd65dcd0f8b69d51d6cb91fe601244ed4af363dd5f2a242787f54c16300d",
-      "source": "Business Verticals",
-      "translation": "Verticales de Negocio",
-      "mode": "text",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
-      "attribute": null,
-      "origin": "existing-dictionary:nav.companies",
-      "releaseEligible": false,
-      "reviewEvidence": null
-    },
-    {
-      "id": "auto.cdfa978c1c311fee",
-      "sourceHash": "ec75f79040af17557c450e94a4214a484350634a433592d2eb31784c5a46e865",
-      "source": "Leadership",
-      "translation": "Liderazgo",
-      "mode": "text",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(3)",
-      "attribute": null,
-      "origin": "existing-dictionary:nav.leadership",
-      "releaseEligible": false,
-      "reviewEvidence": null
-    },
-    {
-      "id": "auto.ad2f783f8e4f4e56.2",
-      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
-      "source": "CSR & Sustainability",
-      "translation": "CSR y Sostenibilidad",
-      "mode": "text",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(2)",
-      "attribute": null,
-      "origin": "existing-dictionary:nav.csr",
-      "releaseEligible": false,
-      "reviewEvidence": null
-    },
-    {
-      "id": "auto.ad2f783f8e4f4e56.3",
-      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
-      "source": "Gallery",
-      "translation": "Galería",
-      "mode": "text",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(3)",
-      "attribute": null,
-      "origin": "existing-dictionary:nav.gallery",
-      "releaseEligible": false,
-      "reviewEvidence": null
-    },
-    {
-      "id": "auto.f77796cfda1521f5",
-      "sourceHash": "7e658675b5ca75b3802ff34b548abe663438f113bed3acf541142b317c146e34",
-      "source": "Careers",
-      "translation": "Carreras",
-      "mode": "text",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(4)",
-      "attribute": null,
-      "origin": "existing-dictionary:nav.careers",
-      "releaseEligible": false,
-      "reviewEvidence": null
-    },
-    {
-      "id": "auto.4d597c981bdf44b7",
-      "sourceHash": "04e2a9728af7584043c5d58ae29e7cd811883e8dab15fc6287675270669a3ada",
-      "source": "Projects",
-      "translation": "Proyectos",
-      "mode": "text",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
-      "attribute": null,
-      "origin": "ai-authored-draft:assistant",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "releaseEligible": false,
-      "reviewEvidence": null
-    },
-    {
-      "id": "auto.c2205e8a565c843a",
-      "sourceHash": "04e2a9728af7584043c5d58ae29e7cd811883e8dab15fc6287675270669a3ada",
-      "source": "Projects",
-      "translation": "Proyectos",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "ai-authored-draft:assistant",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "releaseEligible": false,
-      "reviewEvidence": null
-    },
-    {
-      "id": "auto.6a7b30c625b6c8da",
-      "sourceHash": "bfb4eb28e357b3de96c7205a2e64b8f075779846773c3586751e74a51f290c06",
-      "source": "ENSURES SUSTAINABILITY",
-      "translation": "GARANTIZA LA SOSTENIBILIDAD",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "ai-authored-draft:assistant",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "releaseEligible": false,
-      "reviewEvidence": null
-    },
-    {
-      "id": "auto.8193d495e16496a7",
-      "sourceHash": "272776a0df04c4c5e20f12bfd4b6d2bca6d00cc852263f607351eee0b7d09eea",
-      "source": "QUALITY",
-      "translation": "CALIDAD",
-      "mode": "text",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1) > em:nth-of-type(1)",
-      "attribute": null,
-      "origin": "ai-authored-draft:assistant",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "releaseEligible": false,
-      "reviewEvidence": null
-    },
-    {
-      "id": "auto.20f07dad84eda710",
-      "sourceHash": "e75775abf18e6812ecad4a551b1ffb49ece5431489fe12f8a3d7fdf1110a3bb3",
-      "source": "HUMAN CAPITAL",
-      "translation": "CAPITAL HUMANO",
-      "mode": "text",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
-      "attribute": null,
-      "origin": "ai-authored-draft:assistant",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "releaseEligible": false,
-      "reviewEvidence": null
-    },
-    {
-      "id": "auto.4adc6c8a7564c014",
-      "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
-      "source": "Ethiopia",
-      "translation": "Etiopía",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary:africa_network.38",
-      "releaseEligible": false,
-      "reviewEvidence": null
-    },
-    {
-      "id": "auto.484cd965ab3990f9",
-      "sourceHash": "7c811aa3f94969e3e32d8e0986d5386ac454fd234518aa74732256a819232f04",
-      "source": "Lake Group — East and Central Africa.",
-      "translation": "Lake Group — África Oriental y Central.",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(6)",
-      "attribute": "content",
-      "origin": "ai-authored-draft:assistant",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "existing-dictionary:nav.dd.automotive"
     },
     {
       "id": "auto.607cf06db32b2eec.6",
@@ -303,10 +91,7 @@
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
       "attribute": "alt",
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "exact-source-translation-reuse"
     },
     {
       "id": "auto.e0899443d4ba2c92",
@@ -316,10 +101,7 @@
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
       "attribute": "alt",
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "exact-source-translation-reuse"
     },
     {
       "id": "auto.31b89f2e11cf3dd7.2",
@@ -329,10 +111,7 @@
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
       "attribute": "alt",
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "exact-source-translation-reuse"
     },
     {
       "id": "auto.d8e71a76f2787a90",
@@ -342,10 +121,27 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(1)",
       "attribute": null,
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "exact-source-translation-reuse"
+    },
+    {
+      "id": "auto.d8e71a76f2787a90.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "CSR y Sostenibilidad",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.csr"
+    },
+    {
+      "id": "auto.d8e71a76f2787a90.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "Galería",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.gallery"
     },
     {
       "id": "auto.75a7716f67da11ba",
@@ -355,10 +151,7 @@
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": "aria-label",
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "exact-source-translation-reuse"
     },
     {
       "id": "auto.f5e8513ea8001a6a",
@@ -368,10 +161,17 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
       "attribute": null,
-      "origin": "ai-authored-draft:assistant",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-draft:assistant"
+    },
+    {
+      "id": "auto.91908145a711443f",
+      "sourceHash": "99af6606ff9d6cd5154d4d4e9c21e325086d3e904677cdb41d363c8a3480f862",
+      "source": "Menu",
+      "translation": "Menú",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "existing-dictionary:nav.menu"
     },
     {
       "id": "auto.7318c20cf878d2c4",
@@ -381,10 +181,37 @@
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": "aria-label",
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "exact-source-translation-reuse"
+    },
+    {
+      "id": "auto.b1918e54361a1faa",
+      "sourceHash": "3a78695388b38b5cceefaf6796b0137877514593543b91af2752d5a17e3d736c",
+      "source": "Home",
+      "translation": "Inicio",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.home"
+    },
+    {
+      "id": "auto.b1918e54361a1faa.2",
+      "sourceHash": "4efca0d10c5feb8e9b35eb1d994f2905bb71714e6a271f511d713b539ea5faa1",
+      "source": "About",
+      "translation": "Acerca de",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.about"
+    },
+    {
+      "id": "auto.8ac8c5f24e2cc0f4",
+      "sourceHash": "cf60fd65dcd0f8b69d51d6cb91fe601244ed4af363dd5f2a242787f54c16300d",
+      "source": "Business Verticals",
+      "translation": "Verticales de Negocio",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.companies"
     },
     {
       "id": "auto.c82c2f57d63c2fd8.6",
@@ -394,10 +221,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
       "attribute": null,
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "exact-source-translation-reuse"
     },
     {
       "id": "auto.c028aac1024185a8",
@@ -407,10 +231,17 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
       "attribute": null,
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "exact-source-translation-reuse"
+    },
+    {
+      "id": "auto.cdfa978c1c311fee",
+      "sourceHash": "ec75f79040af17557c450e94a4214a484350634a433592d2eb31784c5a46e865",
+      "source": "Leadership",
+      "translation": "Liderazgo",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.leadership"
     },
     {
       "id": "auto.baf906033db1fe7c",
@@ -420,10 +251,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
       "attribute": null,
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "exact-source-translation-reuse"
     },
     {
       "id": "auto.ad2f783f8e4f4e56",
@@ -433,10 +261,37 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)",
       "attribute": null,
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "exact-source-translation-reuse"
+    },
+    {
+      "id": "auto.ad2f783f8e4f4e56.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "CSR y Sostenibilidad",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.csr"
+    },
+    {
+      "id": "auto.ad2f783f8e4f4e56.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "Galería",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.gallery"
+    },
+    {
+      "id": "auto.f77796cfda1521f5",
+      "sourceHash": "7e658675b5ca75b3802ff34b548abe663438f113bed3acf541142b317c146e34",
+      "source": "Careers",
+      "translation": "Carreras",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(4)",
+      "attribute": null,
+      "origin": "existing-dictionary:nav.careers"
     },
     {
       "id": "auto.f77796cfda1521f5.2",
@@ -446,10 +301,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(5)",
       "attribute": null,
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "exact-source-translation-reuse"
     },
     {
       "id": "auto.2e8bf5cc9bb4c557",
@@ -459,10 +311,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
       "attribute": null,
-      "origin": "ai-authored-draft:assistant",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-draft:assistant"
     },
     {
       "id": "auto.dd875bc3442ba9f1",
@@ -472,10 +321,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
       "attribute": null,
-      "origin": "ai-authored-draft:assistant",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-draft:assistant"
     },
     {
       "id": "auto.dd875bc3442ba9f1.2",
@@ -485,10 +331,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
       "attribute": null,
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "exact-source-translation-reuse"
     },
     {
       "id": "auto.dd875bc3442ba9f1.3",
@@ -498,10 +341,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
       "attribute": null,
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "exact-source-translation-reuse"
     },
     {
       "id": "auto.dd875bc3442ba9f1.4",
@@ -511,10 +351,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
       "attribute": null,
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "exact-source-translation-reuse"
     },
     {
       "id": "auto.dd875bc3442ba9f1.5",
@@ -524,10 +361,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
       "attribute": null,
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "exact-source-translation-reuse"
     },
     {
       "id": "auto.dd875bc3442ba9f1.6",
@@ -537,10 +371,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
       "attribute": null,
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "exact-source-translation-reuse"
     },
     {
       "id": "auto.dd875bc3442ba9f1.7",
@@ -550,10 +381,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
       "attribute": null,
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "exact-source-translation-reuse"
     },
     {
       "id": "auto.dd875bc3442ba9f1.8",
@@ -563,10 +391,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
       "attribute": null,
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "exact-source-translation-reuse"
     },
     {
       "id": "auto.7507cc69bf21bcb2",
@@ -576,10 +401,27 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "ai-authored-draft:assistant",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-draft:assistant"
+    },
+    {
+      "id": "auto.4d597c981bdf44b7",
+      "sourceHash": "04e2a9728af7584043c5d58ae29e7cd811883e8dab15fc6287675270669a3ada",
+      "source": "Projects",
+      "translation": "Proyectos",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant"
+    },
+    {
+      "id": "auto.c2205e8a565c843a",
+      "sourceHash": "04e2a9728af7584043c5d58ae29e7cd811883e8dab15fc6287675270669a3ada",
+      "source": "Projects",
+      "translation": "Proyectos",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant"
     },
     {
       "id": "auto.184e9caa26abb293",
@@ -589,10 +431,37 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1) > a:nth-of-type(1)",
       "attribute": null,
-      "origin": "ai-authored-draft:assistant",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-draft:assistant"
+    },
+    {
+      "id": "auto.6a7b30c625b6c8da",
+      "sourceHash": "bfb4eb28e357b3de96c7205a2e64b8f075779846773c3586751e74a51f290c06",
+      "source": "ENSURES SUSTAINABILITY",
+      "translation": "GARANTIZA LA SOSTENIBILIDAD",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant"
+    },
+    {
+      "id": "auto.8193d495e16496a7",
+      "sourceHash": "272776a0df04c4c5e20f12bfd4b6d2bca6d00cc852263f607351eee0b7d09eea",
+      "source": "QUALITY",
+      "translation": "CALIDAD",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1) > em:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant"
+    },
+    {
+      "id": "auto.20f07dad84eda710",
+      "sourceHash": "e75775abf18e6812ecad4a551b1ffb49ece5431489fe12f8a3d7fdf1110a3bb3",
+      "source": "HUMAN CAPITAL",
+      "translation": "CAPITAL HUMANO",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+      "attribute": null,
+      "origin": "ai-authored-draft:assistant"
     },
     {
       "id": "auto.6f4450f235bfeeae",
@@ -602,10 +471,7 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "ai-authored-draft:assistant",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-draft:assistant"
     },
     {
       "id": "auto.6f4450f235bfeeae.2",
@@ -615,10 +481,7 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "ai-authored-draft:assistant",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-draft:assistant"
     },
     {
       "id": "auto.d27625f9908ba8f4",
@@ -628,10 +491,7 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "ai-authored-draft:assistant",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-draft:assistant"
     },
     {
       "id": "auto.65ebeaa3d6401781",
@@ -641,10 +501,7 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "ai-authored-draft:assistant",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-draft:assistant"
     },
     {
       "id": "auto.e6e35e43cea077fb",
@@ -654,10 +511,7 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "ai-authored-draft:assistant",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-draft:assistant"
     },
     {
       "id": "auto.9fb9e0022b2a14af",
@@ -667,10 +521,7 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
       "attribute": null,
-      "origin": "ai-authored-draft:assistant",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-draft:assistant"
     },
     {
       "id": "auto.fcba824d1f599e55",
@@ -680,257 +531,207 @@
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(5) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
       "attribute": null,
-      "origin": "ai-authored-draft:assistant",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-draft:assistant"
     },
     {
-      "id": "auto.4dc21e95bf53e966",
+      "id": "auto.b4e0bd71cbdc0d65",
       "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
       "source": "Tanzania",
       "translation": "Tanzania",
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.9ae100ae9729c795",
+      "id": "auto.9ba988991341cdd7",
       "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
       "source": "Tanzania flag",
       "translation": "Bandera de Tanzania",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
       "attribute": "alt",
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.63086e2a7cfc7b6f",
+      "id": "auto.b1ee6bff88f810be",
       "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
       "source": "Kenya",
       "translation": "Kenia",
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.9efaa5ac63d8f31e",
+      "id": "auto.f2af44d7e51a2838",
       "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
       "source": "Kenya flag",
       "translation": "Bandera de Kenia",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
       "attribute": "alt",
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.b4e0bd71cbdc0d65",
+      "id": "auto.80769d061b4bf382",
       "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
       "source": "Zambia",
       "translation": "Zambia",
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.9ba988991341cdd7",
+      "id": "auto.305b4de1c91fb9d1",
       "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
       "source": "Zambia flag",
       "translation": "Bandera de Zambia",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
       "attribute": "alt",
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.b1ee6bff88f810be",
+      "id": "auto.7425a3051f8e4d09",
       "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
       "source": "Rwanda",
       "translation": "Ruanda",
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.f2af44d7e51a2838",
+      "id": "auto.143d451b74c12ea0",
       "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
       "source": "Rwanda flag",
       "translation": "Bandera de Ruanda",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
       "attribute": "alt",
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.80769d061b4bf382",
+      "id": "auto.4adc6c8a7564c014",
       "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
       "source": "Burundi",
       "translation": "Burundi",
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.305b4de1c91fb9d1",
+      "id": "auto.d2a65b33f747a70e",
       "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
       "source": "Burundi flag",
       "translation": "Bandera de Burundi",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
       "attribute": "alt",
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.7425a3051f8e4d09",
+      "id": "auto.f06179cf6c4e0332",
       "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
       "source": "DR Congo",
       "translation": "República Democrática del Congo",
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.143d451b74c12ea0",
+      "id": "auto.2f97829e9c1a7e79",
       "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
       "source": "DR Congo flag",
       "translation": "Bandera de la República Democrática del Congo",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
       "attribute": "alt",
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.d2a65b33f747a70e",
+      "id": "auto.890ca53c9cf97c0c",
+      "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
+      "source": "Ethiopia",
+      "translation": "Etiopía",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.9fee363bea93a351",
       "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
       "source": "Ethiopia flag",
       "translation": "Bandera de Etiopía",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
       "attribute": "alt",
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.f06179cf6c4e0332",
+      "id": "auto.dbecca2bb3f07a7a",
       "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
       "source": "Mozambique",
       "translation": "Mozambique",
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.2f97829e9c1a7e79",
+      "id": "auto.01ab271173407d48",
       "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
       "source": "Mozambique flag",
       "translation": "Bandera de Mozambique",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
       "attribute": "alt",
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.890ca53c9cf97c0c",
+      "id": "auto.fcd3ea0abc030ead",
       "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
       "source": "Uganda",
       "translation": "Uganda",
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.9fee363bea93a351",
+      "id": "auto.a15a8e5efd66aa40",
       "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
       "source": "Uganda flag",
       "translation": "Bandera de Uganda",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
       "attribute": "alt",
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.01ab271173407d48",
+      "id": "auto.616e0780ae04b261",
       "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
       "source": "UAE flag",
       "translation": "Bandera de los Emiratos Árabes Unidos",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
       "attribute": "alt",
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-initial-draft"
     },
     {
-      "id": "auto.b7c3e453233bb259",
+      "id": "auto.12669397a0037dfa",
       "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
       "source": "© 2026 Lake Group.",
       "translation": "© 2026 Lake Group.",
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "exact-source-translation-reuse",
-      "authoringMethod": "AI-authored initial translation; pending human review",
-      "reviewEvidence": null,
-      "releaseEligible": false
+      "origin": "ai-authored-initial-draft"
     }
   ]
 }

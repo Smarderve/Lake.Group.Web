@@ -4,15 +4,25 @@
   "locale": "zh",
   "page": "lake-group-org-chart.html",
   "sourceManifestDigest": "181d42c4930d1abb298d1bb6193e994fb20c4653ed2347cb78f9ae1ea1fa8fa8",
-  "sourceManifestGeneratedAt": "2026-10-15T10:48:55.402Z",
+  "sourceManifestGeneratedAt": "2026-10-17T03:25:16.455Z",
   "createdAt": "2026-10-15T12:56:46.844Z",
   "authoringMethod": "existing dictionary reuse; no model output for generated rows",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 100,
+  "candidateCount": 101,
   "translatedCount": 101,
   "validation": "source hashes and protected facts checked; linguistic review remains required",
   "translations": [
+    {
+      "id": "auto.5321ec96ac76e29b",
+      "sourceHash": "4d3a17d1d3b6c84070fd970db690add74184ea8e70e44f63616b011c8db27d22",
+      "source": "Interactive organisational chart of Lake Group companies owned by Mr. Ally Edha Awadh . energy, manufacturing, logistics, real estate, and agro-processing subsidiaries.",
+      "translation": "Ally Edha Awadh 先生所有的 Lake Group 公司互动组织结构图，涵盖能源、制造、物流、房地产和农产品加工子公司。",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(4)",
+      "attribute": "content",
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
     {
       "id": "auto.b391c27262dbb5d3",
       "sourceHash": "6970059994dce7e30c88b19df4696c7234a01aca3caf2fa69322593c6a6af253",
@@ -384,316 +394,6 @@
       "origin": "existing-dictionary-reuse:exact-source"
     },
     {
-      "id": "auto.d1b89c7e3c2aa1e9",
-      "sourceHash": "c6838ed989fd7d93ba9023466783c95230843ee13acafd63a355f9ad766cc39f",
-      "source": "Manufacturing",
-      "translation": "制造",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.b9847b5cdce3c3ca",
-      "sourceHash": "ae6e98909c98e7c973d920a2d6868685d2e2f25db3e98683ef3d0dbae00bf7d6",
-      "source": "Logistics",
-      "translation": "物流",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.2d13150e23ad3bee",
-      "sourceHash": "5226954feafeae18181de39d33b5d20b5f78e1ee112684bf04445903bf4db562",
-      "source": "Real Estate",
-      "translation": "房地产",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.2ddc56ba6da4c3f7",
-      "sourceHash": "f5a34a07f3e91994798406ff7ed901c6f38fdb2933d4026743ed66abae0c4652",
-      "source": "Agro Processing",
-      "translation": "农产品加工",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.e2b25cc986715cfc",
-      "sourceHash": "06f33cd2fef846cca0ce715b8b3480d3b907eddcad75a1f1e9cf78a5f94c67ac",
-      "source": "Lubricants",
-      "translation": "润滑油",
-      "mode": "text",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(4) > button:nth-of-type(1) > span:nth-of-type(1)",
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.c6f210ebf2b714e8",
-      "sourceHash": "fbb34a2104d88e1044b071c9670437ee4cc6abd2014a8fcc29f2ba243f33617a",
-      "source": "Concrete",
-      "translation": "混凝土",
-      "mode": "text",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(5) > button:nth-of-type(1) > span:nth-of-type(1)",
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.2ec4cc30680bf366",
-      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
-      "source": "Gulf Aggregates",
-      "translation": "Gulf Aggregates",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.5b97ca67163dab47",
-      "sourceHash": "a2460ad75ef09ebb383853ce98c2114aa0877147b53d356c01a0a433166dfca3",
-      "source": "Quarrying",
-      "translation": "采石",
-      "mode": "text",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(6) > button:nth-of-type(1) > span:nth-of-type(1)",
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.622de440f6ae7836",
-      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
-      "source": "Cross Country",
-      "translation": "Cross Country",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.19e9face631e5b09",
-      "sourceHash": "ea26abf663a94c274e2a06590ce93aa9a752db2ec86fee23e6ede6a6585acce6",
-      "source": "Waterfront Mall",
-      "translation": "Waterfront Mall",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.8c40ac7cdbe38025",
-      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
-      "source": "Tanzania",
-      "translation": "坦桑尼亚",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.a52ba5ef0475b848",
-      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
-      "source": "Tanzania flag",
-      "translation": "坦桑尼亚国旗",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
-      "attribute": "alt",
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.22fca5914f69cb9e",
-      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
-      "source": "Kenya",
-      "translation": "肯尼亚",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.f026a16f70172512",
-      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
-      "source": "Kenya flag",
-      "translation": "肯尼亚国旗",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
-      "attribute": "alt",
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.c1659f77632c20c3",
-      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
-      "source": "Zambia",
-      "translation": "赞比亚",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.20f95416c42a8ac6",
-      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
-      "source": "Zambia flag",
-      "translation": "赞比亚国旗",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
-      "attribute": "alt",
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.aeb19d8ee0590c15",
-      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
-      "source": "Rwanda",
-      "translation": "卢旺达",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.1ba17e5a49c6dc4f",
-      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
-      "source": "Rwanda flag",
-      "translation": "卢旺达国旗",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
-      "attribute": "alt",
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.86ab89cf63746da3",
-      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
-      "source": "Burundi",
-      "translation": "布隆迪",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.878ffcef02d599b4",
-      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
-      "source": "Burundi flag",
-      "translation": "布隆迪国旗",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
-      "attribute": "alt",
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.a5055f05dfbcdf1b",
-      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
-      "source": "DR Congo",
-      "translation": "刚果民主共和国",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.84c61e03b81367af",
-      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
-      "source": "DR Congo flag",
-      "translation": "刚果民主共和国国旗",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
-      "attribute": "alt",
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.09ad551369cb2fb1",
-      "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
-      "source": "Ethiopia",
-      "translation": "埃塞俄比亚",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.e989d9d2417ddb06",
-      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
-      "source": "Ethiopia flag",
-      "translation": "埃塞俄比亚国旗",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
-      "attribute": "alt",
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.c158fb627c3e2b8d",
-      "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
-      "source": "Mozambique",
-      "translation": "莫桑比克",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.8610994d285e1294",
-      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
-      "source": "Mozambique flag",
-      "translation": "莫桑比克国旗",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
-      "attribute": "alt",
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.433855c8bf109af0",
-      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
-      "source": "Uganda",
-      "translation": "乌干达",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.1521f58be10b52e1",
-      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
-      "source": "Uganda flag",
-      "translation": "乌干达国旗",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
-      "attribute": "alt",
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.a96a08aaf74f6e01",
-      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
-      "source": "UAE flag",
-      "translation": "阿联酋国旗",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
-      "attribute": "alt",
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.0fe6a6cdc90dd310",
-      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
-      "source": "© 2026 Lake Group.",
-      "translation": "© 2026 Lake Group.",
-      "mode": "runtime-text",
-      "selector": null,
-      "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
-    },
-    {
-      "id": "auto.5321ec96ac76e29b",
-      "sourceHash": "4d3a17d1d3b6c84070fd970db690add74184ea8e70e44f63616b011c8db27d22",
-      "source": "Interactive organisational chart of Lake Group companies owned by Mr. Ally Edha Awadh . energy, manufacturing, logistics, real estate, and agro-processing subsidiaries.",
-      "translation": "Ally Edha Awadh 先生所有的 Lake Group 公司互动组织结构图，涵盖能源、制造、物流、房地产和农产品加工子公司。",
-      "mode": "attribute",
-      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(4)",
-      "attribute": "content",
-      "origin": "assistant-authored-draft:lake-group-org-chart.html"
-    },
-    {
       "id": "auto.2d67e6253d7444ad",
       "sourceHash": "5b4de9c3aa32c731f03176c74d638d8f56385a2aaaf781c214daa3b46b21fa76",
       "source": "Lake Group . Organisational Chart",
@@ -764,6 +464,46 @@
       "origin": "assistant-authored-draft:lake-group-org-chart.html"
     },
     {
+      "id": "auto.d1b89c7e3c2aa1e9",
+      "sourceHash": "c6838ed989fd7d93ba9023466783c95230843ee13acafd63a355f9ad766cc39f",
+      "source": "Manufacturing",
+      "translation": "制造",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.b9847b5cdce3c3ca",
+      "sourceHash": "ae6e98909c98e7c973d920a2d6868685d2e2f25db3e98683ef3d0dbae00bf7d6",
+      "source": "Logistics",
+      "translation": "物流",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.2d13150e23ad3bee",
+      "sourceHash": "5226954feafeae18181de39d33b5d20b5f78e1ee112684bf04445903bf4db562",
+      "source": "Real Estate",
+      "translation": "房地产",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.2ddc56ba6da4c3f7",
+      "sourceHash": "f5a34a07f3e91994798406ff7ed901c6f38fdb2933d4026743ed66abae0c4652",
+      "source": "Agro Processing",
+      "translation": "农产品加工",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
       "id": "auto.caab5e46299c4be9",
       "sourceHash": "58f69a8463559ab0d7cd02255f40827f4082897ba1bf74c2ad7316789edde1f0",
       "source": "Associated",
@@ -824,6 +564,26 @@
       "origin": "assistant-authored-draft:lake-group-org-chart.html"
     },
     {
+      "id": "auto.c172d6fb9eb9118e",
+      "sourceHash": "a2d6f27d6295a9bd86aa901cbab41569378f46c5248a26a17507a4e0b3680b82",
+      "source": "Aviation fuel",
+      "translation": "航空燃料",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(3) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.e2b25cc986715cfc",
+      "sourceHash": "06f33cd2fef846cca0ce715b8b3480d3b907eddcad75a1f1e9cf78a5f94c67ac",
+      "source": "Lubricants",
+      "translation": "润滑油",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(4) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
       "id": "auto.27d36a3484b0d00b",
       "sourceHash": "f369aa57cc015e06b68f284b302e117094cf7ca40b6d9dd7da76088e29def7ce",
       "source": "7 companies",
@@ -872,6 +632,36 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > button:nth-of-type(1) > span:nth-of-type(1)",
       "attribute": null,
       "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.c6f210ebf2b714e8",
+      "sourceHash": "fbb34a2104d88e1044b071c9670437ee4cc6abd2014a8fcc29f2ba243f33617a",
+      "source": "Concrete",
+      "translation": "混凝土",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(5) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.2ec4cc30680bf366",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "Gulf Aggregates",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "auto.5b97ca67163dab47",
+      "sourceHash": "a2460ad75ef09ebb383853ce98c2114aa0877147b53d356c01a0a433166dfca3",
+      "source": "Quarrying",
+      "translation": "采石",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(6) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.cadc05951c11c8e7",
@@ -944,6 +734,16 @@
       "origin": "assistant-authored-draft:lake-group-org-chart.html"
     },
     {
+      "id": "auto.622de440f6ae7836",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
       "id": "auto.dd9df5d5e4ea5187",
       "sourceHash": "94dba1ec5b099e3323f18e522868cdc570991147fbb975ce6c1403edbdbff916",
       "source": "Property development",
@@ -952,6 +752,16 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(3) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
       "attribute": null,
       "origin": "assistant-authored-draft:lake-group-org-chart.html"
+    },
+    {
+      "id": "auto.19e9face631e5b09",
+      "sourceHash": "ea26abf663a94c274e2a06590ce93aa9a752db2ec86fee23e6ede6a6585acce6",
+      "source": "Waterfront Mall",
+      "translation": "Waterfront Mall",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "existing-dictionary-reuse:exact-source"
     },
     {
       "id": "auto.3f355aa64e7b0608",
@@ -1014,14 +824,204 @@
       "origin": "assistant-authored-draft:lake-group-org-chart.html"
     },
     {
-      "id": "auto.c172d6fb9eb9118e",
-      "sourceHash": "a2d6f27d6295a9bd86aa901cbab41569378f46c5248a26a17507a4e0b3680b82",
-      "source": "Aviation fuel",
-      "translation": "航空燃料",
-      "mode": "text",
-      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(3) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "id": "auto.c1659f77632c20c3",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "坦桑尼亚",
+      "mode": "runtime-text",
+      "selector": null,
       "attribute": null,
-      "origin": "assistant-authored-draft:lake-group-org-chart.html"
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.20f95416c42a8ac6",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "坦桑尼亚国旗",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.aeb19d8ee0590c15",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "肯尼亚",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.1ba17e5a49c6dc4f",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "肯尼亚国旗",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.86ab89cf63746da3",
+      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
+      "source": "Zambia",
+      "translation": "赞比亚",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.878ffcef02d599b4",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "赞比亚国旗",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a5055f05dfbcdf1b",
+      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
+      "source": "Rwanda",
+      "translation": "卢旺达",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.84c61e03b81367af",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "卢旺达国旗",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.09ad551369cb2fb1",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "布隆迪",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.e989d9d2417ddb06",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "布隆迪国旗",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.c158fb627c3e2b8d",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "刚果民主共和国",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.8610994d285e1294",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "刚果民主共和国国旗",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.433855c8bf109af0",
+      "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
+      "source": "Ethiopia",
+      "translation": "埃塞俄比亚",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.1521f58be10b52e1",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "埃塞俄比亚国旗",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.481370f3abb3d558",
+      "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
+      "source": "Mozambique",
+      "translation": "莫桑比克",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.a96a08aaf74f6e01",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "莫桑比克国旗",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.fb5af13a30992c57",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "乌干达",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.56227375b4036cdf",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "乌干达国旗",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.8febb6faf51dd9c1",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "阿联酋国旗",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "ai-authored-initial-draft"
+    },
+    {
+      "id": "auto.2f47771831885417",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "ai-authored-initial-draft"
     }
   ]
 }

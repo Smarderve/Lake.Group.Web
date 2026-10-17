@@ -47,11 +47,11 @@
       "id": "auto.cc9b02e470c7af3e.4",
       "sourceHash": "2b5c3d26721ae9c350cf3009318b626f0fc8a90b4a2ac0ca8099c05aa849282e",
       "source": "Contact",
-      "translation": "Mawasiliano",
+      "translation": "Wasiliana nasi",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(4)",
       "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
+      "origin": "assistant-authored-initial-draft"
     },
     {
       "id": "auto.cf48c40aac357408",

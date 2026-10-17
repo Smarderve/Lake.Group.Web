@@ -521,7 +521,7 @@
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
       "attribute": "aria-label",
-      "origin": "existing-dictionary-reuse:exact-source"
+      "origin": "assistant-authored-initial-draft"
     },
     {
       "id": "auto.93351545608f4630",

@@ -741,7 +741,7 @@
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(5) > button:nth-of-type(1)",
       "attribute": "aria-label",
-      "origin": "ai-authored-initial-draft"
+      "origin": "assistant-authored-initial-draft"
     },
     {
       "id": "auto.6f6011f805dc13a6",

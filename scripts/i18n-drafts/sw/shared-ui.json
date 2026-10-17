@@ -511,8 +511,8 @@
       "sourceHash": "6dfc7cff50e091fa6eca1f65f10c1a3faf335cbe0a101c8024ac25b4e0839ab8",
       "key": "nav.transportShort",
       "source": "Transport",
-      "translation": "Usafiri",
-      "origin": "reused-existing-dictionary",
+      "translation": "Usafirishaji",
+      "origin": "assistant-authored-initial-draft",
       "validation": "structural checks passed; linguistic review required"
     },
     {
@@ -655,8 +655,8 @@
       "sourceHash": "8e9031bb830caec5506a2a3a8bf32c76a91d8d0ccefa32b03f0ab955197e5e17",
       "key": "footer.contactHeading",
       "source": "Contact",
-      "translation": "Mawasiliano",
-      "origin": "reused-existing-dictionary",
+      "translation": "Wasiliana nasi",
+      "origin": "assistant-authored-initial-draft",
       "validation": "structural checks passed; linguistic review required"
     },
     {

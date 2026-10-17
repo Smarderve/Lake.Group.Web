@@ -6,7 +6,7 @@ const extractionPath = resolve('scripts/.generated/i18n-extraction-queue.json');
 const dictionaryPath = resolve('assets/i18n-content.json');
 const outputPath = resolve('scripts/.generated/i18n-page-translation-coverage.json');
 const locales = ['sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt'];
-const normalize = (value) => String(value ?? '').replace(/<[^>]*>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim().toLocaleLowerCase('en');
+const normalize = (value) => String(value ?? '').replace(/<[^>]*>/g, ' ').replace(/&nbsp;/g, ' ').replace(/™/g, '').replace(/\s+/g, ' ').trim().toLocaleLowerCase('en');
 
 export async function reportPageTranslationCoverage({ extractionFile = extractionPath, dictionaryFile = dictionaryPath, outputFile = outputPath } = {}) {
   const extraction = JSON.parse(await readFile(extractionFile, 'utf8'));
@@ -41,7 +41,8 @@ export async function reportPageTranslationCoverage({ extractionFile = extractio
           remaining.push({ locale, page, id: entry.id, sourceHash: entry.sourceHash, source: entry.source, mode: entry.renderMode, selector: entry.targetSelector || null, attribute: entry.targetAttribute || null, classification: entry.classification, status: 'missing-draft-translation' });
         }
       }
-      const refs = extraction.keyedRefs.filter((ref) => ref.page === page && dictionary.en?.[ref.key]);
+      // Empty keyed placeholders (for example a hidden date stamp) are not visitor-facing copy.
+      const refs = extraction.keyedRefs.filter((ref) => ref.page === page && dictionary.en?.[ref.key] && normalize(ref.rawText));
       refs.forEach((ref) => uniqueKeyRefs.add(`${ref.page}\0${ref.key}`));
       let keyedTranslated = 0;
       let keyedSourceDrift = 0;

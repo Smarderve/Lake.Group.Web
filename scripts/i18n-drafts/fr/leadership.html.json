@@ -857,11 +857,11 @@
       "id": "auto.72b9a8703fcf20d0",
       "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
       "source": "DR Congo",
-      "translation": "République démocratique du Congo",
+      "translation": "RDC",
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "ai-authored-initial-draft"
+      "origin": "assistant-authored-initial-draft"
     },
     {
       "id": "auto.a97a4bf72f5c9139",

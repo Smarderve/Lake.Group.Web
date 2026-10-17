@@ -655,8 +655,8 @@
       "sourceHash": "8e9031bb830caec5506a2a3a8bf32c76a91d8d0ccefa32b03f0ab955197e5e17",
       "key": "footer.contactHeading",
       "source": "Contact",
-      "translation": "Contacto",
-      "origin": "reused-existing-dictionary",
+      "translation": "Contato",
+      "origin": "assistant-authored-initial-draft",
       "validation": "structural checks passed; linguistic review required"
     },
     {

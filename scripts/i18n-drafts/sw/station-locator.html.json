@@ -417,11 +417,11 @@
       "id": "auto.768cf31e5461f0ff",
       "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
       "source": "Chat",
-      "translation": "Gumzo",
+      "translation": "Soga",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
       "attribute": "aria-label",
-      "origin": "existing-dictionary-reuse:exact-source"
+      "origin": "assistant-authored-initial-draft"
     },
     {
       "id": "auto.5c0b2d7595a53d7e",

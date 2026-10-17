@@ -427,11 +427,11 @@
       "id": "auto.dd47d6131ecd8af0",
       "sourceHash": "e6b85bfbf55020aab80a2fc74cc83aa428a2290c9153ffbd23bdb86befd1def7",
       "source": "Mission",
-      "translation": "Dira",
+      "translation": "Dhamira",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
       "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
+      "origin": "assistant-authored-initial-draft"
     },
     {
       "id": "auto.e44e1ab25081fd4b",
@@ -517,11 +517,11 @@
       "id": "auto.6e7ce82c48b92e6b",
       "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
       "source": "Chat",
-      "translation": "Gumzo",
+      "translation": "Soga",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
       "attribute": "aria-label",
-      "origin": "existing-dictionary-reuse:exact-source"
+      "origin": "assistant-authored-initial-draft"
     },
     {
       "id": "auto.93351545608f4630",

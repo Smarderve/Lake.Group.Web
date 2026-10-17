@@ -1177,11 +1177,11 @@
       "id": "auto.55fa1655cfaf2c28",
       "sourceHash": "aaead4abf5d0fd5ecc08d1dcb7effadfc4b65034aa0f3f80edb8bb3932411637",
       "source": "Transport",
-      "translation": "Usafiri",
+      "translation": "Usafirishaji",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(3)",
       "attribute": null,
-      "origin": "existing-dictionary:nav.transportShort"
+      "origin": "assistant-authored-initial-draft"
     },
     {
       "id": "auto.00f06d829c454564",
@@ -1397,11 +1397,11 @@
       "id": "auto.3667b7ba27772a76",
       "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
       "source": "Chat",
-      "translation": "Gumzo",
+      "translation": "Soga",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
       "attribute": "aria-label",
-      "origin": "reused-exact-source:about.html"
+      "origin": "assistant-authored-initial-draft"
     },
     {
       "id": "auto.609f1c65518184e1",

@@ -217,11 +217,11 @@
       "id": "auto.79f88744df0d49f4",
       "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
       "source": "Kenya",
-      "translation": "Quénia",
+      "translation": "Quênia",
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary:africa_network.29"
+      "origin": "assistant-authored-initial-draft"
     },
     {
       "id": "auto.b49630af1497c37e",
@@ -1337,11 +1337,11 @@
       "id": "auto.385614696bd701a8",
       "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
       "source": "DR Congo",
-      "translation": "República Democrática do Congo",
+      "translation": "RDC",
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "existing-dictionary-reuse:exact-source"
+      "origin": "assistant-authored-initial-draft"
     },
     {
       "id": "auto.2a24d996d6d6dfc9",

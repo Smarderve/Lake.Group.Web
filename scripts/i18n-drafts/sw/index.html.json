@@ -737,11 +737,11 @@
       "id": "auto.d75d5e1b471b83fc",
       "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
       "source": "Chat",
-      "translation": "Zungumza",
+      "translation": "Soga",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(5) > button:nth-of-type(1)",
       "attribute": "aria-label",
-      "origin": "ai-authored-draft"
+      "origin": "assistant-authored-initial-draft"
     },
     {
       "id": "auto.6f6011f805dc13a6",

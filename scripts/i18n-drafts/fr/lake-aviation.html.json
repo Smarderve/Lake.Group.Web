@@ -1069,11 +1069,11 @@
       "id": "auto.a9615fc7ea9a436c",
       "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
       "source": "DR Congo",
-      "translation": "RD Congo",
+      "translation": "RDC",
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "ai-authored-draft:assistant",
+      "origin": "assistant-authored-initial-draft",
       "authoringMethod": "AI-authored initial translation; pending human review",
       "reviewEvidence": null,
       "releaseEligible": false

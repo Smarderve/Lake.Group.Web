@@ -511,7 +511,7 @@
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "ai-authored-initial-draft"
+      "origin": "assistant-authored-initial-draft"
     },
     {
       "id": "auto.71c3e084aad8d8e3",
@@ -1141,7 +1141,7 @@
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
       "attribute": "aria-label",
-      "origin": "ai-authored-initial-draft"
+      "origin": "assistant-authored-initial-draft"
     },
     {
       "id": "auto.43e609ec59c2baee",
