@@ -88,8 +88,8 @@
       "sourceHash": "b63460432d47ac2839b7920e9dfa0b2a82a30f6c84997c6aef2b96bedb241da6",
       "key": "nav.steel",
       "source": "Lake Steel",
-      "translation": "Lake Steel",
-      "origin": "ai-authored-draft",
+      "translation": "ليك ستيل",
+      "origin": "reused-exact-source-dictionary",
       "validation": "structural checks passed; linguistic review required"
     },
     {
@@ -205,8 +205,8 @@
       "sourceHash": "e933915e23c9b03e9a4cc4837d4c6607a38409fb958ab9a215da5e0609d5b023",
       "key": "nav.co.lakeOil",
       "source": "Lake Oil",
-      "translation": "Lake Oil",
-      "origin": "ai-authored-draft",
+      "translation": "ليك أويل",
+      "origin": "reused-exact-source-dictionary",
       "validation": "structural checks passed; linguistic review required"
     },
     {
@@ -232,8 +232,8 @@
       "sourceHash": "ae71babaef13212189897a5c10f57a5214e8a2c97aab91b711f835e592e07d48",
       "key": "nav.co.lakeLubes",
       "source": "Lake Lubes",
-      "translation": "Lake Lubes",
-      "origin": "reused-existing-dictionary",
+      "translation": "ليك لوبز",
+      "origin": "reused-exact-source-dictionary",
       "validation": "structural checks passed; linguistic review required"
     },
     {
@@ -250,8 +250,8 @@
       "sourceHash": "f6dec98243d45970d80eae4941f62085e667806f60731c33614d982e14328b7a",
       "key": "nav.co.lakePipes",
       "source": "Lake Pipes",
-      "translation": "Lake Pipes",
-      "origin": "reused-existing-dictionary",
+      "translation": "ليك بلاستيكس",
+      "origin": "reused-exact-source-dictionary",
       "validation": "structural checks passed; linguistic review required"
     },
     {
@@ -259,8 +259,8 @@
       "sourceHash": "41c78db5a8ac8e1be12bf270a8b5313c5e323e8892a3e997c06429b51fd8a396",
       "key": "nav.co.lakeSteel",
       "source": "Lake Steel",
-      "translation": "Lake Steel",
-      "origin": "ai-authored-draft",
+      "translation": "ليك ستيل",
+      "origin": "reused-exact-source-dictionary",
       "validation": "structural checks passed; linguistic review required"
     },
     {
@@ -322,8 +322,8 @@
       "sourceHash": "7101548e78ded456d1e37ef139227644b75a3f183c2ad1806931f8043e667c3b",
       "key": "nav.co.lakeTrans",
       "source": "Lake Trans",
-      "translation": "Lake Trans",
-      "origin": "ai-authored-draft",
+      "translation": "ليك ترانس",
+      "origin": "reused-exact-source-dictionary",
       "validation": "structural checks passed; linguistic review required"
     },
     {
@@ -340,8 +340,8 @@
       "sourceHash": "c782d534e9b48f1183aa7cdc356336b4fb693ee5651c014803f7588622956bae",
       "key": "nav.co.lakeAgro",
       "source": "Lake Agro",
-      "translation": "Lake Agro",
-      "origin": "ai-authored-draft",
+      "translation": "ليك أغرو",
+      "origin": "reused-exact-source-dictionary",
       "validation": "structural checks passed; linguistic review required"
     },
     {
@@ -349,8 +349,8 @@
       "sourceHash": "5ea52cae250c00e7e6240aa31038f923c19752a304d720702598b7e4bbb986aa",
       "key": "nav.co.assemblyTech",
       "source": "Assembly Tech Limited",
-      "translation": "Assembly Tech Limited",
-      "origin": "ai-authored-draft",
+      "translation": "أسمبلي تك المحدودة",
+      "origin": "reused-exact-source-dictionary",
       "validation": "structural checks passed; linguistic review required"
     },
     {
@@ -358,8 +358,8 @@
       "sourceHash": "b797d898533b370d122b1d018fe614eeeda007fa689b113268f17a66da22c284",
       "key": "nav.co.agrinovaTech",
       "source": "Agrinova Tech Limited",
-      "translation": "Agrinova Tech Limited",
-      "origin": "ai-authored-draft",
+      "translation": "أغرينوفا تك المحدودة",
+      "origin": "reused-exact-source-dictionary",
       "validation": "structural checks passed; linguistic review required"
     },
     {
@@ -367,8 +367,8 @@
       "sourceHash": "427b15ce081cebe1d39e18c860021e205cbb4355a9c81b6cd5e3cbabffbae486",
       "key": "nav.co.nextDriveMotors",
       "source": "NextDrive Motors Limited",
-      "translation": "NextDrive Motors Limited",
-      "origin": "ai-authored-draft",
+      "translation": "نيكست درايف موتورز المحدودة",
+      "origin": "reused-exact-source-dictionary",
       "validation": "structural checks passed; linguistic review required"
     },
     {
@@ -727,8 +727,8 @@
       "sourceHash": "e5fa14a1ebcf78a165a4700c19d9324f82a67f6369514f9cb43684a178288e2c",
       "key": "footer.youtube",
       "source": "YouTube",
-      "translation": "YouTube",
-      "origin": "reused-existing-dictionary",
+      "translation": "يوتيوب",
+      "origin": "reused-exact-source-dictionary",
       "validation": "structural checks passed; linguistic review required"
     },
     {
@@ -772,8 +772,8 @@
       "sourceHash": "126a6af8d8717c341f6362954d94bdf241bdb0da5abf904d9a42dec4db4378e0",
       "key": "footer.facebook",
       "source": "Facebook",
-      "translation": "Facebook",
-      "origin": "reused-existing-dictionary",
+      "translation": "فيسبوك",
+      "origin": "reused-exact-source-dictionary",
       "validation": "structural checks passed; linguistic review required"
     }
   ]

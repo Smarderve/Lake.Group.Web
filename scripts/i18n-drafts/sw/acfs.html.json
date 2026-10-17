@@ -927,11 +927,11 @@
       "id": "auto.facc7cdff3b0129b",
       "sourceHash": "4a696c494ff6f95d0e4e721eb37523d969b0467af0b4a5a8cb6a3276d0914597",
       "source": "13 Acres",
-      "translation": "13 Acres",
+      "translation": "Ekari 13",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2)",
       "attribute": null,
-      "origin": "assistant-authored-draft:acfs.html"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.8e40210d59efda06",
@@ -1017,11 +1017,11 @@
       "id": "auto.99be0d095a522e36",
       "sourceHash": "0ba5e3d4ce951f18c7ee0dfed34d9be7872ce6c96b829ccad9f093624cbe6eed",
       "source": "80 Tons",
-      "translation": "80 Tons",
+      "translation": "Tani 80",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(6) > span:nth-of-type(2)",
       "attribute": null,
-      "origin": "assistant-authored-draft:acfs.html"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.a8fdde25d7e31a8a",

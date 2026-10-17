@@ -807,31 +807,31 @@
       "id": "auto.1cb7cf32dd8140c0",
       "sourceHash": "2c6b2e253c01fb2ed7209c15766745ccee92a35ac8209f544789bdf9500e0944",
       "source": "Your name",
-      "translation": "Your name",
+      "translation": "您的姓名",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > form:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > input:nth-of-type(1)",
       "attribute": "placeholder",
-      "origin": "protected-source-retained"
+      "origin": "reused-exact-source-dictionary"
     },
     {
       "id": "auto.26f670b65cee0509",
       "sourceHash": "7b56e0d0b308abe4d3df797881fcda8b3dbafc8273566fe9ca5bb3d3c0e74305",
       "source": "How can we help?",
-      "translation": "How can we help?",
+      "translation": "我们能为您提供什么帮助？",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > form:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > input:nth-of-type(1)",
       "attribute": "placeholder",
-      "origin": "protected-source-retained"
+      "origin": "reused-exact-source-dictionary"
     },
     {
       "id": "auto.b80a2e7d72d4fa6f",
       "sourceHash": "d6cdbf81fa01aba9795b6bb3c560fab23683422ee85248319a6f7eea39b5b660",
       "source": "Tell us what you need...",
-      "translation": "Tell us what you need...",
+      "translation": "请告诉我们您的需求…",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > form:nth-of-type(1) > div:nth-of-type(4) > textarea:nth-of-type(1)",
       "attribute": "placeholder",
-      "origin": "protected-source-retained"
+      "origin": "reused-exact-source-dictionary"
     }
   ]
 }

@@ -457,11 +457,11 @@
       "id": "auto.61927d30975f0fd4",
       "sourceHash": "e08993c42715788f3fb748035ed104e0e5dd887b07f298494bfe5871c1fe3818",
       "source": "Roto Molding",
-      "translation": "Roto Molding",
+      "translation": "Uundaji wa mzunguko",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > h4:nth-of-type(1)",
       "attribute": null,
-      "origin": "assistant-authored-draft:lake-pipes.html"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.27fceeed2ef7ddd7",
@@ -477,11 +477,11 @@
       "id": "auto.9daea0bdc05f5721",
       "sourceHash": "7dd508b0ba0ba4493b615ac93ae2086c85a1bc7dce62fff207a8fc9d7f859074",
       "source": "Blow Molding",
-      "translation": "Blow Molding",
+      "translation": "Uundaji kwa kupuliza",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(1) > h4:nth-of-type(1)",
       "attribute": null,
-      "origin": "assistant-authored-draft:lake-pipes.html"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.630802948993769f",

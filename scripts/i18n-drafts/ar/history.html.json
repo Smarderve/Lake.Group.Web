@@ -1107,11 +1107,11 @@
       "id": "auto.3c8395a8ccfc552c",
       "sourceHash": "5b9bfc3b9c5d3d222cd2a392fbd1c32e961612cbd3b9f8093832c6ebbcc5782e",
       "source": "Lake Oil Ltd",
-      "translation": "Lake Oil Ltd",
+      "translation": "ليك أويل المحدودة",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > h4:nth-of-type(1)",
       "attribute": null,
-      "origin": "protected-source-retained"
+      "origin": "reused-exact-source-dictionary"
     },
     {
       "id": "auto.04c27a9323083311",
@@ -1137,11 +1137,11 @@
       "id": "auto.664915f646b682d6",
       "sourceHash": "83bfeb1bed57343072f620a607a21a24a38dbb6b3ade6a9046b84418a76fb391",
       "source": "Lake Trans Ltd",
-      "translation": "Lake Trans Ltd",
+      "translation": "ليك ترانس المحدودة",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(2) > article:nth-of-type(1) > h4:nth-of-type(1)",
       "attribute": null,
-      "origin": "protected-source-retained"
+      "origin": "reused-exact-source-dictionary"
     },
     {
       "id": "auto.664915f646b682d6.3",
@@ -1157,11 +1157,11 @@
       "id": "auto.9f2512cb11b10e00",
       "sourceHash": "5b9bfc3b9c5d3d222cd2a392fbd1c32e961612cbd3b9f8093832c6ebbcc5782e",
       "source": "Lake Oil Ltd",
-      "translation": "Lake Oil Ltd",
+      "translation": "ليك أويل المحدودة",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(8) > div:nth-of-type(2) > article:nth-of-type(1) > h4:nth-of-type(1)",
       "attribute": null,
-      "origin": "protected-source-retained"
+      "origin": "reused-exact-source-dictionary"
     },
     {
       "id": "auto.9f2512cb11b10e00.2",
@@ -1217,11 +1217,11 @@
       "id": "auto.cf07df419fba42dd.2",
       "sourceHash": "4c5b260576177893b1c971822885d0d5f585eb0a3c2426c9c8b9b748058d0fb1",
       "source": "Lake Oil LDA",
-      "translation": "Lake Oil LDA",
+      "translation": "ليك أويل LDA",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(11) > div:nth-of-type(2) > article:nth-of-type(2) > h4:nth-of-type(1)",
       "attribute": null,
-      "origin": "protected-source-retained"
+      "origin": "reused-exact-source-dictionary"
     },
     {
       "id": "auto.cf07df419fba42dd.3",
@@ -1257,11 +1257,11 @@
       "id": "auto.5556a49b08236852.4",
       "sourceHash": "0a1e534929fd654a5289f81fe6ff782795f664bdb4ccf5b2cd046e32c467a6d3",
       "source": "Lake Agro Ltd",
-      "translation": "Lake Agro Ltd",
+      "translation": "ليك أغرو المحدودة",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(12) > div:nth-of-type(2) > article:nth-of-type(4) > h4:nth-of-type(1)",
       "attribute": null,
-      "origin": "protected-source-retained"
+      "origin": "reused-exact-source-dictionary"
     },
     {
       "id": "auto.92285e78db4e5715.2",

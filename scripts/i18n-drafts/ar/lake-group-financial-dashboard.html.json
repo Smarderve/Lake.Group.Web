@@ -717,11 +717,11 @@
       "id": "auto.aa41a156b4006c65",
       "sourceHash": "72b4e44ae92824b9d2ec96f0c7ccaa199960500e926ea686b5349c306f40b3b9",
       "source": "Est. >$1B",
-      "translation": "Est. >$1B",
+      "translation": "تقديري >$1B",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5) > div:nth-of-type(1) > span:nth-of-type(1)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.2b7ee2d0b237f4ab",
@@ -917,11 +917,11 @@
       "id": "auto.c7bc7e79fa9c796a",
       "sourceHash": "3ca5cfb6c094033cd0e6c1e1c7a1c1dc06ed2f9d1c4955cf2746d6544969e3ff",
       "source": "$60M Kenya terminal (2025)",
-      "translation": "$60M Kenya terminal (2025)",
+      "translation": "محطة Kenya بقيمة $60M (2025)",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(5) > span:nth-of-type(2)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.6751355fcdc508d4",
@@ -1027,11 +1027,11 @@
       "id": "auto.83f5f74a5fe4d78c",
       "sourceHash": "946f105f474cd0e196313c6cf5ab1f9cb1186b778214551b353bf9491103a075",
       "source": "7 countries",
-      "translation": "7 countries",
+      "translation": "7 دول",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(2) > span:nth-of-type(2)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.607c288e3aa1399c",
@@ -1137,11 +1137,11 @@
       "id": "auto.b2c2dcad3b199d73",
       "sourceHash": "b28741ecc76e36c558977e95172e942c073d138100bf457ad5b996c23bc521f3",
       "source": "Sh20B (~$13M) planned",
-      "translation": "Sh20B (~$13M) planned",
+      "translation": "مخطط له: Sh20B (~$13M)",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(4) > span:nth-of-type(2)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.6757b1fce76a2af6",
@@ -1207,91 +1207,91 @@
       "id": "auto.f202e4feac697df9",
       "sourceHash": "db4768ce4e050ff60d0b94b7ffa5b5fd2e921f7888109aedc626f6d5b6e1aa70",
       "source": "50% Utilization (50,000 MT)",
-      "translation": "50% Utilization (50,000 MT)",
+      "translation": "استغلال الطاقة 50% (50,000 MT)",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.f202e4feac697df9.2",
       "sourceHash": "fa4f51b2762c112b43532a6c49cfca4135f4d1eda1431772c11e0f866dc3f3cd",
       "source": "$47.5M rev · $2.9–5.7M EBITDA",
-      "translation": "$47.5M rev · $2.9–5.7M EBITDA",
+      "translation": "إيرادات $47.5M · EBITDA بقيمة $2.9–5.7M",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.4350a0e1447c91f3",
       "sourceHash": "ae1f623b3e39c9cafd64c6185eec8948a33afd22de1b5800960a742efc0f8524",
       "source": "65% Utilization (65,000 MT)",
-      "translation": "65% Utilization (65,000 MT)",
+      "translation": "استغلال الطاقة 65% (65,000 MT)",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.4350a0e1447c91f3.2",
       "sourceHash": "f4e9099c4e5b6a9bc59cbbc54cc4d6e1c050632f99dc728e7ff5a836618ab8a6",
       "source": "$61.8M rev · $3.7–7.4M EBITDA",
-      "translation": "$61.8M rev · $3.7–7.4M EBITDA",
+      "translation": "إيرادات $61.8M · EBITDA بقيمة $3.7–7.4M",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.8fbe7718086e78c8",
       "sourceHash": "af376aacff801342c0d373d2152b4962653ea6f56d723d0fc18f604e156435f3",
       "source": "80% Utilization (80,000 MT)",
-      "translation": "80% Utilization (80,000 MT)",
+      "translation": "استغلال الطاقة 80% (80,000 MT)",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > span:nth-of-type(1)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.8fbe7718086e78c8.2",
       "sourceHash": "7cf63687ef2f90c47839b8d04c5c6e3f5dcbb098b47198555e86439b010d5ffe",
       "source": "$76.0M rev · $4.6–9.1M EBITDA",
-      "translation": "$76.0M rev · $4.6–9.1M EBITDA",
+      "translation": "إيرادات $76.0M · EBITDA بقيمة $4.6–9.1M",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > span:nth-of-type(2)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.1040f4f1996db561",
       "sourceHash": "a4af9a4926e83b681f77fcd77af509bbf55f152cdc5edef3d46dbac69f2622c4",
       "source": "90% Utilization (90,000 MT)",
-      "translation": "90% Utilization (90,000 MT)",
+      "translation": "استغلال الطاقة 90% (90,000 MT)",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(1)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.1040f4f1996db561.2",
       "sourceHash": "4cf10d72731785448ecaf649fb384df1a4fd582261c47cabe5797572a4221c8a",
       "source": "$85.5M rev · $5.1–10.3M EBITDA",
-      "translation": "$85.5M rev · $5.1–10.3M EBITDA",
+      "translation": "إيرادات $85.5M · EBITDA بقيمة $5.1–10.3M",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(2)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.0109ccf437105353",
       "sourceHash": "d073e00a9c08464b7659ae12687280261dd4b983bbfa1af52e5f3bb9b9c5f899",
       "source": "Market: East African rebar growing at 3–5% CAGR. Lake Steel's automated mill at 25 MT/hr is regionally competitive.",
-      "translation": "Market: East African rebar growing at 3–5% CAGR. Lake Steel's automated mill at 25 MT/hr is regionally competitive.",
+      "translation": "السوق: ينمو سوق حديد التسليح في شرق أفريقيا بمعدل CAGR قدره 3–5%. وتتمتع مطحنة Lake Steel الآلية بطاقة 25 MT/hr بقدرة تنافسية إقليمية.",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(2)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.d9851d44f26a6200",
@@ -1307,61 +1307,61 @@
       "id": "auto.2f52bd89e9471d20",
       "sourceHash": "507385274aa6b117ddfd8cf33b1a73d0628cd4d9322bd19880500fb5c22c5380",
       "source": "Kenya LPG market ~415K MT, growing >5%/yr. $60M terminal enables share growth. Wholesale ~$1,100/MT.",
-      "translation": "Kenya LPG market ~415K MT, growing >5%/yr. $60M terminal enables share growth. Wholesale ~$1,100/MT.",
+      "translation": "يبلغ سوق LPG في Kenya نحو 415K MT وينمو بأكثر من 5% سنوياً. وتتيح المحطة البالغة قيمتها $60M زيادة الحصة السوقية. ويبلغ سعر الجملة نحو $1,100/MT.",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.021c2eb85a85d94f",
       "sourceHash": "7de1afea454978101f4f98222d18ec32f7fab6a568237e5005ce5a59eef137dc",
       "source": "2.0% share · 8,300 MT · $9.1M rev",
-      "translation": "2.0% share · 8,300 MT · $9.1M rev",
+      "translation": "حصة 2.0% · 8,300 MT · إيرادات $9.1M",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.dc1cc818623ea1ed",
       "sourceHash": "2b82c43ccc568e4add883699381ccb7e19fe41fe505e9410d5be4388d22e6256",
       "source": "2.5% share · 10,900 MT · $12.0M rev",
-      "translation": "2.5% share · 10,900 MT · $12.0M rev",
+      "translation": "حصة 2.5% · 10,900 MT · إيرادات $12.0M",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(2)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.91966c13675b0473",
       "sourceHash": "4dcf037dcdbe77d2d6b340098754ec724aabd68e1c5ab67363a2c69751ecec4b",
       "source": "3.5% share · 15,900 MT · $17.5M rev",
-      "translation": "3.5% share · 15,900 MT · $17.5M rev",
+      "translation": "حصة 3.5% · 15,900 MT · إيرادات $17.5M",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > span:nth-of-type(2)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.179a4fc5f6328fc2",
       "sourceHash": "12971d752418264c5216d80893876a1b65002107d2187a2d1477b9ed86b1451e",
       "source": "5.0% share · 23,600 MT · $26.0M rev",
-      "translation": "5.0% share · 23,600 MT · $26.0M rev",
+      "translation": "حصة 5.0% · 23,600 MT · إيرادات $26.0M",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > span:nth-of-type(2)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.b9ee074add31e970",
       "sourceHash": "2924f60fc31614f600a5f4d055e69d137da696a9d00cc2d1c09893f2ddb117a4",
       "source": "Regional LPG growth: 4–6% CAGR through 2035 (IEA/WLGA). Additional revenue from TZ, ZM, CD, RW, BI, UG not shown.",
-      "translation": "Regional LPG growth: 4–6% CAGR through 2035 (IEA/WLGA). Additional revenue from TZ, ZM, CD, RW, BI, UG not shown.",
+      "translation": "النمو الإقليمي لغاز LPG: معدل CAGR قدره 4–6% حتى 2035 (IEA/WLGA). لا تشمل الأرقام الإيرادات الإضافية من TZ، ZM، CD، RW، BI، UG.",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(2)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.d44947cecf2e505a",
@@ -1377,11 +1377,11 @@
       "id": "auto.871c071734f94e5d",
       "sourceHash": "a654eee8f82e3d6b334eca5725502080a40a52392fb7c78d0f41137d571f3203",
       "source": "1,600+ tanker trucks across 7-country network. Freight rates: $0.12–0.18/tonne-km.",
-      "translation": "1,600+ tanker trucks across 7-country network. Freight rates: $0.12–0.18/tonne-km.",
+      "translation": "أكثر من 1,600 شاحنة صهريجية ضمن شبكة من 7 دول. أسعار الشحن: $0.12–0.18/tonne-km.",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.2970873579a82ab2",
@@ -1407,11 +1407,11 @@
       "id": "auto.c23d09862541c938",
       "sourceHash": "946f105f474cd0e196313c6cf5ab1f9cb1186b778214551b353bf9491103a075",
       "source": "7 countries",
-      "translation": "7 countries",
+      "translation": "7 دول",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > span:nth-of-type(2) > span:nth-of-type(1)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.c23d09862541c938.2",
@@ -1437,11 +1437,11 @@
       "id": "auto.215d6541d6b5b4ef",
       "sourceHash": "eabf8d84a290414862ae210662595da93cc7d5413adef5916aa984708333c1ff",
       "source": "Excluding core Lake Oil petroleum distribution (reported at $1B in 2017)",
-      "translation": "Excluding core Lake Oil petroleum distribution (reported at $1B in 2017)",
+      "translation": "باستثناء التوزيع الأساسي للنفط لدى Lake Oil (المعلن عنه بقيمة $1B في 2017).",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(4) > p:nth-of-type(1)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.0ecc38490d116c25",
@@ -1597,21 +1597,21 @@
       "id": "auto.3c2246366fa504cf",
       "sourceHash": "09c6ae2ec5a8c32d1e3c18e5c715c262ada76c9997c4e61bd7c7ef15d3832188",
       "source": "2026 completion",
-      "translation": "2026 completion",
+      "translation": "الإنجاز في 2026",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(4) > div:nth-of-type(1) > span:nth-of-type(8) > strong:nth-of-type(1)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.0f0beef0f131f7a2",
       "sourceHash": "22abc33346a79e3d4b6c0f96babc1421be8e544dec106a1a2ed8f9b702a9c51e",
       "source": "Total group revenue well in excess of $1B as of 2026. These are indicative estimates based on operational metrics and industry benchmarks . not official company disclosures.",
-      "translation": "Total group revenue well in excess of $1B as of 2026. These are indicative estimates based on operational metrics and industry benchmarks . not official company disclosures.",
+      "translation": "يتجاوز إجمالي إيرادات المجموعة بكثير $1B اعتباراً من 2026. وهذه تقديرات استرشادية تستند إلى مقاييس التشغيل ومعايير القطاع، وليست إفصاحات رسمية للشركة.",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(4) > p:nth-of-type(2)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.7eea52e1c01fd1f7",
@@ -1887,11 +1887,11 @@
       "id": "auto.3cdfdeb823b1b04c",
       "sourceHash": "012fc02ad463fc1836b2f8419ed95387e523f3a311e414277ad729f59dd4859d",
       "source": "July 2026",
-      "translation": "July 2026",
+      "translation": "يوليو 2026",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(7) > div:nth-of-type(2) > div:nth-of-type(5) > span:nth-of-type(2)",
       "attribute": null,
-      "origin": "preserved-financial-value-or-source"
+      "origin": "assistant-authored-initial-translation"
     },
     {
       "id": "auto.66891f263bc3d9a4",

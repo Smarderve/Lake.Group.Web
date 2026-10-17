@@ -647,11 +647,11 @@
       "id": "auto.076d73d80c06385d",
       "sourceHash": "9d1f4c5e28790d8cab742054f03108555237b5b0415769dd6452808650606fb2",
       "source": "Juma Nuru",
-      "translation": "Juma Nuru",
+      "translation": "juma nuru",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(3) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > nav:nth-of-type(1) > a:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
       "attribute": "alt",
-      "origin": "protected-person-name"
+      "origin": "reused-exact-source-dictionary"
     },
     {
       "id": "auto.b4bd1bf14489ce8b",

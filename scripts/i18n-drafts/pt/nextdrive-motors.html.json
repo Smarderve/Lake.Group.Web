@@ -771,11 +771,11 @@
       "id": "auto.164c9e2ccbcad7e9",
       "sourceHash": "7494a05ba952a9e49cb6ec96a3e39d6cab5fdbe609ff621340d0259959643e38",
       "source": "Pick-ups",
-      "translation": "Pick-ups",
+      "translation": "Picapes",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(2) > span:nth-of-type(1)",
       "attribute": null,
-      "origin": "ai-authored-draft:assistant",
+      "origin": "assistant-authored-initial-translation",
       "authoringMethod": "AI-authored initial translation; pending human review",
       "reviewEvidence": null,
       "releaseEligible": false

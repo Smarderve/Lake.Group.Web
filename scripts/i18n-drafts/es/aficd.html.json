@@ -1417,11 +1417,11 @@
       "id": "auto.bd7fc10f0358945b",
       "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
       "source": "Kenya",
-      "translation": "Kenya",
+      "translation": "Kenia",
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "preserved-proper-name-or-invariant"
+      "origin": "reused-exact-source-dictionary"
     },
     {
       "id": "auto.67889e60ce20c647",
@@ -1457,11 +1457,11 @@
       "id": "auto.0d9b873ac4755703",
       "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
       "source": "Rwanda",
-      "translation": "Rwanda",
+      "translation": "Ruanda",
       "mode": "runtime-text",
       "selector": null,
       "attribute": null,
-      "origin": "preserved-proper-name-or-invariant"
+      "origin": "reused-exact-source-dictionary"
     },
     {
       "id": "auto.637821ce441e409d",
