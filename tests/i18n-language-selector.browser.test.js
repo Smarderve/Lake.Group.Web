@@ -195,6 +195,28 @@ test('draft page translations reach visible copy and survive switching, reload, 
   await context.close();
 });
 
+test('rapid language selection keeps the latest locale when an earlier draft request finishes last', async () => {
+  const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block' });
+  const page = await context.newPage();
+  await page.route('**/scripts/i18n-drafts/pt/**', async (route) => {
+    await new Promise((resolve) => setTimeout(resolve, 350));
+    await route.continue();
+  });
+  await page.goto(`${baseUrl}/index.html`, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => window.LakeI18n?.current === 'en' && window.LakeI18n?.draftPreview === true);
+  await page.locator('.lang-trigger').first().click();
+  await page.evaluate(() => {
+    document.querySelector('.lang-menu [data-lang="pt"]').click();
+    document.querySelector('.lang-menu [data-lang="ar"]').click();
+  });
+  await page.waitForFunction(() => window.LakeI18n?.current === 'ar' && localStorage.getItem('lake-lang') === 'ar');
+  await page.waitForTimeout(500);
+  assert.equal(await page.locator('html').getAttribute('lang'), 'ar');
+  assert.equal(await page.locator('html').getAttribute('dir'), 'rtl');
+  assert.equal(await page.evaluate(() => localStorage.getItem('lake-lang')), 'ar');
+  await context.close();
+});
+
 test('approved CMS snapshot translations reach the Lake Aviation page after a language change', async () => {
   const releaseId = 'cms-fixture-release';
   const content = {

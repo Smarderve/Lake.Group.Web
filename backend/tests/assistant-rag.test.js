@@ -520,6 +520,17 @@ describe('Lake Assistant RAG', () => {
     expect(englishPrompts.every((prompt) => prompt.includes('Respond in Kiswahili.'))).toBe(true);
   });
 
+  it.each([['en', 'English'], ['sw', 'Kiswahili'], ['hi', 'Hindi'], ['ar', 'Arabic'], ['zh', 'Simplified Chinese'], ['fr', 'French'], ['es', 'Spanish'], ['pt', 'Portuguese']])(
+    'keeps the selected %s locale in financial-answer safeguards', async (locale, language) => {
+      const { requests, fetchImpl } = fakeOllama('No verified figure appears in the evidence.');
+      const service = createTestService({ fetchImpl });
+      await service.chat({ message: "What was Lake Group's 2024 net profit?", locale });
+      const prompt = requests[0].body.messages[0].content;
+      expect(prompt).toContain(`Respond in ${language}.`);
+      expect(prompt).toContain(`Financial-question safeguard: answer in ${language}.`);
+    },
+  );
+
   it('regenerates only the latest answer from its original pre-turn context without duplicating history', async () => {
     const { requests, fetchImpl } = fakeOllama();
     const service = createTestService({ fetchImpl });

@@ -137,7 +137,7 @@ function financialAnswerMatchesEvidence(answer, records, query) {
 function financialGuidance(locale, message, records) {
   if (!companyFinancialQuestion(message, records)) return '';
   const hasFigure = financialEvidence(records, message);
-  const language = locale === 'sw' ? 'Kiswahili' : 'English';
+  const language = LOCALE_NAMES[locale] || LOCALE_NAMES.en;
   return hasFigure
     ? `\n\nFinancial-question safeguard: answer in ${language}. Use only figures explicitly present in retrieved evidence. Name the exact metric, publisher, reporting period, geography and date. If evidence is a secondary press report or is marked unverified, attribute it explicitly and state its limitations; do not call it audited, current, valuation, or group-wide unless the evidence says so. Revenue is not valuation, profit, assets, equity, or market capitalization. A rank must match the source's scope and table.`
     : `\n\nFinancial-question safeguard: answer in ${language}. No relevant verified figure for the requested metric appears in the retrieved evidence. Do not invent one or substitute revenue, market share, assets, profit, or a ranking for valuation. Explain what is and is not established, and offer useful context only when it is in the retrieved evidence.`;

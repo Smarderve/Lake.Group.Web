@@ -62,6 +62,7 @@ window.LakeI18n = (function () {
   let autoMutationObserver = null;
   let autoObserverFrame = 0;
   let current = 'en';
+  let selectionRevision = 0;
   let hoverOpenTimer = null;
   let hoverCloseTimer = null;
   // Keep a page's original English value so stale keyed dictionaries cannot
@@ -183,15 +184,26 @@ window.LakeI18n = (function () {
     const page = window.location.pathname.split('/').pop() || 'index.html';
     const rows = draftRows || publishedPageTranslations[page] || [];
     const normalize = (value) => String(value || '').replace(/\s+/g, ' ').trim();
+    let textNodesBySource = null;
     const matchingTextNodes = (source) => {
-      const matches = [];
-      const walker = document.createTreeWalker(document.body || document.documentElement, NodeFilter.SHOW_TEXT);
-      let node;
-      while ((node = walker.nextNode())) {
-        if (node.parentElement?.closest('[data-i18n],script,style,noscript,template')) continue;
-        if (normalize(node.nodeValue) === normalize(source)) matches.push(node);
+      if (!textNodesBySource) {
+        textNodesBySource = new Map();
+        const walker = document.createTreeWalker(document.body || document.documentElement, NodeFilter.SHOW_TEXT);
+        let node;
+        while ((node = walker.nextNode())) {
+          if (node.parentElement?.closest('[data-i18n],script,style,noscript,template')) continue;
+          const value = normalize(node.nodeValue);
+          if (!value) continue;
+          if (!textNodesBySource.has(value)) textNodesBySource.set(value, []);
+          textNodesBySource.get(value).push(node);
+        }
       }
-      return matches;
+      const key = normalize(source);
+      const matches = textNodesBySource.get(key) || [];
+      // Consume the exact source bucket before mutating any text. This retains
+      // the prior first-match behavior when repeated draft rows share a source.
+      textNodesBySource.delete(key);
+      return matches.filter((node) => node.isConnected && normalize(node.nodeValue) === key);
     };
     rows.forEach((entry) => {
       if (!entry || typeof entry.source !== 'string' || typeof entry.translation !== 'string') return;
@@ -583,15 +595,20 @@ window.LakeI18n = (function () {
       showUnavailableMessage(lang);
       return Promise.resolve(current);
     }
+    const revision = ++selectionRevision;
     return Promise.all([loadDictionaries(), DRAFT_PREVIEW ? loadDraftLocale(lang) : Promise.resolve(false), loadPublicationManifest()]).then(([, draftReady]) => {
       if (DRAFT_PREVIEW && draftReady) return null;
       return loadPublishedLocale(lang);
     }).then(() => {
+      if (revision !== selectionRevision) return current;
       current = lang;
       try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* unavailable */ }
       applyAll(lang);
       return current;
-    }).catch(() => { showUnavailableMessage(lang); return current; });
+    }).catch(() => {
+      if (revision === selectionRevision) showUnavailableMessage(lang);
+      return current;
+    });
   }
 
   function hydrateDictionaries(content) {
