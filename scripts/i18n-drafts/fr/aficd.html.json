@@ -1507,7 +1507,7 @@
       "id": "auto.332297bb6ca4e771",
       "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
       "source": "DR Congo flag",
-      "translation": "Drapeau de la République démocratique du Congo",
+      "translation": "Drapeau de la RD Congo",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
       "attribute": "alt",

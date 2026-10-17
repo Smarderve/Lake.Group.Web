@@ -1356,7 +1356,7 @@
       "id": "auto.551bc82259c66e2f",
       "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
       "source": "Mozambique flag",
-      "translation": "Mozambique का ध्वज",
+      "translation": "मोज़ाम्बिक का ध्वज",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
       "attribute": "alt",

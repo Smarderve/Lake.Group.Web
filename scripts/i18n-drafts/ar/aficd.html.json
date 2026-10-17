@@ -1577,7 +1577,7 @@
       "id": "auto.9ba5f7a1f4b5dff3",
       "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
       "source": "UAE flag",
-      "translation": "علم الإمارات العربية المتحدة",
+      "translation": "علم الإمارات",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
       "attribute": "alt",

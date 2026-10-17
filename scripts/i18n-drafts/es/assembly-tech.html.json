@@ -357,7 +357,7 @@
       "id": "auto.25185bd864db11b7",
       "sourceHash": "a034729933d1cbf407645e11d9c91d9ac1bfddbef23fd58cb36782e3f60ae659",
       "source": "Corporate",
-      "translation": "Corporativo",
+      "translation": "Corporativa",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
       "attribute": null,

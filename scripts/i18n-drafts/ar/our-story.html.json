@@ -467,7 +467,7 @@
       "id": "auto.211f1aaeefa6ae1a",
       "sourceHash": "36963b974496ba2869faff50e0299742c5b3696025c1a4b26ca335b5e6ec82e0",
       "source": "Lake Group logo",
-      "translation": "شعار Lake Group",
+      "translation": "شعار مجموعة ليك",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(6) > div:nth-of-type(8) > div:nth-of-type(1) > img:nth-of-type(1)",
       "attribute": "alt",

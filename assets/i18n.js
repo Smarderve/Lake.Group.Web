@@ -164,10 +164,12 @@ window.LakeI18n = (function () {
     });
   }
 
-  function applyPublishedPage(lang) {
+  function applyPublishedPage(lang, restorePrevious) {
     autoMutationObserver?.disconnect();
-    appliedAutoTargets.forEach(({ node, attribute, original }) => { if (attribute) node.setAttribute(attribute, original); else node.textContent = original; });
-    appliedAutoTargets = [];
+    if (restorePrevious !== false) {
+      appliedAutoTargets.forEach(({ node, attribute, original }) => { if (attribute) node.setAttribute(attribute, original); else node.textContent = original; });
+      appliedAutoTargets = [];
+    }
     if (lang === 'en') return;
     const draftRows = DRAFT_PREVIEW && draftPageTranslations[lang]?.ready && draftPageTranslations[lang].rows.length
       ? draftPageTranslations[lang].rows : null;
@@ -236,7 +238,7 @@ window.LakeI18n = (function () {
     if (!autoMutationObserver && typeof MutationObserver === 'function') {
       autoMutationObserver = new MutationObserver(() => {
         if (autoObserverFrame) return;
-        autoObserverFrame = window.requestAnimationFrame(() => { autoObserverFrame = 0; applyPublishedPage(current); });
+        autoObserverFrame = window.requestAnimationFrame(() => { autoObserverFrame = 0; applyPublishedPage(current, false); });
       });
     }
     autoMutationObserver?.observe(document.body || document.documentElement, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['alt', 'title', 'aria-label', 'placeholder'] });
@@ -497,6 +499,7 @@ window.LakeI18n = (function () {
   }
 
   function applyAll(lang) {
+    window.LakeSplitText?.prepareForLanguageChange?.();
     const nodes = document.querySelectorAll(
       '[data-i18n], [data-i18n-placeholder], [data-i18n-title], [data-i18n-alt], [data-i18n-aria], [data-i18n-number]'
     );
@@ -513,8 +516,10 @@ window.LakeI18n = (function () {
     setDocumentDirection(lang);
     syncSwitcherUI(lang);
     closeAllMenus();
-    document.dispatchEvent(new CustomEvent('lake-i18n-applied', { detail: { lang } }));
     applyPublishedPage(lang);
+    // Signal listeners only after keyed dictionaries and page drafts are both
+    // applied. SplitText and other content listeners rebuild from this DOM.
+    document.dispatchEvent(new CustomEvent('lake-i18n-applied', { detail: { lang } }));
   }
 
   function showUnavailableMessage(lang) {

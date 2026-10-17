@@ -245,6 +245,9 @@
     if (subtitle) {
       subtitle.textContent = slideTextFor(index);
     }
+    if (mobileLabel && tabs[index]) {
+      mobileLabel.textContent = (tabs[index].children[1] || tabs[index]).textContent.trim();
+    }
   });
 })();
 /* Stat count-up animation */

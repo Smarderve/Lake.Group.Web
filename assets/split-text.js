@@ -175,6 +175,7 @@
   }
 
   function storeOriginal(el) {
+    if (el._splitSourceHTML == null) el._splitSourceHTML = el.innerHTML;
     if (!el.dataset.splitOriginal) {
       el.dataset.splitOriginal = el.innerHTML;
     }
@@ -356,6 +357,25 @@
     }
   }
 
+  // Page-level editorial drafts target the original English DOM selectors.
+  // Restore that DOM before LakeI18n applies the next locale, then let the
+  // i18n-applied event split the newly translated markup for animation.
+  function prepareForLanguageChange() {
+    document.querySelectorAll(SELECTOR).forEach(function (el) {
+      if (el.hasAttribute('data-split-skip')) return;
+      if (el._splitSourceHTML == null) el._splitSourceHTML = el.dataset.splitOriginal != null ? el.dataset.splitOriginal : el.innerHTML;
+      killTween(el);
+      el.innerHTML = el._splitSourceHTML;
+      el.classList.remove('split-text', 'split-text--ready', 'split-text--done');
+      el.removeAttribute('aria-label');
+      delete el.dataset.splitOriginal;
+      delete el.dataset.splitEnhanced;
+      delete el.dataset.splitMode;
+      el._splitTextPlayed = false;
+    });
+    instances.length = 0;
+  }
+
   function enhanceAll(options) {
     if (reducedMotion) {
       document.querySelectorAll(SELECTOR).forEach(function (el) {
@@ -432,6 +452,7 @@
       document.querySelectorAll(SELECTOR).forEach(resetForReboot);
       return enhanceAll(options);
     },
+    prepareForLanguageChange: prepareForLanguageChange,
     destroy: destroyAll,
     defaults: DEFAULTS
   };
