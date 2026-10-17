@@ -9,8 +9,8 @@
   "authoringMethod": "existing dictionary reuse; no model output for generated rows",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 126,
-  "translatedCount": 126,
+  "candidateCount": 136,
+  "translatedCount": 136,
   "validation": "source hashes and protected facts checked; linguistic review remains required",
   "translations": [
     {
@@ -1272,6 +1272,96 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(8) > div:nth-of-type(1) > img:nth-of-type(1)",
       "attribute": "alt",
       "origin": "assistant-authored-draft:lake-lubes.html"
+    },
+    {
+      "id": "runtime.faq.title",
+      "source": "Questions about this business",
+      "translation": "关于这家企业的问题",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__title",
+      "sourceHash": "875ba74c700a0192f03ebba75f5ebdc2119fd477c70bc38b0fe5c69e8661acc1",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lead",
+      "source": "Helpful answers based on the information presented on this page.",
+      "translation": "根据本页面所提供信息给出的实用解答。",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__lead",
+      "sourceHash": "e4072b84bbc9a6fe21d18269c95db2638e79d5cd6db93f546fc413652149a077",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-lubes.1.question",
+      "source": "What does Lake Lubes manufacture?",
+      "translation": "Lake Lubes生产什么？",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > summary",
+      "sourceHash": "989d149a9a0af981f53c2c6f5967217d635b73732b279fe3d5cb31523809c0d0",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-lubes.1.answer",
+      "source": "Lake Lubes manufactures automotive, industrial and specialty lubricants and greases.",
+      "translation": "Lake Lubes生产汽车、工业和特种润滑油及润滑脂。",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > p",
+      "sourceHash": "35ddbf5a51dec2dea203c1d119dddd540bf411046f9ec1a3be2594dede51fa8c",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-lubes.2.question",
+      "source": "When was Lake Lubes established?",
+      "translation": "Lake Lubes何时成立？",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > summary",
+      "sourceHash": "51bde01a4049e3542e15762e92a3ed9a44b4fecdab40aa83dde31433b26c0ab9",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-lubes.2.answer",
+      "source": "Lake Lubes was established in 2016.",
+      "translation": "Lake Lubes于2016年成立。",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > p",
+      "sourceHash": "4cc1ad0a3520244d71f2b4d220b72b3e98ba7fc079c1f46e207c7ba4c10fabfb",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-lubes.3.question",
+      "source": "What is the stated blending capacity?",
+      "translation": "页面所述的调和产能是多少？",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > summary",
+      "sourceHash": "e1fa149615791b78000a276f511fad8a147ab218fa0148951eb5c22a7514828a",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-lubes.3.answer",
+      "source": "The page states ten blenders with a combined capacity of 54,000 litres per day.",
+      "translation": "页面称十台调和机的总产能为每天54,000升。",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > p",
+      "sourceHash": "f4652b0281bbbbe3cd3bde54380b766bf9c26f94bc3acfc860fa3d76037022aa",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-lubes.4.question",
+      "source": "How is quality controlled?",
+      "translation": "如何进行质量控制？",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > summary",
+      "sourceHash": "eb266325fd6bb5d3af40ddbb0e59d106909633ed7ab52526e6890a5aacdfb8d2",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-lubes.4.answer",
+      "source": "The company describes in-house laboratory quality control across blending, filling and packaging.",
+      "translation": "公司介绍了在调和、灌装和包装环节进行的内部实验室质量控制。",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > p",
+      "sourceHash": "f34a94ae2141685763bade5a855f25f6443dd4c10bbaa0afdfedcfd4dc7e8ac3",
+      "origin": "assistant-authored-initial-draft"
     }
   ]
 }

@@ -9,8 +9,8 @@
   "authoringMethod": "assistant-authored initial translation draft; human review required",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 103,
-  "translatedCount": 103,
+  "candidateCount": 113,
+  "translatedCount": 113,
   "validation": "source hashes and protected facts checked; linguistic review remains required",
   "translations": [
     {
@@ -1042,6 +1042,96 @@
       "selector": null,
       "attribute": null,
       "origin": "existing-dictionary-reuse:exact-source"
+    },
+    {
+      "id": "runtime.faq.title",
+      "source": "Questions about this business",
+      "translation": "इस व्यवसाय के बारे में प्रश्न",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__title",
+      "sourceHash": "875ba74c700a0192f03ebba75f5ebdc2119fd477c70bc38b0fe5c69e8661acc1",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lead",
+      "source": "Helpful answers based on the information presented on this page.",
+      "translation": "इस पृष्ठ पर दी गई जानकारी के आधार पर उपयोगी उत्तर।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__lead",
+      "sourceHash": "e4072b84bbc9a6fe21d18269c95db2638e79d5cd6db93f546fc413652149a077",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-pipes.1.question",
+      "source": "What does Lake Pipes manufacture?",
+      "translation": "लेक पाइप्स क्या बनाता है?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > summary",
+      "sourceHash": "f76625f8746e126c5166443622b36da5cd2cfc2c568ea3d9d97a2f7af3c08790",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-pipes.1.answer",
+      "source": "Lake Pipes manufactures PVC and HDPE pipes, water tanks and fittings.",
+      "translation": "लेक पाइप्स PVC और HDPE पाइप, पानी की टंकियाँ और फिटिंग बनाता है।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > p",
+      "sourceHash": "77c97dee4da555e60b2ea4af8376861b809da75612e686d8f4901ffa7fae3cd7",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-pipes.2.question",
+      "source": "When was Lake Pipes established?",
+      "translation": "लेक पाइप्स की स्थापना कब हुई?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > summary",
+      "sourceHash": "1172b7fc2435f9ce642601f4fb3abd4dac55141dde33aac000c8a0e721824e50",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-pipes.2.answer",
+      "source": "Lake Pipes was established in 2019.",
+      "translation": "लेक पाइप्स की स्थापना 2019 में हुई।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > p",
+      "sourceHash": "5fe837e0e29a245044f5221d5e42e92b16c63c5625e2fdcaa703ffe60f750baf",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-pipes.3.question",
+      "source": "Where is the manufacturing plant?",
+      "translation": "निर्माण संयंत्र कहाँ है?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > summary",
+      "sourceHash": "cf4fa721264ab452d7aad1c6d9bf3fc7a2321b134742133b358d2ef0f1529c6d",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-pipes.3.answer",
+      "source": "The plant is in Visiga, Kibaha, Tanzania.",
+      "translation": "संयंत्र Visiga, Kibaha, तंज़ानिया में है।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > p",
+      "sourceHash": "f39d36ff987db86f1a65e25a7c77462ca2abe1941435b9e8998bef3ac717d5a8",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-pipes.4.question",
+      "source": "How are products checked?",
+      "translation": "उत्पादों की जाँच कैसे होती है?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > summary",
+      "sourceHash": "edeef5de17cde81c2d6accbed23cab18d3769f0ce5f902abcdfcaee96139f344",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-pipes.4.answer",
+      "source": "The page states that products are quality tested at every production stage.",
+      "translation": "पृष्ठ के अनुसार उत्पादन के हर चरण में उत्पादों की गुणवत्ता जाँची जाती है।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > p",
+      "sourceHash": "7e9370fff2c6570d914717e653c4385a25ae483774788447e80fbbf783284055",
+      "origin": "assistant-authored-initial-draft"
     }
   ]
 }

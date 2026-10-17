@@ -711,6 +711,13 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .lang-menu {
   clip-path: inset(0 round var(--nav-dropdown-radius)) !important;
 }
 
+/* The desktop navigation stays LTR in Arabic, but the percentage containing
+   block can resolve to the rail width. Center the company panel on the viewport. */
+html[dir="rtl"] .site-nav[data-phase01-navbar] .nav-dropdown.nav-megamenu {
+  left: 50vw !important;
+  right: auto !important;
+}
+
 .site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-megamenu,
 .site-nav[data-phase01-navbar] .has-dropdown:focus-within > .nav-megamenu {
   transform: translate(-50%, 0) !important;

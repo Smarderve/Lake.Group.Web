@@ -67,6 +67,8 @@ window.LakeI18n = (function () {
   // Keep a page's original English value so stale keyed dictionaries cannot
   // rewrite newer copy or facts, even after the user changes languages.
   const keyedSourceSnapshots = new WeakMap();
+  const keyedSourceNormalizedSnapshots = new WeakMap();
+  const normalizedDictionarySources = new Map();
   // Distinguish Tab focus (open menu) from pointer focus (click owns toggle).
   let keyboardIntent = false;
   const LANG_OPEN_DELAY_MS = 200;
@@ -292,18 +294,34 @@ window.LakeI18n = (function () {
   }
 
   function normalizedMarkupText(value) {
-    const holder = document.createElement('span');
-    holder.innerHTML = String(value ?? '');
-    return String(holder.textContent || '').replace(/\s+/g, ' ').trim().toLocaleLowerCase('en');
+    const raw = String(value ?? '');
+    let text = raw;
+    if (/<\/?[a-z][^>]*>/i.test(raw)) {
+      const holder = document.createElement('span');
+      holder.innerHTML = raw;
+      text = holder.textContent || '';
+    }
+    return text.replace(/\s+/g, ' ').trim().toLocaleLowerCase('en');
   }
 
   function matchesDictionarySource(el, key, slot, rawValue, lang) {
     let snapshots = keyedSourceSnapshots.get(el);
     if (!snapshots) { snapshots = new Map(); keyedSourceSnapshots.set(el, snapshots); }
-    if (!snapshots.has(slot)) snapshots.set(slot, rawValue);
+    let normalizedSnapshots = keyedSourceNormalizedSnapshots.get(el);
+    if (!normalizedSnapshots) { normalizedSnapshots = new Map(); keyedSourceNormalizedSnapshots.set(el, normalizedSnapshots); }
+    if (!snapshots.has(slot)) {
+      snapshots.set(slot, rawValue);
+      normalizedSnapshots.set(slot, normalizedMarkupText(rawValue));
+    }
     const dictionarySource = dictionaries?.en?.[key];
     const source = typeof dictionarySource === 'string' ? dictionarySource : draftEnglishSources[lang]?.[key];
-    return typeof source === 'string' && normalizedMarkupText(snapshots.get(slot)) === normalizedMarkupText(source);
+    if (typeof source !== 'string') return false;
+    let normalizedSource = normalizedDictionarySources.get(key);
+    if (!normalizedSource) {
+      normalizedSource = normalizedMarkupText(source);
+      normalizedDictionarySources.set(key, normalizedSource);
+    }
+    return normalizedSnapshots.get(slot) === normalizedSource;
   }
 
   function restoreKeyedSource(el, slot, property) {
@@ -693,7 +711,13 @@ window.LakeI18n = (function () {
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved && availableLanguages.has(saved)) preferred = saved;
       } catch (e) { /* unavailable */ }
-      (DRAFT_PREVIEW ? loadDraftLocale(preferred) : Promise.resolve(false)).then((draftReady) => draftReady ? null : loadPublishedLocale(preferred)).catch(() => { preferred = 'en'; }).then(() => { current = preferred; applyAll(preferred); });
+      (DRAFT_PREVIEW ? loadDraftLocale(preferred) : Promise.resolve(false)).then((draftReady) => draftReady ? null : loadPublishedLocale(preferred)).catch(() => { preferred = 'en'; }).then(() => {
+        current = preferred;
+        applyAll(preferred);
+        // Warm the existing draft assets after the first paint so a visitor's
+        // first language choice does not wait on three JSON requests.
+        if (DRAFT_PREVIEW) loadDraftPreviews();
+      });
     });
 
     document.addEventListener('keydown', (e) => {

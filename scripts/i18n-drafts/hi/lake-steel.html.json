@@ -9,8 +9,8 @@
   "authoringMethod": "AI-authored initial translations; pending human review",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 94,
-  "translatedCount": 94,
+  "candidateCount": 104,
+  "translatedCount": 104,
   "validation": "structural validation pending; linguistic review remains required",
   "translations": [
     {
@@ -1234,6 +1234,96 @@
       "authoringMethod": "AI-authored initial translation; pending human review",
       "reviewEvidence": null,
       "releaseEligible": false
+    },
+    {
+      "id": "runtime.faq.title",
+      "source": "Questions about this business",
+      "translation": "इस व्यवसाय के बारे में प्रश्न",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__title",
+      "sourceHash": "875ba74c700a0192f03ebba75f5ebdc2119fd477c70bc38b0fe5c69e8661acc1",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lead",
+      "source": "Helpful answers based on the information presented on this page.",
+      "translation": "इस पृष्ठ पर दी गई जानकारी के आधार पर उपयोगी उत्तर।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__lead",
+      "sourceHash": "e4072b84bbc9a6fe21d18269c95db2638e79d5cd6db93f546fc413652149a077",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-steel.1.question",
+      "source": "What does Lake Steel manufacture?",
+      "translation": "लेक स्टील क्या बनाता है?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > summary",
+      "sourceHash": "012404b73289a4fd9bdb5d0b43603b3029941fb30fc850e2ce5224a952de4cc8",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-steel.1.answer",
+      "source": "Lake Steel manufactures TBS-certified TMT reinforcement steel bars conforming to BS 500.",
+      "translation": "लेक स्टील TBS-प्रमाणित TMT सरिया बनाता है, जो BS 500 मानक के अनुरूप है।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > p",
+      "sourceHash": "04e48f5f698c66a841e2ef3128d0306e36c6b629931017f8cc5d9bfa3847af17",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-steel.2.question",
+      "source": "When was Lake Steel established?",
+      "translation": "लेक स्टील की स्थापना कब हुई?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > summary",
+      "sourceHash": "7a6e437ad02692e8efe948911ba4bf607bf71ef10ab54e92b2a4e2c34d61d321",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-steel.2.answer",
+      "source": "Lake Steel was established in 2017.",
+      "translation": "लेक स्टील की स्थापना 2017 में हुई।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > p",
+      "sourceHash": "31f965adab156fa52029c1889abaf4aacd2c3b9289a68904211fa06de0510b46",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-steel.3.question",
+      "source": "What was commissioned in 2023?",
+      "translation": "2023 में क्या शुरू किया गया?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > summary",
+      "sourceHash": "11c8da5413158170ef73429a0d516425979f453473652803c8ff7ebb7a4d58b6",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-steel.3.answer",
+      "source": "A Steel Melting Shop and Continuous Casting Machine were commissioned in 2023.",
+      "translation": "2023 में स्टील मेल्टिंग शॉप और सतत कास्टिंग मशीन शुरू की गई।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > p",
+      "sourceHash": "ba406c731e6d1c8b916111a77dc7cd52e50eb5ca93e5ae33be4b36e5484d840c",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-steel.4.question",
+      "source": "What billet capacity is stated?",
+      "translation": "बिलेट उत्पादन क्षमता कितनी बताई गई है?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > summary",
+      "sourceHash": "28aa9b85691127ca37197b70d689aace815e6779af3b87e729918467c843873b",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-steel.4.answer",
+      "source": "The page states 60,000 metric tons of annual billet production capacity.",
+      "translation": "पृष्ठ में बिलेट उत्पादन की वार्षिक क्षमता 60,000 मीट्रिक टन बताई गई है।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > p",
+      "sourceHash": "2443660eb66fea015150fc4746a591b62e82c091af5100e3b7828f4cfc1d9fff",
+      "origin": "assistant-authored-initial-draft"
     }
   ]
 }

@@ -7,8 +7,8 @@
   "authoringMethod": "existing dictionary reuse plus AI-authored page translations; all remain pending human review",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 120,
-  "translatedCount": 120,
+  "candidateCount": 130,
+  "translatedCount": 130,
   "validation": "source IDs and hashes checked; structural validation passed; linguistic review remains required",
   "translations": [
     {
@@ -1570,6 +1570,96 @@
       "authoringMethod": "AI-authored initial translation; pending human review",
       "releaseEligible": false,
       "reviewEvidence": null
+    },
+    {
+      "id": "runtime.faq.title",
+      "source": "Questions about this business",
+      "translation": "关于这家企业的问题",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__title",
+      "sourceHash": "875ba74c700a0192f03ebba75f5ebdc2119fd477c70bc38b0fe5c69e8661acc1",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lead",
+      "source": "Helpful answers based on the information presented on this page.",
+      "translation": "根据本页面所提供信息给出的实用解答。",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__lead",
+      "sourceHash": "e4072b84bbc9a6fe21d18269c95db2638e79d5cd6db93f546fc413652149a077",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-oil.1.question",
+      "source": "When was Lake Oil established?",
+      "translation": "Lake Oil何时成立？",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > summary",
+      "sourceHash": "c21f556eea72852b7dc96dd8d2f72be568d47ea3aa0adce2ddf5ed8954c419b7",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-oil.1.answer",
+      "source": "Lake Oil was established in 2006 as the flagship company of Lake Group.",
+      "translation": "Lake Oil于2006年成立，是Lake Group的旗舰公司。",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > p",
+      "sourceHash": "135a8822a414f80418436108d89a6ae4193cf45abd94eed3bcb6a1505e994656",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-oil.2.question",
+      "source": "What does Lake Oil provide?",
+      "translation": "Lake Oil提供哪些服务？",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > summary",
+      "sourceHash": "47d99236998d11b61de40e4f8d7a30b025d5c8a2d9246b4f3b815bafe1734968",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-oil.2.answer",
+      "source": "Lake Oil operates retail fuel stations and provides bulk petroleum distribution.",
+      "translation": "Lake Oil经营零售加油站，并提供石油产品批量配送。",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > p",
+      "sourceHash": "fad6e9e0c133a76d01e4f16d1a4a4d640fb1207fc28f7d227e101c54ae6646fb",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-oil.3.question",
+      "source": "Which markets are named on the page?",
+      "translation": "页面提到了哪些市场？",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > summary",
+      "sourceHash": "fc5170aa7be51e941153a8a3d6cfeb2b5977cd54adcbefdeeaf22d1afac14d2d",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-oil.3.answer",
+      "source": "The page names operations in Tanzania, Zambia, DR Congo, Burundi, Kenya and Mozambique.",
+      "translation": "页面提到其业务覆盖坦桑尼亚、赞比亚、刚果（金）、布隆迪、肯尼亚和莫桑比克。",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > p",
+      "sourceHash": "9ca4a9639863acd8aa54f4e24c4283296f5b849516b96dcb432212aa12fe73f7",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-oil.4.question",
+      "source": "Does Lake Oil operate its own storage facilities?",
+      "translation": "Lake Oil是否经营自有储油设施？",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > summary",
+      "sourceHash": "c52521cd252f760a249631422bc781268639dd8b14a807b7145f9f921cc5f16c",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-oil.4.answer",
+      "source": "Yes. The page describes oil storage facilities in Tanzania, Kenya, Burundi and DR Congo.",
+      "translation": "是。页面介绍了位于坦桑尼亚、肯尼亚、布隆迪和刚果（金）的储油设施。",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > p",
+      "sourceHash": "5c3986892eec14d3387ff63ff240dc60ddcae3a767498ee044d8395ebb2ddf5b",
+      "origin": "assistant-authored-initial-draft"
     }
   ]
 }

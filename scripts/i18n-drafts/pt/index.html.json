@@ -9,8 +9,8 @@
   "authoringMethod": "Existing dictionary reuse plus assistant-authored initial translations; pending human editorial review",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 93,
-  "translatedCount": 93,
+  "candidateCount": 94,
+  "translatedCount": 94,
   "validation": "Source ids and hashes preserved; language names, company names, figures and functional placeholders preserved; editorial review pending",
   "translations": [
     {
@@ -1004,7 +1004,7 @@
       "id": "auto.c498c31bcfd0219f",
       "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
       "source": "Our History",
-      "translation": "A nossa história",
+      "translation": "Nossa história",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(1)"
     },
@@ -1190,7 +1190,7 @@
       "id": "auto.94c3db67ea3868c6.2",
       "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
       "source": "Kenya flag",
-      "translation": "Bandeira do Quénia",
+      "translation": "Bandeira do Quênia",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
       "attribute": "alt"
@@ -1238,7 +1238,7 @@
       "id": "auto.85a9e08a7ee525e9.2",
       "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
       "source": "Kenya flag",
-      "translation": "Bandeira do Quénia",
+      "translation": "Bandeira do Quênia",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
       "attribute": "alt"
@@ -1279,7 +1279,7 @@
       "id": "auto.98afe0b3ec349255",
       "sourceHash": "532c1f3d6fa2a4bbbfe751523f48af88b3842e9f329155dcce9cd8b022d83eed",
       "source": "Lake Lubes Power Eco lubricant products",
-      "translation": "Lubrificantes Power Eco da Lake Lubes",
+      "translation": "Produtos lubrificantes Lake Lubes Power Eco",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(5) > div:nth-of-type(1) > img:nth-of-type(1)",
       "attribute": "alt"
@@ -1288,7 +1288,7 @@
       "id": "auto.d9d68d309bf0aad0",
       "sourceHash": "5f8d59effa3f0793fd8c00f856dd10dc7eaa9ad6a0374a4636a41f00ad8dda40",
       "source": "Lake Steel & Allied Products Limited manufactures TBS-certified TMT reinforcement steel bars conforming to BS 500, with a 25T/hr computerized rolling mill.",
-      "translation": "A Lake Steel & Allied Products Limited fabrica varões de reforço TMT certificados pela TBS e conformes à norma BS 500, com um laminador informatizado de 25 toneladas por hora.",
+      "translation": "A Lake Steel & Allied Products Limited fabrica barras de aço para armadura TMT certificadas pela TBS e em conformidade com a norma BS 500, utilizando um laminador computadorizado com capacidade de 25 toneladas por hora.",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(6) > div:nth-of-type(2) > p:nth-of-type(1)"
     },
@@ -1410,7 +1410,7 @@
       "id": "auto.f41eb8b744110ab4",
       "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
       "source": "Kenya flag",
-      "translation": "Bandeira do Quénia",
+      "translation": "Bandeira do Quênia",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
       "attribute": "alt"
@@ -1442,7 +1442,7 @@
       "id": "auto.440c55f72473377d",
       "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
       "source": "Rwanda flag",
-      "translation": "Bandeira do Ruanda",
+      "translation": "Bandeira de Ruanda",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
       "attribute": "alt"
@@ -1501,7 +1501,7 @@
       "id": "auto.18ffb45efbb13498",
       "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
       "source": "Uganda flag",
-      "translation": "Bandeira do Uganda",
+      "translation": "Bandeira de Uganda",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
       "attribute": "alt"
@@ -1510,7 +1510,7 @@
       "id": "auto.60d553d80f27e9b0",
       "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
       "source": "UAE flag",
-      "translation": "Bandeira dos EAU",
+      "translation": "Bandeira dos Emirados Árabes Unidos",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
       "attribute": "alt"
@@ -1530,6 +1530,16 @@
       "translation": "Energia",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(5) > span:nth-of-type(1)"
+    },
+    {
+      "id": "auto.86ac682ef7bac7dc",
+      "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
+      "source": "Chat",
+      "translation": "Conversa",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(5) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "assistant-authored-initial-draft"
     }
   ]
 }

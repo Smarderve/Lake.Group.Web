@@ -9,8 +9,8 @@
   "authoringMethod": "existing dictionary reuse; no model output for generated rows",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 102,
-  "translatedCount": 102,
+  "candidateCount": 112,
+  "translatedCount": 112,
   "validation": "Exact source ids and hashes retained; remaining strings are protected brands, native language names, or copyright; editorial review pending",
   "translations": [
     {
@@ -1032,6 +1032,96 @@
       "selector": null,
       "attribute": null,
       "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "runtime.faq.title",
+      "source": "Questions about this business",
+      "translation": "Preguntas sobre esta empresa",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__title",
+      "sourceHash": "875ba74c700a0192f03ebba75f5ebdc2119fd477c70bc38b0fe5c69e8661acc1",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lead",
+      "source": "Helpful answers based on the information presented on this page.",
+      "translation": "Respuestas útiles basadas en la información presentada en esta página.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__lead",
+      "sourceHash": "e4072b84bbc9a6fe21d18269c95db2638e79d5cd6db93f546fc413652149a077",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-buildings.1.question",
+      "source": "What does Lake Building Solution manufacture?",
+      "translation": "¿Qué fabrica Lake Building Solution?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > summary",
+      "sourceHash": "0fde9ba55dd465a52f6ddf14e266c5ed7a99a03d5236272380c8fe31e562ef90",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-buildings.1.answer",
+      "source": "It manufactures gypsum boards and marine boards for construction applications.",
+      "translation": "Fabrica placas de yeso y placas marinas para aplicaciones de construcción.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > p",
+      "sourceHash": "8f97eabe188f5712eca6dd84da19498733e3f3be6635c3fff75961d976752497",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-buildings.2.question",
+      "source": "Where is the facility located?",
+      "translation": "¿Dónde está la instalación?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > summary",
+      "sourceHash": "d609afcc0e305c4aeb2bc0572a5c0bd78fc887cf6bf15ece715b03fb95aa923b",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-buildings.2.answer",
+      "source": "The page identifies Kibaha Visiga in Tanzania’s Coast Region.",
+      "translation": "La página sitúa la instalación en Kibaha Visiga, en la región costera de Tanzania.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > p",
+      "sourceHash": "ce3291ddc757e519f13729b766839f1066824768c413c08a11483690b0741eb8",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-buildings.3.question",
+      "source": "What is marine board intended for?",
+      "translation": "¿Para qué se utiliza la placa marina?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > summary",
+      "sourceHash": "e7509c159318230b849275876af490aa7076aafb468d84d2b2bfaf5b1a6dc08a",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-buildings.3.answer",
+      "source": "The page describes marine board for moisture-exposed applications.",
+      "translation": "La página la destina a aplicaciones expuestas a la humedad.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > p",
+      "sourceHash": "a0b83d6650ae0712e58698931ce323a986964e6389af0db7eecd9c060b814fad",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-buildings.4.question",
+      "source": "What guides its operations?",
+      "translation": "¿Qué principios guían sus operaciones?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > summary",
+      "sourceHash": "7352937f4a0456e495a0347861544e7a24f3dedaa753ebef7ea2448a04fc3da1",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-buildings.4.answer",
+      "source": "The page highlights quality, efficiency and environmental responsibility.",
+      "translation": "La página destaca la calidad, la eficiencia y la responsabilidad medioambiental.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > p",
+      "sourceHash": "ee893bbe7e7c8be31cac529fde75f5eca2d505ab03101ffb230c59bb7991573e",
+      "origin": "assistant-authored-initial-draft"
     }
   ]
 }

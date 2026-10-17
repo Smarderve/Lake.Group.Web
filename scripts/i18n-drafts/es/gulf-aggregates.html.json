@@ -9,8 +9,8 @@
   "authoringMethod": "existing dictionary reuse; no model output for generated rows",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 101,
-  "translatedCount": 102,
+  "candidateCount": 111,
+  "translatedCount": 112,
   "validation": "source hashes and protected facts checked; linguistic review remains required",
   "translations": [
     {
@@ -1032,6 +1032,96 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
       "attribute": null,
       "origin": "assistant-authored-draft:gulf-aggregates.html"
+    },
+    {
+      "id": "runtime.faq.title",
+      "source": "Questions about this business",
+      "translation": "Preguntas sobre esta empresa",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__title",
+      "sourceHash": "875ba74c700a0192f03ebba75f5ebdc2119fd477c70bc38b0fe5c69e8661acc1",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lead",
+      "source": "Helpful answers based on the information presented on this page.",
+      "translation": "Respuestas útiles basadas en la información presentada en esta página.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__lead",
+      "sourceHash": "e4072b84bbc9a6fe21d18269c95db2638e79d5cd6db93f546fc413652149a077",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.gulf-aggregates.1.question",
+      "source": "What does Gulf Aggregates do?",
+      "translation": "¿A qué se dedica Gulf Aggregates?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > summary",
+      "sourceHash": "1daf370e23b74d340db9530083da687d0f2d6d1f3831ed43cadd1680ada95731",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.gulf-aggregates.1.answer",
+      "source": "It develops and operates quarry resources, crushing, screening and aggregate handling.",
+      "translation": "Desarrolla y opera recursos de cantera, trituración, cribado y manipulación de áridos.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > p",
+      "sourceHash": "5be3cefd826663fe438dd244205ceb138216df204b66a6daf9ea574f1b46fbba",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.gulf-aggregates.2.question",
+      "source": "Where is the quarry located?",
+      "translation": "¿Dónde está la cantera?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > summary",
+      "sourceHash": "e93a8eb6385212b970fe45667177e3fcbd7668d448e40a01594ec557179bccf5",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.gulf-aggregates.2.answer",
+      "source": "The page identifies Lugoba, Tanzania.",
+      "translation": "La página sitúa la cantera en Lugoba, Tanzania.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > p",
+      "sourceHash": "4175aeb07f020f190e29f22cab59a3c5fbd91957b9dd8afc4e63e063eb7c61a5",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.gulf-aggregates.3.question",
+      "source": "Who does it supply?",
+      "translation": "¿A quién suministra?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > summary",
+      "sourceHash": "23cf235ad9de75758fb3b4f0908fcb5b2be956cbd551e3a6fb858ace38940616",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.gulf-aggregates.3.answer",
+      "source": "It supplies Lake Group’s own consumption and third-party construction customers.",
+      "translation": "Suministra para el consumo propio de Lake Group y para clientes externos del sector de la construcción.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > p",
+      "sourceHash": "005a5da9775320a8d88c8dcbf9c2e502613a62cc5f6b6baf913e37835bc6a750",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.gulf-aggregates.4.question",
+      "source": "What is its operating model?",
+      "translation": "¿Cuál es su modelo operativo?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > summary",
+      "sourceHash": "82e421cf7ea7759a68bbef01dbf62b7aa790b544bbf848e40dbc94b0fdfc1dc8",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.gulf-aggregates.4.answer",
+      "source": "The page describes an integrated resource-to-market model with in-house production capability.",
+      "translation": "La página describe un modelo integrado desde el recurso hasta el mercado, con producción propia.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > p",
+      "sourceHash": "8b5cbb8a6889bb3e88b2801e7e270a337b26d65262d683d919403e5da55c5e68",
+      "origin": "assistant-authored-initial-draft"
     }
   ]
 }

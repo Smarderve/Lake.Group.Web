@@ -9,8 +9,8 @@
   "authoringMethod": "AI-authored initial inland logistics page translations with exact-source dictionary/draft reuse; human review pending",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 159,
-  "translatedCount": 159,
+  "candidateCount": 169,
+  "translatedCount": 169,
   "validation": "Source ids and hashes preserved; number tokens checked; editorial review pending",
   "translations": [
     {
@@ -1602,6 +1602,96 @@
       "selector": null,
       "attribute": null,
       "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "runtime.faq.title",
+      "source": "Questions about this business",
+      "translation": "Preguntas sobre esta empresa",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__title",
+      "sourceHash": "875ba74c700a0192f03ebba75f5ebdc2119fd477c70bc38b0fe5c69e8661acc1",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lead",
+      "source": "Helpful answers based on the information presented on this page.",
+      "translation": "Respuestas útiles basadas en la información presentada en esta página.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__lead",
+      "sourceHash": "e4072b84bbc9a6fe21d18269c95db2638e79d5cd6db93f546fc413652149a077",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.aill.1.question",
+      "source": "What cargo does AILL handle?",
+      "translation": "¿Qué tipo de carga manipula AILL?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > summary",
+      "sourceHash": "961cef468b737a8a2bfe27a9c069728c8e598d05a4660471bd61db7cd9d1643d",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.aill.1.answer",
+      "source": "AILL handles bulk, break-bulk and containerized cargo.",
+      "translation": "AILL manipula carga a granel, carga fraccionada y carga en contenedores.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > p",
+      "sourceHash": "27aa6a246f3952cdf036cd93aeb12e17a615b31ebe70db80c213fa8b8f2e5f08",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.aill.2.question",
+      "source": "What services does AILL provide?",
+      "translation": "¿Qué servicios ofrece AILL?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > summary",
+      "sourceHash": "cfdb41850945dee1db754c5413532e3af03e9a83574873ea8a37d840391e3127",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.aill.2.answer",
+      "source": "Services include port handling, warehousing, bagging, customs clearance, and road and rail transport.",
+      "translation": "Los servicios incluyen manipulación portuaria, almacenamiento, ensacado, despacho aduanero y transporte por carretera y ferrocarril.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > p",
+      "sourceHash": "0c65227d2513acd9f5113737ce13b1bd2d1f0c74bb47905aedfdc1cf2472d735",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.aill.3.question",
+      "source": "How does AILL support cargo movement?",
+      "translation": "¿Cómo facilita AILL el movimiento de carga?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > summary",
+      "sourceHash": "c3695c510a575f8c763c7efa33bd1b682f8bce741ef50126dbfc929d90a11ff3",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.aill.3.answer",
+      "source": "The page describes coordination from vessel discharge through clearance, transport, storage, processing and final delivery.",
+      "translation": "La página describe la coordinación desde la descarga del buque hasta el despacho, el transporte, el almacenamiento, el procesamiento y la entrega final.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > p",
+      "sourceHash": "94c1711e2008adbc377bc8d0d0eaf4ed900829e56604d5549d0c812cd3c95dab",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.aill.4.question",
+      "source": "Which countries are named in its network?",
+      "translation": "¿Qué países se mencionan en su red?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > summary",
+      "sourceHash": "3a5198d4d798882fc40ae358ee418a90ea9a3fe42d2548f501a70c0317ddc775",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.aill.4.answer",
+      "source": "The page names Tanzania, Zambia and Mozambique.",
+      "translation": "La página menciona Tanzania, Zambia y Mozambique.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > p",
+      "sourceHash": "e0c8eabba7b3301ff05ad02f1d82f1c4c3849e9056ad90bb0f27e7b93c074598",
+      "origin": "assistant-authored-initial-draft"
     }
   ]
 }

@@ -1265,7 +1265,7 @@
       "id": "auto.98afe0b3ec349255",
       "sourceHash": "532c1f3d6fa2a4bbbfe751523f48af88b3842e9f329155dcce9cd8b022d83eed",
       "source": "Lake Lubes Power Eco lubricant products",
-      "translation": "Lubrifiants Power Eco de Lake Lubes",
+      "translation": "Produits lubrifiants Lake Lubes Power Eco",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(5) > div:nth-of-type(1) > img:nth-of-type(1)",
       "attribute": "alt"
@@ -1274,7 +1274,7 @@
       "id": "auto.d9d68d309bf0aad0",
       "sourceHash": "5f8d59effa3f0793fd8c00f856dd10dc7eaa9ad6a0374a4636a41f00ad8dda40",
       "source": "Lake Steel & Allied Products Limited manufactures TBS-certified TMT reinforcement steel bars conforming to BS 500, with a 25T/hr computerized rolling mill.",
-      "translation": "Lake Steel & Allied Products Limited fabrique des barres d’armature TMT certifiées par le TBS et conformes à la norme BS 500, avec un laminoir informatisé d’une capacité de 25 tonnes par heure.",
+      "translation": "Lake Steel & Allied Products Limited fabrique des barres d’armature TMT certifiées TBS conformes à la norme BS 500, grâce à un laminoir informatisé d’une capacité de 25 tonnes par heure.",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(6) > div:nth-of-type(2) > p:nth-of-type(1)"
     },

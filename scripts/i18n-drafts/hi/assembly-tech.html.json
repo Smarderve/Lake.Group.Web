@@ -9,8 +9,8 @@
   "authoringMethod": "existing dictionary reuse; no model output for generated rows",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 145,
-  "translatedCount": 145,
+  "candidateCount": 155,
+  "translatedCount": 155,
   "validation": "source hashes and protected facts checked; linguistic review remains required",
   "translations": [
     {
@@ -1462,6 +1462,96 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(9) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(5) > p:nth-of-type(1)",
       "attribute": null,
       "origin": "assistant-authored-draft:assembly-tech.html"
+    },
+    {
+      "id": "runtime.faq.title",
+      "source": "Questions about this business",
+      "translation": "इस व्यवसाय के बारे में प्रश्न",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__title",
+      "sourceHash": "875ba74c700a0192f03ebba75f5ebdc2119fd477c70bc38b0fe5c69e8661acc1",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lead",
+      "source": "Helpful answers based on the information presented on this page.",
+      "translation": "इस पृष्ठ पर दी गई जानकारी के आधार पर उपयोगी उत्तर।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__lead",
+      "sourceHash": "e4072b84bbc9a6fe21d18269c95db2638e79d5cd6db93f546fc413652149a077",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.assembly-tech.1.question",
+      "source": "What does Assembly Tech provide?",
+      "translation": "Assembly Tech क्या उपलब्ध कराता है?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > summary",
+      "sourceHash": "1f3b7eca091a8a1fafee17319e8455362953969d81bc49f7282b0f0b3b63b101",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.assembly-tech.1.answer",
+      "source": "Assembly Tech assembles commercial vehicles and trailers for transport, logistics and specialized requirements.",
+      "translation": "Assembly Tech परिवहन, लॉजिस्टिक्स और विशेष जरूरतों के लिए वाणिज्यिक वाहन तथा ट्रेलर असेंबल करता है।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > p",
+      "sourceHash": "609487a4d03d112f7f5963afb00af846f8d6bda01cb311f68432e56fa3536988",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.assembly-tech.2.question",
+      "source": "When was ATL established?",
+      "translation": "ATL की स्थापना कब हुई?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > summary",
+      "sourceHash": "c35756e44cd6afdda69d280dcd4b27ca91ef467baf3acdb46451ab5b97c487ae",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.assembly-tech.2.answer",
+      "source": "The page states that ATL was established in 2019.",
+      "translation": "पृष्ठ के अनुसार ATL की स्थापना 2019 में हुई।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > p",
+      "sourceHash": "123aec89e51cadca5d53c8872f9b52470c4bde661252508a1fedb7f7b405ce90",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.assembly-tech.3.question",
+      "source": "What trailer types are named?",
+      "translation": "कौन से ट्रेलर प्रकार बताए गए हैं?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > summary",
+      "sourceHash": "b55844260abcb4a02ae2c5f4917bbe9be5c38207f056ef71da0b0e4fbc594210",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.assembly-tech.3.answer",
+      "source": "The page names aluminium fuel tankers, flatbed trailers and curtain-side trailers.",
+      "translation": "पृष्ठ में एल्युमिनियम ईंधन टैंकर, फ्लैटबेड ट्रेलर और कर्टन-साइड ट्रेलर शामिल हैं।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > p",
+      "sourceHash": "568f8c149fd8f1fcd5266fd96b7a74c3b30be0fd9d3c4d8179ebdd62f83fdd66",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.assembly-tech.4.question",
+      "source": "What market does it serve?",
+      "translation": "यह किस बाजार को सेवा देता है?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > summary",
+      "sourceHash": "cde27d9d5bd07bfdd0a856ef06d9e5a148c9ac1f5d60210f89eb5df6cdc783fa",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.assembly-tech.4.answer",
+      "source": "The page describes East and Central Africa as its target market.",
+      "translation": "पृष्ठ पूर्वी और मध्य अफ्रीका को इसका लक्षित बाजार बताता है।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > p",
+      "sourceHash": "f1d5243344ab16c0dfba4944c12ccdc4f7bcace10b0ea16c795880dce6e4ba0b",
+      "origin": "assistant-authored-initial-draft"
     }
   ]
 }

@@ -9,8 +9,8 @@
   "authoringMethod": "AI-authored initial translations with exact existing dictionary reuse; pending human review",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 116,
-  "translatedCount": 116,
+  "candidateCount": 126,
+  "translatedCount": 126,
   "validation": "source IDs and hashes checked; structural validation passed; linguistic review remains required",
   "translations": [
     {
@@ -1520,6 +1520,96 @@
       "authoringMethod": "AI-authored initial translation; pending human review",
       "releaseEligible": false,
       "reviewEvidence": null
+    },
+    {
+      "id": "runtime.faq.title",
+      "source": "Questions about this business",
+      "translation": "इस व्यवसाय के बारे में प्रश्न",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__title",
+      "sourceHash": "875ba74c700a0192f03ebba75f5ebdc2119fd477c70bc38b0fe5c69e8661acc1",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lead",
+      "source": "Helpful answers based on the information presented on this page.",
+      "translation": "इस पृष्ठ पर दी गई जानकारी के आधार पर उपयोगी उत्तर।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__lead",
+      "sourceHash": "e4072b84bbc9a6fe21d18269c95db2638e79d5cd6db93f546fc413652149a077",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-premix-cement.1.question",
+      "source": "What does Lake Premix provide?",
+      "translation": "लेक प्रीमिक्स क्या उपलब्ध कराता है?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > summary",
+      "sourceHash": "0ab9d19fa9c487c64d5e4b535bd88b59cc67d9475008f7079cd8f426885475bd",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-premix-cement.1.answer",
+      "source": "Lake Premix provides ready-mix concrete for construction applications.",
+      "translation": "लेक प्रीमिक्स निर्माण कार्यों के लिए रेडी-मिक्स कंक्रीट देता है।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > p",
+      "sourceHash": "fee83a4bae7bd88840b5416bc0f999f1795b815c091228e21c331222a6a399c0",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-premix-cement.2.question",
+      "source": "When was Lake Premix established?",
+      "translation": "लेक प्रीमिक्स की स्थापना कब हुई?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > summary",
+      "sourceHash": "7194dc2cf46538312315ee5d1d979f77c1f7bed50b5e4c0e3ce365e333ee724a",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-premix-cement.2.answer",
+      "source": "Lake Premix was established in 2010.",
+      "translation": "लेक प्रीमिक्स की स्थापना 2010 में हुई।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > p",
+      "sourceHash": "afc058962bf02800c5585189f75dd3efaa1e25d8649c711854c327fbf949b97e",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-premix-cement.3.question",
+      "source": "Which concrete grades are listed?",
+      "translation": "कंक्रीट के कौन से ग्रेड सूचीबद्ध हैं?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > summary",
+      "sourceHash": "4852fdf0b78ef15ecbee09b870c99f077d49b6ae317526ffe35e476adf845033",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-premix-cement.3.answer",
+      "source": "The page lists grades from C10 to C55.",
+      "translation": "पृष्ठ C10 से C55 तक के ग्रेड सूचीबद्ध करता है।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > p",
+      "sourceHash": "6a7094598fb54254b92c3b52c4dd08d557eec728f2ed725cd043de4278926c44",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-premix-cement.4.question",
+      "source": "Where does Gulf Premix operate?",
+      "translation": "गल्फ प्रीमिक्स कहाँ काम करता है?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > summary",
+      "sourceHash": "b60c9609d5a86ca5f4ae746268493f94b41846cbe745a7a99818720924a12003",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-premix-cement.4.answer",
+      "source": "The page says Gulf Premix provides ready-mix concrete to Nairobi and other regions of Kenya.",
+      "translation": "पृष्ठ के अनुसार गल्फ प्रीमिक्स Nairobi और केन्या के अन्य क्षेत्रों में रेडी-मिक्स कंक्रीट देता है।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > p",
+      "sourceHash": "5359781979ad4a0c971165af52ed46926603538daf1a03eb73892df795aa44eb",
+      "origin": "assistant-authored-initial-draft"
     }
   ]
 }

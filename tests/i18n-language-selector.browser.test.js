@@ -44,20 +44,26 @@ test.after(async () => {
   if (server) await new Promise((resolve) => server.close(resolve));
 });
 
-test('desktop selector exposes eight locales and marks seven pending', async () => {
+test('desktop selector exposes eight selectable languages and applies draft locales', async () => {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   await page.goto(`${baseUrl}/index.html`, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => window.LakeI18n?.current === 'en' && window.LakeI18n?.draftPreview === true);
   const trigger = page.locator('.lang-trigger');
   await trigger.waitFor({ state: 'visible' });
-  await trigger.click();
   const options = page.locator('.lang-menu .lang-btn');
+  await trigger.click();
   await assert.equal(await options.count(), 8);
   assert.equal(await options.filter({ hasText: 'English' }).isEnabled(), true);
-  for (const label of ['Kiswahili', 'हिन्दी', 'العربية', '简体中文', 'Français', 'Español', 'Português']) {
+  for (const [label, code] of [['Kiswahili', 'sw'], ['हिन्दी', 'hi'], ['العربية', 'ar'], ['简体中文', 'zh'], ['Français', 'fr'], ['Español', 'es'], ['Português', 'pt']]) {
     const option = options.filter({ hasText: label });
     assert.equal(await option.count(), 1, `${label} is present once`);
-    assert.equal(await option.isDisabled(), true, `${label} stays unavailable pending translation validation`);
+    assert.equal(await option.isEnabled(), true, `${label} is selectable in draft preview`);
+    assert.equal(await option.getAttribute('data-available'), 'true');
+    assert.equal(await option.getAttribute('data-lang'), code);
   }
+  await page.locator('.lang-menu .lang-btn[data-lang="fr"]').click();
+  await page.waitForFunction(() => window.LakeI18n?.current === 'fr' && localStorage.getItem('lake-lang') === 'fr');
+  assert.equal(await page.locator('html').getAttribute('lang'), 'fr');
   await page.close();
 });
 
@@ -126,49 +132,66 @@ test('RTL direction reaches the legacy navigation and keeps the language menu in
   await page.close();
 });
 
-test('approved publication fixture applies on the real page and survives reload and navigation', async () => {
-  const releaseId = 'a'.repeat(24);
-  const unsigned = {
-    schemaVersion: 1,
-    releaseId,
-    manifestVersion: 'fixture-manifest',
-    language: 'fr',
-    pages: {
-      'index.html': [{ id: 'fixture.index.heading', mode: 'runtime-text', source: 'Welcome to Lake Group', translation: 'Bienvenue Lake Group' }],
-      'about.html': [{ id: 'fixture.about.heading', mode: 'runtime-text', source: 'About Lake Group', translation: 'À propos Lake Group' }],
-    },
-  };
-  const asset = { ...unsigned, integrity: `sha256-${crypto.createHash('sha256').update(JSON.stringify(unsigned)).digest('base64')}` };
-  const rtlUnsigned = { ...unsigned, language: 'ar', pages: {} };
-  const rtlAsset = { ...rtlUnsigned, integrity: `sha256-${crypto.createHash('sha256').update(JSON.stringify(rtlUnsigned)).digest('base64')}` };
+test('draft page translations reach visible copy and survive switching, reload, navigation, and English restore', async () => {
   const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block' });
   const page = await context.newPage();
-  await page.route('**/assets/i18n-published/current.json', (route) => route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ schemaVersion: 1, releaseId, manifestVersion: 'fixture-manifest', activeLanguages: ['en', 'fr', 'ar'], files: { fr: `releases/${releaseId}/fr.json`, ar: `releases/${rtlUnsigned.releaseId}/ar.json` } }) }));
-  await page.route('**/assets/i18n-published/releases/**/fr.json', (route) => route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(asset) }));
-  await page.route('**/assets/i18n-published/releases/**/ar.json', (route) => route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(rtlAsset) }));
-  await page.addInitScript(() => document.addEventListener('DOMContentLoaded', () => {
-    const heading = document.createElement('h2');
-    heading.id = 'fixture-heading';
-    heading.textContent = location.pathname.endsWith('about.html') ? 'About Lake Group' : 'Welcome to Lake Group';
-    document.body.prepend(heading);
-  }, { once: true }));
+  const readRows = (locale, html) => JSON.parse(fs.readFileSync(path.join(root, 'scripts', 'i18n-drafts', locale, `${html}.json`), 'utf8')).translations
+    .filter((row) => row.translation !== row.source && row.selector);
+  const findVisibleSourceRow = async (html, rows) => page.evaluate(({ html, rows }) => {
+    const norm = (value) => String(value || '').replace(/<br\s*\/?\s*>/gi, ' ').replace(/\s+/g, ' ').trim();
+    for (const row of rows) {
+      let nodes = [];
+      try { nodes = [...document.querySelectorAll(row.selector)]; } catch { continue; }
+      const element = nodes.find((node) => node.getClientRects().length && norm(row.mode === 'attribute' ? node.getAttribute(row.attribute) : node.textContent) === norm(row.source));
+      if (element) return { html, selector: row.selector, mode: row.mode, attribute: row.attribute, source: row.source, translation: row.translation };
+    }
+    return null;
+  }, { html, rows });
+  const switchTo = async (code) => {
+    const trigger = page.locator('.lang-trigger').first();
+    if (!(await trigger.getAttribute('aria-expanded')).includes('true')) await trigger.click();
+    await page.locator(`.lang-menu [data-lang="${code}"]`).click();
+    await page.waitForFunction((locale) => window.LakeI18n?.current === locale && localStorage.getItem('lake-lang') === locale, code);
+  };
+  const assertRow = async (row, locale, field) => page.waitForFunction(({ row, locale, field }) => {
+    const el = document.querySelector(row.selector);
+    if (!el) return false;
+    const value = row.mode === 'attribute' ? el.getAttribute(row.attribute) : el.textContent;
+    const expected = field === 'source' ? row.source : window.LakeI18n.localizeDigitsInText(locale, row.translation);
+    const norm = (text) => String(text || '').replace(/<br\s*\/?\s*>/gi, ' ').replace(/\s+/g, ' ').trim();
+    return norm(value) === norm(expected);
+  }, { row, locale, field });
 
   await page.goto(`${baseUrl}/index.html`, { waitUntil: 'domcontentloaded' });
-  await page.locator('.lang-trigger').first().waitFor({ state: 'visible' });
-  await page.waitForFunction(() => window.LakeI18n?.current === 'en' && document.querySelector('#fixture-heading'));
-  await page.locator('.lang-trigger').first().click();
-  await page.locator('.lang-menu [data-lang="fr"]').click();
-  await page.waitForFunction(() => document.querySelector('#fixture-heading')?.textContent === 'Bienvenue Lake Group');
-  await page.waitForFunction(() => localStorage.getItem('lake-lang') === 'fr');
+  await page.waitForFunction(() => window.LakeI18n?.current === 'en' && window.__LAKE_I18N_CONTENT__);
+  const indexRow = await findVisibleSourceRow('index.html', readRows('fr', 'index.html'));
+  assert.ok(indexRow, 'index page has visible French draft copy that matches its current English source');
+  await switchTo('fr');
+  await assertRow(indexRow, 'fr', 'translation');
+  assert.equal(await page.locator('html').getAttribute('lang'), 'fr');
   await page.reload({ waitUntil: 'domcontentloaded' });
   await page.waitForFunction(() => window.LakeI18n?.current === 'fr');
-  await page.waitForFunction(() => document.querySelector('#fixture-heading')?.textContent === 'Bienvenue Lake Group');
+  await assertRow(indexRow, 'fr', 'translation');
+
   await page.goto(`${baseUrl}/about.html`, { waitUntil: 'domcontentloaded' });
-  await page.waitForFunction(() => window.LakeI18n?.current === 'fr' && document.querySelector('#fixture-heading')?.textContent === 'À propos Lake Group');
-  await page.locator('.lang-trigger').first().click();
-  await page.locator('.lang-menu [data-lang="ar"]').click();
-  await page.waitForFunction(() => window.LakeI18n?.current === 'ar' && document.documentElement.dir === 'rtl');
-  await page.waitForFunction(() => localStorage.getItem('lake-lang') === 'ar');
+  await page.waitForFunction(() => window.LakeI18n?.current === 'fr');
+  const aboutRows = readRows('fr', 'about.html');
+  const aboutRow = await page.evaluate((rows) => {
+    const norm = (value) => String(value || '').replace(/<br\s*\/?\s*>/gi, ' ').replace(/\s+/g, ' ').trim();
+    for (const row of rows) {
+      let nodes = [];
+      try { nodes = [...document.querySelectorAll(row.selector)]; } catch { continue; }
+      const element = nodes.find((node) => node.getClientRects().length && norm(row.mode === 'attribute' ? node.getAttribute(row.attribute) : node.textContent) === norm(row.translation));
+      if (element) return row;
+    }
+    return null;
+  }, aboutRows);
+  assert.ok(aboutRow, 'about page renders a French draft row after navigation with persisted language');
+  await switchTo('ar');
+  await page.waitForFunction(() => document.documentElement.dir === 'rtl');
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, 'Arabic page fits the desktop viewport');
+  await switchTo('en');
+  await assertRow(indexRow, 'en', 'source');
   await context.close();
 });
 

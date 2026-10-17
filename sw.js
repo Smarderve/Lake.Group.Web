@@ -38,7 +38,7 @@
 
 'use strict';
 
-const VERSION = 'v119-20261017-03';
+const VERSION = 'v122-20261017-06';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -68,7 +68,7 @@ const PRECACHE_URLS = [
   './manifest.webmanifest',
   './assets/pwa.js?v=20260828-01',
   './assets/build-version.js?v=20260828-01',
-  './assets/site.js?v=20260828-01',
+  './assets/site.js?v=20261017-04',
   './assets/tokens.css?v=20260828-01',
   './assets/theme.css?v=20260828-01',
   './assets/flagship.css?v=20260828-01',
@@ -81,12 +81,12 @@ const PRECACHE_URLS = [
   './assets/split-text.css?v=20260828-01',
   './assets/vendor/gsap/gsap.min.js',
   './assets/vendor/gsap/ScrollTrigger.min.js',
-  './assets/i18n.js?v=20261017-03',
+  './assets/i18n.js?v=20261017-04',
   './assets/i18n-content.js?v=20261017-01',
   './assets/assistant.js?v=20261017-03',
   './assets/assistant.css?v=20261017-03',
   './assets/home-hero.js?v=20261017-03',
-  './assets/phase-01-navbar.css?v=20261016-01',
+  './assets/phase-01-navbar.css?v=20261016-02',
   './assets/phase-01-footer.css?v=20260828-01',
   './assets/phase-01-navbar.js?v=20260828-01',
   './assets/images/logos/LAKE_GROUP_LOGO.png',

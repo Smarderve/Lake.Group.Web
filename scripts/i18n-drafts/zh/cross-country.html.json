@@ -1334,6 +1334,96 @@
       "selector": null,
       "attribute": null,
       "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "runtime.faq.title",
+      "source": "Questions about this business",
+      "translation": "关于这家企业的问题",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__title",
+      "sourceHash": "875ba74c700a0192f03ebba75f5ebdc2119fd477c70bc38b0fe5c69e8661acc1",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lead",
+      "source": "Helpful answers based on the information presented on this page.",
+      "translation": "根据本页面所提供信息给出的实用解答。",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__lead",
+      "sourceHash": "e4072b84bbc9a6fe21d18269c95db2638e79d5cd6db93f546fc413652149a077",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.cross-country.1.question",
+      "source": "What does Cross Country Developer Limited do?",
+      "translation": "Cross Country Developer Limited从事什么业务？",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > summary",
+      "sourceHash": "8e024cffb59863579b6064e99ef4318f11b7e801fc26546fe303ac98186d0dc5",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.cross-country.1.answer",
+      "source": "It develops and manages commercial, retail, hospitality and mixed-use properties.",
+      "translation": "该公司开发并管理商业、零售、酒店及综合用途物业。",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > p",
+      "sourceHash": "703e8e5c5c9adbfcaadb99e8fcc18e498142d222c29e07a65f78b30907d562da",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.cross-country.2.question",
+      "source": "When was the company established?",
+      "translation": "公司何时成立？",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > summary",
+      "sourceHash": "788bd0c6af6ac40e63654709fcbef52585e696fc83af782f79b8296fe5d057bd",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.cross-country.2.answer",
+      "source": "The page states that it was established in 2021.",
+      "translation": "页面称公司成立于2021年。",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > p",
+      "sourceHash": "126dc8d63e503b5b3d044938b46d84bda1c4947570c44c1839de4acdbf775775",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.cross-country.3.question",
+      "source": "Where does it operate?",
+      "translation": "公司在哪里运营？",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > summary",
+      "sourceHash": "ebca3d9d207738338ca1b63d37c54d04e670d55b1f7a0190f7f45a771e613ece",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.cross-country.3.answer",
+      "source": "The company operates in Tanzania.",
+      "translation": "公司在坦桑尼亚运营。",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > p",
+      "sourceHash": "d429b1fd364d30c17d275c1965c474c041a2277a98f51a28cbb1ace94cea25b8",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.cross-country.4.question",
+      "source": "Which development locations are named?",
+      "translation": "页面提到了哪些开发项目地点？",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > summary",
+      "sourceHash": "80729b5fe81327b32513deef4eab5f2fa45f2dd01775a8dd65379ccada0513c6",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.cross-country.4.answer",
+      "source": "The page names Lake Avenue, Kingsway, Waterfront Mall and UN Road in Dar es Salaam.",
+      "translation": "页面提到达累斯萨拉姆的Lake Avenue、Kingsway、Waterfront Mall和UN Road。",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > p",
+      "sourceHash": "25da1db020536457a407ae700f30b2e1da6da859fbd9fb9879b46c0bacd75e85",
+      "origin": "assistant-authored-initial-draft"
     }
   ],
   "sourceManifestDigest": "60675f76844f3800729cf1ef938b65c6ddcb2e7351b7ee2b74eb4da0f9f40714",
@@ -1341,7 +1431,7 @@
   "authoringMethod": "AI-authored initial Cross Country page translations with exact-source draft reuse; human review pending",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 133,
-  "translatedCount": 133,
+  "candidateCount": 143,
+  "translatedCount": 143,
   "validation": "Company and place names, figures and project facts preserved; source ids and hashes match current extraction manifest; editorial review pending"
 }

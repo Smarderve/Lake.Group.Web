@@ -9,8 +9,8 @@
   "authoringMethod": "Existing dictionary reuse plus assistant-authored initial translations; pending human editorial review",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 93,
-  "translatedCount": 93,
+  "candidateCount": 94,
+  "translatedCount": 94,
   "validation": "Source ids and hashes preserved; language names, company names, figures and functional placeholders preserved; editorial review pending",
   "translations": [
     {
@@ -1127,7 +1127,7 @@
       "id": "auto.47ddec18b01a74ce.2",
       "sourceHash": "98b67063cf8e584d75e53b88472ee85473e01e0ea16f29ece9cc98f4a2710494",
       "source": "Contact Us",
-      "translation": "Contacta con nosotros",
+      "translation": "Contáctenos",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(5)"
     },
@@ -1167,7 +1167,7 @@
       "id": "auto.0872f738ca8821d4",
       "sourceHash": "1f8cbbc84d98195bbdccdb0aae93b87615f447979d5fca1f014714ae50de366b",
       "source": "Lake Energies fuel station",
-      "translation": "Estación de servicio Lake Energies",
+      "translation": "Estación de servicio de Lake Energies",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
       "attribute": "alt"
@@ -1253,7 +1253,7 @@
       "id": "auto.98afe0b3ec349255",
       "sourceHash": "532c1f3d6fa2a4bbbfe751523f48af88b3842e9f329155dcce9cd8b022d83eed",
       "source": "Lake Lubes Power Eco lubricant products",
-      "translation": "Lubricantes Power Eco de Lake Lubes",
+      "translation": "Productos lubricantes Lake Lubes Power Eco",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(5) > div:nth-of-type(1) > img:nth-of-type(1)",
       "attribute": "alt"
@@ -1262,7 +1262,7 @@
       "id": "auto.d9d68d309bf0aad0",
       "sourceHash": "5f8d59effa3f0793fd8c00f856dd10dc7eaa9ad6a0374a4636a41f00ad8dda40",
       "source": "Lake Steel & Allied Products Limited manufactures TBS-certified TMT reinforcement steel bars conforming to BS 500, with a 25T/hr computerized rolling mill.",
-      "translation": "Lake Steel & Allied Products Limited fabrica barras de refuerzo TMT certificadas por TBS y conformes a BS 500, con un laminador informatizado de 25 toneladas por hora.",
+      "translation": "Lake Steel & Allied Products Limited fabrica barras de refuerzo TMT certificadas por TBS y conformes con BS 500, con un laminador computarizado de 25 toneladas por hora.",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(6) > div:nth-of-type(2) > p:nth-of-type(1)"
     },
@@ -1435,7 +1435,7 @@
       "id": "auto.60d553d80f27e9b0",
       "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
       "source": "UAE flag",
-      "translation": "Bandera de los EAU",
+      "translation": "Bandera de los Emiratos Árabes Unidos",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
       "attribute": "alt"
@@ -1455,6 +1455,16 @@
       "translation": "Energía",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(5) > span:nth-of-type(1)"
+    },
+    {
+      "id": "auto.86ac682ef7bac7dc",
+      "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
+      "source": "Chat",
+      "translation": "Conversación",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(5) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "assistant-authored-initial-draft"
     }
   ]
 }

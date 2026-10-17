@@ -25,19 +25,26 @@
     return r.top < window.innerHeight && r.bottom > 0;
   }
 
-  function formatCounterDisplay(n, prefix, suffix) {
+  function formatCounterDisplay(n, prefix, suffix, element) {
     const grouped = Number(n).toLocaleString('en-US');
-    const raw = (prefix || '') + grouped + (suffix || '');
     if (window.LakeI18n && typeof LakeI18n.formatNumberForLang === 'function') {
-      return LakeI18n.formatNumberForLang(LakeI18n.current || 'en', raw);
+      const locale = LakeI18n.current || 'en';
+      const formattedNumber = LakeI18n.formatNumberForLang(locale, grouped);
+      const key = element && element.getAttribute('data-i18n');
+      const count = element && String(parseInt(element.dataset.count, 10));
+      const translatedTemplate = key && LakeI18n.t(key, locale);
+      if (translatedTemplate && count && count !== 'NaN' && translatedTemplate.includes(count)) {
+        return translatedTemplate.replace(count, formattedNumber);
+      }
+      return LakeI18n.formatNumberForLang(locale, (prefix || '') + grouped + (suffix || ''));
     }
-    return raw;
+    return (prefix || '') + grouped + (suffix || '');
   }
 
   function paintCounter(el, value) {
     const suffix = el.dataset.suffix || '';
     const prefix = el.dataset.prefix || '';
-    el.textContent = formatCounterDisplay(value, prefix, suffix);
+    el.textContent = formatCounterDisplay(value, prefix, suffix, el);
   }
 
   function prefersReducedMotion() {

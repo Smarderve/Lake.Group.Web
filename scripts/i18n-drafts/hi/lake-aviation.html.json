@@ -9,8 +9,8 @@
   "authoringMethod": "AI-authored initial translations with exact existing dictionary reuse; pending human review",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 116,
-  "translatedCount": 116,
+  "candidateCount": 126,
+  "translatedCount": 126,
   "validation": "source IDs and hashes checked; structural validation passed; linguistic review remains required",
   "translations": [
     {
@@ -1520,6 +1520,96 @@
       "authoringMethod": "AI-authored initial translation; pending human review",
       "releaseEligible": false,
       "reviewEvidence": null
+    },
+    {
+      "id": "runtime.faq.title",
+      "source": "Questions about this business",
+      "translation": "इस व्यवसाय के बारे में प्रश्न",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__title",
+      "sourceHash": "875ba74c700a0192f03ebba75f5ebdc2119fd477c70bc38b0fe5c69e8661acc1",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lead",
+      "source": "Helpful answers based on the information presented on this page.",
+      "translation": "इस पृष्ठ पर दी गई जानकारी के आधार पर उपयोगी उत्तर।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__lead",
+      "sourceHash": "e4072b84bbc9a6fe21d18269c95db2638e79d5cd6db93f546fc413652149a077",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-aviation.1.question",
+      "source": "What services does Lake Aviation provide?",
+      "translation": "लेक एविएशन कौन सी सेवाएँ देता है?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > summary",
+      "sourceHash": "918af1ab93a2a4d62f7abcfc7301e1f708399032a2bc851fbda0c01c5dfb84a8",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-aviation.1.answer",
+      "source": "Lake Aviation provides aviation fuel supply and into-plane fueling services.",
+      "translation": "लेक एविएशन विमानन ईंधन की आपूर्ति और विमानों में सीधे ईंधन भरने की सेवा देता है।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > p",
+      "sourceHash": "fb4827bcb267a135408076ceee9e0a8d25b8dcbf4adadc2c0658bbc9b785e74c",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-aviation.2.question",
+      "source": "When was Lake Aviation established?",
+      "translation": "लेक एविएशन की स्थापना कब हुई?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > summary",
+      "sourceHash": "f42fc9b676bf8ee6f35069ea0763b08f6fcf25f704c8cf595699b3f518af2b9a",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-aviation.2.answer",
+      "source": "Lake Aviation was established in 2020 as part of Lake Energies.",
+      "translation": "लेक एविएशन की स्थापना 2020 में Lake Energies के हिस्से के रूप में हुई।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > p",
+      "sourceHash": "bc3153a12613f6171c8ec48a4dfe3255ff8d7a0cfc5fec042e4cedd379d22ae0",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-aviation.3.question",
+      "source": "Which airports are listed?",
+      "translation": "किन हवाई अड्डों की सूची दी गई है?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > summary",
+      "sourceHash": "07526c520ad7817a8a77f7ad155a4835ef1a8bbbbbeaf00fb142d6c795ca1b34",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-aviation.3.answer",
+      "source": "The page lists JRO, DAR, ZNZ and EBB airport operations.",
+      "translation": "पृष्ठ JRO, DAR, ZNZ और EBB हवाई अड्डों पर संचालन की सूची देता है।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > p",
+      "sourceHash": "e8c3620dd32811e8551645698c36de47c2d4326de606f273f3704aded23b04bc",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-aviation.4.question",
+      "source": "What supports its fuel supply?",
+      "translation": "ईंधन आपूर्ति को किससे सहायता मिलती है?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > summary",
+      "sourceHash": "1db5fd3026e66b4d3df28ba2dae232380f8e1a182de872eec7251231eeb08a0e",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-aviation.4.answer",
+      "source": "Operations began at JRO with support from Lake Oil’s bulk fuel depot in Dar es Salaam.",
+      "translation": "संचालन JRO में शुरू हुआ और इसे Dar es Salaam में Lake Oil के थोक ईंधन डिपो से सहायता मिली।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > p",
+      "sourceHash": "d0b0ffef0332fddf793e47ba478be6bd037015e6e53f1ad5fa34dd1f2e8263de",
+      "origin": "assistant-authored-initial-draft"
     }
   ]
 }

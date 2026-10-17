@@ -1021,7 +1021,7 @@
       "id": "auto.c498c31bcfd0219f.2",
       "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
       "source": "CSR & Sustainability",
-      "translation": "المسؤولية الاجتماعية والاستدامة",
+      "translation": "المسؤولية المجتمعية والاستدامة",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(2)"
     },
@@ -1029,7 +1029,7 @@
       "id": "auto.c498c31bcfd0219f.3",
       "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
       "source": "Gallery",
-      "translation": "المعرض",
+      "translation": "معرض الصور",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(3)"
     },
@@ -1055,7 +1055,7 @@
       "id": "auto.5741df7408ccac4e",
       "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
       "source": "Close menu",
-      "translation": "أغلق القائمة",
+      "translation": "إغلاق القائمة",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
       "attribute": "aria-label"
@@ -1176,7 +1176,7 @@
       "id": "auto.80da21602c396a28",
       "sourceHash": "ae6e98909c98e7c973d920a2d6868685d2e2f25db3e98683ef3d0dbae00bf7d6",
       "source": "Logistics",
-      "translation": "اللوجستية",
+      "translation": "الخدمات اللوجستية",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6) > span:nth-of-type(2)"
     },
@@ -1184,7 +1184,7 @@
       "id": "auto.0872f738ca8821d4",
       "sourceHash": "1f8cbbc84d98195bbdccdb0aae93b87615f447979d5fca1f014714ae50de366b",
       "source": "Lake Energies fuel station",
-      "translation": "محطة وقود Lake Energies",
+      "translation": "محطة وقود ليك إنرجيز",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
       "attribute": "alt"
@@ -1305,7 +1305,7 @@
       "id": "auto.98afe0b3ec349255",
       "sourceHash": "532c1f3d6fa2a4bbbfe751523f48af88b3842e9f329155dcce9cd8b022d83eed",
       "source": "Lake Lubes Power Eco lubricant products",
-      "translation": "منتجات زيوت التشحيم Power Eco من Lake Lubes",
+      "translation": "منتجات التشحيم Lake Lubes Power Eco",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(5) > div:nth-of-type(1) > img:nth-of-type(1)",
       "attribute": "alt"
@@ -1314,7 +1314,7 @@
       "id": "auto.d9d68d309bf0aad0",
       "sourceHash": "5f8d59effa3f0793fd8c00f856dd10dc7eaa9ad6a0374a4636a41f00ad8dda40",
       "source": "Lake Steel & Allied Products Limited manufactures TBS-certified TMT reinforcement steel bars conforming to BS 500, with a 25T/hr computerized rolling mill.",
-      "translation": "تصنع Lake Steel & Allied Products Limited قضبان تسليح TMT المعتمدة من TBS والمطابقة لمعيار BS 500، باستخدام مطحنة درفلة محوسبة بقدرة ٢٥ طنًا في الساعة.",
+      "translation": "تصنع شركة Lake Steel & Allied Products Limited قضبان تسليح TMT معتمدة من TBS ومطابقة للمواصفة BS 500، باستخدام مطحنة درفلة محوسبة بطاقة 25 طنًا في الساعة.",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(6) > div:nth-of-type(2) > p:nth-of-type(1)"
     },
@@ -1552,7 +1552,7 @@
       "id": "auto.60d553d80f27e9b0",
       "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
       "source": "UAE flag",
-      "translation": "علم الإمارات",
+      "translation": "علم الإمارات العربية المتحدة",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
       "attribute": "alt"

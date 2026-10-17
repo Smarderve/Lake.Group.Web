@@ -9,8 +9,8 @@
   "authoringMethod": "existing dictionary reuse; no model output for generated rows",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 122,
-  "translatedCount": 124,
+  "candidateCount": 132,
+  "translatedCount": 134,
   "validation": "source hashes and protected facts checked; linguistic review remains required",
   "translations": [
     {
@@ -1252,6 +1252,96 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
       "attribute": null,
       "origin": "assistant-authored-draft:lake-trans.html"
+    },
+    {
+      "id": "runtime.faq.title",
+      "source": "Questions about this business",
+      "translation": "Questions sur cette entreprise",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__title",
+      "sourceHash": "875ba74c700a0192f03ebba75f5ebdc2119fd477c70bc38b0fe5c69e8661acc1",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lead",
+      "source": "Helpful answers based on the information presented on this page.",
+      "translation": "Des réponses utiles fondées sur les informations présentées sur cette page.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__lead",
+      "sourceHash": "e4072b84bbc9a6fe21d18269c95db2638e79d5cd6db93f546fc413652149a077",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-trans.1.question",
+      "source": "What does Lake Trans specialize in?",
+      "translation": "Quelle est la spécialité de Lake Trans ?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > summary",
+      "sourceHash": "0a38efea200685c64caee57c85e5eef9ec59b3e0596f8e7921aa841a56440a7f",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-trans.1.answer",
+      "source": "Lake Trans specializes in secure and efficient petroleum-product transportation.",
+      "translation": "Lake Trans est spécialisée dans le transport sûr et efficace de produits pétroliers.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > p",
+      "sourceHash": "959268df28dad9c002e5eec433dfc7c9ac23431004fc0d7cac69b7d584fb8c36",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-trans.2.question",
+      "source": "When did Lake Trans join Lake Group?",
+      "translation": "Quand Lake Trans a-t-elle rejoint Lake Group ?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > summary",
+      "sourceHash": "6fbf525bdf6fa6a5e078b376d2f2453373dab8975f36c5850b9c23d6755d4bed",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-trans.2.answer",
+      "source": "Lake Trans has been part of Lake Group since 2011.",
+      "translation": "Lake Trans fait partie de Lake Group depuis 2011.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > p",
+      "sourceHash": "b85fee1163300928fcc48d2454e0395cd7678d74ec0d80e25f9626c04252d4c7",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-trans.3.question",
+      "source": "What fleet size is stated?",
+      "translation": "Quelle taille de flotte est indiquée ?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > summary",
+      "sourceHash": "7cdb45459a0f1d132c6669c2a2a2dc9c1c36978f0fc041cf28293013f8507ef7",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-trans.3.answer",
+      "source": "The page states a fleet of more than 1,500 trucks.",
+      "translation": "La page indique une flotte de plus de 1 500 camions.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > p",
+      "sourceHash": "dfc840d5aa793b7154bc0c0a53876b79953d47ca74c3364501f1dfb6eccc0d64",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-trans.4.question",
+      "source": "What monitoring is used?",
+      "translation": "Quel système de suivi est utilisé ?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > summary",
+      "sourceHash": "67b48858243b7766670cd48a33b476ed41122f053b0d4cbf648e8e225d7bf91a",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-trans.4.answer",
+      "source": "The page describes GPS monitoring across all routes.",
+      "translation": "La page décrit un suivi GPS sur l’ensemble des itinéraires.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > p",
+      "sourceHash": "2c66268d798d36c144c817cce2c80cbbc9d7811cabf55fcda5e48f573ee9ff5e",
+      "origin": "assistant-authored-initial-draft"
     }
   ]
 }

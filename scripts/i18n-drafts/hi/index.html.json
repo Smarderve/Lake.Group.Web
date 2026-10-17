@@ -9,8 +9,8 @@
   "authoringMethod": "Existing dictionary reuse plus assistant-authored initial translations; pending human editorial review",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 93,
-  "translatedCount": 93,
+  "candidateCount": 95,
+  "translatedCount": 95,
   "validation": "Source ids and hashes preserved; language names, company names, figures and functional placeholders preserved; editorial review pending",
   "translations": [
     {
@@ -988,7 +988,7 @@
       "id": "auto.48f411ff36dcb9cb",
       "sourceHash": "7e00b18a6385c9956eed4a4293f467aa59bb8ea1ef99405ee3a8b103956ab404",
       "source": "Agro Processing Sector",
-      "translation": "कृषि प्रसंस्करण क्षेत्र",
+      "translation": "कृषि-प्रसंस्करण क्षेत्र",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(5)"
     },
@@ -1012,7 +1012,7 @@
       "id": "auto.c498c31bcfd0219f.2",
       "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
       "source": "CSR & Sustainability",
-      "translation": "सीएसआर और सतत विकास",
+      "translation": "कॉर्पोरेट सामाजिक उत्तरदायित्व और सतत विकास",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(2)"
     },
@@ -1063,7 +1063,7 @@
       "id": "auto.054c659bbfebf819.2",
       "sourceHash": "4efca0d10c5feb8e9b35eb1d994f2905bb71714e6a271f511d713b539ea5faa1",
       "source": "About",
-      "translation": "हमारे बारे में",
+      "translation": "परिचय",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(2)"
     },
@@ -1071,7 +1071,7 @@
       "id": "auto.b5e1ebdbf6fbf50b",
       "sourceHash": "cf60fd65dcd0f8b69d51d6cb91fe601244ed4af363dd5f2a242787f54c16300d",
       "source": "Business Verticals",
-      "translation": "व्यावसायिक क्षेत्र",
+      "translation": "व्यवसाय क्षेत्र",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)"
     },
@@ -1127,7 +1127,7 @@
       "id": "auto.47ddec18b01a74ce.2",
       "sourceHash": "98b67063cf8e584d75e53b88472ee85473e01e0ea16f29ece9cc98f4a2710494",
       "source": "Contact Us",
-      "translation": "संपर्क करें",
+      "translation": "हमसे संपर्क करें",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(5)"
     },
@@ -1151,7 +1151,7 @@
       "id": "auto.0872f738ca8821d4",
       "sourceHash": "1f8cbbc84d98195bbdccdb0aae93b87615f447979d5fca1f014714ae50de366b",
       "source": "Lake Energies fuel station",
-      "translation": "Lake Energies का ईंधन स्टेशन",
+      "translation": "लेक एनर्जीज़ का ईंधन स्टेशन",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
       "attribute": "alt"
@@ -1272,7 +1272,7 @@
       "id": "auto.98afe0b3ec349255",
       "sourceHash": "532c1f3d6fa2a4bbbfe751523f48af88b3842e9f329155dcce9cd8b022d83eed",
       "source": "Lake Lubes Power Eco lubricant products",
-      "translation": "Lake Lubes Power Eco के स्नेहक उत्पाद",
+      "translation": "लेक ल्यूब्स पावर इको स्नेहक उत्पाद",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(5) > div:nth-of-type(1) > img:nth-of-type(1)",
       "attribute": "alt"
@@ -1281,7 +1281,7 @@
       "id": "auto.d9d68d309bf0aad0",
       "sourceHash": "5f8d59effa3f0793fd8c00f856dd10dc7eaa9ad6a0374a4636a41f00ad8dda40",
       "source": "Lake Steel & Allied Products Limited manufactures TBS-certified TMT reinforcement steel bars conforming to BS 500, with a 25T/hr computerized rolling mill.",
-      "translation": "Lake Steel & Allied Products Limited, TBS-प्रमाणित TMT सरिया बनाती है जो BS 500 मानक के अनुरूप हैं; इसकी कंप्यूटरीकृत रोलिंग मिल की क्षमता 25 टन प्रति घंटा है।",
+      "translation": "Lake Steel & Allied Products Limited, BS 500 मानक के अनुरूप TBS-प्रमाणित TMT सरिया बनाती है। इसके कंप्यूटरीकृत रोलिंग मिल की क्षमता 25 टन प्रति घंटा है।",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(6) > div:nth-of-type(2) > p:nth-of-type(1)"
     },
@@ -1519,7 +1519,7 @@
       "id": "auto.60d553d80f27e9b0",
       "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
       "source": "UAE flag",
-      "translation": "UAE का ध्वज",
+      "translation": "संयुक्त अरब अमीरात का ध्वज",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
       "attribute": "alt"
@@ -1539,6 +1539,26 @@
       "translation": "ऊर्जा",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(5) > span:nth-of-type(1)"
+    },
+    {
+      "id": "auto.fc2e52653ca5aa74",
+      "sourceHash": "c6838ed989fd7d93ba9023466783c95230843ee13acafd63a355f9ad766cc39f",
+      "source": "Manufacturing",
+      "translation": "विनिर्माण",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "auto.96f0ae5ae08a1f1d",
+      "sourceHash": "5226954feafeae18181de39d33b5d20b5f78e1ee112684bf04445903bf4db562",
+      "source": "Real Estate",
+      "translation": "रियल एस्टेट",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "assistant-authored-initial-draft"
     }
   ]
 }

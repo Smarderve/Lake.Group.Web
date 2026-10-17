@@ -9,8 +9,8 @@
   "authoringMethod": "assistant-authored initial translation draft; human review required",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 102,
-  "translatedCount": 102,
+  "candidateCount": 112,
+  "translatedCount": 112,
   "validation": "Exact source ids and hashes retained; remaining strings are protected brands, native language names, or copyright; editorial review pending",
   "translations": [
     {
@@ -1032,6 +1032,96 @@
       "selector": null,
       "attribute": null,
       "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "runtime.faq.title",
+      "source": "Questions about this business",
+      "translation": "इस व्यवसाय के बारे में प्रश्न",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__title",
+      "sourceHash": "875ba74c700a0192f03ebba75f5ebdc2119fd477c70bc38b0fe5c69e8661acc1",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lead",
+      "source": "Helpful answers based on the information presented on this page.",
+      "translation": "इस पृष्ठ पर दी गई जानकारी के आधार पर उपयोगी उत्तर।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__lead",
+      "sourceHash": "e4072b84bbc9a6fe21d18269c95db2638e79d5cd6db93f546fc413652149a077",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-buildings.1.question",
+      "source": "What does Lake Building Solution manufacture?",
+      "translation": "लेक बिल्डिंग सॉल्यूशन क्या बनाता है?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > summary",
+      "sourceHash": "0fde9ba55dd465a52f6ddf14e266c5ed7a99a03d5236272380c8fe31e562ef90",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-buildings.1.answer",
+      "source": "It manufactures gypsum boards and marine boards for construction applications.",
+      "translation": "यह निर्माण कार्यों के लिए जिप्सम बोर्ड और मरीन बोर्ड बनाता है।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > p",
+      "sourceHash": "8f97eabe188f5712eca6dd84da19498733e3f3be6635c3fff75961d976752497",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-buildings.2.question",
+      "source": "Where is the facility located?",
+      "translation": "कारखाना कहाँ स्थित है?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > summary",
+      "sourceHash": "d609afcc0e305c4aeb2bc0572a5c0bd78fc887cf6bf15ece715b03fb95aa923b",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-buildings.2.answer",
+      "source": "The page identifies Kibaha Visiga in Tanzania’s Coast Region.",
+      "translation": "पृष्ठ तंज़ानिया के कोस्ट क्षेत्र में Kibaha Visiga का स्थान बताता है।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > p",
+      "sourceHash": "ce3291ddc757e519f13729b766839f1066824768c413c08a11483690b0741eb8",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-buildings.3.question",
+      "source": "What is marine board intended for?",
+      "translation": "मरीन बोर्ड किस उपयोग के लिए है?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > summary",
+      "sourceHash": "e7509c159318230b849275876af490aa7076aafb468d84d2b2bfaf5b1a6dc08a",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-buildings.3.answer",
+      "source": "The page describes marine board for moisture-exposed applications.",
+      "translation": "पृष्ठ के अनुसार मरीन बोर्ड नमी के संपर्क वाले स्थानों के लिए है।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > p",
+      "sourceHash": "a0b83d6650ae0712e58698931ce323a986964e6389af0db7eecd9c060b814fad",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-buildings.4.question",
+      "source": "What guides its operations?",
+      "translation": "इसके संचालन का मार्गदर्शन कौन करता है?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > summary",
+      "sourceHash": "7352937f4a0456e495a0347861544e7a24f3dedaa753ebef7ea2448a04fc3da1",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-buildings.4.answer",
+      "source": "The page highlights quality, efficiency and environmental responsibility.",
+      "translation": "पृष्ठ गुणवत्ता, दक्षता और पर्यावरणीय जिम्मेदारी पर जोर देता है।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > p",
+      "sourceHash": "ee893bbe7e7c8be31cac529fde75f5eca2d505ab03101ffb230c59bb7991573e",
+      "origin": "assistant-authored-initial-draft"
     }
   ]
 }

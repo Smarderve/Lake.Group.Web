@@ -9,8 +9,8 @@
   "authoringMethod": "existing dictionary reuse; no model output for generated rows",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 130,
-  "translatedCount": 130,
+  "candidateCount": 140,
+  "translatedCount": 140,
   "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
   "translations": [
     {
@@ -1682,6 +1682,96 @@
       "authoringMethod": "existing exact-source draft or dictionary reuse; pending human review",
       "reviewEvidence": null,
       "releaseEligible": false
+    },
+    {
+      "id": "runtime.faq.title",
+      "source": "Questions about this business",
+      "translation": "Maswali kuhusu biashara hii",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__title",
+      "sourceHash": "875ba74c700a0192f03ebba75f5ebdc2119fd477c70bc38b0fe5c69e8661acc1",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lead",
+      "source": "Helpful answers based on the information presented on this page.",
+      "translation": "Majibu yenye manufaa kulingana na maelezo yaliyowasilishwa kwenye ukurasa huu.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__lead",
+      "sourceHash": "e4072b84bbc9a6fe21d18269c95db2638e79d5cd6db93f546fc413652149a077",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.nextdrive-motors.1.question",
+      "source": "What does NexDrive Motors provide?",
+      "translation": "NexDrive Motors hutoa nini?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > summary",
+      "sourceHash": "a8f19425ce1112b932b5e52579f2456a13ac0e24cd000a4b2e16db316ce86e30",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.nextdrive-motors.1.answer",
+      "source": "NexDrive provides sales, distribution and support for commercial vehicle solutions.",
+      "translation": "NexDrive hutoa mauzo, usambazaji na usaidizi wa suluhisho za magari ya biashara.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > p",
+      "sourceHash": "b646b7cefaa508c2707ce8f10659f9de44f5cae03de1568415cf1697490f44e8",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.nextdrive-motors.2.question",
+      "source": "Which vehicle brands are listed?",
+      "translation": "Ni chapa gani za magari zimeorodheshwa?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > summary",
+      "sourceHash": "3d354855142a33da07c916e1ed2da62efc08be408030e40228d197096cedaab7",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.nextdrive-motors.2.answer",
+      "source": "The portfolio includes JAC pick-ups, Ashok Leyland trucks and SANY heavy commercial trucks.",
+      "translation": "Bidhaa zake zinajumuisha pick-up za JAC, malori ya Ashok Leyland na malori makubwa ya kibiashara ya SANY.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > p",
+      "sourceHash": "4731c45faa6afb7406bbff61ad19088d75205d7f3541850c84896e4f33eafa72",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.nextdrive-motors.3.question",
+      "source": "What applications are described for JAC pick-ups?",
+      "translation": "Pick-up za JAC zina matumizi gani?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > summary",
+      "sourceHash": "ce18512ef242d3cdb6f3ef4ecb8b9f50c2629e4d6c2b60d86cac381ff5810585",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.nextdrive-motors.3.answer",
+      "source": "The page lists personal use, small businesses, deliveries, agriculture and field operations.",
+      "translation": "Ukurasa unaorodhesha matumizi binafsi, biashara ndogo, usafirishaji, kilimo na shughuli za uwandani.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > p",
+      "sourceHash": "fb3e76dc7bf6ddbae807339ace987223ea183a7ada0469ba813c3836907936e3",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.nextdrive-motors.4.question",
+      "source": "What trailer support is included?",
+      "translation": "Ni usaidizi gani wa trela unaojumuishwa?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > summary",
+      "sourceHash": "060fd6aebec584561b785f7bb05d28442dc25e25c0b7711a660bcd8f21786f53",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.nextdrive-motors.4.answer",
+      "source": "The page identifies ATL / Assembly Tech Limited trailer solutions for cargo, equipment, fuel transport and specialized transport requirements.",
+      "translation": "Ukurasa unaeleza suluhisho za trela za ATL / Assembly Tech Limited kwa mizigo, vifaa, usafirishaji wa mafuta na mahitaji maalum ya usafiri.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > p",
+      "sourceHash": "8371fa2cb8dad8844ddbf59c24d2ba738e70d70cc55215eb194c25f8be44611e",
+      "origin": "assistant-authored-initial-draft"
     }
   ]
 }

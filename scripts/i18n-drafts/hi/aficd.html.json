@@ -1584,6 +1584,96 @@
       "selector": null,
       "attribute": null,
       "origin": "preserved-proper-name-or-invariant"
+    },
+    {
+      "id": "runtime.faq.title",
+      "source": "Questions about this business",
+      "translation": "इस व्यवसाय के बारे में प्रश्न",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__title",
+      "sourceHash": "875ba74c700a0192f03ebba75f5ebdc2119fd477c70bc38b0fe5c69e8661acc1",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lead",
+      "source": "Helpful answers based on the information presented on this page.",
+      "translation": "इस पृष्ठ पर दी गई जानकारी के आधार पर उपयोगी उत्तर।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__lead",
+      "sourceHash": "e4072b84bbc9a6fe21d18269c95db2638e79d5cd6db93f546fc413652149a077",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.aficd.1.question",
+      "source": "What does AFICD provide?",
+      "translation": "AFICD कौन सी सेवाएँ देता है?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > summary",
+      "sourceHash": "543f0abe295ad72e9f74c65e887d388767720375c6208d8e13569fbac31131b4",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.aficd.1.answer",
+      "source": "AFICD provides ICD, CFS, ECD, bonded warehousing and cargo-handling services.",
+      "translation": "AFICD ICD, CFS, ECD, बंधित गोदाम और माल-संभाल सेवाएँ देता है।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > p",
+      "sourceHash": "20805569097a8e7a14adbf3252cc1f006da2b0c5e75c27a2e80598e309347612",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.aficd.2.question",
+      "source": "When did AFICD commence operations?",
+      "translation": "AFICD ने संचालन कब शुरू किया?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > summary",
+      "sourceHash": "b0419913ae7b9a58940574b4b3394a78977831be7059cbcb4f61df62e400f24e",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.aficd.2.answer",
+      "source": "AFICD commenced operations in 2010.",
+      "translation": "AFICD ने 2010 में संचालन शुरू किया।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > p",
+      "sourceHash": "8e3bbc84ae154b2edb1d949a9407e670518e200423aa38eff8e416a4c46c56ed",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.aficd.3.question",
+      "source": "Who does AFICD serve?",
+      "translation": "AFICD किनकी सेवा करता है?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > summary",
+      "sourceHash": "1e3dd0a0583a9d0b42147c00a08ff1111258109a7cead7683e89b18c874d40f5",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.aficd.3.answer",
+      "source": "The page names shipping lines, manufacturers, traders and logistics partners.",
+      "translation": "पृष्ठ शिपिंग लाइनों, निर्माताओं, व्यापारियों और लॉजिस्टिक्स भागीदारों का उल्लेख करता है।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > p",
+      "sourceHash": "3e3012326715ec3c26336cfc53fd0eee1916ba28b6b90424f42ffa6692d8296a",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.aficd.4.question",
+      "source": "What regions does it serve?",
+      "translation": "यह किन क्षेत्रों में सेवा देता है?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > summary",
+      "sourceHash": "80e798212a31b443eac5db1819eea77518b04fbaebf3dd758f43de9d8cfaf855",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.aficd.4.answer",
+      "source": "It serves East, Central and Southern Africa.",
+      "translation": "यह पूर्वी, मध्य और दक्षिणी अफ्रीका में सेवा देता है।",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > p",
+      "sourceHash": "60a8c83f9101571d8e73d36fbc63ba54c965ff8fc43a17fcbf8adb341ae86115",
+      "origin": "assistant-authored-initial-draft"
     }
   ],
   "sourceManifestDigest": "60675f76844f3800729cf1ef938b65c6ddcb2e7351b7ee2b74eb4da0f9f40714",
@@ -1591,7 +1681,7 @@
   "authoringMethod": "AI-authored initial AFICD facility, capability, accessibility, and expansion translations; human review pending",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 158,
-  "translatedCount": 158,
+  "candidateCount": 168,
+  "translatedCount": 168,
   "validation": "Exact source ids and hashes retained; remaining strings are protected brands, native language names, or copyright; editorial review pending"
 }

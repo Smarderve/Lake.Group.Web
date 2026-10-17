@@ -1239,7 +1239,7 @@
       "id": "auto.98afe0b3ec349255",
       "sourceHash": "532c1f3d6fa2a4bbbfe751523f48af88b3842e9f329155dcce9cd8b022d83eed",
       "source": "Lake Lubes Power Eco lubricant products",
-      "translation": "Vilainishi vya Power Eco vya Lake Lubes",
+      "translation": "Bidhaa za vilainishi za Power Eco za Lake Lubes",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(5) > div:nth-of-type(1) > img:nth-of-type(1)",
       "attribute": "alt"
@@ -1248,7 +1248,7 @@
       "id": "auto.d9d68d309bf0aad0",
       "sourceHash": "5f8d59effa3f0793fd8c00f856dd10dc7eaa9ad6a0374a4636a41f00ad8dda40",
       "source": "Lake Steel & Allied Products Limited manufactures TBS-certified TMT reinforcement steel bars conforming to BS 500, with a 25T/hr computerized rolling mill.",
-      "translation": "Lake Steel & Allied Products Limited hutengeneza nondo za TMT zilizoidhinishwa na TBS na zinazofuata kiwango cha BS 500, kwa kutumia kinu cha kisasa cha kuviringisha chuma chenye uwezo wa tani 25 kwa saa.",
+      "translation": "Lake Steel & Allied Products Limited hutengeneza nondo za chuma za TMT zinazothibitishwa na TBS na zinazokidhi kiwango cha BS 500, kwa kutumia mtambo wa kuviringisha chuma unaotumia kompyuta wenye uwezo wa tani 25 kwa saa.",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(6) > div:nth-of-type(2) > p:nth-of-type(1)"
     },

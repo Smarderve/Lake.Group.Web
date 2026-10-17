@@ -9,8 +9,8 @@
   "authoringMethod": "existing dictionary reuse plus assistant-authored initial draft; human review required",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 95,
-  "translatedCount": 95,
+  "candidateCount": 105,
+  "translatedCount": 105,
   "validation": "Exact source ids and hashes preserved; company names, product names, native language labels, legal facts and copyright preserved; editorial review pending",
   "translations": [
     {
@@ -962,6 +962,96 @@
       "selector": null,
       "attribute": null,
       "origin": "preserved-company-name-native-language-label-or-copyright"
+    },
+    {
+      "id": "runtime.faq.title",
+      "source": "Questions about this business",
+      "translation": "Questions sur cette entreprise",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__title",
+      "sourceHash": "875ba74c700a0192f03ebba75f5ebdc2119fd477c70bc38b0fe5c69e8661acc1",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lead",
+      "source": "Helpful answers based on the information presented on this page.",
+      "translation": "Des réponses utiles fondées sur les informations présentées sur cette page.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__lead",
+      "sourceHash": "e4072b84bbc9a6fe21d18269c95db2638e79d5cd6db93f546fc413652149a077",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-gas.1.question",
+      "source": "What does Lake Gas provide?",
+      "translation": "Que propose Lake Gas ?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > summary",
+      "sourceHash": "96e051b553bdcd47a09efa55903490958f06f49b7911b40b5df3997a3281a565",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-gas.1.answer",
+      "source": "Lake Gas provides retail and bulk LPG, bottled cylinders and commercial LPG services.",
+      "translation": "Lake Gas fournit du GPL au détail et en vrac, des bouteilles de gaz et des services GPL pour les entreprises.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > p",
+      "sourceHash": "53e4cbf833d4b682b7792a37898a4a3d6305f3776a4f1cfe7b8aa26ad17a37bb",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-gas.2.question",
+      "source": "When was Lake Gas established?",
+      "translation": "Quand Lake Gas a-t-elle été créée ?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > summary",
+      "sourceHash": "e952dbd613ccdce6ba340295543965fc881a3154a26e4a69a806e5d38d062ecb",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-gas.2.answer",
+      "source": "Lake Gas was established in 2011.",
+      "translation": "Lake Gas a été créée en 2011.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > p",
+      "sourceHash": "61796dc810d70bf95770da0bbe0c00bd67d567f3d4d45a2ca8618fa08b6ee5e3",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-gas.3.question",
+      "source": "Where are its Tanzania locations?",
+      "translation": "Quels sites en Tanzanie sont mentionnés ?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > summary",
+      "sourceHash": "f6d12867688542dcb9d531630a0b367dba087c008ccd148a2a6e1f9777f907db",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-gas.3.answer",
+      "source": "The page lists locations including Dar es Salaam, Mwanza, Arusha, Dodoma, Morogoro, Iringa, Mbeya, Tanga and Zanzibar.",
+      "translation": "La page cite Dar es Salaam, Mwanza, Arusha, Dodoma, Morogoro, Iringa, Mbeya, Tanga et Zanzibar.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > p",
+      "sourceHash": "2ea073e481fbc2a0bed875fe8c6848536500a3735918ccf9e700866efd765e66",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-gas.4.question",
+      "source": "When did Kenya operations begin?",
+      "translation": "Quand les activités au Kenya ont-elles commencé ?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > summary",
+      "sourceHash": "80d69362d4f3190632fa91ff6ed8a735d4c8054a49ed17f1259b51db84ed71ec",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-gas.4.answer",
+      "source": "The page states that Kenya operations have run since 2014.",
+      "translation": "La page indique que les activités au Kenya se poursuivent depuis 2014.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > p",
+      "sourceHash": "3fc81d1aea569cf5f54ba2cc38d173025e6f966c3d2a1e2168bdc89f6f86f004",
+      "origin": "assistant-authored-initial-draft"
     }
   ]
 }

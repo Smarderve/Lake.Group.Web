@@ -9,8 +9,8 @@
   "authoringMethod": "existing dictionary reuse; no model output for generated rows",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 121,
-  "translatedCount": 121,
+  "candidateCount": 131,
+  "translatedCount": 131,
   "validation": "structural validation passed for reused dictionary rows; linguistic review remains required",
   "translations": [
     {
@@ -1562,6 +1562,96 @@
       "authoringMethod": "AI-authored initial translation; pending human review",
       "reviewEvidence": null,
       "releaseEligible": false
+    },
+    {
+      "id": "runtime.faq.title",
+      "source": "Questions about this business",
+      "translation": "أسئلة حول هذا النشاط التجاري",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__title",
+      "sourceHash": "875ba74c700a0192f03ebba75f5ebdc2119fd477c70bc38b0fe5c69e8661acc1",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lead",
+      "source": "Helpful answers based on the information presented on this page.",
+      "translation": "إجابات مفيدة تستند إلى المعلومات الواردة في هذه الصفحة.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__lead",
+      "sourceHash": "e4072b84bbc9a6fe21d18269c95db2638e79d5cd6db93f546fc413652149a077",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-agro.1.question",
+      "source": "What does Lake Agro do?",
+      "translation": "ما نشاط Lake Agro؟",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > summary",
+      "sourceHash": "b727a974367c5560e211c6bfba584c3f76ca6026fc1ab3f4c8bd4b92fe94dbca",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-agro.1.answer",
+      "source": "Lake Agro combines commercial farming, crop and livestock production, technology and agricultural infrastructure.",
+      "translation": "تجمع Lake Agro بين الزراعة التجارية وإنتاج المحاصيل والثروة الحيوانية والتقنية والبنية التحتية الزراعية.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > p",
+      "sourceHash": "24538b3b96e34796aa23ffa1688585ab782d42ee42bd4d1c5b3beca6bc03a8c6",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-agro.2.question",
+      "source": "When was Lake Agro established?",
+      "translation": "متى تأسست Lake Agro؟",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > summary",
+      "sourceHash": "2bd33b22f4869fdb940201f2ce72176e94d450509819f1f21ff17b2344645255",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-agro.2.answer",
+      "source": "Lake Agro was established in Zambia in 2017.",
+      "translation": "تأسست Lake Agro في زامبيا عام ٢٠١٧.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > p",
+      "sourceHash": "92760a34c7e67ca0144418b8e3fda8431b6e109b80e661c0c70bce0145cc9c5b",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-agro.3.question",
+      "source": "What crops are listed?",
+      "translation": "ما المحاصيل المدرجة؟",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > summary",
+      "sourceHash": "878254ba88c98b2a7ef7404132834fe1173c8546776ab43b23c29b5efc9c5ce2",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-agro.3.answer",
+      "source": "The page lists maize, soya beans, wheat and sugarcane.",
+      "translation": "تسرد الصفحة الذرة وفول الصويا والقمح وقصب السكر.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > p",
+      "sourceHash": "6571c24a796434bf7b61b8f521f9002ecee337b132d3dac97aa0688a4af7cefc",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-agro.4.question",
+      "source": "What Tanzania project is described?",
+      "translation": "ما مشروع تنزانيا الموصوف؟",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > summary",
+      "sourceHash": "d9987ea3644b376d9bcf7d6d3ccd063e69b58faa7591e1fe7c6baf8dc442e52c",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-agro.4.answer",
+      "source": "The page describes an integrated sugarcane plantation and sugar manufacturing project initiated in 2021.",
+      "translation": "تصف الصفحة مشروعاً متكاملاً لزراعة قصب السكر وتصنيعه بدأ عام ٢٠٢١.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > p",
+      "sourceHash": "5302bf4c5e3c73a8ed73bec6215d6e10308b10892a510e37b9f2c26ec16eac25",
+      "origin": "assistant-authored-initial-draft"
     }
   ]
 }

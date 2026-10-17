@@ -9,8 +9,8 @@
   "authoringMethod": "AI-authored initial Lake Cylinders translations with exact-source draft reuse; human review pending",
   "reviewEvidence": null,
   "releaseEligible": false,
-  "candidateCount": 138,
-  "translatedCount": 138,
+  "candidateCount": 148,
+  "translatedCount": 148,
   "validation": "Technical terms, product specifications, company names and numerical claims preserved; source ids and hashes match current extraction manifest; editorial review pending",
   "translations": [
     {
@@ -1392,6 +1392,96 @@
       "selector": null,
       "attribute": null,
       "origin": "reused-exact-source:leadership.html"
+    },
+    {
+      "id": "runtime.faq.title",
+      "source": "Questions about this business",
+      "translation": "Preguntas sobre esta empresa",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__title",
+      "sourceHash": "875ba74c700a0192f03ebba75f5ebdc2119fd477c70bc38b0fe5c69e8661acc1",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lead",
+      "source": "Helpful answers based on the information presented on this page.",
+      "translation": "Respuestas útiles basadas en la información presentada en esta página.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__lead",
+      "sourceHash": "e4072b84bbc9a6fe21d18269c95db2638e79d5cd6db93f546fc413652149a077",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-cylinders.1.question",
+      "source": "What does Lake Cylinders manufacture?",
+      "translation": "¿Qué fabrica Lake Cylinders?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > summary",
+      "sourceHash": "e9c2596698d6030eb90bdeb446c1ba763caf96c5d7c47847311690b49d0b1cc1",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-cylinders.1.answer",
+      "source": "Lake Cylinders manufactures LPG cylinders for domestic, commercial and industrial use.",
+      "translation": "Lake Cylinders fabrica cilindros de GLP para uso doméstico, comercial e industrial.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(1) > p",
+      "sourceHash": "bff4a926bdc2696ce65739fa3c3781b7aa5c3921be9f81a78107088fced097e3",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-cylinders.2.question",
+      "source": "Where is the manufacturing base?",
+      "translation": "¿Dónde está su base de fabricación?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > summary",
+      "sourceHash": "6171ab1ba520e9fa68a22bbdafc2aaac90dbc8479f5273998341f1c79dde544a",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-cylinders.2.answer",
+      "source": "The company is based in Tanzania.",
+      "translation": "La empresa tiene su sede en Tanzania.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(2) > p",
+      "sourceHash": "cc7512ca6185a825f4656302ab95bc8effd7cd10e4e82981e0738be4f0be803e",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-cylinders.3.question",
+      "source": "What is its quality focus?",
+      "translation": "¿Cuál es su enfoque de calidad?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > summary",
+      "sourceHash": "702c1f2ac352631e7bee25fc75c32151178ff8120b7c1b100adaa31181d11f91",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-cylinders.3.answer",
+      "source": "The page describes modern processes, quality-control systems and applicable safety and quality requirements.",
+      "translation": "La página describe procesos modernos, sistemas de control de calidad y los requisitos aplicables de seguridad y calidad.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(3) > p",
+      "sourceHash": "af7e15e09d13437df282c0f520a497b6237a2e2be69ec33caa256c4fdb275ff2",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-cylinders.4.question",
+      "source": "Which regional markets are named?",
+      "translation": "¿Qué mercados regionales se mencionan?",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > summary",
+      "sourceHash": "b6d8ceeee8c2e204b2ecd33b124e4ab69304bbbe9a622a58f87e0f761eab2c30",
+      "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "runtime.faq.lake-cylinders.4.answer",
+      "source": "The page names Tanzania, DR Congo, Rwanda and Zambia.",
+      "translation": "La página menciona Tanzania, la República Democrática del Congo, Ruanda y Zambia.",
+      "mode": "runtime-text",
+      "selector": ".lg-company-faq__list details:nth-of-type(4) > p",
+      "sourceHash": "221717694dc9547e991003494b21e1a98edb76d239fe1699b70e848af5e2ea9f",
+      "origin": "assistant-authored-initial-draft"
     }
   ]
 }
