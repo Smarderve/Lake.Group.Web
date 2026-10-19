@@ -7,12 +7,21 @@ const test = require('node:test');
 
 const source = fs.readFileSync(path.join(__dirname, '..', 'globe-lab', 'entry.tsx'), 'utf8');
 
-test('globe reveals once and holds the approved network instead of retracting it', () => {
+test('globe reveals, holds, and retracts on a continuous repeating cycle', () => {
   assert.match(source, /HOLD_AT_SECONDS=12/);
-  assert.match(source, /Math\.min\(HOLD_AT_SECONDS,timeline\.current\+Math\.min\(delta,\.2\)\)/);
-  assert.doesNotMatch(source, /%LOOP_SECONDS/);
-  assert.doesNotMatch(source, /const retract=/);
-  assert.doesNotMatch(source, /'retract'/);
+  assert.match(source, /CYCLE_SECONDS=18, RETRACT_START_SECONDS=15, RETRACT_END_SECONDS=17/);
+  assert.match(source, /\(timeline\.current\+Math\.min\(delta,\.2\)\)%CYCLE_SECONDS/);
+  assert.match(source, /THREE\.MathUtils\.smoothstep\(elapsed,RETRACT_START_SECONDS,RETRACT_END_SECONDS\)/);
+  assert.match(source, /const phase=.*'retract'/);
+  assert.match(source, /y:FINAL_ROTATION\+travel\*\(Math\.PI\*2\)/);
+});
+
+test('globe labels localize in place without changing geography or remounting', () => {
+  assert.match(source, /const PLACE_NAMES:Record<string,Record<Locale,string>>/);
+  assert.match(source, /ar:'جمهورية الكونغو الديمقراطية'/);
+  assert.match(source, /document\.addEventListener\('lake-i18n-applied',applyNames\)/);
+  assert.match(source, /labelRefs\.current\[place\.id\]/);
+  assert.match(source, /lat:-6\.7924, lng:39\.2083/);
 });
 
 test('globe keeps front-side labels and leaders available through drag recovery', () => {

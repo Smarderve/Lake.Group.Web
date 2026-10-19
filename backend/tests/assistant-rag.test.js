@@ -502,6 +502,9 @@ describe('Lake Assistant RAG', () => {
     const service = createTestService({ fetchImpl });
     const first = await service.chat({ message: 'Tell me about Lake Aviation.', locale: 'sw' });
     expect(requests[0].body.messages[0].content).toContain('Respond in Kiswahili.');
+    expect(requests[0].body.messages[0].content).toContain('Company and subsidiary names are protected proper names');
+    expect(requests[0].body.messages[0].content).toContain('Lake Energies');
+    expect(requests[0].body.messages[0].content).toContain('Lake Steel & Allied Products Limited');
 
     await service.chat({ sessionId: first.sessionId, message: 'More.', locale: 'sw' });
     expect(requests[1].body.messages[0].content).toContain('Respond in Kiswahili.');

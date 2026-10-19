@@ -37,6 +37,7 @@ window.LakeI18n = (function () {
   // Their source files retain DRAFT_PENDING_HUMAN_REVIEW/releaseEligible=false;
   // making them selectable does not represent human review or approval.
   const DRAFT_PREVIEW = true;
+  if (DRAFT_PREVIEW) SUPPORTED.filter((language) => language !== 'en').forEach((language) => availableLanguages.add(language));
   const draftPageTranslations = {};
   const draftEnglishSources = {};
   const draftLocalePromises = {};
@@ -70,6 +71,8 @@ window.LakeI18n = (function () {
   const keyedSourceSnapshots = new WeakMap();
   const keyedSourceNormalizedSnapshots = new WeakMap();
   const normalizedDictionarySources = new Map();
+  const pageDraftSelectorTargets = new Map();
+  const telephoneTextSources = new WeakMap();
   // Distinguish Tab focus (open menu) from pointer focus (click owns toggle).
   let keyboardIntent = false;
   const LANG_OPEN_DELAY_MS = 200;
@@ -212,7 +215,7 @@ window.LakeI18n = (function () {
         if (!matches.length) return;
         matches.forEach((node) => {
           const original = node.nodeValue;
-          node.nodeValue = entry.translation;
+          node.nodeValue = localizeVisitorText(lang, entry.translation);
           appliedAutoTargets.push({ node, original });
         });
         return;
@@ -223,16 +226,24 @@ window.LakeI18n = (function () {
         if (!matches.length) return;
         matches.forEach((node) => {
           const original = node.getAttribute(entry.attribute);
-          node.setAttribute(entry.attribute, entry.translation);
+          node.setAttribute(entry.attribute, localizeVisitorText(lang, entry.translation));
           appliedAutoTargets.push({ node, attribute: entry.attribute, original });
         });
         return;
       }
       if (typeof entry.selector !== 'string') return;
-      let nodes;
-      try { nodes = document.querySelectorAll(entry.selector); } catch (_) { return; }
-      if (nodes.length !== 1) return;
-      const node = nodes[0];
+      let node = pageDraftSelectorTargets.get(entry.selector);
+      if (node?.isConnected && !node.matches(entry.selector)) {
+        pageDraftSelectorTargets.delete(entry.selector);
+        node = null;
+      }
+      if (!node?.isConnected) {
+        let nodes;
+        try { nodes = document.querySelectorAll(entry.selector); } catch (_) { return; }
+        if (nodes.length !== 1) { pageDraftSelectorTargets.delete(entry.selector); return; }
+        node = nodes[0];
+        pageDraftSelectorTargets.set(entry.selector, node);
+      }
       let textTarget = node;
       if (entry.mode === 'text' && node.querySelector('*')) {
         const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT);
@@ -248,9 +259,9 @@ window.LakeI18n = (function () {
       if (source === null || normalize(source) !== normalize(entry.source)) return;
       const attribute = entry.mode === 'attribute' ? entry.attribute : null;
       const original = attribute ? node.getAttribute(attribute) : (textTarget.nodeType === Node.TEXT_NODE ? textTarget.nodeValue : textTarget.textContent);
-      if (attribute) node.setAttribute(attribute, entry.translation);
-      else if (textTarget.nodeType === Node.TEXT_NODE) textTarget.nodeValue = entry.translation;
-      else textTarget.textContent = entry.translation;
+      if (attribute) node.setAttribute(attribute, localizeVisitorText(lang, entry.translation));
+      else if (textTarget.nodeType === Node.TEXT_NODE) textTarget.nodeValue = localizeVisitorText(lang, entry.translation);
+      else textTarget.textContent = localizeVisitorText(lang, entry.translation);
       appliedAutoTargets.push({ node: textTarget, attribute, original });
     });
     if (!autoMutationObserver && typeof MutationObserver === 'function') {
@@ -277,31 +288,105 @@ window.LakeI18n = (function () {
     return Promise.resolve(dictionaries);
   }
 
-  const DIGIT_MAPS = {
-    ar: ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'],
-    hi: ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९']
+  const NUMBER_FORMAT_LOCALES = {
+    en: 'en-US', sw: 'sw-TZ', hi: 'hi-IN-u-nu-deva', ar: 'ar-EG', zh: 'zh-CN', fr: 'fr-FR', es: 'es-ES', pt: 'pt-PT',
   };
+  const numberFormatters = new Map();
+  function getNumberFormatter(locale, useGrouping) {
+    const key = `${locale}:${useGrouping ? 'grouped' : 'plain'}`;
+    if (!numberFormatters.has(key)) numberFormatters.set(key, new Intl.NumberFormat(locale, { useGrouping, maximumFractionDigits: 20 }));
+    return numberFormatters.get(key);
+  }
 
   function formatNumberForLang(lang, value) {
     const str = value == null ? '' : String(value);
-    const map = DIGIT_MAPS[lang];
-    if (!map) return str;
-    return str.replace(/[0-9]/g, (d) => map[d.charCodeAt(0) - 48]);
+    const locale = NUMBER_FORMAT_LOCALES[lang];
+    if (!locale) return str;
+    const formatter = getNumberFormatter(locale, true);
+    return str.replace(/(?<![\p{L}\p{N}])([+-]?)(\d+(?:,\d{3})*(?:\.\d+)?)([%+]?)(?![\p{L}\p{N}])/gu, (match, sign, raw, suffix) => {
+      if (/^0\d+$/.test(raw)) {
+        const digits = lang === 'ar' ? '٠١٢٣٤٥٦٧٨٩' : lang === 'hi' ? '०१२३४५६७८९' : '0123456789';
+        return sign + raw.replace(/[0-9]/g, (digit) => digits[digit.charCodeAt(0) - 48]) + suffix;
+      }
+      if (/^\d{4}$/.test(raw) && !suffix) return sign + getNumberFormatter(locale, false).format(Number(raw));
+      const number = Number(raw.replace(/,/g, ''));
+      return Number.isFinite(number) ? sign + formatter.format(number) + suffix : match;
+    });
   }
 
   function localizeDigitsInText(lang, text) {
     if (typeof text !== 'string' || !text) return text;
-    if (!DIGIT_MAPS[lang]) return text;
     return formatNumberForLang(lang, text);
+  }
+
+  document.addEventListener('copy', (event) => {
+    const selection = window.getSelection();
+    if (!selection || selection.isCollapsed || !event.clipboardData) return;
+    const phoneForNode = (node) => (node?.nodeType === Node.ELEMENT_NODE ? node : node?.parentElement)?.closest?.('[data-raw-copy]') || null;
+    const phone = phoneForNode(selection.anchorNode);
+    if (!phone || phone !== phoneForNode(selection.focusNode) || selection.toString().trim() !== phone.textContent.trim()) return;
+    event.clipboardData.setData('text/plain', phone.getAttribute('data-raw-copy') || phone.textContent);
+    event.preventDefault();
+  }, true);
+
+  // Preserve the official Latin spelling of company names in translated
+  // strings, including page drafts, runtime cards, and assistant responses.
+  const PROTECTED_BRAND_REPLACEMENTS = {
+    ar: [
+    [/ليك\s+ستيل\s+و\s+Allied\s+Products(?:\s+(?:المحدودة|المحدوده|Limited))?/giu, 'Lake Steel & Allied Products Limited'],
+    [/ليك\s+(?:أويل|اويل)\s+(?:المحدودة|المحدوده)/gu, 'Lake Oil Limited'],
+    [/ليك\s+ترانس\s+(?:المحدودة|المحدوده)/gu, 'Lake Trans Limited'],
+    [/ليك\s+ستيل\s+(?:المحدودة|المحدوده)/gu, 'Lake Steel Limited'],
+    [/ليك\s+غاز\s+(?:المحدودة|المحدوده)/gu, 'Lake Gas Limited'],
+    [/ليك\s+(?:أويل|اويل)\s+LDA/giu, 'Lake Oil LDA'],
+    [/ليك\s+إنرجيز/gu, 'Lake Energies'],
+    [/ليك\s+بلاستيكس/gu, 'Lake Pipes'],
+    [/مجموعة\s+ليك/gu, 'Lake Group'], [/ليك\s+(?:أويل|اويل)/gu, 'Lake Oil'], [/ليك\s+غاز/gu, 'Lake Gas'],
+    [/ليك\s+(?:لوبز|لوبس)/gu, 'Lake Lubes'], [/ليك\s+ستيل/gu, 'Lake Steel'], [/ليك\s+ترانس/gu, 'Lake Trans'],
+    [/ليك\s+(?:أفييشن|افييشن)/gu, 'Lake Aviation'], [/ليك\s+بايبس/gu, 'Lake Pipes'],
+    [/ليك\s+(?:بريميكس|بريمكس)/gu, 'Lake Premix'], [/ليك\s+سيلندرز/gu, 'Lake Cylinders'], [/ليك\s+أغرو/gu, 'Lake Agro'],
+    ],
+    hi: [
+      [/लेक\s+ग्रुप/gu, 'Lake Group'], [/लेक\s+ऑयल/gu, 'Lake Oil'], [/लेक\s+गैस/gu, 'Lake Gas'],
+      [/लेक\s+ल्यूब्स/gu, 'Lake Lubes'], [/लेक\s+स्टील/gu, 'Lake Steel'], [/लेक\s+ट्रांस/gu, 'Lake Trans'],
+      [/लेक\s+एविएशन/gu, 'Lake Aviation'], [/लेक\s+एनर्जीज़/gu, 'Lake Energies'],
+      [/लेक\s+बिल्डिंग\s+सॉल्यूशंस?/gu, 'Lake Building Solution'],
+      [/लेक\s+पाइप्स/gu, 'Lake Pipes'], [/लेक\s+प्रीमिक्स/gu, 'Lake Premix'],
+      [/लेक\s+(?:सिलेंडर्स|सिलिंडर्स)/gu, 'Lake Cylinders'], [/लेक\s+एग्रो/gu, 'Lake Agro'],
+    ],
+    latin: [
+      [/Kundi\s+la\s+Lake(?!\s+Group)/giu, 'Lake Group'],
+      [/Groupe\s+Lake(?!\s+Group)/giu, 'Lake Group'],
+      [/Grupo\s+Lake(?!\s+Group)/giu, 'Lake Group'],
+    ],
+  };
+  function protectBrandNames(value) {
+    let result = String(value ?? '');
+    if (/(?:ليك|مجموعة)/u.test(result)) PROTECTED_BRAND_REPLACEMENTS.ar.forEach(([pattern, official]) => { result = result.replace(pattern, official); });
+    if (/लेक/u.test(result)) PROTECTED_BRAND_REPLACEMENTS.hi.forEach(([pattern, official]) => { result = result.replace(pattern, official); });
+    if (/(?:Kundi\s+la\s+Lake|Groupe\s+Lake|Grupo\s+Lake)/iu.test(result)) PROTECTED_BRAND_REPLACEMENTS.latin.forEach(([pattern, official]) => { result = result.replace(pattern, official); });
+    return result;
+  }
+  function localizeVisitorText(lang, value) {
+    let text = protectBrandNames(value);
+    const protectedValues = [];
+    text = text.replace(/(?:https?:\/\/|www\.)[^\s<>"']+|[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}|\b[A-Z]{2,}(?:-[A-Z0-9]+)*(?:\s+\d+[A-Z0-9]*)?\b/g, (token) => {
+      const marker = `\uE000${'x'.repeat(protectedValues.length + 1)}\uE000`;
+      protectedValues.push(token);
+      return marker;
+    });
+    text = localizeDigitsInText(lang, text);
+    protectedValues.forEach((token, index) => { text = text.replace(`\uE000${'x'.repeat(index + 1)}\uE000`, token); });
+    return text;
   }
 
   function t(key, lang) {
     const useLang = lang || current;
     if (!dictionaries) return null;
     const pack = dictionaries[useLang] || dictionaries.en || {};
-    if (Object.prototype.hasOwnProperty.call(pack, key)) return pack[key];
+    if (Object.prototype.hasOwnProperty.call(pack, key)) return protectBrandNames(pack[key]);
     const enPack = dictionaries.en || {};
-    if (Object.prototype.hasOwnProperty.call(enPack, key)) return enPack[key];
+    if (Object.prototype.hasOwnProperty.call(enPack, key)) return protectBrandNames(enPack[key]);
     return null;
   }
 
@@ -355,7 +440,7 @@ window.LakeI18n = (function () {
         // Eastern Arabic digits for ar display strings.
         // Skip when data-i18n-latin-digits is present (e.g. emails, codes).
         if (!el.hasAttribute('data-i18n-latin-digits')) {
-          val = localizeDigitsInText(lang, val);
+          val = localizeVisitorText(lang, val);
         }
         if (el.hasAttribute('data-i18n-html')) {
           el.innerHTML = val;
@@ -528,12 +613,31 @@ window.LakeI18n = (function () {
 
   function applyAll(lang) {
     window.LakeSplitText?.prepareForLanguageChange?.();
-    const numberSelector = '[data-i18n-number], .fs-marker-no, .lp-mandate li > span:first-child, .lp-meta > div > strong, .stat-no2';
+    const numberSelector = '[data-i18n-number], .fs-marker-no, .lp-mandate li > span:first-child, .lp-meta > div > strong, .stat-no2, .hero-kf-num, a[href^="tel:"] > span';
     const numberNodes = document.querySelectorAll(numberSelector);
     numberNodes.forEach((el) => {
       if (el.hasAttribute('data-i18n') || el.hasAttribute('data-number')) return;
       const raw = el.getAttribute('data-i18n-number') || el.textContent;
       el.setAttribute('data-number', raw);
+      const phone = el.parentElement?.closest('a[href^="tel:"]');
+      if (phone) {
+        el.dir = 'ltr';
+        el.style.unicodeBidi = 'isolate';
+        el.setAttribute('data-raw-copy', phone.getAttribute('href').slice(4));
+      }
+    });
+    const telephoneLinks = document.querySelectorAll('a[href^="tel:"]');
+    telephoneLinks.forEach((link) => {
+      link.dir = 'ltr';
+      link.style.unicodeBidi = 'isolate';
+      link.setAttribute('data-raw-copy', link.getAttribute('href').slice(4));
+      const walker = document.createTreeWalker(link, NodeFilter.SHOW_TEXT);
+      let textNode;
+      while ((textNode = walker.nextNode())) {
+        if (textNode.parentElement?.closest('[data-number]')) continue;
+        if (!/^\s*\+?[\d][\d\s().-]*\s*$/.test(textNode.nodeValue || '')) continue;
+        if (!telephoneTextSources.has(textNode)) telephoneTextSources.set(textNode, textNode.nodeValue);
+      }
     });
     const nodes = document.querySelectorAll(
       '[data-i18n], [data-i18n-placeholder], [data-i18n-title], [data-i18n-alt], [data-i18n-aria], [data-i18n-number]'
@@ -553,6 +657,15 @@ window.LakeI18n = (function () {
       const translatedByPage = appliedAutoTargets.some((target) => target.node === el || target.node.parentElement === el);
       const value = translatedByPage ? el.textContent : (el.getAttribute('data-number') || el.getAttribute('data-i18n-number') || el.textContent);
       el.textContent = formatNumberForLang(lang, value);
+    });
+    telephoneLinks.forEach((link) => {
+      const walker = document.createTreeWalker(link, NodeFilter.SHOW_TEXT);
+      let textNode;
+      while ((textNode = walker.nextNode())) {
+        if (textNode.parentElement?.closest('[data-number]')) continue;
+        const original = telephoneTextSources.get(textNode);
+        if (original !== undefined) textNode.nodeValue = formatNumberForLang(lang, original);
+      }
     });
 
     // Signal listeners only after keyed dictionaries and page drafts are both
@@ -759,6 +872,8 @@ window.LakeI18n = (function () {
     t,
     formatNumberForLang,
     localizeDigitsInText,
+    localizeVisitorText,
+    protectBrandNames,
     LANG_LABELS,
     SUPPORTED,
     get current() { return current; },

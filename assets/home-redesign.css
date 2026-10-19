@@ -12,7 +12,7 @@
    -------------------------------------------------------------------------- */
 body.home .hero-zone {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 /* Subtle top blue gradient to improve navbar link readability on bright slides */
 body.home .hero-zone::before {
@@ -113,7 +113,7 @@ body.home .hero-scrim {
     rgba(1, 129, 187, 0) 65%);
 }
 
-/* Content: vertically centered, pushed down below navbar */
+/* Keep shared hero copy aligned within a stable, fully visible content area. */
 body.home .hero-content {
   position: relative;
   z-index: 3;
@@ -125,9 +125,9 @@ body.home .hero-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow: hidden;
+  overflow: visible;
   box-sizing: border-box;
-  transform: translateY(clamp(28px, 6vh, 72px));
+  transform: none;
 }
 body.home .hero-eyebrow {
   display: inline-flex;
@@ -150,14 +150,15 @@ body.home .hero-eyebrow span {
   color: var(--color-yellow-accent, var(--yellow));
 }
 
-/* Large light-weight heading like Aramco */
+/* The shared slide headline stays bold and readable in every locale. */
 body.home .hero h1 {
   font-family: var(--font-display);
   font-size: clamp(2.8rem, 5.5vw, 5rem);
-  font-weight: 300;
+  font-weight: 700;
   color: #ffffff;
   line-height: 1.05;
   letter-spacing: -0.015em;
+  text-shadow: 0 2px 7px rgba(0, 0, 0, 0.42);
   margin-bottom: 12px;
   max-width: 22ch;
 }
@@ -168,14 +169,19 @@ body.home .hero h1 em {
 }
 body.home .hero-sub {
   font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3.5vw, 2.8rem) !important;
-  font-weight: 300 !important;
+  font-size: clamp(1.45rem, 3.35vw, 2.7rem) !important;
+  font-weight: 700 !important;
   color: #ffffff !important;
-  line-height: 1.2 !important;
-  letter-spacing: -0.01em !important;
-  margin: 0 0 28px !important;
-  max-width: 650px !important;
+  line-height: 1.28 !important;
+  letter-spacing: normal !important;
+  margin: 0 0 24px !important;
+  max-width: min(760px, 88vw) !important;
+  text-wrap: balance;
+  overflow-wrap: break-word;
 }
+html[dir="rtl"] body.home .hero-sub { direction: rtl; text-align: right; }
+html[lang="hi"] body.home .hero-sub,
+html[lang="zh"] body.home .hero-sub { font-size: clamp(1.35rem, 3vw, 2.45rem) !important; }
 body.home .hero-keyfacts {
   display: flex;
   gap: 32px;
@@ -192,13 +198,18 @@ body.home .hero-kf-num {
   font-weight: 700;
   color: var(--color-yellow-accent, var(--yellow));
   line-height: 1.1;
+  direction: ltr;
+  unicode-bidi: isolate;
 }
+html[dir="rtl"] body.home .hero-keyfacts { direction: rtl; }
 body.home .hero-kf-label {
   font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.96);
+  font-weight: 700;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.58);
 }
 body.home .hero-cta {
   display: flex;
@@ -210,6 +221,7 @@ body.home .hero-link {
   align-items: center;
   gap: 18px;
   color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
   font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -387,7 +399,7 @@ body.home .hero-tab:hover {
   }
   body.home .hero-content {
     padding: 92px 20px 108px;
-    transform: translateY(clamp(18px, 4vh, 34px));
+    transform: none;
   }
   body.home .hero-tabs {
     bottom: clamp(34px, 5vh, 56px);
@@ -409,13 +421,15 @@ body.home .hero-tab:hover {
   }
   body.home .hero-sub {
     max-width: 100% !important;
-    font-size: 1.08rem !important;
-    font-weight: 600 !important;
+    font-size: clamp(1.2rem, 5vw, 1.55rem) !important;
+    font-weight: 700 !important;
     color: #fff !important;
-    line-height: 1.36 !important;
+    line-height: 1.34 !important;
     text-shadow: 0 1px 3px rgba(0, 0, 0, .52);
     margin-bottom: 14px !important;
-    letter-spacing: -0.01em !important;
+    letter-spacing: normal !important;
+    text-wrap: balance;
+    overflow-wrap: break-word;
   }
   body.home .hero-keyfacts {
     flex-wrap: wrap;

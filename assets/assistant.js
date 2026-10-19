@@ -192,7 +192,8 @@
         return ['Zimesalia sekunde ' + seconds + ' · rekodi itasimama','' + seconds + ' सेकंड शेष · रिकॉर्डिंग रुक जाएगी','تبقى ' + seconds + ' ثوانٍ · سيتوقف التسجيل',seconds + ' 秒剩余 · 录音即将停止','Encore ' + seconds + ' s · l’enregistrement va s’arrêter','Quedan ' + seconds + ' s · la grabación se detendrá','Restam ' + seconds + ' s · a gravação vai parar'][position];
       }
     }
-    return line && position !== undefined ? line[position] : String(text || '');
+    var localized = line && position !== undefined ? line[position] : String(text || '');
+    return window.LakeI18n && window.LakeI18n.localizeVisitorText ? window.LakeI18n.localizeVisitorText(lang(), localized) : localized;
   }
   function localizeAssistantAttributes(root) {
     if (!root || !root.querySelectorAll) return;
@@ -302,10 +303,11 @@
     return svg;
   }
   function safeAnswerText(value) {
-    return String(value || '')
+    var answer = String(value || '')
       .replace(/\[([^\]]+)\]\(https:\/\/www\.lakeoilgroup\.com(?:\/[^)\s]*)?\)/gi, '$1')
       .replace(/https:\/\/www\.lakeoilgroup\.com(?:\/[^\s)\]<>]*)?/gi, '')
       .replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim();
+    return window.LakeI18n?.localizeVisitorText ? window.LakeI18n.localizeVisitorText(lang(), answer) : answer;
   }
   function appendSources(article, links) {
     var seenSources = Object.create(null);

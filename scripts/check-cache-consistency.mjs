@@ -14,19 +14,22 @@ const critical = [
   'i18n.js',
   'i18n-content.js',
   'flagship.css',
+  'home-redesign.css',
   'theme.css',
 ];
 const perAssetRelease = new Map([
   ['phase-01-navbar.css', '20261016-02'],
-  ['i18n.js', '20261018-01'],
-  ['i18n-content.js', '20261017-01'],
+  ['i18n.js', '20261019-01'],
+  ['home-redesign.css', '20261019-01'],
+  ['i18n-content.js', '20261019-01'],
   ['split-text.js', '20261017-01'],
   ['home-hero.js', '20261017-03'],
   ['site.js', '20261017-04'],
 ]);
-const serviceWorkerRelease = '20261018-01';
-const assistantJsRelease = '20261017-03';
-const assistantCssRelease = '20261017-03';
+const serviceWorkerRelease = '20261019-02';
+const assistantJsRelease = '20261019-01';
+const assistantCssRelease = '20261019-01';
+const globeBundleRelease = '20261019-loop-l10n-01';
 const errors = [];
 const versions = new Map();
 
@@ -77,6 +80,10 @@ for (const [asset, version] of [['assistant.js', assistantJsRelease], ['assistan
       errors.push(file + ': stale assistant asset version for ' + asset);
     }
   }
+}
+const globeUrl = `assets/globe-lab.bundle.js?v=${globeBundleRelease}`;
+if (!fs.readFileSync(path.join(root, 'index.html'), 'utf8').includes(globeUrl)) {
+  errors.push('index.html: missing rebuilt globe bundle URL ' + globeUrl);
 }
 
 const vercel = fs.readFileSync(path.join(root, 'vercel.json'), 'utf8');

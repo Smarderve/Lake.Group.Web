@@ -1477,13 +1477,16 @@
       font-size: 11px;
       font-weight: 700;
       line-height: 1;
-      letter-spacing: .095em;
-      white-space: nowrap;
+      letter-spacing: .04em;
+      max-width: min(280px, calc(100vw - 56px));
+      white-space: normal;
       text-shadow: 0 2px 12px #01070d, 0 1px 3px #01070d;
       transform-origin: left center;
       transition: opacity .18s linear;
       opacity: 0;
     }
+    #hero-globe-root .map-label span { min-width: 0; overflow-wrap: break-word; line-height: 1.12; }
+    #hero-globe-root .map-label[dir="rtl"] { letter-spacing: normal; transform-origin: right center; }
 
     #hero-globe-root .map-label img {
       width: 17px;
@@ -2403,10 +2406,10 @@
   <link rel="stylesheet" href="assets/tokens.css?v=20260828-01">
   <link rel="stylesheet" href="assets/split-text.css?v=20260828-01" media="print" data-deferred-stylesheet>
 <link rel="stylesheet" href="assets/theme.css?v=20260828-01" />
-  <link rel="stylesheet" href="assets/assistant.css?v=20261017-03">
+  <link rel="stylesheet" href="assets/assistant.css?v=20261019-01">
   <script src="assets/deferred-stylesheets.js?v=20260927-01"></script>
   <link rel="stylesheet" href="assets/skeleton.css?v=20260830-02">
-  <link rel="stylesheet" href="assets/home-redesign.css?v=20260828-01">
+  <link rel="stylesheet" href="assets/home-redesign.css?v=20261019-01">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https://www.youtube.com https://www.youtube-nocookie.com; worker-src 'self'; manifest-src 'self'; media-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self' https:; upgrade-insecure-requests">
   <link rel="stylesheet" href="assets/phase-01-navbar.css?v=20261016-02">
   <link rel="stylesheet" href="assets/phase-01-footer.css?v=20260828-01">
@@ -2902,10 +2905,10 @@
 
   <script src="assets/components/logo-loop-mount.js?v=20260901-02" defer></script>
   <script src="assets/home-hero.js?v=20261017-03" defer></script>
-  <script src="assets/i18n-content.js?v=20261017-01" defer></script>
-  <script src="assets/i18n.js?v=20261018-01" defer></script>
+  <script src="assets/i18n-content.js?v=20261019-01" defer></script>
+  <script src="assets/i18n.js?v=20261019-01" defer></script>
 <script src="assets/site.js?v=20261017-04" defer></script>
-  <script src="assets/assistant.js?v=20261017-03" defer></script>
+  <script src="assets/assistant.js?v=20261019-01" defer></script>
   <script>
     // Keep the approved globe lab island off the critical path. It is fetched
     // after the page load has gone idle, or when the experience section
@@ -2914,7 +2917,7 @@
       var section = document.getElementById("experience-3d-panel");
       var loaded = false;
       var warmed = false;
-      var bundleUrl = "assets/globe-lab.bundle.js?v=20261013-network-hold";
+      var bundleUrl = "assets/globe-lab.bundle.js?v=20261019-loop-l10n-01";
       function warm() {
         if (warmed) return;
         warmed = true;
@@ -2973,28 +2976,28 @@
       /* High-quality operations gallery — one tile per company */
       var ITEMS = [
         /* ---- Energies ---- */
-        { src: "assets/images/delivery/lakeoil/current/storage-facilities-terminal.webp", cat: "oil", tKey: "index.action.i01.t", sKey: "index.action.i01.s", title: "Lake Oil", sub: "Petroleum terminal & retail" },
-        { src: "assets/images/delivery/lakegas/ops/filling-plant-opt.webp", cat: "gas", tKey: "index.action.i02.t", sKey: "index.action.i02.s", title: "Lake Gas", sub: "LPG filling & cylinders" },
-        { src: "assets/images/delivery/home/remediated/lake-aviation-hero-apron-clean.webp", cat: "oil", tKey: "index.action.i02b.t", sKey: "index.action.i02b.s", title: "Lake Aviation", sub: "Aviation fuel supply" },
-        { src: "assets/images/delivery/lakelubes/ops/plant-opt.webp", cat: "industry", tKey: "index.action.i04.t", sKey: "index.action.i04.s", title: "Lake Lubes", sub: "Lubricant blending plant" },
+        { src: "assets/images/delivery/lakeoil/current/storage-facilities-terminal.webp", cat: "oil", tKey: "index.action.gallery.oil.title", sKey: "index.action.gallery.oil.subtitle", title: "Lake Oil", sub: "Petroleum terminal & retail" },
+        { src: "assets/images/delivery/lakegas/ops/filling-plant-opt.webp", cat: "gas", tKey: "index.action.gallery.gas.title", sKey: "index.action.gallery.gas.subtitle", title: "Lake Gas", sub: "LPG filling & cylinders" },
+        { src: "assets/images/delivery/home/remediated/lake-aviation-hero-apron-clean.webp", cat: "oil", tKey: "index.action.gallery.aviation.title", sKey: "index.action.gallery.aviation.subtitle", title: "Lake Aviation", sub: "Aviation fuel supply" },
+        { src: "assets/images/delivery/lakelubes/ops/plant-opt.webp", cat: "industry", tKey: "index.action.gallery.lubricants.title", sKey: "index.action.gallery.lubricants.subtitle", title: "Lake Lubes", sub: "Lubricant blending plant" },
         /* ---- Manufacturing ---- */
-        { src: "assets/images/delivery/home/remediated/lake-tanks-clean.webp", cat: "industry", tKey: "index.action.i06.t", sKey: "index.action.i06.s", title: "Lake Pipes", sub: "Tank manufacturing" },
-        { src: "assets/images/delivery/lakesteel/ops/hot-rolling-opt.webp", cat: "industry", tKey: "index.action.i03.t", sKey: "index.action.i03.s", title: "Lake Steel", sub: "HS-CR rebar mill" },
-        { src: "assets/images/lake-cylinders/gallery/team-photo.webp", cat: "industry", tKey: "index.action.i03b.t", sKey: "index.action.i03b.s", title: "Lake Cylinders", sub: "LPG cylinder manufacturing" },
-        { src: "assets/images/gccp/lake-premix-batching-plant.webp", cat: "industry", tKey: "index.action.i05b.t", sKey: "index.action.i05b.s", title: "Lake Premix", sub: "Ready-mix concrete" },
-        { src: "assets/images/gulf-aggregates/services/quarry-aerial.webp", cat: "industry", tKey: "index.action.i05c.t", sKey: "index.action.i05c.s", title: "Gulf Aggregates", sub: "Quarry & aggregates" },
+        { src: "assets/images/delivery/home/remediated/lake-tanks-clean.webp", cat: "industry", tKey: "index.action.gallery.tanks.title", sKey: "index.action.gallery.tanks.subtitle", title: "Lake Pipes", sub: "Tank manufacturing" },
+        { src: "assets/images/delivery/lakesteel/ops/hot-rolling-opt.webp", cat: "industry", tKey: "index.action.gallery.steel.title", sKey: "index.action.gallery.steel.subtitle", title: "Lake Steel", sub: "HS-CR rebar mill" },
+        { src: "assets/images/lake-cylinders/gallery/team-photo.webp", cat: "industry", tKey: "index.action.gallery.cylinders.title", sKey: "index.action.gallery.cylinders.subtitle", title: "Lake Cylinders", sub: "LPG cylinder manufacturing" },
+        { src: "assets/images/gccp/lake-premix-batching-plant.webp", cat: "industry", tKey: "index.action.gallery.premix.title", sKey: "index.action.gallery.premix.subtitle", title: "Lake Premix", sub: "Ready-mix concrete" },
+        { src: "assets/images/gulf-aggregates/services/quarry-aerial.webp", cat: "industry", tKey: "index.action.gallery.aggregates.title", sKey: "index.action.gallery.aggregates.subtitle", title: "Gulf Aggregates", sub: "Quarry & aggregates" },
         /* ---- Logistics ---- */
-        { src: "assets/images/delivery/home/remediated/lake-trans-fleet-hero-clean.webp", cat: "logistics", tKey: "index.action.i08.t", sKey: "index.action.i08.s", title: "Lake Trans", sub: "Bulk liquid haulage" },
-        { src: "assets/images/delivery/home/verticals/logistics-960.webp", cat: "logistics", tKey: "index.action.i09.t", sKey: "index.action.i09.s", title: "AFICD", sub: "Inland container depot" },
-        { src: "assets/images/delivery/home/remediated/aill-hero-clean.webp", cat: "logistics", tKey: "index.action.i09b.t", sKey: "index.action.i09b.s", title: "AILL", sub: "Inland logistics" },
+        { src: "assets/images/delivery/home/remediated/lake-trans-fleet-hero-clean.webp", cat: "logistics", tKey: "index.action.gallery.haulage.title", sKey: "index.action.gallery.haulage.subtitle", title: "Lake Trans", sub: "Bulk liquid haulage" },
+        { src: "assets/images/delivery/home/verticals/logistics-960.webp", cat: "logistics", tKey: "index.action.gallery.aficd.title", sKey: "index.action.gallery.aficd.subtitle", title: "AFICD", sub: "Inland container depot" },
+        { src: "assets/images/delivery/home/remediated/aill-hero-clean.webp", cat: "logistics", tKey: "index.action.gallery.aill.title", sKey: "index.action.gallery.aill.subtitle", title: "AILL", sub: "Inland logistics" },
         /* ---- Real Estate ---- */
-        { src: "assets/images/cross-country/cross-country-hero.webp", cat: "industry", tKey: "index.action.i06b.t", sKey: "index.action.i06b.s", title: "Cross Country", sub: "Real estate development" },
+        { src: "assets/images/cross-country/cross-country-hero.webp", cat: "industry", tKey: "index.action.gallery.realestate.title", sKey: "index.action.gallery.realestate.subtitle", title: "Cross Country", sub: "Real estate development" },
         /* ---- Agro ---- */
-        { src: "assets/images/delivery/lake-agro/la-tanzania-factory.webp", cat: "industry", tKey: "index.action.i07.t", sKey: "index.action.i07.s", title: "Lake Agro", sub: "Agro processing" },
+        { src: "assets/images/delivery/lake-agro/la-tanzania-factory.webp", cat: "industry", tKey: "index.action.gallery.agro.title", sKey: "index.action.gallery.agro.subtitle", title: "Lake Agro", sub: "Agro processing" },
         /* ---- Automotive ---- */
-        { src: "assets/images/delivery/home/remediated/agrinova-combine-clean.webp", cat: "industry", tKey: "index.action.i07b.t", sKey: "index.action.i07b.s", title: "Agrinova Tech", sub: "Agricultural machinery" },
-        { src: "assets/images/delivery/home/remediated/atl-flatbed-red-clean.webp", cat: "industry", tKey: "index.action.i07c.t", sKey: "index.action.i07c.s", title: "ATL", sub: "Trailer manufacturing" },
-        { src: "assets/images/delivery/home/remediated/nexdrive-heavy-commercial-truck-clean.webp", cat: "industry", tKey: "index.action.i07d.t", sKey: "index.action.i07d.s", title: "NexDrive Motors", sub: "Commercial vehicles" },
+        { src: "assets/images/delivery/home/remediated/agrinova-combine-clean.webp", cat: "industry", tKey: "index.action.gallery.agrinova.title", sKey: "index.action.gallery.agrinova.subtitle", title: "Agrinova Tech", sub: "Agricultural machinery" },
+        { src: "assets/images/delivery/home/remediated/atl-flatbed-red-clean.webp", cat: "industry", tKey: "index.action.gallery.atl.title", sKey: "index.action.gallery.atl.subtitle", title: "ATL", sub: "Trailer manufacturing" },
+        { src: "assets/images/delivery/home/remediated/nexdrive-heavy-commercial-truck-clean.webp", cat: "industry", tKey: "index.action.gallery.nexdrive.title", sKey: "index.action.gallery.nexdrive.subtitle", title: "NexDrive Motors", sub: "Commercial vehicles" },
       ];
 
       var stage = root.querySelector(".action-stage");

@@ -67,6 +67,35 @@ test('desktop selector exposes eight selectable languages and applies draft loca
   await page.close();
 });
 
+test('Lake AI updates in place while every draft language is selected and preserves its messages', async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await page.goto(`${baseUrl}/index.html`, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => window.LakeI18n?.current === 'en' && window.LakeI18n?.draftPreview === true);
+  await page.locator('.la-launcher').click();
+  await page.locator('#lake-assistant-panel .la-message.la-bot').first().waitFor({ state: 'visible' });
+  const messageCount = await page.locator('#lake-assistant-panel .la-message').count();
+  const switcher = page.locator('.lang-switcher:visible').first();
+
+  for (const locale of ['sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt', 'en']) {
+    const menu = switcher.locator('.lang-menu');
+    if (!await menu.isVisible()) await switcher.locator('.lang-trigger').click();
+    const option = menu.locator(`.lang-btn[data-lang="${locale}"]`);
+    assert.equal(await option.isEnabled(), true, `${locale} is selectable while Lake AI is open`);
+    await option.click();
+    await page.waitForFunction((code) => window.LakeI18n?.current === code && localStorage.getItem('lake-lang') === code, locale);
+
+    const state = await page.evaluate(() => ({
+      dir: document.querySelector('#lake-assistant-panel')?.dir,
+      placeholder: document.querySelector('#lake-assistant-panel textarea')?.placeholder,
+      messages: document.querySelectorAll('#lake-assistant-panel .la-message').length,
+    }));
+    assert.equal(state.dir, locale === 'ar' ? 'rtl' : 'ltr', `${locale} chat direction updates in place`);
+    assert.ok(state.placeholder, `${locale} input placeholder remains available`);
+    assert.equal(state.messages, messageCount, `${locale} preserves conversation history`);
+  }
+  await page.close();
+});
+
 test('desktop selector opens from the keyboard and marks the current choice', async () => {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   await page.goto(`${baseUrl}/index.html`, { waitUntil: 'domcontentloaded' });
@@ -122,6 +151,7 @@ test('mobile selector opens, preserves selected English on reload, and fits the 
 test('RTL direction reaches the legacy navigation and keeps the language menu in the viewport', async () => {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   await page.goto(`${baseUrl}/index.html`, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => window.LakeI18n?.current === 'en');
   await page.evaluate(() => document.documentElement.setAttribute('dir', 'rtl'));
   assert.equal(await page.locator('.site-nav').evaluate((element) => getComputedStyle(element).direction), 'rtl');
   await page.locator('.lang-trigger').first().click();
@@ -215,6 +245,89 @@ test('rapid language selection keeps the latest locale when an earlier draft req
   assert.equal(await page.locator('html').getAttribute('dir'), 'rtl');
   assert.equal(await page.evaluate(() => localStorage.getItem('lake-lang')), 'ar');
   await context.close();
+});
+
+test('contact email placeholder is localized in each draft locale and keeps its email input type', async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await page.goto(`${baseUrl}/contact.html`, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => window.LakeI18n?.current === 'en');
+  const placeholders = { sw: 'Barua pepe yako', hi: 'आपका ईमेल पता', ar: 'بريدك الإلكتروني', zh: '你的电子邮箱', fr: 'Votre adresse e-mail', es: 'Tu correo electrónico', pt: 'Seu endereço de e-mail' };
+  for (const [locale, expected] of Object.entries(placeholders)) {
+    const selector = page.locator('.lang-switcher:visible').first();
+    if (!await selector.locator('.lang-menu').isVisible()) await selector.locator('.lang-trigger').click();
+    await selector.locator(`.lang-btn[data-lang="${locale}"]`).click();
+    await page.waitForFunction((code) => window.LakeI18n?.current === code, locale);
+    assert.equal(await page.locator('#contact-email').getAttribute('type'), 'email');
+    assert.equal(await page.locator('#contact-email').getAttribute('placeholder'), expected, `${locale} contact placeholder`);
+  }
+  await page.close();
+});
+
+test('Arabic phone display keeps its raw clickable href and copies the original number', async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await page.goto(`${baseUrl}/contact.html`, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => window.LakeI18n?.current === 'en');
+  const selector = page.locator('.lang-switcher:visible').first();
+  if (!await selector.locator('.lang-menu').isVisible()) await selector.locator('.lang-trigger').click();
+  await selector.locator('.lang-btn[data-lang="ar"]').click();
+  await page.waitForFunction(() => window.LakeI18n?.current === 'ar');
+  const phone = page.locator('a[href="tel:+255222780510"]').first();
+  assert.equal(await phone.getAttribute('href'), 'tel:+255222780510');
+  assert.equal(await phone.getAttribute('dir'), 'ltr');
+  assert.match(await phone.innerText(), /٢٥٥/);
+  const copied = await phone.evaluate((link) => {
+    const range = document.createRange();
+    range.selectNodeContents(link);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    const transfer = new DataTransfer();
+    const event = new ClipboardEvent('copy', { bubbles: true, cancelable: true, clipboardData: transfer });
+    document.dispatchEvent(event);
+    selection.removeAllRanges();
+    return transfer.getData('text/plain');
+  });
+  assert.equal(copied, '+255222780510');
+  await page.close();
+});
+
+test('locale number formatter follows grouping conventions and preserves values and years', async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await page.goto(`${baseUrl}/index.html`, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => window.LakeI18n?.current === 'en');
+  const values = await page.evaluate(() => Object.fromEntries(['sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt'].map((locale) => [locale, {
+    tenThousand: LakeI18n.formatNumberForLang(locale, '10,000+'),
+    year: LakeI18n.formatNumberForLang(locale, '2022'),
+  }])));
+  assert.equal(values.ar.tenThousand, '١٠٬٠٠٠+');
+  assert.equal(values.hi.tenThousand, '१०,०००+');
+  assert.equal(values.fr.tenThousand, '10 000+');
+  assert.equal(values.es.tenThousand, '10.000+');
+  assert.equal(values.pt.tenThousand, '10 000+');
+  for (const locale of ['sw', 'zh']) assert.equal(values[locale].tenThousand, '10,000+');
+  assert.equal(values.ar.year, '٢٠٢٢');
+  assert.equal(values.hi.year, '२०२२');
+  for (const locale of ['sw', 'zh', 'fr', 'es', 'pt']) assert.equal(values[locale].year, '2022');
+  await page.close();
+});
+
+test('protected company names return to their exact Latin spellings in translated copy', async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await page.goto(`${baseUrl}/index.html`, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => window.LakeI18n?.current === 'en');
+  const examples = await page.evaluate(() => [
+    LakeI18n.protectBrandNames('مجموعة ليك، ليك أويل، ليك غاز، ليك ستيل'),
+    LakeI18n.protectBrandNames('लेक ग्रुप, लेक ऑयल, लेक ल्यूब्स, लेक ट्रांस'),
+    LakeI18n.protectBrandNames('Groupe Lake; Grupo Lake; Kundi la Lake'),
+    LakeI18n.protectBrandNames('ليك بلاستيكس، ليك إنرجيز'),
+    LakeI18n.protectBrandNames('लेक बिल्डिंग सॉल्यूशंस, लेक सिलिंडर्स, लेक एनर्जीज़'),
+  ]);
+  assert.equal(examples[0], 'Lake Group، Lake Oil، Lake Gas، Lake Steel');
+  assert.equal(examples[1], 'Lake Group, Lake Oil, Lake Lubes, Lake Trans');
+  assert.equal(examples[2], 'Lake Group; Lake Group; Lake Group');
+  assert.equal(examples[3], 'Lake Pipes، Lake Energies');
+  assert.equal(examples[4], 'Lake Building Solution, Lake Cylinders, Lake Energies');
+  await page.close();
 });
 
 test('approved CMS snapshot translations reach the Lake Aviation page after a language change', async () => {
