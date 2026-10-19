@@ -254,6 +254,16 @@ body.about .page-wrapper { padding-top: 0; }
     text-shadow: none !important;
   }
 }
+html[dir="rtl"] body.about .ose-scene {
+  direction: rtl;
+  align-items: flex-start;
+}
+html[dir="rtl"] body.about .ose-text {
+  direction: rtl;
+  text-align: right;
+  margin-inline-start: 0;
+  margin-inline-end: clamp(16px, 6vw, 96px);
+}
 </style>
 <link rel="stylesheet" href="assets/tokens.css?v=20260828-01">
   <link rel="preload" href="assets/fonts/files/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
@@ -261,7 +271,7 @@ body.about .page-wrapper { padding-top: 0; }
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/files/jost-latin-ext-700-normal.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="assets/flagship.css?v=20260828-01">
-  <link rel="stylesheet" href="assets/home-redesign.css?v=20261019-01">
+  <link rel="stylesheet" href="assets/home-redesign.css?v=20261019-02">
   <link rel="stylesheet" href="assets/split-text.css?v=20260828-01">
   <link rel="stylesheet" href="assets/assistant.css?v=20261019-01">
   <link rel="stylesheet" href="assets/skeleton.css?v=20260830-02">
@@ -496,8 +506,8 @@ body.about .page-wrapper { padding-top: 0; }
 
 
 
-<script src="assets/i18n-content.js?v=20261019-01" defer></script>
-<script src="assets/i18n.js?v=20261019-01" defer></script>
+<script src="assets/i18n-content.js?v=20261019-02" defer></script>
+<script src="assets/i18n.js?v=20261019-02" defer></script>
 <script src="assets/site.js?v=20261017-04" defer></script>
 <script src="assets/assistant.js?v=20261019-01" defer></script>
 <script>
@@ -508,12 +518,12 @@ body.about .page-wrapper { padding-top: 0; }
   const previousButton = stage.querySelector('.ose-arrow-prev');
   const nextButton = stage.querySelector('.ose-arrow-next');
   const slides = [
-    { image: 'assets/images/delivery/about/about-hero-09.webp', copy: { title: 'Advancing Industries, Empowering People, Shaping Tomorrow.', alt: 'Lake Group operations' } },
-    { image: 'assets/images/delivery/about/about-hero-12.webp', copy: { title: 'Investing in People, Partnerships, and Progress.' } },
-    { image: 'assets/images/delivery/about/about-hero-03.webp', copy: { title: 'Bringing People, Markets, and Opportunities Together.' } },
-    { image: 'assets/images/delivery/about/about-hero-04.webp', copy: { title: 'Generating Impact Across Generations and Markets.', alt: 'Lake Group operations' } },
-    { image: 'assets/images/delivery/about/about-hero-05.webp', copy: { title: 'Leading with Purpose, Growing with Integrity, Delivering Excellence.' } },
-    { image: 'assets/images/delivery/about/about-hero-06.webp', copy: { title: 'Balancing Economic Success with Social Responsibility.', alt: 'Lake Group operations' } }
+    { image: 'assets/images/delivery/about/about-hero-09.webp', copy: { key: 'about.slide.1.title', title: 'Advancing Industries, Empowering People, Shaping Tomorrow.', alt: 'Lake Group operations' } },
+    { image: 'assets/images/delivery/about/about-hero-12.webp', copy: { key: 'about.slide.2.title', title: 'Investing in People, Partnerships, and Progress.' } },
+    { image: 'assets/images/delivery/about/about-hero-03.webp', copy: { key: 'about.slide.3.title', title: 'Bringing People, Markets, and Opportunities Together.' } },
+    { image: 'assets/images/delivery/about/about-hero-04.webp', copy: { key: 'about.slide.4.title', title: 'Generating Impact Across Generations and Markets.', alt: 'Lake Group operations' } },
+    { image: 'assets/images/delivery/about/about-hero-05.webp', copy: { key: 'about.slide.5.title', title: 'Leading with Purpose, Growing with Integrity, Delivering Excellence.' } },
+    { image: 'assets/images/delivery/about/about-hero-06.webp', copy: { key: 'about.slide.6.title', title: 'Balancing Economic Success with Social Responsibility.', alt: 'Lake Group operations' } }
   ];
   const slideImages = slides.map((slide) => slide.image);
   const firstScene = stage.querySelector('.ose-scene');
@@ -522,7 +532,8 @@ body.about .page-wrapper { padding-top: 0; }
     const photo = scene.querySelector('.ose-photo');
     photo.src = slide.image;
     photo.alt = copy.alt || 'Lake Group operations';
-    scene.querySelector('.ose-display').innerHTML = copy.title;
+    const lang = window.LakeI18n?.current || 'en';
+    scene.querySelector('.ose-display').innerHTML = (window.LakeI18n?.t(copy.key, lang) || copy.title);
     const label = scene.querySelector('.ose-label');
     if (label) { label.innerHTML = copy.label || ''; label.hidden = !copy.label; }
     const stamp = scene.querySelector('.ose-stamp');
@@ -574,6 +585,23 @@ body.about .page-wrapper { padding-top: 0; }
     progress.appendChild(d);
   }
   const dots = [...progress.querySelectorAll('.ose-dot')];
+
+  function applySlideLocale() {
+    const lang = window.LakeI18n?.current || 'en';
+    const t = (key, fallback) => window.LakeI18n?.t(key, lang) || fallback;
+    scenes.forEach((scene, index) => {
+      const copy = slides[index].copy;
+      scene.querySelector('.ose-display').innerHTML = t(copy.key, copy.title);
+    });
+    previousButton.setAttribute('aria-label', t('about.slide.previous', 'Previous About slide'));
+    nextButton.setAttribute('aria-label', t('about.slide.next', 'Next About slide'));
+    dots.forEach((dot, index) => {
+      const number = window.LakeI18n?.formatNumberForLang?.(lang, index + 1) || String(index + 1);
+      dot.setAttribute('aria-label', t('about.slide.show', 'Show About slide {{number}}').replace('{{number}}', number));
+    });
+  }
+  document.addEventListener('lake-i18n-applied', applySlideLocale);
+  applySlideLocale();
 
   function updateDots(i) {
     dots.forEach((dot, index) => {

@@ -38,7 +38,7 @@
 
 'use strict';
 
-const VERSION = 'v124-20261019-02';
+const VERSION = 'v125-20261019-03';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -72,7 +72,7 @@ const PRECACHE_URLS = [
   './assets/tokens.css?v=20260828-01',
   './assets/theme.css?v=20260828-01',
   './assets/flagship.css?v=20260828-01',
-  './assets/home-redesign.css?v=20261019-01',
+  './assets/home-redesign.css?v=20261019-02',
   './assets/skeleton.css?v=20260828-01',
   './assets/skeleton.js?v=20260828-01',
   './assets/motion.js?v=20260828-01',
@@ -81,8 +81,8 @@ const PRECACHE_URLS = [
   './assets/split-text.css?v=20260828-01',
   './assets/vendor/gsap/gsap.min.js',
   './assets/vendor/gsap/ScrollTrigger.min.js',
-  './assets/i18n.js?v=20261019-01',
-  './assets/i18n-content.js?v=20261019-01',
+  './assets/i18n.js?v=20261019-02',
+  './assets/i18n-content.js?v=20261019-02',
   './assets/assistant.js?v=20261019-01',
   './assets/assistant.css?v=20261019-01',
   './assets/home-hero.js?v=20261017-03',

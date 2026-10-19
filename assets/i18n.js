@@ -613,7 +613,7 @@ window.LakeI18n = (function () {
 
   function applyAll(lang) {
     window.LakeSplitText?.prepareForLanguageChange?.();
-    const numberSelector = '[data-i18n-number], .fs-marker-no, .lp-mandate li > span:first-child, .lp-meta > div > strong, .stat-no2, .hero-kf-num, a[href^="tel:"] > span';
+    const numberSelector = '[data-i18n-number], .fs-marker-no, .fs-stat-no:not([data-count]), .lp-mandate li > span:first-child, .lp-meta > div > strong, .stat-no2, .hero-kf-num, a[href^="tel:"] > span';
     const numberNodes = document.querySelectorAll(numberSelector);
     numberNodes.forEach((el) => {
       if (el.hasAttribute('data-i18n') || el.hasAttribute('data-number')) return;
@@ -709,7 +709,7 @@ window.LakeI18n = (function () {
       return Promise.resolve(current);
     }
     const revision = ++selectionRevision;
-    return Promise.all([loadDictionaries(), DRAFT_PREVIEW ? loadDraftLocale(lang) : Promise.resolve(false), loadPublicationManifest()]).then(([, draftReady]) => {
+    return Promise.all([loadDictionaries(), DRAFT_PREVIEW ? loadDraftLocale(lang) : Promise.resolve(false)]).then(([, draftReady]) => {
       if (DRAFT_PREVIEW && draftReady) return null;
       return loadPublishedLocale(lang);
     }).then(() => {

@@ -1026,3 +1026,12 @@ body.home .site-footer .footer-bottom {
 .site-footer .social-link:hover .lg-ico {
   color: var(--color-brand-blue-darkest, #0181bb) !important;
 }
+/* Arabic homepage hero: align the complete copy block to the RTL reading edge. */
+html[dir="rtl"] body.home .hero-content {
+  direction: rtl;
+  text-align: right;
+  align-items: flex-start;
+}
+html[dir="rtl"] body.home .hero-content > * {
+  text-align: right;
+}
