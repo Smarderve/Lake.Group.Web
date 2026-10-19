@@ -147,7 +147,7 @@ async function inspectTicker(page) {
       assert.strictEqual(before.listFlexWrap, 'nowrap', `${testCase.name}: marquee sequence must not wrap`);
       assert(before.oneRow, `${testCase.name}: logos must remain in one horizontal row`);
       assert(before.noItemOverlap, `${testCase.name}: adjacent logos must not overlap`);
-      assert(!before.pageHasHorizontalOverflow, `${testCase.name}: marquee must not create page overflow`);
+      assert(!before.pageHasHorizontalOverflow, `${testCase.name}: page must not have horizontal overflow`);
       assert(
         before.logos.every(({ filter }) => filter === 'none'),
         `${testCase.name}: logo colors must come from official assets, not CSS filters`
@@ -157,9 +157,9 @@ async function inspectTicker(page) {
         'Gulf Aggregates': 'assets/images/logos/companies/gulf-aggregates-blue.png?v=71',
         AFICD: 'assets/images/logos/companies/aficd.png?v=69',
         AILL: 'assets/images/logos/companies/aill.png?v=58',
-        ATL: 'assets/images/logos/companies/assembly-tech-limited-logo.webp?v=1',
-        'Lake Agro': 'assets/images/logos/companies/lake-agro-blue.png?v=70',
-        'Cross Country Developer Limited': 'assets/images/logos/companies/cross-country-developer-transparent.webp',
+        ATL: 'assets/images/logos/companies/atl-icon.webp',
+        'Lake Agro': 'assets/images/logos/companies/lake-agro-new.webp',
+        'Cross Country Developer Limited': 'assets/images/logos/companies/cross-country-developer-transparent.webp?v=2',
       };
       for (const [alt, src] of Object.entries(independentBrands)) {
         const logo = before.logos.find((candidate) => candidate.alt === alt);
@@ -169,6 +169,34 @@ async function inspectTicker(page) {
       assert.notStrictEqual(afterTransform, before.trackTransform, `${testCase.name}: ticker animation must remain active`);
       await page.close();
       console.log(`${testCase.name}:`, JSON.stringify(before));
+    }
+
+    for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844 }]) {
+      const page = await browser.newPage({ viewport });
+      await page.goto(URL, { waitUntil: 'domcontentloaded' });
+      if (viewport.width <= 720) {
+        await page.locator('#nav-toggle').click();
+        await page.locator('.mob-language-trigger').click();
+        await page.locator('#mob-language-panel .mob-language-option[data-lang="ar"]').click();
+      } else {
+        await page.locator('.lang-trigger:visible').first().click();
+        await page.locator('.lang-menu .lang-btn[data-lang="ar"]:visible').first().click();
+      }
+      await page.waitForFunction(() => window.LakeI18n?.current === 'ar');
+      const before = await inspectTicker(page);
+      await page.waitForFunction(() => window.LakeI18n?.current === 'ar');
+      await page.locator('.marquee-wrap').scrollIntoViewIfNeeded();
+      await page.waitForTimeout(150);
+      const rtl = await page.evaluate(() => document.documentElement.dir === 'rtl');
+      const animationBefore = await page.locator('.logoloop__track').evaluate((track) => track.style.transform);
+      await page.waitForTimeout(450);
+      const afterTransform = await page.locator('.logoloop__track').evaluate((track) => track.style.transform);
+      assert(rtl, `${viewport.width}px Arabic mode must set RTL document direction`);
+      assert(before.visibleLabels.length >= 2, `${viewport.width}px Arabic mode must keep company logos visible`);
+      assert.equal(before.brokenImages, 0, `${viewport.width}px Arabic mode must load all logo assets`);
+      assert.notEqual(afterTransform, animationBefore, `${viewport.width}px Arabic mode must keep marquee animation active`);
+      assert(!before.pageHasHorizontalOverflow, `${viewport.width}px Arabic mode must not overflow horizontally`);
+      await page.close();
     }
 
     const reducedPage = await browser.newPage({

@@ -411,7 +411,10 @@
   function clearActionContext(button) {
     if (!button) return;
     window.clearTimeout(button._feedbackTimer);
-    if (button.dataset.feedbackOriginalTitle) button.title = button.dataset.feedbackOriginalTitle;
+    if (button.dataset.feedbackOriginalTitle) {
+      button.dataset.laSourceTitle = button.dataset.feedbackOriginalTitle;
+      button.title = uiText(button.dataset.feedbackOriginalTitle);
+    }
     button.removeAttribute('aria-description');
     delete button.dataset.feedbackTitle;
     delete button.dataset.feedbackOriginalTitle;
@@ -419,32 +422,39 @@
   function actionContext(button, text, duration) {
     if (!button) return;
     clearActionContext(button);
-    if (!button.dataset.feedbackOriginalTitle) button.dataset.feedbackOriginalTitle = button.title;
+    if (!button.dataset.feedbackOriginalTitle) button.dataset.feedbackOriginalTitle = button.dataset.laSourceTitle || button.title;
     button.dataset.feedbackTitle = text;
+    button.dataset.laSourceTitle = text;
     button.title = uiText(text);
     button.setAttribute('aria-description', uiText(text));
     window.clearTimeout(button._feedbackTimer);
     button._feedbackTimer = window.setTimeout(function () {
       if (button.dataset.feedbackTitle !== text) return;
-      button.title = button.dataset.feedbackOriginalTitle;
+      button.dataset.laSourceTitle = button.dataset.feedbackOriginalTitle;
+      button.title = uiText(button.dataset.feedbackOriginalTitle);
       button.removeAttribute('aria-description');
       delete button.dataset.feedbackTitle;
       delete button.dataset.feedbackOriginalTitle;
     }, duration || 3500);
   }
   function flashCopied(article, button, text) {
-    var originalLabel = button.getAttribute('aria-label') || 'Copy message';
+    var originalLabel = button.dataset.laSourceAriaLabel || button.getAttribute('aria-label') || 'Copy message';
+    var originalTitle = button.dataset.laSourceTitle || button.title || originalLabel;
     window.clearTimeout(button._copyTimer);
     button.classList.add('is-active');
     button.replaceChildren(uiIcon('check'));
-    button.title = 'Copied';
-    button.setAttribute('aria-label', 'Message copied');
+    button.dataset.laSourceTitle = 'Copied';
+    button.dataset.laSourceAriaLabel = 'Message copied';
+    button.title = uiText('Copied');
+    button.setAttribute('aria-label', uiText('Message copied'));
     actionFeedback(article, text || 'Message copied.');
     button._copyTimer = window.setTimeout(function () {
       button.classList.remove('is-active');
       button.replaceChildren(uiIcon('copy'));
-      button.title = originalLabel;
-      button.setAttribute('aria-label', originalLabel);
+      button.dataset.laSourceTitle = originalTitle;
+      button.dataset.laSourceAriaLabel = originalLabel;
+      button.title = uiText(originalTitle);
+      button.setAttribute('aria-label', uiText(originalLabel));
     }, 1800);
   }
   function setLatestResponse(article) {
@@ -810,7 +820,7 @@
   }
   function stopSpeech() {
     if (window.speechSynthesis) window.speechSynthesis.cancel();
-    if (speechState && speechState.button) { clearActionContext(speechState.button); speechState.button.classList.remove('is-active'); speechState.button.setAttribute('aria-pressed', 'false'); speechState.button.title = 'Read message aloud'; speechState.button.setAttribute('aria-label', 'Read message aloud'); }
+    if (speechState && speechState.button) { clearActionContext(speechState.button); speechState.button.classList.remove('is-active'); speechState.button.setAttribute('aria-pressed', 'false'); speechState.button.dataset.laSourceTitle = 'Read message aloud'; speechState.button.dataset.laSourceAriaLabel = 'Read message aloud'; speechState.button.title = uiText('Read message aloud'); speechState.button.setAttribute('aria-label', uiText('Read message aloud')); }
     speechState = null;
   }
   function onDeviceSpeechVoice(synthesis, language, timeoutMs) {
@@ -842,7 +852,7 @@
     var synthesis = window.speechSynthesis;
     var language = String(article._responseLocale || 'en').toLowerCase().split('-')[0];
     var chunks = speechChunks(article._responseText), stateForSpeech = { article: article, button: button, chunks: chunks, index: 0 };
-    speechState = stateForSpeech; button.classList.add('is-active'); button.setAttribute('aria-pressed', 'true'); button.title = 'Stop reading message'; button.setAttribute('aria-label', 'Stop reading message');
+    speechState = stateForSpeech; button.classList.add('is-active'); button.setAttribute('aria-pressed', 'true'); button.dataset.laSourceTitle = 'Stop reading message'; button.dataset.laSourceAriaLabel = 'Stop reading message'; button.title = uiText('Stop reading message'); button.setAttribute('aria-label', uiText('Stop reading message'));
     actionFeedback(article, 'Looking for an on-device voice…');
     var voice = await onDeviceSpeechVoice(synthesis, language, 1800);
     if (speechState !== stateForSpeech) return;

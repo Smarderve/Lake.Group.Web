@@ -19,15 +19,16 @@ const critical = [
 ];
 const perAssetRelease = new Map([
   ['phase-01-navbar.css', '20261016-02'],
-  ['i18n.js', '20261019-02'],
-  ['home-redesign.css', '20261019-02'],
-  ['i18n-content.js', '20261019-02'],
+  ['i18n.js', '20261019-03'],
+  ['home-redesign.css', '20261019-03'],
+  ['i18n-content.js', '20261019-05'],
+  ['flagship.css', '20261019-03'],
   ['split-text.js', '20261017-01'],
   ['home-hero.js', '20261017-03'],
   ['site.js', '20261017-04'],
 ]);
-const serviceWorkerRelease = '20261019-03';
-const assistantJsRelease = '20261019-01';
+const serviceWorkerRelease = '20261019-11';
+const assistantJsRelease = '20261019-03';
 const assistantCssRelease = '20261019-01';
 const globeBundleRelease = '20261019-loop-l10n-01';
 const errors = [];

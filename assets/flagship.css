@@ -3115,3 +3115,39 @@ body[data-company-logo] .page-hero .page-hero-overlay {
 }
 @media (max-width: 600px) { .lake-back-to-top { right:max(16px,calc(env(safe-area-inset-right) + 12px)); bottom:max(76px,calc(env(safe-area-inset-bottom) + 62px)); width:44px; height:44px; } }
 @media (prefers-reduced-motion: reduce) { .lake-back-to-top { transition: opacity .18s ease; } .lake-back-to-top span { transition:none; } .lake-back-to-top.is-react-down,.lake-back-to-top.is-react-up { --btt-nudge:0px; } }
+
+/* Arabic page heroes follow the RTL reading edge while keeping their existing layout. */
+html[dir="rtl"] body .page-hero,
+html[dir="rtl"] body .page-hero .container,
+html[dir="rtl"] body .page-hero h1,
+html[dir="rtl"] body .page-hero p,
+html[dir="rtl"] body .lp-hero,
+html[dir="rtl"] body .lp-hero h1,
+html[dir="rtl"] body .lp-hero p,
+html[dir="rtl"] body .cr-hero-content,
+html[dir="rtl"] body .cr-hero-content h1,
+html[dir="rtl"] body .cr-hero-content p,
+html[dir="rtl"] body .csr-hero-content,
+html[dir="rtl"] body .csr-hero-content h1,
+html[dir="rtl"] body .csr-hero-content p,
+html[dir="rtl"] body .ag-hero-content,
+html[dir="rtl"] body .ag-hero-content h1,
+html[dir="rtl"] body .ag-hero-content p {
+  direction: rtl !important;
+  text-align: right !important;
+  letter-spacing: normal !important;
+}
+html[dir="rtl"] body .page-hero h1,
+html[dir="rtl"] body .lp-hero h1,
+html[dir="rtl"] body .cr-hero-content h1,
+html[dir="rtl"] body .csr-hero-content h1,
+html[dir="rtl"] body .ag-hero-content h1 {
+  font-weight: 700;
+}
+html[dir="rtl"] body .page-hero h1,
+html[dir="rtl"] body .lp-hero h1,
+html[dir="rtl"] body .cr-hero-content h1,
+html[dir="rtl"] body .csr-hero-content h1,
+html[dir="rtl"] body .ag-hero-content h1 {
+  line-height: 1.3;
+}

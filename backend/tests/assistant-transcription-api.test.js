@@ -40,7 +40,7 @@ describe('private assistant voice transcription API', () => {
     const app = appWithTranscription(null);
     await request(app).post('/api/assistant/transcribe').field('language', 'en').attach('audio', makeWav(), { filename: 'voice.wav', contentType: 'audio/wav' }).expect(503);
     const ready = appWithTranscription({ transcribe: vi.fn(), health: () => ({ available: true, memoryReady: true }) });
-    await request(ready).post('/api/assistant/transcribe').field('language', 'fr').attach('audio', makeWav(), { filename: 'voice.wav', contentType: 'audio/wav' }).expect(400);
+    await request(ready).post('/api/assistant/transcribe').field('language', 'xx').attach('audio', makeWav(), { filename: 'voice.wav', contentType: 'audio/wav' }).expect(400);
     await request(ready).post('/api/assistant/transcribe').set('Origin', 'https://attacker.invalid').field('language', 'en').attach('audio', makeWav(), { filename: 'voice.wav', contentType: 'audio/wav' }).expect(403);
   });
 

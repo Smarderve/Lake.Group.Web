@@ -953,6 +953,9 @@ body.home .site-footer .footer-bottom {
     padding: 14px 14px 10px;
     font-size: 0.6rem;
   }
+  body.home .hero-tab-thumb {
+    display: none;
+  }
 }
 
 @media (max-width: 720px) {

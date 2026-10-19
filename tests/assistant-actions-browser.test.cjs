@@ -141,9 +141,9 @@ test('actual Chrome website renders message actions, retries and rewrites edited
   await welcome.evaluate((article) => { article._responseLocale = 'sw'; });
   await page.evaluate(() => window.__setSpeechVoices([]));
   await welcome.getByRole('button', { name: 'Read message aloud' }).click();
-  await page.waitForFunction(() => document.querySelector('#chat-widget .la-action-feedback')?.textContent.includes('No on-device Kiswahili voice is available.'));
+  await page.waitForFunction(() => document.querySelector('#chat-widget .la-action-feedback')?.textContent.includes('No on-device voice is available. Your message was not sent anywhere.'));
   assert.equal(await isScreenReaderOnly(speechStatus), true, 'voice-unavailable explanation is screen-reader-only');
-  assert.match(await welcome.getByRole('button', { name: 'Read message aloud' }).getAttribute('title'), /No on-device Kiswahili voice/);
+  assert.match(await welcome.getByRole('button', { name: 'Read message aloud' }).getAttribute('title'), /No on-device voice is available/);
   await welcome.evaluate((article) => { article._responseLocale = 'en'; });
   await page.evaluate(() => window.__setSpeechVoices([{ name: 'Local English fixture voice', lang: 'en-US', localService: true }]));
   const shareButton = welcome.getByRole('button', { name: 'Share message' });
