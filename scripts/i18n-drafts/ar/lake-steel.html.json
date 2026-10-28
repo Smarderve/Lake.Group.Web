@@ -811,7 +811,7 @@
       "id": "auto.1766ce143e19b438",
       "sourceHash": "992824d79dddf02ed8053fab594ae9c2511912a7d4760e5c142bf3fc0e4df86b",
       "source": "BS 500",
-      "translation": "BS 500",
+      "translation": "بي اس 500",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > span:nth-of-type(1)",
       "attribute": null,

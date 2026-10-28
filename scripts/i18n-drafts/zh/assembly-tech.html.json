@@ -417,7 +417,7 @@
       "id": "auto.9034360465fbdd04",
       "sourceHash": "e135994f6625268bcc47b4f473c5ea1de7191b3d283880466e3c84003d1ff93f",
       "source": "Ashok Leyland",
-      "translation": "Ashok Leyland",
+      "translation": "阿肖克·利兰",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1) > strong:nth-of-type(2)",
       "attribute": null,

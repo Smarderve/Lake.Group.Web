@@ -1097,7 +1097,7 @@
       "id": "auto.e7b4716fa54ad6fa",
       "sourceHash": "86846f67dd19ad454801b74c1204d316574553797124bb914e5902c9d682d0af",
       "source": "Certification",
-      "translation": "Certification",
+      "translation": "Attestation",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > span:nth-of-type(1)",
       "attribute": null,

@@ -1572,6 +1572,936 @@
       "translation": "الطاقة",
       "mode": "text",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(5) > span:nth-of-type(1)"
+    },
+    {
+      "id": "auto.19f53b5282178451",
+      "sourceHash": "df2378b238a4b6d3c59ecfa7ade9e859189e5e4a805a8557a4dfe2977195ad38",
+      "source": "Lake Group is a diversified business group with operations across energy, manufacturing, logistics, real estate, agro processing and automotive sectors.",
+      "translation": "Lake Group مجموعة أعمال متنوعة تعمل في قطاعات الطاقة والتصنيع والخدمات اللوجستية والعقارات وتجهيز المنتجات الزراعية والسيارات.",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > head:nth-of-type(1) > meta:nth-of-type(5)",
+      "attribute": "content",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.a42482ae194b40f1",
+      "sourceHash": "6970059994dce7e30c88b19df4696c7234a01aca3caf2fa69322593c6a6af253",
+      "source": "Energies Sector",
+      "translation": "قطاع الطاقة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.2e2838512e40fd19",
+      "sourceHash": "a5afb4aade70f80dfcfe58c3010f00144236c6ca8129540b687e55212a3b578c",
+      "source": "Manufacturing Sector",
+      "translation": "قطاع التصنيع",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.300b651e2d7be6be",
+      "sourceHash": "e7b5da31e0d3ed96a265076f35ba8a8f9efcbe2d5334e1a630a2a6e97ea0d8a9",
+      "source": "Logistics Sector",
+      "translation": "قطاع الخدمات اللوجستية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.bdcc62896601a963",
+      "sourceHash": "c4555e8c89a2895e935b9299e6d4716cb0321cd039f54446c9a71fc67fc57a22",
+      "source": "Real Estate Sector",
+      "translation": "قطاع العقارات",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.e405948ba25021a9",
+      "sourceHash": "7e00b18a6385c9956eed4a4293f467aa59bb8ea1ef99405ee3a8b103956ab404",
+      "source": "Agro Processing Sector",
+      "translation": "قطاع التصنيع الزراعي",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.c0d8f02c9a9147ed",
+      "sourceHash": "c20855570f1042ee09d6d09266c094337995decf07d38fec808dcbc6774ec507",
+      "source": "Automotive Sector",
+      "translation": "قطاع السيارات",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.68fb08ae9d224ef1.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "غلف أجريغيتس",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.53b4af4f9afa929e.2",
+      "sourceHash": "db1a2f68295aceb0005e1abea8f5892d380ee3928b7f9eb3e0b3f80b3bc9ab4a",
+      "source": "NexDrive Motors",
+      "translation": "محركات نيكس درايف",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(6) > div:nth-of-type(1) > a:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.98c246392a1afca3",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "تاريخنا",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.98c246392a1afca3.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "المسؤولية الاجتماعية والاستدامة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.98c246392a1afca3.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "المعرض",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5) > div:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.e74ebdb38978ab0e",
+      "sourceHash": "b57efaf39e21b67232bab14763e8c43f8421fb22c0332f8f40796466905aaf80",
+      "source": "Language: English",
+      "translation": "اللغة: الإنجليزية",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.b3962fb2f48e0a99",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "الإنجليزية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.8a3134c7257bfe09",
+      "sourceHash": "99af6606ff9d6cd5154d4d4e9c21e325086d3e904677cdb41d363c8a3480f862",
+      "source": "Menu",
+      "translation": "القائمة",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.e86de932fb02657d",
+      "sourceHash": "6ccd5c7856042d36476ffd35a41b54518be95621cc741ac3ed55b8108ea41586",
+      "source": "Close menu",
+      "translation": "إغلاق القائمة",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.cbd17cf9c3ba5e68",
+      "sourceHash": "3a78695388b38b5cceefaf6796b0137877514593543b91af2752d5a17e3d736c",
+      "source": "Home",
+      "translation": "الرئيسية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.cbd17cf9c3ba5e68.2",
+      "sourceHash": "4efca0d10c5feb8e9b35eb1d994f2905bb71714e6a271f511d713b539ea5faa1",
+      "source": "About",
+      "translation": "من نحن",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.241578bc245d310e",
+      "sourceHash": "cf60fd65dcd0f8b69d51d6cb91fe601244ed4af363dd5f2a242787f54c16300d",
+      "source": "Business Verticals",
+      "translation": "قطاعات الأعمال",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.9866d7fa5682c056.6",
+      "sourceHash": "4e86d5f9b29346be7efdcd055e2563eef518236e256d96baf9523826cc60cc9a",
+      "source": "Gulf Aggregates",
+      "translation": "غلف أجريغيتس",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(2) > a:nth-of-type(6)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.00edc0c5f2d66bbd",
+      "sourceHash": "ec75f79040af17557c450e94a4214a484350634a433592d2eb31784c5a46e865",
+      "source": "Leadership",
+      "translation": "القيادة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.f00c4e83f4d25768",
+      "sourceHash": "a034729933d1cbf407645e11d9c91d9ac1bfddbef23fd58cb36782e3f60ae659",
+      "source": "Corporate",
+      "translation": "الشركة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.50ef076367a992da",
+      "sourceHash": "59ab2712ca1d5b6271497b6097e61fa1ba531385a9af796940bdc8a0a1854d93",
+      "source": "Our History",
+      "translation": "تاريخنا",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.50ef076367a992da.2",
+      "sourceHash": "dc00f3e33a6ef416eb4d2b66017d521e26973eb4f856d1d4c32d459e73890121",
+      "source": "CSR & Sustainability",
+      "translation": "المسؤولية الاجتماعية والاستدامة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.50ef076367a992da.3",
+      "sourceHash": "352cfc749e55222e135ee48e67631ba33f834d936c137560fd39063d2e57e5cb",
+      "source": "Gallery",
+      "translation": "المعرض",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(3)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.8b3b77749ac7c2df",
+      "sourceHash": "7e658675b5ca75b3802ff34b548abe663438f113bed3acf541142b317c146e34",
+      "source": "Careers",
+      "translation": "الوظائف",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(4)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.8b3b77749ac7c2df.2",
+      "sourceHash": "98b67063cf8e584d75e53b88472ee85473e01e0ea16f29ece9cc98f4a2710494",
+      "source": "Contact Us",
+      "translation": "اتصل بنا",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(5)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.f503979cbc1e11b2",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "الإنجليزية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(3) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.a47366b3855dccd5",
+      "sourceHash": "ba118bf7fc9c1aedc1edb28a0aa86e0b43b681f222af6616e13c43be87815b06",
+      "source": "English",
+      "translation": "الإنجليزية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.335efa27663c940f",
+      "sourceHash": "42aafa6f9519f4f2e9530a928944a4c1a55fb9b4681de2cbec2969e95bd0fed7",
+      "source": "Energies",
+      "translation": "الطاقة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(1) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.5859164f6faa340c",
+      "sourceHash": "c6838ed989fd7d93ba9023466783c95230843ee13acafd63a355f9ad766cc39f",
+      "source": "Manufacturing",
+      "translation": "التصنيع",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.c6cd88741ad58cb1",
+      "sourceHash": "eb589cfb23f4584151609b2bac814dffae021b8bbb438727e55119664f031d7c",
+      "source": "Automotive",
+      "translation": "السيارات",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.147459fe36b7a544",
+      "sourceHash": "5226954feafeae18181de39d33b5d20b5f78e1ee112684bf04445903bf4db562",
+      "source": "Real Estate",
+      "translation": "العقارات",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.4a387c0804007ca3",
+      "sourceHash": "ae6e98909c98e7c973d920a2d6868685d2e2f25db3e98683ef3d0dbae00bf7d6",
+      "source": "Logistics",
+      "translation": "اللوجستية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6) > span:nth-of-type(2)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.083718bb6ba74568",
+      "sourceHash": "42aafa6f9519f4f2e9530a928944a4c1a55fb9b4681de2cbec2969e95bd0fed7",
+      "source": "Energies",
+      "translation": "الطاقة",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > main:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(5) > span:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.26870d4e72eadafd",
+      "sourceHash": "1f8cbbc84d98195bbdccdb0aae93b87615f447979d5fca1f014714ae50de366b",
+      "source": "Lake Energies fuel station",
+      "translation": "محطة وقود Lake Energies",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.d196f7e4e7c052c8",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "تنزانيا",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.a5ab29459e3f1dec",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "علم تنزانيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.d196f7e4e7c052c8.2",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "كينيا",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.a5ab29459e3f1dec.2",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "علم كينيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.d196f7e4e7c052c8.3",
+      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
+      "source": "Zambia",
+      "translation": "زامبيا",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.a5ab29459e3f1dec.3",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "علم زامبيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.af3c6cf5fafd3ce1",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "تنزانيا",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.e963a8587d143f4e",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "علم تنزانيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.af3c6cf5fafd3ce1.2",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "كينيا",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.e963a8587d143f4e.2",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "علم كينيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.af3c6cf5fafd3ce1.3",
+      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
+      "source": "Zambia",
+      "translation": "زامبيا",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.e963a8587d143f4e.3",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "علم زامبيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.ff1a9f3cb075deed",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "تنزانيا",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.72d73d4ccde5c05d",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "علم تنزانيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.aa3b875761147e00",
+      "sourceHash": "532c1f3d6fa2a4bbbfe751523f48af88b3842e9f329155dcce9cd8b022d83eed",
+      "source": "Lake Lubes Power Eco lubricant products",
+      "translation": "منتجات التشحيم Lake Lubes Power Eco",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(5) > div:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.f0c9942d8b76a787",
+      "sourceHash": "5f8d59effa3f0793fd8c00f856dd10dc7eaa9ad6a0374a4636a41f00ad8dda40",
+      "source": "Lake Steel & Allied Products Limited manufactures TBS-certified TMT reinforcement steel bars conforming to BS 500, with a 25T/hr computerized rolling mill.",
+      "translation": "تصنع شركة Lake Steel & Allied Products Limited قضبان تسليح TMT معتمدة من TBS ومطابقة للمواصفة BS 500، باستخدام مطحنة درفلة محوسبة بطاقة 25 طنًا في الساعة.",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(6) > div:nth-of-type(2) > p:nth-of-type(1)",
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.1550c7be552df9b8",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "تنزانيا",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.de5f56031394f7c6",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "علم تنزانيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(6) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.48c8ce8241b637a3",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "تنزانيا",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.e57539839bf2b7b7",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "علم تنزانيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(7) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.48c8ce8241b637a3.2",
+      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
+      "source": "Zambia",
+      "translation": "زامبيا",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.e57539839bf2b7b7.2",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "علم زامبيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(7) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.48c8ce8241b637a3.3",
+      "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
+      "source": "Mozambique",
+      "translation": "موزمبيق",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.e57539839bf2b7b7.3",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "علم موزمبيق",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(7) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.fc11e2c5e259e5b3",
+      "sourceHash": "2f55863e032e37f96a8bafd01a480e9128e95b4f43dc5010b0a03ee01ce3e2c4",
+      "source": "Previous photo",
+      "translation": "الصورة السابقة",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.cc70334ac2d1fa32",
+      "sourceHash": "894bb2b7ac07d55d3bee7ff8eb72ad3ee479e7e51c6444d16ae8c7710d8af705",
+      "source": "Next photo",
+      "translation": "الصورة التالية",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > button:nth-of-type(2)",
+      "attribute": "aria-label",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.348f2c33d9316409",
+      "sourceHash": "69518e684f065f0c39a26d5f18ae2a775ffffd4e390cc3d73afeac2fb50992a7",
+      "source": "Type a message...",
+      "translation": "اكتب رسالة...",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(3) > input:nth-of-type(1)",
+      "attribute": "placeholder",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.852a0d74e4c754c1",
+      "sourceHash": "460b3a7da007b7af9d35bca54181dc91382263b2bf133ca214871ca1fed1fc1c",
+      "source": "Chat",
+      "translation": "محادثة",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(5) > button:nth-of-type(1)",
+      "attribute": "aria-label",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.051c4146209aa212",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "تنزانيا",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.440c55f72473377d",
+      "sourceHash": "8d468134e01dc4880cd274e03e11d565035b6f3e5e721197940f93dc44748ecd",
+      "source": "Tanzania flag",
+      "translation": "علم تنزانيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.a2cc23ba5feff2d0",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "كينيا",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.6842975712f2bad0",
+      "sourceHash": "355253689efd9b3cca50b2beb6e4f0b541c91d63b59b7d9658f7ae90dfd67548",
+      "source": "Kenya flag",
+      "translation": "علم كينيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(2) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.16d25f937324153a",
+      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
+      "source": "Zambia",
+      "translation": "زامبيا",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.1c9c8656240dd0e1",
+      "sourceHash": "68a563ce7e5f57a25bb40172f67746821c55690eb841e71dfb7b8cee9d048a1b",
+      "source": "Zambia flag",
+      "translation": "علم زامبيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.94165f1a99e2510b",
+      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
+      "source": "Rwanda",
+      "translation": "رواندا",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.e07de1f9a3a2bb2c",
+      "sourceHash": "bf104389b9a3a4e5f663fb6676fc0afac62bae809dc88dfc8a8eab71f8ff21eb",
+      "source": "Rwanda flag",
+      "translation": "علم رواندا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(4) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.b21b77b0254a6cdf",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "بوروندي",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.f3c1fc0925db1e7d",
+      "sourceHash": "8a44ad9582d1e8e2de108d6bfdcee90959510f12fe699e3f31678d0b98fec680",
+      "source": "Burundi flag",
+      "translation": "علم بوروندي",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(5) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.b3c521c0efba8395",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "جمهورية الكونغو الديمقراطية",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.18ffb45efbb13498",
+      "sourceHash": "c388a3cfe6f9cdc64d23a44329a20833ddec7b0d59c61d6685a4ca4a4e2d160b",
+      "source": "DR Congo flag",
+      "translation": "علم جمهورية الكونغو الديمقراطية",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(6) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.48a34bd08d2139fe",
+      "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
+      "source": "Ethiopia",
+      "translation": "أثيوبيا",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.60d553d80f27e9b0",
+      "sourceHash": "73db697bab1d0c6919f48e41d80398161ef7ac9bd4343e9e12a655b37c2a261c",
+      "source": "Ethiopia flag",
+      "translation": "علم إثيوبيا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(7) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.59407b7b84dad563",
+      "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
+      "source": "Mozambique",
+      "translation": "موزمبيق",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.7c6671c7b7547bed",
+      "sourceHash": "3d8420c0e5388430228f382c04d202026c5c8aa1760e85e37c3a9bd73efba059",
+      "source": "Mozambique flag",
+      "translation": "علم موزمبيق",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(8) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.c69f5107f847f6f1",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "أوغندا",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.e34ccb78a53610c7",
+      "sourceHash": "93f52f34967a30b2b676072f7ea4e4650d4999f24a980323f4aff40b6bea5eec",
+      "source": "Uganda flag",
+      "translation": "علم أوغندا",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.c9ebc07c15a7734e",
+      "sourceHash": "27dbdbb709ca82b8b305388382ad270f016da1d4ae3e1f7035826f3e8c4884da",
+      "source": "UAE flag",
+      "translation": "علم الإمارات العربية المتحدة",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(10) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.e0ea8daad79a6f9f",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "attribute",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > nav:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1)",
+      "attribute": "alt",
+      "origin": "protected-or-locale-name"
+    },
+    {
+      "id": "auto.f5ff93837da1fa0d",
+      "sourceHash": "cbc07d2477cd1f2d017417486703d5fbca16c1294429279d4048df29aeac49a2",
+      "source": "Cross Country",
+      "translation": "Cross Country",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > section:nth-of-type(4) > div:nth-of-type(2) > a:nth-of-type(1)",
+      "attribute": null,
+      "origin": "protected-or-locale-name"
+    },
+    {
+      "id": "auto.a47366b3855dccd5.2",
+      "sourceHash": "a7a38d435359ec05cb5077c5b61a9a95246d525e336657eeffd62a52545a4fac",
+      "source": "Kiswahili",
+      "translation": "Kiswahili",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(2)",
+      "attribute": null,
+      "origin": "protected-or-locale-name"
+    },
+    {
+      "id": "auto.a47366b3855dccd5.3",
+      "sourceHash": "9ddb12af8457d635ec15773f905ca8587772ef64d5ecbe24d9aa4eab27a2e79b",
+      "source": "हिन्दी",
+      "translation": "हिन्दी",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(3)",
+      "attribute": null,
+      "origin": "protected-or-locale-name"
+    },
+    {
+      "id": "auto.a47366b3855dccd5.4",
+      "sourceHash": "d274159863057eb5c633116c3b54e4f8659167f0b73fabbee256e881fa1ac8c8",
+      "source": "العربية",
+      "translation": "العربية",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(4)",
+      "attribute": null,
+      "origin": "protected-or-locale-name"
+    },
+    {
+      "id": "auto.a47366b3855dccd5.5",
+      "sourceHash": "9937e365aaf3a0854053a3179584ad9cd82e1164ea8535b50c1e6ae7102b373c",
+      "source": "简体中文",
+      "translation": "简体中文",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(5)",
+      "attribute": null,
+      "origin": "protected-or-locale-name"
+    },
+    {
+      "id": "auto.a47366b3855dccd5.6",
+      "sourceHash": "e495d53b967a7b049c8a2c25baa519fe124b49c1d0cf9cd8bdffa00d2f9d8ed6",
+      "source": "Français",
+      "translation": "Français",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(6)",
+      "attribute": null,
+      "origin": "protected-or-locale-name"
+    },
+    {
+      "id": "auto.a47366b3855dccd5.7",
+      "sourceHash": "94b382b61b9dde0ff8d45a44a34b61971d98df5bd810c803a3f33ce5b115eae8",
+      "source": "Español",
+      "translation": "Español",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(7)",
+      "attribute": null,
+      "origin": "protected-or-locale-name"
+    },
+    {
+      "id": "auto.a47366b3855dccd5.8",
+      "sourceHash": "d4ada8ec276411a1d73428117ea0d7d8ea48789e9f07ce6bb6908cb851b52441",
+      "source": "Português",
+      "translation": "Português",
+      "mode": "text",
+      "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > button:nth-of-type(8)",
+      "attribute": null,
+      "origin": "protected-or-locale-name"
+    },
+    {
+      "id": "auto.d8a3eae9720ef24c",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "protected-or-locale-name"
     }
   ]
 }

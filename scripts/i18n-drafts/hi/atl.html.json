@@ -468,7 +468,7 @@
       "id": "auto.87260c2777ed5b53",
       "sourceHash": "59d3f17419f4ac9758d0dc4c773d0a9894d5d6dc9d6eed20aac053989a935e47",
       "source": "Stanbic",
-      "translation": "Stanbic",
+      "translation": "स्टैनबिक",
       "mode": "attribute",
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > img:nth-of-type(1)",
       "attribute": "alt",

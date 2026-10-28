@@ -712,6 +712,106 @@
       "selector": "html:nth-of-type(1) > body:nth-of-type(1) > footer:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(9) > img:nth-of-type(1)",
       "attribute": "alt",
       "origin": "assistant-authored-initial-draft"
+    },
+    {
+      "id": "auto.c54c101b89823d72",
+      "sourceHash": "9555664fcf433126481600df355699e290fc5aae1b758439968880b973f1c256",
+      "source": "Tanzania",
+      "translation": "Tanzanie",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.07ae83939bb2f34b",
+      "sourceHash": "b5f9221ae041a8f8fff31fcb6f43e6a57de061dd67b14ea8308fd2337200ea9a",
+      "source": "Zambia",
+      "translation": "Zambie",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.cccdf3e062c6de16",
+      "sourceHash": "059bdf337a98e69e2baa3f4f1fca8d4b25de2a5a0ce29fcecd02a6beae960585",
+      "source": "DR Congo",
+      "translation": "RDC",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.39b1788de3c65351",
+      "sourceHash": "7d94977e033dee6304f7d11d4b3b1cc17df77ba3a5dea84ce7e482a8d7af5a08",
+      "source": "Ethiopia",
+      "translation": "Éthiopie",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.5425ddc87bb2e00a",
+      "sourceHash": "893d538563bcd9aca0cf6f926bd7902a7dc17471ba50c10a54210fe4d277bf14",
+      "source": "Uganda",
+      "translation": "Ouganda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "reused-page-source-translation"
+    },
+    {
+      "id": "auto.e8c9246b06ccfb1c",
+      "sourceHash": "74e1891dc615b22fac103c74ab7133742dd1d95a604f6d4edb1a9403b7156506",
+      "source": "Kenya",
+      "translation": "Kenya",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "protected-or-locale-name"
+    },
+    {
+      "id": "auto.57eece641d43e33f",
+      "sourceHash": "12c8f8f4912cbdb3946196e4b7e8457c703967a9bfaff0f785979f4bc6d30a18",
+      "source": "Rwanda",
+      "translation": "Rwanda",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "protected-or-locale-name"
+    },
+    {
+      "id": "auto.e0778022ec7d0312",
+      "sourceHash": "c835bd1c4578817f60901e0153611b19a97b2275befa8de44e1e42cb3f53ea0d",
+      "source": "Burundi",
+      "translation": "Burundi",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "protected-or-locale-name"
+    },
+    {
+      "id": "auto.56b87b0b33908f59",
+      "sourceHash": "c9054826f71c23b8eeb727b87d60b579c12b36bacdb42fc8f33d0a15e6eb23d1",
+      "source": "Mozambique",
+      "translation": "Mozambique",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "protected-or-locale-name"
+    },
+    {
+      "id": "auto.d9b105e24f823290",
+      "sourceHash": "54e4f37d5d51122f750d95456a700a45441c01fb0ea5630e590ee7df1b1bbd12",
+      "source": "© 2026 Lake Group.",
+      "translation": "© 2026 Lake Group.",
+      "mode": "runtime-text",
+      "selector": null,
+      "attribute": null,
+      "origin": "protected-or-locale-name"
     }
   ]
 }
