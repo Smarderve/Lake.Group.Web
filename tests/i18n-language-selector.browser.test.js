@@ -71,7 +71,9 @@ test('Lake AI updates in place while every draft language is selected and preser
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   await page.goto(`${baseUrl}/index.html`, { waitUntil: 'domcontentloaded' });
   await page.waitForFunction(() => window.LakeI18n?.current === 'en' && window.LakeI18n?.draftPreview === true);
-  await page.locator('.la-launcher').click();
+  const launcher = page.locator('.la-launcher');
+  assert.equal(await launcher.isVisible(), false, 'temporary UI pause keeps the Lake AI launcher hidden');
+  await launcher.evaluate((button) => button.click());
   await page.locator('#lake-assistant-panel .la-message.la-bot').first().waitFor({ state: 'visible' });
   const messageCount = await page.locator('#lake-assistant-panel .la-message').count();
   const switcher = page.locator('.lang-switcher:visible').first();
