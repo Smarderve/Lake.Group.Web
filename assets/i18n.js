@@ -303,13 +303,13 @@ window.LakeI18n = (function () {
     const locale = NUMBER_FORMAT_LOCALES[lang];
     if (!locale) return str;
     const formatter = getNumberFormatter(locale, true);
-    return str.replace(/(?<![\p{L}\p{N}])([+-]?)(\d+(?:,\d{3})*(?:\.\d+)?)([%+]?)(?![\p{L}\p{N}])/gu, (match, sign, raw, suffix) => {
+    return str.replace(/(?<![\p{L}\p{N}])([+-]?)(\d{1,3}(?:,\d{3})+|\d{1,3}(?:\.\d{3})+|\d+(?:[.,]\d+)?)([%+]?)(?![\p{L}\p{N}])/gu, (match, sign, raw, suffix) => {
       if (/^0\d+$/.test(raw)) {
         const digits = lang === 'ar' ? '٠١٢٣٤٥٦٧٨٩' : lang === 'hi' ? '०१२३४५६७८९' : '0123456789';
         return sign + raw.replace(/[0-9]/g, (digit) => digits[digit.charCodeAt(0) - 48]) + suffix;
       }
       if (/^\d{4}$/.test(raw) && !suffix) return sign + getNumberFormatter(locale, false).format(Number(raw));
-      const number = Number(raw.replace(/,/g, ''));
+      const number = Number(raw.replace(/,(?=\d{3}(?:,|$))/g, '').replace(/\.(?=\d{3}(?:\.|$))/g, ''));
       return Number.isFinite(number) ? sign + formatter.format(number) + suffix : match;
     });
   }

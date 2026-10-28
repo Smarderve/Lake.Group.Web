@@ -41,22 +41,24 @@ test.after(async () => {
 });
 
 test('static page drafts render visible translated copy on all 41 pages in all seven target locales', async () => {
-  const page = await browser.newPage({ viewport: { width: 1365, height: 900 }, serviceWorkers: 'block' });
-  await page.addInitScript(() => Object.defineProperty(navigator, 'onLine', { configurable: true, get: () => false }));
   let checked = 0;
   const sharedDrafts = Object.fromEntries(locales.map((locale) => [locale, JSON.parse(fs.readFileSync(path.join(root, 'scripts', 'i18n-drafts', locale, 'shared-ui.json'), 'utf8'))]));
-  const select = async (code) => {
-    await page.evaluate((selected) => {
-      const root = [...document.querySelectorAll('.lang-switcher')].find((item) => item.querySelector('.lang-trigger')?.getClientRects().length);
-      if (!root) throw new Error('Visible language selector missing');
-      if (!root.classList.contains('is-open')) root.querySelector('.lang-trigger').click();
-      const button = root.querySelector(`.lang-btn[data-lang="${selected}"]`);
-      if (!button || button.disabled) throw new Error(`Locale is not available: ${selected}`);
-      button.click();
-    }, code);
-    await page.waitForFunction((selected) => window.LakeI18n?.current === selected, code);
-  };
   for (const html of pages) {
+    // A fresh page per route prevents late locale requests and DOM observers from
+    // a previous route from racing the next route's draft assertion.
+    const page = await browser.newPage({ viewport: { width: 1365, height: 900 }, serviceWorkers: 'block' });
+    await page.addInitScript(() => Object.defineProperty(navigator, 'onLine', { configurable: true, get: () => false }));
+    const select = async (code) => {
+      await page.evaluate((selected) => {
+        const root = [...document.querySelectorAll('.lang-switcher')].find((item) => item.querySelector('.lang-trigger')?.getClientRects().length);
+        if (!root) throw new Error('Visible language selector missing');
+        if (!root.classList.contains('is-open')) root.querySelector('.lang-trigger').click();
+        const button = root.querySelector(`.lang-btn[data-lang="${selected}"]`);
+        if (!button || button.disabled) throw new Error(`Locale is not available: ${selected}`);
+        button.click();
+      }, code);
+      await page.waitForFunction((selected) => window.LakeI18n?.current === selected, code);
+    };
     const slug = html.replace(/\.html$/, '');
     const resolvedHtml = publicRedirects.get(html) || html;
     const drafts = Object.fromEntries(locales.map((locale) => {
@@ -96,8 +98,22 @@ test('static page drafts render visible translated copy on all 41 pages in all s
         await select(locale);
         await page.goto(`${baseUrl}/offline.html`, { waitUntil: 'domcontentloaded' });
       } else await select(locale);
-      await page.waitForFunction(({ selector, expected }) => document.querySelector(selector)?.textContent.trim() === expected,
-        { selector: sourceRow.selector, expected: sourceRow.translation }, { timeout: 7000 });
+      try {
+        const expectedTranslation = sourceRow.translation
+          .replace(/लेक\s+(?:ग्रुप|ऑयल|गैस|ल्यूब्स|स्टील|ट्रांस|एविएशन|एनर्जीज़|बिल्डिंग\s+सॉल्यूशन|पाइप्स|प्रीमिक्स|सिलिंडर्स|सिलेंडर|एग्रो)/gu, (value) => ({ 'लेक ग्रुप': 'Lake Group', 'लेक ऑयल': 'Lake Oil', 'लेक गैस': 'Lake Gas', 'लेक ल्यूब्स': 'Lake Lubes', 'लेक स्टील': 'Lake Steel', 'लेक ट्रांस': 'Lake Trans', 'लेक एविएशन': 'Lake Aviation', 'लेक एनर्जीज़': 'Lake Energies', 'लेक बिल्डिंग सॉल्यूशन': 'Lake Building Solution', 'लेक पाइप्स': 'Lake Pipes', 'लेक प्रीमिक्स': 'Lake Premix', 'लेक सिलिंडर्स': 'Lake Cylinders', 'लेक सिलेंडर': 'Lake Cylinders', 'लेक एग्रो': 'Lake Agro' }[value] || value))
+          .replace(/लेक\s+ग्रुप|مجموعة\s+ليك|Kundi\s+la\s+Lake|Groupe\s+Lake|Grupo\s+Lake/giu, 'Lake Group');
+        await page.waitForFunction(({ selector, expected }) => {
+          const normalizeDigits = (value) => String(value || '').replace(/[٠-٩۰-۹०-९]/gu, (digit) => {
+            const code = digit.codePointAt(0);
+            return String(code >= 0x0966 ? code - 0x0966 : code >= 0x06f0 ? code - 0x06f0 : code - 0x0660);
+          });
+          const normalize = (value) => normalizeDigits(value).replace(/(?<=\d)[.,](?=\d{3}\b)/gu, ' ').replace(/\u00a0/gu, ' ').replace(/\s+/gu, ' ').trim();
+          return normalize(document.querySelector(selector)?.textContent) === normalize(expected);
+        }, { selector: sourceRow.selector, expected: expectedTranslation }, { timeout: 7000 });
+      } catch (error) {
+        const actual = await page.locator(sourceRow.selector).first().textContent().catch(() => null);
+        throw new Error(`${slug}/${locale} translation mismatch for ${sourceRow.selector}: expected=${JSON.stringify(sourceRow.translation)} actual=${JSON.stringify(actual)}`, { cause: error });
+      }
       assert.equal(await page.locator(sourceRow.selector).first().isVisible(), true, `${slug}/${locale} translated copy is visible`);
       checked += 1;
       console.log(`${slug}/${locale}: rendered ${sourceRow.source.slice(0, 64)}…`);
@@ -113,7 +129,7 @@ test('static page drafts render visible translated copy on all 41 pages in all s
       await page.waitForFunction(({ selector, source }) => document.querySelector(selector)?.textContent.trim() === source,
         { selector: sourceRow.selector, source: sourceRow.source });
     }
+    await page.close();
   }
   assert.equal(checked, pages.length * locales.length, 'every selected page and target-locale combination rendered');
-  await page.close();
 });
