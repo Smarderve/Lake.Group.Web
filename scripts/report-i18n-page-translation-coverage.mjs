@@ -27,10 +27,16 @@ export async function reportPageTranslationCoverage({ extractionFile = extractio
       let draft = null;
       try { draft = JSON.parse(await readFile(resolve('scripts/i18n-drafts', locale, `${page}.json`), 'utf8')); } catch { /* locale page draft not authored */ }
       const rows = new Map((draft?.translations || []).map((row) => [`${row.id}\0${row.sourceHash}`, row]));
+      let sharedDraft = null;
+      try { sharedDraft = JSON.parse(await readFile(resolve('scripts/i18n-drafts', locale, 'shared-ui.json'), 'utf8')); } catch { /* shared draft not authored */ }
+      const sharedRows = new Map();
+      for (const row of sharedDraft?.translations || []) {
+        if (row?.source && row?.translation?.trim() && normalize(row.translation) !== normalize(row.source)) sharedRows.set(normalize(row.source), row);
+      }
       const matched = [];
       let unchanged = 0;
       for (const entry of candidates) {
-        const row = rows.get(`${entry.id}\0${entry.sourceHash}`);
+        const row = rows.get(`${entry.id}\0${entry.sourceHash}`) || sharedRows.get(normalize(entry.source));
         if (row?.translation?.trim() && normalize(row.translation) !== normalize(entry.source)) {
           matched.push(entry.id);
           uniqueTranslatedSources[locale].add(normalize(entry.source));

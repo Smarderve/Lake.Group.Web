@@ -107,7 +107,7 @@ test('static page drafts render visible translated copy on all 41 pages in all s
             const code = digit.codePointAt(0);
             return String(code >= 0x0966 ? code - 0x0966 : code >= 0x06f0 ? code - 0x06f0 : code - 0x0660);
           });
-          const normalize = (value) => normalizeDigits(value).replace(/(?<=\d)[.,](?=\d{3}\b)/gu, ' ').replace(/\u00a0/gu, ' ').replace(/\s+/gu, ' ').trim();
+          const normalize = (value) => normalizeDigits(value).replace(/(?<=\d)[.,٬٫](?=\d{3}\b)/gu, ' ').replace(/\u00a0/gu, ' ').replace(/\s+/gu, ' ').trim();
           return normalize(document.querySelector(selector)?.textContent) === normalize(expected);
         }, { selector: sourceRow.selector, expected: expectedTranslation }, { timeout: 7000 });
       } catch (error) {

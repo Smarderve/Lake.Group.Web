@@ -18,6 +18,22 @@
        (index.html) + prior 60px logo standard (~17% below former 72px).
    ========================================================================== */
 
+@font-face {
+  font-family: "Amiri";
+  src: url("fonts/files/amiri-arabic-400-normal.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Amiri";
+  src: url("fonts/files/amiri-arabic-700-normal.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
 :root {
   /* - Brand palette (docs) - */
   --lake-deep-blue:          #0181BB;
@@ -236,6 +252,8 @@ html[lang="hi"] {
 }
 
 html[lang="ar"] {
+  --font-heading: "Amiri", "Jost", sans-serif;
+  --font-body: "Amiri", "Jost", sans-serif;
   --body-line-height: 1.85;
   --fs-body: 1.0625rem;
 }
