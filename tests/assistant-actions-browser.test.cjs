@@ -108,8 +108,11 @@ test('actual Chrome website renders message actions, retries and rewrites edited
 
   await page.goto(url, { waitUntil: 'domcontentloaded' });
   const launcher = page.locator('#chat-widget .la-launcher');
-  await launcher.waitFor({ state: 'visible', timeout: 15_000 });
-  await launcher.click();
+  await launcher.waitFor({ state: 'attached', timeout: 15_000 });
+  assert.equal(await launcher.isVisible(), false, 'temporary UI pause keeps the assistant launcher hidden');
+  // Exercise the preserved assistant implementation without making the
+  // temporarily hidden launcher user-visible.
+  await launcher.evaluate((button) => button.click());
   const welcomeTyping = page.locator('#chat-widget .la-typing');
   await welcomeTyping.waitFor({ state: 'visible' });
   assert.equal(await welcomeTyping.locator('.la-assistant-avatar').count(), 1, 'welcome typing indicator has the assistant avatar');
@@ -451,7 +454,7 @@ test('actual Chrome website renders message actions, retries and rewrites edited
   assert.equal(await page.evaluate(() => navigator.clipboard.readText()), 'What is Lake Group?');
 
   await page.locator('#chat-widget .la-close').click();
-  await launcher.click();
+  await launcher.evaluate((button) => button.click());
   await page.getByText(/Welcome back! What can I help you with this time\?/).waitFor({ state: 'visible' });
   const welcomeBack = page.locator('#chat-widget .la-message.la-bot').last();
   assert.deepEqual(await welcomeBack.locator('.la-response-action').evaluateAll((buttons) => buttons.map((button) => button.getAttribute('aria-label'))), [

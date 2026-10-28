@@ -29,7 +29,7 @@ const perAssetRelease = new Map([
 ]);
 const serviceWorkerRelease = '20261019-11';
 const assistantJsRelease = '20261019-03';
-const assistantCssRelease = '20261019-01';
+const assistantCssRelease = '20261028-01';
 const globeBundleRelease = '20261019-loop-l10n-01';
 const errors = [];
 const versions = new Map();

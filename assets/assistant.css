@@ -773,45 +773,24 @@
   }
 }
 
-/* Keep the independent Back-to-Top control beside the fixed chat launcher.
-   Match the launcher anchors above and offset only the arrow control. */
+/* Temporary translation-work pause: keep the assistant implementation loaded
+   for later restoration, but remove the launcher from the hit-testing tree. */
+#chat-widget.la-widget .la-launcher { display: none !important; }
+
+/* With the launcher hidden, return the independent Back-to-Top control to the
+   bottom-right corner on every viewport. */
 .lake-back-to-top {
-  right: calc(max(24px, env(safe-area-inset-right)) + 72px);
-  bottom: calc(max(24px, env(safe-area-inset-bottom)) + 7px);
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(24px, env(safe-area-inset-bottom));
 }
 
 @media (min-width: 601px) and (max-width: 1024px) {
-  body.home .lake-back-to-top {
-    right: calc(max(20px, env(safe-area-inset-right)) + 72px);
-    bottom: calc(max(96px, env(safe-area-inset-bottom) + clamp(24px, 3.5vh, 40px) + 71px) + 7px);
-  }
-}
-
-@media (min-width: 721px) and (max-width: 860px) {
-  body.home .lake-back-to-top {
-    bottom: calc(env(safe-area-inset-bottom) + clamp(24px, 3.5vh, 40px) + 68px);
-  }
-}
-
-@media (min-width: 861px) and (max-width: 959px) {
-  body.home .lake-back-to-top {
-    bottom: calc(max(104px, env(safe-area-inset-bottom) + clamp(24px, 3.5vh, 40px) + 87px) + 7px);
-  }
-}
-
-@media (max-width: 720px) {
-  body.home .lake-back-to-top {
-    bottom: calc(max(100px, env(safe-area-inset-bottom) + 8svh + clamp(28px, 4.5vh, 46px) + 50px) + 7px);
-  }
+  .lake-back-to-top { right: max(24px, env(safe-area-inset-right)); bottom: max(24px, env(safe-area-inset-bottom)); }
 }
 
 @media (max-width: 600px) {
   .lake-back-to-top {
-    right: calc(max(16px, env(safe-area-inset-right)) + 72px);
-    bottom: calc(max(24px, env(safe-area-inset-bottom)) + 8px);
-  }
-
-  body.home .lake-back-to-top {
-    bottom: calc(max(100px, env(safe-area-inset-bottom) + 8svh + clamp(28px, 4.5vh, 46px) + 50px) + 8px);
+    right: max(16px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
   }
 }

@@ -23,7 +23,7 @@ function startServer() {
   });
 }
 
-test('Back-to-Top aligns left of Chat across desktop, tablet, and phone viewports', async () => {
+test('Back-to-Top stays bottom-right while the Chat launcher is hidden', async () => {
   const server = await startServer();
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage();
@@ -40,25 +40,26 @@ test('Back-to-Top aligns left of Chat across desktop, tablet, and phone viewport
       await page.waitForTimeout(500); // Let the existing scroll-direction nudge finish before measuring resting alignment.
       const geometry = await page.evaluate(() => {
         const arrow = document.querySelector('.lake-back-to-top').getBoundingClientRect();
-        const chat = document.querySelector('#chat-widget .la-launcher').getBoundingClientRect();
+        const launcher = document.querySelector('#chat-widget .la-launcher');
         return {
-          gap: chat.left - arrow.right,
-          centerDelta: Math.abs((arrow.top + arrow.bottom) / 2 - (chat.top + chat.bottom) / 2),
-          withinViewport: arrow.left >= 0 && arrow.top >= 0 && chat.right <= innerWidth && chat.bottom <= innerHeight
+          launcherDisplay: getComputedStyle(launcher).display,
+          launcherHitTarget: getComputedStyle(launcher).pointerEvents,
+          rightGap: innerWidth - arrow.right,
+          bottomGap: innerHeight - arrow.bottom,
+          withinViewport: arrow.left >= 0 && arrow.top >= 0 && arrow.right <= innerWidth && arrow.bottom <= innerHeight
         };
       });
-      assert.ok(Math.abs(geometry.gap - 12) <= 1, `${width}x${height}: expected 12px gap, got ${geometry.gap}px`);
-      assert.ok(geometry.centerDelta <= 1, `${width}x${height}: centers differ by ${geometry.centerDelta}px`);
+      assert.equal(geometry.launcherDisplay, 'none', `${width}x${height}: chat launcher remains visible`);
+      assert.equal(geometry.launcherHitTarget, 'auto', `${width}x${height}: hidden launcher changed assistant implementation hit testing`);
+      const expectedInset = width <= 600 ? 16 : 24;
+      assert.ok(Math.abs(geometry.rightGap - expectedInset) <= 1, `${width}x${height}: expected ${expectedInset}px right inset, got ${geometry.rightGap}px`);
+      assert.ok(Math.abs(geometry.bottomGap - expectedInset) <= 1, `${width}x${height}: expected ${expectedInset}px bottom inset, got ${geometry.bottomGap}px`);
       assert.equal(geometry.withinViewport, true, `${width}x${height}: a control clips outside the viewport`);
     }
 
     await page.locator('.lake-back-to-top').click();
     await page.waitForFunction(() => window.scrollY < 2);
-    await page.getByRole('button', { name: 'Open Lake Assistant' }).click();
-    await page.locator('#lake-assistant-panel').waitFor({ state: 'visible' });
-    assert.equal(await page.locator('#chat-widget .la-launcher').evaluate((button) => getComputedStyle(button).display), 'none');
-    await page.getByRole('button', { name: 'Close Lake Assistant' }).click();
-    assert.equal(await page.getByRole('button', { name: 'Open Lake Assistant' }).isVisible(), true);
+    assert.equal(await page.getByRole('button', { name: 'Open Lake Assistant' }).isVisible(), false, 'hidden launcher is not visible or clickable');
   } finally {
     await browser.close();
     server.close();
