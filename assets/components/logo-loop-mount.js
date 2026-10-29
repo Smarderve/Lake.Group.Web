@@ -220,7 +220,9 @@
     }
 
     function shouldAutoScroll() {
-      return !reduceMotion && viewportVisible && documentVisible && !!sequenceSize() && !pointerInside && !dragState && !manualTimer;
+      // Hover and incidental pointer movement must never stop the autonomous
+      // ticker. Only an active drag or its brief touch settle window pauses it.
+      return !reduceMotion && viewportVisible && documentVisible && !!sequenceSize() && !dragState && !manualTimer;
     }
 
     function syncAnimationState() {
