@@ -473,8 +473,7 @@ window.LakeI18n = (function () {
     const key = el.getAttribute('data-i18n');
     const keyedHtml = el.hasAttribute('data-i18n-html');
     const keyedTextMatches = key && matchesDictionarySource(el, key, 'text', keyedHtml ? el.innerHTML : el.textContent, lang);
-    if (key && !keyedTextMatches) restoreKeyedSource(el, 'text', keyedHtml ? 'text-html' : 'text');
-    if (key && keyedTextMatches) {
+    if (key) {
       let val = t(key, lang);
       if (val !== null) {
         // Eastern Arabic digits for ar display strings.
@@ -502,29 +501,25 @@ window.LakeI18n = (function () {
     }
 
     const phKey = el.getAttribute('data-i18n-placeholder');
-    if (phKey && !matchesDictionarySource(el, phKey, 'placeholder', el.getAttribute('placeholder'), lang)) restoreKeyedSource(el, 'placeholder', 'placeholder');
-    if (phKey && matchesDictionarySource(el, phKey, 'placeholder', el.getAttribute('placeholder'), lang)) {
+    if (phKey) {
       const val = t(phKey, lang);
       if (val !== null) el.setAttribute('placeholder', val);
     }
 
     const titleKey = el.getAttribute('data-i18n-title');
-    if (titleKey && !matchesDictionarySource(el, titleKey, 'title', el.getAttribute('title'), lang)) restoreKeyedSource(el, 'title', 'title');
-    if (titleKey && matchesDictionarySource(el, titleKey, 'title', el.getAttribute('title'), lang)) {
+    if (titleKey) {
       const val = t(titleKey, lang);
       if (val !== null) el.setAttribute('title', val);
     }
 
     const altKey = el.getAttribute('data-i18n-alt');
-    if (altKey && !matchesDictionarySource(el, altKey, 'alt', el.getAttribute('alt'), lang)) restoreKeyedSource(el, 'alt', 'alt');
-    if (altKey && matchesDictionarySource(el, altKey, 'alt', el.getAttribute('alt'), lang)) {
+    if (altKey) {
       const val = t(altKey, lang);
       if (val !== null) el.setAttribute('alt', val);
     }
 
     const ariaKey = el.getAttribute('data-i18n-aria');
-    if (ariaKey && !matchesDictionarySource(el, ariaKey, 'aria-label', el.getAttribute('aria-label'), lang)) restoreKeyedSource(el, 'aria-label', 'aria-label');
-    if (ariaKey && matchesDictionarySource(el, ariaKey, 'aria-label', el.getAttribute('aria-label'), lang)) {
+    if (ariaKey) {
       const val = t(ariaKey, lang);
       if (val !== null) el.setAttribute('aria-label', val);
     }
@@ -714,6 +709,13 @@ window.LakeI18n = (function () {
     // Signal listeners only after keyed dictionaries and page drafts are both
     // applied. SplitText and other content listeners rebuild from this DOM.
     document.dispatchEvent(new CustomEvent('lake-i18n-applied', { detail: { lang } }));
+
+    // CMS hydration listens to the event above and may rebuild shared navigation
+    // synchronously. Re-apply keyed nodes after those listeners finish so the
+    // shared CMS layer cannot put English source labels back into translated UI.
+    document.querySelectorAll(
+      '[data-i18n], [data-i18n-placeholder], [data-i18n-title], [data-i18n-alt], [data-i18n-aria]'
+    ).forEach((el) => applyToElement(el, lang));
   }
 
   function showUnavailableMessage(lang) {
