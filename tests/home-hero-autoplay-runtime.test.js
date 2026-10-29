@@ -64,6 +64,22 @@ test('homepage hero completes three cycles through the eager first image and res
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   await page.addInitScript(() => {
+    window.__heroSeen = [];
+    function attachHeroObserver() {
+      const root = document.querySelector('.hero[data-hero-carousel]');
+      if (!root || root.dataset.runtimeObserverAttached === '1') return;
+      root.dataset.runtimeObserverAttached = '1';
+      const slides = [...root.querySelectorAll('.hero-slide')];
+      let current = slides.findIndex((slide) => slide.classList.contains('is-active'));
+      new MutationObserver(() => {
+        const next = slides.findIndex((slide) => slide.classList.contains('is-active'));
+        if (next >= 0 && next !== current) { current = next; window.__heroSeen.push(next); }
+      }).observe(root, { subtree: true, attributes: true, attributeFilter: ['class'] });
+    }
+    new MutationObserver(attachHeroObserver).observe(document, { subtree: true, childList: true });
+    attachHeroObserver();
+  });
+  await page.addInitScript(() => {
     const originalSetTimeout = window.setTimeout.bind(window);
     const originalClearTimeout = window.clearTimeout.bind(window);
     const autoplayTimers = new Set();
@@ -96,20 +112,6 @@ test('homepage hero completes three cycles through the eager first image and res
   });
   try {
     await page.goto(`http://127.0.0.1:${server.address().port}/index.html`, { waitUntil: 'domcontentloaded' });
-    await page.evaluate(() => {
-      const root = document.querySelector('.hero[data-hero-carousel]');
-      const slides = [...root.querySelectorAll('.hero-slide')];
-      let current = slides.findIndex((slide) => slide.classList.contains('is-active'));
-      window.__heroSeen = [];
-      new MutationObserver(() => {
-        const next = slides.findIndex((slide) => slide.classList.contains('is-active'));
-        if (next >= 0 && next !== current) {
-          current = next;
-          window.__heroSeen.push(next);
-        }
-      }).observe(root, { subtree: true, attributes: true, attributeFilter: ['class'] });
-    });
-
     await page.waitForFunction(() => window.__heroSeen.length >= 18, null, { timeout: 15000 });
     const cycle = await page.evaluate(() => window.__heroSeen.slice(0, 18));
     assert.deepEqual(cycle, [1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0]);
