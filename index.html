@@ -2562,14 +2562,6 @@
         </a>
       </div>
     </div>
-    <div class="hero-slide-controls" aria-label="Hero slide controls">
-      <button type="button" class="hero-slide-control hero-slide-control-prev" data-hero-prev aria-label="Previous slide">
-        <span aria-hidden="true">&#8592;</span>
-      </button>
-      <button type="button" class="hero-slide-control hero-slide-control-next" data-hero-next aria-label="Next slide">
-        <span aria-hidden="true">&#8594;</span>
-      </button>
-    </div>
     <div class="hero-tabs" role="tablist" aria-label="Slide navigation">
       <button type="button" class="hero-tab is-active" role="tab" aria-selected="true">
         <span class="hero-tab-thumb"><img src="assets/images/delivery/home/verticals/energies-thumb.webp" alt="" loading="lazy" decoding="async" width="240" height="140"></span>
@@ -3574,20 +3566,9 @@
        * scrolling the coverflow under a stationary cursor fires mouseenter and
        * was permanently clearing the autoplay timer (hovered stuck true).
        */
-      (function bindHoverPause() {
-        var hoverOk = window.matchMedia && window.matchMedia("(hover: hover)").matches;
-        if (!hoverOk || !stageEl) return;
-        stageEl.addEventListener("mousemove", function () {
-          if (hovered) return;
-          hovered = true;
-          stopAuto();
-        });
-        stageEl.addEventListener("mouseleave", function () {
-          if (!hovered) return;
-          hovered = false;
-          restartAuto();
-        });
-      })();
+      /* Autoplay must not depend on incidental pointer movement. Mousemove
+       * previously stopped this timer until a leave event occurred. Manual
+       * pointer/touch drags still pause through drag.active. */
 
       window.addEventListener("resize", function () {
         layout(drag.offset || 0);

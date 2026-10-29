@@ -905,7 +905,9 @@ window.LakeI18n = (function () {
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved && availableLanguages.has(saved)) preferred = saved;
       } catch (e) { /* unavailable */ }
+      const revisionAtBootstrap = selectionRevision;
       (DRAFT_PREVIEW ? loadDraftLocale(preferred) : Promise.resolve(false)).then((draftReady) => draftReady ? null : loadPublishedLocale(preferred)).catch(() => { preferred = 'en'; }).then(() => {
+        if (selectionRevision !== revisionAtBootstrap) return;
         current = preferred;
         applyAll(preferred);
         // Warm the existing draft assets after the first paint so a visitor's

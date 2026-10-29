@@ -46,7 +46,7 @@
     fadeOutColor: '#ffffff',
     scaleOnHover: true,
     ariaLabel: (window.LakeI18n && LakeI18n.t('logoloop.aria')) || 'Lake Group subsidiary companies',
-    pauseOnHover: true
+    pauseOnHover: false
   };
 
   function isExternalHref(href) {
@@ -356,7 +356,7 @@
 
     function onPointerEnter(event) {
       if (event.pointerType === 'touch') return;
-      pointerInside = true;
+      pointerInside = pauseOnHover;
       pauseForManualInput();
     }
 
@@ -368,7 +368,7 @@
 
     function onPointerDown(event) {
       if (event.pointerType === 'mouse' && event.button !== 0) return;
-      pointerInside = event.pointerType !== 'touch';
+      pointerInside = pauseOnHover && event.pointerType !== 'touch';
       dragState = {
         id: event.pointerId,
         type: event.pointerType,
@@ -432,7 +432,7 @@
     function onWheel(event) {
       var horizontalDelta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : (event.shiftKey ? event.deltaY : 0);
       if (!horizontalDelta) return;
-      pointerInside = true;
+      pointerInside = pauseOnHover;
       pauseForManualInput();
       applyManualDelta(-horizontalDelta);
       if (event.cancelable) event.preventDefault();
