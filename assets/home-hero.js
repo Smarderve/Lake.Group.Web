@@ -12,6 +12,8 @@
   var content = document.querySelector(".hero-content");
   var subtitle = content ? content.querySelector(".hero-sub") : null;
   var tabs = root.querySelectorAll(".hero-tab");
+  var previousButton = root.querySelector("[data-hero-prev]");
+  var nextButton = root.querySelector("[data-hero-next]");
   var mobileSelector = root.querySelector("[data-hero-mobile-indicator]");
   var mobileLabel = mobileSelector ? mobileSelector.querySelector("[data-hero-mobile-sector-label]") : null;
   var mobileProgress = mobileSelector ? mobileSelector.querySelector(".hero-mobile-sector-progress") : null;
@@ -212,6 +214,25 @@
         schedule();
       });
     });
+  });
+
+  function navigateBy(delta) {
+    var token = ++requestToken;
+    stop();
+    var next = (index + delta + slides.length) % slides.length;
+    ensureSlideReady(next).then(function (ready) {
+      if (token !== requestToken || paused || !pageActive || document.hidden || !ready) return;
+      index = next;
+      setActive(index);
+      schedule();
+    });
+  }
+
+  previousButton?.addEventListener("click", function () { navigateBy(-1); });
+  nextButton?.addEventListener("click", function () { navigateBy(1); });
+  root.addEventListener("keydown", function (event) {
+    if (event.key === "ArrowLeft") { event.preventDefault(); navigateBy(-1); }
+    if (event.key === "ArrowRight") { event.preventDefault(); navigateBy(1); }
   });
 
   /* Pause on touch (mobile) */

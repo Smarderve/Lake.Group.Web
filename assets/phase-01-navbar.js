@@ -259,6 +259,21 @@
     nav.querySelectorAll('.has-dropdown').forEach((item) => {
       const trigger = item.querySelector(':scope > a');
       if (!trigger) return;
+      let closeTimer = null;
+      const cancelClose = () => {
+        if (closeTimer !== null) { clearTimeout(closeTimer); closeTimer = null; }
+      };
+      const scheduleClose = () => {
+        cancelClose();
+        closeTimer = setTimeout(() => {
+          closeTimer = null;
+          if (!item.matches(':hover') && !item.matches(':focus-within')) {
+            item.classList.remove('is-open');
+            item._navOpenedByHover = false;
+            trigger.setAttribute('aria-expanded', 'false');
+          }
+        }, 180);
+      };
       trigger.addEventListener('click', (event) => {
         event.preventDefault();
         // A pointer click necessarily enters the trigger first. Keep the
@@ -277,6 +292,7 @@
       });
       item.addEventListener('mouseenter', () => {
         if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+        cancelClose();
         closeAll(item);
         item.classList.add('is-open');
         item._navOpenedByHover = true;
@@ -285,9 +301,18 @@
       });
       item.addEventListener('mouseleave', () => {
         if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
-        item.classList.remove('is-open');
-        item._navOpenedByHover = false;
-        trigger.setAttribute('aria-expanded', 'false');
+        // Keep the panel alive while the pointer crosses its small visual gap
+        // or moves into a focused menu item. The trigger owns this panel; a
+        // neighbouring language surface can never open it.
+        scheduleClose();
+      });
+      trigger.addEventListener('focus', () => {
+        if (!trigger.matches(':focus-visible')) return;
+        cancelClose();
+        closeAll(item);
+        item.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+        if (item.querySelector('.nav-megamenu')) revealSectorIcons();
       });
     });
     // i18n.js binds the language menu after its dictionary bootstrap.  This

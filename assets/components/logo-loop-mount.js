@@ -457,6 +457,25 @@
       syncAnimationState();
     }
 
+    function onPageShow(event) {
+      if (!event.persisted) return;
+      // IntersectionObserver can retain a stale false state across a BFCache
+      // restore. Re-prime the loop immediately; the observer will correct it
+      // on its next delivery if the strip is actually offscreen.
+      documentVisible = !document.hidden;
+      viewportVisible = true;
+      lastFrameTime = null;
+      syncAnimationState();
+    }
+
+    function onPageHide() {
+      if (animationFrame !== null) {
+        cancelAnimationFrame(animationFrame);
+        animationFrame = null;
+      }
+      lastFrameTime = null;
+    }
+
     container.addEventListener('pointerenter', onPointerEnter);
     container.addEventListener('pointerleave', onPointerLeave);
     container.addEventListener('pointerdown', onPointerDown);
@@ -467,6 +486,8 @@
     container.addEventListener('click', onClick, true);
     container.addEventListener('dragstart', onDragStart);
     document.addEventListener('visibilitychange', onVisibilityChange);
+    window.addEventListener('pageshow', onPageShow);
+    window.addEventListener('pagehide', onPageHide);
 
     return function destroy() {
       if (resizeFrame !== null) cancelAnimationFrame(resizeFrame);
@@ -486,6 +507,8 @@
       container.removeEventListener('click', onClick, true);
       container.removeEventListener('dragstart', onDragStart);
       document.removeEventListener('visibilitychange', onVisibilityChange);
+      window.removeEventListener('pageshow', onPageShow);
+      window.removeEventListener('pagehide', onPageHide);
       root.innerHTML = '';
     };
   }

@@ -235,7 +235,7 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
 
 /* Featured slideshow (news-page style) for the gallery archive */
 .gal-slider{
-  margin-bottom:30px;
+  position:relative;margin-bottom:30px;
 }
 .gal-slider__viewport{
   position:relative;
@@ -299,6 +299,13 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
   display:flex;justify-content:center;gap:6px;
   margin-top:14px;
 }
+.gal-slider__arrow{
+  position:absolute;top:50%;z-index:4;display:grid;place-items:center;width:42px;height:42px;
+  padding:0;border:1px solid rgba(255,255,255,.45);border-radius:50%;background:rgba(0,25,42,.48);
+  color:#fff;cursor:pointer;font:400 1.15rem/1 Arial,sans-serif;transform:translateY(-50%);
+}
+.gal-slider__arrow:hover,.gal-slider__arrow:focus-visible{border-color:#fff200;color:#fff200;outline:none}
+.gal-slider__arrow--prev{left:16px}.gal-slider__arrow--next{right:16px}
 .gal-slider__bar{
   width:22px;min-width:0;height:4px;min-height:0;
   padding:0;border:0;border-radius:2px;
@@ -310,6 +317,7 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
 @media(max-width:680px){
   .gal-slider__track{min-height:240px;max-height:none;aspect-ratio:4/3}
   .gal-slider__body{padding:14px}
+  .gal-slider__arrow{width:36px;height:36px}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -513,6 +521,8 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
           </div>
         </div>
       </div>
+      <button type="button" class="gal-slider__arrow gal-slider__arrow--prev" id="gal-slider-prev" aria-label="Previous featured photo">&#8592;</button>
+      <button type="button" class="gal-slider__arrow gal-slider__arrow--next" id="gal-slider-next" aria-label="Next featured photo">&#8594;</button>
       <div class="gal-slider__bars" id="gal-slider-bars" role="tablist" aria-label="Choose photo"></div>
     </section>
     <div class="gallery-filter-bar" role="tablist" aria-label="Filter by category">
@@ -701,6 +711,8 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
      autoplay with hover/focus pause; clicking a slide opens the lightbox. */
   const galTrack = document.getElementById('gal-slider-track');
   const galBarsHost = document.getElementById('gal-slider-bars');
+  const galPrev = document.getElementById('gal-slider-prev');
+  const galNextButton = document.getElementById('gal-slider-next');
   if (galTrack && galBarsHost) {
     const galSlides = [...galTrack.querySelectorAll('.gal-slider__slide')];
     if (galSlides.length > 1) {
@@ -771,6 +783,8 @@ body.gallery-page .page-hero .breadcrumb{margin-bottom:18px}
         galSec.addEventListener('focusin', galStop);
         galSec.addEventListener('focusout', galStart);
       }
+      galPrev?.addEventListener('click', () => { galShow(galIdx - 1); galStart(); });
+      galNextButton?.addEventListener('click', () => { galShow(galIdx + 1); galStart(); });
       galShow(0);
       galStart();
     }

@@ -76,7 +76,7 @@ window.LakeI18n = (function () {
   // Distinguish Tab focus (open menu) from pointer focus (click owns toggle).
   let keyboardIntent = false;
   const LANG_OPEN_DELAY_MS = 200;
-  const LANG_CLOSE_DELAY_MS = 180;
+  const LANG_CLOSE_DELAY_MS = 320;
 
   function loadPublicationManifest() {
     if (publicationPromise) return publicationPromise;
@@ -317,6 +317,46 @@ window.LakeI18n = (function () {
   function localizeDigitsInText(lang, text) {
     if (typeof text !== 'string' || !text) return text;
     return formatNumberForLang(lang, text);
+  }
+
+  // Draft/page rows still contain a few English geography labels. Translate
+  // those exact visitor-facing phrases at render time so legacy HTML and
+  // newly hydrated page content stay consistent without touching company or
+  // place names such as Tanzania, Kigamboni, and Dar es Salaam.
+  const GEOGRAPHIC_LABELS = {
+    sw: [['East and Central Africa', 'Afrika Mashariki na Afrika ya Kati'], ['East & Central Africa', 'Afrika Mashariki na Afrika ya Kati'], ['East & ', 'Afrika Mashariki na '], ['East African', 'Afrika Mashariki'], ['Central African', 'Afrika ya Kati'], ['East Africa', 'Afrika Mashariki'], ['Central Africa', 'Afrika ya Kati']],
+    hi: [['East and Central Africa', 'पूर्वी अफ्रीका और मध्य अफ्रीका'], ['East & Central Africa', 'पूर्वी अफ्रीका और मध्य अफ्रीका'], ['East & ', 'पूर्वी और '], ['East African', 'पूर्वी अफ्रीकी'], ['Central African', 'मध्य अफ्रीकी'], ['East Africa', 'पूर्वी अफ्रीका'], ['Central Africa', 'मध्य अफ्रीका']],
+    ar: [['East and Central Africa', 'شرق أفريقيا وأفريقيا الوسطى'], ['East & Central Africa', 'شرق أفريقيا وأفريقيا الوسطى'], ['East & ', 'الشرق و'], ['East African', 'شرق أفريقي'], ['Central African', 'أفريقيا الوسطى'], ['East Africa', 'شرق أفريقيا'], ['Central Africa', 'أفريقيا الوسطى']],
+    zh: [['East and Central Africa', '东非和中非'], ['East & Central Africa', '东非和中非'], ['East & ', '东部和'], ['East African', '东非'], ['Central African', '中非'], ['East Africa', '东非'], ['Central Africa', '中非']],
+    fr: [['East and Central Africa', "l'Afrique de l'Est et l'Afrique centrale"], ['East & Central Africa', "l'Afrique de l'Est et l'Afrique centrale"], ['East & ', "l'Afrique de l'Est et "], ['East African', 'est-africain'], ['Central African', 'centrafricain'], ['East Africa', "l'Afrique de l'Est"], ['Central Africa', "l'Afrique centrale"]],
+    es: [['East and Central Africa', 'África Oriental y África Central'], ['East & Central Africa', 'África Oriental y África Central'], ['East & ', 'África Oriental y '], ['East African', 'africano oriental'], ['Central African', 'africano central'], ['East Africa', 'África Oriental'], ['Central Africa', 'África Central']],
+    pt: [['East and Central Africa', 'África Oriental e África Central'], ['East & Central Africa', 'África Oriental e África Central'], ['East & ', 'África Oriental e '], ['East African', 'africano oriental'], ['Central African', 'africano central'], ['East Africa', 'África Oriental'], ['Central Africa', 'África Central']]
+  };
+  const geographicSources = new WeakMap();
+  const geographicAttributeSources = new WeakMap();
+
+  function localizeGeographicLabels(lang) {
+    const replacements = GEOGRAPHIC_LABELS[lang];
+    const selector = 'body *:not(script):not(style):not(noscript)';
+    document.querySelectorAll(selector).forEach((element) => {
+      if (element.children.length || element.closest('.lang-menu')) return;
+      if (!geographicSources.has(element)) geographicSources.set(element, element.textContent);
+      let value = geographicSources.get(element);
+      if (replacements) replacements.forEach(([source, target]) => { value = value.replaceAll(source, target); });
+      if (value !== element.textContent) element.textContent = value;
+    });
+    document.querySelectorAll('[title], [aria-label], [placeholder]').forEach((element) => {
+      if (!geographicAttributeSources.has(element)) geographicAttributeSources.set(element, {});
+      ['title', 'aria-label', 'placeholder'].forEach((attribute) => {
+        const value = element.getAttribute(attribute);
+        if (!value) return;
+        const sources = geographicAttributeSources.get(element);
+        if (sources[attribute] === undefined) sources[attribute] = value;
+        let next = sources[attribute];
+        if (replacements) replacements.forEach(([source, target]) => { next = next.replaceAll(source, target); });
+        if (next !== value) element.setAttribute(attribute, next);
+      });
+    });
   }
 
   document.addEventListener('copy', (event) => {
@@ -652,6 +692,7 @@ window.LakeI18n = (function () {
     // Apply exact-source editorial rows before numeral shaping; otherwise an
     // Arabic numeral pass can change the source text and block a valid match.
     applyPublishedPage(lang);
+    localizeGeographicLabels(lang);
 
     // Hardcoded numeral nodes (mandate 01/02/03, section markers, meta stats) without i18n keys.
     numberNodes.forEach((el) => {
@@ -777,8 +818,29 @@ window.LakeI18n = (function () {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        selectLanguage(btn.dataset.lang);
+        selectLanguage(btn.dataset.lang).then(() => {
+          toggleMenu(root, false);
+          trigger?.focus({ preventScroll: true });
+        });
       });
+    });
+
+    menu?.addEventListener('keydown', (e) => {
+      const choices = [...root.querySelectorAll('.lang-btn[data-lang]:not(:disabled)')];
+      const currentIndex = choices.indexOf(document.activeElement);
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        toggleMenu(root, false);
+        trigger?.focus({ preventScroll: true });
+      } else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (!choices.length) return;
+        const delta = e.key === 'ArrowDown' ? 1 : -1;
+        choices[(currentIndex + delta + choices.length) % choices.length].focus();
+      } else if (e.key === 'Home' || e.key === 'End') {
+        e.preventDefault();
+        (e.key === 'Home' ? choices[0] : choices[choices.length - 1])?.focus();
+      }
     });
 
     // Desktop hover opens from the complete language trigger, including its

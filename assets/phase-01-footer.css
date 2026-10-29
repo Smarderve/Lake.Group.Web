@@ -295,3 +295,29 @@ body[data-shared-footer="true"] footer.site-footer .footer-bottom p {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* Swahili copy is naturally longer than the English source. Keep the same
+   visual scale while allowing clean wrapping; Arabic keeps its document-level
+   RTL and Amiri rules untouched. */
+html[lang="sw"] body[data-shared-footer="true"] footer.site-footer {
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+}
+html[lang="sw"] body[data-shared-footer="true"] footer.site-footer a,
+html[lang="sw"] body[data-shared-footer="true"] footer.site-footer li,
+html[lang="sw"] body[data-shared-footer="true"] footer.site-footer p {
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+}
+html[dir="rtl"] body[data-shared-footer="true"] footer.site-footer {
+  text-align: right !important;
+}
+html[dir="rtl"] body[data-shared-footer="true"] footer.site-footer .footer-grid {
+  direction: rtl !important;
+}
+html[dir="rtl"] body[data-shared-footer="true"] footer.site-footer .footer-contact-link {
+  flex-direction: row-reverse !important;
+}
+html[dir="rtl"] body[data-shared-footer="true"] footer.site-footer .footer-social {
+  justify-content: flex-start !important;
+}
