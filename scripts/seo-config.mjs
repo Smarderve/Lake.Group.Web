@@ -51,6 +51,7 @@ export const SITE = Object.freeze({
   logo: '/assets/images/logos/LAKE_GROUP_LOGO.png',
   socialImage: '/assets/images/social/lake-group-og-v3-brand.png',
   socialImageType: 'image/png',
+  socialImageAlt: 'Lake Group logo on a Lake Deep Blue background',
   organizationId: SITE_URL ? `${SITE_URL}/#organization` : '',
   websiteId: SITE_URL ? `${SITE_URL}/#website` : '',
 });

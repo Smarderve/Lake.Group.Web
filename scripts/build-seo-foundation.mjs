@@ -119,6 +119,7 @@ function managedHead(file, pageTitle, pageDescription) {
       `<meta property="og:image:secure_url" content="${SITE.origin + SITE.socialImage}">`,
       '<meta property="og:image:width" content="1200">',
       '<meta property="og:image:height" content="630">',
+      `<meta property="og:image:alt" content="${SITE.socialImageAlt}">`,
       `<meta property="og:image:type" content="${SITE.socialImageType}">`,
     );
     lines.push(`<meta property="og:url" content="${url}">`);
