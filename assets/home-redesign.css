@@ -59,10 +59,7 @@ body.about {
 
 body.home .hero-zone .hero-carousel {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: -60px;
+  inset: 0;
   z-index: 0;
   overflow: hidden;
 }
@@ -104,7 +101,7 @@ body.home .hero-scrim {
   top: 0;
   left: 0;
   right: 0;
-  bottom: -60px;
+  bottom: 0;
   z-index: 2;
   background: linear-gradient(90deg,
     rgba(1, 129, 187, 0.22) 0%,
@@ -475,9 +472,9 @@ body.home .hero-tab:hover {
     position: absolute;
     z-index: 6;
     display: block;
-    left: 24px;
-    right: 76px;
-    bottom: clamp(72px, 10vh, 104px);
+    left: 20px;
+    right: 20px;
+    bottom: clamp(28px, 4.5vh, 46px);
     color: #fff;
     background: rgba(3, 53, 79, .48);
     border: 1px solid rgba(255, 255, 255, .16);

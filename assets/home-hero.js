@@ -365,12 +365,15 @@
   });
 
   document.addEventListener("lake-i18n-applied", function () {
-    if (animationFrame !== null) cancelAnimationFrame(animationFrame);
-    if (observer) observer.disconnect();
-    animationFrame = null;
-    observer = null;
+    /* i18n.js dispatches this once on initial bootstrap (English included),
+       roughly 20-40ms after the count-up starts. Finalising here cancelled the
+       animation before a single frame rendered, so the figures appeared to
+       snap to their totals. Let a running count-up finish (it already
+       re-formats every frame for the active locale) and keep a pending
+       scroll-triggered start alive; only a completed run is re-rendered so a
+       genuine language change re-localises the finished numbers. */
+    if (state !== "completed") return;
     renderFinalValues();
-    state = "completed";
   });
 
   /* ---- IntersectionObserver: fires animation when hero scrolls into view ---- */

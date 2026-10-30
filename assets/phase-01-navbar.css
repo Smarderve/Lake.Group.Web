@@ -200,6 +200,11 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .nav-logo--company img {
 .site-nav[data-phase01-navbar] .lang-switcher {
   position: relative !important;
   display: block !important;
+  /* The mega-menu is z-index 10001 and, on narrower desktops, its centred
+     panel overlapped the right-hand actions. Keep the switcher (and the
+     language menu it contains) above it so the language control is never
+     occluded or made unclickable while the business menu is open. */
+  z-index: 10002 !important;
 }
 
 .site-nav[data-phase01-navbar] .lang-trigger {
@@ -294,8 +299,7 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .nav-dropdown {
   transition: opacity .14s ease, transform .14s ease !important;
 }
 
-.site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-dropdown,
-.site-nav[data-phase01-navbar] .has-dropdown:focus-within > .nav-dropdown {
+.site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-dropdown {
   opacity: 1 !important;
   pointer-events: auto !important;
   transform: translateY(0) !important;
@@ -326,8 +330,7 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .nav-dropdown {
   transform: translate(-50%, -5px) !important;
 }
 
-.site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-megamenu,
-.site-nav[data-phase01-navbar] .has-dropdown:focus-within > .nav-megamenu {
+.site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-megamenu {
   transform: translate(-50%, 0) !important;
 }
 
@@ -718,8 +721,11 @@ html[dir="rtl"] .site-nav[data-phase01-navbar] .nav-dropdown.nav-megamenu {
   right: auto !important;
 }
 
-.site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-megamenu,
-.site-nav[data-phase01-navbar] .has-dropdown:focus-within > .nav-megamenu {
+/* The panel is sized to its widest sector (rail + a full row of company
+   marks) while staying clear of the language switcher at every desktop
+   width: the 260px gutter keeps the right edge from ever sliding under
+   the language menu. */
+.site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-megamenu {
   transform: translate(-50%, 0) !important;
 }
 
@@ -1174,11 +1180,15 @@ body.co-theme-agro .nav-mobile[data-phase01-navbar-mobile].open {
 }
 
 /* Final Business Verticals contract: the rail and company pane share one
-   shell, while the rail keeps stable icon/label/chevron columns. */
+   shell, while the rail keeps stable icon/label/chevron columns.
+
+   Width is capped by the space left of the language switcher as well as by
+   the widest sector row, so the centred panel can never slide underneath
+   the language menu at 1100-1440px desktop widths. */
 .site-nav[data-phase01-navbar] .nav-megamenu,
 body.co-theme-agro .site-nav[data-phase01-navbar] .nav-megamenu {
-  width: min(1120px, calc(100vw - 48px)) !important;
-  max-width: min(1120px, calc(100vw - 48px)) !important;
+  width: min(1120px, calc(100vw - 280px)) !important;
+  max-width: min(1120px, calc(100vw - 280px)) !important;
   left: 50% !important;
   transform: translate(-50%, -6px) !important;
   padding: 0 !important;
@@ -1225,6 +1235,18 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-m
   padding: 18px 20px !important;
   background: var(--nav-dropdown-pane-bg) !important;
   border-left: 1px solid var(--nav-dropdown-divider) !important;
+}
+/* The sector rail sets the shell height, so the logo pane always has more
+   vertical room than a single row of marks needs. Centre the active pane
+   instead of pinning it to the top, which otherwise leaves a large empty
+   blue block beneath the logos. */
+.site-nav[data-phase01-navbar] .mm-panes {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+.site-nav[data-phase01-navbar] .mm-pane.is-active {
+  width: 100% !important;
 }
 /* Keep the corporate logo pane visibly Lake Light Blue while allowing the
    page/hero behind the menu to remain perceptible. The shell above is

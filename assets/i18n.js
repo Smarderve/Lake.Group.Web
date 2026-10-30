@@ -885,7 +885,10 @@ window.LakeI18n = (function () {
       if (hoverCloseTimer) clearTimeout(hoverCloseTimer);
       hoverCloseTimer = setTimeout(() => {
         hoverCloseTimer = null;
-        if (!root.matches(':focus-within')) toggleMenu(root, false);
+        /* A pointer click leaves focus on the trigger, so :focus-within stayed
+           true after the pointer moved away and the language menu never closed.
+           Only keyboard focus (:focus-visible) should pin it open. */
+        if (!root.querySelector(':focus-visible')) toggleMenu(root, false);
       }, LANG_CLOSE_DELAY_MS);
     });
   }

@@ -267,7 +267,11 @@
         cancelClose();
         closeTimer = setTimeout(() => {
           closeTimer = null;
-          if (!item.matches(':hover') && !item.matches(':focus-within')) {
+          /* Only keyboard focus pins the menu open. A pointer click also leaves
+             focus on the trigger, and testing :focus-within here kept the panel
+             on screen after the pointer had moved away, where it then sat over
+             the language switcher. :focus-visible is false for pointer focus. */
+          if (!item.matches(':hover') && !item.querySelector(':focus-visible')) {
             item.classList.remove('is-open');
             item._navOpenedByHover = false;
             trigger.setAttribute('aria-expanded', 'false');

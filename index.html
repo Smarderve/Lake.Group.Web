@@ -3129,8 +3129,17 @@
           }
           if (img && img.complete && img.naturalWidth) return decodeAndFinish();
           if (!img) return finish(false);
+          /* An image that already failed (or has no resolvable source) is
+             "complete" with a zero naturalWidth and will never fire load or
+             error again. Waiting on those events hung this promise forever,
+             so autoplay could never be rescheduled and the gallery froze. */
+          if (img.complete && !img.naturalWidth) return finish(false);
           img.addEventListener("load", decodeAndFinish, { once: true });
           img.addEventListener("error", function () { finish(false); }, { once: true });
+          /* Liveness guard: autoplay must never be permanently blocked by a
+             tile that neither loads nor errors. If we time out, report the
+             tile as not-ready so the caller reschedules instead of stalling. */
+          window.setTimeout(function () { finish(!!img.naturalWidth); }, 6000);
         });
         return tileReady[key];
       }
@@ -3280,7 +3289,7 @@
       function restartAuto() {
         stopAuto();
         if (reduced || !inView || hovered || tiles.length < 2 || drag.active) return;
-        autoTimer = setInterval(function () { go(index + 1); }, 4200);
+        autoTimer = setInterval(function () { go(index + 1, true); }, 4200);
       }
 
       function setInView(next) {
@@ -3299,7 +3308,11 @@
 
       var warmStarted = false;
 
-      function go(to) {
+      /* @param {boolean} [autoAdvance] true while autoplaying. Autoplay skips
+         tiles whose image never becomes ready so one broken asset cannot pin
+         the coverflow on a single card; a manual choice always lands on the
+         requested tile. */
+      function go(to, autoAdvance) {
         var n = tiles.length;
         if (!n) return;
         var target = ((to % n) + n) % n;
@@ -3309,11 +3322,22 @@
         if (!warmStarted && (inView || isStageNearViewport())) warmStarted = true;
         if (warmStarted) preloadAround(target);
         ensureTileReady(tiles[target], "high").then(function (ready) {
-          if (!ready || token !== moveToken) return;
+          if (token !== moveToken) return;
+          if (!ready && autoAdvance && n > 1) {
+            var next = (target + 1) % n;
+            /* Every other tile was tried and none became ready. Park on the
+               current card rather than looping forever. */
+            if (next === index) { restartAuto(); return; }
+            go(next, true);
+            return;
+          }
           index = target;
           preloadAround(index);
           layout(0);
           pulseFocus();
+          /* Autoplay must survive an unready or failed tile. Returning without
+             rescheduling left the interval stopped for good, so one slow or
+             broken image froze the gallery at its first card. */
           restartAuto();
         });
       }
