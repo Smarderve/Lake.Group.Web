@@ -308,7 +308,7 @@
         trigger.setAttribute('aria-expanded', String(open));
         if (open && item.querySelector('.nav-megamenu')) revealSectorIcons();
       });
-      item.addEventListener('mouseenter', () => {
+      trigger.addEventListener('mouseenter', () => {
         if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
         cancelClose();
         closeAll(item);
@@ -336,6 +336,7 @@
     // i18n.js binds the language menu after its dictionary bootstrap.  This
     // listener runs first and closes any active page dropdown before i18n
     // opens Language, keeping the surfaces mutually exclusive.
+    languageTrigger?.addEventListener('mouseenter', () => closeAll(languageTrigger.closest('.lang-switcher')), true);
     languageTrigger?.addEventListener('click', () => closeAll(languageTrigger.closest('.lang-switcher')), true);
     document.addEventListener('click', (event) => { if (!nav.contains(event.target)) closeAll(); });
     document.addEventListener('keydown', (event) => { if (event.key === 'Escape') { closeAll(); if (drawer.classList.contains('open')) closeMobile(); } });
