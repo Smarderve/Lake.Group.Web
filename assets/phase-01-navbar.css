@@ -1236,15 +1236,6 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .has-dropdown.is-open > .nav-m
   background: var(--nav-dropdown-pane-bg) !important;
   border-left: 1px solid var(--nav-dropdown-divider) !important;
 }
-/* The sector rail sets the shell height, so the logo pane always has more
-   vertical room than a single row of marks needs. Centre the active pane
-   instead of pinning it to the top, which otherwise leaves a large empty
-   blue block beneath the logos. */
-.site-nav[data-phase01-navbar] .mm-panes {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-}
 .site-nav[data-phase01-navbar] .mm-pane.is-active {
   width: 100% !important;
 }

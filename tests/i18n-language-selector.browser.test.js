@@ -130,6 +130,45 @@ test('desktop selector opens from the language label and pointer can enter the c
   await page.close();
 });
 
+test('generated business-sector labels restore across every locale without a reload', async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await page.goto(`${baseUrl}/index.html`, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => window.LakeI18n?.current === 'en');
+  await page.locator('[data-nav-section="subsidiaries"]').hover();
+  await page.locator('.mm-sector-label').first().waitFor({ state: 'attached' });
+  await page.locator('.mm-cat[data-mm-cat="automotive"]').hover();
+  const logoPane = await page.locator('.mm-panes').evaluate((pane) => {
+    const paneRect = pane.getBoundingClientRect();
+    const companiesRect = pane.querySelector('.mm-pane.is-active .mm-companies')?.getBoundingClientRect();
+    return {
+      paneTop: paneRect.top,
+      companiesTop: companiesRect?.top,
+      justifyContent: getComputedStyle(pane).justifyContent,
+    };
+  });
+  assert.ok(logoPane.companiesTop <= logoPane.paneTop + 24, `automotive logos stay top-aligned: ${JSON.stringify(logoPane)}`);
+  assert.notEqual(logoPane.justifyContent, 'center', 'logo pane is not vertically centered');
+
+  const english = await page.locator('.mm-sector-label').allTextContents();
+  const switchTo = async (locale) => {
+    const trigger = page.locator('.lang-trigger').first();
+    if ((await trigger.getAttribute('aria-expanded')) !== 'true') await trigger.click();
+    await page.locator(`.lang-menu:visible .lang-btn[data-lang="${locale}"]`).click();
+    await page.waitForFunction((code) => window.LakeI18n?.current === code, locale);
+  };
+
+  for (const locale of ['hi', 'sw', 'ar', 'zh', 'fr', 'es', 'pt', 'en']) {
+    await switchTo(locale);
+    assert.equal(await page.locator('.mm-sector-label').count(), english.length);
+    if (locale === 'en') assert.deepEqual(await page.locator('.mm-sector-label').allTextContents(), english);
+  }
+  await switchTo('hi');
+  await switchTo('fr');
+  await switchTo('en');
+  assert.deepEqual(await page.locator('.mm-sector-label').allTextContents(), english);
+  await page.close();
+});
+
 test('mobile selector opens, preserves selected English on reload, and fits the viewport', async () => {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const page = await context.newPage();
@@ -253,15 +292,20 @@ test('contact email placeholder is localized in each draft locale and keeps its 
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   await page.goto(`${baseUrl}/contact.html`, { waitUntil: 'domcontentloaded' });
   await page.waitForFunction(() => window.LakeI18n?.current === 'en');
-  const placeholders = { sw: 'Barua pepe yako', hi: 'आपका ईमेल पता', ar: 'بريدك الإلكتروني', zh: '你的电子邮箱', fr: 'Votre adresse e-mail', es: 'Tu correo electrónico', pt: 'Seu endereço de e-mail' };
-  for (const [locale, expected] of Object.entries(placeholders)) {
+  for (const locale of ['sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt']) {
     const selector = page.locator('.lang-switcher:visible').first();
     if (!await selector.locator('.lang-menu').isVisible()) await selector.locator('.lang-trigger').click();
     await selector.locator(`.lang-btn[data-lang="${locale}"]`).click();
     await page.waitForFunction((code) => window.LakeI18n?.current === code, locale);
     assert.equal(await page.locator('#contact-email').getAttribute('type'), 'email');
+    const expected = await page.evaluate((code) => window.LakeI18n.t('contact.33', code), locale);
     assert.equal(await page.locator('#contact-email').getAttribute('placeholder'), expected, `${locale} contact placeholder`);
   }
+  const selector = page.locator('.lang-switcher:visible').first();
+  if (!await selector.locator('.lang-menu').isVisible()) await selector.locator('.lang-trigger').click();
+  await selector.locator('.lang-btn[data-lang="en"]').click();
+  await page.waitForFunction(() => window.LakeI18n?.current === 'en');
+  assert.equal(await page.locator('#contact-email').getAttribute('placeholder'), 'your@email.com', 'English contact placeholder is restored');
   await page.close();
 });
 

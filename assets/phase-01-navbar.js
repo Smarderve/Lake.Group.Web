@@ -45,6 +45,14 @@
       agro: { reveal: 'assets/icons/sectors/lottie/agro-processing-in-reveal.json', hover: 'assets/icons/sectors/lottie/agro-processing-hover-pinch.json' },
       automotive: { reveal: 'assets/icons/sectors/lottie/automotive-in-reveal.json' }
     };
+    const sectorTranslationKeys = {
+      energies: 'nav.dd.energies',
+      manufacturing: 'nav.dd.manufacturing',
+      logistics: 'nav.dd.logisticsCos',
+      realestate: 'nav.dd.realEstate',
+      agro: 'nav.dd.agro',
+      automotive: 'nav.dd.automotive'
+    };
     const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const recordIconEvent = (button, state) => {
       window.__LAKE_SECTOR_ICON_EVENTS__ = window.__LAKE_SECTOR_ICON_EVENTS__ || [];
@@ -87,7 +95,10 @@
         if (textNode) {
           const label = document.createElement('span');
           label.className = 'mm-sector-label';
-          label.textContent = textNode.textContent.trim();
+          const key = sectorTranslationKeys[button.dataset.mmCat];
+          label.dataset.i18n = key || '';
+          const translated = key && window.LakeI18n?.t?.(key, window.LakeI18n.current);
+          label.textContent = translated || textNode.textContent.trim();
           textNode.replaceWith(label);
         }
         const icon = document.createElement('lord-icon');
@@ -108,7 +119,10 @@
         if (textNode) {
           const label = document.createElement('span');
           label.className = 'mob-sector-label';
-          label.textContent = textNode.textContent.trim();
+          const key = sectorTranslationKeys[id];
+          label.dataset.i18n = key || '';
+          const translated = key && window.LakeI18n?.t?.(key, window.LakeI18n.current);
+          label.textContent = translated || textNode.textContent.trim();
           textNode.replaceWith(label);
         }
         const icon = document.createElement('lord-icon');
