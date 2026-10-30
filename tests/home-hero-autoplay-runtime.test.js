@@ -48,7 +48,7 @@ test('homepage hero autoplay keeps its controller alive across hidden-state tick
       Object.defineProperty(document, 'hidden', { configurable: true, value: false });
       document.dispatchEvent(new Event('visibilitychange'));
     });
-    await page.waitForTimeout(100);
+    await page.waitForFunction(() => document.querySelector('.hero-slide.is-active') !== document.querySelectorAll('.hero-slide')[0], null, { timeout: 1500 });
     const seen = await page.locator('.hero-slide').evaluateAll((slides) => slides.map((slide, i) => slide.classList.contains('is-active') ? i : -1).find((i) => i >= 0));
     assert.equal(errors.length, 0, errors.join('\n'));
     assert.notEqual(seen, 0, 'autoplay must schedule a future tick after a hidden-state callback');

@@ -440,6 +440,13 @@ test('homepage gallery defers at boot, warms its seven-card window, and remains 
     assert.equal(boot.withSource, 0, 'gallery images have no requests assigned at page boot');
     assert.equal(boot.eager, 0, 'no gallery image competes eagerly with homepage hero resources at boot');
 
+    /* Regression: crossing the globe section before the gallery must not leave
+       its IntersectionObserver state stale and autoplay permanently stopped. */
+    await page.evaluate(() => {
+      const globe = document.querySelector('#fuel-experience');
+      window.scrollTo(0, globe.getBoundingClientRect().top + window.scrollY - 50);
+    });
+    await page.waitForTimeout(500);
     await page.evaluate(() => {
       const section = document.querySelector('#in-action');
       window.scrollTo(0, section.getBoundingClientRect().top + scrollY - innerHeight + 80);

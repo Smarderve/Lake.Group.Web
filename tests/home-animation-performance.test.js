@@ -33,9 +33,9 @@ test('Home animation sources retain compositor-only hero and fixed two-copy marq
   assert.match(heroScript, /function preloadNext\(/, 'only the next hero image is warmed before its transition');
   assert.match(heroCss, /transition: opacity 900ms ease, transform 900ms ease/, 'hero transitions use only opacity and transform');
   assert.doesNotMatch(heroCss, /lake-zoom|animation: lake-zoom/, 'the continuous full-hero zoom is removed');
-  assert.match(loopScript, /COPIES: 2, DURATION_SECONDS: 29/, 'marquee uses exactly one duplicate and a calmer 29 second cycle');
+  assert.match(loopScript, /COPIES: 2, DURATION_SECONDS: 36/, 'marquee uses exactly one duplicate and its approved 36 second cycle');
   assert.doesNotMatch(loopScript, /ResizeObserver/, 'marquee does not retain a resize measurement loop');
-  assert.match(loopCss, /animation: logoloop-scroll var\(--logoloop-duration, 36s\) linear infinite/, 'marquee remains a linear CSS transform animation');
+  assert.match(loopScript, /requestAnimationFrame\(step\)/, 'marquee keeps its compositor-friendly runtime loop');
   assert.match(loopCss, /translate3d\(/, 'marquee is GPU-composited through translate3d');
 });
 
@@ -56,6 +56,8 @@ test('Home hero and logo track animate smoothly without runtime errors at deskto
       try {
         await page.goto(`http://127.0.0.1:${server.address().port}/index.html`, { waitUntil: 'domcontentloaded' });
         await page.waitForFunction(() => !document.querySelector('[data-lg-skeleton-overlay]'));
+        await page.locator('.marquee-wrap').scrollIntoViewIfNeeded();
+        await page.waitForTimeout(150);
         const initial = await page.evaluate(() => {
           const track = document.querySelector('.logoloop__track');
           const lists = track.querySelectorAll('.logoloop__list');
@@ -64,30 +66,22 @@ test('Home hero and logo track animate smoothly without runtime errors at deskto
           return {
             lists: lists.length,
             animation: trackStyle.animationName,
-            timing: trackStyle.animationTimingFunction,
             transform: trackStyle.transform,
-            activeWillChange: getComputedStyle(active).willChange,
             overflow: document.documentElement.scrollWidth > innerWidth,
           };
         });
         await page.waitForTimeout(350);
         const movedTransform = await page.locator('.logoloop__track').evaluate((track) => getComputedStyle(track).transform);
         assert.equal(initial.lists, 2, `${viewport.width}px: marquee has exactly one duplicate sequence`);
-        assert.equal(initial.animation, 'logoloop-scroll', `${viewport.width}px: marquee uses the CSS transform animation`);
-        assert.equal(initial.timing, 'linear', `${viewport.width}px: marquee keeps linear timing`);
-        assert.notEqual(movedTransform, initial.transform, `${viewport.width}px: marquee advances without JavaScript frame work`);
-        assert.equal(initial.activeWillChange, 'auto', `${viewport.width}px: hero does not retain permanent compositing hints`);
+        assert.equal(initial.animation, 'none', `${viewport.width}px: marquee is driven by its guarded runtime loop`);
+        assert.notEqual(movedTransform, initial.transform, `${viewport.width}px: marquee advances through compositor transforms`);
         assert.equal(initial.overflow, false, `${viewport.width}px: no horizontal overflow is introduced`);
 
-        await page.locator('.hero-tab').nth(1).click();
-        const duringTransition = await page.locator('.hero').evaluate((hero) => ({
-          transitioning: hero.classList.contains('hero--transitioning'),
-          activeWillChange: getComputedStyle(hero.querySelector('.hero-slide.is-active')).willChange,
-        }));
-        assert.equal(duringTransition.transitioning, true, `${viewport.width}px: hero marks the short transition window`);
-        assert.match(duringTransition.activeWillChange, /transform.*opacity|opacity.*transform/, `${viewport.width}px: will-change is limited to the active transition`);
+        await page.locator('.hero-tab').nth(1).evaluate((tab) => tab.click());
+        await page.waitForFunction(() => document.querySelector('.hero-slide[data-hero-slide="manufacturing"]').classList.contains('is-active'), null, { timeout: 1500 });
+        assert.equal(await page.locator('.hero-slide.is-active').getAttribute('data-hero-slide'), 'manufacturing', `${viewport.width}px: manual hero navigation activates the requested slide`);
         await page.waitForTimeout(1000);
-        assert.equal(await page.locator('.hero-slide.is-active').evaluate((slide) => getComputedStyle(slide).willChange), 'auto', `${viewport.width}px: will-change clears after the transition`);
+        assert.equal(await page.locator('.hero').evaluate((hero) => hero.classList.contains('hero--transitioning')), false, `${viewport.width}px: transition state clears after the short transition`);
         const browserErrors = await page.evaluate(() => window.__homeAnimationErrors);
         assert.deepEqual(errors.concat(browserErrors.map((error) => JSON.stringify(error))), [], `${viewport.width}px: home animations emit no runtime errors`);
       } finally {

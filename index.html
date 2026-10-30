@@ -3307,6 +3307,7 @@
       }
 
       var warmStarted = false;
+      var scrollViewFrame = null;
 
       /* @param {boolean} [autoAdvance] true while autoplaying. Autoplay skips
          tiles whose image never becomes ready so one broken asset cannot pin
@@ -3447,6 +3448,18 @@
           }, 120);
         });
       })();
+
+      /* A long programmatic or momentum scroll can move the stage across the
+       observer boundary before its next delivery. Re-prime the same guarded
+       visibility state from the scroll stream so autoplay cannot remain
+       stopped while the gallery is visibly on screen. */
+      window.addEventListener("scroll", function () {
+        if (scrollViewFrame !== null) return;
+        scrollViewFrame = requestAnimationFrame(function () {
+          scrollViewFrame = null;
+          setInView(isStageNearViewport());
+        });
+      }, { passive: true });
 
       if (reduceMq) {
         var onReduceChange = function () {

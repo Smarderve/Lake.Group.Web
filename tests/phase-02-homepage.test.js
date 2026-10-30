@@ -56,6 +56,8 @@ for (const viewport of [{ name: 'desktop', width: 1440, height: 900 }, { name: '
     await page.waitForTimeout(1200);
     const canvas = await page.locator('#experience-3d-panel canvas').boundingBox();
     assert.ok(canvas && canvas.width > 280 && canvas.height > 260, 'large globe canvas is rendered');
+    const globePhase = await page.locator('#experience-3d-panel').getAttribute('data-globe-phase');
+    assert.ok(['clean', 'rotate', 'africa-centered', 'reveal', 'hold', 'retract'].includes(globePhase), 'globe runtime is active while visible');
     await page.screenshot({ path: path.join(evidence, `${viewport.name}-globe.png`), fullPage: false });
     assert.deepEqual(errors, []);
     await context.close();
