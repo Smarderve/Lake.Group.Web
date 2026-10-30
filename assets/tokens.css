@@ -18,22 +18,6 @@
        (index.html) + prior 60px logo standard (~17% below former 72px).
    ========================================================================== */
 
-@font-face {
-  font-family: "Amiri";
-  src: url("fonts/files/amiri-arabic-400-normal.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Amiri";
-  src: url("fonts/files/amiri-arabic-700-normal.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-}
-
 :root {
   /* - Brand palette (docs) - */
   --lake-deep-blue:          #0181BB;
@@ -69,9 +53,9 @@
   --color-text-on-brand-muted: rgba(255, 255, 255, 0.85);
 
   /* - Type stacks (Jost = closest free Lacoste stand-in; not identical) - */
-  /* Jost first for all Latin (en/sw/fr/pt/es + accents via latin + latin-ext).
-     Arabic (ar) / Hindi (hi): Noto/system AFTER Jost so Latin letters still
-     prefer Jost; Arabic/Devanagari glyphs use the script fallbacks. */
+  /* Jost remains the default for English and every non-script locale (sw, fr,
+     es, pt, zh). Arabic and Hindi swap the font families below via
+     html[lang="ar"] / html[lang="hi"], which the i18n switcher sets live. */
   --font-heading: "Jost", "Noto Sans Arabic", "Noto Naskh Arabic",
                   "Noto Sans Devanagari", "Segoe UI", "Arial", sans-serif;
   --font-body:    "Jost", "Noto Sans Arabic", "Noto Naskh Arabic",
@@ -234,7 +218,7 @@
   }
 }
 
-/* Arabic / Hindi: Noto fallbacks + denser scripts — calm oversized display clamps */
+/* Arabic / Hindi: denser scripts — calm oversized display clamps */
 html[lang="ar"],
 html[lang="hi"] {
   --fs-hero:    clamp(1.85rem, 4.5vw, 3.5rem);
@@ -251,14 +235,20 @@ html[lang="hi"] {
   --body-line-height: 1.8;
 }
 
+/* Arabic → Almarai (SIL OFL). Jost stays second so Latin words, brands and
+   ASCII digits inside Arabic copy keep the brand geometric face. */
 html[lang="ar"] {
-  --font-heading: "Amiri", "Jost", sans-serif;
-  --font-body: "Amiri", "Jost", sans-serif;
+  --font-heading: "Almarai", "Jost", sans-serif;
+  --font-body: "Almarai", "Jost", sans-serif;
   --body-line-height: 1.85;
   --fs-body: 1.0625rem;
 }
 
+/* Hindi → Hind (SIL OFL). Devanagari only; Latin/digits fall through to Jost,
+   and the document keeps its normal LTR direction. */
 html[lang="hi"] {
+  --font-heading: "Hind", "Jost", sans-serif;
+  --font-body: "Hind", "Jost", sans-serif;
   --body-line-height: 1.75;
 }
 

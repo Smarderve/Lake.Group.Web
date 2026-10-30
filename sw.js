@@ -38,7 +38,7 @@
 
 'use strict';
 
-const VERSION = 'v130-20261029-01';
+const VERSION = 'v131-20261031-01';
 
 const PRECACHE = `lake-precache-${VERSION}`;
 const PAGES_CACHE = `lake-pages-${VERSION}`;
@@ -98,7 +98,7 @@ const PRECACHE_URLS = [
   './assets/images/lakegas/ops/cylinders-yard.webp?v=20260828-01',
   './assets/icons/pwa/icon-192.png',
   './assets/icons/pwa/icon-512.png',
-  './assets/fonts/fonts.css?v=20260828-01',
+  './assets/fonts/fonts.css?v=20261031-01',
   './assets/fonts/files/jost-latin-100-normal.woff2',
   './assets/fonts/files/jost-latin-300-normal.woff2',
   './assets/fonts/files/jost-latin-400-normal.woff2',

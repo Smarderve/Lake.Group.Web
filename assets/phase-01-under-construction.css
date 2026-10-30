@@ -1,5 +1,5 @@
 /* Shared Under Construction surface. Kept page-scoped so the global chrome is untouched. */
-.phase-01-under-construction { align-items:center; background:#f7f8f6; color:#0181bb; display:flex; font-family:"Jost","Segoe UI",Arial,sans-serif; min-height:calc(100svh - 92px); overflow:hidden; padding:clamp(42px,6vw,84px) clamp(24px,7vw,112px); position:relative; }
+.phase-01-under-construction { align-items:center; background:#f7f8f6; color:#0181bb; display:flex; font-family:var(--font-body),"Segoe UI",Arial,sans-serif; min-height:calc(100svh - 92px); overflow:hidden; padding:clamp(42px,6vw,84px) clamp(24px,7vw,112px); position:relative; }
 .phase-01-under-construction::before { background:linear-gradient(180deg,rgba(1,129,187,.84) 0,rgba(1,129,187,.62) 72px,rgba(1,129,187,.22) 174px,rgba(1,129,187,0) 334px),radial-gradient(circle at 84% 46%,rgba(1,129,187,.10),transparent 28%),linear-gradient(135deg,rgba(1,129,187,.045),transparent 48%); content:""; inset:0; pointer-events:none; position:absolute; }
 .phase-01-under-construction__inner { align-items:center; display:grid; gap:clamp(32px,7vw,112px); grid-template-columns:minmax(0,.88fr) minmax(360px,1.12fr); margin:0 auto; max-width:1320px; position:relative; width:100%; }
 .phase-01-under-construction__copy { max-width:540px; }

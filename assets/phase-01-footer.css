@@ -5,6 +5,18 @@ body[data-shared-footer="true"] footer.site-footer * {
   font-family: "Jost", "Segoe UI", Arial, sans-serif !important;
 }
 
+/* Script locales keep their own face here too. Stacks stay literal on purpose:
+   this sheet is theme-isolated and must not inherit page variables. */
+html[lang="ar"] body[data-shared-footer="true"] footer.site-footer,
+html[lang="ar"] body[data-shared-footer="true"] footer.site-footer * {
+  font-family: "Almarai", "Jost", "Segoe UI", Arial, sans-serif !important;
+}
+
+html[lang="hi"] body[data-shared-footer="true"] footer.site-footer,
+html[lang="hi"] body[data-shared-footer="true"] footer.site-footer * {
+  font-family: "Hind", "Jost", "Segoe UI", Arial, sans-serif !important;
+}
+
 body[data-shared-footer="true"] footer.site-footer {
   background: #0181bb !important;
   border: 0 !important;
