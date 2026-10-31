@@ -37,6 +37,22 @@
   var gsapReady = null;
   var instances = [];
 
+  /* Arabic (and any RTL document) must never be split per character: separate
+     inline-block glyphs cannot join, so words would render as disconnected
+     letterforms. RTL heroes keep their plain markup and CSS entrance instead. */
+  function isRtlDocument() {
+    var root = document.documentElement;
+    if (!root) return false;
+    if ((root.getAttribute('dir') || '').toLowerCase() === 'rtl') return true;
+    return /^(ar|fa|ur|he)\b/i.test(root.getAttribute('lang') || root.lang || '');
+  }
+
+  /* The enhancement writes an inline text-align; clear it whenever the split is
+     skipped or reverted so an LTR pass cannot leave Arabic left-aligned. */
+  function clearSplitAlignment(el) {
+    if (el && el.style && el.style.textAlign) el.style.removeProperty('text-align');
+  }
+
   function scriptBase() {
     var scripts = document.getElementsByTagName('script');
     for (var i = scripts.length - 1; i >= 0; i--) {
@@ -203,6 +219,7 @@
     }
     el.classList.remove('split-text', 'split-text--ready', 'split-text--done');
     el.removeAttribute('aria-label');
+    clearSplitAlignment(el);
     delete el.dataset.splitEnhanced;
   }
 
@@ -237,6 +254,13 @@
     if (el && el.hasAttribute('data-split-skip')) return null;
     if (!el || el.dataset.splitEnhanced === '1') return null;
     if (!el.textContent || !el.textContent.trim()) return null;
+
+    // Right-to-left scripts: keep the heading unsplit so Arabic joins and
+    // inherits its start (right) alignment from the document direction.
+    if (isRtlDocument()) {
+      clearSplitAlignment(el);
+      return null;
+    }
 
     // Phones / reduced-motion: leave plain markup . faster paint, no GSAP wraps.
     if (reducedMotion) {
@@ -341,6 +365,7 @@
     killTween(el);
     el.classList.remove('split-text', 'split-text--ready', 'split-text--done');
     el.removeAttribute('aria-label');
+    clearSplitAlignment(el);
     el._splitTextPlayed = false;
     delete el.dataset.splitEnhanced;
     delete el.dataset.splitMode;
@@ -368,6 +393,7 @@
       el.innerHTML = el._splitSourceHTML;
       el.classList.remove('split-text', 'split-text--ready', 'split-text--done');
       el.removeAttribute('aria-label');
+      clearSplitAlignment(el);
       delete el.dataset.splitOriginal;
       delete el.dataset.splitEnhanced;
       delete el.dataset.splitMode;
@@ -377,6 +403,13 @@
   }
 
   function enhanceAll(options) {
+    if (isRtlDocument()) {
+      document.querySelectorAll(SELECTOR).forEach(function (el) {
+        clearSplitAlignment(el);
+      });
+      instances.length = 0;
+      return Promise.resolve(instances);
+    }
     if (reducedMotion) {
       document.querySelectorAll(SELECTOR).forEach(function (el) {
         if (el && !el.hasAttribute('data-split-skip') && el.textContent && el.textContent.trim()) {

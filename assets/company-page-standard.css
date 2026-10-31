@@ -34,7 +34,7 @@ body.company-standard .fs-section p:not(.footer-motto) {
    widths, spacing and their child layout primitives remain untouched. */
 body[data-company-logo] .fs-section.company-section--editorial
   :is(.fs-display, .fs-marker, .fs-eyebrow, .fs-lede, h2, h3, h4, p, li, .section-subtitle) {
-  text-align: left;
+  text-align: start;
 }
 
 body[data-company-logo] .fs-section.company-section--editorial
@@ -116,7 +116,7 @@ body[data-company-logo] .fs-section.company-section--presentation .stat-panel2,
 body[data-company-logo] .fs-section.company-section--presentation .stat-panel2 :is(h2, h3, h4, p, li),
 body[data-company-logo] .fs-section.company-section--presentation .stat-tile2,
 body[data-company-logo] .fs-section.company-section--presentation .stat-tile2 :is(h2, h3, h4, p, li) {
-  text-align: left;
+  text-align: start;
   margin-left: initial;
   margin-right: initial;
 }
@@ -125,7 +125,7 @@ body[data-company-logo] .fs-section.company-section--presentation .stat-tile2 :i
    editorial/presentation semantics without changing its component geometry. */
 body[data-company-logo] .ag-section.ag-section--editorial
   :is(h2, h3, h4, p, li) {
-  text-align: left;
+  text-align: start;
   margin-left: 0;
   margin-right: auto;
 }
@@ -184,7 +184,7 @@ body[data-company-logo] .fs-section.company-section--aviation-services-centered 
 .lg-company-faq__inner { width: min(900px, calc(100% - 40px)); margin: auto; text-align: center; }
 .lg-company-faq__title { margin: 0 auto 12px; font-family: var(--font-display); font-size: var(--company-heading-size, clamp(2rem, 3vw, 2.625rem)); line-height: 1.08; }
 .lg-company-faq__lead { max-width: 62ch; margin: 0 auto 28px; }
-.lg-company-faq__list { border-top: 1px solid var(--line-2, rgba(1,63,92,.2)); text-align: left; }
+.lg-company-faq__list { border-top: 1px solid var(--line-2, rgba(1,63,92,.2)); text-align: start; }
 .lg-company-faq details { border-bottom: 1px solid var(--line-2, rgba(1,63,92,.2)); padding: 18px 0; }
 .lg-company-faq summary { cursor: pointer; font-weight: 700; color: var(--text, #013f5c); }
 .lg-company-faq details p { max-width: 74ch; margin: 12px 0 0; line-height: 1.65; }

@@ -616,7 +616,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   font-weight: 600;
   letter-spacing: 0.01em;
   line-height: 1.25;
-  text-align: left;
+  text-align: start;
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
@@ -885,7 +885,7 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   background: none; border: none; border-left: 2px solid transparent;
   color: rgba(233,237,248,0.85);
   font-family: inherit; font-size: 0.85rem; font-weight: 600;
-  text-align: left; cursor: pointer;
+  text-align: start; cursor: pointer;
 }
 .mob-acc-btn::after {
   content: '';
@@ -1468,7 +1468,7 @@ body[data-company-logo] .page-hero h1 {
    -------------------------------------------------------------------------- */
 .fs-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
 .fs-table th {
-  text-align: left; padding: var(--sp-3) var(--sp-4);
+  text-align: start; padding: var(--sp-3) var(--sp-4);
   font-size: var(--fs-micro); font-weight: 700;
   letter-spacing: 0.2em; text-transform: uppercase; color: var(--mute);
   border-bottom: 2px solid var(--text);

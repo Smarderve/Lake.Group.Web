@@ -6,7 +6,8 @@
 
 .hero h1.split-text,
 .page-hero h1.split-text {
-  text-align: left;
+  /* Logical start keeps LTR left and gives RTL its right edge. */
+  text-align: start;
 }
 
 .split-text .split-char,

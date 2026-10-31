@@ -545,7 +545,7 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
   font-weight: 600;
   letter-spacing: 0.01em;
   line-height: 1.25;
-  text-align: left;
+  text-align: start;
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
@@ -775,7 +775,7 @@ html[dir="rtl"] .mob-ext-icon { margin-left: 0; margin-right: 6px; }
   background: none; border: none; border-left: 2px solid transparent;
   color: rgba(255,255,255,0.85);
   font-family: inherit; font-size: 0.85rem; font-weight: 600;
-  text-align: left; cursor: pointer;
+  text-align: start; cursor: pointer;
 }
 .mob-acc-btn::after {
   content: '';

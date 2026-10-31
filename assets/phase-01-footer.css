@@ -33,7 +33,7 @@ body[data-shared-footer="true"] footer.site-footer {
   margin: 0 !important;
   padding: 72px 0 0 !important;
   position: relative !important;
-  text-align: left !important;
+  text-align: start !important;
   text-transform: none !important;
   width: 100% !important;
 }

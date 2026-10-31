@@ -41,6 +41,7 @@
     "cms-v2:config": "node scripts/check-cms-v2-launch-config.mjs",
     "secret:scan": "node scripts/check-secrets.mjs",
     "test:cache-consistency": "node scripts/check-cache-consistency.mjs",
+    "test:arabic-rtl": "node scripts/verify-arabic-rtl.mjs",
     "test:footer-consistency": "node --test tests/footer-consistency.test.js",
     "test:performance-sanity": "node tests/performance-sanity.test.js",
     "test:performance-guardrails": "node scripts/check-performance-guardrails.mjs",

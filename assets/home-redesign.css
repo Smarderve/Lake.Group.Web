@@ -504,7 +504,7 @@ body.home .hero-tab:hover {
     border: 0;
     font: 700 .78rem/1.2 var(--font-body);
     letter-spacing: .1em;
-    text-align: left;
+    text-align: start;
     text-transform: uppercase;
   }
   body.home .hero-mobile-sector-chevron {
@@ -535,7 +535,7 @@ body.home .hero-tab:hover {
     border: 0;
     font: 600 .74rem/1.2 var(--font-body);
     letter-spacing: .08em;
-    text-align: left;
+    text-align: start;
     text-transform: uppercase;
   }
   body.home .hero-mobile-sector-options button[aria-selected="true"] {

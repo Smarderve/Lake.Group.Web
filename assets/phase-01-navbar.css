@@ -357,7 +357,7 @@ body.co-theme-agro .site-nav[data-phase01-navbar] .nav-dropdown {
   background: transparent !important;
   color: #fff !important;
   font: 600 .8rem var(--font-body), Arial, sans-serif !important;
-  text-align: left !important;
+  text-align: start !important;
   white-space: nowrap !important;
   cursor: pointer !important;
 }
@@ -451,7 +451,7 @@ body.co-theme-agro .nav-mobile[data-phase01-navbar-mobile] {
   border: 0 !important;
   color: #fff !important;
   font: 500 .9rem var(--font-body), Arial, sans-serif !important;
-  text-align: left !important;
+  text-align: start !important;
   text-decoration: none !important;
 }
 
@@ -1666,7 +1666,7 @@ body.lg-nav-open {
     background: transparent !important;
     color: rgba(255, 255, 255, .74) !important;
     font: 500 .83rem/1.25 var(--font-body), Arial, sans-serif !important;
-    text-align: left !important;
+    text-align: start !important;
   }
   html[dir="rtl"] .nav-mobile[data-phase01-navbar-mobile] .mob-language-option {
     text-align: right !important;
