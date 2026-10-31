@@ -30,6 +30,10 @@
  */
 window.LakeI18n = (function () {
   const STORAGE_KEY = 'lake-lang';
+  // Class set by the inline <head> boot snippet in every translated page. It
+  // keeps the English source copy of the destination document off the first
+  // paint while this module resolves the stored locale.
+  const BOOT_GATE_CLASS = 'lake-i18n-booting';
   const SUPPORTED = ['en', 'sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt'];
   const AVAILABLE_TRANSLATIONS = ['en'];
   const availableLanguages = new Set(AVAILABLE_TRANSLATIONS);
@@ -646,7 +650,22 @@ window.LakeI18n = (function () {
     }
   }
 
+  function releaseBootGate() {
+    const root = document.documentElement;
+    if (root && root.classList.contains(BOOT_GATE_CLASS)) root.classList.remove(BOOT_GATE_CLASS);
+  }
+
   function applyAll(lang) {
+    try {
+      applyLanguage(lang);
+    } finally {
+      // Released only after the resolved locale is in the DOM (or after a
+      // failure fell back to English), so the gate can never strand a page.
+      releaseBootGate();
+    }
+  }
+
+  function applyLanguage(lang) {
     window.LakeSplitText?.prepareForLanguageChange?.();
     const numberSelector = '[data-i18n-number], .fs-marker-no, .fs-stat-no:not([data-count]), .aficd-growth-number, .atl-product-num, .step-num, .lp-mandate li > span:first-child, .lp-meta > div > strong, .stat-no2, .hero-kf-num, a[href^="tel:"] > span';
     const numberNodes = document.querySelectorAll(numberSelector);
@@ -904,7 +923,9 @@ window.LakeI18n = (function () {
       }
       bindSwitcher(root);
     });
-    Promise.all([loadDictionaries(), loadPublicationManifest()]).then(() => {
+    // A rejected dictionary/manifest read must still resolve the page instead of
+    // leaving the boot gate closed, so it degrades to English here.
+    Promise.all([loadDictionaries(), loadPublicationManifest()]).catch(() => null).then(() => {
       let preferred = 'en';
       try {
         const saved = localStorage.getItem(STORAGE_KEY);
@@ -912,7 +933,7 @@ window.LakeI18n = (function () {
       } catch (e) { /* unavailable */ }
       const revisionAtBootstrap = selectionRevision;
       (DRAFT_PREVIEW ? loadDraftLocale(preferred) : Promise.resolve(false)).then((draftReady) => draftReady ? null : loadPublishedLocale(preferred)).catch(() => { preferred = 'en'; }).then(() => {
-        if (selectionRevision !== revisionAtBootstrap) return;
+        if (selectionRevision !== revisionAtBootstrap) { releaseBootGate(); return; }
         current = preferred;
         applyAll(preferred);
         // Warm the existing draft assets after the first paint so a visitor's
@@ -935,6 +956,25 @@ window.LakeI18n = (function () {
 
     closeAllMenus();
   }
+
+  /* The stored locale's payload starts downloading as soon as this deferred
+     script runs rather than waiting for site.js' DOMContentLoaded init(), so
+     the boot gate opens on the network round trip alone. Nothing is applied
+     here: init() still owns the first applyAll() so every page script has
+     attached its listeners before translations land. */
+  function warmStoredLocale() {
+    let preferred = 'en';
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved && SUPPORTED.indexOf(saved) !== -1) preferred = saved;
+    } catch (e) { return; }
+    if (preferred === 'en') return;
+    Promise.all([loadDictionaries(), loadPublicationManifest()])
+      .then(() => (DRAFT_PREVIEW ? loadDraftLocale(preferred) : Promise.resolve(false)))
+      .catch(() => false);
+  }
+
+  try { warmStoredLocale(); } catch (e) { /* boot must never throw */ }
 
   return {
     init,

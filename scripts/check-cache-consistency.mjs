@@ -19,7 +19,7 @@ const critical = [
 ];
 const perAssetRelease = new Map([
   ['phase-01-navbar.css', '20261016-02'],
-  ['i18n.js', '20261019-03'],
+  ['i18n.js', '20261031-01'],
   ['home-redesign.css', '20261019-03'],
   ['i18n-content.js', '20261028-03'],
   ['flagship.css', '20261019-03'],
@@ -28,7 +28,7 @@ const perAssetRelease = new Map([
   ['site.js', '20261017-04'],
   ['tokens.css', '20261028-02'],
 ]);
-const serviceWorkerRelease = '20261019-11';
+const serviceWorkerRelease = '20261031-02';
 const assistantJsRelease = '20261019-03';
 const assistantCssRelease = '20261028-01';
 const globeBundleRelease = '20261019-loop-l10n-01';

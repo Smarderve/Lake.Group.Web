@@ -3,7 +3,32 @@
 <head>
   <script src="assets/build-version.js?v=20260828-01" defer></script>
   <style id="lg-skel-critical">.nav-logo img,.site-nav .nav-logo img{height:var(--nav-logo-height,48px)!important;width:auto!important;max-width:min(220px,55vw)!important;max-height:var(--nav-logo-height,48px)!important;object-fit:contain}</style>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <!-- Locale boot gate: the stored locale decides language/direction before the
+       first paint and keeps English source copy hidden until assets/i18n.js has
+       applied the translations. See releaseBootGate() in that module. -->
+  <script>
+    (function () {
+      var locales = ['sw', 'hi', 'ar', 'zh', 'fr', 'es', 'pt'];
+      var lang = 'en';
+      try { lang = (localStorage.getItem('lake-lang') || 'en').toLowerCase().split('-')[0]; } catch (e) { /* storage blocked */ }
+      if (locales.indexOf(lang) === -1) return;
+      var root = document.documentElement;
+      root.lang = lang;
+      if (lang === 'ar') root.dir = 'rtl';
+      root.classList.add('lake-i18n-booting');
+      var style = document.createElement('style');
+      style.textContent = 'html.lake-i18n-booting{background:#012f49}html.lake-i18n-booting body>*{visibility:hidden!important}html.lake-i18n-booting body::after{content:"";position:fixed;inset:0;z-index:2147483000;background:#012f49}html.lake-i18n-booting body::before{content:"";position:fixed;top:0;left:0;width:38%;height:3px;background:#fff200;z-index:2147483001;animation:lake-i18n-boot 1100ms ease-in-out infinite}@keyframes lake-i18n-boot{from{transform:translateX(-100%)}to{transform:translateX(300%)}}@media (prefers-reduced-motion:reduce){html.lake-i18n-booting body::before{animation:none;width:100%}}';
+      document.head.appendChild(style);
+      document.addEventListener('error', function (event) {
+        var target = event.target;
+        if (target && target.tagName === 'SCRIPT' && /\/i18n\.js(\?|$)/.test(target.src || '')) root.classList.remove('lake-i18n-booting');
+      }, true);
+      document.addEventListener('DOMContentLoaded', function () {
+        if (!window.LakeI18n) root.classList.remove('lake-i18n-booting');
+      }, { once: true });
+    })();
+  </script><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="favicon.ico?v=20260828-01" sizes="32x32">
   <link rel="icon" href="assets/icons/pwa/icon-192.png?v=20260828-01" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="assets/icons/pwa/apple-touch-icon.png?v=20260828-01">
@@ -359,7 +384,7 @@ body[data-company-logo] .lake-intro .fs-lede{text-align:left}
 
 
 <script src="assets/i18n-content.js?v=20261028-03" defer></script>
-<script src="assets/i18n.js?v=20261029-01" defer></script>
+<script src="assets/i18n.js?v=20261031-01" defer></script>
 <script src="assets/site.js?v=20261017-04" defer></script>
 <script src="assets/assistant.js?v=20261019-03" defer></script>
 <script src="assets/pwa.js?v=20260828-01" defer></script>
