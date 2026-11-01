@@ -1680,3 +1680,63 @@ body.lg-nav-open {
     font: 500 .72rem/1.4 var(--font-body), Arial, sans-serif !important;
   }
 }
+
+/* ============================================================================
+   TEMPORARY LANGUAGE-SWITCHER HIDE  —  single central switch
+   ----------------------------------------------------------------------------
+   Driven by LANGUAGE_SWITCHER_ENABLED in assets/site.js.
+
+   While that flag is `false` (the default), <html> never receives the
+   `lg-lang-switcher-enabled` class, so every rule below hides the full desktop
+   and mobile language selector from the very first paint. No JavaScript is
+   needed to hide it, so there is no flash of the globe or language label before
+   scripts run. `display: none` also means the hidden controls cannot take
+   keyboard focus, cannot be clicked open, and leave no empty navbar gap.
+
+   Flip the flag to `true` and site.js adds `lg-lang-switcher-enabled`; these
+   `html:not(...)` selectors stop matching and the original selector styles
+   apply unchanged — restoring the feature with no redesign.
+
+   UI-only hide: translations, i18n, locale routes, Arabic RTL and the
+   Almarai/Hind typography are all untouched.
+   ========================================================================== */
+
+/* Desktop — the dropdown (.lang-menu), its status/options, and the trigger
+   (globe + current-language label) all live inside .lang-switcher, so hiding
+   the wrapper removes the entire desktop selector. The trigger and menu are
+   also listed so the control can never open even if re-parented. */
+html:not(.lg-lang-switcher-enabled) .site-nav[data-phase01-navbar] .lang-switcher,
+html:not(.lg-lang-switcher-enabled) .site-nav[data-phase01-navbar] .lang-trigger,
+html:not(.lg-lang-switcher-enabled) .site-nav[data-phase01-navbar] .lang-menu {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Mobile drawer — the trigger (globe + label) and the panel (status +
+   options) are siblings, so each is hidden directly. `min-height: 0`
+   overrides the drawer's >=44px tap-target sizing so no row height remains. */
+html:not(.lg-lang-switcher-enabled) .nav-mobile[data-phase01-navbar-mobile] .mob-language-trigger,
+html:not(.lg-lang-switcher-enabled) .nav-mobile[data-phase01-navbar-mobile] .mob-language-panel,
+html:not(.lg-lang-switcher-enabled) .nav-mobile[data-phase01-navbar-mobile] .mob-language-status,
+html:not(.lg-lang-switcher-enabled) .nav-mobile[data-phase01-navbar-mobile] .mob-language-option,
+html:not(.lg-lang-switcher-enabled) .nav-mobile[data-phase01-navbar-mobile] .mob-language-globe {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}

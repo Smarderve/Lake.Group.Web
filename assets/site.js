@@ -2,6 +2,24 @@
 (function () {
   'use strict';
 
+  /**
+   * Central language-selector visibility switch (the single switch).
+   *
+   * `false` (default): assets/phase-01-navbar.css hides every desktop and
+   * mobile language surface under `html:not(.lg-lang-switcher-enabled)`, so
+   * the selector is hidden from the very first paint — no JS required, no
+   * flash of the globe/language label before scripts run.
+   *
+   * Set to `true` to restore the existing desktop + mobile language selector
+   * exactly as it was: site.js then adds `lg-lang-switcher-enabled` to <html>,
+   * the CSS hide rules stop matching, and the original styles apply — no
+   * redesign or reconstruction.
+   *
+   * The language feature itself remains fully wired: translations, i18n init,
+   * locale routes, Arabic RTL and the Almarai/Hind typography are untouched.
+   */
+  const LANGUAGE_SWITCHER_ENABLED = false;
+
   /* Public pages render from their local/static content sources during the
      current production phase. Do not hydrate or fetch snapshot/CMS content
      during the critical startup path. Snapshot-aware modules keep their
@@ -944,9 +962,19 @@
     initVideoFacades();
     initCompanyFaqs();
     initBackToTop();
+    applyLanguageSwitcherState();
     document.addEventListener('lake-i18n-applied', refreshCountersForLang);
     if (window.LakeI18n) window.LakeI18n.init();
     else refreshCountersForLang();
     window.LakeSite = { initReveal, initCounters, refreshCountersForLang, initSmartLazyImages, initBackToTop };
   });
+
+  function applyLanguageSwitcherState() {
+    if (typeof document === 'undefined' || !document.documentElement) return;
+    /* Only ever ADD the reveal class, never remove it: the CSS hides every
+       language surface under `html:not(.lg-lang-switcher-enabled)`, so with
+       the flag false the selector stays hidden from first paint, and any
+       runtime/test reveal (adding the class) is left applied. */
+    if (LANGUAGE_SWITCHER_ENABLED) document.documentElement.classList.add('lg-lang-switcher-enabled');
+  }
 })();

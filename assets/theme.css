@@ -378,9 +378,9 @@ body[data-company-logo] .site-nav.nav-scrolled .nav-logo img.nav-logo-img--lette
   font-weight: 650;
 }
 .lang-menu-item.active .lang-menu-check { opacity: 1; }
-/* Launch controls: language selection and the assistant remain implemented
-   but are intentionally unavailable until their content is approved. */
-.site-nav[data-phase01-navbar] .lang-switcher,
+/* The temporary language-selector visibility state is owned centrally by
+   LANGUAGE_SWITCHER_ENABLED in assets/site.js. The phase-01 navbar stylesheet
+   applies the first-paint hide rules while the reveal class is absent. */
 .mob-lang-static { display: none !important; }
 
 /* Home also uses theme.css rather than flagship.css. */
