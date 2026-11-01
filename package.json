@@ -24,6 +24,7 @@
     "test:i18n-language-selector": "node --test tests/i18n-language-selector.test.js",
     "test:i18n-language-selector-browser": "node --test tests/i18n-language-selector.browser.test.js",
     "test:language-switcher-visibility": "node --test --test-concurrency=1 tests/language-switcher-visibility.browser.test.js",
+    "test:language-english-lock": "node --test --test-concurrency=1 tests/language-english-lock.browser.test.js",
     "test:i18n-quality": "node --test tests/i18n-quality.test.js tests/i18n-extract.test.js",
     "test:skeleton": "node tests/skeleton-loader.test.js",
     "test:faq-runtime": "node tests/company-faq-runtime.test.js",

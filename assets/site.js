@@ -5,12 +5,13 @@
   /**
    * Central language-selector visibility switch (the single switch).
    *
-   * `false` (default): assets/phase-01-navbar.css hides every desktop and
+   * `false` (default, set by the synchronous build-version boot script): assets/phase-01-navbar.css hides every desktop and
    * mobile language surface under `html:not(.lg-lang-switcher-enabled)`, so
    * the selector is hidden from the very first paint — no JS required, no
    * flash of the globe/language label before scripts run.
    *
-   * Set to `true` to restore the existing desktop + mobile language selector
+   * Set `window.LANGUAGE_SWITCHER_ENABLED` to `true` in the synchronous boot
+   * configuration to restore the existing desktop + mobile language selector
    * exactly as it was: site.js then adds `lg-lang-switcher-enabled` to <html>,
    * the CSS hide rules stop matching, and the original styles apply — no
    * redesign or reconstruction.
@@ -18,7 +19,7 @@
    * The language feature itself remains fully wired: translations, i18n init,
    * locale routes, Arabic RTL and the Almarai/Hind typography are untouched.
    */
-  const LANGUAGE_SWITCHER_ENABLED = false;
+  const LANGUAGE_SWITCHER_ENABLED = window.LANGUAGE_SWITCHER_ENABLED === true;
 
   /* Public pages render from their local/static content sources during the
      current production phase. Do not hydrate or fetch snapshot/CMS content

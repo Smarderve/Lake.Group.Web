@@ -30,6 +30,7 @@
  */
 window.LakeI18n = (function () {
   const STORAGE_KEY = 'lake-lang';
+  const LANGUAGE_SWITCHER_ENABLED = window.LANGUAGE_SWITCHER_ENABLED === true;
   // Class set by the inline <head> boot snippet in every translated page. It
   // keeps the English source copy of the destination document off the first
   // paint while this module resolves the stored locale.
@@ -537,6 +538,15 @@ window.LakeI18n = (function () {
     if (document.body) document.body.setAttribute('dir', dir);
   }
 
+  function forceEnglishPresentation() {
+    current = 'en';
+    try {
+      localStorage.setItem(STORAGE_KEY, 'en');
+      sessionStorage.setItem(STORAGE_KEY, 'en');
+    } catch (e) { /* storage may be blocked */ }
+    setDocumentDirection('en');
+  }
+
   function suggestLangFor(lang) {
     // English ↔ Swahili pair; every other language pairs with English.
     return lang === 'en' ? 'sw' : 'en';
@@ -761,13 +771,18 @@ window.LakeI18n = (function () {
       let preferred = 'en';
       try {
         const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved && availableLanguages.has(saved)) preferred = saved;
+        if (LANGUAGE_SWITCHER_ENABLED && saved && availableLanguages.has(saved)) preferred = saved;
       } catch (e) { /* unavailable */ }
       return (DRAFT_PREVIEW ? loadDraftLocale(preferred) : Promise.resolve(false)).then((draftReady) => draftReady ? null : loadPublishedLocale(preferred)).then(() => { current = preferred; applyAll(preferred); return current; }).catch(() => { current = 'en'; applyAll('en'); return current; });
     });
   }
 
   function selectLanguage(lang) {
+    if (!LANGUAGE_SWITCHER_ENABLED) {
+      forceEnglishPresentation();
+      applyAll('en');
+      return Promise.resolve(current);
+    }
     if (!availableLanguages.has(lang)) {
       showUnavailableMessage(lang);
       return Promise.resolve(current);
@@ -913,6 +928,13 @@ window.LakeI18n = (function () {
   }
 
   function init() {
+    if (!LANGUAGE_SWITCHER_ENABLED) {
+      forceEnglishPresentation();
+      window.addEventListener('pageshow', () => {
+        forceEnglishPresentation();
+        applyAll('en');
+      });
+    }
     if (DRAFT_PREVIEW) SUPPORTED.filter((language) => language !== 'en').forEach((language) => availableLanguages.add(language));
     document.querySelectorAll('.lang-switcher').forEach((root) => {
       if (!root.querySelector('.lang-menu')) {
@@ -929,7 +951,7 @@ window.LakeI18n = (function () {
       let preferred = 'en';
       try {
         const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved && availableLanguages.has(saved)) preferred = saved;
+        if (LANGUAGE_SWITCHER_ENABLED && saved && availableLanguages.has(saved)) preferred = saved;
       } catch (e) { /* unavailable */ }
       const revisionAtBootstrap = selectionRevision;
       (DRAFT_PREVIEW ? loadDraftLocale(preferred) : Promise.resolve(false)).then((draftReady) => draftReady ? null : loadPublishedLocale(preferred)).catch(() => { preferred = 'en'; }).then(() => {
@@ -963,6 +985,7 @@ window.LakeI18n = (function () {
      here: init() still owns the first applyAll() so every page script has
      attached its listeners before translations land. */
   function warmStoredLocale() {
+    if (!LANGUAGE_SWITCHER_ENABLED) return;
     let preferred = 'en';
     try {
       const saved = localStorage.getItem(STORAGE_KEY);

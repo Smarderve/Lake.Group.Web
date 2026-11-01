@@ -1684,7 +1684,8 @@ body.lg-nav-open {
 /* ============================================================================
    TEMPORARY LANGUAGE-SWITCHER HIDE  —  single central switch
    ----------------------------------------------------------------------------
-   Driven by LANGUAGE_SWITCHER_ENABLED in assets/site.js.
+   Driven by window.LANGUAGE_SWITCHER_ENABLED in the synchronous
+   assets/build-version.js boot configuration.
 
    While that flag is `false` (the default), <html> never receives the
    `lg-lang-switcher-enabled` class, so every rule below hides the full desktop
